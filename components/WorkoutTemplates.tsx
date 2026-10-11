@@ -40,6 +40,8 @@ type WorkoutTemplatesProps = {
   onDuplicate?: (templateId: string) => Promise<TemplateMutationResult>;
   onHide?: (templateId: string) => Promise<boolean>;
   hasActiveWorkout?: boolean;
+  showHeading?: boolean;
+  onEditorChange?: (editing: boolean) => void;
 };
 
 export function WorkoutTemplates({
@@ -52,6 +54,8 @@ export function WorkoutTemplates({
   onDuplicate,
   onHide,
   hasActiveWorkout = false,
+  showHeading = true,
+  onEditorChange,
 }: WorkoutTemplatesProps) {
   const [editor, setEditor] = useState<EditorState>(null);
   const [menuTemplateId, setMenuTemplateId] = useState<string>();
@@ -73,6 +77,9 @@ export function WorkoutTemplates({
     (template) => template.id === menuTemplateId,
   );
   const listActionsDisabled = busy || Boolean(editor);
+  useEffect(() => {
+    onEditorChange?.(Boolean(editor));
+  }, [editor, onEditorChange]);
 
   useEffect(() => {
     const openId = openSwipeRef.current;
@@ -267,9 +274,11 @@ export function WorkoutTemplates({
       ) : null}
 
       <GlassCard style={s.card}>
-        <Text style={s.title} accessibilityRole="header">
-          Your workouts
-        </Text>
+        {showHeading ? (
+          <Text style={s.title} accessibilityRole="header">
+            WORKOUTS
+          </Text>
+        ) : null}
         {templates.length ? (
           templates.map((template, index) => {
             const builtIn = isBuiltInTemplate(template.id);
@@ -472,7 +481,12 @@ function TemplateAction({
 
 const s = StyleSheet.create({
   card: { gap: spacing.sm, borderRadius: radius.xxl },
-  title: { ...typography.title3, fontWeight: '700', color: colors.textPrimary },
+  title: {
+    ...typography.caption,
+    fontWeight: '700',
+    letterSpacing: 4,
+    color: colors.textPrimary,
+  },
   swipeContainer: {
     overflow: 'hidden',
     backgroundColor: colors.surface,

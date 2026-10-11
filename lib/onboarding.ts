@@ -13,6 +13,8 @@ export type TrainingGoal = 'build_muscle' | 'get_stronger' | 'general_fitness';
 export type TrainingExperience = 'beginner' | 'some' | 'experienced';
 export type TrainingEnvironment = 'gym' | 'home' | 'both';
 export type OnboardingAnswers = {
+  displayName?: string;
+  dateOfBirth?: string;
   goal?: TrainingGoal;
   experience?: TrainingExperience;
   environment?: TrainingEnvironment;
@@ -77,12 +79,15 @@ export function parseOnboardingState(value: unknown): OnboardingState {
       !oneOf(answers.experience, ['beginner', 'some', 'experienced'])) ||
     (answers.environment !== undefined &&
       !oneOf(answers.environment, ['gym', 'home', 'both'])) ||
-    ['age', 'heightCm', 'bodyWeightKg'].some(
+    ['age', 'dateOfBirth', 'heightCm', 'bodyWeightKg'].some(
       (field) =>
         answers[field] !== undefined &&
         (typeof answers[field] !== 'string' ||
           (answers[field] as string).length > 32),
-    )
+    ) ||
+    (answers.displayName !== undefined &&
+      (typeof answers.displayName !== 'string' ||
+        answers.displayName.length > 80))
   )
     throw invalid();
   return {
@@ -90,6 +95,12 @@ export function parseOnboardingState(value: unknown): OnboardingState {
     status: value.status,
     step: value.step,
     answers: {
+      ...(answers.displayName === undefined
+        ? {}
+        : { displayName: (answers.displayName as string).trim() }),
+      ...(answers.dateOfBirth === undefined
+        ? {}
+        : { dateOfBirth: answers.dateOfBirth as string }),
       ...(answers.goal === undefined ? {} : { goal: answers.goal }),
       ...(answers.experience === undefined
         ? {}

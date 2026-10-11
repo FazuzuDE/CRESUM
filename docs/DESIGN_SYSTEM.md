@@ -132,7 +132,7 @@ Active tab uses `primary`, inactive tabs `textSecondary`. A translucent/floating
 
 ### Onboarding
 
-Welcome presents the two approved choices with equal clarity: a primary **Personalize my training** action and a secondary **Set up workouts myself** action with explanatory copy. The self-setup choice is valid, not an error or permanent opt-out. The approved next personalization flow uses one focused, scrollable step at a time: Goal → Experience → optional body details → completion. Gym is implicit; omit Training Environment. Back retains answers; controls have labels, selection state, and practical touch targets. The first-workout path uses the existing Guided Workout Builder. Profile keeps a later personalization entry. Use existing light theme tokens, safe-area layout, keyboard-aware scrolling, Dynamic Type-friendly text, and compact-screen spacing.
+Welcome uses a dark CRESUM wordmark, **Welcome to CRESUM**, a short greeting, **What should we call you?** and one labeled name input. Continue requires a nonempty trimmed name. Then show optional **Body details**: date of birth (DD.MM.YYYY entry, stored YYYY-MM-DD), height and initial body weight. Goal and Experience follow, with manual setup available from Goal. Use one focused keyboard-aware scrollable step at a time. Back retains answers; Gym is implicit and the obsolete Environment question is skipped compatibly. Profile personalization can edit the same fields without gating legacy users.
 
 Approved completion uses **You're ready to start** and a primary **START!**
 button in the existing PrimaryButton style, leading to Home after durable
@@ -443,7 +443,7 @@ gaps, 28 pt card radius and soft card shadow. Card headings use the existing
 20/25 title3 role with 700 weight; metadata uses the 13/18 footnote role and
 textSecondary. Adapt wrapping to compact screens and Dynamic Type.
 
-Keep Your workouts in one white card with compact named rows, factual planned
+Profile uses a compact white WORKOUTS entry, with the same dark, bold, spaced caption typography as the CRESUM wordmark. Its separate saved-routines page keeps compact named rows, factual planned
 metadata, neutral ellipsis controls, subtle dividers and a blue Create Workout
 action after the list. Preserve left swipe, long press and accessible menus;
 the editor and all existing actions stay available. Remove duplicated outside
@@ -568,3 +568,9 @@ Use a 48 pt circular surface up-arrow above the dock after scrolling. First tap 
 ### Shared return-to-top control — 2026-10-11
 
 Use the same 48 pt circular up-arrow on every vertical screen and detail sheet, above the page dock or sheet bottom inset, with extra content padding to keep the last action reachable. It uses shared AppScrollView/AppFlatList components and the existing color/radius/shadow tokens. The first tap returns to a measured section start, the second to the page top; single-section lists return to their start immediately. Motion uses the platform native animated scroll with its easing, rather than instantaneous jumps. Respect system Reduce Motion, retaining fast non-animated return when enabled. Exact ChatGPT timing is not a specified/measured constant; tune perceived pace through physical-device review. Hide the control during active program dragging. Do not change wheel-picker or horizontal-filter behavior.
+
+### Identity and body-weight presentation — 2026-10-11
+
+Use explicit `textPrimary` for headings, exercise/routine names and form labels throughout pages and sheets. `textSecondary` is for subtitles, dates and explanatory context; pale tertiary text never substitutes for a primary heading. Browser previews must scope product classes and explicitly set product text colors so host dark-mode rules cannot overwrite the app's light theme.
+
+Home displays the stored name in **Welcome back, {name}!**. The body-weight card uses existing Progress title, statistic, unit and chart roles. Show initial/current kg and neutral signed change; no green/red value judgement for body mass. Reuse the native curve with a padded measurement-specific vertical range; never invent zero readings between measurements. Add measurement opens the existing page-sheet style with one labeled decimal kg input and Save/Cancel. Shared smooth upward navigation remains on the new routine page and measurement sheet. Physical-phone keyboard, safe-area, Dynamic Type and gesture review remains outstanding.

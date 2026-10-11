@@ -59,3 +59,17 @@ it('preserves coincident workouts and sparse zero/tiny/huge data without fictiti
   }
   expect(volumeTrendModel([], 0, 200, 300, 96).line).toEqual([]);
 });
+it('uses a padded body-weight range without creating zero-weight observations', () => {
+  const model = volumeTrendModel(
+    [point('first', 100, 85.5), point('current', 200, 84.5)],
+    0,
+    300,
+    300,
+    96,
+    { lower: 83, upper: 87 },
+  );
+  expect(model.scale.ticks).toEqual([87, 86, 85, 84, 83]);
+  expect(model.points.map((p) => p.data.volume)).toEqual([85.5, 84.5]);
+  expect(model.points[0].y).toBe(36);
+  expect(model.points[1].y).toBe(60);
+});

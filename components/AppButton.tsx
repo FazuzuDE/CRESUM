@@ -11,6 +11,7 @@ export function AppButton({
   selected,
   destructive = false,
   presentation = 'button',
+  wordmark = false,
 }: {
   title: string;
   accessibilityLabel?: string;
@@ -20,6 +21,7 @@ export function AppButton({
   selected?: boolean;
   destructive?: boolean;
   presentation?: 'button' | 'row' | 'text';
+  wordmark?: boolean;
 }) {
   return (
     <Pressable
@@ -48,6 +50,7 @@ export function AppButton({
           presentation === 'row' && s.rowText,
           presentation === 'text' && s.actionText,
           presentation === 'text' && !destructive && s.linkText,
+          wordmark && s.wordmark,
         ]}
       >
         {title}
@@ -94,4 +97,10 @@ const s = StyleSheet.create({
   actionText: { ...typography.body, textAlign: 'left' },
   linkText: { color: colors.primary },
   dim: { opacity: 0.6 },
+  wordmark: {
+    ...typography.caption,
+    fontWeight: '700',
+    letterSpacing: 4,
+    color: colors.textPrimary,
+  },
 });

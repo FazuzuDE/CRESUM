@@ -8,17 +8,27 @@ export const volumeTrendModel = (
   end: number,
   width: number,
   height: number,
+  range?: { lower: number; upper: number },
 ) => {
   const ordered = [...data].sort(
     (a, b) =>
       a.finishedAt - b.finishedAt || a.workoutId.localeCompare(b.workoutId),
   );
-  const scale = volumeChartScale(ordered.map((p) => p.volume));
+  const scale = range
+    ? {
+        lower: range.lower,
+        upper: range.upper,
+        ticks: Array.from(
+          { length: 5 },
+          (_, i) => range.upper - ((range.upper - range.lower) * i) / 4,
+        ),
+      }
+    : { ...volumeChartScale(ordered.map((p) => p.volume)), lower: 0 };
   const span = Math.max(1, end - start);
   const points = ordered.map((data) => ({
     data,
     x: Math.max(0, Math.min(1, (data.finishedAt - start) / span)) * width,
-    y: (1 - data.volume / scale.upper) * height,
+    y: (1 - (data.volume - scale.lower) / (scale.upper - scale.lower)) * height,
   }));
   const slopes = points
     .slice(1)

@@ -57,8 +57,10 @@ const button = (view: ReturnType<typeof create>, title: string) =>
       (item: { props: { title: string; accessibilityLabel?: string } }) =>
         (item.props.accessibilityLabel ?? item.props.title) === title,
     );
-const openProfile = (view: ReturnType<typeof create>) =>
+const openProfile = (view: ReturnType<typeof create>) => {
   act(() => view.root.findByType(Dock).props.onChange('profile'));
+  act(() => button(view, 'WORKOUTS')?.props.onPress());
+};
 const mount = async () => {
   let view!: ReturnType<typeof create>;
   await act(async () => {

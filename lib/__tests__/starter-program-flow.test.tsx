@@ -106,7 +106,7 @@ it('resumes legacy environment at Body details and preserves Home until explicit
     expect(button(view, 'Continue without body details')).toBeDefined();
     expect(button(view, 'Gym')).toBeUndefined();
     await act(async () => button(view, 'Back').props.onPress());
-    expect(button(view, 'Beginner')?.props.selected).toBe(true);
+    expect(button(view, 'Continue')).toBeDefined();
     expect(
       JSON.parse((await AsyncStorage.getItem(ONBOARDING_KEY))!).answers
         .environment,
@@ -174,9 +174,11 @@ it('retains manual setup and blocks an adult automatic proposal when the supplie
       .findAllByType(TextInput)
       .find(
         (input: { props: { accessibilityLabel: string } }) =>
-          input.props.accessibilityLabel === 'Age',
+          input.props.accessibilityLabel === 'Date of birth',
       );
-    await act(async () => age.props.onChangeText('15'));
+    await act(async () =>
+      age.props.onChangeText(`${new Date().getFullYear() - 15}-01-01`),
+    );
     await act(async () => button(view, 'Continue').props.onPress());
     expect(button(view, 'START!').props.disabled).toBe(true);
     expect(JSON.stringify(view.toJSON())).toContain('Adult starter programs');

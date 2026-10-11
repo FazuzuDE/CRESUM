@@ -1,4 +1,5 @@
 import { programEligibilityError } from '@/lib/training-programs/eligibility';
+import { normalizeBirthDate } from '@/lib/personal-profile';
 import { HistoryDatePicker } from './HistoryDatePicker';
 import { selectProgram } from '@/lib/training-programs/selectors';
 import { projectProgramReadiness } from '@/lib/training-programs/readiness';
@@ -158,7 +159,10 @@ export function Onboarding({
       }}
     />
   );
-  const field = (label: string, name: 'age' | 'heightCm' | 'bodyWeightKg') => (
+  const field = (
+    label: string,
+    name: 'dateOfBirth' | 'heightCm' | 'bodyWeightKg',
+  ) => (
     <View style={s.field} key={name}>
       <Text style={s.label}>{label} · optional</Text>
       <TextInput
@@ -171,8 +175,10 @@ export function Onboarding({
             answers: { ...state.answers, [name]: value },
           });
         }}
-        keyboardType="decimal-pad"
-        placeholder="Not provided"
+        keyboardType={
+          name === 'dateOfBirth' ? 'numbers-and-punctuation' : 'decimal-pad'
+        }
+        placeholder={name === 'dateOfBirth' ? 'DD.MM.YYYY' : 'Not provided'}
         placeholderTextColor={colors.textTertiary}
         style={s.input}
         maxLength={32}
@@ -180,20 +186,17 @@ export function Onboarding({
     </View>
   );
   const back: Partial<Record<OnboardingStep, OnboardingStep>> = {
-    goal: 'welcome',
+    goal: 'profile',
     experience: 'goal',
     environment: 'experience',
-    profile: 'experience',
-    complete: 'profile',
+    profile: 'welcome',
+    complete: 'experience',
     self_setup: 'welcome',
   };
   const continueFromProfile = () => {
-    const { age, heightCm, bodyWeightKg } = state.answers;
-    if (
-      age?.trim() &&
-      (!/^\d+$/.test(age.trim()) || Number(age) < 1 || Number(age) > 120)
-    ) {
-      setError('Enter a valid age, or leave it empty.');
+    const { dateOfBirth, heightCm, bodyWeightKg } = state.answers;
+    if (dateOfBirth?.trim() && !normalizeBirthDate(dateOfBirth)) {
+      setError('Enter a valid date of birth, or leave it empty.');
       return;
     }
     for (const [value, label, max] of [
@@ -214,7 +217,16 @@ export function Onboarding({
       }
     }
     setError('');
-    go('complete');
+    change({
+      ...state,
+      step:
+        state.answers.goal && state.answers.experience ? 'complete' : 'goal',
+      answers: {
+        ...state.answers,
+        dateOfBirth: dateOfBirth?.trim() ? normalizeBirthDate(dateOfBirth) : '',
+        ...(dateOfBirth?.trim() ? { age: undefined } : {}),
+      },
+    });
   };
   const step = state.step;
   return (
@@ -250,24 +262,45 @@ export function Onboarding({
                 <Text style={s.title} accessibilityRole="header">
                   Welcome to CRESUM
                 </Text>
-                <Text style={s.sub}>Choose how you want to begin.</Text>
-                <View style={s.choice}>
-                  <AppButton
-                    title="Personalize my training"
-                    accessibilityLabel="Personalize my training"
-                    onPress={() => go('goal')}
+                <Text style={s.sub}>
+                  Train. Track. Grow. Your progress starts here.
+                </Text>
+                <View style={s.field}>
+                  <Text style={s.label}>What should we call you?</Text>
+                  <TextInput
+                    accessibilityLabel="Your name"
+                    value={state.answers.displayName ?? ''}
+                    autoCapitalize="words"
+                    autoComplete="given-name"
+                    maxLength={80}
+                    placeholder="Your name"
+                    placeholderTextColor={colors.textTertiary}
+                    style={s.input}
+                    onChangeText={(displayName) => {
+                      setError('');
+                      change({
+                        ...state,
+                        answers: { ...state.answers, displayName },
+                      });
+                    }}
                   />
-                  <Text style={s.support}>CRESUM will help me get started</Text>
                 </View>
-                <View style={s.choice}>
-                  <AppButton
-                    title="Set up workouts myself"
-                    accessibilityLabel="Set up workouts myself"
-                    secondary
-                    onPress={() => go('self_setup')}
-                  />
-                  <Text style={s.support}>Skip personalization for now</Text>
-                </View>
+                <AppButton
+                  title="Continue"
+                  disabled={busy || !state.answers.displayName?.trim()}
+                  onPress={() => {
+                    const displayName = state.answers.displayName?.trim();
+                    if (!displayName) {
+                      setError('Enter your name to continue.');
+                      return;
+                    }
+                    change({
+                      ...state,
+                      step: 'profile',
+                      answers: { ...state.answers, displayName },
+                    });
+                  }}
+                />
               </>
             ) : null}
             {step === 'goal' ? (
@@ -287,6 +320,11 @@ export function Onboarding({
                 {state.answers.goal ? (
                   <AppButton title="Next" onPress={() => go('experience')} />
                 ) : null}
+                <AppButton
+                  title="Set up workouts myself"
+                  secondary
+                  onPress={() => go('self_setup')}
+                />
               </>
             ) : null}
             {step === 'experience' ? (
@@ -295,11 +333,11 @@ export function Onboarding({
                   Training experience
                 </Text>
                 <Text style={s.sub}>Choose the closest fit.</Text>
-                {option('Beginner', 'experience', 'beginner', 'profile')}
-                {option('Some experience', 'experience', 'some', 'profile')}
-                {option('Experienced', 'experience', 'experienced', 'profile')}
+                {option('Beginner', 'experience', 'beginner', 'complete')}
+                {option('Some experience', 'experience', 'some', 'complete')}
+                {option('Experienced', 'experience', 'experienced', 'complete')}
                 {state.answers.experience ? (
-                  <AppButton title="Next" onPress={() => go('profile')} />
+                  <AppButton title="Next" onPress={() => go('complete')} />
                 ) : null}
               </>
             ) : null}
@@ -312,12 +350,12 @@ export function Onboarding({
                   Optional details for your profile. They do not determine a
                   working weight.
                 </Text>
-                {field('Age', 'age')}
+                {field('Date of birth', 'dateOfBirth')}
                 {field('Height (cm)', 'heightCm')}
                 {field('Body weight (kg)', 'bodyWeightKg')}
                 <AppButton
                   title={
-                    state.answers.age ||
+                    state.answers.dateOfBirth ||
                     state.answers.heightCm ||
                     state.answers.bodyWeightKg
                       ? 'Continue'
@@ -551,7 +589,12 @@ const s = StyleSheet.create({
     paddingBottom: spacing.xxxl,
     gap: spacing.md,
   },
-  brand: { ...typography.caption, color: colors.primary },
+  brand: {
+    ...typography.caption,
+    fontWeight: '700',
+    letterSpacing: 4,
+    color: colors.textPrimary,
+  },
   card: { gap: spacing.md },
   title: { ...typography.title1, color: colors.textPrimary },
   sub: { ...typography.body, color: colors.textSecondary },

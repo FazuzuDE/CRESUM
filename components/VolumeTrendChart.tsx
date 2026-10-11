@@ -18,6 +18,8 @@ export function VolumeTrendChart({
   measureLabel = 'Workout volume',
   formatPoint,
   singlePointMessage = 'One saved workout; no curve yet.',
+  valueRange,
+  itemLabel = 'workout',
 }: {
   workouts: readonly WorkoutVolume[];
   start: number;
@@ -25,6 +27,8 @@ export function VolumeTrendChart({
   measureLabel?: string;
   formatPoint?: (point: WorkoutVolume) => string;
   singlePointMessage?: string;
+  valueRange?: { lower: number; upper: number };
+  itemLabel?: string;
 }) {
   const { width, fontScale } = useWindowDimensions();
   const [measured, setMeasured] = useState<number>();
@@ -32,7 +36,14 @@ export function VolumeTrendChart({
   const height = spacing.xxxl * 2 * Math.max(1, fontScale);
   const axisWidth = Math.max(
     spacing.xxl,
-    ...volumeChartScale(workouts.map((p) => p.volume)).ticks.map(
+    ...(valueRange
+      ? Array.from(
+          { length: 5 },
+          (_, i) =>
+            valueRange.upper - ((valueRange.upper - valueRange.lower) * i) / 4,
+        )
+      : volumeChartScale(workouts.map((p) => p.volume)).ticks
+    ).map(
       (tick) =>
         volumeChartTick(tick).length *
         progressTypography.chart.fontSize *
@@ -54,8 +65,9 @@ export function VolumeTrendChart({
         end,
         Math.max(1, chartWidth - spacing.sm),
         height,
+        valueRange,
       ),
-    [workouts, start, end, chartWidth, height],
+    [workouts, start, end, chartWidth, height, valueRange],
   );
   const selectedIndex = Math.max(
     0,
@@ -100,10 +112,10 @@ export function VolumeTrendChart({
             accessibilityRole="adjustable"
             accessible
             accessibilityLabel={`${measureLabel} curve${selected ? ': ' + label(selected.data) : ''}`}
-            accessibilityHint="Touch the curve to select a workout. Swipe up or down to change the selected workout."
+            accessibilityHint={`Touch the curve to select a ${itemLabel}. Swipe up or down to change the selected ${itemLabel}.`}
             accessibilityActions={[
-              { name: 'increment', label: 'Next workout' },
-              { name: 'decrement', label: 'Previous workout' },
+              { name: 'increment', label: `Next ${itemLabel}` },
+              { name: 'decrement', label: `Previous ${itemLabel}` },
             ]}
             onAccessibilityAction={(event) => {
               const current = selected

@@ -1,4 +1,5 @@
 import {
+  useCallback,
   useEffect,
   useMemo,
   useRef,
@@ -31,6 +32,8 @@ import { WorkoutHistory } from '@/components/WorkoutHistory';
 import { ExercisePerformance } from '@/components/ExercisePerformance';
 import { ProgressScrollView } from '@/components/ProgressScrollView';
 import { TrainingVolume } from '@/components/TrainingVolume';
+import { BodyWeight, type BodyWeightProps } from '@/components/BodyWeight';
+import { BodyWeightRepository, type BodyWeightEntry } from '@/lib/body-weight';
 import { volume } from '@/lib/workout-metrics';
 import {
   DEFAULT_PROGRESS_PERIOD,
@@ -68,7 +71,13 @@ import {
 } from '@/lib/theme';
 
 const blue = colors.primary;
-function Stats({ history }: { history: Session[] }) {
+function Stats({
+  history,
+  measurements,
+}: {
+  history: Session[];
+  measurements: BodyWeightProps & { updatedAt: number };
+}) {
   const { fontScale } = useWindowDimensions();
   const [period, setPeriod] = useState<ProgressPeriodId>(
     DEFAULT_PROGRESS_PERIOD,
@@ -224,6 +233,17 @@ function Stats({ history }: { history: Session[] }) {
           ),
         },
         {
+          id: 'body-weight',
+          label: 'Body weight',
+          content: (
+            <BodyWeight
+              {...measurements}
+              period={period}
+              now={Math.max(now, measurements.updatedAt)}
+            />
+          ),
+        },
+        {
           id: 'history',
           label: 'History',
           content: (
@@ -248,6 +268,19 @@ export default function App() {
   const [programError, setProgramError] = useState('');
   const programRecovered = useRef(false);
   const [tab, setTab] = useState('home');
+  const [bodyWeightRepository] = useState(
+    () => new BodyWeightRepository(AsyncStorage),
+  );
+  const [bodyWeightSnapshot, setBodyWeightSnapshot] = useState(() => ({
+    entries: [] as BodyWeightEntry[],
+    updatedAt: Date.now(),
+  }));
+  const bodyWeights = bodyWeightSnapshot.entries;
+  const setBodyWeights = useCallback((entries: BodyWeightEntry[]) => {
+    setBodyWeightSnapshot({ entries, updatedAt: Date.now() });
+  }, []);
+  const [bodyWeightBusy, setBodyWeightBusy] = useState(false);
+  const [bodyWeightError, setBodyWeightError] = useState('');
   const [onboardingRepository] = useState(
     () => new OnboardingRepository(AsyncStorage),
   );
@@ -283,6 +316,16 @@ export default function App() {
     let mounted = true;
     const epoch = onboardingEpoch.current;
     const visibilityEpoch = hiddenEpoch.current;
+    void bodyWeightRepository.load().then(
+      (entries) => {
+        if (mounted && onboardingEpoch.current === epoch)
+          setBodyWeights(entries);
+      },
+      (problem: Error) => {
+        if (mounted && onboardingEpoch.current === epoch)
+          setBodyWeightError(problem.message);
+      },
+    );
     void hiddenRepository
       .load()
       .then(
@@ -308,6 +351,24 @@ export default function App() {
           if (mounted && onboardingEpoch.current === epoch) {
             setOnboardingState(state);
             setOnboardingLoadFailed(false);
+            if (
+              state.status === 'completed' &&
+              state.step === 'complete' &&
+              state.answers.bodyWeightKg?.trim()
+            ) {
+              void bodyWeightRepository
+                .record(state.answers.bodyWeightKg, Date.now(), true)
+                .then(
+                  (entries) => {
+                    if (mounted && onboardingEpoch.current === epoch)
+                      setBodyWeights(entries);
+                  },
+                  (problem: Error) => {
+                    if (mounted && onboardingEpoch.current === epoch)
+                      setBodyWeightError(problem.message);
+                  },
+                );
+            }
           }
         },
         (problem: Error) => {
@@ -324,13 +385,33 @@ export default function App() {
     return () => {
       mounted = false;
     };
-  }, [store, onboardingRepository, hiddenRepository]);
+  }, [
+    store,
+    onboardingRepository,
+    hiddenRepository,
+    bodyWeightRepository,
+    setBodyWeights,
+  ]);
   const queueOnboardingSave = (next: OnboardingState): Promise<void> => {
     if (resetInProgress.current)
       return Promise.reject(new Error('Reset in progress.'));
     const write = onboardingWrites.current
       .catch(() => undefined)
-      .then(() => onboardingRepository.save(next));
+      .then(async () => {
+        if (
+          next.status === 'completed' &&
+          next.step === 'complete' &&
+          next.answers.bodyWeightKg?.trim()
+        ) {
+          const entries = await bodyWeightRepository.record(
+            next.answers.bodyWeightKg,
+            Date.now(),
+            true,
+          );
+          if (!resetInProgress.current) setBodyWeights(entries);
+        }
+        await onboardingRepository.save(next);
+      });
     onboardingWrites.current = write.catch(() => undefined);
     return write;
   };
@@ -503,9 +584,12 @@ export default function App() {
         await onboardingWrites.current;
         await store.waitForPendingWrites();
         await hiddenWrites.current;
+        await bodyWeightRepository.waitForPendingWrites();
       });
       store.resetAfterLocalDataRemoval();
       setOnboardingState(initialOnboardingState);
+      setBodyWeights([]);
+      setBodyWeightError('');
       setAcceptingProgram(false);
       setAssignment(null);
       setProgramError('');
@@ -521,6 +605,16 @@ export default function App() {
       setTab('home');
       setConfirmReset(false);
     } catch (problem) {
+      try {
+        setBodyWeights(await bodyWeightRepository.load());
+        setBodyWeightError('');
+      } catch (measurementError) {
+        setBodyWeightError(
+          measurementError instanceof Error
+            ? measurementError.message
+            : 'Saved body weight is unavailable.',
+        );
+      }
       setResetError(
         problem instanceof Error
           ? problem.message
@@ -537,7 +631,7 @@ export default function App() {
       <Confirmation
         visible={confirmReset}
         title="Reset CRESUM?"
-        message="All local CRESUM data on this device — workouts, history, templates, active workout, hidden-workout settings, personalization and onboarding data — will be permanently deleted. This cannot be undone."
+        message="All local CRESUM data on this device — workouts, history, templates, active workout, body-weight measurements, hidden-workout settings, personalization and onboarding data — will be permanently deleted. This cannot be undone."
         confirmLabel="Reset local data"
         cancelLabel="Keep data"
         destructive
@@ -651,7 +745,7 @@ export default function App() {
                   ...onboardingState,
                   step:
                     onboardingState.step === 'complete'
-                      ? 'goal'
+                      ? 'welcome'
                       : onboardingState.step,
                 }
               : onboardingState
@@ -676,6 +770,7 @@ export default function App() {
           ) : null}
           {tab === 'home' ? (
             <HomeDashboard
+              displayName={onboardingState.answers.displayName}
               assignment={assignment}
               startProgramSlot={startProgramSlot}
               history={data.history}
@@ -713,7 +808,58 @@ export default function App() {
                   />
                 </View>
               )}
-              <Stats history={data.history} />
+              <Stats
+                history={data.history}
+                measurements={{
+                  entries: bodyWeights,
+                  updatedAt: bodyWeightSnapshot.updatedAt,
+                  busy: bodyWeightBusy || resetBusy,
+                  error: bodyWeightError,
+                  onRecord: async (value) => {
+                    if (resetInProgress.current)
+                      throw Error('Reset in progress.');
+                    const epoch = onboardingEpoch.current;
+                    setBodyWeightBusy(true);
+                    try {
+                      const entries = await bodyWeightRepository.record(value);
+                      if (onboardingEpoch.current === epoch) {
+                        setBodyWeights(entries);
+                        setBodyWeightError('');
+                      }
+                    } finally {
+                      setBodyWeightBusy(false);
+                    }
+                  },
+                  onRetry: () => {
+                    const epoch = onboardingEpoch.current;
+                    setBodyWeightBusy(true);
+                    void (
+                      onboardingState.status === 'completed' &&
+                      onboardingState.step === 'complete' &&
+                      onboardingState.answers.bodyWeightKg?.trim()
+                        ? bodyWeightRepository.record(
+                            onboardingState.answers.bodyWeightKg,
+                            Date.now(),
+                            true,
+                          )
+                        : bodyWeightRepository.load()
+                    )
+                      .then(
+                        (entries) => {
+                          if (onboardingEpoch.current === epoch) {
+                            setBodyWeights(entries);
+                            setBodyWeightError('');
+                          }
+                        },
+                        (problem: Error) => {
+                          if (onboardingEpoch.current === epoch)
+                            setBodyWeightError(problem.message);
+                        },
+                      )
+                      .finally(() => setBodyWeightBusy(false));
+                  },
+                }}
+              />
             </>
           ) : null}
           <View

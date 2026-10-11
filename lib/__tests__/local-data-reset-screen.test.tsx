@@ -145,14 +145,14 @@ it('removes all five keys and returns to Welcome, including after app restart', 
   for (const key of LOCAL_DATA_KEYS)
     expect(await AsyncStorage.getItem(key)).toBeNull();
   expect(view.root.findByType(Onboarding)).toBeDefined();
-  expect(button(view, 'Personalize my training')).toBeDefined();
+  expect(button(view, 'Continue')).toBeDefined();
   expect(view.root.findAllByType(Dock)).toHaveLength(0);
   await act(async () => view.unmount());
   await act(async () => {
     view = create(<App />);
   });
   expect(view.root.findByType(Onboarding)).toBeDefined();
-  expect(button(view, 'Set up workouts myself')).toBeDefined();
+  expect(button(view, 'Continue')).toBeDefined();
   await act(async () => view.unmount());
 });
 
@@ -210,9 +210,10 @@ it('waits for an in-flight onboarding retry before deleting its key', async () =
     },
   );
   try {
-    await act(async () =>
-      button(view, 'Personalize my training')?.props.onPress(),
-    );
+    const name = view.root.findAllByProps({
+      accessibilityLabel: 'Your name',
+    })[0];
+    await act(async () => name.props.onChangeText('Ihor'));
     expect(button(view, 'Retry onboarding')).toBeDefined();
     act(() => button(view, 'Retry onboarding')?.props.onPress());
     act(() => button(view, 'Continue to app')?.props.onPress());

@@ -224,6 +224,7 @@ it('selects canonical exercises for a template without rendering the full catalo
     view.root
       .findAllByType(AppButton)
       .find((node: { props: { title: string } }) => node.props.title === title);
+  act(() => button('WORKOUTS')?.props.onPress());
   act(() => button('Create Workout')?.props.onPress());
   act(() =>
     view.root

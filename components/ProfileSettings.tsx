@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { AppScrollView } from './AppScrollView';
 import { StyleSheet, Text, View } from 'react-native';
 import { GlassCard } from './GlassCard';
@@ -47,6 +48,74 @@ export function ProfileSettings({
   onPersonalize,
   onResetLocalData,
 }: ProfileSettingsProps) {
+  const [workoutsOpen, setWorkoutsOpen] = useState(false);
+  const [workoutEditing, setWorkoutEditing] = useState(false);
+  if (workoutsOpen)
+    return (
+      <AppScrollView contentContainerStyle={s.content}>
+        <View style={s.brandRow}>
+          <Text style={s.brand}>CRESUM</Text>
+          <Text style={s.tagline}>TRAIN. TRACK. GROW.</Text>
+        </View>
+        <AppButton
+          title="Back to Profile"
+          disabled={workoutEditing || busy}
+          secondary
+          presentation="text"
+          onPress={() => setWorkoutsOpen(false)}
+        />
+        <Text
+          style={[s.title, { letterSpacing: 4 }]}
+          accessibilityRole="header"
+        >
+          WORKOUTS
+        </Text>
+        <Text style={s.subtitle}>Your saved training routines</Text>
+        <View style={s.section}>
+          <WorkoutTemplates
+            showHeading={false}
+            templates={templates}
+            busy={busy}
+            onCreate={createTemplate}
+            onUpdate={updateTemplate}
+            onDelete={deleteTemplate}
+            onDuplicate={duplicateTemplate}
+            onStart={startTemplate}
+            onHide={hideBuiltIn}
+            hasActiveWorkout={hasActiveWorkout}
+            onEditorChange={setWorkoutEditing}
+          />
+        </View>
+
+        {hiddenBuiltInIds.length ? (
+          <GlassCard style={s.card}>
+            <Text style={s.sectionTitle} accessibilityRole="header">
+              Hidden workouts
+            </Text>
+            <Text style={s.sub}>Restore a workout to your list.</Text>
+            {defaultTemplates
+              .filter((template) => hiddenBuiltInIds.includes(template.id))
+              .map((template) => (
+                <View key={template.id} style={s.restoreRow}>
+                  <Text style={s.restoreName}>{template.name}</Text>
+                  <AppButton
+                    title="Restore"
+                    accessibilityLabel={`Restore ${template.name}`}
+                    presentation="text"
+                    disabled={busy || !restoreBuiltIn}
+                    onPress={() => void restoreBuiltIn?.(template.id)}
+                  />
+                </View>
+              ))}
+          </GlassCard>
+        ) : null}
+        {hiddenError ? (
+          <Text accessibilityRole="alert" style={s.error}>
+            {hiddenError}
+          </Text>
+        ) : null}
+      </AppScrollView>
+    );
   return (
     <AppScrollView contentContainerStyle={s.content}>
       <View style={s.header}>
@@ -62,47 +131,16 @@ export function ProfileSettings({
         </View>
       </View>
 
-      <View style={s.section}>
-        <WorkoutTemplates
-          templates={templates}
-          busy={busy}
-          onCreate={createTemplate}
-          onUpdate={updateTemplate}
-          onDelete={deleteTemplate}
-          onDuplicate={duplicateTemplate}
-          onStart={startTemplate}
-          onHide={hideBuiltIn}
-          hasActiveWorkout={hasActiveWorkout}
+      <GlassCard style={s.card}>
+        <AppButton
+          title="WORKOUTS"
+          wordmark
+          secondary
+          presentation="row"
+          onPress={() => setWorkoutsOpen(true)}
         />
-      </View>
-
-      {hiddenBuiltInIds.length ? (
-        <GlassCard style={s.card}>
-          <Text style={s.sectionTitle} accessibilityRole="header">
-            Hidden workouts
-          </Text>
-          <Text style={s.sub}>Restore a workout to your list.</Text>
-          {defaultTemplates
-            .filter((template) => hiddenBuiltInIds.includes(template.id))
-            .map((template) => (
-              <View key={template.id} style={s.restoreRow}>
-                <Text style={s.restoreName}>{template.name}</Text>
-                <AppButton
-                  title="Restore"
-                  accessibilityLabel={`Restore ${template.name}`}
-                  presentation="text"
-                  disabled={busy || !restoreBuiltIn}
-                  onPress={() => void restoreBuiltIn?.(template.id)}
-                />
-              </View>
-            ))}
-        </GlassCard>
-      ) : null}
-      {hiddenError ? (
-        <Text accessibilityRole="alert" style={s.error}>
-          {hiddenError}
-        </Text>
-      ) : null}
+        <Text style={s.sub}>{templates.length} saved workouts</Text>
+      </GlassCard>
 
       <GlassCard style={s.card}>
         <Text style={s.sectionTitle} accessibilityRole="header">
