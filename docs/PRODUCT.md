@@ -50,7 +50,7 @@ Approved next personalization flow: Goal (build muscle / get stronger / general 
 
 Onboarding has its own versioned local state. Corrupt onboarding data cannot corrupt or block access to saved workouts/history. Keep compatible reads of stored Home/Both answers and old environment-step progress; skip that obsolete step without losing other answers. Demographic/body data do not determine an exact working weight. Calibration and adaptive weight recommendations remain future work. The approved starter-program scope below supersedes the earlier deferral only for authored goal-based programs, not those adaptive features.
 
-### Goal-based starter programs — approved basis, not implemented
+### Goal-based starter programs — implementation prepared, pending Git integration
 
 The [approved program specification](superpowers/specs/2026-10-11-goal-training-programs-design.md)
 defines nine Gym variants: three goals × three experience levels. It retains
@@ -83,6 +83,25 @@ are distinct from Home's factual completion calendar; missed sessions do not
 double the next session's volume. The
 [implementation plan](superpowers/plans/2026-10-11-goal-training-programs.md)
 records the prerequisite and delivery sequence.
+
+The implementation includes four required movement variants, nine catalog
+revisions, target/actual separation, per-side logging, a recoverable acceptance
+journal and a planned-week module. Left and right repetitions are entered
+separately; paired-set volume sums the two actual counts and no combined Epley
+estimate is shown. The unloaded Step-up records zero external load. Existing
+legacy unilateral IDs keep their historical accounting.
+
+Program installation writes an acceptance-ID marker alongside the complete
+routine batch in the canonical schema-1 workout document. Pending recovery
+recognizes edited/deleted routines as conflicts and never recreates them. All
+new program state participates in local-data reset. The supported runtime is
+this version or later; older clients do not preserve the optional marker.
+
+The first delivery supports each variant's recommended frequency and editable
+session dates within the plan week. Unchecked frequencies offer manual setup.
+The beginner first-session reduction is an explicit optional choice. Calendar
+and source references remain separate from performed strength statistics.
+Native device, Dynamic Type, VoiceOver and offline phone review remain pending.
 
 ### Home
 

@@ -62,32 +62,26 @@ it('shows exactly the two welcome paths on first launch, not the normal dock', a
   await act(async () => view.unmount());
 });
 
-it('persists selections through Back and reload and allows optional body fields to be skipped', async () => {
+it('persists Goal → Experience → optional Body details with Back and reload', async () => {
   const view = await mount();
   await act(async () =>
     button(view, 'Personalize my training')?.props.onPress(),
   );
   await act(async () => button(view, 'Build muscle')?.props.onPress());
   await act(async () => button(view, 'Beginner')?.props.onPress());
-  await act(async () => button(view, 'Gym')?.props.onPress());
   expect(button(view, 'Continue without body details')).toBeDefined();
+  expect(button(view, 'Gym')).toBeUndefined();
   await act(async () => button(view, 'Back')?.props.onPress());
-  expect(button(view, 'Gym')?.props.selected).toBe(true);
+  expect(button(view, 'Beginner')?.props.selected).toBe(true);
   await act(async () => view.unmount());
   const restored = await mount();
-  expect(button(restored, 'Gym')?.props.selected).toBe(true);
-  await act(async () => button(restored, 'Back')?.props.onPress());
   expect(button(restored, 'Beginner')?.props.selected).toBe(true);
-  await act(async () => button(restored, 'Back')?.props.onPress());
-  expect(button(restored, 'Build muscle')?.props.selected).toBe(true);
-  await act(async () => button(restored, 'Next')?.props.onPress());
-  await act(async () => button(restored, 'Next')?.props.onPress());
   await act(async () => button(restored, 'Next')?.props.onPress());
   await act(async () =>
     button(restored, 'Continue without body details')?.props.onPress(),
   );
-  expect(button(restored, 'Go to Home')).toBeDefined();
-  await act(async () => button(restored, 'Go to Home')?.props.onPress());
+  expect(button(restored, 'START!')).toBeDefined();
+  await act(async () => button(restored, 'START!')?.props.onPress());
   expect(restored.root.findByType(Dock)).toBeDefined();
   await act(async () => restored.unmount());
   const completed = await mount();
@@ -244,12 +238,12 @@ it('resumes an unfinished Profile personalization edit after reopening', async (
   await act(async () => button(view, 'Beginner')?.props.onPress());
   await act(async () => button(view, 'Back to Profile')?.props.onPress());
   await act(async () => button(view, 'Personalization')?.props.onPress());
-  expect(button(view, 'Gym')).toBeDefined();
+  expect(button(view, 'Continue without body details')).toBeDefined();
   await act(async () => view.unmount());
   const restored = await mount();
   act(() => restored.root.findByType(Dock).props.onChange('profile'));
   await act(async () => button(restored, 'Personalization')?.props.onPress());
-  expect(button(restored, 'Gym')).toBeDefined();
+  expect(button(restored, 'Continue without body details')).toBeDefined();
   await act(async () => restored.unmount());
 });
 
@@ -280,7 +274,6 @@ it('does not turn profile inputs into workout history', async () => {
   );
   await act(async () => button(view, 'Build muscle')?.props.onPress());
   await act(async () => button(view, 'Beginner')?.props.onPress());
-  await act(async () => button(view, 'Gym')?.props.onPress());
   const age = view.root
     .findAllByType(TextInput)
     .find(
@@ -289,7 +282,7 @@ it('does not turn profile inputs into workout history', async () => {
     );
   await act(async () => age?.props.onChangeText('27'));
   await act(async () => button(view, 'Continue')?.props.onPress());
-  await act(async () => button(view, 'Go to Home')?.props.onPress());
+  await act(async () => button(view, 'START!')?.props.onPress());
   const workout = JSON.parse(
     (await AsyncStorage.getItem('fitflow_state_v1')) ?? '{}',
   );
@@ -304,7 +297,6 @@ it('does not advance with malformed optional body details', async () => {
   );
   await act(async () => button(view, 'Build muscle')?.props.onPress());
   await act(async () => button(view, 'Beginner')?.props.onPress());
-  await act(async () => button(view, 'Gym')?.props.onPress());
   const age = view.root
     .findAllByType(TextInput)
     .find(
@@ -314,6 +306,6 @@ it('does not advance with malformed optional body details', async () => {
   await act(async () => age?.props.onChangeText('not an age'));
   await act(async () => button(view, 'Continue')?.props.onPress());
   expect(JSON.stringify(view.toJSON())).toContain('Enter a valid age');
-  expect(button(view, 'Go to Home')).toBeUndefined();
+  expect(button(view, 'START!')).toBeUndefined();
   await act(async () => view.unmount());
 });

@@ -269,6 +269,7 @@ export default function App() {
   const [onboardingLoadFailed, setOnboardingLoadFailed] = useState(false);
   const [onboardingBypass, setOnboardingBypass] = useState(false);
   const [editingPersonalization, setEditingPersonalization] = useState(false);
+  const [acceptingProgram, setAcceptingProgram] = useState(false);
   const onboardingWrites = useRef(Promise.resolve());
   const onboardingEpoch = useRef(0);
   const resetInProgress = useRef(false);
@@ -384,10 +385,24 @@ export default function App() {
       );
     });
   };
-  const completeOnboarding = async (next: OnboardingState) => {
-    await queueOnboardingSave(next);
+  const completeOnboarding = async (
+    next: OnboardingState,
+    proposal?: ProgramAssignment,
+  ) => {
+    const epoch = onboardingEpoch.current;
+    if (proposal) {
+      setAcceptingProgram(true);
+      const result = await programAcceptance.accept(proposal, next);
+      if (result.status !== 'accepted')
+        throw Error(result.error ?? 'Program saving is pending. Retry START!');
+      if (resetInProgress.current || onboardingEpoch.current !== epoch) return;
+      setAssignment(result.assignment!);
+      setProgramError('');
+    } else await queueOnboardingSave(next);
+    if (resetInProgress.current || onboardingEpoch.current !== epoch) return;
     setOnboardingError('');
     setOnboardingState(next);
+    setAcceptingProgram(false);
     setEditingPersonalization(false);
     setTab('home');
   };
@@ -491,6 +506,7 @@ export default function App() {
       });
       store.resetAfterLocalDataRemoval();
       setOnboardingState(initialOnboardingState);
+      setAcceptingProgram(false);
       setAssignment(null);
       setProgramError('');
       setHiddenBuiltInIds([]);
@@ -626,7 +642,7 @@ export default function App() {
             onPress={() => setOnboardingBypass(true)}
           />
         </View>
-      ) : showOnboarding || editingPersonalization ? (
+      ) : showOnboarding || editingPersonalization || acceptingProgram ? (
         <Onboarding
           key={editingPersonalization ? 'edit' : 'first-run'}
           state={
@@ -645,7 +661,11 @@ export default function App() {
           onChange={saveOnboardingProgress}
           onComplete={completeOnboarding}
           onCreateWorkout={createFirstWorkout}
-          onExit={() => setEditingPersonalization(false)}
+          onExit={() => {
+            setEditingPersonalization(false);
+            setAcceptingProgram(false);
+            setTab(editingPersonalization ? 'profile' : 'home');
+          }}
         />
       ) : (
         <>
