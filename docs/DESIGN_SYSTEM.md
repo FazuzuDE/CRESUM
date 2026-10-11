@@ -132,7 +132,19 @@ Active tab uses `primary`, inactive tabs `textSecondary`. A translucent/floating
 
 ### Onboarding
 
-Welcome presents the two approved choices with equal clarity: a primary **Personalize my training** action and a secondary **Set up workouts myself** action with explanatory copy. The self-setup choice is valid, not an error or permanent opt-out. Personalization uses one focused, scrollable step at a time: Goal → Experience → Environment → optional body details → completion. Back retains answers; controls have labels, selection state, and practical touch targets. The first-workout path uses the existing Guided Workout Builder. Completion copy must not imply that a workout, exact weight, or AI recommendation was generated. Profile keeps a later personalization entry. Use existing light theme tokens, safe-area layout, keyboard-aware scrolling, Dynamic Type-friendly text, and compact-screen spacing.
+Welcome presents the two approved choices with equal clarity: a primary **Personalize my training** action and a secondary **Set up workouts myself** action with explanatory copy. The self-setup choice is valid, not an error or permanent opt-out. The approved next personalization flow uses one focused, scrollable step at a time: Goal → Experience → optional body details → completion. Gym is implicit; omit Training Environment. Back retains answers; controls have labels, selection state, and practical touch targets. The first-workout path uses the existing Guided Workout Builder. Profile keeps a later personalization entry. Use existing light theme tokens, safe-area layout, keyboard-aware scrolling, Dynamic Type-friendly text, and compact-screen spacing.
+
+Approved completion uses **You're ready to start** and a primary **START!**
+button in the existing PrimaryButton style, leading to Home after durable
+acceptance. Show a compact factual program summary and access to the proposed
+week/schedule before acceptance. This is an authored starter program, not an AI
+or inferred-weight claim. Until the complete program is executable, show honest
+availability copy rather than declaring it ready; keep manual setup available.
+Loading, save failure and Retry preserve the proposed program. Separate target
+rep ranges, rest guidance and per-side instructions from actual numeric inputs;
+never present a target as a completed result. Home shows planned activity
+separately from its actual-completion calendar. These rules are approved for
+implementation; this documentation update does not change screens yet.
 
 Profile → Data includes a destructive **Reset local data** action using the existing `danger` token. Require confirmation that explicitly names local workouts, history, templates, active workout, personalization, and onboarding data and states the deletion is irreversible on this device. Cancel changes nothing. Show an error rather than a success or Welcome state if deletion fails. Do not label this action **Delete Account**.
 

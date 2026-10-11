@@ -29,6 +29,34 @@ Later, separately approved work may sync custom workouts, preferences/profile, a
 
 ## P1 — Product polish
 
+### Goal-based starter programs — approved 2026-10-11
+
+The user approved the [nine-variant research/specification](superpowers/specs/2026-10-11-goal-training-programs-design.md)
+as the initial basis, with later corrections allowed. Gym is default, the
+Environment question is removed, missing exercises are retained, and completion
+uses **START! → Home**. This is approved scope, not implemented readiness.
+
+Delivery follows the [implementation plan](superpowers/plans/2026-10-11-goal-training-programs.md):
+
+1. Next, extend the exercise library with the required verified movements;
+   broader library coverage continues through focused variant packs. Preserve
+   stable IDs and distinguish floor glute bridge from hip thrust.
+2. Author the versioned nine-program catalog with source attribution and
+   explicit unresolved mappings; do not publish shortened executable programs.
+3. Add compatible target reps/rest/laterality support before connecting programs
+   to the existing kg/reps logger. Keep duration-based cardio guidance separate.
+4. Implement durable, idempotent assignment and schedule recovery, including
+   local-reset handling, without replacing existing routines or history.
+5. Connect the streamlined onboarding, START! acceptance and a separate planned
+   Home module; verify offline/restart/error and phone accessibility behavior.
+
+Free-form AI generation, calibration PR #17, adaptive working-weight selection,
+cloud sync and production exercise images are outside this delivery. Alternate
+frequency prescriptions need refinement before enabling a frequency selector;
+schedule-day changes must retain recovery and weekly-volume meaning.
+
+### Other Core polish
+
 - Selected Profile reference alignment: compact existing-workout card with
   factual planned metadata and creation below the rows; conditional restoration,
   personalization row, quiet destructive local reset, and static real-version
@@ -48,7 +76,7 @@ Later, separately approved work may sync custom workouts, preferences/profile, a
   Follow-up: 30-day 1M and full-period curves from 1M onward, stable missing-data
   comparison placement and readable Workout volumes sheet colors.
 
-- Onboarding Foundation: resumable lightweight personalization or direct first-workout creation through the Guided Workout Builder, separate versioned local state, legacy-user bypass, and later Profile re-entry. Calibration and recommendations remain separate future work.
+- Onboarding Foundation: resumable lightweight personalization or direct first-workout creation through the Guided Workout Builder, separate versioned local state, legacy-user bypass, and later Profile re-entry. Authored starter programs now follow the approved sequence above; calibration and adaptive recommendations remain separate future work.
 - Home Dashboard using real app data and `docs/DESIGN_SYSTEM.md`.
 - Selected Home reference alignment: greeting/hero, paired four-week stats,
   and factual Monday–Sunday completion view first. Active Workout follows in
