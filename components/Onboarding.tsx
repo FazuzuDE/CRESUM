@@ -1,3 +1,4 @@
+import { programEligibilityError } from '@/lib/training-programs/eligibility';
 import { HistoryDatePicker } from './HistoryDatePicker';
 import { selectProgram } from '@/lib/training-programs/selectors';
 import { projectProgramReadiness } from '@/lib/training-programs/readiness';
@@ -82,6 +83,8 @@ export function Onboarding({
   let proposal: ProgramAssignment | undefined;
   let proposalError = '';
   try {
+    const eligibility = programEligibilityError(state.answers);
+    if (eligibility) throw Error(eligibility);
     if (base) {
       if (frequency !== undefined && frequency !== base.schedule[0].length)
         throw Error(

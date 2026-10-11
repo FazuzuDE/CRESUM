@@ -300,3 +300,9 @@ Logged exercise performance presents the existing estimated 1RM per workout as a
 ### App-wide return navigation — 2026-10-11
 
 The up-arrow is a shared application element on all vertically scrollable pages and detail sheets, including onboarding, Home, Workout, Progress, Profile and exercise/template selection. It appears after scrolling, first returns to the current measured section (or the top in a single-section list), then to page top. Returning uses smooth native scrolling by default; manual dragging interrupts native motion and resets the sequence. Respect Reduce Motion. Horizontal filters and value-picker wheels retain their own interaction and do not get a page-return button. This changes presentation only, preserving workout state and reorder edge-scrolling.
+
+### Ограничения назначения стартовой программы
+
+Readiness требует явно объявленный тип учёта repetitions. Plank (duration) и Farmer’s Carry (distance) не становятся исполняемыми силовыми назначениями из-за одного наличия ID; их старый ручной сценарий не является поддержкой нового измерения. Повреждённые рекомендации кардио и структура программы блокируют восстановление программы, сохраняя доступ к Core. В General fitness зашагивания имеют диапазон 8–12 (Beginner) или 8–15 (Some/Experienced) на сторону.
+
+Возраст остаётся необязательным. Если указанный возраст меньше 18, автоматические взрослые программы недоступны; ручная настройка сохраняется. Проверка действует в предложении, принятии и восстановлении pending-предложения. Она не заменяет сбор медицинских ограничений. Восстановление и START! выполняются последовательно, поэтому предыдущая программа не подтверждает принятие новой.

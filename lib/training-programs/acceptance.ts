@@ -1,3 +1,4 @@
+import { programEligibilityError } from './eligibility';
 import type { OnboardingState } from '../onboarding';
 import type { WorkoutStore } from '../workout-store';
 import { exerciseLibrary } from '../exercise-library';
@@ -22,12 +23,17 @@ export class ProgramAcceptance {
   private run(
     work: (epoch: number) => Promise<AcceptanceResult>,
   ): Promise<AcceptanceResult> {
-    if (this.running) return this.running;
+    const previous = this.running;
     const epoch = this.epoch;
-    const result = work(epoch).catch((error: Error): AcceptanceResult => ({
-      status: 'pending',
-      error: error.message,
-    }));
+    const result = (previous ?? Promise.resolve())
+      .then(() => {
+        this.current(epoch);
+        return work(epoch);
+      })
+      .catch((error: Error): AcceptanceResult => ({
+        status: 'pending',
+        error: error.message,
+      }));
     this.running = result;
     void result.finally(() => {
       if (this.running === result) this.running = undefined;
@@ -47,6 +53,8 @@ export class ProgramAcceptance {
         ? { status: 'accepted', assignment: document.assignment }
         : { status: 'empty' };
     this.current(epoch);
+    const eligibility = programEligibilityError(pending.onboarding.answers);
+    if (eligibility) return { status: 'blocked', error: eligibility };
     const readiness = projectProgramReadiness(
       pending.assignment.program,
       this.library,
@@ -81,6 +89,8 @@ export class ProgramAcceptance {
     onboarding: OnboardingState,
   ): Promise<AcceptanceResult> {
     return this.run(async (epoch) => {
+      const eligibility = programEligibilityError(onboarding.answers);
+      if (eligibility) return { status: 'blocked', error: eligibility };
       try {
         if (
           JSON.stringify(

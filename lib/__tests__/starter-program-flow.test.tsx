@@ -1,3 +1,4 @@
+import { TextInput } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import App from '../../app/index';
 import { AppButton } from '../../components/AppButton';
@@ -161,6 +162,29 @@ it('shows the complete proposal and makes unchecked frequencies unavailable with
     );
     expect(await AsyncStorage.getItem(PROGRAM_KEY)).toBeNull();
     expect(button(view, 'Set up workouts myself')).toBeDefined();
+  } finally {
+    await act(async () => view.unmount());
+  }
+});
+
+it('retains manual setup and blocks an adult automatic proposal when the supplied age is 15', async () => {
+  const view = await seed('general_fitness', 'beginner', 'profile');
+  try {
+    const age = view.root
+      .findAllByType(TextInput)
+      .find(
+        (input: { props: { accessibilityLabel: string } }) =>
+          input.props.accessibilityLabel === 'Age',
+      );
+    await act(async () => age.props.onChangeText('15'));
+    await act(async () => button(view, 'Continue').props.onPress());
+    expect(button(view, 'START!').props.disabled).toBe(true);
+    expect(JSON.stringify(view.toJSON())).toContain('Adult starter programs');
+    expect(await AsyncStorage.getItem(PROGRAM_KEY)).toBeNull();
+    await act(async () =>
+      button(view, 'Set up workouts myself').props.onPress(),
+    );
+    expect(JSON.stringify(view.toJSON())).toContain('Your first workout');
   } finally {
     await act(async () => view.unmount());
   }

@@ -162,3 +162,90 @@ it('rejects an incomplete supplied template batch before saving any proposal', a
   expect((await s.controller.accept(forged, complete)).status).toBe('blocked');
   expect(s.values.has(PROGRAM_KEY)).toBe(false);
 });
+
+it('queues a new proposal behind recovery without acknowledging the old assignment as the new one', async () => {
+  const s = await setup();
+  await s.controller.accept(assignment(), complete);
+  let release!: () => void;
+  const gate = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  const load = jest.spyOn(s.repo, 'load');
+  load.mockImplementationOnce(async () => {
+    await gate;
+    return { version: 1, assignment: assignment(), pending: null };
+  });
+  const recovering = s.controller.recover();
+  const next = makeAssignment(
+    selectProgram('general_fitness', 'beginner')!,
+    'accept-2',
+    '2026-10-11',
+  );
+  const accepting = s.controller.accept(next, {
+    ...complete,
+    answers: { ...complete.answers, goal: 'general_fitness' },
+  });
+  release();
+  expect((await recovering).assignment?.id).toBe('accept-1');
+  expect((await accepting).assignment?.id).toBe('accept-2');
+  expect((await s.repo.load()).assignment?.id).toBe('accept-2');
+  expect(
+    s.store
+      .getSnapshot()
+      .data.templates.filter((t) => t.id.startsWith('program-accept-2-')),
+  ).toHaveLength(2);
+});
+it.each([
+  null,
+  { offset: 7, minutes: 20, intensity: 'moderate' },
+  { offset: 0, minutes: 0, intensity: 'moderate' },
+  { offset: 0, minutes: 20, intensity: 'vigorous' },
+])(
+  'rejects malformed cardio guidance without exposing it to Home or overwriting workouts: %p',
+  async (entry) => {
+    const s = await setup();
+    const saved = makeAssignment(
+      selectProgram('general_fitness', 'beginner')!,
+      'accept-1',
+      '2026-10-11',
+    );
+    const raw = JSON.stringify({
+      version: 1,
+      assignment: { ...saved, program: { ...saved.program, cardio: [entry] } },
+      pending: null,
+    });
+    s.values.set(PROGRAM_KEY, raw);
+    const before = JSON.stringify(s.store.getSnapshot().data);
+    await expect(s.repo.load()).rejects.toThrow('Saved program is unavailable');
+    expect((await s.controller.recover()).status).toBe('pending');
+    expect(s.values.get(PROGRAM_KEY)).toBe(raw);
+    expect(JSON.stringify(s.store.getSnapshot().data)).toBe(before);
+  },
+);
+it('blocks a known minor at the acceptance boundary before any writes', async () => {
+  const s = await setup();
+  expect(
+    (
+      await s.controller.accept(assignment(), {
+        ...complete,
+        answers: { ...complete.answers, age: '15' },
+      })
+    ).status,
+  ).toBe('blocked');
+  expect(s.values.has(PROGRAM_KEY)).toBe(false);
+});
+it('blocks recovery of an ineligible pending adult program while keeping saved workouts accessible', async () => {
+  const s = await setup();
+  await s.repo.save({
+    version: 1,
+    assignment: null,
+    pending: {
+      assignment: assignment(),
+      onboarding: { ...complete, answers: { ...complete.answers, age: '15' } },
+    },
+  });
+  const before = JSON.stringify(s.store.getSnapshot().data);
+  expect((await s.controller.recover()).status).toBe('blocked');
+  expect(JSON.stringify(s.store.getSnapshot().data)).toBe(before);
+  expect((await s.repo.load()).pending).not.toBeNull();
+});
