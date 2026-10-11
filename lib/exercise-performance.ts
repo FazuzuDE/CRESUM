@@ -17,7 +17,7 @@ export type PerformanceOccurrence = {
   workoutName: string;
   exerciseSnapshotId: string;
   finishedAt: number;
-  sets: { id: string; weight: number; reps: number }[];
+  sets: { id: string; weight: number; reps: number; otherSideReps?: number }[];
 };
 
 export type EstimatedOneRepMaxPoint = {
@@ -66,7 +66,7 @@ export const projectEstimatedOneRepMaxSeries = (
         const completedAt = completedSetTimestamp(set, session.finishedAt!);
         if (completedAt === undefined) return;
         const metrics = completedSetMetrics(set);
-        if (!metrics) return;
+        if (!metrics || metrics.estimatedOneRepMax === undefined) return;
         const candidate: EstimatedOneRepMaxPoint = {
           identityKey,
           workoutId: session.id,
@@ -126,7 +126,16 @@ export const projectExercisePerformance = (
       const sets = exercise.sets.flatMap((savedSet) => {
         const metrics = completedSetMetrics(savedSet);
         return metrics
-          ? [{ id: savedSet.id, weight: metrics.weight, reps: metrics.reps }]
+          ? [
+              {
+                id: savedSet.id,
+                weight: metrics.weight,
+                reps: metrics.reps,
+                ...(metrics.otherSideReps === undefined
+                  ? {}
+                  : { otherSideReps: metrics.otherSideReps }),
+              },
+            ]
           : [];
       });
       return sets.length

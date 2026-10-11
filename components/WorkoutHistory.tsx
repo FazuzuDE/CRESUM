@@ -66,7 +66,7 @@ export function WorkoutHistory({
                 {completedSets.length ? (
                   completedSets.map((set, index) => (
                     <Text key={set.id} style={s.setValue}>
-                      {`Set ${index + 1} · ${set.weight} kg × ${set.reps}`}
+                      {`Set ${index + 1} · ${set.weight} kg × ${set.reps}${set.otherSideReps === undefined ? '' : ` L / ${set.otherSideReps} R`}`}
                     </Text>
                   ))
                 ) : (

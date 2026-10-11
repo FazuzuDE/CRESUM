@@ -4,6 +4,16 @@ import type {
   MuscleId,
 } from './exercise-taxonomy';
 
+export type ExerciseTarget = {
+  repMin: number;
+  repMax: number;
+  restMin: number;
+  restMax: number;
+  perSide?: boolean;
+  programId: string;
+  revision: number;
+  sourceRefs: string[];
+};
 export type WorkoutSet = {
   id: string;
   weight: string;
@@ -17,6 +27,7 @@ export type WorkoutExercise = {
   libraryId: string;
   name: string;
   muscle: string;
+  target?: ExerciseTarget;
   sets: WorkoutSet[];
 };
 
@@ -28,6 +39,7 @@ export type WorkoutSession = {
   finishedAt?: number;
   currentExerciseIndex: number;
   restDurationSeconds: number;
+  restOverrideSeconds?: number;
   restEndsAt?: number;
   exercises: WorkoutExercise[];
 };
@@ -43,6 +55,7 @@ export type PlannedExercise = {
   exerciseId: string;
   sets: number;
   weight?: string;
+  target?: ExerciseTarget;
 };
 
 export type LibraryExercise = {

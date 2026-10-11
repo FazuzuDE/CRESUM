@@ -123,6 +123,9 @@ export function TemplateEditor({
         {
           exerciseId: configuration.exerciseId,
           sets,
+          target: current.plannedExercises?.find(
+            (item) => item.exerciseId === configuration.exerciseId,
+          )?.target,
           ...(normalizedWeight ? { weight: normalizedWeight } : {}),
         },
       ],

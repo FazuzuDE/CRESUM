@@ -353,3 +353,35 @@ describe('ExercisePerformance', () => {
     act(() => view.unmount());
   });
 });
+
+it('explains why paired left/right logs have no estimated 1RM', () => {
+  const paired = workout(
+    'paired',
+    22,
+    'standing-cable-anti-rotation-press',
+    'Standing Cable Anti-rotation Press',
+    '10',
+  );
+  paired.exercises[0].sets[0].otherSideReps = '8';
+  const view = render(
+    <ExercisePerformance history={[paired]} period="1M" now={now} />,
+  );
+  act(() =>
+    view.root
+      .findAll(isPressable)
+      .find(
+        (node: { props: { accessibilityLabel?: string } }) =>
+          node.props.accessibilityLabel ===
+          'Choose exercise for logged performance',
+      )
+      .props.onPress(),
+  );
+  act(() => press(view, 'View Standing Cable Anti-rotation Press performance'));
+  expect(
+    view.root
+      .findAllByType(Text)
+      .map((node: { props: { children: unknown } }) => node.props.children)
+      .join(' '),
+  ).toContain('1RM is unavailable for paired left/right sets');
+  act(() => view.unmount());
+});

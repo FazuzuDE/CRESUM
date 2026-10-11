@@ -27,6 +27,7 @@ export const createExercise = (
   libraryId: exercise.id,
   name: exercise.name,
   muscle: muscleLabel(exercise.primaryMuscles[0]),
+  ...(planned?.target ? { target: clone(planned.target) } : {}),
   sets: Array.from(
     { length: planned && validPlannedSets(planned.sets) ? planned.sets : 3 },
     () => ({
@@ -34,7 +35,7 @@ export const createExercise = (
       weight: planned?.weight
         ? (normalizePlannedWeight(planned.weight) ?? '')
         : '',
-      reps: exercise.perSide ? '' : '10',
+      reps: exercise.perSide || planned?.target ? '' : '10',
       ...(exercise.perSide ? { otherSideReps: '' } : {}),
     }),
   ),
@@ -79,7 +80,7 @@ export const updateSet = (
   session: WorkoutSession,
   exerciseIndex: number,
   setIndex: number,
-  values: Partial<Pick<WorkoutSet, 'weight' | 'reps'>>,
+  values: Partial<Pick<WorkoutSet, 'weight' | 'reps' | 'otherSideReps'>>,
 ): WorkoutSession => {
   const next = clone(session);
   if (isSetComplete(next.exercises[exerciseIndex].sets[setIndex]))
@@ -99,7 +100,11 @@ export const setInputIsValid = (set: WorkoutSet): boolean => {
     Number.isFinite(weight) &&
     weight >= 0 &&
     Number.isInteger(reps) &&
-    reps > 0
+    reps > 0 &&
+    (set.otherSideReps === undefined ||
+      (/^\d+$/.test(set.otherSideReps.trim()) &&
+        Number.isSafeInteger(Number(set.otherSideReps)) &&
+        Number(set.otherSideReps) > 0))
   );
 };
 
@@ -145,13 +150,22 @@ export const toggleSet = (
     return { session: next, startedRest: false, advancedExercise: false };
   }
 
-  if (!setInputIsValid(set)) {
+  if (
+    !setInputIsValid(set) ||
+    (next.exercises[exerciseIndex].libraryId === 'bodyweight-step-up' &&
+      Number(set.weight.replace(',', '.')) !== 0)
+  ) {
     throw new Error('Enter a valid weight and a whole number of reps.');
   }
 
   set.weight = set.weight.replace(',', '.').trim();
   set.reps = set.reps.trim();
   set.completedAt = now;
+  const completedTarget = next.exercises[exerciseIndex].target;
+  next.restDurationSeconds =
+    next.restOverrideSeconds ??
+    completedTarget?.restMin ??
+    next.restDurationSeconds;
   next.restEndsAt = now + next.restDurationSeconds * 1000;
 
   const exerciseComplete =
@@ -179,7 +193,10 @@ export const addSet = (
   next.exercises[exerciseIndex].sets.push({
     id: idFactory(),
     weight: previous?.weight ?? '',
-    reps: previous?.reps ?? '10',
+    reps: previous?.reps ?? (next.exercises[exerciseIndex].target ? '' : '10'),
+    ...(previous?.otherSideReps === undefined
+      ? {}
+      : { otherSideReps: previous.otherSideReps }),
   });
   return next;
 };

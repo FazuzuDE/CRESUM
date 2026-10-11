@@ -105,6 +105,14 @@ export function ExercisePerformance({ history, period, now }: Props) {
           </Pressable>
           {selected ? (
             <>
+              {entries.some((entry) =>
+                entry.sets.some((set) => set.otherSideReps !== undefined),
+              ) ? (
+                <Text style={s.empty}>
+                  1RM is unavailable for paired left/right sets. Both sides
+                  remain in logged results.
+                </Text>
+              ) : null}
               <EstimatedOneRepMaxSeries
                 points={estimates}
                 period={period}
@@ -169,6 +177,9 @@ export function ExercisePerformance({ history, period, now }: Props) {
                         <Text style={s.setNumber}>{String(index + 1)}</Text>
                         <Text style={s.set}>
                           {set.weight} kg × {set.reps}
+                          {set.otherSideReps === undefined
+                            ? ''
+                            : ` L / ${set.otherSideReps} R`}
                         </Text>
                       </View>
                     ))}
