@@ -9,6 +9,7 @@ export type WorkoutSet = {
   weight: string;
   reps: string;
   completedAt?: number;
+  otherSideReps?: string;
 };
 
 export type WorkoutExercise = {
@@ -52,6 +53,7 @@ export type LibraryExercise = {
   equipment: readonly EquipmentId[];
   movementPattern: MovementPatternId;
   imageKey: string;
+  perSide?: boolean;
 };
 
 export type WorkoutState = {

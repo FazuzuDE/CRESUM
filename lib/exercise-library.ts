@@ -494,6 +494,40 @@ export const exerciseLibrary = [
     equipment: ['dumbbell'],
     movementPattern: 'carry',
   }),
+  exercise({
+    id: 'standing-cable-anti-rotation-press',
+    name: 'Standing Cable Anti-rotation Press',
+    primaryMuscles: ['abs'],
+    secondaryMuscles: [],
+    equipment: ['cable'],
+    movementPattern: 'core',
+    perSide: true,
+  }),
+  exercise({
+    id: 'bodyweight-step-up',
+    name: 'Bodyweight Step-up',
+    primaryMuscles: ['quadriceps', 'glutes'],
+    secondaryMuscles: ['hamstrings'],
+    equipment: ['bodyweight', 'step-platform'],
+    movementPattern: 'lunge',
+    perSide: true,
+  }),
+  exercise({
+    id: 'dumbbell-floor-glute-bridge',
+    name: 'Dumbbell Floor Glute Bridge',
+    primaryMuscles: ['glutes'],
+    secondaryMuscles: ['hamstrings'],
+    equipment: ['dumbbell'],
+    movementPattern: 'hinge',
+  }),
+  exercise({
+    id: 'lying-barbell-triceps-extension',
+    name: 'Lying Barbell Triceps Extension',
+    primaryMuscles: ['triceps'],
+    secondaryMuscles: [],
+    equipment: ['barbell', 'bench'],
+    movementPattern: 'isolation',
+  }),
 ] as const satisfies readonly LibraryExercise[];
 
 export type ExerciseId = (typeof exerciseLibrary)[number]['id'];

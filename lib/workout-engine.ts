@@ -34,7 +34,8 @@ export const createExercise = (
       weight: planned?.weight
         ? (normalizePlannedWeight(planned.weight) ?? '')
         : '',
-      reps: '10',
+      reps: exercise.perSide ? '' : '10',
+      ...(exercise.perSide ? { otherSideReps: '' } : {}),
     }),
   ),
 });

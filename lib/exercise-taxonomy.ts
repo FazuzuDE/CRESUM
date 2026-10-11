@@ -24,6 +24,7 @@ export const equipmentTaxonomy = [
   { id: 'barbell', label: 'Barbell' },
   { id: 'dumbbell', label: 'Dumbbell' },
   { id: 'bench', label: 'Bench' },
+  { id: 'step-platform', label: 'Step Platform' },
   { id: 'cable', label: 'Cable' },
   { id: 'machine', label: 'Machine' },
   { id: 'smith-machine', label: 'Smith Machine' },

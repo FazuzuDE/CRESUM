@@ -21,6 +21,10 @@ describe('canonical exercise metadata', () => {
               'lat-pulldown-wide-pronated-bar',
               'lat-pulldown-close-neutral-v-handle',
               'lat-pulldown-reverse-grip',
+              'standing-cable-anti-rotation-press',
+              'bodyweight-step-up',
+              'dumbbell-floor-glute-bridge',
+              'lying-barbell-triceps-extension',
             ].includes(id),
         )
         .map(({ id }) => id),
@@ -88,7 +92,7 @@ describe('canonical exercise metadata', () => {
 
   it('contains a curated catalog with unique stable ids', () => {
     expect(exerciseLibrary.length).toBeGreaterThanOrEqual(45);
-    expect(exerciseLibrary.length).toBeLessThanOrEqual(63);
+    expect(exerciseLibrary.length).toBeLessThanOrEqual(65);
     expect(new Set(exerciseLibrary.map((item) => item.id)).size).toBe(
       exerciseLibrary.length,
     );
