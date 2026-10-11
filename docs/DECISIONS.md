@@ -2,9 +2,37 @@
 
 This chronological log records approved decisions. The owning product, design, roadmap, and engineering documents remain the detailed sources of truth.
 
+## 2026-10-11 — Goal-based weekly training programs: approved initial basis
+
+Status: Approved — pending Git integration; implementation not started.
+
+- The user approved the researched basis for nine Gym programs: Build muscle,
+  Get stronger and General fitness × Beginner, Some experience and Experienced.
+  Corrections may follow; preserve the version of any already accepted plan.
+- Sources: ACSM, NSCA, ACE, HSS and NHS primary materials. Program movements
+  and extracted facts are traceable; the combined CRESUM matrix is our
+  adaptation, not a published or validated nine-program package from them.
+- Remove Training Environment from new personalization, default to Gym, and
+  keep Home workouts manual. Read legacy answers/progress compatibly.
+- Retain exercises absent from the library. Library expansion is the next
+  prerequisite; do not drop/substitute movements or execute unknown IDs.
+- Completion uses START! to accept the shown program and open Home, without
+  starting a workout. Show truthful readiness and durable-save/error states.
+- Preserve existing custom routines, active workouts, History, offline access
+  and schema-v1 compatibility. Targets and actual results remain separate;
+  no demographic-derived weights, timed work as reps or cardio estimated 1RM.
+- Use versioned authored programs and idempotent acceptance/recovery. Planned
+  weekly activity stays distinct from actual completed sessions; missed days
+  do not double subsequent volume. Alternative frequency variants need checked
+  prescriptions before they can be offered.
+
+Specification: [approved research and prescriptions](superpowers/specs/2026-10-11-goal-training-programs-design.md).
+Delivery: [implementation plan](superpowers/plans/2026-10-11-goal-training-programs.md).
+Owning rules: `PRODUCT.md`, `DESIGN_SYSTEM.md`, `ROADMAP.md`.
+
 ## 2026-10-11 — Selected Profile mockup
 
-Status: Approved — pending Git integration
+Status: Integrated in develop through PR #34 (merge `603a0b8549bc563c1e8a3afb748dfd6eb9296f9e`).
 
 - The user approved Profile's generated light mockup and its implementation
   as a focused PR after Home, Workout and Progress alignment.

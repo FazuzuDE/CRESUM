@@ -46,9 +46,43 @@ Home · Workout · Progress · Profile
 
 On first launch without meaningful existing workout data, Welcome offers two distinct paths: **Personalize my training** (CRESUM will help me get started) and **Set up workouts myself** (skip personalization for now). The latter goes directly to the existing Guided Workout Builder and completes only after a custom workout is durably created. Cancel/Back do not complete onboarding. Built-in templates alone do not identify an existing user; an active workout, completed history, or a custom workout does. Existing users are never gated by the new flow.
 
-Personalization is short and resumable: Goal (build muscle / get stronger / general fitness) → Experience (beginner / some experience / experienced) → Environment (gym / home / both) → optional age, height, and body weight → truthful completion → Home. Answers survive Back and app restart. Skipping personalization is reversible; Profile can reopen it later. The app learns progressively from performed workouts rather than demanding detailed training history, 1RM, target reps, working weights, or a favorite split up front.
+Approved next personalization flow: Goal (build muscle / get stronger / general fitness) → Experience (beginner / some experience / experienced) → optional age, height, and body weight → truthful completion → **START! → Home**. Automatic starter programs assume Gym; remove the Training Environment question. Home training remains available through manual workout creation. Answers survive Back and app restart. Skipping personalization is reversible; Profile can reopen it later. Do not add mandatory equipment/history/1RM questions. Until implementation, the existing environment step and completion remain in code.
 
-Onboarding has its own versioned local state. It must not alter `fitflow_state_v1`, schema version 1, active workouts, historical snapshots, or the Workout Engine. Corrupt onboarding data cannot corrupt or block access to saved workouts/history. Demographic/body data do not determine an exact working weight. Calibration, baseline generation, and recommendations remain future work.
+Onboarding has its own versioned local state. Corrupt onboarding data cannot corrupt or block access to saved workouts/history. Keep compatible reads of stored Home/Both answers and old environment-step progress; skip that obsolete step without losing other answers. Demographic/body data do not determine an exact working weight. Calibration and adaptive weight recommendations remain future work. The approved starter-program scope below supersedes the earlier deferral only for authored goal-based programs, not those adaptive features.
+
+### Goal-based starter programs — approved basis, not implemented
+
+The [approved program specification](superpowers/specs/2026-10-11-goal-training-programs-design.md)
+defines nine Gym variants: three goals × three experience levels. It retains
+the complete exercise prescriptions, weekly schedules and progression guidance.
+This is an editable first baseline, adapted from ACSM, NSCA, ACE, HSS and NHS
+materials; those organizations did not validate the resulting CRESUM programs.
+The week is a repeatable training cycle, not a promise of results in seven days.
+
+Use a versioned authored catalog, not free-form AI generation. Keep source
+facts, CRESUM adaptations, proposed targets, accepted assignments and actual
+results distinct. Missing exercises remain in the proposed plan with an explicit
+unavailable status. Expand the library next; never silently substitute/drop
+movements or pass unknown IDs to the Workout Engine. Cardio uses duration and
+intensity guidance, not kg × reps or estimated 1RM. Do not invent initial weights.
+
+Completion summarizes the actual proposed goal, strength-session frequency and
+week. Let the user adjust the schedule before accepting; alternative frequency
+prescriptions require checked variants rather than arbitrary removal of sessions.
+Only say the program is ready when every required movement and target can be
+executed. **START!** durably accepts the shown program and personalization, then
+opens Home; it does not start an active workout. Repeated taps, retries and
+restart recovery must not duplicate routines. Partial failure preserves a retry
+path and access to existing Core data.
+
+Re-personalization proposes a new assignment explicitly. It never overwrites
+custom routines, active workouts or History. Preserve schema-v1 compatibility;
+separate target reps/rest/laterality from entered and completed values before
+enabling these programs. Keep the manual builder available. Planned sessions
+are distinct from Home's factual completion calendar; missed sessions do not
+double the next session's volume. The
+[implementation plan](superpowers/plans/2026-10-11-goal-training-programs.md)
+records the prerequisite and delivery sequence.
 
 ### Home
 
