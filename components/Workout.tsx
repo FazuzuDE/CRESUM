@@ -199,6 +199,39 @@ export function Workout({
                     .join(' · ')
                 : 'First recorded session'}
             </Text>
+            {exercise.target ? (
+              <View style={{ gap: spacing.sm }}>
+                <Text style={s.previous}>
+                  Target: {exercise.target.repMin}–{exercise.target.repMax} reps
+                  {exercise.target.perSide ? ' per side' : ''} · Rest{' '}
+                  {exercise.target.restMin}–{exercise.target.restMax}s
+                </Text>
+                <Text style={s.previous}>
+                  Warm up separately. Choose a manageable load; keep 2–3 reps in
+                  reserve.
+                </Text>
+                <AppButton
+                  title={`Rest: ${session.restOverrideSeconds ?? exercise.target.restMin}s · change`}
+                  secondary
+                  disabled={busy}
+                  onPress={() =>
+                    update((current) => ({
+                      ...current,
+                      restOverrideSeconds:
+                        (current.restOverrideSeconds ??
+                          exercise.target!.restMin) === exercise.target!.restMin
+                          ? exercise.target!.restMax
+                          : exercise.target!.restMin,
+                    }))
+                  }
+                />
+              </View>
+            ) : null}
+            {exercise.libraryId === 'bodyweight-step-up' ? (
+              <Text style={s.previous}>
+                Unloaded step-up · enter 0 kg external load.
+              </Text>
+            ) : null}
             <View style={s.tableHeader}>
               <Text style={s.number}>SET</Text>
               <Text style={s.column}>KG</Text>
@@ -235,7 +268,17 @@ export function Workout({
                     }
                   />
                   <TextInput
-                    accessibilityLabel={'Set ' + (i + 1) + ' repetitions'}
+                    accessibilityLabel={
+                      'Set ' +
+                      (i + 1) +
+                      (set.otherSideReps === undefined
+                        ? ' repetitions'
+                        : ' left repetitions')
+                    }
+                    placeholder={
+                      set.otherSideReps === undefined ? 'Reps' : 'Left'
+                    }
+                    placeholderTextColor={colors.textTertiary}
                     keyboardType="number-pad"
                     value={set.reps}
                     editable={!done && !busy}
@@ -246,6 +289,24 @@ export function Workout({
                       )
                     }
                   />
+                  {set.otherSideReps === undefined ? null : (
+                    <TextInput
+                      accessibilityLabel={
+                        'Set ' + (i + 1) + ' right repetitions'
+                      }
+                      keyboardType="number-pad"
+                      value={set.otherSideReps}
+                      placeholder="Right"
+                      placeholderTextColor={colors.textTertiary}
+                      editable={!done && !busy}
+                      style={[s.input, done && s.completed]}
+                      onChangeText={(otherSideReps) =>
+                        update((current) =>
+                          updateSet(current, index, i, { otherSideReps }),
+                        )
+                      }
+                    />
+                  )}
                   <Pressable
                     accessibilityRole="checkbox"
                     accessibilityLabel={'Complete set ' + (i + 1)}

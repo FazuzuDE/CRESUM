@@ -135,6 +135,7 @@ export const projectProgressAnalytics = (
           continue;
         }
 
+        if (metrics.estimatedOneRepMax === undefined) continue;
         const sourceKey = JSON.stringify([
           session.id,
           exercise.id,

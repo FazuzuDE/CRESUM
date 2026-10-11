@@ -1,6 +1,9 @@
 import { defaultTemplates } from './workout-catalog';
 import { WorkoutSession, WorkoutState, WorkoutTemplate } from './workout-model';
-import { validPlannedExerciseShape } from './planned-exercise';
+import {
+  validPlannedExerciseShape,
+  validExerciseTarget,
+} from './planned-exercise';
 import { canonicalExerciseId } from './exercise-library';
 
 export const STATE_KEY = 'fitflow_state_v1';
@@ -89,6 +92,7 @@ function session(
     !number(value.startedAt) ||
     !optionalNumber(value.finishedAt) ||
     !optionalNumber(value.restEndsAt) ||
+    !optionalNumber(value.restOverrideSeconds) ||
     !Array.isArray(value.exercises)
   )
     return invalid();
@@ -109,6 +113,8 @@ function session(
       !string(exercise.name) ||
       !string(exercise.muscle) ||
       (!legacy && !string(exercise.libraryId)) ||
+      (exercise.target !== undefined &&
+        !validExerciseTarget(exercise.target)) ||
       !Array.isArray(exercise.sets)
     )
       return invalid();
@@ -119,12 +125,16 @@ function session(
         : exercise.id.split('-')[0],
       name: exercise.name,
       muscle: exercise.muscle,
+      ...(exercise.target === undefined
+        ? {}
+        : { target: JSON.parse(JSON.stringify(exercise.target)) }),
       sets: exercise.sets.map((set) => {
         if (
           !object(set) ||
           !string(set.id) ||
           !string(set.weight) ||
           !string(set.reps) ||
+          (set.otherSideReps !== undefined && !string(set.otherSideReps)) ||
           !optionalNumber(set.completedAt) ||
           (legacy
             ? set.done !== undefined && typeof set.done !== 'boolean'
@@ -135,6 +145,9 @@ function session(
           id: set.id,
           weight: legacy ? set.weight.replace(',', '.') : set.weight,
           reps: set.reps,
+          ...(set.otherSideReps === undefined
+            ? {}
+            : { otherSideReps: set.otherSideReps as string }),
           completedAt:
             (set.completedAt as number | undefined) ??
             (legacy && set.done === true
@@ -171,6 +184,9 @@ function session(
       ? value.restDurationSeconds
       : 90,
     restEndsAt: value.restEndsAt as number | undefined,
+    ...(value.restOverrideSeconds === undefined
+      ? {}
+      : { restOverrideSeconds: value.restOverrideSeconds as number }),
     exercises,
   };
 }

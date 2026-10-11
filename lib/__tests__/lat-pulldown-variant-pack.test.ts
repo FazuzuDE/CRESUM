@@ -48,6 +48,7 @@ describe('Lat Pulldown Variant Pack v1', () => {
       equipment: ['cable'],
       movementPattern: 'vertical-pull',
       imageKey: 'lat-pulldown',
+      measurement: 'repetitions',
     });
     expect(legacyExerciseIds.pulldown).toBe('lat-pulldown');
     expect(getCatalogVariant('lat-pulldown')).toMatchObject({
@@ -61,7 +62,7 @@ describe('Lat Pulldown Variant Pack v1', () => {
   });
 
   it('adds exactly three distinct specific variants beside the existing exercise', () => {
-    expect(exerciseLibrary).toHaveLength(61);
+    expect(exerciseLibrary).toHaveLength(65);
     const index = exerciseLibrary.findIndex(({ id }) => id === 'lat-pulldown');
     expect(
       exerciseLibrary.slice(index + 1, index + 4).map(({ id }) => id),

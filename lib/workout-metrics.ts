@@ -3,6 +3,7 @@ type VolumeSession = {
     sets: {
       weight: string;
       reps: string;
+      otherSideReps?: string;
       completedAt?: number;
       done?: boolean;
     }[];
@@ -32,7 +33,8 @@ export type CompletedSetMetrics = {
   weight: number;
   reps: number;
   volume: number;
-  estimatedOneRepMax: number;
+  estimatedOneRepMax?: number;
+  otherSideReps?: number;
 };
 
 const decimalWeight = /^\d+(\.\d+)?$/;
@@ -62,12 +64,28 @@ export const completedSetMetrics = (
   )
     return;
 
-  const setVolume = weight * reps;
+  const otherSideReps =
+    set.otherSideReps === undefined ? undefined : Number(set.otherSideReps);
+  if (
+    set.otherSideReps !== undefined &&
+    (!wholeRepetitions.test(set.otherSideReps.trim()) ||
+      !Number.isSafeInteger(otherSideReps) ||
+      otherSideReps! <= 0)
+  )
+    return;
+  const setVolume = weight * (reps + (otherSideReps ?? 0));
   const estimatedOneRepMax = epley(weight, reps);
   if (!Number.isFinite(setVolume) || !Number.isFinite(estimatedOneRepMax))
     return;
 
-  return { weight, reps, volume: setVolume, estimatedOneRepMax };
+  return {
+    weight,
+    reps,
+    volume: setVolume,
+    ...(otherSideReps === undefined
+      ? { estimatedOneRepMax }
+      : { otherSideReps }),
+  };
 };
 
 // Preserve the existing completed-set definition while keeping every derived

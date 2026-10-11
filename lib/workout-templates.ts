@@ -1,7 +1,11 @@
 import { defaultTemplates } from './workout-catalog';
 import { canonicalExerciseId, findExercise } from './exercise-library';
 import type { PlannedExercise, WorkoutTemplate } from './workout-model';
-import { normalizePlannedWeight, validPlannedSets } from './planned-exercise';
+import {
+  normalizePlannedWeight,
+  validPlannedSets,
+  validExerciseTarget,
+} from './planned-exercise';
 
 export type TemplateDraft = Pick<
   WorkoutTemplate,
@@ -37,7 +41,7 @@ export const createTemplateDraft = (
     ? {}
     : {
         plannedExercises: template.plannedExercises.map((item) => ({
-          ...item,
+          ...JSON.parse(JSON.stringify(item)),
           exerciseId: normalizeExerciseId(item.exerciseId),
         })),
       }),
@@ -71,7 +75,10 @@ export const validateTemplateDraft = (
     plannedExercises = [];
     const seen = new Set<string>();
     for (const item of draft.plannedExercises) {
-      if (!validPlannedSets(item.sets))
+      if (
+        !validPlannedSets(item.sets) ||
+        (item.target !== undefined && !validExerciseTarget(item.target))
+      )
         return {
           ok: false,
           error: 'Enter 1–20 planned sets for each exercise.',
@@ -94,6 +101,9 @@ export const validateTemplateDraft = (
       plannedExercises.push({
         exerciseId,
         sets: item.sets,
+        ...(item.target
+          ? { target: JSON.parse(JSON.stringify(item.target)) }
+          : {}),
         ...(normalizedWeight ? { weight: normalizedWeight } : {}),
       });
     }
@@ -257,7 +267,7 @@ export const duplicateTemplate = (
     ...(original.plannedExercises
       ? {
           plannedExercises: original.plannedExercises.map((item) => ({
-            ...item,
+            ...JSON.parse(JSON.stringify(item)),
           })),
         }
       : {}),

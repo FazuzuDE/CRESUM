@@ -194,7 +194,7 @@ describe('exercise asset specifications', () => {
   });
 
   it('leaves the existing generic Exercise Library contract unchanged', () => {
-    expect(exerciseLibrary).toHaveLength(61);
+    expect(exerciseLibrary).toHaveLength(65);
     expect(findExercise('lat-pulldown')).toEqual({
       id: 'lat-pulldown',
       name: 'Lat Pulldown',
@@ -203,6 +203,7 @@ describe('exercise asset specifications', () => {
       equipment: ['cable'],
       movementPattern: 'vertical-pull',
       imageKey: 'lat-pulldown',
+      measurement: 'repetitions',
     });
     const exactIds = [
       'lat-pulldown-wide-pronated-bar',
@@ -211,7 +212,16 @@ describe('exercise asset specifications', () => {
     ];
     for (const id of exactIds) expect(findExercise(id)?.id).toBe(id);
     expect(
-      exerciseLibrary.filter(({ id }) => !exactIds.includes(id)),
+      exerciseLibrary.filter(
+        ({ id }) =>
+          !exactIds.includes(id) &&
+          ![
+            'standing-cable-anti-rotation-press',
+            'bodyweight-step-up',
+            'dumbbell-floor-glute-bridge',
+            'lying-barbell-triceps-extension',
+          ].includes(id),
+      ),
     ).toHaveLength(58);
     expect(getCatalogVariant('lat-pulldown')).toMatchObject({
       configuration: 'unspecified',
@@ -221,6 +231,6 @@ describe('exercise asset specifications', () => {
     expect(approvedExerciseAssetSpecifications.variant).toEqual(
       getCatalogVariant('lat-pulldown-close-neutral-v-handle'),
     );
-    expect(new Set(exerciseLibrary.map(({ id }) => id)).size).toBe(61);
+    expect(new Set(exerciseLibrary.map(({ id }) => id)).size).toBe(65);
   });
 });

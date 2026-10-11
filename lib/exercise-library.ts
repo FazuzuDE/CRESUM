@@ -3,7 +3,11 @@ import type { EquipmentId, MuscleId } from './exercise-taxonomy';
 
 const exercise = (
   value: Omit<LibraryExercise, 'imageKey'> & { imageKey?: string },
-): LibraryExercise => ({ ...value, imageKey: value.imageKey ?? value.id });
+): LibraryExercise => ({
+  measurement: 'repetitions',
+  ...value,
+  imageKey: value.imageKey ?? value.id,
+});
 
 export const exerciseLibrary = [
   exercise({
@@ -448,6 +452,7 @@ export const exerciseLibrary = [
   }),
   exercise({
     id: 'plank',
+    measurement: 'duration',
     name: 'Plank',
     primaryMuscles: ['abs'],
     secondaryMuscles: ['glutes'],
@@ -488,11 +493,46 @@ export const exerciseLibrary = [
   }),
   exercise({
     id: 'farmers-carry',
+    measurement: 'distance',
     name: "Farmer's Carry",
     primaryMuscles: ['forearms', 'traps'],
     secondaryMuscles: ['abs', 'glutes'],
     equipment: ['dumbbell'],
     movementPattern: 'carry',
+  }),
+  exercise({
+    id: 'standing-cable-anti-rotation-press',
+    name: 'Standing Cable Anti-rotation Press',
+    primaryMuscles: ['abs'],
+    secondaryMuscles: [],
+    equipment: ['cable'],
+    movementPattern: 'core',
+    perSide: true,
+  }),
+  exercise({
+    id: 'bodyweight-step-up',
+    name: 'Bodyweight Step-up',
+    primaryMuscles: ['quadriceps', 'glutes'],
+    secondaryMuscles: ['hamstrings'],
+    equipment: ['bodyweight', 'step-platform'],
+    movementPattern: 'lunge',
+    perSide: true,
+  }),
+  exercise({
+    id: 'dumbbell-floor-glute-bridge',
+    name: 'Dumbbell Floor Glute Bridge',
+    primaryMuscles: ['glutes'],
+    secondaryMuscles: ['hamstrings'],
+    equipment: ['dumbbell'],
+    movementPattern: 'hinge',
+  }),
+  exercise({
+    id: 'lying-barbell-triceps-extension',
+    name: 'Lying Barbell Triceps Extension',
+    primaryMuscles: ['triceps'],
+    secondaryMuscles: [],
+    equipment: ['barbell', 'bench'],
+    movementPattern: 'isolation',
   }),
 ] as const satisfies readonly LibraryExercise[];
 

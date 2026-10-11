@@ -200,7 +200,9 @@ it('uses the reusable library to append an exercise to an active workout', () =>
   const sheet = view.root.findByType(ExerciseLibrary);
   expect(sheet.props.visible).toBe(true);
 
-  act(() => sheet.props.onAdd(exerciseLibrary.at(-1)));
+  act(() =>
+    sheet.props.onAdd(exerciseLibrary.find(({ id }) => id === 'farmers-carry')),
+  );
   const transform = update.mock.calls.at(-1)?.[0];
   expect(transform(session).exercises.at(-1).libraryId).toBe('farmers-carry');
   act(() => view.unmount());

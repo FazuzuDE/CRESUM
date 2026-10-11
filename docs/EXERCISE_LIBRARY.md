@@ -72,3 +72,14 @@ Future production preserves this responsibility chain:
 The library establishes stable identity; the exact variant removes mechanical ambiguity; reviewed biomechanics establishes movement truth; later visual and prompt stages consume those approved inputs rather than inventing them; generation creates drafts; QA gates approval; and tracking remains separate from catalog identity.
 
 This documentation does not define the Visual Specification, Prompt Builder, generator, tracker data model, providers, automation, or integration. Those require a separate approved stage. Detailed production, naming, visual-mode, and QA rules live in `EXERCISE_ASSETS.md` and `DESIGN_SYSTEM.md`.
+
+## Starter-program movement pack — implementation
+
+The flat catalog adds four stable IDs (65 records total):
+
+- `standing-cable-anti-rotation-press`: standing, chest-height lateral cable, two-handed press away from the torso; repeat facing the other direction. Cable choice is a CRESUM Gym adaptation of ACE's band/cable movement.
+- `bodyweight-step-up`: controlled step onto a stable raised platform and return, performed with each lead leg. This unloaded beginner configuration is a CRESUM adaptation of ACE's dumbbell step-up; it does not silently accept another equipment variant.
+- `dumbbell-floor-glute-bridge`: upper back on the floor, one supported dumbbell across the hips. HSS distinguishes this from bench-supported hip thrusts.
+- `lying-barbell-triceps-extension`: supine on a flat bench, closed pronated bar grip, elbow extension; distinct from overhead cable extension.
+
+The existing family adapter may leave these explicitly unmapped until its configuration model covers them. Sources and reviewed movement boundaries are recorded in `EXERCISE_BIOMECHANICS.md`. Placeholder artwork remains; no production image is approved. Per-side execution requires the matching logging contract before release; adding metadata alone is not readiness.
