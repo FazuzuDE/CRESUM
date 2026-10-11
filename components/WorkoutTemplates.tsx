@@ -11,7 +11,7 @@ import { Confirmation } from './Confirmation';
 import { GlassCard } from './GlassCard';
 import { TemplateEditor } from './TemplateEditor';
 import { successHaptic } from './Workout';
-import { findExercise } from '@/lib/exercise-library';
+import { templateDetails } from '@/lib/home-dashboard';
 import type { WorkoutTemplate } from '@/lib/workout-model';
 import type { TemplateMutationResult } from '@/lib/workout-store';
 import type { TemplateDraft } from '@/lib/workout-templates';
@@ -264,23 +264,16 @@ export function WorkoutTemplates({
           onSave={save}
           onCancel={() => setEditor(null)}
         />
-      ) : (
-        <AppButton
-          title="Create Workout"
-          disabled={busy}
-          onPress={() => setEditor({ mode: 'create' })}
-        />
-      )}
+      ) : null}
 
       <GlassCard style={s.card}>
-        <Text style={s.title}>Saved workouts</Text>
+        <Text style={s.title} accessibilityRole="header">
+          Your workouts
+        </Text>
         {templates.length ? (
           templates.map((template, index) => {
             const builtIn = isBuiltInTemplate(template.id);
-            const available = template.exerciseIds.filter((id) =>
-              findExercise(id),
-            ).length;
-            const unavailable = template.exerciseIds.length - available;
+            const details = templateDetails(template);
             return (
               <Swipeable
                 key={`${template.id}-${index}`}
@@ -402,8 +395,7 @@ export function WorkoutTemplates({
                   >
                     <Text style={s.name}>{template.name}</Text>
                     <Text style={s.metadata}>
-                      {available} available exercise{available === 1 ? '' : 's'}
-                      {unavailable ? ` · ${unavailable} unavailable` : ''}
+                      {details.count} · {details.plannedSetCount} planned sets
                       {builtIn ? ' · Built-in' : ''}
                     </Text>
                   </Pressable>
@@ -420,6 +412,13 @@ export function WorkoutTemplates({
         ) : (
           <Text style={s.metadata}>No workouts available.</Text>
         )}
+        {!editor ? (
+          <AppButton
+            title="Create Workout"
+            disabled={busy}
+            onPress={() => setEditor({ mode: 'create' })}
+          />
+        ) : null}
       </GlassCard>
     </>
   );
@@ -450,20 +449,30 @@ function TemplateAction({
       accessibilityState={{ disabled }}
       disabled={disabled}
       onPress={onPress}
-      style={({ pressed }) => [s.action, (pressed || disabled) && s.dimmed]}
+      style={({ pressed }) => [
+        s.action,
+        icon === 'ellipsis-horizontal' && s.moreAction,
+        (pressed || disabled) && s.dimmed,
+      ]}
     >
       <Ionicons
         name={icon}
         size={20}
-        color={danger ? colors.danger : colors.primary}
+        color={
+          danger
+            ? colors.danger
+            : icon === 'ellipsis-horizontal'
+              ? colors.textSecondary
+              : colors.primary
+        }
       />
     </Pressable>
   );
 }
 
 const s = StyleSheet.create({
-  card: { gap: spacing.xs },
-  title: { ...typography.headline, color: colors.textPrimary },
+  card: { gap: spacing.sm, borderRadius: radius.xxl },
+  title: { ...typography.title3, fontWeight: '700', color: colors.textPrimary },
   swipeContainer: {
     overflow: 'hidden',
     backgroundColor: colors.surface,
@@ -512,6 +521,7 @@ const s = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  moreAction: { backgroundColor: 'transparent' },
   dimmed: { opacity: 0.5 },
   menuRoot: { flex: 1, backgroundColor: colors.background },
   menuContent: { padding: spacing.md, gap: spacing.sm },

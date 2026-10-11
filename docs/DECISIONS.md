@@ -2,6 +2,26 @@
 
 This chronological log records approved decisions. The owning product, design, roadmap, and engineering documents remain the detailed sources of truth.
 
+## 2026-10-11 — Selected Profile mockup
+
+Status: Approved — pending Git integration
+
+- The user approved Profile's generated light mockup and its implementation
+  as a focused PR after Home, Workout and Progress alignment.
+- Use the same brand/header language, readable type hierarchy and rounded white
+  cards for existing workouts, conditional hidden-workout restoration,
+  personalization, local data and About. Create follows the workout rows;
+  Restore/reset are compact text actions and Personalization is a chevron row.
+- Preserve all existing actions, menus, gestures, destructive confirmations,
+  errors, real version metadata, offline data and the shared smooth up-arrow.
+- Reuse Home's factual template projection for planned-set counts, including
+  legacy defaults/unavailable references. Do not copy demo fixtures or infer
+  performed sets. The mockup's About chevron is decorative, not a new route.
+- No Account/Auth, cloud sync, new settings, Expo server or automatic merge.
+  Native phone/Dynamic Type/gesture review remains required.
+
+Related: `PRODUCT.md`, `DESIGN_SYSTEM.md`, `ROADMAP.md`.
+
 ## 2026-10-10 — Full-period volume curves and phone feedback
 
 Status: Approved — pending Git integration

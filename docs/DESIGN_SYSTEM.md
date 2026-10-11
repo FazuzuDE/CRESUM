@@ -422,6 +422,31 @@ Preserve all estimate/detail sheets, empty states and access to the complete His
 This reference does not add the blueprint's future analysis tabs, muscle map,
 new analytics or illustrations. Native sheets and Dynamic Type need phone QA.
 
+### Selected Profile reference — 2026-10-11
+
+Align Profile with the selected Home/Progress language: dark spaced CRESUM
+wordmark, quiet tagline, a 34 pt screen title and readable gray explanation.
+Use the existing background/surface, 16 pt screen/card insets, 24 pt section
+gaps, 28 pt card radius and soft card shadow. Card headings use the existing
+20/25 title3 role with 700 weight; metadata uses the 13/18 footnote role and
+textSecondary. Adapt wrapping to compact screens and Dynamic Type.
+
+Keep Your workouts in one white card with compact named rows, factual planned
+metadata, neutral ellipsis controls, subtle dividers and a blue Create Workout
+action after the list. Preserve left swipe, long press and accessible menus;
+the editor and all existing actions stay available. Remove duplicated outside
+headings/uppercase section labels rather than adding nested card surfaces.
+
+Hidden workouts is conditional, with a wrapping name and compact blue Restore
+text action, labelled accessibly with its workout name. Training preferences
+uses a surfaceSubtle Personalization row and decorative blue chevron. Local
+data uses a quiet danger-colored Reset local data text action with the existing
+confirmation/error behavior. All actions retain at least 44 pt touch targets
+and pressed/disabled feedback. About remains a static CRESUM/real-version card;
+the generated mockup's About chevron does not authorize a new destination.
+Retain the existing dock and shared smooth two-step up-arrow; the arrow is
+hidden at page top. No global theme or functional scope change is included.
+
 ## 14. Motion / haptics
 
 Motion should make CRESUM feel alive, not animated. Use it to explain an interaction, confirm an action, preserve spatial continuity, or clarify a state transition. Avoid decorative loops, long springy movement, and animation that slows logging. Button-press guidance of roughly 100–160ms and card/sheet guidance of roughly 180–260ms are starting points, not a frozen motion specification.

@@ -7,7 +7,7 @@ import { defaultTemplates } from '@/lib/workout-catalog';
 import type { WorkoutTemplate } from '@/lib/workout-model';
 import type { TemplateMutationResult } from '@/lib/workout-store';
 import type { TemplateDraft } from '@/lib/workout-templates';
-import { colors, spacing, typography } from '@/lib/theme';
+import { colors, radius, spacing, typography } from '@/lib/theme';
 
 export type ProfileSettingsProps = {
   templates: WorkoutTemplate[];
@@ -50,18 +50,19 @@ export function ProfileSettings({
   return (
     <AppScrollView contentContainerStyle={s.content}>
       <View style={s.header}>
-        <Text style={s.brand}>CRESUM</Text>
-        <Text style={s.title} accessibilityRole="header">
-          Profile
-        </Text>
-        <Text style={s.sub}>Your workouts and app details</Text>
+        <View style={s.brandRow}>
+          <Text style={s.brand}>CRESUM</Text>
+          <Text style={s.tagline}>TRAIN. TRACK. GROW.</Text>
+        </View>
+        <View style={s.heading}>
+          <Text style={s.title} accessibilityRole="header">
+            Profile
+          </Text>
+          <Text style={s.subtitle}>Your workouts and app details</Text>
+        </View>
       </View>
 
       <View style={s.section}>
-        <Text style={s.sectionLabel}>WORKOUT</Text>
-        <Text style={s.sectionTitle} accessibilityRole="header">
-          Your workouts
-        </Text>
         <WorkoutTemplates
           templates={templates}
           busy={busy}
@@ -76,81 +77,69 @@ export function ProfileSettings({
       </View>
 
       {hiddenBuiltInIds.length ? (
-        <View style={s.section}>
-          <Text style={s.sectionLabel}>WORKOUT SETTINGS</Text>
-          <GlassCard style={s.about}>
-            <Text style={s.sectionTitle} accessibilityRole="header">
-              Hidden built-in workouts
-            </Text>
-            <Text style={s.sub}>
-              Restore a built-in workout to My Workouts.
-            </Text>
-            {defaultTemplates
-              .filter((template) => hiddenBuiltInIds.includes(template.id))
-              .map((template) => (
+        <GlassCard style={s.card}>
+          <Text style={s.sectionTitle} accessibilityRole="header">
+            Hidden workouts
+          </Text>
+          <Text style={s.sub}>Restore a workout to your list.</Text>
+          {defaultTemplates
+            .filter((template) => hiddenBuiltInIds.includes(template.id))
+            .map((template) => (
+              <View key={template.id} style={s.restoreRow}>
+                <Text style={s.restoreName}>{template.name}</Text>
                 <AppButton
-                  key={template.id}
-                  title={`Restore ${template.name}`}
-                  secondary
+                  title="Restore"
+                  accessibilityLabel={`Restore ${template.name}`}
+                  presentation="text"
                   disabled={busy || !restoreBuiltIn}
                   onPress={() => void restoreBuiltIn?.(template.id)}
                 />
-              ))}
-          </GlassCard>
-        </View>
+              </View>
+            ))}
+        </GlassCard>
       ) : null}
       {hiddenError ? (
-        <Text accessibilityRole="alert" style={s.sub}>
+        <Text accessibilityRole="alert" style={s.error}>
           {hiddenError}
         </Text>
       ) : null}
 
-      <View style={s.section}>
-        <Text style={s.sectionLabel}>PERSONALIZATION</Text>
-        <GlassCard style={s.about}>
-          <Text style={s.sectionTitle} accessibilityRole="header">
-            Training preferences
-          </Text>
-          <Text style={s.sub}>
-            You can add or change your preferences at any time.
-          </Text>
-          {onPersonalize ? (
-            <AppButton
-              title="Personalization"
-              secondary
-              onPress={onPersonalize}
-            />
-          ) : null}
-        </GlassCard>
-      </View>
+      <GlassCard style={s.card}>
+        <Text style={s.sectionTitle} accessibilityRole="header">
+          Training preferences
+        </Text>
+        <Text style={s.sub}>Personalize your training at any time.</Text>
+        {onPersonalize ? (
+          <AppButton
+            title="Personalization"
+            secondary
+            presentation="row"
+            onPress={onPersonalize}
+          />
+        ) : null}
+      </GlassCard>
 
-      <View style={s.section}>
-        <Text style={s.sectionLabel}>DATA</Text>
-        <GlassCard style={s.about}>
-          <Text style={s.sectionTitle} accessibilityRole="header">
-            Local data
-          </Text>
-          <Text style={s.sub}>
-            Remove all CRESUM data saved on this device.
-          </Text>
-          {onResetLocalData ? (
-            <AppButton
-              title="Reset local data"
-              destructive
-              disabled={busy}
-              onPress={onResetLocalData}
-            />
-          ) : null}
-        </GlassCard>
-      </View>
+      <GlassCard style={s.card}>
+        <Text style={s.sectionTitle} accessibilityRole="header">
+          Local data
+        </Text>
+        <Text style={s.sub}>Remove all CRESUM data saved on this device.</Text>
+        {onResetLocalData ? (
+          <AppButton
+            title="Reset local data"
+            destructive
+            presentation="text"
+            disabled={busy}
+            onPress={onResetLocalData}
+          />
+        ) : null}
+      </GlassCard>
 
-      <View style={s.section}>
-        <Text style={s.sectionLabel}>ABOUT</Text>
-        <GlassCard style={s.about}>
-          <Text style={s.aboutTitle}>CRESUM</Text>
-          {version ? <Text style={s.sub}>Version {version}</Text> : null}
-        </GlassCard>
-      </View>
+      <GlassCard style={s.card}>
+        <Text style={s.aboutTitle}>CRESUM</Text>
+        <Text style={s.sub}>About the app</Text>
+        {version ? <Text style={s.sub}>Version {version}</Text> : null}
+      </GlassCard>
     </AppScrollView>
   );
 }
@@ -164,13 +153,43 @@ const s = StyleSheet.create({
     paddingBottom: spacing.lg,
     gap: spacing.lg,
   },
-  header: { gap: spacing.xxs },
-  brand: { ...typography.caption, color: colors.primary },
+  header: { gap: spacing.lg, paddingVertical: spacing.xs },
+  brandRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    gap: spacing.xs,
+  },
+  brand: {
+    ...typography.caption,
+    fontWeight: '700',
+    letterSpacing: 4,
+    color: colors.textPrimary,
+  },
+  tagline: {
+    ...typography.caption,
+    letterSpacing: 1,
+    color: colors.textSecondary,
+  },
+  heading: { gap: spacing.xxs },
   title: { ...typography.largeTitle, color: colors.textPrimary },
   sub: { ...typography.footnote, color: colors.textSecondary },
+  subtitle: { ...typography.subheadline, color: colors.textSecondary },
   section: { gap: spacing.sm },
-  sectionLabel: { ...typography.caption, color: colors.textSecondary },
-  sectionTitle: { ...typography.title3, color: colors.textPrimary },
-  about: { gap: spacing.xxs },
+  sectionTitle: {
+    ...typography.title3,
+    fontWeight: '700',
+    color: colors.textPrimary,
+  },
+  card: { gap: spacing.sm, borderRadius: radius.xxl },
+  restoreRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.xs,
+  },
+  restoreName: { ...typography.headline, color: colors.textPrimary, flex: 1 },
+  error: { ...typography.footnote, color: colors.danger },
   aboutTitle: { ...typography.headline, color: colors.textPrimary },
 });

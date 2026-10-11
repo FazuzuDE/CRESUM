@@ -21,7 +21,9 @@ export type HomeTemplateDetails = {
   plannedSetCount: number;
 };
 
-function templateDetails(template: WorkoutTemplate): HomeTemplateDetails {
+export function templateDetails(
+  template: WorkoutTemplate,
+): HomeTemplateDetails {
   const available = template.exerciseIds.flatMap((id) => {
     const exercise = findExercise(id);
     return exercise ? [exercise] : [];

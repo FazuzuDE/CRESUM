@@ -54,9 +54,9 @@ it('shows a truthful Profile and About without fake account or preference contro
     .join(' ');
   expect(text).toContain('CRESUM');
   expect(text).toContain('Profile');
-  expect(text).toContain('WORKOUT');
   expect(text).toContain('Your workouts');
-  expect(text).toContain('ABOUT');
+  expect(text).toContain('TRAIN. TRACK. GROW.');
+  expect(text).not.toContain('Saved workouts');
   expect(text).toContain('Version 9.4.7');
   expect(text).not.toContain('FitFlow');
   expect(text).not.toContain('Local MVP');
