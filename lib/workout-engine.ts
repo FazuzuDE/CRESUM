@@ -2,6 +2,7 @@ import {
   isSetComplete,
   LibraryExercise,
   PlannedExercise,
+  ProgramSlotContext,
   WorkoutExercise,
   WorkoutSession,
   WorkoutSet,
@@ -57,7 +58,9 @@ export const startWorkout = (
   library: readonly LibraryExercise[],
   now = Date.now(),
   idFactory: IdFactory = defaultIdFactory,
+  programSlot?: ProgramSlotContext,
 ): WorkoutSession => ({
+  ...(programSlot ? { programSlot: clone(programSlot) } : {}),
   id: idFactory(),
   templateId: template.id,
   name: template.name,

@@ -1,3 +1,6 @@
+import { TrainingProgramWeek } from './TrainingProgramWeek';
+import type { ProgramAssignment } from '@/lib/training-programs/assignment';
+import type { ProjectedProgramSlot } from '@/lib/training-programs/schedule';
 import { AppScrollView } from './AppScrollView';
 import { useEffect, useState } from 'react';
 import { AppState, Pressable, StyleSheet, Text, View } from 'react-native';
@@ -14,6 +17,11 @@ import type { WorkoutSession, WorkoutTemplate } from '@/lib/workout-model';
 import { colors, radius, spacing, typography } from '@/lib/theme';
 
 type HomeProps = {
+  assignment?: ProgramAssignment | null;
+  startProgramSlot?: (
+    slot: ProjectedProgramSlot,
+    template: WorkoutTemplate,
+  ) => void;
   history: WorkoutSession[];
   activeWorkout: WorkoutSession | null;
   onResume: () => void;
@@ -268,6 +276,8 @@ export function HomeDashboard({
   startTemplate,
   templates,
   onOpenProfile,
+  assignment,
+  startProgramSlot,
 }: HomeProps) {
   const [now, setNow] = useState(Date.now);
   const [gridTop, setGridTop] = useState(0);
@@ -284,16 +294,31 @@ export function HomeDashboard({
     };
   }, []);
   const data = projectHomeDashboard(history, activeWorkout, templates, now);
-  const content = {
-    primary: (
-      <PrimaryWorkoutWidget
-        activeWorkout={activeWorkout}
-        featured={data.primaryTemplate}
-        hasTemplates={templates.length > 0}
-        onResume={onResume}
-        startTemplate={startTemplate}
+  const program =
+    assignment && startProgramSlot ? (
+      <TrainingProgramWeek
+        assignment={assignment}
+        history={history}
+        templates={templates}
+        active={Boolean(activeWorkout)}
+        now={now}
+        onStart={startProgramSlot}
+        onManage={onOpenProfile}
       />
-    ),
+    ) : null;
+  const content = {
+    primary:
+      program && !activeWorkout ? (
+        program
+      ) : (
+        <PrimaryWorkoutWidget
+          activeWorkout={activeWorkout}
+          featured={data.primaryTemplate}
+          hasTemplates={templates.length > 0}
+          onResume={onResume}
+          startTemplate={startTemplate}
+        />
+      ),
     summary: (
       <TrainingSummaryWidget
         totalVolume={data.fourWeeks.totalVolume}
@@ -317,6 +342,8 @@ export function HomeDashboard({
       : [];
   });
 
+  if (program && activeWorkout)
+    items.splice(1, 0, { id: 'program', size: 'medium', content: program });
   return (
     <AppScrollView
       contentContainerStyle={[s.content, s.homeContent]}

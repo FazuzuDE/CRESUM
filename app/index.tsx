@@ -54,6 +54,7 @@ import {
 import { OnboardingRepository } from '@/lib/onboarding-repository';
 import { ProgramRepository } from '@/lib/training-programs/repository';
 import { ProgramAcceptance } from '@/lib/training-programs/acceptance';
+import type { ProjectedProgramSlot } from '@/lib/training-programs/schedule';
 import type { ProgramAssignment } from '@/lib/training-programs/assignment';
 import { resetLocalData } from '@/lib/local-data-reset';
 import { HiddenBuiltInsRepository } from '@/lib/hidden-builtins';
@@ -426,6 +427,18 @@ export default function App() {
       Alert.alert('Cannot start workout', (problem as Error).message);
     }
   };
+  const startProgramSlot = (slot: ProjectedProgramSlot, template: Template) => {
+    if (data.activeWorkout) {
+      setTab('workout');
+      return;
+    }
+    try {
+      store.start(template, slot.context);
+      setTab('workout');
+    } catch (problem) {
+      Alert.alert('Cannot start planned workout', (problem as Error).message);
+    }
+  };
   const updateHiddenBuiltIns = async (next: string[]): Promise<boolean> => {
     if (hiddenOperation.current || resetInProgress.current) return false;
     hiddenOperation.current = true;
@@ -449,7 +462,6 @@ export default function App() {
       setHiddenBusy(false);
     }
   };
-  void assignment;
   const visibleTemplates = data.templates.filter(
     (template) => !hiddenBuiltInIds.includes(template.id),
   );
@@ -644,6 +656,8 @@ export default function App() {
           ) : null}
           {tab === 'home' ? (
             <HomeDashboard
+              assignment={assignment}
+              startProgramSlot={startProgramSlot}
               history={data.history}
               activeWorkout={data.activeWorkout}
               onResume={() => setTab('workout')}

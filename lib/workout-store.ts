@@ -1,6 +1,11 @@
 import { exerciseLibrary } from './workout-catalog';
 import { finishWorkout, startWorkout } from './workout-engine';
-import { WorkoutSession, WorkoutState, WorkoutTemplate } from './workout-model';
+import {
+  ProgramSlotContext,
+  WorkoutSession,
+  WorkoutState,
+  WorkoutTemplate,
+} from './workout-model';
 import { emptyWorkoutState, WorkoutRepository } from './workout-repository';
 import {
   createTemplate as createTemplateInList,
@@ -70,12 +75,25 @@ export class WorkoutStore {
     if (!ready || busy || !data.activeWorkout) return;
     this.persist({ ...data, activeWorkout: transform(data.activeWorkout) });
   }
-  start(template: WorkoutTemplate) {
+  start(template: WorkoutTemplate, programSlot?: ProgramSlotContext) {
     const { data, ready, busy } = this.snapshot;
     if (!ready || busy) return;
     if (data.activeWorkout)
       throw new Error('Resume your active workout before starting another.');
-    const activeWorkout = startWorkout(template, exerciseLibrary);
+    if (
+      programSlot &&
+      template.exerciseIds.some(
+        (id) => !exerciseLibrary.some((e) => e.id === id),
+      )
+    )
+      throw Error('Required program exercises are unavailable.');
+    const activeWorkout = startWorkout(
+      template,
+      exerciseLibrary,
+      Date.now(),
+      undefined,
+      programSlot,
+    );
     if (!activeWorkout.exercises.length)
       throw new Error('This template has no available exercises.');
     this.persist({ ...data, activeWorkout });

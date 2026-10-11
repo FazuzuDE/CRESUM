@@ -1,3 +1,5 @@
+import { validLocalDate } from './training-programs/assignment';
+import type { ProgramSlotContext } from './workout-model';
 import { defaultTemplates } from './workout-catalog';
 import { WorkoutSession, WorkoutState, WorkoutTemplate } from './workout-model';
 import {
@@ -96,6 +98,20 @@ function session(
     !Array.isArray(value.exercises)
   )
     return invalid();
+  if (value.programSlot !== undefined) {
+    const slot = value.programSlot;
+    if (
+      !object(slot) ||
+      !string(slot.assignmentId) ||
+      !Number.isSafeInteger(slot.weekIndex) ||
+      Number(slot.weekIndex) < 0 ||
+      !Number.isSafeInteger(slot.slotIndex) ||
+      Number(slot.slotIndex) < 0 ||
+      !string(slot.date) ||
+      !validLocalDate(slot.date)
+    )
+      return invalid();
+  }
   const startedAt = value.startedAt;
   const finishedAt = value.finishedAt as number | undefined;
   if (
@@ -175,6 +191,9 @@ function session(
     : 0;
   return {
     id: value.id,
+    ...(value.programSlot === undefined
+      ? {}
+      : { programSlot: { ...(value.programSlot as ProgramSlotContext) } }),
     name: value.name,
     templateId: string(value.templateId) ? value.templateId : 'legacy',
     startedAt,
