@@ -17,6 +17,7 @@ import type { WorkoutSession, WorkoutTemplate } from '@/lib/workout-model';
 import { colors, radius, spacing, typography } from '@/lib/theme';
 
 type HomeProps = {
+  displayName?: string;
   assignment?: ProgramAssignment | null;
   startProgramSlot?: (
     slot: ProjectedProgramSlot,
@@ -270,6 +271,7 @@ function WorkoutTemplatesWidget({
 }
 
 export function HomeDashboard({
+  displayName,
   history,
   activeWorkout,
   onResume,
@@ -359,7 +361,11 @@ export function HomeDashboard({
         <View style={s.greetingRow}>
           <View style={s.greetingCopy}>
             <Text style={s.title} accessibilityRole="header">
-              {history.length ? 'Welcome back' : 'Welcome'}
+              {displayName?.trim()
+                ? `Welcome back, ${displayName.trim()}!`
+                : history.length
+                  ? 'Welcome back'
+                  : 'Welcome'}
             </Text>
             <Text style={s.greeting}>A good day for progress.</Text>
           </View>

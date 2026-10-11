@@ -57,8 +57,10 @@ schedule-day changes must retain recovery and weekly-volume meaning.
 
 ### Other Core polish
 
-- Selected Profile reference alignment: compact existing-workout card with
-  factual planned metadata and creation below the rows; conditional restoration,
+- Profile identity/body-weight follow-up: compact WORKOUTS wordmark entry opens
+  a dedicated routines page; named Welcome → optional DOB/height/weight → Goal
+  → Experience → START!; Home uses the stored name. Progress keeps a separate
+  persistent body-weight curve and measurement sheet. Retain conditional restoration,
   personalization row, quiet destructive local reset, and static real-version
   About. Preserve management gestures, confirmations and the shared up-arrow.
   Physical-phone layout, gestures, safe area and Dynamic Type review remains

@@ -681,3 +681,7 @@ no active session. A canonical installation marker prevents deleted or edited
 routines from being overwritten during retry. The planned week is independent
 of actual completion statistics and supports explicit slot-linked workouts.
 Phone/accessibility review and GitHub integration are still outstanding.
+
+## 2026-10-11 — Profile identity and body-weight follow-up
+
+User requested the compact WORKOUTS wordmark entry and separate saved-routines page, consistent dark primary text, stored-name Home greeting and new first-run order: Welcome/name → optional DOB/height/weight → Goal → Experience → START!. DOB replaces age input with compatible legacy reads; birthday greetings remain deferred. Starting body mass seeds its own factual journal once; current measurements drive a neutral Progress curve independently of training volume. Existing management, manual setup, History and shared smooth return control remain. Status: implemented on feature branch, pending PR integration and physical-phone QA.

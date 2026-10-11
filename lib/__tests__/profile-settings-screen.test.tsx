@@ -54,7 +54,7 @@ it('shows a truthful Profile and About without fake account or preference contro
     .join(' ');
   expect(text).toContain('CRESUM');
   expect(text).toContain('Profile');
-  expect(text).toContain('Your workouts');
+  expect(text).toContain('WORKOUTS');
   expect(text).toContain('TRAIN. TRACK. GROW.');
   expect(text).not.toContain('Saved workouts');
   expect(text).toContain('Version 9.4.7');
@@ -63,6 +63,13 @@ it('shows a truthful Profile and About without fake account or preference contro
   expect(text).not.toContain('Sign in');
   expect(text).not.toContain('Sync now');
   expect(text).not.toContain('Customize Home');
+  expect(view.root.findAllByType(WorkoutTemplates)).toHaveLength(0);
+  act(() =>
+    view.root
+      .findAllByType(AppButton)
+      .find((b: { props: { title: string } }) => b.props.title === 'WORKOUTS')
+      .props.onPress(),
+  );
   expect(view.root.findByType(WorkoutTemplates).props.templates).toEqual(
     defaultTemplates,
   );
@@ -86,7 +93,14 @@ it('keeps the Profile tab and navigation to Home functional', async () => {
   });
   act(() => view.root.findByType(Dock).props.onChange('profile'));
   expect(view.root.findByType(Dock).props.active).toBe('profile');
-  expect(JSON.stringify(view.toJSON())).toContain('Your workouts');
+  expect(JSON.stringify(view.toJSON())).toContain('WORKOUTS');
+  expect(view.root.findAllByType(WorkoutTemplates)).toHaveLength(0);
+  act(() =>
+    view.root
+      .findAllByType(AppButton)
+      .find((b: { props: { title: string } }) => b.props.title === 'WORKOUTS')
+      .props.onPress(),
+  );
   expect(view.root.findByType(WorkoutTemplates)).toBeDefined();
   act(() => view.root.findByType(Dock).props.onChange('home'));
   expect(view.root.findByType(Dock).props.active).toBe('home');

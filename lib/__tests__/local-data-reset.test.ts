@@ -3,6 +3,10 @@ import { WorkoutRepository } from '../workout-repository';
 import { defaultTemplates } from '../workout-catalog';
 
 const original = new Map([
+  [
+    'cresum_body_weight_v1',
+    '{"version":1,"entries":[{"id":"initial","recordedAt":1000,"kg":80}]}',
+  ],
   ['cresum_training_program_v1', '{"version":1}'],
   ['cresum_onboarding_v1', '{"version":1}'],
   ['cresum_hidden_builtins_v1', '{"version":1,"ids":["upper"]}'],

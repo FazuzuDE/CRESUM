@@ -1,4 +1,5 @@
 import { PROGRAM_KEY } from './training-programs/repository';
+import { BODY_WEIGHT_KEY } from './body-weight';
 import { HIDDEN_BUILT_INS_KEY } from './hidden-builtins';
 import { ONBOARDING_KEY } from './onboarding-repository';
 import { LEGACY_KEYS, STATE_KEY } from './workout-repository';
@@ -6,6 +7,7 @@ import { LEGACY_KEYS, STATE_KEY } from './workout-repository';
 // Remove the canonical workout document last. If interrupted earlier, it still
 // protects the existing workouts from legacy re-import or first-run gating.
 export const LOCAL_DATA_KEYS = [
+  BODY_WEIGHT_KEY,
   ONBOARDING_KEY,
   PROGRAM_KEY,
   HIDDEN_BUILT_INS_KEY,
