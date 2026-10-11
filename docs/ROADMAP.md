@@ -29,6 +29,18 @@ Later, separately approved work may sync custom workouts, preferences/profile, a
 
 ## P1 — Product polish
 
+- Approved app-wide up-arrow on vertical pages/detail sheets, smooth native return with Reduce Motion support and retained workout reorder scrolling. Physical-phone animation pace/keyboard/safe-area review remains required.
+- Approved compact exercise performance graph, separate logged-set details, and two-step section/page up navigation; native scrolling and large-text acceptance remain phone-review tasks.
+- Approved History compact list and independent filter below the heading: latest three by default,
+  count wheel with All / 1…saved count, or inclusive From/To dates defaulting to
+  seven local-calendar dates. Show applies; cancellation preserves results.
+  Native wheel/sheet and Dynamic Type acceptance remains a phone-review task.
+
+- Approved Progress detail pass: previous-window volume comparison, inline
+  TOP PR, consistent day/month dates and distinct chart value/scale labels.
+  Follow-up: 30-day 1M and full-period curves from 1M onward, stable missing-data
+  comparison placement and readable Workout volumes sheet colors.
+
 - Onboarding Foundation: resumable lightweight personalization or direct first-workout creation through the Guided Workout Builder, separate versioned local state, legacy-user bypass, and later Profile re-entry. Calibration and recommendations remain separate future work.
 - Home Dashboard using real app data and `docs/DESIGN_SYSTEM.md`.
 - Selected Home reference alignment: greeting/hero, paired four-week stats,
@@ -48,6 +60,8 @@ Later, separately approved work may sync custom workouts, preferences/profile, a
   records, trained-exercise performance and the existing workout-volume sheet
   in the Home/Workout style. Preserve calculations, shared periods and complete
   History; native sheet/Dynamic Type acceptance remains a phone-review task.
+  Correct overview fidelity to the selected screenshot: segmented periods,
+  pale selection, larger volume and a scaled chart with grid/dated values.
 - UI consistency, interaction states, haptics, accessibility, phone-sized layouts.
 
 ## P2 — Release readiness

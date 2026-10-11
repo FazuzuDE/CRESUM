@@ -1,6 +1,8 @@
 import { isPressable } from './pressable';
 import { FlatList, Text, TextInput, View } from 'react-native';
 import type { ReactElement } from 'react';
+import { VolumeTrendChart } from '../../components/VolumeTrendChart';
+import { EstimatedOneRepMaxBars } from '../../components/EstimatedOneRepMaxBars';
 import { ExercisePerformance } from '../../components/ExercisePerformance';
 import { WorkoutHistory } from '../../components/WorkoutHistory';
 import { Dock } from '../../components/Dock';
@@ -133,10 +135,12 @@ describe('ExercisePerformance', () => {
     try {
       press(view, 'Choose exercise for logged performance');
       press(view, 'View Saved Bench performance');
+      expect(visibleText(view)).not.toContain('57.5 kg × 9');
+      press(view, 'View logged sets');
       expect(visibleText(view)).toContain('1');
       expect(visibleText(view)).toContain('2');
       expect(visibleText(view)).not.toContain('3');
-      expect(visibleText(view)).toContain('60 kg × 8');
+      expect(JSON.stringify(view.toJSON())).toContain('60 kg × 8');
       expect(visibleText(view)).toContain('57.5 kg × 9');
       expect(visibleText(view)).not.toContain('95 kg × 5');
       expect(visibleText(view)).not.toContain('bad kg × 10');
@@ -157,10 +161,15 @@ describe('ExercisePerformance', () => {
     press(view, 'Choose exercise for logged performance');
     press(view, 'View Renamed Bench performance');
     expect(visibleText(view)).toContain('Estimated 1RM · per workout');
-    expect(visibleText(view)).toContain('95.0 kg estimated');
-    expect(visibleText(view)).toContain('76.0 kg estimated');
+    expect(JSON.stringify(view.toJSON())).toContain('95.0 kg estimated');
+    expect(
+      view.root
+        .findByType(VolumeTrendChart)
+        .props.workouts.map((p: { volume: number }) => p.volume),
+    ).toEqual([76, 95]);
+    press(view, 'View logged sets');
     expect(visibleText(view)).toContain('75 kg × 8');
-    expect(visibleText(view)).toContain('60 kg × 8');
+    expect(JSON.stringify(view.toJSON())).toContain('60 kg × 8');
     expect(JSON.stringify(view.toJSON())).toContain(
       new Date(at(22)).toLocaleString(),
     );
@@ -169,8 +178,13 @@ describe('ExercisePerformance', () => {
         <ExercisePerformance history={history} period="1W" now={now} />,
       ),
     );
-    expect(visibleText(view)).toContain('95.0 kg estimated');
-    expect(visibleText(view)).not.toContain('76.0 kg estimated');
+    expect(JSON.stringify(view.toJSON())).toContain('95.0 kg estimated');
+    expect(
+      view.root.findByType(EstimatedOneRepMaxBars).props.workouts,
+    ).toHaveLength(1);
+    expect(
+      view.root.findByType(EstimatedOneRepMaxBars).props.workouts[0].volume,
+    ).toBe(95);
     act(() => view.unmount());
   });
 
@@ -183,8 +197,8 @@ describe('ExercisePerformance', () => {
     );
     press(view, 'Choose exercise for logged performance');
     press(view, 'View Bench performance');
-    expect(visibleText(view)).toContain(
-      'Recent 3 of 4 workouts in ALL · oldest to newest',
+    expect(view.root.findByType(VolumeTrendChart).props.workouts).toHaveLength(
+      4,
     );
     press(view, 'View all 4 estimated 1RM points in ALL');
     expect(
@@ -205,8 +219,12 @@ describe('ExercisePerformance', () => {
     );
     press(view, 'Choose exercise for logged performance');
     press(view, 'View Bench performance');
+    press(view, 'View all 2 estimated 1RM points in 1M');
     const pointLabels = view.root
       .findAllByType(View)
+      .filter(
+        (item: { props: { accessible?: boolean } }) => item.props.accessible,
+      )
       .map(
         (item: { props: { accessibilityLabel?: string } }) =>
           item.props.accessibilityLabel,
@@ -228,7 +246,7 @@ describe('ExercisePerformance', () => {
     press(view, 'Choose exercise for logged performance');
     press(view, 'View Bench performance');
     expect(visibleText(view)).toContain('One saved estimate; no trend yet.');
-    expect(visibleText(view)).toContain('0.0 kg estimated');
+    expect(JSON.stringify(view.toJSON())).toContain('0.0 kg estimated');
     act(() =>
       view.update(
         <ExercisePerformance history={history} period="1W" now={now} />,
@@ -263,6 +281,7 @@ describe('ExercisePerformance', () => {
     act(() => view.root.findByType(TextInput).props.onChangeText('SAVED LIFT'));
     expect(JSON.stringify(view.toJSON())).not.toContain('Saved Bench');
     press(view, 'View My saved lift performance');
+    press(view, 'View logged sets');
     const rendered = JSON.stringify(view.toJSON());
     expect(rendered).toContain('recent workout');
     expect(visibleText(view)).toContain('77.5 kg × 8');
@@ -277,7 +296,7 @@ describe('ExercisePerformance', () => {
     );
     press(view, 'Choose exercise for logged performance');
     press(view, 'View Saved Bench performance');
-    expect(visibleText(view)).toContain('60 kg × 8');
+    expect(JSON.stringify(view.toJSON())).toContain('60 kg × 8');
     act(() =>
       view.update(
         <ExercisePerformance history={history} period="1W" now={now} />,
@@ -328,6 +347,7 @@ describe('ExercisePerformance', () => {
     expect(labels).toContain('View Same label (unknown-b) performance');
     press(view, 'View Same label (unknown-b) performance');
     expect(visibleText(view)).toContain('Same label (unknown-b)');
+    press(view, 'View logged sets');
     expect(visibleText(view)).toContain('50 kg × 8');
     expect(visibleText(view)).not.toContain('40 kg × 8');
     act(() => view.unmount());

@@ -10,10 +10,10 @@ import {
   Alert,
   AppState,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   View,
+  useWindowDimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
@@ -29,6 +29,7 @@ import { Confirmation } from '@/components/Confirmation';
 import { Workout, duration, successHaptic } from '@/components/Workout';
 import { WorkoutHistory } from '@/components/WorkoutHistory';
 import { ExercisePerformance } from '@/components/ExercisePerformance';
+import { ProgressScrollView } from '@/components/ProgressScrollView';
 import { TrainingVolume } from '@/components/TrainingVolume';
 import { volume } from '@/lib/workout-metrics';
 import {
@@ -38,6 +39,7 @@ import {
   projectPeriodAnalytics,
 } from '@/lib/progress-periods';
 import { completedSetCount, workoutIsComplete } from '@/lib/workout-engine';
+import { projectVolumeComparison } from '@/lib/progress-volume-comparison';
 import {
   WorkoutSession as Session,
   WorkoutTemplate as Template,
@@ -53,10 +55,17 @@ import { OnboardingRepository } from '@/lib/onboarding-repository';
 import { resetLocalData } from '@/lib/local-data-reset';
 import { HiddenBuiltInsRepository } from '@/lib/hidden-builtins';
 import type { TemplateDraft } from '@/lib/workout-templates';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import {
+  colors,
+  progressTypography,
+  radius,
+  spacing,
+  typography,
+} from '@/lib/theme';
 
 const blue = colors.primary;
 function Stats({ history }: { history: Session[] }) {
+  const { fontScale } = useWindowDimensions();
   const [period, setPeriod] = useState<ProgressPeriodId>(
     DEFAULT_PROGRESS_PERIOD,
   );
@@ -77,88 +86,150 @@ function Stats({ history }: { history: Session[] }) {
     [history, period, now],
   );
   const records = analytics.estimatedOneRepMaxRecords;
+  const comparison = useMemo(
+    () => projectVolumeComparison(history, period, now),
+    [history, period, now],
+  );
   return (
-    <ScrollView contentContainerStyle={s.content}>
-      <View style={s.progressHeader}>
-        <View style={s.brandRow}>
-          <Text style={s.brand}>CRESUM</Text>
-          <Text style={s.tagline}>TRAIN. TRACK. GROW.</Text>
-        </View>
-        <View style={s.progressHeading}>
-          <Text style={s.title} accessibilityRole="header">
-            Progress
-          </Text>
-          <Text style={s.progressSubtitle}>
-            Volume and estimated strength records
-          </Text>
-        </View>
-      </View>
-      <View style={s.periods} accessibilityLabel="Progress period">
-        {PROGRESS_PERIODS.map((option) => (
-          <Pressable
-            key={option.id}
-            accessibilityRole="button"
-            accessibilityLabel={`Progress period ${option.id}`}
-            accessibilityHint={`Show Progress for ${option.accessibilityLabel}`}
-            accessibilityState={{ selected: period === option.id }}
-            onPress={() => setPeriod(option.id)}
-            style={({ pressed }) => [
-              s.periodChip,
-              period === option.id && s.periodSelected,
-              pressed && s.pressed,
-            ]}
-          >
-            <Text
-              style={[
-                s.periodText,
-                period === option.id && s.periodSelectedText,
-              ]}
-            >
-              {option.label}
-            </Text>
-          </Pressable>
-        ))}
-      </View>
-      <TrainingVolume
-        totalVolume={analytics.totalVolume}
-        workoutVolumes={analytics.workoutVolumes}
-        period={period}
-      />
-      <GlassCard style={s.progressCard}>
-        <Text style={s.progressCardTitle} accessibilityRole="header">
-          Estimated 1RM
-        </Text>
-        <Text style={s.estimateContext}>
-          Epley formula · based on completed sets
-        </Text>
-        {analytics.excludedSampleCount > 0 ? (
-          <Text style={s.sub}>Some saved sets could not be included.</Text>
-        ) : null}
-        {records.length === 0 ? (
-          <Text style={s.sub}>No estimated records in this period.</Text>
-        ) : (
-          records.slice(0, 6).map((r, i) => (
-            <View key={r.identityKey} style={s.history}>
-              <View style={s.recordCopy}>
-                <Text style={s.h3}>{r.name}</Text>
-                <Text style={s.sub}>
-                  {r.weight} kg × {r.reps}
-                </Text>
+    <ProgressScrollView
+      contentContainerStyle={[s.content, s.progressContent]}
+      sections={[
+        {
+          id: 'overview',
+          label: 'Progress',
+          content: (
+            <View style={{ gap: spacing.md }}>
+              <View style={s.progressHeader}>
+                <View style={s.brandRow}>
+                  <Text style={s.brand}>CRESUM</Text>
+                  <Text style={s.tagline}>TRAIN. TRACK. GROW.</Text>
+                </View>
+                <View style={s.progressHeading}>
+                  <Text style={s.progressTitle} accessibilityRole="header">
+                    Progress
+                  </Text>
+                  <Text style={s.progressSubtitle}>
+                    Volume and estimated strength records
+                  </Text>
+                </View>
               </View>
-              <View style={s.recordValue}>
-                <Text style={s.value2}>
-                  {r.estimatedOneRepMax.toFixed(1)} kg
-                </Text>
-                {i === 0 && <Text style={s.pr}>TOP PR</Text>}
+              <View style={s.periods} accessibilityLabel="Progress period">
+                {PROGRESS_PERIODS.map((option) => (
+                  <Pressable
+                    key={option.id}
+                    accessibilityRole="button"
+                    accessibilityLabel={`Progress period ${option.id}`}
+                    accessibilityHint={`Show Progress for ${option.accessibilityLabel}`}
+                    accessibilityState={{ selected: period === option.id }}
+                    onPress={() => setPeriod(option.id)}
+                    style={({ pressed }) => [
+                      s.periodChip,
+                      fontScale > 1.3 && s.periodChipLargeText,
+                      pressed && s.pressed,
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        s.periodText,
+                        period === option.id && s.periodSelectedText,
+                      ]}
+                    >
+                      {option.label}
+                    </Text>
+                  </Pressable>
+                ))}
               </View>
             </View>
-          ))
-        )}
-      </GlassCard>
-      <ExercisePerformance history={history} period={period} now={now} />
-      <Text style={s.sub}>Complete saved History · all dates</Text>
-      <WorkoutHistory history={history} />
-    </ScrollView>
+          ),
+        },
+        {
+          id: 'volume',
+          label: 'Training Volume',
+          content: (
+            <>
+              <TrainingVolume
+                totalVolume={analytics.totalVolume}
+                workoutVolumes={analytics.workoutVolumes}
+                period={period}
+                comparison={comparison}
+                now={now}
+              />
+            </>
+          ),
+        },
+        {
+          id: 'records',
+          label: 'Estimated 1RM',
+          content: (
+            <>
+              <GlassCard style={s.progressCard}>
+                <Text style={s.progressCardTitle} accessibilityRole="header">
+                  Estimated 1RM
+                </Text>
+                <Text style={s.estimateContext}>
+                  Epley formula · based on completed sets
+                </Text>
+                {analytics.excludedSampleCount > 0 ? (
+                  <Text style={s.sub}>
+                    Some saved sets could not be included.
+                  </Text>
+                ) : null}
+                {records.length === 0 ? (
+                  <Text style={s.sub}>
+                    No estimated records in this period.
+                  </Text>
+                ) : (
+                  records.slice(0, 6).map((r, i) => (
+                    <View
+                      key={r.identityKey}
+                      style={[
+                        s.history,
+                        i === Math.min(records.length, 6) - 1 && s.lastRecord,
+                      ]}
+                    >
+                      <View style={s.recordCopy}>
+                        <Text style={s.recordName}>{r.name}</Text>
+                        <Text style={s.sub}>
+                          {r.weight} kg × {r.reps}
+                        </Text>
+                      </View>
+                      <View style={s.recordValue}>
+                        {i === 0 && <Text style={s.pr}>TOP PR</Text>}
+                        <Text style={s.value2}>
+                          {r.estimatedOneRepMax.toFixed(1)} kg
+                        </Text>
+                      </View>
+                    </View>
+                  ))
+                )}
+              </GlassCard>
+            </>
+          ),
+        },
+        {
+          id: 'performance',
+          label: 'Logged exercise performance',
+          content: (
+            <>
+              <ExercisePerformance
+                history={history}
+                period={period}
+                now={now}
+              />
+            </>
+          ),
+        },
+        {
+          id: 'history',
+          label: 'History',
+          content: (
+            <>
+              <WorkoutHistory history={history} />
+            </>
+          ),
+        },
+      ]}
+    />
   );
 }
 export default function App() {
@@ -613,42 +684,71 @@ const s = StyleSheet.create({
   },
   title: { ...typography.largeTitle, color: colors.textPrimary },
   sub: { ...typography.footnote, color: colors.textSecondary },
-  progressHeader: { gap: spacing.xl, paddingVertical: spacing.sm },
+  progressContent: { gap: spacing.md },
+  progressHeader: { gap: spacing.sm },
   brandRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     gap: spacing.xs,
   },
-  brand: { ...typography.caption, letterSpacing: 2, color: colors.textPrimary },
+  brand: {
+    ...progressTypography.brand,
+    letterSpacing: 4,
+    color: colors.textEmphasis,
+  },
   tagline: {
-    ...typography.caption,
+    ...progressTypography.tagline,
     letterSpacing: 1,
     color: colors.textSecondary,
   },
-  progressHeading: { gap: spacing.xs },
-  progressSubtitle: { ...typography.callout, color: colors.textSecondary },
-  progressCard: { padding: spacing.lg, borderRadius: radius.xxl },
-  progressCardTitle: { ...typography.title2, color: colors.textPrimary },
+  progressHeading: { gap: spacing.xxs },
+  progressTitle: { ...progressTypography.title, color: colors.textEmphasis },
+  progressSubtitle: {
+    ...progressTypography.explanation,
+    color: colors.textSecondary,
+  },
+  progressCard: { padding: spacing.md, borderRadius: radius.xxl },
+  progressCardTitle: {
+    ...progressTypography.sectionTitle,
+    color: colors.textEmphasis,
+  },
   estimateContext: {
     ...typography.footnote,
     color: colors.textSecondary,
     marginTop: spacing.xxs,
-    marginBottom: spacing.xs,
+    marginBottom: 0,
   },
-  periods: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs },
+  periods: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    paddingHorizontal: spacing.xxs,
+    backgroundColor: colors.surfaceSubtle,
+    borderRadius: radius.lg,
+  },
   periodChip: {
+    flexGrow: 1,
+    flexBasis: 44,
     minWidth: 44,
     minHeight: 44,
-    paddingHorizontal: spacing.sm,
-    borderRadius: radius.md,
-    backgroundColor: colors.surfaceSubtle,
+    paddingVertical: spacing.xxs,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  periodSelected: { backgroundColor: colors.primary },
-  periodText: { ...typography.subheadline, color: colors.textPrimary },
-  periodSelectedText: { color: colors.surface },
+  periodText: {
+    ...progressTypography.period,
+    color: colors.textSecondary,
+    width: '100%',
+    textAlign: 'center',
+    paddingVertical: spacing.xs,
+    borderRadius: radius.md,
+  },
+  periodChipLargeText: { flexBasis: '30%' },
+  periodSelectedText: {
+    ...progressTypography.selectedPeriod,
+    color: colors.primary,
+    backgroundColor: colors.primaryTint,
+  },
   pressed: { opacity: 0.6 },
   h3: { ...typography.headline, color: colors.textPrimary },
   pr: {
@@ -660,20 +760,30 @@ const s = StyleSheet.create({
     paddingVertical: spacing.xxs,
   },
   recordCopy: { flex: 1, minWidth: 120 },
-  recordValue: { alignItems: 'flex-end', flexShrink: 1, gap: spacing.xxs },
+  recordName: { ...progressTypography.recordName, color: colors.textPrimary },
+  recordValue: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    marginLeft: 'auto',
+    flexShrink: 1,
+    gap: spacing.xs,
+  },
   history: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: spacing.xs,
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: spacing.sm,
+    paddingVertical: spacing.xxs,
     borderBottomWidth: 1,
     borderBottomColor: colors.separator,
   },
   value2: {
-    ...typography.headline,
-    color: colors.textPrimary,
+    ...progressTypography.recordValue,
+    color: colors.textEmphasis,
     fontVariant: ['tabular-nums'],
   },
+  lastRecord: { borderBottomWidth: 0 },
 });

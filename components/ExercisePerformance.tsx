@@ -1,8 +1,8 @@
+import { AppScrollView } from './AppScrollView';
 import { useMemo, useState } from 'react';
 import {
   Modal,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -19,7 +19,13 @@ import {
 } from '@/lib/exercise-performance';
 import type { ProgressPeriodId } from '@/lib/progress-periods';
 import type { WorkoutSession } from '@/lib/workout-model';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import {
+  colors,
+  progressTypography,
+  radius,
+  spacing,
+  typography,
+} from '@/lib/theme';
 
 type Props = {
   history: readonly WorkoutSession[];
@@ -30,6 +36,7 @@ type Props = {
 export function ExercisePerformance({ history, period, now }: Props) {
   const [identityKey, setIdentityKey] = useState<string>();
   const [selectorOpen, setSelectorOpen] = useState(false);
+  const [setsOpen, setSetsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const choices = useMemo(
     () => listPerformanceExercises(history, now),
@@ -86,7 +93,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
             onPress={() => setSelectorOpen(true)}
             style={({ pressed }) => [s.choose, pressed && s.pressed]}
           >
-            <Text style={s.chooseText}>
+            <Text style={[s.chooseText, !selected && s.choosePlaceholder]}>
               {selected ? choiceLabel(selected) : 'Choose exercise'}
             </Text>
             <Ionicons
@@ -98,40 +105,80 @@ export function ExercisePerformance({ history, period, now }: Props) {
           </Pressable>
           {selected ? (
             <>
-              <EstimatedOneRepMaxSeries points={estimates} period={period} />
+              <EstimatedOneRepMaxSeries
+                points={estimates}
+                period={period}
+                now={now}
+              />
               {entries.length === 0 ? (
                 <Text style={s.empty}>
                   No logged sets for this exercise in {period}.
                 </Text>
               ) : (
-                <View style={s.entries}>
-                  {entries.map((entry) => (
-                    <View
-                      key={`${entry.workoutId}:${entry.exerciseSnapshotId}`}
-                      style={s.entry}
-                    >
-                      <Text style={s.date}>
-                        {new Date(entry.finishedAt).toLocaleString()}
-                      </Text>
-                      <Text style={s.workout}>{entry.workoutName}</Text>
-                      <View style={s.loggedSets}>
-                        {entry.sets.map((set, index) => (
-                          <View key={set.id} style={s.setRow}>
-                            <Text style={s.setNumber}>{String(index + 1)}</Text>
-                            <Text style={s.set}>
-                              {set.weight} kg × {set.reps}
-                            </Text>
-                          </View>
-                        ))}
-                      </View>
-                    </View>
-                  ))}
-                </View>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="View logged sets"
+                  style={s.close}
+                  onPress={() => setSetsOpen(true)}
+                >
+                  <Text style={s.closeText}>View logged sets</Text>
+                </Pressable>
               )}
             </>
           ) : null}
         </>
       )}
+      <Modal
+        visible={setsOpen}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={() => setSetsOpen(false)}
+      >
+        <SafeAreaView style={s.sheet}>
+          <View style={s.header}>
+            <Text
+              style={s.sheetTitle}
+              numberOfLines={2}
+              accessibilityLabel={`Logged sets · ${selected?.name}`}
+            >
+              Logged sets · {selected?.name}
+            </Text>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Close logged sets"
+              style={s.close}
+              onPress={() => setSetsOpen(false)}
+            >
+              <Text style={s.closeText}>Close</Text>
+            </Pressable>
+          </View>
+          <AppScrollView contentContainerStyle={s.results}>
+            <View style={s.entries}>
+              {entries.map((entry) => (
+                <View
+                  key={`${entry.workoutId}:${entry.exerciseSnapshotId}`}
+                  style={s.entry}
+                >
+                  <Text style={s.date}>
+                    {new Date(entry.finishedAt).toLocaleString()}
+                  </Text>
+                  <Text style={s.workout}>{entry.workoutName}</Text>
+                  <View style={s.loggedSets}>
+                    {entry.sets.map((set, index) => (
+                      <View key={set.id} style={s.setRow}>
+                        <Text style={s.setNumber}>{String(index + 1)}</Text>
+                        <Text style={s.set}>
+                          {set.weight} kg × {set.reps}
+                        </Text>
+                      </View>
+                    ))}
+                  </View>
+                </View>
+              ))}
+            </View>
+          </AppScrollView>
+        </SafeAreaView>
+      </Modal>
       <Modal
         visible={selectorOpen}
         animationType="slide"
@@ -159,7 +206,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
             returnKeyType="search"
             style={s.search}
           />
-          <ScrollView
+          <AppScrollView
             keyboardShouldPersistTaps="handled"
             contentContainerStyle={s.results}
           >
@@ -175,6 +222,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
                     selected: choice.identityKey === identityKey,
                   }}
                   onPress={() => {
+                    setSetsOpen(false);
                     setIdentityKey(choice.identityKey);
                     close();
                   }}
@@ -184,7 +232,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
                 </Pressable>
               ))
             )}
-          </ScrollView>
+          </AppScrollView>
         </SafeAreaView>
       </Modal>
     </GlassCard>
@@ -192,8 +240,8 @@ export function ExercisePerformance({ history, period, now }: Props) {
 }
 
 const s = StyleSheet.create({
-  card: { padding: spacing.lg, borderRadius: radius.xxl },
-  title: { ...typography.title2, color: colors.textPrimary },
+  card: { padding: spacing.md, borderRadius: radius.xxl },
+  title: { ...progressTypography.sectionTitle, color: colors.textEmphasis },
   subtitle: {
     ...typography.footnote,
     color: colors.textSecondary,
@@ -216,7 +264,12 @@ const s = StyleSheet.create({
     backgroundColor: colors.surfaceSubtle,
     paddingVertical: spacing.sm,
   },
-  chooseText: { ...typography.body, color: colors.textPrimary, flex: 1 },
+  chooseText: {
+    ...progressTypography.selector,
+    color: colors.textPrimary,
+    flex: 1,
+  },
+  choosePlaceholder: { color: colors.textSecondary },
   entries: { marginTop: spacing.sm },
   entry: {
     paddingVertical: spacing.sm,

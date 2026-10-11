@@ -115,20 +115,63 @@ A future first-workout calibration may collect actual exercise-specific work and
 
 ### History
 
-List and inspect completed workouts accurately.
+List and inspect completed workouts accurately. Default to the latest three,
+newest first, with a filter directly below the History heading, before the results. A separate filter window offers
+mutually exclusive Recent workouts and Date range modes. Recent workouts starts
+at 3; its scrolling wheel offers All instead of zero, then 1 through the number
+of saved workouts. All retains access to the complete archive. Fewer than three
+saved workouts simply show the available records.
+
+Date range defaults to seven whole local-calendar dates including today. Select
+From and To dates; both dates are inclusive. Reject a reversed range. Show
+applies the draft and returns to History; Cancel or dismissal leaves the applied
+filter unchanged. Picker Back discards only the unfinished picker selection.
+Returning from workout details retains the applied filter. Filters are transient
+presentation state and independent of the Progress period; saved snapshots,
+completed sets and storage remain unchanged.
 
 ### Progress
+
+Training Volume compares the selected rolling window with the immediately
+preceding window of the same duration. 1M is the last 30 local-calendar days,
+not calendar-month subtraction; 1W remains seven days and longer finite periods
+retain calendar-month/year subtraction. The shared boundary rule applies to all. Let `start` be the existing
+selected-period start and `previousStart` the same calendar subtraction from
+`start`: current is `[start, now]`, previous is `[previousStart, start)`.
+Boundary workouts belong to current only. The signed kilogram difference uses
+the existing completed-set volume calculation, not workout counts, planned
+sets or estimated strength. No percentage is introduced. Positive, negative
+and zero changes mean higher, lower and unchanged recorded volume, not a claim
+of strength improvement or decline. If the previous window has no usable
+completed-set records (or a populated current window has none), show no data
+for comparison. An empty current window can show a decline against recorded
+previous volume. A recorded zero-volume baseline remains comparable. `ALL`
+has no previous-window indicator. The History filter remains independent of this Progress period.
+Treat machine-precision roundoff between equivalent decimal volumes as equality;
+do not use a fixed minimum kg change. Normalize only unreliable digits of the
+difference based on the completed-set and workout summation error bound, without
+changing recorded weights or existing totals.
 
 Prioritize total volume, workout frequency, PRs, weight/repetition progression, estimated 1RM (clearly labeled estimate), and muscle distribution when supported.
 
 The selected Progress presentation foregrounds training volume, existing
 estimated records, and selected-exercise logged performance. The shared
 `1W / 1M / 3M / 6M / 1Y / ALL` period continues to scope these projections;
-the complete History remains unfiltered. Keep every workout-volume and
+History uses its own independent filter. Keep every workout-volume and
 estimated-point detail available, trained-exercise identity/selection intact,
 and actual logged sets separate from their estimates. This is presentation
-alignment: preserve calculations, period semantics, saved snapshots and local
+alignment: preserve calculations, the approved 30-day 1M/longer calendar periods, saved snapshots and local
 schema v1; do not introduce new metrics or production demo data.
+
+The selected overview uses a data-derived, zero-based kg scale. 1W keeps
+recent-workout bars; 1M and longer periods show a chronological, shape-preserving
+curve through every workout in the selected interval on a real timestamp axis.
+Each point is one saved workout, including multiple workouts on the same day.
+Do not insert rest-day zeros, accumulate/average values, extrapolate beyond the
+first/last recorded point, or present interpolated values as logged work. Touch
+selection and accessible previous/next actions reveal the actual workout/date/kg.
+A single workout shows a point with an explicit no-curve-yet explanation. Chart scaling is presentation only; it must not round stored or
+projected volumes, omit workouts from details, or change period boundaries.
 
 Future Training Insights follow the hierarchy Result → Analysis → Suggestion. Interpretations must be cautious, actionable only when justified, and able to explain the principal signals through a “Why?” affordance without fake precision or invented scientific certainty.
 
@@ -186,3 +229,11 @@ CRESUM is light, premium, calm, Apple-inspired rather than copied, restrained wi
 ## Core success
 
 A user can start a workout, log sets, use rest timer, finish without data loss, find it in History after reopening, and see meaningful progress from saved data.
+
+### Compact Progress navigation — 2026-10-11
+
+Logged exercise performance presents the existing estimated 1RM per workout as a compact graph: weekly bars, curves from 1M onward over the selected rolling period. Actual completed weights/reps remain available in a separate View logged sets sheet; all estimates remain accessible. No calculations or saved exercise identities change. A floating up button appears after scrolling: first tap returns to the current section start, second tap to the page top. Manual scrolling resets this sequence.
+
+### App-wide return navigation — 2026-10-11
+
+The up-arrow is a shared application element on all vertically scrollable pages and detail sheets, including onboarding, Home, Workout, Progress, Profile and exercise/template selection. It appears after scrolling, first returns to the current measured section (or the top in a single-section list), then to page top. Returning uses smooth native scrolling by default; manual dragging interrupts native motion and resets the sequence. Respect Reduce Motion. Horizontal filters and value-picker wheels retain their own interaction and do not get a page-return button. This changes presentation only, preserving workout state and reorder edge-scrolling.

@@ -1,7 +1,9 @@
 import { isPressable } from './pressable';
 import type { ReactElement } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { FlatList, ScrollView, StyleSheet, Text } from 'react-native';
 import { AppButton } from '../../components/AppButton';
+import { HistoryCountWheel } from '../../components/HistoryCountWheel';
+import { HistoryDatePicker } from '../../components/HistoryDatePicker';
 import { WorkoutHistory } from '../../components/WorkoutHistory';
 import type { WorkoutSession } from '../workout-model';
 
@@ -68,7 +70,8 @@ describe('WorkoutHistory', () => {
     const view = render(<WorkoutHistory history={[]} />);
 
     expect(serialized(view)).toContain('Finish your first workout');
-    expect(view.root.findAll(isPressable)).toHaveLength(0);
+    expect(summary(view, 'none')).toBeUndefined();
+    expect(serialized(view)).toContain('Filter');
   });
 
   it('shows compact newest-first summaries without eager snapshot details', () => {
@@ -89,6 +92,7 @@ describe('WorkoutHistory', () => {
       .filter(Boolean);
 
     expect(labels).toEqual([
+      'Filter History',
       'Open Newer Workout workout details',
       'Open Older Workout workout details',
     ]);
@@ -187,4 +191,164 @@ describe('WorkoutHistory', () => {
     expect(summary(view, remaining.name)).toBeDefined();
     expect(serialized(view)).not.toContain('Workout details');
   });
+});
+
+it('keeps filter edits as a draft and applies All only after Show', () => {
+  const history = Array.from({ length: 5 }, (_, i) =>
+    completed({
+      id: String(i),
+      name: `Saved ${i}`,
+      finishedAt: 1700000000000 + i,
+    }),
+  );
+  const view = render(<WorkoutHistory history={history} />);
+  const button = (label: string) =>
+    view.root
+      .findAllByType(AppButton)
+      .find(
+        (node: { props: { title?: string; accessibilityLabel?: string } }) =>
+          node.props.title === label || node.props.accessibilityLabel === label,
+      );
+  try {
+    expect(summary(view, 'Saved 0')).toBeUndefined();
+    act(() => button('Filter History')?.props.onPress());
+    act(() => button('Choose number of workouts')?.props.onPress());
+    const wheel = view.root.findByType(HistoryCountWheel);
+    expect(wheel.props.maximum).toBe(5);
+    expect(wheel.props.value).toBe(3);
+    const list = view.root.findByType(FlatList);
+    let parent = list.parent;
+    while (parent) {
+      expect(parent.type).not.toBe(ScrollView);
+      parent = parent.parent;
+    }
+    act(() =>
+      list.props.onScroll({ nativeEvent: { contentOffset: { y: 0 } } }),
+    );
+    act(() => button('Done')?.props.onPress());
+    expect(summary(view, 'Saved 0')).toBeUndefined();
+    act(() => button('Cancel')?.props.onPress());
+    expect(summary(view, 'Saved 0')).toBeUndefined();
+    act(() => button('Filter History')?.props.onPress());
+    act(() => button('Choose number of workouts')?.props.onPress());
+    act(() => view.root.findByType(HistoryCountWheel).props.onChange(0));
+    act(() => button('Done')?.props.onPress());
+    act(() => button('Show')?.props.onPress());
+    expect(summary(view, 'Saved 0')).toBeDefined();
+    act(() => summary(view, 'Saved 0')?.props.onPress());
+    act(() => button('Back to History')?.props.onPress());
+    expect(summary(view, 'Saved 0')).toBeDefined();
+  } finally {
+    act(() => view.unmount());
+  }
+});
+it('applies an inclusive date range, validates reversed dates, and preserves the archive', () => {
+  const day = new Date(2026, 9, 9).getTime();
+  const history = [
+    completed({ id: 'old', name: 'Older', finishedAt: day - 1 }),
+    completed({ id: 'day', name: 'Chosen day', finishedAt: day + 86399999 }),
+  ];
+  const view = render(<WorkoutHistory history={history} />);
+  const button = (label: string) =>
+    view.root
+      .findAllByType(AppButton)
+      .find(
+        (node: { props: { title?: string; accessibilityLabel?: string } }) =>
+          node.props.title === label || node.props.accessibilityLabel === label,
+      );
+  const dateButton = (prefix: string) =>
+    view.root
+      .findAllByType(AppButton)
+      .find((node: { props: { title?: string } }) =>
+        node.props.title?.startsWith(prefix),
+      );
+  const chooseDate = (prefix: string, time: number) => {
+    act(() => dateButton(prefix)?.props.onPress());
+    act(() => view.root.findByType(HistoryDatePicker).props.onChange(time));
+    act(() => button('Done')?.props.onPress());
+  };
+  try {
+    act(() => button('Filter History')?.props.onPress());
+    chooseDate('From', day);
+    chooseDate('To', day - 86400000);
+    expect(button('Show')?.props.disabled).toBe(true);
+    chooseDate('To', day);
+    expect(button('Show')?.props.disabled).toBe(false);
+    act(() => button('Show')?.props.onPress());
+    expect(summary(view, 'Chosen day')).toBeDefined();
+    expect(summary(view, 'Older')).toBeUndefined();
+    expect(history).toHaveLength(2);
+  } finally {
+    act(() => view.unmount());
+  }
+});
+
+it('wheel selection supports scrolling and accessible increment/decrement including All and the maximum', () => {
+  const changed = jest.fn();
+  const view = render(
+    <HistoryCountWheel maximum={5} value={3} onChange={changed} />,
+  );
+  try {
+    const list = view.root.findByType(FlatList);
+    const rowHeight = list.props.snapToInterval;
+    act(() =>
+      list.props.onScroll({
+        nativeEvent: { contentOffset: { y: rowHeight * 5 } },
+      }),
+    );
+    expect(changed).toHaveBeenLastCalledWith(5);
+    act(() =>
+      list.props.onAccessibilityAction({
+        nativeEvent: { actionName: 'decrement' },
+      }),
+    );
+    expect(changed).toHaveBeenLastCalledWith(2);
+    act(() =>
+      view.update(
+        <HistoryCountWheel maximum={5} value={0} onChange={changed} />,
+      ),
+    );
+    act(() =>
+      view.root.findByType(FlatList).props.onAccessibilityAction({
+        nativeEvent: { actionName: 'decrement' },
+      }),
+    );
+    expect(changed).toHaveBeenLastCalledWith(0);
+    expect(view.root.findByType(FlatList).props.accessibilityValue.text).toBe(
+      'All workouts',
+    );
+  } finally {
+    act(() => view.unmount());
+  }
+});
+it('date picker navigates months and retains leap-day selection', () => {
+  const changed = jest.fn();
+  const view = render(
+    <HistoryDatePicker
+      value={new Date(2024, 1, 29).getTime()}
+      onChange={changed}
+    />,
+  );
+  try {
+    const day = view.root
+      .findAll(isPressable)
+      .find(
+        (node: { props: { accessibilityState?: { selected?: boolean } } }) =>
+          node.props.accessibilityState?.selected,
+      );
+    act(() => day?.props.onPress());
+    expect(changed).toHaveBeenLastCalledWith(new Date(2024, 1, 29).getTime());
+    act(() =>
+      view.root
+        .findAllByType(AppButton)
+        .find(
+          (node: { props: { title: string } }) =>
+            node.props.title === 'Next month',
+        )
+        ?.props.onPress(),
+    );
+    expect(serialized(view)).toContain('March');
+  } finally {
+    act(() => view.unmount());
+  }
 });

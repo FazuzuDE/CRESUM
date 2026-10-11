@@ -1,10 +1,10 @@
+import { AppScrollView } from './AppScrollView';
 import { useEffect, useRef, useState } from 'react';
 import {
   AppState,
   KeyboardAvoidingView,
   Platform,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -140,7 +140,7 @@ export function Workout({
           setRemoveIndex(null);
         }}
       />
-      <ScrollView
+      <AppScrollView
         ref={attachRef}
         scrollEnabled={!dragging}
         onScroll={onScroll}
@@ -358,7 +358,7 @@ export function Workout({
           disabled={busy || completed === 0}
           onPress={finish}
         />
-      </ScrollView>
+      </AppScrollView>
       <ExerciseLibrary
         visible={picker}
         onClose={() => setPicker(false)}

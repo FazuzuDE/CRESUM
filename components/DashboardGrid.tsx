@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, type ViewProps } from 'react-native';
 import { spacing } from '@/lib/theme';
 
 export type DashboardWidgetSize = 'small' | 'medium';
@@ -10,7 +10,15 @@ export type DashboardGridItem = {
   content: ReactNode;
 };
 
-export function DashboardGrid({ items }: { items: DashboardGridItem[] }) {
+export function DashboardGrid({
+  items,
+  onLayout,
+  onRowLayout,
+}: {
+  items: DashboardGridItem[];
+  onLayout?: ViewProps['onLayout'];
+  onRowLayout?: (id: string, y: number) => void;
+}) {
   const rows: DashboardGridItem[][] = [];
   for (const item of items) {
     const last = rows[rows.length - 1];
@@ -26,9 +34,16 @@ export function DashboardGrid({ items }: { items: DashboardGridItem[] }) {
   }
 
   return (
-    <View style={styles.grid}>
+    <View style={styles.grid} onLayout={onLayout}>
       {rows.map((row) => (
-        <View key={row[0].id} testID="dashboard-grid-row" style={styles.row}>
+        <View
+          key={row[0].id}
+          testID="dashboard-grid-row"
+          style={styles.row}
+          onLayout={(event) =>
+            onRowLayout?.(row[0].id, event.nativeEvent.layout.y)
+          }
+        >
           {row.map((item) => (
             <View key={item.id} testID="dashboard-widget" style={styles.cell}>
               {item.content}

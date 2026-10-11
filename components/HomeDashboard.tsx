@@ -1,12 +1,6 @@
+import { AppScrollView } from './AppScrollView';
 import { useEffect, useState } from 'react';
-import {
-  AppState,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { AppState, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { AppButton } from './AppButton';
 import { DashboardGrid, type DashboardGridItem } from './DashboardGrid';
@@ -276,6 +270,8 @@ export function HomeDashboard({
   onOpenProfile,
 }: HomeProps) {
   const [now, setNow] = useState(Date.now);
+  const [gridTop, setGridTop] = useState(0);
+  const [rowOffsets, setRowOffsets] = useState<Record<string, number>>({});
   useEffect(() => {
     const refresh = () => setNow(Date.now());
     const timer = setInterval(refresh, 60_000);
@@ -322,7 +318,12 @@ export function HomeDashboard({
   });
 
   return (
-    <ScrollView contentContainerStyle={[s.content, s.homeContent]}>
+    <AppScrollView
+      contentContainerStyle={[s.content, s.homeContent]}
+      sectionPositions={Object.entries(rowOffsets)
+        .filter(([id]) => items.some((item) => item.id === id))
+        .map(([id, y]) => ({ id, label: id, y: gridTop + y }))}
+    >
       <View style={s.header}>
         <View style={s.brandRow}>
           <Text style={s.brand}>CRESUM</Text>
@@ -351,8 +352,16 @@ export function HomeDashboard({
           ) : null}
         </View>
       </View>
-      <DashboardGrid items={items} />
-    </ScrollView>
+      <DashboardGrid
+        items={items}
+        onLayout={(event) => setGridTop(event.nativeEvent.layout.y)}
+        onRowLayout={(id, y) =>
+          setRowOffsets((current) =>
+            current[id] === y ? current : { ...current, [id]: y },
+          )
+        }
+      />
+    </AppScrollView>
   );
 }
 
