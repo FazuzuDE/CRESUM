@@ -1,5 +1,5 @@
 import { isPressable } from './pressable';
-import { StyleSheet, TextInput } from 'react-native';
+import { StyleSheet, Text, TextInput } from 'react-native';
 import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 import type { ReactElement, ReactNode } from 'react';
 import { AppButton } from '../../components/AppButton';
@@ -14,6 +14,7 @@ import { defaultTemplates, exerciseLibrary } from '../workout-catalog';
 import type { WorkoutTemplate } from '../workout-model';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { completeOnboardingForTest } from './onboarding-fixture';
+import { startWorkout } from '../workout-engine';
 
 const { act, create } = jest.requireActual('react-test-renderer');
 const mockSwipeMethods = new Map<string, { close: jest.Mock }>();
@@ -96,6 +97,50 @@ const action = (view: ReturnType<typeof create>, label: string) =>
       (node: { props: { accessibilityLabel?: string } }) =>
         node.props.accessibilityLabel === label,
     );
+
+it('shows the planned set count that starting each saved workout actually creates', () => {
+  const planned: WorkoutTemplate = {
+    ...custom,
+    plannedExercises: [
+      { exerciseId: 'barbell-bench-press', sets: 2 },
+      { exerciseId: 'seated-cable-row', sets: 5 },
+    ],
+  };
+  const legacy: WorkoutTemplate = {
+    ...custom,
+    id: 'legacy-unavailable',
+    name: 'Legacy workout',
+    exerciseIds: ['bench', 'removed-exercise'],
+  };
+  const view = render(
+    <WorkoutTemplates
+      templates={[planned, legacy]}
+      busy={false}
+      onCreate={jest.fn()}
+      onUpdate={jest.fn()}
+      onDelete={jest.fn()}
+    />,
+  );
+  for (const template of [planned, legacy]) {
+    const session = startWorkout(template, exerciseLibrary, 1000);
+    const count = session.exercises.reduce(
+      (total, e) => total + e.sets.length,
+      0,
+    );
+    const rowText = view.root
+      .findByProps({ testID: `template-swipe-${template.id}` })
+      .findAllByType(Text)
+      .map((node: { props: { children: unknown } }) =>
+        Array.isArray(node.props.children)
+          ? node.props.children.join('')
+          : String(node.props.children),
+      )
+      .join(' ');
+    expect(rowText).toContain(`${count} planned sets`);
+    if (template === legacy) expect(rowText).toContain('1 unavailable');
+  }
+  act(() => view.unmount());
+});
 
 describe('TemplateEditor', () => {
   it('distinguishes Create and Edit and cancels a local draft without saving', () => {

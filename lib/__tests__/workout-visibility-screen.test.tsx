@@ -53,7 +53,10 @@ const row = (view: ReturnType<typeof create>, label: string) =>
 const button = (view: ReturnType<typeof create>, title: string) =>
   view.root
     .findAllByType(AppButton)
-    .find((item: { props: { title: string } }) => item.props.title === title);
+    .find(
+      (item: { props: { title: string; accessibilityLabel?: string } }) =>
+        (item.props.accessibilityLabel ?? item.props.title) === title,
+    );
 const openProfile = (view: ReturnType<typeof create>) =>
   act(() => view.root.findByType(Dock).props.onChange('profile'));
 const mount = async () => {

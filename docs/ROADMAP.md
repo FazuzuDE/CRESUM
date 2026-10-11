@@ -29,6 +29,13 @@ Later, separately approved work may sync custom workouts, preferences/profile, a
 
 ## P1 — Product polish
 
+- Selected Profile reference alignment: compact existing-workout card with
+  factual planned metadata and creation below the rows; conditional restoration,
+  personalization row, quiet destructive local reset, and static real-version
+  About. Preserve management gestures, confirmations and the shared up-arrow.
+  Physical-phone layout, gestures, safe area and Dynamic Type review remains
+  required; no Account/Auth or Sync implementation is part of this UI task.
+
 - Approved app-wide up-arrow on vertical pages/detail sheets, smooth native return with Reduce Motion support and retained workout reorder scrolling. Physical-phone animation pace/keyboard/safe-area review remains required.
 - Approved compact exercise performance graph, separate logged-set details, and two-step section/page up navigation; native scrolling and large-text acceptance remain phone-review tasks.
 - Approved History compact list and independent filter below the heading: latest three by default,

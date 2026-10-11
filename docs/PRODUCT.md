@@ -203,6 +203,16 @@ Profile will have an **Account & Sync** section. Signed out: explain optional si
 
 Essential account/app preferences only.
 
+The selected Profile mockup restyles existing functionality only: Your workouts,
+conditional Hidden workouts, Training preferences, Local data, and About. Keep
+workout Start/Resume, creation, editing, duplication, hiding, restoration and
+confirmed deletion available through the existing rows, gestures and menus.
+Template metadata shows factual available/unavailable exercises and planned
+sets, using the same projection as Home; these are starting plans, not performed
+results. Profile keeps the existing personalization entry and the real app
+version. Mockup fixture names/counts are not production data. No account/sync
+controls or new About destination are introduced by this presentation change.
+
 Profile → Data offers **Reset local data**, a confirmed destructive action that removes all local CRESUM workouts, history, templates, active workout, personalization, and onboarding data from this device, then returns to Welcome. Cancel leaves data unchanged. A failed reset must not claim success; attempt recovery of removed local values and retain the current in-memory session. This is separate from a future cloud **Delete Account** action.
 
 Profile → Workout settings lists hidden built-in workouts with a Restore action. Reset local data also clears this device's hidden-workout preferences, restoring the standard built-in catalog on first run.
