@@ -1,5 +1,12 @@
 import { useMemo, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { HistoryFilterModal } from './HistoryFilterModal';
+import {
+  defaultHistoryFilter,
+  filterHistory,
+  historyFilterLabel,
+  type HistoryFilter,
+} from '@/lib/history-filter';
 import { AppButton } from './AppButton';
 import { GlassCard } from './GlassCard';
 import { duration } from './Workout';
@@ -23,6 +30,14 @@ export function WorkoutHistory({
   history: readonly WorkoutSession[];
 }) {
   const [selectedId, setSelectedId] = useState<string>();
+  const [filter, setFilter] = useState<HistoryFilter>(() =>
+    defaultHistoryFilter(Date.now()),
+  );
+  const [filterOpen, setFilterOpen] = useState(false);
+  const visible = useMemo(
+    () => filterHistory(history, filter),
+    [history, filter],
+  );
   const ordered = useMemo(() => newestFirstHistory(history), [history]);
   const selected = ordered.find((workout) => workout.id === selectedId);
 
@@ -68,8 +83,8 @@ export function WorkoutHistory({
   return (
     <View style={s.section}>
       <Text style={s.sectionTitle}>History</Text>
-      {ordered.length ? (
-        ordered.map((workout) => (
+      {visible.length ? (
+        visible.map((workout) => (
           <Pressable
             key={workout.id}
             accessibilityRole="button"
@@ -92,9 +107,28 @@ export function WorkoutHistory({
       ) : (
         <GlassCard>
           <Text style={s.metadata}>
-            Finish your first workout to see it here.
+            {history.length
+              ? 'No workouts in this date range.'
+              : 'Finish your first workout to see it here.'}
           </Text>
         </GlassCard>
+      )}
+      <AppButton
+        title={`Filter · ${historyFilterLabel(filter)}`}
+        accessibilityLabel="Filter History"
+        secondary
+        onPress={() => setFilterOpen(true)}
+      />
+      {filterOpen && (
+        <HistoryFilterModal
+          initial={filter}
+          maximum={history.length}
+          onClose={() => setFilterOpen(false)}
+          onApply={(next) => {
+            setFilter(next);
+            setFilterOpen(false);
+          }}
+        />
       )}
     </View>
   );

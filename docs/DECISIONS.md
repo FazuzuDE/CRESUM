@@ -597,3 +597,15 @@ Rationale:
 Related:
 
 - `DESIGN_SYSTEM.md`
+
+## 2026-10-10 — Compact History and independent filter
+
+Approved by the user's implementation request: History defaults to three newest
+saved workouts, with a filter below the results. A separate window offers a
+recent-workout count wheel (All instead of zero, then 1…saved count) or an
+inclusive From/To date range defaulting to seven calendar dates including today.
+Circular green-check selectors choose one criterion. Show applies and returns;
+cancelling leaves applied results unchanged. Picker Back discards unfinished
+picker changes. Workout details retain the filter on return. Progress periods,
+stored snapshots and schema v1 are unaffected; All exposes the full archive.
+Status: approved — pending Git integration and native wheel/sheet/phone QA.

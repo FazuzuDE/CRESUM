@@ -177,7 +177,6 @@ function Stats({ history }: { history: Session[] }) {
         )}
       </GlassCard>
       <ExercisePerformance history={history} period={period} now={now} />
-      <Text style={s.sub}>Complete saved History · all dates</Text>
       <WorkoutHistory history={history} />
     </ScrollView>
   );

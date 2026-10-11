@@ -316,7 +316,7 @@ workout rules as part of this presentation alignment.
 
 Top filters: `Overview · Strength · Volume · Muscles`.
 
-Progress periods: `1W · 1M · 3M · 6M · 1Y · ALL`. Default: `1M` (30 local-calendar days). One selected period scopes Progress metrics; History remains the complete archive. Finite periods are rolling local-calendar windows `[start, now]` with both boundaries inclusive. `ALL` includes valid completed workouts through `now`; future-dated workouts do not contribute.
+Progress periods: `1W · 1M · 3M · 6M · 1Y · ALL`. Default: `1M` (30 local-calendar days). One selected period scopes Progress metrics; History uses its own independent filter, with the complete archive available through All. Finite periods are rolling local-calendar windows `[start, now]` with both boundaries inclusive. `ALL` includes valid completed workouts through `now`; future-dated workouts do not contribute.
 
 Overview hierarchy: total volume chart → workouts → PRs → estimated 1RM/strength trend → meaningful average working weight → muscle-group distribution.
 
@@ -418,7 +418,7 @@ workout in the selected period, readable date/name/value rows and Close. Its
 heading and kg values use explicit textEmphasis, names textPrimary and dates
 textSecondary. Mirror these explicit colors in the browser adaptation to prevent
 host dark-mode heading/value rules from reducing contrast.
-Preserve all estimate/detail sheets, empty states and the complete History.
+Preserve all estimate/detail sheets, empty states and access to the complete History archive.
 This reference does not add the blueprint's future analysis tabs, muscle map,
 new analytics or illustrations. Native sheets and Dynamic Type need phone QA.
 
@@ -504,3 +504,22 @@ confirmations, persistence, and recovery. Do not replace factual app data with
 demo fixtures or introduce a separate browser client for this alignment.
 
 This document is the source of truth for CRESUM Core UI until explicitly revised.
+
+### History filter — 2026-10-10
+
+Show three recent workout cards by default; put the filter below the list,
+including empty results. Open an opaque native sheet with two clear criteria:
+Recent workouts and Date range. Before each criterion show a circular selector;
+the active one has a green success fill and dark readable check. Expose mutually
+exclusive radio state accessibly. Keep the existing English Core copy.
+
+The number field opens an iOS-style snapping wheel: All, then 1 through the
+saved-workout count, initially 3 (or the available maximum in a smaller archive).
+Center the selected row on a subtle band, preserve font scaling, and offer
+accessible increment/decrement actions. Dates open a month calendar with
+From/To selection; default to today and six previous local dates. Both boundary
+dates are included. Show is the primary blue action below the criteria; reversed
+ranges show an error and disable Show. Back/Cancel must not apply unfinished
+changes. Use existing theme tokens, practical touch targets, safe area and
+scrolling for compact screens and larger text. Preserve saved-workout details.
+Native wheel scrolling, sheet dismissal and Dynamic Type require phone review.

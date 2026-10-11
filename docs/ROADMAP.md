@@ -29,6 +29,11 @@ Later, separately approved work may sync custom workouts, preferences/profile, a
 
 ## P1 — Product polish
 
+- Approved History compact list and independent filter: latest three by default,
+  count wheel with All / 1…saved count, or inclusive From/To dates defaulting to
+  seven local-calendar dates. Show applies; cancellation preserves results.
+  Native wheel/sheet and Dynamic Type acceptance remains a phone-review task.
+
 - Approved Progress detail pass: previous-window volume comparison, inline
   TOP PR, consistent day/month dates and distinct chart value/scale labels.
   Follow-up: 30-day 1M and full-period curves from 1M onward, stable missing-data

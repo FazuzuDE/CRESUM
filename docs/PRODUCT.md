@@ -115,7 +115,20 @@ A future first-workout calibration may collect actual exercise-specific work and
 
 ### History
 
-List and inspect completed workouts accurately.
+List and inspect completed workouts accurately. Default to the latest three,
+newest first, with a filter below the results. A separate filter window offers
+mutually exclusive Recent workouts and Date range modes. Recent workouts starts
+at 3; its scrolling wheel offers All instead of zero, then 1 through the number
+of saved workouts. All retains access to the complete archive. Fewer than three
+saved workouts simply show the available records.
+
+Date range defaults to seven whole local-calendar dates including today. Select
+From and To dates; both dates are inclusive. Reject a reversed range. Show
+applies the draft and returns to History; Cancel or dismissal leaves the applied
+filter unchanged. Picker Back discards only the unfinished picker selection.
+Returning from workout details retains the applied filter. Filters are transient
+presentation state and independent of the Progress period; saved snapshots,
+completed sets and storage remain unchanged.
 
 ### Progress
 
@@ -133,7 +146,7 @@ of strength improvement or decline. If the previous window has no usable
 completed-set records (or a populated current window has none), show no data
 for comparison. An empty current window can show a decline against recorded
 previous volume. A recorded zero-volume baseline remains comparable. `ALL`
-has no previous-window indicator. The complete History remains unfiltered.
+has no previous-window indicator. The History filter remains independent of this Progress period.
 Treat machine-precision roundoff between equivalent decimal volumes as equality;
 do not use a fixed minimum kg change. Normalize only unreliable digits of the
 difference based on the completed-set and workout summation error bound, without
@@ -144,7 +157,7 @@ Prioritize total volume, workout frequency, PRs, weight/repetition progression, 
 The selected Progress presentation foregrounds training volume, existing
 estimated records, and selected-exercise logged performance. The shared
 `1W / 1M / 3M / 6M / 1Y / ALL` period continues to scope these projections;
-the complete History remains unfiltered. Keep every workout-volume and
+History uses its own independent filter. Keep every workout-volume and
 estimated-point detail available, trained-exercise identity/selection intact,
 and actual logged sets separate from their estimates. This is presentation
 alignment: preserve calculations, the approved 30-day 1M/longer calendar periods, saved snapshots and local
