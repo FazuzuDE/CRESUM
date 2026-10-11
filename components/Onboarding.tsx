@@ -1,6 +1,7 @@
 import { programEligibilityError } from '@/lib/training-programs/eligibility';
 import { normalizeBirthDate } from '@/lib/personal-profile';
-import { HistoryDatePicker } from './HistoryDatePicker';
+import { DatePickerSheet } from './DatePickerSheet';
+import { calendarTime, formatPickerDate } from '@/lib/picker-date';
 import { selectProgram } from '@/lib/training-programs/selectors';
 import { projectProgramReadiness } from '@/lib/training-programs/readiness';
 import {
@@ -69,6 +70,11 @@ export function Onboarding({
   const [preview, setPreview] = useState(false);
   const [scheduleOpen, setScheduleOpen] = useState(false);
   const [dateOpen, setDateOpen] = useState(false);
+  const [birthPicker, setBirthPicker] = useState<{
+    value: number;
+    maximum: number;
+    minimum: number;
+  } | null>(null);
   const [lockedProposal, setLockedProposal] = useState<ProgramAssignment>();
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
@@ -159,10 +165,7 @@ export function Onboarding({
       }}
     />
   );
-  const field = (
-    label: string,
-    name: 'dateOfBirth' | 'heightCm' | 'bodyWeightKg',
-  ) => (
+  const field = (label: string, name: 'heightCm' | 'bodyWeightKg') => (
     <View style={s.field} key={name}>
       <Text style={s.label}>{label} · optional</Text>
       <TextInput
@@ -175,10 +178,8 @@ export function Onboarding({
             answers: { ...state.answers, [name]: value },
           });
         }}
-        keyboardType={
-          name === 'dateOfBirth' ? 'numbers-and-punctuation' : 'decimal-pad'
-        }
-        placeholder={name === 'dateOfBirth' ? 'DD.MM.YYYY' : 'Not provided'}
+        keyboardType="decimal-pad"
+        placeholder="Not provided"
         placeholderTextColor={colors.textTertiary}
         style={s.input}
         maxLength={32}
@@ -350,7 +351,44 @@ export function Onboarding({
                   Optional details for your profile. They do not determine a
                   working weight.
                 </Text>
-                {field('Date of birth', 'dateOfBirth')}
+                <View style={s.field}>
+                  <Text style={s.label}>Date of birth · optional</Text>
+                  <AppButton
+                    title={
+                      normalizeBirthDate(state.answers.dateOfBirth ?? '')
+                        ? formatPickerDate(
+                            new Date(
+                              `${normalizeBirthDate(state.answers.dateOfBirth ?? '')}T00:00:00`,
+                            ).getTime(),
+                          )
+                        : 'Choose date'
+                    }
+                    accessibilityLabel="Date of birth"
+                    secondary
+                    onPress={() => {
+                      const today = new Date();
+                      const maximum = calendarTime(
+                        today.getFullYear(),
+                        today.getMonth(),
+                        today.getDate(),
+                      );
+                      const stored = normalizeBirthDate(
+                        state.answers.dateOfBirth ?? '',
+                      );
+                      setBirthPicker({
+                        maximum,
+                        minimum: calendarTime(today.getFullYear() - 120, 0, 1),
+                        value: stored
+                          ? new Date(`${stored}T00:00:00`).getTime()
+                          : calendarTime(
+                              today.getFullYear() - 18,
+                              today.getMonth(),
+                              today.getDate(),
+                            ),
+                      });
+                    }}
+                  />
+                </View>
                 {field('Height (cm)', 'heightCm')}
                 {field('Body weight (kg)', 'bodyWeightKg')}
                 <AppButton
@@ -457,9 +495,11 @@ export function Onboarding({
                       onPress={() => setDateOpen(!dateOpen)}
                     />
                     {dateOpen ? (
-                      <HistoryDatePicker
-                        value={new Date(`${startDate}T12:00:00`).getTime()}
-                        onChange={(time) => {
+                      <DatePickerSheet
+                        title="Start date"
+                        value={new Date(`${startDate}T00:00:00`).getTime()}
+                        onCancel={() => setDateOpen(false)}
+                        onConfirm={(time) => {
                           setStartDate(localDate(new Date(time)));
                           setDateOpen(false);
                         }}
@@ -575,6 +615,34 @@ export function Onboarding({
           </GlassCard>
         )}
       </AppScrollView>
+      {birthPicker ? (
+        <DatePickerSheet
+          title="Date of birth"
+          value={birthPicker.value}
+          maximum={birthPicker.maximum}
+          minimum={birthPicker.minimum}
+          onCancel={() => setBirthPicker(null)}
+          onConfirm={(time) => {
+            setError('');
+            change({
+              ...state,
+              answers: {
+                ...state.answers,
+                dateOfBirth: localDate(new Date(time)),
+                age: undefined,
+              },
+            });
+            setBirthPicker(null);
+          }}
+          onClear={() => {
+            change({
+              ...state,
+              answers: { ...state.answers, dateOfBirth: '' },
+            });
+            setBirthPicker(null);
+          }}
+        />
+      ) : null}
     </KeyboardAvoidingView>
   );
 }

@@ -685,3 +685,7 @@ Phone/accessibility review and GitHub integration are still outstanding.
 ## 2026-10-11 — Profile identity and body-weight follow-up
 
 User requested the compact WORKOUTS wordmark entry and separate saved-routines page, consistent dark primary text, stored-name Home greeting and new first-run order: Welcome/name → optional DOB/height/weight → Goal → Experience → START!. DOB replaces age input with compatible legacy reads; birthday greetings remain deferred. Starting body mass seeds its own factual journal once; current measurements drive a neutral Progress curve independently of training volume. Existing management, manual setup, History and shared smooth return control remain. Status: implemented on feature branch, pending PR integration and physical-phone QA.
+
+## 2026-10-11 — Shared Apple wheels, Profile library and monthly Home calendar
+
+Approved for implementation by the user's explicit request. Replace date keyboard entry with shared day/month/year wheels and confirmed drafts. Use local native UIPickerView on iOS, discrete selection feedback and the system-managed wheel click, without undocumented sound IDs; shared snapping fallback elsewhere. Require physical-device/native-build validation. Profile opens the complete existing catalog through EXERCISE LIBRARY directly after WORKOUTS. Home displays its factual week above the primary workout and offers a full-month completion calendar. Preserve exercise identities, saved workouts and History semantics; no new planning subsystem.

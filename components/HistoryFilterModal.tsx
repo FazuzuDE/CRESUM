@@ -43,11 +43,11 @@ export function HistoryFilterModal({
     setDateDraft(draft[field]);
     setPane(field);
   };
-  const Container = pane === 'count' ? View : AppScrollView;
-  const containerProps =
-    pane === 'count'
-      ? { style: [s.content, s.wheelContent] }
-      : { contentContainerStyle: s.content };
+  const wheelPane = pane !== 'filter';
+  const Container = wheelPane ? View : AppScrollView;
+  const containerProps = wheelPane
+    ? { style: [s.content, s.wheelContent] }
+    : { contentContainerStyle: s.content };
   return (
     <Modal
       visible
@@ -58,14 +58,18 @@ export function HistoryFilterModal({
     >
       <SafeAreaView style={s.screen}>
         <Container {...containerProps}>
-          {pane === 'count' ? (
+          {wheelPane ? (
             <ScrollView
               style={s.wheelHeader}
               contentContainerStyle={s.headerContent}
             >
               <AppButton title="Back" secondary onPress={back} />
               <Text accessibilityRole="header" style={s.title}>
-                Recent workouts
+                {pane === 'count'
+                  ? 'Recent workouts'
+                  : pane === 'from'
+                    ? 'From date'
+                    : 'To date'}
               </Text>
             </ScrollView>
           ) : (
@@ -182,7 +186,11 @@ export function HistoryFilterModal({
             </>
           ) : (
             <>
-              <HistoryDatePicker value={dateDraft} onChange={setDateDraft} />
+              <HistoryDatePicker
+                flexible
+                value={dateDraft}
+                onChange={setDateDraft}
+              />
               <AppButton
                 title="Done"
                 onPress={() => {

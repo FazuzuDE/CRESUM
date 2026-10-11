@@ -6,9 +6,9 @@ import { validPlannedSets } from './planned-exercise';
 import type { WorkoutSession, WorkoutTemplate } from './workout-model';
 
 export const HOME_WIDGET_LAYOUT = [
+  { id: 'week', supportedSizes: ['medium'], defaultSize: 'medium' },
   { id: 'primary', supportedSizes: ['medium'], defaultSize: 'medium' },
   { id: 'summary', supportedSizes: ['medium'], defaultSize: 'medium' },
-  { id: 'week', supportedSizes: ['medium'], defaultSize: 'medium' },
   { id: 'latest', supportedSizes: ['medium'], defaultSize: 'medium' },
   { id: 'templates', supportedSizes: ['medium'], defaultSize: 'medium' },
 ] as const;

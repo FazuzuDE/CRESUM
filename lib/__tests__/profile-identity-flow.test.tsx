@@ -3,6 +3,8 @@ import { TextInput } from 'react-native';
 import App from '../../app/index';
 import { AppButton } from '../../components/AppButton';
 import { Dock } from '../../components/Dock';
+import { isPressable } from './pressable';
+import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { WorkoutTemplates } from '../../components/WorkoutTemplates';
 import { ONBOARDING_KEY } from '../onboarding-repository';
 import { BODY_WEIGHT_KEY } from '../body-weight';
@@ -47,11 +49,8 @@ it('collects name, then body details, then goal; preserves the name through relo
   expect(JSON.stringify(v.toJSON())).toContain('Body details');
   expect(
     v.root
-      .findAllByType(TextInput)
-      .some(
-        (n: { props: { accessibilityLabel: string } }) =>
-          n.props.accessibilityLabel === 'Date of birth',
-      ),
+      .findAllByType(AppButton)
+      .some((n: any) => n.props.accessibilityLabel === 'Date of birth'),
   ).toBe(true);
   const weight = v.root
     .findAllByType(TextInput)
@@ -285,6 +284,41 @@ it('reconciles a pending measurement after a failed reset restores local data', 
   } finally {
     (AsyncStorage.setItem as jest.Mock).mockImplementation(original);
     (AsyncStorage.removeItem as jest.Mock).mockImplementation(remove);
+    if (v) await act(async () => v.unmount());
+  }
+});
+
+it('places Exercise Library immediately after WORKOUTS and opens a separate browsable page', async () => {
+  await AsyncStorage.setItem(
+    ONBOARDING_KEY,
+    JSON.stringify({
+      version: 1,
+      status: 'completed',
+      step: 'complete',
+      answers: {},
+    }),
+  );
+  let v!: ReturnType<typeof create>;
+  try {
+    await act(async () => {
+      v = create(<App />);
+    });
+    act(() => v.root.findByType(Dock).props.onChange('profile'));
+    const titles = v.root
+      .findAllByType(AppButton)
+      .map((n: any) => n.props.title);
+    expect(titles.slice(0, 2)).toEqual(['WORKOUTS', 'EXERCISE LIBRARY']);
+    act(() => button(v, 'EXERCISE LIBRARY').props.onPress());
+    expect(v.root.findByType(ExerciseLibrary).props.presentation).toBe('page');
+    expect(v.root.findAllByType(WorkoutTemplates)).toHaveLength(0);
+    act(() =>
+      v.root
+        .findAll(isPressable)
+        .find((n: any) => n.props.accessibilityLabel === 'Back to Profile')
+        .props.onPress(),
+    );
+    expect(button(v, 'WORKOUTS')).toBeDefined();
+  } finally {
     if (v) await act(async () => v.unmount());
   }
 });

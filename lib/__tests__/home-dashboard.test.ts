@@ -68,9 +68,9 @@ it('defines stable module identity and order with explicit supported sizes', () 
       item.supportedSizes,
     ]),
   ).toEqual([
+    ['week', 'medium', ['medium']],
     ['primary', 'medium', ['medium']],
     ['summary', 'medium', ['medium']],
-    ['week', 'medium', ['medium']],
     ['latest', 'medium', ['medium']],
     ['templates', 'medium', ['medium']],
   ]);
