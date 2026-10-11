@@ -52,6 +52,10 @@ import {
   type OnboardingState,
 } from '@/lib/onboarding';
 import { OnboardingRepository } from '@/lib/onboarding-repository';
+import { ProgramRepository } from '@/lib/training-programs/repository';
+import { ProgramAcceptance } from '@/lib/training-programs/acceptance';
+import type { ProjectedProgramSlot } from '@/lib/training-programs/schedule';
+import type { ProgramAssignment } from '@/lib/training-programs/assignment';
 import { resetLocalData } from '@/lib/local-data-reset';
 import { HiddenBuiltInsRepository } from '@/lib/hidden-builtins';
 import type { TemplateDraft } from '@/lib/workout-templates';
@@ -240,6 +244,9 @@ export default function App() {
     store.subscribe,
     store.getSnapshot,
   );
+  const [assignment, setAssignment] = useState<ProgramAssignment | null>(null);
+  const [programError, setProgramError] = useState('');
+  const programRecovered = useRef(false);
   const [tab, setTab] = useState('home');
   const [onboardingRepository] = useState(
     () => new OnboardingRepository(AsyncStorage),
@@ -262,6 +269,7 @@ export default function App() {
   const [onboardingLoadFailed, setOnboardingLoadFailed] = useState(false);
   const [onboardingBypass, setOnboardingBypass] = useState(false);
   const [editingPersonalization, setEditingPersonalization] = useState(false);
+  const [acceptingProgram, setAcceptingProgram] = useState(false);
   const onboardingWrites = useRef(Promise.resolve());
   const onboardingEpoch = useRef(0);
   const resetInProgress = useRef(false);
@@ -326,6 +334,47 @@ export default function App() {
     onboardingWrites.current = write.catch(() => undefined);
     return write;
   };
+  /* eslint-disable react-hooks/refs -- Stored saver runs only during awaited acceptance, never during render. */
+  const [programAcceptance] = useState(
+    () =>
+      new ProgramAcceptance(
+        new ProgramRepository(AsyncStorage),
+        store,
+        (next) => queueOnboardingSave(next),
+      ),
+  );
+  /* eslint-enable react-hooks/refs */
+  const recoverProgram = async () => {
+    const epoch = onboardingEpoch.current;
+    const result = await programAcceptance.recover();
+    if (resetInProgress.current || onboardingEpoch.current !== epoch) return;
+    if (result.status === 'accepted') {
+      setAssignment(result.assignment!);
+      setProgramError('');
+      const next = await onboardingRepository.load();
+      if (!resetInProgress.current && onboardingEpoch.current === epoch) {
+        setOnboardingState(next);
+        setOnboardingError('');
+        setOnboardingLoadFailed(false);
+      }
+    } else if (result.status !== 'empty')
+      setProgramError(
+        result.error ??
+          'Program recovery is pending. Your workouts remain available.',
+      );
+  };
+  useEffect(() => {
+    if (ready && onboardingReady && !programRecovered.current) {
+      programRecovered.current = true;
+      void recoverProgram().catch(() =>
+        setProgramError(
+          'Program recovery is pending. Your workouts remain available.',
+        ),
+      );
+    }
+    // Recovery runs once per load, after both repositories are ready.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ready, onboardingReady]);
   const saveOnboardingProgress = (next: OnboardingState) => {
     if (resetInProgress.current) return;
     setOnboardingState(next);
@@ -336,10 +385,24 @@ export default function App() {
       );
     });
   };
-  const completeOnboarding = async (next: OnboardingState) => {
-    await queueOnboardingSave(next);
+  const completeOnboarding = async (
+    next: OnboardingState,
+    proposal?: ProgramAssignment,
+  ) => {
+    const epoch = onboardingEpoch.current;
+    if (proposal) {
+      setAcceptingProgram(true);
+      const result = await programAcceptance.accept(proposal, next);
+      if (result.status !== 'accepted')
+        throw Error(result.error ?? 'Program saving is pending. Retry START!');
+      if (resetInProgress.current || onboardingEpoch.current !== epoch) return;
+      setAssignment(result.assignment!);
+      setProgramError('');
+    } else await queueOnboardingSave(next);
+    if (resetInProgress.current || onboardingEpoch.current !== epoch) return;
     setOnboardingError('');
     setOnboardingState(next);
+    setAcceptingProgram(false);
     setEditingPersonalization(false);
     setTab('home');
   };
@@ -377,6 +440,18 @@ export default function App() {
       setTab('workout');
     } catch (problem) {
       Alert.alert('Cannot start workout', (problem as Error).message);
+    }
+  };
+  const startProgramSlot = (slot: ProjectedProgramSlot, template: Template) => {
+    if (data.activeWorkout) {
+      setTab('workout');
+      return;
+    }
+    try {
+      store.start(template, slot.context);
+      setTab('workout');
+    } catch (problem) {
+      Alert.alert('Cannot start planned workout', (problem as Error).message);
     }
   };
   const updateHiddenBuiltIns = async (next: string[]): Promise<boolean> => {
@@ -418,17 +493,22 @@ export default function App() {
     if (resetInProgress.current || busy) return;
     resetInProgress.current = true;
     ++onboardingEpoch.current;
+    programAcceptance.invalidate();
     ++hiddenEpoch.current;
     setResetBusy(true);
     setResetError('');
     try {
       await resetLocalData(AsyncStorage, async () => {
+        await programAcceptance.waitForPendingWrites();
         await onboardingWrites.current;
         await store.waitForPendingWrites();
         await hiddenWrites.current;
       });
       store.resetAfterLocalDataRemoval();
       setOnboardingState(initialOnboardingState);
+      setAcceptingProgram(false);
+      setAssignment(null);
+      setProgramError('');
       setHiddenBuiltInIds([]);
       setHiddenError('');
       setHiddenReady(true);
@@ -488,6 +568,17 @@ export default function App() {
         }}
         onCancel={() => setConfirmFinish(false)}
       />
+      {programError ? (
+        <View style={s.notice} accessibilityRole="alert">
+          <Text style={s.sub}>{programError}</Text>
+          <AppButton
+            title="Retry program recovery"
+            secondary
+            disabled={busy || resetBusy}
+            onPress={() => void recoverProgram()}
+          />
+        </View>
+      ) : null}
       {error ? (
         <View style={s.notice} accessibilityRole="alert">
           <Text style={s.sub}>{error}</Text>
@@ -551,7 +642,7 @@ export default function App() {
             onPress={() => setOnboardingBypass(true)}
           />
         </View>
-      ) : showOnboarding || editingPersonalization ? (
+      ) : showOnboarding || editingPersonalization || acceptingProgram ? (
         <Onboarding
           key={editingPersonalization ? 'edit' : 'first-run'}
           state={
@@ -570,7 +661,11 @@ export default function App() {
           onChange={saveOnboardingProgress}
           onComplete={completeOnboarding}
           onCreateWorkout={createFirstWorkout}
-          onExit={() => setEditingPersonalization(false)}
+          onExit={() => {
+            setEditingPersonalization(false);
+            setAcceptingProgram(false);
+            setTab(editingPersonalization ? 'profile' : 'home');
+          }}
         />
       ) : (
         <>
@@ -581,6 +676,8 @@ export default function App() {
           ) : null}
           {tab === 'home' ? (
             <HomeDashboard
+              assignment={assignment}
+              startProgramSlot={startProgramSlot}
               history={data.history}
               activeWorkout={data.activeWorkout}
               onResume={() => setTab('workout')}

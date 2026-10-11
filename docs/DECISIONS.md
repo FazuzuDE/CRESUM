@@ -665,3 +665,19 @@ The user approved moving the History filter directly below its heading, before r
 ## 2026-10-11 — App-wide smooth return control
 
 The user extended the approved up-arrow to all application pages and requested smooth upward scrolling similar in feel to ChatGPT. Use shared vertical scroll/list wrappers across screens and detail sheets, preserving the native ref and scroll/layout callbacks required by active-workout reordering. Native animated scroll supplies easing; Reduce Motion disables animation. Existing section/page two-step navigation remains; single-section lists return to their start. Horizontal filters, number wheels and their compact header scroller remain independent controls. Exact ChatGPT velocity is not measurable here; perceived pace requires device acceptance. No workout/domain/storage changes.
+
+## 2026-10-11 — Starter-program implementation checkpoint
+
+Following approval of PR #35, the nine Gym variants are implemented as a
+versioned catalog. Four required exercise variants retain new stable identities;
+unloaded Step-up is explicitly a CRESUM adaptation of the source movement.
+Targets are separate snapshots from actual values. Paired left/right results
+require both actual counts, include their sum in volume and exclude combined
+Epley estimates. Existing saved unilateral accounting remains unchanged.
+
+START! accepts the reviewed plan through a recoverable roll-forward journal,
+installs its complete routine batch, saves personalization and opens Home with
+no active session. A canonical installation marker prevents deleted or edited
+routines from being overwritten during retry. The planned week is independent
+of actual completion statistics and supports explicit slot-linked workouts.
+Phone/accessibility review and GitHub integration are still outstanding.

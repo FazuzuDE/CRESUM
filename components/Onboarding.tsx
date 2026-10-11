@@ -1,3 +1,17 @@
+import { programEligibilityError } from '@/lib/training-programs/eligibility';
+import { HistoryDatePicker } from './HistoryDatePicker';
+import { selectProgram } from '@/lib/training-programs/selectors';
+import { projectProgramReadiness } from '@/lib/training-programs/readiness';
+import {
+  makeAssignment,
+  type ProgramAssignment,
+} from '@/lib/training-programs/assignment';
+import {
+  addCalendarDays,
+  adjustProgramSchedule,
+  localDate,
+} from '@/lib/training-programs/schedule';
+import { exerciseLibrary, findExercise } from '@/lib/exercise-library';
 import { AppScrollView } from './AppScrollView';
 import { useState } from 'react';
 import {
@@ -21,7 +35,10 @@ type Props = {
   editing?: boolean;
   busy: boolean;
   onChange: (next: OnboardingState) => void;
-  onComplete: (next: OnboardingState) => Promise<void>;
+  onComplete: (
+    next: OnboardingState,
+    proposal?: ProgramAssignment,
+  ) => Promise<void>;
   onCreateWorkout: (draft: TemplateDraft) => Promise<TemplateMutationResult>;
   onExit?: () => void;
 };
@@ -35,7 +52,23 @@ export function Onboarding({
   onCreateWorkout,
   onExit,
 }: Props) {
-  const [state, setState] = useState(initial);
+  const [state, setState] = useState(() =>
+    initial.step === 'environment'
+      ? { ...initial, step: 'profile' as const }
+      : initial,
+  );
+  const [proposalId] = useState(
+    () =>
+      `accept-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`,
+  );
+  const [startDate, setStartDate] = useState(() => localDate());
+  const [offsets, setOffsets] = useState<number[]>();
+  const [frequency, setFrequency] = useState<number>();
+  const [reduced, setReduced] = useState(false);
+  const [preview, setPreview] = useState(false);
+  const [scheduleOpen, setScheduleOpen] = useState(false);
+  const [dateOpen, setDateOpen] = useState(false);
+  const [lockedProposal, setLockedProposal] = useState<ProgramAssignment>();
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const change = (next: OnboardingState) => {
@@ -43,13 +76,57 @@ export function Onboarding({
     onChange(next);
   };
   const go = (step: OnboardingStep) => change({ ...state, step });
+  const base =
+    state.answers.goal && state.answers.experience
+      ? selectProgram(state.answers.goal, state.answers.experience)
+      : undefined;
+  let proposal: ProgramAssignment | undefined;
+  let proposalError = '';
+  try {
+    const eligibility = programEligibilityError(state.answers);
+    if (eligibility) throw Error(eligibility);
+    if (base) {
+      if (frequency !== undefined && frequency !== base.schedule[0].length)
+        throw Error(
+          'No checked program for this frequency. Keep the recommended frequency or use manual setup.',
+        );
+      const program = offsets ? adjustProgramSchedule(base, offsets) : base;
+      const readiness = projectProgramReadiness(program, exerciseLibrary);
+      if (!readiness.ready)
+        throw Error(
+          `Required exercises unavailable: ${readiness.blockers.join(', ')}`,
+        );
+      proposal = makeAssignment(program, proposalId, startDate, reduced);
+    } else
+      proposalError = 'Choose a goal and experience to prepare your program.';
+  } catch (problem) {
+    proposalError = (problem as Error).message;
+  }
+  if (lockedProposal) {
+    proposal = lockedProposal;
+    proposalError = '';
+  }
   const complete = async () => {
     setSaving(true);
     setError('');
     try {
-      await onComplete({ ...state, status: 'completed', step: 'complete' });
-    } catch {
-      setError('Could not save onboarding. Try again. Your workouts are safe.');
+      if (!proposal) throw Error(proposalError);
+      setLockedProposal(proposal);
+      await onComplete(
+        {
+          ...state,
+          status: 'completed',
+          step: 'complete',
+          answers: { ...state.answers, environment: 'gym' },
+        },
+        proposal,
+      );
+    } catch (problem) {
+      setError(
+        problem instanceof Error
+          ? problem.message
+          : 'Could not save program. Retry; your workouts are safe.',
+      );
     } finally {
       setSaving(false);
     }
@@ -66,13 +143,19 @@ export function Onboarding({
       accessibilityLabel={title}
       selected={state.answers[field] === value}
       secondary={state.answers[field] !== value}
-      onPress={() =>
+      disabled={saving || Boolean(lockedProposal)}
+      onPress={() => {
+        if (field === 'goal' || field === 'experience') {
+          setOffsets(undefined);
+          setFrequency(undefined);
+          setReduced(false);
+        }
         change({
           ...state,
           step: next,
           answers: { ...state.answers, [field]: value },
-        })
-      }
+        });
+      }}
     />
   );
   const field = (label: string, name: 'age' | 'heightCm' | 'bodyWeightKg') => (
@@ -100,7 +183,7 @@ export function Onboarding({
     goal: 'welcome',
     experience: 'goal',
     environment: 'experience',
-    profile: 'environment',
+    profile: 'experience',
     complete: 'profile',
     self_setup: 'welcome',
   };
@@ -212,29 +295,10 @@ export function Onboarding({
                   Training experience
                 </Text>
                 <Text style={s.sub}>Choose the closest fit.</Text>
-                {option('Beginner', 'experience', 'beginner', 'environment')}
-                {option('Some experience', 'experience', 'some', 'environment')}
-                {option(
-                  'Experienced',
-                  'experience',
-                  'experienced',
-                  'environment',
-                )}
+                {option('Beginner', 'experience', 'beginner', 'profile')}
+                {option('Some experience', 'experience', 'some', 'profile')}
+                {option('Experienced', 'experience', 'experienced', 'profile')}
                 {state.answers.experience ? (
-                  <AppButton title="Next" onPress={() => go('environment')} />
-                ) : null}
-              </>
-            ) : null}
-            {step === 'environment' ? (
-              <>
-                <Text style={s.title} accessibilityRole="header">
-                  Training environment
-                </Text>
-                <Text style={s.sub}>Where do you usually train?</Text>
-                {option('Gym', 'environment', 'gym', 'profile')}
-                {option('Home', 'environment', 'home', 'profile')}
-                {option('Both', 'environment', 'both', 'profile')}
-                {state.answers.environment ? (
                   <AppButton title="Next" onPress={() => go('profile')} />
                 ) : null}
               </>
@@ -266,17 +330,187 @@ export function Onboarding({
             {step === 'complete' ? (
               <>
                 <Text style={s.title} accessibilityRole="header">
-                  You’re ready to start
+                  {proposal ? 'You’re ready to start' : 'Review your program'}
                 </Text>
-                <Text style={s.sub}>
-                  Continue to save your preferences and open CRESUM. No workout
-                  has been generated for you.
-                </Text>
+                {proposal ? (
+                  <>
+                    <Text style={s.label}>{proposal.program.name}</Text>
+                    <Text style={s.sub}>
+                      {proposal.program.schedule[0].length} strength workouts
+                      per week · Gym · starts {proposal.startDate}
+                    </Text>
+                    <Text style={s.support}>
+                      CRESUM adaptation of published training programs from
+                      ACSM, NSCA, ACE, HSS and NHS guidance. Working weights are
+                      chosen manually; planned values do not count as completed
+                      sets.
+                    </Text>
+                    <AppButton
+                      title={
+                        preview ? 'Hide full program' : 'View full program'
+                      }
+                      secondary
+                      onPress={() => setPreview(!preview)}
+                    />
+                    {preview ? (
+                      <View style={s.field}>
+                        {proposal.program.schedule.map((week, i) => (
+                          <Text key={i} style={s.label}>
+                            Week {i + 1}:{' '}
+                            {week
+                              .map(
+                                (slot) =>
+                                  `${slot.dayKey} · ${addCalendarDays(proposal!.startDate, i * 7 + slot.offset)}`,
+                              )
+                              .join(' / ')}
+                          </Text>
+                        ))}
+                        {proposal.program.days.map((day) => (
+                          <View key={day.key} style={s.field}>
+                            <Text style={s.label}>
+                              {day.key} · {day.name}
+                            </Text>
+                            {day.movements.map((m) => (
+                              <Text key={m.exerciseId} style={s.support}>
+                                {findExercise(m.exerciseId)?.name ??
+                                  m.exerciseId}{' '}
+                                · {m.sets} × {m.repMin}–{m.repMax}
+                                {m.perSide ? ' per side' : ''} · rest{' '}
+                                {m.restMin}–{m.restMax}s
+                              </Text>
+                            ))}
+                          </View>
+                        ))}
+                        <Text style={s.support}>
+                          Warm up separately. Use a manageable load with 2–3
+                          reps in reserve. Progress manually when the upper rep
+                          target feels controlled; no automatic load increases.
+                        </Text>
+                        {proposal.program.cardio.length ? (
+                          <Text style={s.support}>
+                            Walking or cycling: gradual target of 150 moderate
+                            minutes per week; start with manageable 10–15 minute
+                            sessions. Cardio guidance is separate from strength
+                            logging.
+                          </Text>
+                        ) : null}
+                      </View>
+                    ) : null}
+                  </>
+                ) : (
+                  <Text accessibilityRole="alert" style={s.error}>
+                    {proposalError}
+                  </Text>
+                )}
                 <AppButton
-                  title="Go to Home"
-                  disabled={saving || busy}
+                  title={
+                    scheduleOpen ? 'Hide schedule options' : 'Schedule options'
+                  }
+                  secondary
+                  disabled={saving || Boolean(lockedProposal)}
+                  onPress={() => setScheduleOpen(!scheduleOpen)}
+                />
+                {scheduleOpen && base ? (
+                  <View style={s.field}>
+                    <AppButton
+                      title={`Start date · ${startDate}`}
+                      secondary
+                      disabled={saving || Boolean(lockedProposal)}
+                      onPress={() => setDateOpen(!dateOpen)}
+                    />
+                    {dateOpen ? (
+                      <HistoryDatePicker
+                        value={new Date(`${startDate}T12:00:00`).getTime()}
+                        onChange={(time) => {
+                          setStartDate(localDate(new Date(time)));
+                          setDateOpen(false);
+                        }}
+                      />
+                    ) : null}
+                    <Text style={s.label}>Workouts per week</Text>
+                    {[2, 3, 4].map((n) => (
+                      <AppButton
+                        key={n}
+                        title={`${n} workouts`}
+                        secondary
+                        selected={(frequency ?? base.schedule[0].length) === n}
+                        disabled={saving || Boolean(lockedProposal)}
+                        onPress={() => setFrequency(n)}
+                      />
+                    ))}
+                    <Text style={s.support}>
+                      Only the recommended frequency has a checked variant for
+                      this goal and experience. Other frequencies use manual
+                      setup.
+                    </Text>
+                    {base.schedule[0].map((slot, i) => (
+                      <View key={i} style={s.field}>
+                        <Text style={s.label}>
+                          Session {i + 1} · day of the plan week (1–7)
+                        </Text>
+                        <TextInput
+                          accessibilityLabel={`Session ${i + 1} day of plan week`}
+                          keyboardType="number-pad"
+                          value={String(
+                            (offsets ?? base.schedule[0].map((s) => s.offset))[
+                              i
+                            ] + 1,
+                          )}
+                          editable={!saving && !lockedProposal}
+                          style={s.input}
+                          onChangeText={(value) => {
+                            const next = [
+                              ...(offsets ??
+                                base.schedule[0].map((s) => s.offset)),
+                            ];
+                            next[i] = Number(value) - 1;
+                            setOffsets(next);
+                          }}
+                        />
+                      </View>
+                    ))}
+                  </View>
+                ) : null}
+                {base?.firstSessionSetCap ? (
+                  <AppButton
+                    title={
+                      reduced
+                        ? 'First session: 1 set per exercise'
+                        : 'New to training? Reduce first session to 1 set'
+                    }
+                    secondary
+                    selected={reduced}
+                    disabled={saving || Boolean(lockedProposal)}
+                    onPress={() => setReduced(!reduced)}
+                  />
+                ) : null}
+                <AppButton
+                  title={
+                    error && lockedProposal
+                      ? 'Retry START!'
+                      : saving
+                        ? 'Saving program…'
+                        : 'START!'
+                  }
+                  disabled={!proposal || saving || busy}
                   onPress={() => void complete()}
                 />
+                {!lockedProposal ? (
+                  <AppButton
+                    title="Set up workouts myself"
+                    secondary
+                    disabled={saving || busy}
+                    onPress={() => go('self_setup')}
+                  />
+                ) : null}
+                {lockedProposal && error && onExit ? (
+                  <AppButton
+                    title="Open saved workouts"
+                    secondary
+                    disabled={saving || busy}
+                    onPress={onExit}
+                  />
+                ) : null}
               </>
             ) : null}
             {error ? (
@@ -287,12 +521,18 @@ export function Onboarding({
             {back[step] ? (
               <AppButton
                 title="Back"
+                disabled={saving || busy || Boolean(lockedProposal)}
                 secondary
                 onPress={() => go(back[step]!)}
               />
             ) : null}
             {editing && onExit ? (
-              <AppButton title="Back to Profile" secondary onPress={onExit} />
+              <AppButton
+                title="Back to Profile"
+                secondary
+                disabled={saving || busy || Boolean(lockedProposal)}
+                onPress={onExit}
+              />
             ) : null}
           </GlassCard>
         )}

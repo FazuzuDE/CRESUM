@@ -29,7 +29,7 @@ Later, separately approved work may sync custom workouts, preferences/profile, a
 
 ## P1 — Product polish
 
-### Goal-based starter programs — approved 2026-10-11
+### Goal-based starter programs — implementation prepared 2026-10-11
 
 The user approved the [nine-variant research/specification](superpowers/specs/2026-10-11-goal-training-programs-design.md)
 as the initial basis, with later corrections allowed. Gym is default, the

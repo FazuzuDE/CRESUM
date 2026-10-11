@@ -31,7 +31,14 @@ export type WorkoutExercise = {
   sets: WorkoutSet[];
 };
 
+export type ProgramSlotContext = {
+  assignmentId: string;
+  weekIndex: number;
+  slotIndex: number;
+  date: string;
+};
 export type WorkoutSession = {
+  programSlot?: ProgramSlotContext;
   id: string;
   templateId: string;
   name: string;
@@ -72,6 +79,7 @@ export type LibraryExercise = {
 
 export type WorkoutState = {
   schemaVersion: 1;
+  programInstallations?: string[];
   activeWorkout: WorkoutSession | null;
   history: WorkoutSession[];
   templates: WorkoutTemplate[];

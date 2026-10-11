@@ -3,6 +3,7 @@ import { WorkoutRepository } from '../workout-repository';
 import { defaultTemplates } from '../workout-catalog';
 
 const original = new Map([
+  ['cresum_training_program_v1', '{"version":1}'],
   ['cresum_onboarding_v1', '{"version":1}'],
   ['cresum_hidden_builtins_v1', '{"version":1,"ids":["upper"]}'],
   ['fitflow_history', '[{"id":"legacy"}]'],

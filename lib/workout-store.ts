@@ -1,6 +1,11 @@
 import { exerciseLibrary } from './workout-catalog';
 import { finishWorkout, startWorkout } from './workout-engine';
-import { WorkoutSession, WorkoutState, WorkoutTemplate } from './workout-model';
+import {
+  ProgramSlotContext,
+  WorkoutSession,
+  WorkoutState,
+  WorkoutTemplate,
+} from './workout-model';
 import { emptyWorkoutState, WorkoutRepository } from './workout-repository';
 import {
   createTemplate as createTemplateInList,
@@ -70,12 +75,25 @@ export class WorkoutStore {
     if (!ready || busy || !data.activeWorkout) return;
     this.persist({ ...data, activeWorkout: transform(data.activeWorkout) });
   }
-  start(template: WorkoutTemplate) {
+  start(template: WorkoutTemplate, programSlot?: ProgramSlotContext) {
     const { data, ready, busy } = this.snapshot;
     if (!ready || busy) return;
     if (data.activeWorkout)
       throw new Error('Resume your active workout before starting another.');
-    const activeWorkout = startWorkout(template, exerciseLibrary);
+    if (
+      programSlot &&
+      template.exerciseIds.some(
+        (id) => !exerciseLibrary.some((e) => e.id === id),
+      )
+    )
+      throw Error('Required program exercises are unavailable.');
+    const activeWorkout = startWorkout(
+      template,
+      exerciseLibrary,
+      Date.now(),
+      undefined,
+      programSlot,
+    );
     if (!activeWorkout.exercises.length)
       throw new Error('This template has no available exercises.');
     this.persist({ ...data, activeWorkout });
@@ -112,6 +130,63 @@ export class WorkoutStore {
       const error = 'Template changes could not be saved. Try again.';
       this.publish({ error });
       return { ok: false, error };
+    } finally {
+      this.publish({ busy: false });
+    }
+  }
+  async installProgramTemplates(
+    acceptanceId: string,
+    templates: WorkoutTemplate[],
+  ): Promise<{ ok: true } | { ok: false; error: string; conflict?: boolean }> {
+    const { data, ready, busy } = this.snapshot;
+    if (!ready || busy)
+      return { ok: false, error: 'Workouts are not ready. Try again shortly.' };
+    const existing = templates.map((t) =>
+      data.templates.filter((saved) => saved.id === t.id),
+    );
+    const installed = data.programInstallations?.includes(acceptanceId);
+    if (installed) {
+      return existing.every(
+        (matches, i) =>
+          matches.length === 1 &&
+          JSON.stringify(matches[0]) === JSON.stringify(templates[i]),
+      )
+        ? { ok: true }
+        : {
+            ok: false,
+            conflict: true,
+            error:
+              'A generated workout was edited or deleted. Keep your changes and review the pending program.',
+          };
+    }
+    if (existing.some((matches) => matches.length))
+      return {
+        ok: false,
+        conflict: true,
+        error: 'Program template IDs already exist. No workouts were replaced.',
+      };
+    const next = {
+      ...data,
+      templates: [
+        ...data.templates,
+        ...(JSON.parse(JSON.stringify(templates)) as WorkoutTemplate[]),
+      ],
+      programInstallations: [
+        ...(data.programInstallations ?? []),
+        acceptanceId,
+      ],
+    };
+    ++this.revision;
+    this.publish({ busy: true, error: '' });
+    try {
+      await this.repository.save(next);
+      this.publish({ data: next });
+      return { ok: true };
+    } catch {
+      return {
+        ok: false,
+        error: 'Program workouts could not be saved. Retry the same proposal.',
+      };
     } finally {
       this.publish({ busy: false });
     }
