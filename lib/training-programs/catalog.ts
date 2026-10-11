@@ -151,7 +151,7 @@ const fitnessDays = (experience: TrainingExperience): ProgramDay[] => {
       core(n),
     ]),
     day('H', 'Fitness H', [
-      movement('step', n, 8, 8),
+      movement('step', n, 8, max),
       movement('bench', n, 8, max),
       movement('lat', n, 8, max),
       movement('bridge', n, 8, max),

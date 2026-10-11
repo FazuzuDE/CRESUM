@@ -67,6 +67,7 @@ export type LibraryExercise = {
   movementPattern: MovementPatternId;
   imageKey: string;
   perSide?: boolean;
+  measurement?: 'repetitions' | 'duration' | 'distance';
 };
 
 export type WorkoutState = {

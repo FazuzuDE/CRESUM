@@ -3,7 +3,11 @@ import type { EquipmentId, MuscleId } from './exercise-taxonomy';
 
 const exercise = (
   value: Omit<LibraryExercise, 'imageKey'> & { imageKey?: string },
-): LibraryExercise => ({ ...value, imageKey: value.imageKey ?? value.id });
+): LibraryExercise => ({
+  measurement: 'repetitions',
+  ...value,
+  imageKey: value.imageKey ?? value.id,
+});
 
 export const exerciseLibrary = [
   exercise({
@@ -448,6 +452,7 @@ export const exerciseLibrary = [
   }),
   exercise({
     id: 'plank',
+    measurement: 'duration',
     name: 'Plank',
     primaryMuscles: ['abs'],
     secondaryMuscles: ['glutes'],
@@ -488,6 +493,7 @@ export const exerciseLibrary = [
   }),
   exercise({
     id: 'farmers-carry',
+    measurement: 'distance',
     name: "Farmer's Carry",
     primaryMuscles: ['forearms', 'traps'],
     secondaryMuscles: ['abs', 'glutes'],

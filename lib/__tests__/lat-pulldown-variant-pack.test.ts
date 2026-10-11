@@ -48,6 +48,7 @@ describe('Lat Pulldown Variant Pack v1', () => {
       equipment: ['cable'],
       movementPattern: 'vertical-pull',
       imageKey: 'lat-pulldown',
+      measurement: 'repetitions',
     });
     expect(legacyExerciseIds.pulldown).toBe('lat-pulldown');
     expect(getCatalogVariant('lat-pulldown')).toMatchObject({

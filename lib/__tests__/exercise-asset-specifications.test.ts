@@ -203,6 +203,7 @@ describe('exercise asset specifications', () => {
       equipment: ['cable'],
       movementPattern: 'vertical-pull',
       imageKey: 'lat-pulldown',
+      measurement: 'repetitions',
     });
     const exactIds = [
       'lat-pulldown-wide-pronated-bar',
