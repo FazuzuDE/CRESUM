@@ -72,6 +72,7 @@ export type LibraryExercise = {
 
 export type WorkoutState = {
   schemaVersion: 1;
+  programInstallations?: string[];
   activeWorkout: WorkoutSession | null;
   history: WorkoutSession[];
   templates: WorkoutTemplate[];

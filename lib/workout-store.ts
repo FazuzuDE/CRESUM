@@ -116,6 +116,63 @@ export class WorkoutStore {
       this.publish({ busy: false });
     }
   }
+  async installProgramTemplates(
+    acceptanceId: string,
+    templates: WorkoutTemplate[],
+  ): Promise<{ ok: true } | { ok: false; error: string; conflict?: boolean }> {
+    const { data, ready, busy } = this.snapshot;
+    if (!ready || busy)
+      return { ok: false, error: 'Workouts are not ready. Try again shortly.' };
+    const existing = templates.map((t) =>
+      data.templates.filter((saved) => saved.id === t.id),
+    );
+    const installed = data.programInstallations?.includes(acceptanceId);
+    if (installed) {
+      return existing.every(
+        (matches, i) =>
+          matches.length === 1 &&
+          JSON.stringify(matches[0]) === JSON.stringify(templates[i]),
+      )
+        ? { ok: true }
+        : {
+            ok: false,
+            conflict: true,
+            error:
+              'A generated workout was edited or deleted. Keep your changes and review the pending program.',
+          };
+    }
+    if (existing.some((matches) => matches.length))
+      return {
+        ok: false,
+        conflict: true,
+        error: 'Program template IDs already exist. No workouts were replaced.',
+      };
+    const next = {
+      ...data,
+      templates: [
+        ...data.templates,
+        ...(JSON.parse(JSON.stringify(templates)) as WorkoutTemplate[]),
+      ],
+      programInstallations: [
+        ...(data.programInstallations ?? []),
+        acceptanceId,
+      ],
+    };
+    ++this.revision;
+    this.publish({ busy: true, error: '' });
+    try {
+      await this.repository.save(next);
+      this.publish({ data: next });
+      return { ok: true };
+    } catch {
+      return {
+        ok: false,
+        error: 'Program workouts could not be saved. Retry the same proposal.',
+      };
+    } finally {
+      this.publish({ busy: false });
+    }
+  }
   createTemplate(
     draft: TemplateDraft,
     idFactory?: TemplateIdFactory,

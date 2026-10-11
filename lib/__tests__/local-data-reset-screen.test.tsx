@@ -1,3 +1,9 @@
+import {
+  ProgramRepository,
+  PROGRAM_KEY,
+} from '../training-programs/repository';
+import { makeAssignment } from '../training-programs/assignment';
+import { selectProgram } from '../training-programs/selectors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import App from '../../app/index';
 import { AppButton } from '../../components/AppButton';
@@ -291,4 +297,59 @@ it('ignores an old onboarding retry result that arrives after reset', async () =
     (AsyncStorage.getItem as jest.Mock).mockImplementation(get);
     await act(async () => view.unmount());
   }
+});
+
+it('recovers a pending program even when existing custom workouts bypass onboarding', async () => {
+  const proposal = makeAssignment(
+    selectProgram('get_stronger', 'beginner')!,
+    'recover-1',
+    '2026-10-11',
+  );
+  await AsyncStorage.clear();
+  await AsyncStorage.setItem(
+    STATE_KEY,
+    JSON.stringify({
+      schemaVersion: 1,
+      activeWorkout: null,
+      history: [],
+      templates: [
+        ...defaultTemplates,
+        { id: 'my-day', name: 'Custom', exerciseIds: ['goblet-squat'] },
+      ],
+    }),
+  );
+  const repository = new ProgramRepository(AsyncStorage);
+  await repository.save({
+    version: 1,
+    assignment: null,
+    pending: {
+      assignment: proposal,
+      onboarding: {
+        version: 1,
+        status: 'completed',
+        step: 'complete',
+        answers: {
+          goal: 'get_stronger',
+          experience: 'beginner',
+          environment: 'gym',
+        },
+      },
+    },
+  });
+  let view!: ReturnType<typeof create>;
+  await act(async () => {
+    view = create(<App />);
+  });
+  expect(
+    JSON.parse((await AsyncStorage.getItem(PROGRAM_KEY))!).pending,
+  ).toBeNull();
+  expect(
+    JSON.parse((await AsyncStorage.getItem(STATE_KEY))!).templates.some(
+      (t: { id: string }) => t.id === 'my-day',
+    ),
+  ).toBe(true);
+  expect(
+    JSON.parse((await AsyncStorage.getItem(STATE_KEY))!).activeWorkout,
+  ).toBeNull();
+  await act(async () => view.unmount());
 });

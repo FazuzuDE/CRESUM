@@ -202,6 +202,9 @@ function normalize(value: unknown, legacy = false): WorkoutState {
   if (
     !object(value) ||
     value.schemaVersion !== 1 ||
+    (value.programInstallations !== undefined &&
+      (!Array.isArray(value.programInstallations) ||
+        !value.programInstallations.every(string))) ||
     !Array.isArray(value.history) ||
     !Array.isArray(value.templates)
   )
@@ -218,6 +221,11 @@ function normalize(value: unknown, legacy = false): WorkoutState {
   // the pre-v1 multi-key format, where an interrupted finish was non-atomic.
   return {
     schemaVersion: 1,
+    ...(value.programInstallations === undefined
+      ? {}
+      : {
+          programInstallations: [...(value.programInstallations as string[])],
+        }),
     history,
     activeWorkout: active && !historyIds.has(active.id) ? active : null,
     templates: value.templates.map(template),

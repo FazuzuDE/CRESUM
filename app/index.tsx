@@ -52,6 +52,9 @@ import {
   type OnboardingState,
 } from '@/lib/onboarding';
 import { OnboardingRepository } from '@/lib/onboarding-repository';
+import { ProgramRepository } from '@/lib/training-programs/repository';
+import { ProgramAcceptance } from '@/lib/training-programs/acceptance';
+import type { ProgramAssignment } from '@/lib/training-programs/assignment';
 import { resetLocalData } from '@/lib/local-data-reset';
 import { HiddenBuiltInsRepository } from '@/lib/hidden-builtins';
 import type { TemplateDraft } from '@/lib/workout-templates';
@@ -240,6 +243,9 @@ export default function App() {
     store.subscribe,
     store.getSnapshot,
   );
+  const [assignment, setAssignment] = useState<ProgramAssignment | null>(null);
+  const [programError, setProgramError] = useState('');
+  const programRecovered = useRef(false);
   const [tab, setTab] = useState('home');
   const [onboardingRepository] = useState(
     () => new OnboardingRepository(AsyncStorage),
@@ -326,6 +332,47 @@ export default function App() {
     onboardingWrites.current = write.catch(() => undefined);
     return write;
   };
+  /* eslint-disable react-hooks/refs -- Stored saver runs only during awaited acceptance, never during render. */
+  const [programAcceptance] = useState(
+    () =>
+      new ProgramAcceptance(
+        new ProgramRepository(AsyncStorage),
+        store,
+        (next) => queueOnboardingSave(next),
+      ),
+  );
+  /* eslint-enable react-hooks/refs */
+  const recoverProgram = async () => {
+    const epoch = onboardingEpoch.current;
+    const result = await programAcceptance.recover();
+    if (resetInProgress.current || onboardingEpoch.current !== epoch) return;
+    if (result.status === 'accepted') {
+      setAssignment(result.assignment!);
+      setProgramError('');
+      const next = await onboardingRepository.load();
+      if (!resetInProgress.current && onboardingEpoch.current === epoch) {
+        setOnboardingState(next);
+        setOnboardingError('');
+        setOnboardingLoadFailed(false);
+      }
+    } else if (result.status !== 'empty')
+      setProgramError(
+        result.error ??
+          'Program recovery is pending. Your workouts remain available.',
+      );
+  };
+  useEffect(() => {
+    if (ready && onboardingReady && !programRecovered.current) {
+      programRecovered.current = true;
+      void recoverProgram().catch(() =>
+        setProgramError(
+          'Program recovery is pending. Your workouts remain available.',
+        ),
+      );
+    }
+    // Recovery runs once per load, after both repositories are ready.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ready, onboardingReady]);
   const saveOnboardingProgress = (next: OnboardingState) => {
     if (resetInProgress.current) return;
     setOnboardingState(next);
@@ -402,6 +449,7 @@ export default function App() {
       setHiddenBusy(false);
     }
   };
+  void assignment;
   const visibleTemplates = data.templates.filter(
     (template) => !hiddenBuiltInIds.includes(template.id),
   );
@@ -418,17 +466,21 @@ export default function App() {
     if (resetInProgress.current || busy) return;
     resetInProgress.current = true;
     ++onboardingEpoch.current;
+    programAcceptance.invalidate();
     ++hiddenEpoch.current;
     setResetBusy(true);
     setResetError('');
     try {
       await resetLocalData(AsyncStorage, async () => {
+        await programAcceptance.waitForPendingWrites();
         await onboardingWrites.current;
         await store.waitForPendingWrites();
         await hiddenWrites.current;
       });
       store.resetAfterLocalDataRemoval();
       setOnboardingState(initialOnboardingState);
+      setAssignment(null);
+      setProgramError('');
       setHiddenBuiltInIds([]);
       setHiddenError('');
       setHiddenReady(true);
@@ -488,6 +540,17 @@ export default function App() {
         }}
         onCancel={() => setConfirmFinish(false)}
       />
+      {programError ? (
+        <View style={s.notice} accessibilityRole="alert">
+          <Text style={s.sub}>{programError}</Text>
+          <AppButton
+            title="Retry program recovery"
+            secondary
+            disabled={busy || resetBusy}
+            onPress={() => void recoverProgram()}
+          />
+        </View>
+      ) : null}
       {error ? (
         <View style={s.notice} accessibilityRole="alert">
           <Text style={s.sub}>{error}</Text>
