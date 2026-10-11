@@ -92,9 +92,9 @@ describe('WorkoutHistory', () => {
       .filter(Boolean);
 
     expect(labels).toEqual([
+      'Filter History',
       'Open Newer Workout workout details',
       'Open Older Workout workout details',
-      'Filter History',
     ]);
     expect(serialized(view)).not.toContain('Saved Bench Snapshot');
     expect(serialized(view)).not.toContain('50 kg × 10');

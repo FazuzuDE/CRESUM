@@ -116,7 +116,7 @@ A future first-workout calibration may collect actual exercise-specific work and
 ### History
 
 List and inspect completed workouts accurately. Default to the latest three,
-newest first, with a filter below the results. A separate filter window offers
+newest first, with a filter directly below the History heading, before the results. A separate filter window offers
 mutually exclusive Recent workouts and Date range modes. Recent workouts starts
 at 3; its scrolling wheel offers All instead of zero, then 1 through the number
 of saved workouts. All retains access to the complete archive. Fewer than three
@@ -229,3 +229,7 @@ CRESUM is light, premium, calm, Apple-inspired rather than copied, restrained wi
 ## Core success
 
 A user can start a workout, log sets, use rest timer, finish without data loss, find it in History after reopening, and see meaningful progress from saved data.
+
+### Compact Progress navigation — 2026-10-11
+
+Logged exercise performance presents the existing estimated 1RM per workout as a compact graph: weekly bars, curves from 1M onward over the selected rolling period. Actual completed weights/reps remain available in a separate View logged sets sheet; all estimates remain accessible. No calculations or saved exercise identities change. A floating up button appears after scrolling: first tap returns to the current section start, second tap to the page top. Manual scrolling resets this sequence.

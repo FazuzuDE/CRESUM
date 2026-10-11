@@ -609,3 +609,7 @@ cancelling leaves applied results unchanged. Picker Back discards unfinished
 picker changes. Workout details retain the filter on return. Progress periods,
 stored snapshots and schema v1 are unaffected; All exposes the full archive.
 Status: approved — pending Git integration and native wheel/sheet/phone QA.
+
+## 2026-10-11 — Compact exercise graph and section navigation
+
+The user approved moving the History filter directly below its heading, before results; this supersedes the 2026-10-10 bottom placement. Logged exercise performance now presents the existing estimated 1RM series as weekly bars and selected-period curves from 1M onward, with all estimates and actual completed sets in separate detail sheets. The up-arrow appears after scrolling, first returns to the current section start, then to the page top; manual scrolling resets this sequence. Saved data, exercise identity, formulas and workout flow remain unchanged.

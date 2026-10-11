@@ -83,6 +83,13 @@ export function WorkoutHistory({
   return (
     <View style={s.section}>
       <Text style={s.sectionTitle}>History</Text>
+      <AppButton
+        title={`Filter · ${historyFilterLabel(filter)}`}
+        accessibilityLabel="Filter History"
+        secondary
+        onPress={() => setFilterOpen(true)}
+      />
+
       {visible.length ? (
         visible.map((workout) => (
           <Pressable
@@ -113,12 +120,6 @@ export function WorkoutHistory({
           </Text>
         </GlassCard>
       )}
-      <AppButton
-        title={`Filter · ${historyFilterLabel(filter)}`}
-        accessibilityLabel="Filter History"
-        secondary
-        onPress={() => setFilterOpen(true)}
-      />
       {filterOpen && (
         <HistoryFilterModal
           initial={filter}

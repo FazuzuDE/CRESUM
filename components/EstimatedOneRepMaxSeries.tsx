@@ -7,6 +7,9 @@ import {
   Text,
   View,
 } from 'react-native';
+import { EstimatedOneRepMaxBars } from './EstimatedOneRepMaxBars';
+import { VolumeTrendChart } from './VolumeTrendChart';
+import { progressPeriodStart } from '@/lib/progress-periods';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import type { EstimatedOneRepMaxPoint } from '@/lib/exercise-performance';
 import type { ProgressPeriodId } from '@/lib/progress-periods';
@@ -15,6 +18,7 @@ import { colors, spacing, typography } from '@/lib/theme';
 type Props = {
   points: readonly EstimatedOneRepMaxPoint[];
   period: ProgressPeriodId;
+  now: number;
 };
 
 const estimate = (value: number) =>
@@ -46,9 +50,17 @@ function PointRow({ point }: { point: EstimatedOneRepMaxPoint }) {
   );
 }
 
-export function EstimatedOneRepMaxSeries({ points, period }: Props) {
+export function EstimatedOneRepMaxSeries({ points, period, now }: Props) {
   const [allOpen, setAllOpen] = useState(false);
-  const recent = points.slice(-3);
+  const recent = period === '1W' ? points.slice(-7) : points;
+  const chartPoints = recent.map((point) => ({
+    workoutId: point.workoutId,
+    workoutName: point.workoutName,
+    finishedAt: point.finishedAt,
+    volume: point.estimatedOneRepMax,
+  }));
+  const chartLabel = (point: (typeof chartPoints)[number]) =>
+    pointLabel(points.find((p) => p.workoutId === point.workoutId)!);
   return (
     <View style={s.section}>
       <Text style={s.title} accessibilityRole="header">
@@ -61,14 +73,30 @@ export function EstimatedOneRepMaxSeries({ points, period }: Props) {
       ) : (
         <>
           <Text style={s.note}>
-            {points.length === 1
+            {points.length === 1 && period === '1W'
               ? 'One saved estimate; no trend yet.'
-              : `Recent ${recent.length} of ${points.length} workouts in ${period} · oldest to newest`}
+              : `${points.length} workouts in ${period} · kg estimated`}
           </Text>
-          {recent.map((point) => (
-            <PointRow key={point.workoutId} point={point} />
-          ))}
-          {points.length > recent.length ? (
+          {period === '1W' ? (
+            <EstimatedOneRepMaxBars
+              workouts={chartPoints}
+              pointLabel={chartLabel}
+            />
+          ) : (
+            <VolumeTrendChart
+              key={period}
+              workouts={chartPoints}
+              start={
+                progressPeriodStart(period, now) ??
+                Math.min(now, ...points.map((p) => p.finishedAt))
+              }
+              end={now}
+              measureLabel="Estimated 1RM"
+              formatPoint={chartLabel}
+              singlePointMessage="One saved estimate; no trend yet."
+            />
+          )}
+          {points.length > 0 ? (
             <Pressable
               accessibilityRole="button"
               accessibilityLabel={`View all ${points.length} estimated 1RM points in ${period}`}

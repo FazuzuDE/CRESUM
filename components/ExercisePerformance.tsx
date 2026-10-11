@@ -36,6 +36,7 @@ type Props = {
 export function ExercisePerformance({ history, period, now }: Props) {
   const [identityKey, setIdentityKey] = useState<string>();
   const [selectorOpen, setSelectorOpen] = useState(false);
+  const [setsOpen, setSetsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const choices = useMemo(
     () => listPerformanceExercises(history, now),
@@ -104,40 +105,80 @@ export function ExercisePerformance({ history, period, now }: Props) {
           </Pressable>
           {selected ? (
             <>
-              <EstimatedOneRepMaxSeries points={estimates} period={period} />
+              <EstimatedOneRepMaxSeries
+                points={estimates}
+                period={period}
+                now={now}
+              />
               {entries.length === 0 ? (
                 <Text style={s.empty}>
                   No logged sets for this exercise in {period}.
                 </Text>
               ) : (
-                <View style={s.entries}>
-                  {entries.map((entry) => (
-                    <View
-                      key={`${entry.workoutId}:${entry.exerciseSnapshotId}`}
-                      style={s.entry}
-                    >
-                      <Text style={s.date}>
-                        {new Date(entry.finishedAt).toLocaleString()}
-                      </Text>
-                      <Text style={s.workout}>{entry.workoutName}</Text>
-                      <View style={s.loggedSets}>
-                        {entry.sets.map((set, index) => (
-                          <View key={set.id} style={s.setRow}>
-                            <Text style={s.setNumber}>{String(index + 1)}</Text>
-                            <Text style={s.set}>
-                              {set.weight} kg × {set.reps}
-                            </Text>
-                          </View>
-                        ))}
-                      </View>
-                    </View>
-                  ))}
-                </View>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="View logged sets"
+                  style={s.close}
+                  onPress={() => setSetsOpen(true)}
+                >
+                  <Text style={s.closeText}>View logged sets</Text>
+                </Pressable>
               )}
             </>
           ) : null}
         </>
       )}
+      <Modal
+        visible={setsOpen}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={() => setSetsOpen(false)}
+      >
+        <SafeAreaView style={s.sheet}>
+          <View style={s.header}>
+            <Text
+              style={s.sheetTitle}
+              numberOfLines={2}
+              accessibilityLabel={`Logged sets · ${selected?.name}`}
+            >
+              Logged sets · {selected?.name}
+            </Text>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Close logged sets"
+              style={s.close}
+              onPress={() => setSetsOpen(false)}
+            >
+              <Text style={s.closeText}>Close</Text>
+            </Pressable>
+          </View>
+          <ScrollView contentContainerStyle={s.results}>
+            <View style={s.entries}>
+              {entries.map((entry) => (
+                <View
+                  key={`${entry.workoutId}:${entry.exerciseSnapshotId}`}
+                  style={s.entry}
+                >
+                  <Text style={s.date}>
+                    {new Date(entry.finishedAt).toLocaleString()}
+                  </Text>
+                  <Text style={s.workout}>{entry.workoutName}</Text>
+                  <View style={s.loggedSets}>
+                    {entry.sets.map((set, index) => (
+                      <View key={set.id} style={s.setRow}>
+                        <Text style={s.setNumber}>{String(index + 1)}</Text>
+                        <Text style={s.set}>
+                          {set.weight} kg × {set.reps}
+                        </Text>
+                      </View>
+                    ))}
+                  </View>
+                </View>
+              ))}
+            </View>
+          </ScrollView>
+        </SafeAreaView>
+      </Modal>
       <Modal
         visible={selectorOpen}
         animationType="slide"
@@ -181,6 +222,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
                     selected: choice.identityKey === identityKey,
                   }}
                   onPress={() => {
+                    setSetsOpen(false);
                     setIdentityKey(choice.identityKey);
                     close();
                   }}

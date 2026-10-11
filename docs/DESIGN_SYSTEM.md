@@ -405,7 +405,7 @@ values. Keep actual numeric values and bar proportions unchanged.
 
 Keep the trained-exercise selector, clearly estimated per-workout values and
 their source weight/reps distinct from actual logged sets. Present logged sets
-as quiet numbered rows. From 1M onward, use a primary-blue smooth curve through all selected workouts
+as quiet numbered rows inside a separate View logged sets sheet. Keep the exercise overview compact with an explicitly labelled estimated 1RM graph: weekly bars, and a curve from 1M onward using the selected period. From 1M onward, use a primary-blue smooth curve through all selected workouts
 on a real date axis, with the same zero-based kg scale. 1M spans the last 30
 days; 3M/6M/1Y/ALL span their selected interval. Preserve factual point values
 and monotonic interpolation between neighbours, without overshoot or false
@@ -507,7 +507,7 @@ This document is the source of truth for CRESUM Core UI until explicitly revised
 
 ### History filter — 2026-10-10
 
-Show three recent workout cards by default; put the filter below the list,
+Show three recent workout cards by default; put the filter directly below the History heading, before the list,
 including empty results. Open an opaque native sheet with two clear criteria:
 Recent workouts and Date range. Before each criterion show a circular selector;
 the active one has a green success fill and dark readable check. Expose mutually
@@ -523,3 +523,7 @@ ranges show an error and disable Show. Back/Cancel must not apply unfinished
 changes. Use existing theme tokens, practical touch targets, safe area and
 scrolling for compact screens and larger text. Preserve saved-workout details.
 Native wheel scrolling, sheet dismissal and Dynamic Type require phone review.
+
+### Progress navigation — 2026-10-11
+
+Use a 48 pt circular surface up-arrow above the dock after scrolling. First tap moves to the current section start, second to the page top; a manual scroll resets the sequence. Respect Reduce Motion. Retain section spacing. Bound the logged-sets sheet heading to two visible lines with its full accessible label so large text cannot obscure the scrollable details.

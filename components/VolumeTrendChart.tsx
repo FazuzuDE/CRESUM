@@ -15,10 +15,16 @@ export function VolumeTrendChart({
   workouts,
   start,
   end,
+  measureLabel = 'Workout volume',
+  formatPoint,
+  singlePointMessage = 'One saved workout; no curve yet.',
 }: {
   workouts: readonly WorkoutVolume[];
   start: number;
   end: number;
+  measureLabel?: string;
+  formatPoint?: (point: WorkoutVolume) => string;
+  singlePointMessage?: string;
 }) {
   const { width, fontScale } = useWindowDimensions();
   const [measured, setMeasured] = useState<number>();
@@ -59,13 +65,15 @@ export function VolumeTrendChart({
     model.points.find((p) => p.data.workoutId === selectedId) ??
     model.points.at(-1);
   const label = (p: WorkoutVolume) =>
-    `${p.workoutName}, ${new Date(p.finishedAt).toLocaleString()}, ${p.volume < 1e12 && Number.isInteger(p.volume) ? p.volume.toLocaleString() : p.volume.toString()} kg`;
+    formatPoint
+      ? formatPoint(p)
+      : `${p.workoutName}, ${new Date(p.finishedAt).toLocaleString()}, ${p.volume < 1e12 && Number.isInteger(p.volume) ? p.volume.toLocaleString() : p.volume.toString()} kg`;
   return (
     <View onLayout={(event) => setMeasured(event.nativeEvent.layout.width)}>
       <View style={s.row}>
         <View
           style={{ width: axisWidth }}
-          accessibilityLabel="Workout volume scale in kilograms"
+          accessibilityLabel={`${measureLabel} scale in kilograms`}
         >
           {model.scale.ticks.map((tick, i) => (
             <Text
@@ -91,7 +99,7 @@ export function VolumeTrendChart({
             style={{ height: height + spacing.md }}
             accessibilityRole="adjustable"
             accessible
-            accessibilityLabel={`Workout volume curve${selected ? ': ' + label(selected.data) : ''}`}
+            accessibilityLabel={`${measureLabel} curve${selected ? ': ' + label(selected.data) : ''}`}
             accessibilityHint="Touch the curve to select a workout. Swipe up or down to change the selected workout."
             accessibilityActions={[
               { name: 'increment', label: 'Next workout' },
@@ -162,7 +170,11 @@ export function VolumeTrendChart({
               {model.points.map((p) => (
                 <View
                   key={p.data.workoutId}
-                  accessibilityLabel={`Workout volume: ${label(p.data)}`}
+                  accessibilityLabel={
+                    formatPoint
+                      ? label(p.data)
+                      : `${measureLabel}: ${label(p.data)}`
+                  }
                   style={[
                     s.dot,
                     { left: p.x - 3, top: p.y - 3 },
@@ -201,7 +213,7 @@ export function VolumeTrendChart({
         </Text>
       )}
       {model.points.length === 1 && (
-        <Text style={s.detail}>One saved workout; no curve yet.</Text>
+        <Text style={s.detail}>{singlePointMessage}</Text>
       )}
     </View>
   );

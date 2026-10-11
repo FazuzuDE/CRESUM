@@ -10,7 +10,6 @@ import {
   Alert,
   AppState,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -30,6 +29,7 @@ import { Confirmation } from '@/components/Confirmation';
 import { Workout, duration, successHaptic } from '@/components/Workout';
 import { WorkoutHistory } from '@/components/WorkoutHistory';
 import { ExercisePerformance } from '@/components/ExercisePerformance';
+import { ProgressScrollView } from '@/components/ProgressScrollView';
 import { TrainingVolume } from '@/components/TrainingVolume';
 import { volume } from '@/lib/workout-metrics';
 import {
@@ -91,94 +91,145 @@ function Stats({ history }: { history: Session[] }) {
     [history, period, now],
   );
   return (
-    <ScrollView contentContainerStyle={[s.content, s.progressContent]}>
-      <View style={s.progressHeader}>
-        <View style={s.brandRow}>
-          <Text style={s.brand}>CRESUM</Text>
-          <Text style={s.tagline}>TRAIN. TRACK. GROW.</Text>
-        </View>
-        <View style={s.progressHeading}>
-          <Text style={s.progressTitle} accessibilityRole="header">
-            Progress
-          </Text>
-          <Text style={s.progressSubtitle}>
-            Volume and estimated strength records
-          </Text>
-        </View>
-      </View>
-      <View style={s.periods} accessibilityLabel="Progress period">
-        {PROGRESS_PERIODS.map((option) => (
-          <Pressable
-            key={option.id}
-            accessibilityRole="button"
-            accessibilityLabel={`Progress period ${option.id}`}
-            accessibilityHint={`Show Progress for ${option.accessibilityLabel}`}
-            accessibilityState={{ selected: period === option.id }}
-            onPress={() => setPeriod(option.id)}
-            style={({ pressed }) => [
-              s.periodChip,
-              fontScale > 1.3 && s.periodChipLargeText,
-              pressed && s.pressed,
-            ]}
-          >
-            <Text
-              style={[
-                s.periodText,
-                period === option.id && s.periodSelectedText,
-              ]}
-            >
-              {option.label}
-            </Text>
-          </Pressable>
-        ))}
-      </View>
-      <TrainingVolume
-        totalVolume={analytics.totalVolume}
-        workoutVolumes={analytics.workoutVolumes}
-        period={period}
-        comparison={comparison}
-        now={now}
-      />
-      <GlassCard style={s.progressCard}>
-        <Text style={s.progressCardTitle} accessibilityRole="header">
-          Estimated 1RM
-        </Text>
-        <Text style={s.estimateContext}>
-          Epley formula · based on completed sets
-        </Text>
-        {analytics.excludedSampleCount > 0 ? (
-          <Text style={s.sub}>Some saved sets could not be included.</Text>
-        ) : null}
-        {records.length === 0 ? (
-          <Text style={s.sub}>No estimated records in this period.</Text>
-        ) : (
-          records.slice(0, 6).map((r, i) => (
-            <View
-              key={r.identityKey}
-              style={[
-                s.history,
-                i === Math.min(records.length, 6) - 1 && s.lastRecord,
-              ]}
-            >
-              <View style={s.recordCopy}>
-                <Text style={s.recordName}>{r.name}</Text>
-                <Text style={s.sub}>
-                  {r.weight} kg × {r.reps}
-                </Text>
+    <ProgressScrollView
+      contentContainerStyle={[s.content, s.progressContent]}
+      sections={[
+        {
+          id: 'overview',
+          label: 'Progress',
+          content: (
+            <View style={{ gap: spacing.md }}>
+              <View style={s.progressHeader}>
+                <View style={s.brandRow}>
+                  <Text style={s.brand}>CRESUM</Text>
+                  <Text style={s.tagline}>TRAIN. TRACK. GROW.</Text>
+                </View>
+                <View style={s.progressHeading}>
+                  <Text style={s.progressTitle} accessibilityRole="header">
+                    Progress
+                  </Text>
+                  <Text style={s.progressSubtitle}>
+                    Volume and estimated strength records
+                  </Text>
+                </View>
               </View>
-              <View style={s.recordValue}>
-                {i === 0 && <Text style={s.pr}>TOP PR</Text>}
-                <Text style={s.value2}>
-                  {r.estimatedOneRepMax.toFixed(1)} kg
-                </Text>
+              <View style={s.periods} accessibilityLabel="Progress period">
+                {PROGRESS_PERIODS.map((option) => (
+                  <Pressable
+                    key={option.id}
+                    accessibilityRole="button"
+                    accessibilityLabel={`Progress period ${option.id}`}
+                    accessibilityHint={`Show Progress for ${option.accessibilityLabel}`}
+                    accessibilityState={{ selected: period === option.id }}
+                    onPress={() => setPeriod(option.id)}
+                    style={({ pressed }) => [
+                      s.periodChip,
+                      fontScale > 1.3 && s.periodChipLargeText,
+                      pressed && s.pressed,
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        s.periodText,
+                        period === option.id && s.periodSelectedText,
+                      ]}
+                    >
+                      {option.label}
+                    </Text>
+                  </Pressable>
+                ))}
               </View>
             </View>
-          ))
-        )}
-      </GlassCard>
-      <ExercisePerformance history={history} period={period} now={now} />
-      <WorkoutHistory history={history} />
-    </ScrollView>
+          ),
+        },
+        {
+          id: 'volume',
+          label: 'Training Volume',
+          content: (
+            <>
+              <TrainingVolume
+                totalVolume={analytics.totalVolume}
+                workoutVolumes={analytics.workoutVolumes}
+                period={period}
+                comparison={comparison}
+                now={now}
+              />
+            </>
+          ),
+        },
+        {
+          id: 'records',
+          label: 'Estimated 1RM',
+          content: (
+            <>
+              <GlassCard style={s.progressCard}>
+                <Text style={s.progressCardTitle} accessibilityRole="header">
+                  Estimated 1RM
+                </Text>
+                <Text style={s.estimateContext}>
+                  Epley formula · based on completed sets
+                </Text>
+                {analytics.excludedSampleCount > 0 ? (
+                  <Text style={s.sub}>
+                    Some saved sets could not be included.
+                  </Text>
+                ) : null}
+                {records.length === 0 ? (
+                  <Text style={s.sub}>
+                    No estimated records in this period.
+                  </Text>
+                ) : (
+                  records.slice(0, 6).map((r, i) => (
+                    <View
+                      key={r.identityKey}
+                      style={[
+                        s.history,
+                        i === Math.min(records.length, 6) - 1 && s.lastRecord,
+                      ]}
+                    >
+                      <View style={s.recordCopy}>
+                        <Text style={s.recordName}>{r.name}</Text>
+                        <Text style={s.sub}>
+                          {r.weight} kg × {r.reps}
+                        </Text>
+                      </View>
+                      <View style={s.recordValue}>
+                        {i === 0 && <Text style={s.pr}>TOP PR</Text>}
+                        <Text style={s.value2}>
+                          {r.estimatedOneRepMax.toFixed(1)} kg
+                        </Text>
+                      </View>
+                    </View>
+                  ))
+                )}
+              </GlassCard>
+            </>
+          ),
+        },
+        {
+          id: 'performance',
+          label: 'Logged exercise performance',
+          content: (
+            <>
+              <ExercisePerformance
+                history={history}
+                period={period}
+                now={now}
+              />
+            </>
+          ),
+        },
+        {
+          id: 'history',
+          label: 'History',
+          content: (
+            <>
+              <WorkoutHistory history={history} />
+            </>
+          ),
+        },
+      ]}
+    />
   );
 }
 export default function App() {

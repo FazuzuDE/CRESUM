@@ -29,7 +29,8 @@ Later, separately approved work may sync custom workouts, preferences/profile, a
 
 ## P1 — Product polish
 
-- Approved History compact list and independent filter: latest three by default,
+- Approved compact exercise performance graph, separate logged-set details, and two-step section/page up navigation; native scrolling and large-text acceptance remain phone-review tasks.
+- Approved History compact list and independent filter below the heading: latest three by default,
   count wheel with All / 1…saved count, or inclusive From/To dates defaulting to
   seven local-calendar dates. Show applies; cancellation preserves results.
   Native wheel/sheet and Dynamic Type acceptance remains a phone-review task.
