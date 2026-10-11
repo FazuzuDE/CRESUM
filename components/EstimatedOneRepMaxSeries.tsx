@@ -1,12 +1,6 @@
+import { AppFlatList } from './AppFlatList';
 import { useState } from 'react';
-import {
-  FlatList,
-  Modal,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 import { EstimatedOneRepMaxBars } from './EstimatedOneRepMaxBars';
 import { VolumeTrendChart } from './VolumeTrendChart';
 import { progressPeriodStart } from '@/lib/progress-periods';
@@ -126,7 +120,7 @@ export function EstimatedOneRepMaxSeries({ points, period, now }: Props) {
               <Text style={s.action}>Close</Text>
             </Pressable>
           </View>
-          <FlatList
+          <AppFlatList
             data={points}
             keyExtractor={(point) => point.workoutId}
             contentContainerStyle={s.list}

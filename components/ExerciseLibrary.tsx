@@ -1,3 +1,4 @@
+import { AppScrollView } from './AppScrollView';
 import { useEffect, useState } from 'react';
 import {
   Modal,
@@ -147,7 +148,7 @@ export function ExerciseLibrary({
           ))}
         </ScrollView>
 
-        <ScrollView
+        <AppScrollView
           keyboardShouldPersistTaps="handled"
           style={s.resultList}
           contentContainerStyle={s.results}
@@ -212,7 +213,7 @@ export function ExerciseLibrary({
               );
             })
           )}
-        </ScrollView>
+        </AppScrollView>
       </SafeAreaView>
     </Modal>
   );

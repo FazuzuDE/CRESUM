@@ -527,3 +527,7 @@ Native wheel scrolling, sheet dismissal and Dynamic Type require phone review.
 ### Progress navigation — 2026-10-11
 
 Use a 48 pt circular surface up-arrow above the dock after scrolling. First tap moves to the current section start, second to the page top; a manual scroll resets the sequence. Respect Reduce Motion. Retain section spacing. Bound the logged-sets sheet heading to two visible lines with its full accessible label so large text cannot obscure the scrollable details.
+
+### Shared return-to-top control — 2026-10-11
+
+Use the same 48 pt circular up-arrow on every vertical screen and detail sheet, above the page dock or sheet bottom inset, with extra content padding to keep the last action reachable. It uses shared AppScrollView/AppFlatList components and the existing color/radius/shadow tokens. The first tap returns to a measured section start, the second to the page top; single-section lists return to their start immediately. Motion uses the platform native animated scroll with its easing, rather than instantaneous jumps. Respect system Reduce Motion, retaining fast non-animated return when enabled. Exact ChatGPT timing is not a specified/measured constant; tune perceived pace through physical-device review. Hide the control during active program dragging. Do not change wheel-picker or horizontal-filter behavior.

@@ -1,3 +1,4 @@
+import { AppScrollView } from './AppScrollView';
 import { useState } from 'react';
 import {
   Modal,
@@ -42,7 +43,7 @@ export function HistoryFilterModal({
     setDateDraft(draft[field]);
     setPane(field);
   };
-  const Container = pane === 'count' ? View : ScrollView;
+  const Container = pane === 'count' ? View : AppScrollView;
   const containerProps =
     pane === 'count'
       ? { style: [s.content, s.wheelContent] }

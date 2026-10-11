@@ -1,4 +1,5 @@
-import { Modal, ScrollView, StyleSheet, Text } from 'react-native';
+import { AppScrollView } from './AppScrollView';
+import { Modal, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, spacing, typography } from '@/lib/theme';
 import { AppButton } from './AppButton';
@@ -38,7 +39,7 @@ export function Confirmation({
       }}
     >
       <SafeAreaView style={s.root}>
-        <ScrollView contentContainerStyle={s.content}>
+        <AppScrollView contentContainerStyle={s.content}>
           <Text style={s.title}>{title}</Text>
           <GlassCard>
             <Text style={s.body}>{message}</Text>
@@ -60,7 +61,7 @@ export function Confirmation({
             secondary
             onPress={onCancel}
           />
-        </ScrollView>
+        </AppScrollView>
       </SafeAreaView>
     </Modal>
   );

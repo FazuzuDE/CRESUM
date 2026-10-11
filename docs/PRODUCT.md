@@ -233,3 +233,7 @@ A user can start a workout, log sets, use rest timer, finish without data loss, 
 ### Compact Progress navigation — 2026-10-11
 
 Logged exercise performance presents the existing estimated 1RM per workout as a compact graph: weekly bars, curves from 1M onward over the selected rolling period. Actual completed weights/reps remain available in a separate View logged sets sheet; all estimates remain accessible. No calculations or saved exercise identities change. A floating up button appears after scrolling: first tap returns to the current section start, second tap to the page top. Manual scrolling resets this sequence.
+
+### App-wide return navigation — 2026-10-11
+
+The up-arrow is a shared application element on all vertically scrollable pages and detail sheets, including onboarding, Home, Workout, Progress, Profile and exercise/template selection. It appears after scrolling, first returns to the current measured section (or the top in a single-section list), then to page top. Returning uses smooth native scrolling by default; manual dragging interrupts native motion and resets the sequence. Respect Reduce Motion. Horizontal filters and value-picker wheels retain their own interaction and do not get a page-return button. This changes presentation only, preserving workout state and reorder edge-scrolling.

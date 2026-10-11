@@ -613,3 +613,7 @@ Status: approved — pending Git integration and native wheel/sheet/phone QA.
 ## 2026-10-11 — Compact exercise graph and section navigation
 
 The user approved moving the History filter directly below its heading, before results; this supersedes the 2026-10-10 bottom placement. Logged exercise performance now presents the existing estimated 1RM series as weekly bars and selected-period curves from 1M onward, with all estimates and actual completed sets in separate detail sheets. The up-arrow appears after scrolling, first returns to the current section start, then to the page top; manual scrolling resets this sequence. Saved data, exercise identity, formulas and workout flow remain unchanged.
+
+## 2026-10-11 — App-wide smooth return control
+
+The user extended the approved up-arrow to all application pages and requested smooth upward scrolling similar in feel to ChatGPT. Use shared vertical scroll/list wrappers across screens and detail sheets, preserving the native ref and scroll/layout callbacks required by active-workout reordering. Native animated scroll supplies easing; Reduce Motion disables animation. Existing section/page two-step navigation remains; single-section lists return to their start. Horizontal filters, number wheels and their compact header scroller remain independent controls. Exact ChatGPT velocity is not measurable here; perceived pace requires device acceptance. No workout/domain/storage changes.

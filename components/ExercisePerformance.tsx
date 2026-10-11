@@ -1,8 +1,8 @@
+import { AppScrollView } from './AppScrollView';
 import { useMemo, useState } from 'react';
 import {
   Modal,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -152,7 +152,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
               <Text style={s.closeText}>Close</Text>
             </Pressable>
           </View>
-          <ScrollView contentContainerStyle={s.results}>
+          <AppScrollView contentContainerStyle={s.results}>
             <View style={s.entries}>
               {entries.map((entry) => (
                 <View
@@ -176,7 +176,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
                 </View>
               ))}
             </View>
-          </ScrollView>
+          </AppScrollView>
         </SafeAreaView>
       </Modal>
       <Modal
@@ -206,7 +206,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
             returnKeyType="search"
             style={s.search}
           />
-          <ScrollView
+          <AppScrollView
             keyboardShouldPersistTaps="handled"
             contentContainerStyle={s.results}
           >
@@ -232,7 +232,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
                 </Pressable>
               ))
             )}
-          </ScrollView>
+          </AppScrollView>
         </SafeAreaView>
       </Modal>
     </GlassCard>

@@ -29,6 +29,7 @@ Later, separately approved work may sync custom workouts, preferences/profile, a
 
 ## P1 — Product polish
 
+- Approved app-wide up-arrow on vertical pages/detail sheets, smooth native return with Reduce Motion support and retained workout reorder scrolling. Physical-phone animation pace/keyboard/safe-area review remains required.
 - Approved compact exercise performance graph, separate logged-set details, and two-step section/page up navigation; native scrolling and large-text acceptance remain phone-review tasks.
 - Approved History compact list and independent filter below the heading: latest three by default,
   count wheel with All / 1…saved count, or inclusive From/To dates defaulting to

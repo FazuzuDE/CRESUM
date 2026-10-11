@@ -1,13 +1,19 @@
-import { StyleSheet, View, ViewStyle } from 'react-native';
+import { StyleSheet, View, ViewStyle, type ViewProps } from 'react-native';
 import { cardShadow, colors, radius, spacing } from '@/lib/theme';
 export function GlassCard({
   children,
   style,
+  onLayout,
 }: {
   children: React.ReactNode;
   style?: ViewStyle;
+  onLayout?: ViewProps['onLayout'];
 }) {
-  return <View style={[styles.card, style]}>{children}</View>;
+  return (
+    <View onLayout={onLayout} style={[styles.card, style]}>
+      {children}
+    </View>
+  );
 }
 const styles = StyleSheet.create({
   card: {

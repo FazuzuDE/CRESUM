@@ -1,4 +1,5 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { AppScrollView } from './AppScrollView';
+import { StyleSheet, Text, View } from 'react-native';
 import { GlassCard } from './GlassCard';
 import { AppButton } from './AppButton';
 import { WorkoutTemplates } from './WorkoutTemplates';
@@ -47,7 +48,7 @@ export function ProfileSettings({
   onResetLocalData,
 }: ProfileSettingsProps) {
   return (
-    <ScrollView contentContainerStyle={s.content}>
+    <AppScrollView contentContainerStyle={s.content}>
       <View style={s.header}>
         <Text style={s.brand}>CRESUM</Text>
         <Text style={s.title} accessibilityRole="header">
@@ -150,7 +151,7 @@ export function ProfileSettings({
           {version ? <Text style={s.sub}>Version {version}</Text> : null}
         </GlassCard>
       </View>
-    </ScrollView>
+    </AppScrollView>
   );
 }
 

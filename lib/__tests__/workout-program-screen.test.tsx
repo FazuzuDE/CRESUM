@@ -1,3 +1,4 @@
+import { AppScrollView } from '../../components/AppScrollView';
 import { useState } from 'react';
 import {
   AccessibilityInfo,
@@ -476,7 +477,7 @@ it('edge scrolling stops at the program boundary before the following set/rest c
     const positions: number[] = [];
     const scroll = view.root.findByType(ScrollView);
     act(() =>
-      scroll.props.ref({
+      view.root.findByType(AppScrollView).props.ref({
         getNativeScrollRef: () => ({
           measureInWindow: (callback: (...args: number[]) => void) =>
             callback(0, 100, 280, 500),

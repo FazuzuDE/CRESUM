@@ -1,8 +1,8 @@
+import { AppScrollView } from './AppScrollView';
 import { useState } from 'react';
 import {
   KeyboardAvoidingView,
   Platform,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -139,7 +139,7 @@ export function Onboarding({
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       style={s.root}
     >
-      <ScrollView
+      <AppScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={s.content}
       >
@@ -296,7 +296,7 @@ export function Onboarding({
             ) : null}
           </GlassCard>
         )}
-      </ScrollView>
+      </AppScrollView>
     </KeyboardAvoidingView>
   );
 }

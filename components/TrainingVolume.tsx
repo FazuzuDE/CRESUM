@@ -1,6 +1,6 @@
+import { AppFlatList } from './AppFlatList';
 import { useState } from 'react';
 import {
-  FlatList,
   Modal,
   Pressable,
   StyleSheet,
@@ -351,7 +351,7 @@ export function TrainingVolume({
               <Text style={s.closeText}>Close</Text>
             </Pressable>
           </View>
-          <FlatList
+          <AppFlatList
             data={workoutVolumes}
             keyExtractor={(item) => item.workoutId}
             contentContainerStyle={s.list}
