@@ -222,6 +222,7 @@ it('keeps filter edits as a draft and applies All only after Show', () => {
       expect(parent.type).not.toBe(ScrollView);
       parent = parent.parent;
     }
+    act(() => list.props.onScrollBeginDrag());
     act(() =>
       list.props.onScroll({ nativeEvent: { contentOffset: { y: 0 } } }),
     );
@@ -291,6 +292,7 @@ it('wheel selection supports scrolling and accessible increment/decrement includ
   try {
     const list = view.root.findByType(FlatList);
     const rowHeight = list.props.snapToInterval;
+    act(() => list.props.onScrollBeginDrag());
     act(() =>
       list.props.onScroll({
         nativeEvent: { contentOffset: { y: rowHeight * 5 } },
@@ -308,20 +310,21 @@ it('wheel selection supports scrolling and accessible increment/decrement includ
         <HistoryCountWheel maximum={5} value={0} onChange={changed} />,
       ),
     );
+    changed.mockClear();
     act(() =>
       view.root.findByType(FlatList).props.onAccessibilityAction({
         nativeEvent: { actionName: 'decrement' },
       }),
     );
-    expect(changed).toHaveBeenLastCalledWith(0);
+    expect(changed).not.toHaveBeenCalled();
     expect(view.root.findByType(FlatList).props.accessibilityValue.text).toBe(
-      'All workouts',
+      'All',
     );
   } finally {
     act(() => view.unmount());
   }
 });
-it('date picker navigates months and retains leap-day selection', () => {
+it('date picker uses shared day/month/year wheels and retains leap-day selection', () => {
   const changed = jest.fn();
   const view = render(
     <HistoryDatePicker
@@ -330,24 +333,19 @@ it('date picker navigates months and retains leap-day selection', () => {
     />,
   );
   try {
-    const day = view.root
-      .findAll(isPressable)
-      .find(
-        (node: { props: { accessibilityState?: { selected?: boolean } } }) =>
-          node.props.accessibilityState?.selected,
-      );
-    act(() => day?.props.onPress());
-    expect(changed).toHaveBeenLastCalledWith(new Date(2024, 1, 29).getTime());
+    const lists = view.root.findAllByType(FlatList);
+    expect(lists.map((n: any) => n.props.accessibilityLabel)).toEqual([
+      'Day',
+      'Month',
+      'Year',
+    ]);
+    expect(lists[0].props.accessibilityValue.text).toBe('29');
     act(() =>
-      view.root
-        .findAllByType(AppButton)
-        .find(
-          (node: { props: { title: string } }) =>
-            node.props.title === 'Next month',
-        )
-        ?.props.onPress(),
+      lists[1].props.onAccessibilityAction({
+        nativeEvent: { actionName: 'increment' },
+      }),
     );
-    expect(serialized(view)).toContain('March');
+    expect(changed).toHaveBeenLastCalledWith(new Date(2024, 2, 29).getTime());
   } finally {
     act(() => view.unmount());
   }

@@ -302,3 +302,13 @@ Readiness требует явно объявленный тип учёта repet
 ### Body-weight measurements — 2026-10-11
 
 Progress includes **Body weight** with initial/current kg, a neutral change since the first measurement, a date-based curve over the selected Progress period and **Add measurement**. Onboarding starting weight seeds the independent local journal once when setup completes; later profile edits never rewrite it. Each saved current weight adds a positive kg value and actual recording timestamp. Do not derive body mass from lifted volume or label gain/loss as success/failure. One measurement shows a point and an honest insufficient-trend message; empty periods and missing/corrupt data remain explicit. Writes and reads are serialized; retry preserves the baseline and successful reset clears the journal, while failed reset recovery refreshes visible measurements. No cloud sync or fabricated production measurements.
+
+### Shared wheels, Profile library and Home calendar — 2026-10-11
+
+Date inputs use a shared day/month/year wheel instead of a date keyboard. Date of birth is optional, bounded by today, and remains a validated local YYYY-MM-DD calendar date. Shorter months and non-leap years clamp the day; Done applies, Cancel/dismiss discards the local draft, and Clear date leaves it absent. Program start and History From/To use the same wheels; filters retain their independent drafts and inclusive date logic. All current and future value wheels share AppPicker.
+
+On iOS, a local Expo module hosts Apple's UIPickerView, with discrete selection feedback and native wheel audio governed by system settings. It requires a native build containing that module; Expo Go, Android and browser use the accessible snapping fallback. Do not force audio, use undocumented system-sound IDs, or claim browser audio is native. Device validation is still required.
+
+Profile places **EXERCISE LIBRARY** immediately after **WORKOUTS**, using the same compact wordmark entry. It opens the complete existing searchable/filterable catalog as a separate browse page with Back; browse mode has no Add action and does not change an active workout or template. Existing workout/builder selection sheets remain intact.
+
+Home order is greeting → Your week → primary workout/program → four-week summary → latest workout → other templates. **Month** opens a full Monday-first calendar with previous/next month controls. Blue dates mark actual saved completions only; selecting a day lists all its completed sessions and recorded volumes, or an honest empty state. This calendar does not create a scheduling system or mark planned/missed days as completed.

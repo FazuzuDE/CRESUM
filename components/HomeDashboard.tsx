@@ -1,3 +1,4 @@
+import { HomeCalendar } from './HomeCalendar';
 import { TrainingProgramWeek } from './TrainingProgramWeek';
 import type { ProgramAssignment } from '@/lib/training-programs/assignment';
 import type { ProjectedProgramSlot } from '@/lib/training-programs/schedule';
@@ -140,8 +141,10 @@ function TrainingSummaryWidget({
 
 function TrainingWeekWidget({
   week,
+  onOpenCalendar,
 }: {
   week: ReturnType<typeof projectHomeDashboard>['week'];
+  onOpenCalendar: () => void;
 }) {
   const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   return (
@@ -156,6 +159,13 @@ function TrainingWeekWidget({
           </Text>
         </View>
       </View>
+      <AppButton
+        title="Month"
+        accessibilityLabel="Open monthly calendar"
+        secondary
+        presentation="text"
+        onPress={onOpenCalendar}
+      />
       <View style={s.weekDays}>
         {week.days.map((day, index) => (
           <View
@@ -282,6 +292,7 @@ export function HomeDashboard({
   startProgramSlot,
 }: HomeProps) {
   const [now, setNow] = useState(Date.now);
+  const [calendarOpen, setCalendarOpen] = useState(false);
   const [gridTop, setGridTop] = useState(0);
   const [rowOffsets, setRowOffsets] = useState<Record<string, number>>({});
   useEffect(() => {
@@ -327,7 +338,12 @@ export function HomeDashboard({
         completedCount={data.fourWeeks.completedCount}
       />
     ),
-    week: <TrainingWeekWidget week={data.week} />,
+    week: (
+      <TrainingWeekWidget
+        week={data.week}
+        onOpenCalendar={() => setCalendarOpen(true)}
+      />
+    ),
     latest: <LatestWorkoutWidget latest={data.latestWorkout} />,
     templates: data.otherTemplates.length ? (
       <WorkoutTemplatesWidget
@@ -345,7 +361,7 @@ export function HomeDashboard({
   });
 
   if (program && activeWorkout)
-    items.splice(1, 0, { id: 'program', size: 'medium', content: program });
+    items.splice(2, 0, { id: 'program', size: 'medium', content: program });
   return (
     <AppScrollView
       contentContainerStyle={[s.content, s.homeContent]}
@@ -394,6 +410,13 @@ export function HomeDashboard({
           )
         }
       />
+      {calendarOpen ? (
+        <HomeCalendar
+          history={history}
+          now={now}
+          onClose={() => setCalendarOpen(false)}
+        />
+      ) : null}
     </AppScrollView>
   );
 }

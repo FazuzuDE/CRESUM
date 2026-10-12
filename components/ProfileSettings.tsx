@@ -3,6 +3,8 @@ import { AppScrollView } from './AppScrollView';
 import { StyleSheet, Text, View } from 'react-native';
 import { GlassCard } from './GlassCard';
 import { AppButton } from './AppButton';
+import { ExerciseLibrary } from './ExerciseLibrary';
+import { exerciseLibrary } from '@/lib/exercise-library';
 import { WorkoutTemplates } from './WorkoutTemplates';
 import { defaultTemplates } from '@/lib/workout-catalog';
 import type { WorkoutTemplate } from '@/lib/workout-model';
@@ -48,8 +50,17 @@ export function ProfileSettings({
   onPersonalize,
   onResetLocalData,
 }: ProfileSettingsProps) {
+  const [libraryOpen, setLibraryOpen] = useState(false);
   const [workoutsOpen, setWorkoutsOpen] = useState(false);
   const [workoutEditing, setWorkoutEditing] = useState(false);
+  if (libraryOpen)
+    return (
+      <ExerciseLibrary
+        visible
+        presentation="page"
+        onClose={() => setLibraryOpen(false)}
+      />
+    );
   if (workoutsOpen)
     return (
       <AppScrollView contentContainerStyle={s.content}>
@@ -140,6 +151,17 @@ export function ProfileSettings({
           onPress={() => setWorkoutsOpen(true)}
         />
         <Text style={s.sub}>{templates.length} saved workouts</Text>
+      </GlassCard>
+
+      <GlassCard style={s.card}>
+        <AppButton
+          title="EXERCISE LIBRARY"
+          wordmark
+          secondary
+          presentation="row"
+          onPress={() => setLibraryOpen(true)}
+        />
+        <Text style={s.sub}>{exerciseLibrary.length} exercises</Text>
       </GlassCard>
 
       <GlassCard style={s.card}>

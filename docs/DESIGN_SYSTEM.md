@@ -132,7 +132,7 @@ Active tab uses `primary`, inactive tabs `textSecondary`. A translucent/floating
 
 ### Onboarding
 
-Welcome uses a dark CRESUM wordmark, **Welcome to CRESUM**, a short greeting, **What should we call you?** and one labeled name input. Continue requires a nonempty trimmed name. Then show optional **Body details**: date of birth (DD.MM.YYYY entry, stored YYYY-MM-DD), height and initial body weight. Goal and Experience follow, with manual setup available from Goal. Use one focused keyboard-aware scrollable step at a time. Back retains answers; Gym is implicit and the obsolete Environment question is skipped compatibly. Profile personalization can edit the same fields without gating legacy users.
+Welcome uses a dark CRESUM wordmark, **Welcome to CRESUM**, a short greeting, **What should we call you?** and one labeled name input. Continue requires a nonempty trimmed name. Then show optional **Body details**: date of birth (day/month/year wheels, stored YYYY-MM-DD), height and initial body weight. Goal and Experience follow, with manual setup available from Goal. Use one focused keyboard-aware scrollable step at a time. Back retains answers; Gym is implicit and the obsolete Environment question is skipped compatibly. Profile personalization can edit the same fields without gating legacy users.
 
 Approved completion uses **You're ready to start** and a primary **START!**
 button in the existing PrimaryButton style, leading to Home after durable
@@ -258,9 +258,9 @@ one supported size per module; more sizes and user customization are future work
 ```text
 Safe Area
   Header: CRESUM identity + greeting
+  Training Week Module: Monday–Sunday completion marks + Month action
   Primary Workout Module: Resume active workout or Start an existing template
   Training Summary Module: factual completed workouts + total volume
-  Training Week Module: Monday–Sunday with factual completed-day marks
   Latest Workout Module: factual saved result or empty state
   Workout Templates Module: other existing templates and Start actions
   Bottom Dock
@@ -553,7 +553,7 @@ exclusive radio state accessibly. Keep the existing English Core copy.
 The number field opens an iOS-style snapping wheel: All, then 1 through the
 saved-workout count, initially 3 (or the available maximum in a smaller archive).
 Center the selected row on a subtle band, preserve font scaling, and offer
-accessible increment/decrement actions. Dates open a month calendar with
+accessible increment/decrement actions. Dates open shared day/month/year wheels with
 From/To selection; default to today and six previous local dates. Both boundary
 dates are included. Show is the primary blue action below the criteria; reversed
 ranges show an error and disable Show. Back/Cancel must not apply unfinished
@@ -574,3 +574,11 @@ Use the same 48 pt circular up-arrow on every vertical screen and detail sheet, 
 Use explicit `textPrimary` for headings, exercise/routine names and form labels throughout pages and sheets. `textSecondary` is for subtitles, dates and explanatory context; pale tertiary text never substitutes for a primary heading. Browser previews must scope product classes and explicitly set product text colors so host dark-mode rules cannot overwrite the app's light theme.
 
 Home displays the stored name in **Welcome back, {name}!**. The body-weight card uses existing Progress title, statistic, unit and chart roles. Show initial/current kg and neutral signed change; no green/red value judgement for body mass. Reuse the native curve with a padded measurement-specific vertical range; never invent zero readings between measurements. Add measurement opens the existing page-sheet style with one labeled decimal kg input and Save/Cancel. Shared smooth upward navigation remains on the new routine page and measurement sheet. Physical-phone keyboard, safe-area, Dynamic Type and gesture review remains outstanding.
+
+### Apple wheel and calendar presentation — 2026-10-11
+
+Every existing/future wheel uses AppPicker: native UIPickerView on supported iOS builds, shared accessible snapping fallback elsewhere. Date columns are always day, localized full month, year; the center row is selected, with native perspective/fading and a quiet selection band. Keep system typography and readable dark selected values. Selection feedback occurs for changed user-selected rows, never on mount, prop synchronization or unchanged boundary selections. Audio belongs to the native wheel and honors system settings; no synthetic/private sound API. Respect platform feedback availability and Reduce Motion. Date entry opens an opaque page sheet with dark heading, Done, Cancel and optional Clear date; scrolling details use shared upward navigation, wheel columns do not. Native font scaling, audio, haptics and actual device feel remain acceptance checks.
+
+EXERCISE LIBRARY matches WORKOUTS' compact white card and dark bold spaced wordmark, immediately below it. The separate browse page retains native search, muscle/equipment filters, readable names and shared up-arrow, with Back to Profile and no inert Add buttons.
+
+Move the compact factual week above the primary workout card. Add a blue Month text action with a >=44 pt target. Full month opens in an opaque sheet: dark heading, blue chevrons, full month/year, Monday-first seven-column grid, actual-completion blue marks, distinct today outline and pale selected-date background. Include textual completion counts in date accessibility labels and saved session details below; quiet empty state for dates without saved completions. Reuse theme tokens and allow larger text to expand row height.

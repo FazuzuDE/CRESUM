@@ -2,6 +2,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { TextInput } from 'react-native';
 import App from '../../app/index';
 import { AppButton } from '../../components/AppButton';
+import { DatePickerSheet } from '../../components/DatePickerSheet';
+import { AppDatePicker } from '../../components/AppDatePicker';
 import { Onboarding } from '../../components/Onboarding';
 import { TemplateEditor } from '../../components/TemplateEditor';
 import { ExerciseLibrary } from '../../components/ExerciseLibrary';
@@ -285,13 +287,17 @@ it('retries a failed name write without losing the latest in-memory answer', asy
 it('does not turn body details into workout history', async () => {
   const view = await mount();
   await enterBody(view);
-  const dob = view.root
-    .findAllByType(TextInput)
-    .find(
-      (n: { props: { accessibilityLabel: string } }) =>
-        n.props.accessibilityLabel === 'Date of birth',
-    );
-  await act(async () => dob.props.onChangeText('27.09.1989'));
+  await act(async () =>
+    view.root
+      .findAllByType(AppButton)
+      .find((n: any) => n.props.accessibilityLabel === 'Date of birth')
+      .props.onPress(),
+  );
+  await act(async () =>
+    view.root
+      .findByType(DatePickerSheet)
+      .props.onConfirm(new Date(1989, 8, 27).getTime()),
+  );
   await act(async () => button(view, 'Continue')?.props.onPress());
   await act(async () => button(view, 'Build muscle')?.props.onPress());
   await act(async () => button(view, 'Beginner')?.props.onPress());
@@ -302,20 +308,47 @@ it('does not turn body details into workout history', async () => {
   await act(async () => view.unmount());
 });
 
-it('does not advance with an impossible date of birth', async () => {
+it('does not apply a date of birth draft after cancelling its wheels', async () => {
   const view = await mount();
-  await enterBody(view);
-  const dob = view.root
-    .findAllByType(TextInput)
-    .find(
-      (n: { props: { accessibilityLabel: string } }) =>
-        n.props.accessibilityLabel === 'Date of birth',
+  try {
+    await enterBody(view);
+    await act(async () =>
+      view.root
+        .findAllByType(AppButton)
+        .find((n: any) => n.props.accessibilityLabel === 'Date of birth')
+        .props.onPress(),
     );
-  await act(async () => dob.props.onChangeText('31.02.2000'));
-  await act(async () => button(view, 'Continue')?.props.onPress());
-  expect(JSON.stringify(view.toJSON())).toContain(
-    'Enter a valid date of birth',
-  );
-  expect(button(view, 'START!')).toBeUndefined();
-  await act(async () => view.unmount());
+    act(() =>
+      view.root
+        .findByType(AppDatePicker)
+        .props.onChange(new Date(2000, 1, 29).getTime()),
+    );
+    await act(async () => button(view, 'Cancel').props.onPress());
+    expect(button(view, 'Continue without body details')).toBeDefined();
+    expect(
+      JSON.parse((await AsyncStorage.getItem(ONBOARDING_KEY))!).answers
+        .dateOfBirth,
+    ).toBeUndefined();
+  } finally {
+    await act(async () => view.unmount());
+  }
+});
+
+it('offers only birthdate years accepted by the existing profile validator', async () => {
+  const view = await mount();
+  try {
+    await enterBody(view);
+    await act(async () =>
+      view.root
+        .findAllByType(AppButton)
+        .find((n: any) => n.props.accessibilityLabel === 'Date of birth')
+        .props.onPress(),
+    );
+    const date = view.root.findByType(AppDatePicker);
+    expect(new Date(date.props.minimum).getFullYear()).toBe(
+      new Date().getFullYear() - 120,
+    );
+  } finally {
+    await act(async () => view.unmount());
+  }
 });

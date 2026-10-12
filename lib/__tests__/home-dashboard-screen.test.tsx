@@ -102,9 +102,9 @@ it('renders the established Home modules in stable grid order', async () => {
   const view = await renderApp();
   const grid = view.root.findByType(DashboardGrid);
   expect(grid.props.items.map((item: { id: string }) => item.id)).toEqual([
+    'week',
     'primary',
     'summary',
-    'week',
     'latest',
     'templates',
   ]);
@@ -214,7 +214,13 @@ it('keeps Resume dominant for an active workout without starting another session
     }),
   );
   const view = await renderApp();
-  const firstCard = view.root.findAllByType(GlassCard)[0];
+  const firstCard = view.root
+    .findAllByType(GlassCard)
+    .find((card: any) =>
+      card
+        .findAllByType(AppButton)
+        .some((b: any) => b.props.title === 'Resume Upper Body'),
+    );
 
   expect(firstCard.findAllByType(AppButton)[0].props.title).toBe(
     'Resume Upper Body',
@@ -342,4 +348,50 @@ it('does not claim templates are missing when saved templates have unavailable e
   expect(unavailableStart?.props.accessibilityState.disabled).toBe(true);
   expect(unavailableStart?.props.onPress).toBeUndefined();
   act(() => view.unmount());
+});
+
+it('opens the full month above the workout and shows actual saved sessions for a selected day', async () => {
+  await AsyncStorage.clear();
+  await AsyncStorage.setItem(
+    STATE_KEY,
+    JSON.stringify({
+      schemaVersion: 1,
+      activeWorkout: null,
+      templates: defaultTemplates,
+      history: [
+        completed('one', 'Morning workout', Date.now() - 1000, '60', '8'),
+        completed('two', 'Evening workout', Date.now() - 500, '40', '10'),
+      ],
+    }),
+  );
+  const view = await renderApp();
+  try {
+    expect(button(view, 'Month')).toBeDefined();
+    act(() => button(view, 'Month').props.onPress());
+    const today = new Date(Date.now()).toLocaleDateString(undefined, {
+      dateStyle: 'full',
+    });
+    const day = view.root
+      .findAll(isPressable)
+      .find(
+        (n: any) =>
+          n.props.accessibilityLabel ===
+          `${today}: 2 completed workouts, today`,
+      );
+    expect(day).toBeDefined();
+    act(() => day.props.onPress());
+    expect(visibleText(view)).toContain('Morning workout');
+    expect(visibleText(view)).toContain('Evening workout');
+    act(() =>
+      view.root
+        .findAll(isPressable)
+        .find((n: any) => n.props.accessibilityLabel === 'Previous month')
+        .props.onPress(),
+    );
+    expect(visibleText(view)).toContain('No completed workouts on this date.');
+    act(() => button(view, 'Close calendar').props.onPress());
+    expect(button(view, 'Start Upper Body')).toBeDefined();
+  } finally {
+    await act(async () => view.unmount());
+  }
 });

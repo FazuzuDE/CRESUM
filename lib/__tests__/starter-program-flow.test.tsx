@@ -1,4 +1,4 @@
-import { TextInput } from 'react-native';
+import { DatePickerSheet } from '../../components/DatePickerSheet';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import App from '../../app/index';
 import { AppButton } from '../../components/AppButton';
@@ -170,14 +170,18 @@ it('shows the complete proposal and makes unchecked frequencies unavailable with
 it('retains manual setup and blocks an adult automatic proposal when the supplied age is 15', async () => {
   const view = await seed('general_fitness', 'beginner', 'profile');
   try {
-    const age = view.root
-      .findAllByType(TextInput)
-      .find(
-        (input: { props: { accessibilityLabel: string } }) =>
-          input.props.accessibilityLabel === 'Date of birth',
-      );
     await act(async () =>
-      age.props.onChangeText(`${new Date().getFullYear() - 15}-01-01`),
+      view.root
+        .findAllByType(AppButton)
+        .find((n: any) => n.props.accessibilityLabel === 'Date of birth')
+        .props.onPress(),
+    );
+    await act(async () =>
+      view.root
+        .findByType(DatePickerSheet)
+        .props.onConfirm(
+          new Date(new Date().getFullYear() - 15, 0, 1).getTime(),
+        ),
     );
     await act(async () => button(view, 'Continue').props.onPress());
     expect(button(view, 'START!').props.disabled).toBe(true);

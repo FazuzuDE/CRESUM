@@ -25,6 +25,7 @@ import { colors, radius, spacing, typography } from '@/lib/theme';
 
 type ExerciseLibraryProps = {
   visible: boolean;
+  presentation?: 'sheet' | 'page';
   onClose: () => void;
   onAdd?: (exercise: LibraryExercise) => void;
   selectedIds?: readonly string[];
@@ -33,6 +34,7 @@ type ExerciseLibraryProps = {
 
 export function ExerciseLibrary({
   visible,
+  presentation = 'sheet',
   onClose,
   onAdd,
   selectedIds = [],
@@ -67,6 +69,156 @@ export function ExerciseLibrary({
   });
   const selectionMode = Boolean(onToggle);
 
+  const content = (
+    <SafeAreaView style={s.sheet}>
+      <View style={s.header}>
+        <View style={s.headerCopy}>
+          <Text style={s.title}>Exercise Library</Text>
+          <Text style={s.subtitle}>{results.length} exercises</Text>
+        </View>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={
+            presentation === 'page'
+              ? 'Back to Profile'
+              : 'Close exercise library'
+          }
+          onPress={close}
+          style={s.close}
+        >
+          <Text style={s.closeText}>
+            {presentation === 'page' ? 'Back' : 'Close'}
+          </Text>
+        </Pressable>
+      </View>
+
+      <TextInput
+        accessibilityLabel="Search exercise library"
+        value={query}
+        onChangeText={setQuery}
+        placeholder="Search exercises"
+        placeholderTextColor={colors.textTertiary}
+        returnKeyType="search"
+        style={s.search}
+      />
+
+      <Text style={s.filterLabel}>Muscle</Text>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={s.filterScroller}
+        contentContainerStyle={s.filters}
+      >
+        <FilterChip
+          label="All"
+          group="muscle"
+          selected={!muscle}
+          onPress={() => setMuscle(undefined)}
+        />
+        {muscleTaxonomy.map((item) => (
+          <FilterChip
+            key={item.id}
+            label={item.label}
+            group="muscle"
+            selected={muscle === item.id}
+            onPress={() => setMuscle(item.id)}
+          />
+        ))}
+      </ScrollView>
+
+      <Text style={s.filterLabel}>Equipment</Text>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={s.filterScroller}
+        contentContainerStyle={s.filters}
+      >
+        <FilterChip
+          label="All"
+          group="equipment"
+          selected={!equipment}
+          onPress={() => setEquipment(undefined)}
+        />
+        {equipmentTaxonomy.map((item) => (
+          <FilterChip
+            key={item.id}
+            label={item.label}
+            group="equipment"
+            selected={equipment === item.id}
+            onPress={() => setEquipment(item.id)}
+          />
+        ))}
+      </ScrollView>
+
+      <AppScrollView
+        keyboardShouldPersistTaps="handled"
+        style={s.resultList}
+        contentContainerStyle={s.results}
+      >
+        {results.length === 0 ? (
+          <View style={s.empty}>
+            <Text style={s.emptyTitle}>No exercises found</Text>
+            <Text style={s.subtitle}>Try another search or filter.</Text>
+          </View>
+        ) : (
+          results.map((exercise) => {
+            const selected = selectedIds.includes(exercise.id);
+            return (
+              <View
+                key={exercise.id}
+                style={[s.row, selected && s.selectedRow]}
+              >
+                <ExerciseArtwork imageKey={exercise.imageKey} />
+                <View style={s.copy}>
+                  <Text style={s.name}>{exercise.name}</Text>
+                  <Text style={s.metadata}>
+                    {exercise.primaryMuscles.map(muscleLabel).join(' · ')}
+                  </Text>
+                  <Text style={s.metadata}>
+                    {exercise.equipment.map(equipmentLabel).join(' · ')}
+                  </Text>
+                </View>
+                {selectionMode ? (
+                  <Pressable
+                    accessibilityRole="checkbox"
+                    accessibilityLabel={`Select ${exercise.name}`}
+                    accessibilityState={{ checked: selected }}
+                    onPress={() => onToggle?.(exercise.id)}
+                    style={[s.action, selected && s.selectedAction]}
+                  >
+                    <Text
+                      style={[s.actionText, selected && s.selectedActionText]}
+                    >
+                      {selected ? 'Selected' : 'Select'}
+                    </Text>
+                  </Pressable>
+                ) : onAdd ? (
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={`${selected ? 'Already added' : 'Add'} ${exercise.name}`}
+                    accessibilityState={{ disabled: selected }}
+                    disabled={selected}
+                    onPress={() => onAdd?.(exercise)}
+                    style={[s.addAction, selected && s.disabledAction]}
+                  >
+                    <Text
+                      style={[
+                        s.addActionText,
+                        selected && s.disabledActionText,
+                      ]}
+                    >
+                      {selected ? 'Added' : 'Add'}
+                    </Text>
+                  </Pressable>
+                ) : null}
+              </View>
+            );
+          })
+        )}
+      </AppScrollView>
+    </SafeAreaView>
+  );
+  if (presentation === 'page') return visible ? content : null;
   return (
     <Modal
       visible={visible}
@@ -74,147 +226,7 @@ export function ExerciseLibrary({
       presentationStyle="pageSheet"
       onRequestClose={close}
     >
-      <SafeAreaView style={s.sheet}>
-        <View style={s.header}>
-          <View style={s.headerCopy}>
-            <Text style={s.title}>Exercise Library</Text>
-            <Text style={s.subtitle}>{results.length} exercises</Text>
-          </View>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel="Close exercise library"
-            onPress={close}
-            style={s.close}
-          >
-            <Text style={s.closeText}>Close</Text>
-          </Pressable>
-        </View>
-
-        <TextInput
-          accessibilityLabel="Search exercise library"
-          value={query}
-          onChangeText={setQuery}
-          placeholder="Search exercises"
-          placeholderTextColor={colors.textTertiary}
-          returnKeyType="search"
-          style={s.search}
-        />
-
-        <Text style={s.filterLabel}>Muscle</Text>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          style={s.filterScroller}
-          contentContainerStyle={s.filters}
-        >
-          <FilterChip
-            label="All"
-            group="muscle"
-            selected={!muscle}
-            onPress={() => setMuscle(undefined)}
-          />
-          {muscleTaxonomy.map((item) => (
-            <FilterChip
-              key={item.id}
-              label={item.label}
-              group="muscle"
-              selected={muscle === item.id}
-              onPress={() => setMuscle(item.id)}
-            />
-          ))}
-        </ScrollView>
-
-        <Text style={s.filterLabel}>Equipment</Text>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          style={s.filterScroller}
-          contentContainerStyle={s.filters}
-        >
-          <FilterChip
-            label="All"
-            group="equipment"
-            selected={!equipment}
-            onPress={() => setEquipment(undefined)}
-          />
-          {equipmentTaxonomy.map((item) => (
-            <FilterChip
-              key={item.id}
-              label={item.label}
-              group="equipment"
-              selected={equipment === item.id}
-              onPress={() => setEquipment(item.id)}
-            />
-          ))}
-        </ScrollView>
-
-        <AppScrollView
-          keyboardShouldPersistTaps="handled"
-          style={s.resultList}
-          contentContainerStyle={s.results}
-        >
-          {results.length === 0 ? (
-            <View style={s.empty}>
-              <Text style={s.emptyTitle}>No exercises found</Text>
-              <Text style={s.subtitle}>Try another search or filter.</Text>
-            </View>
-          ) : (
-            results.map((exercise) => {
-              const selected = selectedIds.includes(exercise.id);
-              return (
-                <View
-                  key={exercise.id}
-                  style={[s.row, selected && s.selectedRow]}
-                >
-                  <ExerciseArtwork imageKey={exercise.imageKey} />
-                  <View style={s.copy}>
-                    <Text style={s.name}>{exercise.name}</Text>
-                    <Text style={s.metadata}>
-                      {exercise.primaryMuscles.map(muscleLabel).join(' · ')}
-                    </Text>
-                    <Text style={s.metadata}>
-                      {exercise.equipment.map(equipmentLabel).join(' · ')}
-                    </Text>
-                  </View>
-                  {selectionMode ? (
-                    <Pressable
-                      accessibilityRole="checkbox"
-                      accessibilityLabel={`Select ${exercise.name}`}
-                      accessibilityState={{ checked: selected }}
-                      onPress={() => onToggle?.(exercise.id)}
-                      style={[s.action, selected && s.selectedAction]}
-                    >
-                      <Text
-                        style={[s.actionText, selected && s.selectedActionText]}
-                      >
-                        {selected ? 'Selected' : 'Select'}
-                      </Text>
-                    </Pressable>
-                  ) : (
-                    <Pressable
-                      accessibilityRole="button"
-                      accessibilityLabel={`${selected ? 'Already added' : 'Add'} ${exercise.name}`}
-                      accessibilityState={{ disabled: selected }}
-                      disabled={selected}
-                      onPress={() => onAdd?.(exercise)}
-                      style={[s.addAction, selected && s.disabledAction]}
-                    >
-                      <Text
-                        style={[
-                          s.addActionText,
-                          selected && s.disabledActionText,
-                        ]}
-                      >
-                        {selected ? 'Added' : 'Add'}
-                      </Text>
-                    </Pressable>
-                  )}
-                </View>
-              );
-            })
-          )}
-        </AppScrollView>
-      </SafeAreaView>
+      {content}
     </Modal>
   );
 }

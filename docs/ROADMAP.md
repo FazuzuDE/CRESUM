@@ -57,6 +57,13 @@ schedule-day changes must retain recovery and weekly-volume meaning.
 
 ### Other Core polish
 
+- Shared day/month/year wheels replace date keyboards; all future value wheels use
+  AppPicker. Local UIKit module uses native Apple wheel appearance/audio and
+  selection feedback; verify with a native build on a physical iPhone. Browser,
+  Android and Expo Go retain a snapping accessible fallback. Profile gets a separate
+  browse-only EXERCISE LIBRARY entry after WORKOUTS. Home calendar moves above the
+  workout and opens a factual full-month calendar. No scheduling or storage migration.
+
 - Profile identity/body-weight follow-up: compact WORKOUTS wordmark entry opens
   a dedicated routines page; named Welcome → optional DOB/height/weight → Goal
   → Experience → START!; Home uses the stored name. Progress keeps a separate

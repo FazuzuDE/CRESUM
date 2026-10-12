@@ -311,3 +311,21 @@ it('reports available and unavailable exercise counts truthfully on Home', async
   );
   act(() => view.unmount());
 });
+
+it('offers a read-only full library page with working search and Back', () => {
+  const onClose = jest.fn();
+  const view = renderLibrary(
+    <ExerciseLibrary visible presentation="page" onClose={onClose} />,
+  );
+  try {
+    expect(resultLabels(view, 'Add ')).toHaveLength(0);
+    expect(resultLabels(view, 'Select ')).toHaveLength(0);
+    expect(JSON.stringify(view.toJSON())).toContain('Barbell Bench Press');
+    act(() => view.root.findByType(TextInput).props.onChangeText('not-real'));
+    expect(JSON.stringify(view.toJSON())).toContain('No exercises found');
+    act(() => findPressable(view, 'Back to Profile')?.props.onPress());
+    expect(onClose).toHaveBeenCalledTimes(1);
+  } finally {
+    act(() => view.unmount());
+  }
+});
