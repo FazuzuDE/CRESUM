@@ -143,3 +143,7 @@ After a clean checkpoint, sensible UI sequence:
 4. Active Workout and Progress as separate tasks.
 
 Do not turn this into a broad rewrite.
+
+### Exercise Technique follow-up — 2026-10-12
+
+Approved Library/Technique/full-screen mockup is implemented as a focused offline guide layer for the 65 current exercises, with source mappings and explicit adaptations. Square thumbnails and START/FINISH positions remain placeholders pending reviewed assets. Preserve browse vs selection actions, stable identities and existing logging. Next: editorial review by a qualified coach for variant-specific guidance, physical-phone acceptance, then separately integrate approved exact-variant images and image gestures/transitions. Adaptive weight-entry mockup is deferred and retained; no cloud/auth or calibration work is added.
