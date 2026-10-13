@@ -693,3 +693,9 @@ Approved for implementation by the user's explicit request. Replace date keyboar
 ## 2026-10-12 — Exercise Technique mockup approved; weight entry deferred
 
 User approved Library right-hand square thumbnail + Technique label, page-sheet instructions and enlarged START/FINISH viewer. Requested source-grounded execution and common mistakes for all exercises; images remain placeholders until available. Implement a separate offline technique catalog with per-entry references/adaptation notes, preserve generic identities and Add/selection semantics, and reuse the guide from active Workout. No logging/storage rewrite or unreviewed image production. Native viewer image gestures/transitions await reviewed assets; current guide uses native slide and phase buttons. Weight-entry mockup is retained as a deferred draft. Pending focused PR integration and phone/editorial QA.
+
+## 2026-10-13 — Option 3 selected for back-exercise illustrations
+
+Approved by the user's request to inspect GitHub and create back-exercise pictures using option 3: a clothed blue-T-shirt character with a separate front/back muscle map. Use catalog-owned Primary/Secondary IDs in independent vector regions, with no measured activation or recovery claim. Preserve separate START/FINISH files and exact-variant/pair QA. The generic Lat Pulldown remains unspecified; illustrative machine/grip choices do not redefine generic saved IDs. Generated previews remain unapproved until biomechanics and visual review; no Mobile integration or production release is included in this documentation sync. Existing approved Male Master/outfit provenance remains in force.
+
+Status: approved visual direction — documentation prepared for Git integration; individual assets pending review.
