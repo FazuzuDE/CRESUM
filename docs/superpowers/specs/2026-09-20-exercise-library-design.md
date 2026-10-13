@@ -2,7 +2,7 @@
 
 ## Objective
 
-Create FitFlow's canonical, offline-first exercise metadata layer and a reusable
+Create CRESUM's canonical, offline-first exercise metadata layer and a reusable
 mobile Exercise Library experience. The feature must preserve the completed
 Workout Engine, schema-v1 persistence, active-workout recovery, and historical
 snapshot behavior.

@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build a canonical, searchable, filterable Exercise Library that safely supplies templates and active workouts without changing FitFlow persistence schema v1.
+**Goal:** Build a canonical, searchable, filterable Exercise Library that safely supplies templates and active workouts without changing CRESUM persistence schema v1.
 
 **Architecture:** Typed taxonomy and catalog modules own immutable metadata and legacy-ID resolution. Workout sessions continue to store snapshots, while a reusable page-sheet provides single-add and template multi-select modes behind an isolated artwork placeholder boundary.
 

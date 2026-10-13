@@ -90,7 +90,7 @@ describe('Progress local-calendar boundaries', () => {
   });
 
   it('uses local calendar arithmetic across DST and preserves target wall time', () => {
-    const zone = process.env.FITFLOW_PROGRESS_TEST_ZONE;
+    const zone = process.env.CRESUM_PROGRESS_TEST_ZONE;
     if (zone === 'America/New_York') {
       const now = new Date(2026, 2, 14, 12).getTime();
       const expected = new Date(2026, 2, 7, 12).getTime();
@@ -128,7 +128,7 @@ describe('Progress local-calendar boundaries', () => {
           env: {
             ...process.env,
             TZ: timezone,
-            FITFLOW_PROGRESS_TEST_ZONE: timezone,
+            CRESUM_PROGRESS_TEST_ZONE: timezone,
           },
         },
       );

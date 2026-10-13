@@ -1,8 +1,8 @@
-# FitFlow — Codex Instructions
+# CRESUM — Codex Instructions
 
 ## Mission
 
-FitFlow is a commercial React Native + Expo + TypeScript fitness tracker focused on fast workout logging, reliable workout state, history, and useful progress analytics.
+CRESUM is a commercial React Native + Expo + TypeScript fitness tracker focused on fast workout logging, reliable workout state, history, and useful progress analytics.
 
 ## Required context
 
@@ -77,6 +77,10 @@ Before completion:
 Never claim completion while relevant checks fail. Clearly distinguish pre-existing failures.
 
 ## Git
+
+- Use CRESUM for current product names. Preserve compatibility identifiers
+  documented in `docs/REBRANDING.md`; do not blindly replace legacy data keys,
+  application IDs, or unverified repository URLs.
 
 - Do not work directly on `main`.
 - Follow existing branch strategy.

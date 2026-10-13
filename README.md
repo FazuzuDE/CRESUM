@@ -1,4 +1,8 @@
-# FitFlow v0.3 — Exercise Library & Progress
+# CRESUM v0.3 — Exercise Library & Progress
+
+CRESUM is the current product name. See [rebranding and compatibility
+notes](./docs/REBRANDING.md) for the retained storage/application identifiers
+and the separate GitHub repository rename.
 
 ## New in v0.3
 
