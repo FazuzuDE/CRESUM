@@ -1,5 +1,13 @@
 # CRESUM Decision Log
 
+## 2026-10-13 — Activate approved Wheel / Keypad Set-entry mockup
+
+Status: Approved; implementation in focused PR.
+
+Incomplete weight/repetition cells open a shared draft sheet with native wheels, exact keypad, visible +/- steps, previous completed set and explicit Save/Cancel. Save edits values only; completion/rest remains separate. Preserve bilateral values, precise decimals, snapshot identities and stored history. Initial steps: barbell total 2.5 kg, dumbbell/kettlebell 1 kg, cable/machine 5 kg, fallback 2.5 kg; reps 1. Shared AppPicker owns native feedback. Empty fields open Keypad; explicit Wheel selection initializes missing values to 0 kg / 1 rep, not a recommendation. Recommendations, preference persistence and duration/distance logging are not included. Physical iPhone acceptance remains required.
+
+Related: PRODUCT.md, DESIGN_SYSTEM.md, ROADMAP.md.
+
 This chronological log records approved decisions. The owning product, design, roadmap, and engineering documents remain the detailed sources of truth.
 
 ## 2026-10-11 — Goal-based weekly training programs: approved initial basis

@@ -7,7 +7,6 @@ import {
   Pressable,
   StyleSheet,
   Text,
-  TextInput,
   View,
 } from 'react-native';
 import * as Haptics from 'expo-haptics';
@@ -17,6 +16,8 @@ import { Confirmation } from './Confirmation';
 import { ExerciseLibrary } from './ExerciseLibrary';
 import { ExerciseTechnique } from './ExerciseTechnique';
 import { ExerciseArtwork } from './ExerciseArtwork';
+import { SetEntrySheet } from './SetEntrySheet';
+import { previousEntry, saveSetEntry } from '@/lib/set-entry';
 import { findExercise } from '@/lib/exercise-library';
 import type { LibraryExercise } from '@/lib/workout-model';
 import { WorkoutProgram } from './WorkoutProgram';
@@ -34,7 +35,6 @@ import {
   skipRest,
   toggleSet,
   totalSetCount,
-  updateSet,
   workoutIsComplete,
 } from '@/lib/workout-engine';
 import { isSetComplete, WorkoutSession } from '@/lib/workout-model';
@@ -70,6 +70,11 @@ export function Workout({
   const [picker, setPicker] = useState(false);
   const [technique, setTechnique] = useState<LibraryExercise | null>(null);
   const [inputError, setInputError] = useState('');
+  const [editing, setEditing] = useState<{
+    sessionId: string;
+    exerciseId: string;
+    setId: string;
+  } | null>(null);
   const [removeIndex, setRemoveIndex] = useState<number | null>(null);
   const {
     attachRef,
@@ -81,6 +86,21 @@ export function Workout({
   } = useProgramScroll();
   const notified = useRef<number | undefined>(undefined);
   const deadline = session?.restEndsAt;
+  const editedExercise =
+    session?.id === editing?.sessionId
+      ? session?.exercises.find((e) => e.id === editing?.exerciseId)
+      : undefined;
+  const editedIndex =
+    editedExercise?.sets.findIndex((s) => s.id === editing?.setId) ?? -1;
+  const editedSet = editedExercise?.sets[editedIndex];
+  const entryOpen = Boolean(
+    editedSet &&
+    !isSetComplete(editedSet) &&
+    session?.exercises[session.currentExerciseIndex]?.id ===
+      editing?.exerciseId,
+  );
+  // Discard the draft immediately when its owning snapshot is no longer active.
+  if (editing && !entryOpen) setEditing(null);
   useEffect(() => {
     if (!session?.id) return;
     const refresh = () => setNow(Date.now());
@@ -277,62 +297,48 @@ export function Workout({
                   >
                     <Text style={s.setNumber}>{i + 1}</Text>
                   </Pressable>
-                  <TextInput
-                    accessibilityLabel={
-                      'Set ' + (i + 1) + ' weight in kilograms'
-                    }
-                    keyboardType="decimal-pad"
-                    value={set.weight}
-                    placeholder="0"
-                    placeholderTextColor={colors.textTertiary}
-                    editable={!done && !busy}
-                    style={[s.input, done && s.completed]}
-                    onChangeText={(weight) =>
-                      update((current) =>
-                        updateSet(current, index, i, { weight }),
-                      )
-                    }
-                  />
-                  <TextInput
-                    accessibilityLabel={
-                      'Set ' +
-                      (i + 1) +
-                      (set.otherSideReps === undefined
-                        ? ' repetitions'
-                        : ' left repetitions')
-                    }
-                    placeholder={
-                      set.otherSideReps === undefined ? 'Reps' : 'Left'
-                    }
-                    placeholderTextColor={colors.textTertiary}
-                    keyboardType="number-pad"
-                    value={set.reps}
-                    editable={!done && !busy}
-                    style={[s.input, done && s.completed]}
-                    onChangeText={(reps) =>
-                      update((current) =>
-                        updateSet(current, index, i, { reps }),
-                      )
-                    }
-                  />
-                  {set.otherSideReps === undefined ? null : (
-                    <TextInput
-                      accessibilityLabel={
-                        'Set ' + (i + 1) + ' right repetitions'
+                  {[
+                    { field: 'weight', value: set.weight, placeholder: '0' },
+                    {
+                      field:
+                        set.otherSideReps === undefined
+                          ? 'repetitions'
+                          : 'left repetitions',
+                      value: set.reps,
+                      placeholder:
+                        set.otherSideReps === undefined ? 'Reps' : 'Left',
+                    },
+                    ...(set.otherSideReps === undefined
+                      ? []
+                      : [
+                          {
+                            field: 'right repetitions',
+                            value: set.otherSideReps,
+                            placeholder: 'Right',
+                          },
+                        ]),
+                  ].map((cell) => (
+                    <Pressable
+                      key={cell.field}
+                      accessibilityRole="button"
+                      accessibilityLabel={`Edit set ${i + 1} ${cell.field}`}
+                      accessibilityValue={{ text: cell.value || 'Not entered' }}
+                      accessibilityState={{ disabled: done || busy }}
+                      disabled={done || busy}
+                      style={[s.input, s.valueCell, done && s.completed]}
+                      onPress={() =>
+                        setEditing({
+                          sessionId: session.id,
+                          exerciseId: exercise.id,
+                          setId: set.id,
+                        })
                       }
-                      keyboardType="number-pad"
-                      value={set.otherSideReps}
-                      placeholder="Right"
-                      placeholderTextColor={colors.textTertiary}
-                      editable={!done && !busy}
-                      style={[s.input, done && s.completed]}
-                      onChangeText={(otherSideReps) =>
-                        update((current) =>
-                          updateSet(current, index, i, { otherSideReps }),
-                        )
-                      }
-                    />
-                  )}
+                    >
+                      <Text style={s.valueText}>
+                        {cell.value || cell.placeholder}
+                      </Text>
+                    </Pressable>
+                  ))}
                   <Pressable
                     accessibilityRole="checkbox"
                     accessibilityLabel={'Complete set ' + (i + 1)}
@@ -461,11 +467,47 @@ export function Workout({
           onClose={() => setTechnique(null)}
         />
       ) : null}
+      {entryOpen && editing && editedSet && editedExercise ? (
+        <SetEntrySheet
+          key={`${editing.sessionId}:${editing.exerciseId}:${editing.setId}`}
+          set={editedSet}
+          setNumber={editedIndex + 1}
+          libraryId={editedExercise.libraryId}
+          previous={previousEntry(
+            history,
+            editedExercise.libraryId,
+            editedIndex,
+          )}
+          busy={busy}
+          onCancel={() => setEditing(null)}
+          onSave={(values) => {
+            if (busy) return;
+            update((current) =>
+              saveSetEntry(
+                current,
+                editing.sessionId,
+                editing.exerciseId,
+                editing.setId,
+                values,
+              ),
+            );
+            setEditing(null);
+            setInputError('');
+          }}
+        />
+      ) : null}
     </KeyboardAvoidingView>
   );
 }
 
 const s = StyleSheet.create({
+  valueCell: { justifyContent: 'center', alignItems: 'center' },
+  valueText: {
+    ...typography.title3,
+    color: colors.textPrimary,
+    fontVariant: ['tabular-nums'],
+    textAlign: 'center',
+  },
   flex: { flex: 1 },
   exerciseHeading: {
     flexDirection: 'row',
