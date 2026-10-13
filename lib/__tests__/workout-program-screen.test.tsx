@@ -6,7 +6,6 @@ import {
   AppState,
   ScrollView,
   Text,
-  TextInput,
   View,
 } from 'react-native';
 import { Workout } from '../../components/Workout';
@@ -15,6 +14,7 @@ import { defaultTemplates, exerciseLibrary } from '../workout-catalog';
 import { startWorkout } from '../workout-engine';
 import type { WorkoutSession } from '../workout-model';
 import { isPressable } from './pressable';
+import { editWorkoutSet } from './set-entry-fixture';
 
 const { act, create } = jest.requireActual('react-test-renderer');
 jest.mock('expo-haptics', () => ({
@@ -61,13 +61,6 @@ const choices = (view: ReturnType<typeof create>) =>
     .findAll(isPressable)
     .filter((node: { props: { accessibilityLabel?: string } }) =>
       node.props.accessibilityLabel?.startsWith('Select exercise '),
-    );
-const input = (view: ReturnType<typeof create>, label: string) =>
-  view.root
-    .findAllByType(TextInput)
-    .find(
-      (node: { props: { accessibilityLabel?: string } }) =>
-        node.props.accessibilityLabel === label,
     );
 
 it('shows only the current exercise until the program is explicitly expanded', () => {
@@ -116,9 +109,7 @@ it('selects an exercise, collapses the program and retains logged sets and rest'
     view = create(<Harness />);
   });
   try {
-    act(() =>
-      input(view, 'Set 1 weight in kilograms')?.props.onChangeText('60,5'),
-    );
+    editWorkoutSet(view, 1, '60,5');
     act(() => pressable(view, 'Complete set 1')?.props.onPress());
     const logged: WorkoutSession = view.root.findByType(Workout).props.session;
     act(() => pressable(view, 'All exercises')?.props.onPress());
@@ -140,10 +131,10 @@ it('selects an exercise, collapses the program and retains logged sets and rest'
         'Select exercise 1: Barbell Bench Press',
       )?.props.onPress(),
     );
-    expect(input(view, 'Set 1 weight in kilograms')?.props.value).toBe('60.5');
-    expect(input(view, 'Set 1 weight in kilograms')?.props.editable).toBe(
-      false,
-    );
+    expect(
+      pressable(view, 'Edit set 1 weight')?.props.accessibilityValue.text,
+    ).toBe('60.5');
+    expect(pressable(view, 'Edit set 1 weight')?.props.disabled).toBe(true);
   } finally {
     act(() => view.unmount());
   }
@@ -156,11 +147,7 @@ it('returns to the focused view after automatic progression and for a new sessio
   });
   try {
     for (let index = 1; index <= 3; index += 1) {
-      act(() =>
-        input(view, `Set ${index} weight in kilograms`)?.props.onChangeText(
-          '60',
-        ),
-      );
+      editWorkoutSet(view, index, '60');
     }
     act(() => pressable(view, 'All exercises')?.props.onPress());
     for (let index = 1; index <= 3; index += 1) {
@@ -218,9 +205,7 @@ it('accessible reordering leaves the program open and preserves the current exer
     view = create(<Harness />);
   });
   try {
-    act(() =>
-      input(view, 'Set 1 weight in kilograms')?.props.onChangeText('60.5'),
-    );
+    editWorkoutSet(view, 1, '60.5');
     act(() => pressable(view, 'Complete set 1')?.props.onPress());
     const before: WorkoutSession = view.root.findByType(Workout).props.session;
     act(() => pressable(view, 'All exercises')?.props.onPress());
@@ -246,7 +231,9 @@ it('accessible reordering leaves the program open and preserves the current exer
     expect(choices(view)[1].props.accessibilityState.selected).toBe(true);
     // Retain the native row element so screen-reader focus can stay on it.
     expect(choices(view)[1]).toBe(first);
-    expect(input(view, 'Set 1 weight in kilograms')?.props.value).toBe('60.5');
+    expect(
+      pressable(view, 'Edit set 1 weight')?.props.accessibilityValue.text,
+    ).toBe('60.5');
   } finally {
     act(() => view.unmount());
   }

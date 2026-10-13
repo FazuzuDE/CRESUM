@@ -146,6 +146,10 @@ drag. Expansion and drag feedback remain transient presentation state.
 
 Weight entry should evolve into an adaptive system with Recommended, Keypad, and Wheel Picker modes while always preserving exact manual control. Quick weight adjustments should support equipment-aware increments rather than one universal increment; exact manual entry always overrides them. A complete increment table is not defined yet.
 
+Set-entry mockup approved 2026-10-13: tap an incomplete set's weight/reps to open Wheel / Keypad with a shared local draft, exact entry and +/- controls. Save writes values only; DONE separately completes the set/starts rest. Cancel/swipe/session or exercise changes discard drafts. Completed sets stay locked; left/right repetitions remain independent. Previous session means the same set ordinal in the newest finished matching workout; absent/uncompleted prior values are not invented. Use snapshot IDs, not positional indices, when saving; preserve History, source templates and rest deadlines.
+
+Initial entry steps: barbell total load 2.5 kg, dumbbell/kettlebell 1 kg, cable/machine 5 kg, fallback 2.5 kg; repetitions 1. These are conveniences, not working-weight recommendations or universal machine plate sizes. The ordinary wheel grid is 0–500 kg / 1–100 reps, retaining valid exact/out-of-grid values; Keypad has no new cap. Empty values open Keypad; explicitly choosing Wheel initializes missing fields to 0 kg / 1 rep. Unloaded Bodyweight Step-up still requires 0 kg. Recommended mode, saved preferences and duration/distance logging remain future work.
+
 Future working-weight recommendations must primarily use history for the specific exercise. With insufficient exercise-specific history, CRESUM should show an honest unavailable/insufficient-history state instead of fabricating a confident load. Recommendations remain customizable and overrideable.
 
 ### Exercise Library

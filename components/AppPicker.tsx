@@ -20,10 +20,12 @@ type Props = {
   selected: number[];
   labels: string[];
   onChange: (component: number, row: number) => void;
+  onInteractionChange?: (active: boolean) => void;
 };
-type NativeProps = Omit<Props, 'onChange'> &
+type NativeProps = Omit<Props, 'onChange' | 'onInteractionChange'> &
   ViewProps & {
     selectionRevision: number;
+    onInteraction: (event: { nativeEvent: { active: boolean } }) => void;
     onSelect: (event: {
       nativeEvent: { component: number; row: number };
     }) => void;
@@ -40,6 +42,7 @@ export function AppPicker({
   selected,
   labels,
   onChange,
+  onInteractionChange,
   flexible = false,
 }: Props) {
   const [revision, refreshSelection] = useReducer((n: number) => n + 1, 0);
@@ -66,6 +69,9 @@ export function AppPicker({
         selected={selected}
         labels={labels}
         selectionRevision={revision}
+        onInteraction={({ nativeEvent }) =>
+          onInteractionChange?.(nativeEvent.active)
+        }
         style={[{ width: '100%' }, geometry]}
         onSelect={({ nativeEvent }) =>
           changed(nativeEvent.component, nativeEvent.row)
@@ -87,6 +93,7 @@ export function AppPicker({
           height={height}
           viewport={viewport}
           revision={revision}
+          onInteractionChange={onInteractionChange}
           onChange={(row) => changed(component, row)}
         />
       ))}
@@ -101,6 +108,7 @@ function WheelColumn({
   viewport,
   revision,
   onChange,
+  onInteractionChange,
 }: {
   options: string[];
   selected: number;
@@ -109,6 +117,7 @@ function WheelColumn({
   viewport: number;
   revision: number;
   onChange: (row: number) => void;
+  onInteractionChange?: (active: boolean) => void;
 }) {
   const list = useRef<FlatList<string>>(null);
   const last = useRef(selected);
@@ -177,6 +186,7 @@ function WheelColumn({
         showsVerticalScrollIndicator={false}
         scrollEventThrottle={16}
         onScrollBeginDrag={() => {
+          onInteractionChange?.(true);
           dragging.current = true;
           momentum.current = true;
         }}
@@ -188,8 +198,10 @@ function WheelColumn({
           if (dragging.current)
             choose(Math.round(nativeEvent.contentOffset.y / height));
           dragging.current = false;
+          onInteractionChange?.(false);
         }}
         onMomentumScrollBegin={() => {
+          onInteractionChange?.(true);
           dragging.current = momentum.current;
         }}
         onMomentumScrollEnd={({ nativeEvent }) => {
@@ -197,6 +209,7 @@ function WheelColumn({
             choose(Math.round(nativeEvent.contentOffset.y / height));
           dragging.current = false;
           momentum.current = false;
+          onInteractionChange?.(false);
         }}
         keyExtractor={(_, i) => String(i)}
         renderItem={({ item, index }) => (

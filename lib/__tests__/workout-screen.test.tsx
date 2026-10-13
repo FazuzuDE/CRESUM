@@ -1,5 +1,6 @@
 import { isPressable } from './pressable';
-import { Text, TextInput, StyleSheet, View } from 'react-native';
+import { editWorkoutSet } from './set-entry-fixture';
+import { Text, StyleSheet, View } from 'react-native';
 import App from '../../app/index';
 import { AppButton } from '../../components/AppButton';
 import { Confirmation } from '../../components/Confirmation';
@@ -43,13 +44,6 @@ it('connects the actual screen inputs, timer, confirmation and persisted history
     view.root
       .findAllByType(AppButton)
       .find((node: { props: { title: string } }) => node.props.title === title);
-  const input = (label: string) =>
-    view.root
-      .findAllByType(TextInput)
-      .find(
-        (node: { props: { accessibilityLabel: string } }) =>
-          node.props.accessibilityLabel === label,
-      );
   const pressable = (label: string) =>
     view.root
       .findAll(isPressable)
@@ -68,16 +62,11 @@ it('connects the actual screen inputs, timer, confirmation and persisted history
     view.root.findByType(Workout).props.session.exercises[0].sets[0]
       .completedAt,
   ).toBeUndefined();
-  await act(async () => {
-    input('Set 1 weight in kilograms').props.onChangeText('60,5');
-  });
-  await act(async () => {
-    input('Set 1 repetitions').props.onChangeText('8');
-  });
+  editWorkoutSet(view, 1, '60,5', '8');
   await act(async () => {
     pressable('Complete set 1').props.onPress();
   });
-  expect(input('Set 1 weight in kilograms').props.editable).toBe(false);
+  expect(pressable('Edit set 1 weight').props.disabled).toBe(true);
   expect(button('Skip rest')).toBeDefined();
   await act(async () => {
     button('Skip rest').props.onPress();

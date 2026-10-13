@@ -122,6 +122,8 @@ Glass is an accent, not the entire UI. Use blur mainly for the floating bottom d
 
 **Adaptive weight input:** support Recommended, Keypad, and Wheel Picker interaction modes when implemented. Exact manual entry is always available. Quick +/- controls use context-appropriate, equipment-aware increments and never prevent a precise override. Keep all modes within the existing light, premium iOS-inspired control language.
 
+**Set editor — approved 2026-10-13:** white page-sheet surface, dark Set title with blue Cancel, factual previous-session line, pale segmented Wheel / Keypad, uppercase labels, selected-value bands, pale-blue +/- with visible steps and full-width blue `Save · weight kg × reps`. Shared transient draft, independent left/right values and exact decimals. Reuse AppPicker: native UIKit wheels, accessibility, system click and selection haptics; no private/custom sound. Do not nest vertical virtualized wheels in a vertical ScrollView. Header/footer can scroll, wheel height is flexible, narrow bilateral controls wrap. Physical iPhone keyboard/dismissal/VoiceOver/Dynamic Type acceptance remains required.
+
 **Chips/segments:** height about 32–36, pill radius, clear selected state.
 
 ## 8. Navigation
