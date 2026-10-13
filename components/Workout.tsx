@@ -15,6 +15,10 @@ import { GlassCard } from './GlassCard';
 import { AppButton } from './AppButton';
 import { Confirmation } from './Confirmation';
 import { ExerciseLibrary } from './ExerciseLibrary';
+import { ExerciseTechnique } from './ExerciseTechnique';
+import { ExerciseArtwork } from './ExerciseArtwork';
+import { findExercise } from '@/lib/exercise-library';
+import type { LibraryExercise } from '@/lib/workout-model';
 import { WorkoutProgram } from './WorkoutProgram';
 import { useProgramScroll } from './useProgramScroll';
 import {
@@ -64,6 +68,7 @@ export function Workout({
 }) {
   const [now, setNow] = useState(Date.now());
   const [picker, setPicker] = useState(false);
+  const [technique, setTechnique] = useState<LibraryExercise | null>(null);
   const [inputError, setInputError] = useState('');
   const [removeIndex, setRemoveIndex] = useState<number | null>(null);
   const {
@@ -188,9 +193,30 @@ export function Workout({
               update={update}
               scroll={programScroll}
             />
-            <Text style={s.heading} accessibilityRole="header">
-              {exercise.name}
-            </Text>
+            <View style={s.exerciseHeading}>
+              <Text
+                style={[s.heading, s.exerciseName]}
+                accessibilityRole="header"
+              >
+                {exercise.name}
+              </Text>
+              {findExercise(exercise.libraryId) ? (
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={`Technique for ${exercise.name}`}
+                  onPress={() =>
+                    setTechnique(findExercise(exercise.libraryId) ?? null)
+                  }
+                  style={s.techniqueEntry}
+                >
+                  <ExerciseArtwork
+                    imageKey={findExercise(exercise.libraryId)!.imageKey}
+                    size={76}
+                  />
+                  <Text style={s.techniqueLabel}>Technique</Text>
+                </Pressable>
+              ) : null}
+            </View>
             <Text style={s.previous}>
               {previous?.length
                 ? 'Last: ' +
@@ -428,12 +454,27 @@ export function Workout({
           setPicker(false);
         }}
       />
+      {technique ? (
+        <ExerciseTechnique
+          key={technique.id}
+          exercise={technique}
+          onClose={() => setTechnique(null)}
+        />
+      ) : null}
     </KeyboardAvoidingView>
   );
 }
 
 const s = StyleSheet.create({
   flex: { flex: 1 },
+  exerciseHeading: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+  },
+  exerciseName: { flex: 1, minWidth: 0 },
+  techniqueEntry: { width: 76, alignItems: 'center', gap: spacing.xxs },
+  techniqueLabel: { ...typography.caption, color: colors.primary },
   content: {
     padding: spacing.md,
     gap: spacing.lg,
