@@ -1,3 +1,4 @@
+import { BrandHeader } from './BrandHeader';
 import { programEligibilityError } from '@/lib/training-programs/eligibility';
 import { normalizeBirthDate } from '@/lib/personal-profile';
 import { DatePickerSheet } from './DatePickerSheet';
@@ -239,7 +240,7 @@ export function Onboarding({
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={s.content}
       >
-        <Text style={s.brand}>CRESUM</Text>
+        <BrandHeader tagline={false} />
         {step === 'self_setup' ? (
           <>
             <Text style={s.title} accessibilityRole="header">
@@ -656,12 +657,6 @@ const s = StyleSheet.create({
     padding: spacing.md,
     paddingBottom: spacing.xxxl,
     gap: spacing.md,
-  },
-  brand: {
-    ...typography.caption,
-    fontWeight: '700',
-    letterSpacing: 4,
-    color: colors.textPrimary,
   },
   card: { gap: spacing.md },
   title: { ...typography.title1, color: colors.textPrimary },

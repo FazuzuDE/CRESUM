@@ -522,6 +522,19 @@ A UI task is complete when it follows this system, introduces no arbitrary dupli
 
 ## 19. Current visual baseline
 
+### Centered brand and exercise statistics — approved 2026-10-14
+
+Use shared BrandHeader: dark spaced CRESUM centered on main pages, onboarding
+and Library/detail. Put the existing tagline below when present; compact detail
+headers omit it. Preserve safe areas and separate close/back targets; avoid
+absolute positioning. Library keeps its right square placeholder and quiet
+Technique / Statistics actions separate from selection/Add. Detail uses both
+tabs, existing periods, three metric segments, a white chart card with dark
+headline and inline comparison, plus compact workout/set counts. Graph selection
+opens read-only Logged sets; Back retains exercise, metric and period. Reuse
+smooth upward navigation, text colors and large-text wrapping. Native
+sheet/dismissal/VoiceOver/chart/Dynamic Type acceptance remains a device check.
+
 The approved baseline is the light CRESUM concept: airy white/light-gray surfaces, Apple-like hierarchy, `#0A84FF` primary actions, rounded premium cards, restrained glass, with **Home, Active Workout and Progress** as the first key visual references.
 
 ### Core demo alignment

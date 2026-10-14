@@ -1,3 +1,4 @@
+import { BrandHeader } from './BrandHeader';
 import { HomeCalendar } from './HomeCalendar';
 import { TrainingProgramWeek } from './TrainingProgramWeek';
 import type { ProgramAssignment } from '@/lib/training-programs/assignment';
@@ -370,10 +371,7 @@ export function HomeDashboard({
         .map(([id, y]) => ({ id, label: id, y: gridTop + y }))}
     >
       <View style={s.header}>
-        <View style={s.brandRow}>
-          <Text style={s.brand}>CRESUM</Text>
-          <Text style={s.tagline}>TRAIN. TRACK. GROW.</Text>
-        </View>
+        <BrandHeader />
         <View style={s.greetingRow}>
           <View style={s.greetingCopy}>
             <Text style={s.title} accessibilityRole="header">
@@ -430,18 +428,6 @@ const s = StyleSheet.create({
     paddingBottom: spacing.lg,
   },
   header: { gap: spacing.xl, paddingVertical: spacing.sm },
-  brandRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    flexWrap: 'wrap',
-    gap: spacing.xs,
-  },
-  brand: { ...typography.caption, letterSpacing: 2, color: colors.textPrimary },
-  tagline: {
-    ...typography.caption,
-    letterSpacing: 1,
-    color: colors.textSecondary,
-  },
   greetingRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
   greetingCopy: { flex: 1, gap: spacing.xs },
   avatar: {

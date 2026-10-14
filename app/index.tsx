@@ -1,3 +1,4 @@
+import { BrandHeader } from '@/components/BrandHeader';
 import {
   useCallback,
   useEffect,
@@ -113,10 +114,7 @@ function Stats({
           content: (
             <View style={{ gap: spacing.md }}>
               <View style={s.progressHeader}>
-                <View style={s.brandRow}>
-                  <Text style={s.brand}>CRESUM</Text>
-                  <Text style={s.tagline}>TRAIN. TRACK. GROW.</Text>
-                </View>
+                <BrandHeader />
                 <View style={s.progressHeading}>
                   <Text style={s.progressTitle} accessibilityRole="header">
                     Progress
@@ -871,6 +869,7 @@ export default function App() {
             }
           >
             <ProfileSettings
+              history={data.history}
               templates={visibleTemplates}
               busy={busy || hiddenBusy}
               version={Constants.expoConfig?.version}
@@ -929,22 +928,6 @@ const s = StyleSheet.create({
   sub: { ...typography.footnote, color: colors.textSecondary },
   progressContent: { gap: spacing.md },
   progressHeader: { gap: spacing.sm },
-  brandRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    gap: spacing.xs,
-  },
-  brand: {
-    ...progressTypography.brand,
-    letterSpacing: 4,
-    color: colors.textEmphasis,
-  },
-  tagline: {
-    ...progressTypography.tagline,
-    letterSpacing: 1,
-    color: colors.textSecondary,
-  },
   progressHeading: { gap: spacing.xxs },
   progressTitle: { ...progressTypography.title, color: colors.textEmphasis },
   progressSubtitle: {

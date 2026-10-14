@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  useWindowDimensions,
+} from 'react-native';
 import type { WorkoutVolume } from '@/lib/progress-analytics';
 import { colors, progressTypography, radius, spacing } from '@/lib/theme';
 import { volumeChartScale, volumeChartTick } from '@/lib/training-volume-chart';
@@ -10,14 +16,19 @@ const shortMonth = (time: number) =>
 export function EstimatedOneRepMaxBars({
   workouts,
   pointLabel,
+  measureLabel = 'Estimated 1RM',
+  onSelectPoint,
+  pointLimit = 7,
 }: {
   workouts: readonly WorkoutVolume[];
   pointLabel: (p: WorkoutVolume) => string;
+  measureLabel?: string;
+  onSelectPoint?: (point: WorkoutVolume) => void;
+  pointLimit?: number;
 }) {
-  const measureLabel = 'Estimated 1RM';
   const { width, fontScale } = useWindowDimensions();
   const [measuredWidth, setMeasuredWidth] = useState<number>();
-  const recent = workouts.slice(-7);
+  const recent = workouts.slice(-pointLimit);
   const scale = volumeChartScale(recent.map((point) => point.volume));
   const textScale = Math.max(1, fontScale);
   const plotHeight = spacing.xxxl * 2 * textScale;
@@ -126,10 +137,14 @@ export function EstimatedOneRepMaxBars({
               </View>
               <View style={s.columns}>
                 {row.map((point) => (
-                  <View
+                  <Pressable
                     key={point.workoutId}
                     accessible
-                    accessibilityLabel={`Estimated 1RM: ${pointLabel(point)}`}
+                    accessibilityRole={onSelectPoint ? 'button' : undefined}
+                    accessibilityLabel={`${measureLabel}: ${pointLabel(point)}`}
+                    onPress={
+                      onSelectPoint ? () => onSelectPoint(point) : undefined
+                    }
                     style={[s.column, { maxWidth: spacing.xxxl * textScale }]}
                   >
                     <View
@@ -168,7 +183,7 @@ export function EstimatedOneRepMaxBars({
                         {shortMonth(point.finishedAt)}
                       </Text>
                     </View>
-                  </View>
+                  </Pressable>
                 ))}
               </View>
             </View>
