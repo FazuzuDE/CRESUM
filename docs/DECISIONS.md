@@ -1,5 +1,18 @@
 # CRESUM Decision Log
 
+## 2026-10-14 — Reliability audit: start with completion-time safety
+
+Status: Approved — implementation in focused PR, pending Git integration.
+
+The user approved starting with the most critical audit finding and continuing
+in priority order. First reject invalid Finish timestamps before persistence,
+retain the active workout and all logged data, explain the device-time issue,
+and allow retry. Preserve schema/keys and strict non-destructive loading; do not
+silently change timestamps. Next: safe discard of an accidentally started
+workout. Remaining audit items stay separate from this fix.
+
+Related: `PRODUCT.md`, `ROADMAP.md`.
+
 ## 2026-10-14 — Library exercise statistics and centered brand
 
 Status: Approved — pending Git integration

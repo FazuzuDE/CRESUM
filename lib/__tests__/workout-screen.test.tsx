@@ -108,6 +108,77 @@ it('connects the actual screen inputs, timer, confirmation and persisted history
   });
 }, 15_000);
 
+it('shows a clock error in Finish confirmation and keeps the logged workout recoverable', async () => {
+  await AsyncStorage.clear();
+  await completeOnboardingForTest();
+  const startedAt = 1_800_000_000_000;
+  const clock = jest.spyOn(Date, 'now').mockReturnValue(startedAt);
+  let view: ReturnType<typeof create>;
+  try {
+    await act(async () => {
+      view = create(<App />);
+    });
+    const button = (title: string) =>
+      view.root
+        .findAllByType(AppButton)
+        .find(
+          (node: { props: { title: string } }) => node.props.title === title,
+        );
+    const pressable = (label: string) =>
+      view.root
+        .findAll(isPressable)
+        .find(
+          (node: { props: { accessibilityLabel: string } }) =>
+            node.props.accessibilityLabel === label,
+        );
+    const confirmation = () =>
+      view.root
+        .findAllByType(Confirmation)
+        .find(
+          (node: { props: { title: string } }) =>
+            node.props.title === 'Finish workout?',
+        );
+    await act(async () => {
+      pressable('Start Upper Body').props.onPress();
+    });
+    editWorkoutSet(view, 1, '40', '10');
+    await act(async () => {
+      pressable('Complete set 1').props.onPress();
+    });
+    const savedActive = JSON.parse(
+      (await AsyncStorage.getItem(STATE_KEY))!,
+    ).activeWorkout;
+    clock.mockReturnValue(startedAt - 60_000);
+    await act(async () => {
+      button('Finish workout').props.onPress();
+    });
+    await act(async () => {
+      confirmation().props.onConfirm();
+    });
+    expect(confirmation().props.visible).toBe(true);
+    expect(confirmation().props.error).toMatch(/device time/i);
+    expect(confirmation().props.busy).toBe(false);
+    expect(view.root.findByType(Workout).props.session).toEqual(savedActive);
+    const saved = JSON.parse((await AsyncStorage.getItem(STATE_KEY))!);
+    expect(saved.activeWorkout).toEqual(savedActive);
+    expect(saved.history).toEqual([]);
+    clock.mockReturnValue(startedAt + 60_000);
+    await act(async () => {
+      confirmation().props.onConfirm();
+    });
+    expect(JSON.stringify(view.toJSON())).toContain('Workout saved');
+    expect(
+      JSON.parse((await AsyncStorage.getItem(STATE_KEY))!).history,
+    ).toHaveLength(1);
+  } finally {
+    if (view!)
+      await act(async () => {
+        view.unmount();
+      });
+    clock.mockRestore();
+  }
+}, 15_000);
+
 it('restores a compact History summary and opens the saved snapshot after reload', async () => {
   await AsyncStorage.clear();
   const saved: WorkoutSession = {
