@@ -1,0 +1,370 @@
+{
+  "sourceCommit": "f7e08582f6739ff3632ec49c3cc2ccd67202621f",
+  "selectedDirection": 3,
+  "productionApproved": false,
+  "mapGeometry": "schematic surface group regions; pending anatomical review",
+  "binaryPublishing": "None; PNG frames were generated in the conversation. No binary publishing, image manifest or Mobile integration.",
+  "archiveAssembly": "Blocked by temporary execution-environment unavailability; composed PNG export incomplete.",
+  "maps": [
+    {
+      "exerciseId": "barbell-bent-over-row",
+      "primary": ["upper-back", "lats"],
+      "secondary": ["rear-delts", "biceps", "lower-back"],
+      "path": "muscle-maps/barbell-bent-over-row__male.svg"
+    },
+    {
+      "exerciseId": "seated-cable-row",
+      "primary": ["upper-back", "lats"],
+      "secondary": ["biceps", "rear-delts"],
+      "path": "muscle-maps/seated-cable-row__male.svg"
+    },
+    {
+      "exerciseId": "one-arm-dumbbell-row",
+      "primary": ["lats", "upper-back"],
+      "secondary": ["biceps", "rear-delts"],
+      "path": "muscle-maps/one-arm-dumbbell-row__male.svg"
+    },
+    {
+      "exerciseId": "chest-supported-dumbbell-row",
+      "primary": ["upper-back", "lats"],
+      "secondary": ["biceps", "rear-delts"],
+      "path": "muscle-maps/chest-supported-dumbbell-row__male.svg"
+    },
+    {
+      "exerciseId": "lat-pulldown-wide-pronated-bar",
+      "primary": ["lats"],
+      "secondary": ["biceps", "upper-back"],
+      "path": "muscle-maps/lat-pulldown-wide-pronated-bar__male.svg"
+    },
+    {
+      "exerciseId": "lat-pulldown-close-neutral-v-handle",
+      "primary": ["lats"],
+      "secondary": ["biceps", "upper-back"],
+      "path": "muscle-maps/lat-pulldown-close-neutral-v-handle__male.svg"
+    },
+    {
+      "exerciseId": "lat-pulldown-reverse-grip",
+      "primary": ["lats"],
+      "secondary": ["biceps", "upper-back"],
+      "path": "muscle-maps/lat-pulldown-reverse-grip__male.svg"
+    },
+    {
+      "exerciseId": "pull-up",
+      "primary": ["lats"],
+      "secondary": ["biceps", "upper-back", "forearms"],
+      "path": "muscle-maps/pull-up__male.svg"
+    },
+    {
+      "exerciseId": "assisted-pull-up",
+      "primary": ["lats"],
+      "secondary": ["biceps", "upper-back"],
+      "path": "muscle-maps/assisted-pull-up__male.svg"
+    },
+    {
+      "exerciseId": "machine-high-row",
+      "primary": ["upper-back", "lats"],
+      "secondary": ["rear-delts", "biceps"],
+      "path": "muscle-maps/machine-high-row__male.svg"
+    },
+    {
+      "exerciseId": "cable-straight-arm-pulldown",
+      "primary": ["lats"],
+      "secondary": ["triceps"],
+      "path": "muscle-maps/cable-straight-arm-pulldown__male.svg"
+    },
+    {
+      "exerciseId": "barbell-deadlift",
+      "primary": ["glutes", "hamstrings", "lower-back"],
+      "secondary": ["traps", "forearms", "quadriceps"],
+      "path": "muscle-maps/barbell-deadlift__male.svg"
+    },
+    {
+      "exerciseId": "resistance-band-pull-apart",
+      "primary": ["rear-delts", "upper-back"],
+      "secondary": ["traps"],
+      "path": "muscle-maps/resistance-band-pull-apart__male.svg"
+    },
+    {
+      "exerciseId": "back-extension",
+      "primary": ["lower-back"],
+      "secondary": ["glutes", "hamstrings"],
+      "path": "muscle-maps/back-extension__male.svg"
+    },
+    {
+      "exerciseId": "dumbbell-shrug",
+      "primary": ["traps"],
+      "secondary": ["forearms"],
+      "path": "muscle-maps/dumbbell-shrug__male.svg"
+    },
+    {
+      "exerciseId": "farmers-carry",
+      "primary": ["forearms", "traps"],
+      "secondary": ["abs", "glutes"],
+      "path": "muscle-maps/farmers-carry__male.svg"
+    },
+    {
+      "exerciseId": "lat-pulldown",
+      "primary": ["lats"],
+      "secondary": ["biceps", "upper-back"],
+      "path": "muscle-maps/lat-pulldown__male.svg"
+    }
+  ],
+  "frames": [
+    {
+      "exerciseId": "barbell-bent-over-row",
+      "phase": "START",
+      "generationArtifactFile": "exec-8f1945a3-b9f5-4778-8ec5-929779c2a027.png",
+      "generationPrompt": "Edit this draft only. Preserve the exact character, pose, grip, clothing, equipment, white background and rendering style. Correct framing: widen the camera / zoom out just enough to show the ENTIRE straight barbell including the left sleeve endpoint and BOTH balanced plates with comfortable white margins; nothing may touch or be cut by the image border. Keep the athlete complete including shoes. Reduce the subject's canvas coverage slightly. No other changes. Maintain plain white rightmost 24% for later separate vector inset.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "barbell-bent-over-row",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-f7a92ed7-9d5d-46f4-9f5e-6639281e1288.png",
+      "generationPrompt": "Edit this START reference into FINISH for Barbell Bent-Over Row. Preserve character, body hinge angle, leg positions, clothes, exact barbell and balanced plates, camera/crop/background and white gutter. Only arms bend and bar moves upward close to lower abdomen. Bar pulled close to lower abdomen, elbows flexed and guided backward near torso, shoulders not shrugged, back angle unchanged, no upright stance.. Entire bar including sleeve endpoints must remain inside canvas. No split screen, no text, no drawn muscle map.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "seated-cable-row",
+      "phase": "START",
+      "generationArtifactFile": "exec-5e8db211-6d3e-4885-9e1a-8f8247314535.png",
+      "generationPrompt": "Use case: premium fitness exercise illustration for CRESUM. Reference image is the SELECTED CHARACTER AND RENDERING STYLE ONLY, not the exercise machine or layout. Produce ONE square image depicting ONE adult male exercising in ONE phase; no split screen, no duplicates. Preserve the blue-shirt character's face, short brown hair, fit but modest build and natural adult proportions. Clean-shaven face as repository convention. Plain muted medium-blue short-sleeve T-shirt, dark-gray mid-thigh athletic shorts, visible white athletic socks, light-gray unbranded trainers. No muscle overlays on skin or clothing. No anatomical map drawn by the generator; a separately controlled vector map will be placed alongside this illustration later. No text, labels, logo, watermark, arrows or UI. Premium semi-realistic refined 3D, clean pure-white studio background with restrained natural contact shadows, neutral camera, no dramatic distortion. Compose athlete/equipment primarily in LEFT 72% of square canvas; reserve rightmost 24% as entirely plain white space for a separate vector muscle map. Show the complete subject including head, hands, both shoes and all mechanically relevant equipment, never crop handles or barbell ends. Gray machine frames with charcoal padding, no branding; plausible real load-bearing construction, coherent cable/pulley route and physical hand contact. Be meticulous about five fingers, closed grips, neutral wrists, equipment connection and support contacts. Do not reuse the chest-press machine from the reference. This is a generated draft based on the actual CRESUM exercise catalog, not a claim of biomechanical approval. Exact exercise and setup: Seated Cable Row. Seated low cable row on long bench, feet firmly on angled footplates, knees slightly bent, torso upright, seat supports pelvis. Low pulley centered in front of athlete, cable attaches to one compact parallel neutral-grip handle, closed hands facing each other. Handle selection is DRAFT illustrative only for this generic ID. Camera side-front three-quarter shows low horizontal cable and torso. Phase START only: Arms extended in front at lower chest height, hands/handle in front of torso, torso upright not folded; cable taut to low pulley.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "seated-cable-row",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-7af5fe25-49db-4f37-a91d-e36561a45e33.png",
+      "generationPrompt": "Edit the provided START image into ONE FINISH phase of the SAME exercise. Preserve exact character identity, face/hair/clothing, equipment geometry, implement type, grip, support positions, camera angle/lens, crop and white background. Only the working arms and resulting weight/cable position change. Do not make a split screen. No text, arrows or muscle-map inset. Exercise: Seated Cable Row. Seated low cable row on long bench, feet firmly on angled footplates, knees slightly bent, torso upright, seat supports pelvis. Low pulley centered in front of athlete, cable attaches to one compact parallel neutral-grip handle, closed hands facing each other. Handle selection is DRAFT illustrative only for this generic ID. Camera side-front three-quarter shows low horizontal cable and torso. FINISH target: Handle near lower abdomen, elbows bent traveling back beside torso, torso upright with same small lean; cable taut, no rowing swing.. The white map gutter remains empty.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "one-arm-dumbbell-row",
+      "phase": "START",
+      "generationArtifactFile": "exec-d958654a-ebbd-44f9-9ed2-a08f3c97a2a0.png",
+      "generationPrompt": "Use case: premium fitness exercise illustration for CRESUM. Reference image is the SELECTED CHARACTER AND RENDERING STYLE ONLY, not the exercise machine or layout. Produce ONE square image depicting ONE adult male exercising in ONE phase; no split screen, no duplicates. Preserve the blue-shirt character's face, short brown hair, fit but modest build and natural adult proportions. Clean-shaven face as repository convention. Plain muted medium-blue short-sleeve T-shirt, dark-gray mid-thigh athletic shorts, visible white athletic socks, light-gray unbranded trainers. No muscle overlays on skin or clothing. No anatomical map drawn by the generator; a separately controlled vector map will be placed alongside this illustration later. No text, labels, logo, watermark, arrows or UI. Premium semi-realistic refined 3D, clean pure-white studio background with restrained natural contact shadows, neutral camera, no dramatic distortion. Compose athlete/equipment primarily in LEFT 72% of square canvas; reserve rightmost 24% as entirely plain white space for a separate vector muscle map. Show the complete subject including head, hands, both shoes and all mechanically relevant equipment, never crop handles or barbell ends. Gray machine frames with charcoal padding, no branding; plausible real load-bearing construction, coherent cable/pulley route and physical hand contact. Be meticulous about five fingers, closed grips, neutral wrists, equipment connection and support contacts. Do not reuse the chest-press machine from the reference. This is a generated draft based on the actual CRESUM exercise catalog, not a claim of biomechanical approval. Exact exercise and setup: One-Arm Dumbbell Row. Bench-supported RIGHT-arm dumbbell row, one flat bench. LEFT knee and LEFT hand on bench, left hand under left shoulder; RIGHT foot on floor beside bench, right hand grips a single dumbbell. Flat neutral torso approximately horizontal, square pelvis, head aligned. Camera on working RIGHT side three-quarter so right-arm action is clear. Phase START only: Right arm nearly straight hanging vertically beneath right shoulder, dumbbell centered below shoulder, left hand and knee still supported.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "one-arm-dumbbell-row",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-9d91f452-c61b-4bfd-8a4c-aa0a762927ad.png",
+      "generationPrompt": "Edit the provided START image into ONE FINISH phase of the SAME exercise. Preserve exact character identity, face/hair/clothing, equipment geometry, implement type, grip, support positions, camera angle/lens, crop and white background. Only the working arms and resulting weight/cable position change. Do not make a split screen. No text, arrows or muscle-map inset. Exercise: One-Arm Dumbbell Row. Bench-supported RIGHT-arm dumbbell row, one flat bench. LEFT knee and LEFT hand on bench, left hand under left shoulder; RIGHT foot on floor beside bench, right hand grips a single dumbbell. Flat neutral torso approximately horizontal, square pelvis, head aligned. Camera on working RIGHT side three-quarter so right-arm action is clear. FINISH target: Right elbow pulled backward toward right hip, dumbbell beside lower right ribs, elbow flexed approximately90degrees. No torso rotation, no shoulder shrug.. The white map gutter remains empty.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "chest-supported-dumbbell-row",
+      "phase": "START",
+      "generationArtifactFile": "exec-a2d10a0f-393f-4f65-901d-dcb0f96645f1.png",
+      "generationPrompt": "Use case: premium fitness exercise illustration for CRESUM. Reference image is the SELECTED CHARACTER AND RENDERING STYLE ONLY, not the exercise machine or layout. Produce ONE square image depicting ONE adult male exercising in ONE phase; no split screen, no duplicates. Preserve the blue-shirt character's face, short brown hair, fit but modest build and natural adult proportions. Clean-shaven face as repository convention. Plain muted medium-blue short-sleeve T-shirt, dark-gray mid-thigh athletic shorts, visible white athletic socks, light-gray unbranded trainers. No muscle overlays on skin or clothing. No anatomical map drawn by the generator; a separately controlled vector map will be placed alongside this illustration later. No text, labels, logo, watermark, arrows or UI. Premium semi-realistic refined 3D, clean pure-white studio background with restrained natural contact shadows, neutral camera, no dramatic distortion. Compose athlete/equipment primarily in LEFT 72% of square canvas; reserve rightmost 24% as entirely plain white space for a separate vector muscle map. Show the complete subject including head, hands, both shoes and all mechanically relevant equipment, never crop handles or barbell ends. Gray machine frames with charcoal padding, no branding; plausible real load-bearing construction, coherent cable/pulley route and physical hand contact. Be meticulous about five fingers, closed grips, neutral wrists, equipment connection and support contacts. Do not reuse the chest-press machine from the reference. This is a generated draft based on the actual CRESUM exercise catalog, not a claim of biomechanical approval. Exact exercise and setup: Chest-Supported Dumbbell Row. Two-arm dumbbell row lying chest-down on an inclined bench around35degrees. Chest firmly on sloping pad, head beyond top of pad and neck neutral. Both feet stable on floor behind/below bench; TWO equal dumbbells one per hand, palms facing each other. Camera side-front three-quarter shows chest-pad contact. Phase START only: Both arms hang nearly straight toward floor below shoulders, dumbbells freely suspended without touching floor. Chest and abdomen stay supported.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "chest-supported-dumbbell-row",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-3a79b47a-6749-497a-a118-e53636b896ce.png",
+      "generationPrompt": "Edit the provided START image into ONE FINISH phase of the SAME exercise. Preserve exact character identity, face/hair/clothing, equipment geometry, implement type, grip, support positions, camera angle/lens, crop and white background. Only the working arms and resulting weight/cable position change. Do not make a split screen. No text, arrows or muscle-map inset. Exercise: Chest-Supported Dumbbell Row. Two-arm dumbbell row lying chest-down on an inclined bench around35degrees. Chest firmly on sloping pad, head beyond top of pad and neck neutral. Both feet stable on floor behind/below bench; TWO equal dumbbells one per hand, palms facing each other. Camera side-front three-quarter shows chest-pad contact. FINISH target: Both elbows flexed and drawn behind torso, dumbbells beside lower ribs, chest remains planted on bench and neck aligned, no lifting chest.. The white map gutter remains empty.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "lat-pulldown-wide-pronated-bar",
+      "phase": "START",
+      "generationArtifactFile": "exec-748b081f-5b07-4d45-9eb0-a1f4da726e3d.png",
+      "generationPrompt": "Use case: premium fitness exercise illustration for CRESUM. Reference image is the SELECTED CHARACTER AND RENDERING STYLE ONLY, not the exercise machine or layout. Produce ONE square image depicting ONE adult male exercising in ONE phase; no split screen, no duplicates. Preserve the blue-shirt character's face, short brown hair, fit but modest build and natural adult proportions. Clean-shaven face as repository convention. Plain muted medium-blue short-sleeve T-shirt, dark-gray mid-thigh athletic shorts, visible white athletic socks, light-gray unbranded trainers. No muscle overlays on skin or clothing. No anatomical map drawn by the generator; a separately controlled vector map will be placed alongside this illustration later. No text, labels, logo, watermark, arrows or UI. Premium semi-realistic refined 3D, clean pure-white studio background with restrained natural contact shadows, neutral camera, no dramatic distortion. Compose athlete/equipment primarily in LEFT 72% of square canvas; reserve rightmost 24% as entirely plain white space for a separate vector muscle map. Show the complete subject including head, hands, both shoes and all mechanically relevant equipment, never crop handles or barbell ends. Gray machine frames with charcoal padding, no branding; plausible real load-bearing construction, coherent cable/pulley route and physical hand contact. Be meticulous about five fingers, closed grips, neutral wrists, equipment connection and support contacts. Do not reuse the chest-press machine from the reference. This is a generated draft based on the actual CRESUM exercise catalog, not a claim of biomechanical approval. Exact exercise and setup: Wide Pronated Bar Lat Pulldown. Standard seated high-cable lat pulldown, single high pulley in FRONT of head, padded centered seat and a thigh hold-down pad pressing BOTH thighs, feet flat. Silver wide bar with symmetrical gently angled ends and central cable eye. BOTH hands overhand pronated, visibly wider than shoulders, thumbs closed. Slight10degree rearward torso inclination selected and stable. Camera front-side three-quarter clearly shows bilateral wide grip and cable route. Phase START only: Wide bar clearly overhead, arms extended comfortably upward with soft elbows, bar center directly beneath high pulley and cable taut.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "lat-pulldown-wide-pronated-bar",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-545e6845-f63a-42e3-8883-c0f4965fa3e3.png",
+      "generationPrompt": "Edit this START image into ONE FINISH phase for Wide Pronated Bar Lat Pulldown. Preserve SAME character and clothes, exact machine frame/equipment, grip, supports, camera/lens/crop/background and empty right-hand gutter. Preserve all five fingers and closed physical hand contact. Only movement phase changes, no split screen or text or anatomy inset. Standard seated high-cable lat pulldown, single high pulley in FRONT of head, padded centered seat and a thigh hold-down pad pressing BOTH thighs, feet flat. Silver wide bar with symmetrical gently angled ends and central cable eye. BOTH hands overhand pronated, visibly wider than shoulders, thumbs closed. Slight10degree rearward torso inclination selected and stable. Camera front-side three-quarter clearly shows bilateral wide grip and cable route. FINISH: Wide bar in front of upper chest/clavicle, elbows below shoulders pointing down and somewhat outward, not behind neck, torso lean unchanged, no forced chest contact.. ",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "lat-pulldown-close-neutral-v-handle",
+      "phase": "START",
+      "generationArtifactFile": "exec-e177585f-97d8-409b-ba0e-0bb5e07f4887.png",
+      "generationPrompt": "TARGETED EQUIPMENT/HAND REPAIR only in this image. Keep character, overhead START pose, torso, clothing, machine, cable and camera unchanged. Replace the wrongly VERTICAL grip cylinders with the correct close-neutral V-handle: TWO PARALLEL short cylindrical grips, each HORIZONTAL and pointing FRONT-TO-BACK (into/out of picture), not vertical. Both fists contact and wrap these two fore-aft grip cylinders with palms facing each other. The rigid angled silver connector arms rise diagonally from the grips to a central top eyelet, and the overhead taut cable attaches to that central eyelet. A classic close parallel row handle geometry with short horizontal front-to-back knurled grips; NOT rope ends and NOT two upright sticks. Maintain the handle's rigid symmetry. No other modifications, no text or inset.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "lat-pulldown-close-neutral-v-handle",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-844cdf32-8cab-4a00-9594-d3825006cfc6.png",
+      "generationPrompt": "Edit this provided START into ONE FINISH image for Close Neutral V-Handle Lat Pulldown. Preserve exact character/clothing/equipment/supports, camera/lens/framing and white map gutter. Only phase changes. Keep entire head and both shoes visible. No split screen, text or generated muscle inset. Standard seated high-cable lat pulldown, high pulley in FRONT of head, seat under pelvis, two-thigh hold-down pad, feet flat. Close neutral HANDLE geometry: two SHORT PARALLEL cylindrical grips each oriented FRONT-TO-BACK, one for each facing palm, joined by two rigid angled silver connector arms meeting at central TOP eyelet attached to cable. NOT a straight wide bar or bent single bar. Both hands close with palms facing each other, thumbs closed, wrists neutral. Handle geometry and orientation MUST stay identical across phases. Torso slight10degree rearward inclination fixed. Camera front-right three-quarter clearly reveals close hands and eyelet. FINISH target: Compact handle near upper sternum, elbows bent pointing down/back close to ribs, hands remain palms facing, taut cable in FRONT of face, torso angle unchanged.. CRITICAL: retain repaired handle's TWO PARALLEL HORIZONTAL fore-aft grip cylinders and central top eyelet; no rotation into vertical handles. ",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "lat-pulldown-reverse-grip",
+      "phase": "START",
+      "generationArtifactFile": "exec-56e05586-19f9-43ac-8225-3c49b440d0d9.png",
+      "generationPrompt": "Use case: premium fitness exercise illustration for CRESUM. Reference image is the SELECTED CHARACTER AND RENDERING STYLE ONLY, not the exercise machine or layout. Produce ONE square image depicting ONE adult male exercising in ONE phase; no split screen, no duplicates. Preserve the blue-shirt character's face, short brown hair, fit but modest build and natural adult proportions. Clean-shaven face as repository convention. Plain muted medium-blue short-sleeve T-shirt, dark-gray mid-thigh athletic shorts, visible white athletic socks, light-gray unbranded trainers. No muscle overlays on skin or clothing. No anatomical map drawn by the generator; a separately controlled vector map will be placed alongside this illustration later. No text, labels, logo, watermark, arrows or UI. Premium semi-realistic refined 3D, clean pure-white studio background with restrained natural contact shadows, neutral camera, no dramatic distortion. Compose athlete/equipment primarily in LEFT 72% of square canvas; reserve rightmost 24% as entirely plain white space for a separate vector muscle map. Show the complete subject including head, hands, both shoes and all mechanically relevant equipment, never crop handles or barbell ends. Gray machine frames with charcoal padding, no branding; plausible real load-bearing construction, coherent cable/pulley route and physical hand contact. Be meticulous about five fingers, closed grips, neutral wrists, equipment connection and support contacts. Do not reuse the chest-press machine from the reference. This is a generated draft based on the actual CRESUM exercise catalog, not a claim of biomechanical approval. Exact exercise and setup: Reverse-Grip Lat Pulldown. Standard seated high-cable front lat pulldown with thigh hold-down pad, feet flat and pelvis seated. A straight bar and shoulder-width spacing are DRAFT illustrative choices for this catalog ID; only SUPINATED palm-up grip is canonical. Both hands grip UNDERHAND: palms facing athlete/upward, inner wrist surfaces and thumbs visibly plausible. Slight stable rearward torso incline. Camera front-side three-quarter makes supinated wrists obvious. Phase START only: Bar clearly overhead in front of athlete, arms extended comfortably, underhand palms maintained, taut cable to central eyelet.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "lat-pulldown-reverse-grip",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-783c83bd-9d35-47f9-b9d9-15ece196da33.png",
+      "generationPrompt": "Edit this START image into ONE FINISH phase for Reverse-Grip Lat Pulldown. Preserve SAME character and clothes, exact machine frame/equipment, grip, supports, camera/lens/crop/background and empty right-hand gutter. Preserve all five fingers and closed physical hand contact. Only movement phase changes, no split screen or text or anatomy inset. Standard seated high-cable front lat pulldown with thigh hold-down pad, feet flat and pelvis seated. A straight bar and shoulder-width spacing are DRAFT illustrative choices for this catalog ID; only SUPINATED palm-up grip is canonical. Both hands grip UNDERHAND: palms facing athlete/upward, inner wrist surfaces and thumbs visibly plausible. Slight stable rearward torso incline. Camera front-side three-quarter makes supinated wrists obvious. FINISH: Bar pulled in front to upper chest, elbows flexed down near sides of torso, supinated palms still visible, no behind-neck pull or torso swing.. ",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "pull-up",
+      "phase": "START",
+      "generationArtifactFile": "exec-e54d9e81-9bee-40e9-94d2-471ae523394d.png",
+      "generationPrompt": "Framing correction for this START pull-up reference only. Preserve character identity, clothes, exact overhead bar/support frame, hanging pose, hand grip, feet clearance and white studio. Zoom the camera out and recenter the frame DOWN slightly so there is ample visible WHITE HEADROOM ABOVE THE HORIZONTAL PULL-UP BAR: at least 15 percent of image height of clear space above the bar. This headroom is necessary so the person's full head will be visible when his chin reaches above the bar in a later FINISH image. Keep the same square canvas and empty white rightmost24percent. Entire support frame including both feet/base plates visible. Do not change the exercise phase, do not bend the elbows, no text or inset.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "pull-up",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-453db37a-cc47-46ad-9bce-2987e620ef7d.png",
+      "generationPrompt": "Edit this provided START into ONE FINISH image for Pull-Up. Preserve exact character/clothing/equipment/supports, camera/lens/framing and white map gutter. Only phase changes. Keep entire head and both shoes visible. No split screen, text or generated muscle inset. Bodyweight pull-up on a secure straight horizontal overhead bar supported by a simple sturdy two-upright frame. NO weight stack, cable or knee pad. Both hands CLOSED OVERHAND, a little wider than shoulders, realistic contact with bar. Feet clear of floor. Camera front-side three-quarter. Legs together with gently bent knees, braced trunk, no swing. FINISH target: Body lifted toward bar by bending elbows down, chin just above bar without craning neck, chest subtly lifted, legs same configuration without kicking..  Use this corrected camera with its ample above-bar headroom; lift the whole body until chin just above bar without craning neck; do not crop hair or head.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "assisted-pull-up",
+      "phase": "START",
+      "generationArtifactFile": "exec-00d8b7df-0abc-489f-a5c1-3709b1efe9e6.png",
+      "generationPrompt": "Use case: premium fitness exercise illustration for CRESUM. Reference image is the SELECTED CHARACTER AND RENDERING STYLE ONLY, not the exercise machine or layout. Produce ONE square image depicting ONE adult male exercising in ONE phase; no split screen, no duplicates. Preserve the blue-shirt character's face, short brown hair, fit but modest build and natural adult proportions. Clean-shaven face as repository convention. Plain muted medium-blue short-sleeve T-shirt, dark-gray mid-thigh athletic shorts, visible white athletic socks, light-gray unbranded trainers. No muscle overlays on skin or clothing. No anatomical map drawn by the generator; a separately controlled vector map will be placed alongside this illustration later. No text, labels, logo, watermark, arrows or UI. Premium semi-realistic refined 3D, clean pure-white studio background with restrained natural contact shadows, neutral camera, no dramatic distortion. Compose athlete/equipment primarily in LEFT 72% of square canvas; reserve rightmost 24% as entirely plain white space for a separate vector muscle map. Show the complete subject including head, hands, both shoes and all mechanically relevant equipment, never crop handles or barbell ends. Gray machine frames with charcoal padding, no branding; plausible real load-bearing construction, coherent cable/pulley route and physical hand contact. Be meticulous about five fingers, closed grips, neutral wrists, equipment connection and support contacts. Do not reuse the chest-press machine from the reference. This is a generated draft based on the actual CRESUM exercise catalog, not a claim of biomechanical approval. Exact exercise and setup: Assisted Pull-Up. Counterweighted pull-up assistance machine: stable frame, overhead bilateral pronated handgrips and a vertically guided PAD UNDER BOTH KNEES visibly connected to assistance carriage, weight stack and safe mounting steps. NO hanging dumbbells or free floating pad. Adult grips overhead handles, pelvis not seated, both knees on moving support pad and shins pointing backward. Camera side-front three-quarter. Phase START only: Arms extended overhead, body supported on knee pad in its LOWER exercise position, knees stay on pad.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "assisted-pull-up",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-196e6704-8631-44fa-93c3-241120228e46.png",
+      "generationPrompt": "Edit this START image into ONE FINISH phase for Assisted Pull-Up. Preserve SAME character and clothes, exact machine frame/equipment, grip, supports, camera/lens/crop/background and empty right-hand gutter. Preserve all five fingers and closed physical hand contact. Only movement phase changes, no split screen or text or anatomy inset. Counterweighted pull-up assistance machine: stable frame, overhead bilateral pronated handgrips and a vertically guided PAD UNDER BOTH KNEES visibly connected to assistance carriage, weight stack and safe mounting steps. NO hanging dumbbells or free floating pad. Adult grips overhead handles, pelvis not seated, both knees on moving support pad and shins pointing backward. Camera side-front three-quarter. FINISH: Torso raised until chin near/above handgrip height, elbows bent down, both knees STILL on the assistance pad which has moved UP with body. Do not turn knee pad into seat or detach it.. Move the linked knee-support carriage UP along its guides together with the athlete; both knees retain contact.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "machine-high-row",
+      "phase": "START",
+      "generationArtifactFile": "exec-4bff68c5-638a-4d67-96ba-f0188eacdc54.png",
+      "generationPrompt": "Use case: premium fitness exercise illustration for CRESUM. Reference image is the SELECTED CHARACTER AND RENDERING STYLE ONLY, not the exercise machine or layout. Produce ONE square image depicting ONE adult male exercising in ONE phase; no split screen, no duplicates. Preserve the blue-shirt character's face, short brown hair, fit but modest build and natural adult proportions. Clean-shaven face as repository convention. Plain muted medium-blue short-sleeve T-shirt, dark-gray mid-thigh athletic shorts, visible white athletic socks, light-gray unbranded trainers. No muscle overlays on skin or clothing. No anatomical map drawn by the generator; a separately controlled vector map will be placed alongside this illustration later. No text, labels, logo, watermark, arrows or UI. Premium semi-realistic refined 3D, clean pure-white studio background with restrained natural contact shadows, neutral camera, no dramatic distortion. Compose athlete/equipment primarily in LEFT 72% of square canvas; reserve rightmost 24% as entirely plain white space for a separate vector muscle map. Show the complete subject including head, hands, both shoes and all mechanically relevant equipment, never crop handles or barbell ends. Gray machine frames with charcoal padding, no branding; plausible real load-bearing construction, coherent cable/pulley route and physical hand contact. Be meticulous about five fingers, closed grips, neutral wrists, equipment connection and support contacts. Do not reuse the chest-press machine from the reference. This is a generated draft based on the actual CRESUM exercise catalog, not a claim of biomechanical approval. Exact exercise and setup: Machine High Row. Seated CHEST-SUPPORTED high-row machine, upright stable frame, seat beneath pelvis and an inclined chest pad in FRONT of torso contacting sternum, feet stable. Two lever arms with visible pivots and handles reachable forward/up from shoulder level, pull toward upper trunk. NOT chest press: chest faces and presses into FRONT pad, no pad behind back. Generic high-row machine geometry is a DRAFT illustrative configuration, not canonical. Camera rear-side three-quarter reveals back and supported chest. Phase START only: Arms reaching forward/up toward handles, elbows nearly extended, chest against pad, no torso reach-off.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "machine-high-row",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-363e9fe9-7f1b-4ac2-9725-72c4acba4db7.png",
+      "generationPrompt": "Edit this START image into ONE FINISH phase for Machine High Row. Preserve SAME character and clothes, exact machine frame/equipment, grip, supports, camera/lens/crop/background and empty right-hand gutter. Preserve all five fingers and closed physical hand contact. Only movement phase changes, no split screen or text or anatomy inset. Seated CHEST-SUPPORTED high-row machine, upright stable frame, seat beneath pelvis and an inclined chest pad in FRONT of torso contacting sternum, feet stable. Two lever arms with visible pivots and handles reachable forward/up from shoulder level, pull toward upper trunk. NOT chest press: chest faces and presses into FRONT pad, no pad behind back. Generic high-row machine geometry is a DRAFT illustrative configuration, not canonical. Camera rear-side three-quarter reveals back and supported chest. FINISH: Both handles pulled toward upper ribs with elbows bent traveling behind torso, chest STILL against pad, neutral wrists, shoulders not shrugged.. ",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "cable-straight-arm-pulldown",
+      "phase": "START",
+      "generationArtifactFile": "exec-eb52426a-b49c-4494-bb31-6534e795665a.png",
+      "generationPrompt": "Use case: premium fitness exercise illustration for CRESUM. Reference image is the SELECTED CHARACTER AND RENDERING STYLE ONLY, not the exercise machine or layout. Produce ONE square image depicting ONE adult male exercising in ONE phase; no split screen, no duplicates. Preserve the blue-shirt character's face, short brown hair, fit but modest build and natural adult proportions. Clean-shaven face as repository convention. Plain muted medium-blue short-sleeve T-shirt, dark-gray mid-thigh athletic shorts, visible white athletic socks, light-gray unbranded trainers. No muscle overlays on skin or clothing. No anatomical map drawn by the generator; a separately controlled vector map will be placed alongside this illustration later. No text, labels, logo, watermark, arrows or UI. Premium semi-realistic refined 3D, clean pure-white studio background with restrained natural contact shadows, neutral camera, no dramatic distortion. Compose athlete/equipment primarily in LEFT 72% of square canvas; reserve rightmost 24% as entirely plain white space for a separate vector muscle map. Show the complete subject including head, hands, both shoes and all mechanically relevant equipment, never crop handles or barbell ends. Gray machine frames with charcoal padding, no branding; plausible real load-bearing construction, coherent cable/pulley route and physical hand contact. Be meticulous about five fingers, closed grips, neutral wrists, equipment connection and support contacts. Do not reuse the chest-press machine from the reference. This is a generated draft based on the actual CRESUM exercise catalog, not a claim of biomechanical approval. Exact exercise and setup: Cable Straight-Arm Pulldown. Standing straight-arm high-cable pulldown in front of cable tower. ONE high pulley, one straight short bar centrally attached to taut cable, hands overhand around shoulder width. Straight bar is DRAFT illustrative attachment, catalog attachment unspecified. Soft knees, modest hip hinge around20degrees, neutral neck and spine, stable feet. Camera side-front three-quarter shows shoulder-to-hand path. Phase START only: Arms extended diagonally forward/up around shoulder/head height with a small fixed elbow bend, bar in front of face, cable from bar toward high pulley.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "cable-straight-arm-pulldown",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-aeb048cb-a33f-469d-b3f4-31990d96267e.png",
+      "generationPrompt": "Edit this provided START into ONE FINISH image for Cable Straight-Arm Pulldown. Preserve exact character/clothing/equipment/supports, camera/lens/framing and white map gutter. Only phase changes. Keep entire head and both shoes visible. No split screen, text or generated muscle inset. Standing straight-arm high-cable pulldown in front of cable tower. ONE high pulley, one straight short bar centrally attached to taut cable, hands overhand around shoulder width. Straight bar is DRAFT illustrative attachment, catalog attachment unspecified. Soft knees, modest hip hinge around20degrees, neutral neck and spine, stable feet. Camera side-front three-quarter shows shoulder-to-hand path. FINISH target: Bar swept down to front of upper thighs, arms STILL long with same slight elbow bend, shoulder extension rather than triceps elbow pushdown, torso unchanged, cable taut..  ",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "barbell-deadlift",
+      "phase": "START",
+      "generationArtifactFile": "exec-2df10113-2119-4cd9-9be5-b393940866db.png",
+      "generationPrompt": "Use case: premium fitness exercise illustration for CRESUM. Reference image is the SELECTED CHARACTER AND RENDERING STYLE ONLY, not the exercise machine or layout. Produce ONE square image depicting ONE adult male exercising in ONE phase; no split screen, no duplicates. Preserve the blue-shirt character's face, short brown hair, fit but modest build and natural adult proportions. Clean-shaven face as repository convention. Plain muted medium-blue short-sleeve T-shirt, dark-gray mid-thigh athletic shorts, visible white athletic socks, light-gray unbranded trainers. No muscle overlays on skin or clothing. No anatomical map drawn by the generator; a separately controlled vector map will be placed alongside this illustration later. No text, labels, logo, watermark, arrows or UI. Premium semi-realistic refined 3D, clean pure-white studio background with restrained natural contact shadows, neutral camera, no dramatic distortion. Compose athlete/equipment primarily in LEFT 72% of square canvas; reserve rightmost 24% as entirely plain white space for a separate vector muscle map. Show the complete subject including head, hands, both shoes and all mechanically relevant equipment, never crop handles or barbell ends. Gray machine frames with charcoal padding, no branding; plausible real load-bearing construction, coherent cable/pulley route and physical hand contact. Be meticulous about five fingers, closed grips, neutral wrists, equipment connection and support contacts. Do not reuse the chest-press machine from the reference. This is a generated draft based on the actual CRESUM exercise catalog, not a claim of biomechanical approval. Exact exercise and setup: Barbell Deadlift. Conventional barbell deadlift with straight Olympic bar, ONE balanced circular full-diameter plate per side; bar close to legs, secure double-overhand grip just outside legs, feet hip width. Camera front-side three-quarter shows entire bar plus both feet and neutral spine. Phase START only: Bar on floor over midfoot, shins near bar, hips hinged and knees bent, shoulders slightly ahead of bar, straight long arms, braced neutral back, no squat-depth hip position.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "barbell-deadlift",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-fae2f6e7-40f4-436a-a733-c90b9ec4a2db.png",
+      "generationPrompt": "Edit this provided START into ONE FINISH image for Barbell Deadlift. Preserve exact character/clothing/equipment/supports, camera/lens/framing and white map gutter. Only phase changes. Keep entire head and both shoes visible. No split screen, text or generated muscle inset. Conventional barbell deadlift with straight Olympic bar, ONE balanced circular full-diameter plate per side; bar close to legs, secure double-overhand grip just outside legs, feet hip width. Camera front-side three-quarter shows entire bar plus both feet and neutral spine. FINISH target: Standing tall with hips and knees extended, bar against fronts of thighs, arms long and shoulders neutral, NO leaning backward or shrugging..  ",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "resistance-band-pull-apart",
+      "phase": "START",
+      "generationArtifactFile": "exec-1fecdef4-d85d-4666-b23d-f8a376e2dc1c.png",
+      "generationPrompt": "Use case: premium fitness exercise illustration for CRESUM. Reference image is the SELECTED CHARACTER AND RENDERING STYLE ONLY, not the exercise machine or layout. Produce ONE square image depicting ONE adult male exercising in ONE phase; no split screen, no duplicates. Preserve the blue-shirt character's face, short brown hair, fit but modest build and natural adult proportions. Clean-shaven face as repository convention. Plain muted medium-blue short-sleeve T-shirt, dark-gray mid-thigh athletic shorts, visible white athletic socks, light-gray unbranded trainers. No muscle overlays on skin or clothing. No anatomical map drawn by the generator; a separately controlled vector map will be placed alongside this illustration later. No text, labels, logo, watermark, arrows or UI. Premium semi-realistic refined 3D, clean pure-white studio background with restrained natural contact shadows, neutral camera, no dramatic distortion. Compose athlete/equipment primarily in LEFT 72% of square canvas; reserve rightmost 24% as entirely plain white space for a separate vector muscle map. Show the complete subject including head, hands, both shoes and all mechanically relevant equipment, never crop handles or barbell ends. Gray machine frames with charcoal padding, no branding; plausible real load-bearing construction, coherent cable/pulley route and physical hand contact. Be meticulous about five fingers, closed grips, neutral wrists, equipment connection and support contacts. Do not reuse the chest-press machine from the reference. This is a generated draft based on the actual CRESUM exercise catalog, not a claim of biomechanical approval. Exact exercise and setup: Resistance Band Pull-Apart. Standing horizontal resistance-band pull-apart, feet hip width, adult holds the two ends of a single flat dark-gray exercise band at chest height, both arms long with a small fixed elbow bend, overhand secure grip. Camera front three-quarter shows band. Phase START only: Hands in front of shoulders, arms extended forward with modest space between hands, band lightly taut horizontally.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "resistance-band-pull-apart",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-c88236cd-23da-45a6-8ac5-dc0252c0b71e.png",
+      "generationPrompt": "Edit this provided START into ONE FINISH image for Resistance Band Pull-Apart. Preserve exact character/clothing/equipment/supports, camera/lens/framing and white map gutter. Only phase changes. Keep entire head and both shoes visible. No split screen, text or generated muscle inset. Standing horizontal resistance-band pull-apart, feet hip width, adult holds the two ends of a single flat dark-gray exercise band at chest height, both arms long with a small fixed elbow bend, overhand secure grip. Camera front three-quarter shows band. FINISH target: Arms opened sideways approximately in line with shoulders, band stretches horizontally across front of chest, head and torso unchanged, shoulders not shrugged..  ",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "back-extension",
+      "phase": "START",
+      "generationArtifactFile": "exec-a9720c9b-16db-42ac-a755-20661b36ac35.png",
+      "generationPrompt": "Targeted START-pose correction for this45degree back-extension bench draft. Preserve adult character, clothes, bench frame, camera and white background. Pad supports UPPER THIGHS BELOW hip crease so hips can hinge freely. Hinge the neutral torso-and-head segment DOWN from the hips: chest and head must clearly be LOWER than hips, torso roughly15degrees BELOW HORIZONTAL. Do not round spine; head stays aligned with descending torso rather than looking upward. Both legs fixed on45degree bench, feet on plate, ankles beneath rollers, arms crossed. This is the LOWERED START, not straight diagonal FINISH. No external weight, text or inset.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "back-extension",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-c7487866-74bb-4794-9f36-dd7898ec6ed6.png",
+      "generationPrompt": "Edit the supplied corrected LOWERED START into the FINISH of a45degree hip/back-extension bench exercise. Preserve exact character face/hair/blue shirt/shorts/socks/shoes, crossed arms, entire bench frame and pad/roller placement, BOTH foot contacts, camera/crop/background. Only hip flexion changes: raise the NEUTRAL torso until head, shoulders, pelvis and thighs form ONE STRAIGHT DIAGONAL LINE along the45degree bench. Stop aligned; no lumbar overextension or backward arch, no looking upward with neck. Keep pad under upper thighs below hip crease, feet secure. No split-screen, no text or anatomy inset. Maintain empty white right gutter for separately rendered group map.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "dumbbell-shrug",
+      "phase": "START",
+      "generationArtifactFile": "exec-ba4921a8-5282-44a8-8304-c6d4a748c182.png",
+      "generationPrompt": "Use case: premium fitness exercise illustration for CRESUM. Reference image is the SELECTED CHARACTER AND RENDERING STYLE ONLY, not the exercise machine or layout. Produce ONE square image depicting ONE adult male exercising in ONE phase; no split screen, no duplicates. Preserve the blue-shirt character's face, short brown hair, fit but modest build and natural adult proportions. Clean-shaven face as repository convention. Plain muted medium-blue short-sleeve T-shirt, dark-gray mid-thigh athletic shorts, visible white athletic socks, light-gray unbranded trainers. No muscle overlays on skin or clothing. No anatomical map drawn by the generator; a separately controlled vector map will be placed alongside this illustration later. No text, labels, logo, watermark, arrows or UI. Premium semi-realistic refined 3D, clean pure-white studio background with restrained natural contact shadows, neutral camera, no dramatic distortion. Compose athlete/equipment primarily in LEFT 72% of square canvas; reserve rightmost 24% as entirely plain white space for a separate vector muscle map. Show the complete subject including head, hands, both shoes and all mechanically relevant equipment, never crop handles or barbell ends. Gray machine frames with charcoal padding, no branding; plausible real load-bearing construction, coherent cable/pulley route and physical hand contact. Be meticulous about five fingers, closed grips, neutral wrists, equipment connection and support contacts. Do not reuse the chest-press machine from the reference. This is a generated draft based on the actual CRESUM exercise catalog, not a claim of biomechanical approval. Exact exercise and setup: Dumbbell Shrug. Standing dumbbell shrug, two equal compact dumbbells one per hand hanging at sides, feet hip width, torso tall, head aligned, wrists neutral and elbows straight. Camera front three-quarter. Phase START only: Shoulders relaxed neutral down, arms long and dumbbells at sides.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "dumbbell-shrug",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-955244a6-3323-48af-9d05-d00bc999b7ec.png",
+      "generationPrompt": "Edit this provided START into ONE FINISH image for Dumbbell Shrug. Preserve exact character/clothing/equipment/supports, camera/lens/framing and white map gutter. Only phase changes. Keep entire head and both shoes visible. No split screen, text or generated muscle inset. Standing dumbbell shrug, two equal compact dumbbells one per hand hanging at sides, feet hip width, torso tall, head aligned, wrists neutral and elbows straight. Camera front three-quarter. FINISH target: Both shoulders elevated vertically toward ears, neck and head not pushed forward, arms still straight, dumbbells only slightly higher, no elbow curl or shoulder circles..  ",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "farmers-carry",
+      "phase": "START",
+      "generationArtifactFile": "exec-46437eeb-ec9a-4754-96a1-6753190d812d.png",
+      "generationPrompt": "Use case: premium fitness exercise illustration for CRESUM. Reference image is the SELECTED CHARACTER AND RENDERING STYLE ONLY, not the exercise machine or layout. Produce ONE square image depicting ONE adult male exercising in ONE phase; no split screen, no duplicates. Preserve the blue-shirt character's face, short brown hair, fit but modest build and natural adult proportions. Clean-shaven face as repository convention. Plain muted medium-blue short-sleeve T-shirt, dark-gray mid-thigh athletic shorts, visible white athletic socks, light-gray unbranded trainers. No muscle overlays on skin or clothing. No anatomical map drawn by the generator; a separately controlled vector map will be placed alongside this illustration later. No text, labels, logo, watermark, arrows or UI. Premium semi-realistic refined 3D, clean pure-white studio background with restrained natural contact shadows, neutral camera, no dramatic distortion. Compose athlete/equipment primarily in LEFT 72% of square canvas; reserve rightmost 24% as entirely plain white space for a separate vector muscle map. Show the complete subject including head, hands, both shoes and all mechanically relevant equipment, never crop handles or barbell ends. Gray machine frames with charcoal padding, no branding; plausible real load-bearing construction, coherent cable/pulley route and physical hand contact. Be meticulous about five fingers, closed grips, neutral wrists, equipment connection and support contacts. Do not reuse the chest-press machine from the reference. This is a generated draft based on the actual CRESUM exercise catalog, not a claim of biomechanical approval. Exact exercise and setup: Farmer's Carry. Two-dumbbell farmer carry, TWO equal dumbbells held securely alongside hips, neutral palms inward, arms long, upright head and torso, shoulders level. No gym machine, unobstructed white floor. Camera front-side three-quarter. Distance-based locomotion, NOT repetition exercise. Phase START only: Ready upright standing with both feet under hips, weights hanging beside hips, no shrug or elbow bend.",
+      "status": "generated draft",
+      "productionApproved": false
+    },
+    {
+      "exerciseId": "farmers-carry",
+      "phase": "FINISH",
+      "generationArtifactFile": "exec-0b90292a-2b31-498b-af4d-3ed6d3b0db7f.png",
+      "generationPrompt": "Edit this provided START into ONE FINISH image for Farmer's Carry. Preserve exact character/clothing/equipment/supports, camera/lens/framing and white map gutter. Only phase changes. Keep entire head and both shoes visible. No split screen, text or generated muscle inset. Two-dumbbell farmer carry, TWO equal dumbbells held securely alongside hips, neutral palms inward, arms long, upright head and torso, shoulders level. No gym machine, unobstructed white floor. Camera front-side three-quarter. Distance-based locomotion, NOT repetition exercise. FINISH target: Mid-WALK example with one foot naturally one short step ahead of other, pelvis and shoulders level, both dumbbells remain beside hips, elbows straight. This is a walking sample, not a lockout end position or squat..  ",
+      "status": "generated draft",
+      "productionApproved": false
+    }
+  ]
+}

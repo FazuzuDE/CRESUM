@@ -73,3 +73,15 @@ The provider-neutral foundation builds deterministic UTF-8/LF prompt packages an
 QA accepts only supported structured outcomes and binds review to candidate content, tracker revision and prompt hash. Approval captures a frozen value snapshot. Exporting an approved reference rechecks that evidence against current provenance; a status label alone is insufficient. This validates integrity, not a human reviewer's identity or a cryptographic signature. After `needs revision`, a new explicit asset revision, generated draft and complete QA are required. Invalid tracker identity or revision values are rejected.
 
 Track each planned family/variant/model and its START/FINISH pair separately from canonical Exercise Library records. The lifecycle is `planned → generated draft → approved → needs revision`; after correction, a revised draft must pass QA again before approval. Generation alone is never approval. Record the identity, model, phase-file references, status, and QA/revision notes when asset production starts. The foundation creates no real production entries or application integration.
+
+## 2026-10-13 — Back illustrations: selected direction and draft boundary
+
+The user selected option 3: a blue-T-shirt technique character plus a separate muscle-group map. Keep the map as independently addressable SVG regions driven by the catalog's Primary/Secondary muscle IDs, rather than asking a raster generator to invent or calculate muscle participation. Any illustrative surface region geometry still requires anatomy review; a consistent ID/color mapping alone does not validate the anatomy.
+
+Preserve one phase per technique file, the stable `imageKey` boundary and the existing exact-variant/pair QA. Generated images and composed previews remain drafts; no production approval, registry coverage, release bundle or Mobile integration follows from this direction alone. The existing approved Male Master and outfit provenance still govern production.
+
+At the inspected `develop` revision `f7e08582f6739ff3632ec49c3cc2ccd67202621f`, the flat catalog contains 65 records. Seventeen have `lats`, `upper-back`, `lower-back` or `traps` among Primary groups; this is the defined scope of the requested back-illustration pack, not a new catalog category. It does not include every exercise with a secondary back stabilizer.
+
+The generic `lat-pulldown` keeps its unspecified grip/attachment meaning: use its existing placeholder until a reviewed exact configuration can be represented without reinterpreting that ID. The three exact pulldown variants remain distinct. For other generic machine/attachment records, an illustrative configuration is not a new canonical variant or permission to reinterpret saved History.
+
+Farmer's Carry is distance-based: a second walking sample is not a repetition lockout. Muscle maps describe catalog groups, including on unilateral examples; they do not assert simultaneous equal left/right activation. The back-extension bench example does not define the generic record as one machine type.

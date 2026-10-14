@@ -592,3 +592,11 @@ Follow the selected three-state mockup: Library → Technique sheet → full-scr
 Technique is an opaque white native page sheet with restrained grabber, dark title and 44 pt close target. Use the exact exercise title, secondary muscle/equipment line, responsive square image region and pale START/FINISH segments with 44 pt targets. Setup, Movement and Key checks stay visible; Common mistakes and Sources reveal on demand. Source titles are blue links; publisher/adaptation notes remain readable secondary text. Preserve the shared smooth up-arrow on vertically scrollable sheets and full-screen viewer. The current Workout header reuses the same right-hand thumbnail entry.
 
 Until reviewed image pairs exist, show an explicitly labeled Image coming soon placeholder and a truthful Illustration unavailable full-screen state. Phase buttons retain their state between sheet/viewer. Use native modal slide motion now; do not imply a native shared-image transition, pinch zoom or image-swipe demonstration exists without real assets. Native phone/sheet/dismissal/VoiceOver/Dynamic Type QA remains required.
+
+## 2026-10-13 — Selected back-illustration direction
+
+The user selected visual option 3 for back-exercise illustrations: a clothed male character in a blue T-shirt, with a separate front/back muscle-group map beside the technique illustration. Keep a calm white composition and natural adult proportions. Do not paint anatomical regions onto clothing.
+
+The muscle map is an independent vector layer, driven by stable catalog muscle IDs. Use distinguishable primary/secondary colors with a textual legend; color communicates catalog participation, never measured activation, recovery, percentages or a phase-specific physiological claim. Keep the same group semantics in START and FINISH.
+
+This selects the visual direction, not the approval of generated frames, a replacement of the existing approved Male Master/outfit presets, or a new production renderer. Exact anatomy, equipment, grip, supports, framing and pair consistency remain subject to the existing asset QA gate. Integration is a separate implementation step.
