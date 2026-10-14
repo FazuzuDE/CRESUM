@@ -534,7 +534,7 @@ Status: Approved
 
 Decision:
 
-- Treat Suggested Next Workout and the Recommendation Engine as future capabilities that must not delay FitFlow Core.
+- Treat Suggested Next Workout and the Recommendation Engine as future capabilities that must not delay CRESUM Core.
 - Allow recent history, estimated muscle load, goals, equipment, and legitimate recovery information as signals.
 - Never treat the Muscle Heat Map as ground truth or simply select the least-loaded muscle.
 - Preserve Customize before Start Workout and adaptation after subsequent workouts.
@@ -701,3 +701,20 @@ Approved for implementation by the user's explicit request. Replace date keyboar
 ## 2026-10-12 — Exercise Technique mockup approved; weight entry deferred
 
 User approved Library right-hand square thumbnail + Technique label, page-sheet instructions and enlarged START/FINISH viewer. Requested source-grounded execution and common mistakes for all exercises; images remain placeholders until available. Implement a separate offline technique catalog with per-entry references/adaptation notes, preserve generic identities and Add/selection semantics, and reuse the guide from active Workout. No logging/storage rewrite or unreviewed image production. Native viewer image gestures/transitions await reviewed assets; current guide uses native slide and phase buttons. Weight-entry mockup is retained as a deferred draft. Pending focused PR integration and phone/editorial QA.
+
+## 2026-10-13 — CRESUM technical branding with installation compatibility
+
+Status: Approved — pending Git sync and repository administration
+
+Decision:
+
+- Extend the approved product rebrand to the app display name, npm package,
+  Expo slug, current product documentation, and primary URL scheme.
+- Keep existing storage keys, schema version 1, installed iOS/Android IDs,
+  and the legacy URL scheme so rebranding cannot hide workouts or split the
+  installed application. These are compatibility identifiers, not product copy.
+- Rename the GitHub repository to `FazuzuDE/CRESUM` through an authorized
+  administration surface, then update verified source URLs and local remotes.
+  The content PR alone does not perform this administrative operation.
+
+Related: `REBRANDING.md`

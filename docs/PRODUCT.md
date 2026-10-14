@@ -1,5 +1,9 @@
 # CRESUM — Product Definition
 
+The app display name is CRESUM; package/Expo slug use `cresum`. Existing local
+data keys and installed application IDs remain stable across rebranding.
+See [rebranding compatibility](./REBRANDING.md).
+
 ## Product
 
 CRESUM is a mobile gym workout tracker for quickly recording training and understanding progress.

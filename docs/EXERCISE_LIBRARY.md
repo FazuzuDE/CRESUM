@@ -1,6 +1,6 @@
 # Exercise Library contracts
 
-The Exercise Library is FitFlow Core's canonical, offline exercise metadata source. Its implementation lives in `lib/exercise-library.ts`; taxonomy IDs and display labels live in `lib/exercise-taxonomy.ts`.
+The Exercise Library is CRESUM Core's canonical, offline exercise metadata source. Its implementation lives in `lib/exercise-library.ts`; taxonomy IDs and display labels live in `lib/exercise-taxonomy.ts`.
 
 ## Canonical IDs
 

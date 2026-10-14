@@ -12,4 +12,4 @@ Opening a summary displays one completed snapshot. Detail shows the saved workou
 
 History renders the fields saved in each completed session. It does not reconstruct a session from the current template, Exercise Library, or muscle taxonomy. Later template deletion, template editing, catalog renaming, and metadata changes therefore cannot rewrite the displayed historical workout.
 
-History remains read-only in FitFlow Core. Editing, deletion, duplication, repeat-workout behavior, search, filtering, cloud synchronization, and analytics expansion are outside this contract.
+History remains read-only in CRESUM Core. Editing, deletion, duplication, repeat-workout behavior, search, filtering, cloud synchronization, and analytics expansion are outside this contract.

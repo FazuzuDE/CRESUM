@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "FitFlow",
-    "slug": "fitflow",
+    "name": "CRESUM",
+    "slug": "cresum",
     "version": "0.3.0",
     "orientation": "portrait",
-    "scheme": "fitflow",
+    "scheme": ["cresum", "fitflow"],
     "userInterfaceStyle": "light",
     "plugins": ["expo-router"],
     "ios": { "supportsTablet": false, "bundleIdentifier": "com.fitflow.app" },

@@ -8,6 +8,8 @@ import {
 } from './planned-exercise';
 import { canonicalExerciseId } from './exercise-library';
 
+// Stable on-device identifiers survive the CRESUM rebrand; renaming them
+// without a data migration would hide existing workouts and history.
 export const STATE_KEY = 'fitflow_state_v1';
 export const LEGACY_KEYS = [
   'fitflow_history',
