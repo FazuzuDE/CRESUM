@@ -1,4 +1,5 @@
 import { AppScrollView } from './AppScrollView';
+import { BrandHeader } from './BrandHeader';
 import { useEffect, useState } from 'react';
 import {
   Modal,
@@ -21,7 +22,7 @@ import {
   muscleTaxonomy,
   MuscleId,
 } from '@/lib/exercise-taxonomy';
-import { LibraryExercise } from '@/lib/workout-model';
+import { LibraryExercise, type WorkoutSession } from '@/lib/workout-model';
 import { colors, radius, spacing, typography } from '@/lib/theme';
 
 type ExerciseLibraryProps = {
@@ -31,6 +32,8 @@ type ExerciseLibraryProps = {
   onAdd?: (exercise: LibraryExercise) => void;
   selectedIds?: readonly string[];
   onToggle?: (id: string) => void;
+  history?: readonly WorkoutSession[];
+  now?: number;
 };
 
 export function ExerciseLibrary({
@@ -40,8 +43,20 @@ export function ExerciseLibrary({
   onAdd,
   selectedIds = [],
   onToggle,
+  history,
+  now,
 }: ExerciseLibraryProps) {
   const [guide, setGuide] = useState<LibraryExercise | null>(null);
+  const [guideTab, setGuideTab] = useState<'Technique' | 'Statistics'>(
+    'Technique',
+  );
+  const openGuide = (
+    exercise: LibraryExercise,
+    tab: 'Technique' | 'Statistics' = 'Technique',
+  ) => {
+    setGuideTab(tab);
+    setGuide(exercise);
+  };
   const [query, setQuery] = useState('');
   const [muscle, setMuscle] = useState<MuscleId>();
   const [equipment, setEquipment] = useState<EquipmentId>();
@@ -77,10 +92,7 @@ export function ExerciseLibrary({
 
   const content = (
     <SafeAreaView style={s.sheet}>
-      <View style={s.identity}>
-        <Text style={s.wordmark}>CRESUM</Text>
-        <Text style={s.tagline}>TRAIN. TRACK. GROW.</Text>
-      </View>
+      <BrandHeader />
       <View style={s.header}>
         <View style={s.headerCopy}>
           <Text style={s.title}>Exercise Library</Text>
@@ -184,7 +196,7 @@ export function ExerciseLibrary({
                     accessibilityLabel={
                       browsing ? `View ${exercise.name}` : undefined
                     }
-                    onPress={browsing ? () => setGuide(exercise) : undefined}
+                    onPress={browsing ? () => openGuide(exercise) : undefined}
                     style={s.nameCopy}
                   >
                     <Text style={s.name}>{exercise.name}</Text>
@@ -195,6 +207,17 @@ export function ExerciseLibrary({
                       {exercise.equipment.map(equipmentLabel).join(' · ')}
                     </Text>
                   </CopyContainer>
+                  {history !== undefined ? (
+                    <Pressable
+                      accessibilityRole="button"
+                      accessibilityLabel={`Statistics for ${exercise.name}`}
+                      accessibilityHint="Opens saved results without selecting this exercise"
+                      onPress={() => openGuide(exercise, 'Statistics')}
+                      style={s.statisticsAction}
+                    >
+                      <Text style={s.techniqueLabel}>Statistics</Text>
+                    </Pressable>
+                  ) : null}
                   {selectionMode ? (
                     <Pressable
                       accessibilityRole="checkbox"
@@ -233,7 +256,7 @@ export function ExerciseLibrary({
                   accessibilityRole="button"
                   accessibilityLabel={`Technique for ${exercise.name}`}
                   accessibilityHint="Opens instructions without selecting this exercise"
-                  onPress={() => setGuide(exercise)}
+                  onPress={() => openGuide(exercise)}
                   style={s.techniqueAction}
                 >
                   <ExerciseArtwork imageKey={exercise.imageKey} size={76} />
@@ -248,6 +271,9 @@ export function ExerciseLibrary({
         <ExerciseTechnique
           key={guide.id}
           exercise={guide}
+          history={history}
+          initialTab={guideTab}
+          now={now}
           onClose={() => setGuide(null)}
         />
       ) : null}
@@ -363,24 +389,11 @@ const s = StyleSheet.create({
   nameCopy: { minHeight: 44, justifyContent: 'center', gap: spacing.xxs },
   techniqueAction: { width: 76, alignItems: 'center', gap: spacing.xxs },
   techniqueLabel: { ...typography.caption, color: colors.primary },
-  identity: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexWrap: 'wrap',
-    gap: spacing.xs,
-    paddingVertical: spacing.sm,
-  },
-  wordmark: {
-    ...typography.footnote,
-    fontWeight: '700',
-    letterSpacing: 4,
-    color: colors.textPrimary,
-  },
-  tagline: {
-    ...typography.caption,
-    color: colors.textSecondary,
-    letterSpacing: 1,
+  statisticsAction: {
+    minHeight: 44,
+    justifyContent: 'center',
+    alignSelf: 'flex-start',
+    paddingHorizontal: spacing.xs,
   },
   name: { ...typography.headline, color: colors.textPrimary, flexWrap: 'wrap' },
   metadata: { ...typography.footnote, color: colors.textSecondary },

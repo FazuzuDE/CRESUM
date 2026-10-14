@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { BrandHeader } from './BrandHeader';
 import { AppScrollView } from './AppScrollView';
 import { StyleSheet, Text, View } from 'react-native';
 import { GlassCard } from './GlassCard';
@@ -7,13 +8,14 @@ import { ExerciseLibrary } from './ExerciseLibrary';
 import { exerciseLibrary } from '@/lib/exercise-library';
 import { WorkoutTemplates } from './WorkoutTemplates';
 import { defaultTemplates } from '@/lib/workout-catalog';
-import type { WorkoutTemplate } from '@/lib/workout-model';
+import type { WorkoutTemplate, WorkoutSession } from '@/lib/workout-model';
 import type { TemplateMutationResult } from '@/lib/workout-store';
 import type { TemplateDraft } from '@/lib/workout-templates';
 import { colors, radius, spacing, typography } from '@/lib/theme';
 
 export type ProfileSettingsProps = {
   templates: WorkoutTemplate[];
+  history?: readonly WorkoutSession[];
   busy: boolean;
   version?: string;
   createTemplate: (draft: TemplateDraft) => Promise<TemplateMutationResult>;
@@ -35,6 +37,7 @@ export type ProfileSettingsProps = {
 
 export function ProfileSettings({
   templates,
+  history = [],
   busy,
   version,
   createTemplate,
@@ -58,16 +61,14 @@ export function ProfileSettings({
       <ExerciseLibrary
         visible
         presentation="page"
+        history={history}
         onClose={() => setLibraryOpen(false)}
       />
     );
   if (workoutsOpen)
     return (
       <AppScrollView contentContainerStyle={s.content}>
-        <View style={s.brandRow}>
-          <Text style={s.brand}>CRESUM</Text>
-          <Text style={s.tagline}>TRAIN. TRACK. GROW.</Text>
-        </View>
+        <BrandHeader />
         <AppButton
           title="Back to Profile"
           disabled={workoutEditing || busy}
@@ -130,10 +131,7 @@ export function ProfileSettings({
   return (
     <AppScrollView contentContainerStyle={s.content}>
       <View style={s.header}>
-        <View style={s.brandRow}>
-          <Text style={s.brand}>CRESUM</Text>
-          <Text style={s.tagline}>TRAIN. TRACK. GROW.</Text>
-        </View>
+        <BrandHeader />
         <View style={s.heading}>
           <Text style={s.title} accessibilityRole="header">
             Profile
@@ -214,23 +212,6 @@ const s = StyleSheet.create({
     gap: spacing.lg,
   },
   header: { gap: spacing.lg, paddingVertical: spacing.xs },
-  brandRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    gap: spacing.xs,
-  },
-  brand: {
-    ...typography.caption,
-    fontWeight: '700',
-    letterSpacing: 4,
-    color: colors.textPrimary,
-  },
-  tagline: {
-    ...typography.caption,
-    letterSpacing: 1,
-    color: colors.textSecondary,
-  },
   heading: { gap: spacing.xxs },
   title: { ...typography.largeTitle, color: colors.textPrimary },
   sub: { ...typography.footnote, color: colors.textSecondary },

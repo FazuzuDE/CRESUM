@@ -20,6 +20,7 @@ export function VolumeTrendChart({
   singlePointMessage = 'One saved workout; no curve yet.',
   valueRange,
   itemLabel = 'workout',
+  onSelectPoint,
 }: {
   workouts: readonly WorkoutVolume[];
   start: number;
@@ -29,6 +30,7 @@ export function VolumeTrendChart({
   singlePointMessage?: string;
   valueRange?: { lower: number; upper: number };
   itemLabel?: string;
+  onSelectPoint?: (point: WorkoutVolume) => void;
 }) {
   const { width, fontScale } = useWindowDimensions();
   const [measured, setMeasured] = useState<number>();
@@ -116,8 +118,20 @@ export function VolumeTrendChart({
             accessibilityActions={[
               { name: 'increment', label: `Next ${itemLabel}` },
               { name: 'decrement', label: `Previous ${itemLabel}` },
+              ...(onSelectPoint
+                ? [
+                    {
+                      name: 'activate' as const,
+                      label: `View selected ${itemLabel}`,
+                    },
+                  ]
+                : []),
             ]}
             onAccessibilityAction={(event) => {
+              if (event.nativeEvent.actionName === 'activate') {
+                if (selected) onSelectPoint?.(selected.data);
+                return;
+              }
               const current = selected
                 ? model.points.indexOf(selected)
                 : selectedIndex;
@@ -132,12 +146,21 @@ export function VolumeTrendChart({
               setSelectedId(model.points[next]?.data.workoutId);
             }}
             onPress={(event) => {
+              if (
+                !Number.isFinite(event.nativeEvent.locationX) ||
+                !Number.isFinite(event.nativeEvent.locationY)
+              ) {
+                if (selected) onSelectPoint?.(selected.data);
+                return;
+              }
               const i = nearestTrendPoint(
                 model.points,
                 event.nativeEvent.locationX - spacing.xxs,
                 event.nativeEvent.locationY - spacing.xs,
               );
-              setSelectedId(model.points[i]?.data.workoutId);
+              const point = model.points[i]?.data;
+              setSelectedId(point?.workoutId);
+              if (point) onSelectPoint?.(point);
             }}
           >
             {model.scale.ticks.map((_, i) => (

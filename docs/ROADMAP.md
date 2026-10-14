@@ -57,6 +57,11 @@ schedule-day changes must retain recovery and weekly-volume meaning.
 
 ### Other Core polish
 
+- Approved 2026-10-14: Library exercise Statistics with existing periods,
+  estimated 1RM / volume / top weight and point-to-workout logged-set drilldown;
+  shared centered CRESUM branding. Preserve variant IDs and factual offline
+  History. Physical-device chart/sheet/large-text acceptance follows.
+
 - Shared day/month/year wheels replace date keyboards; all future value wheels use
   AppPicker. Local UIKit module uses native Apple wheel appearance/audio and
   selection feedback; verify with a native build on a physical iPhone. Browser,

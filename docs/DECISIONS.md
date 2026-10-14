@@ -1,5 +1,18 @@
 # CRESUM Decision Log
 
+## 2026-10-14 — Library exercise statistics and centered brand
+
+Status: Approved — pending Git integration
+
+- Implement the approved Library → Statistics → Logged sets mockup using saved
+  completed sets, exact variant IDs and existing rolling periods.
+- Expose estimated 1RM, period volume and top logged weight with honest missing
+  comparison/empty states; paired sets retain both sides and have no 1RM.
+- Use a shared centered CRESUM wordmark, preserving the light design system.
+- No storage migration, recommendations, new artwork or cross-machine merging.
+
+Related: `PRODUCT.md`, `DESIGN_SYSTEM.md`, `ROADMAP.md`
+
 ## 2026-10-13 — Activate approved Wheel / Keypad Set-entry mockup
 
 Status: Approved; implementation in focused PR.

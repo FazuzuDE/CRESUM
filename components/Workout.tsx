@@ -1,3 +1,4 @@
+import { BrandHeader } from './BrandHeader';
 import { AppScrollView } from './AppScrollView';
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -176,10 +177,7 @@ export function Workout({
         contentContainerStyle={s.content}
       >
         <View style={s.header}>
-          <View style={s.brandRow}>
-            <Text style={s.brand}>CRESUM</Text>
-            <Text style={s.tagline}>TRAIN. TRACK. GROW.</Text>
-          </View>
+          <BrandHeader />
           <View style={s.titleRow}>
             <Text style={s.title} accessibilityRole="header">
               {session.name}
@@ -453,6 +451,7 @@ export function Workout({
         />
       </AppScrollView>
       <ExerciseLibrary
+        history={history}
         visible={picker}
         onClose={() => setPicker(false)}
         onAdd={(item) => {
@@ -525,19 +524,6 @@ const s = StyleSheet.create({
     alignSelf: 'center',
   },
   header: { gap: spacing.sm, paddingVertical: spacing.sm },
-  brandRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    gap: spacing.xs,
-    marginBottom: spacing.lg,
-  },
-  brand: { ...typography.caption, letterSpacing: 2, color: colors.textPrimary },
-  tagline: {
-    ...typography.caption,
-    letterSpacing: 1,
-    color: colors.textSecondary,
-  },
   titleRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',

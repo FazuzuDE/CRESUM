@@ -6,6 +6,23 @@ See [rebranding compatibility](./REBRANDING.md).
 
 ## Product
 
+### Exercise statistics — approved 2026-10-14
+
+Library cards provide separate Technique and Statistics actions; the exercise
+detail sheet has both tabs. Saved completed sets are grouped by exact canonical
+exercise/variant ID, including existing legacy aliases, never by label or shared
+equipment. Periods: 1W, rolling 30-day 1M, 3M, 6M, 1Y, ALL. Metrics: estimated
+1RM (best Epley estimate per workout), volume (sum of kg × reps, both sides
+when recorded), top weight (maximum logged kg per workout). Weekly bars and
+longer curves retain actual dates. Volume headline is the period sum; 1RM and
+top weight headlines are period maxima. Compare to the immediately preceding
+nonoverlapping period; missing data is explicit and ALL has no comparison.
+Tap a point to inspect only that workout's completed sets for this exercise.
+Repeated exercise snapshots in one workout contribute to one point. Counts
+include valid completed samples only. Paired-side sets have no 1RM estimate;
+zero-load sets do not imply a bodyweight 1RM. Empty/one-point states are honest.
+Preserve History, schema and offline behavior; no fabricated production data.
+
 CRESUM is a mobile gym workout tracker for quickly recording training and understanding progress.
 
 Core loop:
