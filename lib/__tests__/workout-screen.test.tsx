@@ -179,6 +179,95 @@ it('shows a clock error in Finish confirmation and keeps the logged workout reco
   }
 }, 15_000);
 
+it.each([false, true])(
+  'confirms discard with completed sets=%s and returns Home only after a durable save',
+  async (hasSets) => {
+    await AsyncStorage.clear();
+    await completeOnboardingForTest();
+    let view: ReturnType<typeof create>;
+    try {
+      await act(async () => {
+        view = create(<App />);
+      });
+      const button = (title: string) =>
+        view.root
+          .findAllByType(AppButton)
+          .find(
+            (node: { props: { title: string } }) => node.props.title === title,
+          );
+      const pressable = (label: string) =>
+        view.root
+          .findAll(isPressable)
+          .find(
+            (node: { props: { accessibilityLabel: string } }) =>
+              node.props.accessibilityLabel === label,
+          );
+      const confirmation = () =>
+        view.root
+          .findAllByType(Confirmation)
+          .find(
+            (node: { props: { title: string } }) =>
+              node.props.title === 'Discard workout?',
+          );
+      await act(async () => {
+        pressable('Start Upper Body').props.onPress();
+      });
+      if (hasSets) {
+        editWorkoutSet(view, 1, '40', '10');
+        await act(async () => {
+          pressable('Complete set 1').props.onPress();
+        });
+      }
+      const before = await AsyncStorage.getItem(STATE_KEY);
+      expect(button('Discard workout').props.disabled).toBe(false);
+      expect(button('Discard workout').props.destructive).toBe(true);
+      await act(async () => {
+        button('Discard workout').props.onPress();
+      });
+      expect(confirmation().props.visible).toBe(true);
+      expect(confirmation().props.destructive).toBe(true);
+      expect(confirmation().props.message).toContain('History');
+      await act(async () => {
+        confirmation().props.onCancel();
+      });
+      expect(await AsyncStorage.getItem(STATE_KEY)).toBe(before);
+      expect(view.root.findByType(Workout).props.session).not.toBeNull();
+      await act(async () => {
+        button('Discard workout').props.onPress();
+      });
+      if (hasSets)
+        jest
+          .mocked(AsyncStorage.setItem)
+          .mockRejectedValueOnce(new Error('disk full'));
+      await act(async () => {
+        confirmation().props.onConfirm();
+      });
+      if (hasSets) {
+        expect(confirmation().props.visible).toBe(true);
+        expect(confirmation().props.error).toMatch(/could not be discarded/i);
+        expect(await AsyncStorage.getItem(STATE_KEY)).toBe(before);
+        await act(async () => {
+          confirmation().props.onConfirm();
+        });
+      }
+      const saved = JSON.parse((await AsyncStorage.getItem(STATE_KEY))!);
+      expect(saved.activeWorkout).toBeNull();
+      expect(saved.history).toEqual([]);
+      expect(view.root.findAllByType(Workout)).toHaveLength(0);
+      await act(async () => {
+        pressable('Start Push Day').props.onPress();
+      });
+      expect(view.root.findByType(Workout).props.session.name).toBe('Push Day');
+    } finally {
+      if (view!)
+        await act(async () => {
+          view.unmount();
+        });
+    }
+  },
+  15_000,
+);
+
 it('restores a compact History summary and opens the saved snapshot after reload', async () => {
   await AsyncStorage.clear();
   const saved: WorkoutSession = {

@@ -227,6 +227,15 @@ haptic. Pause is not implemented in Core and must not be implied by the UI.
 
 ### Finish Workout
 
+Place a quiet destructive text action, **Discard workout**, below Finish; keep
+Finish as the primary action. It remains available with zero completed sets.
+Use the shared opaque confirmation sheet: **Discard workout?**, explicit loss
+of the active session and entered sets, **Discard workout** / **Keep training**.
+Explain that existing History and saved routines remain. Disable confirmation
+actions/dismissal while saving, use **Discarding…**, keep errors in the sheet,
+and return Home after successful persistence. Reuse AppButton tokens and touch
+targets; no new modal or destructive color system.
+
 Deliberate primary action. Normal Finish summarizes and saves. Destructive abandonment requires confirmation.
 
 ## 10. Charts / Progress

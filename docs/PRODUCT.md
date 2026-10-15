@@ -6,6 +6,17 @@ See [rebranding compatibility](./REBRANDING.md).
 
 ## Product
 
+### Discard active workout — approved 2026-10-15
+
+Active Workout offers an explicit Discard workout action, including before any
+set is completed. Always confirm deletion of that session and its entered sets;
+Keep training or dismissal makes no changes. Discard is separate from Finish
+and never creates a History entry or marks a planned session complete. Preserve
+existing History, routines and program assignments. Match the confirmation's
+session ID, serialize behind pending writes, and navigate Home only after the
+discard is durably saved. On failure retain the active session, show an error,
+and allow retry. Prevent overlapping mutations while saving.
+
 ### Workout completion time safety — approved 2026-10-14
 
 Finish must reject an invalid device timestamp or a finish time earlier than

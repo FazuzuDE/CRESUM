@@ -246,6 +246,28 @@ export class WorkoutStore {
       error: '',
     });
   }
+  async discard(expectedSessionId: string): Promise<boolean> {
+    const { data, ready, busy } = this.snapshot;
+    if (!ready || busy || data.activeWorkout?.id !== expectedSessionId)
+      return false;
+    const next = { ...data, activeWorkout: null };
+    ++this.revision;
+    this.finishValidationError = '';
+    this.publish({ busy: true, error: '' });
+    try {
+      await this.repository.save(next);
+      this.publish({ data: next });
+      return true;
+    } catch {
+      this.publish({
+        error:
+          'Workout could not be discarded. Keep the app open and retry. Your active workout is still here.',
+      });
+      return false;
+    } finally {
+      this.publish({ busy: false });
+    }
+  }
   async finish(): Promise<WorkoutSession | undefined> {
     const { data, ready, busy } = this.snapshot;
     if (!ready || busy || !data.activeWorkout) return;
