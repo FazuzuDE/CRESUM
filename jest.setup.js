@@ -11,3 +11,8 @@ jest.mock('./lib/automatic-backup-files', () => ({
   supportsAutomaticBackups: false,
   automaticBackupFiles: { read: async () => null, write: async () => {} },
 }));
+
+// Unrelated Core screen tests never initialize network clients. Auth suites override this boundary.
+jest.mock('./lib/supabase-auth', () => ({
+  createSupabaseAuthRepository: jest.fn(() => null),
+}));
