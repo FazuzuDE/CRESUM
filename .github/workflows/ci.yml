@@ -15,6 +15,28 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  database:
+    name: Database contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: isolated-ci-only
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify schema and owner isolation
+        env:
+          POSTGRES_CONTAINER: ${{ job.services.postgres.id }}
+        run: |
+          cat supabase/tests/bootstrap.sql supabase/migrations/*.sql supabase/tests/cloud-foundation.sql |
+            docker exec -i "$POSTGRES_CONTAINER" psql -U postgres -d postgres --set ON_ERROR_STOP=on
   quality:
     name: Quality checks
     runs-on: ubuntu-latest

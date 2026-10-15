@@ -1,4 +1,5 @@
 import { BACKUP_POLICY_KEY } from './backup-policy';
+import { SYNC_METADATA_KEY } from './sync/storage';
 import { PROGRAM_KEY } from './training-programs/repository';
 import { BODY_WEIGHT_KEY } from './body-weight';
 import { HIDDEN_BUILT_INS_KEY } from './hidden-builtins';
@@ -16,7 +17,11 @@ export const LOCAL_DATA_KEYS = [
   STATE_KEY,
 ] as const;
 
-const RESET_DATA_KEYS = [BACKUP_POLICY_KEY, ...LOCAL_DATA_KEYS] as const;
+const RESET_DATA_KEYS = [
+  SYNC_METADATA_KEY,
+  BACKUP_POLICY_KEY,
+  ...LOCAL_DATA_KEYS,
+] as const;
 
 type Storage = {
   getItem(key: string): Promise<string | null>;

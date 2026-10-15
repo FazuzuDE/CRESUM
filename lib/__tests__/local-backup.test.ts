@@ -15,7 +15,34 @@ import {
 import { LOCAL_DATA_KEYS } from '../local-data-reset';
 import { startWorkout, finishWorkout } from '../workout-engine';
 import { defaultTemplates, exerciseLibrary } from '../workout-catalog';
+import { SyncRepository } from '../sync/repository';
+import { SYNC_DEVICE_KEY, SYNC_METADATA_KEY } from '../sync/storage';
 const now = 100000;
+
+it('keeps device and dormant sync metadata outside exported and restored Core documents', async () => {
+  const source = storage();
+  let n = 0;
+  const sync = new SyncRepository(source, () => `sync-${++n}`);
+  await sync.getDeviceId();
+  await sync.enqueue('a', {
+    entityId: 'queued-only',
+    operation: 'upsert',
+    baseRevision: null,
+  });
+  const before = [
+    source.values.get(SYNC_DEVICE_KEY),
+    source.values.get(SYNC_METADATA_KEY),
+  ];
+  const text = await createLocalBackup(source, now);
+  expect(text).not.toContain(SYNC_DEVICE_KEY);
+  expect(text).not.toContain(SYNC_METADATA_KEY);
+  expect(text).not.toContain('queued-only');
+  await restoreLocalBackup(source, await parseLocalBackup(text));
+  expect([
+    source.values.get(SYNC_DEVICE_KEY),
+    source.values.get(SYNC_METADATA_KEY),
+  ]).toEqual(before);
+});
 function storage() {
   const values = new Map<string, string>([
     [STATE_KEY, JSON.stringify(emptyWorkoutState())],

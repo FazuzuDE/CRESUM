@@ -5,8 +5,8 @@ Pod::Spec.new do |s|
   s.description = s.summary
   s.license = 'UNLICENSED'
   s.author = 'CRESUM'
-  s.homepage = 'https://github.com/FazuzuDE/FitFlow'
-  s.source = { git: 'https://github.com/FazuzuDE/FitFlow.git' }
+  s.homepage = 'https://github.com/FazuzuDE/CRESUM'
+  s.source = { git: 'https://github.com/FazuzuDE/CRESUM.git' }
   s.platforms = { ios: '16.4' }
   s.swift_version = '5.9'
   s.static_framework = true
