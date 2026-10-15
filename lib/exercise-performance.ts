@@ -3,7 +3,11 @@ import {
   filterProgressWorkouts,
   type ProgressPeriodId,
 } from './progress-periods';
-import { completedSetMetrics, completedSetTimestamp } from './workout-metrics';
+import {
+  completedSetMetrics,
+  completedSetTimestamp,
+  isBetterEstimate,
+} from './workout-metrics';
 import type { WorkoutSession } from './workout-model';
 
 export type PerformanceExercise = {
@@ -35,22 +39,6 @@ export type EstimatedOneRepMaxPoint = {
   estimatedOneRepMax: number;
 };
 
-const betterEstimate = (
-  candidate: EstimatedOneRepMaxPoint,
-  current: EstimatedOneRepMaxPoint,
-): boolean =>
-  candidate.estimatedOneRepMax > current.estimatedOneRepMax ||
-  (candidate.estimatedOneRepMax === current.estimatedOneRepMax &&
-    (candidate.completedAt > current.completedAt ||
-      (candidate.completedAt === current.completedAt &&
-        (candidate.exerciseSnapshotId < current.exerciseSnapshotId ||
-          (candidate.exerciseSnapshotId === current.exerciseSnapshotId &&
-            (candidate.setId < current.setId ||
-              (candidate.setId === current.setId &&
-                (candidate.exerciseIndex < current.exerciseIndex ||
-                  (candidate.exerciseIndex === current.exerciseIndex &&
-                    candidate.setIndex < current.setIndex)))))))));
-
 export const projectEstimatedOneRepMaxSeries = (
   history: readonly WorkoutSession[],
   period: ProgressPeriodId,
@@ -81,7 +69,7 @@ export const projectEstimatedOneRepMaxSeries = (
           reps: metrics.reps,
           estimatedOneRepMax: metrics.estimatedOneRepMax,
         };
-        if (!best || betterEstimate(candidate, best)) best = candidate;
+        if (!best || isBetterEstimate(candidate, best)) best = candidate;
       });
     });
     return best ? [best] : [];

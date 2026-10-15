@@ -115,7 +115,7 @@ it('combines canonical and legacy IDs but keeps unknown IDs distinct and orders 
   expect(JSON.stringify([second, unknown, first])).toBe(before);
 });
 
-it('uses finishedAt for inclusive periods, excludes future sessions, and preserves empty and zero series', () => {
+it('uses finishedAt for inclusive periods, excludes future sessions, and preserves empty series without zero-load estimates', () => {
   const start = new Date(2026, 7, 24, 12).getTime();
   const make = (id: string, finishedAt: number, weight: string) =>
     workout(id, finishedAt, 'bench', 'Bench', [
@@ -132,15 +132,12 @@ it('uses finishedAt for inclusive periods, excludes future sessions, and preserv
       point.workoutId,
       point.estimatedOneRepMax,
     ]),
-  ).toEqual([
-    ['start', 0],
-    ['now', 58.333333333333336],
-  ]);
+  ).toEqual([['now', 58.333333333333336]]);
   expect(
     projectEstimatedOneRepMaxSeries(history, 'ALL', now, bench).map(
       (point) => point.workoutId,
     ),
-  ).toEqual(['before', 'start', 'now']);
+  ).toEqual(['before', 'now']);
   expect(
     projectEstimatedOneRepMaxSeries(history, '1W', now, 'unknown:"none"'),
   ).toEqual([]);

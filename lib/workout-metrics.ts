@@ -83,7 +83,9 @@ export const completedSetMetrics = (
     reps,
     volume: setVolume,
     ...(otherSideReps === undefined
-      ? { estimatedOneRepMax }
+      ? weight > 0
+        ? { estimatedOneRepMax }
+        : {}
       : { otherSideReps }),
   };
 };
@@ -99,3 +101,34 @@ export const volume = (session: VolumeSession): number =>
       const next = total + sample.volume;
       return Number.isFinite(next) ? next : total;
     }, 0);
+
+// Used by period records, per-workout performance and Library statistics.
+export type EstimatedSetCandidate = {
+  estimatedOneRepMax: number;
+  completedAt: number;
+  workoutId: string;
+  exerciseSnapshotId: string;
+  setId: string;
+  exerciseIndex: number;
+  setIndex: number;
+};
+
+export const isBetterEstimate = (
+  candidate: EstimatedSetCandidate,
+  current: EstimatedSetCandidate,
+): boolean => {
+  if (candidate.estimatedOneRepMax !== current.estimatedOneRepMax)
+    return candidate.estimatedOneRepMax > current.estimatedOneRepMax;
+  if (candidate.completedAt !== current.completedAt)
+    return candidate.completedAt > current.completedAt;
+  const sourceKey = (sample: EstimatedSetCandidate) =>
+    JSON.stringify([sample.workoutId, sample.exerciseSnapshotId, sample.setId]);
+  const candidateKey = sourceKey(candidate),
+    currentKey = sourceKey(current);
+  if (candidateKey !== currentKey) return candidateKey < currentKey;
+  return (
+    candidate.exerciseIndex < current.exerciseIndex ||
+    (candidate.exerciseIndex === current.exerciseIndex &&
+      candidate.setIndex < current.setIndex)
+  );
+};

@@ -26,7 +26,6 @@ describe('completed-set analytics boundary', () => {
       weight: 0,
       reps: 10,
       volume: 0,
-      estimatedOneRepMax: 0,
     });
     expect(completedSetMetrics(done(' 60,5 ', '8'))).toEqual({
       weight: 60.5,

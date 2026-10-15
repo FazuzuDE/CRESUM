@@ -113,6 +113,14 @@ export function ExercisePerformance({ history, period, now }: Props) {
                   remain in logged results.
                 </Text>
               ) : null}
+              {entries.some((entry) =>
+                entry.sets.some((set) => set.weight === 0),
+              ) ? (
+                <Text style={s.empty}>
+                  1RM is unavailable for zero-load sets. External load is not
+                  body weight.
+                </Text>
+              ) : null}
               <EstimatedOneRepMaxSeries
                 points={estimates}
                 period={period}
