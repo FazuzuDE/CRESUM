@@ -59,12 +59,14 @@ export function Workout({
   history,
   update,
   finish,
+  discard,
   busy,
 }: {
   session: WorkoutSession | null;
   history: WorkoutSession[];
   update: (transform: (session: WorkoutSession) => WorkoutSession) => void;
   finish: () => void;
+  discard?: () => void;
   busy: boolean;
 }) {
   const [now, setNow] = useState(Date.now());
@@ -449,6 +451,15 @@ export function Workout({
           disabled={busy || completed === 0}
           onPress={finish}
         />
+        {discard ? (
+          <AppButton
+            title="Discard workout"
+            destructive
+            presentation="text"
+            disabled={busy}
+            onPress={discard}
+          />
+        ) : null}
       </AppScrollView>
       <ExerciseLibrary
         history={history}

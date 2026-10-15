@@ -11,6 +11,10 @@ Onboarding → Home → Workout → Sets → Rest → Finish → History → Pro
 
 ### Reliability audit follow-up — approved 2026-10-14
 
+Completion-time safety is integrated through PR #47. Next focused delivery:
+confirmed, durable discard of only the active workout, including an empty one,
+with unchanged History/routines, failure retry and safe return to Home.
+
 Deliver the audit improvements in focused PRs, beginning with the reproduced
 device-clock rollback failure: reject invalid Finish timestamps, preserve the
 active workout, and verify persistence/restart/retry. Next address confirmed

@@ -1,5 +1,19 @@
 # CRESUM Decision Log
 
+## 2026-10-15 — Safe discard of an active workout
+
+Status: Approved — implementation in focused PR, pending Git integration.
+
+Continue the approved audit sequence after PR #47: allow confirmed discard of
+the active workout even before the first completed set. Cancel preserves it;
+confirmed discard removes only that active session after successful storage,
+never creates History or completes a program slot, and retains routines and
+existing History. Guard the captured session ID, pending writes and overlapping
+mutations. Failed storage retains the session and exposes retry. Use the shared
+destructive confirmation and return Home only after a durable success.
+
+Related: `PRODUCT.md`, `DESIGN_SYSTEM.md`, `ROADMAP.md`.
+
 ## 2026-10-14 — Reliability audit: start with completion-time safety
 
 Status: Approved — implementation in focused PR, pending Git integration.

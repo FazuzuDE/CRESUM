@@ -306,6 +306,7 @@ export default function App() {
   const resetInProgress = useRef(false);
   const [summary, setSummary] = useState<Session | null>(null);
   const [confirmFinish, setConfirmFinish] = useState(false);
+  const [discardSessionId, setDiscardSessionId] = useState<string | null>(null);
   const [confirmReset, setConfirmReset] = useState(false);
   const [resetBusy, setResetBusy] = useState(false);
   const [resetError, setResetError] = useState('');
@@ -599,6 +600,7 @@ export default function App() {
       setOnboardingBypass(false);
       setEditingPersonalization(false);
       setSummary(null);
+      setDiscardSessionId(null);
       setConfirmFinish(false);
       setTab('home');
       setConfirmReset(false);
@@ -659,6 +661,31 @@ export default function App() {
           void finish();
         }}
         onCancel={() => setConfirmFinish(false)}
+      />
+      <Confirmation
+        visible={
+          discardSessionId !== null &&
+          data.activeWorkout?.id === discardSessionId
+        }
+        title="Discard workout?"
+        message="This deletes the active workout and its entered sets without adding it to History. Your saved routines and existing history will stay. This cannot be undone."
+        confirmLabel="Discard workout"
+        cancelLabel="Keep training"
+        destructive
+        busy={busy}
+        busyLabel="Discarding…"
+        error={error}
+        onConfirm={() => {
+          if (!discardSessionId) return;
+          void store.discard(discardSessionId).then((discarded) => {
+            if (!discarded) return;
+            setDiscardSessionId(null);
+            setTab('home');
+          });
+        }}
+        onCancel={() => {
+          if (!busy) setDiscardSessionId(null);
+        }}
       />
       {programError ? (
         <View style={s.notice} accessibilityRole="alert">
@@ -783,7 +810,15 @@ export default function App() {
               session={data.activeWorkout}
               history={data.history}
               update={(transform) => store.updateWorkout(transform)}
-              finish={() => setConfirmFinish(true)}
+              finish={() => {
+                setDiscardSessionId(null);
+                setConfirmFinish(true);
+              }}
+              discard={() => {
+                if (!data.activeWorkout || busy) return;
+                setConfirmFinish(false);
+                setDiscardSessionId(data.activeWorkout.id);
+              }}
               busy={busy}
             />
           ) : tab === 'progress' ? (
