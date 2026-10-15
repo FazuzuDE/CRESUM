@@ -1,6 +1,8 @@
 import { LocalDataResetError, resetLocalData } from '../local-data-reset';
 import { WorkoutRepository } from '../workout-repository';
 import { defaultTemplates } from '../workout-catalog';
+import { SyncRepository } from '../sync/repository';
+import { SYNC_DEVICE_KEY, SYNC_METADATA_KEY } from '../sync/storage';
 
 const original = new Map([
   [
@@ -107,4 +109,43 @@ it('cannot reimport old legacy workouts on the next launch after reset', async (
   expect(workout.activeWorkout).toBeNull();
   expect(workout.history).toEqual([]);
   expect(workout.templates).toEqual(defaultTemplates);
+});
+
+it('clears queued sync intent on local reset while retaining device identity and auth', async () => {
+  const storage = memoryStorage();
+  let n = 0;
+  const sync = new SyncRepository(storage, () => `sync-${++n}`);
+  const deviceId = await sync.getDeviceId();
+  const old = await sync.enqueue('a', {
+    entityId: 'queued-only',
+    operation: 'upsert',
+    baseRevision: null,
+  });
+  storage.values.set('cresum_auth_v1', 'session-kept');
+  await resetLocalData(storage, () => sync.flush());
+  expect(storage.values.has(SYNC_METADATA_KEY)).toBe(false);
+  expect(storage.values.has(SYNC_DEVICE_KEY)).toBe(true);
+  expect(await sync.getDeviceId()).toBe(deviceId);
+  expect(storage.values.get('cresum_auth_v1')).toBe('session-kept');
+  expect(await sync.acknowledge('a', 'queued-only', old, 1)).toBe(false);
+});
+
+it('restores queued metadata if a later Core reset removal fails', async () => {
+  const storage = memoryStorage();
+  const sync = new SyncRepository(storage, () => 'unique-generation');
+  await sync.enqueue('a', {
+    entityId: 'queued-only',
+    operation: 'delete',
+    baseRevision: 2,
+  });
+  const before = new Map(storage.values);
+  const remove = storage.removeItem.getMockImplementation()!;
+  storage.removeItem.mockImplementation(async (key) => {
+    if (key === 'fitflow_active') throw Error('disk');
+    await remove(key);
+  });
+  await expect(resetLocalData(storage, () => sync.flush())).rejects.toThrow(
+    'saved data was restored',
+  );
+  expect(storage.values).toEqual(before);
 });

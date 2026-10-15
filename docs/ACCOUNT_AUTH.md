@@ -52,6 +52,10 @@ selection/registration, Resend verification, SMTP configuration and both signup
 and sign-in OTP templates remain outstanding. No real OTP email has been sent;
 this checkpoint does not establish working end-to-end email sign-in.
 
+The user deferred domain purchase and mail setup after merging #52. Continue
+the dormant cloud foundation independently; this does not waive real OTP or
+native session acceptance before release.
+
 ## External setup — required before real OTP acceptance
 
 1. Use a test Supabase project and enable Email authentication. Configure a

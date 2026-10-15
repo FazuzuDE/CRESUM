@@ -12,7 +12,7 @@ Onboarding → Home → Workout → Sets → Rest → Finish → History → Pro
 ### Reliability audit follow-up — approved 2026-10-14
 
 Clock safety (#47), active-workout discard (#48) and consistent estimated records
-(#49) are integrated. Local file export/restore (#50) and Profile automatic local copies/additive History import (#51) are integrated. The next focused delivery is integration of the prepared Account/Auth checkpoint onto current develop.
+(#49) are integrated. Local file export/restore (#50), Profile automatic local copies/additive History import (#51), and optional Account/Auth (#52) are integrated. The next focused delivery is Cloud Schema + Sync Foundation; domain/SMTP setup is deliberately deferred.
 Cloud backup remains separate; physical native Files/share and interrupted-restore
 acceptance is required before release.
 
@@ -174,10 +174,24 @@ PR #50 merged into develop at d747ac24da19d2f54f2ac816519e8213f88a958c, providin
 
 PR #51 is merged at `3e6a78895b5c11c01ffc5b097eabcc9afc71817f`, with the dedicated Profile flow, validated additive History import and native two-slot verified local copies. Automatic copies default off and run only while open/next opened; weekly/monthly are not OS background jobs. Saved copies survive Core reset, which disables the policy. Automated durability, scheduling, import and UI regression checks accompany implementation. Physical-phone file-picker/share, app lifecycle, accessibility and storage acceptance remain next; cloud backup remains separate.
 
-### Next focused delivery: Account/Auth integration — approved 2026-10-15
+### Account/Auth integration — merged #52 on 2026-10-15
 
 Resume the preserved Stage 1 checkpoint `618c7e202ec5e673a404c382c5438b3730682adf` through a new focused branch based on merged #51; do not rewrite the frozen branch or replace newer Core/UI files. Reuse its optional six-digit Email OTP, session store and Supabase seam. Add a compact Account page to the current Profile and keep its owner independent of local restore/remounts. Preserve Sign Out/reset separation, all local backup protections and offline Core. Implementation/checks are prepared in the follow-up PR; real custom-SMTP OTP and physical-device session acceptance remain pending.
 
 After this foundation is accepted, deliver Cloud Schema + Sync Foundation and then History Backup + First Sync as separate PRs. No active-workout sync, Oracle deployment, custom-workout conflict UX, Calibration PR #17 or provider OAuth is added here. See `ACCOUNT_AUTH.md` and the integration plan.
 
 External setup checkpoint: `cresum-dev` restored and healthy; user-approved Email OTP length 6 / expiry 600 seconds verified after Dashboard reload. The public config is local-only. No domain is owned yet, custom SMTP remains disabled and OTP mail templates/delivery remain pending; choose a domain and configure Resend before real email acceptance.
+
+PR #52 merged at `8f2029430b7d19201d78e2a39f150e530da1a4c6`. The user explicitly
+deferred domain purchase/mail configuration and requested continued development.
+
+### Next focused delivery: Cloud Schema + Sync Foundation — 2026-10-15
+
+Prepare normalized completed-history/device tables, owner RLS and revision/
+tombstone contracts with executable PostgreSQL tests. Add dormant account-scoped
+durable intent metadata, device identity and reset/backup boundaries. Keep the
+app's transport inactive and migrations unapplied remotely until reviewed and
+integrated. Next: History mapping, atomic aggregate writes/pulls, merge-first
+sign-in, idempotent retry and recovery integration. Real mail, physical-device
+and multi-device acceptance remain independent prerequisites for release. See
+`CLOUD_SYNC.md` and `superpowers/plans/2026-10-15-cloud-sync-foundation.md`.

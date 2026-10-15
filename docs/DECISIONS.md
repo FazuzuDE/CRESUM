@@ -778,3 +778,26 @@ User confirmed #51 merged and approved continuation toward staged cloud backup. 
 ## 2026-10-15 — Development Email OTP settings confirmed
 
 User authorized setup, connected Supabase and explicitly confirmed changing the existing development project's OTP from 8 digits / 3600 seconds to 6 digits / 600 seconds. The existing paused `cresum-dev` project was restored; healthy status, database connectivity and saved OTP parameters after Dashboard reload were verified. Public client config stays in the ignored local environment file. Email confirmation remains enabled. The user has no domain yet; custom SMTP is disabled and the current sign-in template sends a link, so domain/Resend setup, OTP templates, real delivery and native acceptance remain pending. No paid plan/domain purchase, real OTP email, schema/RLS migration or cloud sync was performed. Status: external settings applied — documentation pending Git integration.
+
+## 2026-10-15 — Continue cloud foundation; defer domain/mail
+
+User confirmed #52 merged (verified `8f2029430b7d19201d78e2a39f150e530da1a4c6`),
+deferred domain purchase/SMTP and requested continued development. Continue the
+approved Cloud Schema + Sync Foundation stage with normalized completed-history
+tables, explicit owner RLS/grants, immutable identities, revisions/tombstones and
+durable per-account local intent metadata. Preserve repeated nested historical
+IDs by position. Guard late acknowledgements with account generation, entity ID
+and local sequence. Reset clears metadata through the existing rollback flow;
+auth/device identity and Core backup journal stay compatible. No transport is
+activated and no migration is applied remotely before Git review/integration.
+History publication/merge and recovery activation follow separately. Status:
+implementation prepared on focused branch — pending Git integration and external acceptance.
+
+## 2026-10-15 — GitHub rename verified
+
+The owner renamed the repository to `FazuzuDE/CRESUM`. The new PR #52 URL and
+`develop` merge commit were verified. Update current source links, the local
+Git remote and picker podspec to the new address, preserving installed app IDs,
+legacy storage keys and `fitflow://` compatibility. External repository-bound
+integrations require their own verification. Status: links updated — pending
+Git integration.

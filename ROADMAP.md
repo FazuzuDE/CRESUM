@@ -25,8 +25,8 @@ GitHub. Первый исполнимый этап — подготовка ре
 владельца данных, миграции и sync должны быть спроектированы и протестированы
 независимо от выбора. `BE-*`, `AUTH-*`, RLS-тесты и путь `supabase/` будут уточнены
 после архитектурного решения. Локальные проверки и CI workflow подготовлены;
-[первый запуск GitHub CI](https://github.com/FazuzuDE/FitFlow/actions/runs/35393598107)
-прошёл успешно. Открыт [PR №1](https://github.com/FazuzuDE/FitFlow/pull/1),
+[первый запуск GitHub CI](https://github.com/FazuzuDE/CRESUM/actions/runs/35393598107)
+прошёл успешно. Открыт [PR №1](https://github.com/FazuzuDE/CRESUM/pull/1),
 настроена защита `main`/`develop`. Deployment на Oracle ещё не настроен.
 
 Сроки в таблице ниже — исходная оценка, которую нужно пересмотреть после этого

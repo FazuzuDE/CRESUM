@@ -306,6 +306,26 @@ The approved Email OTP expiry is 600 seconds (10 minutes). Development-project O
 
 Keep one auth owner above local-data recovery/remounts, with isolated session persistence, foreground refresh and cleanup. Sign Out preserves workouts; Reset local data preserves auth and explains this. Auth storage never enters export/import/restore. The original checkpoint remains frozen; this is a focused integration, not cloud sync or a production-readiness claim. Real SMTP/OTP/session and physical-phone acceptance remain pending; see `ACCOUNT_AUTH.md`.
 
+### Cloud Schema + Sync Foundation — 2026-10-15
+
+After merged #52, prepare four normalized owner-scoped cloud tables for devices
+and completed workout/exercise/set snapshots. Preserve legacy text IDs and
+repeated nested IDs using saved positions. Enforce explicit revisions, immutable
+identity, tombstones and RLS with owner-inclusive foreign keys; deny anonymous
+access and client physical deletion.
+
+Durable local sync metadata is partitioned by account. Coalesced entity intent,
+account generations and sequence tokens protect newer work from late responses;
+retryable failures stay pending while auth/conflict/invalid failures stay
+distinct. No tokens, workout payloads or raw transport errors enter metadata.
+Local reset clears this metadata while preserving device identity and auth.
+Metadata stays outside Core backup/import/restore and schema v1 is unchanged.
+
+This stage is dormant: no scheduler, upload/download, Synced state or remote
+migration application is introduced. Domain/SMTP setup is deferred by the user.
+History sync must add atomic aggregate publication, mapping, recovery integration
+and cursor reconciliation before activation; see `CLOUD_SYNC.md`.
+
 ### Settings/Profile
 
 Essential account/app preferences only.

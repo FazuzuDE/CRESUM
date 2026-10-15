@@ -3,7 +3,7 @@
 ## Исторический контекст подготовки репозитория
 
 Исходный код и CI размещаются в существующем репозитории
-[FazuzuDE/FitFlow](https://github.com/FazuzuDE/FitFlow). На момент подключения он
+[FazuzuDE/CRESUM](https://github.com/FazuzuDE/CRESUM). На момент подключения он
 публичный; изменение видимости не выполнялось.
 Oracle Always Free — имеющийся у владельца сервер, ранее рассматривавшийся для
 будущего backend. Утверждённое направление Account & Cloud Sync v1 теперь —
@@ -11,8 +11,8 @@ Supabase/Postgres; решение о каком-либо использован�
 отдельно. Мобильное приложение остаётся Expo/React Native.
 
 На этом этапе добавлен CI для мобильного приложения. Созданы `develop` и
-`feature/github-foundation`, открыт [PR №1](https://github.com/FazuzuDE/FitFlow/pull/1).
-[Первый CI](https://github.com/FazuzuDE/FitFlow/actions/runs/35393598107) прошёл
+`feature/github-foundation`, открыт [PR №1](https://github.com/FazuzuDE/CRESUM/pull/1).
+[Первый CI](https://github.com/FazuzuDE/CRESUM/actions/runs/35393598107) прошёл
 успешно, включая iOS/Android JS export. PR пока не слит; `main` и `develop`
 сохраняют исходное содержимое до merge. Доступ к серверу и deployment пока не
 настроены. Backend-кода в проекте пока нет.
@@ -47,7 +47,7 @@ workflow появится после backend и проверки сервера;
 
 ## Что нужно для подключения
 
-1. Авторизованный GitHub CLI либо браузерная сессия для `FazuzuDE/FitFlow`.
+1. Авторизованный GitHub CLI либо браузерная сессия для `FazuzuDE/CRESUM`.
 2. SSH alias либо адрес Oracle, SSH user и путь к существующему локальному ключу.
    Ключ и пароли не нужно копировать в чат или репозиторий.
 3. API-домен, если он уже есть. При отсутствии домена решение по HTTPS принимается
