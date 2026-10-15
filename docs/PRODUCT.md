@@ -6,6 +6,16 @@ See [rebranding compatibility](./REBRANDING.md).
 
 ## Product
 
+### Workout completion time safety — approved 2026-10-14
+
+Finish must reject an invalid device timestamp or a finish time earlier than
+the workout start before writing completed History. Keep the active workout,
+logged sets and existing History; show an actionable device-time error in the
+existing Finish confirmation and allow retry after the time is corrected.
+Do not invent corrected timestamps or weaken saved-data validation. This
+prevents new invalid completions; recovery of previously invalid documents is
+a separate follow-up.
+
 ### Exercise statistics — approved 2026-10-14
 
 Library cards provide separate Technique and Statistics actions; the exercise

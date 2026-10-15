@@ -22,6 +22,7 @@ export type TemplateMutationResult =
 export class WorkoutStore {
   private listeners = new Set<() => void>();
   private revision = 0;
+  private finishValidationError = '';
   private snapshot = {
     data: emptyWorkoutState(),
     ready: false,
@@ -42,6 +43,7 @@ export class WorkoutStore {
   }
   async load() {
     if (this.snapshot.busy) return;
+    this.finishValidationError = '';
     this.publish({ busy: true, error: '' });
     try {
       const data = await this.repository.load();
@@ -60,12 +62,18 @@ export class WorkoutStore {
     this.publish({ data });
     void this.repository.save(data).then(
       () => {
-        if (revision === this.revision) this.publish({ error: '' });
+        if (revision === this.revision)
+          this.publish({ error: this.finishValidationError });
       },
       () => {
         if (revision === this.revision)
           this.publish({
-            error: 'Changes are not saved yet. Keep the app open and retry.',
+            error: [
+              'Changes are not saved yet. Keep the app open and retry.',
+              this.finishValidationError,
+            ]
+              .filter(Boolean)
+              .join(' '),
           });
       },
     );
@@ -230,6 +238,7 @@ export class WorkoutStore {
   }
   resetAfterLocalDataRemoval() {
     ++this.revision;
+    this.finishValidationError = '';
     this.publish({
       data: emptyWorkoutState(),
       ready: true,
@@ -240,7 +249,25 @@ export class WorkoutStore {
   async finish(): Promise<WorkoutSession | undefined> {
     const { data, ready, busy } = this.snapshot;
     if (!ready || busy || !data.activeWorkout) return;
-    const completed = finishWorkout(data.activeWorkout);
+    let completed: WorkoutSession;
+    try {
+      completed = finishWorkout(data.activeWorkout);
+    } catch (problem) {
+      this.finishValidationError =
+        problem instanceof Error
+          ? problem.message
+          : 'Workout could not be finished. Your active workout is still here.';
+      // Keep draft-write errors visible; validation does not supersede a write.
+      this.publish({
+        error: this.snapshot.error.includes(this.finishValidationError)
+          ? this.snapshot.error
+          : [this.snapshot.error, this.finishValidationError]
+              .filter(Boolean)
+              .join(' '),
+      });
+      return;
+    }
+    this.finishValidationError = '';
     const next = {
       ...data,
       activeWorkout: null,

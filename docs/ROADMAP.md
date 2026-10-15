@@ -9,6 +9,15 @@ Onboarding → Home → Workout → Sets → Rest → Finish → History → Pro
 
 ## P0 — Core
 
+### Reliability audit follow-up — approved 2026-10-14
+
+Deliver the audit improvements in focused PRs, beginning with the reproduced
+device-clock rollback failure: reject invalid Finish timestamps, preserve the
+active workout, and verify persistence/restart/retry. Next address confirmed
+discard of an accidentally started workout while keeping History and routines.
+Continue through analytics consistency and backup/recovery as separate changes.
+Native-build/device validation remains a distinct release requirement.
+
 1. **Workout Engine** — reliable start/resume, logging, editing, rest timer, persistence, exactly one valid completion, tests.
 2. **Exercise Library** — browse/search/select; stable references and consistent metadata.
 3. **Workout Templates** — guided create/select/edit routines with planned sets/optional starting weight, without corrupting historical workouts.

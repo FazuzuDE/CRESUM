@@ -321,5 +321,10 @@ export const finishWorkout = (
   if (completedSetCount(session) === 0) {
     throw new Error('Complete at least one set before finishing.');
   }
+  if (!Number.isFinite(new Date(now).getTime()) || now < session.startedAt) {
+    throw new Error(
+      'Check your device time, then try Finish again. The finish time must not be earlier than the workout start. Your active workout is still here.',
+    );
+  }
   return { ...session, finishedAt: now, restEndsAt: undefined };
 };
