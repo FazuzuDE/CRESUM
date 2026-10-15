@@ -1,3 +1,4 @@
+import { BackupControls, type BackupControlsProps } from './BackupControls';
 import { useState } from 'react';
 import { BrandHeader } from './BrandHeader';
 import { AppScrollView } from './AppScrollView';
@@ -33,6 +34,7 @@ export type ProfileSettingsProps = {
   hasActiveWorkout?: boolean;
   onPersonalize?: () => void;
   onResetLocalData?: () => void;
+  backup?: BackupControlsProps;
 };
 
 export function ProfileSettings({
@@ -52,6 +54,7 @@ export function ProfileSettings({
   hasActiveWorkout = false,
   onPersonalize,
   onResetLocalData,
+  backup,
 }: ProfileSettingsProps) {
   const [libraryOpen, setLibraryOpen] = useState(false);
   const [workoutsOpen, setWorkoutsOpen] = useState(false);
@@ -177,6 +180,11 @@ export function ProfileSettings({
         ) : null}
       </GlassCard>
 
+      {backup ? (
+        <GlassCard style={s.card}>
+          <BackupControls {...backup} />
+        </GlassCard>
+      ) : null}
       <GlassCard style={s.card}>
         <Text style={s.sectionTitle} accessibilityRole="header">
           Local data
