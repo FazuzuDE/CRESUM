@@ -618,3 +618,11 @@ Until reviewed image pairs exist, show an explicitly labeled Image coming soon p
 ### Local data backup controls
 
 Profile → Backup & restore uses existing GlassCard, AppButton and Confirmation components and theme tokens. Export/Restore are secondary controls; replacement confirmation is destructive and includes creation date, saved counts and active-session presence. Explain plaintext personal data and explicit save destination. Active workouts disable restore with a reason while export stays available. Picking/validation, operation progress, errors and Retry recovery are accessible. Hide writable app content from touch and accessibility while an operation runs, retaining its state until successful replacement.
+
+### Profile backup mockup follow-up — approved 2026-10-15
+
+Replace the expanded backup-control block in the Profile overview with one **Backup & restore** menu row, archive icon, secondary description and chevron. It opens a dedicated vertically scrollable page using the existing BrandHeader, AppScrollView, GlassCard, AppButton and shared theme tokens. Preserve centered CRESUM branding, light surfaces, dark readable text, touch targets and large-text wrapping.
+
+The backup page follows the approved mockup: factual last-backup summary, clear **Export backup** and **Import history** actions, automatic-backup enable control, and mutually exclusive **Every workout / Weekly / Monthly** choices. Keep **Restore all data** separate from additive history import. Explain actual scheduling and storage limits without showing unsupported cloud status.
+
+History import shows the chosen filename/date, validation status and three factual counts: workouts in file, new workouts and already in history. Explain that current History stays and existing IDs are skipped. Primary action names the actual number to import; choose-another-file and cancellation remain available. Preserve explicit validation, empty, error, saving and retry states. The generated mockup is a design reference, not evidence that these screens or scheduling have shipped.
