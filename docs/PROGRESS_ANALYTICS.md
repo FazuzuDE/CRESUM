@@ -12,7 +12,7 @@ Saved exercise names are labels, not identity. An aggregated record uses the new
 
 Only completed sets contribute to analytics. Weight uses the Workout Engine's decimal syntax, must be finite, and may be zero. Repetitions must be a finite positive integer. Negative, malformed, scientific, hexadecimal, infinite, and non-finite derived values are excluded from analytics without changing or deleting the saved workout.
 
-Training volume remains the sum of valid completed `weight × repetitions` samples. Totals remain finite. Estimated 1RM retains the existing Epley formula and is always presented as an estimate; best records retain their saved set timestamp and use deterministic timestamp-based ordering.
+Training volume remains the sum of valid completed `weight × repetitions` samples. Totals remain finite. Only positive external-load, non-paired sets have an estimated 1RM. Zero-load and paired sets remain valid logs and volume samples, not excluded/corrupt samples. Estimated 1RM retains the existing Epley formula and is always presented as an estimate; best records retain their saved set timestamp and use deterministic timestamp-based ordering. TOP PR marks the largest eligible estimate among exercise records in the selected period; it is not a measured maximum or a claim of a new lifetime record.
 
 ## Progress periods
 
@@ -34,9 +34,9 @@ This view does not define a Strength Score, percentage improvement, "best set", 
 
 ## Exercise-specific Estimated 1RM series
 
-For the selected stable exercise identity, the series derives one point per qualifying completed workout from the highest valid completed-set Epley estimate across matching exercise snapshots. It retains the source weight, repetitions, set identity and saved order. Equal estimates prefer later `completedAt`, then lexicographically smaller exercise/set IDs and earlier saved indices. Legacy done-only sets use the workout completion time as the persistence loader does. Points are ordered by workout `finishedAt` and stable workout ID, use the selected Progress period, and do not rewrite saved data.
+For the selected stable exercise identity, the series derives one point per qualifying completed workout from the highest valid completed-set Epley estimate across matching exercise snapshots. It retains the source weight, repetitions, set identity and saved order. All estimate projections share eligibility and source ordering. Equal estimates prefer later `completedAt`, then the smaller encoded `[workoutId, exerciseSnapshotId, setId]` source key and earlier saved exercise/set indices. Progress records, logged performance and Library statistics therefore retain the same source weight/reps for a tied estimate. Legacy done-only sets use the workout completion time as the persistence loader does. Points are ordered by workout `finishedAt` and stable workout ID, use the selected Progress period, and do not rewrite saved data.
 
-Each point is explicitly labeled Estimated 1RM and dated by the workout finish time. Zero remains zero. A single point is one estimate, not a trend; no measured-strength, percentage-change, Strength Score, or new PR claim is made.
+Each point is explicitly labeled Estimated 1RM and dated by the workout finish time. Zero external load has no estimated 1RM; its logged sets, zero volume and top weight remain available. Paired-side sets also have no estimate. A single point is one estimate, not a trend; no measured-strength, percentage-change, Strength Score, or new PR claim is made.
 
 Date buckets, a training-frequency formula, recommendations, and cloud analytics remain outside this foundation.
 

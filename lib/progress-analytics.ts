@@ -3,6 +3,8 @@ import {
   completedSetMetrics,
   completedSetTimestamp,
   volume,
+  isBetterEstimate,
+  type EstimatedSetCandidate,
 } from './workout-metrics';
 import type { WorkoutSession } from './workout-model';
 
@@ -30,9 +32,10 @@ export type ProgressAnalytics = {
   excludedSampleCount: number;
 };
 
-type RecordCandidate = Omit<EstimatedOneRepMaxRecord, 'name'> & {
-  sourceKey: string;
-};
+type RecordCandidate = Omit<EstimatedOneRepMaxRecord, 'name'> &
+  EstimatedSetCandidate & {
+    sourceKey: string;
+  };
 
 type LabelCandidate = {
   name: string;
@@ -42,7 +45,7 @@ type LabelCandidate = {
 };
 
 type ExerciseAggregate = {
-  best: RecordCandidate;
+  best?: RecordCandidate;
   label: LabelCandidate;
 };
 
@@ -78,16 +81,6 @@ export const stableExerciseIdentity = (
 
 const sourceWinsTie = (left: string, right: string): boolean => left < right;
 
-const isBetterRecord = (
-  candidate: RecordCandidate,
-  current: RecordCandidate,
-): boolean =>
-  candidate.estimatedOneRepMax > current.estimatedOneRepMax ||
-  (candidate.estimatedOneRepMax === current.estimatedOneRepMax &&
-    (candidate.recordedAt > current.recordedAt ||
-      (candidate.recordedAt === current.recordedAt &&
-        sourceWinsTie(candidate.sourceKey, current.sourceKey))));
-
 const isNewerLabel = (
   candidate: LabelCandidate,
   current: LabelCandidate,
@@ -121,9 +114,9 @@ export const projectProgressAnalytics = (
     );
 
   for (const session of history) {
-    for (const exercise of session.exercises) {
+    for (const [exerciseIndex, exercise] of session.exercises.entries()) {
       const identity = stableExerciseIdentity(session, exercise);
-      for (const savedSet of exercise.sets) {
+      for (const [setIndex, savedSet] of exercise.sets.entries()) {
         const recordedAt = completedSetTimestamp(
           savedSet,
           completedAt(session),
@@ -135,12 +128,23 @@ export const projectProgressAnalytics = (
           continue;
         }
 
-        if (metrics.estimatedOneRepMax === undefined) continue;
         const sourceKey = JSON.stringify([
           session.id,
           exercise.id,
           savedSet.id,
         ]);
+        const label: LabelCandidate = {
+          name: exercise.name,
+          finishedAt: completedAt(session),
+          completedAt: recordedAt,
+          sourceKey,
+        };
+        let current = aggregates.get(identity.identityKey);
+        if (!current) {
+          current = { label };
+          aggregates.set(identity.identityKey, current);
+        } else if (isNewerLabel(label, current.label)) current.label = label;
+        if (metrics.estimatedOneRepMax === undefined) continue;
         const record: RecordCandidate = {
           identityKey: identity.identityKey,
           exerciseId: identity.exerciseId,
@@ -149,34 +153,35 @@ export const projectProgressAnalytics = (
           estimatedOneRepMax: metrics.estimatedOneRepMax,
           recordedAt,
           sourceKey,
-        };
-        const label: LabelCandidate = {
-          name: exercise.name,
-          finishedAt: completedAt(session),
           completedAt: recordedAt,
-          sourceKey,
+          workoutId: session.id,
+          exerciseSnapshotId: exercise.id,
+          setId: savedSet.id,
+          exerciseIndex,
+          setIndex,
         };
-        const current = aggregates.get(identity.identityKey);
-        if (!current) {
-          aggregates.set(identity.identityKey, { best: record, label });
-          continue;
-        }
-        if (isBetterRecord(record, current.best)) current.best = record;
-        if (isNewerLabel(label, current.label)) current.label = label;
+        if (!current.best || isBetterEstimate(record, current.best))
+          current.best = record;
       }
     }
   }
 
   const estimatedOneRepMaxRecords = [...aggregates.values()]
-    .map(({ best, label }) => ({
-      identityKey: best.identityKey,
-      exerciseId: best.exerciseId,
-      name: label.name,
-      weight: best.weight,
-      reps: best.reps,
-      estimatedOneRepMax: best.estimatedOneRepMax,
-      recordedAt: best.recordedAt,
-    }))
+    .flatMap(({ best, label }) =>
+      best
+        ? [
+            {
+              identityKey: best.identityKey,
+              exerciseId: best.exerciseId,
+              name: label.name,
+              weight: best.weight,
+              reps: best.reps,
+              estimatedOneRepMax: best.estimatedOneRepMax,
+              recordedAt: best.recordedAt,
+            },
+          ]
+        : [],
+    )
     .sort(
       (left, right) =>
         compareDescending(left.estimatedOneRepMax, right.estimatedOneRepMax) ||

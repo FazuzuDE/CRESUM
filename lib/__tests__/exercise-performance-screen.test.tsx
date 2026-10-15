@@ -238,15 +238,23 @@ describe('ExercisePerformance', () => {
     act(() => view.unmount());
   });
 
-  it('labels a single zero estimate without claiming a trend and shows no fabricated point in an empty period', () => {
+  it('explains unavailable zero-load estimates while retaining actual logged sets', () => {
     const history = [workout('zero', 3, 'bench', 'Bench', '0')];
     const view = render(
       <ExercisePerformance history={history} period="ALL" now={now} />,
     );
     press(view, 'Choose exercise for logged performance');
     press(view, 'View Bench performance');
-    expect(visibleText(view)).toContain('One saved estimate; no trend yet.');
-    expect(JSON.stringify(view.toJSON())).toContain('0.0 kg estimated');
+    expect(visibleText(view)).toContain(
+      'No estimated 1RM data for this exercise in ALL.',
+    );
+    expect(visibleText(view)).toContain(
+      '1RM is unavailable for zero-load sets. External load is not body weight.',
+    );
+    expect(visibleText(view)).not.toContain('0.0 kg estimated');
+    press(view, 'View logged sets');
+    expect(visibleText(view)).toContain('0 kg × 8');
+    press(view, 'Close logged sets');
     act(() =>
       view.update(
         <ExercisePerformance history={history} period="1W" now={now} />,

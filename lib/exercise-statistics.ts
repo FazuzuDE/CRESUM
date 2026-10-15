@@ -7,6 +7,8 @@ import {
 import {
   completedSetMetrics,
   completedSetTimestamp,
+  isBetterEstimate,
+  type EstimatedSetCandidate,
   type CompletedSetMetrics,
 } from './workout-metrics';
 import type { WorkoutSession } from './workout-model';
@@ -34,26 +36,35 @@ function pointsFor(
   identityKey: string,
 ): ExerciseStatisticsPoint[] {
   return workouts.flatMap((session) => {
-    const sets = session.exercises.flatMap((exercise) => {
+    let best:
+      (EstimatedSetCandidate & { weight: number; reps: number }) | undefined;
+    const sets = session.exercises.flatMap((exercise, exerciseIndex) => {
       if (stableExerciseIdentity(session, exercise).identityKey !== identityKey)
         return [];
-      return exercise.sets.flatMap((set) => {
-        if (completedSetTimestamp(set, session.finishedAt!) === undefined)
-          return [];
+      return exercise.sets.flatMap((set, setIndex) => {
+        const completedAt = completedSetTimestamp(set, session.finishedAt!);
+        if (completedAt === undefined) return [];
         const metrics = completedSetMetrics(set);
+        if (metrics?.estimatedOneRepMax !== undefined) {
+          const candidate = {
+            estimatedOneRepMax: metrics.estimatedOneRepMax,
+            completedAt,
+            workoutId: session.id,
+            exerciseSnapshotId: exercise.id,
+            setId: set.id,
+            exerciseIndex,
+            setIndex,
+            weight: metrics.weight,
+            reps: metrics.reps,
+          };
+          if (!best || isBetterEstimate(candidate, best)) best = candidate;
+        }
         return metrics
           ? [{ ...metrics, id: set.id, snapshotId: exercise.id }]
           : [];
       });
     });
     if (!sets.length) return [];
-    const best = sets
-      .filter((s) => s.weight > 0 && s.estimatedOneRepMax !== undefined)
-      .reduce<(typeof sets)[number] | undefined>(
-        (best, s) =>
-          !best || s.estimatedOneRepMax! > best.estimatedOneRepMax! ? s : best,
-        undefined,
-      );
     return [
       {
         workoutId: session.id,

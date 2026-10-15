@@ -41,7 +41,7 @@ nonoverlapping period; missing data is explicit and ALL has no comparison.
 Tap a point to inspect only that workout's completed sets for this exercise.
 Repeated exercise snapshots in one workout contribute to one point. Counts
 include valid completed samples only. Paired-side sets have no 1RM estimate;
-zero-load sets do not imply a bodyweight 1RM. Empty/one-point states are honest.
+zero-load sets do not imply a bodyweight 1RM. These eligibility rules apply equally to Progress records, logged performance and Library statistics. Equal estimates use later completion, then the stable encoded workout/exercise/set source key and saved indices; source weight/reps must agree between screens. TOP PR marks the largest eligible estimated record in the selected period, not a measured or newly achieved lifetime maximum. Empty/one-point states are honest.
 Preserve History, schema and offline behavior; no fabricated production data.
 
 CRESUM is a mobile gym workout tracker for quickly recording training and understanding progress.

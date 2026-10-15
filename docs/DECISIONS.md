@@ -758,3 +758,7 @@ Decision:
   The content PR alone does not perform this administrative operation.
 
 Related: `REBRANDING.md`
+
+## 2026-10-15 — Audit follow-up: consistent estimated records
+
+Continue the approved reliability audit after merged clock safety (#47) and active-workout discard (#48). Preserve Epley and periods, but apply positive external-load/non-paired estimate eligibility to Progress, logged performance and Library alike. Keep zero and paired logs/volume intact. Resolve equal estimates by later completion, encoded workout/exercise/set IDs and saved indices through a shared comparator. TOP PR remains the largest eligible estimate in the selected period, not a new measured/lifetime record. No historical rewrites, migrations or dependencies. Implementation on focused branch; native phone acceptance remains pending.
