@@ -25,7 +25,9 @@ export async function shareBackupFile(text: string): Promise<void> {
     if (file.exists) file.delete();
   }
 }
-export async function pickBackupFile(): Promise<string | null> {
+export async function pickBackupFile(
+  onName?: (name: string) => void,
+): Promise<string | null> {
   const { getDocumentAsync } =
     require('expo-document-picker') as typeof import('expo-document-picker');
   const result = await getDocumentAsync({
@@ -42,5 +44,6 @@ export async function pickBackupFile(): Promise<string | null> {
   const file = new File(asset.uri);
   if (file.size > MAX_BACKUP_BYTES)
     throw Error('Choose a backup smaller than 20 MiB.');
+  onName?.(asset.name);
   return file.text();
 }

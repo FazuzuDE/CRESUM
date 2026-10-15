@@ -4,6 +4,10 @@ import { defaultTemplates } from '../workout-catalog';
 
 const original = new Map([
   [
+    'cresum_backup_policy_v1',
+    '{"version":1,"enabled":true,"frequency":"monthly"}',
+  ],
+  [
     'cresum_body_weight_v1',
     '{"version":1,"entries":[{"id":"initial","recordedAt":1000,"kg":80}]}',
   ],

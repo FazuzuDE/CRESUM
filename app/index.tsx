@@ -1,3 +1,6 @@
+import { useBackupArchive } from '@/components/useBackupArchive';
+import { automaticBackupDue } from '@/lib/backup-policy';
+import { importBackupHistory } from '@/lib/history-import';
 import {
   LocalDataGate,
   type RunDataOperation,
@@ -286,6 +289,7 @@ function AppContent({
   notice: string;
   initialTab: string;
 }) {
+  const localBackups = useBackupArchive();
   const [store] = useState(
     () => new WorkoutStore(new WorkoutRepository(AsyncStorage)),
   );
@@ -351,6 +355,7 @@ function AppContent({
   const onboardingWrites = useRef(Promise.resolve());
   const onboardingEpoch = useRef(0);
   const resetInProgress = useRef(false);
+  const backupInProgress = useRef(false);
   const [summary, setSummary] = useState<Session | null>(null);
   const [confirmFinish, setConfirmFinish] = useState(false);
   const [discardSessionId, setDiscardSessionId] = useState<string | null>(null);
@@ -621,38 +626,137 @@ function AppContent({
     setSummary(completed);
     setTab('progress');
   };
-  const backupOperation = (backup?: PreparedBackup) => {
+  const backupOperation = (
+    backup?: PreparedBackup,
+    mode: 'export' | 'restore' | 'import' | 'automatic' | 'saved' = 'restore',
+  ) => {
+    if (resetInProgress.current || backupInProgress.current) return;
     runDataOperation(async (allowReloadAfterRecovery) => {
-      // LocalDataGate hides writable screens; let already queued work settle.
-      await programAcceptance.waitForPendingWrites();
-      await onboardingWrites.current;
-      await store.waitForPendingWrites();
-      await hiddenWrites.current;
-      await bodyWeightRepository.waitForPendingWrites();
-      const snapshot = store.getSnapshot();
-      if (
-        !snapshot.ready ||
-        snapshot.busy ||
-        snapshot.error ||
-        onboardingErrorRef.current ||
-        bodyWeightErrorRef.current ||
-        hiddenErrorRef.current ||
-        !programReady
-      )
-        throw Error(
-          'Save or retry your workout changes before using backup and restore.',
-        );
-      if (backup) {
-        allowReloadAfterRecovery();
-        await restoreLocalBackup(AsyncStorage, backup);
-        return 'Backup restored. Local data was replaced with your selected copy.';
+      backupInProgress.current = true;
+      try {
+        // LocalDataGate hides writable screens; let already queued work settle.
+        await programAcceptance.waitForPendingWrites();
+        await localBackups.repository.waitForPendingWrites();
+        await onboardingWrites.current;
+        await store.waitForPendingWrites();
+        await hiddenWrites.current;
+        await bodyWeightRepository.waitForPendingWrites();
+        const snapshot = store.getSnapshot();
+        if (
+          !snapshot.ready ||
+          snapshot.busy ||
+          snapshot.error ||
+          onboardingErrorRef.current ||
+          bodyWeightErrorRef.current ||
+          hiddenErrorRef.current ||
+          !programReady
+        )
+          throw Error(
+            'Save or retry your workout changes before using backup and restore.',
+          );
+        if (mode === 'automatic') {
+          if (snapshot.data.activeWorkout || !snapshot.data.history.length)
+            return '';
+          const livePolicy = await localBackups.repository.load();
+          const latestCopy = await localBackups.archive.load();
+          if (
+            !automaticBackupDue(
+              livePolicy,
+              latestCopy,
+              snapshot.data.history.map((w) => w.id),
+              Date.now(),
+            )
+          )
+            return '';
+          const saved = await localBackups.archive.save(
+            await createLocalBackup(AsyncStorage),
+          );
+          localBackups.setCopy(saved);
+          return '';
+        }
+        if (mode === 'saved') {
+          const saved = await localBackups.archive.load();
+          if (!saved) throw Error('No usable saved copy is available.');
+          await shareBackupFile(saved.backup.text);
+          return 'Saved local copy opened for export. Choose a destination to keep it outside this app.';
+        }
+        if (backup) {
+          allowReloadAfterRecovery();
+          if (mode === 'import') {
+            const count = await importBackupHistory(AsyncStorage, backup);
+            return `${count} workouts imported. Existing history was kept.`;
+          }
+          await restoreLocalBackup(AsyncStorage, backup);
+          return 'Backup restored. Local data was replaced with your selected copy.';
+        }
+        await shareBackupFile(await createLocalBackup(AsyncStorage));
+        return 'Backup sharing finished. A copy is kept only if you chose a save destination.';
+      } finally {
+        backupInProgress.current = false;
       }
-      await shareBackupFile(await createLocalBackup(AsyncStorage));
-      return 'Backup sharing finished. A copy is kept only if you chose a save destination.';
     }, !backup);
   };
+  useEffect(() => {
+    if (
+      !ready ||
+      !programReady ||
+      busy ||
+      !localBackups.loaded ||
+      !localBackups.supported ||
+      localBackups.saving ||
+      !localBackups.policy.enabled ||
+      data.activeWorkout
+    )
+      return;
+    const check = () => {
+      if (
+        resetInProgress.current ||
+        backupInProgress.current ||
+        confirmReset ||
+        editingPersonalization ||
+        acceptingProgram
+      )
+        return;
+      if (AppState.currentState && AppState.currentState !== 'active') return;
+      if (
+        automaticBackupDue(
+          localBackups.policy,
+          localBackups.copy,
+          data.history.map((w) => w.id),
+          Date.now(),
+        )
+      )
+        backupOperation(undefined, 'automatic');
+    };
+    const initial = setTimeout(check, 0);
+    const timer = setInterval(check, 60_000);
+    const subscription = AppState.addEventListener('change', (state) => {
+      if (state === 'active') check();
+    });
+    return () => {
+      clearTimeout(initial);
+      clearInterval(timer);
+      subscription.remove();
+    };
+    // The operation reads live stores after pending writes; rerun when history or policy changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    ready,
+    programReady,
+    busy,
+    localBackups.loaded,
+    localBackups.supported,
+    localBackups.saving,
+    localBackups.policy,
+    localBackups.copy,
+    data.history,
+    data.activeWorkout,
+    confirmReset,
+    editingPersonalization,
+    acceptingProgram,
+  ]);
   const reset = async () => {
-    if (resetInProgress.current || busy) return;
+    if (resetInProgress.current || backupInProgress.current || busy) return;
     resetInProgress.current = true;
     ++onboardingEpoch.current;
     programAcceptance.invalidate();
@@ -662,12 +766,14 @@ function AppContent({
     try {
       await resetLocalData(AsyncStorage, async () => {
         await programAcceptance.waitForPendingWrites();
+        await localBackups.repository.waitForPendingWrites();
         await onboardingWrites.current;
         await store.waitForPendingWrites();
         await hiddenWrites.current;
         await bodyWeightRepository.waitForPendingWrites();
       });
       store.resetAfterLocalDataRemoval();
+      await localBackups.refresh();
       setOnboardingState(initialOnboardingState);
       setBodyWeights([]);
       setBodyWeightError('');
@@ -718,7 +824,7 @@ function AppContent({
       <Confirmation
         visible={confirmReset}
         title="Reset CRESUM?"
-        message="All local CRESUM data on this device — workouts, history, templates, active workout, body-weight measurements, hidden-workout settings, personalization and onboarding data — will be permanently deleted. This cannot be undone."
+        message="All local CRESUM data on this device — workouts, history, templates, active workout, body-weight measurements, hidden-workout settings, personalization and onboarding data — will be permanently deleted. Saved backup files are kept for recovery; automatic backups will be switched off. This cannot be undone."
         confirmLabel="Reset local data"
         cancelLabel="Keep data"
         destructive
@@ -1016,6 +1122,22 @@ function AppContent({
               hiddenError={hiddenError}
               hasActiveWorkout={Boolean(data.activeWorkout)}
               backup={{
+                policy: localBackups.policy,
+                settingsLoaded: localBackups.loaded,
+                settingsBusy: localBackups.saving,
+                settingsError: localBackups.error,
+                automaticSupported: localBackups.supported,
+                lastCopy: localBackups.copy
+                  ? {
+                      createdAt: localBackups.copy.createdAt,
+                      workouts: localBackups.copy.backup.summary.workouts,
+                      routines: localBackups.copy.backup.summary.routines,
+                    }
+                  : undefined,
+                onPolicy: localBackups.savePolicy,
+                onRetrySettings: localBackups.refresh,
+                onImport: (backup) => backupOperation(backup, 'import'),
+                onUseSaved: () => backupOperation(undefined, 'saved'),
                 disabled:
                   !ready ||
                   !programReady ||
@@ -1025,8 +1147,8 @@ function AppContent({
                   !onboardingReady ||
                   !hiddenReady,
                 hasActiveWorkout: !!data.activeWorkout,
-                onExport: () => backupOperation(),
-                onRestore: backupOperation,
+                onExport: () => backupOperation(undefined, 'export'),
+                onRestore: (backup) => backupOperation(backup, 'restore'),
               }}
               onPersonalize={() => setEditingPersonalization(true)}
               onResetLocalData={() => {
