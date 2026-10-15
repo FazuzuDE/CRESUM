@@ -212,6 +212,10 @@ function session(
   };
 }
 
+// Shared strict Core reader for completed-history adapters; no storage access.
+export const readCompletedWorkout = (value: unknown): WorkoutSession =>
+  session(value, 'history');
+
 export const emptyWorkoutState = (): WorkoutState => ({
   schemaVersion: 1,
   activeWorkout: null,

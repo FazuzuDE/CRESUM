@@ -185,7 +185,7 @@ External setup checkpoint: `cresum-dev` restored and healthy; user-approved Emai
 PR #52 merged at `8f2029430b7d19201d78e2a39f150e530da1a4c6`. The user explicitly
 deferred domain purchase/mail configuration and requested continued development.
 
-### Next focused delivery: Cloud Schema + Sync Foundation — 2026-10-15
+### Cloud Schema + Sync Foundation — merged #53 on 2026-10-15
 
 Prepare normalized completed-history/device tables, owner RLS and revision/
 tombstone contracts with executable PostgreSQL tests. Add dormant account-scoped
@@ -195,3 +195,21 @@ integrated. Next: History mapping, atomic aggregate writes/pulls, merge-first
 sign-in, idempotent retry and recovery integration. Real mail, physical-device
 and multi-device acceptance remain independent prerequisites for release. See
 `CLOUD_SYNC.md` and `superpowers/plans/2026-10-15-cloud-sync-foundation.md`.
+
+### History Backup + First Sync: atomic protocol — 2026-10-15
+
+PR #53 merged at `c1f757280e3ec247d5ca353a4c373af4ad6a0bca`. Deliver
+History mapping, atomic publication, per-owner ordered pulls and idempotent
+receipts as the first focused protocol PR. Keep the app transport inactive.
+Next integration must add account provenance, merge without replacement,
+durable mutation IDs, recovery writer draining/cursor reconciliation and
+Account & Sync status/manual action before enabling cloud traffic.
+
+### Release gate: independent disaster recovery — deferred by user
+
+Before release, configure encrypted off-platform database copies, access and
+retention controls, and perform a documented restore drill. Supabase downtime
+must leave offline Core usable. Device-local archive files do not protect
+against loss of the device; preserve file export to a separate destination.
+The user explicitly postponed this infrastructure work until release. No
+independent database backup or restore drill is configured by the protocol PR.

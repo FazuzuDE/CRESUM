@@ -801,3 +801,19 @@ Git remote and picker podspec to the new address, preserving installed app IDs,
 legacy storage keys and `fitflow://` compatibility. External repository-bound
 integrations require their own verification. Status: links updated — pending
 Git integration.
+
+## 2026-10-15 — History protocol after merged #53; disaster recovery at release
+
+User confirmed #53 merged and requested continued development. Merge verified
+at `c1f757280e3ec247d5ca353a4c373af4ad6a0bca`. Split History first-sync at
+the atomic server protocol boundary: lossless Core mapping, owner-scoped
+revision checks, idempotent mutation receipts, complete aggregate publication
+and ordered pulls precede app activation/recovery/account-provenance wiring.
+Public wrappers are invokers; narrowly privileged implementations stay private
+and direct client writes are revoked by the new migration. No active-session
+sync or additional account client is introduced.
+
+The user explicitly deferred independent backup infrastructure until release;
+record off-platform database copies and a verified restore drill as a release
+gate, retaining offline Core and file export. Status: protocol prepared —
+pending Git integration; app sync and real email remain inactive/unaccepted.

@@ -35,8 +35,16 @@ jobs:
         env:
           POSTGRES_CONTAINER: ${{ job.services.postgres.id }}
         run: |
-          cat supabase/tests/bootstrap.sql supabase/migrations/*.sql supabase/tests/cloud-foundation.sql |
-            docker exec -i "$POSTGRES_CONTAINER" psql -U postgres -d postgres --set ON_ERROR_STOP=on
+          {
+            cat supabase/tests/bootstrap.sql
+            for migration in supabase/migrations/*.sql; do
+              cat "$migration"
+              case "$migration" in
+                *_cloud_sync_foundation.sql) cat supabase/tests/cloud-foundation.sql ;;
+                *_history_sync_protocol.sql) cat supabase/tests/history-sync.sql ;;
+              esac
+            done
+          } | docker exec -i "$POSTGRES_CONTAINER" psql -U postgres -d postgres --set ON_ERROR_STOP=on
   quality:
     name: Quality checks
     runs-on: ubuntu-latest
