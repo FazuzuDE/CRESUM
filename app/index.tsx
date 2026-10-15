@@ -1,3 +1,13 @@
+import {
+  LocalDataGate,
+  type RunDataOperation,
+} from '@/components/LocalDataGate';
+import {
+  createLocalBackup,
+  restoreLocalBackup,
+  type PreparedBackup,
+} from '@/lib/local-backup';
+import { shareBackupFile } from '@/lib/backup-files';
 import { BrandHeader } from '@/components/BrandHeader';
 import {
   useCallback,
@@ -255,6 +265,27 @@ function Stats({
   );
 }
 export default function App() {
+  return (
+    <LocalDataGate>
+      {(run, notice, profile) => (
+        <AppContent
+          runDataOperation={run}
+          notice={notice}
+          initialTab={profile ? 'profile' : 'home'}
+        />
+      )}
+    </LocalDataGate>
+  );
+}
+function AppContent({
+  runDataOperation,
+  notice,
+  initialTab,
+}: {
+  runDataOperation: RunDataOperation;
+  notice: string;
+  initialTab: string;
+}) {
   const [store] = useState(
     () => new WorkoutStore(new WorkoutRepository(AsyncStorage)),
   );
@@ -265,7 +296,8 @@ export default function App() {
   const [assignment, setAssignment] = useState<ProgramAssignment | null>(null);
   const [programError, setProgramError] = useState('');
   const programRecovered = useRef(false);
-  const [tab, setTab] = useState('home');
+  const [programReady, setProgramReady] = useState(false);
+  const [tab, setTab] = useState(initialTab);
   const [bodyWeightRepository] = useState(
     () => new BodyWeightRepository(AsyncStorage),
   );
@@ -278,7 +310,12 @@ export default function App() {
     setBodyWeightSnapshot({ entries, updatedAt: Date.now() });
   }, []);
   const [bodyWeightBusy, setBodyWeightBusy] = useState(false);
-  const [bodyWeightError, setBodyWeightError] = useState('');
+  const bodyWeightErrorRef = useRef('');
+  const [bodyWeightError, updateBodyWeightError] = useState('');
+  const setBodyWeightError = useCallback((message: string) => {
+    bodyWeightErrorRef.current = message;
+    updateBodyWeightError(message);
+  }, []);
   const [onboardingRepository] = useState(
     () => new OnboardingRepository(AsyncStorage),
   );
@@ -288,7 +325,12 @@ export default function App() {
   const [hiddenBuiltInIds, setHiddenBuiltInIds] = useState<string[]>([]);
   const [hiddenReady, setHiddenReady] = useState(false);
   const [hiddenBusy, setHiddenBusy] = useState(false);
-  const [hiddenError, setHiddenError] = useState('');
+  const hiddenErrorRef = useRef('');
+  const [hiddenError, updateHiddenError] = useState('');
+  const setHiddenError = useCallback((message: string) => {
+    hiddenErrorRef.current = message;
+    updateHiddenError(message);
+  }, []);
   const hiddenWrites = useRef(Promise.resolve());
   const hiddenOperation = useRef(false);
   const hiddenEpoch = useRef(0);
@@ -296,7 +338,12 @@ export default function App() {
     initialOnboardingState,
   );
   const [onboardingReady, setOnboardingReady] = useState(false);
-  const [onboardingError, setOnboardingError] = useState('');
+  const onboardingErrorRef = useRef('');
+  const [onboardingError, updateOnboardingError] = useState('');
+  const setOnboardingError = useCallback((message: string) => {
+    onboardingErrorRef.current = message;
+    updateOnboardingError(message);
+  }, []);
   const [onboardingLoadFailed, setOnboardingLoadFailed] = useState(false);
   const [onboardingBypass, setOnboardingBypass] = useState(false);
   const [editingPersonalization, setEditingPersonalization] = useState(false);
@@ -390,6 +437,9 @@ export default function App() {
     hiddenRepository,
     bodyWeightRepository,
     setBodyWeights,
+    setBodyWeightError,
+    setHiddenError,
+    setOnboardingError,
   ]);
   const queueOnboardingSave = (next: OnboardingState): Promise<void> => {
     if (resetInProgress.current)
@@ -446,11 +496,13 @@ export default function App() {
   useEffect(() => {
     if (ready && onboardingReady && !programRecovered.current) {
       programRecovered.current = true;
-      void recoverProgram().catch(() =>
-        setProgramError(
-          'Program recovery is pending. Your workouts remain available.',
-        ),
-      );
+      void recoverProgram()
+        .catch(() =>
+          setProgramError(
+            'Program recovery is pending. Your workouts remain available.',
+          ),
+        )
+        .finally(() => setProgramReady(true));
     }
     // Recovery runs once per load, after both repositories are ready.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -569,6 +621,36 @@ export default function App() {
     setSummary(completed);
     setTab('progress');
   };
+  const backupOperation = (backup?: PreparedBackup) => {
+    runDataOperation(async (allowReloadAfterRecovery) => {
+      // LocalDataGate hides writable screens; let already queued work settle.
+      await programAcceptance.waitForPendingWrites();
+      await onboardingWrites.current;
+      await store.waitForPendingWrites();
+      await hiddenWrites.current;
+      await bodyWeightRepository.waitForPendingWrites();
+      const snapshot = store.getSnapshot();
+      if (
+        !snapshot.ready ||
+        snapshot.busy ||
+        snapshot.error ||
+        onboardingErrorRef.current ||
+        bodyWeightErrorRef.current ||
+        hiddenErrorRef.current ||
+        !programReady
+      )
+        throw Error(
+          'Save or retry your workout changes before using backup and restore.',
+        );
+      if (backup) {
+        allowReloadAfterRecovery();
+        await restoreLocalBackup(AsyncStorage, backup);
+        return 'Backup restored. Local data was replaced with your selected copy.';
+      }
+      await shareBackupFile(await createLocalBackup(AsyncStorage));
+      return 'Backup sharing finished. A copy is kept only if you chose a save destination.';
+    }, !backup);
+  };
   const reset = async () => {
     if (resetInProgress.current || busy) return;
     resetInProgress.current = true;
@@ -628,6 +710,11 @@ export default function App() {
   return (
     <SafeAreaView style={s.root}>
       <StatusBar style="dark" />
+      {notice ? (
+        <Text accessibilityRole="alert" style={s.notice}>
+          {notice}
+        </Text>
+      ) : null}
       <Confirmation
         visible={confirmReset}
         title="Reset CRESUM?"
@@ -928,6 +1015,19 @@ export default function App() {
               hiddenBuiltInIds={hiddenBuiltInIds}
               hiddenError={hiddenError}
               hasActiveWorkout={Boolean(data.activeWorkout)}
+              backup={{
+                disabled:
+                  !ready ||
+                  !programReady ||
+                  busy ||
+                  hiddenBusy ||
+                  bodyWeightBusy ||
+                  !onboardingReady ||
+                  !hiddenReady,
+                hasActiveWorkout: !!data.activeWorkout,
+                onExport: () => backupOperation(),
+                onRestore: backupOperation,
+              }}
               onPersonalize={() => setEditingPersonalization(true)}
               onResetLocalData={() => {
                 setResetError('');

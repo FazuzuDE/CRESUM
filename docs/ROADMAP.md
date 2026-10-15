@@ -11,12 +11,11 @@ Onboarding → Home → Workout → Sets → Rest → Finish → History → Pro
 
 ### Reliability audit follow-up — approved 2026-10-14
 
-Completion-time safety is integrated through PR #47 and confirmed durable
-active-workout discard through PR #48. Current focused delivery: consistent
-TOP PR / estimated 1RM eligibility and deterministic source selection across
-Progress, logged performance and Library statistics. Zero-load and paired-side
-logs remain factual work without an unsupported strength estimate. Backup/recovery
-and native device acceptance follow separately.
+Clock safety (#47), active-workout discard (#48) and consistent estimated records
+(#49) are integrated. Current focused delivery is offline local-file export and
+validated, confirmed snapshot replacement with a durable rollback/recovery journal.
+Cloud backup remains separate; physical native Files/share and interrupted-restore
+acceptance is required before release.
 
 Deliver the audit improvements in focused PRs, beginning with the reproduced
 device-clock rollback failure: reject invalid Finish timestamps, preserve the
