@@ -1,4 +1,6 @@
-import { BackupControls, type BackupControlsProps } from './BackupControls';
+import { Ionicons } from '@expo/vector-icons';
+import type { BackupControlsProps } from './BackupControls';
+import { BackupPage, type BackupPageOptions } from './BackupPage';
 import { useState } from 'react';
 import { BrandHeader } from './BrandHeader';
 import { AppScrollView } from './AppScrollView';
@@ -34,7 +36,7 @@ export type ProfileSettingsProps = {
   hasActiveWorkout?: boolean;
   onPersonalize?: () => void;
   onResetLocalData?: () => void;
-  backup?: BackupControlsProps;
+  backup?: BackupControlsProps & Partial<BackupPageOptions>;
 };
 
 export function ProfileSettings({
@@ -56,9 +58,18 @@ export function ProfileSettings({
   onResetLocalData,
   backup,
 }: ProfileSettingsProps) {
+  const [backupOpen, setBackupOpen] = useState(false);
   const [libraryOpen, setLibraryOpen] = useState(false);
   const [workoutsOpen, setWorkoutsOpen] = useState(false);
   const [workoutEditing, setWorkoutEditing] = useState(false);
+  if (backupOpen && backup)
+    return (
+      <BackupPage
+        backup={backup}
+        history={history}
+        onClose={() => setBackupOpen(false)}
+      />
+    );
   if (libraryOpen)
     return (
       <ExerciseLibrary
@@ -144,45 +155,89 @@ export function ProfileSettings({
       </View>
 
       <GlassCard style={s.card}>
-        <AppButton
-          title="WORKOUTS"
-          wordmark
-          secondary
-          presentation="row"
-          onPress={() => setWorkoutsOpen(true)}
-        />
-        <Text style={s.sub}>{templates.length} saved workouts</Text>
-      </GlassCard>
-
-      <GlassCard style={s.card}>
-        <AppButton
-          title="EXERCISE LIBRARY"
-          wordmark
-          secondary
-          presentation="row"
-          onPress={() => setLibraryOpen(true)}
-        />
-        <Text style={s.sub}>{exerciseLibrary.length} exercises</Text>
-      </GlassCard>
-
-      <GlassCard style={s.card}>
-        <Text style={s.sectionTitle} accessibilityRole="header">
-          Training preferences
-        </Text>
-        <Text style={s.sub}>Personalize your training at any time.</Text>
+        <View style={s.menuRow}>
+          <View style={s.menuIcon}>
+            <Ionicons
+              name="barbell-outline"
+              size={24}
+              color={colors.textPrimary}
+            />
+          </View>
+          <View style={s.menuCopy}>
+            <AppButton
+              title="WORKOUTS"
+              wordmark
+              secondary
+              presentation="row"
+              onPress={() => setWorkoutsOpen(true)}
+            />
+            <Text style={s.sub}>{templates.length} saved workouts</Text>
+          </View>
+        </View>
+        <View style={s.menuSeparator} />
+        <View style={s.menuRow}>
+          <View style={s.menuIcon}>
+            <Ionicons
+              name="book-outline"
+              size={24}
+              color={colors.textPrimary}
+            />
+          </View>
+          <View style={s.menuCopy}>
+            <AppButton
+              title="EXERCISE LIBRARY"
+              wordmark
+              secondary
+              presentation="row"
+              onPress={() => setLibraryOpen(true)}
+            />
+            <Text style={s.sub}>{exerciseLibrary.length} exercises</Text>
+          </View>
+        </View>
         {onPersonalize ? (
-          <AppButton
-            title="Personalization"
-            secondary
-            presentation="row"
-            onPress={onPersonalize}
-          />
+          <>
+            <View style={s.menuSeparator} />
+            <View style={s.menuRow}>
+              <View style={s.menuIcon}>
+                <Ionicons
+                  name="person-outline"
+                  size={24}
+                  color={colors.textPrimary}
+                />
+              </View>
+              <View style={s.menuCopy}>
+                <AppButton
+                  title="Personalization"
+                  secondary
+                  presentation="row"
+                  onPress={onPersonalize}
+                />
+                <Text style={s.sub}>Training preferences</Text>
+              </View>
+            </View>
+          </>
         ) : null}
       </GlassCard>
-
       {backup ? (
-        <GlassCard style={s.card}>
-          <BackupControls {...backup} />
+        <GlassCard style={{ ...s.card, ...s.backupCard }}>
+          <View style={s.menuRow}>
+            <View style={[s.menuIcon, s.backupIcon]}>
+              <Ionicons
+                name="archive-outline"
+                size={24}
+                color={colors.primary}
+              />
+            </View>
+            <View style={s.menuCopy}>
+              <AppButton
+                title="Backup & restore"
+                secondary
+                presentation="row"
+                onPress={() => setBackupOpen(true)}
+              />
+              <Text style={s.sub}>Files, history and backup schedule</Text>
+            </View>
+          </View>
         </GlassCard>
       ) : null}
       <GlassCard style={s.card}>
@@ -211,6 +266,23 @@ export function ProfileSettings({
 }
 
 const s = StyleSheet.create({
+  menuRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  menuCopy: { flex: 1 },
+  menuIcon: {
+    width: 44,
+    height: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.surfaceSubtle,
+    borderRadius: radius.md,
+  },
+  menuSeparator: {
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: colors.separator,
+    marginVertical: spacing.sm,
+  },
+  backupCard: { backgroundColor: colors.primaryTint },
+  backupIcon: { backgroundColor: colors.surface },
   content: {
     width: '100%',
     maxWidth: 600,

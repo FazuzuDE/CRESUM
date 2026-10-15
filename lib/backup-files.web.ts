@@ -11,7 +11,9 @@ export async function shareBackupFile(text: string): Promise<void> {
   link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
-export async function pickBackupFile(): Promise<string | null> {
+export async function pickBackupFile(
+  onName?: (name: string) => void,
+): Promise<string | null> {
   const result = await getDocumentAsync({
     type: ['application/json', 'text/plain'],
     multiple: false,
@@ -22,5 +24,6 @@ export async function pickBackupFile(): Promise<string | null> {
   if (!file) throw Error('The selected file could not be read.');
   if (file.size > MAX_BACKUP_BYTES)
     throw Error('Choose a backup smaller than 20 MiB.');
+  onName?.(file.name);
   return file.text();
 }

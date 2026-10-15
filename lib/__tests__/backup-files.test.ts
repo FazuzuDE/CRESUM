@@ -68,7 +68,13 @@ it('copies a selected native file to cache before reading its text', async () =>
       },
     ],
   });
-  expect(await pickBackupFile()).toBe('{"backup":true}');
+  let name = '';
+  expect(
+    await pickBackupFile((selected) => {
+      name = selected;
+    }),
+  ).toBe('{"backup":true}');
+  expect(name).toBe('valid.json');
   expect(Picker.getDocumentAsync).toHaveBeenCalledWith(
     expect.objectContaining({ copyToCacheDirectory: true, multiple: false }),
   );

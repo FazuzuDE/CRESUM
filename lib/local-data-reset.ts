@@ -1,3 +1,4 @@
+import { BACKUP_POLICY_KEY } from './backup-policy';
 import { PROGRAM_KEY } from './training-programs/repository';
 import { BODY_WEIGHT_KEY } from './body-weight';
 import { HIDDEN_BUILT_INS_KEY } from './hidden-builtins';
@@ -14,6 +15,8 @@ export const LOCAL_DATA_KEYS = [
   ...LEGACY_KEYS,
   STATE_KEY,
 ] as const;
+
+const RESET_DATA_KEYS = [BACKUP_POLICY_KEY, ...LOCAL_DATA_KEYS] as const;
 
 type Storage = {
   getItem(key: string): Promise<string | null>;
@@ -39,7 +42,7 @@ export async function resetLocalData(
   try {
     await waitForPendingWrites();
     backup = await Promise.all(
-      LOCAL_DATA_KEYS.map(
+      RESET_DATA_KEYS.map(
         async (key) => [key, await storage.getItem(key)] as const,
       ),
     );
@@ -50,9 +53,9 @@ export async function resetLocalData(
   }
 
   try {
-    for (const key of LOCAL_DATA_KEYS) await storage.removeItem(key);
+    for (const key of RESET_DATA_KEYS) await storage.removeItem(key);
     const remaining = await Promise.all(
-      LOCAL_DATA_KEYS.map((key) => storage.getItem(key)),
+      RESET_DATA_KEYS.map((key) => storage.getItem(key)),
     );
     if (remaining.some((value) => value !== null))
       throw new Error('One or more local data keys remain.');

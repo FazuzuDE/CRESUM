@@ -169,8 +169,8 @@ Do not turn this into a broad rewrite.
 
 Approved Library/Technique/full-screen mockup is implemented as a focused offline guide layer for the 65 current exercises, with source mappings and explicit adaptations. Square thumbnails and START/FINISH positions remain placeholders pending reviewed assets. Preserve browse vs selection actions, stable identities and existing logging. Next: editorial review by a qualified coach for variant-specific guidance, physical-phone acceptance, then separately integrate approved exact-variant images and image gestures/transitions. Adaptive weight-entry mockup is deferred and retained; no cloud/auth or calibration work is added.
 
-### Next focused delivery: Profile backup mockups — approved 2026-10-15
+### Profile backup follow-up — implementation prepared 2026-10-15
 
 PR #50 is merged into develop at d747ac24da19d2f54f2ac816519e8213f88a958c. Implement the approved follow-up in the next PR: compact Profile menu entry, dedicated backup page, configurable every-workout/weekly/monthly automatic copies and additive validated History import with duplicate skipping. Retain full restore as a separate protected replacement flow.
 
-Execution checkpoint: requirements synchronized on a draft branch only. No follow-up application code or new passing checks are claimed. The execution environment became unavailable before implementation. Resume from merged #50, inspect existing code, implement and test the actual scheduler/destination and import persistence, then complete typecheck, lint, formatting, full tests, exports and phone review before making the PR ready.
+PR #51 now contains the dedicated Profile flow, validated additive History import and native two-slot verified local copies. Automatic copies default off and run only while open/next opened; weekly/monthly are not OS background jobs. Saved copies survive Core reset, which disables the policy. Automated durability, scheduling, import and UI regression checks accompany implementation. Physical-phone file-picker/share, app lifecycle, accessibility and storage acceptance remain next; cloud backup remains separate.

@@ -18,6 +18,7 @@ import {
   finishWorkout,
 } from '../workout-engine';
 import { LOCAL_DATA_KEYS } from '../local-data-reset';
+import { BACKUP_POLICY_KEY } from '../backup-policy';
 import { ONBOARDING_KEY } from '../onboarding-repository';
 import { STATE_KEY } from '../workout-repository';
 
@@ -245,7 +246,12 @@ it('starts only one reset when confirmation is pressed twice before rerender', a
     confirm();
     confirm();
   });
-  expect(AsyncStorage.removeItem).toHaveBeenCalledTimes(LOCAL_DATA_KEYS.length);
+  expect(
+    jest
+      .mocked(AsyncStorage.removeItem)
+      .mock.calls.map(([key]) => key)
+      .sort(),
+  ).toEqual([BACKUP_POLICY_KEY, ...LOCAL_DATA_KEYS].sort());
   expect(view.root.findByType(Onboarding)).toBeDefined();
   await act(async () => view.unmount());
 });
