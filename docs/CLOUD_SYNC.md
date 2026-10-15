@@ -90,3 +90,56 @@ local entities; wire metadata draining to recovery and invalidate/reconcile
 cursors after import/restore/reset. Sign-in merges without replacing local
 history; account switching must not upload one account's intents under another.
 Physical multi-device/session/offline acceptance remains separate.
+
+## Atomic History protocol (next reviewed migration)
+
+The new protocol migration adds private mutation receipts and an owner-ordered
+change feed. Public `publish_completed_workout` and `pull_completed_workouts`
+wrappers use SECURITY INVOKER; private implementations use fixed-search-path
+SECURITY DEFINER with explicit auth.uid() ownership and no owner argument.
+Direct client INSERT/UPDATE is revoked on the four public tables; SELECT keeps
+owner RLS. Source-device identity remains the original creator on later edits.
+
+Publication commits root/exercise/set snapshots, feed and receipt atomically.
+Expected revision null means create-only; a positive revision is exact CAS.
+Null workout tombstones an existing entity. The same mutation ID/request
+returns its original receipt even after later edits; changed arguments fail.
+A private SHA-256 request fingerprint avoids retaining payload copies in receipts.
+Owner transaction locks precede sequence allocation to prevent late commits from
+falling behind a previously acknowledged owner cursor. Receipts/feed have no
+purge policy; retention and capacity must be designed before release.
+
+Pull accepts canonical nonnegative decimal bigint string cursors and limits
+1..100 (default50). It returns `{cursor,hasMore,changes}` with sequence strings,
+workout ID, current revision, deletedAt and a complete current normalized
+snapshot or null tombstone. Events may repeat a workout and may already contain
+its later state. Apply monotonically by revision and advance a cursor only
+after durable local reconciliation; never treat it as a historical snapshot log.
+
+`history-mapper.ts` reuses the strict pure completed-Core reader.
+`HistoryRpc` accepts an injected authenticated RPC caller rather than creating
+another session/client, validates every response and exposes only safe error
+categories. It performs no local writes, retries, cursor commits or app wiring.
+The next owner must persist stable mutation IDs and preserve account provenance.
+
+### Development deployment checkpoint
+
+Only the exact merged foundation SQL was applied to the verified empty
+`cresum-dev` project on 2026-10-15. Its recorded version is reconciled to source
+`20261015131458` after verifying the stored SQL hash; the connector initially
+assigned its application timestamp. No fixture users or workout rows were sent.
+All four tables have RLS; anon SELECT and authenticated physical DELETE are
+denied. The protocol migration is still unapplied until Git integration.
+
+Security advisors reported the pre-existing platform function
+`public.rls_auto_enable()` default EXECUTE grants. Inspection confirms it returns
+`event_trigger`, has a fixed pg_catalog search path and enables RLS on new public
+tables; this PR does not alter that platform hook. Review its default grants as
+a separate infrastructure hardening item:
+https://supabase.com/docs/guides/database/database-linter?lint=0028_anon_security_definer_function_executable
+https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable
+Performance advisors only report the three not-yet-used foundation indexes.
+
+Before release, configure independent off-platform database copies and test
+restoration. This was explicitly deferred by the user; no backup service is
+provisioned here. Existing local archive/export controls remain independent.

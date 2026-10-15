@@ -416,3 +416,20 @@ Automatic backup is disabled by default. Native iOS/Android copies alternate bet
 These are app-local copies, not iCloud or guaranteed closed-app background jobs. Web supports manual files only. Device loss/uninstall requires an exported file. **Reset local data** disables automatic copies but retains the saved files, as stated in its confirmation; policy is device-local and excluded from full backup/restore. Existing restore journal keys remain compatible.
 
 Implementation prepared in #51; native picker/share, device file durability, VoiceOver and Dynamic Type acceptance remain physical-phone checks.
+
+### History sync publication protocol — 2026-10-15
+
+The staged first-sync implementation uses atomic aggregate publication with
+revision compare-and-swap and durable mutation receipts. Repeating a request
+with the same mutation ID and arguments returns its original result, without
+rewriting newer history. Changed arguments under the same token are rejected.
+Owner-serialized changes are pulled in sequence order with string bigint
+cursors and complete snapshots/tombstones. Direct client table writes are
+closed when this protocol migration is integrated, so app changes cannot bypass
+the feed. Core/cloud mapping preserves historical identities and actual values.
+
+This protocol does not itself activate app synchronization. The integration
+must preserve local history, track ownership on account switching, and drain
+writers around import/restore/reset before enabling upload or advancing cursors.
+Independent off-platform database backups and tested restoration are a release
+prerequisite, explicitly deferred by the user until that stage.
