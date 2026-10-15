@@ -631,8 +631,8 @@ function AppContent({
     mode: 'export' | 'restore' | 'import' | 'automatic' | 'saved' = 'restore',
   ) => {
     if (resetInProgress.current || backupInProgress.current) return;
-    backupInProgress.current = true;
     runDataOperation(async (allowReloadAfterRecovery) => {
+      backupInProgress.current = true;
       try {
         // LocalDataGate hides writable screens; let already queued work settle.
         await programAcceptance.waitForPendingWrites();

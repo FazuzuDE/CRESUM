@@ -8,7 +8,8 @@ import { startWorkout, finishWorkout } from '../workout-engine';
 import { defaultTemplates, exerciseLibrary } from '../workout-catalog';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { completeOnboardingForTest } from './onboarding-fixture';
-import { parseLocalBackup } from '../local-backup';
+import { parseLocalBackup, RESTORE_JOURNAL_KEY } from '../local-backup';
+import { shareBackupFile } from '../backup-files';
 const { act, create } = jest.requireActual('react-test-renderer');
 jest.mock('../backup-files', () => ({
   shareBackupFile: jest.fn(async () => {}),
@@ -105,4 +106,45 @@ it('loads the current weekly copy on reopen without writing another copy', async
     view.root.findByType(ProfileSettings).props.backup.lastCopy.workouts,
   ).toBe(1);
   act(() => view.unmount());
+});
+
+it('allows export after a scheduled check is rejected during prolonged recovery', async () => {
+  const view = await mountWithHistory('weekly');
+  const getter = jest.mocked(AsyncStorage.getItem);
+  const original = getter.getMockImplementation()!;
+  let release!: (value: null) => void;
+  const pending = new Promise<null>((resolve) => {
+    release = resolve;
+  });
+  let reads = 0;
+  getter.mockImplementation(async (key) => {
+    if (key === RESTORE_JOURNAL_KEY) {
+      if (++reads === 1) throw Error('storage unavailable');
+      if (reads === 2) return pending;
+    }
+    return original(key);
+  });
+  try {
+    jest.setSystemTime(Date.now() + 8 * 86400000);
+    await act(async () => {
+      await jest.advanceTimersByTimeAsync(60_000);
+    });
+    expect(reads).toBe(2);
+    await act(async () => {
+      await jest.advanceTimersByTimeAsync(60_000);
+    });
+    getter.mockImplementation(original);
+    await act(async () => {
+      release(null);
+    });
+    jest.mocked(shareBackupFile).mockClear();
+    await act(async () => {
+      view.root.findByType(ProfileSettings).props.backup.onExport();
+    });
+    expect(shareBackupFile).toHaveBeenCalledTimes(1);
+  } finally {
+    release(null);
+    getter.mockImplementation(original);
+    act(() => view.unmount());
+  }
 });
