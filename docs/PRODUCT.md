@@ -298,6 +298,14 @@ Profile will have an **Account & Sync** section. Signed out: explain optional si
 
 **Sign Out**, **Reset local data**, and future **Delete Account** remain separate operations. Sign Out changes authentication, not account existence. Reset deletes device-local data; its exact restore-from-cloud behavior after reset requires later implementation design and does not silently change the current reset flow. Delete Account is a separate confirmed destructive cloud-account/data flow governed by product/privacy policy.
 
+### Account/Auth Stage 1 integration — 2026-10-15
+
+After merged #51, integrate the preserved `618c7e2` auth checkpoint on current develop. Profile's compact **Account** entry opens a separate scrollable page. Email sign-in uses exactly six digits inside the app; successful send is not authentication. Apple/Google remain disabled. Account connected explicitly says cloud workout backup is not enabled yet. Missing public configuration and auth/network errors leave all local Core and file-backup features usable.
+
+The approved Email OTP expiry is 600 seconds (10 minutes). Development-project OTP length and expiry were saved and verified on 2026-10-15 after explicit confirmation; email delivery and OTP templates still require domain/Resend/custom-SMTP setup. These saved parameters do not establish a working email sign-in flow by themselves.
+
+Keep one auth owner above local-data recovery/remounts, with isolated session persistence, foreground refresh and cleanup. Sign Out preserves workouts; Reset local data preserves auth and explains this. Auth storage never enters export/import/restore. The original checkpoint remains frozen; this is a focused integration, not cloud sync or a production-readiness claim. Real SMTP/OTP/session and physical-phone acceptance remain pending; see `ACCOUNT_AUTH.md`.
+
 ### Settings/Profile
 
 Essential account/app preferences only.

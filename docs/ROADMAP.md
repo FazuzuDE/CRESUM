@@ -12,8 +12,7 @@ Onboarding → Home → Workout → Sets → Rest → Finish → History → Pro
 ### Reliability audit follow-up — approved 2026-10-14
 
 Clock safety (#47), active-workout discard (#48) and consistent estimated records
-(#49) are integrated. Current focused delivery is offline local-file export and
-validated, confirmed snapshot replacement with a durable rollback/recovery journal.
+(#49) are integrated. Local file export/restore (#50) and Profile automatic local copies/additive History import (#51) are integrated. The next focused delivery is integration of the prepared Account/Auth checkpoint onto current develop.
 Cloud backup remains separate; physical native Files/share and interrupted-restore
 acceptance is required before release.
 
@@ -169,8 +168,16 @@ Do not turn this into a broad rewrite.
 
 Approved Library/Technique/full-screen mockup is implemented as a focused offline guide layer for the 65 current exercises, with source mappings and explicit adaptations. Square thumbnails and START/FINISH positions remain placeholders pending reviewed assets. Preserve browse vs selection actions, stable identities and existing logging. Next: editorial review by a qualified coach for variant-specific guidance, physical-phone acceptance, then separately integrate approved exact-variant images and image gestures/transitions. Adaptive weight-entry mockup is deferred and retained; no cloud/auth or calibration work is added.
 
-### Profile backup follow-up — implementation prepared 2026-10-15
+### Profile backup follow-up — merged #51 on 2026-10-15
 
-PR #50 is merged into develop at d747ac24da19d2f54f2ac816519e8213f88a958c. Implement the approved follow-up in the next PR: compact Profile menu entry, dedicated backup page, configurable every-workout/weekly/monthly automatic copies and additive validated History import with duplicate skipping. Retain full restore as a separate protected replacement flow.
+PR #50 merged into develop at d747ac24da19d2f54f2ac816519e8213f88a958c, providing protected full restore. Its approved Profile, automatic-copy and additive History-import follow-up was delivered in #51.
 
-PR #51 now contains the dedicated Profile flow, validated additive History import and native two-slot verified local copies. Automatic copies default off and run only while open/next opened; weekly/monthly are not OS background jobs. Saved copies survive Core reset, which disables the policy. Automated durability, scheduling, import and UI regression checks accompany implementation. Physical-phone file-picker/share, app lifecycle, accessibility and storage acceptance remain next; cloud backup remains separate.
+PR #51 is merged at `3e6a78895b5c11c01ffc5b097eabcc9afc71817f`, with the dedicated Profile flow, validated additive History import and native two-slot verified local copies. Automatic copies default off and run only while open/next opened; weekly/monthly are not OS background jobs. Saved copies survive Core reset, which disables the policy. Automated durability, scheduling, import and UI regression checks accompany implementation. Physical-phone file-picker/share, app lifecycle, accessibility and storage acceptance remain next; cloud backup remains separate.
+
+### Next focused delivery: Account/Auth integration — approved 2026-10-15
+
+Resume the preserved Stage 1 checkpoint `618c7e202ec5e673a404c382c5438b3730682adf` through a new focused branch based on merged #51; do not rewrite the frozen branch or replace newer Core/UI files. Reuse its optional six-digit Email OTP, session store and Supabase seam. Add a compact Account page to the current Profile and keep its owner independent of local restore/remounts. Preserve Sign Out/reset separation, all local backup protections and offline Core. Implementation/checks are prepared in the follow-up PR; real custom-SMTP OTP and physical-device session acceptance remain pending.
+
+After this foundation is accepted, deliver Cloud Schema + Sync Foundation and then History Backup + First Sync as separate PRs. No active-workout sync, Oracle deployment, custom-workout conflict UX, Calibration PR #17 or provider OAuth is added here. See `ACCOUNT_AUTH.md` and the integration plan.
+
+External setup checkpoint: `cresum-dev` restored and healthy; user-approved Email OTP length 6 / expiry 600 seconds verified after Dashboard reload. The public config is local-only. No domain is owned yet, custom SMTP remains disabled and OTP mail templates/delivery remain pending; choose a domain and configure Resend before real email acceptance.

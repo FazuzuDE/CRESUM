@@ -1,3 +1,5 @@
+import { AccountPage } from './AccountPage';
+import type { AccountSectionProps } from './AccountSection';
 import { Ionicons } from '@expo/vector-icons';
 import type { BackupControlsProps } from './BackupControls';
 import { BackupPage, type BackupPageOptions } from './BackupPage';
@@ -36,6 +38,7 @@ export type ProfileSettingsProps = {
   hasActiveWorkout?: boolean;
   onPersonalize?: () => void;
   onResetLocalData?: () => void;
+  account?: AccountSectionProps;
   backup?: BackupControlsProps & Partial<BackupPageOptions>;
 };
 
@@ -57,11 +60,17 @@ export function ProfileSettings({
   onPersonalize,
   onResetLocalData,
   backup,
+  account,
 }: ProfileSettingsProps) {
+  const [accountOpen, setAccountOpen] = useState(false);
   const [backupOpen, setBackupOpen] = useState(false);
   const [libraryOpen, setLibraryOpen] = useState(false);
   const [workoutsOpen, setWorkoutsOpen] = useState(false);
   const [workoutEditing, setWorkoutEditing] = useState(false);
+  if (accountOpen && account)
+    return (
+      <AccountPage account={account} onClose={() => setAccountOpen(false)} />
+    );
   if (backupOpen && backup)
     return (
       <BackupPage
@@ -236,6 +245,32 @@ export function ProfileSettings({
                 onPress={() => setBackupOpen(true)}
               />
               <Text style={s.sub}>Files, history and backup schedule</Text>
+            </View>
+          </View>
+        </GlassCard>
+      ) : null}
+      {account ? (
+        <GlassCard>
+          <View style={s.menuRow}>
+            <View style={s.menuIcon}>
+              <Ionicons
+                name="person-circle-outline"
+                size={24}
+                color={colors.textPrimary}
+              />
+            </View>
+            <View style={s.menuCopy}>
+              <AppButton
+                title="Account"
+                secondary
+                presentation="row"
+                onPress={() => setAccountOpen(true)}
+              />
+              <Text style={s.sub}>
+                {account.snapshot.status === 'signed_in'
+                  ? 'Account connected'
+                  : 'Optional email sign-in'}
+              </Text>
             </View>
           </View>
         </GlassCard>

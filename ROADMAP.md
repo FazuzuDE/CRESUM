@@ -1,5 +1,9 @@
 # CRESUM — Product & Engineering Roadmap
 
+> Исторический расширенный план. Актуальные утверждённые приоритеты и направление
+> Supabase/Postgres находятся в [docs/ROADMAP.md](docs/ROADMAP.md) и
+> [docs/PRODUCT.md](docs/PRODUCT.md). Текущий Account/Auth: [ACCOUNT_AUTH.md](docs/ACCOUNT_AUTH.md).
+
 > Статус документа: draft for execution
 >
 > Базовая версия: v0.3.0

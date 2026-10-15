@@ -1,3 +1,5 @@
+import { useAccount } from '@/components/useAccount';
+import type { AccountSectionProps } from '@/components/AccountSection';
 import { useBackupArchive } from '@/components/useBackupArchive';
 import { automaticBackupDue } from '@/lib/backup-policy';
 import { importBackupHistory } from '@/lib/history-import';
@@ -268,10 +270,12 @@ function Stats({
   );
 }
 export default function App() {
+  const account = useAccount();
   return (
     <LocalDataGate>
       {(run, notice, profile) => (
         <AppContent
+          account={account}
           runDataOperation={run}
           notice={notice}
           initialTab={profile ? 'profile' : 'home'}
@@ -281,10 +285,12 @@ export default function App() {
   );
 }
 function AppContent({
+  account,
   runDataOperation,
   notice,
   initialTab,
 }: {
+  account: AccountSectionProps;
   runDataOperation: RunDataOperation;
   notice: string;
   initialTab: string;
@@ -824,7 +830,7 @@ function AppContent({
       <Confirmation
         visible={confirmReset}
         title="Reset CRESUM?"
-        message="All local CRESUM data on this device — workouts, history, templates, active workout, body-weight measurements, hidden-workout settings, personalization and onboarding data — will be permanently deleted. Saved backup files are kept for recovery; automatic backups will be switched off. This cannot be undone."
+        message="All local CRESUM data on this device — workouts, history, templates, active workout, body-weight measurements, hidden-workout settings, personalization and onboarding data — will be permanently deleted. Saved backup files are kept for recovery; automatic backups will be switched off. This does not sign you out. This cannot be undone."
         confirmLabel="Reset local data"
         cancelLabel="Keep data"
         destructive
@@ -1097,6 +1103,7 @@ function AppContent({
             }
           >
             <ProfileSettings
+              account={account}
               history={data.history}
               templates={visibleTemplates}
               busy={busy || hiddenBusy}
