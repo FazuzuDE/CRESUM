@@ -14,7 +14,8 @@ Email sign-in is unavailable. Apple and Google are visible, disabled future
 entry points.
 
 Email uses a six-digit code inside the app. Sending a code does not authenticate;
-only a verified session connects the account. Invalid/expired codes, network
+the approved development-project expiry is 600 seconds (10 minutes). Only a
+verified session connects the account. Invalid/expired codes, network
 errors and rate limits leave the current local training data intact. Repeated
 button presses do not overlap requests. A newer signed-out event wins over an
 older pending verification result.
@@ -31,10 +32,31 @@ additive History import and Reset local data. **Sign Out** does not reset workou
 data. **Reset local data** does not sign out; its confirmation says so. A connected
 account explicitly says **Cloud workout backup is not enabled yet**.
 
+## Verified setup checkpoint — 2026-10-15
+
+Following explicit user authorization, the existing `cresum-dev` project was
+restored from its paused state. Healthy status and a read-only database query
+were verified. Its modern public client key and URL are configured in the
+ignored local environment file; build environments still require their own
+configuration. No secret or service-role key is used by the app.
+
+The user explicitly confirmed changing Email OTP length from 8 to 6 digits
+and expiry from 3600 to 600 seconds. Both saved values were verified after
+reloading the Dashboard. Email authentication and email confirmation remain
+enabled; Apple/Google remain disabled.
+
+Custom SMTP is still disabled. The existing sign-in template sends a link,
+and the Dashboard blocks template editing on the free built-in email service
+until custom SMTP is configured. The user does not yet own a domain. Domain
+selection/registration, Resend verification, SMTP configuration and both signup
+and sign-in OTP templates remain outstanding. No real OTP email has been sent;
+this checkpoint does not establish working end-to-end email sign-in.
+
 ## External setup — required before real OTP acceptance
 
 1. Use a test Supabase project and enable Email authentication. Configure a
-   six-digit OTP and an email template containing `{{ .Token }}` for the relevant
+   six-digit OTP with a 600-second expiry and an email template containing
+   `{{ .Token }}` for the relevant
    sign-in/signup email flows. A magic-link-only template does not match this UI.
 2. Configure the agreed custom SMTP delivery path (domain → Resend → Supabase
    custom SMTP). This PR does not create accounts, buy a domain, change DNS/SMTP
