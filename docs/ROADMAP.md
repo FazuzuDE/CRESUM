@@ -252,6 +252,9 @@ PR #57 merged at `c3dc820cdb1cc2da14f21219077a725f11df3448`. The exact
 conflict-resolution migration is applied to cresum-dev under source version
 `20261016111714`; owner/session/revision guards and client grants are verified.
 No remote fixture records or emails were created. See CLOUD_SYNC for deployment
-evidence. Native/two-device acceptance remains pending. Comparison-card
-completed-set count and volume summaries are a small deferred improvement;
-individual set values are already shown.
+evidence. Native/two-device acceptance remains pending.
+
+The focused comparison-summary follow-up closes the deferred completed-set count
+and recorded-volume omission, reusing existing domain calculations and making
+missing/partial coverage explicit. It preserves individual set details and all
+choice/recovery behavior. No schema, sync-protocol or storage change is required.

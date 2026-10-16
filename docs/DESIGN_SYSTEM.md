@@ -665,3 +665,10 @@ warning that both enter History/Progress. Replacement/deletion confirmation name
 the affected version; Back changes nothing. Never show a timestamp-based Correct
 badge. Unknown edit times remain unknown. Show stale/network/pending/blocked
 states, reuse tokens and >=44pt targets, and keep account/back navigation usable.
+
+Each version card includes a compact completed-set count and recorded volume
+above its exercise details, using the existing headline/footnote tokens equally
+on both sides. Exclude unfinished sets. Display unavailable volume explicitly;
+keep a valid zero-weight result as zero. When only some completed sets have
+measurable volume, show their coverage alongside the recorded total. Summaries
+are context for the user's choice and must not imply a recommended winner.

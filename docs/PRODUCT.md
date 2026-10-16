@@ -498,3 +498,10 @@ choice. Preserve owner separation, active sessions and offline Core. See the
 approved conflict-resolution design. Implemented on the focused feature branch;
 native/device acceptance remains pending. After PR #57 merged, its exact database
 migration was applied and verified on cresum-dev on 2026-10-16.
+
+Comparison cards also show completed-set count and recorded volume using the
+existing workout-domain calculations shared with Progress. Unfinished sets do
+not enter these totals. A completed set can still count when weight/repetition
+data cannot support volume: show Volume unavailable if none are measurable, or
+explicit coverage when the recorded total is partial. Valid zero-weight volume
+remains zero. Summary display does not change saved history or choose a version.

@@ -10,6 +10,8 @@ import {
   type ResolutionChoice,
 } from '@/lib/sync/history-rpc';
 import type { WorkoutSession, WorkoutSet } from '@/lib/workout-model';
+import { completedSetCount } from '@/lib/workout-engine';
+import { completedSetMetrics, volume } from '@/lib/workout-metrics';
 import { AppButton } from './AppButton';
 import { GlassCard } from './GlassCard';
 import { colors, spacing, typography } from '@/lib/theme';
@@ -29,6 +31,10 @@ function Version({
   onChoose(): void;
   disabled: boolean;
 }) {
+  const completed = completedSetCount(workout);
+  const measured = workout.exercises
+    .flatMap((exercise) => exercise.sets)
+    .filter((set) => completedSetMetrics(set) !== undefined).length;
   return (
     <GlassCard style={s.version}>
       <Text style={s.heading}>{label} version</Text>
@@ -42,6 +48,21 @@ function Version({
         </Text>
       ) : null}
       <Text style={s.copy}>Edit time unknown</Text>
+      <View style={s.group}>
+        <Text style={s.heading}>
+          {`${completed} completed ${completed === 1 ? 'set' : 'sets'}`}
+        </Text>
+        <Text style={s.copy}>
+          {measured
+            ? `${volume(workout).toLocaleString()} kg recorded volume`
+            : 'Volume unavailable'}
+        </Text>
+        {measured > 0 && measured < completed ? (
+          <Text style={s.copy}>
+            {`${measured} of ${completed} completed sets have volume data`}
+          </Text>
+        ) : null}
+      </View>
       {workout.exercises.map((exercise, i) => (
         <View key={i} style={s.group}>
           <Text
