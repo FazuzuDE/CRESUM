@@ -107,7 +107,8 @@ export function useHistorySync(
   }, [engine, store]);
   const userId =
     account.snapshot.status === 'signed_in' &&
-    account.snapshot.busy !== 'sign_out'
+    account.snapshot.busy !== 'sign_out' &&
+    account.snapshot.busy !== 'delete'
       ? (account.snapshot.identity?.id ?? null)
       : null;
   const rpc = account.historyRpc;

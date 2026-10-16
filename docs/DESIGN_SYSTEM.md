@@ -566,6 +566,23 @@ demo fixtures or introduce a separate browser client for this alignment.
 
 This document is the source of truth for CRESUM Core UI until explicitly revised.
 
+### Account deletion confirmation — 2026-10-16
+
+Profile > Account & Sync places a quiet destructive text action after ordinary
+account controls. The inline confirmation names the account and requires typed
+DELETE before **Permanently delete account**, with **Keep account** available
+before submission. Reuse AppButton/input/type/spacing tokens, preserve a readable
+vertical phone layout, and reset the confirmation on account changes. Disable
+overlapping actions while deleting and announce success/error text accessibly.
+
+Explain that local workouts, routines and saved files remain, while exported files,
+other devices' local copies and provider backups are outside this action. With
+rollout disabled, show a disabled action and honest availability copy. Unconfirmed
+deletion replaces normal sync/Resume controls with a recovery explanation and an
+explicit retry. Confirmed local-cleanup failure offers **Retry session cleanup**,
+not a second cloud deletion. Never show success for a timeout or a stale owner's
+response in a newly connected account.
+
 ### History filter — 2026-10-10
 
 Show three recent workout cards by default; put the filter directly below the History heading, before the list,

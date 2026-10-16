@@ -270,3 +270,14 @@ Next: Profile confirmation, durable sync pause/drain, account-fenced local sessi
 cleanup and truthful interrupted-deletion recovery; then deployment of reviewed
 source and physical-device acceptance. See ACCOUNT_AUTH and the deletion spec.
 Domain/mail and independent disaster recovery remain deferred release work.
+
+### Account deletion — Profile integration after merged #60
+
+The server foundation is merged at `6661552099f2b60ed61feca164a68d51582aa203`.
+The next client branch connects account-named typed confirmation, durable owner
+deletion state, sync pause/drain, matching-session cleanup and interrupted-request
+recovery without changing local Core or ownership provenance. It also closes the
+#60 SDK error-translation test gap. The default build keeps deletion unavailable.
+After this PR is reviewed/merged, separately deploy the reviewed function, verify
+gateway/Auth behavior with an explicitly authorized test account, then enable the
+build-time rollout flag. Native/two-device/mail and retention checks remain open.

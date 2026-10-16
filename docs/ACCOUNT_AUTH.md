@@ -129,3 +129,53 @@ an honest ambiguous-response recovery path. Preserve local data and account
 provenance. Deleted users' JWTs can remain cryptographically valid until expiry;
 SQL tests also verify they cannot repopulate the deleted owner's cloud records.
 Native two-device/session acceptance and release retention wording remain open.
+
+## Account deletion — Profile client after merged #60
+
+PR #60 merged at `6661552099f2b60ed61feca164a68d51582aa203`.
+The client follow-up adds a quiet destructive **Delete account** action in
+Profile > Account & Sync. Its confirmation names the current account, requires
+typing **DELETE**, and explains permanent cloud deletion while local workouts,
+routines and saved files remain. Exported files, other devices' local copies and
+provider backups are explicitly outside this action. Confirmation resets on an
+account change, and overlapping taps/auth actions are fenced.
+
+The action defaults unavailable until a build explicitly sets
+`EXPO_PUBLIC_ACCOUNT_DELETION_ENABLED=true`. This is a rollout flag, not server
+authorization. Deploy and verify reviewed server source and signing-key/gateway
+compatibility before enabling it. No environment configuration, deployed endpoint,
+live deletion or native acceptance is claimed by the client PR. Domain/SMTP setup
+remains deferred. Only the public client key is used by the app.
+
+Before a request, durably verify a per-owner **pending** record under
+`cresum_account_deletion_v1`, then pause/drain the existing cloud coordinator.
+Only a matching captured session token and confirmed account ID reach the HTTP
+endpoint. Timeout/abort, non-success or a mismatched acknowledgement never imply
+success. Pending deletion fences all sync/Resume for that owner, including after
+restart; it does not automatically retry the destructive request. The user can
+explicitly retry from the same account or continue using offline Core/sign out.
+If that session has expired, signing into a newly created account with the same
+email is not proof of the old request's outcome and never deletes the new UUID.
+
+A verified server acknowledgement is recorded as **confirmed** before matching
+session cleanup. The SDK storage adapter and journal share a serialized queue
+(plus an origin lock for cooperating browser tabs). Cleanup removes only a
+session whose stored user ID matches the deleted owner. It does not call a late
+unbound SDK signOut that could clear account B. Confirmed-owner session writes
+and stale identity events cannot restore the deleted account. Metadata contains
+IDs/statuses only, no tokens, email addresses or workout payloads. It stays outside
+Core export/import/restore/reset, alongside retained history ownership provenance.
+
+Confirmed cleanup retries are local-only and never repeat cloud deletion. Startup
+finishes matching confirmed cleanup before SDK creation. Corrupt/ambiguous journal
+storage blocks account traffic with Retry account setup while offline Core remains
+available. Unknown stored session ownership is not silently erased by cleanup.
+A late successful A response records A's outcome without signing out or announcing
+deletion of B. Core restore/remount, active sessions and file copies remain intact.
+
+Tests cover the actual App/hook/coordinator fence and persisted Core, restart,
+backup exclusion, owner-specific session storage, journal corruption, timeout,
+confirmation and account switching. Additional real-entrypoint SDK returned-error
+and thrown-error cases close the nonblocking coverage follow-up from #60.
+Real Deno/gateway, test-user deletion, mail, physical-device and retention acceptance
+remain separate rollout/release gates.

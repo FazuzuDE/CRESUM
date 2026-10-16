@@ -4,8 +4,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createClient, type User } from '@supabase/supabase-js';
 import { AppState, Platform } from 'react-native';
 import type { AuthIdentity, AuthRepository } from './auth-repository';
+import {
+  AUTH_SESSION_KEY,
+  type AccountDeletionRepository,
+} from './account-deletion';
 
-export const AUTH_STORAGE_KEY = 'cresum_auth_v1';
+export const AUTH_STORAGE_KEY = AUTH_SESSION_KEY;
 
 function identity(user: User | null | undefined): AuthIdentity | null {
   return user ? { id: user.id, email: user.email ?? null } : null;
@@ -15,6 +19,8 @@ export function createSupabaseAuthRepository(
   config: {
     url?: string;
     publishableKey?: string;
+    accountDeletionEnabled?: boolean;
+    deletionState?: AccountDeletionRepository;
   } = {},
 ): AuthRepository | null {
   const url = config.url?.trim();
@@ -29,7 +35,7 @@ export function createSupabaseAuthRepository(
 
   const supabase = createClient(url, publishableKey, {
     auth: {
-      storage: AsyncStorage,
+      storage: config.deletionState?.sessionStorage ?? AsyncStorage,
       storageKey: AUTH_STORAGE_KEY,
       persistSession: true,
       autoRefreshToken: true,
@@ -42,6 +48,8 @@ export function createSupabaseAuthRepository(
     typeof AppState.addEventListener
   > | null = null;
   let disposed = false;
+  let ownerEpoch = 0;
+  let lastOwner: string | null | undefined;
   let lastAppState = AppState.currentState;
   let initialization: ReturnType<typeof supabase.auth.initialize> | undefined;
   const initializeClient = () =>
@@ -50,6 +58,71 @@ export function createSupabaseAuthRepository(
     lastAppState === null ||
     (typeof lastAppState === 'string' && lastAppState !== 'active');
   return {
+    ...(config.deletionState
+      ? {
+          clearDeletedSession: (id: string) =>
+            config.deletionState!.clearSession(id),
+        }
+      : {}),
+    ...(config.accountDeletionEnabled && config.deletionState
+      ? {
+          async deleteAccount(userId: string) {
+            const controller = new AbortController();
+            let deadline: ReturnType<typeof setTimeout> | undefined;
+            const timeout = new Promise<never>((_, reject) => {
+              deadline = setTimeout(() => {
+                controller.abort();
+                reject(new Error('Deletion not confirmed'));
+              }, 15000);
+            });
+            const work = async () => {
+              const epoch = ownerEpoch;
+              if (disposed) throw new Error('Account changed');
+              const { data, error } = await supabase.auth.getSession();
+              if (
+                disposed ||
+                controller.signal.aborted ||
+                epoch !== ownerEpoch ||
+                error ||
+                data.session?.user.id !== userId ||
+                !data.session.access_token
+              )
+                throw new Error('Account changed');
+              const response = await fetch(
+                `${url.replace(/\/$/, '')}/functions/v1/delete-account`,
+                {
+                  method: 'POST',
+                  signal: controller.signal,
+                  headers: {
+                    Authorization: `Bearer ${data.session.access_token}`,
+                    apikey: publishableKey,
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    confirmation: 'DELETE',
+                    expectedUserId: userId,
+                  }),
+                },
+              );
+              if (controller.signal.aborted || !response.ok)
+                throw new Error('Deletion not confirmed');
+              const result: unknown = await response.json();
+              if (
+                controller.signal.aborted ||
+                !result ||
+                typeof result !== 'object' ||
+                (result as { deletedUserId?: unknown }).deletedUserId !== userId
+              )
+                throw new Error('Deletion not confirmed');
+            };
+            try {
+              await Promise.race([work(), timeout]);
+            } finally {
+              if (deadline) clearTimeout(deadline);
+            }
+          },
+        }
+      : {}),
     async historyRpc(userId, name, args) {
       const controller = new AbortController();
       let deadline: ReturnType<typeof setTimeout> | undefined;
@@ -114,7 +187,15 @@ export function createSupabaseAuthRepository(
         );
       }
       const { data } = supabase.auth.onAuthStateChange((_event, session) => {
-        if (!disposed) listener(identity(session?.user));
+        const next = identity(session?.user);
+        // A stale event from the deleted owner must not sign out a new owner.
+        if (next && config.deletionState?.state(next.id) === 'confirmed')
+          return;
+        if (next?.id !== lastOwner) {
+          lastOwner = next?.id ?? null;
+          ownerEpoch++;
+        }
+        if (!disposed) listener(next);
       });
       return () => data.subscription.unsubscribe();
     },

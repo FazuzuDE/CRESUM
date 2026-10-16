@@ -16,7 +16,8 @@ import {
   savedWorkout,
 } from './helpers/history-resolution-fixture';
 import type { HistoryRemote, ResolutionChoice } from '../sync/history-rpc';
-import { HISTORY_PAUSE_KEY } from '../sync/history-ledger';
+import { HISTORY_PAUSE_KEY, HISTORY_LEDGER_KEY } from '../sync/history-ledger';
+import { ACCOUNT_DELETION_KEY } from '../account-deletion';
 import { createLocalBackup, parseLocalBackup } from '../local-backup';
 import type { WorkoutSession } from '../workout-model';
 const { act, create } = jest.requireActual('react-test-renderer');
@@ -393,6 +394,73 @@ it('full restore pauses pending sync without waiting on its network reply or rep
       ),
     ).toEqual(['local']);
     expect(a.sent).toEqual([]);
+  } finally {
+    if (view) await act(async () => view.unmount());
+  }
+});
+
+it('account deletion drains and pauses cloud, keeps Core and provenance, and fences a late pull', async () => {
+  const a = account();
+  const deleted: string[] = [];
+  a.repository.deleteAccount = async (id) => {
+    expect(await AsyncStorage.getItem(HISTORY_PAUSE_KEY)).toBe('1');
+    deleted.push(id);
+  };
+  a.repository.clearDeletedSession = async () => {};
+  let view!: ReturnType<typeof create>;
+  try {
+    await act(async () => {
+      view = create(<App />);
+      await tick();
+    });
+    act(() => view.root.findByType(Dock).props.onChange('profile'));
+    act(() => button(view, 'Account')!.props.onPress());
+    await act(async () => {
+      button(view, 'Enable cloud backup')!.props.onPress();
+      await tick();
+      await tick();
+    });
+    const before = await AsyncStorage.getItem(STATE_KEY);
+    const claims = JSON.parse(
+      (await AsyncStorage.getItem(HISTORY_LEDGER_KEY))!,
+    ).claims;
+    a.hold();
+    await act(async () => {
+      button(view, 'Sync Now')!.props.onPress();
+      await tick();
+    });
+    await act(async () => {
+      await view.root
+        .findByType(ProfileSettings)
+        .props.account.deleteAccount('A');
+      await tick();
+    });
+    expect(deleted).toEqual(['A']);
+    expect(await AsyncStorage.getItem(STATE_KEY)).toBe(before);
+    expect(
+      JSON.parse((await AsyncStorage.getItem(HISTORY_LEDGER_KEY))!).claims,
+    ).toEqual(claims);
+    expect(
+      JSON.parse((await AsyncStorage.getItem(ACCOUNT_DELETION_KEY))!).records,
+    ).toContainEqual({ userId: 'A', status: 'confirmed' });
+    const exported = await createLocalBackup(AsyncStorage);
+    expect(exported).not.toContain(ACCOUNT_DELETION_KEY);
+    await act(async () => {
+      a.release();
+      await tick();
+      await tick();
+    });
+    expect(await AsyncStorage.getItem(STATE_KEY)).toBe(before);
+    await act(async () => view.unmount());
+    await act(async () => {
+      view = create(<App />);
+      await tick();
+      await tick();
+    });
+    expect(
+      view.root.findByType(ProfileSettings).props.account.snapshot.status,
+    ).toBe('signed_out');
+    expect(await AsyncStorage.getItem(STATE_KEY)).toBe(before);
   } finally {
     if (view) await act(async () => view.unmount());
   }
