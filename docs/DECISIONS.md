@@ -886,3 +886,10 @@ sets, preserve valid zero-weight volume, and distinguish unavailable volume from
 partial coverage. This completes the already approved comparison design rather
 than changing resolution choices or saved data. Keep the implementation focused
 on presentation and tests; no new dependency, schema or protocol is needed.
+
+## 2026-10-16 — Account deletion server foundation after #59
+
+- User confirmed #59 merged and requested continued development after the account-management roadmap discussion.
+- Deliver server deletion and client confirmation as separate focused PRs. The server target comes from verified Auth, with a matching expected-account confirmation guard and hard-delete API.
+- Preserve all local Core data/files/provenance. Verify owner cascades and another account's exact snapshots in disposable PostgreSQL.
+- This branch does not deploy the endpoint, delete live accounts, expose a Profile button or claim device acceptance. Client lifecycle/confirmation remains the next delivery.

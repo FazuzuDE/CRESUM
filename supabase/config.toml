@@ -1,0 +1,6 @@
+# Local CLI identity. Remote deployment still requires an explicit project ref.
+project_id = "cresum"
+
+[functions.delete-account]
+entrypoint = "./functions/delete-account/index.js"
+verify_jwt = true

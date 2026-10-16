@@ -505,3 +505,14 @@ not enter these totals. A completed set can still count when weight/repetition
 data cannot support volume: show Volume unavailable if none are measurable, or
 explicit coverage when the recorded total is partial. Valid zero-weight volume
 remains zero. Summary display does not change saved history or choose a version.
+
+### Account deletion — staged server foundation, 2026-10-16
+
+Continue account management after merged #59 in focused stages. The server
+foundation accepts an explicit deletion confirmation tied to a verified matching
+account, then hard-deletes the Auth user and its cascaded cloud History/private
+sync records. Local workouts, active sessions, routines, saved files and ownership
+provenance remain unchanged. This stage adds no in-app deletion action or live
+deployment. Client confirmation, durable sync pause, session cleanup and ambiguous
+failure recovery are the next separate delivery. Never claim exported copies,
+other devices' local data, platform logs or backups disappear with account deletion.
