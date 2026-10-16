@@ -281,3 +281,13 @@ recovery without changing local Core or ownership provenance. It also closes the
 After this PR is reviewed/merged, separately deploy the reviewed function, verify
 gateway/Auth behavior with an explicitly authorized test account, then enable the
 build-time rollout flag. Native/two-device/mail and retention checks remain open.
+
+### Account deletion — deployed, acceptance pending after #61
+
+PR #61 merged at `16e7f1d64af4a051bd6d2d71a7e1812a30b994a3`.
+The reviewed function is deployed to cresum-dev as active version 1 with JWT
+verification enabled. Source readback, OPTIONS and unauthenticated rejection are
+verified; see ACCOUNT_AUTH for the checkpoint. No live test user was created or
+deleted. Keep the rollout flag off until an authorized disposable user's real
+session verifies owner guards and successful deletion, followed by native-device
+acceptance. The connected tools cannot create/sign in an Auth test user.
