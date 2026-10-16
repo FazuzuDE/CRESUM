@@ -901,3 +901,12 @@ on presentation and tests; no new dependency, schema or protocol is needed.
 - Persist metadata-only pending/confirmed state outside Core backup/reset, fence owner sync across restart, and require a matching server acknowledgement before owner-specific session cleanup.
 - Preserve local workouts/files/provenance and account B on late account-A completion. Recover confirmed cleanup locally without repeating deletion; unconfirmed network outcomes remain truthful and require explicit user retry.
 - Reuse existing tokens/coordinator, add no dependency/schema migration, and close #60's additional SDK error-translation regression coverage.
+
+## 2026-10-16 — Deployment checkpoint after merged #61
+
+- User approved the next account-deletion rollout stage. Reviewed function source
+  deployed to cresum-dev, active version 1, verify_jwt enabled; exact source
+  readback, preflight and unauthenticated rejection verified.
+- Keep client rollout off pending a real disposable test-user session and
+  successful owner-bound deletion, then device acceptance. No existing user was
+  deleted; no test user or email was created. See ACCOUNT_AUTH for evidence.

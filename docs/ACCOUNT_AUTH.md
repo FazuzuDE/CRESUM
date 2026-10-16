@@ -179,3 +179,28 @@ confirmation and account switching. Additional real-entrypoint SDK returned-erro
 and thrown-error cases close the nonblocking coverage follow-up from #60.
 Real Deno/gateway, test-user deletion, mail, physical-device and retention acceptance
 remain separate rollout/release gates.
+
+## Account deletion deployment checkpoint — 2026-10-16
+
+PR #61 merged at `16e7f1d64af4a051bd6d2d71a7e1812a30b994a3`.
+Following user approval, reviewed `delete-account/index.js` and `handler.ts`
+were deployed to `cresum-dev` (`gmpitmpydhvrufjcptqr`, eu-west-1).
+The function is **ACTIVE**, version **1**, with **verify_jwt=true**. Deployment
+bundle SHA-256 is `8d678bed9949523cd965d31bd069b710f052a1f4164af4be775df42a41fb68dc`.
+Reading back both deployed files confirmed exact equality with merged source.
+
+Live HTTP probes verified OPTIONS returns 204 with CORS and no-store headers;
+POST without a user session, with a malformed token, or with the public key
+incorrectly supplied as Bearer returns 401. These prove deployed availability
+and unauthenticated rejection, not successful user-JWT compatibility or deletion.
+Read-only counts before and after were zero Auth users and zero completed
+workouts. No user, workout, email, schema migration or secret configuration was
+created or changed by these probes.
+
+The build rollout flag remains **off**. The connected Supabase tools provide no
+Auth user creation/sign-in operation, and there is no test-user session available.
+Next verify a separately authorized disposable user's actual session JWT,
+wrong-owner rejection, acknowledged self-deletion and subsequent Auth rejection.
+Only then enable the build-time flag and perform physical-device/local-data and
+two-account acceptance. Do not treat an anon/public key or mocked session as a
+substitute. Domain/SMTP and independent recovery remain deferred release work.
