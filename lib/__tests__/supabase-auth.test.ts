@@ -235,3 +235,107 @@ it('closes browser SDK resources on disposal without a native listener', async (
     if (descriptor) Object.defineProperty(Platform, 'OS', descriptor);
   }
 });
+
+it('binds history RPC to the captured user token rather than a later session', async () => {
+  const { auth } = mockClient();
+  auth.getSession.mockResolvedValue({
+    data: {
+      session: {
+        user: { id: 'user-1', email: 'a@example.com' },
+        access_token: 'token-A',
+      },
+    },
+    error: null,
+  } as Awaited<ReturnType<typeof auth.getSession>>);
+  const result = { data: { revision: 1, changeSequence: '1' }, error: null };
+  const builder = {
+    setHeader: jest.fn(),
+    abortSignal: jest.fn(),
+    then: (resolve: (value: typeof result) => unknown) =>
+      Promise.resolve(result).then(resolve),
+  };
+  builder.setHeader.mockReturnValue(builder);
+  builder.abortSignal.mockReturnValue(builder);
+  const rpc = jest.fn(() => builder);
+  client.mockReturnValue({ auth, rpc } as unknown as ReturnType<
+    typeof createClient
+  >);
+  const repository = createSupabaseAuthRepository(config)!;
+  expect(
+    await repository.historyRpc!('user-1', 'publish_completed_workout', {}),
+  ).toEqual(result);
+  expect(builder.setHeader).toHaveBeenCalledWith(
+    'Authorization',
+    'Bearer token-A',
+  );
+  expect(builder.abortSignal).toHaveBeenCalledWith(expect.any(AbortSignal));
+  await expect(
+    repository.historyRpc!('other-user', 'publish_completed_workout', {}),
+  ).rejects.toMatchObject({ kind: 'auth' });
+  expect(rpc).toHaveBeenCalledTimes(1);
+  repository.dispose();
+});
+it('does not construct a history request after disposal during session lookup', async () => {
+  const { auth } = mockClient();
+  let release!: (value: unknown) => void;
+  auth.getSession.mockImplementation(
+    () =>
+      new Promise((resolve) => {
+        release = resolve as (v: unknown) => void;
+      }),
+  );
+  const rpc = jest.fn();
+  client.mockReturnValue({ auth, rpc } as unknown as ReturnType<
+    typeof createClient
+  >);
+  const repository = createSupabaseAuthRepository(config)!;
+  const pending = repository.historyRpc!(
+    'user-1',
+    'pull_completed_workouts',
+    {},
+  );
+  repository.dispose();
+  release({
+    data: { session: { user: { id: 'user-1' }, access_token: 'A' } },
+    error: null,
+  });
+  await expect(pending).rejects.toMatchObject({ kind: 'auth' });
+  expect(rpc).not.toHaveBeenCalled();
+});
+it('bounds history requests even when session lookup hangs and prevents a late send', async () => {
+  jest.useFakeTimers();
+  try {
+    const { auth } = mockClient();
+    let release!: (value: unknown) => void;
+    auth.getSession.mockImplementation(
+      () =>
+        new Promise((resolve) => {
+          release = resolve as (v: unknown) => void;
+        }),
+    );
+    const rpc = jest.fn();
+    client.mockReturnValue({ auth, rpc } as unknown as ReturnType<
+      typeof createClient
+    >);
+    const repository = createSupabaseAuthRepository(config)!;
+    const pending = repository.historyRpc!(
+      'user-1',
+      'pull_completed_workouts',
+      {},
+    );
+    const checked = expect(pending).rejects.toMatchObject({
+      kind: 'retryable',
+    });
+    await jest.advanceTimersByTimeAsync(15000);
+    await checked;
+    release({
+      data: { session: { user: { id: 'user-1' }, access_token: 'A' } },
+      error: null,
+    });
+    await Promise.resolve();
+    expect(rpc).not.toHaveBeenCalled();
+    repository.dispose();
+  } finally {
+    jest.useRealTimers();
+  }
+});

@@ -1,6 +1,6 @@
-# Cloud Sync Foundation
+# Cloud Sync Foundation and History Integration
 
-This stage follows merged #52. It prepares storage contracts; it does **not**
+The original foundation stage below follows merged #52. It prepares storage contracts; it does **not**
 upload/download workouts, run a sync scheduler or show a Synced state. Email
 SMTP/domain setup is deliberately deferred. Account connection and Core remain
 independent of this foundation.
@@ -143,3 +143,55 @@ Performance advisors only report the three not-yet-used foundation indexes.
 Before release, configure independent off-platform database copies and test
 restoration. This was explicitly deferred by the user; no backup service is
 provisioned here. Existing local archive/export controls remain independent.
+
+## App integration after merged54
+
+The Account page now wires the protocol after explicit Enable/Resume. One auth
+client supplies RPC: the matching session is captured and its Authorization
+header fixed before fetch, with a15-second abort/deadline covering session lookup
+and transport. Live auth/epoch checks fence late local writes across switching,
+sign-out and recovery. No tokens enter sync metadata.
+
+`HistoryCoordinator` reuses SyncRepository intents/cursors and adds
+`cresum_history_sync_v1` for metadata-only claims, observed SHA-256 hashes/revisions,
+conflicts and pending request fingerprints. `cresum_history_sync_pause_v1` is
+independently writable even with a corrupt ledger. Both are excluded from file
+exports and retained across local reset, preventing known-account history from
+being reassigned and preventing immediate cloud repopulation after reset.
+
+Eligible local history is assigned to the enabled account before the first pull,
+so interrupted pulls cannot leave it available for another account to claim.
+Pull/merge occurs before pushing. Add distinct snapshots; replace/remove only
+an unchanged owned local base. Divergence/other-owner collisions remain visible
+conflicts and never report Synced. Persist provenance before Core additions,
+verify Core bytes under its write queue, persist observations, acknowledge
+matching intents and advance cursors last. Failed merges preserve unsaved local
+inputs; ambiguous committed bytes may refresh memory but never claim success.
+
+A request token is reused only for the same canonical normalized SHA-256 content
+and base revision. Timeout/restart pulls recognize already committed content;
+newer requests keep newer intents. Recovery quiesce invalidates synchronously,
+drains local/metadata work and does not wait on remote replies. Replacement,
+import and reset persist pause; export/archive operations only suspend temporarily.
+Resume starts a fresh generation/full pull. Local reset never deletes cloud data.
+
+Automatic triggers are launch/foreground/completed-history changes; transient
+errors get at most5 foreground retries at30s..5min, with manual retry available.
+No per-set sync, background service, active-session sync or provider sign-in is
+added. The UI scopes Synced to completed workouts linked to the current account.
+Conflict resolution UI remains a follow-up; both copies stay kept.
+
+### Protocol deployment verified
+
+The exact merged54 SQL is applied to cresum-dev; stored SQL hash
+`0a810afd20cf9d6d53b7414df8818862` matched the source. The connector initially
+recorded `20261015193101`; only that matching migration record was aligned to
+source version `20261015181021`, without rerunning SQL. Authenticated RPC execution
+is granted, anon publication denied, direct root INSERT/child UPDATE denied and
+completed history still empty. No fixture users/workouts were written remotely.
+
+Security advisors report INFO for intentionally policy-free private RLS tables:
+no direct client grants exist; only guarded private functions access them. The
+pre-existing platform event-trigger grant warnings described above remain; no
+public privileged function was added. Independent backups/restore drills, real
+SMTP, native builds/phones and multi-device acceptance remain release gates.

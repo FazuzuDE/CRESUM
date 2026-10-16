@@ -1,3 +1,4 @@
+import { useHistorySync } from '@/components/useHistorySync';
 import { useAccount } from '@/components/useAccount';
 import type { AccountSectionProps } from '@/components/AccountSection';
 import { useBackupArchive } from '@/components/useBackupArchive';
@@ -623,6 +624,7 @@ function AppContent({
   const visibleTemplates = data.templates.filter(
     (template) => !hiddenBuiltInIds.includes(template.id),
   );
+  const cloud = useHistorySync(account, store);
   const finish = async () => {
     if (!data.activeWorkout || busy) return;
     const completed = await store.finish();
@@ -639,7 +641,9 @@ function AppContent({
     if (resetInProgress.current || backupInProgress.current) return;
     runDataOperation(async (allowReloadAfterRecovery) => {
       backupInProgress.current = true;
+      let releaseCloud: (() => void) | undefined;
       try {
+        releaseCloud = await cloud.quiesce(Boolean(backup));
         // LocalDataGate hides writable screens; let already queued work settle.
         await programAcceptance.waitForPendingWrites();
         await localBackups.repository.waitForPendingWrites();
@@ -698,6 +702,7 @@ function AppContent({
         await shareBackupFile(await createLocalBackup(AsyncStorage));
         return 'Backup sharing finished. A copy is kept only if you chose a save destination.';
       } finally {
+        releaseCloud?.();
         backupInProgress.current = false;
       }
     }, !backup);
@@ -769,7 +774,9 @@ function AppContent({
     ++hiddenEpoch.current;
     setResetBusy(true);
     setResetError('');
+    let releaseCloud: (() => void) | undefined;
     try {
+      releaseCloud = await cloud.quiesce(true);
       await resetLocalData(AsyncStorage, async () => {
         await programAcceptance.waitForPendingWrites();
         await localBackups.repository.waitForPendingWrites();
@@ -815,6 +822,7 @@ function AppContent({
           : 'Local data could not be reset. Try again.',
       );
     } finally {
+      releaseCloud?.();
       resetInProgress.current = false;
       setResetBusy(false);
     }
@@ -830,7 +838,7 @@ function AppContent({
       <Confirmation
         visible={confirmReset}
         title="Reset CRESUM?"
-        message="All local CRESUM data on this device — workouts, history, templates, active workout, body-weight measurements, hidden-workout settings, personalization and onboarding data — will be permanently deleted. Saved backup files are kept for recovery; automatic backups will be switched off. This does not sign you out. This cannot be undone."
+        message="All local CRESUM data on this device — workouts, history, templates, active workout, body-weight measurements, hidden-workout settings, personalization and onboarding data — will be permanently deleted. Saved backup files and backup account links are kept; automatic backups will be switched off. Cloud history is not deleted; cloud backup will pause until you choose Resume. This does not sign you out. This cannot be undone."
         confirmLabel="Reset local data"
         cancelLabel="Keep data"
         destructive
@@ -1103,7 +1111,10 @@ function AppContent({
             }
           >
             <ProfileSettings
-              account={account}
+              account={{
+                ...account,
+                sync: account.historyRpc ? cloud.controls : undefined,
+              }}
               history={data.history}
               templates={visibleTemplates}
               busy={busy || hiddenBusy}

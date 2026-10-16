@@ -1,3 +1,5 @@
+import type { AuthRepository } from '@/lib/auth-repository';
+import { HistorySyncPanel, type HistorySyncControls } from './HistorySyncPanel';
 import { useRef, useState } from 'react';
 import { StyleSheet, Text, TextInput } from 'react-native';
 import { AppButton } from './AppButton';
@@ -7,6 +9,9 @@ import { colors, radius, spacing, typography } from '@/lib/theme';
 
 export type AccountSectionProps = {
   snapshot: AuthSnapshot;
+  historyRpc?: AuthRepository['historyRpc'];
+  isCurrentAccount?: (userId: string) => boolean;
+  sync?: HistorySyncControls;
   sendEmailOtp(email: string): Promise<void>;
   verifyEmailOtp(email: string, code: string): Promise<void>;
   signOut(): Promise<void>;
@@ -27,6 +32,7 @@ function AccountSectionContent({
   sendEmailOtp,
   verifyEmailOtp,
   signOut,
+  sync,
 }: AccountSectionProps) {
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
@@ -118,7 +124,11 @@ function AccountSectionContent({
           <Text style={s.copy}>
             Connected as {snapshot.identity?.email ?? 'CRESUM user'}
           </Text>
-          <Text style={s.copy}>Cloud workout backup is not enabled yet.</Text>
+          {sync ? (
+            <HistorySyncPanel {...sync} />
+          ) : (
+            <Text style={s.copy}>Cloud workout backup is not enabled yet.</Text>
+          )}
           <AppButton
             title="Sign Out"
             secondary

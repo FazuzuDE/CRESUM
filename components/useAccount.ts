@@ -28,6 +28,8 @@ export function useAccount(): AccountSectionProps {
   }, [store]);
   return {
     snapshot,
+    historyRpc: store.hasHistoryRpc() ? store.historyRpc : undefined,
+    isCurrentAccount: store.isCurrentAccount,
     sendEmailOtp: (email) => store.sendEmailOtp(email),
     verifyEmailOtp: (email, code) => store.verifyEmailOtp(email, code),
     signOut: () => store.signOut(),
