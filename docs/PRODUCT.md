@@ -464,3 +464,22 @@ merge; reset does not immediately refill History from cloud. Export/automatic
 archive creation only suspends/drains sync temporarily. Offline workout saves
 remain independent of cloud errors. SHA-256/UUID support uses lazy SDK-matched
 expo-crypto; native-build and real-device/mail acceptance remain required.
+
+### New workout identity — approved 2026-10-16
+
+New workouts started through the app receive a cryptographically random UUID v4
+on the device before their first local save. This works offline without an
+account. WorkoutStore supplies the existing SDK-matched expo-crypto generator
+to the pure engine's ID-factory seam; initial exercise/set snapshot IDs use the
+same factory, while catalog/library IDs retain their meaning.
+
+The workout ID remains unchanged through resume, completion, sync, export and
+import. Existing active/history IDs are never regenerated or migrated. The cloud
+continues to scope identity by `(user_id, workout_id)` and enforce owner access
+and revision/content checks. UUIDs reduce accidental collision risk; they are
+not authorization credentials or sequential workout numbers.
+
+Secure UUID generation loads lazily when starting a new workout, including
+without cloud opt-in. It requires the native crypto module in the device build,
+but no network. Restoring and finishing existing sessions do not generate IDs.
+If secure generation fails, do not create/save a weak-ID fallback workout.

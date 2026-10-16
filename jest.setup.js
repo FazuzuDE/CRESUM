@@ -1,4 +1,12 @@
 /* global jest */
+// Native crypto is unavailable in Jest. Use Node's real secure UUID generator
+// at this platform boundary instead of Expo's empty generated native mock.
+jest.mock('expo-crypto', () => ({
+  __esModule: true,
+  ...jest.requireActual('expo-crypto'),
+  randomUUID: () => jest.requireActual('node:crypto').randomUUID(),
+}));
+
 // Screen tests do not execute native pan gestures. The dedicated workout-list
 // suite replaces this with a controllable Swipeable test double.
 jest.mock('react-native-gesture-handler/ReanimatedSwipeable', () => ({
