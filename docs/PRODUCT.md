@@ -496,4 +496,5 @@ Workout/edit/server times are contextual; never choose a winner by time or inven
 missing historical edit times. Refresh a stale comparison before applying a
 choice. Preserve owner separation, active sessions and offline Core. See the
 approved conflict-resolution design. Implemented on the focused feature branch;
-native/device acceptance and post-merge database migration remain pending.
+native/device acceptance remains pending. After PR #57 merged, its exact database
+migration was applied and verified on cresum-dev on 2026-10-16.

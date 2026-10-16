@@ -864,3 +864,15 @@ metadata-only device intents recover timeout/ambiguous Core writes before normal
 sync. A new UUID is created once for Keep both; only the root identity changes.
 Receipt storage/retention and native acceptance remain release gates. No live
 database changes are included in branch implementation.
+
+### 2026-10-16 — Merged conflict protocol deployed to cresum-dev
+
+After the user merged PR #57 and resumed development, apply its exact SQL to the
+existing cresum-dev project. Verify predecessor/source hashes, owner/session and
+revision guards, authenticated-only execution and unchanged direct-write grants.
+Align only the connector-generated migration record with the committed canonical
+version after an exact name/hash match; do not rerun the migration. Probe with
+transactions that roll back and do not create fixture accounts/workouts or send
+email. Security-advisor findings match the prior baseline. Native/two-device/mail
+and disaster-recovery release gates remain unchanged; the source preview is not
+evidence that those gates passed.
