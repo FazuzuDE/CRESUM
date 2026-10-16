@@ -192,8 +192,8 @@ the compared revision and commits the choice, optional copy and private replay
 receipt atomically under the existing owner lock. Receipts include exact result
 snapshots so a timeout can replay the same authorized result even after another
 cloud edit. These private snapshots increase storage; retention/capacity remains
-a release gate. This migration is prepared and locally tested, not deployed by
-the feature branch; apply it after merge before enabling the new client.
+a release gate. After PR #57 merged, the exact migration was applied to
+cresum-dev on 2026-10-16; deployment evidence is recorded below.
 
 Optional metadata-only resolution intents in the history ledger persist choice,
 hashes, revision, stable operation/copy IDs and queue generation before RPC. The
@@ -217,3 +217,31 @@ no direct client grants exist; only guarded private functions access them. The
 pre-existing platform event-trigger grant warnings described above remain; no
 public privileged function was added. Independent backups/restore drills, real
 SMTP, native builds/phones and multi-device acceptance remain release gates.
+
+### Conflict-resolution deployment verified — 2026-10-16
+
+PR #57 merged into develop at `c3dc820cdb1cc2da14f21219077a725f11df3448`.
+The exact committed conflict-resolution SQL is applied to cresum-dev
+(`gmpitmpydhvrufjcptqr`) under canonical version `20261016111714`.
+Both predecessor migrations matched their committed SHA-256 hashes before
+deployment. The new stored SQL SHA-256 is
+`f4150a21b81097a7fcd55ec89e4c5fd354ce276ab523d8821fceb74381cb101e`,
+matching the merged source. The connector initially assigned `20261016144414`;
+only that exact name/hash-matching history record was aligned to the source
+version, without rerunning SQL. PostgREST schema-cache reload was requested.
+
+Verification covered both public invoker wrappers and guarded private functions:
+fixed `pg_catalog` search paths, authenticated execute granted, anonymous execute
+denied, and direct root INSERT/child UPDATE still denied. Rolled-back live probes
+verified missing-session rejection, anonymous execute denial, empty owner-scoped
+lookup and revision rejection for a nonexistent workout. No fixture account or
+workout was created. Root history, change-feed and receipt counts remained zero.
+The three disposable-PostgreSQL contract suites also passed before deployment.
+
+Post-deployment security advisors matched the pre-deployment baseline: two INFO
+notices for intentionally policy-free private RLS tables and the existing
+platform `rls_auto_enable` execute-grant warnings. No new security finding was
+introduced. Performance advisors reported only five unused-index INFO notices
+on the empty database. Real account/device sync, native lifecycle/accessibility,
+custom SMTP, receipt capacity/retention and independent restore drills remain
+separate acceptance work; database probes do not establish release readiness.

@@ -55,5 +55,11 @@ Interfaces: optional review actions on HistorySyncControls; AccountPage owns scr
 
 - [x] Full npm check, sequential offline iOS/Android JS exports, SQL contracts and actual coordinator/RPC/Postgres scenario.
 - [x] One whole-branch fresh reviewer; one Critical/Important fix pass RED→GREEN and full suite.
-- [ ] Publish focused PR into develop, verify both GitHub CI jobs, preserve merge control.
-- [ ] Report native/device/mail/SQL deployment acceptance separately; no false production-readiness claim.
+- [x] Publish focused PR into develop, verify both GitHub CI jobs, preserve merge control.
+- [x] Report native/device/mail/SQL deployment acceptance separately; no false production-readiness claim.
+
+Delivered as PR #57, merged by the user at `c3dc820`. Both GitHub CI jobs passed.
+The exact SQL was subsequently applied to cresum-dev and verified on 2026-10-16;
+see CLOUD_SYNC for source hash, canonical migration version and live-probe evidence.
+Native/device/mail acceptance remains pending. The review's nonblocking summary
+metrics omission remains a separately scoped improvement.
