@@ -42,6 +42,7 @@ jobs:
               case "$migration" in
                 *_cloud_sync_foundation.sql) cat supabase/tests/cloud-foundation.sql ;;
                 *_history_sync_protocol.sql) cat supabase/tests/history-sync.sql ;;
+                *_history_conflict_resolution.sql) cat supabase/tests/history-conflicts.sql ;;
               esac
             done
           } | docker exec -i "$POSTGRES_CONTAINER" psql -U postgres -d postgres --set ON_ERROR_STOP=on

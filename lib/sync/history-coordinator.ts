@@ -4,6 +4,7 @@ import {
   HistoryProtocolError,
   type HistoryRpc,
   type HistoryPage,
+  type ResolutionChoice,
 } from './history-rpc';
 import { encodeHistoryWorkout } from './history-mapper';
 import {
@@ -17,6 +18,11 @@ import { decideHistoryChange } from './history-reconcile';
 import { SyncRepository } from './repository';
 import { flushSync, type SyncStorage } from './storage';
 import type { SyncErrorKind, SyncSnapshot } from './model';
+import {
+  HistoryResolver,
+  type HistoryComparison,
+  type ResolutionApi,
+} from './history-resolver';
 export type HistorySyncSnapshot = {
   ownerId?: string | null;
   status:
@@ -29,7 +35,7 @@ export type HistorySyncSnapshot = {
     | 'error';
   kind: SyncErrorKind | null;
 };
-type Api = Pick<HistoryRpc, 'publish' | 'pull'>;
+type Api = Pick<HistoryRpc, 'publish' | 'pull'> & ResolutionApi;
 type Context = { userId: string; epoch: number; api: Api };
 export class HistoryCoordinator {
   private readonly ledger: HistoryLedger;
@@ -42,6 +48,7 @@ export class HistoryCoordinator {
   private running: { epoch: number; promise: Promise<void> } | null = null;
   private rerun = false;
   private applying = false;
+  private resolutionRun: { epoch: number } | null = null;
   private snapshot: HistorySyncSnapshot = { status: 'unavailable', kind: null };
   private listeners = new Set<() => void>();
   constructor(
@@ -128,6 +135,7 @@ export class HistoryCoordinator {
       await this.ledger.change(
         (d) => {
           historyAccount(d, c.userId).enabled = true;
+          historyAccount(d, c.userId).resolutions = [];
         },
         () => this.current(c),
       );
@@ -146,12 +154,17 @@ export class HistoryCoordinator {
   }
   changed(): void {
     if (this.applying) return;
-    if (this.running?.epoch === this.epoch) this.rerun = true;
+    if (
+      this.running?.epoch === this.epoch ||
+      this.resolutionRun?.epoch === this.epoch
+    )
+      this.rerun = true;
     else void this.request();
   }
   request(manual = false): Promise<void> {
     const c = this.context();
     if (!c || !this.current(c)) return Promise.resolve();
+    if (this.resolutionRun?.epoch === c.epoch) return Promise.resolve();
     if (this.running?.epoch === c.epoch) return this.running.promise;
     const promise = this.cycle(c, manual)
       .catch((e) => {
@@ -187,6 +200,8 @@ export class HistoryCoordinator {
       this.publish('pending');
       return;
     }
+    await this.resolver(c).recover();
+    if (!this.current(c)) return;
     // Enroll local history before any network work. A failed pull must not leave
     // this account's unsent workouts available for a later account to claim.
     if (
@@ -244,6 +259,80 @@ export class HistoryCoordinator {
       return;
     }
     this.publish(pending.intents.length || this.rerun ? 'pending' : 'synced');
+  }
+  private resolver(c: Context): HistoryResolver {
+    return new HistoryResolver({
+      userId: c.userId,
+      api: c.api,
+      ledger: this.ledger,
+      queue: this.queue,
+      store: this.options.store,
+      hash: (w) => this.hash(w),
+      makeId: this.options.makeId,
+      current: () => this.current(c),
+      apply: async (expected, history, allowed) => {
+        this.applying = true;
+        try {
+          return await this.options.store.applyCloudHistory(
+            expected,
+            history,
+            allowed,
+          );
+        } finally {
+          this.applying = false;
+        }
+      },
+    });
+  }
+  async conflicts() {
+    const c = this.context();
+    if (!c || !this.current(c)) throw new HistoryProtocolError('auth');
+    return this.resolver(c).conflicts();
+  }
+  private async exclusive<T>(
+    work: (r: HistoryResolver) => Promise<T>,
+    success: 'pending' | 'error',
+  ): Promise<T> {
+    const c = this.context();
+    if (!c || !this.current(c)) throw new HistoryProtocolError('auth');
+    if (this.resolutionRun?.epoch === c.epoch)
+      throw new HistoryProtocolError('retryable');
+    c.epoch = ++this.epoch;
+    const run = { epoch: c.epoch };
+    this.resolutionRun = run;
+    this.publish('syncing');
+    try {
+      await flushSync(this.options.storage);
+      await this.options.store.waitForPendingWrites();
+      if (!this.current(c)) throw new HistoryProtocolError('auth');
+      const value = await work(this.resolver(c));
+      if (this.current(c))
+        this.publish(success, success === 'error' ? 'conflict' : null);
+      return value;
+    } catch (e) {
+      const error =
+        e instanceof HistoryProtocolError
+          ? e
+          : new HistoryProtocolError('retryable');
+      if (this.current(c)) this.publish('error', error.kind);
+      throw error;
+    } finally {
+      if (this.resolutionRun === run) this.resolutionRun = null;
+      if (this.current(c) && this.rerun) {
+        this.rerun = false;
+        void this.request();
+      }
+    }
+  }
+  compare(id: string): Promise<HistoryComparison> {
+    return this.exclusive((r) => r.compare(id), 'error');
+  }
+  async resolve(
+    view: HistoryComparison,
+    choice: ResolutionChoice,
+  ): Promise<void> {
+    await this.exclusive((r) => r.resolve(view, choice), 'pending');
+    await this.request();
   }
   private async applyPage(
     c: Context,

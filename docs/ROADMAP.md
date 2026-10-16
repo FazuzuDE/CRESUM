@@ -237,3 +237,13 @@ all saved IDs, Core v1 and file-backup compatibility. Keep this as a focused PR
 before the separately proposed conflict-resolution UI. Device/native-build QA
 remains required; this step adds neither automatic timestamp-based resolution
 nor sequential user-visible workout numbering.
+
+### History conflict resolution after #56
+
+PR #56 merged at `505a0692e0f444f400db8e383e3ab26246304ec2`. The proposed
+conflict resolver now builds on secure new-workout UUIDs and retains all legacy
+IDs. See `superpowers/specs/2026-10-16-history-conflict-resolution-design.md`.
+The simplified two-choice comparison UX is approved, with Decide later and
+secondary Keep both. Implementation follows the history-conflicts plan. Time is
+contextual information, not automatic resolution authority, and unknown historical
+edit times must remain unknown. Native/device acceptance remains a separate gate.

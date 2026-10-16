@@ -4,6 +4,8 @@ import { BrandHeader } from './BrandHeader';
 import { AppButton } from './AppButton';
 import { AccountSection, type AccountSectionProps } from './AccountSection';
 import { colors, spacing, typography } from '@/lib/theme';
+import { useState } from 'react';
+import { HistoryConflictReview } from './HistoryConflictReview';
 
 export function AccountPage({
   account,
@@ -12,19 +14,63 @@ export function AccountPage({
   account: AccountSectionProps;
   onClose: () => void;
 }) {
+  const owner =
+    account.snapshot.status === 'signed_in' &&
+    account.snapshot.busy !== 'sign_out'
+      ? (account.snapshot.identity?.id ?? null)
+      : null;
+  return (
+    <AccountPageContent
+      key={owner ?? 'signed-out'}
+      account={account}
+      onClose={onClose}
+      owner={owner}
+    />
+  );
+}
+function AccountPageContent({
+  account,
+  onClose,
+  owner,
+}: {
+  account: AccountSectionProps;
+  onClose: () => void;
+  owner: string | null;
+}) {
+  const [reviewOwner, setReviewOwner] = useState<string | null>(null);
+  const reviewing = !!owner && reviewOwner === owner && !!account.sync?.review;
   return (
     <AppScrollView contentContainerStyle={s.content}>
       <BrandHeader />
       <AppButton
-        title="Back to Profile"
+        title={reviewing ? 'Back to Account & Sync' : 'Back to Profile'}
         secondary
         presentation="text"
-        onPress={onClose}
+        onPress={reviewing ? () => setReviewOwner(null) : onClose}
       />
       <Text style={s.title} accessibilityRole="header">
         {account.sync ? 'Account & Sync' : 'Account'}
       </Text>
-      <AccountSection {...account} />
+      {reviewing && account.sync?.review ? (
+        <HistoryConflictReview
+          key={owner}
+          actions={account.sync.review}
+          onClose={() => setReviewOwner(null)}
+          onSignOut={account.signOut}
+        />
+      ) : (
+        <AccountSection
+          {...account}
+          sync={
+            account.sync
+              ? {
+                  ...account.sync,
+                  onReview: () => setReviewOwner(owner),
+                }
+              : undefined
+          }
+        />
+      )}
     </AppScrollView>
   );
 }

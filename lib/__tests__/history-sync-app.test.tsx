@@ -7,7 +7,15 @@ import { STATE_KEY } from '../workout-repository';
 import { Dock } from '../../components/Dock';
 import { AppButton } from '../../components/AppButton';
 import { ProfileSettings } from '../../components/ProfileSettings';
-import { encodeHistoryWorkout } from '../sync/history-mapper';
+import {
+  encodeHistoryWorkout,
+  decodeHistoryWorkout,
+} from '../sync/history-mapper';
+import {
+  ResolutionServer,
+  savedWorkout,
+} from './helpers/history-resolution-fixture';
+import type { HistoryRemote, ResolutionChoice } from '../sync/history-rpc';
 import { HISTORY_PAUSE_KEY } from '../sync/history-ledger';
 import { createLocalBackup, parseLocalBackup } from '../local-backup';
 import type { WorkoutSession } from '../workout-model';
@@ -134,6 +142,183 @@ function account() {
     },
   };
 }
+function conflictAccount() {
+  const a = account();
+  const server = new ResolutionServer();
+  server.seed('A', savedWorkout('local', '10'));
+  const wire = (row: HistoryRemote | null) =>
+    row
+      ? {
+          ...row,
+          workout: row.workout ? encodeHistoryWorkout(row.workout) : null,
+        }
+      : null;
+  a.repository.historyRpc = async (user, name, args) => {
+    const api = server.api(user);
+    if (name === 'pull_completed_workouts') {
+      const page = await api.pull(
+        args.p_after as string,
+        args.p_limit as number,
+      );
+      return {
+        data: {
+          ...page,
+          changes: page.changes.map((row) => ({
+            ...wire(row),
+            sequence: row.sequence,
+          })),
+        },
+        error: null,
+      };
+    }
+    if (name === 'get_completed_workout')
+      return {
+        data: wire(await api.get(args.p_workout_id as string)),
+        error: null,
+      };
+    if (name === 'resolve_completed_workout') {
+      const result = await api.resolve({
+        workoutId: args.p_workout_id as string,
+        mutationId: args.p_mutation_id as string,
+        deviceId: args.p_device_id as string,
+        expectedRevision: args.p_expected_revision as number,
+        choice: args.p_choice as ResolutionChoice,
+        copyId: args.p_copy_id as string | null,
+        workout:
+          args.p_workout === null ? null : decodeHistoryWorkout(args.p_workout),
+      });
+      return {
+        data: {
+          kind: 'history_resolution',
+          original: wire(result.original),
+          copy: wire(result.copy),
+        },
+        error: null,
+      };
+    }
+    throw new Error('Unexpected RPC: ' + name);
+  };
+  return { ...a, server };
+}
+it.each(['local', 'cloud', 'both'] as const)(
+  'resolves %s through the real App, hook, RPC mapper and persisted Core',
+  async (selection) => {
+    const a = conflictAccount();
+    await AsyncStorage.setItem(
+      STATE_KEY,
+      JSON.stringify({
+        schemaVersion: 1,
+        history: [savedWorkout()],
+        activeWorkout: null,
+        templates: [],
+      }),
+    );
+    let view!: ReturnType<typeof create>;
+    const press = async (title: string) =>
+      act(async () => {
+        expect(button(view, title)).toBeDefined();
+        button(view, title)!.props.onPress();
+        await tick();
+        await tick();
+      });
+    try {
+      await act(async () => {
+        view = create(<App />);
+        await tick();
+      });
+      act(() => view.root.findByType(Dock).props.onChange('profile'));
+      await press('Account');
+      await press('Enable cloud backup');
+      await press('Review conflicting workouts');
+      await press('Upper Body');
+      if (selection === 'both') {
+        await press('More options');
+        await press('Save both as separate workouts');
+      } else
+        await act(async () =>
+          view.root
+            .findAllByType(AppButton)
+            .find(
+              (node: { props: { accessibilityLabel: string } }) =>
+                node.props.accessibilityLabel ===
+                `Keep ${selection === 'local' ? 'device' : 'cloud'} version`,
+            )!
+            .props.onPress(),
+        );
+      await press(
+        selection === 'both'
+          ? 'Save both workouts'
+          : selection === 'local'
+            ? 'Replace cloud version'
+            : 'Replace device version',
+      );
+      const history = JSON.parse((await AsyncStorage.getItem(STATE_KEY))!)
+        .history as WorkoutSession[];
+      expect(history).toHaveLength(selection === 'both' ? 2 : 1);
+      expect(
+        history.find((w) => w.id === 'local')!.exercises[0].sets[0].reps,
+      ).toBe(selection === 'local' ? '8' : '10');
+      expect(a.server.resolutionCalls).toHaveLength(1);
+      expect(JSON.stringify(view.toJSON())).toContain('No conflicts to review');
+    } finally {
+      if (view) await act(async () => view.unmount());
+    }
+  },
+);
+it('keeps Sign Out available during a held resolution and fences its late App reply', async () => {
+  const a = conflictAccount();
+  await AsyncStorage.setItem(
+    STATE_KEY,
+    JSON.stringify({
+      schemaVersion: 1,
+      history: [savedWorkout()],
+      activeWorkout: null,
+      templates: [],
+    }),
+  );
+  let view!: ReturnType<typeof create>;
+  let release!: () => void;
+  const press = async (title: string) =>
+    act(async () => {
+      button(view, title)!.props.onPress();
+      await tick();
+      await tick();
+    });
+  try {
+    await act(async () => {
+      view = create(<App />);
+      await tick();
+    });
+    act(() => view.root.findByType(Dock).props.onChange('profile'));
+    await press('Account');
+    await press('Enable cloud backup');
+    await press('Review conflicting workouts');
+    await press('Upper Body');
+    await press('More options');
+    await press('Save both as separate workouts');
+    a.server.hold = new Promise<void>((r) => {
+      release = r;
+    });
+    await press('Save both workouts');
+    expect(a.server.resolutionCalls).toHaveLength(1);
+    expect(button(view, 'Sign Out')!.props.disabled).toBe(false);
+    await press('Sign Out');
+    expect(JSON.stringify(view.toJSON())).not.toContain('60 kg × 8');
+    release();
+    await act(async () => {
+      await tick();
+      await tick();
+    });
+    const history = JSON.parse((await AsyncStorage.getItem(STATE_KEY))!)
+      .history as WorkoutSession[];
+    expect(history).toHaveLength(1);
+    expect(history[0].exercises[0].sets[0].reps).toBe('8');
+    expect(JSON.stringify(view.toJSON())).toContain('Send code');
+  } finally {
+    release?.();
+    if (view) await act(async () => view.unmount());
+  }
+});
 it('enables actual Account & Sync, merges history and keeps A history out of B uploads', async () => {
   const a = account();
   let view!: ReturnType<typeof create>;

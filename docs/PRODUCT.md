@@ -483,3 +483,17 @@ Secure UUID generation loads lazily when starting a new workout, including
 without cloud opt-in. It requires the native crypto module in the device build,
 but no network. Restoring and finishing existing sessions do not generate IDs.
 If secure generation fails, do not create/save a weak-ID fallback workout.
+
+### History conflict resolution — UX approved 2026-10-16
+
+Keep normal merges automatic: combine distinct workout IDs, deduplicate identical
+content, and reconcile a single changed side against its known common base.
+Only independently divergent versions require a user decision. Show the actual
+exercise/set differences and two Keep this version actions, plus Decide later.
+Put Keep both as separate workouts under More options and warn that both count
+in Progress. No choice is preselected. Confirm replacement/deletion explicitly.
+Workout/edit/server times are contextual; never choose a winner by time or invent
+missing historical edit times. Refresh a stale comparison before applying a
+choice. Preserve owner separation, active sessions and offline Core. See the
+approved conflict-resolution design. Implemented on the focused feature branch;
+native/device acceptance and post-merge database migration remain pending.

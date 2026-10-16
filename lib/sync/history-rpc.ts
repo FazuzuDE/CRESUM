@@ -23,6 +23,21 @@ export type HistoryPage = {
   hasMore: boolean;
   changes: HistoryChange[];
 };
+export type HistoryRemote = Omit<HistoryChange, 'sequence'>;
+export type ResolutionChoice = 'local' | 'cloud' | 'both';
+export type HistoryResolutionRequest = {
+  workoutId: string;
+  mutationId: string;
+  deviceId: string;
+  expectedRevision: number;
+  choice: ResolutionChoice;
+  copyId: string | null;
+  workout: WorkoutSession | null;
+};
+export type HistoryResolutionResult = {
+  original: HistoryRemote;
+  copy: HistoryRemote | null;
+};
 const invalid = (): never => {
   throw new HistoryProtocolError('invalid');
 };
@@ -34,6 +49,32 @@ const cursor = (v: unknown): v is string =>
   typeof v === 'string' &&
   /^(0|[1-9][0-9]*)$/.test(v) &&
   compare(v, '9223372036854775807') <= 0;
+function decodeRemote(value: unknown, id: string): HistoryRemote {
+  if (
+    !object(value) ||
+    value.workoutId !== id ||
+    !positiveInteger(value.revision) ||
+    (value.deletedAt !== null &&
+      (typeof value.deletedAt !== 'string' ||
+        !Number.isFinite(Date.parse(value.deletedAt))))
+  )
+    return invalid();
+  let workout: WorkoutSession | null = null;
+  if (value.deletedAt === null) {
+    try {
+      workout = decodeHistoryWorkout(value.workout);
+    } catch {
+      return invalid();
+    }
+    if (workout.id !== id) return invalid();
+  } else if (value.workout !== null) return invalid();
+  return {
+    workoutId: id,
+    revision: value.revision,
+    deletedAt: value.deletedAt as string | null,
+    workout,
+  };
+}
 function category(error: unknown): SyncErrorKind {
   const e = object(error) ? error : {};
   if (
@@ -62,6 +103,63 @@ export class HistoryRpc {
       if (e instanceof HistoryProtocolError) throw e;
       throw new HistoryProtocolError(category(e));
     }
+  }
+  async get(workoutId: string): Promise<HistoryRemote | null> {
+    if (typeof workoutId !== 'string') return invalid();
+    const value = await this.call('get_completed_workout', {
+      p_workout_id: workoutId,
+    });
+    return value === null ? null : decodeRemote(value, workoutId);
+  }
+  async resolve(
+    input: HistoryResolutionRequest,
+  ): Promise<HistoryResolutionResult> {
+    if (
+      typeof input.workoutId !== 'string' ||
+      !identifier(input.mutationId) ||
+      !identifier(input.deviceId) ||
+      !positiveInteger(input.expectedRevision) ||
+      !['local', 'cloud', 'both'].includes(input.choice) ||
+      (input.choice === 'both'
+        ? !identifier(input.copyId) || input.copyId === input.workoutId
+        : input.copyId !== null) ||
+      (input.choice === 'cloud'
+        ? input.workout !== null
+        : input.workout === null)
+    )
+      return invalid();
+    let payload = null;
+    if (input.workout !== null) {
+      try {
+        payload = encodeHistoryWorkout(input.workout);
+      } catch {
+        return invalid();
+      }
+      if (payload.workout_id !== input.workoutId) return invalid();
+    }
+    const value = await this.call('resolve_completed_workout', {
+      p_workout_id: input.workoutId,
+      p_mutation_id: input.mutationId,
+      p_device_id: input.deviceId,
+      p_expected_revision: input.expectedRevision,
+      p_choice: input.choice,
+      p_copy_id: input.copyId,
+      p_workout: payload,
+    });
+    if (!object(value) || value.kind !== 'history_resolution') return invalid();
+    const original = decodeRemote(value.original, input.workoutId);
+    if (
+      original.revision !==
+        input.expectedRevision + (input.choice === 'local' ? 1 : 0) ||
+      (input.choice === 'local' && original.workout === null)
+    )
+      return invalid();
+    let copy: HistoryRemote | null = null;
+    if (input.choice === 'both') {
+      copy = decodeRemote(value.copy, input.copyId!);
+      if (copy.revision !== 1 || copy.workout === null) return invalid();
+    } else if (value.copy !== null) return invalid();
+    return { original, copy };
   }
   async publish(input: {
     workoutId: string;

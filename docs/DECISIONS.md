@@ -847,3 +847,20 @@ failure leaves Core unchanged rather than silently using the weak generator.
 Native crypto is now also used on new offline workout starts; new device builds
 must include the already-declared module. Conflict-resolution design remains a
 separate proposal, not an approved implementation in this change.
+
+### 2026-10-16 — Simplified conflict-resolution UX approved
+
+The user approved automatic ordinary merges and an explicit comparison only for
+genuine divergence, with per-version choice and Decide later. Keep both moves
+under More options with a duplicate-statistics warning. Time remains context,
+not automatic overwrite authority. Confirm replacement, refresh stale choices,
+and preserve account/active/recovery boundaries. This supersedes the earlier
+proposal to emphasize Keep both as the main action. Implementation proceeds
+through the focused design/plan and PR workflow, with native/device QA separate.
+
+Implementation uses one atomic owner-scoped server resolution with exact private
+replay snapshots, replacing the proposed multi-publication client saga. Stable
+metadata-only device intents recover timeout/ambiguous Core writes before normal
+sync. A new UUID is created once for Keep both; only the root identity changes.
+Receipt storage/retention and native acceptance remain release gates. No live
+database changes are included in branch implementation.
