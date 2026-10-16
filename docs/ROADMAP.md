@@ -213,3 +213,18 @@ must leave offline Core usable. Device-local archive files do not protect
 against loss of the device; preserve file export to a separate destination.
 The user explicitly postponed this infrastructure work until release. No
 independent database backup or restore drill is configured by the protocol PR.
+
+### History Backup + First Sync — integration after merged54
+
+PR54 merged at `84e7fe59bb03337084e38c8380c058f317c0af32`. Its exact
+protocol migration is now applied to cresum-dev with canonical source version
+`20261015181021`; public RPC grants and closed direct writes are verified.
+No fixture users or workouts were sent. Implement Account & Sync enable/resume,
+manual/foreground/history triggers, per-account provenance, durable requests,
+verified Core merges and recovery pause/drain on the new focused branch.
+
+Release gates remain real custom-SMTP OTP and physical-device/native-build,
+multi-device/offline acceptance, conflict-resolution UX follow-up, private
+receipt/feed capacity/retention and independent off-platform database recovery.
+The user deferred domain/mail and independent backups. Do not treat automated
+checks or a synced empty account as proof of production readiness.

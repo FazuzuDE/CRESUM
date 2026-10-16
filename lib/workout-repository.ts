@@ -290,6 +290,32 @@ export class WorkoutRepository {
     return write;
   }
 
+  saveVerified(
+    state: WorkoutState,
+  ): Promise<{ saved: boolean; data: WorkoutState | null }> {
+    const payload = JSON.stringify(state);
+    const write = this.pending
+      .catch(() => {})
+      .then(async () => {
+        try {
+          await this.storage.setItem(STATE_KEY, payload);
+          if ((await this.storage.getItem(STATE_KEY)) !== payload)
+            throw Error('Readback mismatch');
+          return { saved: true, data: state };
+        } catch {
+          // Recovery reads remain inside the write queue; reset must drain them too.
+          try {
+            const raw = await this.storage.getItem(STATE_KEY);
+            return { saved: false, data: raw === payload ? state : null };
+          } catch {
+            return { saved: false, data: null };
+          }
+        }
+      });
+    this.pending = write.then(() => {});
+    return write;
+  }
+
   async waitForWrites(): Promise<void> {
     // A failed write is still settled; reset intentionally removes local data.
     await this.pending.catch(() => undefined);

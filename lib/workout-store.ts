@@ -236,6 +236,36 @@ export class WorkoutStore {
   waitForPendingWrites(): Promise<void> {
     return this.repository.waitForWrites();
   }
+  async applyCloudHistory(
+    expected: readonly WorkoutSession[],
+    history: WorkoutSession[],
+    allowed: () => boolean,
+  ): Promise<boolean> {
+    const { data, ready, busy, error } = this.snapshot;
+    if (
+      !allowed() ||
+      !ready ||
+      busy ||
+      error ||
+      data.history !== expected ||
+      (data.activeWorkout &&
+        history.some((w) => w.id === data.activeWorkout!.id))
+    )
+      return false;
+    ++this.revision;
+    this.publish({ busy: true });
+    try {
+      const result = await this.repository.saveVerified({ ...data, history });
+      if (result.data)
+        this.publish({
+          data: result.data,
+          ...(result.saved ? { error: this.finishValidationError } : {}),
+        });
+      return result.saved;
+    } finally {
+      this.publish({ busy: false });
+    }
+  }
   resetAfterLocalDataRemoval() {
     ++this.revision;
     this.finishValidationError = '';

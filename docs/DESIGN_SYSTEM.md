@@ -632,3 +632,23 @@ History import shows the chosen filename/date, validation status and three factu
 Preserve the approved compact Profile layout and Backup & restore row. Add a separate **Account** row with person icon, chevron and factual **Optional email sign-in / Account connected** description. It opens a dedicated AppScrollView page with centered BrandHeader, Back to Profile, large Account title and the existing white AccountSection form. Reuse theme tokens and shared buttons; maintain ≥44 pt targets, wrapping, keyboard/scrolling and accessible Email address / Six-digit email code labels.
 
 Sending, code entry, resend, wrong/expired code, rate limit, sign-out failure and missing configuration have truthful states. Apple/Google remain visibly disabled with Coming later text. Connection does not show Synced, Sync Now or cloud success. Reset confirmation states that it does not sign out; account and local data actions stay separate. Physical-phone keyboard, VoiceOver and Dynamic Type review remains required.
+
+### Account & Sync — history integration 2026-10-15
+
+Keep the compact Profile Account row and existing premium Account card. The
+signed-in page title becomes **Account & Sync**. Present a readable live status
+with explanation and one primary **Enable cloud backup / Resume cloud backup /
+Sync Now** action. Use off, paused, pending, syncing, synced and couldn't-sync
+copy; do not claim Offline without a reliable network signal. Keep Sign Out
+available during network sync. No queue counts, cursors or hashes in the UI.
+
+Explain that only completed workouts linked to this account are backed up;
+known other-account workouts stay separate, and active workouts/settings stay
+local. Errors reassure local availability and distinguish session, conflicting
+history, invalid data and connection failures. Reuse existing text, spacing and
+button tokens, wrapping, live status announcements and >=44pt targets.
+
+Reset copy says files/account links are kept, cloud history is not deleted and
+cloud backup pauses until explicit Resume. Import/restore has the same paused
+state. Phone keyboard, VoiceOver, Dynamic Type and native lifecycle acceptance
+remain required; JS export is not a device build.

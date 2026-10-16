@@ -433,3 +433,34 @@ must preserve local history, track ownership on account switching, and drain
 writers around import/restore/reset before enabling upload or advancing cursors.
 Independent off-platform database backups and tested restoration are a release
 prerequisite, explicitly deferred by the user until that stage.
+
+### History Backup + First Sync — app integration 2026-10-15
+
+After merged54, Account & Sync offers explicit **Enable cloud backup** before
+adding this device's unassigned completed history to that account. Then launch,
+foreground, completed-history changes and **Sync Now** run pull/merge/push.
+Transient retries run up to five times while foregrounded with increasing
+30s..5min delays; there is no realtime or OS background-job promise. Account
+connection alone does not imply a successful cloud copy. Synced covers completed
+history linked to this account, not active sessions, routines or settings.
+
+Merge distinct workouts without replacing local History. Apply remote edits or
+tombstones only against an unchanged known local base. Same-ID divergence,
+other-account ownership or active-ID collision preserves local data and prevents
+false Synced. Conflicts remain explicit until safely resolved; no destructive
+last-write-wins or in-app conflict resolver is introduced. Both local/cloud
+copies remain kept; users can export local history independently.
+
+Sign Out retains local History. A device-local metadata-only provenance ledger
+keeps known account-A workouts out of account-B uploads. It stores owner IDs,
+entity IDs, hashes, revisions and request fingerprints, not tokens or payloads.
+It and a durable pause marker remain outside file backups and survive local reset
+alongside the already-retained auth/device identity. Reset removes workout data
+and queued intents, not cloud history or backup-account links.
+
+Import/full restore/reset pause cloud before changing data, fence old replies
+and drain local writes. **Resume cloud backup** explicitly performs a fresh full
+merge; reset does not immediately refill History from cloud. Export/automatic
+archive creation only suspends/drains sync temporarily. Offline workout saves
+remain independent of cloud errors. SHA-256/UUID support uses lazy SDK-matched
+expo-crypto; native-build and real-device/mail acceptance remain required.

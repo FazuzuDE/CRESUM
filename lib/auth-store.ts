@@ -1,3 +1,4 @@
+import { HistoryProtocolError } from './sync/history-rpc';
 import type { AuthIdentity, AuthRepository } from './auth-repository';
 
 export type AuthSnapshot = {
@@ -55,6 +56,22 @@ export class AuthStore {
       busy: null,
     };
   }
+
+  hasHistoryRpc = (): boolean => !!this.repository?.historyRpc;
+  isCurrentAccount = (userId: string): boolean =>
+    !this.disposed &&
+    this.snapshot.status === 'signed_in' &&
+    this.snapshot.identity?.id === userId &&
+    this.snapshot.busy !== 'sign_out';
+  historyRpc = async (
+    userId: string,
+    name: string,
+    args: Record<string, unknown>,
+  ) => {
+    if (!this.isCurrentAccount(userId) || !this.repository?.historyRpc)
+      throw new HistoryProtocolError('auth');
+    return this.repository.historyRpc(userId, name, args);
+  };
 
   getSnapshot = (): AuthSnapshot => this.snapshot;
 

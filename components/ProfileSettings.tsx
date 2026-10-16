@@ -279,7 +279,9 @@ export function ProfileSettings({
         <Text style={s.sectionTitle} accessibilityRole="header">
           Local data
         </Text>
-        <Text style={s.sub}>Remove all CRESUM data saved on this device.</Text>
+        <Text style={s.sub}>
+          Remove workouts and personal settings saved on this device.
+        </Text>
         {onResetLocalData ? (
           <AppButton
             title="Reset local data"

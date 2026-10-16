@@ -817,3 +817,21 @@ The user explicitly deferred independent backup infrastructure until release;
 record off-platform database copies and a verified restore drill as a release
 gate, retaining offline Core and file export. Status: protocol prepared —
 pending Git integration; app sync and real email remain inactive/unaccepted.
+
+## 2026-10-15 — Activate completed-history sync after merged54
+
+User confirmed54 merged; verified `84e7fe59bb03337084e38c8380c058f317c0af32`.
+Continue the approved History integration in Profile Account & Sync. Explicit
+Enable assigns unowned history to the selected account; durable account claims
+keep known other-account history separate. Pull first, preserve local divergence,
+use stable request fingerprints/tokens, then verify Core writes before advancing
+cursors. Bind every SDK request to the captured user's token, with a15s deadline.
+Use lazy SDK-matched expo-crypto SHA-256/UUID, preserving offline Core.
+
+Import/restore/reset persist a cloud pause and drain writes without waiting on
+network replies. Resume does a full reconciliation. Reset retains metadata-only
+account links and pause/auth/device identity; file export excludes them. Temporary
+archive/export operations only suspend. The existing protocol is deployed to dev,
+with its generated timestamp reconciled by exact SQL hash to the committed
+version. No fixture users or real email was created/sent. Status: implementation
+on focused branch, pending final checks/review/Git integration and external QA.

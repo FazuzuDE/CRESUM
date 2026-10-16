@@ -1,3 +1,4 @@
+import { HistoryProtocolError } from './sync/history-rpc';
 import 'react-native-url-polyfill/auto';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createClient, type User } from '@supabase/supabase-js';
@@ -49,6 +50,45 @@ export function createSupabaseAuthRepository(
     lastAppState === null ||
     (typeof lastAppState === 'string' && lastAppState !== 'active');
   return {
+    async historyRpc(userId, name, args) {
+      const controller = new AbortController();
+      let deadline: ReturnType<typeof setTimeout> | undefined;
+      const timeout = new Promise<never>((_, reject) => {
+        deadline = setTimeout(() => {
+          controller.abort();
+          reject(new HistoryProtocolError('retryable'));
+        }, 15000);
+      });
+      const work = async () => {
+        if (disposed) throw new HistoryProtocolError('auth');
+        const { data, error } = await supabase.auth.getSession();
+        if (controller.signal.aborted)
+          throw new HistoryProtocolError('retryable');
+        if (
+          disposed ||
+          error ||
+          data.session?.user.id !== userId ||
+          !data.session.access_token
+        )
+          throw new HistoryProtocolError('auth');
+        // Capture the matching session now; fetchWithAuth must not substitute a newer account.
+        const result = await supabase
+          .rpc(name, args)
+          .setHeader('Authorization', `Bearer ${data.session.access_token}`)
+          .abortSignal(controller.signal);
+        return {
+          data: result.data,
+          error: result.error
+            ? { ...result.error, status: result.status }
+            : null,
+        };
+      };
+      try {
+        return await Promise.race([work(), timeout]);
+      } finally {
+        if (deadline) clearTimeout(deadline);
+      }
+    },
     async getIdentity() {
       const { data, error } = await supabase.auth.getSession();
       if (error) throw error;

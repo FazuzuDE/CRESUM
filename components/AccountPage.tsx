@@ -22,7 +22,7 @@ export function AccountPage({
         onPress={onClose}
       />
       <Text style={s.title} accessibilityRole="header">
-        Account
+        {account.sync ? 'Account & Sync' : 'Account'}
       </Text>
       <AccountSection {...account} />
     </AppScrollView>
