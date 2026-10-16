@@ -232,3 +232,84 @@ it('declares a discoverable JavaScript Edge entrypoint with gateway JWT verifica
   expect(entrypoint).not.toBeNull();
   expect(fs.existsSync(path.join(root, entrypoint![1]))).toBe(true);
 });
+
+it.each([
+  ['auth-denied', 401],
+  ['auth-unavailable', 503],
+  ['auth-throw', 503],
+  ['admin-error', 502],
+  ['admin-throw', 502],
+  ['anonymous-user', 401],
+] as const)(
+  'keeps the deployed SDK boundary fail-closed for %s',
+  async (scenario, status) => {
+    const tokens: string[] = [],
+      attempts: [string, boolean][] = [];
+    let handler!: (request: Request) => Promise<Response>;
+    const createClient = () => ({
+      auth: {
+        getUser: async (token: string) => {
+          tokens.push(token);
+          if (scenario === 'auth-throw')
+            throw new Error('private upstream detail');
+          return {
+            data: {
+              user: { id: A, is_anonymous: scenario === 'anonymous-user' },
+            },
+            error:
+              scenario === 'auth-denied'
+                ? { status: 401 }
+                : scenario === 'auth-unavailable'
+                  ? { status: 500 }
+                  : null,
+          };
+        },
+        admin: {
+          deleteUser: async (id: string, soft: boolean) => {
+            attempts.push([id, soft]);
+            if (scenario === 'admin-throw')
+              throw new Error('private upstream detail');
+            return {
+              error:
+                scenario === 'admin-error'
+                  ? { status: 500, message: 'private upstream detail' }
+                  : null,
+            };
+          },
+        },
+      },
+    });
+    jest.doMock('npm:@supabase/supabase-js@2.117.2', () => ({ createClient }), {
+      virtual: true,
+    });
+    const runtime = globalThis as unknown as { Deno?: unknown };
+    runtime.Deno = {
+      env: {
+        get: (name: string) =>
+          name === 'SUPABASE_URL'
+            ? 'https://project.test'
+            : 'server-only-secret',
+      },
+      serve: (fn: typeof handler) => {
+        handler = fn;
+      },
+    };
+    try {
+      jest.isolateModules(() => {
+        // eslint-disable-next-line @typescript-eslint/no-require-imports -- Exercise the real Edge entrypoint with SDK failure replies.
+        require('../../supabase/functions/delete-account/index.js');
+      });
+      const response = await handler(request());
+      expect(response.status).toBe(status);
+      expect(await response.text()).not.toMatch(
+        /private upstream detail|server-only-secret|deletedUserId/,
+      );
+      expect(tokens).toEqual(['A']);
+      expect(attempts).toEqual(
+        scenario.startsWith('admin-') ? [[A, false]] : [],
+      );
+    } finally {
+      delete runtime.Deno;
+    }
+  },
+);

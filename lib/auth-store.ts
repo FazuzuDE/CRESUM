@@ -1,12 +1,18 @@
 import { HistoryProtocolError } from './sync/history-rpc';
 import type { AuthIdentity, AuthRepository } from './auth-repository';
+import type {
+  AccountDeletionRepository,
+  DeletionStatus,
+} from './account-deletion';
 
 export type AuthSnapshot = {
   status: 'initializing' | 'signed_out' | 'signed_in' | 'error';
   configured: boolean;
   identity: AuthIdentity | null;
   error: string | null;
-  busy: 'send' | 'verify' | 'sign_out' | null;
+  busy: 'send' | 'verify' | 'sign_out' | 'delete' | null;
+  deletion?: { userId: string; status: DeletionStatus };
+  notice?: string;
 };
 
 export class AuthActionError extends Error {}
@@ -42,10 +48,13 @@ export class AuthStore {
   private signedOutDuringRequest = false;
   private repository: AuthRepository | null;
   private factoryResolved = false;
+  private ownerEpoch = 0;
+  private confirmedHere = new Set<string>();
 
   constructor(
     private readonly source:
       AuthRepository | null | (() => AuthRepository | null),
+    private readonly deletion?: AccountDeletionRepository,
   ) {
     this.repository = typeof source === 'function' ? null : source;
     this.snapshot = {
@@ -58,11 +67,19 @@ export class AuthStore {
   }
 
   hasHistoryRpc = (): boolean => !!this.repository?.historyRpc;
+  hasAccountDeletion = (): boolean =>
+    !!this.deletion &&
+    !!this.repository?.clearDeletedSession &&
+    (!!this.repository.deleteAccount ||
+      this.snapshot.deletion?.status === 'confirmed');
   isCurrentAccount = (userId: string): boolean =>
     !this.disposed &&
     this.snapshot.status === 'signed_in' &&
     this.snapshot.identity?.id === userId &&
-    this.snapshot.busy !== 'sign_out';
+    this.snapshot.busy !== 'sign_out' &&
+    this.snapshot.busy !== 'delete' &&
+    !this.confirmedHere.has(userId) &&
+    !this.deletion?.blocked(userId);
   historyRpc = async (
     userId: string,
     name: string,
@@ -90,6 +107,20 @@ export class AuthStore {
 
   async initialize(): Promise<void> {
     if (this.disposed) return;
+    if (this.deletion) {
+      try {
+        await this.deletion.load();
+        if (this.disposed) return;
+      } catch {
+        this.publish({
+          ...this.snapshot,
+          status: 'error',
+          error:
+            'Account recovery metadata could not be verified. Retry account setup. Local workouts remain available.',
+        });
+        return;
+      }
+    }
     if (typeof this.source === 'function' && !this.factoryResolved) {
       this.factoryResolved = true;
       try {
@@ -113,28 +144,53 @@ export class AuthStore {
     if (!this.unsubscribe) {
       this.unsubscribe = this.repository.onAuthChange((identity) => {
         if (this.disposed) return;
+        if (
+          identity &&
+          (this.confirmedHere.has(identity.id) ||
+            this.deletion?.state(identity.id) === 'confirmed')
+        )
+          return;
         if (this.snapshot.busy === 'sign_out') {
           if (!identity) this.signedOutDuringRequest = true;
           return;
         }
         this.revision++;
+        if (identity?.id !== this.snapshot.identity?.id) this.ownerEpoch++;
+        const state = identity && this.deletion?.state(identity.id);
         this.publish({
           ...this.snapshot,
           status: identity ? 'signed_in' : 'signed_out',
           identity,
           error: null,
+          notice: undefined,
+          deletion: identity
+            ? state
+              ? { userId: identity.id, status: state }
+              : undefined
+            : this.snapshot.deletion,
         });
       });
     }
     const revision = this.revision;
     try {
-      const identity = await this.repository.getIdentity();
+      let identity = await this.repository.getIdentity();
+      if (
+        identity &&
+        (this.confirmedHere.has(identity.id) ||
+          this.deletion?.state(identity.id) === 'confirmed')
+      )
+        identity = null;
       if (this.revision === revision) {
+        const state = identity && this.deletion?.state(identity.id);
         this.publish({
           ...this.snapshot,
           status: identity ? 'signed_in' : 'signed_out',
           identity,
           error: null,
+          deletion:
+            identity && state
+              ? { userId: identity.id, status: state }
+              : undefined,
         });
       }
     } catch {
@@ -221,6 +277,101 @@ export class AuthStore {
       throw new AuthActionError(message);
     }
   }
+
+  deleteAccount = async (
+    userId: string,
+    prepare?: () => Promise<() => void>,
+  ): Promise<void> => {
+    const repository = this.repository,
+      deletion = this.deletion;
+    if (
+      !repository?.clearDeletedSession ||
+      !deletion ||
+      this.disposed ||
+      this.snapshot.busy
+    )
+      throw new AuthActionError('Account deletion is unavailable.');
+    let confirmed =
+      this.confirmedHere.has(userId) || deletion.state(userId) === 'confirmed';
+    if (
+      !confirmed &&
+      (!repository.deleteAccount ||
+        !prepare ||
+        this.snapshot.status !== 'signed_in' ||
+        this.snapshot.identity?.id !== userId)
+    )
+      throw new AuthActionError(
+        'Sign in to the same account before retrying deletion.',
+      );
+    const epoch = this.ownerEpoch;
+    this.revision++;
+    this.publish({
+      ...this.snapshot,
+      busy: 'delete',
+      error: null,
+      notice: undefined,
+    });
+    let release: (() => void) | undefined;
+    try {
+      if (!confirmed) {
+        await deletion.pending(userId);
+        if (this.snapshot.identity?.id === userId)
+          this.publish({
+            ...this.snapshot,
+            deletion: { userId, status: 'pending' },
+          });
+        release = await prepare!();
+        if (
+          this.disposed ||
+          this.ownerEpoch !== epoch ||
+          this.snapshot.identity?.id !== userId
+        )
+          throw new Error('Account changed');
+        await repository.deleteAccount!(userId);
+        confirmed = true;
+        this.confirmedHere.add(userId);
+      }
+      await deletion.confirmed(userId);
+      await repository.clearDeletedSession(userId);
+      const other =
+        this.snapshot.identity && this.snapshot.identity.id !== userId;
+      this.publish(
+        other
+          ? { ...this.snapshot, busy: null }
+          : {
+              ...this.snapshot,
+              status: 'signed_out',
+              identity: null,
+              busy: null,
+              deletion: undefined,
+              error: null,
+              notice:
+                'Account deleted. Your local workouts and saved backup files are kept.',
+            },
+      );
+    } catch {
+      const message = confirmed
+        ? 'Account deletion was confirmed, but local session cleanup is incomplete. Retry cleanup. Your local workouts are kept.'
+        : 'Account deletion is not confirmed. Cloud backup stays paused. Retry deletion or keep using local workouts.';
+      const other =
+        this.snapshot.identity && this.snapshot.identity.id !== userId;
+      this.publish(
+        other
+          ? { ...this.snapshot, busy: null }
+          : {
+              ...this.snapshot,
+              busy: null,
+              error: message,
+              status: confirmed ? 'signed_out' : this.snapshot.status,
+              identity: confirmed ? null : this.snapshot.identity,
+              deletion: { userId, status: confirmed ? 'confirmed' : 'pending' },
+            },
+      );
+      throw new AuthActionError(message);
+    } finally {
+      release?.();
+    }
+  };
 
   dispose(): void {
     if (this.disposed) return;

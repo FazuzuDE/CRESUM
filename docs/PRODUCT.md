@@ -516,3 +516,18 @@ provenance remain unchanged. This stage adds no in-app deletion action or live
 deployment. Client confirmation, durable sync pause, session cleanup and ambiguous
 failure recovery are the next separate delivery. Never claim exported copies,
 other devices' local data, platform logs or backups disappear with account deletion.
+
+### Account deletion — Profile client follow-up, 2026-10-16
+
+After merged #60, Profile > Account & Sync offers an account-named deletion
+confirmation with typed DELETE. Local active workouts, History, routines, saved
+files and ownership provenance stay. The action remains unavailable until reviewed
+server deployment is verified and its build-time rollout flag is enabled.
+
+Deletion durably fences the owner and pauses cloud before network access. A lost
+or invalid reply stays unconfirmed across restart; never auto-retry deletion or
+silently resume that owner's cloud backup. Only a verified matching server reply
+allows owner-specific session cleanup. A late A response must not clear or report
+deletion of B. Confirmed cleanup can recover locally without another server delete.
+Account metadata failure blocks account traffic, not offline training. Exports,
+other devices' local copies and provider backups are not removed by this action.

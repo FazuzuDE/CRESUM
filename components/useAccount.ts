@@ -2,15 +2,25 @@ import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { AuthStore } from '@/lib/auth-store';
 import { createSupabaseAuthRepository } from '@/lib/supabase-auth';
 import type { AccountSectionProps } from './AccountSection';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AccountDeletionRepository } from '@/lib/account-deletion';
 
 export function useAccount(): AccountSectionProps {
+  const [deletion] = useState(
+    () => new AccountDeletionRepository(AsyncStorage),
+  );
   const [store] = useState(
     () =>
-      new AuthStore(() =>
-        createSupabaseAuthRepository({
-          url: process.env.EXPO_PUBLIC_SUPABASE_URL,
-          publishableKey: process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
-        }),
+      new AuthStore(
+        () =>
+          createSupabaseAuthRepository({
+            url: process.env.EXPO_PUBLIC_SUPABASE_URL,
+            publishableKey: process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+            accountDeletionEnabled:
+              process.env.EXPO_PUBLIC_ACCOUNT_DELETION_ENABLED === 'true',
+            deletionState: deletion,
+          }),
+        deletion,
       ),
   );
   const snapshot = useSyncExternalStore(store.subscribe, store.getSnapshot);
@@ -33,5 +43,7 @@ export function useAccount(): AccountSectionProps {
     sendEmailOtp: (email) => store.sendEmailOtp(email),
     verifyEmailOtp: (email, code) => store.verifyEmailOtp(email, code),
     signOut: () => store.signOut(),
+    deleteAccount: store.hasAccountDeletion() ? store.deleteAccount : undefined,
+    retryAccount: () => store.initialize(),
   };
 }

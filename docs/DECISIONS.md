@@ -893,3 +893,11 @@ on presentation and tests; no new dependency, schema or protocol is needed.
 - Deliver server deletion and client confirmation as separate focused PRs. The server target comes from verified Auth, with a matching expected-account confirmation guard and hard-delete API.
 - Preserve all local Core data/files/provenance. Verify owner cascades and another account's exact snapshots in disposable PostgreSQL.
 - This branch does not deploy the endpoint, delete live accounts, expose a Profile button or claim device acceptance. Client lifecycle/confirmation remains the next delivery.
+
+## 2026-10-16 — Profile account deletion after merged #60
+
+- User confirmed #60 merged and approved continuing with Profile confirmation, sync stopping and local-data preservation.
+- Add typed DELETE tied to the named account. Keep the build-time rollout disabled until reviewed server deployment/gateway verification; do not deploy or delete live users in this client task.
+- Persist metadata-only pending/confirmed state outside Core backup/reset, fence owner sync across restart, and require a matching server acknowledgement before owner-specific session cleanup.
+- Preserve local workouts/files/provenance and account B on late account-A completion. Recover confirmed cleanup locally without repeating deletion; unconfirmed network outcomes remain truthful and require explicit user retry.
+- Reuse existing tokens/coordinator, add no dependency/schema migration, and close #60's additional SDK error-translation regression coverage.

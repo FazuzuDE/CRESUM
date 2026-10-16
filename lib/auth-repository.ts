@@ -1,6 +1,8 @@
 export type AuthIdentity = { id: string; email: string | null };
 
 export type AuthRepository = {
+  deleteAccount?(userId: string): Promise<void>;
+  clearDeletedSession?(userId: string): Promise<void>;
   historyRpc?(
     userId: string,
     name: string,

@@ -6,6 +6,7 @@ import { AppButton } from './AppButton';
 import { GlassCard } from './GlassCard';
 import { AuthActionError, type AuthSnapshot } from '@/lib/auth-store';
 import { colors, radius, spacing, typography } from '@/lib/theme';
+import { AccountDeletionSection } from './AccountDeletionSection';
 
 export type AccountSectionProps = {
   snapshot: AuthSnapshot;
@@ -15,6 +16,11 @@ export type AccountSectionProps = {
   sendEmailOtp(email: string): Promise<void>;
   verifyEmailOtp(email: string, code: string): Promise<void>;
   signOut(): Promise<void>;
+  deleteAccount?(
+    userId: string,
+    prepare?: () => Promise<() => void>,
+  ): Promise<void>;
+  retryAccount?(): Promise<void>;
 };
 
 export function AccountSection({ snapshot, ...actions }: AccountSectionProps) {
@@ -33,6 +39,8 @@ function AccountSectionContent({
   verifyEmailOtp,
   signOut,
   sync,
+  deleteAccount,
+  retryAccount,
 }: AccountSectionProps) {
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
@@ -42,6 +50,9 @@ function AccountSectionContent({
   const [localError, setLocalError] = useState('');
   const inFlight = useRef(false);
   const busy = localBusy || snapshot.busy !== null;
+  const deletionPending =
+    snapshot.deletion?.status === 'pending' &&
+    snapshot.deletion.userId === snapshot.identity?.id;
   const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
   async function send(resend: boolean) {
     if (!snapshot.configured || !validEmail || busy || inFlight.current) return;
@@ -124,11 +135,11 @@ function AccountSectionContent({
           <Text style={s.copy}>
             Connected as {snapshot.identity?.email ?? 'CRESUM user'}
           </Text>
-          {sync ? (
+          {sync && !deletionPending && snapshot.busy !== 'delete' ? (
             <HistorySyncPanel {...sync} />
-          ) : (
+          ) : !sync ? (
             <Text style={s.copy}>Cloud workout backup is not enabled yet.</Text>
-          )}
+          ) : null}
           <AppButton
             title="Sign Out"
             secondary
@@ -230,6 +241,25 @@ function AccountSectionContent({
           />
         </>
       )}
+      <AccountDeletionSection
+        key={snapshot.identity?.id ?? 'signed-out'}
+        snapshot={snapshot}
+        deleteAccount={deleteAccount}
+        busy={busy}
+        setBusy={setLocalBusy}
+      />
+      {snapshot.notice ? (
+        <Text style={s.copy} accessibilityRole="alert">
+          {snapshot.notice}
+        </Text>
+      ) : null}
+      {snapshot.status === 'error' && retryAccount ? (
+        <AppButton
+          title="Retry account setup"
+          disabled={busy}
+          onPress={() => void retryAccount()}
+        />
+      ) : null}
       {message ? (
         <Text accessibilityRole="alert" style={s.copy}>
           {message}

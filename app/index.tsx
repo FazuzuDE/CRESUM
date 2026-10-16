@@ -1114,6 +1114,16 @@ function AppContent({
               account={{
                 ...account,
                 sync: account.historyRpc ? cloud.controls : undefined,
+                deleteAccount: account.deleteAccount
+                  ? (id) =>
+                      account.deleteAccount!(id, async () => {
+                        if (resetInProgress.current || backupInProgress.current)
+                          throw new Error(
+                            'Finish the current data operation first.',
+                          );
+                        return cloud.quiesce(true);
+                      })
+                  : undefined,
               }}
               history={data.history}
               templates={visibleTemplates}
