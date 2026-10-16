@@ -179,7 +179,29 @@ Automatic triggers are launch/foreground/completed-history changes; transient
 errors get at most5 foreground retries at30s..5min, with manual retry available.
 No per-set sync, background service, active-session sync or provider sign-in is
 added. The UI scopes Synced to completed workouts linked to the current account.
-Conflict resolution UI remains a follow-up; both copies stay kept.
+Account & Sync exposes Review conflicting workouts. The comparison shows each
+version's saved sets, workout dates and unknown edit time. Neither version is
+preselected. Confirm Keep this version to replace the other, or Decide later.
+More options offers separate copies with a History/Progress double-count warning.
+Cloud deletions require accepting local removal or saving the device workout
+under a new identity; the deleted identity is never revived.
+
+`20261016111714_history_conflict_resolution.sql` adds authenticated owner-scoped
+`get_completed_workout` and `resolve_completed_workout` RPCs. Resolution checks
+the compared revision and commits the choice, optional copy and private replay
+receipt atomically under the existing owner lock. Receipts include exact result
+snapshots so a timeout can replay the same authorized result even after another
+cloud edit. These private snapshots increase storage; retention/capacity remains
+a release gate. This migration is prepared and locally tested, not deployed by
+the feature branch; apply it after merge before enabling the new client.
+
+Optional metadata-only resolution intents in the history ledger persist choice,
+hashes, revision, stable operation/copy IDs and queue generation before RPC. The
+coordinator recovers them before ordinary sync, verifies the Core write, records
+facts and acknowledges superseded queue intents before retiring the operation.
+Pending operations remain reviewable even if acknowledgement fails. Account,
+foreground, active-workout, ownership, import/reset and cursor-generation fences
+apply throughout. A changed local/remote comparison must be reviewed again.
 
 ### Protocol deployment verified
 

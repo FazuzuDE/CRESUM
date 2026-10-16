@@ -1,4 +1,11 @@
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react';
+import type { HistoryReviewActions } from './HistorySyncPanel';
 import { AppState } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
@@ -29,6 +36,15 @@ export function useHistorySync(
       }),
   );
   const snapshot = useSyncExternalStore(engine.subscribe, engine.getSnapshot);
+  const review = useMemo<HistoryReviewActions>(
+    () => ({
+      conflicts: () => engine.conflicts(),
+      compare: (id) => engine.compare(id),
+      resolve: (view, choice) => engine.resolve(view, choice),
+      sync: () => engine.request(true),
+    }),
+    [engine],
+  );
   const lifecycle = useRef({ generation: 0 });
   useEffect(() => {
     const owner = lifecycle.current;
@@ -110,6 +126,7 @@ export function useHistorySync(
   return {
     controls: {
       snapshot: visible,
+      review,
       onEnable: () => {
         void engine.enable();
       },

@@ -2,15 +2,30 @@ import { StyleSheet, Text, View } from 'react-native';
 import { AppButton } from './AppButton';
 import type { HistorySyncSnapshot } from '@/lib/sync/history-coordinator';
 import { colors, spacing, typography } from '@/lib/theme';
+import type {
+  HistoryComparison,
+  HistoryConflictSummary,
+} from '@/lib/sync/history-resolver';
+import type { ResolutionChoice } from '@/lib/sync/history-rpc';
+export type HistoryReviewActions = {
+  conflicts(): Promise<HistoryConflictSummary[]>;
+  compare(id: string): Promise<HistoryComparison>;
+  resolve(view: HistoryComparison, choice: ResolutionChoice): Promise<void>;
+  sync(): Promise<void>;
+};
 export type HistorySyncControls = {
   snapshot: HistorySyncSnapshot;
   onEnable: () => void;
   onSync: () => void;
+  review?: HistoryReviewActions;
+  onReview?: () => void;
 };
 export function HistorySyncPanel({
   snapshot,
   onEnable,
   onSync,
+  review,
+  onReview,
 }: HistorySyncControls) {
   const { status, kind } = snapshot;
   const title =
@@ -35,7 +50,7 @@ export function HistorySyncPanel({
         : status === 'synced'
           ? 'Completed workouts linked to this account are backed up. Workouts linked to another account stay separate. Active workouts and settings stay on this device.'
           : kind === 'conflict'
-            ? 'A workout differs between this device and your account. Both copies are kept. Export your local history before resolving the difference.'
+            ? 'A workout differs between this device and your account. Review both versions and choose what to keep, or decide later.'
             : kind === 'auth'
               ? 'Could not confirm your account session. Try again or sign in again.'
               : kind === 'invalid'
@@ -47,6 +62,9 @@ export function HistorySyncPanel({
         {title}
       </Text>
       <Text style={s.copy}>{detail}</Text>
+      {kind === 'conflict' && review && onReview ? (
+        <AppButton title="Review conflicting workouts" onPress={onReview} />
+      ) : null}
       <AppButton
         title={
           status === 'disabled'

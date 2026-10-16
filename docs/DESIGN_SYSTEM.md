@@ -652,3 +652,16 @@ Reset copy says files/account links are kept, cloud history is not deleted and
 cloud backup pauses until explicit Resume. Import/restore has the same paused
 state. Phone keyboard, VoiceOver, Dynamic Type and native lifecycle acceptance
 remain required; JS export is not a device build.
+
+### Conflict comparison — approved 2026-10-16
+
+From Account & Sync, Review conflicting workouts opens a dedicated scrollable
+comparison. Show workout date/name and specific differing exercise/set values
+under This device and Cloud labels. Use two equally prominent Keep this version
+actions, each clearly associated with its version, plus Decide later. This is a
+deliberate choice-screen exception to a single primary CTA. No preselection.
+Keep both as separate workouts belongs under More options, with an explicit
+warning that both enter History/Progress. Replacement/deletion confirmation names
+the affected version; Back changes nothing. Never show a timestamp-based Correct
+badge. Unknown edit times remain unknown. Show stale/network/pending/blocked
+states, reuse tokens and >=44pt targets, and keep account/back navigation usable.

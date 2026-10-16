@@ -25,6 +25,19 @@ export type HistoryAccount = {
   enabled: boolean;
   facts: HistoryFact[];
   requests: PendingHistoryRequest[];
+  resolutions?: HistoryResolutionIntent[];
+};
+export type HistoryResolutionIntent = {
+  version: 1;
+  id: string;
+  workoutId: string;
+  generation: string;
+  choice: 'local' | 'cloud' | 'both';
+  localHash: string;
+  remoteHash: string | null;
+  remoteRevision: number;
+  copyId: string | null;
+  deviceId: string;
 };
 export type HistoryLedgerDocument = {
   version: 1;
@@ -96,6 +109,34 @@ function parse(raw: string): HistoryLedgerDocument {
       )
         throw new SyncMetadataError();
       requests.add(r.id);
+    }
+    if (a.resolutions !== undefined) {
+      if (!Array.isArray(a.resolutions)) throw new SyncMetadataError();
+      const ids = new Set<string>(),
+        entities = new Set<string>();
+      for (const r of a.resolutions) {
+        if (
+          !object(r) ||
+          r.version !== 1 ||
+          !identifier(r.id) ||
+          ids.has(r.id) ||
+          typeof r.workoutId !== 'string' ||
+          entities.has(r.workoutId) ||
+          !identifier(r.generation) ||
+          !identifier(r.deviceId) ||
+          !validHash(r.localHash) ||
+          (r.remoteHash !== null && !validHash(r.remoteHash)) ||
+          !positiveInteger(r.remoteRevision) ||
+          !['local', 'cloud', 'both'].includes(r.choice as string) ||
+          (r.choice === 'both'
+            ? !identifier(r.copyId) || r.copyId === r.workoutId
+            : r.copyId !== null) ||
+          (r.choice === 'local' && r.remoteHash === null)
+        )
+          throw new SyncMetadataError();
+        ids.add(r.id);
+        entities.add(r.workoutId);
+      }
     }
   }
   return v as HistoryLedgerDocument;
