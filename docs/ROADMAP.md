@@ -258,3 +258,15 @@ The focused comparison-summary follow-up closes the deferred completed-set count
 and recorded-volume omission, reusing existing domain calculations and making
 missing/partial coverage explicit. It preserves individual set details and all
 choice/recovery behavior. No schema, sync-protocol or storage change is required.
+
+### Account deletion — server foundation after merged #59
+
+PR #59 merged at `584fcd8bfd803aca94fdd26ca5f28cd4d7bf298e`.
+The next focused branch prepares the verified owner-bound Edge endpoint and
+populated PostgreSQL cascade/isolation contracts. Existing Auth foreign keys
+remove owner history/feed/receipts without a schema migration. No live account
+is deleted, no endpoint is deployed and no client button is exposed in this stage.
+Next: Profile confirmation, durable sync pause/drain, account-fenced local session
+cleanup and truthful interrupted-deletion recovery; then deployment of reviewed
+source and physical-device acceptance. See ACCOUNT_AUTH and the deletion spec.
+Domain/mail and independent disaster recovery remain deferred release work.

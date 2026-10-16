@@ -95,3 +95,37 @@ Official references:
 Automated tests use fakes and do not prove mail delivery or real refresh/session
 behavior. Database migrations/RLS and History merge/upload/download follow as
 separate PRs after the account foundation is accepted.
+
+## Account deletion — server foundation after merged #59
+
+The focused server branch supplies `supabase/functions/delete-account/index.js`
+and its pure `handler.ts`. It is not deployed or connected to a Profile button
+by this delivery. `supabase/config.toml` declares the JavaScript entrypoint and
+`verify_jwt = true`. Keep the Edge gateway JWT check enabled when deploying the
+reviewed source, and verify its compatibility with the project's signing keys.
+The handler also validates the Bearer token through Auth `getUser(token)`.
+
+`POST /functions/v1/delete-account` requires JSON
+`{"confirmation":"DELETE","expectedUserId":"<confirmed account UUID>"}`.
+Only the verified, non-anonymous matching user can be the target. The service-role
+key stays in the server environment; the entrypoint pins SDK `2.117.2` and uses
+`auth.admin.deleteUser(verifiedId, false)`. Success returns only
+`{"deletedUserId":"<verified UUID>"}` after acknowledged hard deletion.
+Anonymous, expired, mismatched, invalid and oversized requests never authorize
+another account. Upstream failures return generic errors without claiming success.
+
+Existing database cascades remove devices, completed History, exercise/set
+snapshots, private changes and mutation/resolution receipts. A disposable SQL
+contract populates A/B, removes A and checks every B row is unchanged. No schema
+migration, live user fixture, production deletion or deployment is part of this PR.
+Local workouts, active sessions, routines, backup files and provenance are untouched.
+Deletion does not erase exports, other devices' local copies, or platform logs/
+backups. CRESUM currently owns no Storage objects; any future object ownership
+that blocks Auth deletion must return a failure, not a false success or broad purge.
+
+The next client PR must add explicit account-named confirmation, durable sync
+pause/drain before deletion, owner/session fencing, matching-session cleanup and
+an honest ambiguous-response recovery path. Preserve local data and account
+provenance. Deleted users' JWTs can remain cryptographically valid until expiry;
+SQL tests also verify they cannot repopulate the deleted owner's cloud records.
+Native two-device/session acceptance and release retention wording remain open.
