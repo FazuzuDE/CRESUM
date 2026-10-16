@@ -19,6 +19,12 @@ import {
 export type TemplateMutationResult =
   { ok: true; template?: WorkoutTemplate } | { ok: false; error: string };
 
+const createWorkoutSnapshotId = (): string => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports -- Load native crypto only when starting a new workout, not while restoring existing data.
+  const crypto = require('expo-crypto') as typeof import('expo-crypto');
+  return crypto.randomUUID();
+};
+
 export class WorkoutStore {
   private listeners = new Set<() => void>();
   private revision = 0;
@@ -99,7 +105,7 @@ export class WorkoutStore {
       template,
       exerciseLibrary,
       Date.now(),
-      undefined,
+      createWorkoutSnapshotId,
       programSlot,
     );
     if (!activeWorkout.exercises.length)

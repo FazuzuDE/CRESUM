@@ -835,3 +835,15 @@ archive/export operations only suspend. The existing protocol is deployed to dev
 with its generated timestamp reconciled by exact SQL hash to the committed
 version. No fixture users or real email was created/sent. Status: implementation
 on focused branch, pending final checks/review/Git integration and external QA.
+
+### 2026-10-16 — Secure IDs for new workouts approved
+
+The user approved UUID v4 for new workouts after reviewing the existing
+timestamp/Math.random generator and owner-scoped cloud identity. Inject lazy
+expo-crypto randomUUID through WorkoutStore's existing engine ID-factory seam.
+Preserve every existing ID through load/resume/Finish/export/import; do not
+migrate historical data or add dependencies/schema changes. Secure-generation
+failure leaves Core unchanged rather than silently using the weak generator.
+Native crypto is now also used on new offline workout starts; new device builds
+must include the already-declared module. Conflict-resolution design remains a
+separate proposal, not an approved implementation in this change.

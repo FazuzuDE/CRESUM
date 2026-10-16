@@ -228,3 +228,12 @@ multi-device/offline acceptance, conflict-resolution UX follow-up, private
 receipt/feed capacity/retention and independent off-platform database recovery.
 The user deferred domain/mail and independent backups. Do not treat automated
 checks or a synced empty account as proof of production readiness.
+
+### Workout UUID hardening — approved 2026-10-16
+
+After merged #55, switch new app-started workout identities from timestamp/random
+strings to device-generated UUID v4 using the existing crypto dependency. Preserve
+all saved IDs, Core v1 and file-backup compatibility. Keep this as a focused PR
+before the separately proposed conflict-resolution UI. Device/native-build QA
+remains required; this step adds neither automatic timestamp-based resolution
+nor sequential user-visible workout numbering.
