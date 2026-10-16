@@ -2,6 +2,11 @@ import { AccountPage } from '../../components/AccountPage';
 import type { AccountSectionProps } from '../../components/AccountSection';
 import { AppButton } from '../../components/AppButton';
 import { conflictFixture } from './helpers/history-resolution-fixture';
+import type { WorkoutSet } from '../workout-model';
+// Glyph loading is a native boundary; these tests exercise the actual review UI.
+jest.mock('@expo/vector-icons', () => ({
+  Ionicons: jest.requireActual('react-native').View,
+}));
 const { act, create } = jest.requireActual('react-test-renderer');
 const tick = () => new Promise((r) => setTimeout(r, 0));
 const button = (v: ReturnType<typeof create>, title: string) =>
@@ -58,6 +63,132 @@ async function screen() {
   };
   return { ...x, props, view, press, open };
 }
+async function localSets(
+  x: Awaited<ReturnType<typeof screen>>,
+  sets: WorkoutSet[],
+) {
+  const before = x.store.getSnapshot().data.history;
+  const history = before.map((w) => ({
+    ...w,
+    exercises: [{ ...w.exercises[0], sets }],
+  }));
+  expect(await x.store.applyCloudHistory(before, history, () => true)).toBe(
+    true,
+  );
+}
+it('compares completed counts and recorded volume without counting planned sets', async () => {
+  const x = await screen();
+  try {
+    await localSets(x, [
+      { id: 'done', weight: '60', reps: '8', completedAt: 5 },
+      { id: 'planned', weight: '100', reps: '20' },
+    ]);
+    const remote = x.server.rows.get('A')!.get('local')!.workout!;
+    x.server.seed('A', {
+      ...remote,
+      exercises: [
+        {
+          ...remote.exercises[0],
+          sets: [
+            ...remote.exercises[0].sets,
+            { id: 'second', weight: '50', reps: '6', completedAt: 6 },
+          ],
+        },
+      ],
+    });
+    await x.open();
+    const content = JSON.stringify(x.view.toJSON());
+    expect(content).toContain('1 completed set');
+    expect(content).toContain('2 completed sets');
+    expect(content).toContain('480 kg recorded volume');
+    expect(content).toContain('900 kg recorded volume');
+    expect(content).not.toContain('2,480 kg recorded volume');
+    expect(x.server.resolutionCalls).toHaveLength(0);
+  } finally {
+    await act(async () => x.view.unmount());
+  }
+});
+it('shows valid zero-weight volume as zero rather than missing data', async () => {
+  const x = await screen();
+  try {
+    await localSets(x, [
+      { id: 'bodyweight', weight: '0', reps: '8', completedAt: 5 },
+    ]);
+    await x.open();
+    expect(JSON.stringify(x.view.toJSON())).toContain('"0 kg recorded volume"');
+    expect(JSON.stringify(x.view.toJSON())).not.toContain('Volume unavailable');
+  } finally {
+    await act(async () => x.view.unmount());
+  }
+});
+it('keeps a completed-set count when its volume data is missing', async () => {
+  const x = await screen();
+  try {
+    await localSets(x, [
+      { id: 'unknown', weight: '', reps: '8', completedAt: 5 },
+    ]);
+    await x.open();
+    const content = JSON.stringify(x.view.toJSON());
+    expect(content).toContain('1 completed set');
+    expect(content).toContain('Volume unavailable');
+    expect(content).not.toContain('"0 kg recorded volume"');
+  } finally {
+    await act(async () => x.view.unmount());
+  }
+});
+it('identifies a partial recorded volume instead of presenting it as a full total', async () => {
+  const x = await screen();
+  try {
+    await localSets(x, [
+      { id: 'known', weight: '60', reps: '8', completedAt: 5 },
+      { id: 'unknown', weight: '', reps: '10', completedAt: 6 },
+    ]);
+    await x.open();
+    const content = JSON.stringify(x.view.toJSON());
+    expect(content).toContain('2 completed sets');
+    expect(content).toContain('480 kg recorded volume');
+    expect(content).toContain('1 of 2 completed sets have volume data');
+  } finally {
+    await act(async () => x.view.unmount());
+  }
+});
+it('includes both sides and decimal weights without deduplicating legacy set IDs', async () => {
+  const x = await screen();
+  try {
+    await localSets(x, [
+      {
+        id: 'same',
+        weight: '60,5',
+        reps: '8',
+        otherSideReps: '4',
+        completedAt: 5,
+      },
+      { id: 'same', weight: '10', reps: '2', completedAt: 6 },
+    ]);
+    await x.open();
+    const content = JSON.stringify(x.view.toJSON());
+    expect(content).toContain('2 completed sets');
+    expect(content).toContain('746 kg recorded volume');
+  } finally {
+    await act(async () => x.view.unmount());
+  }
+});
+it.each([
+  { label: 'empty', sets: [] },
+  { label: 'planned only', sets: [{ id: 'planned', weight: '60', reps: '8' }] },
+])('does not invent a zero volume for $label history', async ({ sets }) => {
+  const x = await screen();
+  try {
+    await localSets(x, sets);
+    await x.open();
+    const content = JSON.stringify(x.view.toJSON());
+    expect(content).toContain('0 completed sets');
+    expect(content).toContain('Volume unavailable');
+    expect(content).not.toContain('"0 kg recorded volume"');
+  } finally {
+    await act(async () => x.view.unmount());
+  }
+});
 it('shows real per-set differences and two choices without preselection', async () => {
   const x = await screen();
   try {

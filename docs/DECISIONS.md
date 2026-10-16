@@ -876,3 +876,13 @@ transactions that roll back and do not create fixture accounts/workouts or send
 email. Security-advisor findings match the prior baseline. Native/two-device/mail
 and disaster-recovery release gates remain unchanged; the source preview is not
 evidence that those gates passed.
+
+### 2026-10-16 — Complete the approved comparison summaries
+
+After deployment verification, the user resumed development of the remaining
+comparison-card summary item. Show completed-set count and recorded volume on
+both version cards using the existing engine/metrics helpers. Exclude unfinished
+sets, preserve valid zero-weight volume, and distinguish unavailable volume from
+partial coverage. This completes the already approved comparison design rather
+than changing resolution choices or saved data. Keep the implementation focused
+on presentation and tests; no new dependency, schema or protocol is needed.
