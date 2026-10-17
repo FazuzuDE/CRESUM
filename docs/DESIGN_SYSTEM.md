@@ -820,12 +820,13 @@ prior manual surface study for comparison. Exclude dashed deltoid divisions;
 whole-shoulder masks stay unassigned. Generative reference appearance, pixel
 registration and smooth vector export do not establish anatomical correctness.
 
-### Soft muscle highlight presentation trial — 2026-10-18
+### Soft red muscle highlight approved — 2026-10-18
 
-User requested slight edge softening and a textured, volumetric-looking tint.
-Trial inward feathering over 2 source pixels on the current reference contours,
-with zero alpha outside the mask. Preserve grayscale fibers and shading, remove
-review strokes from the tinted mode, and compare flat/soft/soft-gradient red.
-Any internal gradient is presentation only, not modeled activation within a
-muscle. Keep the approved red convention; multicolor reference legends do not
-define new load semantics. Appearance trial does not finalize anatomical masks.
+The user explicitly selected **Soft red** from the presentation comparison.
+Use a uniform red tint with inward feathering over 2 source pixels, bounded by
+antialiased mask coverage. Preserve grayscale fibers and source shading; no
+outline in the tinted presentation. The current review opacity is 0.65, not a
+calibrated training-load scale. The additional radial-gradient variant was not
+selected. Keep red load semantics; multicolor reference legends do not define
+new categories. This style approval does not finalize anatomical boundaries or
+authorize production integration of the incomplete atlas.

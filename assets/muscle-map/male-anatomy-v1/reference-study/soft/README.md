@@ -1,5 +1,9 @@
 # Soft-edge presentation study — 2026-10-18
 
+**Selected style: Soft red — explicitly approved by the user.** Use the uniform
+red tint with the inward-feathered alpha masks. The radial-gradient alternative
+was not selected. This approves presentation, not the draft anatomical contours.
+
 User requested slightly softened edges and a textured highlight like the supplied
 references, assessing the preceding contour trial as close to visual acceptance.
 This is presentation feedback, not an anatomical accuracy measurement.

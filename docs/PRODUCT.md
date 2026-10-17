@@ -596,3 +596,8 @@ Appearance approval (2026-10-18): the user confirmed the selected front/back mal
 character as CRESUM's primary male anatomical reference. Continue future Muscle
 Map/Anatomy work with this identity. Appearance approval is separate from mask
 acceptance and does not promote the current draft contours into production.
+
+Highlight appearance approved (2026-10-18): use Soft red, preserving source
+texture with a slight inward-feathered edge. The decorative radial-gradient
+alternative is not selected. Keep existing muscle-group/load semantics; style
+approval does not constitute acceptance of the incomplete anatomical masks.

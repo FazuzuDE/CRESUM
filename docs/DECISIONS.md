@@ -1035,3 +1035,12 @@ on presentation and tests; no new dependency, schema or protocol is needed.
   geometry/source and providing comparison. Avoid spill onto neighboring areas.
 - Decorative internal gradients do not add within-muscle load calculations;
   the reference's red/orange/yellow legend is not an approved scoring change.
+
+## 2026-10-18 — Soft red highlight approved
+
+- User explicitly selected **Soft red**: uniform red tint, 2-source-pixel inward
+  feather, retained original texture/shading and no visible outline.
+- The separate radial-gradient alternative was not selected. The review's 0.65
+  opacity is a presentation setting, not a new training-load calibration.
+- Record this as an approved presentation choice. Boundary review, unresolved
+  shoulder assignment and the Draft status of #66 remain in place.
