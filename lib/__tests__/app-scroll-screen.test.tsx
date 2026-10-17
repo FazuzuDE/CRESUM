@@ -9,6 +9,12 @@ jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
 
+jest.mock('@react-native-async-storage/async-storage', () =>
+  jest.requireActual(
+    '@react-native-async-storage/async-storage/jest/async-storage-mock',
+  ),
+);
+
 it('preserves the workout native ref, scrolling callbacks and layout coordinates', () => {
   let view!: ReturnType<typeof create>;
   let native: ScrollView | null = null;
@@ -87,9 +93,9 @@ it('animates a virtualized detail list to its start without replacing the list',
   }
 });
 
-it('returns to the current Home widget before going to page top', () => {
+it('returns to the current Home widget before going to page top', async () => {
   let view!: ReturnType<typeof create>;
-  act(() => {
+  await act(async () => {
     view = create(
       <HomeDashboard
         history={[]}
