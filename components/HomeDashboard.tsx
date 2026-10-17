@@ -2,16 +2,29 @@ import { BrandHeader } from './BrandHeader';
 import { HomeCalendar } from './HomeCalendar';
 import { HomeLayoutEditor } from './HomeLayoutEditor';
 import { useHomeLayout } from './useHomeLayout';
-import { defaultHomeLayout } from '@/lib/home-layout';
+import {
+  defaultHomeLayout,
+  type HomeLayout,
+  type HomeWidgetId,
+} from '@/lib/home-layout';
+import { HomeDragGrid } from './HomeDragGrid';
+import { useProgramScroll } from './useProgramScroll';
 import { TrainingProgramWeek } from './TrainingProgramWeek';
 import type { ProgramAssignment } from '@/lib/training-programs/assignment';
 import type { ProjectedProgramSlot } from '@/lib/training-programs/schedule';
 import { AppScrollView } from './AppScrollView';
-import { useEffect, useState } from 'react';
-import { AppState, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
+import {
+  AppState,
+  BackHandler,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { AppButton } from './AppButton';
-import { DashboardGrid, type DashboardGridItem } from './DashboardGrid';
+import type { DashboardGridItem } from './DashboardGrid';
 import { GlassCard } from './GlassCard';
 import {
   HOME_WIDGET_LAYOUT,
@@ -297,6 +310,83 @@ export function HomeDashboard({
 }: HomeProps) {
   const homeLayout = useHomeLayout();
   const [editingLayout, setEditingLayout] = useState(false);
+  const [draft, setDraft] = useState<HomeLayout | null>(null);
+  const draftRef = useRef<HomeLayout | null>(null);
+  const {
+    attachRef,
+    control: dragScroll,
+    dragging,
+    onScroll: onHomeScroll,
+    onLayout: onHomeScrollLayout,
+    onContentSizeChange,
+  } = useProgramScroll();
+  function beginEditing() {
+    if (
+      homeLayout.loading ||
+      homeLayout.saving ||
+      homeLayout.loadError ||
+      editingLayout
+    )
+      return false;
+    if (!draftRef.current) {
+      const next = {
+        ...homeLayout.layout,
+        widgets: homeLayout.layout.widgets.map((item) => ({ ...item })),
+      };
+      draftRef.current = next;
+      setDraft(next);
+      homeLayout.clearSaveError();
+    }
+    return true;
+  }
+  function cancelEditing() {
+    if (homeLayout.saving) return;
+    draftRef.current = null;
+    setDraft(null);
+    dragScroll.stop();
+  }
+  function moveBlock(id: HomeWidgetId, target: HomeWidgetId) {
+    const current = draftRef.current;
+    if (!current || homeLayout.saving) return;
+    const from = current.widgets.findIndex((item) => item.id === id);
+    const to = current.widgets.findIndex((item) => item.id === target);
+    if (from < 0 || to < 0 || from === to) return;
+    const widgets = [...current.widgets];
+    widgets.splice(to, 0, widgets.splice(from, 1)[0]);
+    const next = { version: 1 as const, widgets };
+    draftRef.current = next;
+    setDraft(next);
+  }
+  async function saveEditing(layout: HomeLayout) {
+    if (await homeLayout.save(layout)) {
+      draftRef.current = null;
+      setDraft(null);
+      setEditingLayout(false);
+    }
+  }
+  useEffect(() => {
+    if (!draft) return;
+    const back = BackHandler.addEventListener('hardwareBackPress', () => {
+      if (!homeLayout.saving) {
+        draftRef.current = null;
+        setDraft(null);
+        dragScroll.stop();
+      }
+      return true;
+    });
+    return () => back.remove();
+  }, [draft, homeLayout.saving, dragScroll]);
+  const guardedResume = () => {
+    if (!draftRef.current) onResume();
+  };
+  const guardedStart = (template: WorkoutTemplate) => {
+    if (!draftRef.current) startTemplate(template);
+  };
+  const guardedProfile = onOpenProfile
+    ? () => {
+        if (!draftRef.current) onOpenProfile();
+      }
+    : undefined;
   const [now, setNow] = useState(Date.now);
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [gridTop, setGridTop] = useState(0);
@@ -321,8 +411,10 @@ export function HomeDashboard({
         templates={templates}
         active={Boolean(activeWorkout)}
         now={now}
-        onStart={startProgramSlot}
-        onManage={onOpenProfile}
+        onStart={(slot, template) => {
+          if (!draftRef.current) startProgramSlot(slot, template);
+        }}
+        onManage={guardedProfile}
       />
     ) : null;
   const content = {
@@ -334,8 +426,8 @@ export function HomeDashboard({
           activeWorkout={activeWorkout}
           featured={data.primaryTemplate}
           hasTemplates={templates.length > 0}
-          onResume={onResume}
-          startTemplate={startTemplate}
+          onResume={guardedResume}
+          startTemplate={guardedStart}
         />
       ),
     summary: (
@@ -347,7 +439,9 @@ export function HomeDashboard({
     week: (
       <TrainingWeekWidget
         week={data.week}
-        onOpenCalendar={() => setCalendarOpen(true)}
+        onOpenCalendar={() => {
+          if (!draftRef.current) setCalendarOpen(true);
+        }}
       />
     ),
     latest: <LatestWorkoutWidget latest={data.latestWorkout} />,
@@ -355,135 +449,207 @@ export function HomeDashboard({
       <WorkoutTemplatesWidget
         templates={data.otherTemplates}
         activeWorkout={activeWorkout}
-        startTemplate={startTemplate}
+        startTemplate={guardedStart}
       />
     ) : null,
   };
-  const items: DashboardGridItem[] = homeLayout.layout.widgets.flatMap(
-    (layout) => {
-      const definition = HOME_WIDGET_LAYOUT.find(({ id }) => id === layout.id)!;
-      const widget = layout.visible ? content[layout.id] : null;
-      return widget
-        ? [{ id: layout.id, size: definition.defaultSize, content: widget }]
-        : [];
-    },
-  );
+  const items: DashboardGridItem[] = (
+    draft ?? homeLayout.layout
+  ).widgets.flatMap((layout) => {
+    const definition = HOME_WIDGET_LAYOUT.find(({ id }) => id === layout.id)!;
+    const widget = layout.visible ? content[layout.id] : null;
+    return widget
+      ? [{ id: layout.id, size: definition.defaultSize, content: widget }]
+      : [];
+  });
 
-  if (program && activeWorkout)
-    items.splice(items.findIndex((item) => item.id === 'primary') + 1, 0, {
-      id: 'program',
-      size: 'medium',
-      content: program,
-    });
-  return (
-    <AppScrollView
-      contentContainerStyle={[s.content, s.homeContent]}
-      sectionPositions={Object.entries(rowOffsets)
-        .filter(([id]) => items.some((item) => item.id === id))
-        .map(([id, y]) => ({ id, label: id, y: gridTop + y }))}
-    >
-      <View style={s.header}>
-        <BrandHeader />
-        <View style={s.greetingRow}>
-          <View style={s.greetingCopy}>
-            <Text style={s.title} accessibilityRole="header">
-              {displayName?.trim()
-                ? `Welcome back, ${displayName.trim()}!`
-                : history.length
-                  ? 'Welcome back'
-                  : 'Welcome'}
-            </Text>
-            <Text style={s.greeting}>A good day for progress.</Text>
-          </View>
-          {onOpenProfile ? (
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="Open Profile"
-              onPress={onOpenProfile}
-              style={({ pressed }) => [s.avatar, pressed && s.pressed]}
-            >
-              <Ionicons
-                name="person-outline"
-                size={22}
-                color={colors.primary}
-              />
-            </Pressable>
-          ) : null}
-        </View>
+  if (program && activeWorkout) {
+    const primary = items.find((item) => item.id === 'primary')!;
+    primary.content = (
+      <View style={{ gap: spacing.lg }}>
+        {primary.content}
+        {program}
       </View>
-      <AppButton
-        title="Customize Home"
-        secondary
-        presentation="text"
-        disabled={
-          homeLayout.loading || homeLayout.saving || homeLayout.loadError
-        }
-        onPress={() => {
-          homeLayout.clearSaveError();
-          setEditingLayout(true);
-        }}
-      />
-      {homeLayout.loadError ? (
-        <GlassCard>
-          <Text accessibilityRole="alert" style={s.sub}>
-            Could not load Home layout. Default blocks are shown; your workouts
-            remain available.
-          </Text>
-          <AppButton
-            title="Retry layout"
-            secondary
-            disabled={homeLayout.loading || homeLayout.saving}
-            onPress={() => {
-              void homeLayout.load();
-            }}
-          />
-          <AppButton
-            title="Reset Home layout"
-            secondary
-            disabled={homeLayout.loading || homeLayout.saving}
-            onPress={() => {
-              void homeLayout.save(defaultHomeLayout());
-            }}
-          />
-          {homeLayout.saveError ? (
-            <Text accessibilityRole="alert" style={s.sub}>
-              Could not save Home layout. Try again.
-            </Text>
-          ) : null}
-        </GlassCard>
-      ) : null}
-      <DashboardGrid
-        items={items}
-        onLayout={(event) => setGridTop(event.nativeEvent.layout.y)}
-        onRowLayout={(id, y) =>
-          setRowOffsets((current) =>
-            current[id] === y ? current : { ...current, [id]: y },
-          )
-        }
-      />
-      {calendarOpen ? (
-        <HomeCalendar
-          history={history}
-          now={now}
-          onClose={() => setCalendarOpen(false)}
-        />
-      ) : null}
-      {editingLayout ? (
-        <HomeLayoutEditor
-          initial={homeLayout.layout}
-          saving={homeLayout.saving}
-          error={homeLayout.saveError}
-          onClose={() => setEditingLayout(false)}
-          onSave={async (layout) => {
-            if (await homeLayout.save(layout)) setEditingLayout(false);
+    );
+  }
+  return (
+    <View style={{ flex: 1 }}>
+      <AppScrollView
+        ref={attachRef}
+        scrollEnabled={!dragging}
+        onScroll={onHomeScroll}
+        onLayout={onHomeScrollLayout}
+        onContentSizeChange={onContentSizeChange}
+        contentContainerStyle={[s.content, s.homeContent]}
+        sectionPositions={Object.entries(rowOffsets)
+          .filter(([id]) => items.some((item) => item.id === id))
+          .map(([id, y]) => ({ id, label: id, y: gridTop + y }))}
+      >
+        <View style={s.header}>
+          <BrandHeader />
+          <View style={s.greetingRow}>
+            <View style={s.greetingCopy}>
+              <Text style={s.title} accessibilityRole="header">
+                {displayName?.trim()
+                  ? `Welcome back, ${displayName.trim()}!`
+                  : history.length
+                    ? 'Welcome back'
+                    : 'Welcome'}
+              </Text>
+              <Text style={s.greeting}>A good day for progress.</Text>
+            </View>
+            {onOpenProfile ? (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Open Profile"
+                onPress={guardedProfile}
+                style={({ pressed }) => [s.avatar, pressed && s.pressed]}
+              >
+                <Ionicons
+                  name="person-outline"
+                  size={22}
+                  color={colors.primary}
+                />
+              </Pressable>
+            ) : null}
+          </View>
+        </View>
+        <AppButton
+          title="Customize Home"
+          secondary
+          presentation="text"
+          disabled={
+            Boolean(draft) ||
+            homeLayout.loading ||
+            homeLayout.saving ||
+            homeLayout.loadError
+          }
+          onPress={() => {
+            homeLayout.clearSaveError();
+            setEditingLayout(true);
           }}
         />
+        {homeLayout.loadError ? (
+          <GlassCard>
+            <Text accessibilityRole="alert" style={s.sub}>
+              Could not load Home layout. Default blocks are shown; your
+              workouts remain available.
+            </Text>
+            <AppButton
+              title="Retry layout"
+              secondary
+              disabled={homeLayout.loading || homeLayout.saving}
+              onPress={() => {
+                void homeLayout.load();
+              }}
+            />
+            <AppButton
+              title="Reset Home layout"
+              secondary
+              disabled={homeLayout.loading || homeLayout.saving}
+              onPress={() => {
+                void homeLayout.save(defaultHomeLayout());
+              }}
+            />
+            {homeLayout.saveError ? (
+              <Text accessibilityRole="alert" style={s.sub}>
+                Could not save Home layout. Try again.
+              </Text>
+            ) : null}
+          </GlassCard>
+        ) : null}
+        <HomeDragGrid
+          items={items}
+          editing={Boolean(draft)}
+          disabled={
+            homeLayout.loading ||
+            homeLayout.saving ||
+            homeLayout.loadError ||
+            editingLayout
+          }
+          scroll={dragScroll}
+          onBegin={beginEditing}
+          onMove={moveBlock}
+          onLayout={(event) => setGridTop(event.nativeEvent.layout.y)}
+          onRowLayout={(id, y) =>
+            setRowOffsets((current) =>
+              current[id] === y ? current : { ...current, [id]: y },
+            )
+          }
+        />
+        {calendarOpen ? (
+          <HomeCalendar
+            history={history}
+            now={now}
+            onClose={() => setCalendarOpen(false)}
+          />
+        ) : null}
+        {editingLayout ? (
+          <HomeLayoutEditor
+            initial={draft ?? homeLayout.layout}
+            saving={homeLayout.saving}
+            error={homeLayout.saveError}
+            onClose={() => setEditingLayout(false)}
+            onSave={saveEditing}
+          />
+        ) : null}
+      </AppScrollView>
+      {draft ? (
+        <View style={s.editBar}>
+          <Text style={s.sub}>
+            Hold and drag blocks to move them. Choose Done to save.
+          </Text>
+          <View
+            style={{ flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm }}
+          >
+            <AppButton
+              title="Cancel"
+              secondary
+              presentation="text"
+              disabled={homeLayout.saving}
+              onPress={cancelEditing}
+            />
+            <AppButton
+              title={homeLayout.saving ? 'Saving layout…' : 'Done'}
+              presentation="text"
+              disabled={homeLayout.saving || dragging}
+              onPress={() => {
+                const next = draftRef.current;
+                if (next) void saveEditing(next);
+              }}
+            />
+            <AppButton
+              title="Order & visibility"
+              secondary
+              presentation="text"
+              disabled={homeLayout.saving || dragging}
+              onPress={() => setEditingLayout(true)}
+            />
+          </View>
+          {homeLayout.saveError ? (
+            <Text accessibilityRole="alert" style={s.sub}>
+              Could not save Home layout. Try Done again or Cancel.
+            </Text>
+          ) : null}
+        </View>
       ) : null}
-    </AppScrollView>
+    </View>
   );
 }
 
 const s = StyleSheet.create({
+  editBar: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 2,
+    padding: spacing.md,
+    gap: spacing.xs,
+    backgroundColor: colors.surface,
+    borderBottomLeftRadius: radius.lg,
+    borderBottomRightRadius: radius.lg,
+  },
   content: { padding: spacing.md, gap: spacing.lg },
   homeContent: {
     width: '100%',
