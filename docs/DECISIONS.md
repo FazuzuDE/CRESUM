@@ -990,3 +990,14 @@ on presentation and tests; no new dependency, schema or protocol is needed.
   reference notes, explicit anatomical sides and visible component masks.
 - Keep #66 as Draft. Manual fitting and reference reading do not constitute
   exact anatomical segmentation or expert approval; catalog and app stay stable.
+
+## 2026-10-17 — Raster-first chest/shoulder boundary study approved
+
+- User rejected the coarse contour quality and approved refining one small
+  region before expanding: manually annotated raster masks, derived SVG,
+  shading-preserving tint and enlarged/phone-scale review on the same source.
+- Keep the visible pectoral surface whole where a head separator is uncertain.
+- Whole-shoulder study masks stay unassigned while anterior/lateral separation
+  is unresolved. Preserve the existing 17 groups and production renderer.
+- Conversion tolerance is not an anatomical accuracy measurement. No automatic
+  semantic segmentation, image repair or expert acceptance is claimed.

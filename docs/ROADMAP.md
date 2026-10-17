@@ -352,3 +352,9 @@ and expose editable visible substructures. Keep the 17 catalog groups unchanged.
 The generated image and manual fitting remain a draft, not exact segmentation.
 The future 3D-source direction above is retained but is not a dependency for
 this 2D review. Keep #66 in Draft until visual/anatomical acceptance.
+
+Current refinement priority (2026-10-17): validate one chest/shoulder surface
+study using manual raster annotations, derived SVG and enlarged/phone-scale
+comparison before expanding the method. Do not claim automated segmentation.
+Leave ambiguous shoulder-head assignment unresolved rather than changing
+catalog mappings. The existing atlas remains a draft baseline.

@@ -787,3 +787,13 @@ landmarks and identified references to refine per-side contours, beginning with
 chest, lats and quadriceps. Permit editable substructure layers within existing
 groups; do not display deep structures over superficial ones. Mark new contours
 as drafts and keep the review tool separate from production analytics.
+
+### Image-boundary study: chest and shoulders — 2026-10-17
+
+User approved a small raster-mask-first refinement after rejecting coarse paths.
+Annotate independently on the unchanged source, check raster boundaries, then
+derive SVG contours with bounded conversion drift. Review enlarged and at phone
+scale. Keep the whole pectoral surface when its internal separator is ambiguous.
+Tint preserves source shading; outlines belong to review only. Whole-shoulder
+study masks must remain unassigned until the anterior/lateral division is
+reviewed; they cannot replace two distinct catalog groups with one guess.

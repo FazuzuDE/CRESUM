@@ -11,3 +11,7 @@ assets/muscle-map/male-anatomy-v1/masks/
 assets/muscle-map/male-anatomy-v1/parts/
 assets/muscle-map/male-anatomy-v1/structures/
 assets/muscle-map/male-anatomy-v1/viewer.html
+# Deterministic raster/vector study exports from trace-muscle-surface-study.py
+assets/muscle-map/male-anatomy-v1/surface-study/*.svg
+assets/muscle-map/male-anatomy-v1/surface-study/geometry.json
+assets/muscle-map/male-anatomy-v1/surface-study/fit-report.json

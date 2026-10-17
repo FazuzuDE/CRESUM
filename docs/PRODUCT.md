@@ -586,3 +586,8 @@ Current steering (2026-10-17): 3D is unavailable, so continue the 2D source/mask
 review. The future model-derived workflow remains an option; it is not required
 to improve current visible contours. Editable anatomical subparts aggregate
 into the existing groups and do not create new set/activation measurements.
+
+The approved next 2D study focuses on whole visible chest and shoulder surfaces.
+Review source-boundary fit before expanding to the rest of the body. A whole
+shoulder study is not a substitute for separate front/side-deltoid participation
+groups; unresolved boundaries must not introduce guessed mappings or scores.
