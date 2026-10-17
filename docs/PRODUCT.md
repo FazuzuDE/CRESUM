@@ -591,3 +591,8 @@ The approved next 2D study focuses on whole visible chest and shoulder surfaces.
 Review source-boundary fit before expanding to the rest of the body. A whole
 shoulder study is not a substitute for separate front/side-deltoid participation
 groups; unresolved boundaries must not introduce guessed mappings or scores.
+
+Appearance approval (2026-10-18): the user confirmed the selected front/back male
+character as CRESUM's primary male anatomical reference. Continue future Muscle
+Map/Anatomy work with this identity. Appearance approval is separate from mask
+acceptance and does not promote the current draft contours into production.

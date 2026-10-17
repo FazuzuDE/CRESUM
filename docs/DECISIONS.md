@@ -1001,3 +1001,16 @@ on presentation and tests; no new dependency, schema or protocol is needed.
   is unresolved. Preserve the existing 17 groups and production renderer.
 - Conversion tolerance is not an anatomical accuracy measurement. No automatic
   semantic segmentation, image repair or expert acceptance is claimed.
+
+## 2026-10-18 — Primary male anatomical character approved
+
+- User explicitly approved the attached front/back character as the primary
+  male anatomical reference. Lock the selected identity and appearance recorded
+  in DESIGN_SYSTEM.md, including the grayscale surface and pelvic insert.
+- The existing paired source image is retained; no rescaling or replacement is
+  needed for its coordinate-aligned masks.
+- User assessed the latest chest/shoulder study as improved and approximately
+  80% toward acceptance; that is feedback, not an anatomical accuracy metric.
+  Boundary acceptance remains pending, with user annotations offered as input.
+- This approval does not merge #66, approve its masks, or replace existing
+  blue-shirt Technique artwork.

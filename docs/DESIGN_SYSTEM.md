@@ -797,3 +797,16 @@ scale. Keep the whole pectoral surface when its internal separator is ambiguous.
 Tint preserves source shading; outlines belong to review only. Whole-shoulder
 study masks must remain unassigned until the anterior/lateral division is
 reviewed; they cannot replace two distinct catalog groups with one guess.
+
+### Primary male anatomical character approved — 2026-10-18
+
+The user explicitly approved this character's front and back appearances as the
+primary male anatomical reference for CRESUM. Preserve his face, short hair,
+body proportions, grayscale fiber texture, neutral stance and discreet central
+pelvic insert. The paired source is `assets/muscle-map/male-anatomy-v1/source.png`
+(SHA-256 `39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a`).
+Use this approved identity for subsequent Muscle Map/Anatomy asset refinements.
+The earlier appearance-candidate wording is superseded by this approval.
+Mask boundaries and anatomical correctness remain under separate review; the
+latest surface study was assessed as improved but not fully accepted. Existing
+blue-shirt Technique artwork is not replaced by this documentation decision.
