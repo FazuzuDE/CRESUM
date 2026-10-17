@@ -5,6 +5,12 @@ pelvic modesty insert on 2026-10-17. This folder locks that appearance candidate
 and adds **manual draft surface masks**, not approved anatomical segmentation.
 It does not replace the production app's SVG renderer or exercise artwork.
 
+After reviewing this experiment, the user approved evaluation of an anatomical
+3D source with separately identifiable muscles. This pack remains an unmerged
+draft checkpoint for appearance/alignment review. Future masks should come
+from reviewed geometry, not from treating these manual contours as anatomical
+ground truth. See docs/ROADMAP.md and docs/DECISIONS.md for the approved next step.
+
 ## Files
 
 - `source.png`: unchanged generated front/back reference, 1312 × 1199.

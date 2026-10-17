@@ -766,3 +766,15 @@ Each of the existing 17 groups has an independent editable SVG mask with
 separate view/side path identity. Do not regenerate individual muscle pictures
 with inconsistent poses/cameras. Initial manual mask boundaries remain draft
 until anatomical and phone-scale visual review; current production SVG stays.
+
+### Approved refinement: model-derived anatomy — 2026-10-17
+
+Prefer an anatomically reviewed, individually separated 3D muscle source for
+future precise masks. Render the neutral body, visible-surface muscle IDs/masks
+and shading from the same geometry, pose, camera and crop. Preserve the selected
+gray appearance and discreet central modesty insert. Each group may aggregate
+several anatomical objects. Accuracy comes from reviewed structure, not from
+image-to-3D conversion alone. Maintain occlusion; deeper muscle visualization
+belongs to a separate layer-view design. Current manual masks remain editable
+draft references until replaced or explicitly reviewed, not approved templates
+for deforming a future anatomically correct model.

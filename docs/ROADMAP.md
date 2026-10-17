@@ -327,5 +327,18 @@ Prepare the user-selected anatomical front/back source with modesty insert and
 17 independently editable draft muscle-group layers. Preserve common image
 coordinates and existing IDs; deliver source, masks, clipped texture references
 and offline review. Review contours/anatomy and native compositing before
-replacing the merged schematic map. Live 3D, model-derived exact segmentation,
-Female model and stimulus/recovery calculations are separate stages.
+replacing the merged schematic map. The subsequent 3D-source direction below is
+now approved. Live 3D, Female model and stimulus/recovery calculations remain
+separate stages.
+
+### Anatomical 3D source evaluation — approved 2026-10-17
+
+Next, evaluate a source with individually identifiable muscles, anatomy review,
+compatible asset rights and a reproducible render/mask export. Prove a small
+sample (chest, lats and quadriceps) before adapting all 17 groups. Keep neutral
+render, visible ID masks and shading aligned. Retain the current application
+renderer while this source is evaluated. #66 remains a draft checkpoint of the
+chosen appearance, manual mask experiment and review tooling; those contours
+are not the final anatomical source. Evaluation is read-only until a candidate
+is selected; importing a library does not automatically approve its anatomy or
+license suitability. No automatic merge of the checkpoint is authorized.
