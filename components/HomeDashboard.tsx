@@ -1,5 +1,8 @@
 import { BrandHeader } from './BrandHeader';
 import { HomeCalendar } from './HomeCalendar';
+import { HomeLayoutEditor } from './HomeLayoutEditor';
+import { useHomeLayout } from './useHomeLayout';
+import { defaultHomeLayout } from '@/lib/home-layout';
 import { TrainingProgramWeek } from './TrainingProgramWeek';
 import type { ProgramAssignment } from '@/lib/training-programs/assignment';
 import type { ProjectedProgramSlot } from '@/lib/training-programs/schedule';
@@ -292,6 +295,8 @@ export function HomeDashboard({
   assignment,
   startProgramSlot,
 }: HomeProps) {
+  const homeLayout = useHomeLayout();
+  const [editingLayout, setEditingLayout] = useState(false);
   const [now, setNow] = useState(Date.now);
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [gridTop, setGridTop] = useState(0);
@@ -354,15 +359,22 @@ export function HomeDashboard({
       />
     ) : null,
   };
-  const items: DashboardGridItem[] = HOME_WIDGET_LAYOUT.flatMap((layout) => {
-    const widget = content[layout.id];
-    return widget
-      ? [{ id: layout.id, size: layout.defaultSize, content: widget }]
-      : [];
-  });
+  const items: DashboardGridItem[] = homeLayout.layout.widgets.flatMap(
+    (layout) => {
+      const definition = HOME_WIDGET_LAYOUT.find(({ id }) => id === layout.id)!;
+      const widget = layout.visible ? content[layout.id] : null;
+      return widget
+        ? [{ id: layout.id, size: definition.defaultSize, content: widget }]
+        : [];
+    },
+  );
 
   if (program && activeWorkout)
-    items.splice(2, 0, { id: 'program', size: 'medium', content: program });
+    items.splice(items.findIndex((item) => item.id === 'primary') + 1, 0, {
+      id: 'program',
+      size: 'medium',
+      content: program,
+    });
   return (
     <AppScrollView
       contentContainerStyle={[s.content, s.homeContent]}
@@ -399,6 +411,47 @@ export function HomeDashboard({
           ) : null}
         </View>
       </View>
+      <AppButton
+        title="Customize Home"
+        secondary
+        presentation="text"
+        disabled={
+          homeLayout.loading || homeLayout.saving || homeLayout.loadError
+        }
+        onPress={() => {
+          homeLayout.clearSaveError();
+          setEditingLayout(true);
+        }}
+      />
+      {homeLayout.loadError ? (
+        <GlassCard>
+          <Text accessibilityRole="alert" style={s.sub}>
+            Could not load Home layout. Default blocks are shown; your workouts
+            remain available.
+          </Text>
+          <AppButton
+            title="Retry layout"
+            secondary
+            disabled={homeLayout.loading || homeLayout.saving}
+            onPress={() => {
+              void homeLayout.load();
+            }}
+          />
+          <AppButton
+            title="Reset Home layout"
+            secondary
+            disabled={homeLayout.loading || homeLayout.saving}
+            onPress={() => {
+              void homeLayout.save(defaultHomeLayout());
+            }}
+          />
+          {homeLayout.saveError ? (
+            <Text accessibilityRole="alert" style={s.sub}>
+              Could not save Home layout. Try again.
+            </Text>
+          ) : null}
+        </GlassCard>
+      ) : null}
       <DashboardGrid
         items={items}
         onLayout={(event) => setGridTop(event.nativeEvent.layout.y)}
@@ -413,6 +466,17 @@ export function HomeDashboard({
           history={history}
           now={now}
           onClose={() => setCalendarOpen(false)}
+        />
+      ) : null}
+      {editingLayout ? (
+        <HomeLayoutEditor
+          initial={homeLayout.layout}
+          saving={homeLayout.saving}
+          error={homeLayout.saveError}
+          onClose={() => setEditingLayout(false)}
+          onSave={async (layout) => {
+            if (await homeLayout.save(layout)) setEditingLayout(false);
+          }}
         />
       ) : null}
     </AppScrollView>

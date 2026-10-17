@@ -115,9 +115,10 @@ schedule-day changes must retain recovery and weekly-volume meaning.
   vertical drag and accessible Move up/Move down, persisting only the active
   session order. Native gesture/scroll and Reduce Motion review is required;
   source-template editing remains a separate task.
-- Modular dashboard foundation for existing Home content. Reorder/show-hide,
-  supported-size selection, and saved/synced layouts come later as a separate
-  task; do not add drag/drop or layout persistence to the foundation.
+- Modular dashboard foundation for existing Home content. The 2026-10-17 follow-up adds
+  transactional reorder/show-hide and device-local persistence, with a protected
+  primary action and retryable read/write failure states. Existing medium sizes
+  remain. Size selection, drag/drop and synced layouts remain separate work.
 - Essential Settings/Profile.
 - Selected Progress reference alignment: volume-first overview, estimated
   records, trained-exercise performance and the existing workout-volume sheet
@@ -291,3 +292,12 @@ verified; see ACCOUNT_AUTH for the checkpoint. No live test user was created or
 deleted. Keep the rollout flag off until an authorized disposable user's real
 session verifies owner guards and successful deletion, followed by native-device
 acceptance. The connected tools cannot create/sign in an Auth test user.
+
+### User-directed autonomous task — 2026-10-17
+
+The user postponed the authenticated deletion acceptance/Dashboard task and
+requested work that can be implemented and checked without their participation.
+Keep deletion rollout disabled. Deliver Home layout customization in one focused
+PR with automated persistence, Save/Cancel, recovery, primary-action and program
+regressions. Physical-device layout/accessibility acceptance remains a release
+check; neither native acceptance nor account-deletion acceptance is claimed.

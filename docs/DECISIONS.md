@@ -910,3 +910,15 @@ on presentation and tests; no new dependency, schema or protocol is needed.
 - Keep client rollout off pending a real disposable test-user session and
   successful owner-bound deletion, then device acceptance. No existing user was
   deleted; no test user or email was created. See ACCOUNT_AUTH for evidence.
+
+## 2026-10-17 — Autonomous Home customization follow-up
+
+- User postponed Dashboard/test-account deletion acceptance and requested another
+  task deliverable without their participation. Deletion remains off.
+- Selected the roadmap Home customization follow-up: transactional Save/Cancel,
+  accessible move buttons, optional block visibility, protected primary action,
+  and local persistence. Default restoration includes all blocks.
+- Implementation choices: retain medium sizes and the existing grid; keep active
+  program details next to Resume. Preferences survive workout reset/restore and
+  stay outside backup v1/cloud. No new dependencies. Errors preserve workouts
+  and saved preferences, with explicit retry/reset. Native acceptance is separate.

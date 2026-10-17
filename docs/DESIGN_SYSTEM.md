@@ -294,7 +294,7 @@ The week starts on Monday; blue checks indicate actual completed workouts and
 an outlined date indicates today. Dates without completed sessions remain
 neutral, not planned or missed workouts. Day accessibility labels announce date,
 completion count and today. Refresh time-sensitive data on foreground and once
-per minute. No editable dashboard or new scheduling system is included.
+per minute. The Home customization follow-up below adds a separate editor; calendar counts remain factual.
 
 Use a neutral greeting/profile icon until a real user name is available. Do not
 hardcode the screenshot's name, initials, dates or statistics. Template metadata
@@ -689,3 +689,20 @@ on both sides. Exclude unfinished sets. Display unavailable volume explicitly;
 keep a valid zero-weight result as zero. When only some completed sets have
 measurable volume, show their coverage alongside the recorded total. Summaries
 are context for the user's choice and must not imply a recommended winner.
+
+### Home customization — 2026-10-17
+
+Home offers a secondary **Customize Home** action below the greeting. Open a
+scrollable page sheet with existing surfaces/tokens and wrapping labels. Each
+module has accessible Move up / Move down buttons (44 pt minimum), with disabled
+boundary states, and a labeled visibility switch with Shown/Hidden text. The
+primary workout module reads Always shown. It may move but cannot be hidden.
+Keep header/navigation outside the editable list. Save layout applies after a
+successful write; Cancel/system Back discards the draft. Restore default order
+restores visibility too and stays a draft until Save. Disable controls and system
+Back while saving, show Saving layout… and an inline retryable save error.
+Loading disables editing, while workout actions remain available. A load failure
+shows a plain-language notice, Retry layout and explicit Reset Home layout.
+Retain shared upward scrolling with actual reordered section positions.
+No new drag gesture, card size, cloud sync or calendar behavior is introduced.
+Native safe-area/large-text/VoiceOver acceptance remains a release check.

@@ -162,9 +162,18 @@ demo data or a fake user identity in production.
 Dashboard content is composed of independent modules with stable identities. The
 module's position must not own workout or analytics logic. The current Home
 keeps its primary workout action, factual training summary, latest workout,
-and workout templates; header and navigation remain structural. Future
-reordering, visibility, supported-size selection, and saved layouts are not
-part of the current Core implementation.
+and workout templates; header and navigation remain structural. Home customization now supports locally saved module order and visibility via
+an explicit Save/Cancel editor. The primary Start/Resume (or accepted program)
+module is always visible; when active, the supplementary program stays directly
+after Resume. Hidden modules do not change saved workouts, metrics or routines.
+The header and navigation remain structural. Sizes remain the existing medium.
+Unknown retired IDs are ignored and new modules are appended. Invalid/future
+layout documents or read errors show the default Home without overwriting saved
+preferences; offer Retry or an explicit Reset Home layout. Failed saves retain
+the draft and previous applied layout. Home preferences are device-local,
+independent of account, preserved by workout-data reset/full restore, and excluded
+from v1 backup files and cloud sync. The editor can restore all default visibility
+and order; Save is still required.
 
 ### Workout Engine
 

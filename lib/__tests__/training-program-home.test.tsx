@@ -11,16 +11,21 @@ jest.mock('@expo/vector-icons', () => ({
 jest.mock('expo-blur', () => ({
   BlurView: jest.requireActual('react-native').View,
 }));
+jest.mock('@react-native-async-storage/async-storage', () =>
+  jest.requireActual(
+    '@react-native-async-storage/async-storage/jest/async-storage-mock',
+  ),
+);
 const a = makeAssignment(
   selectProgram('get_stronger', 'beginner')!,
   'home-1',
   '2026-10-11',
 );
-const render = (active = false, templates = a.templates) => {
+const render = async (active = false, templates = a.templates) => {
   let view!: ReturnType<typeof create>;
   const start = jest.fn();
   const resume = jest.fn();
-  act(() => {
+  await act(async () => {
     view = create(
       <HomeDashboard
         history={[]}
@@ -38,8 +43,8 @@ const render = (active = false, templates = a.templates) => {
   });
   return { view, start, resume };
 };
-it('shows accepted weeks separately from actual statistics and starts only a chosen slot', () => {
-  const { view, start } = render();
+it('shows accepted weeks separately from actual statistics and starts only a chosen slot', async () => {
+  const { view, start } = await render();
   expect(JSON.stringify(view.toJSON())).toContain(a.program.name);
   const button = view.root
     .findAllByType(AppButton)
@@ -52,8 +57,8 @@ it('shows accepted weeks separately from actual statistics and starts only a cho
   expect(start.mock.calls[0][1].id).toMatch(/^program-home-1-/);
   act(() => view.unmount());
 });
-it('keeps Resume primary when a workout is active', () => {
-  const { view, resume, start } = render(true);
+it('keeps Resume primary when a workout is active', async () => {
+  const { view, resume, start } = await render(true);
   const button = view.root
     .findAllByType(AppButton)
     .find((b: { props: { title: string } }) =>
@@ -72,8 +77,8 @@ it('keeps Resume primary when a workout is active', () => {
   expect(start).not.toHaveBeenCalled();
   act(() => view.unmount());
 });
-it('offers review instead of recreating a deleted program routine', () => {
-  const { view } = render(false, []);
+it('offers review instead of recreating a deleted program routine', async () => {
+  const { view } = await render(false, []);
   expect(JSON.stringify(view.toJSON())).toContain('Review workouts in Profile');
   expect(
     view.root
