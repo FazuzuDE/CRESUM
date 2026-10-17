@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1312" height="1199" viewBox="0 0 1312 1199">
+<title>Грудь — editable draft mask</title>
+<g id="chest" fill="currentColor">
+<path id="chest--front--right--0" data-view="front" data-side="right" d="M257 221 C284 202 320 201 362 219 L362 305 C345 322 309 323 277 306 Q256 286 251 253 Z"/>
+<path id="chest--front--left--0" data-view="front" data-side="left" d="M257 221 C284 202 320 201 362 219 L362 305 C345 322 309 323 277 306 Q256 286 251 253 Z" transform="translate(736 0) scale(-1 1)"/>
+</g>
+</svg>

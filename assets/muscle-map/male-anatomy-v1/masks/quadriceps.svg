@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1312" height="1199" viewBox="0 0 1312 1199">
+<title>Квадрицепсы — editable draft mask</title>
+<g id="quadriceps" fill="currentColor">
+<path id="quadriceps--front--right--0" data-view="front" data-side="right" d="M256 563 C275 551 299 561 309 584 C319 616 313 653 301 687 L286 735 C280 751 272 763 264 758 C253 744 249 717 246 691 L246 623 Z M319 644 C328 667 329 693 320 725 L304 761 L296 767 C301 738 306 705 308 680 Z"/>
+<path id="quadriceps--front--left--0" data-view="front" data-side="left" d="M256 563 C275 551 299 561 309 584 C319 616 313 653 301 687 L286 735 C280 751 272 763 264 758 C253 744 249 717 246 691 L246 623 Z M319 644 C328 667 329 693 320 725 L304 761 L296 767 C301 738 306 705 308 680 Z" transform="translate(736 0) scale(-1 1)"/>
+</g>
+</svg>

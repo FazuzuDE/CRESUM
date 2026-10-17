@@ -753,3 +753,16 @@ the role, never highlight brightness within a role. Additional shade tokens:
 neutral `#ECEDEF` / `#BEC2C8`, primary `#C75757` / `#8F292E`, secondary
 `#F1C4C4` / `#D99393`. This remains a simplified group map requiring visual
 acceptance, not an individually modeled anatomical atlas or realistic 3D asset.
+
+### Selected anatomical appearance and editable masks — 2026-10-17
+
+The user selected a grayscale anatomical illustration with clearly separated
+surface muscles, restrained fiber detail, front/back neutral stance and a small
+matte central pelvic modesty insert. Keep the adductors, proximal thighs and
+glutes visible. This Muscle Map appearance candidate is separate from the
+blue-shirt Exercise Male Master; it does not replace technique artwork.
+Preserve one unchanged source image and common coordinates for every layer.
+Each of the existing 17 groups has an independent editable SVG mask with
+separate view/side path identity. Do not regenerate individual muscle pictures
+with inconsistent poses/cameras. Initial manual mask boundaries remain draft
+until anatomical and phone-scale visual review; current production SVG stays.

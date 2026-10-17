@@ -320,3 +320,12 @@ Progress using existing taxonomy and mappings. This is separate from deferred
 Muscle Load/stimulus/recovery/recommendation work and does not approve any
 coefficients, new anatomical taxonomy or normalized red-intensity scale.
 Native visual/accessibility acceptance remains open before release.
+
+### Muscle Map source and mask preparation — 2026-10-17
+
+Prepare the user-selected anatomical front/back source with modesty insert and
+17 independently editable draft muscle-group layers. Preserve common image
+coordinates and existing IDs; deliver source, masks, clipped texture references
+and offline review. Review contours/anatomy and native compositing before
+replacing the merged schematic map. Live 3D, model-derived exact segmentation,
+Female model and stimulus/recovery calculations are separate stages.

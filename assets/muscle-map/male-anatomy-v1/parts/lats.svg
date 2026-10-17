@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1312" height="1199" viewBox="0 0 1312 1199">
+<title>Широчайшие — source texture clipped by draft mask</title>
+<defs><clipPath id="region"><path id="lats--back--left--0" data-view="back" data-side="left" d="M845 335 C866 353 892 371 921 382 C905 410 885 438 864 465 L850 480 C858 454 860 434 854 410 C849 385 845 357 845 335 Z"/>
+<path id="lats--back--right--0" data-view="back" data-side="right" d="M845 335 C866 353 892 371 921 382 C905 410 885 438 864 465 L850 480 C858 454 860 434 854 410 C849 385 845 357 845 335 Z" transform="translate(1878 0) scale(-1 1)"/></clipPath></defs>
+<image href="../source.png" width="1312" height="1199" clip-path="url(#region)"/>
+</svg>
