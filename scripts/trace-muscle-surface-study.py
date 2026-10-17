@@ -5,6 +5,7 @@ Does not infer anatomy, mutate source.png or replace the 17-group atlas.
 """
 
 from pathlib import Path
+import argparse
 import hashlib
 import json
 
@@ -18,11 +19,15 @@ from scipy.spatial import cKDTree
 
 root = Path(__file__).resolve().parent.parent
 directory = root / "assets/muscle-map/male-anatomy-v1"
-study = directory / "surface-study"
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--study", choices=["surface-study", "trapezius-study"], default="surface-study")
+study = directory / parser.parse_args().study
 data = json.loads((study / "annotations.json").read_text())
 assert hashlib.sha256((directory / "source.png").read_bytes()).hexdigest() == data["sourceSha256"]
 width, height = data["canvas"]
 scale = 4
+segment_count = data.get("vectorSegments", 128)
+assert segment_count in (128, 256)
 output = []
 report = []
 for region in data["regions"]:
@@ -41,12 +46,12 @@ for region in data["regions"]:
     # Fit a periodic spline with a small smoothing budget, then check geometric
     # deviation in BOTH directions. This metric says nothing about anatomy.
     fit, _ = splprep(boundary.T, s=len(boundary) * 0.008, per=True)
-    t = np.linspace(0, 1, 129)
+    t = np.linspace(0, 1, segment_count + 1)
     p = np.asarray(splev(t, fit)).T
-    v = np.asarray(splev(t, fit, der=1)).T / 128
+    v = np.asarray(splev(t, fit, der=1)).T / segment_count
     commands = [f"M{p[0, 0]:.3f} {p[0, 1]:.3f}"]
     dense = []
-    for i in range(128):
+    for i in range(segment_count):
         a, b = p[i], p[i + 1]
         c, d = a + v[i] / 3, b - v[i + 1] / 3
         commands.append(f"C{c[0]:.3f} {c[1]:.3f} {d[0]:.3f} {d[1]:.3f} {b[0]:.3f} {b[1]:.3f}")

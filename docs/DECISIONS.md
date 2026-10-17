@@ -1057,3 +1057,13 @@ on presentation and tests; no new dependency, schema or protocol is needed.
   saturation does not establish a new default or load-calibration rule.
 - Soft alpha assets stay available as experiments. Contour/anatomical review
   and Draft #66 remain unchanged.
+
+## 2026-10-18 — Next muscle: trapezius boundary study
+
+- User requested continuing with the next muscle after locking the clear-edge
+  presentation. Begin the posterior block with bilateral visible trapezius.
+- Trace both sides independently on the unchanged source; preserve the existing
+  `traps` group ID and show an enlarged/phone-scale comparison with the first
+  draft. No production renderer or training calculation changes.
+- New contours remain review candidates; the selected style does not approve
+  anatomical boundaries or the rest of the atlas.
