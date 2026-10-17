@@ -1025,3 +1025,13 @@ on presentation and tests; no new dependency, schema or protocol is needed.
 - Exclude speculative dashed shoulder divisions and retain unassigned whole
   shoulder surfaces. No production integration or anatomical acceptance follows
   from this trial.
+
+## 2026-10-18 — Soft-edge highlight trial requested
+
+- User assessed the reference-contour result as approximately 98% toward visual
+  acceptance and requested slight edge blur and reference-like textured tint.
+  This is subjective review feedback, not an accuracy score or final acceptance.
+- Prepare an inward-feathered red presentation trial, preserving original
+  geometry/source and providing comparison. Avoid spill onto neighboring areas.
+- Decorative internal gradients do not add within-muscle load calculations;
+  the reference's red/orange/yellow legend is not an approved scoring change.

@@ -819,3 +819,13 @@ thorax detail to the unchanged source before judging the result. Preserve the
 prior manual surface study for comparison. Exclude dashed deltoid divisions;
 whole-shoulder masks stay unassigned. Generative reference appearance, pixel
 registration and smooth vector export do not establish anatomical correctness.
+
+### Soft muscle highlight presentation trial — 2026-10-18
+
+User requested slight edge softening and a textured, volumetric-looking tint.
+Trial inward feathering over 2 source pixels on the current reference contours,
+with zero alpha outside the mask. Preserve grayscale fibers and shading, remove
+review strokes from the tinted mode, and compare flat/soft/soft-gradient red.
+Any internal gradient is presentation only, not modeled activation within a
+muscle. Keep the approved red convention; multicolor reference legends do not
+define new load semantics. Appearance trial does not finalize anatomical masks.
