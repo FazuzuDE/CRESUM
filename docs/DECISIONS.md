@@ -947,3 +947,14 @@ on presentation and tests; no new dependency, schema or protocol is needed.
   Use Expo-compatible react-native-svg for native rendering. A realistic 3D
   anatomical asset, medical validation and native acceptance are not claimed.
 - Stimulus formulas, fatigue/recovery and recommendations remain deferred.
+
+## 2026-10-17 — Muscle Map visual revision approved
+
+- User found the first map visually weak while its interaction appeared to work,
+  and approved continuing with a curved anatomical-style SVG refinement.
+- Revise original silhouette/group geometry and fixed shading in the open #65;
+  retain existing counts, source-set details, periods and catalog semantics.
+- Keep all 17 groups selectable through text alternatives, use unique gradient
+  IDs for simultaneous overview/detail maps, and restrict calf highlights to the
+  posterior calf rather than mislabeling the anterior shin.
+- Rebuild the in-conversation preview for acceptance; no automatic merge.

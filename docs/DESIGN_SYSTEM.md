@@ -739,3 +739,17 @@ Details expose saved exercise/workout names and actual logged rows. Retain the
 existing Overview rather than adding nonfunctional Strength/Volume tabs.
 Device SVG touch, large text, VoiceOver/TalkBack and visual acceptance remain
 release checks; automated tests and exports do not replace those checks.
+
+### Muscle Map visual refinement — 2026-10-17
+
+The first geometric placeholder was rejected visually during preview. Replace
+its angular panels with an original curved silhouette, natural head/hand/foot
+proportions and softly shaded muscle groups. Use thin separators (0.65 SVG units),
+preserve all 17 semantic groups, and show calves on the posterior view rather
+than coloring the anterior shin. The neutral figure has no sex-specific identity.
+No new taxonomy, muscle mapping, sex selector or calculation is introduced.
+Shading is fixed decorative lighting; primary/secondary counts still determine
+the role, never highlight brightness within a role. Additional shade tokens:
+neutral `#ECEDEF` / `#BEC2C8`, primary `#C75757` / `#8F292E`, secondary
+`#F1C4C4` / `#D99393`. This remains a simplified group map requiring visual
+acceptance, not an individually modeled anatomical atlas or realistic 3D asset.
