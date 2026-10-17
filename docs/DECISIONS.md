@@ -1044,3 +1044,16 @@ on presentation and tests; no new dependency, schema or protocol is needed.
   opacity is a presentation setting, not a new training-load calibration.
 - Record this as an approved presentation choice. Boundary review, unresolved
   shoulder assignment and the Draft status of #66 remain in place.
+
+## 2026-10-18 — Prefer the previous clear edge after blur comparison
+
+- User stated that **Previous edge** is better and supplied a screenshot with
+  that exact option selected. It is the smooth SVG fill with ordinary
+  antialiasing and no added feather, outward blur, stroke or radial gradient.
+- This supersedes the earlier Soft red selection. The checked outer-blur box
+  in the review had no effect in Previous edge mode; do not interpret it as
+  approval of an outer halo.
+- Preserve source texture and adjustable opacity. The screenshot's 100%
+  saturation does not establish a new default or load-calibration rule.
+- Soft alpha assets stay available as experiments. Contour/anatomical review
+  and Draft #66 remain unchanged.

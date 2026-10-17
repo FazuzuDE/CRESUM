@@ -597,7 +597,9 @@ character as CRESUM's primary male anatomical reference. Continue future Muscle
 Map/Anatomy work with this identity. Appearance approval is separate from mask
 acceptance and does not promote the current draft contours into production.
 
-Highlight appearance approved (2026-10-18): use Soft red, preserving source
-texture with a slight inward-feathered edge. The decorative radial-gradient
-alternative is not selected. Keep existing muscle-group/load semantics; style
-approval does not constitute acceptance of the incomplete anatomical masks.
+Current highlight appearance (2026-10-18): the user preferred the **Previous
+edge** comparison option after testing blur. Use the smooth SVG boundary with
+uniform red tint, retained source texture, no stroke and no additional inner or
+outer blur. This supersedes the earlier Soft red choice. Keep existing muscle
+groups, controllable opacity and load semantics. Appearance preference does not
+constitute acceptance of the incomplete anatomical masks.

@@ -820,13 +820,15 @@ prior manual surface study for comparison. Exclude dashed deltoid divisions;
 whole-shoulder masks stay unassigned. Generative reference appearance, pixel
 registration and smooth vector export do not establish anatomical correctness.
 
-### Soft red muscle highlight approved — 2026-10-18
+### Clear-edge red highlight selected — 2026-10-18
 
-The user explicitly selected **Soft red** from the presentation comparison.
-Use a uniform red tint with inward feathering over 2 source pixels, bounded by
-antialiased mask coverage. Preserve grayscale fibers and source shading; no
-outline in the tinted presentation. The current review opacity is 0.65, not a
-calibrated training-load scale. The additional radial-gradient variant was not
-selected. Keep red load semantics; multicolor reference legends do not define
-new categories. This style approval does not finalize anatomical boundaries or
+After comparing soft and externally blurred variants, the user preferred the
+**Previous edge** option shown in their screenshot: the original smooth SVG
+boundary with a uniform red fill, ordinary vector antialiasing, no stroke, no
+added inward feathering and no outward blur. This supersedes the earlier Soft
+red selection. Preserve grayscale fibers and source shading. Keep opacity
+controllable; the screenshot's 100% setting is not a new default or calibrated
+training-load scale. Radial-gradient and blur variants remain experiments.
+Keep red load semantics; multicolor reference legends do not define new
+categories. Appearance preference does not finalize anatomical boundaries or
 authorize production integration of the incomplete atlas.
