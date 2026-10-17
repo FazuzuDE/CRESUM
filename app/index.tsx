@@ -50,6 +50,7 @@ import { ExercisePerformance } from '@/components/ExercisePerformance';
 import { ProgressScrollView } from '@/components/ProgressScrollView';
 import { TrainingVolume } from '@/components/TrainingVolume';
 import { BodyWeight, type BodyWeightProps } from '@/components/BodyWeight';
+import { MuscleProgress } from '@/components/MuscleProgress';
 import { BodyWeightRepository, type BodyWeightEntry } from '@/lib/body-weight';
 import { volume } from '@/lib/workout-metrics';
 import {
@@ -90,12 +91,15 @@ import {
 const blue = colors.primary;
 function Stats({
   history,
+  activeWorkout,
   measurements,
 }: {
   history: Session[];
+  activeWorkout?: Session;
   measurements: BodyWeightProps & { updatedAt: number };
 }) {
   const { fontScale } = useWindowDimensions();
+  const [section, setSection] = useState<'overview' | 'muscles'>('overview');
   const [period, setPeriod] = useState<ProgressPeriodId>(
     DEFAULT_PROGRESS_PERIOD,
   );
@@ -120,6 +124,15 @@ function Stats({
     () => projectVolumeComparison(history, period, now),
     [history, period, now],
   );
+  if (section === 'muscles')
+    return (
+      <MuscleProgress
+        history={history}
+        activeWorkout={activeWorkout}
+        now={now}
+        onOverview={() => setSection('overview')}
+      />
+    );
   return (
     <ProgressScrollView
       contentContainerStyle={[s.content, s.progressContent]}
@@ -139,6 +152,20 @@ function Stats({
                     Volume and estimated strength records
                   </Text>
                 </View>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  flexWrap: 'wrap',
+                  gap: spacing.xs,
+                }}
+              >
+                <AppButton title="Overview" selected onPress={() => {}} />
+                <AppButton
+                  title="Muscles"
+                  secondary
+                  onPress={() => setSection('muscles')}
+                />
               </View>
               <View style={s.periods} accessibilityLabel="Progress period">
                 {PROGRESS_PERIODS.map((option) => (
@@ -1050,6 +1077,7 @@ function AppContent({
               )}
               <Stats
                 history={data.history}
+                activeWorkout={data.activeWorkout ?? undefined}
                 measurements={{
                   entries: bodyWeights,
                   updatedAt: bodyWeightSnapshot.updatedAt,
