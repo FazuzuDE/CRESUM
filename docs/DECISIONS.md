@@ -922,3 +922,15 @@ on presentation and tests; no new dependency, schema or protocol is needed.
   program details next to Resume. Preferences survive workout reset/restore and
   stay outside backup v1/cloud. No new dependencies. Errors preserve workouts
   and saved preferences, with explicit retry/reset. Native acceptance is separate.
+
+## 2026-10-17 — Home hold-and-drag editing approved
+
+- After merging #63, user approved the proposed long-hold → wobble/haptic →
+  drag → Done/Cancel interaction. Keep arrows as accessible alternative and
+  honor Reduce Motion.
+- Extend the existing local layout without changing workout state or schema.
+  Inline editing guards child actions and keeps Resume/program as one block.
+  The fixed edit bar preserves card position on activation; use measured heights
+  and existing edge-scroll controls. Save is explicit and retryable.
+- Existing sheet edits the same draft; device gesture/VoiceOver/haptic validation
+  remains separate from automated source-level/native JS export checks.

@@ -175,6 +175,18 @@ independent of account, preserved by workout-data reset/full restore, and exclud
 from v1 backup files and cloud sync. The editor can restore all default visibility
 and order; Save is still required.
 
+The approved drag follow-up also supports holding any visible Home block for
+450 ms to enter inline editing with light haptic feedback and restrained wobble.
+Dragging updates a local draft only. Done writes that draft; Cancel, Android Back
+or leaving Home discards unsaved order. A canceled/interrupting drag never commits
+its partial movement; backgrounding retains earlier draft edits. Disable inner
+workout/calendar/profile actions while editing, including the release following
+the activating hold. Keep primary workout and active supplementary program in
+one movable group. Hidden or currently absent blocks retain preferences. The
+existing Order & visibility sheet remains the accessible button alternative and
+can save the same draft. Failed saves retain editing for retry; all mutations
+remain local-layout-only. Reduce Motion suppresses wobble.
+
 ### Workout Engine
 
 Start/resume; exercises; sets; weight; reps; previous context; completion; rest timer; editing where supported; exercise progression; Finish; persistence.

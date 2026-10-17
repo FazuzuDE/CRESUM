@@ -24,6 +24,10 @@ jest.mock('react-native-safe-area-context', () => ({
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
+jest.mock('react-native-gesture-handler', () => ({
+  ...jest.requireActual('react-native-gesture-handler'),
+  GestureDetector: jest.requireActual('react-native').View,
+}));
 jest.mock('expo-blur', () => ({
   BlurView: jest.requireActual('react-native').View,
 }));
@@ -142,7 +146,7 @@ it('keeps Resume and the accepted program together even when optional modules ar
       />,
     );
   });
-  expect(ids(view)).toEqual(['primary', 'program']);
+  expect(ids(view)).toEqual(['primary']);
   await act(async () => button(view, `Resume ${active.name}`).props.onPress());
   expect(onResume).toHaveBeenCalledTimes(1);
   expect(JSON.stringify(active)).toBe(snapshot);

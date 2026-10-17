@@ -14,10 +14,12 @@ export function DashboardGrid({
   items,
   onLayout,
   onRowLayout,
+  activeItemId,
 }: {
   items: DashboardGridItem[];
   onLayout?: ViewProps['onLayout'];
   onRowLayout?: (id: string, y: number) => void;
+  activeItemId?: string;
 }) {
   const rows: DashboardGridItem[][] = [];
   for (const item of items) {
@@ -39,7 +41,10 @@ export function DashboardGrid({
         <View
           key={row[0].id}
           testID="dashboard-grid-row"
-          style={styles.row}
+          style={[
+            styles.row,
+            { zIndex: row.some((item) => item.id === activeItemId) ? 1 : 0 },
+          ]}
           onLayout={(event) =>
             onRowLayout?.(row[0].id, event.nativeEvent.layout.y)
           }

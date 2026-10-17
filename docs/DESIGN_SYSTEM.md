@@ -704,5 +704,25 @@ Back while saving, show Saving layout… and an inline retryable save error.
 Loading disables editing, while workout actions remain available. A load failure
 shows a plain-language notice, Retry layout and explicit Reset Home layout.
 Retain shared upward scrolling with actual reordered section positions.
-No new drag gesture, card size, cloud sync or calendar behavior is introduced.
+This first customization stage adds no card size, cloud sync or calendar behavior; the approved drag follow-up below extends interaction.
 Native safe-area/large-text/VoiceOver acceptance remains a release check.
+
+### Home hold-and-drag follow-up — approved 2026-10-17
+
+Holding a Home card for 450 ms enters inline editing with one light haptic.
+All visible groups wobble gently (±0.4 degrees); Reduce Motion disables wobble.
+Use measured card heights for vertical movement and the existing viewport-edge
+scrolling. Show lifted-card feedback, retain empty/hidden-block preferences, and
+keep the primary workout and supplementary program together.
+
+An opaque top edit bar overlays the greeting without shifting the grabbed card.
+Use existing theme text buttons and wrapping layout for Cancel, Done and
+Order & visibility. The latter opens the existing sheet on the current draft;
+its cancellation returns to inline editing. Disable child interactions and hide
+child actions from screen readers while editing. Groups expose named Move up/down
+actions; the sheet retains visible buttons and visibility switches. Done applies
+only after successful persistence, failures stay visible and retryable, and
+controls disable while saving. Cancel/Android Back reset the draft and lift.
+Gesture cancellation, layout changes, backgrounding and unmount stop dragging
+and edge-scroll timers. Native gesture competition, animation pace, VoiceOver,
+large-text toolbar and safe-area behavior remain physical-device acceptance.

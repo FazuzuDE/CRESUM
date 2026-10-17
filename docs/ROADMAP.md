@@ -118,7 +118,7 @@ schedule-day changes must retain recovery and weekly-volume meaning.
 - Modular dashboard foundation for existing Home content. The 2026-10-17 follow-up adds
   transactional reorder/show-hide and device-local persistence, with a protected
   primary action and retryable read/write failure states. Existing medium sizes
-  remain. Size selection, drag/drop and synced layouts remain separate work.
+  remain. Size selection and synced layouts remain separate work; the approved hold-and-drag follow-up is described below.
 - Essential Settings/Profile.
 - Selected Progress reference alignment: volume-first overview, estimated
   records, trained-exercise performance and the existing workout-volume sheet
@@ -301,3 +301,13 @@ Keep deletion rollout disabled. Deliver Home layout customization in one focused
 PR with automated persistence, Save/Cancel, recovery, primary-action and program
 regressions. Physical-device layout/accessibility acceptance remains a release
 check; neither native acceptance nor account-deletion acceptance is claimed.
+
+### Home hold-and-drag — approved after merged #63
+
+PR #63 merged at `b5bb65d1b2d75aea367b3e5846622bb0a78a3ad2`.
+User approved long-hold editing, light feedback/wobble, vertical dragging and
+Done/Cancel, retaining the accessible arrow alternative and Reduce Motion.
+Implement within Home using the existing layout repository and gesture/viewport
+scroll dependencies. Verify draft-only mutation, save/retry/cancel, interrupted
+late drops, protected workout actions and native JS exports. Physical gesture,
+haptic and accessibility acceptance remains a release check.
