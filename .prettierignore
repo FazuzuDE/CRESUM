@@ -15,3 +15,7 @@ assets/muscle-map/male-anatomy-v1/viewer.html
 assets/muscle-map/male-anatomy-v1/surface-study/*.svg
 assets/muscle-map/male-anatomy-v1/surface-study/geometry.json
 assets/muscle-map/male-anatomy-v1/surface-study/fit-report.json
+# Deterministic exports from extract-muscle-reference.py
+assets/muscle-map/male-anatomy-v1/reference-study/*.svg
+assets/muscle-map/male-anatomy-v1/reference-study/geometry.json
+assets/muscle-map/male-anatomy-v1/reference-study/registration.json

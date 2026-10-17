@@ -1,0 +1,43 @@
+{
+  "status": "draft-reference-contours-not-anatomical-ground-truth",
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "referenceSha256": "191896696983f32fbfbda7e2b4f7ad5be61f01651d955f50f9d62ba53aa4db7b",
+  "referenceSize": [
+    574,
+    1024
+  ],
+  "sourceSize": [
+    1312,
+    1199
+  ],
+  "transform": {
+    "scaleX": 1.1722413321091416,
+    "scaleY": 1.1685413343940825,
+    "translateX": 12.543770732115803,
+    "translateY": -36.302833172925155
+  },
+  "normalizedImageResidual": 0.0054510529081574005,
+  "registrationScope": "grayscale thorax only; not validated for whole-body transfer",
+  "regions": [
+    {
+      "id": "deltoid-right-reference",
+      "referenceInteriorPixels": 3288,
+      "maxVectorRasterDeviationPx": 0.648
+    },
+    {
+      "id": "deltoid-left-reference",
+      "referenceInteriorPixels": 3270,
+      "maxVectorRasterDeviationPx": 0.694
+    },
+    {
+      "id": "pectoralis-major-right-reference",
+      "referenceInteriorPixels": 6110,
+      "maxVectorRasterDeviationPx": 0.71
+    },
+    {
+      "id": "pectoralis-major-left-reference",
+      "referenceInteriorPixels": 6116,
+      "maxVectorRasterDeviationPx": 0.635
+    }
+  ]
+}

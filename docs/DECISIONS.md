@@ -1014,3 +1014,14 @@ on presentation and tests; no new dependency, schema or protocol is needed.
   Boundary acceptance remains pending, with user annotations offered as input.
 - This approval does not merge #66, approve its masks, or replace existing
   blue-shirt Technique artwork.
+
+## 2026-10-18 — Try contours extracted from the annotated reference
+
+- User explicitly requested working from the provided teal-outline image.
+  Extract four real raster interiors and derive SVG; do not pretend its image
+  generator originally supplied vector paths.
+- Align only the grayscale thorax to the fixed approved source, recording the
+  transformation. Keep this result alongside the prior study for review.
+- Exclude speculative dashed shoulder divisions and retain unassigned whole
+  shoulder surfaces. No production integration or anatomical acceptance follows
+  from this trial.

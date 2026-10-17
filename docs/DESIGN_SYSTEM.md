@@ -810,3 +810,12 @@ The earlier appearance-candidate wording is superseded by this approval.
 Mask boundaries and anatomical correctness remain under separate review; the
 latest surface study was assessed as improved but not fully accepted. Existing
 blue-shirt Technique artwork is not replaced by this documentation decision.
+
+### Annotated reference extraction — 2026-10-18
+
+User requested a trial transfer of the teal chest/shoulder outlines from the
+provided annotated raster. Extract actual colored boundaries and register local
+thorax detail to the unchanged source before judging the result. Preserve the
+prior manual surface study for comparison. Exclude dashed deltoid divisions;
+whole-shoulder masks stay unassigned. Generative reference appearance, pixel
+registration and smooth vector export do not establish anatomical correctness.
