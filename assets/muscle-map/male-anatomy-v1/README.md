@@ -5,11 +5,11 @@ pelvic modesty insert on 2026-10-17. This folder locks that appearance candidate
 and adds **manual draft surface masks**, not approved anatomical segmentation.
 It does not replace the production app's SVG renderer or exercise artwork.
 
-After reviewing this experiment, the user approved evaluation of an anatomical
-3D source with separately identifiable muscles. This pack remains an unmerged
-draft checkpoint for appearance/alignment review. Future masks should come
-from reviewed geometry, not from treating these manual contours as anatomical
-ground truth. See docs/ROADMAP.md and docs/DECISIONS.md for the approved next step.
+The user subsequently deferred 3D availability and continued with 2D. Revision 2
+refines chest, lats and quadriceps using anatomy descriptions and visible image
+landmarks; see `REVIEW_2D.md` for scope and limitations. This pack remains an
+unmerged draft checkpoint. Future 3D-source evaluation remains optional work;
+current manually fitted masks are not anatomical ground truth.
 
 ## Files
 
@@ -19,6 +19,8 @@ ground truth. See docs/ROADMAP.md and docs/DECISIONS.md for the approved next st
 - `masks/<muscle-id>.svg`: one transparent mask for each of 17 existing groups.
 - `parts/<muscle-id>.svg`: the original muscle texture clipped by its mask;
   preserve the relative reference to `../source.png` when using these files.
+- `structures/<structure-id>.svg`: six visible anatomical component masks for
+  the three refined groups, still drafts and sharing the original canvas.
 - `atlas.svg`: all masks as independently named groups.
 - `viewer.html`: local offline review tool; keep beside `source.png`.
 
@@ -33,9 +35,10 @@ Every exported SVG retains `viewBox="0 0 1312 1199"`, including transparent empt
 space. Render the base image and mask with the same aspect ratio, crop and
 transform. Never auto-trim individual masks independently. `views` supplies
 matching crops for the front and back. Exported path IDs preserve view and
-anatomical left/right identity. The atlas currently starts from mirrored
-bilateral paths; the source image is not perfectly symmetric, so both sides
-require boundary review. Do not infer side-specific training data from this.
+anatomical left/right identity. Revision 2 uses explicit left/right paths for
+the three refined groups; others retain mirrored bilateral starting paths.
+The source is not perfectly symmetric, so both sides require boundary review.
+Do not infer side-specific training data from this.
 
 SVGs default to `currentColor`. In a browser, use inline SVG plus multiply
 blending/opacity to retain the grayscale detail beneath the color. For native

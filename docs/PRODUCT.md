@@ -581,3 +581,8 @@ The initial app presentation may remain 2D. Interactive rotation and deep-layer
 anatomy views require separate product work. Hidden muscles must not be painted
 over an unrelated visible surface. Source selection must verify anatomy,
 object separation, usable pose, export workflow and asset licensing.
+
+Current steering (2026-10-17): 3D is unavailable, so continue the 2D source/mask
+review. The future model-derived workflow remains an option; it is not required
+to improve current visible contours. Editable anatomical subparts aggregate
+into the existing groups and do not create new set/activation measurements.

@@ -778,3 +778,12 @@ image-to-3D conversion alone. Maintain occlusion; deeper muscle visualization
 belongs to a separate layer-view design. Current manual masks remain editable
 draft references until replaced or explicitly reviewed, not approved templates
 for deforming a future anatomically correct model.
+
+### Active 2D refinement — 2026-10-17
+
+User deferred the unavailable 3D asset and continued 2D work. Retain the selected
+image, common coordinates and neutral modesty insert. Use visible anatomical
+landmarks and identified references to refine per-side contours, beginning with
+chest, lats and quadriceps. Permit editable substructure layers within existing
+groups; do not display deep structures over superficial ones. Mark new contours
+as drafts and keep the review tool separate from production analytics.

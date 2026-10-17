@@ -342,3 +342,13 @@ chosen appearance, manual mask experiment and review tooling; those contours
 are not the final anatomical source. Evaluation is read-only until a candidate
 is selected; importing a library does not automatically approve its anatomy or
 license suitability. No automatic merge of the checkpoint is authorized.
+
+### Current steering: continue with 2D — 2026-10-17
+
+The user has no 3D file yet and requested working with 2D. Defer model production
+and registration. Refine the selected image's chest, lats and quadriceps masks
+first using anatomy references and visible landmarks, preserve source alignment,
+and expose editable visible substructures. Keep the 17 catalog groups unchanged.
+The generated image and manual fitting remain a draft, not exact segmentation.
+The future 3D-source direction above is retained but is not a dependency for
+this 2D review. Keep #66 in Draft until visual/anatomical acceptance.

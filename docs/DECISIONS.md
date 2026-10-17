@@ -981,3 +981,12 @@ on presentation and tests; no new dependency, schema or protocol is needed.
 - Validate source anatomy, separation, rights and export with a small sample
   before full adaptation. App may retain 2D presentation; live 3D/deep anatomy
   and training-stimulus algorithms are not part of this approval.
+
+## 2026-10-17 — 3D unavailable; continue 2D
+
+- User explicitly directed continuing with 2D while no 3D model is available.
+  Defer 3D production/registration and retain it as a future option.
+- Refine chest/lats/quadriceps on the selected unchanged source with anatomy
+  reference notes, explicit anatomical sides and visible component masks.
+- Keep #66 as Draft. Manual fitting and reference reading do not constitute
+  exact anatomical segmentation or expert approval; catalog and app stay stable.
