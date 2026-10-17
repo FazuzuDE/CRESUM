@@ -934,3 +934,16 @@ on presentation and tests; no new dependency, schema or protocol is needed.
   and existing edge-scroll controls. Save is explicit and retryable.
 - Existing sheet edits the same draft; device gesture/VoiceOver/haptic validation
   remains separate from automated source-level/native JS export checks.
+
+# 2026-10-17 — Factual Muscle Map implementation approved
+
+- User approved the mockup and instructed implementation. Reuse existing 17
+  muscle IDs and primary/secondary catalog mappings without reclassifying them.
+- Extend Progress with local read-only participation, three periods, schematic
+  front/back regions and traceable completed-set details. No stored derived data.
+- Count each completed journal row once, regardless of load or bilateral reps;
+  retain separate per-muscle roles, aliases and exact exercise identities.
+- SVG geometry is original schematic artwork, not copied third-party anatomy.
+  Use Expo-compatible react-native-svg for native rendering. A realistic 3D
+  anatomical asset, medical validation and native acceptance are not claimed.
+- Stimulus formulas, fatigue/recovery and recommendations remain deferred.

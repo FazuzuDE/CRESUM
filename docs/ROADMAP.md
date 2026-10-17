@@ -311,3 +311,12 @@ Implement within Home using the existing layout repository and gesture/viewport
 scroll dependencies. Verify draft-only mutation, save/retry/cancel, interrupted
 late drops, protected workout actions and native JS exports. Physical gesture,
 haptic and accessibility acceptance remains a release check.
+
+# Approved factual participation slice — 2026-10-17
+
+After Home drag editing (#64), the user approved Muscle Map mockups and asked
+for implementation. Deliver factual completed primary/secondary set counts in
+Progress using existing taxonomy and mappings. This is separate from deferred
+Muscle Load/stimulus/recovery/recommendation work and does not approve any
+coefficients, new anatomical taxonomy or normalized red-intensity scale.
+Native visual/accessibility acceptance remains open before release.

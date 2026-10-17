@@ -16,6 +16,9 @@ export const colors = {
   danger: '#FF3B30',
   volumeIncrease: '#1B7F37',
   volumeDecrease: '#C62828',
+  musclePrimary: '#A93232',
+  muscleSecondary: '#E8A7A7',
+  muscleNeutral: '#D5D7DB',
 } as const;
 export const spacing = {
   xxs: 4,

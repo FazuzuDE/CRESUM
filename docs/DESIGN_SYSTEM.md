@@ -726,3 +726,16 @@ controls disable while saving. Cancel/Android Back reset the draft and lift.
 Gesture cancellation, layout changes, backgrounding and unmount stop dragging
 and edge-scroll timers. Native gesture competition, animation pace, VoiceOver,
 large-text toolbar and safe-area behavior remain physical-device acceptance.
+
+# Muscle participation map — 2026-10-17
+
+Use schematic front/back SVG regions, not a measured activation overlay.
+Primary `#A93232`, secondary `#E8A7A7`, neutral `#D5D7DB` are semantic roles,
+not a continuous load scale. Primary fill wins when both roles occur; both
+counts remain visible in text. Neutral means no mapped completed sets, not
+recovered or untrained. All 17 groups have accessible text-row alternatives to
+small touch regions. Bilateral mirroring does not imply measured side symmetry.
+Details expose saved exercise/workout names and actual logged rows. Retain the
+existing Overview rather than adding nonfunctional Strength/Volume tabs.
+Device SVG touch, large text, VoiceOver/TalkBack and visual acceptance remain
+release checks; automated tests and exports do not replace those checks.

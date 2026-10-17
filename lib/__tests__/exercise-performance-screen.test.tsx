@@ -6,6 +6,8 @@ import { EstimatedOneRepMaxBars } from '../../components/EstimatedOneRepMaxBars'
 import { ExercisePerformance } from '../../components/ExercisePerformance';
 import { WorkoutHistory } from '../../components/WorkoutHistory';
 import { Dock } from '../../components/Dock';
+import { AppButton } from '../../components/AppButton';
+import { MuscleProgress } from '../../components/MuscleProgress';
 import App from '../../app/index';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { WorkoutSession } from '../workout-model';
@@ -89,6 +91,17 @@ it('uses the same Progress period after loading history without filtering the ar
   press(view, 'Progress period ALL');
   expect(view.root.findByType(ExercisePerformance).props.period).toBe('ALL');
   expect(view.root.findByType(WorkoutHistory).props.history).toEqual(history);
+  act(() =>
+    view.root
+      .findAllByType(AppButton)
+      .find(
+        (node: { props: { title: string } }) => node.props.title === 'Muscles',
+      )!
+      .props.onPress(),
+  );
+  expect(view.root.findByType(MuscleProgress).props.history).toEqual(history);
+  act(() => view.root.findByType(MuscleProgress).props.onOverview());
+  expect(view.root.findByType(ExercisePerformance).props.period).toBe('ALL');
   act(() => view.unmount());
 });
 

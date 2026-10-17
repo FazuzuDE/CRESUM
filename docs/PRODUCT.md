@@ -552,3 +552,19 @@ allows owner-specific session cleanup. A late A response must not clear or repor
 deletion of B. Confirmed cleanup can recover locally without another server delete.
 Account metadata failure blocks account traffic, not offline training. Exports,
 other devices' local copies and provider backups are not removed by this action.
+
+# Factual Muscle Map — approved 2026-10-17
+
+Progress includes Overview and Muscles. Muscles shows an original schematic
+front/back map, all 17 existing catalog muscle groups, and source-set details.
+Periods are current workout (otherwise latest completed), 7 local-calendar days,
+and 28 local-calendar days. History periods use finished-workout timestamps;
+unfinished sessions contribute only to Workout. Only completed set timestamps
+inside the session are counted. Zero-load and bilateral rows each count once.
+
+Primary and secondary counts use current catalog mappings, including established
+aliases. Unknown exercises remain in the unique completed-set total but display
+a coverage notice and never receive guessed muscle mappings. A set can involve
+multiple muscles; muscle counts must not be summed as a unique total.
+No stimulus coefficients, recovery estimates, intensity normalization, medical
+claims, recommendations, schema changes or history rewrites are introduced.
