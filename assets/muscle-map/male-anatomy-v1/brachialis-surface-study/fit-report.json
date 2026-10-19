@@ -7,6 +7,6 @@
   "registration": "identity-manual-source-coordinates",
   "baselineOverlapPixels": 0,
   "opacityBakedIntoMasks": false,
-  "overlapWithAcceptedBicepsPixels": 62,
+  "overlapWithAcceptedBicepsPixels": 191,
   "combinedUpperArmBoundaryReview": "pending"
 }

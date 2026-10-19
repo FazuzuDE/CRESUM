@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Brachialis contour revision 2
+
+After enlarged source/outline comparison, restore the proximal exposed area
+below deltoid, reduce gaps along the biceps-side groove, retrace the lateral
+border and extend the distal taper to the visible endpoint above pale elbow
+tissue. Trace both sides independently; archive revision 1 byte-identically as
+superseded/unapproved. New contours/identity remain draft, group IDs stay null,
+and prior accepted masks, inset/X/Y controls and runtime opacity are preserved.
+
 ## 2026-10-19 — Anconeus appearance approved; brachialis continuation
 
 User approved 147BE5D0 settings: anatomical L/R inset −1/0.5, inward 0/0.5,

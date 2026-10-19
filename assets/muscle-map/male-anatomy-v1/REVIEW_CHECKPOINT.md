@@ -1,7 +1,10 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
-Next continuation: `brachialis-surface-study/` contains two front-view lateral
-visible-patch proposals, independently editable in 0.5 source px steps with
+Next continuation: `brachialis-surface-study/` contains two revision-2 front-view
+lateral visible-patch proposals. Proximal edges follow the source groove below
+deltoid, longitudinal edges follow the biceps-side and lateral grooves, and
+distal tips follow the visible taper. Revision 1 is archived unchanged as
+superseded/unapproved. They are independently editable in 0.5 source px steps with
 ±10 px X/Y ranges. Anatomical left is screen right. Hidden coverage under
 biceps and head separation are deferred. Exact identity/boundaries and load
 assignment remain pending; group IDs stay null and candidate fill orange.

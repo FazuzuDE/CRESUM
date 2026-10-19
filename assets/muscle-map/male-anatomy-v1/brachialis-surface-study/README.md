@@ -1,5 +1,12 @@
 # Brachialis lateral visible-surface proposals
 
+Revision 2 follows an enlarged source/outline audit. The first contours started
+too low and left gaps along biceps. Retrace the proximal oblique boundary below
+deltoid, follow both longitudinal source grooves more closely and extend the
+distal taper to the visible belly endpoint above pale elbow tissue. Both sides
+are independent; `revision-1/` preserves the superseded unapproved exports
+byte-for-byte. New contours and exact identity remain draft review.
+
 Two independent front-view exposed upper-arm patches beside biceps. Exact
 identity and boundaries remain provisional on the stylized source. The hidden
 surface underneath biceps, deep head and distal tendon are excluded; source
