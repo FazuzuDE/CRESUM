@@ -1,5 +1,13 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Extensor carpi ulnaris screenshot parameter checkpoint
+
+Save 4297D98E settings for revision 2: anatomical L/R inset 0/0, inward +3/0
+and Y −0.5/0 source px. Selected SVG/PNG/geometry and review defaults retain
+the independent states. Screenshot submission selects parameters; final visual
+approval and exact anatomical identity remain pending. Baseline and archived
+exports are unchanged. Opacity remains a per-muscle runtime load variable.
+
 ## 2026-10-19 — Extensor carpi ulnaris contour revision 2
 
 Refine both visible-surface proposals after an enlarged source/outline audit.

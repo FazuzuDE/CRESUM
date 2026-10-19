@@ -1,5 +1,10 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+ECU revision-2 screenshot selection (4297D98E): anatomical L/R inset 0/0,
+inward +3/0, Y −0.5/0 source px. Independent settings, selected exports and
+review defaults are saved with user-selected-parameters status. Visual approval
+and exact structure validation remain pending. Runtime opacity stays flexible.
+
 Next continuation: `extensor-carpi-ulnaris-surface-study/` contains two draft
 revision-2 medial posterior forearm belly candidates. Inner edges follow the
 diagonal source groove, outer edges follow the silhouette and distal ends
