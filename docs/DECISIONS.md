@@ -1122,3 +1122,16 @@ on presentation and tests; no new dependency, schema or protocol is needed.
 - Show retained texture under the existing clear-edge red tint, individual
   sides, source/outline modes and the initial atlas comparison. No acceptance
   of these new masks or production integration is implied by image submission.
+
+## 2026-10-18 — Include the colored outline in the mask area
+
+- User identified the inset border and explicitly directed counting the green
+  outline as part of the muscle. The earlier centerline transfer lost visible
+  stroke width, leaving a gray rim.
+- Rebuild the current shoulder candidates to the full visible outer stroke,
+  clipped to the original posterior silhouette where the annotation crosses
+  the background. Preserve independent sides, source pixels and the earlier
+  fill for comparison. Historical accepted masks remain untouched.
+- Add a pixel-coverage regression check: it fails on the inset masks and checks
+  visible-line inclusion over tissue plus containment within the body. Keep
+  anatomical assignment and production integration separate from this fix.

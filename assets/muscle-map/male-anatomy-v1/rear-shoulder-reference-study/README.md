@@ -24,8 +24,22 @@ Reproduce with the existing offline Pillow/numpy/scipy/contourpy toolchain:
 python scripts/extract-muscle-reference.py assets/muscle-map/male-anatomy-v1/rear-shoulder-reference-study/reference.jpeg --study rear-shoulder-reference-study
 ```
 
-The JPEG's cyan cores are selected by chroma and closed; each interior expands
-one reference pixel toward the stroke center before resampling and SVG fitting.
+The supplied cyan stroke is part of the requested muscle region. Extract its
+full connected outline and enclosed interior, then transfer the outer edge;
+do not stop at the inner edge or center of the colored line. Clip only portions
+that extend onto the original white background to the source's connected
+posterior silhouette. The original character and its pixels remain unchanged.
+The report records the stroke-inclusive area and clipped background pixels.
+
+Check the visible-line coverage and absence of background tint with:
+
+```sh
+python scripts/check-shoulder-outline-coverage.py
+```
+
+This reproduces the original inset bug on the earlier masks and allows only
+antialias/resampling tolerance on visible tissue. Historical accepted chest/lats
+reference exports retain their earlier transfer policy pending separate review.
 Review uses source-texture-preserving red tint, ordinary antialiasing and no
 added presentation blur or outline. Both sides can be isolated and viewed at
 detail/phone scale. No original image, accepted chest/traps/lats reference,

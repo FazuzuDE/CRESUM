@@ -62,6 +62,19 @@ for i in range(1, count + 1):
 expected_regions = 2 if is_rear else 4
 assert len(regions) == expected_regions, "Unexpected number of closed colored-outline interiors"
 
+# Current shoulder review treats the visible annotation stroke itself as part
+# of the requested region. Fill the complete outline, not an inset interior.
+# Keep accepted historical chest/lats exports unchanged until separately reviewed.
+outer_labels = None
+used_outer_components = set()
+if is_rear:
+    visible_outline = (g - r > 15) & (b - r > 10) & (g > 45) & roi
+    outer_labels, _ = nd.label(nd.binary_fill_holes(nd.binary_closing(visible_outline, iterations=1)))
+    source_components, _ = nd.label(~np.all(source > 248, axis=2))
+    posterior_sizes = np.bincount(source_components[:, 656:].ravel())
+    posterior_sizes[0] = 0
+    source_silhouette = nd.binary_fill_holes(source_components == int(posterior_sizes.argmax()))
+
 # Exclude chromatic lines (including dashed red marks) and antialiased edges.
 # Fit scale/translation against grayscale thorax pixels, not outline locations.
 ref_gray = nd.gaussian_filter(reference.mean(2), 1)
@@ -114,7 +127,7 @@ if is_rear:
     report.update({
         "registrationQuality": "local-grayscale-fit-not-anatomical-validation",
         "normalizedImageCorrelation": float(1 - result.fun / 2),
-        "lineExtraction": {"greenMinusRedMin": 25, "blueMinusRedMin": 17, "interiorExpansionPx": 1},
+        "lineExtraction": {"greenMinusRedMin": 15, "blueMinusRedMin": 10, "boundaryPolicy": "outer-visible-stroke-clipped-to-source-silhouette"},
         "selection": "two independent posterior shoulder surfaces; rear/side deltoid division unresolved; no catalog assignment",
     })
 geometry = {"canvas": [1312, 1199], "regions": []}
@@ -136,14 +149,25 @@ for i, cx, top, area in regions:
         group_id = "chest" if kind == "pectoralis-major" else None
         assignment = "chest" if group_id else "unassigned-whole-visible-shoulder"
     name = f"{kind}-{side}-reference"
-    # Expand toward the stroke center: one reference pixel for chest/shoulder,
-    # two for the lats input's thicker saturated cyan core.
-    mask = nd.binary_dilation(label == i, iterations=2 if is_lats else 1).astype(float)
+    if is_rear:
+        counts = np.bincount(outer_labels[label == i])
+        counts[0] = 0
+        component = int(counts.argmax())
+        assert counts[component] > 0 and component not in used_outer_components, "Joined or missing shoulder outlines"
+        used_outer_components.add(component)
+        mask = (outer_labels == component).astype(float)
+    else:
+        # Historical reference exports retain their reviewed centerline policy.
+        mask = nd.binary_dilation(label == i, iterations=2 if is_lats else 1).astype(float)
     raster = nd.affine_transform(
         mask, matrix=[[1 / sy, 0], [0, 1 / sx]], offset=[-ty / sy, -tx / sx],
         output_shape=(1199, 1312), order=1,
     )
     raster = nd.gaussian_filter(raster, sigma=0.9)
+    clipped_background_pixels = 0
+    if is_rear:
+        clipped_background_pixels = int(np.count_nonzero((raster > 0.5) & ~source_silhouette))
+        raster *= source_silhouette
     masks.append(raster > 0.5)
     Image.fromarray(np.round(raster * 255).astype("uint8")).save(output / (name + ".png"))
     loops = contourpy.contour_generator(z=raster, name="serial").lines(0.5)
@@ -174,12 +198,18 @@ for i, cx, top, area in regions:
     if is_rear:
         geometry["regions"][-1]["intendedMuscleGroupId"] = "rear-delts"
     report["regions"].append({"id": name, "referenceInteriorPixels": area, "maxVectorRasterDeviationPx": round(float(deviation), 3)})
+    if is_rear:
+        report["regions"][-1]["referencePixelsIncludingStroke"] = int(mask.sum())
+        report["regions"][-1]["strokePixelsClippedOutsideSourceBody"] = clipped_background_pixels
     (output / (name + ".svg")).write_text(
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1312 1199"><path id="{name}" fill="currentColor" d="{path}"/></svg>\n'
     )
 assert len({region["id"] for region in geometry["regions"]}) == expected_regions
 for i in range(expected_regions):
-    assert not np.any(masks[i] & np.all(source > 248, axis=2)), "Background spill"
+    if is_rear:
+        assert not np.any(masks[i] & ~source_silhouette), "Background spill outside body silhouette"
+    else:
+        assert not np.any(masks[i] & np.all(source > 248, axis=2)), "Background spill"
     for j in range(i):
         assert not np.any(masks[i] & masks[j]), "Overlapping extracted masks"
 (output / "geometry.json").write_text(json.dumps(geometry, ensure_ascii=False, indent=2) + "\n")

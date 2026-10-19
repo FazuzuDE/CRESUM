@@ -871,3 +871,15 @@ from lats highlighting. This is visual acceptance, not expert anatomical
 validation or approval to integrate the incomplete atlas into production.
 Continue with posterior deltoids using the source → Gemini outline → returned
 reference → mask repair → visual review workflow.
+
+### Include annotation stroke width — 2026-10-18
+
+The user directed treating the colored contour line itself as part of the
+muscle area. New contour transfers must use the visible stroke's outer edge,
+not fill only the enclosed interior or estimate its centerline. Avoid an inset
+gray rim; preserve the original source texture and clear-edge presentation.
+Where the annotation straddles the body boundary, clip the tint to the original
+silhouette so it does not color the background. Apply this correction to the
+current posterior-shoulder candidates and show the previous fill for comparison.
+Previously accepted reference masks are retained until individually reviewed;
+this boundary policy does not resolve anatomical muscle-head assignment.
