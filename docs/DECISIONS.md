@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Posterior extensor digitorum surface continuation
+
+Prepare bilateral back-view extensor digitorum visible-belly proposals with
+independent inset/X/Y controls. Posterior anatomical left is screen left;
+inward positive maps left +X, right −X. Use the posterior body silhouette,
+preserve prior approved forearm exports, forearms parent and runtime opacity.
+New contours and exact identity remain draft review. Do not invent hidden
+surfaces or separate finger compartments on this source.
+
 ## 2026-10-19 — Selected FCU surface appearance approved
 
 User explicitly approved the screenshot variant. Save anatomical L/R inset 1/0,

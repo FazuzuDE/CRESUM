@@ -1,5 +1,10 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest continuation: `extensor-digitorum-surface-study/` contains two posterior
+forearm surface candidates with independent inset and X/Y controls. Back-view
+left/right orientation and silhouette clipping are used. New boundaries and
+identity remain under review; accepted front-forearm masks are unchanged.
+
 Selected FCU surfaces in `flexor-carpi-ulnaris-surface-study/` are visually
 approved: anatomical L/R inset 1/0, inward +3/+3, Y 0/−1 source px. Independent
 settings and selected exports are saved; baseline candidates remain drafts.
