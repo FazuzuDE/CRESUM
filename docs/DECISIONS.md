@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — ECRL contour revision 2
+
+After enlarged source/outline inspection, retrace the proximal edges below
+the upper oblique patch, keep lateral boundaries inside the source silhouette
+and shorten distal tips near the tendon transition. Trace both sides separately;
+archive the superseded unapproved revision-1 exports byte-identically. Record
+remaining contact with selected ED for combined review. New contours and exact
+identity remain draft; prior approvals, inset/X/Y controls and opacity persist.
+
 ## 2026-10-19 — ECU selected appearance approved; ECRL continuation
 
 User explicitly approved ECU revision-2 screenshot settings: anatomical L/R

@@ -1,7 +1,10 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
 Next continuation: `extensor-carpi-radialis-longus-surface-study/` contains two
-draft posterolateral forearm visible-patch candidates. Exact ECRL identity and
+draft revision-2 posterolateral forearm visible-patch candidates. Proximal
+edges follow the diagonal groove below the upper oblique patch, lateral edges
+stay inside the silhouette and distal tips are shortened. Revision 1 is archived
+unchanged as superseded/unapproved. Exact ECRL identity and
 separation from ECRB/brachioradialis remain provisional. Independent inset/X/Y
 controls retain half-pixel steps and ±10 px shifts; opacity stays load-variable.
 Candidate overlap with selected extensor digitorum is recorded in fit-report;

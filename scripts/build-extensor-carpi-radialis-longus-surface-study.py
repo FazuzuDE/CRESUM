@@ -42,11 +42,14 @@ for region in data['regions']:
     variants = []
     for radius in np.arange(-3, 6.01, .5):
         pixels = nd.gaussian_filter((signed > radius).astype(float), .65)*silhouette
-        loop = max(contourpy.contour_generator(z=pixels, name='serial').lines(.5), key=len)
-        fitted, _ = splprep(loop.T, s=len(loop)*data.get('contourSplineSmoothing', .015), per=True)
-        p = np.asarray(splev(np.linspace(0, 1, 129), fitted)).T
-        path = 'M'+' L'.join(f'{x:.2f} {y:.2f}' for x, y in p[:-1])+' Z'
-        variants.append({'radius': float(radius), 'path': path})
+        loops = contourpy.contour_generator(z=pixels, name='serial').lines(.5)
+        path = 'M0 0 Z'
+        if loops:
+            loop = max(loops, key=len)
+            fitted, _ = splprep(loop.T, s=len(loop)*data.get('contourSplineSmoothing', .015), per=True)
+            p = np.asarray(splev(np.linspace(0, 1, 129), fitted)).T
+            path = 'M'+' L'.join(f'{x:.2f} {y:.2f}' for x, y in p[:-1])+' Z'
+        variants.append({'radius': float(radius), 'path': path, 'empty': not bool(loops)})
         if selection and radius == selection['regions'][name]['inset']:
             state = selection['regions'][name]
             dx = state['shift']*(1 if side == 'left' else -1)

@@ -1,5 +1,15 @@
 # Extensor carpi radialis longus visible-surface proposals
 
+Revision 2 follows the proximal diagonal source groove below the upper oblique
+patch, moves the lateral edge inside the silhouette and shortens the distal
+tips near the tendon transition. Both sides are traced independently; prior
+revision-1 exports are archived byte-identically as superseded/unapproved.
+Revision 2 remains draft boundary and structure review.
+
+At a sufficiently large positive inset the thin visible patch can disappear.
+The builder preserves that empty erosion as an empty path instead of widening
+the source contour or failing. Returning the inset toward zero restores it.
+
 Two independently traced posterolateral forearm belly proposals on the unchanged
 1312 × 1199 source. Exact ECRL identity and neighboring ECRB/brachioradialis
 separation remain provisional on this stylized illustration. These candidates
