@@ -1110,3 +1110,15 @@ on presentation and tests; no new dependency, schema or protocol is needed.
   deltoids. Wait for the returned annotated reference before mask repair.
 - Expert anatomy review, production integration and remote Git synchronization
   remain separate; #66 stays Draft.
+
+## 2026-10-18 — Returned posterior-shoulder contours prepared for review
+
+- User returned IMG_8200.jpeg after requesting posterior-deltoid outlines.
+  Extract its two actual cyan interiors and register them to the unchanged
+  approved source; preserve the returned JPEG and transfer provenance.
+- Keep both surfaces separate and unassigned: the visible posterior shoulder
+  cap is a candidate, not proof of a rear/lateral-deltoid anatomical division.
+  Record `rear-delts` as the intended target, without replacing either group.
+- Show retained texture under the existing clear-edge red tint, individual
+  sides, source/outline modes and the initial atlas comparison. No acceptance
+  of these new masks or production integration is implied by image submission.
