@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Brachioradialis revision 2 boundary refinement
+
+User requested a more detailed redraw of both candidate contours. Inspect the
+unchanged source at 6×, retrace the proximal belly below the pale elbow region,
+follow the internal neighboring-muscle separator and distal narrowing, and
+reduce conversion smoothing to retain those local changes. Archive revision 1
+as superseded and unapproved. Revision 2 retains independent half-pixel inset
+and X/Y controls with zero defaults, runtime opacity and draft review status.
+
 ## 2026-10-19 — Brachioradialis candidates prepared
 
 Continue the independently editable muscle-map review with bilateral visible

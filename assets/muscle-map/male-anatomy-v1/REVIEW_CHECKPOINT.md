@@ -1,5 +1,10 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Brachioradialis revision 2 supersedes the first candidate contours after a
+requested detailed redraw. Proximal belly, internal groove and distal taper
+are retraced; revision-1/ retains the unapproved prior version. Both revised
+boundaries remain under review with independent zero-default pixel controls.
+
 Latest continuation: `brachioradialis-surface-study/` contains two visible
 front-view radial forearm belly candidates under the intended forearms parent.
 Each side has separate inset and X/Y controls; new boundaries and assignment

@@ -1,5 +1,11 @@
 # Brachioradialis visible-surface review
 
+Revision 2 retraces each side independently at 6× source scale, lowers the
+proximal belly below pale elbow tissue, follows the neighboring-muscle groove
+more closely and shortens the distal tip before the long tendon. Reduced
+conversion smoothing preserves these local boundaries. Superseded revision 1
+is archived in revision-1/ and is not approved. Revision 2 remains a candidate.
+
 Two independent front-view candidates on the unchanged source. Trace only the
 visible radial forearm belly; uncertain proximal continuation, distal tendon
 and neighboring wrist flexors/extensors are excluded. Anatomy and boundaries
