@@ -1,5 +1,16 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Next continuation: `anconeus-surface-study/` contains two small posterior-elbow
+surface candidates with independent inset/X/Y controls. Identity and boundaries
+remain provisional, muscleGroupId stays null and orange fill is candidate-only.
+No taxonomy group or load coefficients are added. ECRB separation is deferred
+where source boundaries are unclear; prior accepted contours are preserved.
+
+Selected ECRL revision-2 appearance is visually approved from E30982CF:
+anatomical L/R inset −1/−2, inward 0/0, Y −2.5/−2 source px. Separate selected
+exports and review defaults retain these values; baseline and archived contours
+remain drafts. Exact identity and combined forearm boundaries remain provisional.
+
 Next continuation: `extensor-carpi-radialis-longus-surface-study/` contains two
 draft revision-2 posterolateral forearm visible-patch candidates. Proximal
 edges follow the diagonal groove below the upper oblique patch, lateral edges

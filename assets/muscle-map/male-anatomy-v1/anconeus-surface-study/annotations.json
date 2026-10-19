@@ -1,0 +1,60 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "revision": 1,
+  "status": "draft-boundary-and-structure-review",
+  "anatomyReference": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10395408/",
+  "scope": "small posterior-elbow visible-surface proposals for anconeus; exact identity provisional; no hidden capsule, tendon or internal compartment subdivision; no load-group assignment",
+  "signedDistanceSmoothing": 0.25,
+  "contourSplineSmoothing": 0.008,
+  "regions": [
+    {
+      "id": "anconeus-left",
+      "side": "left",
+      "structureId": "anconeus",
+      "anatomicalMuscleId": "anconeus",
+      "muscleGroupId": null,
+      "label": "Локтевая мышца (anconeus) · кандидат",
+      "points": [
+        [779, 412],
+        [784, 410],
+        [790, 406],
+        [796, 401],
+        [799, 398],
+        [798, 405],
+        [796, 411],
+        [793, 416],
+        [789, 420],
+        [784, 423],
+        [779, 424],
+        [778, 422],
+        [779, 417],
+        [779, 412]
+      ]
+    },
+    {
+      "id": "anconeus-right",
+      "side": "right",
+      "structureId": "anconeus",
+      "anatomicalMuscleId": "anconeus",
+      "muscleGroupId": null,
+      "label": "Локтевая мышца (anconeus) · кандидат",
+      "points": [
+        [1093, 412],
+        [1094, 418],
+        [1096, 423],
+        [1094, 425],
+        [1089, 423],
+        [1084, 420],
+        [1081, 416],
+        [1078, 410],
+        [1077, 403],
+        [1076, 398],
+        [1080, 402],
+        [1085, 406],
+        [1090, 410],
+        [1093, 412]
+      ]
+    }
+  ]
+}

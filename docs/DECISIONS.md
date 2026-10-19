@@ -1,5 +1,15 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — ECRL selected appearance approved; anconeus continuation
+
+User approved E30982CF revision-2 appearance: anatomical L/R inset −1/−2,
+inward 0/0, Y −2.5/−2 source px. Save visually-approved selection and selected
+SVG/PNG/geometry with matching review defaults; retain baseline drafts and
+runtime opacity. Exact identity and combined boundaries remain provisional.
+Continue with independent anconeus visible-surface candidates; no existing
+load-group ID is assigned. ECRB separation is deferred where source boundaries
+are ambiguous. No new exercise coefficients or taxonomy group are introduced.
+
 ## 2026-10-19 — ECRL contour revision 2
 
 After enlarged source/outline inspection, retrace the proximal edges below

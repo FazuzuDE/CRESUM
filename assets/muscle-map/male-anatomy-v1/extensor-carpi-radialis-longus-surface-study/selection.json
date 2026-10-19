@@ -1,0 +1,20 @@
+{
+  "status": "visually-approved",
+  "revision": 2,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; back left positive X, back right negative X; positive shiftY down, negative shiftY up",
+  "sourceScreenshot": "E30982CF-C8DA-4651-8FBA-CEBF314BB306.png",
+  "regions": {
+    "extensor-carpi-radialis-longus-left": {
+      "inset": -1,
+      "shift": 0,
+      "shiftY": -2.5
+    },
+    "extensor-carpi-radialis-longus-right": {
+      "inset": -2,
+      "shift": 0,
+      "shiftY": -2
+    }
+  }
+}

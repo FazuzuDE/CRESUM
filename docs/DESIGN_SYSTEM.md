@@ -1052,6 +1052,14 @@ in the review, with independent side controls. Preview saturation is not a
 fixed value: opacity stays a per-muscle runtime load variable. Exact anatomical
 identity and production integration are separate from visual acceptance.
 
+### Extensor carpi radialis longus selected appearance accepted — 2026-10-19
+
+Preserve E30982CF revision-2 anatomical L/R inset −1/−2, inward 0/0 and
+vertical Y −2.5/−2 source px. Selected geometry and SVG/PNG exports carry
+visually-approved status; baseline and archived contours remain drafts. Review
+defaults restore both independent settings. Runtime intensity remains flexible;
+exact structure assignment and combined forearm boundaries remain provisional.
+
 ### Extensor carpi ulnaris selected appearance accepted — 2026-10-19
 
 Preserve revision-2 anatomical left/right inset 0/0, inward +3/0 and vertical

@@ -6,6 +6,11 @@ tips near the tendon transition. Both sides are traced independently; prior
 revision-1 exports are archived byte-identically as superseded/unapproved.
 Revision 2 remains draft boundary and structure review.
 
+Selected revision-2 appearance is visually approved from E30982CF: anatomical
+L/R inset −1/−2, inward 0/0, Y −2.5/−2 source px. Separate selected geometry,
+SVG/PNG and review defaults retain these states. Baseline and archived files
+remain drafts. Exact identity and combined forearm boundaries remain provisional.
+
 At a sufficiently large positive inset the thin visible patch can disappear.
 The builder preserves that empty erosion as an empty path instead of widening
 the source contour or failing. Returning the inset toward zero restores it.
