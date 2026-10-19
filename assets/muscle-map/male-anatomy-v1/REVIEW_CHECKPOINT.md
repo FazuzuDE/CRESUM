@@ -11,6 +11,11 @@ surface regions, with zero initial adjustments: four visual rectus segments
 per side plus bilateral external oblique. These remain drafts under `abs`;
 they are not part of the accepted-mask selections below.
 
+The next `serratus-surface-study/` contains six unassigned visible-patch
+candidates (three per side). Both their anatomical assignment and contours
+remain unapproved. Lower interdigitating regions are deferred. These partial
+patches do not introduce a new taxonomy group or confirm full-muscle coverage.
+
 The later IMG_8224–IMG_8228 parameter set is saved in that study's
 `selection.json` and selected exports, including vertical offsets. Its combined
 appearance remains under review; the preview starts from those saved values.
