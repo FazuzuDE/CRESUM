@@ -1040,3 +1040,14 @@ inward shifts +0.5 / −1.5 px. Values use source pixels and anatomical sides.
 Retain `calves-reference-study/selection.json` and selected geometry as the visual
 checkpoint. Keep the four contours independent under the existing `calves`
 parent group, with runtime intensity. Soleus remains outside this accepted set.
+
+### Extensor digitorum selected appearance accepted — 2026-10-19
+
+Preserve the revision-2 screenshot selection in
+`extensor-digitorum-surface-study/selection.json`: anatomical left/right inset
+2/0.5, inward −4/−10 and vertical Y −1/−2 source px. Back-view transforms are
+X −4/+10 and Y −1/−2. Selected SVG/PNG/geometry carry visually-approved
+status; baseline and archived contours remain drafts. Restore these defaults
+in the review, with independent side controls. Preview saturation is not a
+fixed value: opacity stays a per-muscle runtime load variable. Exact anatomical
+identity and production integration are separate from visual acceptance.

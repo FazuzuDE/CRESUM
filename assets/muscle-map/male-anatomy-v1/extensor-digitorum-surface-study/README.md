@@ -4,8 +4,10 @@ Revision 2 retraces the central visible posterior belly independently on each
 arm. Revision 1 overreached into the adjacent medial strip and is retained in
 `revision-1/` as superseded, unapproved geometry. The new proximal edge follows
 the diagonal groove below the elbow; the distal end follows the central taper
-and stops above the wrist retinaculum. Boundaries and exact identity still need
-visual/anatomical review. Independent inset/X/Y controls remain available.
+and stops above the wrist retinaculum. Selected revision-2 appearance is visually
+approved from image(2).png: anatomical L/R inset 2/0.5, inward −4/−10,
+Y −1/−2 source px. Baseline contours remain drafts and exact identity remains
+provisional. Independent inset/X/Y controls remain available.
 
 Two separately traced back-view forearm belly proposals. Exact structure identity
 and boundaries remain provisional on the stylized source; these are not complete

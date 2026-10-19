@@ -1,5 +1,13 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Extensor digitorum selected revision-2 appearance approved
+
+User accepted image(2).png. Save anatomical L/R inset 2/0.5, inward −4/−10
+and Y −1/−2 source px with visually-approved selected geometry and exports.
+Review defaults restore both states. Baseline and archived revision 1 retain
+draft status. Opacity 65% is preview-only; runtime intensity remains flexible.
+Exact anatomical identity and production integration remain separate.
+
 ## 2026-10-19 — Wider extensor digitorum positioning range
 
 Expand independent horizontal review shifts from ±5 to ±10 source px on

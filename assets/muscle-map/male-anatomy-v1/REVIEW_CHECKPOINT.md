@@ -4,8 +4,11 @@ Latest continuation: `extensor-digitorum-surface-study/` contains two posterior
 forearm revision-2 surface candidates with independent inset and X/Y controls.
 Central visible bellies are retraced along the elbow groove and distal taper;
 revision-1/ retains the superseded unapproved medial-strip proposals. Back-view
-left/right orientation and silhouette clipping are used. New boundaries and
-identity remain under review; accepted front-forearm masks are unchanged.
+left/right orientation and silhouette clipping are used. Selected revision-2
+appearance is visually approved from image(2).png: anatomical L/R inset 2/0.5,
+inward −4/−10, Y −1/−2 source px. Selected exports and review defaults retain
+these values. Baseline contours remain draft; exact identity remains provisional.
+Accepted front-forearm masks are unchanged.
 
 Selected FCU surfaces in `flexor-carpi-ulnaris-surface-study/` are visually
 approved: anatomical L/R inset 1/0, inward +3/+3, Y 0/−1 source px. Independent
