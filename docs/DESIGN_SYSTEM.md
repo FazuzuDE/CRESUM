@@ -1102,3 +1102,13 @@ adjacent infraspinatus, small triangular patches and hidden coverage. New
 boundaries and identity remain pending. Retain orange candidate fill and
 independent 0.5 px inset/X/Y controls with ±10 px shifts. Opacity remains
 a per-muscle runtime variable.
+
+### Teres major selected appearance approved — 2026-10-20
+
+User approved IMG_8243 teres major revision-1 appearance: anatomical L/R
+inset 0/0, inward −1/−2.5, Y 0/0 source px. Save the selection separately;
+baseline contours and previous approvals remain unchanged. Opacity stays a
+per-muscle runtime variable; exact identity and load assignment remain open.
+Selected SVG/PNG/geometry regeneration and review verification are pending
+because the execution environment is unavailable. Next requested target is
+teres minor; its contours have not been prepared or approved.

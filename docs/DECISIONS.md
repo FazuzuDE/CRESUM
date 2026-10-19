@@ -1,5 +1,15 @@
 # CRESUM Decision Log
 
+## 2026-10-20 — Teres major approved; execution blocked
+
+User approved IMG_8243 teres major revision-1 appearance: anatomical L/R
+inset 0/0, inward −1/−2.5, Y 0/0 source px. Save the selection separately;
+baseline contours and previous approvals remain unchanged. Opacity stays a
+per-muscle runtime variable; exact identity and load assignment remain open.
+Selected SVG/PNG/geometry regeneration and review verification are pending
+because the execution environment is unavailable. Next requested target is
+teres minor; its contours have not been prepared or approved.
+
 ## 2026-10-19 — Infraspinatus accepted; teres major continuation
 
 Approve IMG_8242 selected appearance: anatomical L/R inset −1/0.5, inward
