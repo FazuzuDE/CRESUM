@@ -603,3 +603,23 @@ uniform red tint, retained source texture, no stroke and no additional inner or
 outer blur. This supersedes the earlier Soft red choice. Keep existing muscle
 groups, controllable opacity and load semantics. Appearance preference does not
 constitute acceptance of the incomplete anatomical masks.
+
+Muscle intensity clarification (2026-10-18): highlight saturation/opacity is a
+flexible per-muscle runtime input that changes with the represented training
+load. Approved masks define geometry only; preview slider percentages are not
+fixed product values. Keep load calculation, normalization and display intensity
+separate from mask assets. This requirement does not introduce a load formula
+or change the current factual participation counts into a stimulus score.
+
+Quadriceps structure decision (2026-10-18): retain separate editable visible
+rectus femoris, vastus lateralis and vastus medialis surfaces on each side.
+For now, aggregate them into the single existing quadriceps group for training
+participation/load display. No per-head coefficients or distinct load estimates
+are introduced. The deep vastus intermedius has no superficial display region.
+
+Muscle Map granularity rule (2026-10-18): prepare the most useful anatomically
+justified separation into individual muscles or meaningful visible heads,
+independently on each side. Retain parent groups so detailed visual regions can
+still share an aggregate load signal. Granular geometry does not establish
+per-muscle load accuracy or authorize guessed coefficients. Hidden structures
+need a future dedicated layer/view; do not invent surface regions for them.

@@ -1,0 +1,12 @@
+{
+  "status": "visually-approved",
+  "units": "source-pixels",
+  "shiftConvention": "positive toward body center; back left maps to positive X, back right to negative X",
+  "opacityMode": "per-muscle-runtime-variable",
+  "regions": {
+    "gastrocnemius-medial-left": { "inset": 2, "shift": 1.5 },
+    "gastrocnemius-medial-right": { "inset": 2, "shift": -0.5 },
+    "gastrocnemius-lateral-left": { "inset": 2, "shift": 0.5 },
+    "gastrocnemius-lateral-right": { "inset": 3, "shift": -1.5 }
+  }
+}

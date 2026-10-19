@@ -1,5 +1,8 @@
 # CRESUM male anatomy — editable mask draft v1
 
+See [REVIEW_CHECKPOINT.md](REVIEW_CHECKPOINT.md) for the current per-part visual
+approval status and exact selected settings synchronized through draft PR #66.
+
 The user selected the grayscale anatomical character with a smooth central
 pelvic modesty insert on 2026-10-17. This folder locks that appearance candidate
 and adds **manual draft surface masks**, not approved anatomical segmentation.

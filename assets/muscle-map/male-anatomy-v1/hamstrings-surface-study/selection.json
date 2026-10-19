@@ -1,0 +1,17 @@
+{
+  "status": "user-selected-parameters",
+  "revision": 2,
+  "units": "source-pixels",
+  "shiftConvention": "positive toward body center; back left maps to positive X, back right to negative X",
+  "opacityMode": "per-muscle-runtime-variable",
+  "excludedRegions": [
+    "medial-posterior-surface-left",
+    "medial-posterior-surface-right"
+  ],
+  "regions": {
+    "hamstrings-left-biceps-femoris": { "inset": -1.5, "shift": 1.5 },
+    "hamstrings-right-biceps-femoris": { "inset": -2, "shift": 1 },
+    "hamstrings-left-semitendinosus": { "inset": -3, "shift": -0.5 },
+    "hamstrings-right-semitendinosus": { "inset": -3, "shift": -3 }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "referenceSha256": "16d6d03f4cbf998e07e63d220e7fc3eed8270fca755d0d8d28d11cdcd1144aef",
+  "status": "draft-boundary-and-structure-assignment-review",
+  "strokePolicy": "visible-stroke-included-nearest-interior-partition-at-contacts",
+  "sides": {
+    "left": {
+      "transform": {
+        "scaleX": 0.9981037234469016,
+        "scaleY": 0.9982739338102957,
+        "translateX": 1.8117754292818442,
+        "translateY": 1.018379051921387
+      },
+      "normalizedImageCorrelation": 0.9978005090256934
+    },
+    "right": {
+      "transform": {
+        "scaleX": 0.9998588005320292,
+        "scaleY": 0.999052797941157,
+        "translateX": 0.1493800354066486,
+        "translateY": 0.5934603743976125
+      },
+      "normalizedImageCorrelation": 0.997573724653864
+    }
+  },
+  "regions": [
+    {
+      "id": "gluteus-maximus-left",
+      "referenceCenterX": 888.3385333757826,
+      "interiorPixels": 9423
+    },
+    {
+      "id": "gluteus-maximus-right",
+      "referenceCenterX": 990.0266341256366,
+      "interiorPixels": 9424
+    },
+    {
+      "id": "gluteus-medius-left",
+      "referenceCenterX": 855.9726775956284,
+      "interiorPixels": 732
+    },
+    {
+      "id": "gluteus-medius-right",
+      "referenceCenterX": 1021.8951724137931,
+      "interiorPixels": 725
+    }
+  ],
+  "baselineOverlapPixels": 0,
+  "candidateMaskIds": [
+    "gluteus-medius-left",
+    "gluteus-medius-right"
+  ],
+  "unionPolicy": "assigned-maximus-only; medius-candidates-excluded"
+}

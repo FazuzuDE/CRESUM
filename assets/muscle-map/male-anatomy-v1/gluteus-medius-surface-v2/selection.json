@@ -1,0 +1,16 @@
+{
+  "status": "visually-approved",
+  "units": "source-pixels",
+  "shiftConvention": "positive toward body center; back left maps to positive X, back right to negative X",
+  "opacityMode": "per-muscle-runtime-variable",
+  "regions": {
+    "gluteus-medius-left": {
+      "inset": 1,
+      "shift": 0
+    },
+    "gluteus-medius-right": {
+      "inset": 1.5,
+      "shift": -2
+    }
+  }
+}

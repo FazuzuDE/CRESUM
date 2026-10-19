@@ -1,0 +1,72 @@
+{
+  "status": "draft-visual-review",
+  "canvas": [
+    1312,
+    1199
+  ],
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "variants": {
+    "full": {
+      "sha256": "01cf02ee5af719e0d167fd4c592029f066c7d4a854cfb49247e0d82a8b16aef7",
+      "referenceSize": [
+        1085,
+        992
+      ],
+      "regions": [
+        {
+          "side": "left",
+          "transform": {
+            "scaleX": 1.2077211644603463,
+            "scaleY": 1.2103651948446323,
+            "translateX": 1.1931384213786362,
+            "translateY": -0.3961764651920858
+          },
+          "normalizedImageCorrelation": 0.993529417110161,
+          "quality": "approximate-manual-envelope-review-required"
+        },
+        {
+          "side": "right",
+          "transform": {
+            "scaleX": 1.198653416935186,
+            "scaleY": 1.1984365976217668,
+            "translateX": 9.467222518401442,
+            "translateY": 3.936247011976448
+          },
+          "normalizedImageCorrelation": 0.8812791538133671,
+          "quality": "approximate-manual-envelope-review-required"
+        }
+      ]
+    },
+    "cyan": {
+      "sha256": "298b3286e2d433811712b982d21e3606ddcf4f014dc9556796001913180c1b64",
+      "referenceSize": [
+        1312,
+        1199
+      ],
+      "regions": [
+        {
+          "side": "left",
+          "transform": {
+            "scaleX": 0.99354573776566,
+            "scaleY": 1.0003040534590655,
+            "translateX": 5.096222644134662,
+            "translateY": 0.20208809981273407
+          },
+          "normalizedImageCorrelation": 0.9944061021057683,
+          "quality": "local-grayscale-fit"
+        },
+        {
+          "side": "right",
+          "transform": {
+            "scaleX": 0.9958322395506439,
+            "scaleY": 0.9995707706523003,
+            "translateX": 4.784452725751295,
+            "translateY": 0.5924036888811115
+          },
+          "normalizedImageCorrelation": 0.9944730076100072,
+          "quality": "local-grayscale-fit"
+        }
+      ]
+    }
+  }
+}

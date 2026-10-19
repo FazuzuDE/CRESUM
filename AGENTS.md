@@ -64,6 +64,16 @@ Do not accidentally lose active workouts or logged sets, duplicate completed wor
 - Preserve stable exercise IDs and historical meaning; do not casually rename or reinterpret saved IDs.
 - Exercise assets are not approved until they pass the biomechanics QA in `docs/EXERCISE_ASSETS.md`.
 
+## Muscle Map granularity
+
+- Before tracing a new muscle group, identify the useful visible anatomical
+  subdivisions. Default to independent per-side masks for individual muscles or
+  meaningful heads where source visibility and anatomy support the separation.
+- Preserve stable parent-group IDs and existing accepted masks. Detailed visual
+  parts do not authorize guessed load coefficients or changed exercise mappings.
+- Do not fabricate surface regions for hidden muscles or uncertain boundaries;
+  retain unresolved status or use a separately approved deeper view.
+
 ## Validation
 
 Before completion:

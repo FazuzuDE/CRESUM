@@ -1,0 +1,19 @@
+{
+  "status": "visually-approved",
+  "units": "source-pixels",
+  "shiftConvention": "positive toward body center; back left maps to positive X, back right to negative X",
+  "opacityMode": "per-muscle-runtime-variable",
+  "regions": {
+    "gluteus-maximus-left": {
+      "inset": 2,
+      "shift": 0
+    },
+    "gluteus-maximus-right": {
+      "inset": 2.5,
+      "shift": -1
+    }
+  },
+  "excludedStructures": {
+    "gluteus-medius": "boundary-rejected-needs-refinement"
+  }
+}

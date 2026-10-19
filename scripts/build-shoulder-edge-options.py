@@ -18,6 +18,7 @@ parser.add_argument('--options-file', type=Path, default=output / 'options.json'
 arguments = parser.parse_args()
 original = json.loads((study / 'geometry.json').read_text())['regions']
 options = []
+selected_inset = 3.5
 for radius in np.arange(0, 5.01, 0.5):
     regions = []
     for region in original:
@@ -32,14 +33,14 @@ for radius in np.arange(0, 5.01, 0.5):
         points = np.asarray(splev(np.linspace(0, 1, 513), fit)).T
         path = 'M' + ' L'.join(f'{x:.2f} {y:.2f}' for x, y in points[:-1]) + ' Z'
         regions.append(dict(region, path=path))
-        if radius == 3:
+        if radius == selected_inset:
             Image.fromarray((mask * 255).astype('uint8')).save(output / (region['id'] + '.png'))
     options.append({'radius': float(radius), 'regions': regions})
-    if radius == 3:
+    if radius == selected_inset:
         (output / 'geometry.json').write_text(json.dumps({
-            'status': 'review-candidate-not-approved', 'canvas': [1312, 1199],
-            'insetSourcePixels': 3, 'regions': regions,
+            'status': 'visually-approved-anatomical-assignment-pending', 'canvas': [1312, 1199],
+            'insetSourcePixels': selected_inset, 'regions': regions,
         }, ensure_ascii=False, indent=2) + '\n')
 arguments.options_file.write_text(
     json.dumps(options, ensure_ascii=False, separators=(',', ':')))
-print('Built 11 local edge-width options; default candidate inset 3 source pixels.')
+print(f'Built 11 local edge-width options; approved inset {selected_inset} source pixels.')

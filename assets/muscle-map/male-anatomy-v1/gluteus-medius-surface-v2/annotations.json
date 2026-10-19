@@ -1,0 +1,151 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [
+    1312,
+    1199
+  ],
+  "status": "candidate-boundary-and-structure-review",
+  "revision": 2,
+  "regions": [
+    {
+      "id": "gluteus-medius-left",
+      "side": "left",
+      "structureId": "gluteus-medius",
+      "muscleGroupId": null,
+      "intendedMuscleGroupId": "glutes",
+      "label": "Средняя ягодичная · кандидат v2",
+      "points": [
+        [
+          843,
+          541
+        ],
+        [
+          841,
+          528
+        ],
+        [
+          841,
+          511
+        ],
+        [
+          843,
+          496
+        ],
+        [
+          848,
+          484
+        ],
+        [
+          858,
+          477
+        ],
+        [
+          870,
+          474
+        ],
+        [
+          884,
+          475
+        ],
+        [
+          897,
+          480
+        ],
+        [
+          886,
+          485
+        ],
+        [
+          875,
+          493
+        ],
+        [
+          863,
+          505
+        ],
+        [
+          853,
+          521
+        ],
+        [
+          846,
+          536
+        ],
+        [
+          843,
+          541
+        ]
+      ]
+    },
+    {
+      "id": "gluteus-medius-right",
+      "side": "right",
+      "structureId": "gluteus-medius",
+      "muscleGroupId": null,
+      "intendedMuscleGroupId": "glutes",
+      "label": "Средняя ягодичная · кандидат v2",
+      "points": [
+        [
+          1037,
+          541
+        ],
+        [
+          1040,
+          527
+        ],
+        [
+          1039,
+          510
+        ],
+        [
+          1036,
+          495
+        ],
+        [
+          1030,
+          484
+        ],
+        [
+          1019,
+          477
+        ],
+        [
+          1006,
+          474
+        ],
+        [
+          992,
+          475
+        ],
+        [
+          980,
+          480
+        ],
+        [
+          992,
+          486
+        ],
+        [
+          1004,
+          495
+        ],
+        [
+          1016,
+          508
+        ],
+        [
+          1027,
+          524
+        ],
+        [
+          1034,
+          537
+        ],
+        [
+          1037,
+          541
+        ]
+      ]
+    }
+  ]
+}

@@ -34,3 +34,47 @@ assets/muscle-map/male-anatomy-v1/rear-shoulder-reference-study/geometry.json
 assets/muscle-map/male-anatomy-v1/rear-shoulder-reference-study/registration.json
 assets/muscle-map/male-anatomy-v1/rear-shoulder-reference-study/edge-tuning/geometry.json
 assets/muscle-map/male-anatomy-v1/rear-shoulder-reference-study/edge-tuning/options.json
+# Deterministic exports from build-biceps-reference.py
+assets/muscle-map/male-anatomy-v1/biceps-reference-study/*.svg
+assets/muscle-map/male-anatomy-v1/biceps-reference-study/geometry.json
+assets/muscle-map/male-anatomy-v1/biceps-reference-study/registration.json
+# Deterministic exports from build-triceps-reference.py
+assets/muscle-map/male-anatomy-v1/triceps-reference-study/*.svg
+assets/muscle-map/male-anatomy-v1/triceps-reference-study/geometry.json
+assets/muscle-map/male-anatomy-v1/triceps-reference-study/registration.json
+# Deterministic exports from build-quadriceps-surface-study.py
+assets/muscle-map/male-anatomy-v1/quadriceps-surface-study/*.svg
+assets/muscle-map/male-anatomy-v1/quadriceps-surface-study/geometry.json
+assets/muscle-map/male-anatomy-v1/quadriceps-surface-study/fit-report.json
+assets/muscle-map/male-anatomy-v1/quadriceps-surface-study/previous-geometry.json
+assets/muscle-map/male-anatomy-v1/quadriceps-surface-study/selected-geometry.json
+assets/muscle-map/male-anatomy-v1/quadriceps-surface-study/selection-report.json
+# Deterministic exports from build-hamstrings-surface-study.py
+assets/muscle-map/male-anatomy-v1/hamstrings-surface-study/*.svg
+assets/muscle-map/male-anatomy-v1/hamstrings-surface-study/geometry.json
+assets/muscle-map/male-anatomy-v1/hamstrings-surface-study/fit-report.json
+assets/muscle-map/male-anatomy-v1/hamstrings-surface-study/previous-geometry.json
+assets/muscle-map/male-anatomy-v1/hamstrings-surface-study/selected-geometry.json
+assets/muscle-map/male-anatomy-v1/hamstrings-surface-study/selection-report.json
+# Deterministic exports from build-calves-reference.py
+assets/muscle-map/male-anatomy-v1/calves-reference-study/*.svg
+assets/muscle-map/male-anatomy-v1/calves-reference-study/geometry.json
+assets/muscle-map/male-anatomy-v1/calves-reference-study/registration.json
+assets/muscle-map/male-anatomy-v1/calves-reference-study/selected-geometry.json
+assets/muscle-map/male-anatomy-v1/calves-reference-study/selection-report.json
+assets/muscle-map/male-anatomy-v1/glutes-reference-study/*.svg
+assets/muscle-map/male-anatomy-v1/glutes-reference-study/geometry.json
+assets/muscle-map/male-anatomy-v1/glutes-reference-study/registration.json
+assets/muscle-map/male-anatomy-v1/glutes-reference-study/selected-geometry.json
+assets/muscle-map/male-anatomy-v1/gluteus-medius-surface-v2/*.svg
+assets/muscle-map/male-anatomy-v1/gluteus-medius-surface-v2/geometry.json
+assets/muscle-map/male-anatomy-v1/gluteus-medius-surface-v2/annotations.json
+assets/muscle-map/male-anatomy-v1/gluteus-medius-surface-v2/fit-report.json
+assets/muscle-map/male-anatomy-v1/gluteus-medius-surface-v2/selected-geometry.json
+assets/muscle-map/male-anatomy-v1/tibialis-anterior-surface-study/*.svg
+assets/muscle-map/male-anatomy-v1/tibialis-anterior-surface-study/geometry.json
+assets/muscle-map/male-anatomy-v1/tibialis-anterior-surface-study/annotations.json
+assets/muscle-map/male-anatomy-v1/tibialis-anterior-surface-study/fit-report.json
+assets/muscle-map/male-anatomy-v1/tibialis-anterior-surface-study/selected-geometry.json
+assets/muscle-map/male-anatomy-v1/tibialis-anterior-surface-study/revision-1/*.svg
+assets/muscle-map/male-anatomy-v1/tibialis-anterior-surface-study/revision-1/*.json

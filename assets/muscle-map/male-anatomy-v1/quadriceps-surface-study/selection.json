@@ -1,0 +1,15 @@
+{
+  "status": "visually-approved",
+  "revision": 2,
+  "units": "source-pixels",
+  "shiftConvention": "positive toward body center; front left maps to negative X, front right to positive X",
+  "opacityMode": "per-muscle-runtime-variable",
+  "regions": {
+    "quadriceps-left-rectus-femoris": { "inset": 0, "shift": -3 },
+    "quadriceps-right-rectus-femoris": { "inset": -1.5, "shift": 1.5 },
+    "quadriceps-left-vastus-lateralis": { "inset": -2, "shift": -1 },
+    "quadriceps-right-vastus-lateralis": { "inset": -2, "shift": 2 },
+    "quadriceps-left-vastus-medialis": { "inset": -1.5, "shift": -2.5 },
+    "quadriceps-right-vastus-medialis": { "inset": -0.5, "shift": -2 }
+  }
+}

@@ -1,5 +1,28 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Tibialis anterior revision-2 parameter selection
+
+Saved the user's screenshot variant: bilateral inset 1.5 source px; anatomical
+left inward shift −0.5 px, right +1.5 px. The front-view transform maps these
+to X shifts +0.5 and +1.5 px respectively. Retain separate selected exports and
+baseline drafts. The user's “Так” selects this variant; do not infer expert
+anatomical validation or production integration. Both load-group IDs remain
+null because the current taxonomy has no tibialis-anterior group. Saturation
+65% is preview-only; runtime opacity stays variable.
+
+## 2026-10-18 — Gluteus medius revision 2 visually approved
+
+Status: Approved — saved locally, pending Git synchronization.
+
+Accept bilateral revision-2 surface masks: left inset 1 source px / inward shift
+0 px; right inset 1.5 px / inward shift −2 px. Preserve independent selected
+exports under the existing `glutes` parent, alongside accepted maximus masks.
+Supersedes the rejected first medius contours, which remain archived. Baseline
+v2 candidate files retain their original review status; selected exports record
+the approval. The screenshot's 85% saturation is preview-only and not geometry.
+Runtime load continues to control opacity. No exercise coefficients, production
+integration or expert anatomical validation are implied.
+
 ## 2026-10-15 — Safe discard of an active workout
 
 Status: Approved — implementation in focused PR, pending Git integration.
@@ -1145,3 +1168,178 @@ on presentation and tests; no new dependency, schema or protocol is needed.
   and earlier narrow version for comparison. Final width remains unapproved.
 - Keep the selected red tone, opacity, independent sides and source registration
   stable during width review. Anatomical group assignment remains unresolved.
+
+## 2026-10-18 — Shoulder edge inset approved at 3.5 px
+
+- User explicitly approved “3.5 px” for both current posterior-shoulder masks.
+- Save the 3.5-source-pixel inset as the visually approved variant and preview
+  default, replacing the initial 3-pixel candidate. Preserve red tone, opacity,
+  independent sides and original source registration.
+- This approval does not resolve rear/lateral deltoid assignment or authorize
+  production integration. Other accepted muscle masks remain unchanged.
+
+## 2026-10-18 — Biceps guide selected; independent edge editing requested
+
+- Use the assistant-generated cyan biceps contours directly for the next study.
+- Add independent anatomical left/right pixel insets and optional linked editing;
+  preserve the original image as the red-overlay base.
+- Start at 0 px per side and review the red masks before recording final widths.
+  Shoulder approval at 3.5 px remains specific to those shoulder masks.
+
+## 2026-10-18 — Left biceps approved; right position correction
+
+- User approved the anatomical left biceps at 1.5 px inset.
+- Move the anatomical right mask toward the torso and provide independent
+  position adjustment. Start the review at +3 source pixels horizontally;
+  the exact right offset and its final contour remain pending approval.
+
+## 2026-10-18 — Both biceps approved at 1.5 px
+
+- User explicitly approved right 1.5 px and left 1.5 px.
+- Save both inset values and retain the displayed +3 source-pixel right-side
+  translation toward the torso. Record both study regions as visually approved.
+- This is visual acceptance of the masks; production integration remains separate.
+
+## 2026-10-18 — Trial full-body guide on triceps
+
+- User authorized transferring the full-body annotation's triceps and comparing
+  it with the assistant's cyan guide on the original character.
+- Store manually interpreted red outer envelopes, extracted cyan counterparts,
+  per-side registration and independent half-pixel edge/position review.
+- Keep both variants unapproved; flag the full guide's weaker right-arm fit.
+  Existing approved mask selections remain unchanged.
+
+## 2026-10-18 — Cyan triceps parameters approved
+
+- User approved the screenshot's “Моя бирюзовая обводка” variant.
+- Left/right inset: 1 px each. Inward offset: left 1 px, right 0 px.
+- Save the cyan-derived bilateral masks as visually approved; retain the full
+  guide as an unapproved comparison. Approval does not integrate the atlas.
+
+## 2026-10-18 — Opacity is dynamic, not an approved mask parameter
+
+- User clarified that saturation must vary with each muscle's training load.
+- The screenshot's 65% is only a review setting. Remove fixed opacity from
+  approved geometry metadata; preserve per-muscle runtime intensity control.
+- Geometry approvals stay valid. Load normalization and the intensity mapping
+  remain separate work; no new scoring formula is approved by this clarification.
+
+## 2026-10-18 — Quadriceps visual substructures approved
+
+- User approved separate visible rectus femoris, vastus lateralis and vastus
+  medialis masks on each side: six independently editable regions.
+- Keep one quadriceps training group and existing exercise mappings. Do not
+  introduce per-head scores or a surface mask for deep vastus intermedius.
+- Refine the existing draft contours and provide per-region pixel review;
+  preparation approval does not constitute final boundary acceptance.
+
+## 2026-10-18 — First split-quadriceps contours rejected
+
+- User rejected the first six-region study as inaccurate and requested closer
+  tracing of visible source muscles.
+- Retain the rejected geometry for comparison. Retrace each source thigh at
+  enlarged scale, correcting internal gaps, distal rectus/tendon separation
+  and the proximal outer-hip boundary. Revision 2 remains unapproved.
+
+## 2026-10-18 — Quadriceps settings received from screenshots
+
+- Record the user's six settings on revision 2. Values are source pixels, in
+  anatomical left/right order; shift is signed toward the body center.
+- Rectus femoris: insets 0 / −1.5; shifts −3 / +1.5.
+- Vastus lateralis: insets −2 / −2; shifts −1 / +2.
+- Vastus medialis: insets −1.5 / −0.5; shifts −2.5 / −2.
+- Store reusable selections and show the combined result. Do not record preview
+  saturation as a mask setting. Composite the group once to avoid darker overlaps.
+
+## 2026-10-18 — Adjusted quadriceps appearance accepted
+
+- User accepted the combined six-mask result with all screenshot-derived
+  parameters retained in `quadriceps-surface-study/selection.json`.
+- Mark selected geometry visually approved; keep runtime intensity flexible
+  and the single quadriceps load group. Production integration stays separate.
+- Next surface-review target: bilateral posterior thighs (hamstrings).
+
+## 2026-10-18 — Maximize appropriate visual muscle granularity
+
+- User requested that future muscles be separated as far as anatomically useful
+  for a more flexible map, with independently editable left/right regions.
+- Keep individual structures and meaningful visible heads under stable parent
+  groups. No automatic per-head load scores or invented hidden-surface contours.
+- Current broad hamstring outline is only a guide; subsequent mask work must
+  distinguish visible biceps femoris, semitendinosus and identifiable exposed
+  semimembranosus rather than using one final region per thigh.
+
+## 2026-10-18 — Split posterior-thigh surface study prepared
+
+- Prepare independent biceps femoris and semitendinosus surface proposals per
+  side, keeping four draft masks under the existing `hamstrings` group.
+- Preserve two ambiguous medial strips independently, without a load-group
+  assignment. An intended semimembranosus target does not confirm their anatomy;
+  exclude them from group tint and expose a clearly marked isolated review.
+- Keep all six contours unapproved, with per-side pixel adjustment and separate
+  runtime intensity. Previously accepted masks and production mappings stay intact.
+
+## 2026-10-18 — Posterior-thigh contours require a more accurate retry
+
+- User rejected the first contour fit and requested closer source tracing.
+- Preserve the first proposal, retrace independent sides at 5× scale and
+  correct gluteal-crease alignment, side grooves and distal taper instead of
+  applying a global size adjustment. Revision 2 remains unapproved.
+- Keep ambiguous medial strips separate and excluded from the main group.
+
+## 2026-10-18 — Inner posterior-thigh areas deferred; four settings saved
+
+- User explicitly deferred the inner areas. Remove their active review option
+  and retain archived unassigned candidates outside the selected mask set.
+- Save IMG_8212/IMG_8213 settings, anatomical left/right order: biceps insets
+  −1.5 / −2 px and inward shifts +1.5 / +1 px; semitendinosus insets −3 / −3 px
+  and inward shifts −0.5 / −3 px.
+- Show the combined four-mask selection, with intensity applied once per group
+  and no fixed saturation value. Final combined appearance remains for review.
+
+## 2026-10-18 — Four-head calf reference study requested
+
+- User requested conversion of the cyan gastrocnemius guide into independent
+  medial/lateral head masks on each leg, under the existing `calves` group.
+- Extract four interiors, partition touching stroke pixels without merging
+  heads and register both heads of each leg together against the fixed source.
+- Provide per-head/side pixel controls. Keep boundaries unapproved and leave
+  soleus and uncertain/deep structures for a separate visible-surface review.
+
+## 2026-10-18 — Calf-head settings received from screenshots
+
+- Save four independent parameters from IMG_8214/IMG_8215, anatomical left/right
+  order: medial insets 2 / 2 px, inward shifts +1.5 / −0.5 px; lateral insets
+  2 / 3 px, inward shifts +0.5 / −1.5 px.
+- Preserve the shared `calves` group, per-head geometry and runtime intensity.
+  Preview saturation is not a stored mask parameter. Show the combined result
+  without assuming final visual/anatomical approval from the screenshots alone.
+
+## 2026-10-18 — Four-head calf appearance accepted
+
+- User accepted the combined result. Mark the four selected gastrocnemius
+  regions visually approved, retaining all screenshot-derived parameters.
+- Keep opacity variable, the `calves` parent group unchanged and soleus separate.
+  This acceptance does not integrate the incomplete atlas into production.
+
+## 2026-10-18 — Gluteal masks prepared for review
+
+Prepared four independently editable masks from the cyan/orange outline guide:
+left/right gluteus maximus and left/right candidate visible gluteus medius.
+Maximus uses the existing glutes parent; medius remains unassigned and excluded
+from the combined mask pending boundary and structure review. Inset and inward
+shift start at zero with separate 0.5 px controls per side. User authorization
+covered preparation, not final acceptance. Runtime load controls opacity.
+
+## 2026-10-18 — Gluteus maximus selected masks visually approved
+
+Status: Approved — saved locally, pending Git synchronization.
+
+Accept only bilateral gluteus maximus using the screenshot values: left inset
+2 source px / inward shift 0 px; right inset 2.5 px / inward shift −1 px.
+Retain separate selected geometry and exports; preserve the baseline draft.
+Gluteus medius boundaries are unclear and not accepted, including the screenshot
+settings of 0.5 px inset and 4.5 px inward shift. Keep those candidates unassigned
+and outside the combined selected mask pending refinement. Opacity remains a
+runtime load variable. This visual approval does not integrate the atlas into
+production or modify exercise mappings.
