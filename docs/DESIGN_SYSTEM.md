@@ -1007,6 +1007,15 @@ The current selected set contains four independent biceps femoris/semitendinosus
 regions, with screenshot-derived parameters in
 `hamstrings-surface-study/selection.json`. Runtime intensity remains flexible.
 
+### Brachioradialis selected masks visually accepted — 2026-10-19
+
+User approved the bilateral revision-2 selected appearance: anatomical L/R inset
+0.5/−1 source px, inward −2/−2 and vertical Y +5/+5.5 (positive down).
+Retain selected geometry, independent side controls, the forearms parent and
+runtime opacity. Only selected exports carry visual approval; baseline revision
+2 and archived revision 1 remain references. Expert anatomical validation and
+production integration are separate from this acceptance.
+
 ### Gastrocnemius head masks visually accepted — 2026-10-18
 
 User accepted the combined four-head calf selection. Preserve medial left/right

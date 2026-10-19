@@ -1,5 +1,5 @@
 {
-  "status": "user-selected-parameters",
+  "status": "visually-approved",
   "revision": 2,
   "canvas": [
     1312,
@@ -21,7 +21,7 @@
       "insetSourcePixels": 0.5,
       "inwardShiftSourcePixels": -2,
       "verticalShiftSourcePixels": 5,
-      "status": "user-selected-parameters"
+      "status": "visually-approved"
     },
     {
       "id": "brachioradialis-right",
@@ -36,7 +36,7 @@
       "insetSourcePixels": -1,
       "inwardShiftSourcePixels": -2,
       "verticalShiftSourcePixels": 5.5,
-      "status": "user-selected-parameters"
+      "status": "visually-approved"
     }
   ]
 }

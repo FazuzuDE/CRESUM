@@ -1,19 +1,20 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
-Brachioradialis revision-2 selected settings from FAEC7F8B, anatomical L/R in
+Brachioradialis revision-2 appearance is visually approved, using FAEC7F8B
+settings, anatomical L/R in
 source px: inset 0.5/−1, inward −2/−2, Y +5/+5.5. Separate selected exports
-and review defaults retain the screenshot values. Combined visual appearance
-and anatomical identity remain under review; opacity stays runtime-variable.
+and review defaults retain the screenshot values. Expert anatomical validation
+and production integration remain separate; opacity stays runtime-variable.
 
 Brachioradialis revision 2 supersedes the first candidate contours after a
 requested detailed redraw. Proximal belly, internal groove and distal taper
-are retraced; revision-1/ retains the unapproved prior version. Both revised
-boundaries remain under review with independent zero-default pixel controls.
+are retraced; revision-1/ retains the unapproved prior version. Baseline revision
+2 remains a draft; only the selected settings/exports carry visual approval.
 
 Latest continuation: `brachioradialis-surface-study/` contains two visible
 front-view radial forearm belly candidates under the intended forearms parent.
-Each side has separate inset and X/Y controls; new boundaries and assignment
-remain under review. Deltoid screenshot values remain selected, not approved.
+Each side has separate inset and X/Y controls. Deltoid screenshot values remain
+selected, not approved.
 
 Front deltoid screenshot selection (IMG_8232/IMG_8233), anatomical L/R in
 source px: anterior inset 0.5/−2, inward 0/0, Y −0.5/+1; lateral inset 1/1,

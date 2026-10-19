@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Brachioradialis revision-2 appearance approved
+
+User explicitly approved the current bilateral selected masks. Mark selection
+and selected geometry visually-approved, retaining anatomical L/R inset
+0.5/−1, inward −2/−2 and Y +5/+5.5 source px. Preserve exact geometry,
+independent side controls, the forearms parent and runtime opacity. Baseline
+revision 2 and superseded revision 1 remain unapproved references. This visual
+approval does not imply expert anatomical validation or production integration.
+
 ## 2026-10-19 — Brachioradialis revision-2 screenshot selection
 
 Save FAEC7F8B settings in anatomical left / right order, source px: inset

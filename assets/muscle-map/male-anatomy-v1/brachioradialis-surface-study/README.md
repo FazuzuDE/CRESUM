@@ -4,7 +4,8 @@ Revision 2 retraces each side independently at 6× source scale, lowers the
 proximal belly below pale elbow tissue, follows the neighboring-muscle groove
 more closely and shortens the distal tip before the long tendon. Reduced
 conversion smoothing preserves these local boundaries. Superseded revision 1
-is archived in revision-1/ and is not approved. Revision 2 remains a candidate.
+is archived in revision-1/ and is not approved. Baseline revision 2 remains a
+candidate; the screenshot-selected revision-2 exports are visually approved.
 
 Two independent front-view candidates on the unchanged source. Trace only the
 visible radial forearm belly; uncertain proximal continuation, distal tendon
@@ -34,5 +35,6 @@ Build review:
 Revision-2 screenshot checkpoint (FAEC7F8B): anatomical L/R inset 0.5/−1,
 inward −2/−2 and Y +5/+5.5 source px. The front X transforms are +2/−2,
 with both masks moved down. Separate selected SVG/PNG/geometry record these
-values, status user-selected-parameters. Combined appearance and assignment
-remain under review. Baseline and archived contours are preserved.
+values, status visually-approved after the user's explicit acceptance.
+Expert anatomical validation and production integration remain separate.
+Baseline and archived contours are preserved.
