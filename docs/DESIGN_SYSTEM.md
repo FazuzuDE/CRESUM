@@ -841,3 +841,14 @@ unchanged source, clear-edge red tint and retained fiber shading. This is visual
 acceptance of this study, not expert anatomical validation or approval of other
 atlas regions. Continue the same per-side review with visible latissimus dorsi;
 keep the pale lumbar/aponeurotic area neutral and retain the existing `lats` ID.
+
+### Muscle contour handoff workflow — 2026-10-18
+
+For each next muscle, first provide the unchanged approved source image and an
+English Gemini prompt requesting only a visible-surface outline. The user
+returns the annotated image; use its actual contours as input to mask repair,
+check registration against the original, and show the corrected overlay for
+review. Do not treat a generative annotation as native SVG or exact anatomy.
+Keep the source image fixed, sides independently editable, and the accepted
+clear-edge red presentation. Existing lats-study contours remain candidates
+pending the user's returned reference; do not promote them by default.

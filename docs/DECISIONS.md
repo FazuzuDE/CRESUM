@@ -1078,3 +1078,13 @@ on presentation and tests; no new dependency, schema or protocol is needed.
   visible latissimus dorsi masks; keep the pale lumbar area neutral. Preserve
   source identity, existing muscle IDs and the clear-edge texture-preserving
   red treatment. New lats contours remain pending visual review.
+
+## 2026-10-18 — User-directed Gemini contour handoff
+
+- User explicitly set the next-muscle workflow: assistant supplies the source
+  image and Gemini outline prompt; user returns the outlined image; assistant
+  repairs the mask against that reference and presents it for review.
+- Start this handoff with the current lats review. Preserve the original image
+  and prior candidates, verify alignment of returned annotations, and retain
+  clear-edge red tint after mask repair. Do not regenerate the character or
+  assume that a raster annotation contains exportable vector paths.
