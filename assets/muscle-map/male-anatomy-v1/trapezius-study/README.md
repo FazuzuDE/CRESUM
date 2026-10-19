@@ -1,6 +1,7 @@
 # Trapezius surface study — 2026-10-18
 
-Draft for source-boundary review, not anatomical ground truth. The user requested
+Visually accepted by the user on 2026-10-18; expert anatomical review remains
+pending. This study is not anatomical ground truth. The user requested
 the next muscle after selecting the clear-edge red presentation. This study
 traces the visible trapezius on the unchanged posterior source, independently on
 both sides. It extends the initial short geometric proposal toward the visible
@@ -26,4 +27,5 @@ are ambiguous; appearance and contour approval are separate from expert review.
 
 Presentation follows the user's current choice: smooth SVG fill, uniform red
 with preserved source texture, no stroke and no additional inner/outer blur.
-Keep this separate draft until its boundaries have been visually accepted.
+Keep this separate from production until the complete atlas is reviewed and
+its integration is authorized.

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "latissimus-dorsi-left-visible",
+    "maxRasterBoundaryDeviationPx": 0.417
+  },
+  {
+    "id": "latissimus-dorsi-right-visible",
+    "maxRasterBoundaryDeviationPx": 0.496
+  }
+]

@@ -20,7 +20,7 @@ from scipy.spatial import cKDTree
 root = Path(__file__).resolve().parent.parent
 directory = root / "assets/muscle-map/male-anatomy-v1"
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument("--study", choices=["surface-study", "trapezius-study"], default="surface-study")
+parser.add_argument("--study", choices=["surface-study", "trapezius-study", "lats-study"], default="surface-study")
 study = directory / parser.parse_args().study
 data = json.loads((study / "annotations.json").read_text())
 assert hashlib.sha256((directory / "source.png").read_bytes()).hexdigest() == data["sourceSha256"]

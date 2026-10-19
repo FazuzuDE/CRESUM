@@ -1067,3 +1067,14 @@ on presentation and tests; no new dependency, schema or protocol is needed.
   draft. No production renderer or training calculation changes.
 - New contours remain review candidates; the selected style does not approve
   anatomical boundaries or the rest of the atlas.
+
+## 2026-10-18 — Trapezius visually accepted; continue with lats
+
+- User responded positively to the trapezius review and requested continuing.
+  Record visual acceptance of its current bilateral contours and red treatment.
+- Expert anatomical review and production integration remain separate. Keep
+  #66 in Draft and leave the application's existing renderer unchanged.
+- Continue the existing source-boundary workflow with independent left/right
+  visible latissimus dorsi masks; keep the pale lumbar area neutral. Preserve
+  source identity, existing muscle IDs and the clear-edge texture-preserving
+  red treatment. New lats contours remain pending visual review.

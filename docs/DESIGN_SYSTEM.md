@@ -832,3 +832,12 @@ training-load scale. Radial-gradient and blur variants remain experiments.
 Keep red load semantics; multicolor reference legends do not define new
 categories. Appearance preference does not finalize anatomical boundaries or
 authorize production integration of the incomplete atlas.
+
+### Trapezius appearance accepted — 2026-10-18
+
+The user accepted the independently traced posterior trapezius study and asked
+to continue. Preserve both contours in `trapezius-study/geometry.json`, the
+unchanged source, clear-edge red tint and retained fiber shading. This is visual
+acceptance of this study, not expert anatomical validation or approval of other
+atlas regions. Continue the same per-side review with visible latissimus dorsi;
+keep the pale lumbar/aponeurotic area neutral and retain the existing `lats` ID.

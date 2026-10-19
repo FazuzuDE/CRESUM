@@ -23,3 +23,6 @@ assets/muscle-map/male-anatomy-v1/reference-study/soft/presentation.json
 assets/muscle-map/male-anatomy-v1/trapezius-study/*.svg
 assets/muscle-map/male-anatomy-v1/trapezius-study/geometry.json
 assets/muscle-map/male-anatomy-v1/trapezius-study/fit-report.json
+assets/muscle-map/male-anatomy-v1/lats-study/*.svg
+assets/muscle-map/male-anatomy-v1/lats-study/geometry.json
+assets/muscle-map/male-anatomy-v1/lats-study/fit-report.json
