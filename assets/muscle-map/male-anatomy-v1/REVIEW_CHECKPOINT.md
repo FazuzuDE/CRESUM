@@ -1,9 +1,18 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Next continuation: `extensor-carpi-radialis-longus-surface-study/` contains two
+draft posterolateral forearm visible-patch candidates. Exact ECRL identity and
+separation from ECRB/brachioradialis remain provisional. Independent inset/X/Y
+controls retain half-pixel steps and ±10 px shifts; opacity stays load-variable.
+Candidate overlap with selected extensor digitorum is recorded in fit-report;
+combined forearm boundary review is pending. Accepted prior masks and existing
+exercise mappings remain unchanged.
+
 ECU revision-2 screenshot selection (4297D98E): anatomical L/R inset 0/0,
 inward +3/0, Y −0.5/0 source px. Independent settings, selected exports and
-review defaults are saved with user-selected-parameters status. Visual approval
-and exact structure validation remain pending. Runtime opacity stays flexible.
+review defaults are saved with visually-approved status following explicit
+acceptance. Exact structure validation remains pending. Runtime opacity stays
+flexible.
 
 Next continuation: `extensor-carpi-ulnaris-surface-study/` contains two draft
 revision-2 medial posterior forearm belly candidates. Inner edges follow the

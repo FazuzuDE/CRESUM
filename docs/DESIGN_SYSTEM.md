@@ -1051,3 +1051,12 @@ status; baseline and archived contours remain drafts. Restore these defaults
 in the review, with independent side controls. Preview saturation is not a
 fixed value: opacity stays a per-muscle runtime load variable. Exact anatomical
 identity and production integration are separate from visual acceptance.
+
+### Extensor carpi ulnaris selected appearance accepted — 2026-10-19
+
+Preserve revision-2 anatomical left/right inset 0/0, inward +3/0 and vertical
+Y −0.5/0 source px from screenshot 4297D98E. Selected geometry and SVG/PNG
+exports carry visually-approved status after explicit user acceptance.
+Baseline and archived revision 1 remain drafts. Retain independent side
+controls and flexible runtime opacity. Exact anatomical identity and production
+integration remain separate from visual acceptance.

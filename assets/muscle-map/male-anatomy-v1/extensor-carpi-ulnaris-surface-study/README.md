@@ -10,8 +10,9 @@ Revision 2 remains draft boundary and structure review.
 
 Screenshot 4297D98E selects anatomical L/R inset 0/0, inward +3/0 and
 Y −0.5/0 source px. Separate selected SVG/PNG/geometry and review defaults
-retain these values with user-selected-parameters status, awaiting explicit
-visual approval. Baseline and archived files are unchanged.
+retain these values with visually-approved status following explicit user
+acceptance. Baseline and archived files are unchanged. Exact anatomical
+identity remains provisional.
 
 Two independent medial posterior forearm belly candidates, traced separately
 on the unchanged 1312 × 1199 source. Exact identity and boundaries remain

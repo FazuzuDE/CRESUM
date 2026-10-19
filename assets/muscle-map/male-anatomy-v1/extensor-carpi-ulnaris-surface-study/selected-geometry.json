@@ -1,5 +1,5 @@
 {
-  "status": "user-selected-parameters",
+  "status": "visually-approved",
   "revision": 2,
   "canvas": [
     1312,
@@ -21,7 +21,7 @@
       "insetSourcePixels": 0,
       "inwardShiftSourcePixels": 3,
       "verticalShiftSourcePixels": -0.5,
-      "status": "user-selected-parameters"
+      "status": "visually-approved"
     },
     {
       "id": "extensor-carpi-ulnaris-right",
@@ -36,7 +36,7 @@
       "insetSourcePixels": 0,
       "inwardShiftSourcePixels": 0,
       "verticalShiftSourcePixels": 0,
-      "status": "user-selected-parameters"
+      "status": "visually-approved"
     }
   ]
 }

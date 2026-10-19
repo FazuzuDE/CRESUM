@@ -1,5 +1,16 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — ECU selected appearance approved; ECRL continuation
+
+User explicitly approved ECU revision-2 screenshot settings: anatomical L/R
+inset 0/0, inward +3/0, Y −0.5/0 source px. Mark selection and selected geometry
+visually-approved while retaining exact paths, transforms and SVG/PNG bytes.
+Baseline and archived contours remain drafts; exact identity stays provisional.
+Continue with two independently editable ECRL visible-surface candidates under
+forearms, retaining inset and X/Y ranges, runtime opacity and prior approvals.
+ECRL boundaries/identity remain draft review; hidden continuation and uncertain
+separation from ECRB/brachioradialis are not asserted as full-muscle coverage.
+
 ## 2026-10-19 — Extensor carpi ulnaris screenshot parameter checkpoint
 
 Save 4297D98E settings for revision 2: anatomical L/R inset 0/0, inward +3/0
