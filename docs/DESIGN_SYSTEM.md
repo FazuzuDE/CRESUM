@@ -806,6 +806,13 @@ as drafts and keep the review tool separate from production analytics.
 
 ### Image-boundary study: chest and shoulders — 2026-10-17
 
+Front deltoid continuation — 2026-10-19: user approved a four-mask review of
+anterior and lateral visible surfaces, independent on each anatomical side.
+Provide per-side/per-head inset and X/Y controls in half-source-pixel steps.
+Keep the source and previously accepted posterior contours unchanged. New
+boundaries and head assignments require visual review; preparation approval
+does not approve those contours or alter exercise load coefficients.
+
 User approved a small raster-mask-first refinement after rejecting coarse paths.
 Annotate independently on the unchanged source, check raster boundaries, then
 derive SVG contours with bounded conversion drift. Review enlarged and at phone

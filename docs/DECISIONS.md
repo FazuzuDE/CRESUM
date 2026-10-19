@@ -1,5 +1,16 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Front deltoid split prepared for review
+
+User approved preparing four front-view masks: anterior and lateral deltoid
+surfaces, separately for each anatomical side, with independent 0.5-source-pixel
+inset, inward X and vertical Y controls. This approves the review scope and
+controls, not the candidate boundaries or head assignment. Use visible source
+fiber separators as provisional landmarks. Retain existing front-delts and
+side-delts parent identities, runtime opacity and unchanged posterior-shoulder
+exports; posterior anatomical assignment remains unresolved. New contours stay
+draft-boundary-and-head-assignment-review, outside production rendering.
+
 ## 2026-10-19 — Serratus-region screenshot parameters saved
 
 Save six candidate settings from IMG_8229, IMG_8230 and 34AC2D9B,

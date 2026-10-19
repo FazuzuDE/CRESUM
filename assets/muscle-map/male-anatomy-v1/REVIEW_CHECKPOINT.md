@@ -1,5 +1,10 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Front deltoid continuation: `deltoid-front-surface-study/` contains four draft
+front-view anterior/lateral surfaces with independent per-side inset and X/Y
+controls. New contours and head assignment are under review; zero defaults are
+not accepted geometry. Existing posterior-shoulder exports remain unchanged.
+
 This checkpoint belongs to draft PR #66 (`feature/muscle-mask-atlas`). The
 character appearance is approved. Individual mask approvals below concern
 visual appearance, not expert anatomical validation or production integration.
