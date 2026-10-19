@@ -18,7 +18,7 @@ rendering. These candidates are one muscle, not the entire forearm group.
 Each side has inset (−3…+6), inward X (−5…+5) and vertical Y (−10…+10)
 in source pixels, step 0.5. Inset positive contracts; inward positive maps
 front left to negative X and right to positive X; negative Y is up on both.
-Defaults are zero pending review; a future selection.json restores saved values.
+Defaults restore selection.json when present, otherwise zero pending review.
 Opacity is a runtime input applied once to the common group, retaining source
 shading with multiply. All SVG/PNG exports retain the 1312 × 1199 canvas.
 
@@ -30,3 +30,9 @@ Rebuild masks:
 `python scripts/build-brachioradialis-surface-study.py --options-file /tmp/brachioradialis-options.json`.
 Build review:
 `python scripts/build-brachioradialis-review.py --options-file /tmp/brachioradialis-options.json --output /workspace/cresum-brachioradialis-review.html`.
+
+Revision-2 screenshot checkpoint (FAEC7F8B): anatomical L/R inset 0.5/−1,
+inward −2/−2 and Y +5/+5.5 source px. The front X transforms are +2/−2,
+with both masks moved down. Separate selected SVG/PNG/geometry record these
+values, status user-selected-parameters. Combined appearance and assignment
+remain under review. Baseline and archived contours are preserved.

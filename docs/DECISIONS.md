@@ -1,5 +1,15 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Brachioradialis revision-2 screenshot selection
+
+Save FAEC7F8B settings in anatomical left / right order, source px: inset
+0.5 / −1, inward −2 / −2, Y +5 / +5.5. Negative inward moves away from the
+body center (front X +2 / −2); positive Y moves down on both sides. Preserve
+baseline revision 2, archived revision 1, and separate selected exports. Saved
+review defaults restore these values. Status remains user-selected-parameters,
+with combined visual appearance and anatomical assignment under review.
+Runtime opacity remains independent of geometry.
+
 ## 2026-10-19 — Brachioradialis revision 2 boundary refinement
 
 User requested a more detailed redraw of both candidate contours. Inspect the

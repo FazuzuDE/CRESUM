@@ -1,5 +1,10 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Brachioradialis revision-2 selected settings from FAEC7F8B, anatomical L/R in
+source px: inset 0.5/−1, inward −2/−2, Y +5/+5.5. Separate selected exports
+and review defaults retain the screenshot values. Combined visual appearance
+and anatomical identity remain under review; opacity stays runtime-variable.
+
 Brachioradialis revision 2 supersedes the first candidate contours after a
 requested detailed redraw. Proximal belly, internal groove and distal taper
 are retraced; revision-1/ retains the unapproved prior version. Both revised

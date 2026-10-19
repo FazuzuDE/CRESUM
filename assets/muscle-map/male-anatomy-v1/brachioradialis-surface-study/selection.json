@@ -1,0 +1,12 @@
+{
+  "status": "user-selected-parameters",
+  "revision": 2,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; front left negative X, front right positive X; positive shiftY down, negative shiftY up",
+  "sourceScreenshot": "FAEC7F8B-082E-4148-A675-0F3C23BA3838.png",
+  "regions": {
+    "brachioradialis-left": { "inset": 0.5, "shift": -2, "shiftY": 5 },
+    "brachioradialis-right": { "inset": -1, "shift": -2, "shiftY": 5.5 }
+  }
+}
