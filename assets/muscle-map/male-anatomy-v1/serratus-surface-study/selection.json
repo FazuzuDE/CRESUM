@@ -1,0 +1,43 @@
+{
+  "status": "user-selected-parameters",
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; front left negative X, front right positive X; positive shiftY down, negative shiftY up",
+  "sourceScreenshots": {
+    "serratus-visible-slip-1": "IMG_8229.png",
+    "serratus-visible-slip-2": "IMG_8230.png",
+    "serratus-visible-slip-3": "34AC2D9B-0C65-42F6-A8FD-0265BF219330.png"
+  },
+  "regions": {
+    "serratus-visible-slip-1-left": {
+      "inset": -1,
+      "shift": 2.5,
+      "shiftY": 0
+    },
+    "serratus-visible-slip-1-right": {
+      "inset": -1,
+      "shift": 3.5,
+      "shiftY": 0
+    },
+    "serratus-visible-slip-2-left": {
+      "inset": 0,
+      "shift": 1.5,
+      "shiftY": -1.5
+    },
+    "serratus-visible-slip-2-right": {
+      "inset": 0,
+      "shift": 2.5,
+      "shiftY": -0.5
+    },
+    "serratus-visible-slip-3-left": {
+      "inset": 1,
+      "shift": -3,
+      "shiftY": -1
+    },
+    "serratus-visible-slip-3-right": {
+      "inset": 1,
+      "shift": -2.5,
+      "shiftY": 0
+    }
+  }
+}

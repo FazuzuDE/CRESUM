@@ -1,5 +1,15 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Serratus-region screenshot parameters saved
+
+Save six candidate settings from IMG_8229, IMG_8230 and 34AC2D9B,
+without implying final visual or anatomical approval. Anatomical left / right,
+in source px: upper inset −1 / −1, inward +2.5 / +3.5, Y 0 / 0; middle
+inset 0 / 0, inward +1.5 / +2.5, Y −1.5 / −0.5; lower inset 1 / 1, inward
+−3 / −2.5, Y −1 / 0. Negative Y moves up on both sides. Preserve baseline
+candidates and separate selected exports. All load-group IDs stay null and
+opacity remains a runtime variable. Review defaults restore the saved values.
+
 ## 2026-10-19 — Abdominal screenshot parameters saved
 
 Receive IMG_8224–IMG_8228 settings for all ten abdominal regions. Save separate

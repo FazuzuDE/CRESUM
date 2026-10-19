@@ -15,6 +15,8 @@ parser.add_argument('--options-file', type=Path, required=True)
 args = parser.parse_args()
 base = Path(__file__).resolve().parent.parent/'assets/muscle-map/male-anatomy-v1'
 study = base/'serratus-surface-study'
+selection_file = study/'selection.json'
+selection = json.loads(selection_file.read_text()) if selection_file.exists() else None
 data = json.loads((study/'annotations.json').read_text())
 assert hashlib.sha256((base/'source.png').read_bytes()).hexdigest() == data['sourceSha256']
 source = np.asarray(Image.open(base/'source.png').convert('RGB'))
@@ -24,6 +26,8 @@ silhouette = nd.binary_fill_holes(components == sizes.argmax())
 geometry = {'status': data['status'], 'revision': data.get('revision', 1), 'canvas': data['canvas'], 'opacityMode': 'per-muscle-runtime-variable', 'regions': []}
 options = []
 rasters = []
+selected_regions, selected_rasters = [], []
+clipped_background = 0
 for region in data['regions']:
     name, side = region['id'], region['side']
     points = np.asarray(region['points'], float)
@@ -43,6 +47,20 @@ for region in data['regions']:
         p = np.asarray(splev(np.linspace(0, 1, 129), fitted)).T
         path = 'M'+' L'.join(f'{x:.2f} {y:.2f}' for x, y in p[:-1])+' Z'
         variants.append({'radius': float(radius), 'path': path})
+        if selection and radius == selection['regions'][name]['inset']:
+            state = selection['regions'][name]
+            dx = state['shift']*(-1 if side == 'left' else 1)
+            dy = state.get('shiftY', 0)
+            shifted = nd.shift(pixels, (dy, dx), order=1, mode='constant', cval=0)
+            clipped_background += int(np.count_nonzero((shifted > .5) & ~silhouette))
+            shifted *= silhouette
+            chosen = {k: v for k, v in region.items() if k != 'points'}
+            chosen.update({'view': 'front', 'path': path, 'transform': f'translate({dx} {dy})',
+                'insetSourcePixels': state['inset'], 'inwardShiftSourcePixels': state['shift'],
+                'verticalShiftSourcePixels': dy, 'status': selection['status']})
+            selected_regions.append(chosen)
+            selected_rasters.append(shifted)
+            Image.fromarray(np.round(shifted*255).astype('uint8')).save(study/(name+'-selected.png'))
         if radius == 0:
             rasters.append(pixels)
             export = {k: v for k, v in region.items() if k != 'points'}
@@ -66,4 +84,20 @@ geometry['muscleGroupId']=None
     'baselineOverlapPixels':int(np.count_nonzero((np.asarray(rasters)>.5).sum(0)>1)),
     'opacityBakedIntoMasks':False},indent=2)+'\n')
 args.options_file.write_text(json.dumps(options, ensure_ascii=False, separators=(',', ':')))
+if selection:
+    assert len(selected_regions) == 6
+    chosen = {k: v for k, v in geometry.items() if k != 'regions'}
+    chosen.update({'status': selection['status'], 'regions': selected_regions})
+    (study/'selected-geometry.json').write_text(json.dumps(chosen, ensure_ascii=False, indent=2)+'\n')
+    paths = []
+    for region in selected_regions:
+        path = f'<path id="{region["id"]}" d="{region["path"]}" transform="{region["transform"]}"/>'
+        paths.append(path)
+        (study/(region['id']+'-selected.svg')).write_text(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1312 1199">{defs}<g fill="currentColor" mask="url(#body)">{path}</g></svg>\n')
+    (study/'visible-selected-candidates-union.svg').write_text(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1312 1199">{defs}<g id="serratus-selected-candidates" fill="currentColor" mask="url(#body)">{"".join(paths)}</g></svg>\n')
+    stack = np.asarray(selected_rasters)
+    Image.fromarray(np.round(np.max(stack, axis=0)*255).astype('uint8')).save(study/'visible-selected-candidates-union.png')
+    (study/'selection-report.json').write_text(json.dumps({'selectedRegions': 6,
+        'interiorOverlapPixels': int(np.count_nonzero((stack > .5).sum(0) > 1)),
+        'backgroundPixelsClipped': clipped_background, 'opacityBakedIntoMasks': False}, indent=2)+'\n')
 print('Built six unassigned visible serratus-region candidates; established masks unchanged.')

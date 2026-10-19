@@ -21,7 +21,7 @@ oblique are deferred rather than given invented continuous contours.
 
 Each candidate retains the original 1312 × 1199 canvas. Review controls offer
 independent side/patch inset (−3…+6), inward X (−5…+5) and vertical Y (−10…+10)
-in source px, at 0.5 px steps. Defaults are zero. In front view inward positive
+in source px, at 0.5 px steps. Defaults load the screenshot-derived selection when present; otherwise zero. In front view inward positive
 means left negative X / right positive X; negative Y is up on both sides.
 Runtime opacity remains independent of geometry, applied once to the group.
 
@@ -29,3 +29,11 @@ Rebuild geometry:
 `python scripts/build-serratus-surface-study.py --options-file /tmp/serratus-options.json`.
 Build the review fragment:
 `python scripts/build-serratus-review.py --options-file /tmp/serratus-options.json --output /workspace/cresum-serratus-review.html`.
+
+Screenshot checkpoint (IMG_8229, IMG_8230 and 34AC2D9B): values in anatomical
+left / right order, source pixels. Upper: inset −1 / −1, inward +2.5 / +3.5,
+Y 0 / 0. Middle: inset 0 / 0, inward +1.5 / +2.5, Y −1.5 / −0.5. Lower:
+inset 1 / 1, inward −3 / −2.5, Y −1 / 0. Selection metadata and separate
+selected SVG/PNG exports preserve these settings; baseline candidates remain
+unchanged. Status is user-selected-parameters, with combined appearance and
+anatomical identity still under review. All selected load-group IDs remain null.

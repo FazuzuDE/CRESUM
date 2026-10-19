@@ -63,3 +63,9 @@ surface to an unrelated group.
 For the existing earlier chest/trapezius/lats work, consult each study and the
 dated entries in `docs/DECISIONS.md`. Do not treat the baseline atlas as the
 aggregate of all accepted refinements: production assembly remains separate.
+
+Serratus-region screenshot checkpoint: six selected candidate masks and review
+defaults are retained separately from the baseline. Upper inset L/R −1/−1,
+inward +2.5/+3.5, Y 0/0; middle inset 0/0, inward +1.5/+2.5, Y −1.5/−0.5;
+lower inset 1/1, inward −3/−2.5, Y −1/0. Status is user-selected-parameters;
+combined appearance and anatomy remain under review, with all group IDs null.
