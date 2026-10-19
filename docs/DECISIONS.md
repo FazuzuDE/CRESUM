@@ -1,5 +1,16 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Brachialis approved; infraspinatus continuation
+
+User approved screenshot 29F75C56 revision-2 appearance: anatomical L/R
+inset 1.5/0.5, inward 0/+3, Y 0/−1 source px. Save selected geometry and
+SVG/PNG exports as visually-approved; preserve baseline and previous masks.
+Exact identity and combined biceps boundaries remain provisional, group IDs
+null. Continue with two exposed scapular infraspinatus candidates, excluding
+neighboring oblique patches and hidden coverage. New identity and boundaries
+remain pending. Independent controls and runtime opacity are preserved; no
+load coefficients, taxonomy or production mapping changes are authorized.
+
 ## 2026-10-19 — Brachialis contour revision 2
 
 After enlarged source/outline comparison, restore the proximal exposed area

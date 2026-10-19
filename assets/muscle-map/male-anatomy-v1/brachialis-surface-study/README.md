@@ -32,3 +32,9 @@ Rebuild:
 `python scripts/build-brachialis-surface-study.py --options-file /tmp/brachialis-options.json`.
 Review:
 `python scripts/build-brachialis-review.py --options-file /tmp/brachialis-options.json --output /workspace/cresum-brachialis-review.html`.
+
+Revision-2 selected appearance is visually approved from 29F75C56. Anatomical
+L/R inset 1.5/0.5, inward 0/+3, Y 0/−1 source px. Separate selected geometry
+and SVG/PNG exports retain these values, with matching review defaults.
+Baseline remains draft; exact identity, combined biceps boundary and load
+assignment remain provisional. Runtime opacity is not part of approval.

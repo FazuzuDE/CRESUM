@@ -1,5 +1,16 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest: brachialis revision-2 selected appearance is visually approved from
+29F75C56: anatomical L/R inset 1.5/0.5, inward 0/+3, Y 0/−1 source px.
+Selected exports and review defaults retain these values; baseline remains
+draft, identity and combined biceps boundary remain provisional, group IDs null.
+
+Next: `infraspinatus-surface-study/` contains two independently traced exposed
+posterior scapular candidates. Neighboring oblique teres-region surfaces and
+hidden coverage are excluded. Boundary/identity review is pending, group IDs
+null, runtime opacity flexible. Per-side inset/X/Y controls retain 0.5 px steps
+and ±10 px shifts. Existing accepted masks are unchanged.
+
 Next continuation: `brachialis-surface-study/` contains two revision-2 front-view
 lateral visible-patch proposals. Proximal edges follow the source groove below
 deltoid, longitudinal edges follow the biceps-side and lateral grooves, and

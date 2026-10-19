@@ -1077,3 +1077,15 @@ exports carry visually-approved status after explicit user acceptance.
 Baseline and archived revision 1 remain drafts. Retain independent side
 controls and flexible runtime opacity. Exact anatomical identity and production
 integration remain separate from visual acceptance.
+
+### Brachialis selected appearance accepted; scapular continuation — 2026-10-19
+
+Preserve revision-2 anatomical L/R inset 1.5/0.5, inward 0/+3 and Y 0/−1
+source px from 29F75C56 in visually-approved selection and selected SVG/PNG
+geometry with matching review defaults. Baseline remains draft; group IDs
+stay null and identity/combined boundaries remain provisional.
+
+Continue with separate visible infraspinatus candidates, excluding adjacent
+oblique patches and hidden coverage. New boundaries and identity are pending;
+retain orange candidate fill, null group IDs and independent 0.5 px inset/X/Y
+controls with ±10 px shifts. Opacity remains per-muscle runtime-variable.

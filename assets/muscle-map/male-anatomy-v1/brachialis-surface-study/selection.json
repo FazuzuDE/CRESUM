@@ -1,0 +1,12 @@
+{
+  "status": "visually-approved",
+  "revision": 2,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; front left negative X, front right positive X; positive shiftY down, negative shiftY up",
+  "sourceScreenshot": "29F75C56-4115-4A20-8788-AD61B9A2CDB7.png",
+  "regions": {
+    "brachialis-left": { "inset": 1.5, "shift": 0, "shiftY": 0 },
+    "brachialis-right": { "inset": 0.5, "shift": 3, "shiftY": -1 }
+  }
+}
