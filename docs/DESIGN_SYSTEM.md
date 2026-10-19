@@ -1007,6 +1007,14 @@ The current selected set contains four independent biceps femoris/semitendinosus
 regions, with screenshot-derived parameters in
 `hamstrings-surface-study/selection.json`. Runtime intensity remains flexible.
 
+### Selected FCU surface appearance accepted — 2026-10-19
+
+User approved the screenshot-selected bilateral FCU surfaces. Preserve anatomical
+L/R inset 1/0, inward +3/+3 and Y 0/−1 source px, independent controls and
+selected exports under forearms. Screenshot opacity 75% is not a fixed load
+value. Visual approval applies to selected exports, not baseline candidates or
+expert anatomical identification on the stylized illustration.
+
 ### Selected FCR surface appearance accepted — 2026-10-19
 
 User approved the current bilateral selected FCR surface proposals: anatomical

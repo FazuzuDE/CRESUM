@@ -1,10 +1,10 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
-Latest continuation: bilateral visible FCU surface proposals in
-`flexor-carpi-ulnaris-surface-study/`, with independent inset and X/Y controls.
-New boundaries and anatomical identity remain draft review. Proximal heads
-are not separated through ambiguous source areas. Existing selected FCR and
-brachioradialis appearances retain their approval.
+Selected FCU surfaces in `flexor-carpi-ulnaris-surface-study/` are visually
+approved: anatomical L/R inset 1/0, inward +3/+3, Y 0/−1 source px. Independent
+settings and selected exports are saved; baseline candidates remain drafts.
+Exact anatomical identity is provisional. Proximal heads are not separated
+through ambiguous source areas. Selected FCR and brachioradialis remain approved.
 
 FCR screenshot checkpoint (7FAE89DC): anatomical L/R inset 0/0, inward +3/0,
 Y +0.5/+2 source px. Selection and separate selected exports retain these

@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Selected FCU surface appearance approved
+
+User explicitly approved the screenshot variant. Save anatomical L/R inset 1/0,
+inward +3/+3, Y 0/−1 source px, with visually-approved selection and selected
+SVG/PNG/geometry exports. Restore those independent states in review defaults;
+retain baseline drafts. Opacity 75% is preview-only and remains runtime-variable.
+Approval concerns visible appearance, not expert anatomical validation or new
+exercise mappings. Exact FCU assignment on the stylized source stays provisional.
+
 ## 2026-10-19 — FCU visible-surface continuation
 
 Resume after selected FCR appearance approval with two medial forearm surface
