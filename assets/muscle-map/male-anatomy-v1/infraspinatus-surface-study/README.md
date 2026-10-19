@@ -20,3 +20,8 @@ Review: `python scripts/build-infraspinatus-review.py --options-file /tmp/infras
 
 Fit report records contact with accepted trapezius for combined review.
 User approval of brachialis does not approve these new candidates.
+
+Selected appearance is visually approved from IMG_8242: anatomical L/R inset
+−1/0.5, inward +2.5/−1.5, Y +1/+1 source px. Separate selected exports and
+review defaults retain these settings. Baseline stays draft; exact identity
+and combined scapular boundaries remain provisional, group IDs null.

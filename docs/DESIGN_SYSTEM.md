@@ -1089,3 +1089,16 @@ Continue with separate visible infraspinatus candidates, excluding adjacent
 oblique patches and hidden coverage. New boundaries and identity are pending;
 retain orange candidate fill, null group IDs and independent 0.5 px inset/X/Y
 controls with ±10 px shifts. Opacity remains per-muscle runtime-variable.
+
+### Infraspinatus accepted; teres major continuation — 2026-10-19
+
+Save IMG_8242 anatomical L/R inset −1/0.5, inward +2.5/−1.5 and Y +1/+1
+source px as visually-approved selection with separate SVG/PNG/geometry and
+matching review defaults. Preserve baseline contours and null group IDs;
+exact identity and combined scapular boundaries remain provisional.
+
+Continue with separate lower oblique teres major candidates, excluding
+adjacent infraspinatus, small triangular patches and hidden coverage. New
+boundaries and identity remain pending. Retain orange candidate fill and
+independent 0.5 px inset/X/Y controls with ±10 px shifts. Opacity remains
+a per-muscle runtime variable.

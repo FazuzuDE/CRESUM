@@ -1,5 +1,16 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest: infraspinatus selected appearance is visually approved from IMG_8242:
+anatomical L/R inset −1/0.5, inward +2.5/−1.5, Y +1/+1 source px. Selected
+SVG/PNG/geometry and review defaults retain these settings. Baseline remains
+draft; exact identity and combined scapular boundaries remain provisional.
+
+Next: `teres-major-surface-study/` contains two lower oblique scapular surface
+candidates, excluding adjacent infraspinatus and small upper triangular
+teres-minor-region patches. New boundaries/identity remain pending, group IDs
+null. Preserve independent 0.5 px inset/X/Y controls and ±10 px shifts.
+Opacity remains runtime-variable; earlier accepted masks are unchanged.
+
 Latest: brachialis revision-2 selected appearance is visually approved from
 29F75C56: anatomical L/R inset 1.5/0.5, inward 0/+3, Y 0/−1 source px.
 Selected exports and review defaults retain these values; baseline remains

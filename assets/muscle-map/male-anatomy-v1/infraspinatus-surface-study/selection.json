@@ -1,0 +1,12 @@
+{
+  "status": "visually-approved",
+  "revision": 1,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; back left positive X, back right negative X; positive shiftY down, negative shiftY up",
+  "sourceScreenshot": "IMG_8242.png",
+  "regions": {
+    "infraspinatus-left": { "inset": -1, "shift": 2.5, "shiftY": 1 },
+    "infraspinatus-right": { "inset": 0.5, "shift": -1.5, "shiftY": 1 }
+  }
+}

@@ -142,3 +142,8 @@ assets/muscle-map/male-anatomy-v1/brachialis-surface-study/selected-geometry.jso
 assets/muscle-map/male-anatomy-v1/infraspinatus-surface-study/*.svg
 assets/muscle-map/male-anatomy-v1/infraspinatus-surface-study/geometry.json
 assets/muscle-map/male-anatomy-v1/infraspinatus-surface-study/fit-report.json
+
+assets/muscle-map/male-anatomy-v1/infraspinatus-surface-study/selected-geometry.json
+assets/muscle-map/male-anatomy-v1/teres-major-surface-study/*.svg
+assets/muscle-map/male-anatomy-v1/teres-major-surface-study/geometry.json
+assets/muscle-map/male-anatomy-v1/teres-major-surface-study/fit-report.json

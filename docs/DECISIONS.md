@@ -1,5 +1,15 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Infraspinatus accepted; teres major continuation
+
+Approve IMG_8242 selected appearance: anatomical L/R inset −1/0.5, inward
++2.5/−1.5, Y +1/+1 source px. Retain separate selected exports and matching
+review defaults; baseline contours stay draft. Exact identity and combined
+boundaries remain provisional, group IDs null. Continue with independent
+lower oblique teres major surface candidates, excluding adjacent patches and
+hidden coverage. New boundaries/identity remain pending; preserve accepted
+geometry and runtime opacity without changing load taxonomy or coefficients.
+
 ## 2026-10-19 — Brachialis approved; infraspinatus continuation
 
 User approved screenshot 29F75C56 revision-2 appearance: anatomical L/R
