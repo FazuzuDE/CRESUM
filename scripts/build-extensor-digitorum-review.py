@@ -29,7 +29,7 @@ selection = json.loads(selection_file.read_text())['regions'] if selection_file.
 settings = {}
 for region in regions:
     state = {'inset': 0, 'shift': 0, 'shiftY': 0} | selection.get(region['id'], {})
-    for field, low, high in [('inset', -3, 6), ('shift', -5, 5), ('shiftY', -10, 10)]:
+    for field, low, high in [('inset', -3, 6), ('shift', -10, 10), ('shiftY', -10, 10)]:
         value = state[field]
         assert isinstance(value, (int, float)) and math.isfinite(value)
         assert low <= value <= high and value*2 == round(value*2)

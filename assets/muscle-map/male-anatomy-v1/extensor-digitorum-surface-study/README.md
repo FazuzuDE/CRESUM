@@ -20,7 +20,7 @@ Preserve forearms parent, unchanged source/canvas 1312 × 1199 and prior approve
 forearm selections. Posterior silhouette clipping uses the back figure only.
 In the back view anatomical left is screen left: inward +X on left and −X on
 right. Vertical negative is up on both sides. Controls: inset −3…+6, inward
-−5…+5, vertical −10…+10 source px, step 0.5, zero defaults until selected.
+−10…+10, vertical −10…+10 source px, step 0.5, zero defaults until selected.
 Runtime opacity is applied once to the common group with multiply shading.
 No exercise mappings, load coefficients or production rendering change.
 

@@ -1,5 +1,11 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Wider extensor digitorum positioning range
+
+Expand independent horizontal review shifts from ±5 to ±10 source px on
+both sides. Retain the 0.5 px adjustment step and existing ±10 px vertical
+range. This changes review controls and accepted input bounds, not contours.
+
 ## 2026-10-19 — Extensor digitorum contour revision 2
 
 Following the requested more precise redraw, trace the central posterior
