@@ -1088,3 +1088,15 @@ on presentation and tests; no new dependency, schema or protocol is needed.
   and prior candidates, verify alignment of returned annotations, and retain
   clear-edge red tint after mask repair. Do not regenerate the character or
   assume that a raster annotation contains exportable vector paths.
+
+## 2026-10-18 — Separate the returned lats reference's four regions
+
+- User requested proceeding with separate masks after reviewing the Gemini
+  result. Use only the two large regions for the lats candidates; preserve the
+  two smaller lower regions independently, without muscle assignment or tint.
+- Extract real raster interiors and derive SVG on the unchanged source canvas.
+  Record the reference hash, changed dimensions, local registration and its
+  approximate quality. Do not imply an exact or expert-validated segmentation.
+- Present the registered bilateral lats with the accepted clear-edge red tint
+  and previous manual contours for comparison. Visual acceptance is pending;
+  no production renderer, group taxonomy or calculation changes are authorized.

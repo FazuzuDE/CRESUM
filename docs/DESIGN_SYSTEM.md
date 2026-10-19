@@ -852,3 +852,11 @@ review. Do not treat a generative annotation as native SVG or exact anatomy.
 Keep the source image fixed, sides independently editable, and the accepted
 clear-edge red presentation. Existing lats-study contours remain candidates
 pending the user's returned reference; do not promote them by default.
+
+The first returned Gemini lats reference contains four closed cyan regions.
+Keep each region independently editable; only the two large regions are lats
+candidates. Preserve both smaller inferior regions without anatomical assignment
+and exclude them from lats highlighting. Register returned contours to the
+unchanged original and retain approximate-fit provenance; do not replace the
+original with the returned resized image. Review the transferred lats before
+calling their appearance accepted.
