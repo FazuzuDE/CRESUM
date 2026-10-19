@@ -28,5 +28,6 @@ Build review:
 
 Screenshot checkpoint (7FAE89DC): anatomical L/R inset 0/0, inward +3/0,
 Y +0.5/+2 source px. Separate selected SVG/PNG/geometry preserve these states,
-status user-selected-parameters. Final combined appearance and exact structure
-assignment remain under review. Original baseline contours are retained.
+status visually-approved following explicit user acceptance. Exact structure
+assignment remains provisional; visual approval is not expert anatomical
+validation. Original baseline contours are retained as drafts.

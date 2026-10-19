@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Selected FCR surface appearance approved
+
+User explicitly approved the current bilateral selected surface masks. Record
+visually-approved status, preserving anatomical L/R inset 0/0, inward +3/0
+and vertical Y +0.5/+2 source px, exact geometry, the forearms parent and
+runtime opacity. Baseline files remain drafts. Approval concerns appearance;
+the FCR identification remains provisional on the stylized source and is not
+expert anatomical validation or production renderer integration.
+
 ## 2026-10-19 — Flexor carpi radialis screenshot selection
 
 Save 7FAE89DC screenshot settings, anatomical L/R in source px: inset 0/0,

@@ -2,12 +2,13 @@
 
 FCR screenshot checkpoint (7FAE89DC): anatomical L/R inset 0/0, inward +3/0,
 Y +0.5/+2 source px. Selection and separate selected exports retain these
-values, restored by the review builder. Status is user-selected-parameters;
-final appearance and exact anatomical identity remain under review.
+values, restored by the review builder. Status is visually-approved following
+explicit user acceptance. Exact anatomical identity remains provisional;
+this records visual acceptance only.
 
 Latest continuation: `flexor-carpi-radialis-surface-study/` contains two
 front-view FCR surface proposals, independently editable under intended forearms
-identity. Both boundaries and exact structure assignment remain under review;
+identity. Baseline drafts and exact structure assignment remain under review;
 accepted brachioradialis settings and contours remain unchanged.
 
 Brachioradialis revision-2 appearance is visually approved, using FAEC7F8B

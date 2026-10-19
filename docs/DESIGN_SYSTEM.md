@@ -1007,6 +1007,14 @@ The current selected set contains four independent biceps femoris/semitendinosus
 regions, with screenshot-derived parameters in
 `hamstrings-surface-study/selection.json`. Runtime intensity remains flexible.
 
+### Selected FCR surface appearance accepted — 2026-10-19
+
+User approved the current bilateral selected FCR surface proposals: anatomical
+L/R inset 0/0 source px, inward +3/0 and Y +0.5/+2 (positive down). Preserve
+selected geometry, independent controls, the forearms parent and runtime opacity.
+Visual approval applies to selected exports; baseline drafts remain separate.
+Exact anatomical identification remains provisional on the stylized source.
+
 ### Brachioradialis selected masks visually accepted — 2026-10-19
 
 User approved the bilateral revision-2 selected appearance: anatomical L/R inset
