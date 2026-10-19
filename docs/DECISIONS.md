@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Flexor carpi radialis surface candidates
+
+Continue the per-muscle workflow with bilateral anterior-forearm surface
+proposals for flexor carpi radialis. Keep independent inset/X/Y controls,
+forearms intended parent and variable runtime opacity. Exact identity and
+boundaries are provisional on this stylized source; do not paint the pale
+elbow aponeurosis, hidden continuation or long distal tendons. Accepted
+brachioradialis selected masks remain unchanged. No exercise mapping changes.
+
 ## 2026-10-19 — Brachioradialis revision-2 appearance approved
 
 User explicitly approved the current bilateral selected masks. Mark selection

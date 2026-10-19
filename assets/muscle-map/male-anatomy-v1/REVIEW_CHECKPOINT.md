@@ -1,5 +1,10 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest continuation: `flexor-carpi-radialis-surface-study/` contains two
+front-view FCR surface proposals, independently editable under intended forearms
+identity. Both boundaries and exact structure assignment remain under review;
+accepted brachioradialis settings and contours remain unchanged.
+
 Brachioradialis revision-2 appearance is visually approved, using FAEC7F8B
 settings, anatomical L/R in
 source px: inset 0.5/−1, inward −2/−2, Y +5/+5.5. Separate selected exports
