@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — FCU visible-surface continuation
+
+Resume after selected FCR appearance approval with two medial forearm surface
+proposals for flexor carpi ulnaris. Preserve independent side inset/X/Y controls,
+forearms parent and runtime opacity. Proximal humeral/ulnar heads cannot be
+distinguished on this source; do not invent their separation or hidden surfaces.
+New boundaries and exact identity remain under review. Accepted brachioradialis
+and FCR selections remain unchanged; exercise mappings are not altered.
+
 ## 2026-10-19 — Selected FCR surface appearance approved
 
 User explicitly approved the current bilateral selected surface masks. Record
