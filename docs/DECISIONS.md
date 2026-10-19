@@ -1135,3 +1135,13 @@ on presentation and tests; no new dependency, schema or protocol is needed.
 - Add a pixel-coverage regression check: it fails on the inset masks and checks
   visible-line inclusion over tissue plus containment within the body. Keep
   anatomical assignment and production integration separate from this fix.
+
+## 2026-10-18 — Full shoulder outline fill rejected as too wide
+
+- User reported that the full-stroke correction paints too much. Do not mark
+  the full outer-stroke geometry as visually accepted or automatically final.
+- Prepare a separate narrower candidate and local edge-width control against
+  the unchanged source. Start at a 3-source-pixel inset, retaining the full fill
+  and earlier narrow version for comparison. Final width remains unapproved.
+- Keep the selected red tone, opacity, independent sides and source registration
+  stable during width review. Anatomical group assignment remains unresolved.

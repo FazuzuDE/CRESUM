@@ -883,3 +883,10 @@ silhouette so it does not color the background. Apply this correction to the
 current posterior-shoulder candidates and show the previous fill for comparison.
 Previously accepted reference masks are retained until individually reviewed;
 this boundary policy does not resolve anatomical muscle-head assignment.
+
+The user subsequently rejected the current full-outer-stroke shoulder fill as
+too wide. For this candidate, calibrate how much of the annotation width is
+included against the visible source rather than treating all colored edge/halo
+pixels as a final muscle border. Review a narrower 3-source-pixel inset with
+adjustable width; the numerical default is not approved. Keep prior variants
+for comparison and do not change accepted masks during this local review.

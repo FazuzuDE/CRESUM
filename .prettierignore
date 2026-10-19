@@ -32,3 +32,5 @@ assets/muscle-map/male-anatomy-v1/lats-reference-study/registration.json
 assets/muscle-map/male-anatomy-v1/rear-shoulder-reference-study/*.svg
 assets/muscle-map/male-anatomy-v1/rear-shoulder-reference-study/geometry.json
 assets/muscle-map/male-anatomy-v1/rear-shoulder-reference-study/registration.json
+assets/muscle-map/male-anatomy-v1/rear-shoulder-reference-study/edge-tuning/geometry.json
+assets/muscle-map/male-anatomy-v1/rear-shoulder-reference-study/edge-tuning/options.json
