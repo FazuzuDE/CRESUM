@@ -1,5 +1,17 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Next continuation: `brachialis-surface-study/` contains two front-view lateral
+visible-patch proposals, independently editable in 0.5 source px steps with
+±10 px X/Y ranges. Anatomical left is screen right. Hidden coverage under
+biceps and head separation are deferred. Exact identity/boundaries and load
+assignment remain pending; group IDs stay null and candidate fill orange.
+Accepted biceps and prior selections remain unchanged.
+
+Selected anconeus appearance is visually approved from 147BE5D0: anatomical
+L/R inset −1/0.5, inward 0/0.5, Y 0/−1 source px. Selected exports and review
+defaults retain these settings. Baseline stays draft, muscleGroupId stays null
+and exact identity remains provisional; opacity remains runtime-variable.
+
 Next continuation: `anconeus-surface-study/` contains two small posterior-elbow
 surface candidates with independent inset/X/Y controls. Identity and boundaries
 remain provisional, muscleGroupId stays null and orange fill is candidate-only.

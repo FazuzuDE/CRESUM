@@ -1060,6 +1060,15 @@ visually-approved status; baseline and archived contours remain drafts. Review
 defaults restore both independent settings. Runtime intensity remains flexible;
 exact structure assignment and combined forearm boundaries remain provisional.
 
+### Anconeus selected appearance accepted — 2026-10-19
+
+Preserve 147BE5D0 anatomical L/R inset −1/0.5, inward 0/0.5 and Y 0/−1
+source px in visually-approved selection and selected SVG/PNG/geometry.
+Restore independent review defaults. Baseline remains draft, muscleGroupId
+remains null and orange remains candidate-only identity/taxonomy signaling.
+Exact anatomical assignment and load integration remain open. Opacity stays a
+per-muscle runtime variable.
+
 ### Extensor carpi ulnaris selected appearance accepted — 2026-10-19
 
 Preserve revision-2 anatomical left/right inset 0/0, inward +3/0 and vertical

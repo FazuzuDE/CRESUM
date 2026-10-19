@@ -1,5 +1,15 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Anconeus appearance approved; brachialis continuation
+
+User approved 147BE5D0 settings: anatomical L/R inset −1/0.5, inward 0/0.5,
+Y 0/−1 source px. Save visually-approved selection and selected exports;
+retain null load-group IDs, baseline drafts and flexible runtime opacity.
+Continue with separate lateral visible brachialis proposals on the front view.
+Hidden surfaces beneath biceps and ambiguous head separation are deferred;
+new boundaries and identity remain draft. Keep load-group IDs null, without
+changing accepted biceps masks, exercise mappings or the 17-group taxonomy.
+
 ## 2026-10-19 — ECRL selected appearance approved; anconeus continuation
 
 User approved E30982CF revision-2 appearance: anatomical L/R inset −1/−2,

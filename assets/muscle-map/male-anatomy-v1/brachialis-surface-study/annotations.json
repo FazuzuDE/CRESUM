@@ -1,0 +1,62 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "revision": 1,
+  "status": "draft-boundary-and-structure-review",
+  "anatomyReference": "https://www.ncbi.nlm.nih.gov/books/NBK551630/",
+  "scope": "lateral exposed upper-arm surface proposals for brachialis; exact identity provisional; hidden coverage beneath biceps, deep head and distal tendon excluded; no load-group assignment",
+  "signedDistanceSmoothing": 0.5,
+  "contourSplineSmoothing": 0.03,
+  "regions": [
+    {
+      "id": "brachialis-left",
+      "side": "left",
+      "structureId": "brachialis",
+      "anatomicalMuscleId": "brachialis",
+      "muscleGroupId": null,
+      "label": "Плечевая мышца (brachialis) · кандидат",
+      "points": [
+        [527, 321],
+        [528, 330],
+        [531, 343],
+        [534, 356],
+        [537, 370],
+        [539, 383],
+        [540, 392],
+        [544, 383],
+        [547, 368],
+        [547, 354],
+        [543, 341],
+        [537, 329],
+        [532, 322],
+        [529, 319],
+        [527, 321]
+      ]
+    },
+    {
+      "id": "brachialis-right",
+      "side": "right",
+      "structureId": "brachialis",
+      "anatomicalMuscleId": "brachialis",
+      "muscleGroupId": null,
+      "label": "Плечевая мышца (brachialis) · кандидат",
+      "points": [
+        [208, 321],
+        [207, 331],
+        [203, 345],
+        [200, 359],
+        [198, 373],
+        [196, 386],
+        [196, 393],
+        [192, 384],
+        [189, 372],
+        [189, 359],
+        [190, 346],
+        [193, 334],
+        [199, 325],
+        [204, 320],
+        [208, 321]
+      ]
+    }
+  ]
+}

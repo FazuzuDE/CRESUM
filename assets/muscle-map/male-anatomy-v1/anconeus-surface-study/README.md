@@ -1,5 +1,11 @@
 # Anconeus visible-surface proposals
 
+Selected appearance is visually approved from 147BE5D0: anatomical L/R inset
+−1/0.5, inward 0/0.5, Y 0/−1 source px. Selected SVG/PNG/geometry and review
+defaults preserve these states. Baseline remains draft; exact identity and load
+group assignment remain provisional/unassigned respectively. Visual acceptance
+does not authorize a load taxonomy change or expert anatomical validation.
+
 Two small posterior-elbow patch candidates, independently traced on the
 unchanged 1312 × 1199 source. Exact anatomical assignment and boundaries remain
 provisional. No hidden capsule, tendons, proximal continuation or internal
