@@ -30,3 +30,13 @@ geometry. The source-body silhouette clips masks, and fill adds no stroke or
 presentation blur. Original SVG/PNG canvases are never independently cropped.
 
 Rebuild: `python scripts/build-abs-surface-study.py --options-file /tmp/abs-options.json`.
+
+The versioned `review-template.html` preserves the review controls and fixed
+source preview. Build the conversation fragment with
+`python scripts/build-abs-review.py --options-file /tmp/abs-options.json --output /workspace/cresum-abs-position-review.html`.
+Each region also has independent left/right vertical translation, −10 through
++10 source px at 0.5 px steps. Negative Y moves up and positive Y moves down on
+both sides; the sign never mirrors with anatomical side. `shiftY` starts at zero
+and survives segment, side, display-mode and zoom switches in the open review.
+It composes with inward X translation without modifying the inset path. Current
+geometry remains unchanged and unapproved; no vertical offset is accepted yet.

@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Independent vertical mask positioning
+
+User requested up/down positioning in the active abdominal review. Add an
+independent vertical offset for each of the ten side-specific regions, retained
+when switching segments. Controls use source pixels, −10 through +10 in 0.5 px
+steps; negative Y is up and positive Y is down on either side. Compose X/Y
+translation with the chosen inset path. Default Y is zero, so existing geometry
+does not move. This approves the control, not any abdominal contour or offset.
+
 ## 2026-10-19 — Tibialis anterior revision-2 parameter selection
 
 Saved the user's screenshot variant: bilateral inset 1.5 source px; anatomical

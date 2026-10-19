@@ -946,6 +946,12 @@ red-guide variant remains a comparison draft and is not the selected geometry.
 
 ### Runtime muscle intensity — clarified 2026-10-18
 
+The abdominal boundary-review controls also support independent vertical shifts
+per anatomical side and visual segment (2026-10-19): −10 to +10 source pixels,
+0.5 px steps, negative upward and positive downward. Retain inset, inward X and
+vertical Y independently across region switches. Apply translation to the mask,
+keeping the source image, body clip and runtime intensity unchanged.
+
 Mask approval fixes geometry (contours, inset and position), not opacity. Each
 muscle's red intensity must remain a separate runtime variable driven by its
 training-load display input. Never store the review slider's percentage as an
