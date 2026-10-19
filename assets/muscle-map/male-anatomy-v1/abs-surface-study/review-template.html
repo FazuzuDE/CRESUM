@@ -217,32 +217,18 @@
   <script type="application/json" data-geometry>
     "__ABS_GEOMETRY_JSON__"
   </script>
+  <script type="application/json" data-settings>
+    "__ABS_SETTINGS_JSON__"
+  </script>
   <script>
     (() => {
       const root = document.getElementById('cresum-abs-position-review');
       const regions = JSON.parse(
         root.querySelector('[data-geometry]').textContent,
       );
-      const settings = {
-        'rectus-abdominis-upper-left': { inset: 0, shift: 0, shiftY: 0 },
-        'rectus-abdominis-middle-upper-left': { inset: 0, shift: 0, shiftY: 0 },
-        'rectus-abdominis-middle-lower-left': { inset: 0, shift: 0, shiftY: 0 },
-        'rectus-abdominis-lower-left': { inset: 0, shift: 0, shiftY: 0 },
-        'rectus-abdominis-upper-right': { inset: 0, shift: 0, shiftY: 0 },
-        'rectus-abdominis-middle-upper-right': {
-          inset: 0,
-          shift: 0,
-          shiftY: 0,
-        },
-        'rectus-abdominis-middle-lower-right': {
-          inset: 0,
-          shift: 0,
-          shiftY: 0,
-        },
-        'rectus-abdominis-lower-right': { inset: 0, shift: 0, shiftY: 0 },
-        'external-oblique-left': { inset: 0, shift: 0, shiftY: 0 },
-        'external-oblique-right': { inset: 0, shift: 0, shiftY: 0 },
-      };
+      const settings = JSON.parse(
+        root.querySelector('[data-settings]').textContent,
+      );
       const controls = {
         left: root.querySelector('[data-left]'),
         right: root.querySelector('[data-right]'),

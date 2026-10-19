@@ -1,5 +1,23 @@
 # Abdominal surface study — draft
 
+Screenshot settings received on 2026-10-19 are saved in `selection.json` and
+separate selected PNG/SVG/geometry exports. Their status is
+`user-selected-parameters`, pending review of the combined appearance. Baseline
+annotations and zero-adjustment masks remain unchanged. Values below are
+inset / inward X / vertical Y in source pixels, anatomical sides:
+
+| Part                | Left            | Right             |
+| ------------------- | --------------- | ----------------- |
+| Rectus upper        | 0 / −0.5 / +2.5 | 1 / +1.5 / +3     |
+| Rectus middle-upper | 0.5 / 0 / +1.5  | 0 / +1.5 / +1     |
+| Rectus middle-lower | 1 / +1.5 / 0    | 1 / +3 / 0        |
+| Rectus lower        | 0.5 / 0 / −0.5  | 0.5 / +1.5 / −0.5 |
+| External oblique    | 1 / −1.5 / +3.5 | 1 / 0 / +3        |
+
+The review builder loads the saved selection by default, retaining independent
+editable settings. Positive Y means downward on both sides. No screenshot
+opacity percentage is baked into the selection or masks.
+
 Ten independent visible surface proposals: four rectus abdominis segments per
 side and bilateral external oblique. Rectus segments are visual parts of the
 same paired anatomical muscle, not eight independent muscles or separate load
@@ -39,4 +57,5 @@ Each region also has independent left/right vertical translation, −10 through
 both sides; the sign never mirrors with anatomical side. `shiftY` starts at zero
 and survives segment, side, display-mode and zoom switches in the open review.
 It composes with inward X translation without modifying the inset path. Current
-geometry remains unchanged and unapproved; no vertical offset is accepted yet.
+baseline geometry remains unchanged and unapproved; selected offsets above are
+stored separately pending combined appearance review.

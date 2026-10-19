@@ -1,5 +1,21 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Abdominal screenshot parameters saved
+
+Receive IMG_8224–IMG_8228 settings for all ten abdominal regions. Save separate
+selected exports and review defaults; final combined appearance remains under
+review. Values below are left / right, in source pixels:
+
+- Rectus upper: inset 0 / 1; inward −0.5 / +1.5; vertical +2.5 / +3.
+- Rectus middle-upper: inset 0.5 / 0; inward 0 / +1.5; vertical +1.5 / +1.
+- Rectus middle-lower: inset 1 / 1; inward +1.5 / +3; vertical 0 / 0.
+- Rectus lower: inset 0.5 / 0.5; inward 0 / +1.5; vertical −0.5 / −0.5.
+- External oblique: inset 1 / 1; inward −1.5 / 0; vertical +3.5 / +3.
+
+Vertical positive is down on either side; inward positive maps front left to
+negative X and front right to positive X. Preserve the baseline, stable abs
+group and runtime opacity; screenshot submission is not expert validation.
+
 ## 2026-10-19 — Independent vertical mask positioning
 
 User requested up/down positioning in the active abdominal review. Add an

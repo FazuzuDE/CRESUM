@@ -1,0 +1,65 @@
+{
+  "status": "user-selected-parameters",
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; front left negative X, front right positive X; positive shiftY down, negative shiftY up",
+  "sourceScreenshots": {
+    "rectus-abdominis-upper": "IMG_8224.png",
+    "rectus-abdominis-middle-upper": "IMG_8225.png",
+    "rectus-abdominis-middle-lower": "IMG_8226.png",
+    "rectus-abdominis-lower": "IMG_8227.png",
+    "external-oblique": "IMG_8228.png"
+  },
+  "regions": {
+    "rectus-abdominis-upper-left": {
+      "inset": 0,
+      "shift": -0.5,
+      "shiftY": 2.5
+    },
+    "rectus-abdominis-upper-right": {
+      "inset": 1,
+      "shift": 1.5,
+      "shiftY": 3
+    },
+    "rectus-abdominis-middle-upper-left": {
+      "inset": 0.5,
+      "shift": 0,
+      "shiftY": 1.5
+    },
+    "rectus-abdominis-middle-upper-right": {
+      "inset": 0,
+      "shift": 1.5,
+      "shiftY": 1
+    },
+    "rectus-abdominis-middle-lower-left": {
+      "inset": 1,
+      "shift": 1.5,
+      "shiftY": 0
+    },
+    "rectus-abdominis-middle-lower-right": {
+      "inset": 1,
+      "shift": 3,
+      "shiftY": 0
+    },
+    "rectus-abdominis-lower-left": {
+      "inset": 0.5,
+      "shift": 0,
+      "shiftY": -0.5
+    },
+    "rectus-abdominis-lower-right": {
+      "inset": 0.5,
+      "shift": 1.5,
+      "shiftY": -0.5
+    },
+    "external-oblique-left": {
+      "inset": 1,
+      "shift": -1.5,
+      "shiftY": 3.5
+    },
+    "external-oblique-right": {
+      "inset": 1,
+      "shift": 0,
+      "shiftY": 3
+    }
+  }
+}

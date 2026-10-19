@@ -11,6 +11,10 @@ surface regions, with zero initial adjustments: four visual rectus segments
 per side plus bilateral external oblique. These remain drafts under `abs`;
 they are not part of the accepted-mask selections below.
 
+The later IMG_8224–IMG_8228 parameter set is saved in that study's
+`selection.json` and selected exports, including vertical offsets. Its combined
+appearance remains under review; the preview starts from those saved values.
+
 All measurements use original-source pixels and anatomical left/right. Insets
 are positive for contraction and negative for expansion. Inward shifts are
 positive toward the body center: front left maps to negative X, front right to
