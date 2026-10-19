@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Extensor carpi ulnaris surface continuation
+
+Continue after selected extensor digitorum approval with bilateral medial
+posterior forearm belly proposals for extensor carpi ulnaris. Preserve the
+forearms parent, independent inset/X/Y controls, ±10 px shift range and
+0.5 px steps. Do not invent hidden origins, head separation or distal tendons.
+Boundaries and exact identity remain draft review. Previous approvals and
+exercise mappings are unchanged; runtime opacity remains load-controlled.
+
 ## 2026-10-19 — Extensor digitorum selected revision-2 appearance approved
 
 User accepted image(2).png. Save anatomical L/R inset 2/0.5, inward −4/−10
