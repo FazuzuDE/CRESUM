@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Brachioradialis candidates prepared
+
+Continue the independently editable muscle-map review with bilateral visible
+brachioradialis belly proposals. Keep intended forearms parent identity and
+separate source-pixel inset/inward/vertical controls. Exclude uncertain proximal
+continuation, distal tendon and neighboring forearm muscles. Both new contours
+and their anatomical assignment remain under review; continuation does not
+approve the preceding deltoid selections. Runtime opacity stays variable.
+
 ## 2026-10-19 — Front deltoid screenshot parameters saved
 
 Save the four settings from IMG_8232 (anterior) and IMG_8233 (lateral), in

@@ -1,0 +1,26 @@
+# Brachioradialis visible-surface review
+
+Two independent front-view candidates on the unchanged source. Trace only the
+visible radial forearm belly; uncertain proximal continuation, distal tendon
+and neighboring wrist flexors/extensors are excluded. Anatomy and boundaries
+remain under review. The generated source cannot establish precise identity.
+
+The existing forearms parent ID is retained as an intended taxonomy identity;
+the masks do not change exercise mappings, training coefficients or production
+rendering. These candidates are one muscle, not the entire forearm group.
+
+Each side has inset (−3…+6), inward X (−5…+5) and vertical Y (−10…+10)
+in source pixels, step 0.5. Inset positive contracts; inward positive maps
+front left to negative X and right to positive X; negative Y is up on both.
+Defaults are zero pending review; a future selection.json restores saved values.
+Opacity is a runtime input applied once to the common group, retaining source
+shading with multiply. All SVG/PNG exports retain the 1312 × 1199 canvas.
+
+Reference: https://www.ncbi.nlm.nih.gov/books/NBK526110/ describes the
+anterolateral fusiform belly and narrowing distal tendon; this is orientation
+guidance, not a transfer of source geometry or expert validation of this trace.
+
+Rebuild masks:
+`python scripts/build-brachioradialis-surface-study.py --options-file /tmp/brachioradialis-options.json`.
+Build review:
+`python scripts/build-brachioradialis-review.py --options-file /tmp/brachioradialis-options.json --output /workspace/cresum-brachioradialis-review.html`.

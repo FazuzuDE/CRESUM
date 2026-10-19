@@ -1,5 +1,10 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest continuation: `brachioradialis-surface-study/` contains two visible
+front-view radial forearm belly candidates under the intended forearms parent.
+Each side has separate inset and X/Y controls; new boundaries and assignment
+remain under review. Deltoid screenshot values remain selected, not approved.
+
 Front deltoid screenshot selection (IMG_8232/IMG_8233), anatomical L/R in
 source px: anterior inset 0.5/−2, inward 0/0, Y −0.5/+1; lateral inset 1/1,
 inward +1/+1, Y −1.5/+0.5. Selected exports and review defaults are saved
