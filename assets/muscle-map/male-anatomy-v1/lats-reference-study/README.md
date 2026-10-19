@@ -1,6 +1,7 @@
 # Lats contours from the user-returned Gemini image — 2026-10-18
 
-Draft for visual review. `reference.png` is the actual annotated image supplied
+Visually accepted by the user on 2026-10-18; expert anatomical review and
+production integration remain pending. `reference.png` is the annotated image supplied
 by the user, not a newly generated source. Preserve its provenance in
 `registration.json`. The unchanged approved original remains `../source.png`.
 
@@ -35,4 +36,5 @@ The default chest/shoulder extraction profile is retained. The earlier manual
 `../lats-study/` remains a comparison candidate. Both left/right masks use the
 original source coordinates and preserve fiber texture under a uniform red tint,
 with no added presentation blur or outline. No atlas renderer, exercise mapping,
-training calculation or saved data is changed. Visual acceptance remains pending.
+training calculation or saved data is changed. The two inferior regions remain
+unassigned and excluded from the accepted lats appearance.

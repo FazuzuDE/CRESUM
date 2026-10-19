@@ -1100,3 +1100,13 @@ on presentation and tests; no new dependency, schema or protocol is needed.
 - Present the registered bilateral lats with the accepted clear-edge red tint
   and previous manual contours for comparison. Visual acceptance is pending;
   no production renderer, group taxonomy or calculation changes are authorized.
+
+## 2026-10-18 — Lats visually accepted; next posterior deltoids
+
+- User accepted the transferred bilateral lats preview ("Годится") and requested
+  the next muscle. Preserve its two large reference-derived masks and current
+  red presentation; the smaller inferior regions remain unassigned and untinted.
+- Supply the unchanged source and an English Gemini prompt for posterior
+  deltoids. Wait for the returned annotated reference before mask repair.
+- Expert anatomy review, production integration and remote Git synchronization
+  remain separate; #66 stays Draft.

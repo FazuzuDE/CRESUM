@@ -860,3 +860,14 @@ and exclude them from lats highlighting. Register returned contours to the
 unchanged original and retain approximate-fit provenance; do not replace the
 original with the returned resized image. Review the transferred lats before
 calling their appearance accepted.
+
+### Lats reference appearance accepted — 2026-10-18
+
+The user accepted the registered two-large-region lats preview and requested
+the next muscle. Retain the bilateral contours in
+`lats-reference-study/geometry.json` and the clear-edge red presentation on the
+unchanged source. Both smaller inferior regions remain unassigned and excluded
+from lats highlighting. This is visual acceptance, not expert anatomical
+validation or approval to integrate the incomplete atlas into production.
+Continue with posterior deltoids using the source → Gemini outline → returned
+reference → mask repair → visual review workflow.
