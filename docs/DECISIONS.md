@@ -1,5 +1,15 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Front deltoid screenshot parameters saved
+
+Save the four settings from IMG_8232 (anterior) and IMG_8233 (lateral), in
+anatomical left / right order and source px: anterior inset 0.5 / −2,
+inward 0 / 0, vertical −0.5 / +1; lateral inset 1 / 1, inward +1 / +1,
+vertical −1.5 / +0.5. Negative Y is up on either side. Retain baseline
+drafts, separate selected SVG/PNG exports and saved review defaults. The
+screenshots select parameters; final combined appearance and anatomical head
+assignment remain under review. Runtime opacity stays variable.
+
 ## 2026-10-19 — Front deltoid split prepared for review
 
 User approved preparing four front-view masks: anterior and lateral deltoid

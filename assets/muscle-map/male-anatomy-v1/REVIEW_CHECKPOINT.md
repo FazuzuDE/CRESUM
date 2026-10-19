@@ -1,5 +1,10 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Front deltoid screenshot selection (IMG_8232/IMG_8233), anatomical L/R in
+source px: anterior inset 0.5/−2, inward 0/0, Y −0.5/+1; lateral inset 1/1,
+inward +1/+1, Y −1.5/+0.5. Selected exports and review defaults are saved
+separately; final combined appearance and head assignment remain under review.
+
 Front deltoid continuation: `deltoid-front-surface-study/` contains four draft
 front-view anterior/lateral surfaces with independent per-side inset and X/Y
 controls. New contours and head assignment are under review; zero defaults are

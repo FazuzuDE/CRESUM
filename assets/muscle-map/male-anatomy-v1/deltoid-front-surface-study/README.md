@@ -13,7 +13,8 @@ their unresolved anatomical assignment preserved. No hidden surface is painted.
 Each side/head has independent source-pixel inset (−3…+6), inward X (−5…+5)
 and vertical Y (−10…+10), at 0.5 px steps. Positive inset contracts; inward
 positive maps front left to negative X and right to positive X. Negative Y
-is up on both sides. Defaults are zero pending review. Runtime opacity is
+is up on both sides. Defaults restore selection.json when present, otherwise
+zero. Runtime opacity is
 applied once to the common mask group, retaining source texture with multiply.
 No percentage is baked into geometry. Outline mode is for review only.
 
@@ -25,3 +26,9 @@ Rebuild masks:
 `python scripts/build-deltoid-front-surface-study.py --options-file /tmp/deltoid-options.json`.
 Build review:
 `python scripts/build-deltoid-front-review.py --options-file /tmp/deltoid-options.json --output /workspace/cresum-deltoid-front-review.html`.
+
+Screenshot checkpoint: IMG_8232 selects anterior L/R inset 0.5/−2, inward
+0/0, Y −0.5/+1 source px; IMG_8233 selects lateral L/R inset 1/1,
+inward +1/+1, Y −1.5/+0.5. Separate selected exports record these exact
+values with status user-selected-parameters. Combined appearance and head
+assignment remain under review; original baseline files are preserved.
