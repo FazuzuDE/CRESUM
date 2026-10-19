@@ -1,5 +1,12 @@
 # Extensor digitorum posterior surface proposals
 
+Revision 2 retraces the central visible posterior belly independently on each
+arm. Revision 1 overreached into the adjacent medial strip and is retained in
+`revision-1/` as superseded, unapproved geometry. The new proximal edge follows
+the diagonal groove below the elbow; the distal end follows the central taper
+and stops above the wrist retinaculum. Boundaries and exact identity still need
+visual/anatomical review. Independent inset/X/Y controls remain available.
+
 Two separately traced back-view forearm belly proposals. Exact structure identity
 and boundaries remain provisional on the stylized source; these are not complete
 extensor-compartment masks. Hidden proximal continuation, long distal tendons,

@@ -1,5 +1,13 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Extensor digitorum contour revision 2
+
+Following the requested more precise redraw, trace the central posterior
+forearm belly separately on each side, following the proximal elbow groove
+and distal taper. Archive the superseded, unapproved revision-1 medial-strip
+proposals unchanged. Revision 2 remains draft boundary and structure review;
+retain independent inset/X/Y controls, runtime opacity and prior approvals.
+
 ## 2026-10-19 — Posterior extensor digitorum surface continuation
 
 Prepare bilateral back-view extensor digitorum visible-belly proposals with

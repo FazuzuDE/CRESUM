@@ -1,7 +1,9 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
 Latest continuation: `extensor-digitorum-surface-study/` contains two posterior
-forearm surface candidates with independent inset and X/Y controls. Back-view
+forearm revision-2 surface candidates with independent inset and X/Y controls.
+Central visible bellies are retraced along the elbow groove and distal taper;
+revision-1/ retains the superseded unapproved medial-strip proposals. Back-view
 left/right orientation and silhouette clipping are used. New boundaries and
 identity remain under review; accepted front-forearm masks are unchanged.
 
