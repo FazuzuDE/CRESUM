@@ -18,10 +18,15 @@ No new exercise coefficients or production renderer integration are implied.
 
 Controls: inset −3…+6, inward X −5…+5, Y −10…+10 source px, step 0.5.
 Positive inset contracts; front inward positive maps left to negative X and
-right to positive X. Negative Y moves up on both sides. Initial values are zero;
-future selection.json values restore separately for each side.
+right to positive X. Negative Y moves up on both sides. Defaults restore
+selection.json separately for each side when present, otherwise zero.
 
 Rebuild masks:
 `python scripts/build-flexor-carpi-radialis-surface-study.py --options-file /tmp/fcr-options.json`.
 Build review:
 `python scripts/build-flexor-carpi-radialis-review.py --options-file /tmp/fcr-options.json --output /workspace/cresum-flexor-carpi-radialis-review.html`.
+
+Screenshot checkpoint (7FAE89DC): anatomical L/R inset 0/0, inward +3/0,
+Y +0.5/+2 source px. Separate selected SVG/PNG/geometry preserve these states,
+status user-selected-parameters. Final combined appearance and exact structure
+assignment remain under review. Original baseline contours are retained.

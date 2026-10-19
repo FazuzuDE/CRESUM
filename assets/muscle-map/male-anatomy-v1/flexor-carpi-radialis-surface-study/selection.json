@@ -1,0 +1,12 @@
+{
+  "status": "user-selected-parameters",
+  "revision": 1,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; front left negative X, front right positive X; positive shiftY down, negative shiftY up",
+  "sourceScreenshot": "7FAE89DC-ABE6-4E4F-9BAF-B492A65F4F9B.png",
+  "regions": {
+    "flexor-carpi-radialis-left": { "inset": 0, "shift": 3, "shiftY": 0.5 },
+    "flexor-carpi-radialis-right": { "inset": 0, "shift": 0, "shiftY": 2 }
+  }
+}

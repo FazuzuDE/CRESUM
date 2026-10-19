@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Flexor carpi radialis screenshot selection
+
+Save 7FAE89DC screenshot settings, anatomical L/R in source px: inset 0/0,
+inward +3/0, Y +0.5/+2. Front-view translations are X −3/0, both down.
+Retain baseline candidates and separate selected SVG/PNG/geometry; saved review
+defaults restore these values. Screenshot submission selects parameters without
+final visual acceptance or confirmation of exact anatomical identity. Runtime
+opacity and the existing forearms parent remain unchanged.
+
 ## 2026-10-19 — Flexor carpi radialis surface candidates
 
 Continue the per-muscle workflow with bilateral anterior-forearm surface
