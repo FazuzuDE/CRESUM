@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-19 — Extensor carpi ulnaris contour revision 2
+
+Refine both visible-surface proposals after an enlarged source/outline audit.
+The first inner edges crossed the diagonal neighboring-muscle groove. Follow
+that groove with independent per-side landmarks, fit outer edges to the source
+silhouette and shorten distal tips near the tendon transition. Archive revision
+1 byte-identically as superseded and unapproved. Revision 2 remains draft;
+retain inset/X/Y ranges, runtime opacity and prior accepted masks.
+
 ## 2026-10-19 — Extensor carpi ulnaris surface continuation
 
 Continue after selected extensor digitorum approval with bilateral medial

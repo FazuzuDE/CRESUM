@@ -1,5 +1,13 @@
 # Extensor carpi ulnaris visible-surface proposals
 
+Revision 2 follows the source's diagonal medial-belly groove more closely.
+The first masks crossed this groove into the adjacent patch. Retraced inner
+edges are narrower, outer edges follow the source silhouette with a small
+antialiasing margin, and distal ends stop earlier near the tendon transition.
+Both sides have independent source landmarks at roughly 5 px intervals.
+`revision-1/` preserves the superseded, unapproved exports byte-for-byte.
+Revision 2 remains draft boundary and structure review.
+
 Two independent medial posterior forearm belly candidates, traced separately
 on the unchanged 1312 × 1199 source. Exact identity and boundaries remain
 provisional on this stylized illustration. These are visible-surface proposals,

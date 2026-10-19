@@ -1,7 +1,10 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
 Next continuation: `extensor-carpi-ulnaris-surface-study/` contains two draft
-medial posterior forearm belly candidates, with independent inset and X/Y
+revision-2 medial posterior forearm belly candidates. Inner edges follow the
+diagonal source groove, outer edges follow the silhouette and distal ends
+are shortened. Superseded revision-1 exports are archived unchanged.
+The candidates retain independent inset and X/Y
 controls in 0.5 source px steps, shift ranges ±10. Exact identity and boundaries
 remain under review; humeral/ulnar head separation is deferred because source
 boundaries are unclear. Accepted extensor digitorum and front forearm exports
