@@ -1297,3 +1297,35 @@ do not promote its `user-selected-parameters` status. Extend horizontal review
 shifts to ±10 source px, matching the established controls; retain 0.5 px steps.
 The remaining queue is five blocks / 26 regions, followed by combined front/back
 boundary review and separate production assembly.
+
+### Abdominal selected appearance accepted; serratus combined review — 2026-10-20
+
+Approve the combined selected abdominal/external-oblique appearance across all
+ten regions. The latest image(20261020-124247).png confirms the upper pair:
+anatomical L/R inset 0/1, inward −0.5/+1.5, Y +2.5/+3.5 source px. Only the
+upper-right Y changes from +3 to +3.5; all other 29 selected values are retained.
+
+| Part                | Left inset / inward / Y | Right inset / inward / Y |
+| ------------------- | ----------------------- | ------------------------ |
+| Rectus upper        | 0 / −0.5 / +2.5         | 1 / +1.5 / +3.5          |
+| Rectus middle-upper | +0.5 / 0 / +1.5         | 0 / +1.5 / +1            |
+| Rectus middle-lower | 1 / +1.5 / 0            | 1 / +3 / 0               |
+| Rectus lower        | +0.5 / 0 / −0.5         | +0.5 / +1.5 / −0.5       |
+| External oblique    | 1 / −1.5 / +3.5         | 1 / 0 / +3               |
+
+Save visual approval in selection metadata and selected geometry, regenerate the
+upper-right selected mask/union and restore all 30 controls. Preserve baseline
+contours and the other nine selected raster/vector masks byte-for-byte. Retain
+26 raw-float interior overlap pixels (29 after PNG alpha quantization) and
+34 clipped background pixels in the report for
+combined boundary review. Keep the existing abs parent, neutral navel/linea alba,
+runtime opacity and separation of visual rectus segments from anatomical/load
+units. The screenshot's 100% is preview-only; exact anatomical validation and
+production integration remain separate.
+
+Continue with the six existing serratus visible-patch selections. Preserve their
+18 parameters, all baseline/selected geometry, null group IDs and selected-but-
+unapproved status; do not add hidden connections or lower interdigitating areas.
+Horizontal review shifts now match Y at ±10 px, with 0.5 px steps. Four review
+blocks / 16 regions remain, followed by combined front/back boundary review and
+separate production assembly. No exercise mapping or score changes.

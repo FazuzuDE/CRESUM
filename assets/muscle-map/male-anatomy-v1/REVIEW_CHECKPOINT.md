@@ -1,5 +1,19 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: combined abdominal/external-oblique selected appearance
+is visually approved across ten regions. image(20261020-124247).png confirms
+upper L/R inset 0/1, inward −0.5/+1.5, Y +2.5/+3.5 source px. Upper-right Y
+changes from +3 to +3.5; the other 29 values stay unchanged. Selected geometry
+and restored controls retain these settings. Baseline and the other nine
+selected raster/vector masks are byte-identical. Selected overlap 26 raw-float interior
+pixels (29 quantized PNG pixels) / background clipping 34 pixels remain recorded for combined review.
+Exact anatomy and production integration remain separate; opacity is runtime-variable.
+
+Next: six serratus visible patches with their 18 saved values restored.
+Geometry, null IDs and selected-but-unapproved status remain unchanged; X/Y
+shifts span ±10 px with 0.5 px steps. Four blocks / 16 regions remain in
+[REMAINING_REVIEW.md](REMAINING_REVIEW.md).
+
 Latest — 2026-10-20: soleus revision-3 selected appearance is visually
 approved from image(9).png lateral and image(10).png medial windows. Lateral
 anatomical L/R inset −1/+0.5, inward −1/−3, Y −5/−6; medial inset −1/−1,

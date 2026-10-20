@@ -1,10 +1,10 @@
 {
-  "status": "user-selected-parameters",
+  "status": "visually-approved",
   "units": "source-pixels",
   "opacityMode": "per-muscle-runtime-variable",
   "shiftConvention": "positive inward; front left negative X, front right positive X; positive shiftY down, negative shiftY up",
   "sourceScreenshots": {
-    "rectus-abdominis-upper": "IMG_8224.png",
+    "rectus-abdominis-upper": "image(20261020-124247).png",
     "rectus-abdominis-middle-upper": "IMG_8225.png",
     "rectus-abdominis-middle-lower": "IMG_8226.png",
     "rectus-abdominis-lower": "IMG_8227.png",
@@ -19,7 +19,7 @@
     "rectus-abdominis-upper-right": {
       "inset": 1,
       "shift": 1.5,
-      "shiftY": 3
+      "shiftY": 3.5
     },
     "rectus-abdominis-middle-upper-left": {
       "inset": 0.5,
@@ -61,5 +61,6 @@
       "shift": 0,
       "shiftY": 3
     }
-  }
+  },
+  "approvalBasis": "combined selected appearance approved; latest upper-pair screenshot confirms right Y +3.5 source px, all other selected parameters retained"
 }

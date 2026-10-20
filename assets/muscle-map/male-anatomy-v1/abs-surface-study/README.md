@@ -1,14 +1,14 @@
-# Abdominal surface study — draft
+# Abdominal surface study — selected appearance approved
 
 Screenshot settings received on 2026-10-19 are saved in `selection.json` and
 separate selected PNG/SVG/geometry exports. Their status is
-`user-selected-parameters`, pending review of the combined appearance. Baseline
+`visually-approved` following combined review on 2026-10-20. Baseline
 annotations and zero-adjustment masks remain unchanged. Values below are
 inset / inward X / vertical Y in source pixels, anatomical sides:
 
 | Part                | Left            | Right             |
 | ------------------- | --------------- | ----------------- |
-| Rectus upper        | 0 / −0.5 / +2.5 | 1 / +1.5 / +3     |
+| Rectus upper        | 0 / −0.5 / +2.5 | 1 / +1.5 / +3.5   |
 | Rectus middle-upper | 0.5 / 0 / +1.5  | 0 / +1.5 / +1     |
 | Rectus middle-lower | 1 / +1.5 / 0    | 1 / +3 / 0        |
 | Rectus lower        | 0.5 / 0 / −0.5  | 0.5 / +1.5 / −0.5 |
@@ -65,5 +65,17 @@ stored separately pending combined appearance review.
 All 30 saved inset/X/Y values and all mask exports remain unchanged. Horizontal
 review shifts now span ±10 source px, matching Y, at 0.5 px steps. Start with
 all ten surfaces for combined appearance review; selecting a part restores its
-independent settings. This review does not approve the selected appearance.
+independent settings. That preview retained pending status; acceptance is recorded below.
 Existing selected overlap/clipping counts stay recorded in selection-report.json.
+
+## Combined selected appearance accepted — 2026-10-20
+
+User accepted all ten selected regions. Latest image(20261020-124247).png
+confirms the upper pair: L/R inset 0/1, inward −0.5/+1.5, Y +2.5/+3.5 px.
+Upper-right Y changes from +3 to +3.5; the other 29 values are retained.
+Selected geometry carries visually-approved status; baseline remains draft.
+The other nine selected PNG/SVG masks stay byte-identical. All 30 review
+values restore from selection.json. The report retains 26 raw-float interior overlap
+pixels (29 after PNG alpha quantization) and 34 background pixels clipped, pending combined boundary review.
+Runtime opacity is retained; the 100% screenshot preview is not a mask or load
+constant. Exact anatomy and production integration remain separate.

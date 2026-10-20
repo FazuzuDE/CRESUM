@@ -99,5 +99,6 @@ if selection:
     Image.fromarray(np.round(np.max(stack, axis=0)*255).astype('uint8')).save(study/'abs-selected-union.png')
     (study/'selection-report.json').write_text(json.dumps({'selectedRegions': 10,
         'interiorOverlapPixels': int(np.count_nonzero((stack > .5).sum(0) > 1)),
+        'quantizedRasterOverlapPixels': int(np.count_nonzero((np.round(stack*255) > 127).sum(0) > 1)),
         'backgroundPixelsClipped': clipped_background, 'opacityBakedIntoMasks': False}, indent=2)+'\n')
 print('Built ten abdominal draft masks; stable abs parent and runtime opacity.')
