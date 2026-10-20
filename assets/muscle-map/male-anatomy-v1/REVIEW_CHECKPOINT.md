@@ -1,5 +1,23 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: four selected anterior/lateral deltoid regions are visually
+approved with image(20261020-133912).png anterior and image(20261020-133923).png
+lateral. Anatomical L/R inset / inward / Y: anterior +0.5/0/−0.5 and −2/0/+1;
+lateral −1.5/−0.5/−4 and −1/+1/−3 source px. Baseline and anterior selected
+PNG/SVG remain byte-identical; lateral selected masks and union are regenerated.
+Selected overlap 315 raw-float / 326 quantized PNG pixels, background clipping
+23 pixels, retained for combined review. The 75% preview opacity is not baked.
+Existing front-delts / side-delts parents stay unchanged; exact head assignment
+and posterior-shoulder identity remain provisional.
+
+Next: four biceps-femoris/semitendinosus regions with eight saved inset/X values
+restored and Y defaulting to zero. Keep the hamstrings parent and pending status;
+deferred inner strips remain excluded. All masks are unchanged; zero Y is now
+explicit in selected geometry. X/Y ranges are ±10 px at 0.5 px steps. Two blocks /
+6 regions remain: hamstrings and tibialis anterior, then combined front/back.
+Hamstrings overlap remains 670 raw-float / 772 quantized PNG pixels with zero
+background clipping, retained for boundary review.
+
 Latest — 2026-10-20: combined selected serratus appearance explicitly approved
 across all six visible patches. Preserve all 18 screenshot-derived values:
 upper L/R inset −1/−1, inward +2.5/+3.5, Y 0/0; middle inset 0/0, inward

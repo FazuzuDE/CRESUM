@@ -21,7 +21,7 @@ Source hashes and checks are in `fit-report.json`. Zero overlap measures geometr
 not anatomical validity. Existing approved masks and app renderer are unchanged.
 
 Review exposes individual structures/sides, independent −3…+6 px insets and
-−5…+5 px inward shifts, in 0.5-source-pixel steps. Back-view anatomical left is
+−10…+10 px inward shifts, in 0.5-source-pixel steps. Back-view anatomical left is
 screen left: positive inward shift means +X on left and −X on right. Runtime
 load intensity remains separate; the opacity slider is preview-only.
 
@@ -52,3 +52,19 @@ On the back view, positive inward shift is +X for left and −X for right.
 Selected surfaces overlap in 670 interior pixels; render their union before
 applying intensity once. No saturation value is stored in the selection.
 These are user-selected parameters pending review of the combined result.
+
+## Combined review continuation — 2026-10-20
+
+Restore the eight saved inset/inward values without changing the four selected
+mask exports or pending appearance status. Vertical controls start at zero
+(no prior Y settings were supplied); X/Y shifts span ±10 source px at 0.5 px
+steps. The builder supports independent Y and records zero Y explicitly in
+selected geometry, preserving all existing contours and transforms.
+The versioned review builder/template includes only the four selected regions;
+the two deferred inner strips stay outside its selector, geometry and union.
+
+Selected overlap remains 670 raw-float interior pixels (772 quantized PNG
+pixels), with zero background clipping. Keep these contacts for combined
+boundary review. Render the union, then apply runtime intensity once.
+Build review with `python scripts/build-hamstrings-review.py --options-file PATH
+--output /workspace/cresum-hamstrings-review.html`.

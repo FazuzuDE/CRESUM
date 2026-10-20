@@ -18,6 +18,7 @@
       "transform": "translate(1.5 0)",
       "insetSourcePixels": -1.5,
       "inwardShiftSourcePixels": 1.5,
+      "verticalShiftSourcePixels": 0,
       "status": "user-selected-parameters"
     },
     {
@@ -31,6 +32,7 @@
       "transform": "translate(-1 0)",
       "insetSourcePixels": -2,
       "inwardShiftSourcePixels": 1,
+      "verticalShiftSourcePixels": 0,
       "status": "user-selected-parameters"
     },
     {
@@ -44,6 +46,7 @@
       "transform": "translate(-0.5 0)",
       "insetSourcePixels": -3,
       "inwardShiftSourcePixels": -0.5,
+      "verticalShiftSourcePixels": 0,
       "status": "user-selected-parameters"
     },
     {
@@ -57,6 +60,7 @@
       "transform": "translate(3 0)",
       "insetSourcePixels": -3,
       "inwardShiftSourcePixels": -3,
+      "verticalShiftSourcePixels": 0,
       "status": "user-selected-parameters"
     }
   ],

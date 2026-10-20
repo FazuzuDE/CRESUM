@@ -49,13 +49,14 @@ for region in data['regions']:
         if selection and region['id'] in selection['regions'] and radius == selection['regions'][region['id']]['inset']:
             state = selection['regions'][region['id']]
             dx = state['shift']*(1 if region['side'] == 'left' else -1)
-            shifted = nd.shift(pixels, (0, dx), order=1, mode='constant', cval=0)
+            dy = state.get('shiftY', 0)
+            shifted = nd.shift(pixels, (dy, dx), order=1, mode='constant', cval=0)
             outside_pixels += int(np.count_nonzero((shifted > .5) & ~silhouette))
             shifted *= silhouette
             selected_rasters.append(shifted)
             chosen = {k: v for k, v in region.items() if k != 'points'}
-            chosen.update({'view': 'back', 'path': path, 'transform': f'translate({dx} 0)',
-                'insetSourcePixels': state['inset'], 'inwardShiftSourcePixels': state['shift'], 'status': selection['status']})
+            chosen.update({'view': 'back', 'path': path, 'transform': f'translate({dx} {dy})',
+                'insetSourcePixels': state['inset'], 'inwardShiftSourcePixels': state['shift'], 'verticalShiftSourcePixels': dy, 'status': selection['status']})
             selected_regions.append(chosen)
             Image.fromarray(np.round(shifted*255).astype('uint8')).save(study/(region['id']+'-selected.png'))
         if radius == 0:

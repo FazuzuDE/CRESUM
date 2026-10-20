@@ -1360,3 +1360,25 @@ front-delts / side-delts parents and unresolved posterior-shoulder assignment
 stay unchanged. Three blocks / 10 regions remain, followed by combined front/back
 boundary review and separate production assembly. No exercise, score or runtime
 renderer changes.
+
+### Deltoid selected appearance accepted; hamstrings combined review — 2026-10-20
+
+Accept the four selected anterior/lateral deltoid appearances using the latest
+screenshots. Anatomical L/R inset / inward / Y, source px: anterior +0.5/0/−0.5
+and −2/0/+1 from image(20261020-133912).png; lateral −1.5/−0.5/−4 and −1/+1/−3
+from image(20261020-133923).png. Retain anterior selected masks and every baseline
+export byte-for-byte; regenerate lateral selections and union with visual approval.
+Record 315 raw-float / 326 quantized PNG overlap pixels and 23 background pixels
+clipped for combined boundary review. Preserve intended front-delts / side-delts
+parents and runtime opacity; screenshot 75% is preview-only. Exact head assignment
+and unresolved posterior-shoulder identity remain separate from visual approval.
+
+Continue with four existing biceps-femoris/semitendinosus selections under the
+hamstrings parent. Restore eight saved inset/X values; Y defaults to zero because
+no prior Y values were supplied. Keep every mask and pending appearance status,
+record zero Y explicitly in selected geometry and support independent ±10 px
+X/Y controls at 0.5 px steps. Exclude deferred inner strips from active review.
+Existing contact remains 670 raw-float / 772 quantized PNG pixels, with zero
+background clipping, for combined review. Two blocks / 6 regions remain, then
+combined front/back boundaries and separate production assembly. No exercise,
+score or production-renderer changes.

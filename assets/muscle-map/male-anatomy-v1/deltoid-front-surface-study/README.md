@@ -43,3 +43,16 @@ independently. Combined appearance and head assignment remain pending.
 Existing selected contact remains 226 raw-float interior overlap pixels
 (245 quantized PNG pixels), with zero background clipping. Retain these
 settings for combined boundary review; do not silently remove contacts.
+
+## Selected appearance accepted — 2026-10-20
+
+The user accepted four anterior/lateral regions with the latest two screenshots.
+image(20261020-133912).png retains anterior L/R inset +0.5/−2, inward 0/0,
+Y −0.5/+1. image(20261020-133923).png selects lateral L/R inset −1.5/−1,
+inward −0.5/+1, Y −4/−3 source px. Save visual approval and exact defaults;
+regenerate lateral selected masks and their union, preserving the baseline and
+anterior selected PNG/SVG byte-for-byte. New selected mutual overlap is 315
+raw-float / 326 quantized PNG pixels, with 23 background pixels clipped.
+Retain these contacts for combined boundary review. The screenshot's 75%
+is preview-only. Existing front-delts / side-delts parents stay unchanged;
+exact head assignment and posterior-shoulder identity remain provisional.
