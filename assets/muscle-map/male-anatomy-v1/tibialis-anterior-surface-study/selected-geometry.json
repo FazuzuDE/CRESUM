@@ -1,5 +1,5 @@
 {
-  "status": "user-selected-boundary-review",
+  "status": "visually-approved",
   "revision": 2,
   "canvas": [
     1312,
@@ -18,7 +18,7 @@
       "insetSourcePixels": 1.5,
       "inwardShiftSourcePixels": -0.5,
       "verticalShiftSourcePixels": 0,
-      "status": "user-selected-boundary-review"
+      "status": "visually-approved"
     },
     {
       "id": "tibialis-anterior-right",
@@ -31,7 +31,7 @@
       "insetSourcePixels": 1.5,
       "inwardShiftSourcePixels": 1.5,
       "verticalShiftSourcePixels": 0,
-      "status": "user-selected-boundary-review"
+      "status": "visually-approved"
     }
   ]
 }

@@ -72,3 +72,12 @@ Original appearance candidate: generated in this conversation, then edited to
 add the neutral central insert, `exec-af61b9f3-d55b-4cad-802c-1b1e12532625.png`.
 Source SHA-256 is recorded in `layers.json` and enforced by the exporter.
 The selected reference is separate from the blue-shirt Exercise Male Master.
+
+## Combined selected studies — 2026-10-20
+
+The individual-block appearance queue is closed. `combined-review/` is the
+explicit review-only assembly of 90 selected regions, including two chest
+reference contours whose boundary review remains pending. It preserves exact
+paths/transforms/export clips and excludes deferred/superseded regions. This
+folder's original `atlas.svg`, `layers.json` and production renderer remain
+unchanged; they are not the aggregate of subsequent accepted studies.

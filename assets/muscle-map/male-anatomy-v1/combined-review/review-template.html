@@ -1,0 +1,191 @@
+<div id="cresum-combined-review">
+  <style>
+    #cresum-combined-review {
+      display: grid;
+      gap: 12px;
+      color: var(--foreground);
+    }
+    #cresum-combined-review .figure {
+      display: flex;
+      justify-content: center;
+    }
+    #cresum-combined-review svg {
+      display: block;
+      width: 100%;
+      max-width: 736px;
+      height: auto;
+    }
+    #cresum-combined-review .assigned {
+      fill: var(--red);
+    }
+    #cresum-combined-review .unassigned {
+      fill: var(--orange);
+    }
+    #cresum-combined-review .outline {
+      fill: none;
+      stroke: var(--red);
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+    #cresum-combined-review .outline.unassigned {
+      stroke: var(--orange);
+    }
+    #cresum-combined-review .overlap {
+      fill: var(--purple);
+      fill-rule: evenodd;
+    }
+  </style>
+  <div class="viz-controls">
+    <label class="form-label"
+      >Вид
+      <select class="form-select" data-view>
+        <option value="both">Спереди и сзади</option>
+        <option value="front">Спереди</option>
+        <option value="back">Сзади</option>
+      </select>
+    </label>
+    <label class="form-label"
+      >Область
+      <select class="form-select" data-crop>
+        <option value="full">Полный рост</option>
+        <option value="upper">Верх тела</option>
+        <option value="lower">Низ тела</option>
+      </select>
+    </label>
+  </div>
+  <div class="viz-row" role="group" aria-label="Режим проверки общих границ">
+    <button class="btn" type="button" data-mode="fill" aria-pressed="true">
+      Подсветка
+    </button>
+    <button class="btn" type="button" data-mode="outline" aria-pressed="false">
+      Границы
+    </button>
+    <button class="btn" type="button" data-mode="overlap" aria-pressed="false">
+      Пересечения
+    </button>
+    <button class="btn" type="button" data-mode="source" aria-pressed="false">
+      Оригинал
+    </button>
+  </div>
+  <div class="viz-controls">
+    <label class="form-label"
+      >Насыщенность предпросмотра: <span data-opacity-value>65%</span>
+      <input
+        class="form-range"
+        data-opacity
+        type="range"
+        min="0"
+        max="1"
+        step="0.05"
+        value="0.65"
+        aria-label="Насыщенность предпросмотра"
+      />
+    </label>
+  </div>
+  <div class="text-small" data-status aria-live="polite"></div>
+  <div class="text-small">
+    Красный — с группой нагрузки · оранжевый — без назначения · фиолетовый —
+    пересечения
+  </div>
+  <div class="figure">
+    <svg
+      viewBox="0 0 1312 1199"
+      role="img"
+      aria-label="Общий просмотр выбранных масок спереди и сзади; стыки и анатомия на проверке"
+    >
+      <image href="__COMBINED_SOURCE_PREVIEW__" width="1312" height="1199" />
+      <defs data-clips></defs>
+      <g data-layer></g>
+    </svg>
+  </div>
+  <script type="application/json" data-geometry>
+    "__COMBINED_PAYLOAD__"
+  </script>
+  <script>
+    (() => {
+      const root = document.getElementById('cresum-combined-review');
+      const payload = JSON.parse(
+        root.querySelector('[data-geometry]').textContent,
+      );
+      const svg = root.querySelector('svg'),
+        layer = root.querySelector('[data-layer]');
+      const view = root.querySelector('[data-view]'),
+        crop = root.querySelector('[data-crop]'),
+        opacity = root.querySelector('[data-opacity]');
+      root.querySelector('[data-clips]').innerHTML = payload.defsMarkup;
+      let mode = 'fill';
+      const makePath = (d) => {
+        const p = document.createElementNS(
+          'http://www.w3.org/2000/svg',
+          'path',
+        );
+        p.setAttribute('d', d);
+        return p;
+      };
+      function draw() {
+        layer.replaceChildren();
+        layer.setAttribute('opacity', mode === 'outline' ? '1' : opacity.value);
+        layer.style.mixBlendMode = mode === 'fill' ? 'multiply' : 'normal';
+        const visible = payload.regions.filter(
+          (r) => view.value === 'both' || r.view === view.value,
+        );
+        if (mode === 'overlap') {
+          const p = makePath(payload.overlapPath);
+          p.setAttribute('class', 'overlap');
+          layer.append(p);
+        } else if (mode !== 'source') {
+          for (const region of visible) {
+            const p = makePath(region.path);
+            p.setAttribute('transform', region.transform);
+            p.setAttribute(
+              'class',
+              (mode === 'outline' ? 'outline ' : '') +
+                (region.muscleGroupId ? 'assigned' : 'unassigned'),
+            );
+            p.setAttribute('data-region', region.id);
+            p.setAttribute(
+              'data-tooltip',
+              region.label +
+                ' · ' +
+                (region.view === 'front' ? 'спереди' : 'сзади'),
+            );
+            const g = document.createElementNS(
+              'http://www.w3.org/2000/svg',
+              'g',
+            );
+            if (region.clipId)
+              g.setAttribute('mask', 'url(#' + region.clipId + ')');
+            g.append(p);
+            layer.append(g);
+          }
+        }
+        const x = view.value === 'back' ? 656 : 0,
+          width = view.value === 'both' ? 1312 : 656;
+        const y =
+          crop.value === 'upper' ? 120 : crop.value === 'lower' ? 580 : 0;
+        const height =
+          crop.value === 'upper' ? 500 : crop.value === 'lower' ? 560 : 1199;
+        svg.setAttribute('viewBox', [x, y, width, height].join(' '));
+        root.querySelector('[data-opacity-value]').textContent =
+          Math.round(Number(opacity.value) * 100) + '%';
+        root.querySelector('[data-status]').textContent =
+          visible.length +
+          ' областей · общие границы на проверке · границы груди ещё не утверждены';
+        root
+          .querySelectorAll('[data-mode]')
+          .forEach((b) =>
+            b.setAttribute('aria-pressed', String(b.dataset.mode === mode)),
+          );
+      }
+      [view, crop].forEach((c) => c.addEventListener('change', draw));
+      opacity.addEventListener('input', draw);
+      root.querySelectorAll('[data-mode]').forEach((b) =>
+        b.addEventListener('click', () => {
+          mode = b.dataset.mode;
+          draw();
+        }),
+      );
+      draw();
+    })();
+  </script>
+</div>

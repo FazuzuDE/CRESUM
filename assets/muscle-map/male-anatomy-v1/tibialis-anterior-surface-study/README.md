@@ -53,3 +53,13 @@ adjacent fibularis remains for combined review, as recorded in that study.
 Build review: `python scripts/build-tibialis-review.py --options-file PATH
 --output /workspace/cresum-tibialis-review.html`. The single bilateral muscle
 has independent side controls without a redundant muscle selector.
+
+## Selected appearance accepted — 2026-10-20
+
+The user explicitly accepted both selected tibialis-anterior appearances.
+Preserve inset 1.5/1.5, inward −0.5/+1.5 and Y 0/0 source px, all baseline/
+selected masks and the revision-1 archive byte-for-byte. Selection and selected
+geometry now record visual approval. Mutual overlap/background clipping remain
+zero. Exact anatomy and load assignment remain provisional; both group IDs stay
+null and opacity remains runtime-variable. The individual-block queue is closed;
+combined front/back boundary review follows.

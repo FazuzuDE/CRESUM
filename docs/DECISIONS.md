@@ -1933,3 +1933,28 @@ independent ±10 px X/Y controls at 0.5 px steps. Do not assign anterior shin
 to calves or infer exercise coefficients. This final block has two regions;
 combined front/back boundaries and separate production assembly follow. No
 exercise, score or production-renderer changes.
+
+## 2026-10-20 — Individual queue closed; combined composition prepared
+
+Accept the selected bilateral tibialis-anterior appearance with L/R inset
+1.5/1.5, inward −0.5/+1.5 and Y 0/0 source px. Update only selected approval
+metadata; preserve all raster/vector masks, baseline and revision-1 archive.
+Both load-group IDs remain null and runtime opacity stays variable. Mutual
+overlap/background clipping remain zero; exact anatomy and taxonomy stay open.
+
+Close the individual queue and prepare combined front/back boundary review.
+An explicit manifest imports 90 selected regions (52 front / 38 back) from 33
+geometry inputs, preserving exact paths, transforms and three export clips.
+It retains 36 unassigned regions and excludes deferred/superseded masks and
+old broad atlas layers. The two chest reference contours preserve their existing
+boundary-review-pending status; previous clear-edge presentation approval does
+not imply a new contour approval. Posterior shoulder uses the approved 3.5 px
+variant while retaining unresolved identity.
+
+A delivered-PNG >127 diagnostic records 3864 unique overlap pixels and 53
+contacting pairs (41 across studies), including contacts within one load group.
+Counts do not imply every contact is an error, vector/raster identity or complete
+coverage. Show original/fill/boundaries/intersections with front/back and body
+crops, preserving variable preview opacity. Do not retrace or silently subtract
+accepted contours. Combined acceptance, exact anatomy, load assignment and native
+production assembly remain separate. No exercise, score or runtime changes.

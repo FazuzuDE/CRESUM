@@ -1,5 +1,22 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: both selected tibialis-anterior appearances are visually
+approved. Retain anatomical L/R inset 1.5/1.5, inward −0.5/+1.5, Y 0/0 source
+px; all baseline/selected PNG/SVG and the revision-1 archive stay byte-identical.
+Mutual overlap/background clipping remain zero, group IDs null and opacity
+runtime-variable. Visual approval does not assign load groups or validate anatomy.
+
+The individual queue is now zero blocks. Next: combined front/back boundary
+review from the explicit combined-review/manifest.json, with 90 selected regions
+(52 front / 38 back), 36 unassigned. This imports exact paths, transforms and
+three distinct export clips without modifying existing masks. Two chest
+reference regions retain their prior boundary-review-pending status; their
+clear-edge presentation choice is not a new contour approval. Deferred/superseded
+regions stay excluded. Recorded delivered-PNG contact: 3864 overlap pixels,
+53 contacting pairs (41 across studies), including within-group contacts.
+These diagnostic counts are not all anatomical errors or a coverage score.
+Posterior-shoulder identity, load assignment and production assembly stay separate.
+
 Latest — 2026-10-20: four selected biceps-femoris/semitendinosus appearances
 are visually approved from image(20261020-134749).png and
 image(20261020-134825).png. Anatomical L/R inset / inward / Y, source px:

@@ -1,5 +1,5 @@
 {
-  "status": "user-selected-boundary-review",
+  "status": "visually-approved",
   "units": "source-pixels",
   "shiftConvention": "positive toward body center; front left maps to negative X, front right to positive X",
   "opacityMode": "per-muscle-runtime-variable",
@@ -12,5 +12,6 @@
       "inset": 1.5,
       "shift": 1.5
     }
-  }
+  },
+  "approvalBasis": "combined bilateral selected appearance explicitly accepted; saved inset/X values and zero Y retained"
 }
