@@ -1992,3 +1992,18 @@ its hidden state restores the exact former overlap diagnostic (3864 pixels),
 while the included state records 3969 pixels / 54 pairs (42 across studies).
 The individual lumbar block is closed; combined approval, two chest contours,
 identity/load assignment and production integration remain separate.
+
+## 2026-10-20 — Regional exercise emphasis required before final binding
+
+The user requested research-backed differences between parts of muscles for
+different exercises and machines, using upper/lower chest as the example, and
+gave positive appearance feedback on the displayed upper-front composition.
+Preserve its exteriors; unseen internal subdivisions are not approved.
+
+Record the requirement in PRODUCT, DESIGN_SYSTEM, ROADMAP and EXERCISE_LIBRARY.
+MUSCLE_REGIONAL_MAPPING.md contains the initial evidence review and nine-ID chest
+audit. Distinguish regions, exact configurations, indirect transfers and unknown
+setups. Extend research across muscle families before binding. This replaces
+aggregate-only as the final regional-display target, without changing current
+17-group counts, IDs, history, coefficients or 92-region geometry. Next prepare a
+regional chest pilot; scoring-model review precedes native integration. No merge.

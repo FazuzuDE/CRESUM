@@ -1465,3 +1465,17 @@ its hidden state restores the exact former overlap diagnostic (3864 pixels),
 while the included state records 3969 pixels / 54 pairs (42 across studies).
 The individual lumbar block is closed; combined approval, two chest contours,
 identity/load assignment and production integration remain separate.
+
+### Regional emphasis and current appearance feedback — 2026-10-20
+
+The user confirmed that the displayed upper-front composition looks good while
+requiring exercise-specific differences between muscle regions in future mapping.
+Preserve its exterior contours. This feedback does not approve unseen internal
+subdivisions or establish physiological accuracy.
+
+Independent regional display inputs require reviewed anatomical regions and
+applicable exercise evidence. The present whole-chest mask per side needs a
+separate internal-subdivision review for clavicular/sternocostal display. Do not
+substitute an arbitrary gradient for reviewed regions or use preview opacity as
+a physiological coefficient. Missing regional evidence must not appear as
+measured uniform loading or inactivity. See [regional evidence](MUSCLE_REGIONAL_MAPPING.md).

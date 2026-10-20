@@ -638,3 +638,20 @@ The selected lumbar projection appearance was accepted on 2026-10-20 with
 independent side parameters. It may be included in combined review only with
 explicit projection-beneath-fascia semantics; regional representation does not
 establish separate covered-muscle boundaries or new load coefficients.
+
+### Exercise-specific regional emphasis — approved 2026-10-20
+
+Training-to-mask binding must account for evidence-supported differences between
+anatomical regions/heads and exact exercise configurations. Do not force every
+part of a parent group to share one future estimated load when regional evidence
+supports a distinction. Chest is the first pilot: distinguish clavicular and
+sternocostal regions where justified without treating them as isolated muscles.
+Apply the same research process across the body. The earlier aggregate-only
+stage does not prohibit this future regional layer.
+
+Preserve the 17 parent IDs and factual Primary/Secondary counts. Bench/body angle,
+machine path, cable direction, support, grip, range and laterality matter where
+supported. Unknown setup retains unresolved regional emphasis and parent
+participation, without invented splits or historical reinterpretation. Excitation,
+force and adaptation remain distinct. Numerical coefficients and normalization
+need separate methodological review. See [regional evidence](MUSCLE_REGIONAL_MAPPING.md).

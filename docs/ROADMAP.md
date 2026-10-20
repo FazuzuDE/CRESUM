@@ -373,3 +373,13 @@ and included in the 92-region review with an explicit visibility toggle. Next
 review the combined boundaries and pending chest contours, then resolve load
 assignment and native integration. Preserve prior accepted masks and defer
 unsupported individual covered-muscle separation.
+
+### Regional evidence before final mask binding — 2026-10-20
+
+Research exercise-specific regional emphasis before final training-to-mask
+assignment. Start with the nine chest-related catalog IDs and review
+clavicular/sternocostal display subdivisions inside the preserved chest
+exteriors. The current whole-pectoral masks cannot display separate regional
+inputs. Extend the audit by muscle family; preserve stable IDs and factual
+counts. Numerical stimulus coefficients and native integration follow separately.
+See [regional evidence and audit](MUSCLE_REGIONAL_MAPPING.md).
