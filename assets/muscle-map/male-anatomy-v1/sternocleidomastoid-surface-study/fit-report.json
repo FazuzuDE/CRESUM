@@ -1,0 +1,11 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "status": "draft-boundary-and-structure-review",
+  "anatomicalValidation": "pending",
+  "assignedRegions": 0,
+  "independentRegions": 2,
+  "registration": "identity-manual-source-coordinates",
+  "baselineOverlapPixels": 0,
+  "opacityBakedIntoMasks": false,
+  "combinedAnteriorNeckBoundaryReview": "pending"
+}

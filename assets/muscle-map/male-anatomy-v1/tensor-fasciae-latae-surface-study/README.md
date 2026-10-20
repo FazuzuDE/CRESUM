@@ -17,3 +17,10 @@ with accepted neighboring studies. No taxonomy or exercise mapping changes.
 
 Build: `python scripts/build-tensor-fasciae-latae-surface-study.py --options-file /tmp/tfl-options.json`.
 Review: `python scripts/build-tensor-fasciae-latae-review.py --options-file /tmp/tfl-options.json --output /workspace/cresum-tensor-fasciae-latae-review.html`.
+
+## Selected appearance — 2026-10-20
+
+Visually approved from image(5).png: anatomical L/R inset 0/−1, inward
+−0.5/+1, Y −2.5/−2 source px. Selected SVG/PNG/geometry and all six review
+defaults retain these values. Baseline stays draft and byte-identical; exact
+identity and muscle/fascia transition remain provisional. Opacity is not fixed.

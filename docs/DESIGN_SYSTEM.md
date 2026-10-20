@@ -1175,3 +1175,18 @@ and distal muscle/fascia transition remain pending. Exclude iliotibial tract,
 hidden coverage, attachments and neighboring accepted sartorius/quadriceps.
 Keep separate 0.5 px inset/X/Y controls, ±10 px shifts, null load-group IDs
 and runtime-variable opacity; no training taxonomy, mappings or coefficients.
+
+### TFL accepted; anterior-neck continuation — 2026-10-20
+
+Approve image(5).png TFL appearance: anatomical L/R inset 0/−1, inward
+−0.5/+1, Y −2.5/−2 source px. Save separate selected SVG/PNG/geometry and
+matching review defaults; baseline contours and previous approvals stay unchanged.
+Exact identity, combined boundaries and distal muscle/fascia transition remain
+provisional; group IDs stay null and opacity remains runtime-variable.
+
+Continue with two independent exposed anterior-neck oblique bands proposed as
+partial sternocleidomastoid surfaces. New identity and boundaries remain pending.
+Defer separate sternal/clavicular heads where the stylized source lacks clear
+separation. Exclude central throat, adjacent neck triangles and hidden cranial,
+sternal and clavicular attachments. Keep null load-group IDs, independent 0.5 px
+inset/X/Y controls, ±10 px shifts and runtime opacity; no mapping/score changes.

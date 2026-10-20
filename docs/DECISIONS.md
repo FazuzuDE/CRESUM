@@ -1,5 +1,20 @@
 # CRESUM Decision Log
 
+## 2026-10-20 — TFL selected appearance accepted; anterior-neck continuation
+
+Approve image(5).png TFL appearance: anatomical L/R inset 0/−1, inward
+−0.5/+1, Y −2.5/−2 source px. Save separate selected SVG/PNG/geometry and
+matching review defaults; baseline contours and previous approvals stay unchanged.
+Exact identity, combined boundaries and distal muscle/fascia transition remain
+provisional; group IDs stay null and opacity remains runtime-variable.
+
+Continue with two independent exposed anterior-neck oblique bands proposed as
+partial sternocleidomastoid surfaces. New identity and boundaries remain pending.
+Defer separate sternal/clavicular heads where the stylized source lacks clear
+separation. Exclude central throat, adjacent neck triangles and hidden cranial,
+sternal and clavicular attachments. Keep null load-group IDs, independent 0.5 px
+inset/X/Y controls, ±10 px shifts and runtime opacity; no mapping/score changes.
+
 ## 2026-10-20 — Gracilis selected appearance accepted; TFL continuation
 
 Approve image(4).png gracilis appearance: anatomical L/R inset −2/−1.5,

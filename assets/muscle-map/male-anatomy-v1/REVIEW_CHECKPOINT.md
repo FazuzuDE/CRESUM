@@ -1,5 +1,18 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: TFL selected appearance is visually approved from
+image(5).png: anatomical L/R inset 0/−1, inward −0.5/+1, Y −2.5/−2 source px.
+Separate selected SVG/PNG/geometry and all six restored review defaults retain
+these values. Baseline remains draft and byte-identical; exact identity and
+distal muscle/fascia transition remain provisional. Opacity is not fixed.
+
+Next: `sternocleidomastoid-surface-study/` contains two exposed anterior-neck
+oblique-band candidates. Partial coverage only; new identity/boundaries and
+separate sternal/clavicular heads remain pending. Exclude central throat,
+adjacent neck triangles and hidden cranial/sternal/clavicular attachments.
+Keep null group IDs, independent 0.5 px inset/X/Y controls and ±10 px shifts,
+orange candidate fill and runtime-variable opacity. Prior approvals are unchanged.
+
 Latest — 2026-10-20: gracilis selected appearance is visually approved from
 image(4).png: anatomical L/R inset −2/−1.5, inward 0/+1.5, Y 0/+2 source px.
 Separate selected SVG/PNG/geometry and all six review defaults retain these
