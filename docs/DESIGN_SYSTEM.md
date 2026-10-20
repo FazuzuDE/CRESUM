@@ -1117,3 +1117,16 @@ Exact identity and contours remain pending; exclude hidden coverage and
 adjacent accepted patches. Retain independent 0.5 px inset/X/Y controls with
 ±10 px shifts, null load-group IDs and orange candidate fill. Opacity stays
 per-muscle runtime-variable; visual approval does not integrate production.
+
+### Teres minor accepted; sartorius continuation — 2026-10-20
+
+Preserve 8F7FA941 anatomical L/R inset −0.5/0, inward +1/−1 and Y −0.5/−0.5
+source px as visually-approved selection and separate SVG/PNG/geometry with
+matching review defaults. Keep baseline and prior masks unchanged; exact
+identity, combined boundaries and load assignment remain provisional.
+
+Next sartorius candidates contain two exposed oblique anterior-thigh bands;
+exclude unclear distal medial-knee continuation, tendons and adjacent patches.
+New contours/identity remain pending, with null group IDs and orange fill.
+Keep independent 0.5 px inset/X/Y controls and ±10 px shifts. Opacity remains
+per-muscle runtime-variable without new exercise-load coefficients.

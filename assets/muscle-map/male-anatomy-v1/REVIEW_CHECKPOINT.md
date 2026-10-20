@@ -1,5 +1,16 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest: teres minor selected appearance is visually approved from 8F7FA941:
+anatomical L/R inset −0.5/0, inward +1/−1, Y −0.5/−0.5 source px. Selected
+SVG/PNG/geometry and review defaults retain these settings. Baseline stays
+draft; exact identity and combined boundaries remain provisional, group IDs null.
+
+Next: `sartorius-surface-study/` contains two independent exposed oblique
+anterior-thigh band candidates. Unclear distal medial-knee continuation and
+neighboring patches are excluded. New boundaries/identity remain pending,
+group IDs null. Preserve 0.5 px inset/X/Y controls and ±10 px shifts; opacity
+remains runtime-variable. Earlier accepted masks are unchanged.
+
 Latest approval — 2026-10-20:
 
 User approved IMG_8243 teres major revision-1 appearance: anatomical L/R

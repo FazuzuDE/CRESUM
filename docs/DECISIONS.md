@@ -1,5 +1,18 @@
 # CRESUM Decision Log
 
+## 2026-10-20 — Teres minor accepted; sartorius continuation
+
+Approve 8F7FA941 selected appearance: anatomical L/R inset −0.5/0, inward
++1/−1, Y −0.5/−0.5 source px. Save selected SVG/PNG/geometry and restore
+review defaults; baseline contours and prior masks remain unchanged. Exact
+identity and combined scapular boundaries remain provisional, group IDs null.
+
+Continue with independent visible oblique sartorius band candidates on the
+front thighs. Exclude unclear distal coverage, tendons and neighboring patches.
+New boundaries/identity remain pending, group IDs null. Preserve independent
+0.5 px inset/X/Y controls, ±10 px shifts and runtime-variable opacity without
+changing training taxonomy, exercise mappings or production rendering.
+
 ## 2026-10-20 — Execution recovered; teres major exports and teres minor study
 
 Complete the pending IMG_8243 selection exports: anatomical L/R inset 0/0,

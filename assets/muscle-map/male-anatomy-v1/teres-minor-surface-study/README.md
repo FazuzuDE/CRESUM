@@ -18,3 +18,8 @@ Fit report records contact with selected neighboring scapular masks for review.
 
 Rebuild: `python scripts/build-teres-minor-surface-study.py --options-file /tmp/teres-minor-options.json`.
 Review: `python scripts/build-teres-minor-review.py --options-file /tmp/teres-minor-options.json --output /workspace/cresum-teres-minor-review.html`.
+
+Selected appearance is visually approved from 8F7FA941: anatomical L/R inset
+−0.5/0, inward +1/−1, Y −0.5/−0.5 source px. Selected SVG/PNG/geometry and
+review defaults retain these values. Baseline remains draft; exact identity,
+combined scapular boundaries and load assignment remain provisional.
