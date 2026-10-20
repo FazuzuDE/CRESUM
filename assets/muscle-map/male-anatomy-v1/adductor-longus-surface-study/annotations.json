@@ -1,0 +1,61 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "revision": 1,
+  "status": "draft-boundary-and-structure-review",
+  "anatomyReference": "https://www.ncbi.nlm.nih.gov/books/NBK534775/",
+  "scope": "bilateral small exposed proximal medial-thigh patches proposed as adductor longus; source-specific identity and separation from pectineus provisional; adjacent sartorius, long medial strips, deep coverage and attachments excluded; no load assignment",
+  "signedDistanceSmoothing": 0.6,
+  "contourSplineSmoothing": 0.03,
+  "regions": [
+    {
+      "id": "adductor-longus-left",
+      "side": "left",
+      "structureId": "adductor-longus",
+      "anatomicalMuscleId": "adductor-longus",
+      "muscleGroupId": null,
+      "label": "Длинная приводящая мышца · кандидат",
+      "points": [
+        [400, 547],
+        [404, 549],
+        [408, 550],
+        [412, 548],
+        [416, 545],
+        [415, 553],
+        [412, 565],
+        [408, 578],
+        [403, 590],
+        [400, 585],
+        [397, 577],
+        [394, 568],
+        [392, 558],
+        [396, 550],
+        [400, 547]
+      ]
+    },
+    {
+      "id": "adductor-longus-right",
+      "side": "right",
+      "structureId": "adductor-longus",
+      "anatomicalMuscleId": "adductor-longus",
+      "muscleGroupId": null,
+      "label": "Длинная приводящая мышца · кандидат",
+      "points": [
+        [338, 547],
+        [334, 549],
+        [330, 550],
+        [326, 548],
+        [322, 545],
+        [323, 553],
+        [326, 565],
+        [330, 578],
+        [334, 590],
+        [338, 583],
+        [341, 573],
+        [344, 560],
+        [342, 554],
+        [338, 547]
+      ]
+    }
+  ]
+}

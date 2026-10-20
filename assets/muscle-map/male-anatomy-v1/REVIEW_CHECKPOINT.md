@@ -1,5 +1,17 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest: sartorius revision-2 selected appearance is visually approved from
+83F8AACA: anatomical L/R inset −1/−0.5, inward −1/+1, Y +3.5/+2 source px.
+Selected exports and review defaults retain these settings; baseline and
+archived revision 1 remain drafts. Exact identity and combined boundaries
+remain provisional, group IDs null. Runtime opacity is not fixed.
+
+Next: `adductor-longus-surface-study/` contains two small proximal medial-thigh
+patch candidates. Exact identity and separation from pectineus remain pending.
+Adjacent sartorius, long medial strips, deep coverage and attachments are
+excluded. Keep independent 0.5 px inset/X/Y controls, ±10 px shifts, null group
+IDs and orange candidate fill. Earlier approved masks are unchanged.
+
 Current sartorius revision 2 follows enlarged source/outline audits. Proximal
 and longitudinal edges are retraced, the distal bulge/early cutoff removed
 and the visible medial strips extended toward the knee. Exact identity and

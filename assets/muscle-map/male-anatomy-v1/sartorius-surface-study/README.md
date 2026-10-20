@@ -22,3 +22,9 @@ combined thigh boundary review remains pending.
 
 Rebuild: `python scripts/build-sartorius-surface-study.py --options-file /tmp/sartorius-options.json`.
 Review: `python scripts/build-sartorius-review.py --options-file /tmp/sartorius-options.json --output /workspace/cresum-sartorius-review.html`.
+
+Revision-2 selected appearance is visually approved from 83F8AACA: anatomical
+L/R inset −1/−0.5, inward −1/+1, Y +3.5/+2 source px. Separate selected
+SVG/PNG/geometry and review defaults retain these settings. Baseline and
+archived revision 1 remain drafts; exact identity, belly/tendon transition
+and combined thigh boundaries remain provisional, with null group IDs.

@@ -1,5 +1,18 @@
 # CRESUM Decision Log
 
+## 2026-10-20 — Sartorius accepted; medial-thigh continuation
+
+Approve 83F8AACA revision-2 appearance: anatomical L/R inset −1/−0.5, inward
+−1/+1, Y +3.5/+2 source px. Save separate selected SVG/PNG/geometry and restore
+review defaults. Keep baseline/archive drafts and earlier approvals unchanged;
+exact identity and combined boundaries remain provisional, group IDs null.
+
+Prepare two small proximal medial-thigh patches proposed as adductor longus.
+Exact identity and separation from pectineus remain pending. Exclude adjacent
+sartorius, long medial strips, hidden coverage and attachments. Retain separate
+0.5 px inset/X/Y controls, ±10 px shifts and runtime-variable opacity without
+changing taxonomy, exercise mappings, load coefficients or production rendering.
+
 ## 2026-10-20 — Sartorius contour revision 2 requested
 
 User requested more accurate boundaries. Audit both sides enlarged against

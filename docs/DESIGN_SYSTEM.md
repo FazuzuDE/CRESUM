@@ -1130,3 +1130,16 @@ exclude unclear distal medial-knee continuation, tendons and adjacent patches.
 New contours/identity remain pending, with null group IDs and orange fill.
 Keep independent 0.5 px inset/X/Y controls and ±10 px shifts. Opacity remains
 per-muscle runtime-variable without new exercise-load coefficients.
+
+### Sartorius accepted; medial-thigh continuation — 2026-10-20
+
+Save 83F8AACA revision-2 anatomical L/R inset −1/−0.5, inward −1/+1 and
+Y +3.5/+2 source px as visually-approved selection, separate SVG/PNG/geometry
+and matching review defaults. Preserve baseline/archive drafts and earlier
+approved masks. Exact identity and combined boundaries remain provisional.
+
+Next adductor longus candidates are two small proximal medial-thigh patches.
+New identity, separation from pectineus and contours remain pending. Exclude
+neighboring sartorius, long medial strips, hidden coverage and attachments.
+Retain null group IDs, orange fill, independent 0.5 px inset/X/Y controls and
+±10 px shifts. Opacity remains a per-muscle runtime variable.
