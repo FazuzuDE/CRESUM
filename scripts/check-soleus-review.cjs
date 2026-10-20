@@ -34,7 +34,7 @@ async function main() {
     assert.equal(paths()[1].getAttribute('transform'), 'translate(-2.5 1)');
     change('[data-side]', 'left');
     assert.equal(paths().length, 1);
-    assert.equal(el('svg').getAttribute('viewBox'), '795 930 90 105');
+    assert.equal(el('svg').getAttribute('viewBox'), '795 900 90 135');
     change('[data-side]', 'right');
     assert.equal(paths()[0].dataset.side, 'right');
     change('[data-side]', 'both');
@@ -70,7 +70,7 @@ async function main() {
   const svg = el('svg');
   svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
   svg.setAttribute('width', '1200');
-  svg.setAttribute('height', '420');
+  svg.setAttribute('height', '540');
   const source = fs.readFileSync(
     path.join(__dirname, '../assets/muscle-map/male-anatomy-v1/source.png'),
   );

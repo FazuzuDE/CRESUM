@@ -37,7 +37,7 @@
       <select class="form-select" data-structure>
         <option value="all">Все участки</option>
         <option value="soleus-lateral-visible">
-          Наружный видимый участок · v2
+          Наружный видимый участок · v3
         </option>
         <option value="soleus-medial-visible">
           Внутренний видимый участок
@@ -187,7 +187,7 @@
   </div>
   <div class="figure">
     <svg
-      viewBox="790 930 300 105"
+      viewBox="790 900 300 135"
       role="img"
       aria-label="Четыре видимых участка-кандидата камбаловидной мышцы, по два на сторону"
     >
@@ -302,16 +302,16 @@
           zoom.value === 'phone'
             ? '656 0 656 1199'
             : side.value === 'left'
-              ? '795 930 90 105'
+              ? '795 900 90 135'
               : side.value === 'right'
-                ? '995 930 90 105'
-                : '790 930 300 105',
+                ? '995 900 90 135'
+                : '790 900 300 135',
         );
         svg.classList.toggle('phone', zoom.value === 'phone');
         root.querySelector('[data-opacity-value]').textContent =
           Math.round(Number(opacity.value) * 100) + '%';
         root.querySelector('[data-status]').textContent = all
-          ? '4 уточнённых участка v2 · назначение и границы на проверке.'
+          ? '4 уточнённых участка v3 · назначение и границы на проверке.'
           : structure.selectedOptions[0].textContent +
             ' · границы для проверки.';
         root

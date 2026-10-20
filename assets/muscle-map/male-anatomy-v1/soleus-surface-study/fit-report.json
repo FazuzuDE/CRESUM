@@ -5,6 +5,8 @@
   "assignedRegions": 0,
   "independentRegions": 4,
   "registration": "identity-manual-source-coordinates",
+  "contourInterpolation": "monotone-cubic-per-edge",
+  "silhouetteMethod": "posterior-component-with-independent-calf-row-clips",
   "baselineOverlapPixels": 0,
   "opacityBakedIntoMasks": false,
   "baselineBackgroundPixelsClipped": 0,

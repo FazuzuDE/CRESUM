@@ -7,7 +7,7 @@ muscle or a guarantee that all anatomical surfaces can be resolved.
 
 | Block                                          | Regions | Current state                                                                   |
 | ---------------------------------------------- | ------: | ------------------------------------------------------------------------------- |
-| Soleus visible windows                         |       4 | Revision-2 unapproved candidates; medial/lateral windows per side, not heads    |
+| Soleus visible windows                         |       4 | Revision-3 unapproved candidates; medial/lateral windows per side, not heads    |
 | Rectus abdominis segments and external oblique |      10 | Screenshot parameters selected; combined appearance not explicitly approved     |
 | Serratus visible patches                       |       6 | Screenshot parameters selected; identity and combined appearance pending        |
 | Anterior/lateral deltoid                       |       4 | Screenshot parameters selected; combined appearance and head assignment pending |

@@ -8,7 +8,7 @@ import contourpy
 import numpy as np
 from PIL import Image, ImageDraw
 from scipy import ndimage as nd
-from scipy.interpolate import splprep, splev
+from scipy.interpolate import splprep, splev, PchipInterpolator
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--options-file', type=Path, required=True)
@@ -23,6 +23,15 @@ source = np.asarray(Image.open(base/'source.png').convert('RGB'))
 components, _ = nd.label(~np.all(source > 248, axis=2))
 sizes = np.bincount(components[:, 656:].ravel()); sizes[0] = 0
 silhouette = nd.binary_fill_holes(components == sizes.argmax())
+# Ground shadows can close the gap between legs before hole filling. In the
+# reviewed calf area, recover each leg independently from its dark source edge.
+# No prior study mask is modified; shifts use this local source-backed clip.
+for y in range(890, 1046):
+    silhouette[y, 790:1096] = False
+    for x0, x1 in [(790, 920), (960, 1096)]:
+        hits = np.where(np.min(source[y, x0:x1], axis=1) < 235)[0]
+        if len(hits):
+            silhouette[y, x0+hits[0]:x0+hits[-1]+1] = True
 geometry = {'status': data['status'], 'revision': data.get('revision', 1), 'canvas': data['canvas'], 'opacityMode': 'per-muscle-runtime-variable', 'regions': []}
 options = []
 rasters = []
@@ -31,9 +40,19 @@ clipped_background = 0
 baseline_background = 0
 for region in data['regions']:
     name, side = region['id'], region['side']
-    points = np.asarray(region['points'], float)
-    spline, _ = splprep(points.T, s=0, per=True)
-    boundary = np.asarray(splev(np.linspace(0, 1, 800), spline)).T
+    if 'edgeGuides' in region:
+        left = np.asarray(region['edgeGuides']['left'], float)
+        right = np.asarray(region['edgeGuides']['right'], float)
+        assert left[0, 1] == right[0, 1] and left[-1, 1] == right[-1, 1]
+        ys = np.linspace(left[0, 1], left[-1, 1], 400)
+        lx = PchipInterpolator(left[:, 1], left[:, 0])(ys)
+        rx = PchipInterpolator(right[:, 1], right[:, 0])(ys)
+        assert np.all(lx <= rx+1e-8), region['id']
+        boundary = np.vstack([np.column_stack([lx, ys]), np.column_stack([rx, ys])[::-1]])
+    else:
+        points = np.asarray(region['points'], float)
+        spline, _ = splprep(points.T, s=0, per=True)
+        boundary = np.asarray(splev(np.linspace(0, 1, 800), spline)).T
     canvas = Image.new('L', (1312*3, 1199*3))
     ImageDraw.Draw(canvas).polygon([tuple(p*3) for p in boundary], fill=255)
     raster = np.asarray(canvas.resize((1312, 1199), Image.Resampling.LANCZOS), float)/255
@@ -61,7 +80,7 @@ for region in data['regions']:
             shifted = nd.shift(pixels, (dy, dx), order=1, mode='constant', cval=0)
             clipped_background += int(np.count_nonzero((shifted > .5) & ~silhouette))
             shifted *= silhouette
-            chosen = {k: v for k, v in region.items() if k != 'points'}
+            chosen = {k: v for k, v in region.items() if k not in ['points', 'edgeGuides']}
             chosen.update({'view': 'back', 'path': path, 'transform': f'translate({dx} {dy})',
                 'insetSourcePixels': state['inset'], 'inwardShiftSourcePixels': state['shift'],
                 'verticalShiftSourcePixels': dy, 'status': selection['status']})
@@ -70,12 +89,12 @@ for region in data['regions']:
             Image.fromarray(np.round(shifted*255).astype('uint8')).save(study/(name+'-selected.png'))
         if radius == 0:
             rasters.append(pixels)
-            export = {k: v for k, v in region.items() if k != 'points'}
+            export = {k: v for k, v in region.items() if k not in ['points', 'edgeGuides']}
             export.update({'view': 'back', 'path': path, 'status': data['status']})
             geometry['regions'].append(export)
             Image.fromarray(np.round(pixels*255).astype('uint8')).save(study/(region['id']+'.png'))
             (study/(region['id']+'.svg')).write_text(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1312 1199"><path id="{region["id"]}" d="{path}" fill="currentColor"/></svg>\n')
-    options.append({k: v for k, v in region.items() if k != 'points'} | {'variants': variants})
+    options.append({k: v for k, v in region.items() if k not in ['points', 'edgeGuides']} | {'variants': variants})
 assert len(geometry['regions']) == 4
 Image.fromarray((silhouette*255).astype('uint8')).save(study/'source-silhouette.png')
 Image.fromarray(np.round(np.max(rasters,axis=0)*255).astype('uint8')).save(study/'visible-candidates-union.png')
@@ -84,12 +103,15 @@ defs = f'<defs><mask id="body" maskUnits="userSpaceOnUse" x="0" y="0" width="131
 paths = ''.join(f'<path id="{r["id"]}" d="{r["path"]}"/>' for r in geometry['regions'])
 (study/'visible-candidates-union.svg').write_text(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1312 1199">{defs}<g id="soleus-candidates" fill="currentColor" mask="url(#body)">{paths}</g></svg>\n')
 geometry['muscleGroupId']=None
+geometry['contourInterpolation']=data.get('contourInterpolation', 'periodic-spline')
 (study/'geometry.json').write_text(json.dumps(geometry, ensure_ascii=False, indent=2)+'\n')
 reference = np.asarray(Image.open(base/'calves-reference-study/calves-selected-union.png')) > 127
 neighbor_overlap = int(np.count_nonzero(reference & (np.max(rasters, axis=0) > .5)))
 (study/'fit-report.json').write_text(json.dumps({'sourceSha256':data['sourceSha256'],
     'status':data['status'],'anatomicalValidation':'pending', 'assignedRegions':0,'independentRegions':4,
     'registration':'identity-manual-source-coordinates',
+    'contourInterpolation':data.get('contourInterpolation', 'periodic-spline'),
+    'silhouetteMethod':'posterior-component-with-independent-calf-row-clips',
     'baselineOverlapPixels':int(np.count_nonzero((np.asarray(rasters)>.5).sum(0)>1)),
     'opacityBakedIntoMasks':False,
     'baselineBackgroundPixelsClipped':baseline_background,

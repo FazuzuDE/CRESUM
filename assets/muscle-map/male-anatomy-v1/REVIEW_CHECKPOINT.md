@@ -1,5 +1,11 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: soleus revision 3 replaces the narrow isolated patches
+with source-groove guided longitudinal bands. Independent monotone edge guides
+control each window; the calf clip no longer fills inter-leg background.
+Revision 2 is archived byte-for-byte alongside revision 1. Review v3 next;
+no soleus revision is approved. Prior selected masks/statuses are unchanged.
+
 Latest — 2026-10-20: soleus revision 2 retraces all four visible windows,
 reshapes upper shoulders, follows source grooves and shortens lower tapers.
 Medial margins are brought inside the silhouette. Revision 1 is archived

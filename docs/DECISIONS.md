@@ -1,5 +1,25 @@
 # CRESUM Decision Log
 
+## 2026-10-20 — Soleus revision 3 after inexact-border feedback
+
+Replace the narrow isolated soleus patches with revision-3 visible longitudinal
+bands retraced between source grooves. The former upper cutoffs sat midway down
+the exposed bands. Lateral windows now begin alongside the gastrocnemius margins;
+medial windows follow the exposed lower-side bands. Retain the central Achilles,
+accepted gastrocnemius and hidden coverage outside the candidates.
+
+Store explicit independent left/right edge guides per window and interpolate
+each edge monotonically to avoid periodic-spline shoulder bulges. Keep the source
+fixed. Recover each calf clip independently in the reviewed area: whole-component
+hole filling can bridge the inter-leg background through the ground shadow.
+This local clip applies only to the soleus study; prior study masks are unchanged.
+Archive revision 2 byte-for-byte, alongside revision 1. Both remain unapproved.
+
+Revision 3 is still a boundary/identity candidate, including uncertain distal
+muscle/aponeurosis transition. Keep four independent windows, null group IDs,
+0.5 px inset/X/Y controls, ±10 px shifts and runtime-variable opacity. No exercise
+mapping, scores or production rendering changes; the review queue stays six blocks.
+
 ## 2026-10-20 — Soleus revision-2 border review
 
 Retrace the four soleus visible-window candidates independently after enlarged
