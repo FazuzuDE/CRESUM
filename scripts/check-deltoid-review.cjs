@@ -20,6 +20,24 @@ async function main() {
   for (const structure of ['deltoid-anterior', 'deltoid-lateral']) {
     change('[data-structure]', structure);
     assert.equal(paths().length, 2);
+    const defaults = JSON.parse(el('[data-settings]').textContent);
+    for (const side of ['left', 'right']) {
+      const state = defaults[structure + '-' + side];
+      assert.equal(Number(el('[data-' + side + ']').value), state.inset);
+      assert.equal(Number(el('[data-shift-' + side + ']').value), state.shift);
+      assert.equal(
+        Number(el('[data-shift-y-' + side + ']').value),
+        state.shiftY,
+      );
+      for (const selector of [
+        '[data-shift-' + side + ']',
+        '[data-shift-y-' + side + ']',
+      ]) {
+        assert.equal(el(selector).min, '-10');
+        assert.equal(el(selector).max, '10');
+        assert.equal(el(selector).step, '0.5');
+      }
+    }
     const right = paths().find((p) => p.dataset.side === 'right');
     const original = right.getAttribute('d');
     change('[data-left]', 1.5, 'input');
@@ -57,7 +75,9 @@ async function main() {
   change('[data-opacity]', 0, 'input');
   assert.equal(el('[data-masks]').getAttribute('opacity'), '0');
   change('[data-opacity]', 0.65, 'input');
-  const svg = el('svg');
+  const fresh = new JSDOM(fragment, { runScripts: 'dangerously' }).window
+    .document;
+  const svg = fresh.querySelector('svg');
   svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
   svg.setAttribute('width', '1080');
   svg.setAttribute('height', '435');
@@ -67,7 +87,8 @@ async function main() {
   svg
     .querySelector(':scope > image')
     .setAttribute('href', 'data:image/png;base64,' + source.toString('base64'));
-  for (const p of paths()) p.setAttribute('fill', '#ff3b30');
+  for (const p of fresh.querySelector('[data-masks]').children)
+    p.setAttribute('fill', '#ff3b30');
   const sharp = require('/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
   await sharp(Buffer.from(svg.outerHTML))
     .flatten({ background: '#fff' })

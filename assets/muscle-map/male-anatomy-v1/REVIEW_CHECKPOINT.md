@@ -1,5 +1,18 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: combined selected serratus appearance explicitly approved
+across all six visible patches. Preserve all 18 screenshot-derived values:
+upper L/R inset −1/−1, inward +2.5/+3.5, Y 0/0; middle inset 0/0, inward
++1.5/+2.5, Y −1.5/−0.5; lower inset 1.5/1.5, inward −3.5/−3.5, Y −1/−1 source px.
+All baseline and selected PNG/SVG masks remain byte-identical. Retain 6 mutual
+overlap pixels and zero background clipping for combined review. Anatomical
+identity stays provisional, group IDs null and opacity runtime-variable.
+
+Next: combined anterior/lateral deltoid review with all twelve saved values
+restored. Its selected-but-unapproved status, masks and intended front-delts /
+side-delts parents remain unchanged. X/Y shifts span ±10 px at 0.5 px steps.
+Three blocks / 10 regions remain in REMAINING_REVIEW.md.
+
 Latest — 2026-10-20: three serratus screenshots confirm the upper/middle
 settings and update both lower patches to inset 1.5, inward −3.5, Y −1 source px.
 Sources: image(20261020-132259).png upper, image(20261020-132252).png middle,

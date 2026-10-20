@@ -59,3 +59,13 @@ no load group is assigned and the queue stays four blocks / 16 regions.
 The selected set retains 6 mutual interior overlap pixels in both raw-float
 and quantized PNG checks, with zero background pixels clipped. Keep these
 contacts recorded for combined boundary review without altering the selection.
+
+## Combined selected appearance accepted — 2026-10-20
+
+The user explicitly accepted the combined six-patch selection. Status is now
+visually-approved; retain all 18 screenshot-derived parameters and every
+baseline/selected raster/vector mask byte-for-byte. The 6 mutual overlap pixels
+and zero background clipping remain recorded for combined boundary review.
+Anatomical identity is still provisional, group IDs null and opacity runtime-
+variable. Next: four anterior/lateral deltoid regions with saved defaults.
+Three blocks / 10 regions remain before combined front/back review.

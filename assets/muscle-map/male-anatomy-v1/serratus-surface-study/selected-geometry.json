@@ -1,5 +1,5 @@
 {
-  "status": "user-selected-parameters",
+  "status": "visually-approved",
   "revision": 1,
   "canvas": [
     1312,
@@ -21,7 +21,7 @@
       "insetSourcePixels": -1,
       "inwardShiftSourcePixels": 2.5,
       "verticalShiftSourcePixels": 0,
-      "status": "user-selected-parameters"
+      "status": "visually-approved"
     },
     {
       "id": "serratus-visible-slip-2-left",
@@ -36,7 +36,7 @@
       "insetSourcePixels": 0,
       "inwardShiftSourcePixels": 1.5,
       "verticalShiftSourcePixels": -1.5,
-      "status": "user-selected-parameters"
+      "status": "visually-approved"
     },
     {
       "id": "serratus-visible-slip-3-left",
@@ -51,7 +51,7 @@
       "insetSourcePixels": 1.5,
       "inwardShiftSourcePixels": -3.5,
       "verticalShiftSourcePixels": -1,
-      "status": "user-selected-parameters"
+      "status": "visually-approved"
     },
     {
       "id": "serratus-visible-slip-1-right",
@@ -66,7 +66,7 @@
       "insetSourcePixels": -1,
       "inwardShiftSourcePixels": 3.5,
       "verticalShiftSourcePixels": 0,
-      "status": "user-selected-parameters"
+      "status": "visually-approved"
     },
     {
       "id": "serratus-visible-slip-2-right",
@@ -81,7 +81,7 @@
       "insetSourcePixels": 0,
       "inwardShiftSourcePixels": 2.5,
       "verticalShiftSourcePixels": -0.5,
-      "status": "user-selected-parameters"
+      "status": "visually-approved"
     },
     {
       "id": "serratus-visible-slip-3-right",
@@ -96,7 +96,7 @@
       "insetSourcePixels": 1.5,
       "inwardShiftSourcePixels": -3.5,
       "verticalShiftSourcePixels": -1,
-      "status": "user-selected-parameters"
+      "status": "visually-approved"
     }
   ]
 }

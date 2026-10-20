@@ -1,5 +1,5 @@
 {
-  "status": "user-selected-parameters",
+  "status": "visually-approved",
   "units": "source-pixels",
   "opacityMode": "per-muscle-runtime-variable",
   "shiftConvention": "positive inward; front left negative X, front right positive X; positive shiftY down, negative shiftY up",
@@ -39,5 +39,6 @@
       "shift": -3.5,
       "shiftY": -1
     }
-  }
+  },
+  "approvalBasis": "combined six-patch selected appearance explicitly accepted; all 18 screenshot-derived inset and X/Y parameters retained"
 }

@@ -1341,3 +1341,22 @@ combined visual approval or anatomical identity. Keep `user-selected-parameters`
 null load groups, runtime-variable opacity and four blocks / 16 regions pending.
 The 65% screenshot opacity is preview-only. No exercise mapping, score or
 production-renderer changes.
+
+### Serratus selected appearance accepted; deltoid combined review — 2026-10-20
+
+Accept the combined selected appearance of all six serratus visible patches.
+Retain all 18 screenshot-derived parameters: upper L/R inset −1/−1, inward
++2.5/+3.5, Y 0/0; middle inset 0/0, inward +1.5/+2.5, Y −1.5/−0.5; lower inset
+1.5/1.5, inward −3.5/−3.5, Y −1/−1 source px. Mark selection/selected geometry
+visually approved while preserving every baseline/selected PNG/SVG byte-for-byte.
+Keep the 6 mutual overlap pixels and zero background clipping recorded for
+combined boundary review. Exact identity remains provisional, load-group IDs null
+and opacity runtime-variable; do not add covered attachments or guessed mapping.
+
+Continue with the four existing anterior/lateral deltoid selections. Preserve
+all twelve values, baseline/selected masks and selected-but-unapproved status.
+Restore independent controls with ±10 px X/Y ranges and 0.5 px steps. Intended
+front-delts / side-delts parents and unresolved posterior-shoulder assignment
+stay unchanged. Three blocks / 10 regions remain, followed by combined front/back
+boundary review and separate production assembly. No exercise, score or runtime
+renderer changes.
