@@ -6,9 +6,15 @@ User approved IMG_8243 teres major revision-1 appearance: anatomical L/R
 inset 0/0, inward −1/−2.5, Y 0/0 source px. Save the selection separately;
 baseline contours and previous approvals remain unchanged. Opacity stays a
 per-muscle runtime variable; exact identity and load assignment remain open.
-Selected SVG/PNG/geometry regeneration and review verification are pending
-because the execution environment is unavailable. Next requested target is
-teres minor; its contours have not been prepared or approved.
+Selected SVG/PNG/geometry are regenerated and review defaults restored after
+execution recovery. Both masks retain their approved transforms, unchanged
+baseline contours and runtime opacity.
+
+Next: `teres-minor-surface-study/` contains two small exposed triangular
+scapular patches with independent 0.5 px inset/X/Y controls and ±10 px shifts.
+New identity and boundaries remain provisional, group IDs null. Hidden
+coverage and neighboring accepted patches are excluded. These candidates
+have not been approved; combined scapular boundary review remains pending.
 
 Latest: infraspinatus selected appearance is visually approved from IMG_8242:
 anatomical L/R inset −1/0.5, inward +2.5/−1.5, Y +1/+1 source px. Selected

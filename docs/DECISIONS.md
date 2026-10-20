@@ -1,5 +1,18 @@
 # CRESUM Decision Log
 
+## 2026-10-20 — Execution recovered; teres major exports and teres minor study
+
+Complete the pending IMG_8243 selection exports: anatomical L/R inset 0/0,
+inward −1/−2.5, Y 0/0 source px. Restore review defaults and retain baseline
+contours and prior approvals unchanged. Selected appearance is visually
+approved; exact identity and combined boundaries remain provisional.
+
+Prepare two independent small triangular teres minor surface candidates,
+excluding hidden coverage and neighboring accepted patches. New identity and
+boundaries remain pending, with null group IDs, orange fill, independent
+0.5 px inset/X/Y controls and ±10 px shifts. Opacity stays runtime-variable;
+no training taxonomy, exercise mapping or production renderer changes.
+
 ## 2026-10-20 — Teres major approved; execution blocked
 
 User approved IMG_8243 teres major revision-1 appearance: anatomical L/R

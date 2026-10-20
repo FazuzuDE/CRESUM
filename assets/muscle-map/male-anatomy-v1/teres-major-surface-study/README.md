@@ -19,3 +19,8 @@ combined scapular boundaries remain under review. Accepted masks are unchanged.
 
 Rebuild: `python scripts/build-teres-major-surface-study.py --options-file /tmp/teres-major-options.json`.
 Review: `python scripts/build-teres-major-review.py --options-file /tmp/teres-major-options.json --output /workspace/cresum-teres-major-review.html`.
+
+Selected appearance is visually approved from IMG_8243: anatomical L/R inset
+0/0, inward −1/−2.5, Y 0/0 source px. Selected SVG/PNG/geometry and restored
+review defaults retain these values after execution recovery. Baseline stays
+draft, identity and combined boundaries provisional, group IDs null.

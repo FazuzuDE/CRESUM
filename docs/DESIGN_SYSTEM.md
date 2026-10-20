@@ -1109,6 +1109,11 @@ User approved IMG_8243 teres major revision-1 appearance: anatomical L/R
 inset 0/0, inward −1/−2.5, Y 0/0 source px. Save the selection separately;
 baseline contours and previous approvals remain unchanged. Opacity stays a
 per-muscle runtime variable; exact identity and load assignment remain open.
-Selected SVG/PNG/geometry regeneration and review verification are pending
-because the execution environment is unavailable. Next requested target is
-teres minor; its contours have not been prepared or approved.
+After execution recovery, regenerate selected SVG/PNG/geometry and restore
+review defaults from the approved selection. Keep baseline contours unchanged.
+
+Continue with two separate small triangular teres minor surface candidates.
+Exact identity and contours remain pending; exclude hidden coverage and
+adjacent accepted patches. Retain independent 0.5 px inset/X/Y controls with
+±10 px shifts, null load-group IDs and orange candidate fill. Opacity stays
+per-muscle runtime-variable; visual approval does not integrate production.
