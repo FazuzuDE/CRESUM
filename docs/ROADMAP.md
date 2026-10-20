@@ -367,3 +367,9 @@ previous individual queue is closed, but the new projection is a pending block.
 Preserve all accepted masks and the 90-region composition while its proposed
 representation/boundaries are reviewed. Combined seams, chest contours and load
 assignment remain subsequent work; this does not expand to every hidden muscle.
+
+2026-10-20 update: the selected bilateral lumbar projection is visually accepted
+and included in the 92-region review with an explicit visibility toggle. Next
+review the combined boundaries and pending chest contours, then resolve load
+assignment and native integration. Preserve prior accepted masks and defer
+unsupported individual covered-muscle separation.

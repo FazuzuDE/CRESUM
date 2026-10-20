@@ -76,7 +76,8 @@ The selected reference is separate from the blue-shirt Exercise Male Master.
 ## Combined selected studies — 2026-10-20
 
 The individual-block appearance queue is closed. `combined-review/` is the
-explicit review-only assembly of 90 selected regions, including two chest
+explicit review-only assembly of 92 selected regions, including two labeled
+lumbar projections beneath fascia, including two chest
 reference contours whose boundary review remains pending. It preserves exact
 paths/transforms/export clips and excludes deferred/superseded regions. This
 folder's original `atlas.svg`, `layers.json` and production renderer remain

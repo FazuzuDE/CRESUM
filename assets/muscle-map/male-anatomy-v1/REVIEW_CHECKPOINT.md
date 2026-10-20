@@ -1,5 +1,24 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: the selected bilateral lumbar projection is visually
+approved from image(20261020-210352).png: anatomical L/R inset −2.5/−2.5, inward
+0/−1.5, Y 0/−3.5 source px. Save separate selected exports and all six defaults;
+baseline and prior masks remain byte-identical. This approves the schematic
+projection beneath fascia, not exposed individual-muscle anatomy. Retain the
+existing lower-back parent and runtime opacity; 65% is preview-only.
+
+Selected mutual/background overlap is zero, central x=937…943 and y>=510 remain
+neutral. Right-lats contact is 105 quantized pixels, recorded without modifying
+selected geometry. The projection is included in the 92-region assembly
+(52 front / 40 back, 36 unassigned, two explicit projection regions). All prior
+90 imported records and three clip definitions remain exact. A projection
+toggle also restores the exact prior intersection diagnostic: 3864 pixels;
+with the projection, 3969 pixels across 54 pairs (42 across studies).
+
+The new lumbar block is closed. Next: combined boundary review including the
+selected projection, two pending chest contours and unresolved group assignment;
+no production integration or complete anatomical validation is implied.
+
 Latest — 2026-10-20: user identified the missing lumbar load representation
 and approved preparing a separate bilateral projection before integration.
 `lower-back-projection-study/` contains two unapproved schematic areas beneath

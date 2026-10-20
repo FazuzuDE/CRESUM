@@ -82,11 +82,17 @@ for i, (region, raster) in enumerate(zip(regions, rasters)):
         if pixels:
             pairs.append({'regions': [regions[j]['id'], region['id']], 'view': region['view'], 'quantizedRasterPixels': pixels, 'sameStudy': regions[j]['sourceGeometry'] == region['sourceGeometry']})
 overlap = counts > 1
-contours = contourpy.contour_generator(z=overlap.astype(float)).lines(.5)
-overlap_path = ' '.join('M'+' L'.join(f'{x:g} {y:g}' for x, y in loop)+' Z' for loop in contours)
-payload = {'regions': regions, 'defsMarkup': ''.join(clips.values()), 'overlapPath': overlap_path}
+def overlap_path_for(mask):
+    contours = contourpy.contour_generator(z=mask.astype(float)).lines(.5)
+    return ' '.join('M'+' L'.join(f'{x:g} {y:g}' for x, y in loop)+' Z' for loop in contours)
+surface_counts = counts.copy()
+for r, raster in zip(regions, rasters):
+    if r.get('representation') == 'schematic-projection-beneath-thoracolumbar-fascia':
+        surface_counts -= raster
+payload = {'regions': regions, 'defsMarkup': ''.join(clips.values()), 'overlapPath': overlap_path_for(overlap),
+    'overlapPathWithoutProjections': overlap_path_for(surface_counts > 1)}
 (study/'geometry.json').write_text(json.dumps({'status': manifest['status'], 'canvas': manifest['canvas'], **payload}, ensure_ascii=False, indent=2)+'\n')
-report = {'status': manifest['status'], 'sourceSha256': manifest['sourceSha256'], 'independentRegions': len(regions), 'frontRegions': sum(r['view'] == 'front' for r in regions), 'backRegions': sum(r['view'] == 'back' for r in regions), 'unassignedRegions': sum(r['muscleGroupId'] is None for r in regions), 'selectedChestRegionsPendingBoundaryApproval': 2, 'quantizedRasterOverlapPixels': int(overlap.sum()), 'overlappingPairs': sorted(pairs, key=lambda p: -p['quantizedRasterPixels']), 'measurement': 'union of delivered PNG interiors >127; pair totals can double-count pixels, and SVG smoothing can differ', 'geometryPolicy': 'exact source paths, transforms and per-export clips; no trimming, subtraction or retracing', 'anatomicalValidation': 'pending', 'productionIntegration': False, 'provenance': provenance}
+report = {'status': manifest['status'], 'sourceSha256': manifest['sourceSha256'], 'independentRegions': len(regions), 'frontRegions': sum(r['view'] == 'front' for r in regions), 'backRegions': sum(r['view'] == 'back' for r in regions), 'unassignedRegions': sum(r['muscleGroupId'] is None for r in regions), 'selectedChestRegionsPendingBoundaryApproval': 2, 'projectionRegions': sum(r.get('representation') == 'schematic-projection-beneath-thoracolumbar-fascia' for r in regions), 'overlapPixelsWithoutProjections': int((surface_counts > 1).sum()), 'quantizedRasterOverlapPixels': int(overlap.sum()), 'overlappingPairs': sorted(pairs, key=lambda p: -p['quantizedRasterPixels']), 'measurement': 'union of delivered PNG interiors >127; pair totals can double-count pixels, and SVG smoothing can differ', 'geometryPolicy': 'exact source paths, transforms and per-export clips; no trimming, subtraction or retracing', 'anatomicalValidation': 'pending', 'productionIntegration': False, 'provenance': provenance}
 (study/'report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
 template = (study/'review-template.html').read_text()
 assert template.count('"__COMBINED_PAYLOAD__"') == 1

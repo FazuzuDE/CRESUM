@@ -633,3 +633,8 @@ source covers lumbar structures with fascia, a separately labeled schematic
 projection may be reviewed; do not present it as directly visible anatomy or
 infer individual-muscle load coefficients. Final appearance and native
 integration require their own review.
+
+The selected lumbar projection appearance was accepted on 2026-10-20 with
+independent side parameters. It may be included in combined review only with
+explicit projection-beneath-fascia semantics; regional representation does not
+establish separate covered-muscle boundaries or new load coefficients.

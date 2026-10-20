@@ -16,6 +16,10 @@ args = parser.parse_args()
 base = Path(__file__).resolve().parent.parent/'assets/muscle-map/male-anatomy-v1'
 study = base/'lower-back-projection-study'
 data = json.loads((study/'annotations.json').read_text())
+selection_file = study/'selection.json'
+selection = json.loads(selection_file.read_text()) if selection_file.exists() else None
+selected_regions, selected_rasters = [], []
+clipped_background = 0
 assert hashlib.sha256((base/'source.png').read_bytes()).hexdigest() == data['sourceSha256']
 silhouette = np.asarray(Image.open(base/'hamstrings-surface-study/source-silhouette.png')) > 127
 body_url = 'data:image/png;base64,'+base64.b64encode((base/'hamstrings-surface-study/source-silhouette.png').read_bytes()).decode()
@@ -47,6 +51,18 @@ for region in data['regions']:
         points = np.asarray(splev(np.linspace(0, 1, 257), fitted)).T
         path = 'M'+' L'.join(f'{x:.2f} {y:.2f}' for x, y in points[:-1])+' Z'
         variants.append({'radius': float(radius), 'path': path})
+        if selection and radius == selection['regions'][region['id']]['inset']:
+            state = selection['regions'][region['id']]
+            dx = state['shift']*(1 if region['side'] == 'left' else -1)
+            dy = state['shiftY']
+            shifted = nd.shift(pixels, (dy, dx), order=1, mode='constant', cval=0)
+            clipped_background += int(np.count_nonzero((shifted > .5) & ~silhouette))
+            shifted *= silhouette
+            selected_regions.append(common | {'path': path, 'transform': f'translate({dx} {dy})',
+                'insetSourcePixels': state['inset'], 'inwardShiftSourcePixels': state['shift'],
+                'verticalShiftSourcePixels': dy, 'status': selection['status']})
+            selected_rasters.append(shifted)
+            Image.fromarray(np.round(shifted*255).astype('uint8')).save(study/(region['id']+'-selected.png'))
         if radius == 0:
             geometry['regions'].append(common | {'path': path, 'status': data['status']})
             rasters.append(pixels)
@@ -69,3 +85,32 @@ report = {'status': data['status'], 'representation': data['representation'], 's
 (study/'fit-report.json').write_text(json.dumps(report, indent=2)+'\n')
 args.options_file.write_text(json.dumps(options, ensure_ascii=False, separators=(',', ':')))
 print(json.dumps(report))
+
+if selection:
+    assert len(selected_regions) == 2
+    selected = {k: v for k, v in geometry.items() if k != 'regions'}
+    selected.update({'status': selection['status'], 'regions': selected_regions})
+    (study/'selected-geometry.json').write_text(json.dumps(selected, ensure_ascii=False, indent=2)+'\n')
+    paths = []
+    for r in selected_regions:
+        path = f'<path id="{r["id"]}" d="{r["path"]}" transform="{r["transform"]}"/>'
+        paths.append(path)
+        (study/(r['id']+'-selected.svg')).write_text(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1312 1199">{defs}<g fill="currentColor" mask="url(#body)">{path}</g></svg>\n')
+    (study/'projection-selected-union.svg').write_text(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1312 1199">{defs}<g fill="currentColor" mask="url(#body)">{"".join(paths)}</g></svg>\n')
+    selected_stack = np.round(np.array(selected_rasters)*255).astype('uint8')
+    union = selected_stack.max(0)
+    Image.fromarray(union).save(study/'projection-selected-union.png')
+    contacts = []
+    for folder, name in [('trapezius-study', 'trapezius-left-visible'), ('trapezius-study', 'trapezius-right-visible'), ('lats-reference-study', 'latissimus-dorsi-left-reference'), ('lats-reference-study', 'latissimus-dorsi-right-reference'), ('glutes-reference-study', 'gluteus-maximus-left-selected'), ('glutes-reference-study', 'gluteus-maximus-right-selected')]:
+        a = np.asarray(Image.open(base/folder/(name+'.png'))) > 127
+        contacts.append({'id': name, 'overlapPixels': int(((union > 127) & a).sum())})
+    left_max = int(np.where(selected_stack[0] > 127)[1].max())
+    right_min = int(np.where(selected_stack[1] > 127)[1].min())
+    report = {'status': selection['status'], 'representation': data['representation'], 'selectedRegions': 2,
+        'interiorOverlapPixels': int(((np.array(selected_rasters) > .5).sum(0) > 1).sum()),
+        'quantizedRasterOverlapPixels': int(((selected_stack > 127).sum(0) > 1).sum()),
+        'backgroundPixelsClipped': clipped_background, 'centralNeutralStrip': [left_max+1, right_min],
+        'sacralPixelsFromY510': int((union[510:] > 127).sum()), 'neighborContacts': contacts,
+        'anatomicalValidation': 'pending', 'opacityBakedIntoMasks': False}
+    (study/'selection-report.json').write_text(json.dumps(report, indent=2)+'\n')
+    print(json.dumps(report))

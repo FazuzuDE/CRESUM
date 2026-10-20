@@ -1444,3 +1444,24 @@ Display exact accepted trapezius/lats/gluteal neighbors at reduced review opacit
 with a context toggle. New projection status stays draft-regional-projection-review
 and remains outside the unchanged 90-region composition until separately accepted.
 Source, prior masks and selected settings remain byte-identical.
+
+### Selected lumbar projection accepted; combined 92-region review — 2026-10-20
+
+Accept the bilateral selected schematic lumbar projection using
+image(20261020-210352).png: L/R inset −2.5/−2.5, inward 0/−1.5, Y 0/−3.5
+source px. Save all six defaults and separate selected raster/vector/geometry
+exports; preserve the zero-adjustment baseline and all earlier masks byte-for-byte.
+Retain lower-back parent, explicit projection-beneath-fascia semantics and
+runtime-variable opacity. Screenshot 65% is preview-only; covered individual
+muscle boundaries remain unvalidated.
+
+Selected mutual overlap/background clipping are zero; central x=937…943 and
+the lower sacral region y>=510 stay neutral. Keep 105 quantized PNG pixels of
+right-lats contact recorded for cross-layer review without trimming the accepted
+settings. Add only these two selected projection regions to the unchanged 90
+imported records, yielding 92 regions (52 front / 40 back), 36 unassigned and
+three exact clip definitions. Label the projection with a visibility toggle;
+its hidden state restores the exact former overlap diagnostic (3864 pixels),
+while the included state records 3969 pixels / 54 pairs (42 across studies).
+The individual lumbar block is closed; combined approval, two chest contours,
+identity/load assignment and production integration remain separate.

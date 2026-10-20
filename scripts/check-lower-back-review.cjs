@@ -19,13 +19,13 @@ async function main() {
   assert.equal(paths().length, 2);
   assert.equal(el('select[data-structure]'), null);
   assert(paths().every((p) => p.classList.contains('muscle-fill')));
-  for (const [side, inset, shift] of [
-    ['left', 0, 0],
-    ['right', 0, 0],
+  for (const [side, inset, shift, shiftY] of [
+    ['left', -2.5, 0, 0],
+    ['right', -2.5, -1.5, -3.5],
   ]) {
     assert.equal(Number(el('[data-' + side + ']').value), inset);
     assert.equal(Number(el('[data-shift-' + side + ']').value), shift);
-    assert.equal(Number(el('[data-shift-y-' + side + ']').value), 0);
+    assert.equal(Number(el('[data-shift-y-' + side + ']').value), shiftY);
     assert(!el('[data-' + side + ']').disabled);
     for (const selector of [
       '[data-shift-' + side + ']',
@@ -96,7 +96,7 @@ async function main() {
     .png()
     .toFile('/workspace/lower-back-review-check.png');
   console.log(
-    'PASS: two draft lumbar projections and exact neighbor context, exact restored defaults, independent inset/XY, back signs, side crops, source/outline/fill, opacity and full-height view; saved-state diagnostic rendered.',
+    'PASS: two selected lumbar projections and exact neighbor context, exact restored defaults, independent inset/XY, back signs, side crops, source/outline/fill, opacity and full-height view; saved-state diagnostic rendered.',
   );
 }
 main().catch((error) => {

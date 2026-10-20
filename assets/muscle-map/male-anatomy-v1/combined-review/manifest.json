@@ -293,6 +293,13 @@
       "exportSuffix": "",
       "visualStatus": "visually-approved-anatomical-assignment-pending",
       "approvalEvidence": "rear-shoulder-reference-study/edge-tuning/geometry.json"
+    },
+    {
+      "geometry": "lower-back-projection-study/selected-geometry.json",
+      "regions": ["lower-back-projection-left", "lower-back-projection-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "lower-back-projection-study/selection.json"
     }
   ],
   "excluded": [

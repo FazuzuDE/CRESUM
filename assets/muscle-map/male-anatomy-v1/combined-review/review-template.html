@@ -82,6 +82,16 @@
       />
     </label>
   </div>
+  <label class="form-check"
+    ><input
+      class="form-check-input"
+      type="checkbox"
+      data-projection
+      checked
+    /><span class="form-check-label"
+      >Поясница · проекция под фасцией</span
+    ></label
+  >
   <div class="text-small" data-status aria-live="polite"></div>
   <div class="text-small">
     Красный — с группой нагрузки · оранжевый — без назначения · фиолетовый —
@@ -111,7 +121,8 @@
         layer = root.querySelector('[data-layer]');
       const view = root.querySelector('[data-view]'),
         crop = root.querySelector('[data-crop]'),
-        opacity = root.querySelector('[data-opacity]');
+        opacity = root.querySelector('[data-opacity]'),
+        projection = root.querySelector('[data-projection]');
       root.querySelector('[data-clips]').innerHTML = payload.defsMarkup;
       let mode = 'fill';
       const makePath = (d) => {
@@ -127,10 +138,18 @@
         layer.setAttribute('opacity', mode === 'outline' ? '1' : opacity.value);
         layer.style.mixBlendMode = mode === 'fill' ? 'multiply' : 'normal';
         const visible = payload.regions.filter(
-          (r) => view.value === 'both' || r.view === view.value,
+          (r) =>
+            (view.value === 'both' || r.view === view.value) &&
+            (projection.checked ||
+              r.representation !==
+                'schematic-projection-beneath-thoracolumbar-fascia'),
         );
         if (mode === 'overlap') {
-          const p = makePath(payload.overlapPath);
+          const p = makePath(
+            projection.checked
+              ? payload.overlapPath
+              : payload.overlapPathWithoutProjections,
+          );
           p.setAttribute('class', 'overlap');
           layer.append(p);
         } else if (mode !== 'source') {
@@ -177,7 +196,9 @@
             b.setAttribute('aria-pressed', String(b.dataset.mode === mode)),
           );
       }
-      [view, crop].forEach((c) => c.addEventListener('change', draw));
+      [view, crop, projection].forEach((c) =>
+        c.addEventListener('change', draw),
+      );
       opacity.addEventListener('input', draw);
       root.querySelectorAll('[data-mode]').forEach((b) =>
         b.addEventListener('click', () => {

@@ -1,0 +1,41 @@
+{
+  "status": "visually-approved",
+  "representation": "schematic-projection-beneath-thoracolumbar-fascia",
+  "selectedRegions": 2,
+  "interiorOverlapPixels": 0,
+  "quantizedRasterOverlapPixels": 0,
+  "backgroundPixelsClipped": 0,
+  "centralNeutralStrip": [
+    937,
+    944
+  ],
+  "sacralPixelsFromY510": 0,
+  "neighborContacts": [
+    {
+      "id": "trapezius-left-visible",
+      "overlapPixels": 0
+    },
+    {
+      "id": "trapezius-right-visible",
+      "overlapPixels": 0
+    },
+    {
+      "id": "latissimus-dorsi-left-reference",
+      "overlapPixels": 0
+    },
+    {
+      "id": "latissimus-dorsi-right-reference",
+      "overlapPixels": 105
+    },
+    {
+      "id": "gluteus-maximus-left-selected",
+      "overlapPixels": 0
+    },
+    {
+      "id": "gluteus-maximus-right-selected",
+      "overlapPixels": 0
+    }
+  ],
+  "anatomicalValidation": "pending",
+  "opacityBakedIntoMasks": false
+}

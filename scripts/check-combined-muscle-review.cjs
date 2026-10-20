@@ -13,9 +13,9 @@ async function main() {
   const el = (s) => d.querySelector(s);
   const paths = () => [...el('[data-layer]').querySelectorAll('path')];
   const payload = JSON.parse(el('[data-geometry]').textContent);
-  assert.equal(payload.regions.length, 90);
-  assert.equal(paths().length, 90);
-  assert.equal(new Set(payload.regions.map((r) => r.id)).size, 90);
+  assert.equal(payload.regions.length, 92);
+  assert.equal(paths().length, 92);
+  assert.equal(new Set(payload.regions.map((r) => r.id)).size, 92);
   assert.equal(
     payload.regions.filter((r) => r.muscleGroupId === null).length,
     36,
@@ -58,11 +58,23 @@ async function main() {
     el(selector).value = value;
     el(selector).dispatchEvent(new dom.window.Event(event));
   };
+  el('[data-projection]').checked = false;
+  el('[data-projection]').dispatchEvent(new dom.window.Event('change'));
+  assert.equal(paths().length, 90);
+  el('[data-mode="overlap"]').click();
+  assert.equal(
+    paths()[0].getAttribute('d'),
+    payload.overlapPathWithoutProjections,
+  );
+  el('[data-projection]').checked = true;
+  el('[data-projection]').dispatchEvent(new dom.window.Event('change'));
+  assert.equal(paths()[0].getAttribute('d'), payload.overlapPath);
+  el('[data-mode="fill"]').click();
   change('[data-view]', 'front');
   assert.equal(paths().length, 52);
   assert.equal(el('svg').getAttribute('viewBox'), '0 0 656 1199');
   change('[data-view]', 'back');
-  assert.equal(paths().length, 38);
+  assert.equal(paths().length, 40);
   change('[data-crop]', 'upper');
   assert.equal(el('svg').getAttribute('viewBox'), '656 120 656 500');
   change('[data-crop]', 'lower');
@@ -103,7 +115,7 @@ async function main() {
     .png()
     .toFile('/workspace/combined-muscle-review-check.png');
   console.log(
-    'PASS: 90 exact paths/transforms/groups and referenced clips, 52/38 view filtering, crops, source/outline/overlap/fill, group opacity and saved-state diagnostic.',
+    'PASS: 92 exact paths/transforms/groups and referenced clips, 52/40 view filtering and lumbar projection toggle, crops, source/outline/overlap/fill, group opacity and saved-state diagnostic.',
   );
 }
 main().catch((error) => {

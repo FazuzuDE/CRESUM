@@ -58,7 +58,7 @@
     </button>
   </div>
   <div class="text-small" aria-live="polite" data-status>
-    Поясница · схематическая проекция под фасцией · черновик
+    Поясница · схематическая проекция под фасцией · проверка выбранных границ
   </div>
   <div class="viz-controls">
     <label class="form-label"
@@ -344,7 +344,7 @@
         root.querySelector('[data-opacity-value]').textContent =
           Math.round(Number(opacity.value) * 100) + '%';
         root.querySelector('[data-status]').textContent =
-          'Поясница · схематическая проекция под фасцией · черновик';
+          'Поясница · схематическая проекция под фасцией · проверка выбранных границ';
         root
           .querySelectorAll('[data-mode]')
           .forEach((b) =>
