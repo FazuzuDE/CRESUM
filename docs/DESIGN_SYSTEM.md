@@ -1235,3 +1235,18 @@ tendon, retinacula, foot and hidden coverage. New identity, boundaries and
 muscle/aponeurosis transition remain pending; do not add a broad hidden soleus
 envelope. Keep independent 0.5 px inset/X/Y controls, ±10 px shifts and null
 load-group IDs. No exercise mapping or score changes.
+
+### Soleus visible-window border refinement — 2026-10-20
+
+Retrace the four soleus visible-window candidates independently after enlarged
+source review. Revision 2 reshapes the upper shoulders, follows the longitudinal
+grooves, brings the medial margins inside the source silhouette and replaces the
+long lower tips with conservative gradual tapers. Baseline geometry should not
+rely on silhouette clipping to form its border; retain clipping for review shifts.
+
+Archive every revision-1 study file byte-for-byte under `soleus-surface-study/revision-1/`.
+Revision 2 remains unapproved; medial/lateral refer to exposed windows, not
+separate heads. Exact identity and muscle/aponeurosis transition stay provisional.
+Preserve accepted gastrocnemius and every prior selection, null load-group IDs,
+independent 0.5 px inset/X/Y controls, ±10 px shifts and runtime opacity. No
+mapping, score or production-renderer changes. The remaining queue stays six blocks.

@@ -1,6 +1,6 @@
 # Soleus partial visible-surface candidates
 
-Four independent distal posterior-leg strip candidates: medial and lateral
+Revision 2: four independent distal posterior-leg strip candidates: medial and lateral
 visible windows on each side. These names describe exposed windows of one
 soleus muscle, not separate anatomical heads. Identity, precise boundaries and
 muscle/aponeurosis transition remain provisional on this stylized source.
@@ -21,3 +21,12 @@ Review: `python scripts/build-soleus-review.py --options-file /tmp/soleus-option
 Check: `node scripts/check-soleus-review.cjs /workspace/cresum-soleus-review.html`.
 
 No taxonomy, exercise mappings, load coefficients or production changes.
+
+## Revision-2 boundary review
+
+Upper shoulders and longitudinal borders are retraced against enlarged source
+grooves. Medial edges stay inside the source silhouette; lower tapers are
+shortened conservatively near the uncertain muscle/aponeurosis transition.
+Revision 1 is archived byte-for-byte in `revision-1/`; neither revision is
+visually approved. The fit report records baseline background clipping and
+accepted-gastrocnemius contact. Prior accepted masks stay unchanged.

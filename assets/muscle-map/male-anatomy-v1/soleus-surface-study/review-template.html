@@ -36,7 +36,9 @@
       >Видимый участок камбаловидной мышцы
       <select class="form-select" data-structure>
         <option value="all">Все участки</option>
-        <option value="soleus-lateral-visible">Наружный видимый участок</option>
+        <option value="soleus-lateral-visible">
+          Наружный видимый участок · v2
+        </option>
         <option value="soleus-medial-visible">
           Внутренний видимый участок
         </option>
@@ -309,7 +311,7 @@
         root.querySelector('[data-opacity-value]').textContent =
           Math.round(Number(opacity.value) * 100) + '%';
         root.querySelector('[data-status]').textContent = all
-          ? '4 видимых участка-кандидата · назначение и границы на проверке.'
+          ? '4 уточнённых участка v2 · назначение и границы на проверке.'
           : structure.selectedOptions[0].textContent +
             ' · границы для проверки.';
         root

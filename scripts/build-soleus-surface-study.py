@@ -28,6 +28,7 @@ options = []
 rasters = []
 selected_regions, selected_rasters = [], []
 clipped_background = 0
+baseline_background = 0
 for region in data['regions']:
     name, side = region['id'], region['side']
     points = np.asarray(region['points'], float)
@@ -41,7 +42,10 @@ for region in data['regions']:
     signed = nd.gaussian_filter(signed, data.get('signedDistanceSmoothing', 0))
     variants = []
     for radius in np.arange(-3, 6.01, .5):
-        pixels = nd.gaussian_filter((signed > radius).astype(float), .65)*silhouette
+        raw_pixels = nd.gaussian_filter((signed > radius).astype(float), .65)
+        if radius == 0:
+            baseline_background += int(np.count_nonzero((raw_pixels > .5) & ~silhouette))
+        pixels = raw_pixels*silhouette
         loops = contourpy.contour_generator(z=pixels, name='serial').lines(.5)
         path = 'M0 0 Z'
         if loops:
@@ -88,6 +92,7 @@ neighbor_overlap = int(np.count_nonzero(reference & (np.max(rasters, axis=0) > .
     'registration':'identity-manual-source-coordinates',
     'baselineOverlapPixels':int(np.count_nonzero((np.asarray(rasters)>.5).sum(0)>1)),
     'opacityBakedIntoMasks':False,
+    'baselineBackgroundPixelsClipped':baseline_background,
     'overlapWithAcceptedGastrocnemiusPixels':neighbor_overlap,
     'combinedPosteriorLegBoundaryReview':'pending'},indent=2)+'\n')
 args.options_file.write_text(json.dumps(options, ensure_ascii=False, separators=(',', ':')))

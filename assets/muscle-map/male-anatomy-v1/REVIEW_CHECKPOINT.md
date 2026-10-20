@@ -1,5 +1,11 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: soleus revision 2 retraces all four visible windows,
+reshapes upper shoulders, follows source grooves and shortens lower tapers.
+Medial margins are brought inside the silhouette. Revision 1 is archived
+byte-for-byte. Review v2 next; no soleus appearance is approved yet.
+All earlier selections/statuses remain unchanged; the queue stays six blocks.
+
 Latest — 2026-10-20: image(7).png fibularis-longus revision-2 selected
 appearance is visually approved: anatomical L/R inset −1.5/−1.5, inward −1/+2.5,
 Y −3/0 source px. Selected exports and restored controls retain these values;
