@@ -1,5 +1,19 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: sternocleidomastoid selected appearance is visually
+approved from image(6).png: anatomical L/R inset −2.5/−2.5, inward −0.5/−3.5,
+Y −5/−6 source px. Selected SVG/PNG/geometry and all six restored review
+defaults retain these values. Baseline stays byte-identical draft; exact identity,
+head separation and combined boundaries remain provisional. Opacity is not fixed.
+
+Next: `fibularis-longus-surface-study/` contains two proximal lateral-leg strip
+candidates. Partial visible coverage only; exact identity, separation from
+neighboring extensors/fibularis brevis and new boundaries remain pending.
+Exclude selected tibialis anterior, hidden coverage, distal tendons, retinacula
+and foot. Preserve prior tibialis status without promoting it to approved.
+Keep null group IDs, independent 0.5 px inset/X/Y controls and ±10 px shifts,
+orange candidate fill and runtime-variable opacity. Earlier masks are unchanged.
+
 Latest — 2026-10-20: TFL selected appearance is visually approved from
 image(5).png: anatomical L/R inset 0/−1, inward −0.5/+1, Y −2.5/−2 source px.
 Separate selected SVG/PNG/geometry and all six restored review defaults retain

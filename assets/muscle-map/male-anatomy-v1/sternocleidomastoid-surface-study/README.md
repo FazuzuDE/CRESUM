@@ -18,3 +18,11 @@ Build: `python scripts/build-sternocleidomastoid-surface-study.py --options-file
 Review: `python scripts/build-sternocleidomastoid-review.py --options-file /tmp/scm-options.json --output /workspace/cresum-sternocleidomastoid-review.html`.
 
 No training taxonomy, exercise mappings, coefficients or production changes.
+
+## Selected appearance — 2026-10-20
+
+Visually approved from image(6).png: anatomical L/R inset −2.5/−2.5, inward
+−0.5/−3.5, Y −5/−6 source px. Selected SVG/PNG/geometry and all six restored
+review controls retain these values. Baseline stays draft and unchanged; exact
+identity, head separation and combined boundaries remain provisional. Opacity
+is per-muscle runtime-variable and is not fixed by the screenshot.

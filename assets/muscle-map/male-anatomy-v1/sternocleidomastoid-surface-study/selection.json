@@ -1,0 +1,20 @@
+{
+  "status": "visually-approved",
+  "revision": 1,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; front left negative X, front right positive X; positive shiftY down, negative shiftY up",
+  "sourceScreenshot": "image(6).png",
+  "regions": {
+    "sternocleidomastoid-left": {
+      "inset": -2.5,
+      "shift": -0.5,
+      "shiftY": -5
+    },
+    "sternocleidomastoid-right": {
+      "inset": -2.5,
+      "shift": -3.5,
+      "shiftY": -6
+    }
+  }
+}

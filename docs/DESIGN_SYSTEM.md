@@ -1190,3 +1190,18 @@ Defer separate sternal/clavicular heads where the stylized source lacks clear
 separation. Exclude central throat, adjacent neck triangles and hidden cranial,
 sternal and clavicular attachments. Keep null load-group IDs, independent 0.5 px
 inset/X/Y controls, ±10 px shifts and runtime opacity; no mapping/score changes.
+
+### SCM accepted; lateral-leg continuation — 2026-10-20
+
+Approve image(6).png neck appearance: anatomical L/R inset −2.5/−2.5,
+inward −0.5/−3.5, Y −5/−6 source px. Save separate selected SVG/PNG/geometry
+and matching review defaults; baseline contours and prior approvals stay unchanged.
+Exact identity, head separation and combined boundaries remain provisional;
+group IDs stay null and opacity remains runtime-variable.
+
+Continue with two independent proximal lateral-leg strips proposed as partial
+fibularis longus surfaces. New identity, separation from neighboring extensors
+and fibularis brevis, and boundaries remain pending. Exclude selected tibialis
+anterior, hidden coverage, distal tendons, retinacula and foot. Prior tibialis
+status remains selected, not approved. Keep null load-group IDs, independent
+0.5 px inset/X/Y controls, ±10 px shifts and runtime opacity; no score changes.

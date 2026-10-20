@@ -1,0 +1,69 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "revision": 1,
+  "status": "draft-boundary-and-structure-review",
+  "anatomyReference": "https://www.ncbi.nlm.nih.gov/books/NBK546650/",
+  "scope": "bilateral proximal visible lateral-leg strips proposed as partial fibularis longus; exact identity and separation from adjacent extensors/fibularis brevis provisional on stylized source; exclude selected tibialis anterior, distal tendons, retinacula, foot and hidden coverage",
+  "signedDistanceSmoothing": 0.6,
+  "contourSplineSmoothing": 0.03,
+  "regions": [
+    {
+      "id": "fibularis-longus-left",
+      "side": "left",
+      "structureId": "fibularis-longus",
+      "anatomicalMuscleId": "fibularis-longus",
+      "muscleGroupId": null,
+      "label": "Длинная малоберцовая мышца · видимый участок · кандидат",
+      "points": [
+        [480.7, 834],
+        [485.1, 845],
+        [489.6, 857],
+        [493.2, 870],
+        [496.2, 882],
+        [496.5, 894],
+        [494.7, 907],
+        [491.8, 920],
+        [488.7, 932],
+        [487.5, 936],
+        [488.7, 925],
+        [490.3, 913],
+        [490.9, 901],
+        [490.5, 889],
+        [488.4, 877],
+        [485.7, 864],
+        [482.9, 850],
+        [480.7, 834]
+      ]
+    },
+    {
+      "id": "fibularis-longus-right",
+      "side": "right",
+      "structureId": "fibularis-longus",
+      "anatomicalMuscleId": "fibularis-longus",
+      "muscleGroupId": null,
+      "label": "Длинная малоберцовая мышца · видимый участок · кандидат",
+      "points": [
+        [254, 833],
+        [252.5, 843],
+        [248.5, 855],
+        [245.5, 867],
+        [242.8, 879],
+        [242, 891],
+        [242.5, 903],
+        [244, 915],
+        [246.3, 927],
+        [248, 936],
+        [245, 930],
+        [241.4, 918],
+        [238.4, 906],
+        [236.6, 894],
+        [236.7, 882],
+        [239.3, 867],
+        [244, 853],
+        [249.3, 841],
+        [254, 833]
+      ]
+    }
+  ]
+}
