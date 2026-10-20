@@ -1428,3 +1428,19 @@ coverage. Show original/fill/boundaries/intersections with front/back and body
 crops, preserving variable preview opacity. Do not retrace or silently subtract
 accepted contours. Combined acceptance, exact anatomy, load assignment and native
 production assembly remain separate. No exercise, score or runtime changes.
+
+### Separate lumbar projection review approved — 2026-10-20
+
+Prepare two independent lower-back regions as an explicitly schematic
+projection beneath fascia on the fixed source. This approves preparation, not
+the resulting contours. Do not claim visible-surface segmentation or invent
+separate longissimus/iliocostalis/multifidus boundaries. Retain existing
+lower-back parent; no exercise mapping, coefficient or native renderer changes.
+
+Keep the central spinal strip and lower sacral region neutral. Independent
+monotone edge guides, inset −3…+6, X/Y ±10 and 0.5 source-pixel controls support
+review. Back inward is left +X/right −X; positive Y is down. Opacity is variable.
+Display exact accepted trapezius/lats/gluteal neighbors at reduced review opacity
+with a context toggle. New projection status stays draft-regional-projection-review
+and remains outside the unchanged 90-region composition until separately accepted.
+Source, prior masks and selected settings remain byte-identical.

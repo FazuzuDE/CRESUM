@@ -623,3 +623,13 @@ independently on each side. Retain parent groups so detailed visual regions can
 still share an aggregate load signal. Granular geometry does not establish
 per-muscle load accuracy or authorize guessed coefficients. Hidden structures
 need a future dedicated layer/view; do not invent surface regions for them.
+
+### Lower-back coverage for the muscle map — 2026-10-20
+
+The muscle-load map needs an explicit lower-back representation, consistent
+with the existing lower-back catalog identity. Closing a prepared mask-review
+queue does not establish complete functional muscle coverage. When the fixed
+source covers lumbar structures with fascia, a separately labeled schematic
+projection may be reviewed; do not present it as directly visible anatomy or
+infer individual-muscle load coefficients. Final appearance and native
+integration require their own review.

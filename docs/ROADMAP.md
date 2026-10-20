@@ -358,3 +358,12 @@ study using manual raster annotations, derived SVG and enlarged/phone-scale
 comparison before expanding the method. Do not claim automated segmentation.
 Leave ambiguous shoulder-head assignment unresolved rather than changing
 catalog mappings. The existing atlas remains a draft baseline.
+
+### Muscle-map next priority — 2026-10-20
+
+Before native integration or promoting draft PR #66, review a separate bilateral
+lumbar projection to address the user-identified lower-back coverage gap. The
+previous individual queue is closed, but the new projection is a pending block.
+Preserve all accepted masks and the 90-region composition while its proposed
+representation/boundaries are reviewed. Combined seams, chest contours and load
+assignment remain subsequent work; this does not expand to every hidden muscle.

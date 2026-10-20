@@ -1,0 +1,78 @@
+{
+  "status": "draft-regional-projection-review",
+  "representation": "schematic-projection-beneath-thoracolumbar-fascia",
+  "revision": 1,
+  "canvas": [1312, 1199],
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "muscleGroupId": "lower-back",
+  "anatomicalValidation": "pending",
+  "individualMuscleSubdivision": "not identifiable on source; no separate iliocostalis/longissimus/multifidus masks inferred",
+  "references": [
+    "https://pubmed.ncbi.nlm.nih.gov/18087664/",
+    "https://pubmed.ncbi.nlm.nih.gov/22582887/"
+  ],
+  "regions": [
+    {
+      "id": "lower-back-projection-left",
+      "side": "left",
+      "view": "back",
+      "structureId": "lumbar-paraspinal-projection",
+      "label": "Поясница слева · проекция под фасцией",
+      "muscleGroupId": "lower-back",
+      "representation": "schematic-projection-beneath-thoracolumbar-fascia",
+      "edgeGuides": {
+        "left": [
+          [925, 375],
+          [918, 385],
+          [911, 405],
+          [906, 430],
+          [907, 452],
+          [913, 473],
+          [923, 490],
+          [930, 505]
+        ],
+        "right": [
+          [925, 375],
+          [931, 385],
+          [934, 405],
+          [935, 430],
+          [935, 452],
+          [934, 473],
+          [933, 490],
+          [930, 505]
+        ]
+      }
+    },
+    {
+      "id": "lower-back-projection-right",
+      "side": "right",
+      "view": "back",
+      "structureId": "lumbar-paraspinal-projection",
+      "label": "Поясница справа · проекция под фасцией",
+      "muscleGroupId": "lower-back",
+      "representation": "schematic-projection-beneath-thoracolumbar-fascia",
+      "edgeGuides": {
+        "left": [
+          [955, 378],
+          [949, 389],
+          [946, 407],
+          [945, 431],
+          [945, 452],
+          [946, 475],
+          [947, 492],
+          [949, 505]
+        ],
+        "right": [
+          [955, 378],
+          [963, 389],
+          [970, 407],
+          [974, 431],
+          [973, 452],
+          [967, 475],
+          [958, 492],
+          [949, 505]
+        ]
+      }
+    }
+  ]
+}

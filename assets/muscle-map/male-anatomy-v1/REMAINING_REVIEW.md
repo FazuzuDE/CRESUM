@@ -1,5 +1,14 @@
 # Remaining visual review — 2026-10-20
 
+Current priority: **one new lower-back projection block / two regions**. The
+user raised missing lumbar coverage after the earlier queue closed and approved
+a separate projection study before integration. Review
+`lower-back-projection-study/` next; its representation and boundaries are
+unapproved. It is not included in the existing 90-region manifest.
+
+The earlier queue closure below refers only to its prepared visible-surface
+blocks, not complete functional coverage.
+
 The individual-block queue is closed: **zero blocks / zero regions awaiting
 that queue's appearance approval** after bilateral tibialis anterior acceptance.
 This is not approval of the whole combined atlas, exact anatomy or production
@@ -16,7 +25,7 @@ Production SVG assembly, native integration and runtime intensity review remain
 separate tasks. No production renderer is changed by these studies.
 
 Deferred source limitations: ECRB separation, inner hamstring strips, deeper
-covered muscles, unclear lower-back muscle surfaces under fascia, hidden
+covered muscles, other unclear covered muscle surfaces, hidden
 attachments, distal tendons and foot detail. Do not invent contours merely to
 make every source pixel colored.
 

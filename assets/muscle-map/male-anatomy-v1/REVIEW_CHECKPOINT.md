@@ -1,5 +1,21 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: user identified the missing lumbar load representation
+and approved preparing a separate bilateral projection before integration.
+`lower-back-projection-study/` contains two unapproved schematic areas beneath
+fascia, using existing lower-back parent and zero initial inset/X/Y. The source
+does not establish individual covered-muscle boundaries; no named subdivisions
+are invented. Keep the central spinal strip and lower sacral region neutral.
+Initial masks have zero mutual/background contact and zero overlap with accepted
+lats/trapezius/gluteus-maximus masks. These checks are not anatomical validation.
+
+Review this new block next, independently, with eight unchanged neighbor masks
+for context and 0.5 px controls / ±10 px X/Y. It is outside the closed earlier
+individual queue and is not included in the existing 90-region assembly. Prior
+source, masks, selections, manifest and combined report remain byte-identical.
+One new projection block / two regions awaits review before integration.
+Exact anatomy, chest boundaries, taxonomy and combined approval remain open.
+
 Latest — 2026-10-20: both selected tibialis-anterior appearances are visually
 approved. Retain anatomical L/R inset 1.5/1.5, inward −0.5/+1.5, Y 0/0 source
 px; all baseline/selected PNG/SVG and the revision-1 archive stay byte-identical.

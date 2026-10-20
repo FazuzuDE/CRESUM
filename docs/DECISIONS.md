@@ -1958,3 +1958,16 @@ coverage. Show original/fill/boundaries/intersections with front/back and body
 crops, preserving variable preview opacity. Do not retrace or silently subtract
 accepted contours. Combined acceptance, exact anatomy, load assignment and native
 production assembly remain separate. No exercise, score or runtime changes.
+
+## 2026-10-20 — Lower-back coverage gap prioritized before integration
+
+The user identified missing lumbar muscles and approved preparing a separate
+bilateral lower-back projection. This supersedes blanket deferral of lumbar
+load representation, without asserting visible boundaries beneath fascia.
+Preserve the source and all accepted masks; keep the central spinal strip and
+lower sacral area neutral. Use the existing lower-back parent, independent
+half-pixel inset/X/Y controls and ±10 px shifts. Show eight exact accepted
+neighbor masks as optional context. The two initial zero-setting masks are
+unapproved schematic projections, excluded from the existing 90-region assembly.
+No individual hidden-muscle segmentation, new exercise coefficients, load
+calculation or native integration is approved by this preparation step.
