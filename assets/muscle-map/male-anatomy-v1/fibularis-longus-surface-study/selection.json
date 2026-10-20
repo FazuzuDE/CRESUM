@@ -1,0 +1,20 @@
+{
+  "status": "visually-approved",
+  "revision": 2,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; front left negative X, front right positive X; positive shiftY down, negative shiftY up",
+  "sourceScreenshot": "image(7).png",
+  "regions": {
+    "fibularis-longus-left": {
+      "inset": -1.5,
+      "shift": -1,
+      "shiftY": -3
+    },
+    "fibularis-longus-right": {
+      "inset": -1.5,
+      "shift": 2.5,
+      "shiftY": 0
+    }
+  }
+}

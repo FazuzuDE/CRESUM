@@ -1217,3 +1217,21 @@ request as acceptance. Keep null group IDs, runtime opacity and independent
 0.5 px inset/X/Y controls. Exclude adjacent tibialis anterior, distal tendons,
 retinacula, foot and hidden coverage. Prior selected masks and their approval
 statuses remain unchanged; no taxonomy, exercise mapping or score changes.
+
+### Fibularis longus accepted; soleus continuation — 2026-10-20
+
+Approve image(7).png fibularis-longus revision-2 selected appearance: anatomical
+L/R inset −1.5/−1.5, inward −1/+2.5, Y −3/0 source px. Save separate selected
+SVG/PNG/geometry and restore all six review defaults. Keep revision-2 baseline,
+revision-1 archive and previous selected masks byte-identical. Selected masks
+have no mutual interior overlap; the selected tibialis-anterior contact is
+1 interior pixel and remains recorded for combined boundary review. Exact
+identity stays provisional, group IDs null and opacity runtime-variable.
+
+Continue with four partial distal posterior-leg strip candidates proposed as
+soleus: an exposed medial and lateral window per side. These are windows of one
+muscle, not separate heads. Exclude accepted gastrocnemius, central Achilles
+tendon, retinacula, foot and hidden coverage. New identity, boundaries and
+muscle/aponeurosis transition remain pending; do not add a broad hidden soleus
+envelope. Keep independent 0.5 px inset/X/Y controls, ±10 px shifts and null
+load-group IDs. No exercise mapping or score changes.

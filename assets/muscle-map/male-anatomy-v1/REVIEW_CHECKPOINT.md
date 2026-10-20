@@ -1,5 +1,20 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: image(7).png fibularis-longus revision-2 selected
+appearance is visually approved: anatomical L/R inset −1.5/−1.5, inward −1/+2.5,
+Y −3/0 source px. Selected exports and restored controls retain these values;
+baseline and archived revision 1 stay byte-identical drafts. Selected tibialis
+contact: 1 interior pixel, recorded for combined review. Exact identity remains
+provisional, group IDs null and opacity runtime-variable.
+
+Next: `soleus-surface-study/` contains four unapproved partial distal posterior
+strip candidates, medial/lateral visible windows per side, not separate heads.
+Exclude gastrocnemius, central Achilles, foot and hidden coverage.
+
+Current remaining queue: **6 review blocks**, detailed in [REMAINING_REVIEW.md](REMAINING_REVIEW.md).
+Five blocks already have selected parameters; soleus is the new candidate.
+Combined review and production assembly follow separately.
+
 Latest — 2026-10-20: fibularis-longus revision 2 refines upper shoulders,
 longitudinal side grooves and distal tapers independently for both sides.
 Revision 1 is archived byte-for-byte. This remains the current unapproved

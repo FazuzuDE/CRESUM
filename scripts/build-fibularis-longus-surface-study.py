@@ -106,5 +106,6 @@ if selection:
     Image.fromarray(np.round(np.max(stack, axis=0)*255).astype('uint8')).save(study/'visible-selected-candidates-union.png')
     (study/'selection-report.json').write_text(json.dumps({'selectedRegions': 2,
         'interiorOverlapPixels': int(np.count_nonzero((stack > .5).sum(0) > 1)),
-        'backgroundPixelsClipped': clipped_background, 'opacityBakedIntoMasks': False}, indent=2)+'\n')
+        'backgroundPixelsClipped': clipped_background, 'opacityBakedIntoMasks': False,
+        'overlapWithSelectedTibialisAnteriorPixels': int(np.count_nonzero(reference & (np.max(stack, axis=0) > .5)))}, indent=2)+'\n')
 print('Built two draft front-view fibularis-longus candidates; established masks unchanged.')

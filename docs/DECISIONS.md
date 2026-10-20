@@ -1,5 +1,29 @@
 # CRESUM Decision Log
 
+## 2026-10-20 — Fibularis longus selection accepted; remaining review queue
+
+Approve image(7).png fibularis-longus revision-2 selected appearance: anatomical
+L/R inset −1.5/−1.5, inward −1/+2.5, Y −3/0 source px. Save separate selected
+SVG/PNG/geometry and restore all six review defaults. Keep revision-2 baseline,
+revision-1 archive and previous selected masks byte-identical. Selected masks
+have no mutual interior overlap; the selected tibialis-anterior contact is
+1 interior pixel and remains recorded for combined boundary review. Exact
+identity stays provisional, group IDs null and opacity runtime-variable.
+
+Continue with four partial distal posterior-leg strip candidates proposed as
+soleus: an exposed medial and lateral window per side. These are windows of one
+muscle, not separate heads. Exclude accepted gastrocnemius, central Achilles
+tendon, retinacula, foot and hidden coverage. New identity, boundaries and
+muscle/aponeurosis transition remain pending; do not add a broad hidden soleus
+envelope. Keep independent 0.5 px inset/X/Y controls, ±10 px shifts and null
+load-group IDs. No exercise mapping or score changes.
+
+Current bounded review queue: soleus, abdominal/external-oblique surfaces,
+serratus, anterior/lateral deltoid, hamstrings and tibialis anterior. Six review
+blocks, not six anatomical muscles; five already have selected parameters.
+After these, perform combined front/back boundary review and production assembly
+as separate work. Deferred/hidden structures are excluded from this count.
+
 ## 2026-10-20 — Fibularis longus boundaries refined for review
 
 Refine both fibularis-longus candidate contours independently against the source

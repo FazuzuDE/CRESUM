@@ -1,0 +1,101 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "revision": 1,
+  "status": "draft-boundary-and-structure-review",
+  "anatomyReference": "https://www.ncbi.nlm.nih.gov/books/NBK537340/",
+  "scope": "four partial distal posterolateral/posteromedial visible strip candidates proposed as soleus; medial/lateral describe visible windows, not separate muscle heads; identity and belly-aponeurosis transition provisional on stylized source; exclude accepted gastrocnemius, central Achilles tendon, retinacula, foot and hidden coverage",
+  "signedDistanceSmoothing": 0.6,
+  "contourSplineSmoothing": 0.03,
+  "regions": [
+    {
+      "id": "soleus-lateral-visible-left",
+      "side": "left",
+      "structureId": "soleus-lateral-visible",
+      "anatomicalMuscleId": "soleus",
+      "muscleGroupId": null,
+      "label": "Наружный видимый участок · кандидат",
+      "points": [
+        [816, 945],
+        [820, 951],
+        [825, 962],
+        [829, 976],
+        [832, 990],
+        [834, 1004],
+        [833.5, 1014],
+        [831, 1007],
+        [828, 995],
+        [824, 981],
+        [821, 968],
+        [817, 955],
+        [816, 945]
+      ]
+    },
+    {
+      "id": "soleus-lateral-visible-right",
+      "side": "right",
+      "structureId": "soleus-lateral-visible",
+      "anatomicalMuscleId": "soleus",
+      "muscleGroupId": null,
+      "label": "Наружный видимый участок · кандидат",
+      "points": [
+        [1066, 946],
+        [1066, 959],
+        [1063, 973],
+        [1059.5, 987],
+        [1056, 1001],
+        [1053, 1014],
+        [1051.3, 1017],
+        [1051, 1009],
+        [1053, 994],
+        [1056, 979],
+        [1060, 962],
+        [1066, 946]
+      ]
+    },
+    {
+      "id": "soleus-medial-visible-left",
+      "side": "left",
+      "structureId": "soleus-medial-visible",
+      "anatomicalMuscleId": "soleus",
+      "muscleGroupId": null,
+      "label": "Внутренний видимый участок · кандидат",
+      "points": [
+        [874.5, 958],
+        [874, 969],
+        [870, 982],
+        [866, 995],
+        [861, 1009],
+        [858, 1018],
+        [856.8, 1014],
+        [857.8, 1002],
+        [861, 987],
+        [865, 974],
+        [870, 963],
+        [874.5, 958]
+      ]
+    },
+    {
+      "id": "soleus-medial-visible-right",
+      "side": "right",
+      "structureId": "soleus-medial-visible",
+      "anatomicalMuscleId": "soleus",
+      "muscleGroupId": null,
+      "label": "Внутренний видимый участок · кандидат",
+      "points": [
+        [1008, 958],
+        [1013, 966],
+        [1017, 978],
+        [1021, 993],
+        [1024, 1007],
+        [1025, 1017],
+        [1022.5, 1014],
+        [1020, 1003],
+        [1016, 990],
+        [1012, 978],
+        [1009, 967],
+        [1008, 958]
+      ]
+    }
+  ]
+}
