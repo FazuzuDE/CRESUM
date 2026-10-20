@@ -35,7 +35,9 @@
     <label class="form-label" hidden
       >Мышца
       <select class="form-select" data-structure>
-        <option value="sartorius" selected>Портняжная мышца · кандидат</option>
+        <option value="sartorius" selected>
+          Портняжная мышца · уточнённые контуры v2
+        </option>
       </select>
     </label>
     <label class="form-label"
@@ -171,7 +173,7 @@
   </div>
   <div class="figure">
     <svg
-      viewBox="375 475 90 240"
+      viewBox="375 475 90 310"
       role="img"
       aria-label="Две маски-кандидата портняжной мышцы, границы и назначение на проверке"
     >
@@ -286,10 +288,10 @@
           zoom.value === 'phone'
             ? '0 0 656 1199'
             : side.value === 'left'
-              ? '375 475 90 240'
+              ? '375 475 90 310'
               : side.value === 'right'
-                ? '280 475 85 240'
-                : '275 475 195 240',
+                ? '280 475 85 310'
+                : '275 475 195 310',
         );
         svg.classList.toggle('phone', zoom.value === 'phone');
         root.querySelector('[data-opacity-value]').textContent =

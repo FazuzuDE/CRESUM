@@ -63,7 +63,7 @@ async function main() {
   const svg = el('svg');
   svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
   svg.setAttribute('width', '1080');
-  svg.setAttribute('height', '1329');
+  svg.setAttribute('height', '1717');
   const source = fs.readFileSync(
     path.join(__dirname, '../assets/muscle-map/male-anatomy-v1/source.png'),
   );

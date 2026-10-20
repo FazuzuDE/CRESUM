@@ -1,5 +1,15 @@
 # CRESUM Decision Log
 
+## 2026-10-20 — Sartorius contour revision 2 requested
+
+User requested more accurate boundaries. Audit both sides enlarged against
+the source and prior outline. Retrace proximal/longitudinal grooves, remove
+the premature distal cutoff/bulge and follow the visible narrow medial strips.
+Do not imply full muscle coverage, confirmed belly/tendon separation or a
+traced insertion. Archive revision 1 unchanged as superseded/unapproved.
+New contours and identity remain pending, group IDs null. Preserve independent
+0.5 px inset/X/Y controls, runtime opacity and all earlier accepted masks.
+
 ## 2026-10-20 — Teres minor accepted; sartorius continuation
 
 Approve 8F7FA941 selected appearance: anatomical L/R inset −0.5/0, inward

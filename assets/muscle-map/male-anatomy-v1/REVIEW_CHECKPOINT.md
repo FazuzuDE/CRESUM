@@ -1,5 +1,14 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Current sartorius revision 2 follows enlarged source/outline audits. Proximal
+and longitudinal edges are retraced, the distal bulge/early cutoff removed
+and the visible medial strips extended toward the knee. Exact identity and
+belly/tendon transition remain provisional; hidden coverage and attachment
+are excluded. `revision-1/` retains the first unapproved exports unchanged.
+New contours are not approved; independent inset/X/Y controls, null group IDs
+and runtime opacity remain unchanged. Selected quadriceps contact is recorded
+as 98 interior pixels for combined review; accepted masks are untouched.
+
 Latest: teres minor selected appearance is visually approved from 8F7FA941:
 anatomical L/R inset −0.5/0, inward +1/−1, Y −0.5/−0.5 source px. Selected
 SVG/PNG/geometry and review defaults retain these settings. Baseline stays
