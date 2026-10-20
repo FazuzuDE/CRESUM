@@ -22,3 +22,13 @@ addresses regional load representation without claiming exposed anatomy.
 
 Review provenance and historical approvals remain in REVIEW_CHECKPOINT.md and
 the individual studies. Do not invent contours merely to fill gray pixels.
+
+## New regional chest pilot — 2026-10-20
+
+The user approved preparing internal regional display divisions after the
+regional-evidence review. `chest-regional-study/` is a separate four-region draft:
+clavicular and coarse sternocostal per side. Internal boundaries await review;
+this is one new regional-division review block, not a reopened old muscle queue.
+Original whole-pectoral exteriors and combined 92-region composition stay exact.
+After this review, continue the nine-ID exercise-configuration/evidence mapping;
+no load coefficients or native integration are included yet.

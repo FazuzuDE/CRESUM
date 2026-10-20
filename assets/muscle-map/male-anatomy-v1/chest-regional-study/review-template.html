@@ -1,0 +1,231 @@
+<div id="cresum-regional-chest-review">
+  <style>
+    #cresum-regional-chest-review {
+      display: grid;
+      gap: 12px;
+      color: var(--foreground);
+    }
+    #cresum-regional-chest-review .figure {
+      display: flex;
+      justify-content: center;
+    }
+    #cresum-regional-chest-review svg {
+      width: 100%;
+      max-width: 736px;
+      height: auto;
+      display: block;
+    }
+    #cresum-regional-chest-review .region {
+      fill: var(--red);
+    }
+    #cresum-regional-chest-review .guide {
+      fill: none;
+      stroke: var(--foreground);
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+    #cresum-regional-chest-review .exterior {
+      fill: none;
+      stroke: var(--red);
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+  </style>
+  <div class="viz-row" role="group" aria-label="Просмотр разделения груди">
+    <button class="btn" type="button" data-mode="fill" aria-pressed="true">
+      Области
+    </button>
+    <button class="btn" type="button" data-mode="outline" aria-pressed="false">
+      Границы
+    </button>
+    <button class="btn" type="button" data-mode="source" aria-pressed="false">
+      Оригинал
+    </button>
+  </div>
+  <div class="viz-controls">
+    <label class="form-label"
+      >Верхняя · ключичная, предпросмотр
+      <span data-value="clavicular">65%</span>
+      <input
+        class="form-range"
+        type="range"
+        data-opacity="clavicular"
+        aria-label="Подсветка ключичной области"
+        min="0"
+        max="1"
+        step="0.05"
+        value="0.65"
+      />
+    </label>
+    <label class="form-label"
+      >Грудино-рёберная, предпросмотр <span data-value="sternocostal">65%</span>
+      <input
+        class="form-range"
+        type="range"
+        data-opacity="sternocostal"
+        aria-label="Подсветка грудино-рёберной области"
+        min="0"
+        max="1"
+        step="0.05"
+        value="0.65"
+      />
+    </label>
+  </div>
+  <div class="figure">
+    <svg
+      viewBox="230 195 280 145"
+      role="img"
+      aria-label="Черновое схематическое разделение груди на две области с каждой стороны"
+    >
+      <defs data-clips></defs>
+      <image href="__CHEST_SOURCE__" x="0" y="0" width="1312" height="1199" />
+      <g data-regional-layer></g>
+      <g data-guides></g>
+    </svg>
+  </div>
+  <div class="viz-controls">
+    <label class="form-label"
+      >Разделитель слева · анатомически
+      <span data-shift-value="left">0 px</span>
+      <input
+        class="form-range"
+        type="range"
+        data-shift="left"
+        aria-label="Высота разделителя слева"
+        min="-10"
+        max="10"
+        step="0.5"
+        value="0"
+      />
+    </label>
+    <label class="form-label"
+      >Разделитель справа · анатомически
+      <span data-shift-value="right">0 px</span>
+      <input
+        class="form-range"
+        type="range"
+        data-shift="right"
+        aria-label="Высота разделителя справа"
+        min="-10"
+        max="10"
+        step="0.5"
+        value="0"
+      />
+    </label>
+  </div>
+  <div class="text-small" data-status aria-live="polite">
+    Схема областей · граница на проверке · нагрузка не рассчитана
+  </div>
+  <script type="application/json" data-geometry>
+    "__CHEST_REGIONAL_PAYLOAD__"
+  </script>
+  <script>
+    (() => {
+      const root = document.getElementById('cresum-regional-chest-review');
+      const payload = JSON.parse(
+        root.querySelector('[data-geometry]').textContent,
+      );
+      const ns = 'http://www.w3.org/2000/svg';
+      const clips = root.querySelector('[data-clips]');
+      const layer = root.querySelector('[data-regional-layer]');
+      const guides = root.querySelector('[data-guides]');
+      let mode = 'fill';
+      const path = (d) => {
+        const p = document.createElementNS(ns, 'path');
+        p.setAttribute('d', d);
+        return p;
+      };
+      for (const parent of payload.parents) {
+        const clip = document.createElementNS(ns, 'clipPath');
+        clip.id = root.id + '-parent-' + parent.side;
+        clip.setAttribute('clipPathUnits', 'userSpaceOnUse');
+        clip.append(path(parent.path));
+        clips.append(clip);
+        const context = document.createElementNS(ns, 'g');
+        context.setAttribute('clip-path', 'url(#' + clip.id + ')');
+        const guide = path('');
+        guide.classList.add('guide');
+        guide.dataset.guide = parent.side;
+        context.append(guide);
+        guides.append(context);
+        const exterior = path(parent.path);
+        exterior.classList.add('exterior');
+        guides.append(exterior);
+        for (const name of ['clavicular', 'sternocostal']) {
+          const g = document.createElementNS(ns, 'g');
+          g.setAttribute('clip-path', 'url(#' + clip.id + ')');
+          const p = path('');
+          p.classList.add('region');
+          p.dataset.region = name;
+          p.dataset.side = parent.side;
+          g.append(p);
+          layer.append(g);
+        }
+      }
+      function draw() {
+        for (const parent of payload.parents) {
+          const shift = Number(
+            root.querySelector('[data-shift="' + parent.side + '"]').value,
+          );
+          const q = parent.guide.map(([x, y]) => [x, y + shift]);
+          const line =
+            'M' + q[0].join(' ') + ' Q' + q[1].join(' ') + ' ' + q[2].join(' ');
+          root
+            .querySelector('[data-guide="' + parent.side + '"]')
+            .setAttribute('d', line);
+          root.querySelector(
+            '[data-shift-value="' + parent.side + '"]',
+          ).textContent = shift + ' px';
+          for (const name of ['clavicular', 'sternocostal']) {
+            const p = root.querySelector(
+              '[data-region="' + name + '"][data-side="' + parent.side + '"]',
+            );
+            const y = name === 'clavicular' ? 0 : 1199;
+            p.setAttribute(
+              'd',
+              line +
+                ' L1312 ' +
+                q[2][1] +
+                ' L1312 ' +
+                y +
+                ' L0 ' +
+                y +
+                ' L0 ' +
+                q[0][1] +
+                ' Z',
+            );
+            const opacity = root.querySelector(
+              '[data-opacity="' + name + '"]',
+            ).value;
+            p.setAttribute('opacity', opacity);
+            root.querySelector('[data-value="' + name + '"]').textContent =
+              Math.round(Number(opacity) * 100) + '%';
+          }
+        }
+        layer.setAttribute(
+          'visibility',
+          mode === 'fill' ? 'visible' : 'hidden',
+        );
+        guides.setAttribute(
+          'visibility',
+          mode === 'source' ? 'hidden' : 'visible',
+        );
+        root
+          .querySelectorAll('[data-mode]')
+          .forEach((b) =>
+            b.setAttribute('aria-pressed', String(b.dataset.mode === mode)),
+          );
+      }
+      root
+        .querySelectorAll('input')
+        .forEach((e) => e.addEventListener('input', draw));
+      root.querySelectorAll('[data-mode]').forEach((b) =>
+        b.addEventListener('click', () => {
+          mode = b.dataset.mode;
+          draw();
+        }),
+      );
+      draw();
+    })();
+  </script>
+</div>

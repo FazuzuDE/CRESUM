@@ -655,3 +655,7 @@ supported. Unknown setup retains unresolved regional emphasis and parent
 participation, without invented splits or historical reinterpretation. Excitation,
 force and adaptation remain distinct. Numerical coefficients and normalization
 need separate methodological review. See [regional evidence](MUSCLE_REGIONAL_MAPPING.md).
+
+2026-10-20 follow-up: the user approved preparing the regional chest pilot.
+This authorizes four draft display regions and independent review controls, not
+physiological coefficients or acceptance of the resulting internal boundaries.

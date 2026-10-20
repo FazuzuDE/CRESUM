@@ -1479,3 +1479,16 @@ separate internal-subdivision review for clavicular/sternocostal display. Do not
 substitute an arbitrary gradient for reviewed regions or use preview opacity as
 a physiological coefficient. Missing regional evidence must not appear as
 measured uniform loading or inactivity. See [regional evidence](MUSCLE_REGIONAL_MAPPING.md).
+
+### Regional chest pilot prepared after approval — 2026-10-20
+
+Use two review-only regions per side: clavicular and coarse sternocostal.
+Preserve the exact existing whole-pectoral exteriors and the 92-region combined
+review. Internal quadratic dividers are artwork-guided schematic candidates,
+not recovered head boundaries. Inferior fibers remain aggregated; neither a
+separate abdominal head nor per-segment anatomy is asserted.
+
+Review independently adjustable regional opacity and bilateral divider height
+(±10 source px, 0.5 px steps; +Y down). Front anatomical left is screen right.
+Preview values do not encode load. Accept the new division separately before
+integration; existing masks and exercise mappings remain unchanged.

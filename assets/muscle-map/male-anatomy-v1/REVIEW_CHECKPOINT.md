@@ -468,3 +468,13 @@ defaults are retained separately from the baseline. Upper inset L/R −1/−1,
 inward +2.5/+3.5, Y 0/0; middle inset 0/0, inward +1.5/+2.5, Y −1.5/−0.5;
 lower inset 1/1, inward −3/−2.5, Y −1/0. Status is user-selected-parameters;
 combined appearance and anatomy remain under review, with all group IDs null.
+
+## 2026-10-20 — Regional chest preparation approved; internal division draft
+
+Prepare the requested regional pilot with four independent display regions and
+schematic internal dividers, preserving existing whole-chest exteriors. The
+preparation is approved; the newly shown division is not yet accepted. Saved
+zero-shift raster partitions exactly sum to each original parent with no mutual
+pixel ownership. SVGs retain exact parent paths with shared complementary clips.
+Independent preview opacity and ±10 px / 0.5 px divider shifts support review.
+The 92-region combined review and all prior selections remain unchanged.

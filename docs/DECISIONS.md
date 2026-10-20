@@ -2007,3 +2007,15 @@ setups. Extend research across muscle families before binding. This replaces
 aggregate-only as the final regional-display target, without changing current
 17-group counts, IDs, history, coefficients or 92-region geometry. Next prepare a
 regional chest pilot; scoring-model review precedes native integration. No merge.
+
+## 2026-10-20 — Regional chest pilot preparation approved
+
+The user approved the proposed next step: prepare separate clavicular and
+sternocostal display regions inside the existing chest exteriors. Implement a
+separate four-region draft with exact parent SVG paths, complementary clips and
+PNG partitions, independent region preview opacity and bilateral divider-height
+controls. New boundaries remain draft-regional-boundary-review. The generated
+source cannot establish exact head boundaries; inferior fibers remain aggregated.
+Keep original source, reference masks, 92-region composition, 17 groups and
+exercise mappings unchanged. No coefficients or merge. Next review the displayed
+internal division, then exact-variant evidence/assignment.

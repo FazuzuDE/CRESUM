@@ -212,3 +212,8 @@ assets/muscle-map/male-anatomy-v1/lower-back-projection-study/fit-report.json
 
 assets/muscle-map/male-anatomy-v1/lower-back-projection-study/selected-geometry.json
 assets/muscle-map/male-anatomy-v1/lower-back-projection-study/selection-report.json
+
+# Reproducible regional chest partition exports
+assets/muscle-map/male-anatomy-v1/chest-regional-study/*.svg
+assets/muscle-map/male-anatomy-v1/chest-regional-study/geometry.json
+assets/muscle-map/male-anatomy-v1/chest-regional-study/fit-report.json

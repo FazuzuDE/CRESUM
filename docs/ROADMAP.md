@@ -383,3 +383,9 @@ exteriors. The current whole-pectoral masks cannot display separate regional
 inputs. Extend the audit by muscle family; preserve stable IDs and factual
 counts. Numerical stimulus coefficients and native integration follow separately.
 See [regional evidence and audit](MUSCLE_REGIONAL_MAPPING.md).
+
+Regional chest pilot preparation is approved. A separate four-region draft now
+preserves whole-pectoral exteriors with complementary internal partitions and
+independent opacity/divider review. Next review its internal boundaries, then
+complete the nine-ID configuration/evidence mapping. The original 92-region
+combined review remains unchanged; no native scoring/integration is introduced.
