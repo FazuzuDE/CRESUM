@@ -1859,3 +1859,15 @@ settings of 0.5 px inset and 4.5 px inward shift. Keep those candidates unassign
 and outside the combined selected mask pending refinement. Opacity remains a
 runtime load variable. This visual approval does not integrate the atlas into
 production or modify exercise mappings.
+
+## 2026-10-20 — Serratus lower-patch settings selected; combined approval pending
+
+Save the three new serratus screenshots as parameter selection, retaining
+upper/middle values and changing both lower patches to inset 1.5, inward −3.5
+and Y −1 source px. Regenerate only changed selected masks and their union;
+preserve the baseline, upper/middle selected exports and all earlier approvals.
+Restore all 18 values for combined review. The screenshots do not establish
+combined visual approval or anatomical identity. Keep `user-selected-parameters`,
+null load groups, runtime-variable opacity and four blocks / 16 regions pending.
+The 65% screenshot opacity is preview-only. No exercise mapping, score or
+production-renderer changes.

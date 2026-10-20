@@ -1,5 +1,14 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: three serratus screenshots confirm the upper/middle
+settings and update both lower patches to inset 1.5, inward −3.5, Y −1 source px.
+Sources: image(20261020-132259).png upper, image(20261020-132252).png middle,
+image(20261020-132244).png lower. All 18 parameters are saved as
+`user-selected-parameters`; combined appearance and anatomical identity remain
+pending. Baseline and upper/middle selected masks stay byte-identical. Opacity
+65% is preview-only, group IDs remain null. Next: combined serratus review;
+four blocks / 16 regions remain. Earlier approvals below are retained.
+
 Latest — 2026-10-20: combined abdominal/external-oblique selected appearance
 is visually approved across ten regions. image(20261020-124247).png confirms
 upper L/R inset 0/1, inward −0.5/+1.5, Y +2.5/+3.5 source px. Upper-right Y

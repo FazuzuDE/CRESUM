@@ -30,10 +30,11 @@ Rebuild geometry:
 Build the review fragment:
 `python scripts/build-serratus-review.py --options-file /tmp/serratus-options.json --output /workspace/cresum-serratus-review.html`.
 
-Screenshot checkpoint (IMG_8229, IMG_8230 and 34AC2D9B): values in anatomical
+Screenshot checkpoint (image(20261020-132259), image(20261020-132252) and
+image(20261020-132244)): values in anatomical
 left / right order, source pixels. Upper: inset −1 / −1, inward +2.5 / +3.5,
 Y 0 / 0. Middle: inset 0 / 0, inward +1.5 / +2.5, Y −1.5 / −0.5. Lower:
-inset 1 / 1, inward −3 / −2.5, Y −1 / 0. Selection metadata and separate
+inset 1.5 / 1.5, inward −3.5 / −3.5, Y −1 / −1. Selection metadata and separate
 selected SVG/PNG exports preserve these settings; baseline candidates remain
 unchanged. Status is user-selected-parameters, with combined appearance and
 anatomical identity still under review. All selected load-group IDs remain null.
@@ -45,3 +46,16 @@ unchanged. Horizontal review shifts now span ±10 px, matching Y, with 0.5 px
 steps. Start with all six patches for combined review; selecting a patch
 restores its independent settings. This continuation does not approve the
 selected appearance, infer a load group or add hidden/deeper surfaces.
+
+## Screenshot selection update — 2026-10-20
+
+The latest three screenshots retain upper/middle settings and revise both lower
+patches to inset 1.5, inward −3.5 and Y −1 source px. Regenerate the lower selected
+exports and combined union while preserving the baseline and upper/middle
+selected masks byte-for-byte. All 18 values restore in the combined review.
+Screenshot opacity 65% is preview-only. Appearance and identity remain pending;
+no load group is assigned and the queue stays four blocks / 16 regions.
+
+The selected set retains 6 mutual interior overlap pixels in both raw-float
+and quantized PNG checks, with zero background pixels clipped. Keep these
+contacts recorded for combined boundary review without altering the selection.
