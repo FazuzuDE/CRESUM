@@ -1,10 +1,14 @@
 # Fibularis longus visible-surface candidates
 
-Two independent proximal visible lateral-leg strips, proposed as partial
+Revision 2: two independent visible lateral-leg strips, proposed as partial
 fibularis longus surfaces. Exact identity and separation from adjacent extensor
 and fibularis brevis surfaces on the stylized source remain provisional.
 Exclude selected tibialis anterior, hidden coverage, distal tendon, retinacula
 and foot; no full-muscle or attachment coverage is claimed.
+
+Revision 1 is preserved byte-for-byte in `revision-1/`. Revision 2 follows the
+source longitudinal grooves with reshaped upper shoulders and longer, gradual
+distal tapers. Both contours remain unapproved candidates.
 
 Orientation reference only, no artwork copied:
 https://www.ncbi.nlm.nih.gov/books/NBK546650/

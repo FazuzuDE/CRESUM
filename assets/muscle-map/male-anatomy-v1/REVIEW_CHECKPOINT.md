@@ -1,5 +1,10 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: fibularis-longus revision 2 refines upper shoulders,
+longitudinal side grooves and distal tapers independently for both sides.
+Revision 1 is archived byte-for-byte. This remains the current unapproved
+candidate; review v2 next. All earlier selections/statuses stay unchanged.
+
 Latest — 2026-10-20: sternocleidomastoid selected appearance is visually
 approved from image(6).png: anatomical L/R inset −2.5/−2.5, inward −0.5/−3.5,
 Y −5/−6 source px. Selected SVG/PNG/geometry and all six restored review

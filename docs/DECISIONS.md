@@ -1,5 +1,17 @@
 # CRESUM Decision Log
 
+## 2026-10-20 — Fibularis longus boundaries refined for review
+
+Refine both fibularis-longus candidate contours independently against the source
+longitudinal grooves: reshape upper shoulders and side arcs, replace the early
+y≈936 cutoffs with gradual visible tapers ending near y≈973. Preserve revision 1
+byte-for-byte under `fibularis-longus-surface-study/revision-1/`.
+Revision 2 remains an unapproved boundary/structure candidate; do not treat this
+request as acceptance. Keep null group IDs, runtime opacity and independent
+0.5 px inset/X/Y controls. Exclude adjacent tibialis anterior, distal tendons,
+retinacula, foot and hidden coverage. Prior selected masks and their approval
+statuses remain unchanged; no taxonomy, exercise mapping or score changes.
+
 ## 2026-10-20 — SCM selected appearance accepted; lateral-leg continuation
 
 Approve image(6).png neck appearance: anatomical L/R inset −2.5/−2.5,

@@ -36,7 +36,7 @@
       >Мышца
       <select class="form-select" data-structure>
         <option value="fibularis-longus" selected>
-          Длинная малоберцовая мышца · видимый участок · кандидат
+          Длинная малоберцовая мышца · уточнённые контуры v2 · кандидат
         </option>
       </select>
     </label>
@@ -177,7 +177,7 @@
   </div>
   <div class="figure">
     <svg
-      viewBox="477 824 29 123"
+      viewBox="473 820 33 166"
       role="img"
       aria-label="Две маски-кандидата длинной малоберцовой мышцы, границы и назначение на проверке"
     >
@@ -292,16 +292,16 @@
           zoom.value === 'phone'
             ? '0 0 656 1199'
             : side.value === 'left'
-              ? '477 824 29 123'
+              ? '473 820 33 166'
               : side.value === 'right'
-                ? '230 824 32 123'
-                : '225 818 285 135',
+                ? '230 820 37 166'
+                : '225 818 285 170',
         );
         svg.classList.toggle('phone', zoom.value === 'phone');
         root.querySelector('[data-opacity-value]').textContent =
           Math.round(Number(opacity.value) * 100) + '%';
         root.querySelector('[data-status]').textContent = all
-          ? '2 маски-кандидата длинной малоберцовой мышцы · назначение и границы на проверке.'
+          ? '2 маски-кандидата длинной малоберцовой мышцы · контуры v2 · назначение и границы на проверке.'
           : structure.selectedOptions[0].textContent +
             ' · границы для проверки.';
         root
