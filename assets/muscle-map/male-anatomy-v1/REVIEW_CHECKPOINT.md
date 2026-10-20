@@ -1,5 +1,22 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: four selected biceps-femoris/semitendinosus appearances
+are visually approved from image(20261020-134749).png and
+image(20261020-134825).png. Anatomical L/R inset / inward / Y, source px:
+biceps −2/+1.5/+4 and −2.5/+1/0; semitendinosus −3/−0.5/+2 and −3/−3/+1.
+All twelve restored defaults and selected exports retain these settings;
+baseline/revision-1 contours and deferred inner strips remain unchanged.
+Retain 773 raw-float / 875 quantized PNG overlap pixels and zero background
+clipping for combined review. The hamstrings parent stays unchanged and 65%
+preview opacity is not baked. Exact anatomical validation remains separate.
+
+Next: tibialis anterior, the final block / two regions. Restore inset 1.5/1.5
+and inward −0.5/+1.5 with Y defaulting to zero. Keep null groups and
+`user-selected-boundary-review`; no anatomy or appearance approval is inferred.
+All masks/revision-1 archive stay unchanged; zero Y is explicit in metadata.
+X/Y controls span ±10 px at 0.5 px steps. Combined front/back boundary review
+and separate production assembly follow this queue.
+
 Latest — 2026-10-20: four selected anterior/lateral deltoid regions are visually
 approved with image(20261020-133912).png anterior and image(20261020-133923).png
 lateral. Anatomical L/R inset / inward / Y: anterior +0.5/0/−0.5 and −2/0/+1;

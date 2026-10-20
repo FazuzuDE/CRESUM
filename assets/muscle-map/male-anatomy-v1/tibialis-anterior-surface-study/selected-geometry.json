@@ -17,6 +17,7 @@
       "transform": "translate(0.5 0)",
       "insetSourcePixels": 1.5,
       "inwardShiftSourcePixels": -0.5,
+      "verticalShiftSourcePixels": 0,
       "status": "user-selected-boundary-review"
     },
     {
@@ -29,6 +30,7 @@
       "transform": "translate(1.5 0)",
       "insetSourcePixels": 1.5,
       "inwardShiftSourcePixels": 1.5,
+      "verticalShiftSourcePixels": 0,
       "status": "user-selected-boundary-review"
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "status": "user-selected-parameters",
+  "status": "visually-approved",
   "revision": 2,
   "units": "source-pixels",
   "shiftConvention": "positive toward body center; back left maps to positive X, back right to negative X",
@@ -9,9 +9,30 @@
     "medial-posterior-surface-right"
   ],
   "regions": {
-    "hamstrings-left-biceps-femoris": { "inset": -1.5, "shift": 1.5 },
-    "hamstrings-right-biceps-femoris": { "inset": -2, "shift": 1 },
-    "hamstrings-left-semitendinosus": { "inset": -3, "shift": -0.5 },
-    "hamstrings-right-semitendinosus": { "inset": -3, "shift": -3 }
-  }
+    "hamstrings-left-biceps-femoris": {
+      "inset": -2,
+      "shift": 1.5,
+      "shiftY": 4
+    },
+    "hamstrings-right-biceps-femoris": {
+      "inset": -2.5,
+      "shift": 1,
+      "shiftY": 0
+    },
+    "hamstrings-left-semitendinosus": {
+      "inset": -3,
+      "shift": -0.5,
+      "shiftY": 2
+    },
+    "hamstrings-right-semitendinosus": {
+      "inset": -3,
+      "shift": -3,
+      "shiftY": 1
+    }
+  },
+  "sourceScreenshots": {
+    "biceps-femoris": "image(20261020-134749).png",
+    "semitendinosus": "image(20261020-134825).png"
+  },
+  "approvalBasis": "four selected posterior-thigh appearances explicitly accepted with latest screenshots; deferred inner strips remain excluded"
 }

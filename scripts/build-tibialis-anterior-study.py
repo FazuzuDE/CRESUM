@@ -50,13 +50,14 @@ for region in data['regions']:
         if selection and name in selection['regions'] and radius == selection['regions'][name]['inset']:
             state = selection['regions'][name]
             dx = state['shift']*(-1 if side == 'left' else 1)
-            shifted = nd.shift(pixels, (0, dx), order=1, mode='constant', cval=0)
+            dy = state.get('shiftY', 0)
+            shifted = nd.shift(pixels, (dy, dx), order=1, mode='constant', cval=0)
             clipped_background += int(np.count_nonzero((shifted > .5) & ~silhouette))
             shifted *= silhouette
             selected_rasters.append(shifted)
             selected_regions.append({'id': name, 'side': side, 'view': 'front', 'structureId': 'tibialis-anterior',
-                'muscleGroupId': None, 'path': path, 'transform': f'translate({dx} 0)',
-                'insetSourcePixels': state['inset'], 'inwardShiftSourcePixels': state['shift'], 'status': selection['status']})
+                'muscleGroupId': None, 'path': path, 'transform': f'translate({dx} {dy})',
+                'insetSourcePixels': state['inset'], 'inwardShiftSourcePixels': state['shift'], 'verticalShiftSourcePixels': dy, 'status': selection['status']})
             Image.fromarray(np.round(shifted*255).astype('uint8')).save(study/(name+'-selected.png'))
         if radius == 0:
             rasters.append(pixels)

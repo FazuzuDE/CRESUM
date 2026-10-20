@@ -1382,3 +1382,24 @@ Existing contact remains 670 raw-float / 772 quantized PNG pixels, with zero
 background clipping, for combined review. Two blocks / 6 regions remain, then
 combined front/back boundaries and separate production assembly. No exercise,
 score or production-renderer changes.
+
+### Hamstrings selected appearance accepted; final tibialis review — 2026-10-20
+
+Accept four selected posterior-thigh appearances from the latest screenshots.
+Anatomical L/R inset / inward / Y, source px: biceps femoris −2/+1.5/+4 and
+−2.5/+1/0 from image(20261020-134749).png; semitendinosus −3/−0.5/+2 and
+−3/−3/+1 from image(20261020-134825).png. Save all twelve values and visual
+approval; regenerate selected masks, geometry and union while preserving baseline
+contours, previous revision and deferred inner strips byte-for-byte. Keep the
+hamstrings parent. Record 773 raw-float / 875 quantized PNG overlap pixels and
+zero background clipping for combined review. Exact anatomical validation remains
+separate; 65% screenshot opacity is preview-only and runtime-variable.
+
+Continue with the existing tibialis-anterior selection: anatomical L/R inset
+1.5/1.5, inward −0.5/+1.5 source px, Y default zero because none was supplied.
+Retain all masks, revision-1 archive, null group IDs and
+`user-selected-boundary-review` status. Add explicit zero Y metadata and
+independent ±10 px X/Y controls at 0.5 px steps. Do not assign anterior shin
+to calves or infer exercise coefficients. This final block has two regions;
+combined front/back boundaries and separate production assembly follow. No
+exercise, score or production-renderer changes.

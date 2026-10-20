@@ -68,3 +68,17 @@ pixels), with zero background clipping. Keep these contacts for combined
 boundary review. Render the union, then apply runtime intensity once.
 Build review with `python scripts/build-hamstrings-review.py --options-file PATH
 --output /workspace/cresum-hamstrings-review.html`.
+
+## Selected appearance accepted — 2026-10-20
+
+The user explicitly accepted four posterior-thigh regions using the latest
+screenshots. image(20261020-134749).png selects biceps femoris anatomical L/R
+inset −2/−2.5, inward +1.5/+1, Y +4/0. image(20261020-134825).png selects
+semitendinosus inset −3/−3, inward −0.5/−3, Y +2/+1 source px. Save all twelve
+values and visual approval; regenerate selected PNG/SVG/geometry and union.
+All baseline/revision-1 contours and the two deferred inner strips stay unchanged.
+Selected overlap is now 773 raw-float / 875 quantized PNG interior pixels,
+with zero background clipping. Retain these contacts for combined boundary
+review. The hamstrings parent stays unchanged; exact anatomical validation is
+separate, and 65% screenshot opacity is preview-only. Next: tibialis anterior,
+the final two-region block before combined front/back review.
