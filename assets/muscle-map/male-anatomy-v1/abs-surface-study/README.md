@@ -37,7 +37,7 @@ tendinous intersections, and external oblique is superficial to the deeper flat
 abdominal muscles. This source does not validate the mannequin's contours.
 
 The preview exposes each segment or oblique pair, separate anatomical sides,
-inset and inward shift in 0.5 source-pixel steps. Values start at zero. Positive
+inset and inward shift in 0.5 source-pixel steps. The review restores the selected values above. Positive
 inset contracts; negative expands. Positive inward shifts left to negative X
 and right to positive X in this front view. The combined preview applies opacity
 once so overlapping contours do not form darker bands. Small initial contacts
@@ -59,3 +59,11 @@ and survives segment, side, display-mode and zoom switches in the open review.
 It composes with inward X translation without modifying the inset path. Current
 baseline geometry remains unchanged and unapproved; selected offsets above are
 stored separately pending combined appearance review.
+
+## Combined review continuation — 2026-10-20
+
+All 30 saved inset/X/Y values and all mask exports remain unchanged. Horizontal
+review shifts now span ±10 source px, matching Y, at 0.5 px steps. Start with
+all ten surfaces for combined appearance review; selecting a part restores its
+independent settings. This review does not approve the selected appearance.
+Existing selected overlap/clipping counts stay recorded in selection-report.json.

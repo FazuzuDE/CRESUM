@@ -44,5 +44,22 @@ transition remains provisional.
 In y=890…1045, the soleus-only clip is recovered row by row for each calf from
 the dark source edge. This prevents the ground-shadow connection from filling
 inter-leg background. It does not edit any earlier study's silhouette or mask.
-Revision 2 is archived byte-for-byte in `revision-2/`; no soleus revision is
-approved. Review v3 next.
+Revision 2 is archived byte-for-byte in `revision-2/`; baseline v3 stays draft. Selected approval is recorded below.
+
+## Selected appearance — 2026-10-20
+
+User approved image(9).png lateral and image(10).png medial settings.
+Anatomical L/R inset / inward / Y in source pixels:
+
+| Window  | Left         | Right          |
+| ------- | ------------ | -------------- |
+| Lateral | −1 / −1 / −5 | +0.5 / −3 / −6 |
+| Medial  | −1 / +3 / −1 | −1 / +0.5 / +1 |
+
+Separate selected exports and all twelve restored review defaults retain these
+values. Baseline v3, archives v1/v2 and earlier masks remain unchanged. The
+selected set has no mutual interior overlap, 52 background pixels clipped and
+42 interior pixels of contact with accepted gastrocnemius, recorded for combined
+review. Exact identity and combined calf boundaries remain provisional; null
+group IDs and runtime opacity are retained. The 80% screenshot preview is not
+a mask property or load value.

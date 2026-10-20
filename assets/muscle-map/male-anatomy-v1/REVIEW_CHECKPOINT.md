@@ -1,5 +1,19 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: soleus revision-3 selected appearance is visually
+approved from image(9).png lateral and image(10).png medial windows. Lateral
+anatomical L/R inset −1/+0.5, inward −1/−3, Y −5/−6; medial inset −1/−1,
+inward +3/+0.5, Y −1/+1 source px. All twelve restored controls and separate
+selected exports retain these values. Baseline v3 and archives v1/v2 remain
+byte-identical drafts. Exact identity remains provisional, group IDs null.
+Selected gastrocnemius contact: 42 interior pixels; 52 background pixels are
+clipped as in the source-mask review. Combined calf boundaries remain pending.
+
+Next: combined abdominal/external-oblique review with all 30 prior settings
+restored, preserving selected-but-unapproved status and geometry. X/Y ranges
+are ±10 px in 0.5 px steps. Five blocks / 26 regions remain in
+[REMAINING_REVIEW.md](REMAINING_REVIEW.md), then combined front/back review.
+
 Latest — 2026-10-20: soleus revision 3 replaces the narrow isolated patches
 with source-groove guided longitudinal bands. Independent monotone edge guides
 control each window; the calf clip no longer fills inter-leg background.

@@ -1270,3 +1270,30 @@ Revision 3 is still a boundary/identity candidate, including uncertain distal
 muscle/aponeurosis transition. Keep four independent windows, null group IDs,
 0.5 px inset/X/Y controls, ±10 px shifts and runtime-variable opacity. No exercise
 mapping, scores or production rendering changes; the review queue stays six blocks.
+
+### Soleus selected appearance accepted; abdominal combined review — 2026-10-20
+
+Approve the screenshot-selected soleus revision-3 appearance. Preserve four
+independent selected regions and all twelve review defaults from image(9).png
+(lateral windows) and image(10).png (medial windows), anatomical L/R source px:
+
+| Window          | Left inset / inward / Y | Right inset / inward / Y |
+| --------------- | ----------------------- | ------------------------ |
+| Lateral visible | −1 / −1 / −5            | +0.5 / −3 / −6           |
+| Medial visible  | −1 / +3 / −1            | −1 / +0.5 / +1           |
+
+Back inward maps left to +X/right to −X. Save selected SVG/PNG/geometry apart
+from the unchanged revision-3 baseline and byte-exact revision-1/2 archives.
+The selected set has zero mutual interior overlap, 52 background pixels clipped
+and 42 interior pixels of contact with accepted gastrocnemius. Retain the user's
+selected settings; combined calf boundaries remain pending. Opacity stays a
+runtime variable; the screenshots' 80% is preview-only. Exact identity and distal
+muscle/aponeurosis transition remain provisional, group IDs null. No mapping,
+score or production-renderer changes.
+
+Continue with the existing abdominal/external-oblique selection for combined
+review. Preserve all 30 saved settings and all baseline/selected mask geometry;
+do not promote its `user-selected-parameters` status. Extend horizontal review
+shifts to ±10 source px, matching the established controls; retain 0.5 px steps.
+The remaining queue is five blocks / 26 regions, followed by combined front/back
+boundary review and separate production assembly.
