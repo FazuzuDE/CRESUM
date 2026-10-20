@@ -1160,3 +1160,18 @@ Exact identity and new boundaries remain pending. Preserve independent
 0.5 px inset/X/Y controls, ±10 px shifts, null load-group IDs and runtime
 opacity. No taxonomy, exercise mappings or load coefficients are changed.
 Record neighboring contact for combined review; do not alter prior approvals.
+
+### Gracilis accepted; TFL continuation — 2026-10-20
+
+Approve image(4).png gracilis appearance: anatomical L/R inset −2/−1.5,
+inward 0/+1.5, Y 0/+2 source px. Save separate selected SVG/PNG/geometry and
+matching review defaults; baseline contours and earlier approvals stay unchanged.
+Exact identity, combined medial-thigh boundaries and distal continuation remain
+provisional; group IDs stay null and opacity remains runtime-variable.
+
+Continue with two small independent proximal anterolateral-thigh patches
+proposed as partial tensor fasciae latae surfaces. New boundaries, identity
+and distal muscle/fascia transition remain pending. Exclude iliotibial tract,
+hidden coverage, attachments and neighboring accepted sartorius/quadriceps.
+Keep separate 0.5 px inset/X/Y controls, ±10 px shifts, null load-group IDs
+and runtime-variable opacity; no training taxonomy, mappings or coefficients.

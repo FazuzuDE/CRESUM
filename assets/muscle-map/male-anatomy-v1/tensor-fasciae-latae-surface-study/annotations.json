@@ -1,0 +1,62 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "revision": 1,
+  "status": "draft-boundary-and-structure-review",
+  "anatomyReference": "https://www.ncbi.nlm.nih.gov/books/NBK499870/",
+  "scope": "bilateral small exposed anterolateral proximal-thigh patches proposed as partial tensor fasciae latae; exact identity and distal muscle/fascia transition provisional; exclude iliotibial tract, neighboring accepted sartorius and quadriceps, hidden coverage and attachments",
+  "signedDistanceSmoothing": 0.6,
+  "contourSplineSmoothing": 0.03,
+  "regions": [
+    {
+      "id": "tensor-fasciae-latae-left",
+      "side": "left",
+      "structureId": "tensor-fasciae-latae",
+      "anatomicalMuscleId": "tensor-fasciae-latae",
+      "muscleGroupId": null,
+      "label": "Напрягатель широкой фасции бедра · кандидат",
+      "points": [
+        [460.2, 479.7],
+        [464.2, 485.4],
+        [467, 494.2],
+        [468.8, 505],
+        [469.7, 515],
+        [470.1, 524.5],
+        [470.6, 531.2],
+        [468, 525.5],
+        [464.7, 518],
+        [461.6, 511],
+        [458.4, 503],
+        [455.7, 494],
+        [454.4, 486.7],
+        [455.8, 482.9],
+        [460.2, 479.7]
+      ]
+    },
+    {
+      "id": "tensor-fasciae-latae-right",
+      "side": "right",
+      "structureId": "tensor-fasciae-latae",
+      "anatomicalMuscleId": "tensor-fasciae-latae",
+      "muscleGroupId": null,
+      "label": "Напрягатель широкой фасции бедра · кандидат",
+      "points": [
+        [274, 479],
+        [279.5, 481.5],
+        [283.1, 483.8],
+        [281.7, 489.6],
+        [279.5, 496.6],
+        [276.6, 504.8],
+        [273.1, 513],
+        [269.7, 521],
+        [267.1, 528.2],
+        [266.7, 530.2],
+        [267.4, 520],
+        [268.1, 509],
+        [269, 499],
+        [270.8, 489],
+        [274, 479]
+      ]
+    }
+  ]
+}

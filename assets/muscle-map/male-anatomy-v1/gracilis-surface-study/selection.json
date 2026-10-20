@@ -1,0 +1,20 @@
+{
+  "status": "visually-approved",
+  "revision": 1,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; front left negative X, front right positive X; positive shiftY down, negative shiftY up",
+  "sourceScreenshot": "image(4).png",
+  "regions": {
+    "gracilis-left": {
+      "inset": -2,
+      "shift": 0,
+      "shiftY": 0
+    },
+    "gracilis-right": {
+      "inset": -1.5,
+      "shift": 1.5,
+      "shiftY": 2
+    }
+  }
+}

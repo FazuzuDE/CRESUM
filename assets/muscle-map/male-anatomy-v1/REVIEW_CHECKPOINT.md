@@ -1,5 +1,18 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: gracilis selected appearance is visually approved from
+image(4).png: anatomical L/R inset −2/−1.5, inward 0/+1.5, Y 0/+2 source px.
+Separate selected SVG/PNG/geometry and all six review defaults retain these
+values. Baseline contours remain unchanged drafts; exact identity, combined
+boundaries and distal continuation remain provisional. Opacity is not fixed.
+
+Next: `tensor-fasciae-latae-surface-study/` contains two small independent
+proximal anterolateral-thigh patch candidates. Partial visible coverage only;
+new identity, boundaries and distal muscle/fascia transition remain pending.
+Exclude iliotibial tract, hidden coverage, attachments and neighboring accepted
+sartorius/quadriceps. Keep null group IDs, orange fill, independent 0.5 px
+inset/X/Y controls and ±10 px shifts, with runtime-variable opacity.
+
 Latest — 2026-10-20: adductor longus revision-2 selected appearance is
 visually approved from image(3).png. Anatomical L/R inset 0/−0.5, inward
 −0.5/+1.5, Y +1.5/+0.5 source px. Separate selected SVG/PNG/geometry and

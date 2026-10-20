@@ -18,3 +18,10 @@ Then `python scripts/build-gracilis-review.py --options-file /tmp/gracilis-optio
 
 No taxonomy, exercise mappings, load coefficients or production rendering
 changes. Fit reports record contact with both accepted neighboring studies.
+
+## Selected appearance — 2026-10-20
+
+Visually approved from image(4).png: anatomical L/R inset −2/−1.5, inward
+0/+1.5, Y 0/+2 source px. Separate selected exports and review defaults
+retain these values. Baseline stays draft; exact identity, combined boundaries
+and distal continuation remain provisional. Preview opacity is not fixed.

@@ -168,3 +168,9 @@ assets/muscle-map/male-anatomy-v1/adductor-longus-surface-study/selection-report
 assets/muscle-map/male-anatomy-v1/gracilis-surface-study/*.svg
 assets/muscle-map/male-anatomy-v1/gracilis-surface-study/geometry.json
 assets/muscle-map/male-anatomy-v1/gracilis-surface-study/fit-report.json
+
+assets/muscle-map/male-anatomy-v1/gracilis-surface-study/selected-geometry.json
+assets/muscle-map/male-anatomy-v1/gracilis-surface-study/selection-report.json
+assets/muscle-map/male-anatomy-v1/tensor-fasciae-latae-surface-study/*.svg
+assets/muscle-map/male-anatomy-v1/tensor-fasciae-latae-surface-study/geometry.json
+assets/muscle-map/male-anatomy-v1/tensor-fasciae-latae-surface-study/fit-report.json
