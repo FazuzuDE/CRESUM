@@ -18,3 +18,11 @@ review. Prior approved masks remain unchanged.
 
 Rebuild: `python scripts/build-adductor-longus-surface-study.py --options-file /tmp/adductor-longus-options.json`.
 Review: `python scripts/build-adductor-longus-review.py --options-file /tmp/adductor-longus-options.json --output /workspace/cresum-adductor-longus-review.html`.
+
+## Revision 2 selected appearance — 2026-10-20
+
+Visually approved from image(3).png: anatomical L/R inset 0/−0.5, inward
+−0.5/+1.5, Y +1.5/+0.5 source px. Selected geometry/exports and review
+defaults retain these values. The baseline remains draft; revision-1 preserves
+the superseded unapproved files byte-for-byte. Exact anatomical identity and
+combined boundaries remain provisional. Runtime opacity is not fixed.

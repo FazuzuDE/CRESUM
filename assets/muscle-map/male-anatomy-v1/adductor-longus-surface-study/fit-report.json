@@ -7,6 +7,6 @@
   "registration": "identity-manual-source-coordinates",
   "baselineOverlapPixels": 0,
   "opacityBakedIntoMasks": false,
-  "overlapWithSelectedSartoriusPixels": 0,
+  "overlapWithSelectedSartoriusPixels": 37,
   "combinedMedialThighBoundaryReview": "pending"
 }

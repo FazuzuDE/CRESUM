@@ -1,0 +1,20 @@
+{
+  "status": "visually-approved",
+  "revision": 2,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; front left negative X, front right positive X; positive shiftY down, negative shiftY up",
+  "sourceScreenshot": "image(3).png",
+  "regions": {
+    "adductor-longus-left": {
+      "inset": 0,
+      "shift": -0.5,
+      "shiftY": 1.5
+    },
+    "adductor-longus-right": {
+      "inset": -0.5,
+      "shift": 1.5,
+      "shiftY": 0.5
+    }
+  }
+}

@@ -1,5 +1,19 @@
 # Muscle-mask review checkpoint — 2026-10-19
 
+Latest — 2026-10-20: adductor longus revision-2 selected appearance is
+visually approved from image(3).png. Anatomical L/R inset 0/−0.5, inward
+−0.5/+1.5, Y +1.5/+0.5 source px. Separate selected SVG/PNG/geometry and
+review defaults retain these values. Revision-1 is archived byte-for-byte;
+baseline remains draft and exact identity/combined boundaries provisional.
+
+Next: `gracilis-surface-study/` contains two independently traced most-medial
+exposed thigh-strip candidates. Partial visible coverage only; exact identity,
+new boundaries and distal continuation remain pending. Exclude neighboring
+adductors, accepted sartorius, hidden proximal coverage and tendon/insertion.
+Keep null group IDs, independent 0.5 px inset/X/Y controls, ±10 px shifts and
+runtime-variable opacity. Fit reports record adjacent contact for combined
+review. Earlier approved masks and production rendering remain unchanged.
+
 Latest: sartorius revision-2 selected appearance is visually approved from
 83F8AACA: anatomical L/R inset −1/−0.5, inward −1/+1, Y +3.5/+2 source px.
 Selected exports and review defaults retain these settings; baseline and

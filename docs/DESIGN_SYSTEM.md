@@ -1143,3 +1143,20 @@ New identity, separation from pectineus and contours remain pending. Exclude
 neighboring sartorius, long medial strips, hidden coverage and attachments.
 Retain null group IDs, orange fill, independent 0.5 px inset/X/Y controls and
 ±10 px shifts. Opacity remains a per-muscle runtime variable.
+
+### Adductor longus accepted; gracilis continuation — 2026-10-20
+
+Approve image(3).png selected revision-2 appearance: anatomical L/R inset
+0/−0.5, inward −0.5/+1.5, Y +1.5/+0.5 source px. Save separate selected
+SVG/PNG/geometry, matching review defaults and superseded revision-1 files
+unchanged in the archive. Baseline revision 2 remains draft; exact anatomical
+identity and combined boundaries remain provisional, with null group IDs.
+Runtime opacity is not fixed by the screenshot's preview percentage.
+
+Continue with two independent most-medial exposed thigh-strip candidates
+proposed as partial gracilis surfaces. Exclude neighboring adductors,
+accepted sartorius, hidden proximal coverage and distal tendons/insertions.
+Exact identity and new boundaries remain pending. Preserve independent
+0.5 px inset/X/Y controls, ±10 px shifts, null load-group IDs and runtime
+opacity. No taxonomy, exercise mappings or load coefficients are changed.
+Record neighboring contact for combined review; do not alter prior approvals.

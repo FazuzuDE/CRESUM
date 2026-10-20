@@ -1,5 +1,22 @@
 # CRESUM Decision Log
 
+## 2026-10-20 — Adductor longus revision 2 accepted; gracilis continuation
+
+Approve image(3).png selected revision-2 appearance: anatomical L/R inset
+0/−0.5, inward −0.5/+1.5, Y +1.5/+0.5 source px. Save separate selected
+SVG/PNG/geometry, matching review defaults and superseded revision-1 files
+unchanged in the archive. Baseline revision 2 remains draft; exact anatomical
+identity and combined boundaries remain provisional, with null group IDs.
+Runtime opacity is not fixed by the screenshot's preview percentage.
+
+Continue with two independent most-medial exposed thigh-strip candidates
+proposed as partial gracilis surfaces. Exclude neighboring adductors,
+accepted sartorius, hidden proximal coverage and distal tendons/insertions.
+Exact identity and new boundaries remain pending. Preserve independent
+0.5 px inset/X/Y controls, ±10 px shifts, null load-group IDs and runtime
+opacity. No taxonomy, exercise mappings or load coefficients are changed.
+Record neighboring contact for combined review; do not alter prior approvals.
+
 ## 2026-10-20 — Sartorius accepted; medial-thigh continuation
 
 Approve 83F8AACA revision-2 appearance: anatomical L/R inset −1/−0.5, inward
