@@ -1,7 +1,8 @@
 # CRESUM multilingual application
 
-Date: 2026-10-21. Status: feature scope approved; written specification awaiting
-review. This document specifies future implementation, not shipped capability.
+Date: 2026-10-21. Status: written specification approved by the user on
+2026-10-21; implementation plan awaiting review. This document specifies future
+implementation, not shipped capability.
 
 ## Intent and scope
 

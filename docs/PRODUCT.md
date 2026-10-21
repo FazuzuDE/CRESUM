@@ -11,7 +11,8 @@ preserving workout state, historical snapshots, user names and stable IDs.
 Prepare for later expansion to 30 languages in total; prioritize the additional
 languages separately by market/audience. This is approved direction, not shipped
 coverage. The [written specification](superpowers/specs/2026-10-21-multilingual-design.md)
-awaits review before implementation planning.
+was approved; the [implementation plan](superpowers/plans/2026-10-21-multilingual.md)
+awaits review and execution-method selection.
 
 The app display name is CRESUM; package/Expo slug use `cresum`. Existing local
 data keys and installed application IDs remain stable across rebranding.

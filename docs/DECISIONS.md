@@ -1,5 +1,13 @@
 # CRESUM Decision Log
 
+## 2026-10-21 — Multilingual written specification approved
+
+The user confirmed the written specification in PR #70. Prepare the linked
+eight-task implementation plan with persistent selection, typed offline copy,
+catalog identity preservation, safe formatting and full-flow acceptance. Plan
+review and execution-method selection are the next checkpoint; runtime language
+support is not implemented by this documentation change.
+
 ## 2026-10-21 — Multilingual scope approved; later expansion to 30 languages
 
 The user approved Russian, German and French with retained English, device-based
