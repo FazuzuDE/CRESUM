@@ -1,0 +1,245 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-10-21",
+  "status": "research-disposition-awaiting-review",
+  "runtimeEnabled": false,
+  "baseCommit": "439c9b1ba833f3320ec354f0dabca3da909b7f37",
+  "parentGroupId": "chest",
+  "unknownSemantics": "null means undetermined, never zero or equal regional loading",
+  "displayRegions": {
+    "clavicular": [
+      "pectoralis-major-clavicular-left",
+      "pectoralis-major-clavicular-right"
+    ],
+    "sternocostal": [
+      "pectoralis-major-sternocostal-left",
+      "pectoralis-major-sternocostal-right"
+    ]
+  },
+  "displayGeometry": "assets/muscle-map/male-anatomy-v1/chest-regional-study/selected-geometry.json",
+  "sources": {
+    "R1": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7579505/",
+      "outcome": "acute-emg",
+      "setup": "free-weight barbell; five bench inclinations",
+      "access": "full-text-in-initial-review"
+    },
+    "R2": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31397215/",
+      "outcome": "acute-emg",
+      "setup": "barbell flat/incline/decline and one chest-press machine",
+      "access": "abstract-in-initial-review"
+    },
+    "R3": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26464884/",
+      "outcome": "phase-specific-acute-emg",
+      "setup": "dumbbell flat/incline/shoulder presses in 24 young women",
+      "access": "indexed-primary-abstract"
+    },
+    "R4": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5504579/",
+      "outcome": "acute-emg",
+      "setup": "6RM barbell variations in 12 competitive bench athletes",
+      "access": "full-text-in-workflow"
+    },
+    "R5": {
+      "url": "https://doi.org/10.5114/jhk/161468",
+      "outcome": "acute-emg",
+      "setup": "two barbell widths and two seated-machine grips in 20 adults",
+      "access": "publisher-full-text"
+    },
+    "R6": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7449336/",
+      "outcome": "longitudinal-thickness-and-strength",
+      "setup": "eight-week flat/incline training in untrained men",
+      "access": "full-text-in-initial-review"
+    },
+    "R7": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16095413/",
+      "outcome": "acute-emg",
+      "setup": "three push-up hand placements; not an accepted regional split",
+      "access": "indexed-primary-abstract"
+    },
+    "R8": {
+      "url": "https://doi.org/10.3389/fphys.2017.00985",
+      "outcome": "methodological-interpretation",
+      "setup": "limitations of inferring force/growth from surface EMG",
+      "access": "publisher-full-text-in-initial-review"
+    }
+  },
+  "profiles": [
+    {
+      "exerciseId": "barbell-bench-press",
+      "parentRole": "primary",
+      "knownSetup": {
+        "equipment": "barbell",
+        "bench": "flat",
+        "grip": "slightly-wider-than-shoulders-technique"
+      },
+      "disposition": "conditional-comparative-evidence",
+      "sourceIds": ["R1", "R2", "R4", "R6"],
+      "candidateStatement": "Comparative sternocostal emphasis versus specified inclined conditions is a candidate; evidence is protocol-dependent and not unanimous.",
+      "missingForAssignment": [
+        "matching-grip-and-rom",
+        "relative-effort-applicability",
+        "phase-aggregation-model"
+      ],
+      "regionalContribution": null,
+      "regionalHighlightAuthorized": false
+    },
+    {
+      "exerciseId": "incline-dumbbell-press",
+      "parentRole": "primary",
+      "knownSetup": {
+        "equipment": "dumbbell",
+        "bench": "incline",
+        "benchAngleDegrees": null
+      },
+      "disposition": "phase-dependent-and-angle-unresolved",
+      "sourceIds": ["R3", "R1", "R2"],
+      "candidateStatement": "Dumbbell evidence is phase-dependent; barbell findings are indirect. No universal clavicular advantage is assigned.",
+      "missingForAssignment": [
+        "bench-angle",
+        "phase-aggregation-model",
+        "population-and-protocol-transfer"
+      ],
+      "regionalContribution": null,
+      "regionalHighlightAuthorized": false
+    },
+    {
+      "exerciseId": "dumbbell-bench-press",
+      "parentRole": "primary",
+      "knownSetup": { "equipment": "dumbbell", "bench": "flat" },
+      "disposition": "phase-dependent-regional-ratio-unresolved",
+      "sourceIds": ["R3"],
+      "candidateStatement": "Equipment-relevant evidence exists, but no complete two-region contribution is established.",
+      "missingForAssignment": [
+        "reviewed-grip-and-rom",
+        "phase-aggregation-model",
+        "population-and-protocol-transfer"
+      ],
+      "regionalContribution": null,
+      "regionalHighlightAuthorized": false
+    },
+    {
+      "exerciseId": "machine-chest-press",
+      "parentRole": "primary",
+      "knownSetup": {
+        "equipment": "machine",
+        "position": "supported-seated",
+        "machinePath": null,
+        "grip": null
+      },
+      "disposition": "machine-configuration-unresolved",
+      "sourceIds": ["R2", "R5"],
+      "candidateStatement": "Machine/grip-specific comparisons cannot determine one generic machine profile.",
+      "missingForAssignment": [
+        "machine-path",
+        "seat-and-backrest",
+        "grip-and-width",
+        "rom",
+        "source-setup-match"
+      ],
+      "regionalContribution": null,
+      "regionalHighlightAuthorized": false
+    },
+    {
+      "exerciseId": "cable-chest-fly",
+      "parentRole": "primary",
+      "knownSetup": {
+        "equipment": "cable",
+        "position": "standing",
+        "pulleyDirection": null
+      },
+      "disposition": "configuration-and-regional-evidence-unresolved",
+      "sourceIds": [],
+      "candidateStatement": "No applicable two-region profile accepted in this bounded review; not a claim that evidence is absent.",
+      "missingForAssignment": [
+        "pulley-height-and-direction",
+        "torso-and-arm-path",
+        "rom",
+        "applicable-regional-study"
+      ],
+      "regionalContribution": null,
+      "regionalHighlightAuthorized": false
+    },
+    {
+      "exerciseId": "pec-deck-fly",
+      "parentRole": "primary",
+      "knownSetup": {
+        "equipment": "machine",
+        "position": "seated",
+        "contactGeometry": null
+      },
+      "disposition": "configuration-and-regional-evidence-unresolved",
+      "sourceIds": [],
+      "candidateStatement": "Whole-pectoral evidence cannot determine regional weighting; pad/handle versions remain distinct.",
+      "missingForAssignment": [
+        "machine-and-contact-geometry",
+        "seat-and-humeral-path",
+        "rom",
+        "applicable-regional-study"
+      ],
+      "regionalContribution": null,
+      "regionalHighlightAuthorized": false
+    },
+    {
+      "exerciseId": "push-up",
+      "parentRole": "primary",
+      "knownSetup": {
+        "equipment": "bodyweight",
+        "support": "floor",
+        "hands": "around-shoulder-width-technique"
+      },
+      "disposition": "regional-evidence-unresolved",
+      "sourceIds": ["R7"],
+      "candidateStatement": "Hand-placement evidence is not an accepted clavicular/sternocostal distribution.",
+      "missingForAssignment": [
+        "applicable-regional-study",
+        "matching-hand-and-arm-path",
+        "rom"
+      ],
+      "regionalContribution": null,
+      "regionalHighlightAuthorized": false
+    },
+    {
+      "exerciseId": "close-grip-bench-press",
+      "parentRole": "secondary",
+      "knownSetup": {
+        "equipment": "barbell",
+        "grip": "shoulder-width-technique",
+        "support": "bench"
+      },
+      "disposition": "grip-applicability-and-regional-ratio-unresolved",
+      "sourceIds": ["R4", "R5"],
+      "candidateStatement": "A 50%-biacromial study condition is not the shoulder-width catalog technique; preserve chest Secondary.",
+      "missingForAssignment": [
+        "bench-angle",
+        "matching-grip-definition",
+        "rom",
+        "regional-contribution-model"
+      ],
+      "regionalContribution": null,
+      "regionalHighlightAuthorized": false
+    },
+    {
+      "exerciseId": "assisted-dip-machine",
+      "parentRole": "secondary",
+      "knownSetup": {
+        "equipment": "machine",
+        "mechanism": "counterweighted",
+        "torso": "upright-technique"
+      },
+      "disposition": "assisted-variant-regional-evidence-unresolved",
+      "sourceIds": [],
+      "candidateStatement": "Do not substitute unassisted leaning dips or infer a lower-chest ratio from the exercise name.",
+      "missingForAssignment": [
+        "machine-path-and-assistance",
+        "handles-and-rom",
+        "applicable-regional-study"
+      ],
+      "regionalContribution": null,
+      "regionalHighlightAuthorized": false
+    }
+  ]
+}

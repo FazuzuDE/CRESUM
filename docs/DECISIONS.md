@@ -2030,3 +2030,17 @@ Selected raster partitions exactly sum to each parent with zero mutual ownership
 The representation remains schematic and anatomy unvalidated; 65% preview opacity
 is not a coefficient. Exercise mapping remains null. Next complete the nine-ID
 configuration/evidence mapping; no scoring, native integration or merge.
+
+## 2026-10-21 — #66 integrated; first chest evidence dispositions prepared
+
+Verified #66 merged into develop at `439c9b1ba833f3320ec354f0dabca3da909b7f37`.
+The user requested starting the next exercise-to-region stage. Prepare a separate
+nine-ID chest research register and applicability matrix. Record phase-dependent
+dumbbell findings, contextual barbell evidence and unspecified machine/fly/dip
+setups explicitly. This is a proposed scientific disposition awaiting review,
+not approval of nine activation profiles or physiological coefficients.
+
+Retain the two existing Secondary chest roles, stable IDs/history, accepted
+regional masks and 92-region combined assembly. Research contributions are null
+and runtime regional highlight assignment disabled. Next review the matrix and
+design the configuration/evidence lookup with honest unknown-setup fallback.

@@ -395,3 +395,14 @@ L/R −5/−4 source px. The regional-division review block is closed. Next comp
 the nine-ID exact-configuration/evidence mapping with explicit unresolved entries;
 review numerical scoring separately. Preserve the current 92-region combined
 assembly until its regional replacement/compositing is explicitly prepared.
+
+### Post-#66 chest evidence disposition — 2026-10-21
+
+PR #66 is merged into develop at `439c9b1ba833f3320ec354f0dabca3da909b7f37`.
+The first separate follow-up prepares all nine chest-related research profiles,
+including source applicability, missing configuration and unresolved regional
+contributions. See [chest regional profiles](research/CHEST_REGIONAL_PROFILES.md).
+Research data is not imported by the application and does not approve scalar
+weights or new runtime mapping. Next review the profile matrix and design
+configuration/evidence lookup and unknown-history fallback before scoring or
+renderer integration. Existing approved geometry and factual counts stay intact.

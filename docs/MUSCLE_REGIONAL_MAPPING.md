@@ -1,6 +1,6 @@
 # Regional muscle mapping: evidence and integration requirements
 
-Reviewed 2026-10-20. The user requires exercise-specific regional emphasis before
+Initial review 2026-10-20; chest profile disposition added 2026-10-21. The user requires exercise-specific regional emphasis before
 final training-to-mask binding. This is an initial evidence review and catalog
 audit, not an exhaustive review of all 65 exercises or a validated scoring model.
 The requirement is approved; regional taxonomy, coefficients and implementation
@@ -40,9 +40,10 @@ limited to that abstract; unobserved methods/results are not assumed.
   flag alone does not establish sufficient mechanical detail.
 - `lib/exercise-technique/catalog.ts`: flat/incline scopes exist, but incline
   dumbbell press has no numeric angle. Machine geometry and cable angle vary.
-- Combined geometry: 92 regions, with one whole-pectoral contour per side.
-  Independently controlled clavicular/sternocostal display needs a separately
-  reviewed internal subdivision while preserving the current exterior contours.
+- Combined geometry retains 92 regions with one whole-pectoral contour per side.
+  A separate four-region clavicular/sternocostal display selection was visually
+  accepted on 2026-10-21 at anatomical L/R divider shifts −5/−4 px. It preserves
+  the parent exteriors and has not replaced the combined chest layers.
   Detailed masks are not automatically physiological scoring units.
 
 ## Chest pilot: all nine existing catalog identities
@@ -90,12 +91,17 @@ substitute. Missing regional profiles must not suppress parent participation.
 
 ## Next deliverable
 
-Prepare a chest pilot: reviewed clavicular/sternocostal display boundaries inside
-the current exteriors, exact-configuration/evidence entries for the nine IDs and
-explicit unresolved entries. Show regional semantics and internal subdivisions
-before introducing a scoring model or changing production behavior. Then extend
-research to shoulders, arms, back, thighs, glutes/adductors, calves and remaining
-structures.
+The chest display pilot is visually accepted. The first nine-ID research
+disposition is now in [CHEST_REGIONAL_PROFILES.md](research/CHEST_REGIONAL_PROFILES.md)
+with a [structured review register](research/chest-regional-profiles.json).
+This distinguishes equipment-relevant, phase-dependent, conflicting and
+configuration-unknown evidence. No numerical regional contribution or
+differentiated runtime highlight is authorized by that research register.
+
+Next review the matrix and design configuration/evidence lookup with an explicit
+unknown-setup fallback, then review the scoring model and production integration
+separately. Extend research to shoulders, arms, back, thighs, glutes/adductors,
+calves and remaining structures.
 
 Implementation checks must cover exact-variant matching, unknown-setup fallback,
 source/revision provenance, non-duplicated parent counts, stable IDs/history and
