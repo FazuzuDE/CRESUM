@@ -2044,3 +2044,17 @@ Retain the two existing Secondary chest roles, stable IDs/history, accepted
 regional masks and 92-region combined assembly. Research contributions are null
 and runtime regional highlight assignment disabled. Next review the matrix and
 design the configuration/evidence lookup with honest unknown-setup fallback.
+
+## 2026-10-21 — Configuration/evidence contract proposed for review
+
+Following the user's request to continue, prepare a concrete contract describing
+per-exercise-instance setup snapshots and evidence lookup. Current engine permits
+repeated catalog exercises with distinct instance IDs; serialization does not
+currently persist these setup fields. Propose a snapshot frozen while completed
+sets exist and a new instance for a later setup, preserving previous sets.
+
+Distinguish missing setup from scientific insufficiency; no complete form can
+automatically approve an evidence profile. Legacy setups remain unknown. The
+proposal lives in docs/superpowers/specs/2026-10-21-chest-configuration-evidence-design.md
+and awaits user review. It is not a new approved persistence schema or product
+behavior. No application code, stored workout, mask or coefficient changes here.

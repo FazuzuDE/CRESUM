@@ -406,3 +406,9 @@ Research data is not imported by the application and does not approve scalar
 weights or new runtime mapping. Next review the profile matrix and design
 configuration/evidence lookup and unknown-history fallback before scoring or
 renderer integration. Existing approved geometry and factual counts stay intact.
+
+The 2026-10-21 [configuration/evidence contract proposal](superpowers/specs/2026-10-21-chest-configuration-evidence-design.md)
+defines per-exercise-instance snapshots, immutable setup once sets are completed,
+separate missing-setup/scientific-blocker results and a pure lookup foundation.
+It awaits user review before implementation planning. Capture/persistence and
+regional display/scoring remain subsequent slices with their own round-trip QA.
