@@ -57,6 +57,11 @@ export const typography = {
   footnote: { fontSize: 13, fontWeight: '400', lineHeight: 18 },
   caption: { fontSize: 12, fontWeight: '500', lineHeight: 16 },
 } as const;
+// Selected compact geometric wordmark; UI text retains the system font.
+export const brand = {
+  wordmarkWidth: 124,
+  wordmarkHeight: 18,
+} as const;
 // Selected Progress reference roles; other screens retain the base type scale.
 export const progressTypography = {
   title: typography.largeTitle,

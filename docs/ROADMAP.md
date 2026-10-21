@@ -43,6 +43,26 @@ Later, separately approved work may sync custom workouts, preferences/profile, a
 
 ## P1 — Product polish
 
+### Branding and content administration — requested 2026-10-21
+
+1. Adopt the presentation phone mockup's compact geometric CRESUM wordmark in
+   the shared header, keeping this as a focused visual change.
+2. Prepare the first content-administration design: compare a separate editor,
+   repository-backed editorial workflow and database-dashboard-only management.
+   Recommend a bounded first slice before selecting architecture or scaffolding.
+   The [initial proposal](superpowers/specs/2026-10-21-content-admin-design.md)
+   starts with exercise text editing and read-only asset/mapping context; it awaits
+   review and does not enable publication.
+3. After design approval, plan and implement separate content editing, reviewed
+   publication and offline-compatible app consumption slices. Preserve historical
+   identity and provide clear validation, draft/published state and recovery.
+
+The first proposed scope is exercises, technique, illustration references and
+reviewed muscle mappings. This entry records the user's direction; it does not
+approve a technology stack, remote code changes, access policy or load formulas.
+Continue the regional configuration/evidence work after this branding/admin
+checkpoint; it remains a separate research/implementation track.
+
 ### Goal-based starter programs — implementation prepared 2026-10-11
 
 The user approved the [nine-variant research/specification](superpowers/specs/2026-10-11-goal-training-programs-design.md)

@@ -7,6 +7,19 @@
 
 ## 1. Principles
 
+### Selected CRESUM wordmark — approved 2026-10-21
+
+Use the compact, wide geometric uppercase CRESUM lettering from the phone
+mockup in the workout-settings presentation. This supersedes earlier references
+to a system-font wordmark with 4 pt tracking. Center the
+shared vector wordmark in BrandHeader, using textPrimary and a 124 × 18 pt frame.
+Preserve its aspect ratio and accessible CRESUM name. Existing screens keep
+their current tagline visibility; compact headers may still opt out.
+
+BrandWordmark owns the reproducible vector interpretation; the generated mockup
+is a visual reference, not an exact font source. Body/headline typography and
+WORKOUTS / EXERCISE LIBRARY navigation labels retain their current system styles.
+
 CRESUM must feel fast, calm, precise and premium. Workout logging always has priority over decoration.
 
 - Clarity first: weight, reps, sets, rest and progress are readable at a glance.
@@ -388,7 +401,8 @@ roles below. These refine the selected reference without resizing other screens.
 | CRESUM wordmark                | 13 / 18            | 700               | textEmphasis                    |
 | Tagline                        | 11 / 16            | 400               | textSecondary                   |
 
-The wordmark uses 4 pt tracking; the tagline and volume label use 1 pt.
+The current wordmark follows the selected vector rule above; the optional tagline
+and volume label use 1 pt tracking.
 Keep chart numerals tabular and derive label room from the chart type role.
 An unselected exercise prompt uses textSecondary; the chosen exercise uses
 textPrimary, both in the 16 / 21 regular callout style. Metadata stays readable

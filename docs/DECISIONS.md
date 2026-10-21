@@ -1,5 +1,20 @@
 # CRESUM Decision Log
 
+## 2026-10-21 — Presentation wordmark selected; admin direction requested
+
+The user selected the CRESUM lettering in the presentation's phone mockup and
+requested gradual administration tooling for fast content changes. Replace the
+shared header's system-font lettering with a compact centered vector
+interpretation, using existing textPrimary and a 124 × 18 pt frame. Preserve
+existing per-screen tagline visibility. Keep UI text system-native.
+
+Record content administration as requested direction, with exercises, technique,
+illustration references and reviewed muscle mappings proposed as the first scope.
+Architecture and implementation remain for review; this record creates no admin
+service, permissions, database changes or remote content delivery. Preserve
+exercise identity, historical meaning and offline Core. Logo implementation and
+documentation belong in a focused branch separate from chest evidence PR #67.
+
 ## 2026-10-20 — Abdominal appearance accepted; four blocks remain
 
 Approve the combined selected abdominal/external-oblique appearance across all
