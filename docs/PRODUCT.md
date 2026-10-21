@@ -1,5 +1,18 @@
 # CRESUM — Product Definition
 
+## Multilingual application — scope approved 2026-10-21
+
+Add Russian, German and French while retaining English. Default to a supported
+device language, with a persistent manual choice in Profile → Language. Bundle
+translations for offline use across the workout flow, messages, accessibility
+labels and current catalog content. Localize dates/numbers/plurals while
+preserving workout state, historical snapshots, user names and stable IDs.
+
+Prepare for later expansion to 30 languages in total; prioritize the additional
+languages separately by market/audience. This is approved direction, not shipped
+coverage. The [written specification](superpowers/specs/2026-10-21-multilingual-design.md)
+awaits review before implementation planning.
+
 The app display name is CRESUM; package/Expo slug use `cresum`. Existing local
 data keys and installed application IDs remain stable across rebranding.
 See [rebranding compatibility](./REBRANDING.md).

@@ -43,6 +43,16 @@ Later, separately approved work may sync custom workouts, preferences/profile, a
 
 ## P1 — Product polish
 
+### Multilingual application — scope approved 2026-10-21
+
+After character integration (#69), prepare offline English/Russian/German/French
+support with persistent language selection and full existing-flow coverage.
+The user deferred physical-phone map review and requested this work in the
+meantime. Review the [localization specification](superpowers/specs/2026-10-21-multilingual-design.md),
+then prepare its implementation plan. Later expand to 30 languages in reviewed
+batches; the list/order is a separate market decision. No translations or locale
+settings are implemented by this documentation checkpoint.
+
 ### Immediate priority: selected anatomical character — approved 2026-10-21
 
 The user approved connecting the selected character and preserved masks to the

@@ -1,5 +1,16 @@
 # CRESUM Decision Log
 
+## 2026-10-21 — Multilingual scope approved; later expansion to 30 languages
+
+The user approved Russian, German and French with retained English, device-based
+initial selection, a persistent Profile control, offline messages/catalog copy,
+localized formatting and preservation of user content and workout/history data.
+The user additionally requested later expansion to the top 30 languages. Build
+extensible message/locale contracts now; choose the additional markets/languages
+separately rather than inventing a ranking. The written specification is a
+reviewable proposal; implementation planning follows its review. Physical iPhone
+Muscle Map acceptance remains pending independently of this work.
+
 ## 2026-10-21 — Integrate selected anatomical character before admin work
 
 The user approved replacing the old in-app schematic mannequin with the selected
