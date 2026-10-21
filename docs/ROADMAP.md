@@ -43,6 +43,16 @@ Later, separately approved work may sync custom workouts, preferences/profile, a
 
 ## P1 — Product polish
 
+### Immediate priority: selected anatomical character — approved 2026-10-21
+
+The user approved connecting the selected character and preserved masks to the
+working Muscle Map before continuing the proposed admin editor. Deliver this as
+a focused rendering change with existing factual participation and source-set
+details. Preserve source pixels and contours, expose unresolved coverage honestly,
+and check zero-set, Primary/Secondary precedence, region selection, shared mask
+alignment and native exports. Do not add load coefficients or reinterpret
+History. Admin implementation and regional evidence/scoring remain separate.
+
 ### Branding and content administration — requested 2026-10-21
 
 1. Adopt the presentation phone mockup's compact geometric CRESUM wordmark in

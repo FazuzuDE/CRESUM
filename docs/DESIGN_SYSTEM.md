@@ -253,6 +253,24 @@ Deliberate primary action. Normal Finish summarizes and saves. Destructive aband
 
 ## 10. Charts / Progress
 
+### Selected anatomical map integration — approved 2026-10-21
+
+Use the unchanged `male-anatomy-v1/source.png` and common 1312 × 1199 mask
+coordinates in both views. Reuse selected view boxes, exact SVG paths/transforms,
+original clipping masks and complementary accepted chest partitions. Keep the
+underlying grayscale texture visible, a smooth edge, no decorative stroke and
+no added blur. A thin outline may indicate the selected parent group only.
+
+For this factual participation slice, existing Primary/Secondary colors use
+fixed presentation opacities 0.62/0.55, respectively; these are visual role tokens,
+not physiological coefficients or a count-normalization formula. Neutral regions
+have no tint. Multiple regions within a parent share its role, with Primary
+taking precedence. Keep each view's source and overlay identically transformed.
+The default map height remains 340 pt. List details remain available for all 17
+groups, including groups without a mapped surface. Explain coverage gaps and
+schematic lower-back projections in visible copy. Native compositing, small-phone
+and accessibility acceptance remain device checks before release.
+
 Primary series `primary`; comparison uses `secondary` or neutral gray. Subtle grid lines, no 3D, no decorative gradients, always show units and touch-friendly selected points.
 
 Core metrics: total volume, workout count, PRs, exercise weight progression, estimated 1RM, training frequency. Estimated 1RM must be explicitly labeled as an estimate.

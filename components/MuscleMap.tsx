@@ -1,16 +1,21 @@
 import { useId } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Svg, { Defs, LinearGradient, Stop, Path, G } from 'react-native-svg';
+import Svg, { Defs, Image, Mask, ClipPath, Path, G } from 'react-native-svg';
 import type { MuscleId } from '@/lib/exercise-taxonomy';
 import type { MuscleParticipation } from '@/lib/muscle-participation';
 import {
-  muscleMapBody,
-  frontMuscleRegions,
-  backMuscleRegions,
-  frontBodyDetails,
-  backBodyDetails,
-} from '@/lib/muscle-map-geometry';
-import { colors, spacing, typography } from '@/lib/theme';
+  anatomicalAtlas,
+  anatomicalGroups,
+  anatomicalRegions,
+} from '@/lib/anatomical-muscle-map';
+import {
+  colors,
+  spacing,
+  typography,
+  muscleMapPresentation,
+} from '@/lib/theme';
+
+const source = require('../assets/muscle-map/male-anatomy-v1/source.png');
 
 export function MuscleMap({
   muscles,
@@ -24,108 +29,111 @@ export function MuscleMap({
   const instance = useId().replace(/[^a-zA-Z0-9]/g, '');
   return (
     <View style={s.row}>
-      {(
-        [
-          ['Front', frontMuscleRegions, frontBodyDetails],
-          ['Back', backMuscleRegions, backBodyDetails],
-        ] as const
-      ).map(([label, regions, details]) => {
-        const prefix = `muscle${instance}${label}`;
+      {(['front', 'back'] as const).map((view) => {
+        const prefix = `anatomy${instance}${view}`;
+        const regions = anatomicalRegions.filter(
+          (r) => r.view === view && r.groupId !== null,
+        );
         return (
-          <View key={label} style={s.body}>
+          <View key={view} style={s.body}>
             <Svg
               width="100%"
-              height={340}
-              viewBox="0 0 200 454"
+              height={muscleMapPresentation.height}
+              viewBox={anatomicalAtlas.views[view].viewBox.join(' ')}
               accessible={false}
             >
               <Defs>
-                {(
-                  [
-                    [
-                      'neutral',
-                      colors.muscleNeutralHighlight,
-                      colors.muscleNeutral,
-                      colors.muscleNeutralShade,
-                    ],
-                    [
-                      'primary',
-                      colors.musclePrimaryHighlight,
-                      colors.musclePrimary,
-                      colors.musclePrimaryShade,
-                    ],
-                    [
-                      'secondary',
-                      colors.muscleSecondaryHighlight,
-                      colors.muscleSecondary,
-                      colors.muscleSecondaryShade,
-                    ],
-                  ] as const
-                ).map(([role, light, base, shade]) => (
-                  <LinearGradient
-                    key={role}
-                    id={`${prefix}${role}`}
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="25%"
+                {anatomicalAtlas.clips.map((clip) => (
+                  <Mask
+                    key={clip.id}
+                    id={`${prefix}${clip.id}`}
+                    maskUnits="userSpaceOnUse"
+                    maskContentUnits="userSpaceOnUse"
+                    maskType="luminance"
+                    x={0}
+                    y={0}
+                    width={1312}
+                    height={1199}
                   >
-                    <Stop offset="0%" stopColor={shade} />
-                    <Stop offset="35%" stopColor={light} />
-                    <Stop offset="65%" stopColor={base} />
-                    <Stop offset="100%" stopColor={shade} />
-                  </LinearGradient>
+                    <Image
+                      href={clip.image}
+                      x={0}
+                      y={0}
+                      width={1312}
+                      height={1199}
+                    />
+                  </Mask>
                 ))}
+                {regions
+                  .filter((r) => r.partitionPath)
+                  .map((r) => (
+                    <ClipPath key={r.id} id={`${prefix}${r.id}`}>
+                      <Path d={r.partitionPath!} />
+                    </ClipPath>
+                  ))}
               </Defs>
-              <Path d={muscleMapBody.outline} fill={`url(#${prefix}neutral)`} />
-              <Path d={muscleMapBody.head} fill={`url(#${prefix}neutral)`} />
-              {Object.entries(regions).map(([key, d]) => {
-                const id = key as MuscleId;
-                const muscle = muscles.find((item) => item.id === id);
-                const role = muscle?.primary
-                  ? 'primary'
-                  : muscle?.secondary
-                    ? 'secondary'
-                    : 'neutral';
+              <Image
+                href={source}
+                x={0}
+                y={0}
+                width={1312}
+                height={1199}
+                pointerEvents="none"
+              />
+              {anatomicalGroups.map((group) => {
+                const parts = regions.filter((r) => r.groupId === group.id);
+                if (!parts.length) return null;
+                const participation = muscles.find((m) => m.id === group.id);
+                const primary = !!participation?.primary;
+                const secondary = !primary && !!participation?.secondary;
+                const fill = primary
+                  ? colors.musclePrimary
+                  : secondary
+                    ? colors.muscleSecondary
+                    : 'transparent';
+                const opacity = primary
+                  ? muscleMapPresentation.primaryOpacity
+                  : secondary
+                    ? muscleMapPresentation.secondaryOpacity
+                    : 1;
                 return (
-                  <G key={id} onPress={() => onSelect(id)}>
-                    {[undefined, 'translate(200 0) scale(-1 1)'].map(
-                      (transform, i) => (
+                  <G
+                    key={group.id}
+                    testID={`anatomical-group-${view}-${group.id}`}
+                    opacity={opacity}
+                  >
+                    {parts.map((r) => (
+                      <G
+                        key={r.id}
+                        mask={
+                          r.clipId ? `url(#${prefix}${r.clipId})` : undefined
+                        }
+                      >
                         <Path
-                          key={i}
-                          d={d}
-                          transform={transform}
-                          fill={`url(#${prefix}${role})`}
-                          stroke={
-                            selected === id
-                              ? colors.textPrimary
-                              : colors.surface
+                          testID={`anatomical-region-${r.id}`}
+                          d={r.path}
+                          transform={r.transform || undefined}
+                          clipPath={
+                            r.partitionPath
+                              ? `url(#${prefix}${r.id})`
+                              : undefined
                           }
-                          strokeWidth={selected === id ? 1.5 : 0.65}
-                          strokeLinejoin="round"
+                          fill={fill}
+                          stroke={
+                            selected === group.id ? colors.textPrimary : 'none'
+                          }
+                          strokeWidth={
+                            muscleMapPresentation.selectedStrokeWidth
+                          }
+                          onPress={() => onSelect(group.id)}
                         />
-                      ),
-                    )}
+                      </G>
+                    ))}
                   </G>
                 );
               })}
-              <G pointerEvents="none" opacity={0.35}>
-                {[undefined, 'translate(200 0) scale(-1 1)'].map(
-                  (transform, i) => (
-                    <Path
-                      key={i}
-                      d={details}
-                      transform={transform}
-                      fill="none"
-                      stroke={colors.muscleNeutralShade}
-                      strokeWidth={0.8}
-                      strokeLinecap="round"
-                    />
-                  ),
-                )}
-              </G>
             </Svg>
-            <Text style={s.label}>{label}</Text>
+            <Text style={s.label}>{view === 'front' ? 'Front' : 'Back'}</Text>
           </View>
         );
       })}

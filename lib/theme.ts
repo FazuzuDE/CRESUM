@@ -62,6 +62,13 @@ export const brand = {
   wordmarkWidth: 124,
   wordmarkHeight: 18,
 } as const;
+// Fixed factual role presentation, not load or physiological coefficients.
+export const muscleMapPresentation = {
+  height: 340,
+  primaryOpacity: 0.62,
+  secondaryOpacity: 0.55,
+  selectedStrokeWidth: 2.5,
+} as const;
 // Selected Progress reference roles; other screens retain the base type scale.
 export const progressTypography = {
   title: typography.largeTitle,

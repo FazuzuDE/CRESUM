@@ -571,6 +571,25 @@ other devices' local copies and provider backups are not removed by this action.
 
 # Factual Muscle Map — approved 2026-10-17
 
+### Selected character integration — approved 2026-10-21
+
+The user approved replacing the old schematic mannequin in the working Muscle
+Map with the already selected grayscale character and accepted masks. This is
+the next priority ahead of content administration. Preserve current factual
+Primary/Secondary completed-set semantics and every stored workout.
+
+The native rendering snapshot repackages the 92-region review, replacing its
+two whole-chest regions with the four accepted complementary chest partitions
+(94 records total). Both chest subdivisions share the current chest parent role;
+this stage assigns no regional coefficients or measured intensity. Preserve the
+original exteriors, transforms, clips, source pixels and selected dividers.
+
+The 36 unresolved regions remain neutral and receive no guessed group mapping.
+Upper Back, Rear Delts and Adductors retain factual counts and accessible detail
+buttons even though no accepted parent assignment is available on this atlas.
+Explain missing visual coverage and the beneath-fascia lower-back projection.
+Appearance approval is not a claim of exact anatomy or complete map coverage.
+
 Progress includes Overview and Muscles. Muscles shows an original schematic
 front/back map, all 17 existing catalog muscle groups, and source-set details.
 Periods are current workout (otherwise latest completed), 7 local-calendar days,

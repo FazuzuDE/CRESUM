@@ -6,6 +6,7 @@ import { AppScrollView } from './AppScrollView';
 import { BrandHeader } from './BrandHeader';
 import { GlassCard } from './GlassCard';
 import { MuscleMap } from './MuscleMap';
+import { anatomicalMissingGroups } from '@/lib/anatomical-muscle-map';
 import {
   projectMuscleParticipation,
   type MusclePeriod,
@@ -88,14 +89,21 @@ export function MuscleProgress({
                 Secondary
               </Text>
               <Text style={s.body}>
-                <Text style={{ color: colors.muscleNeutral }}>● </Text>No mapped
-                sets
+                <Text style={{ color: colors.muscleNeutral }}>● </Text>No
+                highlight
               </Text>
             </View>
             <Text style={s.note}>
-              Schematic muscle groups, not measured activation or recovery.
+              Schematic anatomical regions, not measured activation or recovery.
               Color shows role, not intensity; primary takes precedence when
               both roles occur.
+            </Text>
+            <Text style={s.note}>
+              Neutral areas may have no assigned map region. Map coverage is
+              pending for{' '}
+              {anatomicalMissingGroups.map((m) => m.label).join(', ')}; their
+              set counts remain available below. Lower-back highlights are
+              schematic projections beneath fascia.
             </Text>
           </View>
         </GlassCard>
