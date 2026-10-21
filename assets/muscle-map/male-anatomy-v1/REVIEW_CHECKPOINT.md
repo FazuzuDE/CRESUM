@@ -478,3 +478,13 @@ zero-shift raster partitions exactly sum to each original parent with no mutual
 pixel ownership. SVGs retain exact parent paths with shared complementary clips.
 Independent preview opacity and ±10 px / 0.5 px divider shifts support review.
 The 92-region combined review and all prior selections remain unchanged.
+
+## 2026-10-21 — Selected regional chest appearance approved
+
+image(20261021-110734).png plus explicit yes confirms anatomical L/R divider
+shifts −5/−4 source px. Four selected SVG/PNG masks, selected-geometry and
+selection-report retain the chosen appearance and exact parent exteriors.
+Review defaults restore both shifts. Baseline masks and combined 92-region
+assembly stay unchanged. Raster partition union is exact with no mutual pixels;
+65% preview values are not baked. Schematic representation and null exercise
+mapping remain; exact anatomy and physiological scoring are unvalidated.

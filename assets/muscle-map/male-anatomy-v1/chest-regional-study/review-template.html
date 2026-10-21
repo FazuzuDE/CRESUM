@@ -130,6 +130,10 @@
       const layer = root.querySelector('[data-regional-layer]');
       const guides = root.querySelector('[data-guides]');
       let mode = 'fill';
+      for (const parent of payload.parents) {
+        root.querySelector('[data-shift="' + parent.side + '"]').value =
+          parent.dividerShiftSourcePixels || 0;
+      }
       const path = (d) => {
         const p = document.createElementNS(ns, 'path');
         p.setAttribute('d', d);

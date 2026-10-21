@@ -659,3 +659,8 @@ need separate methodological review. See [regional evidence](MUSCLE_REGIONAL_MAP
 2026-10-20 follow-up: the user approved preparing the regional chest pilot.
 This authorizes four draft display regions and independent review controls, not
 physiological coefficients or acceptance of the resulting internal boundaries.
+
+2026-10-21: selected regional chest appearance is accepted with anatomical left
+and right divider shifts −5 and −4 source px. This approves the schematic
+regional display, not exact anatomical boundaries or physiological coefficients.
+The 65% screenshot values remain preview-only; exercise mapping is unresolved.

@@ -13,11 +13,18 @@ async function main() {
     fs.existsSync(path.join(study, 'geometry.json')),
     'regional chest study must exist',
   );
-  const g = JSON.parse(fs.readFileSync(path.join(study, 'geometry.json')));
+  const selection = JSON.parse(
+    fs.readFileSync(path.join(study, 'selection.json')),
+  );
+  assert.equal(selection.status, 'visually-approved');
+  assert.deepEqual(selection.dividerShiftSourcePixels, { left: -5, right: -4 });
+  const g = JSON.parse(
+    fs.readFileSync(path.join(study, 'selected-geometry.json')),
+  );
   const original = JSON.parse(
     fs.readFileSync(path.join(base, 'reference-study/geometry.json')),
   );
-  assert.equal(g.status, 'draft-regional-boundary-review');
+  assert.equal(g.status, 'visually-approved');
   assert.equal(g.regions.length, 4);
   for (const side of ['left', 'right']) {
     const parent = original.regions.find(
@@ -32,7 +39,7 @@ async function main() {
       assert.equal(r.representation, 'schematic-regional-partition');
       assert.equal(r.exerciseMapping, null);
       images.push(
-        await sharp(path.join(study, r.id + '.png'))
+        await sharp(path.join(study, r.id + '-selected.png'))
           .greyscale()
           .raw()
           .toBuffer(),
@@ -57,6 +64,16 @@ async function main() {
   assert(fragment.length < 1_000_000 && !fragment.includes('fetch('));
   const dom = new JSDOM(fragment, { runScripts: 'dangerously' });
   const d = dom.window.document;
+  for (const side of ['left', 'right']) {
+    assert.equal(
+      Number(d.querySelector('[data-shift="' + side + '"]').value),
+      selection.dividerShiftSourcePixels[side],
+    );
+    assert.equal(
+      d.querySelector('[data-guide="' + side + '"]').getAttribute('d'),
+      g.parents.find((p) => p.side === side).dividerPath,
+    );
+  }
   const change = (selector, value) => {
     const el = d.querySelector(selector);
     el.value = value;
@@ -108,7 +125,7 @@ async function main() {
     'visible',
   );
   console.log(
-    'PASS: four draft regions, exact parent paths and raster unions, no raster overlap, independent regional opacity and bilateral divider controls, source/boundary/fill modes.',
+    'PASS: four approved selected regions, exact screenshot defaults and dividers, parent paths/raster unions, no raster overlap, independent opacity and bilateral controls, source/boundary/fill modes.',
   );
 }
 main().catch((e) => {

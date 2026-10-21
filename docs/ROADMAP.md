@@ -389,3 +389,9 @@ preserves whole-pectoral exteriors with complementary internal partitions and
 independent opacity/divider review. Next review its internal boundaries, then
 complete the nine-ID configuration/evidence mapping. The original 92-region
 combined review remains unchanged; no native scoring/integration is introduced.
+
+2026-10-21: selected internal chest division is visually accepted at anatomical
+L/R −5/−4 source px. The regional-division review block is closed. Next complete
+the nine-ID exact-configuration/evidence mapping with explicit unresolved entries;
+review numerical scoring separately. Preserve the current 92-region combined
+assembly until its regional replacement/compositing is explicitly prepared.

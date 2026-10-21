@@ -1492,3 +1492,13 @@ Review independently adjustable regional opacity and bilateral divider height
 (±10 source px, 0.5 px steps; +Y down). Front anatomical left is screen right.
 Preview values do not encode load. Accept the new division separately before
 integration; existing masks and exercise mappings remain unchanged.
+
+### Selected regional chest display accepted — 2026-10-21
+
+Retain anatomical L/R divider shifts −5/−4 source px from
+image(20261021-110734).png, confirmed explicitly by the user. Four separate
+selected exports preserve the exact whole-pectoral exteriors. Restore these
+values in the review without applying the shift twice. Baseline drafts remain
+unchanged. Both 65% opacity values are preview-only. Appearance acceptance does
+not validate anatomical boundaries, regional exercise ratios or production
+shared-edge compositing. Keep schematic-regional-partition representation.

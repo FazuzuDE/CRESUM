@@ -44,3 +44,14 @@ node scripts/check-chest-regional-review.cjs /workspace/cresum-regional-chest-re
 The builder uses the repository's existing Python image dependencies. The checker
 uses existing jsdom and the runtime's sharp installation. See
 [regional evidence and all nine chest-related catalog identities](../../../../docs/MUSCLE_REGIONAL_MAPPING.md).
+
+## Selected appearance accepted — 2026-10-21
+
+The selected schematic appearance is visually approved from
+image(20261021-110734).png and explicit yes: anatomical left −5 px, right −4 px.
+`selection.json` owns these shifts. The builder now defaults to separate
+`-selected.svg/.png`, `selected-geometry.json` and `selection-report.json`, and
+restores both review values. It preserves all original baseline exports.
+The original draft description above remains historical; selected appearance
+acceptance does not establish anatomical validation or exercise coefficients.
+Both 65% values remain preview-only. The current 92-region manifest is unchanged.

@@ -32,3 +32,11 @@ this is one new regional-division review block, not a reopened old muscle queue.
 Original whole-pectoral exteriors and combined 92-region composition stay exact.
 After this review, continue the nine-ID exercise-configuration/evidence mapping;
 no load coefficients or native integration are included yet.
+
+### 2026-10-21 update — regional division selected and accepted
+
+The four selected chest display regions are visually approved with anatomical
+L/R divider shifts −5/−4 source px. This new regional-division block is now closed.
+Baseline and combined 92-region geometry remain unchanged; selected exports are
+separate. Next complete nine-ID configuration/evidence mapping. Exact anatomy,
+combined regional replacement, scoring and native integration remain separate.

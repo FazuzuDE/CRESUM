@@ -1,0 +1,30 @@
+{
+  "status": "visually-approved",
+  "sides": [
+    {
+      "side": "left",
+      "parentRasterSha256": "857e963e4acc624ba43c39073eaefb4220e2b9ad5125d53bf6388aa02545faed",
+      "rasterUnionDifferencePixels": 0,
+      "mutualRasterOverlapPixels": 0,
+      "regionalInteriorPixels": [
+        2264,
+        6461
+      ]
+    },
+    {
+      "side": "right",
+      "parentRasterSha256": "53e5b34ba1bf8ab52c642910b231d65b0ef75f5a74a6ebd44f5d0b72c07aa7a6",
+      "rasterUnionDifferencePixels": 0,
+      "mutualRasterOverlapPixels": 0,
+      "regionalInteriorPixels": [
+        2315,
+        6405
+      ]
+    }
+  ],
+  "anatomicalValidation": "unresolved-artwork-guided-display-approximation",
+  "rasterPolicy": "pixel-center ownership; complementary original alpha with no inferred load fractions",
+  "vectorPolicy": "exact original exterior path; shared quadratic divider in complementary clips",
+  "productionIntegration": false,
+  "combinedReviewIncluded": false
+}

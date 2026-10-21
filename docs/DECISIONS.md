@@ -2019,3 +2019,14 @@ source cannot establish exact head boundaries; inferior fibers remain aggregated
 Keep original source, reference masks, 92-region composition, 17 groups and
 exercise mappings unchanged. No coefficients or merge. Next review the displayed
 internal division, then exact-variant evidence/assignment.
+
+## 2026-10-21 — Selected regional chest division accepted
+
+Explicit yes confirms image(20261021-110734).png and anatomical L/R divider
+shifts −5/−4 source px. Save selection metadata, four selected SVG/PNG regions,
+selected geometry/report and restored review defaults. Preserve baseline draft
+exports, whole-pectoral parent paths, source and 92-region combined assembly.
+Selected raster partitions exactly sum to each parent with zero mutual ownership.
+The representation remains schematic and anatomy unvalidated; 65% preview opacity
+is not a coefficient. Exercise mapping remains null. Next complete the nine-ID
+configuration/evidence mapping; no scoring, native integration or merge.
