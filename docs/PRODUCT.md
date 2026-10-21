@@ -74,6 +74,22 @@ Recreational gym-goers and strength-training users who track sets, reps, weight,
 
 ## Architecture direction
 
+### Content administration direction — requested 2026-10-21
+
+The user requested gradually building an administration interface to make
+product-content changes easy and fast. This is an approved direction, not an
+approved architecture or a working admin system. First prepare a focused content
+administration design for review. Proposed initial scope: exercise metadata,
+technique descriptions, illustration references and reviewed muscle mappings.
+
+Preserve stable exercise IDs, historical snapshots and offline workout logging.
+Content editing must not silently change the meaning of old workouts. Editing a
+muscle mapping does not establish scientific evidence or authorize physiological
+coefficients. App behavior and arbitrary code are not remotely editable content.
+Deployment, permissions, publication/versioning and client delivery remain design
+questions; no production administrative access or remote configuration is enabled
+by this decision record.
+
 CRESUM is modular, replaceable, and feature-driven across the app, not only on Home. Product areas should be independently evolvable where that improves safety and delivery, while stable domain rules stay separate from screen placement and experimental presentation. This is a boundary for future work, not permission for a broad rewrite or premature abstraction.
 
 Feature flags control experiments, staged rollout, and operational enablement. Capabilities/entitlements control whether a user may access a product capability. They are different concerns and must not be used interchangeably.
