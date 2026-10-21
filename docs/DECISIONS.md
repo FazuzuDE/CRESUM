@@ -1,5 +1,17 @@
 # CRESUM Decision Log
 
+## 2026-10-21 — Integrate selected anatomical character before admin work
+
+The user approved replacing the old in-app schematic mannequin with the selected
+character and accepted masks after discovering the review assets were not yet
+connected. Integrate the same source and geometry in the factual map, preserving
+17 parent counts, History and source-set drilldown. Substitute the four accepted
+chest partitions for two whole-chest regions; no distinct regional participation
+is inferred. Keep all 36 unresolved records unassigned and neutral, retain counts
+for groups without accepted map regions, and label lumbar projection semantics.
+This rendering integration takes priority over the proposed content admin.
+Device visual/compositing acceptance remains distinct from automated checks.
+
 ## 2026-10-21 — Presentation wordmark selected; admin direction requested
 
 The user selected the CRESUM lettering in the presentation's phone mockup and

@@ -21,7 +21,8 @@
     "test:watch": "jest --watch",
     "config:check": "node scripts/check-config.cjs && expo config --type public",
     "deps:check": "expo install --check",
-    "check": "npm run typecheck && npm run lint && npm run format:check && npm test && npm run config:check && npm run deps:check",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run anatomy:check && npm test && npm run config:check && npm run deps:check",
+    "anatomy:check": "node scripts/build-anatomical-muscle-map.cjs --check",
     "export:check": "expo export --platform ios --platform android"
   },
   "dependencies": {
