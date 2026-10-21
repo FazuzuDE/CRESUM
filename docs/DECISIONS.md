@@ -2030,3 +2030,31 @@ Selected raster partitions exactly sum to each parent with zero mutual ownership
 The representation remains schematic and anatomy unvalidated; 65% preview opacity
 is not a coefficient. Exercise mapping remains null. Next complete the nine-ID
 configuration/evidence mapping; no scoring, native integration or merge.
+
+## 2026-10-21 — #66 integrated; first chest evidence dispositions prepared
+
+Verified #66 merged into develop at `439c9b1ba833f3320ec354f0dabca3da909b7f37`.
+The user requested starting the next exercise-to-region stage. Prepare a separate
+nine-ID chest research register and applicability matrix. Record phase-dependent
+dumbbell findings, contextual barbell evidence and unspecified machine/fly/dip
+setups explicitly. This is a proposed scientific disposition awaiting review,
+not approval of nine activation profiles or physiological coefficients.
+
+Retain the two existing Secondary chest roles, stable IDs/history, accepted
+regional masks and 92-region combined assembly. Research contributions are null
+and runtime regional highlight assignment disabled. Next review the matrix and
+design the configuration/evidence lookup with honest unknown-setup fallback.
+
+## 2026-10-21 — Configuration/evidence contract proposed for review
+
+Following the user's request to continue, prepare a concrete contract describing
+per-exercise-instance setup snapshots and evidence lookup. Current engine permits
+repeated catalog exercises with distinct instance IDs; serialization does not
+currently persist these setup fields. Propose a snapshot frozen while completed
+sets exist and a new instance for a later setup, preserving previous sets.
+
+Distinguish missing setup from scientific insufficiency; no complete form can
+automatically approve an evidence profile. Legacy setups remain unknown. The
+proposal lives in docs/superpowers/specs/2026-10-21-chest-configuration-evidence-design.md
+and awaits user review. It is not a new approved persistence schema or product
+behavior. No application code, stored workout, mask or coefficient changes here.
