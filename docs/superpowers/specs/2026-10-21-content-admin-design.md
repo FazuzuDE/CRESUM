@@ -30,6 +30,10 @@ validation status. Selecting a record opens a form and a phone-sized preview.
 Use the approved CRESUM wordmark and existing light design direction.
 
 The first editing slice covers display names, technique text and source links.
+In the initial implementation proposal, source-link editing means choosing
+references from the existing reviewed source registry. URLs and source records
+are read-only because they are shared across exercises; adding/changing them
+requires a separate source-review slice.
 Expose identity, equipment, Primary/Secondary mapping and illustration references
 as read-only context. Asset replacement and scientific mapping editing follow as
 separately validated slices; do not pretend these controls already work.
@@ -65,6 +69,12 @@ bundled data through existing catalog/technique modules.
 Before implementation, approve this first-slice scope and write its implementation
 plan. Inspect the current catalog and technique validation rules in detail before
 choosing an interchange schema; this proposal does not approve a new schema.
+
+The [concrete implementation plan](../plans/2026-10-21-content-admin.md) now maps
+the source adapter, strict proposal validation, recoverable drafts and browser
+editor into separate testable tasks. Its proposed schema and editor limits await
+review. The existing catalog has 65 records and separate shared source references;
+the first editor does not introduce a new runtime catalog in the mobile app.
 
 Verify real catalog loading, stable-ID protection, allowed-field export, source
 revision conflict, invalid content, Save/Cancel, retained drafts and failure
