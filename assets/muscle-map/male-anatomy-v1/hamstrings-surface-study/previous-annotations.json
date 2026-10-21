@@ -1,0 +1,150 @@
+{
+  "canvas": [1312, 1199],
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "status": "draft-boundary-and-anatomical-review",
+  "method": "Manual visible-surface proposals from enlarged original posterior thighs. The combined cyan envelope supplies location only. Inner strips cannot be confidently assigned to semimembranosus from this generated illustration.",
+  "regions": [
+    {
+      "id": "hamstrings-left-biceps-femoris",
+      "side": "left",
+      "structureId": "biceps-femoris",
+      "label": "Двуглавая мышца бедра · видимая поверхность",
+      "muscleGroupId": "hamstrings",
+      "points": [
+        [857, 618],
+        [874, 614],
+        [871, 636],
+        [869, 666],
+        [868, 696],
+        [862, 724],
+        [851, 751],
+        [840, 769],
+        [832, 781],
+        [829, 772],
+        [830, 747],
+        [831, 721],
+        [831, 695],
+        [835, 667],
+        [844, 640],
+        [857, 618]
+      ]
+    },
+    {
+      "id": "hamstrings-right-biceps-femoris",
+      "side": "right",
+      "structureId": "biceps-femoris",
+      "label": "Двуглавая мышца бедра · видимая поверхность",
+      "muscleGroupId": "hamstrings",
+      "points": [
+        [1021, 618],
+        [1004, 614],
+        [1008, 636],
+        [1011, 666],
+        [1012, 696],
+        [1018, 724],
+        [1029, 751],
+        [1040, 769],
+        [1048, 781],
+        [1051, 772],
+        [1050, 747],
+        [1048, 721],
+        [1047, 695],
+        [1043, 667],
+        [1034, 640],
+        [1021, 618]
+      ]
+    },
+    {
+      "id": "hamstrings-left-semitendinosus",
+      "side": "left",
+      "structureId": "semitendinosus",
+      "label": "Полусухожильная · видимое брюшко",
+      "muscleGroupId": "hamstrings",
+      "points": [
+        [879, 613],
+        [895, 610],
+        [902, 633],
+        [907, 665],
+        [906, 695],
+        [901, 720],
+        [894, 740],
+        [890, 746],
+        [881, 728],
+        [873, 705],
+        [871, 681],
+        [873, 653],
+        [877, 630],
+        [879, 613]
+      ]
+    },
+    {
+      "id": "hamstrings-right-semitendinosus",
+      "side": "right",
+      "structureId": "semitendinosus",
+      "label": "Полусухожильная · видимое брюшко",
+      "muscleGroupId": "hamstrings",
+      "points": [
+        [999, 613],
+        [983, 610],
+        [976, 633],
+        [970, 665],
+        [971, 695],
+        [976, 720],
+        [983, 740],
+        [987, 746],
+        [996, 728],
+        [1004, 705],
+        [1007, 681],
+        [1005, 653],
+        [1001, 630],
+        [999, 613]
+      ]
+    },
+    {
+      "id": "medial-posterior-surface-left",
+      "side": "left",
+      "structureId": "medial-unassigned",
+      "label": "Внутренний участок · принадлежность уточнить",
+      "muscleGroupId": null,
+      "intendedStructureId": "semimembranosus",
+      "assignment": "unresolved-generated-surface-not-load-assigned",
+      "points": [
+        [911, 621],
+        [920, 615],
+        [925, 635],
+        [923, 661],
+        [918, 686],
+        [911, 712],
+        [905, 733],
+        [905, 718],
+        [910, 695],
+        [913, 671],
+        [913, 645],
+        [911, 621]
+      ]
+    },
+    {
+      "id": "medial-posterior-surface-right",
+      "side": "right",
+      "structureId": "medial-unassigned",
+      "label": "Внутренний участок · принадлежность уточнить",
+      "muscleGroupId": null,
+      "intendedStructureId": "semimembranosus",
+      "assignment": "unresolved-generated-surface-not-load-assigned",
+      "points": [
+        [967, 621],
+        [958, 615],
+        [953, 635],
+        [955, 661],
+        [960, 686],
+        [967, 712],
+        [973, 733],
+        [973, 718],
+        [968, 695],
+        [965, 671],
+        [965, 645],
+        [967, 621]
+      ]
+    }
+  ]
+}

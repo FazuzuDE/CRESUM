@@ -1,0 +1,51 @@
+{
+  "status": "draft-reference-contours-not-anatomical-ground-truth",
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "referenceSha256": "56650403b73acb74549de2b7db94c97c29a2e246127093fab94e64356088cd83",
+  "referenceSize": [
+    1024,
+    948
+  ],
+  "sourceSize": [
+    1312,
+    1199
+  ],
+  "transform": {
+    "scaleX": 1.2517253666479642,
+    "scaleY": 1.272367682336341,
+    "translateX": 18.120432858045806,
+    "translateY": -1.5865738769628999
+  },
+  "normalizedImageResidual": 0.07598782150682797,
+  "registrationScope": "grayscale posterior thorax only; not validated for whole-body transfer",
+  "regions": [
+    {
+      "id": "latissimus-dorsi-left-reference",
+      "referenceInteriorPixels": 4717,
+      "maxVectorRasterDeviationPx": 0.658
+    },
+    {
+      "id": "latissimus-dorsi-right-reference",
+      "referenceInteriorPixels": 4603,
+      "maxVectorRasterDeviationPx": 0.64
+    },
+    {
+      "id": "unassigned-lower-region-left-reference",
+      "referenceInteriorPixels": 765,
+      "maxVectorRasterDeviationPx": 0.646
+    },
+    {
+      "id": "unassigned-lower-region-right-reference",
+      "referenceInteriorPixels": 714,
+      "maxVectorRasterDeviationPx": 0.702
+    }
+  ],
+  "registrationQuality": "approximate-local-fit-visually-reviewed-not-pixel-identical",
+  "normalizedImageCorrelation": 0.962006089246586,
+  "lineExtraction": {
+    "greenMinusRedMin": 60,
+    "blueMinusRedMin": 40,
+    "interiorExpansionPx": 2
+  },
+  "selection": "two large regions assigned to lats; two lower regions preserved unassigned and excluded"
+}

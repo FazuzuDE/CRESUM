@@ -1,0 +1,12 @@
+{
+  "status": "visually-approved",
+  "revision": 2,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; back left positive X, back right negative X; positive shiftY down, negative shiftY up",
+  "sourceScreenshot": "4297D98E-BAFE-4A2C-BDC6-907D32174C3E.png",
+  "regions": {
+    "extensor-carpi-ulnaris-left": { "inset": 0, "shift": 3, "shiftY": -0.5 },
+    "extensor-carpi-ulnaris-right": { "inset": 0, "shift": 0, "shiftY": 0 }
+  }
+}

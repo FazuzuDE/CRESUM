@@ -1,0 +1,45 @@
+{
+  "status": "draft-reference-contours-not-anatomical-ground-truth",
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "referenceSha256": "5766cca218ea54168c7a3ad05304d90c046a3d9c2be16319341ca1f1efc53913",
+  "referenceSize": [
+    1085,
+    992
+  ],
+  "sourceSize": [
+    1312,
+    1199
+  ],
+  "transform": {
+    "scaleX": 1.2087030359885276,
+    "scaleY": 1.2096073155388543,
+    "translateX": 0.5369568086789249,
+    "translateY": -0.16950714152780805
+  },
+  "normalizedImageResidual": 0.00855448038498562,
+  "registrationScope": "grayscale posterior shoulders and upper thorax only; not validated for whole-body transfer",
+  "regions": [
+    {
+      "id": "posterior-shoulder-surface-left-reference",
+      "referenceInteriorPixels": 1909,
+      "maxVectorRasterDeviationPx": 0.683,
+      "referencePixelsIncludingStroke": 4083,
+      "strokePixelsClippedOutsideSourceBody": 428
+    },
+    {
+      "id": "posterior-shoulder-surface-right-reference",
+      "referenceInteriorPixels": 1849,
+      "maxVectorRasterDeviationPx": 0.672,
+      "referencePixelsIncludingStroke": 4002,
+      "strokePixelsClippedOutsideSourceBody": 517
+    }
+  ],
+  "registrationQuality": "local-grayscale-fit-not-anatomical-validation",
+  "normalizedImageCorrelation": 0.9957227598075072,
+  "lineExtraction": {
+    "greenMinusRedMin": 15,
+    "blueMinusRedMin": 10,
+    "boundaryPolicy": "outer-visible-stroke-clipped-to-source-silhouette"
+  },
+  "selection": "two independent posterior shoulder surfaces; rear/side deltoid division unresolved; no catalog assignment"
+}

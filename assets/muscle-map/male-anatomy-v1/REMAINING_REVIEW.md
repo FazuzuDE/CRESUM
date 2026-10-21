@@ -1,0 +1,42 @@
+# Remaining visual review — 2026-10-20
+
+The prepared individual blocks, including the newly requested bilateral lumbar
+projection, have selected appearance approval. **Zero individual blocks remain
+in that queue.** This does not establish complete functional/anatomical coverage
+or approve the full composition and native integration.
+
+Next: inspect the combined 92-region composition (52 front / 40 back) for shared
+borders, gaps and contacts. Two regions are explicitly schematic lumbar
+projections beneath fascia; a labeled toggle restores the prior 90-region view
+and its intersection diagnostic. The two selected chest reference contours
+retain pending boundary approval. All prior contours and selections remain exact.
+
+Resolve posterior-shoulder identity and the 36 unassigned regions separately.
+Production SVG assembly, native integration and runtime intensity review remain
+separate tasks. No production renderer or training-load calculation is changed.
+
+Deferred source limitations: ECRB separation, inner hamstring strips, other
+covered muscles, individual lumbar muscle boundaries beneath fascia, hidden
+attachments, distal tendons and foot detail. The accepted lumbar projection
+addresses regional load representation without claiming exposed anatomy.
+
+Review provenance and historical approvals remain in REVIEW_CHECKPOINT.md and
+the individual studies. Do not invent contours merely to fill gray pixels.
+
+## New regional chest pilot — 2026-10-20
+
+The user approved preparing internal regional display divisions after the
+regional-evidence review. `chest-regional-study/` is a separate four-region draft:
+clavicular and coarse sternocostal per side. Internal boundaries await review;
+this is one new regional-division review block, not a reopened old muscle queue.
+Original whole-pectoral exteriors and combined 92-region composition stay exact.
+After this review, continue the nine-ID exercise-configuration/evidence mapping;
+no load coefficients or native integration are included yet.
+
+### 2026-10-21 update — regional division selected and accepted
+
+The four selected chest display regions are visually approved with anatomical
+L/R divider shifts −5/−4 source px. This new regional-division block is now closed.
+Baseline and combined 92-region geometry remain unchanged; selected exports are
+separate. Next complete nine-ID configuration/evidence mapping. Exact anatomy,
+combined regional replacement, scoring and native integration remain separate.

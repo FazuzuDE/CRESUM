@@ -1,0 +1,70 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "revision": 1,
+  "status": "draft-boundary-and-structure-review",
+  "anatomyReference": "https://www.ncbi.nlm.nih.gov/books/NBK580487/",
+  "scope": "bilateral lower oblique scapular visible patches proposed as teres major; source-specific identity provisional; neighboring infraspinatus and small upper triangular teres-minor-region patches excluded; hidden coverage and tendons excluded; no load assignment",
+  "signedDistanceSmoothing": 0.35,
+  "contourSplineSmoothing": 0.015,
+  "regions": [
+    {
+      "id": "teres-major-left",
+      "side": "left",
+      "structureId": "teres-major",
+      "anatomicalMuscleId": "teres-major",
+      "muscleGroupId": null,
+      "label": "Большая круглая мышца · кандидат",
+      "points": [
+        [832, 253],
+        [838, 258],
+        [845, 264],
+        [852, 270],
+        [858, 278],
+        [865, 288],
+        [872, 298],
+        [876, 303],
+        [868, 305],
+        [857, 305],
+        [845, 303],
+        [834, 299],
+        [826, 294],
+        [821, 287],
+        [818, 278],
+        [816, 268],
+        [815, 260],
+        [823, 256],
+        [832, 253]
+      ]
+    },
+    {
+      "id": "teres-major-right",
+      "side": "right",
+      "structureId": "teres-major",
+      "anatomicalMuscleId": "teres-major",
+      "muscleGroupId": null,
+      "label": "Большая круглая мышца · кандидат",
+      "points": [
+        [1050, 253],
+        [1058, 256],
+        [1064, 260],
+        [1062, 269],
+        [1059, 280],
+        [1055, 289],
+        [1049, 295],
+        [1040, 300],
+        [1029, 303],
+        [1017, 305],
+        [1006, 305],
+        [1001, 303],
+        [1007, 297],
+        [1013, 289],
+        [1020, 280],
+        [1026, 272],
+        [1034, 265],
+        [1043, 259],
+        [1050, 253]
+      ]
+    }
+  ]
+}

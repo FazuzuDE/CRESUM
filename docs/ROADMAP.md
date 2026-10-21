@@ -320,3 +320,78 @@ Progress using existing taxonomy and mappings. This is separate from deferred
 Muscle Load/stimulus/recovery/recommendation work and does not approve any
 coefficients, new anatomical taxonomy or normalized red-intensity scale.
 Native visual/accessibility acceptance remains open before release.
+
+### Muscle Map source and mask preparation — 2026-10-17
+
+Prepare the user-selected anatomical front/back source with modesty insert and
+17 independently editable draft muscle-group layers. Preserve common image
+coordinates and existing IDs; deliver source, masks, clipped texture references
+and offline review. Review contours/anatomy and native compositing before
+replacing the merged schematic map. The subsequent 3D-source direction below is
+now approved. Live 3D, Female model and stimulus/recovery calculations remain
+separate stages.
+
+### Anatomical 3D source evaluation — approved 2026-10-17
+
+Next, evaluate a source with individually identifiable muscles, anatomy review,
+compatible asset rights and a reproducible render/mask export. Prove a small
+sample (chest, lats and quadriceps) before adapting all 17 groups. Keep neutral
+render, visible ID masks and shading aligned. Retain the current application
+renderer while this source is evaluated. #66 remains a draft checkpoint of the
+chosen appearance, manual mask experiment and review tooling; those contours
+are not the final anatomical source. Evaluation is read-only until a candidate
+is selected; importing a library does not automatically approve its anatomy or
+license suitability. No automatic merge of the checkpoint is authorized.
+
+### Current steering: continue with 2D — 2026-10-17
+
+The user has no 3D file yet and requested working with 2D. Defer model production
+and registration. Refine the selected image's chest, lats and quadriceps masks
+first using anatomy references and visible landmarks, preserve source alignment,
+and expose editable visible substructures. Keep the 17 catalog groups unchanged.
+The generated image and manual fitting remain a draft, not exact segmentation.
+The future 3D-source direction above is retained but is not a dependency for
+this 2D review. Keep #66 in Draft until visual/anatomical acceptance.
+
+Current refinement priority (2026-10-17): validate one chest/shoulder surface
+study using manual raster annotations, derived SVG and enlarged/phone-scale
+comparison before expanding the method. Do not claim automated segmentation.
+Leave ambiguous shoulder-head assignment unresolved rather than changing
+catalog mappings. The existing atlas remains a draft baseline.
+
+### Muscle-map next priority — 2026-10-20
+
+Before native integration or promoting draft PR #66, review a separate bilateral
+lumbar projection to address the user-identified lower-back coverage gap. The
+previous individual queue is closed, but the new projection is a pending block.
+Preserve all accepted masks and the 90-region composition while its proposed
+representation/boundaries are reviewed. Combined seams, chest contours and load
+assignment remain subsequent work; this does not expand to every hidden muscle.
+
+2026-10-20 update: the selected bilateral lumbar projection is visually accepted
+and included in the 92-region review with an explicit visibility toggle. Next
+review the combined boundaries and pending chest contours, then resolve load
+assignment and native integration. Preserve prior accepted masks and defer
+unsupported individual covered-muscle separation.
+
+### Regional evidence before final mask binding — 2026-10-20
+
+Research exercise-specific regional emphasis before final training-to-mask
+assignment. Start with the nine chest-related catalog IDs and review
+clavicular/sternocostal display subdivisions inside the preserved chest
+exteriors. The current whole-pectoral masks cannot display separate regional
+inputs. Extend the audit by muscle family; preserve stable IDs and factual
+counts. Numerical stimulus coefficients and native integration follow separately.
+See [regional evidence and audit](MUSCLE_REGIONAL_MAPPING.md).
+
+Regional chest pilot preparation is approved. A separate four-region draft now
+preserves whole-pectoral exteriors with complementary internal partitions and
+independent opacity/divider review. Next review its internal boundaries, then
+complete the nine-ID configuration/evidence mapping. The original 92-region
+combined review remains unchanged; no native scoring/integration is introduced.
+
+2026-10-21: selected internal chest division is visually accepted at anatomical
+L/R −5/−4 source px. The regional-division review block is closed. Next complete
+the nine-ID exact-configuration/evidence mapping with explicit unresolved entries;
+review numerical scoring separately. Preserve the current 92-region combined
+assembly until its regional replacement/compositing is explicitly prepared.

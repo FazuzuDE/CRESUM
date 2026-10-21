@@ -1,0 +1,12 @@
+{
+  "status": "visually-approved",
+  "revision": 1,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; back left positive X, back right negative X; positive shiftY down, negative shiftY up",
+  "sourceScreenshot": "147BE5D0-6797-42D8-B3C9-5F0D07E4AC51.png",
+  "regions": {
+    "anconeus-left": { "inset": -1, "shift": 0, "shiftY": 0 },
+    "anconeus-right": { "inset": 0.5, "shift": 0.5, "shiftY": -1 }
+  }
+}

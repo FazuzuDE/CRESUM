@@ -1,0 +1,78 @@
+{
+  "status": "presentation-study-not-muscle-load-distribution",
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "featherSourcePixels": 2,
+  "method": "4x vector rasterization, inward distance smoothstep, antialias capped by vector coverage",
+  "geometrySha256": "ea9491ff6e27709c90dad56b7f246dc5d91974bd74a576601d06cf4b0f171ba1",
+  "preview": {
+    "blend": "multiply",
+    "defaultOpacity": 0.65,
+    "gradient": {
+      "center": [
+        0.5,
+        0.43
+      ],
+      "radius": 0.72,
+      "opacityStops": [
+        [
+          0,
+          1
+        ],
+        [
+          0.65,
+          0.95
+        ],
+        [
+          1,
+          0.6
+        ]
+      ]
+    }
+  },
+  "regions": [
+    {
+      "id": "deltoid-right-reference",
+      "bounds": [
+        198,
+        200,
+        97,
+        113
+      ],
+      "featheredPixels": 1026,
+      "nonzeroPixelsOutsideMask": 0
+    },
+    {
+      "id": "deltoid-left-reference",
+      "bounds": [
+        441,
+        200,
+        96,
+        114
+      ],
+      "featheredPixels": 1061,
+      "nonzeroPixelsOutsideMask": 0
+    },
+    {
+      "id": "pectoralis-major-right-reference",
+      "bounds": [
+        252,
+        210,
+        112,
+        111
+      ],
+      "featheredPixels": 1179,
+      "nonzeroPixelsOutsideMask": 0
+    },
+    {
+      "id": "pectoralis-major-left-reference",
+      "bounds": [
+        372,
+        209,
+        111,
+        112
+      ],
+      "featheredPixels": 1166,
+      "nonzeroPixelsOutsideMask": 0
+    }
+  ]
+}

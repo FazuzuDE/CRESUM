@@ -1,0 +1,38 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "referenceSha256": "c62014af69189fabcec8b6fe6c6d1c8497ca27fa942fd747b9da5a96222ec9b3",
+  "status": "draft-visual-review",
+  "boundaryPolicy": "visible-outer-stroke-with-adjustable-signed-inset",
+  "regions": [
+    {
+      "id": "biceps-left-reference",
+      "side": "left",
+      "referenceCenter": [
+        506.850289017341,
+        344.3499036608863
+      ],
+      "localTransform": {
+        "scaleX": 1.0004185629918698,
+        "scaleY": 1.0005000599066074,
+        "translateX": 0.24102574278253538,
+        "translateY": 0.40017082459518966
+      },
+      "normalizedImageCorrelation": 0.9969996677133169
+    },
+    {
+      "id": "biceps-right-reference",
+      "side": "right",
+      "referenceCenter": [
+        229.78702993092864,
+        345.2839600920952
+      ],
+      "localTransform": {
+        "scaleX": 0.9978684943628925,
+        "scaleY": 1.0004347117585957,
+        "translateX": 0.062158141236498404,
+        "translateY": 0.3218141784713722
+      },
+      "normalizedImageCorrelation": 0.997485615854244
+    }
+  ]
+}

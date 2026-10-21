@@ -1,0 +1,49 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "referenceSha256": "19d94033c4e24f1b9b9573eca6facceab60ceeb6d0ae090645d6c608a6c8302f",
+  "status": "draft-boundary-and-head-assignment-review",
+  "strokePolicy": "visible-stroke-included-nearest-interior-partition-at-contacts",
+  "legs": {
+    "left": {
+      "transform": {
+        "scaleX": 0.9974538222046345,
+        "scaleY": 0.9957182547606378,
+        "translateX": 2.2538372631160755,
+        "translateY": 3.6299648930129216
+      },
+      "normalizedImageCorrelation": 0.9967073213768818
+    },
+    "right": {
+      "transform": {
+        "scaleX": 1.0004481283019322,
+        "scaleY": 0.9958114191491814,
+        "translateX": -0.2178615421423787,
+        "translateY": 3.3380685691035907
+      },
+      "normalizedImageCorrelation": 0.9956684668427168
+    }
+  },
+  "regions": [
+    {
+      "id": "gastrocnemius-lateral-left",
+      "referenceCenterX": 827.6885054791327,
+      "interiorPixels": 4289
+    },
+    {
+      "id": "gastrocnemius-medial-left",
+      "referenceCenterX": 872.6510031678986,
+      "interiorPixels": 3788
+    },
+    {
+      "id": "gastrocnemius-medial-right",
+      "referenceCenterX": 1004.1022784810126,
+      "interiorPixels": 3950
+    },
+    {
+      "id": "gastrocnemius-lateral-right",
+      "referenceCenterX": 1049.5777986388173,
+      "interiorPixels": 4261
+    }
+  ],
+  "baselineOverlapPixels": 0
+}

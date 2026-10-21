@@ -568,3 +568,99 @@ a coverage notice and never receive guessed muscle mappings. A set can involve
 multiple muscles; muscle counts must not be summed as a unique total.
 No stimulus coefficients, recovery estimates, intensity normalization, medical
 claims, recommendations, schema changes or history rewrites are introduced.
+
+### Anatomical 3D source direction — approved 2026-10-17
+
+Use a reviewed anatomical 3D source with individually identifiable muscles to
+produce consistent front/back views, visible-surface masks and shading layers.
+Keep the selected grayscale character with modesty insert as the appearance
+reference; the generated image and manual masks are not anatomical ground truth.
+Map multiple anatomical objects to the existing 17 catalog groups without
+changing exercise mappings, saved history or participation calculations.
+The initial app presentation may remain 2D. Interactive rotation and deep-layer
+anatomy views require separate product work. Hidden muscles must not be painted
+over an unrelated visible surface. Source selection must verify anatomy,
+object separation, usable pose, export workflow and asset licensing.
+
+Current steering (2026-10-17): 3D is unavailable, so continue the 2D source/mask
+review. The future model-derived workflow remains an option; it is not required
+to improve current visible contours. Editable anatomical subparts aggregate
+into the existing groups and do not create new set/activation measurements.
+
+The approved next 2D study focuses on whole visible chest and shoulder surfaces.
+Review source-boundary fit before expanding to the rest of the body. A whole
+shoulder study is not a substitute for separate front/side-deltoid participation
+groups; unresolved boundaries must not introduce guessed mappings or scores.
+
+Appearance approval (2026-10-18): the user confirmed the selected front/back male
+character as CRESUM's primary male anatomical reference. Continue future Muscle
+Map/Anatomy work with this identity. Appearance approval is separate from mask
+acceptance and does not promote the current draft contours into production.
+
+Current highlight appearance (2026-10-18): the user preferred the **Previous
+edge** comparison option after testing blur. Use the smooth SVG boundary with
+uniform red tint, retained source texture, no stroke and no additional inner or
+outer blur. This supersedes the earlier Soft red choice. Keep existing muscle
+groups, controllable opacity and load semantics. Appearance preference does not
+constitute acceptance of the incomplete anatomical masks.
+
+Muscle intensity clarification (2026-10-18): highlight saturation/opacity is a
+flexible per-muscle runtime input that changes with the represented training
+load. Approved masks define geometry only; preview slider percentages are not
+fixed product values. Keep load calculation, normalization and display intensity
+separate from mask assets. This requirement does not introduce a load formula
+or change the current factual participation counts into a stimulus score.
+
+Quadriceps structure decision (2026-10-18): retain separate editable visible
+rectus femoris, vastus lateralis and vastus medialis surfaces on each side.
+For now, aggregate them into the single existing quadriceps group for training
+participation/load display. No per-head coefficients or distinct load estimates
+are introduced. The deep vastus intermedius has no superficial display region.
+
+Muscle Map granularity rule (2026-10-18): prepare the most useful anatomically
+justified separation into individual muscles or meaningful visible heads,
+independently on each side. Retain parent groups so detailed visual regions can
+still share an aggregate load signal. Granular geometry does not establish
+per-muscle load accuracy or authorize guessed coefficients. Hidden structures
+need a future dedicated layer/view; do not invent surface regions for them.
+
+### Lower-back coverage for the muscle map — 2026-10-20
+
+The muscle-load map needs an explicit lower-back representation, consistent
+with the existing lower-back catalog identity. Closing a prepared mask-review
+queue does not establish complete functional muscle coverage. When the fixed
+source covers lumbar structures with fascia, a separately labeled schematic
+projection may be reviewed; do not present it as directly visible anatomy or
+infer individual-muscle load coefficients. Final appearance and native
+integration require their own review.
+
+The selected lumbar projection appearance was accepted on 2026-10-20 with
+independent side parameters. It may be included in combined review only with
+explicit projection-beneath-fascia semantics; regional representation does not
+establish separate covered-muscle boundaries or new load coefficients.
+
+### Exercise-specific regional emphasis — approved 2026-10-20
+
+Training-to-mask binding must account for evidence-supported differences between
+anatomical regions/heads and exact exercise configurations. Do not force every
+part of a parent group to share one future estimated load when regional evidence
+supports a distinction. Chest is the first pilot: distinguish clavicular and
+sternocostal regions where justified without treating them as isolated muscles.
+Apply the same research process across the body. The earlier aggregate-only
+stage does not prohibit this future regional layer.
+
+Preserve the 17 parent IDs and factual Primary/Secondary counts. Bench/body angle,
+machine path, cable direction, support, grip, range and laterality matter where
+supported. Unknown setup retains unresolved regional emphasis and parent
+participation, without invented splits or historical reinterpretation. Excitation,
+force and adaptation remain distinct. Numerical coefficients and normalization
+need separate methodological review. See [regional evidence](MUSCLE_REGIONAL_MAPPING.md).
+
+2026-10-20 follow-up: the user approved preparing the regional chest pilot.
+This authorizes four draft display regions and independent review controls, not
+physiological coefficients or acceptance of the resulting internal boundaries.
+
+2026-10-21: selected regional chest appearance is accepted with anatomical left
+and right divider shifts −5 and −4 source px. This approves the schematic
+regional display, not exact anatomical boundaries or physiological coefficients.
+The 65% screenshot values remain preview-only; exercise mapping is unresolved.

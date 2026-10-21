@@ -1,0 +1,7 @@
+{
+  "selectedRegions": 10,
+  "interiorOverlapPixels": 26,
+  "quantizedRasterOverlapPixels": 29,
+  "backgroundPixelsClipped": 34,
+  "opacityBakedIntoMasks": false
+}

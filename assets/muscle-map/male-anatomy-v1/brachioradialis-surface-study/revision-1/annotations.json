@@ -1,0 +1,64 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "revision": 1,
+  "status": "draft-boundary-and-structure-review",
+  "anatomyReference": "https://www.ncbi.nlm.nih.gov/books/NBK526110/",
+  "scope": "visible radial forearm muscle-belly candidates only, proximal continuation and distal tendon excluded where ambiguous; illustration is not anatomical ground truth",
+  "signedDistanceSmoothing": 0.5,
+  "contourSplineSmoothing": 0.015,
+  "regions": [
+    {
+      "id": "brachioradialis-left",
+      "side": "left",
+      "structureId": "brachioradialis",
+      "anatomicalMuscleId": "brachioradialis",
+      "muscleGroupId": "forearms",
+      "label": "Плечелучевая мышца",
+      "points": [
+        [552, 376],
+        [565, 391],
+        [577, 414],
+        [584, 437],
+        [585, 457],
+        [584, 477],
+        [590, 495],
+        [597, 511],
+        [589, 504],
+        [575, 486],
+        [561, 464],
+        [551, 444],
+        [546, 424],
+        [546, 406],
+        [549, 391],
+        [552, 376]
+      ]
+    },
+    {
+      "id": "brachioradialis-right",
+      "side": "right",
+      "structureId": "brachioradialis",
+      "anatomicalMuscleId": "brachioradialis",
+      "muscleGroupId": "forearms",
+      "label": "Плечелучевая мышца",
+      "points": [
+        [186, 376],
+        [190, 390],
+        [194, 406],
+        [194, 422],
+        [188, 441],
+        [179, 461],
+        [167, 481],
+        [153, 502],
+        [146, 511],
+        [151, 495],
+        [155, 476],
+        [154, 456],
+        [154, 437],
+        [159, 415],
+        [171, 393],
+        [186, 376]
+      ]
+    }
+  ]
+}

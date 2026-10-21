@@ -1,0 +1,25 @@
+{
+  "status": "draft-regional-boundary-review",
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "representation": "schematic-regional-partition",
+  "method": "Manual artwork-guided quadratic division; not a recovered anatomical head boundary. Two coarse display regions; remaining inferior fibers are aggregated, not separately validated.",
+  "guides": {
+    "left": [
+      [370, 236],
+      [430, 245],
+      [487, 275]
+    ],
+    "right": [
+      [250, 276],
+      [305, 245],
+      [365, 235]
+    ]
+  },
+  "orientation": "Front: anatomical left is screen right. Guide points are ordered by screen x; positive divider shift moves down.",
+  "references": [
+    "https://pubmed.ncbi.nlm.nih.gov/19291757/",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC6466946/",
+    "docs/MUSCLE_REGIONAL_MAPPING.md"
+  ],
+  "limitations": "Anatomy studies support regional distinction and variation, not these pixel coordinates. The generated source cannot establish the true boundary. Internal divider, labels and source registration need review. No exercise coefficients."
+}

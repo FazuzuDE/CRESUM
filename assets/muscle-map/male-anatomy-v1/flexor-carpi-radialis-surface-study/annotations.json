@@ -1,0 +1,66 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "revision": 1,
+  "status": "draft-boundary-and-structure-review",
+  "anatomyReference": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9464466/",
+  "scope": "two anterior forearm surface proposals for flexor carpi radialis; exact structure assignment is provisional; exclude pale elbow aponeurosis, distal tendons and adjacent flexors",
+  "signedDistanceSmoothing": 0.25,
+  "contourSplineSmoothing": 0.008,
+  "regions": [
+    {
+      "id": "flexor-carpi-radialis-left",
+      "side": "left",
+      "structureId": "flexor-carpi-radialis",
+      "anatomicalMuscleId": "flexor-carpi-radialis",
+      "muscleGroupId": "forearms",
+      "label": "Лучевой сгибатель запястья · кандидат",
+      "points": [
+        [522, 422],
+        [524, 434],
+        [528, 446],
+        [535, 459],
+        [544, 473],
+        [556, 488],
+        [569, 503],
+        [581, 518],
+        [585, 522],
+        [580, 506],
+        [574, 492],
+        [565, 478],
+        [555, 463],
+        [548, 448],
+        [544, 435],
+        [535, 428],
+        [522, 422]
+      ]
+    },
+    {
+      "id": "flexor-carpi-radialis-right",
+      "side": "right",
+      "structureId": "flexor-carpi-radialis",
+      "anatomicalMuscleId": "flexor-carpi-radialis",
+      "muscleGroupId": "forearms",
+      "label": "Лучевой сгибатель запястья · кандидат",
+      "points": [
+        [217, 421],
+        [214, 435],
+        [211, 445],
+        [205, 458],
+        [196, 472],
+        [184, 486],
+        [171, 501],
+        [159, 516],
+        [154, 521],
+        [158, 508],
+        [164, 494],
+        [174, 479],
+        [184, 464],
+        [191, 449],
+        [195, 437],
+        [204, 430],
+        [217, 421]
+      ]
+    }
+  ]
+}

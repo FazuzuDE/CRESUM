@@ -1,0 +1,44 @@
+{
+  "status": "visually-approved",
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; front left negative X, front right positive X; positive shiftY down, negative shiftY up",
+  "sourceScreenshots": {
+    "serratus-visible-slip-1": "image(20261020-132259).png",
+    "serratus-visible-slip-2": "image(20261020-132252).png",
+    "serratus-visible-slip-3": "image(20261020-132244).png"
+  },
+  "regions": {
+    "serratus-visible-slip-1-left": {
+      "inset": -1,
+      "shift": 2.5,
+      "shiftY": 0
+    },
+    "serratus-visible-slip-1-right": {
+      "inset": -1,
+      "shift": 3.5,
+      "shiftY": 0
+    },
+    "serratus-visible-slip-2-left": {
+      "inset": 0,
+      "shift": 1.5,
+      "shiftY": -1.5
+    },
+    "serratus-visible-slip-2-right": {
+      "inset": 0,
+      "shift": 2.5,
+      "shiftY": -0.5
+    },
+    "serratus-visible-slip-3-left": {
+      "inset": 1.5,
+      "shift": -3.5,
+      "shiftY": -1
+    },
+    "serratus-visible-slip-3-right": {
+      "inset": 1.5,
+      "shift": -3.5,
+      "shiftY": -1
+    }
+  },
+  "approvalBasis": "combined six-patch selected appearance explicitly accepted; all 18 screenshot-derived inset and X/Y parameters retained"
+}

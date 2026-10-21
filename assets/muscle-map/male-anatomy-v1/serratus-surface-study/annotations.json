@@ -1,0 +1,128 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "revision": 1,
+  "status": "candidate-boundary-and-structure-review",
+  "anatomyReference": "https://www.ncbi.nlm.nih.gov/books/NBK531457/",
+  "scope": "three visible side-wall patches per side; lower interdigitating region deferred; labels do not identify rib numbers or anatomical subdivisions",
+  "signedDistanceSmoothing": 0.5,
+  "contourSplineSmoothing": 0.015,
+  "regions": [
+    {
+      "id": "serratus-visible-slip-1-left",
+      "side": "left",
+      "structureId": "serratus-visible-slip-1",
+      "anatomicalMuscleId": "serratus-anterior",
+      "muscleGroupId": null,
+      "label": "Верхний видимый участок",
+      "points": [
+        [464, 314],
+        [458, 316],
+        [451, 318],
+        [448, 322],
+        [450, 327],
+        [456, 330],
+        [465, 328],
+        [468, 324],
+        [468, 318],
+        [464, 314]
+      ]
+    },
+    {
+      "id": "serratus-visible-slip-2-left",
+      "side": "left",
+      "structureId": "serratus-visible-slip-2",
+      "anatomicalMuscleId": "serratus-anterior",
+      "muscleGroupId": null,
+      "label": "Средний видимый участок",
+      "points": [
+        [466, 333],
+        [458, 332],
+        [455, 337],
+        [451, 345],
+        [450, 348],
+        [461, 349],
+        [467, 346],
+        [469, 340],
+        [466, 333]
+      ]
+    },
+    {
+      "id": "serratus-visible-slip-3-left",
+      "side": "left",
+      "structureId": "serratus-visible-slip-3",
+      "anatomicalMuscleId": "serratus-anterior",
+      "muscleGroupId": null,
+      "label": "Нижний видимый участок",
+      "points": [
+        [464, 352],
+        [455, 351],
+        [451, 357],
+        [448, 363],
+        [449, 367],
+        [457, 367],
+        [463, 364],
+        [466, 359],
+        [464, 352]
+      ]
+    },
+    {
+      "id": "serratus-visible-slip-1-right",
+      "side": "right",
+      "structureId": "serratus-visible-slip-1",
+      "anatomicalMuscleId": "serratus-anterior",
+      "muscleGroupId": null,
+      "label": "Верхний видимый участок",
+      "points": [
+        [274, 314],
+        [280, 316],
+        [287, 318],
+        [290, 321],
+        [288, 326],
+        [282, 329],
+        [273, 328],
+        [270, 324],
+        [270, 317],
+        [274, 314]
+      ]
+    },
+    {
+      "id": "serratus-visible-slip-2-right",
+      "side": "right",
+      "structureId": "serratus-visible-slip-2",
+      "anatomicalMuscleId": "serratus-anterior",
+      "muscleGroupId": null,
+      "label": "Средний видимый участок",
+      "points": [
+        [272, 332],
+        [280, 331],
+        [283, 336],
+        [287, 344],
+        [288, 347],
+        [277, 348],
+        [271, 345],
+        [270, 339],
+        [272, 332]
+      ]
+    },
+    {
+      "id": "serratus-visible-slip-3-right",
+      "side": "right",
+      "structureId": "serratus-visible-slip-3",
+      "anatomicalMuscleId": "serratus-anterior",
+      "muscleGroupId": null,
+      "label": "Нижний видимый участок",
+      "points": [
+        [274, 351],
+        [284, 350],
+        [287, 356],
+        [290, 362],
+        [289, 366],
+        [281, 366],
+        [276, 362],
+        [273, 358],
+        [274, 351]
+      ]
+    }
+  ]
+}

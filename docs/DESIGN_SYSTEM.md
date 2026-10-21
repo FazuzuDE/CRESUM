@@ -753,3 +753,752 @@ the role, never highlight brightness within a role. Additional shade tokens:
 neutral `#ECEDEF` / `#BEC2C8`, primary `#C75757` / `#8F292E`, secondary
 `#F1C4C4` / `#D99393`. This remains a simplified group map requiring visual
 acceptance, not an individually modeled anatomical atlas or realistic 3D asset.
+
+### Selected anatomical appearance and editable masks — 2026-10-17
+
+The user selected a grayscale anatomical illustration with clearly separated
+surface muscles, restrained fiber detail, front/back neutral stance and a small
+matte central pelvic modesty insert. Keep the adductors, proximal thighs and
+glutes visible. This Muscle Map appearance candidate is separate from the
+blue-shirt Exercise Male Master; it does not replace technique artwork.
+Preserve one unchanged source image and common coordinates for every layer.
+Each of the existing 17 groups has an independent editable SVG mask with
+separate view/side path identity. Do not regenerate individual muscle pictures
+with inconsistent poses/cameras. Initial manual mask boundaries remain draft
+until anatomical and phone-scale visual review; current production SVG stays.
+
+Gluteus maximus selected-mask appearance accepted on 2026-10-18: anatomical
+left inset 2 source px and inward shift 0 px; anatomical right inset 2.5 px and
+inward shift −1 px. In the posterior view positive inward shift moves left
+rightward and right leftward. Preserve the selected exports separately from
+baseline drafts. Gluteus medius candidates remain unapproved because their
+boundaries are unclear; exclude them from the selected combined mask and retain
+unassigned status pending refinement. Opacity remains driven by runtime load.
+
+Superseding medius review on 2026-10-18: the user accepted revision-2 visible
+surface masks with left inset 1 px / inward shift 0 px and right inset 1.5 px /
+inward shift −2 px. Store selected exports under the existing `glutes` parent,
+retaining independent identities and earlier rejected contours as provenance.
+Only revision-2 selected masks carry visual approval; their baseline drafts and
+the earlier candidate remain separate. Do not bake the 85% preview opacity into
+geometry or alter exercise mappings.
+
+### Approved refinement: model-derived anatomy — 2026-10-17
+
+Prefer an anatomically reviewed, individually separated 3D muscle source for
+future precise masks. Render the neutral body, visible-surface muscle IDs/masks
+and shading from the same geometry, pose, camera and crop. Preserve the selected
+gray appearance and discreet central modesty insert. Each group may aggregate
+several anatomical objects. Accuracy comes from reviewed structure, not from
+image-to-3D conversion alone. Maintain occlusion; deeper muscle visualization
+belongs to a separate layer-view design. Current manual masks remain editable
+draft references until replaced or explicitly reviewed, not approved templates
+for deforming a future anatomically correct model.
+
+### Active 2D refinement — 2026-10-17
+
+User deferred the unavailable 3D asset and continued 2D work. Retain the selected
+image, common coordinates and neutral modesty insert. Use visible anatomical
+landmarks and identified references to refine per-side contours, beginning with
+chest, lats and quadriceps. Permit editable substructure layers within existing
+groups; do not display deep structures over superficial ones. Mark new contours
+as drafts and keep the review tool separate from production analytics.
+
+### Image-boundary study: chest and shoulders — 2026-10-17
+
+Front deltoid continuation — 2026-10-19: user approved a four-mask review of
+anterior and lateral visible surfaces, independent on each anatomical side.
+Provide per-side/per-head inset and X/Y controls in half-source-pixel steps.
+Keep the source and previously accepted posterior contours unchanged. New
+boundaries and head assignments require visual review; preparation approval
+does not approve those contours or alter exercise load coefficients.
+
+User approved a small raster-mask-first refinement after rejecting coarse paths.
+Annotate independently on the unchanged source, check raster boundaries, then
+derive SVG contours with bounded conversion drift. Review enlarged and at phone
+scale. Keep the whole pectoral surface when its internal separator is ambiguous.
+Tint preserves source shading; outlines belong to review only. Whole-shoulder
+study masks must remain unassigned until the anterior/lateral division is
+reviewed; they cannot replace two distinct catalog groups with one guess.
+
+### Primary male anatomical character approved — 2026-10-18
+
+The user explicitly approved this character's front and back appearances as the
+primary male anatomical reference for CRESUM. Preserve his face, short hair,
+body proportions, grayscale fiber texture, neutral stance and discreet central
+pelvic insert. The paired source is `assets/muscle-map/male-anatomy-v1/source.png`
+(SHA-256 `39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a`).
+Use this approved identity for subsequent Muscle Map/Anatomy asset refinements.
+The earlier appearance-candidate wording is superseded by this approval.
+Mask boundaries and anatomical correctness remain under separate review; the
+latest surface study was assessed as improved but not fully accepted. Existing
+blue-shirt Technique artwork is not replaced by this documentation decision.
+
+### Annotated reference extraction — 2026-10-18
+
+User requested a trial transfer of the teal chest/shoulder outlines from the
+provided annotated raster. Extract actual colored boundaries and register local
+thorax detail to the unchanged source before judging the result. Preserve the
+prior manual surface study for comparison. Exclude dashed deltoid divisions;
+whole-shoulder masks stay unassigned. Generative reference appearance, pixel
+registration and smooth vector export do not establish anatomical correctness.
+
+### Clear-edge red highlight selected — 2026-10-18
+
+After comparing soft and externally blurred variants, the user preferred the
+**Previous edge** option shown in their screenshot: the original smooth SVG
+boundary with a uniform red fill, ordinary vector antialiasing, no stroke, no
+added inward feathering and no outward blur. This supersedes the earlier Soft
+red selection. Preserve grayscale fibers and source shading. Keep opacity
+controllable; the screenshot's 100% setting is not a new default or calibrated
+training-load scale. Radial-gradient and blur variants remain experiments.
+Keep red load semantics; multicolor reference legends do not define new
+categories. Appearance preference does not finalize anatomical boundaries or
+authorize production integration of the incomplete atlas.
+
+### Trapezius appearance accepted — 2026-10-18
+
+The user accepted the independently traced posterior trapezius study and asked
+to continue. Preserve both contours in `trapezius-study/geometry.json`, the
+unchanged source, clear-edge red tint and retained fiber shading. This is visual
+acceptance of this study, not expert anatomical validation or approval of other
+atlas regions. Continue the same per-side review with visible latissimus dorsi;
+keep the pale lumbar/aponeurotic area neutral and retain the existing `lats` ID.
+
+### Muscle contour handoff workflow — 2026-10-18
+
+For each next muscle, first provide the unchanged approved source image and an
+English Gemini prompt requesting only a visible-surface outline. The user
+returns the annotated image; use its actual contours as input to mask repair,
+check registration against the original, and show the corrected overlay for
+review. Do not treat a generative annotation as native SVG or exact anatomy.
+Keep the source image fixed, sides independently editable, and the accepted
+clear-edge red presentation. Existing lats-study contours remain candidates
+pending the user's returned reference; do not promote them by default.
+
+The first returned Gemini lats reference contains four closed cyan regions.
+Keep each region independently editable; only the two large regions are lats
+candidates. Preserve both smaller inferior regions without anatomical assignment
+and exclude them from lats highlighting. Register returned contours to the
+unchanged original and retain approximate-fit provenance; do not replace the
+original with the returned resized image. Review the transferred lats before
+calling their appearance accepted.
+
+### Lats reference appearance accepted — 2026-10-18
+
+The user accepted the registered two-large-region lats preview and requested
+the next muscle. Retain the bilateral contours in
+`lats-reference-study/geometry.json` and the clear-edge red presentation on the
+unchanged source. Both smaller inferior regions remain unassigned and excluded
+from lats highlighting. This is visual acceptance, not expert anatomical
+validation or approval to integrate the incomplete atlas into production.
+Continue with posterior deltoids using the source → Gemini outline → returned
+reference → mask repair → visual review workflow.
+
+### Include annotation stroke width — 2026-10-18
+
+The user directed treating the colored contour line itself as part of the
+muscle area. New contour transfers must use the visible stroke's outer edge,
+not fill only the enclosed interior or estimate its centerline. Avoid an inset
+gray rim; preserve the original source texture and clear-edge presentation.
+Where the annotation straddles the body boundary, clip the tint to the original
+silhouette so it does not color the background. Apply this correction to the
+current posterior-shoulder candidates and show the previous fill for comparison.
+Previously accepted reference masks are retained until individually reviewed;
+this boundary policy does not resolve anatomical muscle-head assignment.
+
+The user subsequently rejected the current full-outer-stroke shoulder fill as
+too wide. For this candidate, calibrate how much of the annotation width is
+included against the visible source rather than treating all colored edge/halo
+pixels as a final muscle border. The user approved a 3.5-source-pixel inset for
+both current shoulder masks, superseding the initial 3-pixel review default.
+This is visual approval only; anatomical assignment remains unresolved. Keep prior variants
+for comparison and do not change accepted masks during this local review.
+
+### Independent per-side mask edge editing — 2026-10-18
+
+User selected the assistant's cyan biceps guide for direct transfer and requested
+independent left/right pixel adjustment. Provide one signed source-pixel inset
+per anatomical side, half-pixel steps and optional linked editing. Positive
+values narrow the boundary; negative values expand it. Label anatomical sides
+explicitly because the front view reverses their screen positions. Keep red
+opacity, isolated-side review and detail/full-body comparison available. Biceps
+starts at 0 px per side pending red-mask review; the approved 3.5 px shoulder
+setting does not become a global default.
+
+The user approved the anatomical left biceps at 1.5 px inset. Preserve that
+selected contour. The right biceps requires translation toward the torso
+(positive source X in this front view); offer a separate horizontal position
+control. The initial +3 px position is a review candidate, not an approved value.
+
+The user subsequently approved both biceps at 1.5 px inset. Save this bilateral
+visual selection with the displayed right-side +3 source-pixel X translation
+toward the torso. Preserve independent controls and source registration.
+
+### Full-guide triceps comparison — 2026-10-18
+
+User requested a trial using their full-body red annotation IMG_8203.jpeg and
+comparison with the preceding cyan triceps outline. Interpret the red outer
+envelopes manually where intersecting lines do not yield closed independent
+muscles. Register each reference to the unchanged source; expose independent
+per-side inset and inward position controls in half-source-pixel steps. Preserve
+each variant's settings while switching. Both triceps variants remain drafts;
+the right arm from the full guide has a weaker local fit and needs explicit
+visual correction. Preserve all previously approved masks.
+
+The user approved the cyan triceps variant shown in their screenshot: both
+insets 1 source pixel; left inward shift 1 pixel (positive X), right shift 0;
+opacity shown at 65% for preview only. Save both independent regions as visually approved. The full-body
+red-guide variant remains a comparison draft and is not the selected geometry.
+
+### Runtime muscle intensity — clarified 2026-10-18
+
+The abdominal boundary-review controls also support independent vertical shifts
+per anatomical side and visual segment (2026-10-19): −10 to +10 source pixels,
+0.5 px steps, negative upward and positive downward. Retain inset, inward X and
+vertical Y independently across region switches. Apply translation to the mask,
+keeping the source image, body clip and runtime intensity unchanged.
+
+Mask approval fixes geometry (contours, inset and position), not opacity. Each
+muscle's red intensity must remain a separate runtime variable driven by its
+training-load display input. Never store the review slider's percentage as an
+approved mask constant or bake it into mask alpha. Review opacity controls are
+for inspecting contours only. Preserve source shading and edge coverage while
+varying display intensity independently for each muscle. The normalization and
+load-to-intensity mapping require separate implementation and validation.
+
+### Quadriceps: three visible structures per side — 2026-10-18
+
+User approved preparing six independent contours: rectus femoris, vastus
+lateralis and vastus medialis on both sides. Refine the existing three-part
+atlas draft with source landmarks, preserving independent editable contours,
+common source coordinates and one quadriceps parent group. Keep sartorius,
+inner adductors, pelvic insert and patella outside the proposed surfaces; do
+not invent a visible vastus intermedius. Review individual structures and both
+sides with independent pixel inset/position controls. Structural separation is
+approved; the new contours remain drafts until visually reviewed. Training
+color remains shared at group level with runtime-controlled intensity.
+
+The user visually accepted the revision-2 combined quadriceps result after
+per-region adjustment. Preserve `quadriceps-surface-study/selection.json` as
+the accepted parameter set and `selected-geometry.json` as its six independent
+contours. Use the union for shared-intensity rendering to avoid overlap stripes;
+preview opacity is not an approved constant. Continue with posterior thighs.
+
+### Default to meaningful muscle separation — 2026-10-18
+
+User requested maximum appropriate muscle separation for a flexible map.
+Before tracing each new group, identify distinct visible muscles/heads and
+prepare independently editable anatomical-side contours where the source and
+anatomy justify them. Keep stable parent-group IDs and allow aggregate tinting.
+Do not accept a broad envelope as a substitute for useful visible subdivisions;
+do not fabricate boundaries through hidden or ambiguous structures. Previously
+approved masks retain acceptance until separately reviewed.
+
+For the next posterior-thigh study, the combined cyan envelope is a location
+guide only. Plan separate biceps femoris and semitendinosus visible regions,
+plus semimembranosus only where its visible portion can be distinguished. The
+short biceps head and covered semimembranosus portions must not be painted over
+superficial muscles. Record unresolved boundaries rather than guessing.
+
+The user subsequently deferred both inner posterior-thigh strips. Keep them
+archived and unassigned; omit them from the active mask set and review selector.
+The current selected set contains four independent biceps femoris/semitendinosus
+regions, with screenshot-derived parameters in
+`hamstrings-surface-study/selection.json`. Runtime intensity remains flexible.
+
+### Selected FCU surface appearance accepted — 2026-10-19
+
+User approved the screenshot-selected bilateral FCU surfaces. Preserve anatomical
+L/R inset 1/0, inward +3/+3 and Y 0/−1 source px, independent controls and
+selected exports under forearms. Screenshot opacity 75% is not a fixed load
+value. Visual approval applies to selected exports, not baseline candidates or
+expert anatomical identification on the stylized illustration.
+
+### Selected FCR surface appearance accepted — 2026-10-19
+
+User approved the current bilateral selected FCR surface proposals: anatomical
+L/R inset 0/0 source px, inward +3/0 and Y +0.5/+2 (positive down). Preserve
+selected geometry, independent controls, the forearms parent and runtime opacity.
+Visual approval applies to selected exports; baseline drafts remain separate.
+Exact anatomical identification remains provisional on the stylized source.
+
+### Brachioradialis selected masks visually accepted — 2026-10-19
+
+User approved the bilateral revision-2 selected appearance: anatomical L/R inset
+0.5/−1 source px, inward −2/−2 and vertical Y +5/+5.5 (positive down).
+Retain selected geometry, independent side controls, the forearms parent and
+runtime opacity. Only selected exports carry visual approval; baseline revision
+2 and archived revision 1 remain references. Expert anatomical validation and
+production integration are separate from this acceptance.
+
+### Gastrocnemius head masks visually accepted — 2026-10-18
+
+User accepted the combined four-head calf selection. Preserve medial left/right
+insets 2 / 2 px and inward shifts +1.5 / −0.5 px; lateral insets 2 / 3 px and
+inward shifts +0.5 / −1.5 px. Values use source pixels and anatomical sides.
+Retain `calves-reference-study/selection.json` and selected geometry as the visual
+checkpoint. Keep the four contours independent under the existing `calves`
+parent group, with runtime intensity. Soleus remains outside this accepted set.
+
+### Extensor digitorum selected appearance accepted — 2026-10-19
+
+Preserve the revision-2 screenshot selection in
+`extensor-digitorum-surface-study/selection.json`: anatomical left/right inset
+2/0.5, inward −4/−10 and vertical Y −1/−2 source px. Back-view transforms are
+X −4/+10 and Y −1/−2. Selected SVG/PNG/geometry carry visually-approved
+status; baseline and archived contours remain drafts. Restore these defaults
+in the review, with independent side controls. Preview saturation is not a
+fixed value: opacity stays a per-muscle runtime load variable. Exact anatomical
+identity and production integration are separate from visual acceptance.
+
+### Extensor carpi radialis longus selected appearance accepted — 2026-10-19
+
+Preserve E30982CF revision-2 anatomical L/R inset −1/−2, inward 0/0 and
+vertical Y −2.5/−2 source px. Selected geometry and SVG/PNG exports carry
+visually-approved status; baseline and archived contours remain drafts. Review
+defaults restore both independent settings. Runtime intensity remains flexible;
+exact structure assignment and combined forearm boundaries remain provisional.
+
+### Anconeus selected appearance accepted — 2026-10-19
+
+Preserve 147BE5D0 anatomical L/R inset −1/0.5, inward 0/0.5 and Y 0/−1
+source px in visually-approved selection and selected SVG/PNG/geometry.
+Restore independent review defaults. Baseline remains draft, muscleGroupId
+remains null and orange remains candidate-only identity/taxonomy signaling.
+Exact anatomical assignment and load integration remain open. Opacity stays a
+per-muscle runtime variable.
+
+### Extensor carpi ulnaris selected appearance accepted — 2026-10-19
+
+Preserve revision-2 anatomical left/right inset 0/0, inward +3/0 and vertical
+Y −0.5/0 source px from screenshot 4297D98E. Selected geometry and SVG/PNG
+exports carry visually-approved status after explicit user acceptance.
+Baseline and archived revision 1 remain drafts. Retain independent side
+controls and flexible runtime opacity. Exact anatomical identity and production
+integration remain separate from visual acceptance.
+
+### Brachialis selected appearance accepted; scapular continuation — 2026-10-19
+
+Preserve revision-2 anatomical L/R inset 1.5/0.5, inward 0/+3 and Y 0/−1
+source px from 29F75C56 in visually-approved selection and selected SVG/PNG
+geometry with matching review defaults. Baseline remains draft; group IDs
+stay null and identity/combined boundaries remain provisional.
+
+Continue with separate visible infraspinatus candidates, excluding adjacent
+oblique patches and hidden coverage. New boundaries and identity are pending;
+retain orange candidate fill, null group IDs and independent 0.5 px inset/X/Y
+controls with ±10 px shifts. Opacity remains per-muscle runtime-variable.
+
+### Infraspinatus accepted; teres major continuation — 2026-10-19
+
+Save IMG_8242 anatomical L/R inset −1/0.5, inward +2.5/−1.5 and Y +1/+1
+source px as visually-approved selection with separate SVG/PNG/geometry and
+matching review defaults. Preserve baseline contours and null group IDs;
+exact identity and combined scapular boundaries remain provisional.
+
+Continue with separate lower oblique teres major candidates, excluding
+adjacent infraspinatus, small triangular patches and hidden coverage. New
+boundaries and identity remain pending. Retain orange candidate fill and
+independent 0.5 px inset/X/Y controls with ±10 px shifts. Opacity remains
+a per-muscle runtime variable.
+
+### Teres major selected appearance approved — 2026-10-20
+
+User approved IMG_8243 teres major revision-1 appearance: anatomical L/R
+inset 0/0, inward −1/−2.5, Y 0/0 source px. Save the selection separately;
+baseline contours and previous approvals remain unchanged. Opacity stays a
+per-muscle runtime variable; exact identity and load assignment remain open.
+After execution recovery, regenerate selected SVG/PNG/geometry and restore
+review defaults from the approved selection. Keep baseline contours unchanged.
+
+Continue with two separate small triangular teres minor surface candidates.
+Exact identity and contours remain pending; exclude hidden coverage and
+adjacent accepted patches. Retain independent 0.5 px inset/X/Y controls with
+±10 px shifts, null load-group IDs and orange candidate fill. Opacity stays
+per-muscle runtime-variable; visual approval does not integrate production.
+
+### Teres minor accepted; sartorius continuation — 2026-10-20
+
+Preserve 8F7FA941 anatomical L/R inset −0.5/0, inward +1/−1 and Y −0.5/−0.5
+source px as visually-approved selection and separate SVG/PNG/geometry with
+matching review defaults. Keep baseline and prior masks unchanged; exact
+identity, combined boundaries and load assignment remain provisional.
+
+Next sartorius candidates contain two exposed oblique anterior-thigh bands;
+exclude unclear distal medial-knee continuation, tendons and adjacent patches.
+New contours/identity remain pending, with null group IDs and orange fill.
+Keep independent 0.5 px inset/X/Y controls and ±10 px shifts. Opacity remains
+per-muscle runtime-variable without new exercise-load coefficients.
+
+### Sartorius accepted; medial-thigh continuation — 2026-10-20
+
+Save 83F8AACA revision-2 anatomical L/R inset −1/−0.5, inward −1/+1 and
+Y +3.5/+2 source px as visually-approved selection, separate SVG/PNG/geometry
+and matching review defaults. Preserve baseline/archive drafts and earlier
+approved masks. Exact identity and combined boundaries remain provisional.
+
+Next adductor longus candidates are two small proximal medial-thigh patches.
+New identity, separation from pectineus and contours remain pending. Exclude
+neighboring sartorius, long medial strips, hidden coverage and attachments.
+Retain null group IDs, orange fill, independent 0.5 px inset/X/Y controls and
+±10 px shifts. Opacity remains a per-muscle runtime variable.
+
+### Adductor longus accepted; gracilis continuation — 2026-10-20
+
+Approve image(3).png selected revision-2 appearance: anatomical L/R inset
+0/−0.5, inward −0.5/+1.5, Y +1.5/+0.5 source px. Save separate selected
+SVG/PNG/geometry, matching review defaults and superseded revision-1 files
+unchanged in the archive. Baseline revision 2 remains draft; exact anatomical
+identity and combined boundaries remain provisional, with null group IDs.
+Runtime opacity is not fixed by the screenshot's preview percentage.
+
+Continue with two independent most-medial exposed thigh-strip candidates
+proposed as partial gracilis surfaces. Exclude neighboring adductors,
+accepted sartorius, hidden proximal coverage and distal tendons/insertions.
+Exact identity and new boundaries remain pending. Preserve independent
+0.5 px inset/X/Y controls, ±10 px shifts, null load-group IDs and runtime
+opacity. No taxonomy, exercise mappings or load coefficients are changed.
+Record neighboring contact for combined review; do not alter prior approvals.
+
+### Gracilis accepted; TFL continuation — 2026-10-20
+
+Approve image(4).png gracilis appearance: anatomical L/R inset −2/−1.5,
+inward 0/+1.5, Y 0/+2 source px. Save separate selected SVG/PNG/geometry and
+matching review defaults; baseline contours and earlier approvals stay unchanged.
+Exact identity, combined medial-thigh boundaries and distal continuation remain
+provisional; group IDs stay null and opacity remains runtime-variable.
+
+Continue with two small independent proximal anterolateral-thigh patches
+proposed as partial tensor fasciae latae surfaces. New boundaries, identity
+and distal muscle/fascia transition remain pending. Exclude iliotibial tract,
+hidden coverage, attachments and neighboring accepted sartorius/quadriceps.
+Keep separate 0.5 px inset/X/Y controls, ±10 px shifts, null load-group IDs
+and runtime-variable opacity; no training taxonomy, mappings or coefficients.
+
+### TFL accepted; anterior-neck continuation — 2026-10-20
+
+Approve image(5).png TFL appearance: anatomical L/R inset 0/−1, inward
+−0.5/+1, Y −2.5/−2 source px. Save separate selected SVG/PNG/geometry and
+matching review defaults; baseline contours and previous approvals stay unchanged.
+Exact identity, combined boundaries and distal muscle/fascia transition remain
+provisional; group IDs stay null and opacity remains runtime-variable.
+
+Continue with two independent exposed anterior-neck oblique bands proposed as
+partial sternocleidomastoid surfaces. New identity and boundaries remain pending.
+Defer separate sternal/clavicular heads where the stylized source lacks clear
+separation. Exclude central throat, adjacent neck triangles and hidden cranial,
+sternal and clavicular attachments. Keep null load-group IDs, independent 0.5 px
+inset/X/Y controls, ±10 px shifts and runtime opacity; no mapping/score changes.
+
+### SCM accepted; lateral-leg continuation — 2026-10-20
+
+Approve image(6).png neck appearance: anatomical L/R inset −2.5/−2.5,
+inward −0.5/−3.5, Y −5/−6 source px. Save separate selected SVG/PNG/geometry
+and matching review defaults; baseline contours and prior approvals stay unchanged.
+Exact identity, head separation and combined boundaries remain provisional;
+group IDs stay null and opacity remains runtime-variable.
+
+Continue with two independent proximal lateral-leg strips proposed as partial
+fibularis longus surfaces. New identity, separation from neighboring extensors
+and fibularis brevis, and boundaries remain pending. Exclude selected tibialis
+anterior, hidden coverage, distal tendons, retinacula and foot. Prior tibialis
+status remains selected, not approved. Keep null load-group IDs, independent
+0.5 px inset/X/Y controls, ±10 px shifts and runtime opacity; no score changes.
+
+### Fibularis longus contour refinement — 2026-10-20
+
+Refine both fibularis-longus candidate contours independently against the source
+longitudinal grooves: reshape upper shoulders and side arcs, replace the early
+y≈936 cutoffs with gradual visible tapers ending near y≈973. Preserve revision 1
+byte-for-byte under `fibularis-longus-surface-study/revision-1/`.
+Revision 2 remains an unapproved boundary/structure candidate; do not treat this
+request as acceptance. Keep null group IDs, runtime opacity and independent
+0.5 px inset/X/Y controls. Exclude adjacent tibialis anterior, distal tendons,
+retinacula, foot and hidden coverage. Prior selected masks and their approval
+statuses remain unchanged; no taxonomy, exercise mapping or score changes.
+
+### Fibularis longus accepted; soleus continuation — 2026-10-20
+
+Approve image(7).png fibularis-longus revision-2 selected appearance: anatomical
+L/R inset −1.5/−1.5, inward −1/+2.5, Y −3/0 source px. Save separate selected
+SVG/PNG/geometry and restore all six review defaults. Keep revision-2 baseline,
+revision-1 archive and previous selected masks byte-identical. Selected masks
+have no mutual interior overlap; the selected tibialis-anterior contact is
+1 interior pixel and remains recorded for combined boundary review. Exact
+identity stays provisional, group IDs null and opacity runtime-variable.
+
+Continue with four partial distal posterior-leg strip candidates proposed as
+soleus: an exposed medial and lateral window per side. These are windows of one
+muscle, not separate heads. Exclude accepted gastrocnemius, central Achilles
+tendon, retinacula, foot and hidden coverage. New identity, boundaries and
+muscle/aponeurosis transition remain pending; do not add a broad hidden soleus
+envelope. Keep independent 0.5 px inset/X/Y controls, ±10 px shifts and null
+load-group IDs. No exercise mapping or score changes.
+
+### Soleus visible-window border refinement — 2026-10-20
+
+Retrace the four soleus visible-window candidates independently after enlarged
+source review. Revision 2 reshapes the upper shoulders, follows the longitudinal
+grooves, brings the medial margins inside the source silhouette and replaces the
+long lower tips with conservative gradual tapers. Baseline geometry should not
+rely on silhouette clipping to form its border; retain clipping for review shifts.
+
+Archive every revision-1 study file byte-for-byte under `soleus-surface-study/revision-1/`.
+Revision 2 remains unapproved; medial/lateral refer to exposed windows, not
+separate heads. Exact identity and muscle/aponeurosis transition stay provisional.
+Preserve accepted gastrocnemius and every prior selection, null load-group IDs,
+independent 0.5 px inset/X/Y controls, ±10 px shifts and runtime opacity. No
+mapping, score or production-renderer changes. The remaining queue stays six blocks.
+
+### Soleus source-groove retrace — 2026-10-20
+
+Replace the narrow isolated soleus patches with revision-3 visible longitudinal
+bands retraced between source grooves. The former upper cutoffs sat midway down
+the exposed bands. Lateral windows now begin alongside the gastrocnemius margins;
+medial windows follow the exposed lower-side bands. Retain the central Achilles,
+accepted gastrocnemius and hidden coverage outside the candidates.
+
+Store explicit independent left/right edge guides per window and interpolate
+each edge monotonically to avoid periodic-spline shoulder bulges. Keep the source
+fixed. Recover each calf clip independently in the reviewed area: whole-component
+hole filling can bridge the inter-leg background through the ground shadow.
+This local clip applies only to the soleus study; prior study masks are unchanged.
+Archive revision 2 byte-for-byte, alongside revision 1. Both remain unapproved.
+
+Revision 3 is still a boundary/identity candidate, including uncertain distal
+muscle/aponeurosis transition. Keep four independent windows, null group IDs,
+0.5 px inset/X/Y controls, ±10 px shifts and runtime-variable opacity. No exercise
+mapping, scores or production rendering changes; the review queue stays six blocks.
+
+### Soleus selected appearance accepted; abdominal combined review — 2026-10-20
+
+Approve the screenshot-selected soleus revision-3 appearance. Preserve four
+independent selected regions and all twelve review defaults from image(9).png
+(lateral windows) and image(10).png (medial windows), anatomical L/R source px:
+
+| Window          | Left inset / inward / Y | Right inset / inward / Y |
+| --------------- | ----------------------- | ------------------------ |
+| Lateral visible | −1 / −1 / −5            | +0.5 / −3 / −6           |
+| Medial visible  | −1 / +3 / −1            | −1 / +0.5 / +1           |
+
+Back inward maps left to +X/right to −X. Save selected SVG/PNG/geometry apart
+from the unchanged revision-3 baseline and byte-exact revision-1/2 archives.
+The selected set has zero mutual interior overlap, 52 background pixels clipped
+and 42 interior pixels of contact with accepted gastrocnemius. Retain the user's
+selected settings; combined calf boundaries remain pending. Opacity stays a
+runtime variable; the screenshots' 80% is preview-only. Exact identity and distal
+muscle/aponeurosis transition remain provisional, group IDs null. No mapping,
+score or production-renderer changes.
+
+Continue with the existing abdominal/external-oblique selection for combined
+review. Preserve all 30 saved settings and all baseline/selected mask geometry;
+do not promote its `user-selected-parameters` status. Extend horizontal review
+shifts to ±10 source px, matching the established controls; retain 0.5 px steps.
+The remaining queue is five blocks / 26 regions, followed by combined front/back
+boundary review and separate production assembly.
+
+### Abdominal selected appearance accepted; serratus combined review — 2026-10-20
+
+Approve the combined selected abdominal/external-oblique appearance across all
+ten regions. The latest image(20261020-124247).png confirms the upper pair:
+anatomical L/R inset 0/1, inward −0.5/+1.5, Y +2.5/+3.5 source px. Only the
+upper-right Y changes from +3 to +3.5; all other 29 selected values are retained.
+
+| Part                | Left inset / inward / Y | Right inset / inward / Y |
+| ------------------- | ----------------------- | ------------------------ |
+| Rectus upper        | 0 / −0.5 / +2.5         | 1 / +1.5 / +3.5          |
+| Rectus middle-upper | +0.5 / 0 / +1.5         | 0 / +1.5 / +1            |
+| Rectus middle-lower | 1 / +1.5 / 0            | 1 / +3 / 0               |
+| Rectus lower        | +0.5 / 0 / −0.5         | +0.5 / +1.5 / −0.5       |
+| External oblique    | 1 / −1.5 / +3.5         | 1 / 0 / +3               |
+
+Save visual approval in selection metadata and selected geometry, regenerate the
+upper-right selected mask/union and restore all 30 controls. Preserve baseline
+contours and the other nine selected raster/vector masks byte-for-byte. Retain
+26 raw-float interior overlap pixels (29 after PNG alpha quantization) and
+34 clipped background pixels in the report for
+combined boundary review. Keep the existing abs parent, neutral navel/linea alba,
+runtime opacity and separation of visual rectus segments from anatomical/load
+units. The screenshot's 100% is preview-only; exact anatomical validation and
+production integration remain separate.
+
+Continue with the six existing serratus visible-patch selections. Preserve their
+18 parameters, all baseline/selected geometry, null group IDs and selected-but-
+unapproved status; do not add hidden connections or lower interdigitating areas.
+Horizontal review shifts now match Y at ±10 px, with 0.5 px steps. Four review
+blocks / 16 regions remain, followed by combined front/back boundary review and
+separate production assembly. No exercise mapping or score changes.
+
+### Serratus screenshot parameters updated — 2026-10-20
+
+Save the three new serratus screenshots as parameter selection, retaining
+upper/middle values and changing both lower patches to inset 1.5, inward −3.5
+and Y −1 source px. Regenerate only changed selected masks and their union;
+preserve the baseline, upper/middle selected exports and all earlier approvals.
+Restore all 18 values for combined review. The screenshots do not establish
+combined visual approval or anatomical identity. Keep `user-selected-parameters`,
+null load groups, runtime-variable opacity and four blocks / 16 regions pending.
+The 65% screenshot opacity is preview-only. No exercise mapping, score or
+production-renderer changes.
+
+### Serratus selected appearance accepted; deltoid combined review — 2026-10-20
+
+Accept the combined selected appearance of all six serratus visible patches.
+Retain all 18 screenshot-derived parameters: upper L/R inset −1/−1, inward
++2.5/+3.5, Y 0/0; middle inset 0/0, inward +1.5/+2.5, Y −1.5/−0.5; lower inset
+1.5/1.5, inward −3.5/−3.5, Y −1/−1 source px. Mark selection/selected geometry
+visually approved while preserving every baseline/selected PNG/SVG byte-for-byte.
+Keep the 6 mutual overlap pixels and zero background clipping recorded for
+combined boundary review. Exact identity remains provisional, load-group IDs null
+and opacity runtime-variable; do not add covered attachments or guessed mapping.
+
+Continue with the four existing anterior/lateral deltoid selections. Preserve
+all twelve values, baseline/selected masks and selected-but-unapproved status.
+Restore independent controls with ±10 px X/Y ranges and 0.5 px steps. Intended
+front-delts / side-delts parents and unresolved posterior-shoulder assignment
+stay unchanged. Three blocks / 10 regions remain, followed by combined front/back
+boundary review and separate production assembly. No exercise, score or runtime
+renderer changes.
+
+### Deltoid selected appearance accepted; hamstrings combined review — 2026-10-20
+
+Accept the four selected anterior/lateral deltoid appearances using the latest
+screenshots. Anatomical L/R inset / inward / Y, source px: anterior +0.5/0/−0.5
+and −2/0/+1 from image(20261020-133912).png; lateral −1.5/−0.5/−4 and −1/+1/−3
+from image(20261020-133923).png. Retain anterior selected masks and every baseline
+export byte-for-byte; regenerate lateral selections and union with visual approval.
+Record 315 raw-float / 326 quantized PNG overlap pixels and 23 background pixels
+clipped for combined boundary review. Preserve intended front-delts / side-delts
+parents and runtime opacity; screenshot 75% is preview-only. Exact head assignment
+and unresolved posterior-shoulder identity remain separate from visual approval.
+
+Continue with four existing biceps-femoris/semitendinosus selections under the
+hamstrings parent. Restore eight saved inset/X values; Y defaults to zero because
+no prior Y values were supplied. Keep every mask and pending appearance status,
+record zero Y explicitly in selected geometry and support independent ±10 px
+X/Y controls at 0.5 px steps. Exclude deferred inner strips from active review.
+Existing contact remains 670 raw-float / 772 quantized PNG pixels, with zero
+background clipping, for combined review. Two blocks / 6 regions remain, then
+combined front/back boundaries and separate production assembly. No exercise,
+score or production-renderer changes.
+
+### Hamstrings selected appearance accepted; final tibialis review — 2026-10-20
+
+Accept four selected posterior-thigh appearances from the latest screenshots.
+Anatomical L/R inset / inward / Y, source px: biceps femoris −2/+1.5/+4 and
+−2.5/+1/0 from image(20261020-134749).png; semitendinosus −3/−0.5/+2 and
+−3/−3/+1 from image(20261020-134825).png. Save all twelve values and visual
+approval; regenerate selected masks, geometry and union while preserving baseline
+contours, previous revision and deferred inner strips byte-for-byte. Keep the
+hamstrings parent. Record 773 raw-float / 875 quantized PNG overlap pixels and
+zero background clipping for combined review. Exact anatomical validation remains
+separate; 65% screenshot opacity is preview-only and runtime-variable.
+
+Continue with the existing tibialis-anterior selection: anatomical L/R inset
+1.5/1.5, inward −0.5/+1.5 source px, Y default zero because none was supplied.
+Retain all masks, revision-1 archive, null group IDs and
+`user-selected-boundary-review` status. Add explicit zero Y metadata and
+independent ±10 px X/Y controls at 0.5 px steps. Do not assign anterior shin
+to calves or infer exercise coefficients. This final block has two regions;
+combined front/back boundaries and separate production assembly follow. No
+exercise, score or production-renderer changes.
+
+### Tibialis accepted; combined boundary review — 2026-10-20
+
+Accept the selected bilateral tibialis-anterior appearance with L/R inset
+1.5/1.5, inward −0.5/+1.5 and Y 0/0 source px. Update only selected approval
+metadata; preserve all raster/vector masks, baseline and revision-1 archive.
+Both load-group IDs remain null and runtime opacity stays variable. Mutual
+overlap/background clipping remain zero; exact anatomy and taxonomy stay open.
+
+Close the individual queue and prepare combined front/back boundary review.
+An explicit manifest imports 90 selected regions (52 front / 38 back) from 33
+geometry inputs, preserving exact paths, transforms and three export clips.
+It retains 36 unassigned regions and excludes deferred/superseded masks and
+old broad atlas layers. The two chest reference contours preserve their existing
+boundary-review-pending status; previous clear-edge presentation approval does
+not imply a new contour approval. Posterior shoulder uses the approved 3.5 px
+variant while retaining unresolved identity.
+
+A delivered-PNG >127 diagnostic records 3864 unique overlap pixels and 53
+contacting pairs (41 across studies), including contacts within one load group.
+Counts do not imply every contact is an error, vector/raster identity or complete
+coverage. Show original/fill/boundaries/intersections with front/back and body
+crops, preserving variable preview opacity. Do not retrace or silently subtract
+accepted contours. Combined acceptance, exact anatomy, load assignment and native
+production assembly remain separate. No exercise, score or runtime changes.
+
+### Separate lumbar projection review approved — 2026-10-20
+
+Prepare two independent lower-back regions as an explicitly schematic
+projection beneath fascia on the fixed source. This approves preparation, not
+the resulting contours. Do not claim visible-surface segmentation or invent
+separate longissimus/iliocostalis/multifidus boundaries. Retain existing
+lower-back parent; no exercise mapping, coefficient or native renderer changes.
+
+Keep the central spinal strip and lower sacral region neutral. Independent
+monotone edge guides, inset −3…+6, X/Y ±10 and 0.5 source-pixel controls support
+review. Back inward is left +X/right −X; positive Y is down. Opacity is variable.
+Display exact accepted trapezius/lats/gluteal neighbors at reduced review opacity
+with a context toggle. New projection status stays draft-regional-projection-review
+and remains outside the unchanged 90-region composition until separately accepted.
+Source, prior masks and selected settings remain byte-identical.
+
+### Selected lumbar projection accepted; combined 92-region review — 2026-10-20
+
+Accept the bilateral selected schematic lumbar projection using
+image(20261020-210352).png: L/R inset −2.5/−2.5, inward 0/−1.5, Y 0/−3.5
+source px. Save all six defaults and separate selected raster/vector/geometry
+exports; preserve the zero-adjustment baseline and all earlier masks byte-for-byte.
+Retain lower-back parent, explicit projection-beneath-fascia semantics and
+runtime-variable opacity. Screenshot 65% is preview-only; covered individual
+muscle boundaries remain unvalidated.
+
+Selected mutual overlap/background clipping are zero; central x=937…943 and
+the lower sacral region y>=510 stay neutral. Keep 105 quantized PNG pixels of
+right-lats contact recorded for cross-layer review without trimming the accepted
+settings. Add only these two selected projection regions to the unchanged 90
+imported records, yielding 92 regions (52 front / 40 back), 36 unassigned and
+three exact clip definitions. Label the projection with a visibility toggle;
+its hidden state restores the exact former overlap diagnostic (3864 pixels),
+while the included state records 3969 pixels / 54 pairs (42 across studies).
+The individual lumbar block is closed; combined approval, two chest contours,
+identity/load assignment and production integration remain separate.
+
+### Regional emphasis and current appearance feedback — 2026-10-20
+
+The user confirmed that the displayed upper-front composition looks good while
+requiring exercise-specific differences between muscle regions in future mapping.
+Preserve its exterior contours. This feedback does not approve unseen internal
+subdivisions or establish physiological accuracy.
+
+Independent regional display inputs require reviewed anatomical regions and
+applicable exercise evidence. The present whole-chest mask per side needs a
+separate internal-subdivision review for clavicular/sternocostal display. Do not
+substitute an arbitrary gradient for reviewed regions or use preview opacity as
+a physiological coefficient. Missing regional evidence must not appear as
+measured uniform loading or inactivity. See [regional evidence](MUSCLE_REGIONAL_MAPPING.md).
+
+### Regional chest pilot prepared after approval — 2026-10-20
+
+Use two review-only regions per side: clavicular and coarse sternocostal.
+Preserve the exact existing whole-pectoral exteriors and the 92-region combined
+review. Internal quadratic dividers are artwork-guided schematic candidates,
+not recovered head boundaries. Inferior fibers remain aggregated; neither a
+separate abdominal head nor per-segment anatomy is asserted.
+
+Review independently adjustable regional opacity and bilateral divider height
+(±10 source px, 0.5 px steps; +Y down). Front anatomical left is screen right.
+Preview values do not encode load. Accept the new division separately before
+integration; existing masks and exercise mappings remain unchanged.
+
+### Selected regional chest display accepted — 2026-10-21
+
+Retain anatomical L/R divider shifts −5/−4 source px from
+image(20261021-110734).png, confirmed explicitly by the user. Four separate
+selected exports preserve the exact whole-pectoral exteriors. Restore these
+values in the review without applying the shift twice. Baseline drafts remain
+unchanged. Both 65% opacity values are preview-only. Appearance acceptance does
+not validate anatomical boundaries, regional exercise ratios or production
+shared-edge compositing. Keep schematic-regional-partition representation.

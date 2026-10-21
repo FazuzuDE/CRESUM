@@ -1,0 +1,70 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "revision": 2,
+  "status": "draft-boundary-and-structure-review",
+  "anatomyReference": "https://www.ncbi.nlm.nih.gov/books/NBK534805/",
+  "scope": "posterior forearm visible-belly proposals for extensor digitorum; exact identity provisional; no hidden surfaces, tendon-to-digit subdivisions or wrist/hand tendons",
+  "signedDistanceSmoothing": 0.25,
+  "contourSplineSmoothing": 0.008,
+  "regions": [
+    {
+      "id": "extensor-digitorum-left",
+      "side": "left",
+      "structureId": "extensor-digitorum",
+      "anatomicalMuscleId": "extensor-digitorum",
+      "muscleGroupId": "forearms",
+      "label": "Разгибатель пальцев · кандидат",
+      "points": [
+        [749, 410],
+        [754, 415],
+        [762, 422],
+        [771, 426],
+        [766, 438],
+        [758, 454],
+        [750, 471],
+        [741, 491],
+        [731, 512],
+        [720, 537],
+        [716, 541],
+        [711, 538],
+        [715, 521],
+        [719, 499],
+        [723, 477],
+        [728, 456],
+        [734, 437],
+        [742, 421],
+        [749, 410]
+      ]
+    },
+    {
+      "id": "extensor-digitorum-right",
+      "side": "right",
+      "structureId": "extensor-digitorum",
+      "anatomicalMuscleId": "extensor-digitorum",
+      "muscleGroupId": "forearms",
+      "label": "Разгибатель пальцев · кандидат",
+      "points": [
+        [1118, 410],
+        [1125, 422],
+        [1132, 438],
+        [1138, 457],
+        [1143, 478],
+        [1147, 499],
+        [1152, 520],
+        [1159, 538],
+        [1155, 542],
+        [1151, 538],
+        [1140, 514],
+        [1129, 492],
+        [1120, 472],
+        [1112, 454],
+        [1105, 439],
+        [1101, 427],
+        [1108, 422],
+        [1113, 416],
+        [1118, 410]
+      ]
+    }
+  ]
+}

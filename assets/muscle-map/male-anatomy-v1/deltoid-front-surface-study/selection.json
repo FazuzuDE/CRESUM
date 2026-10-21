@@ -1,0 +1,33 @@
+{
+  "status": "visually-approved",
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; front left negative X, front right positive X; positive shiftY down, negative shiftY up",
+  "sourceScreenshots": {
+    "deltoid-anterior": "image(20261020-133912).png",
+    "deltoid-lateral": "image(20261020-133923).png"
+  },
+  "regions": {
+    "deltoid-anterior-left": {
+      "inset": 0.5,
+      "shift": 0,
+      "shiftY": -0.5
+    },
+    "deltoid-anterior-right": {
+      "inset": -2,
+      "shift": 0,
+      "shiftY": 1
+    },
+    "deltoid-lateral-left": {
+      "inset": -1.5,
+      "shift": -0.5,
+      "shiftY": -4
+    },
+    "deltoid-lateral-right": {
+      "inset": -1,
+      "shift": 1,
+      "shiftY": -3
+    }
+  },
+  "approvalBasis": "selected anterior/lateral appearance explicitly accepted with latest screenshots; preview opacity remains runtime-variable"
+}

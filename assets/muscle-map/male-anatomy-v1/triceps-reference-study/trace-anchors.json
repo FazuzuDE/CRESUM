@@ -1,0 +1,49 @@
+{
+  "status": "manual-visible-envelope-draft",
+  "referenceCanvas": [1085, 992],
+  "method": "Manual outer-envelope landmarks read from the user's red full-body guide; internal red divisions are not interpreted as separate muscle heads.",
+  "regions": [
+    {
+      "side": "left",
+      "points": [
+        [669, 220],
+        [657, 226],
+        [643, 240],
+        [634, 256],
+        [629, 275],
+        [627, 294],
+        [625, 314],
+        [622, 333],
+        [625, 344],
+        [636, 346],
+        [647, 337],
+        [658, 322],
+        [670, 302],
+        [677, 280],
+        [680, 258],
+        [678, 240]
+      ]
+    },
+    {
+      "side": "right",
+      "points": [
+        [884, 220],
+        [895, 225],
+        [909, 238],
+        [918, 254],
+        [923, 274],
+        [925, 294],
+        [928, 314],
+        [932, 334],
+        [927, 344],
+        [918, 346],
+        [907, 336],
+        [896, 320],
+        [883, 301],
+        [877, 279],
+        [874, 258],
+        [877, 239]
+      ]
+    }
+  ]
+}

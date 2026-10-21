@@ -1,0 +1,316 @@
+{
+  "status": "combined-boundary-review-pending",
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "inputs": [
+    {
+      "geometry": "abs-surface-study/selected-geometry.json",
+      "regions": [
+        "rectus-abdominis-upper-left",
+        "rectus-abdominis-middle-upper-left",
+        "rectus-abdominis-middle-lower-left",
+        "rectus-abdominis-lower-left",
+        "rectus-abdominis-upper-right",
+        "rectus-abdominis-middle-upper-right",
+        "rectus-abdominis-middle-lower-right",
+        "rectus-abdominis-lower-right",
+        "external-oblique-left",
+        "external-oblique-right"
+      ],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "abs-surface-study/selection.json"
+    },
+    {
+      "geometry": "adductor-longus-surface-study/selected-geometry.json",
+      "regions": ["adductor-longus-left", "adductor-longus-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "adductor-longus-surface-study/selection.json"
+    },
+    {
+      "geometry": "anconeus-surface-study/selected-geometry.json",
+      "regions": ["anconeus-left", "anconeus-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "anconeus-surface-study/selection.json"
+    },
+    {
+      "geometry": "brachialis-surface-study/selected-geometry.json",
+      "regions": ["brachialis-left", "brachialis-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "brachialis-surface-study/selection.json"
+    },
+    {
+      "geometry": "brachioradialis-surface-study/selected-geometry.json",
+      "regions": ["brachioradialis-left", "brachioradialis-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "brachioradialis-surface-study/selection.json"
+    },
+    {
+      "geometry": "calves-reference-study/selected-geometry.json",
+      "regions": [
+        "gastrocnemius-lateral-left",
+        "gastrocnemius-medial-left",
+        "gastrocnemius-medial-right",
+        "gastrocnemius-lateral-right"
+      ],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "calves-reference-study/selection.json"
+    },
+    {
+      "geometry": "deltoid-front-surface-study/selected-geometry.json",
+      "regions": [
+        "deltoid-anterior-left",
+        "deltoid-lateral-left",
+        "deltoid-anterior-right",
+        "deltoid-lateral-right"
+      ],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "deltoid-front-surface-study/selection.json"
+    },
+    {
+      "geometry": "extensor-carpi-radialis-longus-surface-study/selected-geometry.json",
+      "regions": [
+        "extensor-carpi-radialis-longus-left",
+        "extensor-carpi-radialis-longus-right"
+      ],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "extensor-carpi-radialis-longus-surface-study/selection.json"
+    },
+    {
+      "geometry": "extensor-carpi-ulnaris-surface-study/selected-geometry.json",
+      "regions": [
+        "extensor-carpi-ulnaris-left",
+        "extensor-carpi-ulnaris-right"
+      ],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "extensor-carpi-ulnaris-surface-study/selection.json"
+    },
+    {
+      "geometry": "extensor-digitorum-surface-study/selected-geometry.json",
+      "regions": ["extensor-digitorum-left", "extensor-digitorum-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "extensor-digitorum-surface-study/selection.json"
+    },
+    {
+      "geometry": "fibularis-longus-surface-study/selected-geometry.json",
+      "regions": ["fibularis-longus-left", "fibularis-longus-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "fibularis-longus-surface-study/selection.json"
+    },
+    {
+      "geometry": "flexor-carpi-radialis-surface-study/selected-geometry.json",
+      "regions": ["flexor-carpi-radialis-left", "flexor-carpi-radialis-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "flexor-carpi-radialis-surface-study/selection.json"
+    },
+    {
+      "geometry": "flexor-carpi-ulnaris-surface-study/selected-geometry.json",
+      "regions": ["flexor-carpi-ulnaris-left", "flexor-carpi-ulnaris-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "flexor-carpi-ulnaris-surface-study/selection.json"
+    },
+    {
+      "geometry": "glutes-reference-study/selected-geometry.json",
+      "regions": ["gluteus-maximus-left", "gluteus-maximus-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "glutes-reference-study/selection.json"
+    },
+    {
+      "geometry": "gluteus-medius-surface-v2/selected-geometry.json",
+      "regions": ["gluteus-medius-left", "gluteus-medius-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "gluteus-medius-surface-v2/selection.json"
+    },
+    {
+      "geometry": "gracilis-surface-study/selected-geometry.json",
+      "regions": ["gracilis-left", "gracilis-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "gracilis-surface-study/selection.json"
+    },
+    {
+      "geometry": "hamstrings-surface-study/selected-geometry.json",
+      "regions": [
+        "hamstrings-left-biceps-femoris",
+        "hamstrings-right-biceps-femoris",
+        "hamstrings-left-semitendinosus",
+        "hamstrings-right-semitendinosus"
+      ],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "hamstrings-surface-study/selection.json"
+    },
+    {
+      "geometry": "infraspinatus-surface-study/selected-geometry.json",
+      "regions": ["infraspinatus-left", "infraspinatus-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "infraspinatus-surface-study/selection.json"
+    },
+    {
+      "geometry": "quadriceps-surface-study/selected-geometry.json",
+      "regions": [
+        "quadriceps-right-rectus-femoris",
+        "quadriceps-right-vastus-lateralis",
+        "quadriceps-right-vastus-medialis",
+        "quadriceps-left-rectus-femoris",
+        "quadriceps-left-vastus-lateralis",
+        "quadriceps-left-vastus-medialis"
+      ],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "quadriceps-surface-study/selection.json"
+    },
+    {
+      "geometry": "sartorius-surface-study/selected-geometry.json",
+      "regions": ["sartorius-left", "sartorius-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "sartorius-surface-study/selection.json"
+    },
+    {
+      "geometry": "serratus-surface-study/selected-geometry.json",
+      "regions": [
+        "serratus-visible-slip-1-left",
+        "serratus-visible-slip-2-left",
+        "serratus-visible-slip-3-left",
+        "serratus-visible-slip-1-right",
+        "serratus-visible-slip-2-right",
+        "serratus-visible-slip-3-right"
+      ],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "serratus-surface-study/selection.json"
+    },
+    {
+      "geometry": "soleus-surface-study/selected-geometry.json",
+      "regions": [
+        "soleus-lateral-visible-left",
+        "soleus-lateral-visible-right",
+        "soleus-medial-visible-left",
+        "soleus-medial-visible-right"
+      ],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "soleus-surface-study/selection.json"
+    },
+    {
+      "geometry": "sternocleidomastoid-surface-study/selected-geometry.json",
+      "regions": ["sternocleidomastoid-left", "sternocleidomastoid-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "sternocleidomastoid-surface-study/selection.json"
+    },
+    {
+      "geometry": "tensor-fasciae-latae-surface-study/selected-geometry.json",
+      "regions": ["tensor-fasciae-latae-left", "tensor-fasciae-latae-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "tensor-fasciae-latae-surface-study/selection.json"
+    },
+    {
+      "geometry": "teres-major-surface-study/selected-geometry.json",
+      "regions": ["teres-major-left", "teres-major-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "teres-major-surface-study/selection.json"
+    },
+    {
+      "geometry": "teres-minor-surface-study/selected-geometry.json",
+      "regions": ["teres-minor-left", "teres-minor-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "teres-minor-surface-study/selection.json"
+    },
+    {
+      "geometry": "tibialis-anterior-surface-study/selected-geometry.json",
+      "regions": ["tibialis-anterior-left", "tibialis-anterior-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "tibialis-anterior-surface-study/selection.json"
+    },
+    {
+      "geometry": "reference-study/geometry.json",
+      "regions": [
+        "pectoralis-major-left-reference",
+        "pectoralis-major-right-reference"
+      ],
+      "exportSuffix": "",
+      "visualStatus": "selected-reference-boundary-review",
+      "approvalEvidence": "docs/DECISIONS.md: previous clear edge selected; chest boundary review remains pending"
+    },
+    {
+      "geometry": "trapezius-study/geometry.json",
+      "regions": ["trapezius-left-visible", "trapezius-right-visible"],
+      "exportSuffix": "",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "trapezius-study/README.md"
+    },
+    {
+      "geometry": "lats-reference-study/geometry.json",
+      "regions": [
+        "latissimus-dorsi-left-reference",
+        "latissimus-dorsi-right-reference"
+      ],
+      "exportSuffix": "",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "lats-reference-study/README.md"
+    },
+    {
+      "geometry": "biceps-reference-study/geometry.json",
+      "regions": ["biceps-left-reference", "biceps-right-reference"],
+      "exportSuffix": "",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "biceps-reference-study/geometry.json"
+    },
+    {
+      "geometry": "triceps-reference-study/geometry.json",
+      "regions": ["triceps-left-approved", "triceps-right-approved"],
+      "exportSuffix": "",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "triceps-reference-study/geometry.json"
+    },
+    {
+      "geometry": "rear-shoulder-reference-study/edge-tuning/geometry.json",
+      "regions": [
+        "posterior-shoulder-surface-left-reference",
+        "posterior-shoulder-surface-right-reference"
+      ],
+      "exportSuffix": "",
+      "visualStatus": "visually-approved-anatomical-assignment-pending",
+      "approvalEvidence": "rear-shoulder-reference-study/edge-tuning/geometry.json"
+    },
+    {
+      "geometry": "lower-back-projection-study/selected-geometry.json",
+      "regions": ["lower-back-projection-left", "lower-back-projection-right"],
+      "exportSuffix": "-selected",
+      "visualStatus": "visually-approved",
+      "approvalEvidence": "lower-back-projection-study/selection.json"
+    }
+  ],
+  "excluded": [
+    "old atlas/masks baseline",
+    "superseded revisions",
+    "whole front shoulder comparison masks",
+    "gluteus medius first proposal",
+    "inner hamstring strips",
+    "unassigned lower lats regions",
+    "hidden attachments and deeper surfaces"
+  ],
+  "chestBoundaryApproval": "pending; selected reference included for context",
+  "productionIntegration": "not performed"
+}

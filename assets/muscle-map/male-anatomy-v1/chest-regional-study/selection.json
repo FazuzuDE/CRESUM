@@ -1,0 +1,12 @@
+{
+  "status": "visually-approved",
+  "approvedOn": "2026-10-21",
+  "approvalEvidence": "image(20261021-110734).png and explicit yes confirming the displayed L/R settings",
+  "representation": "schematic-regional-partition",
+  "dividerShiftSourcePixels": { "left": -5, "right": -4 },
+  "orientation": "Anatomical sides; front left is screen right; positive Y down",
+  "previewOpacity": "65% for both regions is preview-only and not baked into exports or load coefficients",
+  "anatomicalValidation": "unresolved-artwork-guided-display-approximation",
+  "exerciseMapping": null,
+  "productionIntegration": false
+}

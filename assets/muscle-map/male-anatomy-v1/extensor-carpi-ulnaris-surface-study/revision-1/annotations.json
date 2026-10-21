@@ -1,0 +1,63 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "revision": 1,
+  "status": "draft-boundary-and-structure-review",
+  "anatomyReference": "https://www.ncbi.nlm.nih.gov/books/NBK539760/",
+  "scope": "visible medial posterior forearm belly proposals for extensor carpi ulnaris; exact identity provisional; anconeus, adjacent extensor digiti minimi, hidden origin and distal wrist tendon excluded; heads not separable on source",
+  "signedDistanceSmoothing": 0.25,
+  "contourSplineSmoothing": 0.008,
+  "regions": [
+    {
+      "id": "extensor-carpi-ulnaris-left",
+      "side": "left",
+      "structureId": "extensor-carpi-ulnaris",
+      "anatomicalMuscleId": "extensor-carpi-ulnaris",
+      "muscleGroupId": "forearms",
+      "label": "Локтевой разгибатель запястья · кандидат",
+      "points": [
+        [784, 426],
+        [791, 421],
+        [797, 417],
+        [796, 429],
+        [791, 443],
+        [784, 457],
+        [774, 474],
+        [763, 491],
+        [749, 507],
+        [736, 520],
+        [739, 507],
+        [747, 491],
+        [756, 473],
+        [764, 454],
+        [773, 438],
+        [784, 426]
+      ]
+    },
+    {
+      "id": "extensor-carpi-ulnaris-right",
+      "side": "right",
+      "structureId": "extensor-carpi-ulnaris",
+      "anatomicalMuscleId": "extensor-carpi-ulnaris",
+      "muscleGroupId": "forearms",
+      "label": "Локтевой разгибатель запястья · кандидат",
+      "points": [
+        [1080, 417],
+        [1090, 422],
+        [1099, 432],
+        [1107, 449],
+        [1118, 471],
+        [1131, 493],
+        [1140, 510],
+        [1143, 520],
+        [1135, 513],
+        [1120, 496],
+        [1107, 478],
+        [1094, 459],
+        [1085, 440],
+        [1080, 426],
+        [1080, 417]
+      ]
+    }
+  ]
+}

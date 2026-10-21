@@ -83,3 +83,13 @@ The flat catalog adds four stable IDs (65 records total):
 - `lying-barbell-triceps-extension`: supine on a flat bench, closed pronated bar grip, elbow extension; distinct from overhead cable extension.
 
 The existing family adapter may leave these explicitly unmapped until its configuration model covers them. Sources and reviewed movement boundaries are recorded in `EXERCISE_BIOMECHANICS.md`. Placeholder artwork remains; no production image is approved. Per-side execution requires the matching logging contract before release; adding metadata alone is not readiness.
+
+## Regional participation requirement — 2026-10-20
+
+Future training-to-mask binding must review region/head emphasis for the exact
+exercise setup. Parent Primary/Secondary roles cannot determine regional ratios;
+the adapter's specific flag does not certify a known angle or machine path.
+Preserve generic configurations, stable IDs, history and factual participation.
+Evidence applicability and unresolved state belong separately from drawable masks.
+No numerical coefficients are approved here. See the nine-ID chest pilot and
+cross-body research queue in [MUSCLE_REGIONAL_MAPPING.md](MUSCLE_REGIONAL_MAPPING.md).

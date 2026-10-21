@@ -1,0 +1,12 @@
+{
+  "status": "visually-approved",
+  "revision": 2,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; front left negative X, front right positive X; positive shiftY down, negative shiftY up",
+  "sourceScreenshot": "83F8AACA-B5A9-4091-B234-72C1291B8D52.png",
+  "regions": {
+    "sartorius-left": { "inset": -1, "shift": -1, "shiftY": 3.5 },
+    "sartorius-right": { "inset": -0.5, "shift": 1, "shiftY": 2 }
+  }
+}

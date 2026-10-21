@@ -1,0 +1,64 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "revision": 1,
+  "status": "draft-boundary-and-structure-review",
+  "anatomyReference": "https://www.ncbi.nlm.nih.gov/books/NBK532881/",
+  "scope": "bilateral visible anterior-neck oblique bands proposed as partial sternocleidomastoid surfaces; exact identity and head separation provisional; exclude central throat, adjacent triangles, hidden cranial/sternal/clavicular attachments; no load assignment",
+  "signedDistanceSmoothing": 0.6,
+  "contourSplineSmoothing": 0.03,
+  "regions": [
+    {
+      "id": "sternocleidomastoid-left",
+      "side": "left",
+      "structureId": "sternocleidomastoid",
+      "anatomicalMuscleId": "sternocleidomastoid",
+      "muscleGroupId": null,
+      "label": "Грудино-ключично-сосцевидная мышца · кандидат",
+      "points": [
+        [407, 139],
+        [407, 149],
+        [405.5, 160],
+        [402.5, 171],
+        [397, 182],
+        [391, 193],
+        [384, 203],
+        [377.3, 212],
+        [378.5, 203],
+        [381.8, 191],
+        [386, 178.5],
+        [391, 166],
+        [396, 154],
+        [401, 145],
+        [407, 139]
+      ]
+    },
+    {
+      "id": "sternocleidomastoid-right",
+      "side": "right",
+      "structureId": "sternocleidomastoid",
+      "anatomicalMuscleId": "sternocleidomastoid",
+      "muscleGroupId": null,
+      "label": "Грудино-ключично-сосцевидная мышца · кандидат",
+      "points": [
+        [333, 140.5],
+        [340, 145.5],
+        [347, 155],
+        [353, 166],
+        [358, 178],
+        [362, 190],
+        [365, 202],
+        [365.8, 212.2],
+        [361, 207.5],
+        [355, 200.5],
+        [349, 192],
+        [343.5, 183.5],
+        [338.5, 174],
+        [334.5, 164],
+        [332.4, 154],
+        [332, 145],
+        [333, 140.5]
+      ]
+    }
+  ]
+}

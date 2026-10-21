@@ -1,0 +1,12 @@
+{
+  "status": "visually-approved",
+  "revision": 2,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; back left positive X, back right negative X; positive shiftY down, negative shiftY up",
+  "sourceScreenshot": "image(2).png (extensor digitorum approval 2026-10-19)",
+  "regions": {
+    "extensor-digitorum-left": { "inset": 2, "shift": -4, "shiftY": -1 },
+    "extensor-digitorum-right": { "inset": 0.5, "shift": -10, "shiftY": -2 }
+  }
+}

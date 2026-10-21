@@ -1,0 +1,68 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "revision": 1,
+  "status": "draft-boundary-and-structure-review",
+  "anatomyReference": "https://www.ncbi.nlm.nih.gov/books/NBK526051/",
+  "scope": "bilateral medial forearm surface proposals for FCU; exact muscle assignment provisional; hidden proximal heads and distal tendon excluded",
+  "signedDistanceSmoothing": 0.25,
+  "contourSplineSmoothing": 0.008,
+  "regions": [
+    {
+      "id": "flexor-carpi-ulnaris-left",
+      "side": "left",
+      "structureId": "flexor-carpi-ulnaris",
+      "anatomicalMuscleId": "flexor-carpi-ulnaris",
+      "muscleGroupId": "forearms",
+      "label": "Локтевой сгибатель запястья · кандидат",
+      "points": [
+        [515, 414],
+        [512, 427],
+        [513, 440],
+        [519, 456],
+        [527, 472],
+        [536, 485],
+        [547, 498],
+        [558, 510],
+        [568, 521],
+        [571, 523],
+        [567, 512],
+        [560, 499],
+        [548, 483],
+        [538, 466],
+        [531, 449],
+        [526, 434],
+        [522, 422],
+        [515, 414]
+      ]
+    },
+    {
+      "id": "flexor-carpi-ulnaris-right",
+      "side": "right",
+      "structureId": "flexor-carpi-ulnaris",
+      "anatomicalMuscleId": "flexor-carpi-ulnaris",
+      "muscleGroupId": "forearms",
+      "label": "Локтевой сгибатель запястья · кандидат",
+      "points": [
+        [224, 414],
+        [226, 426],
+        [225, 440],
+        [220, 454],
+        [213, 469],
+        [204, 483],
+        [194, 496],
+        [183, 507],
+        [174, 518],
+        [170, 522],
+        [173, 511],
+        [179, 500],
+        [190, 484],
+        [199, 468],
+        [207, 450],
+        [213, 434],
+        [217, 422],
+        [224, 414]
+      ]
+    }
+  ]
+}

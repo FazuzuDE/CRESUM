@@ -1,0 +1,33 @@
+{
+  "status": "visually-approved",
+  "revision": 3,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; back left positive X, back right negative X; positive shiftY down, negative shiftY up",
+  "sourceScreenshots": {
+    "soleus-lateral-visible": "image(9).png",
+    "soleus-medial-visible": "image(10).png"
+  },
+  "regions": {
+    "soleus-lateral-visible-left": {
+      "inset": -1,
+      "shift": -1,
+      "shiftY": -5
+    },
+    "soleus-lateral-visible-right": {
+      "inset": 0.5,
+      "shift": -3,
+      "shiftY": -6
+    },
+    "soleus-medial-visible-left": {
+      "inset": -1,
+      "shift": 3,
+      "shiftY": -1
+    },
+    "soleus-medial-visible-right": {
+      "inset": -1,
+      "shift": 0.5,
+      "shiftY": 1
+    }
+  }
+}

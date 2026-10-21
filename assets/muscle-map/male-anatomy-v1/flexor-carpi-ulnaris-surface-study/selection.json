@@ -1,0 +1,12 @@
+{
+  "status": "visually-approved",
+  "revision": 1,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; front left negative X, front right positive X; positive shiftY down, negative shiftY up",
+  "sourceScreenshot": "image.png (FCU approval 2026-10-19)",
+  "regions": {
+    "flexor-carpi-ulnaris-left": { "inset": 1, "shift": 3, "shiftY": 0 },
+    "flexor-carpi-ulnaris-right": { "inset": 0, "shift": 3, "shiftY": -1 }
+  }
+}

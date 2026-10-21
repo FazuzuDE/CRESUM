@@ -1,0 +1,59 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [1312, 1199],
+  "revision": 1,
+  "status": "draft-boundary-and-structure-review",
+  "anatomyReference": "https://www.ncbi.nlm.nih.gov/books/NBK513324/",
+  "scope": "two small exposed triangular scapular patches proposed as teres minor; exact identity provisional on stylized source; adjacent infraspinatus, teres major, deltoid and hidden coverage excluded; no load assignment",
+  "signedDistanceSmoothing": 0.25,
+  "contourSplineSmoothing": 0.008,
+  "regions": [
+    {
+      "id": "teres-minor-left",
+      "side": "left",
+      "structureId": "teres-minor",
+      "anatomicalMuscleId": "teres-minor",
+      "muscleGroupId": null,
+      "label": "Малая круглая мышца · кандидат",
+      "points": [
+        [832, 252],
+        [836, 250],
+        [840, 247],
+        [843, 245],
+        [845, 251],
+        [846, 257],
+        [848, 263],
+        [851, 269],
+        [847, 266],
+        [842, 262],
+        [837, 258],
+        [832, 254],
+        [832, 252]
+      ]
+    },
+    {
+      "id": "teres-minor-right",
+      "side": "right",
+      "structureId": "teres-minor",
+      "anatomicalMuscleId": "teres-minor",
+      "muscleGroupId": null,
+      "label": "Малая круглая мышца · кандидат",
+      "points": [
+        [1034, 245],
+        [1038, 247],
+        [1042, 250],
+        [1047, 252],
+        [1050, 253],
+        [1046, 256],
+        [1041, 260],
+        [1036, 263],
+        [1031, 267],
+        [1027, 270],
+        [1029, 264],
+        [1031, 257],
+        [1032, 250],
+        [1034, 245]
+      ]
+    }
+  ]
+}

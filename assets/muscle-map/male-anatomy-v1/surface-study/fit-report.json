@@ -1,0 +1,18 @@
+[
+  {
+    "id": "pectoralis-major-right-visible",
+    "maxRasterBoundaryDeviationPx": 0.313
+  },
+  {
+    "id": "pectoralis-major-left-visible",
+    "maxRasterBoundaryDeviationPx": 0.301
+  },
+  {
+    "id": "deltoid-right-visible-unassigned",
+    "maxRasterBoundaryDeviationPx": 0.343
+  },
+  {
+    "id": "deltoid-left-visible-unassigned",
+    "maxRasterBoundaryDeviationPx": 0.387
+  }
+]

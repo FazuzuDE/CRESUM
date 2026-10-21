@@ -1,0 +1,642 @@
+{
+  "status": "combined-boundary-review-pending",
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "independentRegions": 92,
+  "frontRegions": 52,
+  "backRegions": 40,
+  "unassignedRegions": 36,
+  "selectedChestRegionsPendingBoundaryApproval": 2,
+  "projectionRegions": 2,
+  "overlapPixelsWithoutProjections": 3864,
+  "quantizedRasterOverlapPixels": 3969,
+  "overlappingPairs": [
+    {
+      "regions": [
+        "hamstrings-right-biceps-femoris",
+        "hamstrings-right-semitendinosus"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 592,
+      "sameStudy": true
+    },
+    {
+      "regions": [
+        "extensor-carpi-radialis-longus-left",
+        "extensor-digitorum-left"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 330,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "hamstrings-left-biceps-femoris",
+        "hamstrings-left-semitendinosus"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 283,
+      "sameStudy": true
+    },
+    {
+      "regions": [
+        "deltoid-anterior-right",
+        "deltoid-lateral-right"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 270,
+      "sameStudy": true
+    },
+    {
+      "regions": [
+        "quadriceps-right-rectus-femoris",
+        "quadriceps-right-vastus-lateralis"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 232,
+      "sameStudy": true
+    },
+    {
+      "regions": [
+        "quadriceps-left-rectus-femoris",
+        "quadriceps-left-vastus-lateralis"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 201,
+      "sameStudy": true
+    },
+    {
+      "regions": [
+        "quadriceps-right-rectus-femoris",
+        "quadriceps-right-vastus-medialis"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 200,
+      "sameStudy": true
+    },
+    {
+      "regions": [
+        "anconeus-left",
+        "triceps-left-approved"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 166,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "gluteus-maximus-left",
+        "gluteus-medius-left"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 161,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "triceps-right-approved",
+        "posterior-shoulder-surface-right-reference"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 159,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "gluteus-maximus-right",
+        "gluteus-medius-right"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 147,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "brachialis-left",
+        "biceps-left-reference"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 111,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "latissimus-dorsi-right-reference",
+        "lower-back-projection-right"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 105,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "triceps-left-approved",
+        "posterior-shoulder-surface-left-reference"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 89,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "quadriceps-right-rectus-femoris",
+        "sartorius-right"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 78,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "infraspinatus-left",
+        "posterior-shoulder-surface-left-reference"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 65,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "teres-major-right",
+        "posterior-shoulder-surface-right-reference"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 61,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "brachialis-right",
+        "biceps-right-reference"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 57,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "deltoid-anterior-left",
+        "deltoid-lateral-left"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 56,
+      "sameStudy": true
+    },
+    {
+      "regions": [
+        "infraspinatus-right",
+        "posterior-shoulder-surface-right-reference"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 43,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "flexor-carpi-radialis-left",
+        "flexor-carpi-ulnaris-left"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 42,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "teres-major-left",
+        "posterior-shoulder-surface-left-reference"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 41,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "gracilis-left",
+        "sartorius-left"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 38,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "quadriceps-left-vastus-medialis",
+        "sartorius-left"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 38,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "teres-minor-right",
+        "posterior-shoulder-surface-right-reference"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 36,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "gastrocnemius-lateral-left",
+        "soleus-lateral-visible-left"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 34,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "extensor-carpi-radialis-longus-right",
+        "extensor-digitorum-right"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 31,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "trapezius-left-visible",
+        "posterior-shoulder-surface-left-reference"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 28,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "deltoid-anterior-right",
+        "pectoralis-major-right-reference"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 26,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "deltoid-anterior-right",
+        "biceps-right-reference"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 26,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "anconeus-right",
+        "triceps-right-approved"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 26,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "brachialis-left",
+        "deltoid-lateral-left"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 22,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "gluteus-maximus-right",
+        "hamstrings-right-biceps-femoris"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 22,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "quadriceps-right-vastus-medialis",
+        "sartorius-right"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 22,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "deltoid-anterior-left",
+        "biceps-left-reference"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 22,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "infraspinatus-left",
+        "trapezius-left-visible"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 21,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "teres-minor-left",
+        "posterior-shoulder-surface-left-reference"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 20,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "rectus-abdominis-upper-right",
+        "rectus-abdominis-middle-upper-right"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 19,
+      "sameStudy": true
+    },
+    {
+      "regions": [
+        "brachialis-right",
+        "deltoid-lateral-right"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 18,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "rectus-abdominis-upper-left",
+        "rectus-abdominis-middle-upper-left"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 8,
+      "sameStudy": true
+    },
+    {
+      "regions": [
+        "gastrocnemius-lateral-right",
+        "soleus-lateral-visible-right"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 8,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "deltoid-lateral-left",
+        "biceps-left-reference"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 8,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "trapezius-right-visible",
+        "posterior-shoulder-surface-right-reference"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 8,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "flexor-carpi-radialis-right",
+        "flexor-carpi-ulnaris-right"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 6,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "infraspinatus-right",
+        "teres-minor-right"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 6,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "gastrocnemius-medial-left",
+        "hamstrings-left-semitendinosus"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 4,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "quadriceps-left-rectus-femoris",
+        "sartorius-left"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 4,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "serratus-visible-slip-1-left",
+        "serratus-visible-slip-2-left"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 4,
+      "sameStudy": true
+    },
+    {
+      "regions": [
+        "rectus-abdominis-middle-upper-left",
+        "rectus-abdominis-middle-lower-left"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 2,
+      "sameStudy": true
+    },
+    {
+      "regions": [
+        "brachioradialis-left",
+        "flexor-carpi-radialis-left"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 2,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "serratus-visible-slip-1-right",
+        "serratus-visible-slip-2-right"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 2,
+      "sameStudy": true
+    },
+    {
+      "regions": [
+        "infraspinatus-right",
+        "teres-major-right"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 2,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "infraspinatus-left",
+        "teres-minor-left"
+      ],
+      "view": "back",
+      "quantizedRasterPixels": 2,
+      "sameStudy": false
+    },
+    {
+      "regions": [
+        "fibularis-longus-left",
+        "tibialis-anterior-left"
+      ],
+      "view": "front",
+      "quantizedRasterPixels": 1,
+      "sameStudy": false
+    }
+  ],
+  "measurement": "union of delivered PNG interiors >127; pair totals can double-count pixels, and SVG smoothing can differ",
+  "geometryPolicy": "exact source paths, transforms and per-export clips; no trimming, subtraction or retracing",
+  "anatomicalValidation": "pending",
+  "productionIntegration": false,
+  "provenance": [
+    {
+      "file": "abs-surface-study/selected-geometry.json",
+      "sha256": "cfc58552f77145e339873ee5ed648a9edbcd46ca5bca627cf30330018257a0da"
+    },
+    {
+      "file": "adductor-longus-surface-study/selected-geometry.json",
+      "sha256": "0393fd0ae7c47611404a35e79d9a378f1dcbf1b8508cf4b4f17258cc22f7889a"
+    },
+    {
+      "file": "anconeus-surface-study/selected-geometry.json",
+      "sha256": "7385f249cba5e841f100105d861b416cbb0406071ff2ce953d9926309cff9e25"
+    },
+    {
+      "file": "brachialis-surface-study/selected-geometry.json",
+      "sha256": "59ac8443e31c1047e6855e163f3033145aef9e74d86ef41a9047eafdee6a2faf"
+    },
+    {
+      "file": "brachioradialis-surface-study/selected-geometry.json",
+      "sha256": "2b8084493b6c36b0a7c758e3691a90182d07de53fb55a4dfaacd77f8d6415441"
+    },
+    {
+      "file": "calves-reference-study/selected-geometry.json",
+      "sha256": "e274af42e6b87066dc8c7f840f6bc82bcddd40efa9f671aa2c9f57f646091702"
+    },
+    {
+      "file": "deltoid-front-surface-study/selected-geometry.json",
+      "sha256": "100ae40c792c8e6706f0a02069a914a58630ef65c8684d64ee470754cf74101e"
+    },
+    {
+      "file": "extensor-carpi-radialis-longus-surface-study/selected-geometry.json",
+      "sha256": "cb625d4eaaa921cb06e643559bb2927d9958a6a98a5c9b6301ddf92ff8872269"
+    },
+    {
+      "file": "extensor-carpi-ulnaris-surface-study/selected-geometry.json",
+      "sha256": "72a15fd3d541fbdbed8ca5c2ffe8d6c3cf79390849d64d6f7a22f82d244d8d24"
+    },
+    {
+      "file": "extensor-digitorum-surface-study/selected-geometry.json",
+      "sha256": "9a92d12e8c5a90f13c00f7352f5a265bcd407e9adb83f0605569c435774a450e"
+    },
+    {
+      "file": "fibularis-longus-surface-study/selected-geometry.json",
+      "sha256": "8c3d2a81bc3615eed8be55242aaf7b3b3b6aa4f963457556242b71edaf9f8720"
+    },
+    {
+      "file": "flexor-carpi-radialis-surface-study/selected-geometry.json",
+      "sha256": "4054e50b0d038fffe92f03b28e2a9454188b33565b341689b83d69356e0d2154"
+    },
+    {
+      "file": "flexor-carpi-ulnaris-surface-study/selected-geometry.json",
+      "sha256": "4f62ceb58159d88726cf420527575748bb303dc2194d42b79d0c152b0718de89"
+    },
+    {
+      "file": "glutes-reference-study/selected-geometry.json",
+      "sha256": "ce95af0c508d8ec5f4f3f08887ea53ebcc54f66d61e8ed096fb9378094afd132"
+    },
+    {
+      "file": "gluteus-medius-surface-v2/selected-geometry.json",
+      "sha256": "118ff7bea0ff404944475706d2fa6cbb81b7aabcbffb7b82d324249a76ca3610"
+    },
+    {
+      "file": "gracilis-surface-study/selected-geometry.json",
+      "sha256": "2e65a16016622c72390b4c7db77f854e5fa15b932d7c45a1ca675383c2db19d7"
+    },
+    {
+      "file": "hamstrings-surface-study/selected-geometry.json",
+      "sha256": "1bcf820f6b4396edae2e01657727f7eaaf4d0faecab1ee337a81873b34852d5e"
+    },
+    {
+      "file": "infraspinatus-surface-study/selected-geometry.json",
+      "sha256": "f5e04adbdeeba7e7d4c30309cbb74dff248bfb4ba8ed0a7fe631118f0c091d38"
+    },
+    {
+      "file": "quadriceps-surface-study/selected-geometry.json",
+      "sha256": "0d23f795c2c8d2ee1924bf3e72cf4eeb6e9bdaf025956b1342fa45106d8d6998"
+    },
+    {
+      "file": "sartorius-surface-study/selected-geometry.json",
+      "sha256": "7998d33b7a577fc118e8ba3c8f22d0ee9a0c807c75dd720fe1b631a7e80bfed4"
+    },
+    {
+      "file": "serratus-surface-study/selected-geometry.json",
+      "sha256": "fde025217ed6049a01e5f0b319b67820de7251e5b26c5f7fde514790814a0f64"
+    },
+    {
+      "file": "soleus-surface-study/selected-geometry.json",
+      "sha256": "26dc6e70a971e7cb5285f3e9e1325e4967ea669fbd8afedf03a78c5ba618b710"
+    },
+    {
+      "file": "sternocleidomastoid-surface-study/selected-geometry.json",
+      "sha256": "4599c22c5b43d397823a0793420710fc49f0beca4f11d0c786f6fc8299a1a428"
+    },
+    {
+      "file": "tensor-fasciae-latae-surface-study/selected-geometry.json",
+      "sha256": "9a26b772080d46443b945dbf9633ef74607cbafe3274a9955986bf15e851f7b6"
+    },
+    {
+      "file": "teres-major-surface-study/selected-geometry.json",
+      "sha256": "3bde1bcfe66fedbbad91cc2b424a7cf6370f9d6fd97b60f0461b93b60969e5b6"
+    },
+    {
+      "file": "teres-minor-surface-study/selected-geometry.json",
+      "sha256": "0a06bf7cd7b801c3505dd34d40af70a44a9b23abf6a834894d0a84aed1c86e68"
+    },
+    {
+      "file": "tibialis-anterior-surface-study/selected-geometry.json",
+      "sha256": "b32f151edf79afa58275a1c39f9e42d4f1d6c3638626a4bb15ddb03524e10947"
+    },
+    {
+      "file": "reference-study/geometry.json",
+      "sha256": "ea9491ff6e27709c90dad56b7f246dc5d91974bd74a576601d06cf4b0f171ba1"
+    },
+    {
+      "file": "trapezius-study/geometry.json",
+      "sha256": "cd03899d6f466411ee2c598ef73688841fb3fad03754761809bf1aceb2b9b20f"
+    },
+    {
+      "file": "lats-reference-study/geometry.json",
+      "sha256": "695526ac6c08797981054f8079fa19448580c3dcd240729dd609a0a81217bc88"
+    },
+    {
+      "file": "biceps-reference-study/geometry.json",
+      "sha256": "589b3146912700959b935dec66032db0916b123e1f25efea66c0b3cd805f23b3"
+    },
+    {
+      "file": "triceps-reference-study/geometry.json",
+      "sha256": "6c3b690f58c060081d14b77e85e5d24a652f23deb7e2a91436c71f1bbc0e71bf"
+    },
+    {
+      "file": "rear-shoulder-reference-study/edge-tuning/geometry.json",
+      "sha256": "06774c3908c0ee52e88dffbd1678540db75e60f15142eddd7a205ca9d8f42a6e"
+    },
+    {
+      "file": "lower-back-projection-study/selected-geometry.json",
+      "sha256": "2e36f94537b8b2d450731f916bfa95b2ffb937ad89b92fa098a195816d9fd430"
+    }
+  ]
+}

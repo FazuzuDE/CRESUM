@@ -1,0 +1,21 @@
+{
+  "status": "visually-approved",
+  "representation": "schematic-projection-beneath-thoracolumbar-fascia",
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; back left positive X, back right negative X; positive Y down",
+  "sourceScreenshot": "image(20261020-210352).png",
+  "approvalBasis": "explicit visual acceptance of the selected schematic projection, not visible individual-muscle anatomy",
+  "regions": {
+    "lower-back-projection-left": {
+      "inset": -2.5,
+      "shift": 0,
+      "shiftY": 0
+    },
+    "lower-back-projection-right": {
+      "inset": -2.5,
+      "shift": -1.5,
+      "shiftY": -3.5
+    }
+  }
+}

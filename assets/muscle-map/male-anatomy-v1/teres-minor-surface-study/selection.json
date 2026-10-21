@@ -1,0 +1,12 @@
+{
+  "status": "visually-approved",
+  "revision": 1,
+  "units": "source-pixels",
+  "opacityMode": "per-muscle-runtime-variable",
+  "shiftConvention": "positive inward; back left positive X, back right negative X; positive shiftY down, negative shiftY up",
+  "sourceScreenshot": "8F7FA941-71B1-4A2F-BA8C-82653BA8D66B.png",
+  "regions": {
+    "teres-minor-left": { "inset": -0.5, "shift": 1, "shiftY": -0.5 },
+    "teres-minor-right": { "inset": 0, "shift": -1, "shiftY": -0.5 }
+  }
+}

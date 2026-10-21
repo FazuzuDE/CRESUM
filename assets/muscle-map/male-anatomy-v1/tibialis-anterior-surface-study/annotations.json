@@ -1,0 +1,221 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "canvas": [
+    1312,
+    1199
+  ],
+  "status": "draft-boundary-and-structure-review",
+  "revision": 2,
+  "anatomyReference": "https://www.ncbi.nlm.nih.gov/books/NBK513304/",
+  "regions": [
+    {
+      "id": "tibialis-anterior-left",
+      "side": "left",
+      "structureId": "tibialis-anterior",
+      "muscleGroupId": null,
+      "label": "Передняя большеберцовая · черновик",
+      "points": [
+        [
+          470,
+          816
+        ],
+        [
+          473,
+          830
+        ],
+        [
+          479,
+          850
+        ],
+        [
+          485,
+          872
+        ],
+        [
+          489,
+          890
+        ],
+        [
+          488.5,
+          908
+        ],
+        [
+          485,
+          928
+        ],
+        [
+          480,
+          948
+        ],
+        [
+          474,
+          968
+        ],
+        [
+          468,
+          987
+        ],
+        [
+          463,
+          1004
+        ],
+        [
+          461,
+          1007
+        ],
+        [
+          461,
+          994
+        ],
+        [
+          463,
+          976
+        ],
+        [
+          463,
+          955
+        ],
+        [
+          462,
+          935
+        ],
+        [
+          461,
+          916
+        ],
+        [
+          461.5,
+          897
+        ],
+        [
+          462.5,
+          876
+        ],
+        [
+          465,
+          854
+        ],
+        [
+          468,
+          834
+        ],
+        [
+          470,
+          816
+        ]
+      ]
+    },
+    {
+      "id": "tibialis-anterior-right",
+      "side": "right",
+      "structureId": "tibialis-anterior",
+      "muscleGroupId": null,
+      "label": "Передняя большеберцовая · черновик",
+      "points": [
+        [
+          263.5,
+          815.5
+        ],
+        [
+          261.5,
+          827
+        ],
+        [
+          257.5,
+          840
+        ],
+        [
+          253.5,
+          855
+        ],
+        [
+          250.5,
+          872
+        ],
+        [
+          248.5,
+          888
+        ],
+        [
+          248.5,
+          905
+        ],
+        [
+          251,
+          923
+        ],
+        [
+          254.5,
+          941
+        ],
+        [
+          259,
+          959
+        ],
+        [
+          264.5,
+          977
+        ],
+        [
+          270,
+          994
+        ],
+        [
+          274,
+          1005
+        ],
+        [
+          276.5,
+          1006
+        ],
+        [
+          276.5,
+          995
+        ],
+        [
+          274,
+          978
+        ],
+        [
+          273,
+          960
+        ],
+        [
+          273.5,
+          941
+        ],
+        [
+          274.5,
+          921
+        ],
+        [
+          275.5,
+          901
+        ],
+        [
+          275,
+          881
+        ],
+        [
+          272.5,
+          859
+        ],
+        [
+          269,
+          840
+        ],
+        [
+          266,
+          825
+        ],
+        [
+          263.5,
+          815.5
+        ]
+      ]
+    }
+  ],
+  "refinement": "independent-source-groove-tracing; wider-mid-bellies; repositioned-proximal-tips; gradual-distal-taper",
+  "signedDistanceSmoothing": 0.8,
+  "contourSplineSmoothing": 0.06
+}

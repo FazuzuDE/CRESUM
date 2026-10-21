@@ -1,0 +1,10 @@
+[
+  {
+    "id": "trapezius-left-visible",
+    "maxRasterBoundaryDeviationPx": 0.544
+  },
+  {
+    "id": "trapezius-right-visible",
+    "maxRasterBoundaryDeviationPx": 0.529
+  }
+]
