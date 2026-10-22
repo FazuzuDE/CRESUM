@@ -17,6 +17,8 @@ import type { TemplateMutationResult } from '@/lib/workout-store';
 import type { TemplateDraft } from '@/lib/workout-templates';
 import { isBuiltInTemplate } from '@/lib/workout-templates';
 import { colors, radius, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
+import { catalogLabel } from '@/lib/i18n/catalog';
 
 type EditorState =
   { mode: 'create' } | { mode: 'edit'; templateId: string } | null;
@@ -57,6 +59,11 @@ export function WorkoutTemplates({
   showHeading = true,
   onEditorChange,
 }: WorkoutTemplatesProps) {
+  const { t, locale } = useLocalization();
+  const displayName = (template: WorkoutTemplate) =>
+    isBuiltInTemplate(template.id)
+      ? catalogLabel(locale, 'template', template.id, template.name)
+      : template.name;
   const [editor, setEditor] = useState<EditorState>(null);
   const [menuTemplateId, setMenuTemplateId] = useState<string>();
   const [menuError, setMenuError] = useState('');
@@ -109,7 +116,7 @@ export function WorkoutTemplates({
       closeOpenSwipe();
       setMenuError('');
       successHaptic();
-    } else setMenuError(result.error);
+    } else setMenuError('duplicate');
   };
   const hide = async (templateId: string) => {
     if (!onHide) return;
@@ -118,7 +125,7 @@ export function WorkoutTemplates({
       closeOpenSwipe();
       setMenuError('');
       successHaptic();
-    } else setMenuError('Workout could not be hidden. Try again.');
+    } else setMenuError('hide');
   };
 
   const save = async (draft: TemplateDraft) => {
@@ -149,7 +156,7 @@ export function WorkoutTemplates({
       setDeleteError('');
       successHaptic();
     } else {
-      setDeleteError(result.error);
+      setDeleteError('delete');
     }
   };
 
@@ -157,16 +164,16 @@ export function WorkoutTemplates({
     <>
       <Confirmation
         visible={Boolean(deleteTarget)}
-        title="Delete workout?"
+        title={t('templates.deleteTitle')}
         message={
           deleteTarget
-            ? `Delete “${deleteTarget.name}”? Active and completed workouts will stay unchanged.`
+            ? t('templates.deleteMessage', { name: displayName(deleteTarget) })
             : ''
         }
-        confirmLabel="Delete Workout"
-        cancelLabel="Keep Workout"
+        confirmLabel={t('templates.deleteConfirm')}
+        cancelLabel={t('templates.keep')}
         busy={busy}
-        error={deleteError}
+        error={deleteError ? t('templates.deleteError') : ''}
         onConfirm={() => {
           void confirmDelete();
         }}
@@ -185,19 +192,23 @@ export function WorkoutTemplates({
         <SafeAreaView style={s.menuRoot}>
           <AppScrollView contentContainerStyle={s.menuContent}>
             <Text style={s.menuTitle} accessibilityRole="header">
-              {menuTemplate?.name}
+              {menuTemplate ? displayName(menuTemplate) : ''}
             </Text>
             {menuError ? (
               <Text accessibilityRole="alert" style={s.menuError}>
-                {menuError}
+                {t(
+                  menuError === 'hide'
+                    ? 'templates.hideError'
+                    : 'templates.duplicateError',
+                )}
               </Text>
             ) : null}
             {menuTemplate ? (
               <>
                 <AppButton
-                  title={
-                    hasActiveWorkout ? 'Resume active workout' : 'Start Workout'
-                  }
+                  title={t(
+                    hasActiveWorkout ? 'templates.resume' : 'templates.start',
+                  )}
                   disabled={busy}
                   onPress={() => {
                     setMenuTemplateId(undefined);
@@ -207,13 +218,13 @@ export function WorkoutTemplates({
                 {isBuiltInTemplate(menuTemplate.id) ? (
                   <>
                     <AppButton
-                      title="Duplicate / Customize"
+                      title={t('templates.customize')}
                       secondary
                       disabled={busy || !onDuplicate}
                       onPress={() => void duplicate(menuTemplate.id)}
                     />
                     <AppButton
-                      title="Hide from My Workouts"
+                      title={t('templates.hide')}
                       secondary
                       disabled={busy || !onHide}
                       onPress={() => void hide(menuTemplate.id)}
@@ -222,7 +233,7 @@ export function WorkoutTemplates({
                 ) : (
                   <>
                     <AppButton
-                      title="Edit"
+                      title={t('templates.edit')}
                       secondary
                       disabled={busy}
                       onPress={() => {
@@ -234,13 +245,13 @@ export function WorkoutTemplates({
                       }}
                     />
                     <AppButton
-                      title="Duplicate"
+                      title={t('templates.duplicate')}
                       secondary
                       disabled={busy || !onDuplicate}
                       onPress={() => void duplicate(menuTemplate.id)}
                     />
                     <AppButton
-                      title="Delete"
+                      title={t('templates.delete')}
                       destructive
                       disabled={busy}
                       onPress={() => {
@@ -254,7 +265,7 @@ export function WorkoutTemplates({
               </>
             ) : null}
             <AppButton
-              title="Close"
+              title={t('templates.close')}
               secondary
               onPress={() => setMenuTemplateId(undefined)}
             />
@@ -280,13 +291,16 @@ export function WorkoutTemplates({
       <GlassCard style={s.card}>
         {showHeading ? (
           <Text style={s.title} accessibilityRole="header">
-            WORKOUTS
+            {t('templates.heading')}
           </Text>
         ) : null}
         {templates.length ? (
           templates.map((template, index) => {
             const builtIn = isBuiltInTemplate(template.id);
             const details = templateDetails(template);
+            const name = displayName(template);
+            const unavailable =
+              template.exerciseIds.length - details.availableCount;
             return (
               <Swipeable
                 key={`${template.id}-${index}`}
@@ -342,13 +356,13 @@ export function WorkoutTemplates({
                       {builtIn ? (
                         <>
                           <TemplateAction
-                            label={`Duplicate ${template.name}`}
+                            label={t('templates.duplicateNamed', { name })}
                             icon="copy-outline"
                             disabled={listActionsDisabled || !onDuplicate}
                             onPress={() => void duplicate(template.id)}
                           />
                           <TemplateAction
-                            label={`Hide ${template.name}`}
+                            label={t('templates.hideNamed', { name })}
                             icon="eye-off-outline"
                             disabled={listActionsDisabled || !onHide}
                             onPress={() => void hide(template.id)}
@@ -357,7 +371,7 @@ export function WorkoutTemplates({
                       ) : (
                         <>
                           <TemplateAction
-                            label={`Edit ${template.name}`}
+                            label={t('templates.editNamed', { name })}
                             icon="create-outline"
                             disabled={listActionsDisabled}
                             onPress={() => {
@@ -369,7 +383,7 @@ export function WorkoutTemplates({
                             }}
                           />
                           <TemplateAction
-                            label={`Delete ${template.name}`}
+                            label={t('templates.deleteNamed', { name })}
                             icon="trash-outline"
                             danger
                             disabled={listActionsDisabled}
@@ -388,8 +402,13 @@ export function WorkoutTemplates({
                 <View style={s.row}>
                   <Pressable
                     accessibilityRole="button"
-                    accessibilityLabel={`${hasActiveWorkout ? 'Resume active workout from' : 'Start'} ${template.name}`}
-                    accessibilityHint="Long press for more workout actions"
+                    accessibilityLabel={t(
+                      hasActiveWorkout
+                        ? 'templates.resumeNamed'
+                        : 'templates.startNamed',
+                      { name },
+                    )}
+                    accessibilityHint={t('templates.hint')}
                     disabled={listActionsDisabled || !onStart}
                     onTouchStart={() => {
                       if (gestureRowRef.current === template.id)
@@ -406,14 +425,22 @@ export function WorkoutTemplates({
                     onLongPress={() => openMenu(template.id)}
                     style={s.copy}
                   >
-                    <Text style={s.name}>{template.name}</Text>
+                    <Text style={s.name}>{name}</Text>
                     <Text style={s.metadata}>
-                      {details.count} · {details.plannedSetCount} planned sets
-                      {builtIn ? ' · Built-in' : ''}
+                      {unavailable
+                        ? t('home.availability', {
+                            available: details.availableCount,
+                            unavailable,
+                          })
+                        : t('editor.exercises', {
+                            count: details.availableCount,
+                          })}{' '}
+                      · {t('home.planned', { count: details.plannedSetCount })}
+                      {builtIn ? ` · ${t('templates.builtIn')}` : ''}
                     </Text>
                   </Pressable>
                   <TemplateAction
-                    label={`More actions for ${template.name}`}
+                    label={t('templates.more', { name })}
                     icon="ellipsis-horizontal"
                     disabled={listActionsDisabled}
                     onPress={() => openMenu(template.id)}
@@ -423,11 +450,11 @@ export function WorkoutTemplates({
             );
           })
         ) : (
-          <Text style={s.metadata}>No workouts available.</Text>
+          <Text style={s.metadata}>{t('templates.empty')}</Text>
         )}
         {!editor ? (
           <AppButton
-            title="Create Workout"
+            title={t('templates.create')}
             disabled={busy}
             onPress={() => setEditor({ mode: 'create' })}
           />

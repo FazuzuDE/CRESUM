@@ -265,6 +265,8 @@ it('holds and drops a row using measured heights without selecting it or collaps
   act(() => {
     view = create(<Harness />);
   });
+  // Model an immediate native release independently of renderer speed.
+  const clock = jest.spyOn(Date, 'now').mockReturnValue(1_800_000_000_000);
   try {
     act(() => pressable(view, 'All exercises')?.props.onPress());
     const before: WorkoutSession = view.root.findByType(Workout).props.session;
@@ -291,8 +293,12 @@ it('holds and drops a row using measured heights without selecting it or collaps
     // A native release must never also act as a tap.
     act(() => choices(view)[2].props.onPress());
     expect(choices(view)).toHaveLength(4);
+    clock.mockReturnValue(1_800_000_000_201);
+    act(() => choices(view)[2].props.onPress());
+    expect(choices(view)).toHaveLength(0);
   } finally {
     act(() => view.unmount());
+    clock.mockRestore();
   }
 });
 

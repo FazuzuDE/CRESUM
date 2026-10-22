@@ -17,13 +17,16 @@ import { TechniqueArtwork } from './TechniqueArtwork';
 import { TechniquePhaseControl } from './TechniquePhaseControl';
 import { TechniqueViewer } from './TechniqueViewer';
 import {
-  findTechnique,
   techniqueSources,
   type TechniquePhase,
 } from '@/lib/exercise-technique';
 import { equipmentLabel, muscleLabel } from '@/lib/exercise-taxonomy';
 import type { LibraryExercise, WorkoutSession } from '@/lib/workout-model';
 import { colors, radius, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
+import { catalogLabel } from '@/lib/i18n/catalog';
+import { formatDate } from '@/lib/i18n/format';
+import { localizedTechnique } from '@/lib/i18n/technique';
 
 export function ExerciseTechnique({
   exercise,
@@ -38,8 +41,15 @@ export function ExerciseTechnique({
   initialTab?: 'Technique' | 'Statistics';
   now?: number;
 }) {
+  const { t, locale } = useLocalization();
+  const exerciseName = catalogLabel(
+    locale,
+    'exercise',
+    exercise.id,
+    exercise.name,
+  );
   const [tab, setTab] = useState(initialTab);
-  const guide = findTechnique(exercise.id);
+  const guide = localizedTechnique(locale, exercise.id);
   const [phase, setPhase] = useState<TechniquePhase>('START'),
     [viewer, setViewer] = useState(false),
     [mistakes, setMistakes] = useState(false),
@@ -58,14 +68,16 @@ export function ExerciseTechnique({
         <BrandHeader tagline={false} />
         <View style={s.header}>
           <Text accessibilityRole="header" style={s.headerTitle}>
-            {tab}
+            {tab === 'Technique'
+              ? t('technique.title')
+              : t('technique.statistics')}
           </Text>
           <Pressable
             accessibilityRole="button"
             accessibilityLabel={
               history !== undefined
-                ? 'Close exercise details'
-                : 'Close technique'
+                ? t('technique.closeDetails')
+                : t('technique.close')
             }
             onPress={onClose}
             style={s.close}
@@ -77,17 +89,26 @@ export function ExerciseTechnique({
           <View style={s.detailHeading}>
             <View style={s.headingCopy}>
               <Text accessibilityRole="header" style={s.title}>
-                {exercise.name}
+                {exerciseName}
               </Text>
               <Text style={s.metadata}>
-                {exercise.primaryMuscles.map(muscleLabel).join(' · ')} ·{' '}
-                {exercise.equipment.map(equipmentLabel).join(' · ')}
+                {exercise.primaryMuscles
+                  .map((id) =>
+                    catalogLabel(locale, 'muscle', id, muscleLabel(id)),
+                  )
+                  .join(' · ')}{' '}
+                ·{' '}
+                {exercise.equipment
+                  .map((id) =>
+                    catalogLabel(locale, 'equipment', id, equipmentLabel(id)),
+                  )
+                  .join(' · ')}
               </Text>
             </View>
             {history !== undefined ? (
               <Pressable
                 accessibilityRole="button"
-                accessibilityLabel="Expand exercise illustration"
+                accessibilityLabel={t('technique.expand')}
                 onPress={() => setViewer(true)}
                 style={s.thumbnail}
               >
@@ -101,13 +122,20 @@ export function ExerciseTechnique({
                 <Pressable
                   key={value}
                   accessibilityRole="button"
-                  accessibilityLabel={`Exercise detail ${value}`}
+                  accessibilityLabel={t('technique.tab', {
+                    tab:
+                      value === 'Technique'
+                        ? t('technique.title')
+                        : t('technique.statistics'),
+                  })}
                   accessibilityState={{ selected: tab === value }}
                   onPress={() => setTab(value)}
                   style={[s.tab, value === tab && s.activeTab]}
                 >
                   <Text style={[s.metadata, value === tab && s.activeTabText]}>
-                    {value}
+                    {value === 'Technique'
+                      ? t('technique.title')
+                      : t('technique.statistics')}
                   </Text>
                 </Pressable>
               ))}
@@ -124,7 +152,7 @@ export function ExerciseTechnique({
               <ExerciseStatistics
                 history={history}
                 exerciseId={exercise.id}
-                name={exercise.name}
+                name={exerciseName}
                 now={now}
               />
             </View>
@@ -141,7 +169,7 @@ export function ExerciseTechnique({
           >
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel="Expand exercise illustration"
+              accessibilityLabel={t('technique.expand')}
               onPress={() => setViewer(true)}
               style={s.artwork}
             >
@@ -158,31 +186,39 @@ export function ExerciseTechnique({
             {guide ? (
               <>
                 <Text style={s.metadata}>{guide.scope}</Text>
-                <Section title="Setup" items={guide.setup} />
-                <Section title="Movement" items={guide.movement} />
-                <Section title="Key checks" items={guide.checks} />
+                <Section title={t('technique.setup')} items={guide.setup} />
+                <Section
+                  title={t('technique.movement')}
+                  items={guide.movement}
+                />
+                <Section title={t('technique.checks')} items={guide.checks} />
                 <Disclosure
-                  title="Common mistakes"
+                  title={t('technique.mistakes')}
                   open={mistakes}
                   onPress={() => setMistakes(!mistakes)}
                 />
                 {mistakes ? (
                   <Section
-                    title="Common mistakes"
+                    title={t('technique.mistakes')}
                     items={guide.mistakes}
                     hideTitle
                   />
                 ) : null}
                 <Disclosure
-                  title="Sources"
+                  title={t('technique.sources')}
                   open={sources}
                   onPress={() => setSources(!sources)}
                 />
                 {sources ? (
                   <View style={s.sourceList}>
                     <Text style={s.metadata}>
-                      CRESUM summaries of the references below. Source-checked
-                      12 Oct 2026; not an individualized assessment.
+                      {t('technique.sourceNote', {
+                        date: formatDate(
+                          locale,
+                          new Date(2026, 9, 12).getTime(),
+                          { day: 'numeric', month: 'short', year: 'numeric' },
+                        ),
+                      })}
                     </Text>
                     {guide.adaptation ? (
                       <Text style={s.metadata}>{guide.adaptation}</Text>
@@ -193,7 +229,9 @@ export function ExerciseTechnique({
                         <Pressable
                           key={id}
                           accessibilityRole="link"
-                          accessibilityLabel={`Open source ${source.title}`}
+                          accessibilityLabel={t('technique.openSource', {
+                            title: source.title,
+                          })}
                           onPress={() => {
                             setLinkError(false);
                             void Linking.openURL(source.url).catch(() =>
@@ -209,27 +247,21 @@ export function ExerciseTechnique({
                     })}
                     {linkError ? (
                       <Text accessibilityRole="alert" style={s.error}>
-                        Could not open this source. Try again when online.
+                        {t('technique.linkError')}
                       </Text>
                     ) : null}
                   </View>
                 ) : null}
-                <Text style={s.metadata}>
-                  Use a controllable load and follow the actual machine’s setup
-                  instructions. Stop if movement causes pain; seek qualified
-                  guidance for symptoms or unfamiliar equipment.
-                </Text>
+                <Text style={s.metadata}>{t('technique.safety')}</Text>
               </>
             ) : (
-              <Text style={s.metadata}>
-                Technique unavailable for this exercise.
-              </Text>
+              <Text style={s.metadata}>{t('technique.unavailable')}</Text>
             )}
           </View>
         </AppScrollView>
         {viewer ? (
           <TechniqueViewer
-            name={exercise.name}
+            name={exerciseName}
             imageKey={exercise.imageKey}
             phase={phase}
             onPhase={setPhase}

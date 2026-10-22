@@ -6,6 +6,7 @@ import { TechniqueArtwork } from './TechniqueArtwork';
 import { TechniquePhaseControl } from './TechniquePhaseControl';
 import type { TechniquePhase } from '@/lib/exercise-technique';
 import { colors, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
 export function TechniqueViewer({
   name,
   imageKey,
@@ -19,6 +20,7 @@ export function TechniqueViewer({
   onPhase: (phase: TechniquePhase) => void;
   onClose: () => void;
 }) {
+  const { t } = useLocalization();
   return (
     <Modal
       visible
@@ -30,7 +32,7 @@ export function TechniqueViewer({
         <View style={s.header}>
           <Pressable
             accessibilityRole="button"
-            accessibilityLabel="Close full-screen illustration"
+            accessibilityLabel={t('technique.closeViewer')}
             onPress={onClose}
             style={s.close}
           >
@@ -44,9 +46,7 @@ export function TechniqueViewer({
         <AppScrollView contentContainerStyle={s.content}>
           <TechniqueArtwork imageKey={imageKey} phase={phase} expanded />
           <TechniquePhaseControl phase={phase} onChange={onPhase} />
-          <Text style={s.context}>
-            START / FINISH images will appear here after visual review.
-          </Text>
+          <Text style={s.context}>{t('technique.viewerNote')}</Text>
         </AppScrollView>
       </SafeAreaView>
     </Modal>

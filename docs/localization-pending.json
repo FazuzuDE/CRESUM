@@ -146,157 +146,142 @@
   },
   {
     "file": "app/index.tsx",
-    "line": 642,
-    "text": "Cannot start workout"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 654,
-    "text": "Cannot start planned workout"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 672,
+    "line": 678,
     "text": "Hidden workout settings could not be saved. Try again."
   },
   {
     "file": "app/index.tsx",
-    "line": 721,
+    "line": 727,
     "text": "Save or retry your workout changes before using backup and restore."
   },
   {
     "file": "app/index.tsx",
-    "line": 745,
+    "line": 751,
     "text": "No usable saved copy is available."
   },
   {
     "file": "app/index.tsx",
-    "line": 747,
+    "line": 753,
     "text": "Saved local copy opened for export. Choose a destination to keep it outside this app."
   },
   {
     "file": "app/index.tsx",
-    "line": 753,
+    "line": 759,
     "text": "`${count} workouts imported. Existing history was kept.`"
   },
   {
     "file": "app/index.tsx",
-    "line": 756,
+    "line": 762,
     "text": "Backup restored. Local data was replaced with your selected copy."
   },
   {
     "file": "app/index.tsx",
-    "line": 759,
+    "line": 765,
     "text": "Backup sharing finished. A copy is kept only if you chose a save destination."
   },
   {
     "file": "app/index.tsx",
-    "line": 874,
+    "line": 880,
     "text": "Saved body weight is unavailable."
   },
   {
     "file": "app/index.tsx",
-    "line": 880,
+    "line": 886,
     "text": "Local data could not be reset. Try again."
   },
   {
     "file": "app/index.tsx",
-    "line": 898,
+    "line": 904,
     "text": "Reset CRESUM?"
   },
   {
     "file": "app/index.tsx",
-    "line": 899,
+    "line": 905,
     "text": "All local CRESUM data on this device — workouts, history, templates, active workout, body-weight measurements, hidden-workout settings, personalization and onboarding data — will be permanently deleted. Saved backup files and backup account links are kept; automatic backups will be switched off. Cloud history is not deleted; cloud backup will pause until you choose Resume. This does not sign you out. This cannot be undone."
   },
   {
     "file": "app/index.tsx",
-    "line": 900,
+    "line": 906,
     "text": "Reset local data"
   },
   {
     "file": "app/index.tsx",
-    "line": 901,
+    "line": 907,
     "text": "Keep data"
   },
   {
     "file": "app/index.tsx",
-    "line": 904,
+    "line": 910,
     "text": "Resetting…"
   },
   {
     "file": "app/index.tsx",
-    "line": 959,
-    "text": "Retry program recovery"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 970,
+    "line": 976,
     "text": "Retry saving or loading"
   },
   {
     "file": "app/index.tsx",
-    "line": 1020,
+    "line": 1026,
     "text": "Onboarding progress could not be saved. Retry before closing the app."
   },
   {
     "file": "app/index.tsx",
-    "line": 1034,
+    "line": 1040,
     "text": "edit"
   },
   {
     "file": "app/index.tsx",
-    "line": 1034,
+    "line": 1040,
     "text": "first-run"
   },
   {
     "file": "app/index.tsx",
-    "line": 1041,
+    "line": 1047,
     "text": "welcome"
   },
   {
     "file": "app/index.tsx",
-    "line": 1054,
+    "line": 1060,
     "text": "profile"
   },
   {
     "file": "app/index.tsx",
-    "line": 1054,
+    "line": 1060,
     "text": "home"
   },
   {
     "file": "app/index.tsx",
-    "line": 1124,
+    "line": 1130,
     "text": "Reset in progress."
   },
   {
     "file": "app/index.tsx",
-    "line": 1171,
+    "line": 1177,
     "text": "auto"
   },
   {
     "file": "app/index.tsx",
-    "line": 1171,
+    "line": 1177,
     "text": "none"
   },
   {
     "file": "app/index.tsx",
-    "line": 1174,
+    "line": 1180,
     "text": "auto"
   },
   {
     "file": "app/index.tsx",
-    "line": 1174,
+    "line": 1180,
     "text": "no-hide-descendants"
   },
   {
     "file": "app/index.tsx",
-    "line": 1186,
+    "line": 1192,
     "text": "Finish the current data operation first."
   },
   {
     "file": "app/index.tsx",
-    "line": 1361,
+    "line": 1367,
     "text": "tabular-nums"
   },
   {
@@ -1706,63 +1691,33 @@
   },
   {
     "file": "components/ExerciseTechnique.tsx",
-    "line": 32,
+    "line": 35,
     "text": "Technique"
   },
   {
     "file": "components/ExerciseTechnique.tsx",
-    "line": 38,
+    "line": 41,
     "text": "Technique"
   },
   {
     "file": "components/ExerciseTechnique.tsx",
-    "line": 38,
+    "line": 41,
     "text": "Statistics"
   },
   {
     "file": "components/ExerciseTechnique.tsx",
-    "line": 43,
+    "line": 53,
     "text": "START"
   },
   {
     "file": "components/ExerciseTechnique.tsx",
-    "line": 67,
-    "text": "Close exercise details"
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 68,
-    "text": "Close technique"
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 90,
-    "text": "Expand exercise illustration"
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 100,
+    "line": 71,
     "text": "Technique"
   },
   {
     "file": "components/ExerciseTechnique.tsx",
-    "line": 100,
-    "text": "Statistics"
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 104,
-    "text": "`Exercise detail ${value}`"
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 118,
-    "text": "Statistics"
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 119,
-    "text": "Statistics"
+    "line": 121,
+    "text": "Technique"
   },
   {
     "file": "components/ExerciseTechnique.tsx",
@@ -1771,112 +1726,77 @@
   },
   {
     "file": "components/ExerciseTechnique.tsx",
-    "line": 121,
+    "line": 127,
+    "text": "Technique"
+  },
+  {
+    "file": "components/ExerciseTechnique.tsx",
+    "line": 136,
+    "text": "Technique"
+  },
+  {
+    "file": "components/ExerciseTechnique.tsx",
+    "line": 146,
+    "text": "Statistics"
+  },
+  {
+    "file": "components/ExerciseTechnique.tsx",
+    "line": 147,
+    "text": "Statistics"
+  },
+  {
+    "file": "components/ExerciseTechnique.tsx",
+    "line": 149,
+    "text": "Statistics"
+  },
+  {
+    "file": "components/ExerciseTechnique.tsx",
+    "line": 149,
     "text": "auto"
   },
   {
     "file": "components/ExerciseTechnique.tsx",
-    "line": 121,
+    "line": 149,
     "text": "no-hide-descendants"
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 133,
-    "text": "Technique"
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 135,
-    "text": "Technique"
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 135,
-    "text": "auto"
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 135,
-    "text": "no-hide-descendants"
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 139,
-    "text": "Statistics"
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 144,
-    "text": "Expand exercise illustration"
   },
   {
     "file": "components/ExerciseTechnique.tsx",
     "line": 161,
-    "text": "Setup"
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 162,
-    "text": "Movement"
+    "text": "Technique"
   },
   {
     "file": "components/ExerciseTechnique.tsx",
     "line": 163,
-    "text": "Key checks"
+    "text": "Technique"
   },
   {
     "file": "components/ExerciseTechnique.tsx",
-    "line": 165,
-    "text": "Common mistakes"
+    "line": 163,
+    "text": "auto"
   },
   {
     "file": "components/ExerciseTechnique.tsx",
-    "line": 171,
-    "text": "Common mistakes"
+    "line": 163,
+    "text": "no-hide-descendants"
   },
   {
     "file": "components/ExerciseTechnique.tsx",
-    "line": 177,
-    "text": "Sources"
+    "line": 167,
+    "text": "Statistics"
   },
   {
     "file": "components/ExerciseTechnique.tsx",
-    "line": 184,
-    "text": "CRESUM summaries of the references below. Source-checked 12 Oct 2026; not an individualized assessment."
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 196,
-    "text": "`Open source ${source.title}`"
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 212,
-    "text": "Could not open this source. Try again when online."
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 218,
-    "text": "Use a controllable load and follow the actual machine’s setup instructions. Stop if movement causes pain; seek qualified guidance for symptoms or unfamiliar equipment."
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 225,
-    "text": "Technique unavailable for this exercise."
-  },
-  {
-    "file": "components/ExerciseTechnique.tsx",
-    "line": 261,
+    "line": 293,
     "text": "`${index + 1}. `"
   },
   {
     "file": "components/ExerciseTechnique.tsx",
-    "line": 287,
+    "line": 319,
     "text": "chevron-up"
   },
   {
     "file": "components/ExerciseTechnique.tsx",
-    "line": 287,
+    "line": 319,
     "text": "chevron-forward"
   },
   {
@@ -3071,48 +2991,33 @@
   },
   {
     "file": "components/TechniqueArtwork.tsx",
-    "line": 18,
-    "text": "`${phase} artwork placeholder for ${imageKey}`"
-  },
-  {
-    "file": "components/TechniqueArtwork.tsx",
-    "line": 23,
-    "text": "Illustration unavailable"
-  },
-  {
-    "file": "components/TechniqueArtwork.tsx",
-    "line": 23,
-    "text": "Image coming soon"
-  },
-  {
-    "file": "components/TechniquePhaseControl.tsx",
-    "line": 13,
+    "line": 19,
     "text": "START"
   },
   {
     "file": "components/TechniquePhaseControl.tsx",
-    "line": 13,
+    "line": 15,
+    "text": "START"
+  },
+  {
+    "file": "components/TechniquePhaseControl.tsx",
+    "line": 15,
     "text": "FINISH"
   },
   {
     "file": "components/TechniquePhaseControl.tsx",
-    "line": 17,
-    "text": "`Show ${value}`"
+    "line": 20,
+    "text": "START"
   },
   {
-    "file": "components/TechniqueViewer.tsx",
-    "line": 33,
-    "text": "Close full-screen illustration"
-  },
-  {
-    "file": "components/TechniqueViewer.tsx",
-    "line": 42,
+    "file": "components/TechniquePhaseControl.tsx",
+    "line": 29,
     "text": "START"
   },
   {
     "file": "components/TechniqueViewer.tsx",
-    "line": 48,
-    "text": "START / FINISH images will appear here after visual review."
+    "line": 44,
+    "text": "START"
   },
   {
     "file": "components/TemplateEditor.tsx",
@@ -3183,91 +3088,6 @@
     "file": "components/TemplateEditor.tsx",
     "line": 301,
     "text": "`${id}-${index}`"
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 52,
-    "text": "Your training plan"
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 56,
-    "text": "Week"
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 56,
-    "text": "planned workouts · Gym"
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 64,
-    "text": "`Select ${day.name} on ${slot.date}`"
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 76,
-    "text": "Completed"
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 78,
-    "text": "Missed · choose when ready"
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 79,
-    "text": "Planned"
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 85,
-    "text": "Other days: recovery. Missed sessions never add sets to another workout."
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 89,
-    "text": "First planned session: 1 working set per exercise, as selected."
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 94,
-    "text": "Cardio guidance"
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 96,
-    "text": "Walking or cycling · gradual target:"
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 98,
-    "text": "moderate minutes per week. Begin with manageable 10–15 minute sessions."
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 105,
-    "text": "min target"
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 121,
-    "text": "`Start planned workout · ${selected.dayKey}`"
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 127,
-    "text": "Resume your active workout above before starting another."
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 131,
-    "text": "This week’s planned workouts are complete."
-  },
-  {
-    "file": "components/TrainingProgramWeek.tsx",
-    "line": 135,
-    "text": "Review workouts in Profile"
   },
   {
     "file": "components/TrainingVolume.tsx",
@@ -3736,183 +3556,83 @@
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 121,
-    "text": "Workout could not be hidden. Try again."
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 131,
+    "line": 138,
     "text": "Template is no longer available."
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 160,
-    "text": "Delete workout?"
+    "line": 201,
+    "text": "templates.hideError"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 163,
-    "text": "`Delete “${deleteTarget.name}”? Active and completed workouts will stay unchanged.`"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 166,
-    "text": "Delete Workout"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 167,
-    "text": "Keep Workout"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 199,
-    "text": "Resume active workout"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 199,
-    "text": "Start Workout"
+    "line": 202,
+    "text": "templates.duplicateError"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
     "line": 210,
-    "text": "Duplicate / Customize"
+    "text": "templates.resume"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 216,
-    "text": "Hide from My Workouts"
+    "line": 210,
+    "text": "templates.start"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 225,
-    "text": "Edit"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 237,
-    "text": "Duplicate"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 243,
-    "text": "Delete"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 257,
-    "text": "Close"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 269,
+    "line": 280,
     "text": "`edit-${editor.templateId}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 270,
+    "line": 281,
     "text": "create-template"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 283,
-    "text": "WORKOUTS"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 292,
+    "line": 306,
     "text": "`${template.id}-${index}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 293,
+    "line": 307,
     "text": "`template-swipe-${template.id}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 327,
+    "line": 341,
     "text": "`quick-background-${template.id}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 333,
+    "line": 347,
     "text": "`quick-actions-${template.id}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 338,
+    "line": 352,
     "text": "auto"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 339,
+    "line": 353,
     "text": "no-hide-descendants"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 345,
-    "text": "`Duplicate ${template.name}`"
+    "line": 407,
+    "text": "templates.resumeNamed"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 351,
-    "text": "`Hide ${template.name}`"
+    "line": 408,
+    "text": "templates.startNamed"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 360,
-    "text": "`Edit ${template.name}`"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 372,
-    "text": "`Delete ${template.name}`"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 391,
-    "text": "`${hasActiveWorkout ? 'Resume active workout from' : 'Start'} ${template.name}`"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 391,
-    "text": "Resume active workout from"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 391,
-    "text": "Start"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 392,
-    "text": "Long press for more workout actions"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 411,
-    "text": "planned sets"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 412,
-    "text": "· Built-in"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 416,
-    "text": "`More actions for ${template.name}`"
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 426,
-    "text": "No workouts available."
-  },
-  {
-    "file": "components/WorkoutTemplates.tsx",
-    "line": 430,
-    "text": "Create Workout"
+    "line": 439,
+    "text": "` · ${t('templates.builtIn')}`"
   },
   {
     "file": "components/useBackupArchive.ts",

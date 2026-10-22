@@ -81,3 +81,16 @@ it('falls back to English without sharing mutable locale state', () => {
     'Retry',
   );
 });
+
+it('reuses immutable locale translators across screen mounts while isolating overrides', () => {
+  const ru = createTranslator('ru');
+  expect(createTranslator('ru')).toBe(ru);
+  const de = createTranslator('de');
+  expect(createTranslator('de')).toBe(de);
+  expect(de).not.toBe(ru);
+  const custom = createTranslator('ru', { 'common.retry': 'Custom retry' });
+  expect(custom('common.retry')).toBe('Custom retry');
+  expect(ru('common.retry')).toBe('Повторить');
+  expect(de('common.retry')).toBe('Erneut versuchen');
+  expect(createTranslator('ru')).toBe(ru);
+});

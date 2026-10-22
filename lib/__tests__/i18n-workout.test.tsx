@@ -1,4 +1,10 @@
-import { TextInput, Text } from 'react-native';
+import { TextInput, Text, Alert } from 'react-native';
+import { HomeDashboard } from '../../components/HomeDashboard';
+import { WorkoutStore } from '../workout-store';
+import { defaultTemplates } from '../workout-catalog';
+import { makeAssignment } from '../training-programs/assignment';
+import { selectProgram } from '../training-programs/selectors';
+import { projectProgramWeek } from '../training-programs/schedule';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import App from '../../app/index';
 import { Workout } from '../../components/Workout';
@@ -31,6 +37,63 @@ jest.mock('@expo/vector-icons', () => ({
 jest.mock('expo-blur', () => ({
   BlurView: jest.requireActual('react-native').View,
 }));
+
+it('localizes normal and planned start failures without leaking diagnostic text or creating a session', async () => {
+  await AsyncStorage.clear();
+  await completeOnboardingForTest();
+  const start = jest
+    .spyOn(WorkoutStore.prototype, 'start')
+    .mockImplementation(() => {
+      throw Error('SECRET_DIAGNOSTIC');
+    });
+  const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+  const locale = new LocaleStore(
+    { getItem: async () => null, setItem: async () => {} },
+    () => ['en'],
+  );
+  await act(async () => {
+    mounted = create(
+      <LocalizationProvider store={locale}>
+        <App />
+      </LocalizationProvider>,
+    );
+  });
+  const a = makeAssignment(
+    selectProgram('get_stronger', 'beginner')!,
+    'start-error',
+    '2026-10-22',
+  );
+  const slot = projectProgramWeek(a, [], '2026-10-22').nextSlot!;
+  await act(async () => {
+    await locale.select('ru');
+  });
+  act(() =>
+    mounted!.root
+      .findByType(HomeDashboard)
+      .props.startTemplate(defaultTemplates[0]),
+  );
+  expect(alert).toHaveBeenLastCalledWith(
+    'Не удалось начать тренировку',
+    expect.not.stringContaining('SECRET_DIAGNOSTIC'),
+  );
+  await act(async () => {
+    await locale.select('fr');
+  });
+  act(() =>
+    mounted!.root
+      .findByType(HomeDashboard)
+      .props.startProgramSlot(slot, a.templates[0]),
+  );
+  expect(alert).toHaveBeenLastCalledWith(
+    'Impossible de démarrer l’entraînement planifié',
+    expect.not.stringContaining('SECRET_DIAGNOSTIC'),
+  );
+  expect(start).toHaveBeenCalledTimes(2);
+  expect(start).toHaveBeenLastCalledWith(a.templates[0], slot.context);
+  expect(mounted!.root.findAllByType(Workout)).toHaveLength(0);
+  const saved = await AsyncStorage.getItem(STATE_KEY);
+  expect(saved ? JSON.parse(saved).activeWorkout : null).toBeNull();
+});
 
 it('keeps a real editor draft and rest deadline across language switches, then finishes once', async () => {
   await AsyncStorage.clear();
