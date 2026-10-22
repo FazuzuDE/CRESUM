@@ -10,16 +10,19 @@ import type { WorkoutVolume } from '@/lib/progress-analytics';
 import { volumeTrendModel, nearestTrendPoint } from '@/lib/volume-trend';
 import { volumeChartScale, volumeChartTick } from '@/lib/training-volume-chart';
 import { colors, progressTypography, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
+import { formatDate } from '@/lib/i18n/format';
+import { progressDate, volumeNumber } from '@/lib/i18n/progress';
 
 export function VolumeTrendChart({
   workouts,
   start,
   end,
-  measureLabel = 'Workout volume',
+  measureLabel: customMeasureLabel,
   formatPoint,
-  singlePointMessage = 'One saved workout; no curve yet.',
+  singlePointMessage: customSinglePointMessage,
   valueRange,
-  itemLabel = 'workout',
+  itemLabel: customItemLabel,
   onSelectPoint,
 }: {
   workouts: readonly WorkoutVolume[];
@@ -32,6 +35,10 @@ export function VolumeTrendChart({
   itemLabel?: string;
   onSelectPoint?: (point: WorkoutVolume) => void;
 }) {
+  const { t, locale } = useLocalization();
+  const measureLabel = customMeasureLabel ?? t('chart.workoutVolume');
+  const singlePointMessage = customSinglePointMessage ?? t('chart.oneWorkout');
+  const itemLabel = customItemLabel ?? t('chart.workout');
   const { width, fontScale } = useWindowDimensions();
   const [measured, setMeasured] = useState<number>();
   const [selectedId, setSelectedId] = useState<string>();
@@ -47,7 +54,7 @@ export function VolumeTrendChart({
       : volumeChartScale(workouts.map((p) => p.volume)).ticks
     ).map(
       (tick) =>
-        volumeChartTick(tick).length *
+        volumeChartTick(tick, locale).length *
         progressTypography.chart.fontSize *
         0.5 *
         Math.max(1, fontScale),
@@ -81,13 +88,17 @@ export function VolumeTrendChart({
   const label = (p: WorkoutVolume) =>
     formatPoint
       ? formatPoint(p)
-      : `${p.workoutName}, ${new Date(p.finishedAt).toLocaleString()}, ${p.volume < 1e12 && Number.isInteger(p.volume) ? p.volume.toLocaleString() : p.volume.toString()} kg`;
+      : t('progress.point', {
+          name: p.workoutName,
+          date: progressDate(locale, p.finishedAt),
+          value: volumeNumber(locale, p.volume),
+        });
   return (
     <View onLayout={(event) => setMeasured(event.nativeEvent.layout.width)}>
       <View style={s.row}>
         <View
           style={{ width: axisWidth }}
-          accessibilityLabel={`${measureLabel} scale in kilograms`}
+          accessibilityLabel={t('chart.scale', { measure: measureLabel })}
         >
           {model.scale.ticks.map((tick, i) => (
             <Text
@@ -104,7 +115,7 @@ export function VolumeTrendChart({
                 },
               ]}
             >
-              {volumeChartTick(tick)}
+              {volumeChartTick(tick, locale)}
             </Text>
           ))}
         </View>
@@ -113,16 +124,29 @@ export function VolumeTrendChart({
             style={{ height: height + spacing.md }}
             accessibilityRole="adjustable"
             accessible
-            accessibilityLabel={`${measureLabel} curve${selected ? ': ' + label(selected.data) : ''}`}
-            accessibilityHint={`Touch the curve to select a ${itemLabel}. Swipe up or down to change the selected ${itemLabel}.`}
+            accessibilityLabel={
+              selected
+                ? t('chart.curveSelected', {
+                    measure: measureLabel,
+                    point: label(selected.data),
+                  })
+                : t('chart.curve', { measure: measureLabel })
+            }
+            accessibilityHint={t('chart.hint', { item: itemLabel })}
             accessibilityActions={[
-              { name: 'increment', label: `Next ${itemLabel}` },
-              { name: 'decrement', label: `Previous ${itemLabel}` },
+              {
+                name: 'increment',
+                label: t('chart.next', { item: itemLabel }),
+              },
+              {
+                name: 'decrement',
+                label: t('chart.previous', { item: itemLabel }),
+              },
               ...(onSelectPoint
                 ? [
                     {
                       name: 'activate' as const,
-                      label: `View selected ${itemLabel}`,
+                      label: t('chart.viewSelected', { item: itemLabel }),
                     },
                   ]
                 : []),
@@ -208,7 +232,10 @@ export function VolumeTrendChart({
                   accessibilityLabel={
                     formatPoint
                       ? label(p.data)
-                      : `${measureLabel}: ${label(p.data)}`
+                      : t('chart.point', {
+                          measure: measureLabel,
+                          point: label(p.data),
+                        })
                   }
                   style={[
                     s.dot,
@@ -225,12 +252,12 @@ export function VolumeTrendChart({
               .map((tick, i) => (
                 <View key={i} style={s.date}>
                   <Text style={s.day}>
-                    {new Date(tick).toLocaleDateString(undefined, {
+                    {formatDate(locale, tick, {
                       day: 'numeric',
                     })}
                   </Text>
                   <Text style={s.month}>
-                    {new Date(tick).toLocaleDateString(undefined, {
+                    {formatDate(locale, tick, {
                       month: 'short',
                       ...(end - start > 365 * 86400000
                         ? { year: '2-digit' }

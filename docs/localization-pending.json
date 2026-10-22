@@ -1,287 +1,187 @@
 [
   {
     "file": "app/index.tsx",
-    "line": 145,
-    "text": "Progress"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 152,
-    "text": "Progress"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 155,
-    "text": "Volume and estimated strength records"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 166,
-    "text": "Overview"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 168,
-    "text": "Muscles"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 173,
-    "text": "Progress period"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 178,
-    "text": "`Progress period ${option.id}`"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 179,
-    "text": "`Show Progress for ${option.accessibilityLabel}`"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 204,
-    "text": "Training Volume"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 219,
-    "text": "Estimated 1RM"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 224,
-    "text": "Estimated 1RM"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 227,
-    "text": "Epley formula · based on completed sets"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 231,
-    "text": "Some saved sets could not be included."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 236,
-    "text": "No estimated records in this period."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 250,
-    "text": "kg ×"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 254,
-    "text": "TOP PR"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 256,
-    "text": "kg"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 268,
-    "text": "Logged exercise performance"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 281,
-    "text": "Body weight"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 292,
-    "text": "History"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 312,
+    "line": 336,
     "text": "profile"
   },
   {
     "file": "app/index.tsx",
-    "line": 312,
+    "line": 336,
     "text": "home"
   },
   {
     "file": "app/index.tsx",
-    "line": 452,
+    "line": 476,
     "text": "Hidden workout settings are unavailable. All built-ins remain visible."
   },
   {
     "file": "app/index.tsx",
-    "line": 513,
+    "line": 537,
     "text": "Reset in progress."
   },
   {
     "file": "app/index.tsx",
-    "line": 560,
+    "line": 584,
     "text": "Program recovery is pending. Your workouts remain available."
   },
   {
     "file": "app/index.tsx",
-    "line": 569,
+    "line": 593,
     "text": "Program recovery is pending. Your workouts remain available."
   },
   {
     "file": "app/index.tsx",
-    "line": 583,
+    "line": 607,
     "text": "Onboarding progress could not be saved. Retry before closing the app."
   },
   {
     "file": "app/index.tsx",
-    "line": 596,
+    "line": 620,
     "text": "Program saving is pending. Retry START!"
   },
   {
     "file": "app/index.tsx",
-    "line": 621,
+    "line": 645,
     "text": "Your workout was saved. Onboarding status could not be saved."
   },
   {
     "file": "app/index.tsx",
-    "line": 678,
+    "line": 702,
     "text": "Hidden workout settings could not be saved. Try again."
   },
   {
     "file": "app/index.tsx",
-    "line": 727,
+    "line": 751,
     "text": "Save or retry your workout changes before using backup and restore."
   },
   {
     "file": "app/index.tsx",
-    "line": 751,
+    "line": 775,
     "text": "No usable saved copy is available."
   },
   {
     "file": "app/index.tsx",
-    "line": 753,
+    "line": 777,
     "text": "Saved local copy opened for export. Choose a destination to keep it outside this app."
   },
   {
     "file": "app/index.tsx",
-    "line": 759,
+    "line": 783,
     "text": "`${count} workouts imported. Existing history was kept.`"
   },
   {
     "file": "app/index.tsx",
-    "line": 762,
+    "line": 786,
     "text": "Backup restored. Local data was replaced with your selected copy."
   },
   {
     "file": "app/index.tsx",
-    "line": 765,
+    "line": 789,
     "text": "Backup sharing finished. A copy is kept only if you chose a save destination."
   },
   {
     "file": "app/index.tsx",
-    "line": 880,
+    "line": 904,
     "text": "Saved body weight is unavailable."
   },
   {
     "file": "app/index.tsx",
-    "line": 886,
+    "line": 910,
     "text": "Local data could not be reset. Try again."
   },
   {
     "file": "app/index.tsx",
-    "line": 904,
+    "line": 928,
     "text": "Reset CRESUM?"
   },
   {
     "file": "app/index.tsx",
-    "line": 905,
+    "line": 929,
     "text": "All local CRESUM data on this device — workouts, history, templates, active workout, body-weight measurements, hidden-workout settings, personalization and onboarding data — will be permanently deleted. Saved backup files and backup account links are kept; automatic backups will be switched off. Cloud history is not deleted; cloud backup will pause until you choose Resume. This does not sign you out. This cannot be undone."
   },
   {
     "file": "app/index.tsx",
-    "line": 906,
+    "line": 930,
     "text": "Reset local data"
   },
   {
     "file": "app/index.tsx",
-    "line": 907,
+    "line": 931,
     "text": "Keep data"
   },
   {
     "file": "app/index.tsx",
-    "line": 910,
+    "line": 934,
     "text": "Resetting…"
   },
   {
     "file": "app/index.tsx",
-    "line": 976,
+    "line": 1000,
     "text": "Retry saving or loading"
   },
   {
     "file": "app/index.tsx",
-    "line": 1026,
+    "line": 1050,
     "text": "Onboarding progress could not be saved. Retry before closing the app."
   },
   {
     "file": "app/index.tsx",
-    "line": 1040,
+    "line": 1064,
     "text": "edit"
   },
   {
     "file": "app/index.tsx",
-    "line": 1040,
+    "line": 1064,
     "text": "first-run"
   },
   {
     "file": "app/index.tsx",
-    "line": 1047,
+    "line": 1071,
     "text": "welcome"
   },
   {
     "file": "app/index.tsx",
-    "line": 1060,
+    "line": 1084,
     "text": "profile"
   },
   {
     "file": "app/index.tsx",
-    "line": 1060,
+    "line": 1084,
     "text": "home"
   },
   {
     "file": "app/index.tsx",
-    "line": 1130,
+    "line": 1154,
     "text": "Reset in progress."
   },
   {
     "file": "app/index.tsx",
-    "line": 1177,
+    "line": 1201,
     "text": "auto"
   },
   {
     "file": "app/index.tsx",
-    "line": 1177,
+    "line": 1201,
     "text": "none"
   },
   {
     "file": "app/index.tsx",
-    "line": 1180,
+    "line": 1204,
     "text": "auto"
   },
   {
     "file": "app/index.tsx",
-    "line": 1180,
+    "line": 1204,
     "text": "no-hide-descendants"
   },
   {
     "file": "app/index.tsx",
-    "line": 1192,
+    "line": 1216,
     "text": "Finish the current data operation first."
   },
   {
     "file": "app/index.tsx",
-    "line": 1367,
+    "line": 1391,
     "text": "tabular-nums"
   },
   {
@@ -866,137 +766,42 @@
   },
   {
     "file": "components/BodyWeight.tsx",
-    "line": 80,
-    "text": "Could not save measurement. Try again."
+    "line": 142,
+    "text": "`${latest.kg - initial.kg >= 0 ? '+' : ''}${volumeNumber(locale, Number((latest.kg - initial.kg).toFixed(2)))}`"
   },
   {
     "file": "components/BodyWeight.tsx",
-    "line": 90,
+    "line": 153,
     "text": "Body weight"
   },
   {
     "file": "components/BodyWeight.tsx",
-    "line": 93,
-    "text": "Add measurement"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 103,
-    "text": "Recorded measurements · kg"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 110,
-    "text": "Retry measurements"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 121,
-    "text": "Initial"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 123,
-    "text": "kg"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 127,
-    "text": "Current"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 129,
-    "text": "kg"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 135,
-    "text": "kg since first measurement"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 141,
-    "text": "Add your first measurement to start tracking body weight."
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 148,
-    "text": "Body weight"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 155,
-    "text": "Body weight"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 159,
-    "text": "`${new Date(p.finishedAt).toLocaleDateString()} · ${p.volume} kg`"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 161,
-    "text": "One measurement saved. Add another to see your trend."
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 165,
-    "text": "No measurements in"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 165,
-    "text": ". Your earlier measurements are retained."
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 177,
+    "line": 185,
     "text": "padding"
   },
   {
     "file": "components/BodyWeight.tsx",
-    "line": 184,
-    "text": "Body weight"
+    "line": 213,
+    "text": "body.invalid"
   },
   {
     "file": "components/BodyWeight.tsx",
-    "line": 187,
-    "text": "Add your current measurement."
+    "line": 213,
+    "text": "body.saveError"
   },
   {
     "file": "components/BodyWeight.tsx",
-    "line": 190,
-    "text": "Current body weight (kg)"
+    "line": 217,
+    "text": "progress.saving"
   },
   {
     "file": "components/BodyWeight.tsx",
-    "line": 192,
-    "text": "Current body weight (kg)"
+    "line": 217,
+    "text": "body.save"
   },
   {
     "file": "components/BodyWeight.tsx",
-    "line": 194,
-    "text": "kg"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 209,
-    "text": "Saving…"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 209,
-    "text": "Save measurement"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 214,
-    "text": "Cancel"
-  },
-  {
-    "file": "components/BodyWeight.tsx",
-    "line": 241,
+    "line": 249,
     "text": "tabular-nums"
   },
   {
@@ -1096,137 +901,32 @@
   },
   {
     "file": "components/EstimatedOneRepMaxBars.tsx",
-    "line": 19,
-    "text": "Estimated 1RM"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxBars.tsx",
-    "line": 93,
-    "text": "in kilograms:"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxBars.tsx",
-    "line": 97,
-    "text": "Estimated 1RM chart"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxBars.tsx",
-    "line": 104,
-    "text": "Estimated 1RM scale in kilograms"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxBars.tsx",
-    "line": 143,
+    "line": 149,
     "text": "button"
   },
   {
     "file": "components/EstimatedOneRepMaxBars.tsx",
-    "line": 144,
-    "text": "`${measureLabel}: ${pointLabel(point)}`"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxBars.tsx",
-    "line": 203,
+    "line": 211,
     "text": "tabular-nums"
   },
   {
     "file": "components/EstimatedOneRepMaxBars.tsx",
-    "line": 221,
+    "line": 229,
     "text": "tabular-nums"
   },
   {
     "file": "components/EstimatedOneRepMaxBars.tsx",
-    "line": 249,
+    "line": 257,
     "text": "tabular-nums"
   },
   {
     "file": "components/EstimatedOneRepMaxBars.tsx",
-    "line": 255,
+    "line": 263,
     "text": "tabular-nums"
   },
   {
     "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 23,
-    "text": "`Estimated 1RM: ${point.workoutName}, ${new Date(point.finishedAt).toLocaleString()}, `"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 24,
-    "text": "`${estimate(point.estimatedOneRepMax)} kg estimated from ${point.weight} kg × ${point.reps}`"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 37,
-    "text": "kg estimated"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 40,
-    "text": "From"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 40,
-    "text": "kg ×"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 61,
-    "text": "Estimated 1RM · per workout"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 65,
-    "text": "No estimated 1RM data for this exercise in"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 71,
-    "text": "One saved estimate; no trend yet."
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 72,
-    "text": "`${points.length} workouts in ${period} · kg estimated`"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 88,
-    "text": "Estimated 1RM"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 90,
-    "text": "One saved estimate; no trend yet."
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 96,
-    "text": "`View all ${points.length} estimated 1RM points in ${period}`"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 100,
-    "text": "View all estimates in"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 113,
-    "text": "Estimated 1RM ·"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 116,
-    "text": "Close estimated 1RM points"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 120,
-    "text": "Close"
-  },
-  {
-    "file": "components/EstimatedOneRepMaxSeries.tsx",
-    "line": 160,
+    "line": 194,
     "text": "tabular-nums"
   },
   {
@@ -1326,83 +1026,8 @@
   },
   {
     "file": "components/ExercisePerformance.tsx",
-    "line": 52,
+    "line": 56,
     "text": "`${choice.name} (${choice.sourceId})`"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 79,
-    "text": "Logged exercise performance"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 81,
-    "text": "Saved completed sets · weight × reps"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 85,
-    "text": "Finish a workout to see logged exercise performance."
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 86,
-    "text": "No valid completed exercise sets yet."
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 92,
-    "text": "Choose exercise for logged performance"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 97,
-    "text": "Choose exercise"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 112,
-    "text": "1RM is unavailable for paired left/right sets. Both sides remain in logged results."
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 120,
-    "text": "1RM is unavailable for zero-load sets. External load is not body weight."
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 131,
-    "text": "No logged sets for this exercise in"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 136,
-    "text": "View logged sets"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 140,
-    "text": "View logged sets"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 158,
-    "text": "`Logged sets · ${selected?.name}`"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 160,
-    "text": "Logged sets ·"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 164,
-    "text": "Close logged sets"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 168,
-    "text": "Close"
   },
   {
     "file": "components/ExercisePerformance.tsx",
@@ -1411,282 +1036,27 @@
   },
   {
     "file": "components/ExercisePerformance.tsx",
-    "line": 187,
-    "text": "kg ×"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 190,
-    "text": "` L / ${set.otherSideReps} R`"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 209,
-    "text": "Trained exercises"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 212,
-    "text": "Close trained exercises"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 216,
-    "text": "Close"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 220,
-    "text": "Search trained exercises"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 223,
-    "text": "Search trained exercises"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 233,
-    "text": "No trained exercises found."
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 239,
-    "text": "`View ${choiceLabel(choice)} performance`"
-  },
-  {
-    "file": "components/ExercisePerformance.tsx",
-    "line": 307,
+    "line": 317,
     "text": "tabular-nums"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 30,
-    "text": "Estimated 1RM"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 31,
-    "text": "Volume"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 32,
-    "text": "Top weight"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 91,
-    "text": "`${p.workoutName}, ${date(p.finishedAt)}, ${number(p.volume, metric === 'estimated1RM')} kg`"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 97,
-    "text": "Exercise statistics period"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 102,
-    "text": "`Exercise period ${p.id}`"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 116,
-    "text": "Exercise statistics metric"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 121,
-    "text": "`Exercise metric ${m.label}`"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 142,
-    "text": "kg"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 158,
-    "text": "Comparison unavailable"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 159,
-    "text": "No previous-period data"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 160,
-    "text": "`${comparison.kind === 'increase' ? '↑ +' : comparison.kind === 'decrease' ? '↓ −' : ''}${number(Math.abs(comparison.delta!), metric === 'estimated1RM')} kg`"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 163,
-    "text": "vs previous period"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 170,
-    "text": "Completed training volume in this period"
   },
   {
     "file": "components/ExerciseStatistics.tsx",
     "line": 172,
-    "text": "Highest logged weight in this period"
+    "text": "`${comparison.kind === 'increase' ? '↑ +' : comparison.kind === 'decrease' ? '↓ −' : ''}${number(Math.abs(comparison.delta!), metric === 'estimated1RM')}`"
   },
   {
     "file": "components/ExerciseStatistics.tsx",
-    "line": 173,
-    "text": "Best estimate per workout"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 178,
-    "text": "1RM unavailable for paired-side or zero-load sets. Choose Volume or Top weight."
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 179,
-    "text": "No completed sets for this exercise in this period."
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 201,
-    "text": "Epley estimate, not a tested maximum. Paired-side and zero-load sets are excluded."
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 206,
-    "text": "Tap a point to view completed sets."
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 212,
-    "text": "Workouts"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 216,
-    "text": "Completed sets"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 222,
-    "text": "Recent workouts ·"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 222,
-    "text": "of"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 231,
-    "text": "`View ${p.workoutName} sets ${p.workoutId}`"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 238,
-    "text": "kg"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 276,
-    "text": "Back to exercise statistics"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 280,
-    "text": "‹ Statistics"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 284,
-    "text": "Logged sets"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 291,
-    "text": "kg"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 293,
-    "text": "Training volume ·"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 293,
-    "text": "completed sets"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 297,
-    "text": "Completed sets"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 299,
-    "text": "SET"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 299,
-    "text": "KG"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 299,
-    "text": "REPS"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 307,
+    "line": 335,
     "text": "`${set.snapshotId}:${set.id}:${index}`"
   },
   {
     "file": "components/ExerciseStatistics.tsx",
-    "line": 315,
-    "text": "`${set.reps} L / ${set.otherSideReps} R`"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 322,
-    "text": "Estimated 1RM"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 324,
-    "text": "kg"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 327,
-    "text": "From"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 327,
-    "text": "kg ×"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 328,
-    "text": "· Epley estimate"
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 333,
-    "text": "Only completed sets for this exercise are included."
-  },
-  {
-    "file": "components/ExerciseStatistics.tsx",
-    "line": 384,
+    "line": 417,
     "text": "tabular-nums"
   },
   {
     "file": "components/ExerciseStatistics.tsx",
-    "line": 431,
+    "line": 464,
     "text": "tabular-nums"
   },
   {
@@ -2396,248 +1766,128 @@
   },
   {
     "file": "components/MuscleMap.tsx",
-    "line": 32,
+    "line": 34,
     "text": "front"
   },
   {
     "file": "components/MuscleMap.tsx",
-    "line": 32,
+    "line": 34,
     "text": "back"
   },
   {
     "file": "components/MuscleMap.tsx",
-    "line": 33,
+    "line": 35,
     "text": "`anatomy${instance}${view}`"
   },
   {
     "file": "components/MuscleMap.tsx",
-    "line": 49,
+    "line": 51,
     "text": "`${prefix}${clip.id}`"
   },
   {
     "file": "components/MuscleMap.tsx",
-    "line": 70,
+    "line": 72,
     "text": "`${prefix}${r.id}`"
   },
   {
     "file": "components/MuscleMap.tsx",
-    "line": 93,
+    "line": 95,
     "text": "transparent"
   },
   {
     "file": "components/MuscleMap.tsx",
-    "line": 102,
+    "line": 104,
     "text": "`anatomical-group-${view}-${group.id}`"
   },
   {
     "file": "components/MuscleMap.tsx",
-    "line": 109,
+    "line": 111,
     "text": "`url(#${prefix}${r.clipId})`"
   },
   {
     "file": "components/MuscleMap.tsx",
-    "line": 113,
+    "line": 115,
     "text": "`anatomical-region-${r.id}`"
   },
   {
     "file": "components/MuscleMap.tsx",
-    "line": 118,
+    "line": 120,
     "text": "`url(#${prefix}${r.id})`"
   },
   {
     "file": "components/MuscleMap.tsx",
-    "line": 123,
+    "line": 125,
     "text": "none"
   },
   {
     "file": "components/MuscleMap.tsx",
-    "line": 136,
-    "text": "Front"
+    "line": 139,
+    "text": "muscle.front"
   },
   {
     "file": "components/MuscleMap.tsx",
-    "line": 136,
-    "text": "Back"
+    "line": 139,
+    "text": "muscle.back"
   },
   {
     "file": "components/MuscleProgress.tsx",
-    "line": 46,
-    "text": "Progress"
+    "line": 51,
+    "text": "muscle.current"
   },
   {
     "file": "components/MuscleProgress.tsx",
-    "line": 49,
-    "text": "Overview"
+    "line": 52,
+    "text": "muscle.latest"
   },
   {
     "file": "components/MuscleProgress.tsx",
-    "line": 50,
-    "text": "Muscles"
+    "line": 54,
+    "text": "muscle.lastSeven"
   },
   {
     "file": "components/MuscleProgress.tsx",
-    "line": 53,
-    "text": "Muscle Map"
+    "line": 54,
+    "text": "muscle.lastFour"
   },
   {
     "file": "components/MuscleProgress.tsx",
-    "line": 58,
+    "line": 84,
     "text": "workout"
   },
   {
     "file": "components/MuscleProgress.tsx",
-    "line": 58,
-    "text": "Workout"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 59,
+    "line": 85,
     "text": "7d"
   },
   {
     "file": "components/MuscleProgress.tsx",
-    "line": 59,
-    "text": "7 days"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 60,
+    "line": 86,
     "text": "4w"
   },
   {
     "file": "components/MuscleProgress.tsx",
-    "line": 60,
-    "text": "4 weeks"
+    "line": 229,
+    "text": "muscle.hideSets"
   },
   {
     "file": "components/MuscleProgress.tsx",
-    "line": 81,
-    "text": "completed sets"
+    "line": 229,
+    "text": "muscle.showSets"
   },
   {
     "file": "components/MuscleProgress.tsx",
-    "line": 85,
-    "text": "Primary"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 89,
-    "text": "Secondary"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 92,
-    "text": "No highlight"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 97,
-    "text": "Schematic anatomical regions, not measured activation or recovery. Color shows role, not intensity; primary takes precedence when both roles occur."
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 102,
-    "text": "Neutral areas may have no assigned map region. Map coverage is pending for"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 104,
-    "text": "; their set counts remain available below. Lower-back highlights are schematic projections beneath fascia."
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 112,
-    "text": "No completed sets in this period. Log a set to see muscle participation."
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 118,
-    "text": "completed sets have no catalog mapping and are not shown on the map."
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 123,
-    "text": "Based on current exercise catalog mappings. A set may involve several muscles. Primary and secondary counts are separate, not additive totals. One logged bilateral set counts once."
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 132,
-    "text": "`${item.label} · ${item.primary} primary · ${item.secondary} secondary`"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 133,
-    "text": "`${item.label}, ${item.primary} primary sets, ${item.secondary} secondary sets. Show details`"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 150,
-    "text": "Done"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 161,
-    "text": "primary ·"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 161,
-    "text": "secondary sets"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 172,
-    "text": "Contributing exercises"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 185,
-    "text": "primary ·"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 190,
-    "text": "secondary"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 198,
-    "text": "No mapped completed sets for this muscle in this period."
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 203,
-    "text": "Hide completed sets"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 203,
-    "text": "View completed sets"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 212,
+    "line": 237,
     "text": "`${set.workoutId}:${set.exerciseId}:${set.setId}:${index}`"
   },
   {
     "file": "components/MuscleProgress.tsx",
-    "line": 221,
-    "text": "Set"
+    "line": 249,
+    "text": "muscle.primary"
   },
   {
     "file": "components/MuscleProgress.tsx",
-    "line": 224,
-    "text": "Logged weight:"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 224,
-    "text": "kg · Logged reps:"
-  },
-  {
-    "file": "components/MuscleProgress.tsx",
-    "line": 227,
-    "text": "` / ${set.otherSideReps}`"
+    "line": 250,
+    "text": "muscle.secondary"
   },
   {
     "file": "components/Onboarding.tsx",
@@ -3091,182 +2341,42 @@
   },
   {
     "file": "components/TrainingVolume.tsx",
-    "line": 47,
-    "text": "`${volumeNumber(volume)} kg`"
+    "line": 143,
+    "text": "`${comparison.delta > 0 ? '+' : '−'}${changeAmount}`"
   },
   {
     "file": "components/TrainingVolume.tsx",
-    "line": 49,
-    "text": "`${point.workoutName}, ${fullDate(point.finishedAt)}, ${volumeLabel(point.volume)}`"
+    "line": 152,
+    "text": "volume.increased"
   },
   {
     "file": "components/TrainingVolume.tsx",
-    "line": 132,
-    "text": "No data"
+    "line": 153,
+    "text": "volume.decreased"
   },
   {
     "file": "components/TrainingVolume.tsx",
-    "line": 134,
-    "text": "No change"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 135,
-    "text": "`${comparison.delta > 0 ? '+' : '−'}${changeAmount} kg`"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 138,
-    "text": "No comparison data for training volume"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 140,
-    "text": "Training volume unchanged vs previous period"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 141,
-    "text": "`Training volume ${comparison.kind === 'increase' ? 'increased' : 'decreased'} by ${changeAmount} kg vs previous period`"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 141,
-    "text": "increased"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 141,
-    "text": "decreased"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 145,
-    "text": "TRAINING VOLUME"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 148,
-    "text": "kg"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 161,
+    "line": 176,
     "text": "arrow-up"
   },
   {
     "file": "components/TrainingVolume.tsx",
-    "line": 161,
+    "line": 176,
     "text": "arrow-down"
   },
   {
     "file": "components/TrainingVolume.tsx",
-    "line": 173,
-    "text": "vs previous period"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 179,
-    "text": "completed workouts in"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 182,
-    "text": "No workouts in this period yet."
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 188,
-    "text": "`Recent workouts · ${recent.length} of ${workoutVolumes.length}`"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 190,
-    "text": "Last 30 days · kg"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 191,
-    "text": "Volume by workout · kg"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 195,
-    "text": "`View all ${workoutVolumes.length} workout volumes in ${period}`"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 199,
-    "text": "View all workouts in"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 215,
-    "text": "Recent workout volumes in kilograms:"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 220,
-    "text": "Workout volume chart"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 229,
-    "text": "Workout volume scale in kilograms"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 273,
-    "text": "`Workout volume: ${pointLabel(point)}`"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 340,
-    "text": "Workout volumes"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 342,
-    "text": "All"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 342,
-    "text": "workouts in"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 347,
-    "text": "Close workout volumes"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 351,
-    "text": "Close"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 389,
+    "line": 423,
     "text": "tabular-nums"
   },
   {
     "file": "components/TrainingVolume.tsx",
-    "line": 422,
+    "line": 456,
     "text": "tabular-nums"
   },
   {
     "file": "components/TrainingVolume.tsx",
-    "line": 452,
-    "text": "tabular-nums"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 470,
-    "text": "tabular-nums"
-  },
-  {
-    "file": "components/TrainingVolume.tsx",
-    "line": 498,
+    "line": 486,
     "text": "tabular-nums"
   },
   {
@@ -3276,97 +2386,57 @@
   },
   {
     "file": "components/TrainingVolume.tsx",
-    "line": 549,
+    "line": 532,
+    "text": "tabular-nums"
+  },
+  {
+    "file": "components/TrainingVolume.tsx",
+    "line": 538,
+    "text": "tabular-nums"
+  },
+  {
+    "file": "components/TrainingVolume.tsx",
+    "line": 583,
     "text": "tabular-nums"
   },
   {
     "file": "components/VolumeTrendChart.tsx",
-    "line": 18,
-    "text": "Workout volume"
-  },
-  {
-    "file": "components/VolumeTrendChart.tsx",
-    "line": 20,
-    "text": "One saved workout; no curve yet."
-  },
-  {
-    "file": "components/VolumeTrendChart.tsx",
-    "line": 84,
-    "text": "`${p.workoutName}, ${new Date(p.finishedAt).toLocaleString()}, ${p.volume < 1e12 && Number.isInteger(p.volume) ? p.volume.toLocaleString() : p.volume.toString()} kg`"
-  },
-  {
-    "file": "components/VolumeTrendChart.tsx",
-    "line": 90,
-    "text": "`${measureLabel} scale in kilograms`"
-  },
-  {
-    "file": "components/VolumeTrendChart.tsx",
-    "line": 116,
-    "text": "`${measureLabel} curve${selected ? ': ' + label(selected.data) : ''}`"
-  },
-  {
-    "file": "components/VolumeTrendChart.tsx",
-    "line": 117,
-    "text": "`Touch the curve to select a ${itemLabel}. Swipe up or down to change the selected ${itemLabel}.`"
-  },
-  {
-    "file": "components/VolumeTrendChart.tsx",
-    "line": 119,
+    "line": 138,
     "text": "increment"
   },
   {
     "file": "components/VolumeTrendChart.tsx",
-    "line": 119,
-    "text": "`Next ${itemLabel}`"
-  },
-  {
-    "file": "components/VolumeTrendChart.tsx",
-    "line": 120,
+    "line": 142,
     "text": "decrement"
   },
   {
     "file": "components/VolumeTrendChart.tsx",
-    "line": 120,
-    "text": "`Previous ${itemLabel}`"
-  },
-  {
-    "file": "components/VolumeTrendChart.tsx",
-    "line": 125,
-    "text": "`View selected ${itemLabel}`"
-  },
-  {
-    "file": "components/VolumeTrendChart.tsx",
-    "line": 168,
+    "line": 192,
     "text": "`grid-${i}`"
   },
   {
     "file": "components/VolumeTrendChart.tsx",
-    "line": 192,
+    "line": 216,
     "text": "`line-${i}`"
   },
   {
     "file": "components/VolumeTrendChart.tsx",
-    "line": 199,
+    "line": 223,
     "text": "`${Math.atan2(dy, dx)}rad`"
   },
   {
     "file": "components/VolumeTrendChart.tsx",
-    "line": 211,
-    "text": "`${measureLabel}: ${label(p.data)}`"
-  },
-  {
-    "file": "components/VolumeTrendChart.tsx",
-    "line": 265,
+    "line": 292,
     "text": "tabular-nums"
   },
   {
     "file": "components/VolumeTrendChart.tsx",
-    "line": 298,
+    "line": 325,
     "text": "tabular-nums"
   },
   {
     "file": "components/VolumeTrendChart.tsx",
-    "line": 303,
+    "line": 330,
     "text": "tabular-nums"
   },
   {
@@ -13273,6 +12343,11 @@
     "file": "lib/training-programs/sources.ts",
     "line": 60,
     "text": "NHS"
+  },
+  {
+    "file": "lib/training-volume-chart.ts",
+    "line": 24,
+    "text": "`${Number(mantissa).toLocaleString(locale, { maximumFractionDigits: 2, useGrouping: false })}e${exponent}`"
   },
   {
     "file": "lib/workout-catalog.ts",

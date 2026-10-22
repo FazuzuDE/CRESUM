@@ -9,14 +9,13 @@ import {
 import type { WorkoutVolume } from '@/lib/progress-analytics';
 import { colors, progressTypography, radius, spacing } from '@/lib/theme';
 import { volumeChartScale, volumeChartTick } from '@/lib/training-volume-chart';
-const volumeNumber = (value: number) =>
-  value < 0.05 || value >= 1e12 ? String(value) : value.toFixed(1);
-const shortMonth = (time: number) =>
-  new Date(time).toLocaleDateString(undefined, { month: 'short' });
+import { useLocalization } from './LocalizationProvider';
+import { formatDate } from '@/lib/i18n/format';
+import { progressNumber } from '@/lib/i18n/progress';
 export function EstimatedOneRepMaxBars({
   workouts,
   pointLabel,
-  measureLabel = 'Estimated 1RM',
+  measureLabel: customMeasureLabel,
   onSelectPoint,
   pointLimit = 7,
 }: {
@@ -26,6 +25,12 @@ export function EstimatedOneRepMaxBars({
   onSelectPoint?: (point: WorkoutVolume) => void;
   pointLimit?: number;
 }) {
+  const { t, locale } = useLocalization();
+  const measureLabel = customMeasureLabel ?? t('progress.estimated');
+  const volumeNumber = (value: number) =>
+    progressNumber(locale, value, value !== 0);
+  const shortMonth = (time: number) =>
+    formatDate(locale, time, { month: 'short' });
   const { width, fontScale } = useWindowDimensions();
   const [measuredWidth, setMeasuredWidth] = useState<number>();
   const recent = workouts.slice(-pointLimit);
@@ -36,7 +41,7 @@ export function EstimatedOneRepMaxBars({
     spacing.xxl,
     ...scale.ticks.map(
       (tick) =>
-        volumeChartTick(tick).length *
+        volumeChartTick(tick, locale).length *
         progressTypography.chart.fontSize *
         0.5 *
         textScale,
@@ -89,19 +94,20 @@ export function EstimatedOneRepMaxBars({
   );
   return (
     <View
-      accessibilityLabel={
-        measureLabel + ' in kilograms: ' + recent.map(pointLabel).join('; ')
-      }
+      accessibilityLabel={t('chart.summary', {
+        measure: measureLabel,
+        points: recent.map(pointLabel).join('; '),
+      })}
     >
       <View
-        accessibilityLabel="Estimated 1RM chart"
+        accessibilityLabel={t('chart.title', { measure: measureLabel })}
         onLayout={(event) => setMeasuredWidth(event.nativeEvent.layout.width)}
         style={s.chartRows}
       >
         {rows.map((row, rowIndex) => (
           <View key={rowIndex} style={s.plotRow}>
             <View
-              accessibilityLabel="Estimated 1RM scale in kilograms"
+              accessibilityLabel={t('chart.scale', { measure: measureLabel })}
               style={{ width: axisWidth }}
             >
               {scale.ticks.map((tick, index) => (
@@ -117,7 +123,7 @@ export function EstimatedOneRepMaxBars({
                     },
                   ]}
                 >
-                  {volumeChartTick(tick)}
+                  {volumeChartTick(tick, locale)}
                 </Text>
               ))}
             </View>
@@ -141,7 +147,10 @@ export function EstimatedOneRepMaxBars({
                     key={point.workoutId}
                     accessible
                     accessibilityRole={onSelectPoint ? 'button' : undefined}
-                    accessibilityLabel={`${measureLabel}: ${pointLabel(point)}`}
+                    accessibilityLabel={t('chart.point', {
+                      measure: measureLabel,
+                      point: pointLabel(point),
+                    })}
                     onPress={
                       onSelectPoint ? () => onSelectPoint(point) : undefined
                     }
@@ -174,10 +183,9 @@ export function EstimatedOneRepMaxBars({
                     </View>
                     <View style={s.date}>
                       <Text style={s.day}>
-                        {new Date(point.finishedAt).toLocaleDateString(
-                          undefined,
-                          { day: 'numeric' },
-                        )}
+                        {formatDate(locale, point.finishedAt, {
+                          day: 'numeric',
+                        })}
                       </Text>
                       <Text style={s.month}>
                         {shortMonth(point.finishedAt)}

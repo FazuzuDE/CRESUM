@@ -19,6 +19,12 @@ import { useLocalization } from '@/components/LocalizationProvider';
 import { formatNumber } from '@/lib/i18n/format';
 import { presentAppError } from '@/lib/i18n/errors';
 import {
+  periodLabel,
+  periodDescription,
+  fixedEstimateNumber,
+  volumeNumber,
+} from '@/lib/i18n/progress';
+import {
   useCallback,
   useEffect,
   useMemo,
@@ -101,6 +107,7 @@ function Stats({
   activeWorkout?: Session;
   measurements: BodyWeightProps & { updatedAt: number };
 }) {
+  const { t, locale } = useLocalization();
   const { fontScale } = useWindowDimensions();
   const [section, setSection] = useState<'overview' | 'muscles'>('overview');
   const [period, setPeriod] = useState<ProgressPeriodId>(
@@ -142,17 +149,17 @@ function Stats({
       sections={[
         {
           id: 'overview',
-          label: 'Progress',
+          label: t('progress.title'),
           content: (
             <View style={{ gap: spacing.md }}>
               <View style={s.progressHeader}>
                 <BrandHeader />
                 <View style={s.progressHeading}>
                   <Text style={s.progressTitle} accessibilityRole="header">
-                    Progress
+                    {t('progress.title')}
                   </Text>
                   <Text style={s.progressSubtitle}>
-                    Volume and estimated strength records
+                    {t('progress.subtitle')}
                   </Text>
                 </View>
               </View>
@@ -163,20 +170,31 @@ function Stats({
                   gap: spacing.xs,
                 }}
               >
-                <AppButton title="Overview" selected onPress={() => {}} />
                 <AppButton
-                  title="Muscles"
+                  title={t('progress.overview')}
+                  selected
+                  onPress={() => {}}
+                />
+                <AppButton
+                  title={t('progress.muscles')}
                   secondary
                   onPress={() => setSection('muscles')}
                 />
               </View>
-              <View style={s.periods} accessibilityLabel="Progress period">
+              <View
+                style={s.periods}
+                accessibilityLabel={t('progress.periodGroup')}
+              >
                 {PROGRESS_PERIODS.map((option) => (
                   <Pressable
                     key={option.id}
                     accessibilityRole="button"
-                    accessibilityLabel={`Progress period ${option.id}`}
-                    accessibilityHint={`Show Progress for ${option.accessibilityLabel}`}
+                    accessibilityLabel={t('progress.periodAction', {
+                      period: periodLabel(t, option.id),
+                    })}
+                    accessibilityHint={t('progress.periodHint', {
+                      period: periodDescription(t, option.id),
+                    })}
                     accessibilityState={{ selected: period === option.id }}
                     onPress={() => setPeriod(option.id)}
                     style={({ pressed }) => [
@@ -191,7 +209,7 @@ function Stats({
                         period === option.id && s.periodSelectedText,
                       ]}
                     >
-                      {option.label}
+                      {periodLabel(t, option.id)}
                     </Text>
                   </Pressable>
                 ))}
@@ -201,7 +219,7 @@ function Stats({
         },
         {
           id: 'volume',
-          label: 'Training Volume',
+          label: t('progress.trainingVolume'),
           content: (
             <>
               <TrainingVolume
@@ -216,25 +234,21 @@ function Stats({
         },
         {
           id: 'records',
-          label: 'Estimated 1RM',
+          label: t('progress.estimated'),
           content: (
             <>
               <GlassCard style={s.progressCard}>
                 <Text style={s.progressCardTitle} accessibilityRole="header">
-                  Estimated 1RM
+                  {t('progress.estimated')}
                 </Text>
                 <Text style={s.estimateContext}>
-                  Epley formula · based on completed sets
+                  {t('progress.estimateContext')}
                 </Text>
                 {analytics.excludedSampleCount > 0 ? (
-                  <Text style={s.sub}>
-                    Some saved sets could not be included.
-                  </Text>
+                  <Text style={s.sub}>{t('progress.excluded')}</Text>
                 ) : null}
                 {records.length === 0 ? (
-                  <Text style={s.sub}>
-                    No estimated records in this period.
-                  </Text>
+                  <Text style={s.sub}>{t('progress.noRecords')}</Text>
                 ) : (
                   records.slice(0, 6).map((r, i) => (
                     <View
@@ -247,13 +261,23 @@ function Stats({
                       <View style={s.recordCopy}>
                         <Text style={s.recordName}>{r.name}</Text>
                         <Text style={s.sub}>
-                          {r.weight} kg × {r.reps}
+                          {t('progress.loggedSet', {
+                            weight: volumeNumber(locale, r.weight),
+                            reps: formatNumber(locale, r.reps),
+                          })}
                         </Text>
                       </View>
                       <View style={s.recordValue}>
-                        {i === 0 && <Text style={s.pr}>TOP PR</Text>}
+                        {i === 0 && (
+                          <Text style={s.pr}>{t('progress.topPR')}</Text>
+                        )}
                         <Text style={s.value2}>
-                          {r.estimatedOneRepMax.toFixed(1)} kg
+                          {t('progress.valueKg', {
+                            value: fixedEstimateNumber(
+                              locale,
+                              r.estimatedOneRepMax,
+                            ),
+                          })}
                         </Text>
                       </View>
                     </View>
@@ -265,7 +289,7 @@ function Stats({
         },
         {
           id: 'performance',
-          label: 'Logged exercise performance',
+          label: t('performance.title'),
           content: (
             <>
               <ExercisePerformance
@@ -278,7 +302,7 @@ function Stats({
         },
         {
           id: 'body-weight',
-          label: 'Body weight',
+          label: t('body.title'),
           content: (
             <BodyWeight
               {...measurements}
@@ -289,7 +313,7 @@ function Stats({
         },
         {
           id: 'history',
-          label: 'History',
+          label: t('history.title'),
           content: (
             <>
               <WorkoutHistory history={history} />

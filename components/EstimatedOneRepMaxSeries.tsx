@@ -8,6 +8,16 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import type { EstimatedOneRepMaxPoint } from '@/lib/exercise-performance';
 import type { ProgressPeriodId } from '@/lib/progress-periods';
 import { colors, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
+import { formatNumber } from '@/lib/i18n/format';
+import {
+  progressNumber,
+  progressDate,
+  periodLabel,
+  volumeNumber,
+} from '@/lib/i18n/progress';
+import type { AppLocale } from '@/lib/i18n/registry';
+import type { Translate } from '@/lib/i18n/messages';
 
 type Props = {
   points: readonly EstimatedOneRepMaxPoint[];
@@ -15,29 +25,42 @@ type Props = {
   now: number;
 };
 
-const estimate = (value: number) =>
-  (value > 0 && value < 0.05) || value >= 1e12
-    ? value.toString()
-    : value.toFixed(1);
-const pointLabel = (point: EstimatedOneRepMaxPoint) =>
-  `Estimated 1RM: ${point.workoutName}, ${new Date(point.finishedAt).toLocaleString()}, ` +
-  `${estimate(point.estimatedOneRepMax)} kg estimated from ${point.weight} kg × ${point.reps}`;
+const pointLabel = (
+  t: Translate,
+  locale: AppLocale,
+  point: EstimatedOneRepMaxPoint,
+) =>
+  t('series.point', {
+    name: point.workoutName,
+    date: progressDate(locale, point.finishedAt),
+    value: progressNumber(locale, point.estimatedOneRepMax, true),
+    weight: volumeNumber(locale, point.weight),
+    reps: formatNumber(locale, point.reps),
+  });
 
 function PointRow({ point }: { point: EstimatedOneRepMaxPoint }) {
+  const { t, locale } = useLocalization();
   return (
-    <View accessible accessibilityLabel={pointLabel(point)} style={s.row}>
+    <View
+      accessible
+      accessibilityLabel={pointLabel(t, locale, point)}
+      style={s.row}
+    >
       <View style={s.rowCopy}>
-        <Text style={s.date}>
-          {new Date(point.finishedAt).toLocaleString()}
-        </Text>
+        <Text style={s.date}>{progressDate(locale, point.finishedAt)}</Text>
         <Text style={s.workout}>{point.workoutName}</Text>
       </View>
       <View style={s.estimateCopy}>
         <Text style={s.value}>
-          {estimate(point.estimatedOneRepMax)} kg estimated
+          {t('series.value', {
+            value: progressNumber(locale, point.estimatedOneRepMax, true),
+          })}
         </Text>
         <Text style={s.source}>
-          From {point.weight} kg × {point.reps}
+          {t('series.source', {
+            weight: volumeNumber(locale, point.weight),
+            reps: formatNumber(locale, point.reps),
+          })}
         </Text>
       </View>
     </View>
@@ -45,6 +68,8 @@ function PointRow({ point }: { point: EstimatedOneRepMaxPoint }) {
 }
 
 export function EstimatedOneRepMaxSeries({ points, period, now }: Props) {
+  const { t, locale } = useLocalization();
+  const periodText = periodLabel(t, period);
   const [allOpen, setAllOpen] = useState(false);
   const recent = period === '1W' ? points.slice(-7) : points;
   const chartPoints = recent.map((point) => ({
@@ -54,22 +79,24 @@ export function EstimatedOneRepMaxSeries({ points, period, now }: Props) {
     volume: point.estimatedOneRepMax,
   }));
   const chartLabel = (point: (typeof chartPoints)[number]) =>
-    pointLabel(points.find((p) => p.workoutId === point.workoutId)!);
+    pointLabel(
+      t,
+      locale,
+      points.find((p) => p.workoutId === point.workoutId)!,
+    );
   return (
     <View style={s.section}>
       <Text style={s.title} accessibilityRole="header">
-        Estimated 1RM · per workout
+        {t('series.title')}
       </Text>
       {points.length === 0 ? (
-        <Text style={s.note}>
-          No estimated 1RM data for this exercise in {period}.
-        </Text>
+        <Text style={s.note}>{t('series.empty', { period: periodText })}</Text>
       ) : (
         <>
           <Text style={s.note}>
             {points.length === 1 && period === '1W'
-              ? 'One saved estimate; no trend yet.'
-              : `${points.length} workouts in ${period} · kg estimated`}
+              ? t('series.one')
+              : t('series.count', { count: points.length, period: periodText })}
           </Text>
           {period === '1W' ? (
             <EstimatedOneRepMaxBars
@@ -85,19 +112,24 @@ export function EstimatedOneRepMaxSeries({ points, period, now }: Props) {
                 Math.min(now, ...points.map((p) => p.finishedAt))
               }
               end={now}
-              measureLabel="Estimated 1RM"
+              measureLabel={t('progress.estimated')}
               formatPoint={chartLabel}
-              singlePointMessage="One saved estimate; no trend yet."
+              singlePointMessage={t('series.one')}
             />
           )}
           {points.length > 0 ? (
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel={`View all ${points.length} estimated 1RM points in ${period}`}
+              accessibilityLabel={t('series.viewAllA11y', {
+                count: points.length,
+                period: periodText,
+              })}
               onPress={() => setAllOpen(true)}
               style={({ pressed }) => [s.viewAll, pressed && s.pressed]}
             >
-              <Text style={s.action}>View all estimates in {period}</Text>
+              <Text style={s.action}>
+                {t('series.viewAll', { period: periodText })}
+              </Text>
             </Pressable>
           ) : null}
         </>
@@ -110,14 +142,16 @@ export function EstimatedOneRepMaxSeries({ points, period, now }: Props) {
       >
         <SafeAreaView style={s.sheet}>
           <View style={s.header}>
-            <Text style={s.sheetTitle}>Estimated 1RM · {period}</Text>
+            <Text style={s.sheetTitle}>
+              {t('series.modalTitle', { period: periodText })}
+            </Text>
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel="Close estimated 1RM points"
+              accessibilityLabel={t('series.close')}
               onPress={() => setAllOpen(false)}
               style={s.close}
             >
-              <Text style={s.action}>Close</Text>
+              <Text style={s.action}>{t('progress.close')}</Text>
             </Pressable>
           </View>
           <AppFlatList

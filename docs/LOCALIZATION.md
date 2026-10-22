@@ -18,7 +18,8 @@ application translations and are not yet offered as production language choices.
 | Program week and workout-template management       | Connected            | Connected and tested            |
 | Technique controls and 65 exercise guides          | Connected            | 494 guide messages connected    |
 | History details, filters and date/count pickers    | Connected            | Connected and tested            |
-| Progress, charts and muscle details                | Existing copy        | Pending connection              |
+| Progress, exercise statistics, charts and muscles  | Connected            | Connected and tested            |
+| Progress body-weight chart and measurement editor  | Connected            | Connected and tested            |
 | Profile, account, backup and recovery              | Existing copy        | Pending connection              |
 | Device rendering/accessibility acceptance          | Existing limitations | Pending                         |
 
@@ -28,13 +29,12 @@ line and text. The AST inventory includes technical candidates: counts are not a
 claim about the percentage of translated UI. Classification and connection are
 required before a target locale can be enabled.
 
-The current resource catalog has 1071 semantic messages per language (14 common,
+The current resource catalog has 1234 semantic messages per language (14 common,
 105 catalog labels, 29 library controls, 113 workout messages and 77 Home/calendar
 messages, 36 History/date-picker, 90 onboarding/program-preview and 39 manual
 editor messages, 74 program/technique/management messages and 494 technique-guide
-messages). Matching key counts are a structural check, not independent linguistic
-acceptance. The library's nested statistics page remains part of the pending
-Progress migration. The native picker
+messages and 163 Progress/statistics/chart/muscle/body-weight messages). Matching
+key counts are a structural check, not independent linguistic acceptance. The native picker
 receives labels/values from JavaScript; it has no separate English UI copy in its
 current Swift implementation.
 
@@ -67,8 +67,7 @@ The shared manual workout editor translates editing, reorder/remove accessibilit
 configuration, stale-exercise warnings, vanished-template failures and discard
 confirmation. Tests preserve custom names, canonical exercise IDs, comma input,
 order and failed-save drafts. Unknown callback diagnostics are replaced with a
-localized retry message. Profile account/backup controls and nested Statistics
-screens remain pending. These renderer tests do not
+localized retry message. Profile account/backup controls remain pending. These renderer tests do not
 replace physical-phone layout, native wheel or screen-reader acceptance.
 
 The pending candidate baseline was refreshed after this migration: removed UI
@@ -120,7 +119,8 @@ aliases and unchanged sources/revisions. Canonical English technique text remain
 in the source inventory because it is authored domain content, not duplicate raw UI.
 New baseline candidates were reviewed: message keys, the internal START phase
 comparison and an interpolated translated badge; no new untranslated UI was accepted.
-Progress/statistics and account/backup/recovery screens are the next migration areas.
+The subsequent Progress checkpoint is described below; account/backup/recovery
+screens remain pending.
 
 The locale engine now reuses one private translator per language across component
 mounts; custom resource overrides remain isolated. A local 100-call measurement
@@ -135,6 +135,46 @@ the same 15-second workout scenario also timed out in an unchanged #71 checkout,
 while an isolated current run passed in 3.97 seconds. Repository test limits were
 not increased. The standard GitHub CI workflow remains a required integration gate;
 these focused results do not claim a passing local full suite or device acceptance.
+Program/technique exact-head CI run 244 subsequently passed all 118 suites / 990
+tests, online dependencies, database contracts and iOS/Android exports.
+
+Progress checkpoint connects overview periods and records, Training Volume,
+logged exercise performance, library statistics, estimated-record bars/curves,
+Muscle Map roles/coverage/source sets and the nested body-weight chart/editor.
+Seventeen muscle labels use stable catalog IDs. Saved workout/exercise titles,
+custom/unknown exercise searches, numeric drafts, selected periods, metric,
+chart point, muscle and open set details survive language changes. Body-weight
+validation and unknown save/load errors are localized without exposing diagnostics.
+
+Numbers and dates follow the selected locale while tiny/huge values and exact
+volume strings retain their precision. Tests preserve existing estimate rounding;
+chart ticks accept an explicit locale without changing their scale or geometry.
+Source-set weights remain exact decimal strings where the domain supplies them.
+No anatomy paths, mappings, analytics formulas, time boundaries or persisted
+schemas changed. Factual role colors, incomplete surface coverage and schematic
+lumbar projections retain their original meaning.
+
+Initial focused verification: ten suites / 64 tests pass. New regression cases
+cover all four locales, completed-set plurals, all muscle labels, no-map coverage,
+saved source names, source-set drilldown, the real app's retained overview period
+and unchanged stored workout document, body-weight comma drafts and retry errors,
+selected chart points and honest empty/one-point states. Native screen-reader,
+small-phone and Dynamic Type acceptance remains pending. New baseline additions
+were inspected: semantic message keys and numeric-only arrow/scientific templates;
+no new untranslated UI was accepted. There are 2530 remaining source candidates,
+including authored canonical/domain and technical strings; this is not a
+translation percentage. Keep RU/DE/FR release flags off until remaining coverage
+and device acceptance are complete.
+
+Progress verification: the full local suite passed 120 suites / 1000 tests with
+the repository's standard limits on Node 22.16.0/npm 10.9.2. Types, lint, formatting,
+anatomy/i18n/configuration contracts passed; the online dependency check timed out
+at the HTTP proxy, then a separate online retry confirmed dependencies up to date.
+Independent review found two edge display regressions:
+overview fixed-decimal rounding and source-weight precision. Both were reproduced
+with failing tests and corrected; the full passing suite includes their guards.
+The body-weight header uses its existing owner clock, satisfying render purity.
+iOS/Android exports passed. Exact-head CI remains the final integration gate.
 
 ## Every future change
 
