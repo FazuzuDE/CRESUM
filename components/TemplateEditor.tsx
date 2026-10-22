@@ -18,8 +18,13 @@ import {
   removeDraftExercise,
   TemplateDraft,
   validateTemplateDraft,
+  staleExerciseIds,
 } from '@/lib/workout-templates';
 import { colors, radius, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
+import { catalogLabel } from '@/lib/i18n/catalog';
+import { formatEntryNumber } from '@/lib/i18n/format';
+import type { MessageKey } from '@/lib/i18n/messages';
 
 type Props = {
   mode: 'create' | 'edit';
@@ -43,6 +48,7 @@ export function TemplateEditor({
   onSave,
   onCancel,
 }: Props) {
+  const { t, locale } = useLocalization();
   const [draft, setDraft] = useState(() => createTemplateDraft(template));
   const [step, setStep] = useState<Step>(
     mode === 'create' ? 'name' : 'composition',
@@ -50,7 +56,9 @@ export function TemplateEditor({
   const [configuration, setConfiguration] = useState<Configuration>();
   const [saving, setSaving] = useState(false);
   const [confirmCancel, setConfirmCancel] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<
+    Extract<MessageKey, `error.editor${string}`> | ''
+  >('');
   const disabled = busy || saving;
   const changed =
     JSON.stringify(draft) !== JSON.stringify(createTemplateDraft(template)) ||
@@ -59,7 +67,7 @@ export function TemplateEditor({
 
   const nextFromName = () => {
     if (!draft.name.trim()) {
-      setError('Enter a workout name.');
+      setError('error.editorName');
       return;
     }
     setError('');
@@ -68,7 +76,7 @@ export function TemplateEditor({
   const selectExercise = (exerciseId: string) => {
     const id = canonicalExerciseId(exerciseId) ?? exerciseId;
     if (draft.exerciseIds.includes(id)) {
-      setError('This exercise is already in this workout.');
+      setError('error.editorDuplicate');
       return;
     }
     setConfiguration((current) =>
@@ -100,7 +108,7 @@ export function TemplateEditor({
     if (!configuration) return;
     const sets = Number(configuration.sets.trim());
     if (!/^\d+$/.test(configuration.sets.trim()) || !validPlannedSets(sets)) {
-      setError('Enter 1–20 planned sets.');
+      setError('error.editorSets');
       return;
     }
     const weight = configuration.weight.trim();
@@ -108,7 +116,7 @@ export function TemplateEditor({
       ? normalizePlannedWeight(weight)
       : undefined;
     if (weight && normalizedWeight === null) {
-      setError('Enter a valid non-negative weight.');
+      setError('error.editorWeight');
       return;
     }
     setDraft((current) => ({
@@ -145,16 +153,27 @@ export function TemplateEditor({
   const save = async () => {
     const validation = validateTemplateDraft(draft);
     if (!validation.ok) {
-      setError(validation.error);
+      setError(
+        !draft.exerciseIds.length
+          ? 'error.editorEmpty'
+          : staleExerciseIds(draft).length
+            ? 'error.editorUnavailable'
+            : 'error.editorReview',
+      );
       return;
     }
     setSaving(true);
     setError('');
     try {
       const result = await onSave(validation.draft);
-      if (!result.ok) setError(result.error);
+      if (!result.ok)
+        setError(
+          result.code === 'template_missing'
+            ? 'error.editorMissing'
+            : 'error.editorSave',
+        );
     } catch {
-      setError('Workout could not be saved. Try again.');
+      setError('error.editorSave');
     } finally {
       setSaving(false);
     }
@@ -164,10 +183,10 @@ export function TemplateEditor({
     <>
       <Confirmation
         visible={confirmCancel}
-        title="Discard workout changes?"
-        message="Your unsaved workout changes will be lost."
-        confirmLabel="Discard Changes"
-        cancelLabel="Keep Editing"
+        title={t('editor.discardTitle')}
+        message={t('editor.discardMessage')}
+        confirmLabel={t('editor.discard')}
+        cancelLabel={t('editor.keep')}
         onConfirm={onCancel}
         onCancel={() => setConfirmCancel(false)}
       />
@@ -179,20 +198,20 @@ export function TemplateEditor({
       />
       <GlassCard style={s.card}>
         <Text style={s.title} accessibilityRole="header">
-          {mode === 'create' ? 'Create Workout' : 'Edit Workout'}
+          {mode === 'create' ? t('editor.create') : t('editor.edit')}
         </Text>
         {step === 'name' ? (
           <>
-            <Text style={s.heading}>Workout Name</Text>
+            <Text style={s.heading}>{t('editor.name')}</Text>
             <TextInput
-              accessibilityLabel="Workout Name"
+              accessibilityLabel={t('editor.name')}
               value={draft.name}
               onChangeText={(name) => {
                 setDraft((current) => ({ ...current, name }));
                 setError('');
               }}
               editable={!disabled}
-              placeholder="Workout Name"
+              placeholder={t('editor.name')}
               placeholderTextColor={colors.textTertiary}
               returnKeyType="next"
               onSubmitEditing={nextFromName}
@@ -200,11 +219,11 @@ export function TemplateEditor({
             />
             {error ? (
               <Text accessibilityRole="alert" style={s.error}>
-                {error}
+                {t(error)}
               </Text>
             ) : null}
             <AppButton
-              title="Next"
+              title={t('editor.next')}
               disabled={disabled}
               onPress={nextFromName}
             />
@@ -213,12 +232,17 @@ export function TemplateEditor({
         {step === 'configure' && configuration ? (
           <>
             <Text style={s.heading}>
-              {findExercise(configuration.exerciseId)?.name ??
-                'Unavailable exercise'}
+              {catalogLabel(
+                locale,
+                'exercise',
+                configuration.exerciseId,
+                findExercise(configuration.exerciseId)?.name ??
+                  t('editor.unavailable'),
+              )}
             </Text>
-            <Text style={s.label}>Planned sets</Text>
+            <Text style={s.label}>{t('editor.sets')}</Text>
             <TextInput
-              accessibilityLabel="Planned sets"
+              accessibilityLabel={t('editor.sets')}
               value={configuration.sets}
               onChangeText={(sets) => {
                 setConfiguration({ ...configuration, sets });
@@ -228,9 +252,9 @@ export function TemplateEditor({
               keyboardType="number-pad"
               style={s.input}
             />
-            <Text style={s.label}>Starting weight (kg) · optional</Text>
+            <Text style={s.label}>{t('editor.weight')}</Text>
             <TextInput
-              accessibilityLabel="Starting weight in kilograms"
+              accessibilityLabel={t('editor.weightLabel')}
               value={configuration.weight}
               onChangeText={(weight) => {
                 setConfiguration({ ...configuration, weight });
@@ -238,20 +262,22 @@ export function TemplateEditor({
               }}
               editable={!disabled}
               keyboardType="decimal-pad"
-              placeholder="Unset"
+              placeholder={t('editor.unset')}
               placeholderTextColor={colors.textTertiary}
               style={s.input}
             />
-            <Text style={s.secondary}>
-              Planned values can be changed during your workout.
-            </Text>
+            <Text style={s.secondary}>{t('editor.help')}</Text>
             {error ? (
               <Text accessibilityRole="alert" style={s.error}>
-                {error}
+                {t(error)}
               </Text>
             ) : null}
             <AppButton
-              title={configuration.editing ? 'Update Exercise' : 'Add Exercise'}
+              title={
+                configuration.editing
+                  ? t('editor.updateExercise')
+                  : t('editor.addExercise')
+              }
               disabled={disabled}
               onPress={applyConfiguration}
             />
@@ -261,12 +287,13 @@ export function TemplateEditor({
           <>
             <Text style={s.heading}>{draft.name.trim()}</Text>
             <Text style={s.secondary}>
-              {draft.exerciseIds.length} exercise
-              {draft.exerciseIds.length === 1 ? '' : 's'}
+              {t('editor.exercises', { count: draft.exerciseIds.length })}
             </Text>
             {draft.exerciseIds.map((id, index) => {
               const exercise = findExercise(id);
-              const label = exercise?.name ?? `Unavailable exercise ${id}`;
+              const label = exercise
+                ? catalogLabel(locale, 'exercise', id, exercise.name)
+                : t('editor.unavailableNamed', { id });
               const planned = draft.plannedExercises?.find(
                 (item) => item.exerciseId === id,
               );
@@ -274,14 +301,23 @@ export function TemplateEditor({
                 <View key={`${id}-${index}`} style={s.exerciseRow}>
                   <View style={s.exerciseCopy}>
                     <Text style={s.exerciseName}>
-                      {exercise?.name ?? 'Unavailable exercise'}
+                      {exercise ? label : t('editor.unavailable')}
                     </Text>
                     {exercise ? (
                       <Text style={s.secondary}>
-                        {planned?.sets ?? 3} sets ·{' '}
-                        {planned?.weight
-                          ? `${planned.weight} kg`
-                          : 'weight unset'}
+                        {t('editor.planned', {
+                          sets: t('editor.setCount', {
+                            count: planned?.sets ?? 3,
+                          }),
+                          weight: planned?.weight
+                            ? t('editor.weightValue', {
+                                weight: formatEntryNumber(
+                                  locale,
+                                  planned.weight,
+                                ),
+                              })
+                            : t('editor.weightUnset'),
+                        })}
                       </Text>
                     ) : (
                       <Text style={s.error}>{id}</Text>
@@ -290,14 +326,14 @@ export function TemplateEditor({
                   <View style={s.actions}>
                     {exercise ? (
                       <IconAction
-                        label={`Edit ${label}`}
+                        label={t('editor.editNamed', { name: label })}
                         icon="create-outline"
                         disabled={disabled}
                         onPress={() => editExercise(id)}
                       />
                     ) : null}
                     <IconAction
-                      label={`Move ${label} up`}
+                      label={t('editor.up', { name: label })}
                       icon="arrow-up"
                       disabled={disabled || index === 0}
                       onPress={() =>
@@ -307,7 +343,7 @@ export function TemplateEditor({
                       }
                     />
                     <IconAction
-                      label={`Move ${label} down`}
+                      label={t('editor.down', { name: label })}
                       icon="arrow-down"
                       disabled={
                         disabled || index === draft.exerciseIds.length - 1
@@ -319,7 +355,11 @@ export function TemplateEditor({
                       }
                     />
                     <IconAction
-                      label={`Remove ${exercise ? label : label.toLowerCase()}`}
+                      label={t('editor.remove', {
+                        name: exercise
+                          ? label
+                          : label.toLocaleLowerCase(locale),
+                      })}
                       icon="close"
                       danger
                       disabled={disabled}
@@ -336,11 +376,11 @@ export function TemplateEditor({
             })}
             {error ? (
               <Text accessibilityRole="alert" style={s.error}>
-                {error}
+                {t(error)}
               </Text>
             ) : null}
             <AppButton
-              title="Add Exercise"
+              title={t('editor.addExercise')}
               secondary
               disabled={disabled}
               onPress={() => {
@@ -349,7 +389,7 @@ export function TemplateEditor({
               }}
             />
             <AppButton
-              title={saving ? 'Saving…' : 'Save Workout'}
+              title={saving ? t('editor.saving') : t('editor.save')}
               disabled={disabled}
               onPress={() => {
                 void save();
@@ -359,7 +399,7 @@ export function TemplateEditor({
         ) : null}
         {step === 'configure' || step === 'composition' ? (
           <AppButton
-            title="Back"
+            title={t('editor.back')}
             secondary
             disabled={disabled}
             onPress={goBack}
@@ -367,7 +407,7 @@ export function TemplateEditor({
         ) : null}
         {step !== 'library' ? (
           <AppButton
-            title="Cancel"
+            title={t('editor.cancel')}
             secondary
             disabled={disabled}
             onPress={() => (changed ? setConfirmCancel(true) : onCancel())}

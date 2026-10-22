@@ -33,6 +33,38 @@ import {
 } from '@/lib/home-dashboard';
 import type { WorkoutSession, WorkoutTemplate } from '@/lib/workout-model';
 import { colors, radius, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
+import { formatDate, formatNumber } from '@/lib/i18n/format';
+import { catalogLabel } from '@/lib/i18n/catalog';
+import { findExercise } from '@/lib/exercise-library';
+import type { Translate } from '@/lib/i18n/messages';
+import type { AppLocale } from '@/lib/i18n/registry';
+
+function templatePresentation(
+  details: HomeTemplateDetails,
+  t: Translate,
+  locale: AppLocale,
+) {
+  const unavailable =
+    details.template.exerciseIds.length - details.availableCount;
+  return {
+    count: unavailable
+      ? t('home.availability', {
+          available: details.availableCount,
+          unavailable,
+        })
+      : t('home.exercises', { count: details.availableCount }),
+    preview: details.template.exerciseIds
+      .flatMap((id) => {
+        const exercise = findExercise(id);
+        return exercise
+          ? [catalogLabel(locale, 'exercise', exercise.id, exercise.name)]
+          : [];
+      })
+      .slice(0, 3)
+      .join(' · '),
+  };
+}
 
 type HomeProps = {
   displayName?: string;
@@ -62,51 +94,52 @@ function PrimaryWorkoutWidget({
   onResume: () => void;
   startTemplate: HomeProps['startTemplate'];
 }) {
+  const { t, locale } = useLocalization();
+  const presentation = featured
+    ? templatePresentation(featured, t, locale)
+    : null;
   if (!activeWorkout && !featured) {
     return (
       <GlassCard>
         <Text style={s.heroTitle}>
-          {hasTemplates
-            ? 'No templates with available exercises'
-            : 'No workout templates available'}
+          {hasTemplates ? t('home.noAvailable') : t('home.noTemplates')}
         </Text>
         <Text style={s.sub}>
-          {hasTemplates
-            ? 'Edit a template in Profile to choose available exercises.'
-            : 'Create a template in Profile to get started.'}
+          {hasTemplates ? t('home.editTemplate') : t('home.createTemplate')}
         </Text>
       </GlassCard>
     );
   }
   const title = activeWorkout
-    ? `Resume ${activeWorkout.name}`
-    : `Start ${featured!.template.name}`;
+    ? t('home.resume', { name: activeWorkout.name })
+    : t('home.startNamed', { name: featured!.template.name });
   return (
     <GlassCard style={s.hero}>
       <View style={s.heroTop}>
         <View style={s.badge}>
           <Ionicons name="barbell-outline" size={18} color={colors.primary} />
           <Text style={s.badgeText}>
-            {activeWorkout ? 'In progress' : 'Quick start'}
+            {activeWorkout ? t('home.inProgress') : t('home.quickStart')}
           </Text>
         </View>
         <Text style={s.sub}>
-          {activeWorkout ? 'Active workout' : 'Saved workout'}
+          {activeWorkout ? t('home.active') : t('home.saved')}
         </Text>
       </View>
       <Text style={s.heroTitle} accessibilityRole="header">
         {activeWorkout?.name ?? featured?.template.name}
       </Text>
       {activeWorkout ? (
-        <Text style={s.sub}>Your workout is ready to continue.</Text>
+        <Text style={s.sub}>{t('home.ready')}</Text>
       ) : (
         <>
           <Text style={s.meta}>
-            {featured?.count} · {featured?.plannedSetCount} planned sets
+            {presentation?.count} ·{' '}
+            {t('home.planned', { count: featured!.plannedSetCount })}
           </Text>
-          {featured?.preview ? (
-            <Text style={s.sub} accessibilityLabel={featured.preview}>
-              {featured.preview}
+          {presentation?.preview ? (
+            <Text style={s.sub} accessibilityLabel={presentation.preview}>
+              {presentation.preview}
             </Text>
           ) : null}
         </>
@@ -129,28 +162,28 @@ function TrainingSummaryWidget({
   totalVolume: number;
   completedCount: number;
 }) {
+  const { t, locale } = useLocalization();
   return (
     <View style={s.statPair}>
       <GlassCard style={s.statCard}>
-        <Text style={s.sub}>Last 4 weeks</Text>
+        <Text style={s.sub}>{t('home.fourWeeks')}</Text>
         <Text style={s.metric}>
-          {completedCount}{' '}
-          <Text style={s.unit}>
-            completed workout{completedCount === 1 ? '' : 's'}
-          </Text>
+          {t('home.completed', { count: completedCount })}
         </Text>
-        <Text style={s.sub}> · saved locally</Text>
+        <Text style={s.sub}>{t('home.local')}</Text>
       </GlassCard>
       <GlassCard style={s.statCard}>
-        <Text style={s.sub}>Total volume</Text>
+        <Text style={s.sub}>{t('home.totalVolume')}</Text>
         <Text style={s.metric}>
-          {(totalVolume >= 1000
-            ? totalVolume / 1000
-            : totalVolume
-          ).toLocaleString(undefined, { maximumFractionDigits: 6 })}{' '}
-          <Text style={s.unit}>{totalVolume >= 1000 ? 't' : 'kg'}</Text>
+          {t(totalVolume >= 1000 ? 'home.tonnes' : 'home.kilograms', {
+            value: formatNumber(
+              locale,
+              totalVolume >= 1000 ? totalVolume / 1000 : totalVolume,
+              { maximumFractionDigits: 6 },
+            ),
+          })}
         </Text>
-        <Text style={s.sub}>Last 4 weeks</Text>
+        <Text style={s.sub}>{t('home.fourWeeks')}</Text>
       </GlassCard>
     </View>
   );
@@ -163,35 +196,44 @@ function TrainingWeekWidget({
   week: ReturnType<typeof projectHomeDashboard>['week'];
   onOpenCalendar: () => void;
 }) {
-  const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const { t, locale } = useLocalization();
   return (
     <GlassCard style={s.weekCard}>
       <View style={s.heroTop}>
         <Text style={s.section} accessibilityRole="header">
-          Your week
+          {t('home.week')}
         </Text>
         <View style={s.badge}>
           <Text style={s.badgeText}>
-            {week.completedCount} workout{week.completedCount === 1 ? '' : 's'}
+            {t('home.workouts', { count: week.completedCount })}
           </Text>
         </View>
       </View>
       <AppButton
-        title="Month"
-        accessibilityLabel="Open monthly calendar"
+        title={t('home.month')}
+        accessibilityLabel={t('home.openCalendar')}
         secondary
         presentation="text"
         onPress={onOpenCalendar}
       />
       <View style={s.weekDays}>
-        {week.days.map((day, index) => (
+        {week.days.map((day) => (
           <View
             key={day.timestamp}
             style={s.weekDay}
             accessible
-            accessibilityLabel={`${new Date(day.timestamp).toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}: ${day.completedCount} completed workouts${day.isToday ? ', today' : ''}`}
+            accessibilityLabel={t(day.isToday ? 'home.dayToday' : 'home.day', {
+              date: formatDate(locale, day.timestamp, {
+                weekday: 'long',
+                month: 'long',
+                day: 'numeric',
+              }),
+              completed: t('home.completed', { count: day.completedCount }),
+            })}
           >
-            <Text style={s.dayLabel}>{labels[index]}</Text>
+            <Text style={s.dayLabel}>
+              {formatDate(locale, day.timestamp, { weekday: 'short' })}
+            </Text>
             <View style={[s.dayMarker, day.isToday && s.todayCircle]}>
               <View
                 style={[
@@ -220,16 +262,17 @@ function LatestWorkoutWidget({
 }: {
   latest: ReturnType<typeof projectHomeDashboard>['latestWorkout'];
 }) {
+  const { t, locale } = useLocalization();
   return latest ? (
     <GlassCard style={s.recent}>
-      <Text style={s.cardLabel}>LAST WORKOUT</Text>
+      <Text style={s.cardLabel}>{t('home.last')}</Text>
       <Text style={s.recentName}>{latest.session.name}</Text>
-      <Text style={s.sub}>{latest.volume.toLocaleString()} kg volume</Text>
+      <Text style={s.sub}>
+        {t('home.volume', { value: formatNumber(locale, latest.volume) })}
+      </Text>
     </GlassCard>
   ) : (
-    <Text style={s.empty}>
-      No completed workouts yet. Finish one to see your recent training.
-    </Text>
+    <Text style={s.empty}>{t('home.empty')}</Text>
   );
 }
 
@@ -242,15 +285,18 @@ function WorkoutTemplatesWidget({
   activeWorkout: WorkoutSession | null;
   startTemplate: HomeProps['startTemplate'];
 }) {
+  const { t, locale } = useLocalization();
   return (
     <View style={s.templates}>
       <Text style={s.section} accessibilityRole="header">
-        {activeWorkout ? 'Workout templates' : 'More templates'}
+        {activeWorkout ? t('home.templates') : t('home.moreTemplates')}
       </Text>
       {activeWorkout ? (
-        <Text style={s.sub}>Finish your current workout to start another.</Text>
+        <Text style={s.sub}>{t('home.finishFirst')}</Text>
       ) : null}
-      {templates.map(({ template, availableCount, count, preview }) => {
+      {templates.map((details) => {
+        const { template, availableCount } = details;
+        const { count, preview } = templatePresentation(details, t, locale);
         const canStart = !activeWorkout && availableCount > 0;
         return (
           <GlassCard key={template.id}>
@@ -266,13 +312,15 @@ function WorkoutTemplatesWidget({
               </View>
               <Pressable
                 accessibilityRole="button"
-                accessibilityLabel={'Start ' + template.name}
+                accessibilityLabel={t('home.startNamed', {
+                  name: template.name,
+                })}
                 accessibilityHint={
                   activeWorkout
-                    ? 'Finish your current workout before starting another.'
+                    ? t('home.finishHint')
                     : canStart
                       ? undefined
-                      : 'Edit this template in Profile to choose available exercises.'
+                      : t('home.editTemplate')
                 }
                 accessibilityState={{ disabled: !canStart }}
                 disabled={!canStart}
@@ -282,7 +330,7 @@ function WorkoutTemplatesWidget({
                   (pressed || !canStart) && s.pressed,
                 ]}
               >
-                <Text style={s.templateActionText}>Start</Text>
+                <Text style={s.templateActionText}>{t('home.start')}</Text>
                 <Ionicons
                   name="arrow-forward"
                   size={18}
@@ -308,6 +356,7 @@ export function HomeDashboard({
   assignment,
   startProgramSlot,
 }: HomeProps) {
+  const { t } = useLocalization();
   const homeLayout = useHomeLayout();
   const [editingLayout, setEditingLayout] = useState(false);
   const [draft, setDraft] = useState<HomeLayout | null>(null);
@@ -491,17 +540,17 @@ export function HomeDashboard({
             <View style={s.greetingCopy}>
               <Text style={s.title} accessibilityRole="header">
                 {displayName?.trim()
-                  ? `Welcome back, ${displayName.trim()}!`
+                  ? t('home.welcomeNamed', { name: displayName.trim() })
                   : history.length
-                    ? 'Welcome back'
-                    : 'Welcome'}
+                    ? t('home.welcomeBack')
+                    : t('home.welcome')}
               </Text>
-              <Text style={s.greeting}>A good day for progress.</Text>
+              <Text style={s.greeting}>{t('home.greeting')}</Text>
             </View>
             {onOpenProfile ? (
               <Pressable
                 accessibilityRole="button"
-                accessibilityLabel="Open Profile"
+                accessibilityLabel={t('home.openProfile')}
                 onPress={guardedProfile}
                 style={({ pressed }) => [s.avatar, pressed && s.pressed]}
               >
@@ -515,7 +564,7 @@ export function HomeDashboard({
           </View>
         </View>
         <AppButton
-          title="Customize Home"
+          title={t('home.customize')}
           secondary
           presentation="text"
           disabled={
@@ -532,11 +581,10 @@ export function HomeDashboard({
         {homeLayout.loadError ? (
           <GlassCard>
             <Text accessibilityRole="alert" style={s.sub}>
-              Could not load Home layout. Default blocks are shown; your
-              workouts remain available.
+              {t('home.loadError')}
             </Text>
             <AppButton
-              title="Retry layout"
+              title={t('home.retry')}
               secondary
               disabled={homeLayout.loading || homeLayout.saving}
               onPress={() => {
@@ -544,7 +592,7 @@ export function HomeDashboard({
               }}
             />
             <AppButton
-              title="Reset Home layout"
+              title={t('home.reset')}
               secondary
               disabled={homeLayout.loading || homeLayout.saving}
               onPress={() => {
@@ -553,7 +601,7 @@ export function HomeDashboard({
             />
             {homeLayout.saveError ? (
               <Text accessibilityRole="alert" style={s.sub}>
-                Could not save Home layout. Try again.
+                {t('home.saveError')}
               </Text>
             ) : null}
           </GlassCard>
@@ -596,21 +644,19 @@ export function HomeDashboard({
       </AppScrollView>
       {draft ? (
         <View style={s.editBar}>
-          <Text style={s.sub}>
-            Hold and drag blocks to move them. Choose Done to save.
-          </Text>
+          <Text style={s.sub}>{t('home.editHint')}</Text>
           <View
             style={{ flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm }}
           >
             <AppButton
-              title="Cancel"
+              title={t('home.cancel')}
               secondary
               presentation="text"
               disabled={homeLayout.saving}
               onPress={cancelEditing}
             />
             <AppButton
-              title={homeLayout.saving ? 'Saving layout…' : 'Done'}
+              title={homeLayout.saving ? t('home.saving') : t('home.done')}
               presentation="text"
               disabled={homeLayout.saving || dragging}
               onPress={() => {
@@ -619,7 +665,7 @@ export function HomeDashboard({
               }}
             />
             <AppButton
-              title="Order & visibility"
+              title={t('home.order')}
               secondary
               presentation="text"
               disabled={homeLayout.saving || dragging}
@@ -628,7 +674,7 @@ export function HomeDashboard({
           </View>
           {homeLayout.saveError ? (
             <Text accessibilityRole="alert" style={s.sub}>
-              Could not save Home layout. Try Done again or Cancel.
+              {t('home.saveDraftError')}
             </Text>
           ) : null}
         </View>

@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, spacing, typography } from '@/lib/theme';
 import { AppButton } from './AppButton';
 import { GlassCard } from './GlassCard';
+import { useLocalization } from './LocalizationProvider';
 
 export function Confirmation({
   visible,
@@ -12,7 +13,7 @@ export function Confirmation({
   confirmLabel,
   cancelLabel,
   busy = false,
-  busyLabel = 'Saving…',
+  busyLabel,
   error,
   destructive = false,
   onConfirm,
@@ -30,6 +31,7 @@ export function Confirmation({
   onConfirm: () => void;
   onCancel: () => void;
 }) {
+  const { t } = useLocalization();
   return (
     <Modal
       visible={visible}
@@ -50,7 +52,7 @@ export function Confirmation({
             </Text>
           ) : null}
           <AppButton
-            title={busy ? busyLabel : confirmLabel}
+            title={busy ? (busyLabel ?? t('workout.saving')) : confirmLabel}
             disabled={busy}
             destructive={destructive}
             onPress={onConfirm}

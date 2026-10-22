@@ -19,7 +19,8 @@ import * as Haptics from 'expo-haptics';
 import { DashboardGrid, type DashboardGridItem } from './DashboardGrid';
 import type { ProgramScroll } from './useProgramScroll';
 import { cardShadow, spacing } from '@/lib/theme';
-import { HOME_WIDGET_LABELS, type HomeWidgetId } from '@/lib/home-layout';
+import { type HomeWidgetId } from '@/lib/home-layout';
+import { useLocalization } from './LocalizationProvider';
 
 type Layout = { y: number; height: number; width: number };
 type Held = {
@@ -56,6 +57,11 @@ export function HomeDragGrid({
   onLayout: NonNullable<React.ComponentProps<typeof View>['onLayout']>;
   onRowLayout: (id: string, y: number) => void;
 }) {
+  const { t } = useLocalization();
+  const translate = useRef(t);
+  useLayoutEffect(() => {
+    translate.current = t;
+  }, [t]);
   const latest = useRef({ items, disabled, onBegin, onMove });
   useLayoutEffect(() => {
     latest.current = { items, disabled, onBegin, onMove };
@@ -182,7 +188,7 @@ export function HomeDragGrid({
       );
       move();
       AccessibilityInfo.announceForAccessibility?.(
-        'Editing Home. Move blocks, then choose Done or Cancel.',
+        translate.current('home.editAnnounce'),
       );
     },
     [cancel, move, scroll],
@@ -213,7 +219,10 @@ export function HomeDragGrid({
           drag.order[drag.target] as HomeWidgetId,
         );
         AccessibilityInfo.announceForAccessibility?.(
-          `Block moved to position ${drag.target + 1} of ${drag.order.length}.`,
+          translate.current('home.moved', {
+            index: drag.target + 1,
+            total: drag.order.length,
+          }),
         );
       }
       cancel();
@@ -327,6 +336,7 @@ function DragCard({
   cancel,
   onAccessibleMove,
 }: CardProps) {
+  const { t } = useLocalization();
   const [rotation] = useState(() => new Animated.Value(0));
   useEffect(() => {
     if (!editing || reduceMotion) {
@@ -391,16 +401,22 @@ function DragCard({
           accessibilityRole={editing ? 'adjustable' : undefined}
           accessibilityLabel={
             editing
-              ? `${HOME_WIDGET_LABELS[id]}, position ${index + 1} of ${count}`
+              ? t('home.position', {
+                  label: t(`home.widget.${id}`),
+                  index: index + 1,
+                  total: count,
+                })
               : undefined
           }
-          accessibilityHint="Hold and drag to reorder. Use Order & visibility for buttons."
+          accessibilityHint={t('home.dragHint')}
           accessibilityActions={
             editing && !disabled
               ? [
-                  ...(index > 0 ? [{ name: 'moveUp', label: 'Move up' }] : []),
+                  ...(index > 0
+                    ? [{ name: 'moveUp', label: t('workout.moveUp') }]
+                    : []),
                   ...(index < count - 1
-                    ? [{ name: 'moveDown', label: 'Move down' }]
+                    ? [{ name: 'moveDown', label: t('workout.moveDown') }]
                     : []),
                 ]
               : []

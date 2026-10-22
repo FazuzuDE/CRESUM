@@ -2,11 +2,12 @@ import { BlurView } from 'expo-blur';
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { colors, radius, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
 const tabs = [
-  ['home', 'Home', 'home-outline'],
-  ['workout', 'Workout', 'barbell-outline'],
-  ['progress', 'Progress', 'stats-chart-outline'],
-  ['profile', 'Profile', 'person-outline'],
+  ['home', 'nav.home', 'home-outline'],
+  ['workout', 'nav.workout', 'barbell-outline'],
+  ['progress', 'nav.progress', 'stats-chart-outline'],
+  ['profile', 'nav.profile', 'person-outline'],
 ] as const;
 export function Dock({
   active,
@@ -15,6 +16,7 @@ export function Dock({
   active: string;
   onChange: (tab: string) => void;
 }) {
+  const { t } = useLocalization();
   return (
     <BlurView intensity={25} tint="light" style={s.dock}>
       {tabs.map(([id, label, icon]) => (
@@ -30,7 +32,7 @@ export function Dock({
             size={24}
             color={active === id ? colors.primary : colors.textSecondary}
           />
-          <Text style={[s.label, active === id && s.selected]}>{label}</Text>
+          <Text style={[s.label, active === id && s.selected]}>{t(label)}</Text>
         </Pressable>
       ))}
     </BlurView>

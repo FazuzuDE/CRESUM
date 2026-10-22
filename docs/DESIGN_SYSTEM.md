@@ -7,6 +7,16 @@
 
 ## 1. Principles
 
+### Multilingual presentation — scope approved 2026-10-21
+
+Initial locales are English, Russian, German and French. Profile → Language
+shows recognizable native language names, preserves the existing light system
+and supports longer labels without clipped actions. Translate visible and spoken
+copy together; use complete sentences, plural-aware messages and localized
+date/number display. Keep user-authored names and historical snapshots intact.
+Plan catalog/registry expansion to 30 languages; RTL layout and script/font
+acceptance require their own checks before those locales are enabled.
+
 ### Selected CRESUM wordmark — approved 2026-10-21
 
 Use the compact, wide geometric uppercase CRESUM lettering from the phone

@@ -17,7 +17,23 @@ import { startWorkout, finishWorkout } from '../workout-engine';
 import { defaultTemplates, exerciseLibrary } from '../workout-catalog';
 import { SyncRepository } from '../sync/repository';
 import { SYNC_DEVICE_KEY, SYNC_METADATA_KEY } from '../sync/storage';
+import { LANGUAGE_PREFERENCE_KEY } from '../i18n/preference-store';
 const now = 100000;
+
+it('never exports language and preserves the target device language on restore', async () => {
+  const source = storage();
+  source.values.set(
+    LANGUAGE_PREFERENCE_KEY,
+    JSON.stringify({ version: 1, preference: 'ru' }),
+  );
+  const text = await createLocalBackup(source, now);
+  expect(text).not.toContain(LANGUAGE_PREFERENCE_KEY);
+  const target = storage();
+  const language = JSON.stringify({ version: 1, preference: 'fr' });
+  target.values.set(LANGUAGE_PREFERENCE_KEY, language);
+  await restoreLocalBackup(target, await parseLocalBackup(text));
+  expect(target.values.get(LANGUAGE_PREFERENCE_KEY)).toBe(language);
+});
 
 it('keeps device and dormant sync metadata outside exported and restored Core documents', async () => {
   const source = storage();

@@ -1,4 +1,7 @@
 import { BrandHeader } from './BrandHeader';
+import { useLocalization } from './LocalizationProvider';
+import { formatEntryNumber, formatNumber } from '@/lib/i18n/format';
+import { presentAppError } from '@/lib/i18n/errors';
 import { AppScrollView } from './AppScrollView';
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -69,10 +72,11 @@ export function Workout({
   discard?: () => void;
   busy: boolean;
 }) {
+  const { t, locale } = useLocalization();
   const [now, setNow] = useState(Date.now());
   const [picker, setPicker] = useState(false);
   const [technique, setTechnique] = useState<LibraryExercise | null>(null);
-  const [inputError, setInputError] = useState('');
+  const [inputError, setInputError] = useState<unknown>(null);
   const [editing, setEditing] = useState<{
     sessionId: string;
     exerciseId: string;
@@ -124,8 +128,8 @@ export function Workout({
   if (!session)
     return (
       <View style={s.empty}>
-        <Text style={s.title}>No active workout</Text>
-        <Text style={s.sub}>Choose a template from Home.</Text>
+        <Text style={s.title}>{t('workout.noActive')}</Text>
+        <Text style={s.sub}>{t('workout.chooseTemplate')}</Text>
       </View>
     );
   const index = session.currentExerciseIndex;
@@ -143,10 +147,10 @@ export function Workout({
     try {
       update((current) => toggleSet(current, index, setIndex).session);
       setNow(Date.now());
-      setInputError('');
+      setInputError(null);
       if (!isSetComplete(exercise.sets[setIndex])) successHaptic();
     } catch (error) {
-      setInputError((error as Error).message);
+      setInputError(error);
     }
   };
   const remove = (setIndex: number) => setRemoveIndex(setIndex);
@@ -157,10 +161,10 @@ export function Workout({
     >
       <Confirmation
         visible={removeIndex !== null}
-        title="Remove set?"
-        message="This removes its entered weight and reps."
-        confirmLabel="Remove set"
-        cancelLabel="Keep set"
+        title={t('workout.removeTitle')}
+        message={t('workout.removeMessage')}
+        confirmLabel={t('workout.removeConfirm')}
+        cancelLabel={t('workout.keepSet')}
         onCancel={() => setRemoveIndex(null)}
         onConfirm={() => {
           if (removeIndex !== null)
@@ -187,21 +191,25 @@ export function Workout({
             <View style={s.elapsed}>
               <Text
                 style={s.elapsedText}
-                accessibilityLabel={
-                  duration(now - session.startedAt) + ' elapsed'
-                }
+                accessibilityLabel={t('workout.elapsed', {
+                  time: duration(now - session.startedAt),
+                })}
               >
                 {duration(now - session.startedAt)}
               </Text>
             </View>
           </View>
           <Text style={s.summary}>
-            {completed}/{total} sets · {volume(session).toLocaleString()} kg
+            {t('workout.summary', {
+              completed: formatNumber(locale, completed),
+              count: total,
+              volume: formatNumber(locale, volume(session)),
+            })}
           </Text>
         </View>
         {inputError ? (
           <Text accessibilityRole="alert" style={s.error}>
-            {inputError}
+            {presentAppError(t, inputError, 'error.workoutOperation')}
           </Text>
         ) : null}
         {exercise && (
@@ -223,7 +231,9 @@ export function Workout({
               {findExercise(exercise.libraryId) ? (
                 <Pressable
                   accessibilityRole="button"
-                  accessibilityLabel={`Technique for ${exercise.name}`}
+                  accessibilityLabel={t('library.techniqueFor', {
+                    name: exercise.name,
+                  })}
                   onPress={() =>
                     setTechnique(findExercise(exercise.libraryId) ?? null)
                   }
@@ -233,31 +243,56 @@ export function Workout({
                     imageKey={findExercise(exercise.libraryId)!.imageKey}
                     size={76}
                   />
-                  <Text style={s.techniqueLabel}>Technique</Text>
+                  <Text style={s.techniqueLabel}>{t('library.technique')}</Text>
                 </Pressable>
               ) : null}
             </View>
             <Text style={s.previous}>
               {previous?.length
-                ? 'Last: ' +
-                  previous
-                    .map((set) => set.weight + ' kg × ' + set.reps)
-                    .join(' · ')
-                : 'First recorded session'}
+                ? t('workout.last', {
+                    summary: previous
+                      .map((set) =>
+                        set.otherSideReps === undefined
+                          ? t('entry.singleSummary', {
+                              weight: formatEntryNumber(locale, set.weight),
+                              reps: formatEntryNumber(locale, set.reps),
+                            })
+                          : t('entry.bilateralSummary', {
+                              weight: formatEntryNumber(locale, set.weight),
+                              reps: formatEntryNumber(locale, set.reps),
+                              other: formatEntryNumber(
+                                locale,
+                                set.otherSideReps,
+                              ),
+                            }),
+                      )
+                      .join(' · '),
+                  })
+                : t('workout.first')}
             </Text>
             {exercise.target ? (
               <View style={{ gap: spacing.sm }}>
                 <Text style={s.previous}>
-                  Target: {exercise.target.repMin}–{exercise.target.repMax} reps
-                  {exercise.target.perSide ? ' per side' : ''} · Rest{' '}
-                  {exercise.target.restMin}–{exercise.target.restMax}s
+                  {t(
+                    exercise.target.perSide
+                      ? 'workout.targetPerSide'
+                      : 'workout.target',
+                    {
+                      min: formatNumber(locale, exercise.target.repMin),
+                      max: formatNumber(locale, exercise.target.repMax),
+                      restMin: formatNumber(locale, exercise.target.restMin),
+                      restMax: formatNumber(locale, exercise.target.restMax),
+                    },
+                  )}
                 </Text>
-                <Text style={s.previous}>
-                  Warm up separately. Choose a manageable load; keep 2–3 reps in
-                  reserve.
-                </Text>
+                <Text style={s.previous}>{t('workout.warmup')}</Text>
                 <AppButton
-                  title={`Rest: ${session.restOverrideSeconds ?? exercise.target.restMin}s · change`}
+                  title={t('workout.changeRest', {
+                    seconds: formatNumber(
+                      locale,
+                      session.restOverrideSeconds ?? exercise.target.restMin,
+                    ),
+                  })}
                   secondary
                   disabled={busy}
                   onPress={() =>
@@ -274,15 +309,13 @@ export function Workout({
               </View>
             ) : null}
             {exercise.libraryId === 'bodyweight-step-up' ? (
-              <Text style={s.previous}>
-                Unloaded step-up · enter 0 kg external load.
-              </Text>
+              <Text style={s.previous}>{t('workout.stepUp')}</Text>
             ) : null}
             <View style={s.tableHeader}>
-              <Text style={s.number}>SET</Text>
-              <Text style={s.column}>KG</Text>
-              <Text style={s.column}>REPS</Text>
-              <Text style={s.number}>DONE</Text>
+              <Text style={s.number}>{t('workout.tableSet')}</Text>
+              <Text style={s.column}>{t('workout.tableKg')}</Text>
+              <Text style={s.column}>{t('workout.tableReps')}</Text>
+              <Text style={s.number}>{t('workout.tableDone')}</Text>
             </View>
             {exercise.sets.map((set, i) => {
               const done = isSetComplete(set);
@@ -291,8 +324,10 @@ export function Workout({
                   <Pressable
                     style={({ pressed }) => [s.target, pressed && s.dim]}
                     disabled={busy || exercise.sets.length === 1}
-                    accessibilityLabel={'Remove set ' + (i + 1)}
-                    accessibilityHint="Opens a confirmation"
+                    accessibilityLabel={t('workout.removeNamed', {
+                      index: i + 1,
+                    })}
+                    accessibilityHint={t('workout.confirmHint')}
                     onPress={() => remove(i)}
                   >
                     <Text style={s.setNumber}>{i + 1}</Text>
@@ -305,8 +340,11 @@ export function Workout({
                           ? 'repetitions'
                           : 'left repetitions',
                       value: set.reps,
-                      placeholder:
-                        set.otherSideReps === undefined ? 'Reps' : 'Left',
+                      placeholder: t(
+                        set.otherSideReps === undefined
+                          ? 'entry.phReps'
+                          : 'entry.phLeft',
+                      ),
                     },
                     ...(set.otherSideReps === undefined
                       ? []
@@ -314,15 +352,28 @@ export function Workout({
                           {
                             field: 'right repetitions',
                             value: set.otherSideReps,
-                            placeholder: 'Right',
+                            placeholder: t('entry.phRight'),
                           },
                         ]),
                   ].map((cell) => (
                     <Pressable
                       key={cell.field}
                       accessibilityRole="button"
-                      accessibilityLabel={`Edit set ${i + 1} ${cell.field}`}
-                      accessibilityValue={{ text: cell.value || 'Not entered' }}
+                      accessibilityLabel={t(
+                        cell.field === 'weight'
+                          ? 'workout.editWeight'
+                          : cell.field === 'right repetitions'
+                            ? 'workout.editRight'
+                            : cell.field === 'left repetitions'
+                              ? 'workout.editLeft'
+                              : 'workout.editReps',
+                        { index: i + 1 },
+                      )}
+                      accessibilityValue={{
+                        text: cell.value
+                          ? formatEntryNumber(locale, cell.value)
+                          : t('workout.notEntered'),
+                      }}
                       accessibilityState={{ disabled: done || busy }}
                       disabled={done || busy}
                       style={[s.input, s.valueCell, done && s.completed]}
@@ -335,13 +386,17 @@ export function Workout({
                       }
                     >
                       <Text style={s.valueText}>
-                        {cell.value || cell.placeholder}
+                        {cell.value
+                          ? formatEntryNumber(locale, cell.value)
+                          : cell.placeholder}
                       </Text>
                     </Pressable>
                   ))}
                   <Pressable
                     accessibilityRole="checkbox"
-                    accessibilityLabel={'Complete set ' + (i + 1)}
+                    accessibilityLabel={t('workout.completeNamed', {
+                      index: i + 1,
+                    })}
                     accessibilityState={{ checked: done, disabled: busy }}
                     disabled={busy}
                     onPress={() => toggle(i)}
@@ -360,7 +415,7 @@ export function Workout({
               );
             })}
             <AppButton
-              title="Add set"
+              title={t('workout.addSet')}
               secondary
               disabled={busy}
               onPress={() => update((current) => addSet(current, index))}
@@ -371,10 +426,10 @@ export function Workout({
           <GlassCard style={s.restCard}>
             <View style={s.restHeading}>
               <Text style={s.heading} accessibilityRole="header">
-                {rest > 0 ? 'Rest timer' : 'Rest complete'}
+                {t(rest > 0 ? 'workout.restActive' : 'workout.restDone')}
               </Text>
               <Text
-                accessibilityLabel={rest + ' seconds remaining'}
+                accessibilityLabel={t('workout.remaining', { count: rest })}
                 style={s.timer}
               >
                 {duration(rest * 1000)}
@@ -383,7 +438,7 @@ export function Workout({
             <View style={s.actionRow}>
               <View style={s.action}>
                 <AppButton
-                  title="−15s"
+                  title={t('workout.minus15')}
                   secondary
                   disabled={busy}
                   onPress={() => update((current) => extendRest(current, -15))}
@@ -391,7 +446,7 @@ export function Workout({
               </View>
               <View style={s.action}>
                 <AppButton
-                  title="+15s"
+                  title={t('workout.plus15')}
                   secondary
                   disabled={busy}
                   onPress={() => update((current) => extendRest(current, 15))}
@@ -401,7 +456,7 @@ export function Workout({
             <View style={s.actionRow}>
               <View style={s.action}>
                 <AppButton
-                  title="Restart"
+                  title={t('workout.restart')}
                   secondary
                   disabled={busy}
                   onPress={() => update(restartRest)}
@@ -409,7 +464,7 @@ export function Workout({
               </View>
               <View style={s.action}>
                 <AppButton
-                  title={rest ? 'Skip rest' : 'Continue'}
+                  title={t(rest ? 'workout.skipRest' : 'workout.continue')}
                   secondary
                   disabled={busy}
                   onPress={() => update(skipRest)}
@@ -421,7 +476,7 @@ export function Workout({
         <View style={s.actionRow}>
           <View style={s.action}>
             <AppButton
-              title="Add exercise"
+              title={t('workout.addExercise')}
               secondary
               disabled={busy}
               onPress={() => setPicker(true)}
@@ -430,7 +485,7 @@ export function Workout({
           {index < session.exercises.length - 1 && (
             <View style={s.action}>
               <AppButton
-                title="Next exercise"
+                title={t('workout.nextExercise')}
                 secondary
                 disabled={busy}
                 onPress={() =>
@@ -443,17 +498,17 @@ export function Workout({
         <AppButton
           title={
             busy
-              ? 'Saving…'
+              ? t('workout.saving')
               : workoutIsComplete(session)
-                ? 'Finish and save'
-                : 'Finish workout'
+                ? t('workout.finishSave')
+                : t('workout.finish')
           }
           disabled={busy || completed === 0}
           onPress={finish}
         />
         {discard ? (
           <AppButton
-            title="Discard workout"
+            title={t('workout.discard')}
             destructive
             presentation="text"
             disabled={busy}
@@ -502,7 +557,7 @@ export function Workout({
               ),
             );
             setEditing(null);
-            setInputError('');
+            setInputError(null);
           }}
         />
       ) : null}

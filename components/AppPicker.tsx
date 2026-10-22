@@ -13,6 +13,7 @@ import {
 import { requireNativeView, requireOptionalNativeModule } from 'expo';
 import * as Haptics from 'expo-haptics';
 import { colors, radius, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
 
 type Props = {
   flexible?: boolean;
@@ -119,6 +120,7 @@ function WheelColumn({
   onChange: (row: number) => void;
   onInteractionChange?: (active: boolean) => void;
 }) {
+  const { t } = useLocalization();
   const list = useRef<FlatList<string>>(null);
   const last = useRef(selected);
   const dragging = useRef(false);
@@ -157,7 +159,7 @@ function WheelColumn({
         accessible
         accessibilityRole="adjustable"
         accessibilityLabel={label}
-        accessibilityHint="Swipe up or down to change the selected value"
+        accessibilityHint={t('picker.hint')}
         accessibilityValue={{
           min: 0,
           max: options.length - 1,

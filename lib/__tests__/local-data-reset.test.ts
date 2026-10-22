@@ -3,6 +3,7 @@ import { WorkoutRepository } from '../workout-repository';
 import { defaultTemplates } from '../workout-catalog';
 import { SyncRepository } from '../sync/repository';
 import { SYNC_DEVICE_KEY, SYNC_METADATA_KEY } from '../sync/storage';
+import { LANGUAGE_PREFERENCE_KEY } from '../i18n/preference-store';
 
 const original = new Map([
   [
@@ -36,6 +37,17 @@ function memoryStorage() {
     }),
   };
 }
+
+it('removes device language only on successful reset and restores it after failure', async () => {
+  const storage = memoryStorage();
+  const language = JSON.stringify({ version: 1, preference: 'de' });
+  storage.values.set(LANGUAGE_PREFERENCE_KEY, language);
+  storage.removeItem.mockRejectedValueOnce(Error('disk'));
+  await expect(resetLocalData(storage, async () => {})).rejects.toThrow();
+  expect(storage.values.get(LANGUAGE_PREFERENCE_KEY)).toBe(language);
+  await resetLocalData(storage, async () => {});
+  expect(storage.values.has(LANGUAGE_PREFERENCE_KEY)).toBe(false);
+});
 
 it('waits for pending writes, then deletes all CRESUM storage keys including hidden built-ins', async () => {
   const storage = memoryStorage();

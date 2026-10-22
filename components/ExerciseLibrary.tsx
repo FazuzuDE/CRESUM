@@ -13,12 +13,11 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ExerciseTechnique } from './ExerciseTechnique';
 import { ExerciseArtwork } from './ExerciseArtwork';
-import { exerciseLibrary, filterExercises } from '@/lib/exercise-library';
+import { catalogLabel, searchLocalizedExercises } from '@/lib/i18n/catalog';
+import { useLocalization } from './LocalizationProvider';
 import {
-  equipmentLabel,
   equipmentTaxonomy,
   EquipmentId,
-  muscleLabel,
   muscleTaxonomy,
   MuscleId,
 } from '@/lib/exercise-taxonomy';
@@ -46,6 +45,7 @@ export function ExerciseLibrary({
   history,
   now,
 }: ExerciseLibraryProps) {
+  const { locale, t } = useLocalization();
   const [guide, setGuide] = useState<LibraryExercise | null>(null);
   const [guideTab, setGuideTab] = useState<'Technique' | 'Statistics'>(
     'Technique',
@@ -81,11 +81,14 @@ export function ExerciseLibrary({
     }
   }, [visible]);
 
-  const results = filterExercises(exerciseLibrary, {
-    query,
-    muscle,
-    equipment,
-  });
+  const results = searchLocalizedExercises(
+    {
+      query,
+      muscle,
+      equipment,
+    },
+    locale,
+  );
   const selectionMode = Boolean(onToggle);
   const browsing = !selectionMode && !onAdd;
   const CopyContainer = browsing ? Pressable : View;
@@ -95,36 +98,38 @@ export function ExerciseLibrary({
       <BrandHeader />
       <View style={s.header}>
         <View style={s.headerCopy}>
-          <Text style={s.title}>Exercise Library</Text>
-          <Text style={s.subtitle}>{results.length} exercises</Text>
+          <Text style={s.title}>{t('library.title')}</Text>
+          <Text style={s.subtitle}>
+            {t('library.count', { count: results.length })}
+          </Text>
         </View>
         <Pressable
           accessibilityRole="button"
           accessibilityLabel={
             presentation === 'page'
-              ? 'Back to Profile'
-              : 'Close exercise library'
+              ? t('library.backProfile')
+              : t('library.closeLibrary')
           }
           onPress={close}
           style={s.close}
         >
           <Text style={s.closeText}>
-            {presentation === 'page' ? 'Back' : 'Close'}
+            {t(presentation === 'page' ? 'library.back' : 'library.close')}
           </Text>
         </Pressable>
       </View>
 
       <TextInput
-        accessibilityLabel="Search exercise library"
+        accessibilityLabel={t('library.searchLabel')}
         value={query}
         onChangeText={setQuery}
-        placeholder="Search exercises"
+        placeholder={t('library.searchPlaceholder')}
         placeholderTextColor={colors.textTertiary}
         returnKeyType="search"
         style={s.search}
       />
 
-      <Text style={s.filterLabel}>Muscle</Text>
+      <Text style={s.filterLabel}>{t('library.muscle')}</Text>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -132,7 +137,7 @@ export function ExerciseLibrary({
         contentContainerStyle={s.filters}
       >
         <FilterChip
-          label="All"
+          label={t('library.all')}
           group="muscle"
           selected={!muscle}
           onPress={() => setMuscle(undefined)}
@@ -140,7 +145,7 @@ export function ExerciseLibrary({
         {muscleTaxonomy.map((item) => (
           <FilterChip
             key={item.id}
-            label={item.label}
+            label={catalogLabel(locale, 'muscle', item.id, item.label)}
             group="muscle"
             selected={muscle === item.id}
             onPress={() => setMuscle(item.id)}
@@ -148,7 +153,7 @@ export function ExerciseLibrary({
         ))}
       </ScrollView>
 
-      <Text style={s.filterLabel}>Equipment</Text>
+      <Text style={s.filterLabel}>{t('library.equipment')}</Text>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -156,7 +161,7 @@ export function ExerciseLibrary({
         contentContainerStyle={s.filters}
       >
         <FilterChip
-          label="All"
+          label={t('library.all')}
           group="equipment"
           selected={!equipment}
           onPress={() => setEquipment(undefined)}
@@ -164,7 +169,7 @@ export function ExerciseLibrary({
         {equipmentTaxonomy.map((item) => (
           <FilterChip
             key={item.id}
-            label={item.label}
+            label={catalogLabel(locale, 'equipment', item.id, item.label)}
             group="equipment"
             selected={equipment === item.id}
             onPress={() => setEquipment(item.id)}
@@ -179,11 +184,17 @@ export function ExerciseLibrary({
       >
         {results.length === 0 ? (
           <View style={s.empty}>
-            <Text style={s.emptyTitle}>No exercises found</Text>
-            <Text style={s.subtitle}>Try another search or filter.</Text>
+            <Text style={s.emptyTitle}>{t('library.empty')}</Text>
+            <Text style={s.subtitle}>{t('library.emptyHint')}</Text>
           </View>
         ) : (
           results.map((exercise) => {
+            const name = catalogLabel(
+              locale,
+              'exercise',
+              exercise.id,
+              exercise.name,
+            );
             const selected = selectedIds.includes(exercise.id);
             return (
               <View
@@ -194,34 +205,40 @@ export function ExerciseLibrary({
                   <CopyContainer
                     accessibilityRole={browsing ? 'button' : undefined}
                     accessibilityLabel={
-                      browsing ? `View ${exercise.name}` : undefined
+                      browsing ? t('library.view', { name }) : undefined
                     }
                     onPress={browsing ? () => openGuide(exercise) : undefined}
                     style={s.nameCopy}
                   >
-                    <Text style={s.name}>{exercise.name}</Text>
+                    <Text style={s.name}>{name}</Text>
                     <Text style={s.metadata}>
-                      {exercise.primaryMuscles.map(muscleLabel).join(' · ')}
+                      {exercise.primaryMuscles
+                        .map((id) => catalogLabel(locale, 'muscle', id, id))
+                        .join(' · ')}
                     </Text>
                     <Text style={s.metadata}>
-                      {exercise.equipment.map(equipmentLabel).join(' · ')}
+                      {exercise.equipment
+                        .map((id) => catalogLabel(locale, 'equipment', id, id))
+                        .join(' · ')}
                     </Text>
                   </CopyContainer>
                   {history !== undefined ? (
                     <Pressable
                       accessibilityRole="button"
-                      accessibilityLabel={`Statistics for ${exercise.name}`}
-                      accessibilityHint="Opens saved results without selecting this exercise"
+                      accessibilityLabel={t('library.statisticsFor', { name })}
+                      accessibilityHint={t('library.statisticsHint')}
                       onPress={() => openGuide(exercise, 'Statistics')}
                       style={s.statisticsAction}
                     >
-                      <Text style={s.techniqueLabel}>Statistics</Text>
+                      <Text style={s.techniqueLabel}>
+                        {t('library.statistics')}
+                      </Text>
                     </Pressable>
                   ) : null}
                   {selectionMode ? (
                     <Pressable
                       accessibilityRole="checkbox"
-                      accessibilityLabel={`Select ${exercise.name}`}
+                      accessibilityLabel={t('library.selectName', { name })}
                       accessibilityState={{ checked: selected }}
                       onPress={() => onToggle?.(exercise.id)}
                       style={[s.action, selected && s.selectedAction]}
@@ -229,13 +246,18 @@ export function ExerciseLibrary({
                       <Text
                         style={[s.actionText, selected && s.selectedActionText]}
                       >
-                        {selected ? 'Selected' : 'Select'}
+                        {t(selected ? 'library.selected' : 'library.select')}
                       </Text>
                     </Pressable>
                   ) : onAdd ? (
                     <Pressable
                       accessibilityRole="button"
-                      accessibilityLabel={`${selected ? 'Already added' : 'Add'} ${exercise.name}`}
+                      accessibilityLabel={t(
+                        selected
+                          ? 'library.alreadyAddedName'
+                          : 'library.addName',
+                        { name },
+                      )}
                       accessibilityState={{ disabled: selected }}
                       disabled={selected}
                       onPress={() => onAdd?.(exercise)}
@@ -247,20 +269,20 @@ export function ExerciseLibrary({
                           selected && s.disabledActionText,
                         ]}
                       >
-                        {selected ? 'Added' : 'Add'}
+                        {t(selected ? 'library.added' : 'library.add')}
                       </Text>
                     </Pressable>
                   ) : null}
                 </View>
                 <Pressable
                   accessibilityRole="button"
-                  accessibilityLabel={`Technique for ${exercise.name}`}
-                  accessibilityHint="Opens instructions without selecting this exercise"
+                  accessibilityLabel={t('library.techniqueFor', { name })}
+                  accessibilityHint={t('library.techniqueHint')}
                   onPress={() => openGuide(exercise)}
                   style={s.techniqueAction}
                 >
                   <ExerciseArtwork imageKey={exercise.imageKey} size={76} />
-                  <Text style={s.techniqueLabel}>Technique</Text>
+                  <Text style={s.techniqueLabel}>{t('library.technique')}</Text>
                 </Pressable>
               </View>
             );
@@ -303,10 +325,14 @@ function FilterChip({
   selected: boolean;
   onPress: () => void;
 }) {
+  const { t } = useLocalization();
   return (
     <Pressable
       accessibilityRole="button"
-      accessibilityLabel={`Filter ${group} ${label}`}
+      accessibilityLabel={t(
+        group === 'muscle' ? 'library.filterMuscle' : 'library.filterEquipment',
+        { label },
+      )}
       accessibilityState={{ selected }}
       onPress={onPress}
       style={[s.filter, selected && s.selectedFilter]}

@@ -1,8 +1,9 @@
 import { BrandHeader } from './BrandHeader';
-import { programEligibilityError } from '@/lib/training-programs/eligibility';
+import { LanguageSettings } from './LanguageSettings';
+import { programEligibilityIssue } from '@/lib/training-programs/eligibility';
 import { normalizeBirthDate } from '@/lib/personal-profile';
 import { DatePickerSheet } from './DatePickerSheet';
-import { calendarTime, formatPickerDate } from '@/lib/picker-date';
+import { calendarTime } from '@/lib/picker-date';
 import { selectProgram } from '@/lib/training-programs/selectors';
 import { projectProgramReadiness } from '@/lib/training-programs/readiness';
 import {
@@ -32,6 +33,12 @@ import type { OnboardingState, OnboardingStep } from '@/lib/onboarding';
 import type { TemplateMutationResult } from '@/lib/workout-store';
 import type { TemplateDraft } from '@/lib/workout-templates';
 import { colors, radius, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
+import { catalogLabel } from '@/lib/i18n/catalog';
+import { formatDate } from '@/lib/i18n/format';
+import { presentAppError } from '@/lib/i18n/errors';
+import { AppError } from '@/lib/app-error';
+import { programDayLabel } from '@/lib/i18n/program';
 
 type Props = {
   state: OnboardingState;
@@ -55,6 +62,9 @@ export function Onboarding({
   onCreateWorkout,
   onExit,
 }: Props) {
+  const { t, locale } = useLocalization();
+  const dateLabel = (date: string) =>
+    formatDate(locale, new Date(`${date}T00:00:00`).getTime());
   const [state, setState] = useState(() =>
     initial.step === 'environment'
       ? { ...initial, step: 'profile' as const }
@@ -78,7 +88,7 @@ export function Onboarding({
   } | null>(null);
   const [lockedProposal, setLockedProposal] = useState<ProgramAssignment>();
   const [saving, setSaving] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<unknown>('');
   const change = (next: OnboardingState) => {
     setState(next);
     onChange(next);
@@ -89,26 +99,34 @@ export function Onboarding({
       ? selectProgram(state.answers.goal, state.answers.experience)
       : undefined;
   let proposal: ProgramAssignment | undefined;
-  let proposalError = '';
+  let proposalError: unknown = '';
+  let missingExercises: string[] | undefined;
   try {
-    const eligibility = programEligibilityError(state.answers);
-    if (eligibility) throw Error(eligibility);
+    const eligibility = programEligibilityIssue(state.answers);
+    if (eligibility) throw eligibility;
     if (base) {
       if (frequency !== undefined && frequency !== base.schedule[0].length)
-        throw Error(
+        throw new AppError(
+          'program_frequency',
           'No checked program for this frequency. Keep the recommended frequency or use manual setup.',
         );
       const program = offsets ? adjustProgramSchedule(base, offsets) : base;
       const readiness = projectProgramReadiness(program, exerciseLibrary);
-      if (!readiness.ready)
-        throw Error(
+      if (!readiness.ready) {
+        missingExercises = readiness.blockers;
+        throw new AppError(
+          'program_missing_exercises',
           `Required exercises unavailable: ${readiness.blockers.join(', ')}`,
         );
+      }
       proposal = makeAssignment(program, proposalId, startDate, reduced);
     } else
-      proposalError = 'Choose a goal and experience to prepare your program.';
+      proposalError = new AppError(
+        'program_selection',
+        'Choose a goal and experience to prepare your program.',
+      );
   } catch (problem) {
-    proposalError = (problem as Error).message;
+    proposalError = problem;
   }
   if (lockedProposal) {
     proposal = lockedProposal;
@@ -118,7 +136,7 @@ export function Onboarding({
     setSaving(true);
     setError('');
     try {
-      if (!proposal) throw Error(proposalError);
+      if (!proposal) throw proposalError;
       setLockedProposal(proposal);
       await onComplete(
         {
@@ -130,11 +148,7 @@ export function Onboarding({
         proposal,
       );
     } catch (problem) {
-      setError(
-        problem instanceof Error
-          ? problem.message
-          : 'Could not save program. Retry; your workouts are safe.',
-      );
+      setError(problem || true);
     } finally {
       setSaving(false);
     }
@@ -168,7 +182,7 @@ export function Onboarding({
   );
   const field = (label: string, name: 'heightCm' | 'bodyWeightKg') => (
     <View style={s.field} key={name}>
-      <Text style={s.label}>{label} · optional</Text>
+      <Text style={s.label}>{t('onboarding.optional', { label })}</Text>
       <TextInput
         accessibilityLabel={label}
         value={state.answers[name] ?? ''}
@@ -180,7 +194,7 @@ export function Onboarding({
           });
         }}
         keyboardType="decimal-pad"
-        placeholder="Not provided"
+        placeholder={t('onboarding.notProvided')}
         placeholderTextColor={colors.textTertiary}
         style={s.input}
         maxLength={32}
@@ -198,12 +212,17 @@ export function Onboarding({
   const continueFromProfile = () => {
     const { dateOfBirth, heightCm, bodyWeightKg } = state.answers;
     if (dateOfBirth?.trim() && !normalizeBirthDate(dateOfBirth)) {
-      setError('Enter a valid date of birth, or leave it empty.');
+      setError(
+        new AppError(
+          'invalid_birth_date',
+          'Enter a valid date of birth, or leave it empty.',
+        ),
+      );
       return;
     }
-    for (const [value, label, max] of [
-      [heightCm, 'height', 300],
-      [bodyWeightKg, 'body weight', 1000],
+    for (const [value, label, max, code] of [
+      [heightCm, 'height', 300, 'invalid_height'],
+      [bodyWeightKg, 'body weight', 1000, 'invalid_body_weight'],
     ] as const) {
       if (!value?.trim()) continue;
       const normalized = value.trim().replace(',', '.');
@@ -214,7 +233,9 @@ export function Onboarding({
         number <= 0 ||
         number > max
       ) {
-        setError(`Enter a valid ${label}, or leave it empty.`);
+        setError(
+          new AppError(code, `Enter a valid ${label}, or leave it empty.`),
+        );
         return;
       }
     }
@@ -241,15 +262,13 @@ export function Onboarding({
         contentContainerStyle={s.content}
       >
         <BrandHeader tagline={false} />
+        {state.step === 'welcome' ? <LanguageSettings /> : null}
         {step === 'self_setup' ? (
           <>
             <Text style={s.title} accessibilityRole="header">
-              Your first workout
+              {t('onboarding.firstWorkout')}
             </Text>
-            <Text style={s.sub}>
-              Create a workout you can start and edit later. Planned values are
-              not completed sets.
-            </Text>
+            <Text style={s.sub}>{t('onboarding.firstWorkoutHelp')}</Text>
             <TemplateEditor
               mode="create"
               busy={busy}
@@ -262,20 +281,18 @@ export function Onboarding({
             {step === 'welcome' ? (
               <>
                 <Text style={s.title} accessibilityRole="header">
-                  Welcome to CRESUM
+                  {t('onboarding.welcome')}
                 </Text>
-                <Text style={s.sub}>
-                  Train. Track. Grow. Your progress starts here.
-                </Text>
+                <Text style={s.sub}>{t('onboarding.intro')}</Text>
                 <View style={s.field}>
-                  <Text style={s.label}>What should we call you?</Text>
+                  <Text style={s.label}>{t('onboarding.nameQuestion')}</Text>
                   <TextInput
-                    accessibilityLabel="Your name"
+                    accessibilityLabel={t('onboarding.name')}
                     value={state.answers.displayName ?? ''}
                     autoCapitalize="words"
                     autoComplete="given-name"
                     maxLength={80}
-                    placeholder="Your name"
+                    placeholder={t('onboarding.name')}
                     placeholderTextColor={colors.textTertiary}
                     style={s.input}
                     onChangeText={(displayName) => {
@@ -288,12 +305,17 @@ export function Onboarding({
                   />
                 </View>
                 <AppButton
-                  title="Continue"
+                  title={t('onboarding.continue')}
                   disabled={busy || !state.answers.displayName?.trim()}
                   onPress={() => {
                     const displayName = state.answers.displayName?.trim();
                     if (!displayName) {
-                      setError('Enter your name to continue.');
+                      setError(
+                        new AppError(
+                          'name_required',
+                          'Enter your name to continue.',
+                        ),
+                      );
                       return;
                     }
                     change({
@@ -308,22 +330,35 @@ export function Onboarding({
             {step === 'goal' ? (
               <>
                 <Text style={s.title} accessibilityRole="header">
-                  Training goal
+                  {t('onboarding.goal')}
                 </Text>
-                <Text style={s.sub}>What would you like to focus on?</Text>
-                {option('Build muscle', 'goal', 'build_muscle', 'experience')}
-                {option('Get stronger', 'goal', 'get_stronger', 'experience')}
+                <Text style={s.sub}>{t('onboarding.goalHelp')}</Text>
                 {option(
-                  'General fitness',
+                  t('onboarding.muscle'),
+                  'goal',
+                  'build_muscle',
+                  'experience',
+                )}
+                {option(
+                  t('onboarding.strength'),
+                  'goal',
+                  'get_stronger',
+                  'experience',
+                )}
+                {option(
+                  t('onboarding.fitness'),
                   'goal',
                   'general_fitness',
                   'experience',
                 )}
                 {state.answers.goal ? (
-                  <AppButton title="Next" onPress={() => go('experience')} />
+                  <AppButton
+                    title={t('onboarding.next')}
+                    onPress={() => go('experience')}
+                  />
                 ) : null}
                 <AppButton
-                  title="Set up workouts myself"
+                  title={t('onboarding.manual')}
                   secondary
                   onPress={() => go('self_setup')}
                 />
@@ -332,39 +367,52 @@ export function Onboarding({
             {step === 'experience' ? (
               <>
                 <Text style={s.title} accessibilityRole="header">
-                  Training experience
+                  {t('onboarding.experience')}
                 </Text>
-                <Text style={s.sub}>Choose the closest fit.</Text>
-                {option('Beginner', 'experience', 'beginner', 'complete')}
-                {option('Some experience', 'experience', 'some', 'complete')}
-                {option('Experienced', 'experience', 'experienced', 'complete')}
+                <Text style={s.sub}>{t('onboarding.experienceHelp')}</Text>
+                {option(
+                  t('onboarding.beginner'),
+                  'experience',
+                  'beginner',
+                  'complete',
+                )}
+                {option(t('onboarding.some'), 'experience', 'some', 'complete')}
+                {option(
+                  t('onboarding.experienced'),
+                  'experience',
+                  'experienced',
+                  'complete',
+                )}
                 {state.answers.experience ? (
-                  <AppButton title="Next" onPress={() => go('complete')} />
+                  <AppButton
+                    title={t('onboarding.next')}
+                    onPress={() => go('complete')}
+                  />
                 ) : null}
               </>
             ) : null}
             {step === 'profile' ? (
               <>
                 <Text style={s.title} accessibilityRole="header">
-                  Body details
+                  {t('onboarding.body')}
                 </Text>
-                <Text style={s.sub}>
-                  Optional details for your profile. They do not determine a
-                  working weight.
-                </Text>
+                <Text style={s.sub}>{t('onboarding.bodyHelp')}</Text>
                 <View style={s.field}>
-                  <Text style={s.label}>Date of birth · optional</Text>
+                  <Text style={s.label}>
+                    {t('onboarding.optional', { label: t('onboarding.birth') })}
+                  </Text>
                   <AppButton
                     title={
                       normalizeBirthDate(state.answers.dateOfBirth ?? '')
-                        ? formatPickerDate(
+                        ? formatDate(
+                            locale,
                             new Date(
                               `${normalizeBirthDate(state.answers.dateOfBirth ?? '')}T00:00:00`,
                             ).getTime(),
                           )
-                        : 'Choose date'
+                        : t('onboarding.chooseDate')
                     }
-                    accessibilityLabel="Date of birth"
+                    accessibilityLabel={t('onboarding.birth')}
                     secondary
                     onPress={() => {
                       const today = new Date();
@@ -390,15 +438,15 @@ export function Onboarding({
                     }}
                   />
                 </View>
-                {field('Height (cm)', 'heightCm')}
-                {field('Body weight (kg)', 'bodyWeightKg')}
+                {field(t('onboarding.height'), 'heightCm')}
+                {field(t('onboarding.weight'), 'bodyWeightKg')}
                 <AppButton
                   title={
                     state.answers.dateOfBirth ||
                     state.answers.heightCm ||
                     state.answers.bodyWeightKg
-                      ? 'Continue'
-                      : 'Continue without body details'
+                      ? t('onboarding.continue')
+                      : t('onboarding.skipBody')
                   }
                   onPress={continueFromProfile}
                 />
@@ -407,24 +455,30 @@ export function Onboarding({
             {step === 'complete' ? (
               <>
                 <Text style={s.title} accessibilityRole="header">
-                  {proposal ? 'You’re ready to start' : 'Review your program'}
+                  {proposal ? t('onboarding.ready') : t('onboarding.review')}
                 </Text>
                 {proposal ? (
                   <>
-                    <Text style={s.label}>{proposal.program.name}</Text>
+                    <Text style={s.label}>
+                      {catalogLabel(
+                        locale,
+                        'program',
+                        proposal.program.id,
+                        proposal.program.name,
+                      )}
+                    </Text>
                     <Text style={s.sub}>
-                      {proposal.program.schedule[0].length} strength workouts
-                      per week · Gym · starts {proposal.startDate}
+                      {t('onboarding.summary', {
+                        count: proposal.program.schedule[0].length,
+                        date: dateLabel(proposal.startDate),
+                      })}
                     </Text>
-                    <Text style={s.support}>
-                      CRESUM adaptation of published training programs from
-                      ACSM, NSCA, ACE, HSS and NHS guidance. Working weights are
-                      chosen manually; planned values do not count as completed
-                      sets.
-                    </Text>
+                    <Text style={s.support}>{t('onboarding.attribution')}</Text>
                     <AppButton
                       title={
-                        preview ? 'Hide full program' : 'View full program'
+                        preview
+                          ? t('onboarding.hideProgram')
+                          : t('onboarding.viewProgram')
                       }
                       secondary
                       onPress={() => setPreview(!preview)}
@@ -433,42 +487,61 @@ export function Onboarding({
                       <View style={s.field}>
                         {proposal.program.schedule.map((week, i) => (
                           <Text key={i} style={s.label}>
-                            Week {i + 1}:{' '}
-                            {week
-                              .map(
-                                (slot) =>
-                                  `${slot.dayKey} · ${addCalendarDays(proposal!.startDate, i * 7 + slot.offset)}`,
-                              )
-                              .join(' / ')}
+                            {t('onboarding.week', {
+                              index: i + 1,
+                              schedule: week
+                                .map((slot) =>
+                                  t('onboarding.slot', {
+                                    key: slot.dayKey,
+                                    date: dateLabel(
+                                      addCalendarDays(
+                                        proposal!.startDate,
+                                        i * 7 + slot.offset,
+                                      ),
+                                    ),
+                                  }),
+                                )
+                                .join(' / '),
+                            })}
                           </Text>
                         ))}
                         {proposal.program.days.map((day) => (
                           <View key={day.key} style={s.field}>
                             <Text style={s.label}>
-                              {day.key} · {day.name}
+                              {t('onboarding.day', {
+                                key: day.key,
+                                name: programDayLabel(t, day.key, day.name),
+                              })}
                             </Text>
                             {day.movements.map((m) => (
                               <Text key={m.exerciseId} style={s.support}>
-                                {findExercise(m.exerciseId)?.name ??
-                                  m.exerciseId}{' '}
-                                · {m.sets} × {m.repMin}–{m.repMax}
-                                {m.perSide ? ' per side' : ''} · rest{' '}
-                                {m.restMin}–{m.restMax}s
+                                {t(
+                                  m.perSide
+                                    ? 'onboarding.movementPerSide'
+                                    : 'onboarding.movement',
+                                  {
+                                    name: catalogLabel(
+                                      locale,
+                                      'exercise',
+                                      m.exerciseId,
+                                      findExercise(m.exerciseId)?.name ??
+                                        m.exerciseId,
+                                    ),
+                                    sets: m.sets,
+                                    min: m.repMin,
+                                    max: m.repMax,
+                                    restMin: m.restMin,
+                                    restMax: m.restMax,
+                                  },
+                                )}
                               </Text>
                             ))}
                           </View>
                         ))}
-                        <Text style={s.support}>
-                          Warm up separately. Use a manageable load with 2–3
-                          reps in reserve. Progress manually when the upper rep
-                          target feels controlled; no automatic load increases.
-                        </Text>
+                        <Text style={s.support}>{t('onboarding.warmup')}</Text>
                         {proposal.program.cardio.length ? (
                           <Text style={s.support}>
-                            Walking or cycling: gradual target of 150 moderate
-                            minutes per week; start with manageable 10–15 minute
-                            sessions. Cardio guidance is separate from strength
-                            logging.
+                            {t('onboarding.cardio')}
                           </Text>
                         ) : null}
                       </View>
@@ -476,12 +549,31 @@ export function Onboarding({
                   </>
                 ) : (
                   <Text accessibilityRole="alert" style={s.error}>
-                    {proposalError}
+                    {missingExercises
+                      ? t('onboarding.missing', {
+                          exercises: missingExercises
+                            .map((id) =>
+                              catalogLabel(
+                                locale,
+                                'exercise',
+                                id,
+                                findExercise(id)?.name ?? id,
+                              ),
+                            )
+                            .join(', '),
+                        })
+                      : presentAppError(
+                          t,
+                          proposalError,
+                          'error.programProposal',
+                        )}
                   </Text>
                 )}
                 <AppButton
                   title={
-                    scheduleOpen ? 'Hide schedule options' : 'Schedule options'
+                    scheduleOpen
+                      ? t('onboarding.hideSchedule')
+                      : t('onboarding.schedule')
                   }
                   secondary
                   disabled={saving || Boolean(lockedProposal)}
@@ -490,14 +582,16 @@ export function Onboarding({
                 {scheduleOpen && base ? (
                   <View style={s.field}>
                     <AppButton
-                      title={`Start date · ${startDate}`}
+                      title={t('onboarding.startDateValue', {
+                        date: dateLabel(startDate),
+                      })}
                       secondary
                       disabled={saving || Boolean(lockedProposal)}
                       onPress={() => setDateOpen(!dateOpen)}
                     />
                     {dateOpen ? (
                       <DatePickerSheet
-                        title="Start date"
+                        title={t('onboarding.startDate')}
                         value={new Date(`${startDate}T00:00:00`).getTime()}
                         onCancel={() => setDateOpen(false)}
                         onConfirm={(time) => {
@@ -506,11 +600,11 @@ export function Onboarding({
                         }}
                       />
                     ) : null}
-                    <Text style={s.label}>Workouts per week</Text>
+                    <Text style={s.label}>{t('onboarding.frequency')}</Text>
                     {[2, 3, 4].map((n) => (
                       <AppButton
                         key={n}
-                        title={`${n} workouts`}
+                        title={t('onboarding.workouts', { count: n })}
                         secondary
                         selected={(frequency ?? base.schedule[0].length) === n}
                         disabled={saving || Boolean(lockedProposal)}
@@ -518,17 +612,17 @@ export function Onboarding({
                       />
                     ))}
                     <Text style={s.support}>
-                      Only the recommended frequency has a checked variant for
-                      this goal and experience. Other frequencies use manual
-                      setup.
+                      {t('onboarding.frequencyHelp')}
                     </Text>
                     {base.schedule[0].map((slot, i) => (
                       <View key={i} style={s.field}>
                         <Text style={s.label}>
-                          Session {i + 1} · day of the plan week (1–7)
+                          {t('onboarding.sessionDay', { index: i + 1 })}
                         </Text>
                         <TextInput
-                          accessibilityLabel={`Session ${i + 1} day of plan week`}
+                          accessibilityLabel={t('onboarding.sessionDayLabel', {
+                            index: i + 1,
+                          })}
                           keyboardType="number-pad"
                           value={String(
                             (offsets ?? base.schedule[0].map((s) => s.offset))[
@@ -553,9 +647,7 @@ export function Onboarding({
                 {base?.firstSessionSetCap ? (
                   <AppButton
                     title={
-                      reduced
-                        ? 'First session: 1 set per exercise'
-                        : 'New to training? Reduce first session to 1 set'
+                      reduced ? t('onboarding.reduced') : t('onboarding.reduce')
                     }
                     secondary
                     selected={reduced}
@@ -566,17 +658,17 @@ export function Onboarding({
                 <AppButton
                   title={
                     error && lockedProposal
-                      ? 'Retry START!'
+                      ? t('onboarding.retryStart')
                       : saving
-                        ? 'Saving program…'
-                        : 'START!'
+                        ? t('onboarding.saving')
+                        : t('onboarding.start')
                   }
                   disabled={!proposal || saving || busy}
                   onPress={() => void complete()}
                 />
                 {!lockedProposal ? (
                   <AppButton
-                    title="Set up workouts myself"
+                    title={t('onboarding.manual')}
                     secondary
                     disabled={saving || busy}
                     onPress={() => go('self_setup')}
@@ -584,7 +676,7 @@ export function Onboarding({
                 ) : null}
                 {lockedProposal && error && onExit ? (
                   <AppButton
-                    title="Open saved workouts"
+                    title={t('onboarding.openSaved')}
                     secondary
                     disabled={saving || busy}
                     onPress={onExit}
@@ -594,12 +686,12 @@ export function Onboarding({
             ) : null}
             {error ? (
               <Text style={s.error} accessibilityRole="alert">
-                {error}
+                {presentAppError(t, error, 'error.programSave')}
               </Text>
             ) : null}
             {back[step] ? (
               <AppButton
-                title="Back"
+                title={t('onboarding.back')}
                 disabled={saving || busy || Boolean(lockedProposal)}
                 secondary
                 onPress={() => go(back[step]!)}
@@ -607,7 +699,7 @@ export function Onboarding({
             ) : null}
             {editing && onExit ? (
               <AppButton
-                title="Back to Profile"
+                title={t('onboarding.backProfile')}
                 secondary
                 disabled={saving || busy || Boolean(lockedProposal)}
                 onPress={onExit}
@@ -618,7 +710,7 @@ export function Onboarding({
       </AppScrollView>
       {birthPicker ? (
         <DatePickerSheet
-          title="Date of birth"
+          title={t('onboarding.birth')}
           value={birthPicker.value}
           maximum={birthPicker.maximum}
           minimum={birthPicker.minimum}

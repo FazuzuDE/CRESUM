@@ -11,6 +11,7 @@ export function projectDatePicker(
   value: number,
   minimum = minimumDate,
   maximum = maximumDate,
+  locale?: string,
 ) {
   const date = new Date(Math.min(maximum, Math.max(minimum, value)));
   const year = date.getFullYear(),
@@ -25,7 +26,7 @@ export function projectDatePicker(
         (_, i) => String(i + 1),
       ),
       Array.from({ length: 12 }, (_, i) =>
-        new Date(2000, i, 1).toLocaleDateString(undefined, { month: 'long' }),
+        new Date(2000, i, 1).toLocaleDateString(locale, { month: 'long' }),
       ),
       Array.from({ length: lastYear - firstYear + 1 }, (_, i) =>
         String(firstYear + i),

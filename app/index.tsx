@@ -15,6 +15,9 @@ import {
 } from '@/lib/local-backup';
 import { shareBackupFile } from '@/lib/backup-files';
 import { BrandHeader } from '@/components/BrandHeader';
+import { useLocalization } from '@/components/LocalizationProvider';
+import { formatNumber } from '@/lib/i18n/format';
+import { presentAppError } from '@/lib/i18n/errors';
 import {
   useCallback,
   useEffect,
@@ -323,6 +326,8 @@ function AppContent({
   notice: string;
   initialTab: string;
 }) {
+  const localization = useLocalization();
+  const { t, locale } = localization;
   const localBackups = useBackupArchive();
   const [store] = useState(
     () => new WorkoutStore(new WorkoutRepository(AsyncStorage)),
@@ -331,6 +336,16 @@ function AppContent({
     store.subscribe,
     store.getSnapshot,
   );
+  const errorProblems = store.getErrorProblems();
+  const workoutError = error
+    ? errorProblems.length
+      ? errorProblems
+          .map((problem) =>
+            presentAppError(t, problem, 'error.workoutOperation'),
+          )
+          .join(' ')
+      : t('error.workoutOperation')
+    : '';
   const [assignment, setAssignment] = useState<ProgramAssignment | null>(null);
   const [programError, setProgramError] = useState('');
   const programRecovered = useRef(false);
@@ -378,10 +393,23 @@ function AppContent({
   const [onboardingReady, setOnboardingReady] = useState(false);
   const onboardingErrorRef = useRef('');
   const [onboardingError, updateOnboardingError] = useState('');
-  const setOnboardingError = useCallback((message: string) => {
-    onboardingErrorRef.current = message;
-    updateOnboardingError(message);
-  }, []);
+  const [onboardingErrorKey, setOnboardingErrorKey] = useState<
+    'error.onboardingSave' | 'error.onboardingLoad' | 'onboarding.workoutSaved'
+  >('error.onboardingSave');
+  const setOnboardingError = useCallback(
+    (
+      message: string,
+      key:
+        | 'error.onboardingSave'
+        | 'error.onboardingLoad'
+        | 'onboarding.workoutSaved' = 'error.onboardingSave',
+    ) => {
+      onboardingErrorRef.current = message;
+      updateOnboardingError(message);
+      setOnboardingErrorKey(key);
+    },
+    [],
+  );
   const [onboardingLoadFailed, setOnboardingLoadFailed] = useState(false);
   const [onboardingBypass, setOnboardingBypass] = useState(false);
   const [editingPersonalization, setEditingPersonalization] = useState(false);
@@ -458,7 +486,7 @@ function AppContent({
         },
         (problem: Error) => {
           if (mounted && onboardingEpoch.current === epoch) {
-            setOnboardingError(problem.message);
+            setOnboardingError(problem.message, 'error.onboardingLoad');
             setOnboardingLoadFailed(true);
           }
         },
@@ -591,6 +619,7 @@ function AppContent({
         // Never retry creation to repair the separate onboarding record.
         setOnboardingError(
           'Your workout was saved. Onboarding status could not be saved.',
+          'onboarding.workoutSaved',
         );
       }
     }
@@ -805,6 +834,7 @@ function AppContent({
     try {
       releaseCloud = await cloud.quiesce(true);
       await resetLocalData(AsyncStorage, async () => {
+        await localization.store?.waitForPendingWrites();
         await programAcceptance.waitForPendingWrites();
         await localBackups.repository.waitForPendingWrites();
         await onboardingWrites.current;
@@ -813,6 +843,7 @@ function AppContent({
         await bodyWeightRepository.waitForPendingWrites();
       });
       store.resetAfterLocalDataRemoval();
+      await localization.store?.load();
       await localBackups.refresh();
       setOnboardingState(initialOnboardingState);
       setBodyWeights([]);
@@ -881,16 +912,16 @@ function AppContent({
       />
       <Confirmation
         visible={confirmFinish}
-        title="Finish workout?"
+        title={t('workout.finishTitle')}
         message={
           data.activeWorkout && workoutIsComplete(data.activeWorkout)
-            ? 'Save your completed workout to History and Progress?'
-            : 'Some sets are incomplete. Only completed sets count toward your progress.'
+            ? t('workout.finishFull')
+            : t('workout.finishPartial')
         }
-        confirmLabel="Finish and save"
-        cancelLabel="Keep training"
+        confirmLabel={t('workout.finishSave')}
+        cancelLabel={t('workout.keepTraining')}
         busy={busy}
-        error={error}
+        error={workoutError}
         onConfirm={() => {
           void finish();
         }}
@@ -901,14 +932,14 @@ function AppContent({
           discardSessionId !== null &&
           data.activeWorkout?.id === discardSessionId
         }
-        title="Discard workout?"
-        message="This deletes the active workout and its entered sets without adding it to History. Your saved routines and existing history will stay. This cannot be undone."
-        confirmLabel="Discard workout"
-        cancelLabel="Keep training"
+        title={t('workout.discardTitle')}
+        message={t('workout.discardMessage')}
+        confirmLabel={t('workout.discard')}
+        cancelLabel={t('workout.keepTraining')}
         destructive
         busy={busy}
-        busyLabel="Discarding…"
-        error={error}
+        busyLabel={t('workout.discarding')}
+        error={workoutError}
         onConfirm={() => {
           if (!discardSessionId) return;
           void store.discard(discardSessionId).then((discarded) => {
@@ -934,7 +965,7 @@ function AppContent({
       ) : null}
       {error ? (
         <View style={s.notice} accessibilityRole="alert">
-          <Text style={s.sub}>{error}</Text>
+          <Text style={s.sub}>{workoutError}</Text>
           <AppButton
             title="Retry saving or loading"
             secondary
@@ -952,17 +983,17 @@ function AppContent({
           ) : null}
           <Text style={s.sub}>
             {busy || !onboardingReady || !hiddenReady
-              ? 'Loading your workouts…'
-              : 'Saved workouts are unavailable. Retry above.'}
+              ? t('onboarding.loading')
+              : t('onboarding.savedUnavailable')}
           </Text>
         </View>
       ) : onboardingError && showOnboarding ? (
         <View style={s.empty}>
           <Text style={s.sub} accessibilityRole="alert">
-            {onboardingError}
+            {t(onboardingErrorKey)}
           </Text>
           <AppButton
-            title="Retry onboarding"
+            title={t('onboarding.retry')}
             onPress={() => {
               if (onboardingLoadFailed) {
                 const epoch = onboardingEpoch.current;
@@ -975,7 +1006,10 @@ function AppContent({
                   },
                   (problem: Error) => {
                     if (onboardingEpoch.current === epoch)
-                      setOnboardingError(problem.message);
+                      setOnboardingError(
+                        problem.message,
+                        'error.onboardingLoad',
+                      );
                   },
                 );
               } else {
@@ -990,7 +1024,7 @@ function AppContent({
             }}
           />
           <AppButton
-            title="Continue to app"
+            title={t('onboarding.bypass')}
             secondary
             onPress={() => setOnboardingBypass(true)}
           />
@@ -1024,7 +1058,7 @@ function AppContent({
         <>
           {onboardingError ? (
             <View style={s.notice} accessibilityRole="alert">
-              <Text style={s.sub}>{onboardingError}</Text>
+              <Text style={s.sub}>{t(onboardingErrorKey)}</Text>
             </View>
           ) : null}
           {tab === 'home' ? (
@@ -1059,17 +1093,19 @@ function AppContent({
             <>
               {summary && (
                 <View style={s.notice}>
-                  <Text style={s.h3}>Workout saved</Text>
+                  <Text style={s.h3}>{t('workout.saved')}</Text>
                   <Text style={s.sub}>
-                    {completedSetCount(summary)} sets ·{' '}
-                    {volume(summary).toLocaleString()} kg ·{' '}
-                    {duration(
-                      (summary.finishedAt ?? summary.startedAt) -
-                        summary.startedAt,
-                    )}
+                    {t('workout.savedSummary', {
+                      count: completedSetCount(summary),
+                      volume: formatNumber(locale, volume(summary)),
+                      time: duration(
+                        (summary.finishedAt ?? summary.startedAt) -
+                          summary.startedAt,
+                      ),
+                    })}
                   </Text>
                   <AppButton
-                    title="Done"
+                    title={t('common.done')}
                     secondary
                     onPress={() => setSummary(null)}
                   />

@@ -6,6 +6,7 @@ import type {
   WorkoutTemplate,
 } from '../workout-model';
 import { findExercise } from '../exercise-library';
+import { AppError } from '../app-error';
 export const localDate = (date = new Date()): string =>
   `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 export const addCalendarDays = (date: string, days: number): string => {
@@ -125,7 +126,8 @@ export const adjustProgramSchedule = (
         (i > 0 && x <= offsets[i - 1]),
     )
   )
-    throw Error(
+    throw new AppError(
+      'program_schedule',
       'Choose one date for every planned session. Alternative frequencies require a checked program.',
     );
   const adjusted: ProgramDefinition = JSON.parse(JSON.stringify(program));
@@ -137,13 +139,19 @@ export const adjustProgramSchedule = (
   );
   for (let i = 1; i < repeated.length; i++) {
     if (n < 4 && repeated[i].absolute - repeated[i - 1].absolute < 2)
-      throw Error('Keep at least one rest day between full-body sessions.');
+      throw new AppError(
+        'program_rest',
+        'Keep at least one rest day between full-body sessions.',
+      );
     const previous = repeated
       .slice(0, i)
       .reverse()
       .find((s) => s.dayKey === repeated[i].dayKey);
     if (n === 4 && previous && repeated[i].absolute - previous.absolute < 2)
-      throw Error('Keep recovery between repeated upper/lower sessions.');
+      throw new AppError(
+        'program_split_rest',
+        'Keep recovery between repeated upper/lower sessions.',
+      );
   }
   return adjusted;
 };

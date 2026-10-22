@@ -16,6 +16,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import * as Haptics from 'expo-haptics';
 import { AppPicker } from './AppPicker';
 import { AppButton } from './AppButton';
+import { useLocalization } from './LocalizationProvider';
+import { formatEntryNumber, formatNumber } from '@/lib/i18n/format';
 import {
   adjustEntry,
   entryIsValid,
@@ -46,6 +48,7 @@ export function SetEntrySheet({
   onCancel: () => void;
   onSave: (values: SetValues) => void;
 }) {
+  const { t, locale } = useLocalization();
   const [draft, setDraft] = useState<SetValues>(() => ({
     weight: set.weight,
     reps: set.reps,
@@ -68,10 +71,39 @@ export function SetEntrySheet({
     ? ['weight', 'reps', 'otherSideReps']
     : ['weight', 'reps'];
   const labels = bilateral
-    ? ['WEIGHT · KG', 'LEFT REPS', 'RIGHT REPS']
-    : ['WEIGHT · KG', 'REPETITIONS'];
+    ? [
+        t('entry.weightHeading'),
+        t('entry.leftHeading'),
+        t('entry.rightHeading'),
+      ]
+    : [t('entry.weightHeading'), t('entry.repsHeading')];
+  const adjustLabels = {
+    weight: { minus: 'entry.decreaseWeight', plus: 'entry.increaseWeight' },
+    reps: {
+      minus: bilateral ? 'entry.decreaseLeft' : 'entry.decreaseReps',
+      plus: bilateral ? 'entry.increaseLeft' : 'entry.increaseReps',
+    },
+    otherSideReps: {
+      minus: 'entry.decreaseRight',
+      plus: 'entry.increaseRight',
+    },
+  } as const;
+  const entrySummary = (value: SetValues) =>
+    value.otherSideReps === undefined
+      ? t('entry.singleSummary', {
+          weight: formatEntryNumber(locale, value.weight),
+          reps: formatEntryNumber(locale, value.reps),
+        })
+      : t('entry.bilateralSummary', {
+          weight: formatEntryNumber(locale, value.weight),
+          reps: formatEntryNumber(locale, value.reps),
+          other: formatEntryNumber(locale, value.otherSideReps),
+        });
   const columns = keys.map((k) =>
     k === 'weight' ? weightOptions(draft.weight, step) : repOptions(draft[k]!),
+  );
+  const displayColumns = columns.map((column) =>
+    column.map((value) => formatEntryNumber(locale, value)),
   );
   const selected = keys.map((k, i) =>
     Math.max(0, columns[i].indexOf(draft[k]!.trim().replace(',', '.'))),
@@ -118,7 +150,7 @@ export function SetEntrySheet({
     }
   };
   const values = normalizedEntry(draft),
-    summary = `${values.weight} kg × ${values.reps}${bilateral ? ` / ${values.otherSideReps}` : ''}`;
+    summary = entrySummary(values);
   return (
     <Modal
       visible
@@ -139,28 +171,30 @@ export function SetEntrySheet({
           >
             <View style={s.titleRow}>
               <Text accessibilityRole="header" style={s.title}>
-                Set {setNumber}
+                {t('entry.title', { index: setNumber })}
               </Text>
               <Pressable
                 accessibilityRole="button"
-                accessibilityLabel="Cancel set editing"
+                accessibilityLabel={t('entry.cancelLabel')}
                 onPress={onCancel}
                 style={s.cancel}
               >
-                <Text style={s.link}>Cancel</Text>
+                <Text style={s.link}>{t('common.cancel')}</Text>
               </Pressable>
             </View>
             <Text style={s.previous}>
               {previous
-                ? `Previous session · ${previous.weight} kg × ${previous.reps}${previous.otherSideReps === undefined ? '' : ` / ${previous.otherSideReps}`}`
-                : 'No previous completed set'}
+                ? t('entry.previous', { summary: entrySummary(previous) })
+                : t('entry.noPrevious')}
             </Text>
             <View style={s.modes}>
               {(['wheel', 'keypad'] as const).map((m) => (
                 <Pressable
                   key={m}
                   accessibilityRole="button"
-                  accessibilityLabel={`Use ${m}`}
+                  accessibilityLabel={t(
+                    m === 'wheel' ? 'entry.useWheel' : 'entry.useKeypad',
+                  )}
                   accessibilityState={{
                     selected: mode === m,
                     disabled: locked,
@@ -170,7 +204,7 @@ export function SetEntrySheet({
                   onPress={() => switchMode(m)}
                 >
                   <Text style={[s.modeText, mode === m && s.modeActive]}>
-                    {m === 'wheel' ? 'Wheel' : 'Keypad'}
+                    {t(m === 'wheel' ? 'entry.wheel' : 'entry.keypad')}
                   </Text>
                 </Pressable>
               ))}
@@ -195,7 +229,7 @@ export function SetEntrySheet({
               >
                 <AppPicker
                   flexible
-                  columns={columns}
+                  columns={displayColumns}
                   selected={selected}
                   labels={labels}
                   onInteractionChange={setWheelActive}
@@ -217,12 +251,12 @@ export function SetEntrySheet({
                       key={k}
                       accessibilityLabel={
                         k === 'weight'
-                          ? 'Exact weight in kilograms'
+                          ? t('entry.exactWeight')
                           : k === 'otherSideReps'
-                            ? 'Exact right repetitions'
+                            ? t('entry.exactRight')
                             : bilateral
-                              ? 'Exact left repetitions'
-                              : 'Exact repetitions'
+                              ? t('entry.exactLeft')
+                              : t('entry.exactReps')
                       }
                       keyboardType={
                         k === 'weight' ? 'decimal-pad' : 'number-pad'
@@ -231,7 +265,7 @@ export function SetEntrySheet({
                       editable={!busy}
                       onChangeText={(value) => change(k, value)}
                       style={s.input}
-                      placeholder={k === 'weight' ? '0' : 'Reps'}
+                      placeholder={k === 'weight' ? '0' : t('entry.phReps')}
                       placeholderTextColor={colors.textTertiary}
                     />
                   ))}
@@ -252,12 +286,18 @@ export function SetEntrySheet({
                       <Fragment key={sign}>
                         {sign === 1 && !compact ? (
                           <Text style={[s.step, { flex: 1 }]}>
-                            Step · {k === 'weight' ? `${step} kg` : '1 rep'}
+                            {k === 'weight'
+                              ? t('entry.stepWeight', {
+                                  step: formatNumber(locale, step),
+                                })
+                              : t('entry.stepReps')}
                           </Text>
                         ) : null}
                         <Pressable
                           accessibilityRole="button"
-                          accessibilityLabel={`${sign < 0 ? 'Decrease' : 'Increase'} ${k === 'weight' ? 'weight' : k === 'otherSideReps' ? 'right repetitions' : bilateral ? 'left repetitions' : 'repetitions'}`}
+                          accessibilityLabel={t(
+                            adjustLabels[k][sign < 0 ? 'minus' : 'plus'],
+                          )}
                           disabled={
                             locked ||
                             !draft[k]!.trim() ||
@@ -280,7 +320,11 @@ export function SetEntrySheet({
                   </View>
                   {compact ? (
                     <Text style={s.step}>
-                      Step · {k === 'weight' ? `${step} kg` : '1 rep'}
+                      {k === 'weight'
+                        ? t('entry.stepWeight', {
+                            step: formatNumber(locale, step),
+                          })
+                        : t('entry.stepReps')}
                     </Text>
                   ) : null}
                 </View>
@@ -289,13 +333,15 @@ export function SetEntrySheet({
             {error || !valid ? (
               <Text accessibilityRole="alert" style={s.error}>
                 {libraryId === 'bodyweight-step-up'
-                  ? 'Unloaded step-up uses 0 kg. Enter positive whole repetitions for each side.'
-                  : 'Enter a non-negative weight and positive whole repetitions.'}
+                  ? t('entry.errorStepUp')
+                  : t('entry.errorNumbers')}
               </Text>
             ) : null}
             <AppButton
-              accessibilityLabel="Save set values"
-              title={valid ? `Save · ${summary}` : 'Save set'}
+              accessibilityLabel={t('entry.saveValues')}
+              title={
+                valid ? t('entry.saveSummary', { summary }) : t('entry.saveSet')
+              }
               disabled={locked || !valid}
               onPress={() => {
                 if (!locked && valid) onSave(values);

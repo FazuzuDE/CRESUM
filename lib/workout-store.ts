@@ -7,6 +7,7 @@ import {
   WorkoutTemplate,
 } from './workout-model';
 import { emptyWorkoutState, WorkoutRepository } from './workout-repository';
+import { AppError, type AppErrorCode } from './app-error';
 import {
   createTemplate as createTemplateInList,
   deleteTemplate as deleteTemplateFromList,
@@ -17,7 +18,8 @@ import {
 } from './workout-templates';
 
 export type TemplateMutationResult =
-  { ok: true; template?: WorkoutTemplate } | { ok: false; error: string };
+  | { ok: true; template?: WorkoutTemplate }
+  | { ok: false; error: string; code?: 'template_missing' };
 
 const createWorkoutSnapshotId = (): string => {
   // eslint-disable-next-line @typescript-eslint/no-require-imports -- Load native crypto only when starting a new workout, not while restoring existing data.
@@ -29,6 +31,9 @@ export class WorkoutStore {
   private listeners = new Set<() => void>();
   private revision = 0;
   private finishValidationError = '';
+  private finishValidationProblem: unknown = null;
+  private errorProblems: readonly unknown[] = [];
+  getErrorProblems = () => this.errorProblems;
   private snapshot = {
     data: emptyWorkoutState(),
     ready: false,
@@ -43,22 +48,35 @@ export class WorkoutStore {
       this.listeners.delete(listener);
     };
   };
-  private publish(update: Partial<typeof this.snapshot>) {
+  private publish(
+    update: Partial<typeof this.snapshot>,
+    problems: AppErrorCode | readonly unknown[] = [],
+  ) {
+    if ('error' in update)
+      this.errorProblems = update.error
+        ? typeof problems === 'string'
+          ? [new AppError(problems, update.error)]
+          : [...problems]
+        : [];
     this.snapshot = { ...this.snapshot, ...update };
     this.listeners.forEach((listener) => listener());
   }
   async load() {
     if (this.snapshot.busy) return;
     this.finishValidationError = '';
+    this.finishValidationProblem = null;
     this.publish({ busy: true, error: '' });
     try {
       const data = await this.repository.load();
       this.publish({ data, ready: true });
     } catch {
-      this.publish({
-        error:
-          'Could not load saved workouts. Your saved data has been kept. Retry to continue.',
-      });
+      this.publish(
+        {
+          error:
+            'Could not load saved workouts. Your saved data has been kept. Retry to continue.',
+        },
+        'workout_load_failed',
+      );
     } finally {
       this.publish({ busy: false });
     }
@@ -69,18 +87,34 @@ export class WorkoutStore {
     void this.repository.save(data).then(
       () => {
         if (revision === this.revision)
-          this.publish({ error: this.finishValidationError });
+          this.publish(
+            { error: this.finishValidationError },
+            this.finishValidationProblem === null
+              ? []
+              : [this.finishValidationProblem],
+          );
       },
       () => {
         if (revision === this.revision)
-          this.publish({
-            error: [
-              'Changes are not saved yet. Keep the app open and retry.',
-              this.finishValidationError,
-            ]
-              .filter(Boolean)
-              .join(' '),
-          });
+          this.publish(
+            {
+              error: [
+                'Changes are not saved yet. Keep the app open and retry.',
+                this.finishValidationError,
+              ]
+                .filter(Boolean)
+                .join(' '),
+            },
+            [
+              new AppError(
+                'workout_unsaved',
+                'Changes are not saved yet. Keep the app open and retry.',
+              ),
+              ...(this.finishValidationProblem === null
+                ? []
+                : [this.finishValidationProblem]),
+            ],
+          );
       },
     );
   }
@@ -142,7 +176,7 @@ export class WorkoutStore {
       return { ok: true, template: changeResult.template };
     } catch {
       const error = 'Template changes could not be saved. Try again.';
-      this.publish({ error });
+      this.publish({ error }, 'template_save_failed');
       return { ok: false, error };
     } finally {
       this.publish({ busy: false });
@@ -263,10 +297,15 @@ export class WorkoutStore {
     try {
       const result = await this.repository.saveVerified({ ...data, history });
       if (result.data)
-        this.publish({
-          data: result.data,
-          ...(result.saved ? { error: this.finishValidationError } : {}),
-        });
+        this.publish(
+          {
+            data: result.data,
+            ...(result.saved ? { error: this.finishValidationError } : {}),
+          },
+          this.finishValidationProblem === null
+            ? []
+            : [this.finishValidationProblem],
+        );
       return result.saved;
     } finally {
       this.publish({ busy: false });
@@ -275,6 +314,7 @@ export class WorkoutStore {
   resetAfterLocalDataRemoval() {
     ++this.revision;
     this.finishValidationError = '';
+    this.finishValidationProblem = null;
     this.publish({
       data: emptyWorkoutState(),
       ready: true,
@@ -289,16 +329,20 @@ export class WorkoutStore {
     const next = { ...data, activeWorkout: null };
     ++this.revision;
     this.finishValidationError = '';
+    this.finishValidationProblem = null;
     this.publish({ busy: true, error: '' });
     try {
       await this.repository.save(next);
       this.publish({ data: next });
       return true;
     } catch {
-      this.publish({
-        error:
-          'Workout could not be discarded. Keep the app open and retry. Your active workout is still here.',
-      });
+      this.publish(
+        {
+          error:
+            'Workout could not be discarded. Keep the app open and retry. Your active workout is still here.',
+        },
+        'workout_discard_failed',
+      );
       return false;
     } finally {
       this.publish({ busy: false });
@@ -311,21 +355,30 @@ export class WorkoutStore {
     try {
       completed = finishWorkout(data.activeWorkout);
     } catch (problem) {
+      const previousProblem = this.finishValidationProblem;
+      this.finishValidationProblem = problem;
       this.finishValidationError =
         problem instanceof Error
           ? problem.message
           : 'Workout could not be finished. Your active workout is still here.';
       // Keep draft-write errors visible; validation does not supersede a write.
-      this.publish({
-        error: this.snapshot.error.includes(this.finishValidationError)
-          ? this.snapshot.error
-          : [this.snapshot.error, this.finishValidationError]
-              .filter(Boolean)
-              .join(' '),
-      });
+      this.publish(
+        {
+          error: this.snapshot.error.includes(this.finishValidationError)
+            ? this.snapshot.error
+            : [this.snapshot.error, this.finishValidationError]
+                .filter(Boolean)
+                .join(' '),
+        },
+        [
+          ...this.errorProblems.filter((value) => value !== previousProblem),
+          problem,
+        ],
+      );
       return;
     }
     this.finishValidationError = '';
+    this.finishValidationProblem = null;
     const next = {
       ...data,
       activeWorkout: null,
@@ -341,10 +394,13 @@ export class WorkoutStore {
       this.publish({ data: next });
       return completed;
     } catch {
-      this.publish({
-        error:
-          'Workout could not be saved. Your active workout is still here. Try Finish again.',
-      });
+      this.publish(
+        {
+          error:
+            'Workout could not be saved. Your active workout is still here. Try Finish again.',
+        },
+        'workout_save_failed',
+      );
       return undefined;
     } finally {
       this.publish({ busy: false });

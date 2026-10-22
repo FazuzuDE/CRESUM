@@ -126,7 +126,11 @@ export function WorkoutTemplates({
     if (editor?.mode === 'edit') {
       result = editTemplate
         ? await onUpdate(editTemplate.id, draft)
-        : { ok: false, error: 'Template is no longer available.' };
+        : {
+            ok: false,
+            error: 'Template is no longer available.',
+            code: 'template_missing',
+          };
     } else {
       result = await onCreate(draft);
     }

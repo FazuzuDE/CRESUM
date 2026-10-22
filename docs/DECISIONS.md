@@ -1,5 +1,35 @@
 # CRESUM Decision Log
 
+## 2026-10-22 — Localization execution and ongoing coverage rule approved
+
+The user delegated implementation and thorough verification and requested clear
+visibility of translated versus untranslated areas. Execute the approved plan
+inline with an independent checkpoint/branch review. Include every enabled
+language with new app-controlled copy in the same change; author migration packs
+in EN/RU/DE/FR together. Add structural CI checks and a per-file pending-copy
+inventory. Foundation/settings/catalog/library work is an intermediate checkpoint,
+not full app-wide translation. Do not enable incomplete locales or label source
+candidate counts as a translation completeness percentage.
+
+## 2026-10-21 — Multilingual written specification approved
+
+The user confirmed the written specification in PR #70. Prepare the linked
+eight-task implementation plan with persistent selection, typed offline copy,
+catalog identity preservation, safe formatting and full-flow acceptance. Plan
+review and execution-method selection are the next checkpoint; runtime language
+support is not implemented by this documentation change.
+
+## 2026-10-21 — Multilingual scope approved; later expansion to 30 languages
+
+The user approved Russian, German and French with retained English, device-based
+initial selection, a persistent Profile control, offline messages/catalog copy,
+localized formatting and preservation of user content and workout/history data.
+The user additionally requested later expansion to the top 30 languages. Build
+extensible message/locale contracts now; choose the additional markets/languages
+separately rather than inventing a ranking. The written specification is a
+reviewable proposal; implementation planning follows its review. Physical iPhone
+Muscle Map acceptance remains pending independently of this work.
+
 ## 2026-10-21 — Integrate selected anatomical character before admin work
 
 The user approved replacing the old in-app schematic mannequin with the selected
