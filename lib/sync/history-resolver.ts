@@ -13,7 +13,11 @@ import {
 } from './history-ledger';
 import type { SyncRepository } from './repository';
 
-export type HistoryConflictSummary = { id: string; name: string };
+export type HistoryConflictSummary = {
+  id: string;
+  name: string;
+  fallbackName?: true;
+};
 export type HistoryComparison = {
   userId: string;
   workoutId: string;
@@ -72,10 +76,14 @@ export class HistoryResolver {
       ...account.facts.filter((f) => f.conflict).map((f) => f.id),
       ...(account.resolutions ?? []).map((r) => r.workoutId),
     ]);
-    return [...ids].map((id) => ({
-      id,
-      name: history.find((w) => w.id === id)?.name ?? 'Saved workout',
-    }));
+    return [...ids].map((id) => {
+      const name = history.find((w) => w.id === id)?.name;
+      return {
+        id,
+        name: name ?? 'Saved workout',
+        ...(name === undefined ? { fallbackName: true as const } : {}),
+      };
+    });
   }
   async compare(workoutId: string): Promise<HistoryComparison> {
     const d = await this.ready(),

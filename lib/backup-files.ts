@@ -2,7 +2,10 @@ import { AppError } from './app-error';
 /* eslint-disable @typescript-eslint/no-require-imports -- Native APIs are loaded only on file actions; web uses a separate adapter. */
 import { MAX_BACKUP_BYTES } from './local-backup';
 
-export async function shareBackupFile(text: string): Promise<void> {
+export async function shareBackupFile(
+  text: string,
+  dialogTitle = 'Save CRESUM backup',
+): Promise<void> {
   const Sharing = require('expo-sharing') as typeof import('expo-sharing');
   if (!(await Sharing.isAvailableAsync()))
     throw new AppError(
@@ -26,7 +29,7 @@ export async function shareBackupFile(text: string): Promise<void> {
     await Sharing.shareAsync(file.uri, {
       mimeType: 'application/json',
       UTI: 'public.json',
-      dialogTitle: 'Save CRESUM backup',
+      dialogTitle,
     });
   } finally {
     if (file.exists) file.delete();

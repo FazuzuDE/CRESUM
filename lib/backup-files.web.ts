@@ -1,7 +1,10 @@
 import { AppError } from './app-error';
 import { getDocumentAsync } from 'expo-document-picker';
 import { MAX_BACKUP_BYTES } from './local-backup';
-export async function shareBackupFile(text: string): Promise<void> {
+export async function shareBackupFile(
+  text: string,
+  _dialogTitle?: string,
+): Promise<void> {
   const blob = new Blob([text], { type: 'application/json' });
   if (blob.size > MAX_BACKUP_BYTES)
     throw new AppError(

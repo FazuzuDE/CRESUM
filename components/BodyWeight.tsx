@@ -150,7 +150,7 @@ export function BodyWeight({
         <VolumeTrendChart
           workouts={selected.map((p) => ({
             workoutId: p.id,
-            workoutName: 'Body weight',
+            workoutName: t('body.title'),
             finishedAt: p.recordedAt,
             volume: p.kg,
             completedSetCount: 0,

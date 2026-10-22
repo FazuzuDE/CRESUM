@@ -54,7 +54,9 @@ for inline execution. Foundation/settings, catalog/library search, active
 workout, Home/calendar, History/filters, onboarding/manual editing,
 program/technique, Progress/statistics/muscle/body-weight and Profile/account/
 backup/recovery presentation are connected; final coverage and device acceptance remain before
-RU/DE/FR are enabled. Track exact scope in [LOCALIZATION.md](LOCALIZATION.md).
+RU/DE/FR are enabled. Automated release guards now check message contracts and
+exact source classifications; explicit web/native acceptance gates remain pending.
+Track exact scope in [LOCALIZATION.md](LOCALIZATION.md).
 Include translations for all enabled languages with future feature additions.
 Later expand to 30 languages in reviewed batches; list/order is a separate market
 decision. Physical-device language/accessibility acceptance remains outstanding.

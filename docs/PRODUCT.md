@@ -14,8 +14,10 @@ coverage. The [written specification](superpowers/specs/2026-10-21-multilingual-
 was approved; the [implementation plan](superpowers/plans/2026-10-21-multilingual.md)
 was approved for inline execution and thorough verification on 2026-10-22.
 The foundation now includes a typed offline locale engine, durable device-local
-selection/reset handling, catalog labels and localized library search. Full screen
-migration remains in progress; English is the only release-enabled locale.
+selection/reset handling, catalog labels and localized library search. The
+existing workout, History/Progress, program/technique, Profile/account and backup/
+recovery flows are connected in EN/RU/DE/FR. English remains the only release-enabled
+locale while web/native layout and accessibility acceptance is pending.
 See [coverage and contribution rules](LOCALIZATION.md). New app-controlled copy
 must include every enabled locale in the same change; during this migration all
 new message packs are authored in EN/RU/DE/FR. CI checks message contracts and

@@ -1,5 +1,23 @@
 # CRESUM Decision Log
 
+## 2026-10-22 — Four-language automated coverage and acceptance gates
+
+After merged #73/#74, complete the automated localization acceptance checkpoint.
+Track exact file/text/syntax-context classifications separately from actual web
+and native acceptance. All EN/RU/DE/FR message packs are connected; missing keys,
+parameters, required plural branches and catalog labels fail CI. New/unclassified
+source usage also fails CI, including an internal token moved into visible JSX.
+Keep the pseudo-locale in test utilities and out of production registration and
+imports. Default-created or edited saved workout titles remain canonical data;
+do not relabel them by English string equality. Mark a missing conflict name with
+presentation metadata instead.
+
+Native build/export evidence does not replace 320/390px browser layout, physical
+Hermes, Dynamic Type, screen-reader, Files/share and foreground-language acceptance.
+The current cloud browser cannot connect to the local preview server. Record those
+checks as pending and retain RU/DE/FR release flags as false until evidence exists.
+Later top-30 language selection and RTL validation remain separate approved scope.
+
 ## 2026-10-22 — Localization execution and ongoing coverage rule approved
 
 The user delegated implementation and thorough verification and requested clear

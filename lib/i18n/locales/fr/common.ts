@@ -1,4 +1,9 @@
 export default {
+  'brand.tagline': 'S’ENTRAÎNER. SUIVRE. PROGRESSER.',
+  'artwork.placeholder': 'Illustration indisponible : {{name}}',
+  'artwork.generic': 'Illustration de l’exercice indisponible',
+  'backup.shareTitle': 'Enregistrer la sauvegarde CRESUM',
+  'workout.retrySaveLoad': 'Réessayer l’enregistrement ou le chargement',
   'scroll.top': 'Retour en haut de la page',
   'scroll.section': 'Retour au début de la section',
   'scroll.hint':

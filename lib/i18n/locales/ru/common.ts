@@ -1,4 +1,9 @@
 export default {
+  'brand.tagline': 'ТРЕНИРУЙСЯ. ОТСЛЕЖИВАЙ. РАСТИ.',
+  'artwork.placeholder': 'Иллюстрация недоступна: {{name}}',
+  'artwork.generic': 'Иллюстрация упражнения недоступна',
+  'backup.shareTitle': 'Сохранить резервную копию CRESUM',
+  'workout.retrySaveLoad': 'Повторить сохранение или загрузку',
   'scroll.top': 'К началу страницы',
   'scroll.section': 'К началу раздела',
   'scroll.hint':
