@@ -283,7 +283,7 @@ describe('TemplateEditor', () => {
 
     await act(async () => appButton(view, 'Save Workout')?.props.onPress());
     expect(JSON.stringify(view.toJSON())).toContain(
-      'Template changes could not be saved. Try again.',
+      'Workout could not be saved. Try again.',
     );
     expect(JSON.stringify(view.toJSON())).toContain(many.name);
   });

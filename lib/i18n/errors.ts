@@ -10,9 +10,24 @@ const errorMessages = {
   workout_discard_failed: 'error.workoutDiscard',
   workout_save_failed: 'error.workoutSave',
   template_save_failed: 'error.templateSave',
+  name_required: 'error.nameRequired',
+  invalid_birth_date: 'error.birthDate',
+  invalid_height: 'error.height',
+  invalid_body_weight: 'error.bodyWeight',
+  invalid_age: 'error.age',
+  program_under18: 'error.under18',
+  program_frequency: 'error.programFrequency',
+  program_missing_exercises: 'error.programMissing',
+  program_selection: 'error.programSelection',
+  program_proposal: 'error.programProposal',
+  program_schedule: 'error.programSchedule',
+  program_rest: 'error.programRest',
+  program_split_rest: 'error.programSplitRest',
 } as const;
 type ErrorKey =
-  (typeof errorMessages)[keyof typeof errorMessages] | 'error.workoutOperation';
+  | (typeof errorMessages)[keyof typeof errorMessages]
+  | 'error.workoutOperation'
+  | 'error.programSave';
 export function presentAppError(
   t: Translate,
   error: unknown,

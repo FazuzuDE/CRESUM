@@ -111,212 +111,192 @@
   },
   {
     "file": "app/index.tsx",
-    "line": 439,
+    "line": 452,
     "text": "Hidden workout settings are unavailable. All built-ins remain visible."
   },
   {
     "file": "app/index.tsx",
-    "line": 500,
+    "line": 513,
     "text": "Reset in progress."
   },
   {
     "file": "app/index.tsx",
-    "line": 547,
+    "line": 560,
     "text": "Program recovery is pending. Your workouts remain available."
   },
   {
     "file": "app/index.tsx",
-    "line": 556,
+    "line": 569,
     "text": "Program recovery is pending. Your workouts remain available."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 570,
-    "text": "Onboarding progress could not be saved. Retry before closing the app."
   },
   {
     "file": "app/index.tsx",
     "line": 583,
-    "text": "Program saving is pending. Retry START!"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 608,
-    "text": "Your workout was saved. Onboarding status could not be saved."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 628,
-    "text": "Cannot start workout"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 640,
-    "text": "Cannot start planned workout"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 658,
-    "text": "Hidden workout settings could not be saved. Try again."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 707,
-    "text": "Save or retry your workout changes before using backup and restore."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 731,
-    "text": "No usable saved copy is available."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 733,
-    "text": "Saved local copy opened for export. Choose a destination to keep it outside this app."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 739,
-    "text": "`${count} workouts imported. Existing history was kept.`"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 742,
-    "text": "Backup restored. Local data was replaced with your selected copy."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 745,
-    "text": "Backup sharing finished. A copy is kept only if you chose a save destination."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 860,
-    "text": "Saved body weight is unavailable."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 866,
-    "text": "Local data could not be reset. Try again."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 884,
-    "text": "Reset CRESUM?"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 885,
-    "text": "All local CRESUM data on this device — workouts, history, templates, active workout, body-weight measurements, hidden-workout settings, personalization and onboarding data — will be permanently deleted. Saved backup files and backup account links are kept; automatic backups will be switched off. Cloud history is not deleted; cloud backup will pause until you choose Resume. This does not sign you out. This cannot be undone."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 886,
-    "text": "Reset local data"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 887,
-    "text": "Keep data"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 890,
-    "text": "Resetting…"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 945,
-    "text": "Retry program recovery"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 956,
-    "text": "Retry saving or loading"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 972,
-    "text": "Loading your workouts…"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 973,
-    "text": "Saved workouts are unavailable. Retry above."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 982,
-    "text": "Retry onboarding"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 1003,
     "text": "Onboarding progress could not be saved. Retry before closing the app."
   },
   {
     "file": "app/index.tsx",
-    "line": 1010,
-    "text": "Continue to app"
+    "line": 596,
+    "text": "Program saving is pending. Retry START!"
   },
   {
     "file": "app/index.tsx",
-    "line": 1017,
+    "line": 621,
+    "text": "Your workout was saved. Onboarding status could not be saved."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 642,
+    "text": "Cannot start workout"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 654,
+    "text": "Cannot start planned workout"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 672,
+    "text": "Hidden workout settings could not be saved. Try again."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 721,
+    "text": "Save or retry your workout changes before using backup and restore."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 745,
+    "text": "No usable saved copy is available."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 747,
+    "text": "Saved local copy opened for export. Choose a destination to keep it outside this app."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 753,
+    "text": "`${count} workouts imported. Existing history was kept.`"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 756,
+    "text": "Backup restored. Local data was replaced with your selected copy."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 759,
+    "text": "Backup sharing finished. A copy is kept only if you chose a save destination."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 874,
+    "text": "Saved body weight is unavailable."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 880,
+    "text": "Local data could not be reset. Try again."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 898,
+    "text": "Reset CRESUM?"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 899,
+    "text": "All local CRESUM data on this device — workouts, history, templates, active workout, body-weight measurements, hidden-workout settings, personalization and onboarding data — will be permanently deleted. Saved backup files and backup account links are kept; automatic backups will be switched off. Cloud history is not deleted; cloud backup will pause until you choose Resume. This does not sign you out. This cannot be undone."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 900,
+    "text": "Reset local data"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 901,
+    "text": "Keep data"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 904,
+    "text": "Resetting…"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 959,
+    "text": "Retry program recovery"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 970,
+    "text": "Retry saving or loading"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 1020,
+    "text": "Onboarding progress could not be saved. Retry before closing the app."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 1034,
     "text": "edit"
   },
   {
     "file": "app/index.tsx",
-    "line": 1017,
+    "line": 1034,
     "text": "first-run"
   },
   {
     "file": "app/index.tsx",
-    "line": 1024,
+    "line": 1041,
     "text": "welcome"
   },
   {
     "file": "app/index.tsx",
-    "line": 1037,
+    "line": 1054,
     "text": "profile"
   },
   {
     "file": "app/index.tsx",
-    "line": 1037,
+    "line": 1054,
     "text": "home"
   },
   {
     "file": "app/index.tsx",
-    "line": 1107,
+    "line": 1124,
     "text": "Reset in progress."
   },
   {
     "file": "app/index.tsx",
-    "line": 1154,
+    "line": 1171,
     "text": "auto"
   },
   {
     "file": "app/index.tsx",
-    "line": 1154,
+    "line": 1171,
     "text": "none"
   },
   {
     "file": "app/index.tsx",
-    "line": 1157,
+    "line": 1174,
     "text": "auto"
   },
   {
     "file": "app/index.tsx",
-    "line": 1157,
+    "line": 1174,
     "text": "no-hide-descendants"
   },
   {
     "file": "app/index.tsx",
-    "line": 1169,
+    "line": 1186,
     "text": "Finish the current data operation first."
   },
   {
     "file": "app/index.tsx",
-    "line": 1344,
+    "line": 1361,
     "text": "tabular-nums"
   },
   {
@@ -2741,398 +2721,88 @@
   },
   {
     "file": "components/Onboarding.tsx",
-    "line": 66,
+    "line": 75,
     "text": "`accept-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`"
   },
   {
     "file": "components/Onboarding.tsx",
-    "line": 100,
+    "line": 111,
     "text": "No checked program for this frequency. Keep the recommended frequency or use manual setup."
   },
   {
     "file": "components/Onboarding.tsx",
-    "line": 106,
+    "line": 119,
     "text": "`Required exercises unavailable: ${readiness.blockers.join(', ')}`"
   },
   {
     "file": "components/Onboarding.tsx",
-    "line": 110,
+    "line": 126,
     "text": "Choose a goal and experience to prepare your program."
   },
   {
     "file": "components/Onboarding.tsx",
-    "line": 137,
-    "text": "Could not save program. Retry; your workouts are safe."
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 172,
-    "text": "· optional"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 184,
-    "text": "Not provided"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 202,
+    "line": 218,
     "text": "Enter a valid date of birth, or leave it empty."
   },
   {
     "file": "components/Onboarding.tsx",
-    "line": 206,
+    "line": 224,
     "text": "height"
   },
   {
     "file": "components/Onboarding.tsx",
-    "line": 207,
+    "line": 224,
+    "text": "invalid_height"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 225,
     "text": "body weight"
   },
   {
     "file": "components/Onboarding.tsx",
-    "line": 218,
-    "text": "`Enter a valid ${label}, or leave it empty.`"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 226,
-    "text": "complete"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 226,
-    "text": "goal"
+    "line": 225,
+    "text": "invalid_body_weight"
   },
   {
     "file": "components/Onboarding.tsx",
     "line": 237,
+    "text": "`Enter a valid ${label}, or leave it empty.`"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 246,
+    "text": "complete"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 246,
+    "text": "goal"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 257,
     "text": "padding"
   },
   {
     "file": "components/Onboarding.tsx",
-    "line": 249,
-    "text": "Your first workout"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 252,
-    "text": "Create a workout you can start and edit later. Planned values are not completed sets."
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 267,
-    "text": "Welcome to CRESUM"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 270,
-    "text": "Train. Track. Grow. Your progress starts here."
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 273,
-    "text": "What should we call you?"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 275,
-    "text": "Your name"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 280,
-    "text": "Your name"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 293,
-    "text": "Continue"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 298,
+    "line": 316,
     "text": "Enter your name to continue."
   },
   {
     "file": "components/Onboarding.tsx",
-    "line": 313,
-    "text": "Training goal"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 315,
-    "text": "What would you like to focus on?"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 316,
-    "text": "Build muscle"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 317,
-    "text": "Get stronger"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 319,
-    "text": "General fitness"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 325,
-    "text": "Next"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 328,
-    "text": "Set up workouts myself"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 337,
-    "text": "Training experience"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 339,
-    "text": "Choose the closest fit."
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 340,
-    "text": "Beginner"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 341,
-    "text": "Some experience"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 342,
-    "text": "Experienced"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 344,
-    "text": "Next"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 351,
-    "text": "Body details"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 354,
-    "text": "Optional details for your profile. They do not determine a working weight."
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 358,
-    "text": "Date of birth · optional"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 364,
+    "line": 410,
     "text": "`${normalizeBirthDate(state.answers.dateOfBirth ?? '')}T00:00:00`"
   },
   {
     "file": "components/Onboarding.tsx",
-    "line": 367,
-    "text": "Choose date"
+    "line": 520,
+    "text": "onboarding.movementPerSide"
   },
   {
     "file": "components/Onboarding.tsx",
-    "line": 369,
-    "text": "Date of birth"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 395,
-    "text": "Height (cm)"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 396,
-    "text": "Body weight (kg)"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 402,
-    "text": "Continue"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 403,
-    "text": "Continue without body details"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 412,
-    "text": "You’re ready to start"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 412,
-    "text": "Review your program"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 418,
-    "text": "strength workouts per week · Gym · starts"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 422,
-    "text": "CRESUM adaptation of published training programs from ACSM, NSCA, ACE, HSS and NHS guidance. Working weights are chosen manually; planned values do not count as completed sets."
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 429,
-    "text": "Hide full program"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 429,
-    "text": "View full program"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 438,
-    "text": "Week"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 442,
-    "text": "`${slot.dayKey} · ${addCalendarDays(proposal!.startDate, i * 7 + slot.offset)}`"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 457,
-    "text": "per side"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 457,
-    "text": "· rest"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 458,
-    "text": "s"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 464,
-    "text": "Warm up separately. Use a manageable load with 2–3 reps in reserve. Progress manually when the upper rep target feels controlled; no automatic load increases."
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 470,
-    "text": "Walking or cycling: gradual target of 150 moderate minutes per week; start with manageable 10–15 minute sessions. Cardio guidance is separate from strength logging."
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 486,
-    "text": "Hide schedule options"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 486,
-    "text": "Schedule options"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 495,
-    "text": "`Start date · ${startDate}`"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 502,
-    "text": "Start date"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 511,
-    "text": "Workouts per week"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 515,
-    "text": "`${n} workouts`"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 523,
-    "text": "Only the recommended frequency has a checked variant for this goal and experience. Other frequencies use manual setup."
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 530,
-    "text": "Session"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 530,
-    "text": "· day of the plan week (1–7)"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 533,
-    "text": "`Session ${i + 1} day of plan week`"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 559,
-    "text": "First session: 1 set per exercise"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 560,
-    "text": "New to training? Reduce first session to 1 set"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 571,
-    "text": "Retry START!"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 573,
-    "text": "Saving program…"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 574,
-    "text": "START!"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 581,
-    "text": "Set up workouts myself"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 589,
-    "text": "Open saved workouts"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 604,
-    "text": "Back"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 612,
-    "text": "Back to Profile"
-  },
-  {
-    "file": "components/Onboarding.tsx",
-    "line": 623,
-    "text": "Date of birth"
+    "line": 521,
+    "text": "onboarding.movement"
   },
   {
     "file": "components/ProfileSettings.tsx",
@@ -3446,248 +3116,73 @@
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 48,
+    "line": 54,
     "text": "name"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 48,
+    "line": 54,
     "text": "composition"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 62,
-    "text": "Enter a workout name."
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 66,
+    "line": 74,
     "text": "composition"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 66,
+    "line": 74,
     "text": "library"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 71,
-    "text": "This exercise is already in this workout."
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 103,
-    "text": "Enter 1–20 planned sets."
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 111,
-    "text": "Enter a valid non-negative weight."
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 140,
+    "line": 148,
     "text": "composition"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 140,
+    "line": 148,
     "text": "library"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 142,
+    "line": 150,
     "text": "composition"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 142,
+    "line": 150,
     "text": "name"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 157,
-    "text": "Workout could not be saved. Try again."
+    "line": 158,
+    "text": "error.editorEmpty"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 167,
-    "text": "Discard workout changes?"
+    "line": 160,
+    "text": "error.editorUnavailable"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 168,
-    "text": "Your unsaved workout changes will be lost."
+    "line": 161,
+    "text": "error.editorReview"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 169,
-    "text": "Discard Changes"
+    "line": 172,
+    "text": "error.editorMissing"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 170,
-    "text": "Keep Editing"
+    "line": 173,
+    "text": "error.editorSave"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 182,
-    "text": "Create Workout"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 182,
-    "text": "Edit Workout"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 186,
-    "text": "Workout Name"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 188,
-    "text": "Workout Name"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 195,
-    "text": "Workout Name"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 207,
-    "text": "Next"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 217,
-    "text": "Unavailable exercise"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 219,
-    "text": "Planned sets"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 221,
-    "text": "Planned sets"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 231,
-    "text": "Starting weight (kg) · optional"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 233,
-    "text": "Starting weight in kilograms"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 241,
-    "text": "Unset"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 246,
-    "text": "Planned values can be changed during your workout."
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 254,
-    "text": "Update Exercise"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 254,
-    "text": "Add Exercise"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 264,
-    "text": "exercise"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 265,
-    "text": "s"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 269,
-    "text": "`Unavailable exercise ${id}`"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 274,
+    "line": 301,
     "text": "`${id}-${index}`"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 277,
-    "text": "Unavailable exercise"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 281,
-    "text": "sets ·"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 283,
-    "text": "`${planned.weight} kg`"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 284,
-    "text": "weight unset"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 293,
-    "text": "`Edit ${label}`"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 300,
-    "text": "`Move ${label} up`"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 310,
-    "text": "`Move ${label} down`"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 322,
-    "text": "`Remove ${exercise ? label : label.toLowerCase()}`"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 343,
-    "text": "Add Exercise"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 352,
-    "text": "Saving…"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 352,
-    "text": "Save Workout"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 362,
-    "text": "Back"
-  },
-  {
-    "file": "components/TemplateEditor.tsx",
-    "line": 370,
-    "text": "Cancel"
   },
   {
     "file": "components/TrainingProgramWeek.tsx",
@@ -4246,177 +3741,177 @@
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 129,
+    "line": 131,
     "text": "Template is no longer available."
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 156,
+    "line": 160,
     "text": "Delete workout?"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 159,
+    "line": 163,
     "text": "`Delete “${deleteTarget.name}”? Active and completed workouts will stay unchanged.`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 162,
+    "line": 166,
     "text": "Delete Workout"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 163,
+    "line": 167,
     "text": "Keep Workout"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 195,
+    "line": 199,
     "text": "Resume active workout"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 195,
+    "line": 199,
     "text": "Start Workout"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 206,
+    "line": 210,
     "text": "Duplicate / Customize"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 212,
+    "line": 216,
     "text": "Hide from My Workouts"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 221,
+    "line": 225,
     "text": "Edit"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 233,
+    "line": 237,
     "text": "Duplicate"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 239,
+    "line": 243,
     "text": "Delete"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 253,
+    "line": 257,
     "text": "Close"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 265,
+    "line": 269,
     "text": "`edit-${editor.templateId}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 266,
+    "line": 270,
     "text": "create-template"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 279,
+    "line": 283,
     "text": "WORKOUTS"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 288,
+    "line": 292,
     "text": "`${template.id}-${index}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 289,
+    "line": 293,
     "text": "`template-swipe-${template.id}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 323,
+    "line": 327,
     "text": "`quick-background-${template.id}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 329,
+    "line": 333,
     "text": "`quick-actions-${template.id}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 334,
+    "line": 338,
     "text": "auto"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 335,
+    "line": 339,
     "text": "no-hide-descendants"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 341,
+    "line": 345,
     "text": "`Duplicate ${template.name}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 347,
+    "line": 351,
     "text": "`Hide ${template.name}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 356,
+    "line": 360,
     "text": "`Edit ${template.name}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 368,
+    "line": 372,
     "text": "`Delete ${template.name}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 387,
+    "line": 391,
     "text": "`${hasActiveWorkout ? 'Resume active workout from' : 'Start'} ${template.name}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 387,
+    "line": 391,
     "text": "Resume active workout from"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 387,
+    "line": 391,
     "text": "Start"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 388,
+    "line": 392,
     "text": "Long press for more workout actions"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 407,
+    "line": 411,
     "text": "planned sets"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 408,
+    "line": 412,
     "text": "· Built-in"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 412,
+    "line": 416,
     "text": "`More actions for ${template.name}`"
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 422,
+    "line": 426,
     "text": "No workouts available."
   },
   {
     "file": "components/WorkoutTemplates.tsx",
-    "line": 426,
+    "line": 430,
     "text": "Create Workout"
   },
   {
@@ -4481,7 +3976,7 @@
   },
   {
     "file": "lib/app-error.ts",
-    "line": 18,
+    "line": 31,
     "text": "AppError"
   },
   {
@@ -13421,12 +12916,12 @@
   },
   {
     "file": "lib/training-programs/assignment.ts",
-    "line": 34,
+    "line": 36,
     "text": "Program proposal is unavailable. Review all required exercises and dates."
   },
   {
     "file": "lib/training-programs/assignment.ts",
-    "line": 46,
+    "line": 48,
     "text": "`${snapshot.name} · ${day.name}`"
   },
   {
@@ -13826,22 +13321,22 @@
   },
   {
     "file": "lib/training-programs/eligibility.ts",
-    "line": 10,
+    "line": 13,
     "text": "Enter a valid date of birth, or leave it empty."
   },
   {
     "file": "lib/training-programs/eligibility.ts",
-    "line": 12,
+    "line": 18,
     "text": "Adult starter programs are unavailable for under-18s. You can set up workouts manually."
   },
   {
     "file": "lib/training-programs/eligibility.ts",
-    "line": 18,
+    "line": 25,
     "text": "Enter a valid age, or leave it empty."
   },
   {
     "file": "lib/training-programs/eligibility.ts",
-    "line": 20,
+    "line": 29,
     "text": "Adult starter programs are unavailable for under-18s. You can set up workouts manually."
   },
   {
@@ -13936,37 +13431,37 @@
   },
   {
     "file": "lib/training-programs/schedule.ts",
-    "line": 10,
+    "line": 11,
     "text": "`${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`"
   },
   {
     "file": "lib/training-programs/schedule.ts",
-    "line": 12,
+    "line": 13,
     "text": "Invalid local date"
   },
   {
     "file": "lib/training-programs/schedule.ts",
-    "line": 35,
+    "line": 36,
     "text": "Invalid local date"
   },
   {
     "file": "lib/training-programs/schedule.ts",
-    "line": 98,
+    "line": 99,
     "text": "This program routine was edited, deleted or is unavailable. Review workouts in Profile; manual workouts remain available."
   },
   {
     "file": "lib/training-programs/schedule.ts",
-    "line": 129,
+    "line": 131,
     "text": "Choose one date for every planned session. Alternative frequencies require a checked program."
   },
   {
     "file": "lib/training-programs/schedule.ts",
-    "line": 140,
+    "line": 144,
     "text": "Keep at least one rest day between full-body sessions."
   },
   {
     "file": "lib/training-programs/schedule.ts",
-    "line": 146,
+    "line": 153,
     "text": "Keep recovery between repeated upper/lower sessions."
   },
   {
@@ -14191,82 +13686,82 @@
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 75,
+    "line": 76,
     "text": "Could not load saved workouts. Your saved data has been kept. Retry to continue."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 101,
+    "line": 102,
     "text": "Changes are not saved yet. Keep the app open and retry."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 110,
+    "line": 111,
     "text": "Changes are not saved yet. Keep the app open and retry."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 129,
+    "line": 130,
     "text": "Resume your active workout before starting another."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 136,
+    "line": 137,
     "text": "Required program exercises are unavailable."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 145,
+    "line": 146,
     "text": "This template has no available exercises."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 155,
+    "line": 156,
     "text": "Templates are not ready yet."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 159,
+    "line": 160,
     "text": "Template changes are already being saved. Try again shortly."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 177,
+    "line": 178,
     "text": "Template changes could not be saved. Try again."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 190,
+    "line": 191,
     "text": "Workouts are not ready. Try again shortly."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 206,
+    "line": 207,
     "text": "A generated workout was edited or deleted. Keep your changes and review the pending program."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 213,
+    "line": 214,
     "text": "Program template IDs already exist. No workouts were replaced."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 235,
+    "line": 236,
     "text": "Program workouts could not be saved. Retry the same proposal."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 341,
+    "line": 342,
     "text": "Workout could not be discarded. Keep the app open and retry. Your active workout is still here."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 362,
+    "line": 363,
     "text": "Workout could not be finished. Your active workout is still here."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 399,
+    "line": 400,
     "text": "Workout could not be saved. Your active workout is still here. Try Finish again."
   },
   {

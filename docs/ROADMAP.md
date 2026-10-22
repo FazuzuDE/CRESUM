@@ -50,8 +50,9 @@ support with persistent language selection and full existing-flow coverage.
 The user deferred physical-phone map review and requested this work in the
 meantime. The [localization specification](superpowers/specs/2026-10-21-multilingual-design.md)
 and [implementation plan](superpowers/plans/2026-10-21-multilingual.md) are approved
-for inline execution. Foundation/settings and localized catalog/library search
-are implemented; remaining core, progress and recovery screen copy must be
+for inline execution. Foundation/settings, catalog/library search, active
+workout, Home/calendar, History/filters and onboarding/manual editing are
+implemented; program/technique, Progress and recovery screen copy must still be
 connected before RU/DE/FR are enabled. Track exact scope in [LOCALIZATION.md](LOCALIZATION.md).
 Include translations for all enabled languages with future feature additions.
 Later expand to 30 languages in reviewed batches; list/order is a separate market

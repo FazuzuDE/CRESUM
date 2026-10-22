@@ -12,7 +12,8 @@ application translations and are not yet offered as production language choices.
 | Common language/settings message pack              | Complete             | Complete                        |
 | Active workout, set entry, rest and confirmations  | Connected            | Connected and tested            |
 | Home dashboard, calendar and layout editor         | Connected            | Connected and tested            |
-| Onboarding beyond language choice                  | Existing copy        | Pending connection              |
+| Onboarding, proposal preview and schedule editor   | Connected            | Connected and tested            |
+| Manual workout editor                              | Connected            | Connected and tested            |
 | Catalog names and Exercise Library controls/search | Connected            | 105 labels + 29 messages tested |
 | Program/technique presentation beyond library      | Existing copy        | Pending connection/translation  |
 | History details, filters and date/count pickers    | Connected            | Connected and tested            |
@@ -26,9 +27,10 @@ line and text. The AST inventory includes technical candidates: counts are not a
 claim about the percentage of translated UI. Classification and connection are
 required before a target locale can be enabled.
 
-The current resource catalog has 374 semantic messages per language (14 common,
+The current resource catalog has 503 semantic messages per language (14 common,
 105 catalog labels, 29 library controls, 113 workout messages and 77 Home/calendar
-messages, 36 History/date-picker messages). Matching key counts are a structural
+messages, 36 History/date-picker, 90 onboarding/program-preview and 39 manual
+editor messages). Matching key counts are a structural
 check, not independent linguistic acceptance. The library's nested technique and
 statistics pages remain part of the pending screen migration. The native picker
 receives labels/values from JavaScript; it has no separate English UI copy in its
@@ -51,6 +53,23 @@ selection and apply the filter. Calendar grouping, date bounds, stored titles
 and history records are unchanged. Shared scroll-return accessibility messages
 are translated as well. Progress charts and muscle details remain pending.
 
+Onboarding now translates name/body details, goals, experience, current program
+names, complete movement previews, schedule controls, first-session reduction,
+validation and save/load recovery. Date presentation follows the selected locale;
+stored local dates and canonical program snapshots are unchanged. Tests switch
+languages with an unfinished body-weight draft, chosen program, locked retry,
+open start-date picker, custom schedule days and unsupported frequency. Locale
+changes do not cause progress saves or retries. The legacy eligibility string API
+remains compatible; the UI consumes coded issues instead of matching English text.
+
+The shared manual workout editor translates editing, reorder/remove accessibility,
+configuration, stale-exercise warnings, vanished-template failures and discard
+confirmation. Tests preserve custom names, canonical exercise IDs, comma input,
+order and failed-save drafts. Unknown callback diagnostics are replaced with a
+localized retry message. The surrounding Profile workout-management page and
+nested Technique/Statistics screens remain pending. These renderer tests do not
+replace physical-phone layout, native wheel or screen-reader acceptance.
+
 The pending candidate baseline was refreshed after this migration: removed UI
 copy is no longer listed; newly reviewed candidates are semantic message keys,
 the internal AppError class name and internal adjustment action names. No new
@@ -71,6 +90,18 @@ Offline dependency validation reports installed versions up to date; this does
 not substitute for the pending online dependency check. No packages changed in
 the History checkpoint. Independent review's Russian count wording issue was
 corrected and the additional count-wheel switching scenario passes.
+History checkpoint CI run 241 subsequently passed the online dependency check
+and the complete workflow.
+
+Onboarding/manual-editor checkpoint validation: Node 22.16.0/npm 10.9.2
+`npm run check` passed with 115 suites / 984 tests, including the online dependency
+check. iOS/Android exports and `git diff --check` passed. The last empty-editor
+message was verified in both exported bundles. Independent review found no
+actionable bugs; its schedule/editor-action coverage gaps were filled with
+passing regression scenarios. The full suite caught old raw-diagnostic assertions
+and a lost explicit empty-editor instruction; the latter was restored in all
+four languages. No packages or persisted schemas changed. Device acceptance and
+the pending screen migrations above are still required before enabling RU/DE/FR.
 
 ## Every future change
 

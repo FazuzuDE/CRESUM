@@ -134,11 +134,19 @@ are still pending. See ../../LOCALIZATION.md and the execution ledger for exact
 evidence. Each task ends with its own commit/checkpoint; partial checkpoints do
 not authorize enabling unfinished locales.
 
-Next checkpoint connects active workout/set entry/rest/finish/discard and Home
+The next checkpoint connects active workout/set entry/rest/finish/discard and Home
 dashboard/calendar/layout editing in all four locales. Actual mounted-screen
 tests retain editable drafts, rest deadlines, storage identity and layout drafts
 across language changes. Tasks 3–7 are still partial; onboarding, program and
 technique screens, History/Progress and account/backup/recovery remain pending.
+
+The following checkpoints add saved History/filter/date/count presentation and
+onboarding/manual workout editing. Onboarding tests retain body/name drafts,
+custom schedule/start-date/frequency state, proposal identity and retry without
+locale-triggered writes. Manual-editor tests cover exact drafts, stale IDs,
+reorder/remove actions, discard confirmation and vanished-template recovery.
+Program/technique beyond this preview, Progress and account/backup/recovery
+remain pending; locale release flags remain off.
 
 Official references checked for this plan:
 

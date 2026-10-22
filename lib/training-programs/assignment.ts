@@ -2,6 +2,7 @@ import type { WorkoutTemplate } from '../workout-model';
 import type { ProgramDefinition } from './model';
 import { projectProgramReadiness } from './readiness';
 import { exerciseLibrary } from '../exercise-library';
+import { AppError } from '../app-error';
 export type ProgramAssignment = {
   id: string;
   program: ProgramDefinition;
@@ -30,7 +31,8 @@ export const makeAssignment = (
     !validLocalDate(startDate) ||
     !projectProgramReadiness(program, exerciseLibrary).ready
   )
-    throw Error(
+    throw new AppError(
+      'program_proposal',
       'Program proposal is unavailable. Review all required exercises and dates.',
     );
   const snapshot: ProgramDefinition = JSON.parse(JSON.stringify(program));

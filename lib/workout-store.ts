@@ -18,7 +18,8 @@ import {
 } from './workout-templates';
 
 export type TemplateMutationResult =
-  { ok: true; template?: WorkoutTemplate } | { ok: false; error: string };
+  | { ok: true; template?: WorkoutTemplate }
+  | { ok: false; error: string; code?: 'template_missing' };
 
 const createWorkoutSnapshotId = (): string => {
   // eslint-disable-next-line @typescript-eslint/no-require-imports -- Load native crypto only when starting a new workout, not while restoring existing data.

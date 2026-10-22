@@ -143,7 +143,10 @@ describe('guided workout builder', () => {
     ).toBe(true);
     act(() => view.root.findByType(ExerciseLibrary).props.onClose());
     await act(async () => button(view, 'Save Workout')?.props.onPress());
-    expect(JSON.stringify(view.toJSON())).toContain('Disk full.');
+    expect(JSON.stringify(view.toJSON())).toContain(
+      'Workout could not be saved. Try again.',
+    );
+    expect(JSON.stringify(view.toJSON())).not.toContain('Disk full.');
     expect(JSON.stringify(view.toJSON())).toContain('60 kg');
     act(() => action(view, 'Remove Barbell Bench Press')?.props.onPress());
     await act(async () => button(view, 'Save Workout')?.props.onPress());

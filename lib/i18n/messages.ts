@@ -22,6 +22,14 @@ import enHistory from './locales/en/history';
 import ruHistory from './locales/ru/history';
 import deHistory from './locales/de/history';
 import frHistory from './locales/fr/history';
+import enOnboarding from './locales/en/onboarding';
+import ruOnboarding from './locales/ru/onboarding';
+import deOnboarding from './locales/de/onboarding';
+import frOnboarding from './locales/fr/onboarding';
+import enEditor from './locales/en/editor';
+import ruEditor from './locales/ru/editor';
+import deEditor from './locales/de/editor';
+import frEditor from './locales/fr/editor';
 const en = {
   ...enCommon,
   ...enCatalog,
@@ -29,6 +37,8 @@ const en = {
   ...enWorkout,
   ...enHome,
   ...enHistory,
+  ...enOnboarding,
+  ...enEditor,
 } as const;
 const ru = {
   ...ruCommon,
@@ -37,6 +47,8 @@ const ru = {
   ...ruWorkout,
   ...ruHome,
   ...ruHistory,
+  ...ruOnboarding,
+  ...ruEditor,
 } as const;
 const de = {
   ...deCommon,
@@ -45,6 +57,8 @@ const de = {
   ...deWorkout,
   ...deHome,
   ...deHistory,
+  ...deOnboarding,
+  ...deEditor,
 } as const;
 const fr = {
   ...frCommon,
@@ -53,6 +67,8 @@ const fr = {
   ...frWorkout,
   ...frHome,
   ...frHistory,
+  ...frOnboarding,
+  ...frEditor,
 } as const;
 export type MessageValue =
   string | Readonly<Partial<Record<Intl.LDMLPluralRule, string>>>;

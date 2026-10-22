@@ -393,10 +393,23 @@ function AppContent({
   const [onboardingReady, setOnboardingReady] = useState(false);
   const onboardingErrorRef = useRef('');
   const [onboardingError, updateOnboardingError] = useState('');
-  const setOnboardingError = useCallback((message: string) => {
-    onboardingErrorRef.current = message;
-    updateOnboardingError(message);
-  }, []);
+  const [onboardingErrorKey, setOnboardingErrorKey] = useState<
+    'error.onboardingSave' | 'error.onboardingLoad' | 'onboarding.workoutSaved'
+  >('error.onboardingSave');
+  const setOnboardingError = useCallback(
+    (
+      message: string,
+      key:
+        | 'error.onboardingSave'
+        | 'error.onboardingLoad'
+        | 'onboarding.workoutSaved' = 'error.onboardingSave',
+    ) => {
+      onboardingErrorRef.current = message;
+      updateOnboardingError(message);
+      setOnboardingErrorKey(key);
+    },
+    [],
+  );
   const [onboardingLoadFailed, setOnboardingLoadFailed] = useState(false);
   const [onboardingBypass, setOnboardingBypass] = useState(false);
   const [editingPersonalization, setEditingPersonalization] = useState(false);
@@ -473,7 +486,7 @@ function AppContent({
         },
         (problem: Error) => {
           if (mounted && onboardingEpoch.current === epoch) {
-            setOnboardingError(problem.message);
+            setOnboardingError(problem.message, 'error.onboardingLoad');
             setOnboardingLoadFailed(true);
           }
         },
@@ -606,6 +619,7 @@ function AppContent({
         // Never retry creation to repair the separate onboarding record.
         setOnboardingError(
           'Your workout was saved. Onboarding status could not be saved.',
+          'onboarding.workoutSaved',
         );
       }
     }
@@ -969,17 +983,17 @@ function AppContent({
           ) : null}
           <Text style={s.sub}>
             {busy || !onboardingReady || !hiddenReady
-              ? 'Loading your workouts…'
-              : 'Saved workouts are unavailable. Retry above.'}
+              ? t('onboarding.loading')
+              : t('onboarding.savedUnavailable')}
           </Text>
         </View>
       ) : onboardingError && showOnboarding ? (
         <View style={s.empty}>
           <Text style={s.sub} accessibilityRole="alert">
-            {onboardingError}
+            {t(onboardingErrorKey)}
           </Text>
           <AppButton
-            title="Retry onboarding"
+            title={t('onboarding.retry')}
             onPress={() => {
               if (onboardingLoadFailed) {
                 const epoch = onboardingEpoch.current;
@@ -992,7 +1006,10 @@ function AppContent({
                   },
                   (problem: Error) => {
                     if (onboardingEpoch.current === epoch)
-                      setOnboardingError(problem.message);
+                      setOnboardingError(
+                        problem.message,
+                        'error.onboardingLoad',
+                      );
                   },
                 );
               } else {
@@ -1007,7 +1024,7 @@ function AppContent({
             }}
           />
           <AppButton
-            title="Continue to app"
+            title={t('onboarding.bypass')}
             secondary
             onPress={() => setOnboardingBypass(true)}
           />
@@ -1041,7 +1058,7 @@ function AppContent({
         <>
           {onboardingError ? (
             <View style={s.notice} accessibilityRole="alert">
-              <Text style={s.sub}>{onboardingError}</Text>
+              <Text style={s.sub}>{t(onboardingErrorKey)}</Text>
             </View>
           ) : null}
           {tab === 'home' ? (
