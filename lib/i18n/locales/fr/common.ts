@@ -1,4 +1,8 @@
 export default {
+  'scroll.top': 'Retour en haut de la page',
+  'scroll.section': 'Retour au début de la section',
+  'scroll.hint':
+    'Le premier appui revient au début de la section actuelle, le suivant en haut de la page',
   'common.retry': 'Réessayer',
   'common.cancel': 'Annuler',
   'common.done': 'Terminé',

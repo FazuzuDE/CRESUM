@@ -1,4 +1,8 @@
 export default {
+  'scroll.top': 'К началу страницы',
+  'scroll.section': 'К началу раздела',
+  'scroll.hint':
+    'Первое нажатие возвращает к началу текущего раздела, следующее — к началу страницы',
   'common.retry': 'Повторить',
   'common.cancel': 'Отмена',
   'common.done': 'Готово',

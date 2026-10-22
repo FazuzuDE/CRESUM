@@ -1,4 +1,8 @@
 export default {
+  'scroll.top': 'Zum Seitenanfang',
+  'scroll.section': 'Zum Abschnittsanfang',
+  'scroll.hint':
+    'Beim ersten Tippen zum Anfang des aktuellen Abschnitts, beim nächsten zum Seitenanfang',
   'common.retry': 'Erneut versuchen',
   'common.cancel': 'Abbrechen',
   'common.done': 'Fertig',

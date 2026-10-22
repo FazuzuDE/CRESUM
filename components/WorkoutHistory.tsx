@@ -4,7 +4,6 @@ import { HistoryFilterModal } from './HistoryFilterModal';
 import {
   defaultHistoryFilter,
   filterHistory,
-  historyFilterLabel,
   type HistoryFilter,
 } from '@/lib/history-filter';
 import { AppButton } from './AppButton';
@@ -15,13 +14,26 @@ import { completedSetCount } from '@/lib/workout-engine';
 import { volume } from '@/lib/workout-metrics';
 import { isSetComplete, type WorkoutSession } from '@/lib/workout-model';
 import { colors, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
+import { formatDate, formatEntryNumber, formatNumber } from '@/lib/i18n/format';
+import { localizedHistoryFilterLabel } from '@/lib/i18n/history';
+import type { Translate } from '@/lib/i18n/messages';
+import type { AppLocale } from '@/lib/i18n/registry';
 
 const completedAt = (workout: WorkoutSession): number =>
   workout.finishedAt ?? workout.startedAt;
 
-const workoutMetadata = (workout: WorkoutSession): string => {
+const workoutMetadata = (
+  workout: WorkoutSession,
+  t: Translate,
+  locale: AppLocale,
+): string => {
   const completed = completedSetCount(workout);
-  return `${duration(completedAt(workout) - workout.startedAt)} elapsed · ${completed} completed ${completed === 1 ? 'set' : 'sets'} · ${volume(workout).toLocaleString()} kg`;
+  return t('history.metadata', {
+    time: duration(completedAt(workout) - workout.startedAt),
+    sets: t('history.completedSets', { count: completed }),
+    volume: formatNumber(locale, volume(workout)),
+  });
 };
 
 export function WorkoutHistory({
@@ -29,6 +41,7 @@ export function WorkoutHistory({
 }: {
   history: readonly WorkoutSession[];
 }) {
+  const { t, locale } = useLocalization();
   const [selectedId, setSelectedId] = useState<string>();
   const [filter, setFilter] = useState<HistoryFilter>(() =>
     defaultHistoryFilter(Date.now()),
@@ -45,9 +58,9 @@ export function WorkoutHistory({
     return (
       <View style={s.section}>
         <View style={s.detailHeader}>
-          <Text style={s.sectionTitle}>Workout details</Text>
+          <Text style={s.sectionTitle}>{t('history.details')}</Text>
           <AppButton
-            title="Back to History"
+            title={t('history.back')}
             secondary
             onPress={() => setSelectedId(undefined)}
           />
@@ -55,9 +68,16 @@ export function WorkoutHistory({
         <GlassCard style={s.detailCard}>
           <Text style={s.detailTitle}>{selected.name}</Text>
           <Text style={s.metadata}>
-            {new Date(completedAt(selected)).toLocaleString()}
+            {formatDate(locale, completedAt(selected), {
+              year: 'numeric',
+              month: 'numeric',
+              day: 'numeric',
+              hour: 'numeric',
+              minute: 'numeric',
+              second: 'numeric',
+            })}
           </Text>
-          <Text style={s.metadata}>{workoutMetadata(selected)}</Text>
+          <Text style={s.metadata}>{workoutMetadata(selected, t, locale)}</Text>
           {selected.exercises.map((exercise) => {
             const completedSets = exercise.sets.filter(isSetComplete);
             return (
@@ -66,11 +86,22 @@ export function WorkoutHistory({
                 {completedSets.length ? (
                   completedSets.map((set, index) => (
                     <Text key={set.id} style={s.setValue}>
-                      {`Set ${index + 1} · ${set.weight} kg × ${set.reps}${set.otherSideReps === undefined ? '' : ` L / ${set.otherSideReps} R`}`}
+                      {set.otherSideReps === undefined
+                        ? t('history.set', {
+                            index: index + 1,
+                            weight: formatEntryNumber(locale, set.weight),
+                            reps: formatEntryNumber(locale, set.reps),
+                          })
+                        : t('history.bilateralSet', {
+                            index: index + 1,
+                            weight: formatEntryNumber(locale, set.weight),
+                            reps: formatEntryNumber(locale, set.reps),
+                            other: formatEntryNumber(locale, set.otherSideReps),
+                          })}
                     </Text>
                   ))
                 ) : (
-                  <Text style={s.metadata}>No completed sets</Text>
+                  <Text style={s.metadata}>{t('history.noSets')}</Text>
                 )}
               </View>
             );
@@ -82,10 +113,12 @@ export function WorkoutHistory({
 
   return (
     <View style={s.section}>
-      <Text style={s.sectionTitle}>History</Text>
+      <Text style={s.sectionTitle}>{t('history.title')}</Text>
       <AppButton
-        title={`Filter · ${historyFilterLabel(filter)}`}
-        accessibilityLabel="Filter History"
+        title={t('history.filterButton', {
+          filter: localizedHistoryFilterLabel(t, locale, filter),
+        })}
+        accessibilityLabel={t('history.filter')}
         secondary
         onPress={() => setFilterOpen(true)}
       />
@@ -95,8 +128,8 @@ export function WorkoutHistory({
           <Pressable
             key={workout.id}
             accessibilityRole="button"
-            accessibilityLabel={`Open ${workout.name} workout details`}
-            accessibilityHint="Shows the saved exercises, weights, and repetitions"
+            accessibilityLabel={t('history.open', { name: workout.name })}
+            accessibilityHint={t('history.hint')}
             onPress={() => setSelectedId(workout.id)}
             style={({ pressed }) => [s.summaryButton, pressed && s.pressed]}
           >
@@ -105,18 +138,25 @@ export function WorkoutHistory({
                 {workout.name}
               </Text>
               <Text style={s.metadata}>
-                {new Date(completedAt(workout)).toLocaleString()}
+                {formatDate(locale, completedAt(workout), {
+                  year: 'numeric',
+                  month: 'numeric',
+                  day: 'numeric',
+                  hour: 'numeric',
+                  minute: 'numeric',
+                  second: 'numeric',
+                })}
               </Text>
-              <Text style={s.metadata}>{workoutMetadata(workout)}</Text>
+              <Text style={s.metadata}>
+                {workoutMetadata(workout, t, locale)}
+              </Text>
             </GlassCard>
           </Pressable>
         ))
       ) : (
         <GlassCard>
           <Text style={s.metadata}>
-            {history.length
-              ? 'No workouts in this date range.'
-              : 'Finish your first workout to see it here.'}
+            {history.length ? t('history.noRange') : t('history.empty')}
           </Text>
         </GlassCard>
       )}

@@ -575,21 +575,6 @@
     "text": "Retry account setup"
   },
   {
-    "file": "components/AppDatePicker.tsx",
-    "line": 23,
-    "text": "Day"
-  },
-  {
-    "file": "components/AppDatePicker.tsx",
-    "line": 23,
-    "text": "Month"
-  },
-  {
-    "file": "components/AppDatePicker.tsx",
-    "line": 23,
-    "text": "Year"
-  },
-  {
     "file": "components/AppPicker.tsx",
     "line": 36,
     "text": "CresumPicker"
@@ -1083,21 +1068,6 @@
     "file": "components/CalendarMonth.tsx",
     "line": 154,
     "text": "tabular-nums"
-  },
-  {
-    "file": "components/DatePickerSheet.tsx",
-    "line": 49,
-    "text": "Done"
-  },
-  {
-    "file": "components/DatePickerSheet.tsx",
-    "line": 50,
-    "text": "Cancel"
-  },
-  {
-    "file": "components/DatePickerSheet.tsx",
-    "line": 53,
-    "text": "Clear date"
   },
   {
     "file": "components/Dock.tsx",
@@ -2285,131 +2255,6 @@
     "text": "Could not sign out. Try again."
   },
   {
-    "file": "components/HistoryCountWheel.tsx",
-    "line": 16,
-    "text": "All"
-  },
-  {
-    "file": "components/HistoryCountWheel.tsx",
-    "line": 20,
-    "text": "Number of recent workouts"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 66,
-    "text": "Back"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 69,
-    "text": "Recent workouts"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 71,
-    "text": "From date"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 72,
-    "text": "To date"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 78,
-    "text": "Cancel"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 78,
-    "text": "Back"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 84,
-    "text": "History filter"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 86,
-    "text": "From date"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 87,
-    "text": "To date"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 97,
-    "text": "Recent workouts"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 106,
-    "text": "Recent workouts"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 109,
-    "text": "All"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 110,
-    "text": "Choose number of workouts"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 118,
-    "text": "saved workouts"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 124,
-    "text": "Date range"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 133,
-    "text": "Date range"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 136,
-    "text": "`From · ${new Date(draft.from).toLocaleDateString()}`"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 144,
-    "text": "`To · ${new Date(draft.to).toLocaleDateString()}`"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 151,
-    "text": "Both dates included"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 155,
-    "text": "Choose a To date on or after the From date."
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 159,
-    "text": "Show"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 180,
-    "text": "Done"
-  },
-  {
-    "file": "components/HistoryFilterModal.tsx",
-    "line": 195,
-    "text": "Done"
-  },
-  {
     "file": "components/HistorySyncPanel.tsx",
     "line": 33,
     "text": "Cloud backup is off"
@@ -3420,21 +3265,6 @@
     "text": "Version"
   },
   {
-    "file": "components/ScrollReturnButton.tsx",
-    "line": 18,
-    "text": "Back to page top"
-  },
-  {
-    "file": "components/ScrollReturnButton.tsx",
-    "line": 18,
-    "text": "Back to section start"
-  },
-  {
-    "file": "components/ScrollReturnButton.tsx",
-    "line": 20,
-    "text": "First tap goes to the current section; the next goes to the page top"
-  },
-  {
     "file": "components/SetEntrySheet.tsx",
     "line": 60,
     "text": "wheel"
@@ -4351,82 +4181,7 @@
   },
   {
     "file": "components/WorkoutHistory.tsx",
-    "line": 24,
-    "text": "`${duration(completedAt(workout) - workout.startedAt)} elapsed · ${completed} completed ${completed === 1 ? 'set' : 'sets'} · ${volume(workout).toLocaleString()} kg`"
-  },
-  {
-    "file": "components/WorkoutHistory.tsx",
-    "line": 24,
-    "text": "set"
-  },
-  {
-    "file": "components/WorkoutHistory.tsx",
-    "line": 24,
-    "text": "sets"
-  },
-  {
-    "file": "components/WorkoutHistory.tsx",
-    "line": 48,
-    "text": "Workout details"
-  },
-  {
-    "file": "components/WorkoutHistory.tsx",
-    "line": 50,
-    "text": "Back to History"
-  },
-  {
-    "file": "components/WorkoutHistory.tsx",
-    "line": 69,
-    "text": "`Set ${index + 1} · ${set.weight} kg × ${set.reps}${set.otherSideReps === undefined ? '' : ` L / ${set.otherSideReps} R`}`"
-  },
-  {
-    "file": "components/WorkoutHistory.tsx",
-    "line": 69,
-    "text": "` L / ${set.otherSideReps} R`"
-  },
-  {
-    "file": "components/WorkoutHistory.tsx",
-    "line": 73,
-    "text": "No completed sets"
-  },
-  {
-    "file": "components/WorkoutHistory.tsx",
-    "line": 85,
-    "text": "History"
-  },
-  {
-    "file": "components/WorkoutHistory.tsx",
-    "line": 87,
-    "text": "`Filter · ${historyFilterLabel(filter)}`"
-  },
-  {
-    "file": "components/WorkoutHistory.tsx",
-    "line": 88,
-    "text": "Filter History"
-  },
-  {
-    "file": "components/WorkoutHistory.tsx",
-    "line": 98,
-    "text": "`Open ${workout.name} workout details`"
-  },
-  {
-    "file": "components/WorkoutHistory.tsx",
-    "line": 99,
-    "text": "Shows the saved exercises, weights, and repetitions"
-  },
-  {
-    "file": "components/WorkoutHistory.tsx",
-    "line": 118,
-    "text": "No workouts in this date range."
-  },
-  {
-    "file": "components/WorkoutHistory.tsx",
-    "line": 119,
-    "text": "Finish your first workout to see it here."
-  },
-  {
-    "file": "components/WorkoutHistory.tsx",
-    "line": 159,
+    "line": 199,
     "text": "tabular-nums"
   },
   {
@@ -13236,7 +12991,7 @@
   },
   {
     "file": "lib/picker-date.ts",
-    "line": 59,
+    "line": 60,
     "text": "`${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getFullYear()).padStart(4, '0')}`"
   },
   {

@@ -1,5 +1,6 @@
 import { AppPicker } from './AppPicker';
 import { changePickerDate, projectDatePicker } from '@/lib/picker-date';
+import { useLocalization } from './LocalizationProvider';
 
 export function AppDatePicker({
   value,
@@ -14,13 +15,19 @@ export function AppDatePicker({
   maximum?: number;
   flexible?: boolean;
 }) {
-  const { columns, selected } = projectDatePicker(value, minimum, maximum);
+  const { t, locale } = useLocalization();
+  const { columns, selected } = projectDatePicker(
+    value,
+    minimum,
+    maximum,
+    locale,
+  );
   return (
     <AppPicker
       flexible={flexible}
       columns={columns}
       selected={selected}
-      labels={['Day', 'Month', 'Year']}
+      labels={[t('date.day'), t('date.month'), t('date.year')]}
       onChange={(component, row) =>
         onChange(changePickerDate(value, component, row, minimum, maximum))
       }

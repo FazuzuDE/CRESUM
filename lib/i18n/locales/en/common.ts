@@ -1,4 +1,8 @@
 export default {
+  'scroll.top': 'Back to page top',
+  'scroll.section': 'Back to section start',
+  'scroll.hint':
+    'First tap goes to the current section; the next goes to the page top',
   'common.retry': 'Retry',
   'common.cancel': 'Cancel',
   'common.done': 'Done',

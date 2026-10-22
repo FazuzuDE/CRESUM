@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppDatePicker } from './AppDatePicker';
 import { AppButton } from './AppButton';
 import { colors, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
 
 /** Mount on open so Cancel/dismiss discards the entire local date draft. */
 export function DatePickerSheet({
@@ -23,6 +24,7 @@ export function DatePickerSheet({
   onConfirm: (time: number) => void;
   onClear?: () => void;
 }) {
+  const { t } = useLocalization();
   const [draft, setDraft] = useState(value);
   return (
     <Modal
@@ -46,11 +48,18 @@ export function DatePickerSheet({
             onChange={setDraft}
           />
           <ScrollView style={s.footer} contentContainerStyle={s.actions}>
-            <AppButton title="Done" onPress={() => onConfirm(draft)} />
-            <AppButton title="Cancel" secondary onPress={onCancel} />
+            <AppButton
+              title={t('common.done')}
+              onPress={() => onConfirm(draft)}
+            />
+            <AppButton
+              title={t('common.cancel')}
+              secondary
+              onPress={onCancel}
+            />
             {onClear ? (
               <AppButton
-                title="Clear date"
+                title={t('date.clear')}
                 presentation="text"
                 secondary
                 onPress={onClear}

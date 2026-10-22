@@ -15,6 +15,8 @@ import { HistoryCountWheel } from './HistoryCountWheel';
 import { HistoryDatePicker } from './HistoryDatePicker';
 import { type HistoryFilter, validHistoryRange } from '@/lib/history-filter';
 import { colors, radius, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
+import { formatDate, formatNumber } from '@/lib/i18n/format';
 
 export function HistoryFilterModal({
   initial,
@@ -27,6 +29,7 @@ export function HistoryFilterModal({
   onApply: (filter: HistoryFilter) => void;
   onClose: () => void;
 }) {
+  const { t, locale } = useLocalization();
   const [draft, setDraft] = useState(initial);
   const [pane, setPane] = useState<'filter' | 'count' | 'from' | 'to'>(
     'filter',
@@ -63,28 +66,30 @@ export function HistoryFilterModal({
               style={s.wheelHeader}
               contentContainerStyle={s.headerContent}
             >
-              <AppButton title="Back" secondary onPress={back} />
+              <AppButton title={t('filter.back')} secondary onPress={back} />
               <Text accessibilityRole="header" style={s.title}>
                 {pane === 'count'
-                  ? 'Recent workouts'
+                  ? t('filter.recent')
                   : pane === 'from'
-                    ? 'From date'
-                    : 'To date'}
+                    ? t('filter.fromDate')
+                    : t('filter.toDate')}
               </Text>
             </ScrollView>
           ) : (
             <View style={s.headerContent}>
               <AppButton
-                title={pane === 'filter' ? 'Cancel' : 'Back'}
+                title={
+                  pane === 'filter' ? t('common.cancel') : t('filter.back')
+                }
                 secondary
                 onPress={back}
               />
               <Text accessibilityRole="header" style={s.title}>
                 {pane === 'filter'
-                  ? 'History filter'
+                  ? t('filter.title')
                   : pane === 'from'
-                    ? 'From date'
-                    : 'To date'}
+                    ? t('filter.fromDate')
+                    : t('filter.toDate')}
               </Text>
             </View>
           )}
@@ -94,7 +99,7 @@ export function HistoryFilterModal({
                 <Pressable
                   accessibilityRole="radio"
                   accessibilityState={{ checked: draft.mode === 'count' }}
-                  accessibilityLabel="Recent workouts"
+                  accessibilityLabel={t('filter.recent')}
                   onPress={() => selectMode('count')}
                   style={s.mode}
                 >
@@ -103,11 +108,17 @@ export function HistoryFilterModal({
                       {draft.mode === 'count' ? '✓' : ''}
                     </Text>
                   </View>
-                  <Text style={s.label}>Recent workouts</Text>
+                  <Text style={s.label}>{t('filter.recent')}</Text>
                 </Pressable>
                 <AppButton
-                  title={draft.count === 0 ? 'All' : String(draft.count)}
-                  accessibilityLabel="Choose number of workouts"
+                  title={
+                    draft.count === 0
+                      ? t('filter.all')
+                      : formatNumber(locale, draft.count, {
+                          useGrouping: false,
+                        })
+                  }
+                  accessibilityLabel={t('filter.chooseCount')}
                   secondary
                   onPress={() => {
                     selectMode('count');
@@ -115,13 +126,15 @@ export function HistoryFilterModal({
                     setPane('count');
                   }}
                 />
-                <Text style={s.context}>{maximum} saved workouts</Text>
+                <Text style={s.context}>
+                  {t('filter.saved', { count: maximum })}
+                </Text>
               </GlassCard>
               <GlassCard style={s.option}>
                 <Pressable
                   accessibilityRole="radio"
                   accessibilityState={{ checked: draft.mode === 'range' }}
-                  accessibilityLabel="Date range"
+                  accessibilityLabel={t('filter.range')}
                   onPress={() => selectMode('range')}
                   style={s.mode}
                 >
@@ -130,10 +143,12 @@ export function HistoryFilterModal({
                       {draft.mode === 'range' ? '✓' : ''}
                     </Text>
                   </View>
-                  <Text style={s.label}>Date range</Text>
+                  <Text style={s.label}>{t('filter.range')}</Text>
                 </Pressable>
                 <AppButton
-                  title={`From · ${new Date(draft.from).toLocaleDateString()}`}
+                  title={t('filter.from', {
+                    date: formatDate(locale, draft.from),
+                  })}
                   secondary
                   onPress={() => {
                     selectMode('range');
@@ -141,22 +156,22 @@ export function HistoryFilterModal({
                   }}
                 />
                 <AppButton
-                  title={`To · ${new Date(draft.to).toLocaleDateString()}`}
+                  title={t('filter.to', { date: formatDate(locale, draft.to) })}
                   secondary
                   onPress={() => {
                     selectMode('range');
                     openDate('to');
                   }}
                 />
-                <Text style={s.context}>Both dates included</Text>
+                <Text style={s.context}>{t('filter.inclusive')}</Text>
               </GlassCard>
               {draft.mode === 'range' && !datesValid && (
                 <Text accessibilityRole="alert" style={s.error}>
-                  Choose a To date on or after the From date.
+                  {t('filter.invalid')}
                 </Text>
               )}
               <AppButton
-                title="Show"
+                title={t('filter.show')}
                 disabled={draft.mode === 'range' && !datesValid}
                 onPress={() =>
                   onApply({
@@ -177,7 +192,7 @@ export function HistoryFilterModal({
                 onChange={setCountDraft}
               />
               <AppButton
-                title="Done"
+                title={t('common.done')}
                 onPress={() => {
                   setDraft({ ...draft, count: countDraft });
                   setPane('filter');
@@ -192,7 +207,7 @@ export function HistoryFilterModal({
                 onChange={setDateDraft}
               />
               <AppButton
-                title="Done"
+                title={t('common.done')}
                 onPress={() => {
                   setDraft({ ...draft, [pane]: dateDraft });
                   setPane('filter');
