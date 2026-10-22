@@ -1,10 +1,13 @@
+import { useLocalization } from './LocalizationProvider';
 import type { AuthRepository } from '@/lib/auth-repository';
 import { HistorySyncPanel, type HistorySyncControls } from './HistorySyncPanel';
 import { useRef, useState } from 'react';
 import { StyleSheet, Text, TextInput } from 'react-native';
 import { AppButton } from './AppButton';
 import { GlassCard } from './GlassCard';
-import { AuthActionError, type AuthSnapshot } from '@/lib/auth-store';
+import { type AuthSnapshot } from '@/lib/auth-store';
+import { presentAppError } from '@/lib/i18n/errors';
+import { AppError } from '@/lib/app-error';
 import { colors, radius, spacing, typography } from '@/lib/theme';
 import { AccountDeletionSection } from './AccountDeletionSection';
 
@@ -42,12 +45,18 @@ function AccountSectionContent({
   deleteAccount,
   retryAccount,
 }: AccountSectionProps) {
+  const { t } = useLocalization();
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
   const [phase, setPhase] = useState<'email' | 'code'>('email');
   const [localBusy, setLocalBusy] = useState(false);
-  const [message, setMessage] = useState('');
-  const [localError, setLocalError] = useState('');
+  const [message, setMessage] = useState<
+    'account.resent' | 'account.sent' | ''
+  >('');
+  const [localError, setLocalError] = useState<{
+    problem: unknown;
+    fallback: 'error.authSend' | 'error.authGeneric' | 'error.authSignOut';
+  }>();
   const inFlight = useRef(false);
   const busy = localBusy || snapshot.busy !== null;
   const deletionPending =
@@ -58,23 +67,15 @@ function AccountSectionContent({
     if (!snapshot.configured || !validEmail || busy || inFlight.current) return;
     inFlight.current = true;
     setLocalBusy(true);
-    setLocalError('');
+    setLocalError(undefined);
     setMessage('');
     try {
       await sendEmailOtp(email.trim());
       setPhase('code');
       setCode('');
-      setMessage(
-        resend
-          ? 'A new code was sent.'
-          : 'Enter the six-digit code from your email.',
-      );
+      setMessage(resend ? 'account.resent' : 'account.sent');
     } catch (error) {
-      setLocalError(
-        error instanceof AuthActionError
-          ? error.message
-          : 'Could not send the code. Try again.',
-      );
+      setLocalError({ problem: error, fallback: 'error.authSend' });
     } finally {
       inFlight.current = false;
       setLocalBusy(false);
@@ -84,16 +85,12 @@ function AccountSectionContent({
     if (code.length !== 6 || busy || inFlight.current) return;
     inFlight.current = true;
     setLocalBusy(true);
-    setLocalError('');
+    setLocalError(undefined);
     try {
       await verifyEmailOtp(email.trim(), code);
       setCode('');
     } catch (error) {
-      setLocalError(
-        error instanceof AuthActionError
-          ? error.message
-          : 'Could not verify code. Try again or resend it.',
-      );
+      setLocalError({ problem: error, fallback: 'error.authGeneric' });
     } finally {
       inFlight.current = false;
       setLocalBusy(false);
@@ -103,17 +100,13 @@ function AccountSectionContent({
     if (busy || inFlight.current) return;
     inFlight.current = true;
     setLocalBusy(true);
-    setLocalError('');
+    setLocalError(undefined);
     try {
       await signOut();
       setPhase('email');
       setCode('');
     } catch (error) {
-      setLocalError(
-        error instanceof AuthActionError
-          ? error.message
-          : 'Could not sign out. Try again.',
-      );
+      setLocalError({ problem: error, fallback: 'error.authSignOut' });
     } finally {
       inFlight.current = false;
       setLocalBusy(false);
@@ -123,25 +116,25 @@ function AccountSectionContent({
   return (
     <GlassCard style={s.card}>
       <Text style={s.title} accessibilityRole="header">
-        CRESUM Account
+        {t('account.cresum')}
       </Text>
       {snapshot.status === 'initializing' ? (
-        <Text style={s.copy}>
-          Checking account session… Local workouts remain available.
-        </Text>
+        <Text style={s.copy}>{t('account.checking')}</Text>
       ) : null}
       {snapshot.status === 'signed_in' ? (
         <>
           <Text style={s.copy}>
-            Connected as {snapshot.identity?.email ?? 'CRESUM user'}
+            {t('account.connected', {
+              identity: snapshot.identity?.email ?? t('account.user'),
+            })}
           </Text>
           {sync && !deletionPending && snapshot.busy !== 'delete' ? (
             <HistorySyncPanel {...sync} />
           ) : !sync ? (
-            <Text style={s.copy}>Cloud workout backup is not enabled yet.</Text>
+            <Text style={s.copy}>{t('account.noCloud')}</Text>
           ) : null}
           <AppButton
-            title="Sign Out"
+            title={t('account.signOut')}
             secondary
             disabled={busy}
             onPress={() => void disconnect()}
@@ -149,16 +142,14 @@ function AccountSectionContent({
         </>
       ) : (
         <>
-          <Text style={s.copy}>
-            An account is optional. Your workouts stay available offline.
-          </Text>
+          <Text style={s.copy}>{t('account.optional')}</Text>
           {!snapshot.configured && snapshot.status !== 'initializing' ? (
-            <Text style={s.copy}>Email sign-in isn’t available yet.</Text>
+            <Text style={s.copy}>{t('account.unavailable')}</Text>
           ) : null}
           {snapshot.configured ? (
             <>
               <TextInput
-                accessibilityLabel="Email address"
+                accessibilityLabel={t('account.email')}
                 autoCapitalize="none"
                 autoCorrect={false}
                 keyboardType="email-address"
@@ -168,25 +159,25 @@ function AccountSectionContent({
                 onChangeText={(value) => {
                   setEmail(value);
                   setCode('');
-                  setLocalError('');
+                  setLocalError(undefined);
                 }}
-                placeholder="Email address"
+                placeholder={t('account.email')}
                 placeholderTextColor={colors.textSecondary}
                 style={s.input}
               />
               {phase === 'email' ? (
                 <AppButton
-                  title="Send code"
+                  title={t('account.send')}
                   disabled={!validEmail || busy}
                   onPress={() => void send(false)}
                 />
               ) : (
                 <>
                   <Text style={s.copy}>
-                    Enter the six-digit code sent to {email.trim()}.
+                    {t('account.codePrompt', { email: email.trim() })}
                   </Text>
                   <TextInput
-                    accessibilityLabel="Six-digit email code"
+                    accessibilityLabel={t('account.codeLabel')}
                     keyboardType="number-pad"
                     textContentType="oneTimeCode"
                     autoComplete="one-time-code"
@@ -195,25 +186,25 @@ function AccountSectionContent({
                     value={code}
                     onChangeText={(value) => {
                       setCode(value.replace(/\D/g, '').slice(0, 6));
-                      setLocalError('');
+                      setLocalError(undefined);
                     }}
-                    placeholder="6-digit code"
+                    placeholder={t('account.codePlaceholder')}
                     placeholderTextColor={colors.textSecondary}
                     style={s.input}
                   />
                   <AppButton
-                    title="Verify code"
+                    title={t('account.verify')}
                     disabled={code.length !== 6 || busy}
                     onPress={() => void verify()}
                   />
                   <AppButton
-                    title="Resend code"
+                    title={t('account.resend')}
                     secondary
                     disabled={busy}
                     onPress={() => void send(true)}
                   />
                   <AppButton
-                    title="Change email"
+                    title={t('account.changeEmail')}
                     secondary
                     disabled={busy}
                     onPress={() => {
@@ -226,15 +217,15 @@ function AccountSectionContent({
               )}
             </>
           ) : null}
-          <Text style={s.copy}>Coming later</Text>
+          <Text style={s.copy}>{t('account.later')}</Text>
           <AppButton
-            title="Continue with Apple"
+            title={t('account.apple')}
             secondary
             disabled
             onPress={() => {}}
           />
           <AppButton
-            title="Continue with Google"
+            title={t('account.google')}
             secondary
             disabled
             onPress={() => {}}
@@ -250,24 +241,32 @@ function AccountSectionContent({
       />
       {snapshot.notice ? (
         <Text style={s.copy} accessibilityRole="alert">
-          {snapshot.notice}
+          {t('account.deleted')}
         </Text>
       ) : null}
       {snapshot.status === 'error' && retryAccount ? (
         <AppButton
-          title="Retry account setup"
+          title={t('account.retry')}
           disabled={busy}
           onPress={() => void retryAccount()}
         />
       ) : null}
       {message ? (
         <Text accessibilityRole="alert" style={s.copy}>
-          {message}
+          {t(message)}
         </Text>
       ) : null}
       {localError || snapshot.error ? (
         <Text accessibilityRole="alert" style={s.error}>
-          {localError || snapshot.error}
+          {localError
+            ? presentAppError(t, localError.problem, localError.fallback)
+            : presentAppError(
+                t,
+                snapshot.errorCode
+                  ? new AppError(snapshot.errorCode, snapshot.error ?? '')
+                  : undefined,
+                'error.authGeneric',
+              )}
         </Text>
       ) : null}
     </GlassCard>

@@ -1,3 +1,4 @@
+import { useLocalization } from './LocalizationProvider';
 import { AccountPage } from './AccountPage';
 import type { AccountSectionProps } from './AccountSection';
 import { Ionicons } from '@expo/vector-icons';
@@ -18,6 +19,7 @@ import type { WorkoutTemplate, WorkoutSession } from '@/lib/workout-model';
 import type { TemplateMutationResult } from '@/lib/workout-store';
 import type { TemplateDraft } from '@/lib/workout-templates';
 import { colors, radius, spacing, typography } from '@/lib/theme';
+import { catalogLabel } from '@/lib/i18n/catalog';
 
 export type ProfileSettingsProps = {
   templates: WorkoutTemplate[];
@@ -63,6 +65,7 @@ export function ProfileSettings({
   backup,
   account,
 }: ProfileSettingsProps) {
+  const { t, locale } = useLocalization();
   const [accountOpen, setAccountOpen] = useState(false);
   const [backupOpen, setBackupOpen] = useState(false);
   const [libraryOpen, setLibraryOpen] = useState(false);
@@ -94,7 +97,7 @@ export function ProfileSettings({
       <AppScrollView contentContainerStyle={s.content}>
         <BrandHeader />
         <AppButton
-          title="Back to Profile"
+          title={t('profile.back')}
           disabled={workoutEditing || busy}
           secondary
           presentation="text"
@@ -104,9 +107,9 @@ export function ProfileSettings({
           style={[s.title, { letterSpacing: 4 }]}
           accessibilityRole="header"
         >
-          WORKOUTS
+          {t('profile.workouts')}
         </Text>
-        <Text style={s.subtitle}>Your saved training routines</Text>
+        <Text style={s.subtitle}>{t('profile.routines')}</Text>
         <View style={s.section}>
           <WorkoutTemplates
             showHeading={false}
@@ -126,17 +129,31 @@ export function ProfileSettings({
         {hiddenBuiltInIds.length ? (
           <GlassCard style={s.card}>
             <Text style={s.sectionTitle} accessibilityRole="header">
-              Hidden workouts
+              {t('profile.hidden')}
             </Text>
-            <Text style={s.sub}>Restore a workout to your list.</Text>
+            <Text style={s.sub}>{t('profile.restoreHint')}</Text>
             {defaultTemplates
               .filter((template) => hiddenBuiltInIds.includes(template.id))
               .map((template) => (
                 <View key={template.id} style={s.restoreRow}>
-                  <Text style={s.restoreName}>{template.name}</Text>
+                  <Text style={s.restoreName}>
+                    {catalogLabel(
+                      locale,
+                      'template',
+                      template.id,
+                      template.name,
+                    )}
+                  </Text>
                   <AppButton
-                    title="Restore"
-                    accessibilityLabel={`Restore ${template.name}`}
+                    title={t('profile.restore')}
+                    accessibilityLabel={t('profile.restoreLabel', {
+                      name: catalogLabel(
+                        locale,
+                        'template',
+                        template.id,
+                        template.name,
+                      ),
+                    })}
                     presentation="text"
                     disabled={busy || !restoreBuiltIn}
                     onPress={() => void restoreBuiltIn?.(template.id)}
@@ -147,7 +164,7 @@ export function ProfileSettings({
         ) : null}
         {hiddenError ? (
           <Text accessibilityRole="alert" style={s.error}>
-            {hiddenError}
+            {t('error.hiddenWorkouts')}
           </Text>
         ) : null}
       </AppScrollView>
@@ -158,9 +175,9 @@ export function ProfileSettings({
         <BrandHeader />
         <View style={s.heading}>
           <Text style={s.title} accessibilityRole="header">
-            Profile
+            {t('profile.title')}
           </Text>
-          <Text style={s.subtitle}>Your workouts and app details</Text>
+          <Text style={s.subtitle}>{t('profile.subtitle')}</Text>
         </View>
       </View>
 
@@ -175,13 +192,15 @@ export function ProfileSettings({
           </View>
           <View style={s.menuCopy}>
             <AppButton
-              title="WORKOUTS"
+              title={t('profile.workouts')}
               wordmark
               secondary
               presentation="row"
               onPress={() => setWorkoutsOpen(true)}
             />
-            <Text style={s.sub}>{templates.length} saved workouts</Text>
+            <Text style={s.sub}>
+              {t('profile.saved', { count: templates.length })}
+            </Text>
           </View>
         </View>
         <View style={s.menuSeparator} />
@@ -195,13 +214,15 @@ export function ProfileSettings({
           </View>
           <View style={s.menuCopy}>
             <AppButton
-              title="EXERCISE LIBRARY"
+              title={t('profile.library')}
               wordmark
               secondary
               presentation="row"
               onPress={() => setLibraryOpen(true)}
             />
-            <Text style={s.sub}>{exerciseLibrary.length} exercises</Text>
+            <Text style={s.sub}>
+              {t('profile.exercises', { count: exerciseLibrary.length })}
+            </Text>
           </View>
         </View>
         {onPersonalize ? (
@@ -217,12 +238,12 @@ export function ProfileSettings({
               </View>
               <View style={s.menuCopy}>
                 <AppButton
-                  title="Personalization"
+                  title={t('profile.personalize')}
                   secondary
                   presentation="row"
                   onPress={onPersonalize}
                 />
-                <Text style={s.sub}>Training preferences</Text>
+                <Text style={s.sub}>{t('profile.preferences')}</Text>
               </View>
             </View>
           </>
@@ -240,12 +261,12 @@ export function ProfileSettings({
             </View>
             <View style={s.menuCopy}>
               <AppButton
-                title="Backup & restore"
+                title={t('backup.title')}
                 secondary
                 presentation="row"
                 onPress={() => setBackupOpen(true)}
               />
-              <Text style={s.sub}>Files, history and backup schedule</Text>
+              <Text style={s.sub}>{t('profile.backupHint')}</Text>
             </View>
           </View>
         </GlassCard>
@@ -262,15 +283,15 @@ export function ProfileSettings({
             </View>
             <View style={s.menuCopy}>
               <AppButton
-                title="Account"
+                title={t('account.title')}
                 secondary
                 presentation="row"
                 onPress={() => setAccountOpen(true)}
               />
               <Text style={s.sub}>
                 {account.snapshot.status === 'signed_in'
-                  ? 'Account connected'
-                  : 'Optional email sign-in'}
+                  ? t('profile.connected')
+                  : t('profile.optionalEmail')}
               </Text>
             </View>
           </View>
@@ -281,14 +302,12 @@ export function ProfileSettings({
       </GlassCard>
       <GlassCard style={s.card}>
         <Text style={s.sectionTitle} accessibilityRole="header">
-          Local data
+          {t('profile.localData')}
         </Text>
-        <Text style={s.sub}>
-          Remove workouts and personal settings saved on this device.
-        </Text>
+        <Text style={s.sub}>{t('profile.removeHint')}</Text>
         {onResetLocalData ? (
           <AppButton
-            title="Reset local data"
+            title={t('profile.reset')}
             destructive
             presentation="text"
             disabled={busy}
@@ -299,8 +318,10 @@ export function ProfileSettings({
 
       <GlassCard style={s.card}>
         <Text style={s.aboutTitle}>CRESUM</Text>
-        <Text style={s.sub}>About the app</Text>
-        {version ? <Text style={s.sub}>Version {version}</Text> : null}
+        <Text style={s.sub}>{t('profile.about')}</Text>
+        {version ? (
+          <Text style={s.sub}>{t('profile.version', { version })}</Text>
+        ) : null}
       </GlassCard>
     </AppScrollView>
   );

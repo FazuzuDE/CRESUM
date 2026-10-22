@@ -1,3 +1,7 @@
+import frProfile from './locales/fr/profile';
+import deProfile from './locales/de/profile';
+import ruProfile from './locales/ru/profile';
+import enProfile from './locales/en/profile';
 import enCommon from './locales/en/common';
 import enProgress from './locales/en/progress';
 import ruProgress from './locales/ru/progress';
@@ -43,6 +47,7 @@ import ruTechniqueContent from './locales/ru/technique-content';
 import deTechniqueContent from './locales/de/technique-content';
 import frTechniqueContent from './locales/fr/technique-content';
 const en = {
+  ...enProfile,
   ...enProgress,
   ...enCommon,
   ...enCatalog,
@@ -56,6 +61,7 @@ const en = {
   ...enTechniqueContent,
 } as const;
 const ru = {
+  ...ruProfile,
   ...ruProgress,
   ...ruCommon,
   ...ruCatalog,
@@ -69,6 +75,7 @@ const ru = {
   ...ruTechniqueContent,
 } as const;
 const de = {
+  ...deProfile,
   ...deProgress,
   ...deCommon,
   ...deCatalog,
@@ -82,6 +89,7 @@ const de = {
   ...deTechniqueContent,
 } as const;
 const fr = {
+  ...frProfile,
   ...frProgress,
   ...frCommon,
   ...frCatalog,

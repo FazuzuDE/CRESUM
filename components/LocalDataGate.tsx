@@ -5,10 +5,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { recoverLocalRestore } from '@/lib/local-backup';
 import { colors, spacing, typography } from '@/lib/theme';
 import { AppButton } from './AppButton';
+import { useLocalization } from './LocalizationProvider';
+import { presentAppError } from '@/lib/i18n/errors';
+import type { Translate } from '@/lib/i18n/messages';
 
 export type RunDataOperation = (
   work: (allowReloadAfterRecovery: () => void) => Promise<string>,
   returnToProfile: boolean,
+  presentNotice?: (t: Translate) => string,
 ) => void;
 export function LocalDataGate({
   children,
@@ -19,10 +23,23 @@ export function LocalDataGate({
     profile: boolean,
   ) => ReactNode;
 }) {
+  const { t } = useLocalization();
   const [phase, setPhase] = useState<
     'recovering' | 'ready' | 'working' | 'blocked'
   >('recovering');
   const [notice, setNotice] = useState('');
+  const [problem, setProblem] = useState<{ error: unknown }>();
+  const [noticePresenter, setNoticePresenter] =
+    useState<(t: Translate) => string>();
+  const shownNotice = problem
+    ? presentAppError(
+        t,
+        problem.error,
+        phase === 'blocked' ? 'error.localRecovery' : 'error.localOperation',
+      )
+    : notice && noticePresenter
+      ? noticePresenter(t)
+      : notice;
   const [profile, setProfile] = useState(false);
   const running = useRef(false);
   const reloadAfterRecovery = useRef(false);
@@ -40,7 +57,7 @@ export function LocalDataGate({
       setLoaded(true);
       setPhase('ready');
     } catch (problem) {
-      setNotice((problem as Error).message);
+      setProblem({ error: problem });
       setPhase('blocked');
     } finally {
       running.current = false;
@@ -59,7 +76,7 @@ export function LocalDataGate({
         },
         (problem) => {
           if (mounted) {
-            setNotice(problem.message);
+            setProblem({ error: problem });
             setPhase('blocked');
           }
         },
@@ -71,10 +88,12 @@ export function LocalDataGate({
       mounted = false;
     };
   }, []);
-  const run: RunDataOperation = (work, returnToProfile) => {
+  const run: RunDataOperation = (work, returnToProfile, presentNotice) => {
     if (running.current) return;
     running.current = true;
     setPhase('working');
+    setProblem(undefined);
+    setNoticePresenter(() => presentNotice);
     void (async () => {
       try {
         setNotice(
@@ -87,11 +106,7 @@ export function LocalDataGate({
         if (!returnToProfile) setGeneration((v) => v + 1);
         setPhase('ready');
       } catch (problem) {
-        setNotice(
-          problem instanceof Error
-            ? problem.message
-            : 'Local data operation failed. Try again.',
-        );
+        setProblem({ error: problem });
         setProfile(true);
         try {
           await recoverLocalRestore(AsyncStorage);
@@ -101,7 +116,7 @@ export function LocalDataGate({
           }
           setPhase('ready');
         } catch (recoveryError) {
-          setNotice((recoveryError as Error).message);
+          setProblem({ error: recoveryError });
           setPhase('blocked');
         }
       } finally {
@@ -123,7 +138,7 @@ export function LocalDataGate({
         >
           {/* The render callback only passes this handler to event props. */}
           {/* eslint-disable-next-line react-hooks/refs */}
-          {children(run, notice, profile)}
+          {children(run, shownNotice, profile)}
         </View>
       ) : null}
       {phase !== 'ready' ? (
@@ -131,10 +146,10 @@ export function LocalDataGate({
           {phase === 'blocked' ? (
             <>
               <Text accessibilityRole="alert" style={s.text}>
-                {notice}
+                {shownNotice}
               </Text>
               <AppButton
-                title="Retry recovery"
+                title={t('recovery.retry')}
                 onPress={() => {
                   setPhase('recovering');
                   void recover();
@@ -146,8 +161,8 @@ export function LocalDataGate({
               <ActivityIndicator />
               <Text style={s.text}>
                 {phase === 'working'
-                  ? 'Preparing local data…'
-                  : 'Checking local data…'}
+                  ? t('recovery.preparing')
+                  : t('recovery.checking')}
               </Text>
             </>
           )}

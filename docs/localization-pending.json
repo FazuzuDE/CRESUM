@@ -1,443 +1,188 @@
 [
   {
     "file": "app/index.tsx",
-    "line": 336,
+    "line": 337,
     "text": "profile"
   },
   {
     "file": "app/index.tsx",
-    "line": 336,
+    "line": 337,
     "text": "home"
   },
   {
     "file": "app/index.tsx",
-    "line": 476,
+    "line": 477,
     "text": "Hidden workout settings are unavailable. All built-ins remain visible."
   },
   {
     "file": "app/index.tsx",
-    "line": 537,
+    "line": 538,
     "text": "Reset in progress."
   },
   {
     "file": "app/index.tsx",
-    "line": 584,
+    "line": 585,
     "text": "Program recovery is pending. Your workouts remain available."
   },
   {
     "file": "app/index.tsx",
-    "line": 593,
+    "line": 594,
     "text": "Program recovery is pending. Your workouts remain available."
   },
   {
     "file": "app/index.tsx",
-    "line": 607,
+    "line": 608,
     "text": "Onboarding progress could not be saved. Retry before closing the app."
   },
   {
     "file": "app/index.tsx",
-    "line": 620,
+    "line": 621,
     "text": "Program saving is pending. Retry START!"
   },
   {
     "file": "app/index.tsx",
-    "line": 645,
+    "line": 646,
     "text": "Your workout was saved. Onboarding status could not be saved."
   },
   {
     "file": "app/index.tsx",
-    "line": 702,
+    "line": 703,
     "text": "Hidden workout settings could not be saved. Try again."
   },
   {
     "file": "app/index.tsx",
-    "line": 751,
+    "line": 755,
     "text": "Save or retry your workout changes before using backup and restore."
   },
   {
     "file": "app/index.tsx",
-    "line": 775,
+    "line": 782,
     "text": "No usable saved copy is available."
   },
   {
     "file": "app/index.tsx",
-    "line": 777,
+    "line": 785,
     "text": "Saved local copy opened for export. Choose a destination to keep it outside this app."
   },
   {
     "file": "app/index.tsx",
-    "line": 783,
+    "line": 792,
     "text": "`${count} workouts imported. Existing history was kept.`"
   },
   {
     "file": "app/index.tsx",
-    "line": 786,
+    "line": 795,
     "text": "Backup restored. Local data was replaced with your selected copy."
   },
   {
     "file": "app/index.tsx",
-    "line": 789,
+    "line": 798,
     "text": "Backup sharing finished. A copy is kept only if you chose a save destination."
   },
   {
     "file": "app/index.tsx",
-    "line": 904,
+    "line": 923,
     "text": "Saved body weight is unavailable."
   },
   {
     "file": "app/index.tsx",
-    "line": 910,
-    "text": "Local data could not be reset. Try again."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 928,
-    "text": "Reset CRESUM?"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 929,
-    "text": "All local CRESUM data on this device — workouts, history, templates, active workout, body-weight measurements, hidden-workout settings, personalization and onboarding data — will be permanently deleted. Saved backup files and backup account links are kept; automatic backups will be switched off. Cloud history is not deleted; cloud backup will pause until you choose Resume. This does not sign you out. This cannot be undone."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 930,
-    "text": "Reset local data"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 931,
-    "text": "Keep data"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 934,
-    "text": "Resetting…"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 1000,
+    "line": 1019,
     "text": "Retry saving or loading"
   },
   {
     "file": "app/index.tsx",
-    "line": 1050,
+    "line": 1069,
     "text": "Onboarding progress could not be saved. Retry before closing the app."
   },
   {
     "file": "app/index.tsx",
-    "line": 1064,
+    "line": 1083,
     "text": "edit"
   },
   {
     "file": "app/index.tsx",
-    "line": 1064,
+    "line": 1083,
     "text": "first-run"
   },
   {
     "file": "app/index.tsx",
-    "line": 1071,
+    "line": 1090,
     "text": "welcome"
   },
   {
     "file": "app/index.tsx",
-    "line": 1084,
+    "line": 1103,
     "text": "profile"
   },
   {
     "file": "app/index.tsx",
-    "line": 1084,
+    "line": 1103,
     "text": "home"
   },
   {
     "file": "app/index.tsx",
-    "line": 1154,
+    "line": 1173,
     "text": "Reset in progress."
   },
   {
     "file": "app/index.tsx",
-    "line": 1201,
+    "line": 1220,
     "text": "auto"
   },
   {
     "file": "app/index.tsx",
-    "line": 1201,
+    "line": 1220,
     "text": "none"
   },
   {
     "file": "app/index.tsx",
-    "line": 1204,
+    "line": 1223,
     "text": "auto"
   },
   {
     "file": "app/index.tsx",
-    "line": 1204,
+    "line": 1223,
     "text": "no-hide-descendants"
   },
   {
     "file": "app/index.tsx",
-    "line": 1216,
+    "line": 1235,
     "text": "Finish the current data operation first."
   },
   {
     "file": "app/index.tsx",
-    "line": 1391,
+    "line": 1410,
     "text": "tabular-nums"
   },
   {
     "file": "components/AccountDeletionSection.tsx",
-    "line": 33,
+    "line": 35,
     "text": "DELETE"
   },
   {
     "file": "components/AccountDeletionSection.tsx",
-    "line": 47,
-    "text": "Account deletion is not confirmed. Cloud backup stays paused. Your local workouts are kept."
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 60,
-    "text": "Account deletion was confirmed. Local session cleanup is incomplete. Your local workouts are kept."
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 64,
-    "text": "Cleaning up…"
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 64,
-    "text": "Retry session cleanup"
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 73,
-    "text": "Account deletion is not confirmed. Cloud backup stays paused. Sign in to the same account to retry, or keep using your local workouts."
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 81,
-    "text": "Delete"
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 81,
-    "text": "this account"
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 84,
-    "text": "Your account and cloud workout history will be permanently deleted. Your local workouts, routines and saved backup files stay on this device."
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 89,
-    "text": "Exported files, other devices’ local copies and provider backups are not erased by this action."
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 94,
-    "text": "Type DELETE to confirm account deletion"
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 97,
-    "text": "Type DELETE"
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 105,
-    "text": "Deleting account…"
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 105,
-    "text": "Permanently delete account"
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 108,
+    "line": 92,
     "text": "DELETE"
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 112,
-    "text": "Keep account"
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 125,
-    "text": "Retry account deletion"
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 125,
-    "text": "Delete account"
-  },
-  {
-    "file": "components/AccountDeletionSection.tsx",
-    "line": 138,
-    "text": "Account deletion is not available yet in this build."
-  },
-  {
-    "file": "components/AccountPage.tsx",
-    "line": 46,
-    "text": "Back to Account & Sync"
-  },
-  {
-    "file": "components/AccountPage.tsx",
-    "line": 46,
-    "text": "Back to Profile"
-  },
-  {
-    "file": "components/AccountPage.tsx",
-    "line": 52,
-    "text": "Account & Sync"
-  },
-  {
-    "file": "components/AccountPage.tsx",
-    "line": 52,
-    "text": "Account"
   },
   {
     "file": "components/AccountSection.tsx",
-    "line": 29,
+    "line": 32,
     "text": "signed-in"
   },
   {
     "file": "components/AccountSection.tsx",
-    "line": 29,
+    "line": 32,
     "text": "signed-out"
   },
   {
     "file": "components/AccountSection.tsx",
-    "line": 69,
-    "text": "A new code was sent."
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 70,
-    "text": "Enter the six-digit code from your email."
+    "line": 76,
+    "text": "account.resent"
   },
   {
     "file": "components/AccountSection.tsx",
     "line": 76,
-    "text": "Could not send the code. Try again."
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 95,
-    "text": "Could not verify code. Try again or resend it."
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 115,
-    "text": "Could not sign out. Try again."
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 126,
-    "text": "CRESUM Account"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 130,
-    "text": "Checking account session… Local workouts remain available."
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 136,
-    "text": "Connected as"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 136,
-    "text": "CRESUM user"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 141,
-    "text": "Cloud workout backup is not enabled yet."
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 144,
-    "text": "Sign Out"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 153,
-    "text": "An account is optional. Your workouts stay available offline."
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 156,
-    "text": "Email sign-in isn’t available yet."
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 161,
-    "text": "Email address"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 173,
-    "text": "Email address"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 179,
-    "text": "Send code"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 186,
-    "text": "Enter the six-digit code sent to"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 189,
-    "text": "Six-digit email code"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 200,
-    "text": "6-digit code"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 205,
-    "text": "Verify code"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 210,
-    "text": "Resend code"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 216,
-    "text": "Change email"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 229,
-    "text": "Coming later"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 231,
-    "text": "Continue with Apple"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 237,
-    "text": "Continue with Google"
-  },
-  {
-    "file": "components/AccountSection.tsx",
-    "line": 258,
-    "text": "Retry account setup"
+    "text": "account.sent"
   },
   {
     "file": "components/AppPicker.tsx",
@@ -465,304 +210,29 @@
     "text": "tabular-nums"
   },
   {
-    "file": "components/BackupControls.tsx",
-    "line": 36,
-    "text": "Backup could not be opened. Try again."
-  },
-  {
-    "file": "components/BackupControls.tsx",
-    "line": 47,
-    "text": "Backup & restore"
-  },
-  {
-    "file": "components/BackupControls.tsx",
-    "line": 50,
-    "text": "Keep a file copy of your workouts, active session, programs, profile and body-weight measurements. The file contains personal data and is not encrypted."
-  },
-  {
-    "file": "components/BackupControls.tsx",
-    "line": 55,
-    "text": "Export backup"
-  },
-  {
-    "file": "components/BackupControls.tsx",
-    "line": 61,
-    "text": "Choose Save to Files or another destination in the share sheet to keep the copy."
-  },
-  {
-    "file": "components/BackupControls.tsx",
-    "line": 65,
-    "text": "Checking backup…"
-  },
-  {
-    "file": "components/BackupControls.tsx",
-    "line": 65,
-    "text": "Restore backup"
-  },
-  {
-    "file": "components/BackupControls.tsx",
-    "line": 72,
-    "text": "Finish or discard your active workout before restoring. You can still export it."
-  },
-  {
-    "file": "components/BackupControls.tsx",
-    "line": 83,
-    "text": "Replace local data?"
-  },
-  {
-    "file": "components/BackupControls.tsx",
-    "line": 86,
-    "text": "`Backup: ${new Date(summary.createdAt).toLocaleString()}. ${summary.workouts} completed workouts, ${summary.routines} saved routines, ${summary.measurements} body-weight measurements. Active workout: ${summary.activeWorkout ? 'yes' : 'no'}. This replaces all CRESUM data on this device with the backup, including profile and program settings. It does not merge the two copies.`"
-  },
-  {
-    "file": "components/BackupControls.tsx",
-    "line": 86,
-    "text": "yes"
-  },
-  {
-    "file": "components/BackupControls.tsx",
-    "line": 86,
-    "text": "no"
-  },
-  {
-    "file": "components/BackupControls.tsx",
-    "line": 89,
-    "text": "Replace with backup"
-  },
-  {
-    "file": "components/BackupControls.tsx",
-    "line": 90,
-    "text": "Keep current data"
-  },
-  {
     "file": "components/BackupPage.tsx",
-    "line": 42,
-    "text": "CRESUM backup file"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 51,
-    "text": "CRESUM backup file"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 78,
-    "text": "Back to Backup"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 91,
-    "text": "Back to Backup"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 101,
-    "text": "Import history"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 108,
-    "text": "✓ File checked"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 112,
-    "text": "Workouts in file"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 113,
-    "text": "New workouts"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 114,
-    "text": "Already in history"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 123,
-    "text": "Your current history stays."
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 125,
-    "text": "Existing workout IDs are skipped. Only completed workouts are added; routines, active sessions and profile settings are not imported."
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 130,
-    "text": "`Import ${preview.added} ${preview.added === 1 ? 'workout' : 'workouts'}`"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 130,
+    "line": 248,
     "text": "workout"
   },
   {
     "file": "components/BackupPage.tsx",
-    "line": 130,
-    "text": "workouts"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 142,
-    "text": "Checking file…"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 142,
-    "text": "Choose another file"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 159,
-    "text": "Back to Profile"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 166,
-    "text": "Backup & restore"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 176,
-    "text": "Last local copy"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 180,
-    "text": "No saved copy yet"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 184,
-    "text": "workouts ·"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 185,
-    "text": "routines"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 191,
-    "text": "Export backup"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 196,
-    "text": "Checking file…"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 196,
-    "text": "Import history"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 203,
-    "text": "Export saved copy"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 212,
-    "text": "Automatic backups"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 216,
-    "text": "Automatic backup"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 218,
-    "text": "Automatic backup"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 230,
-    "text": "Frequency"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 233,
-    "text": "workout"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 233,
-    "text": "Every workout"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 234,
+    "line": 249,
     "text": "weekly"
   },
   {
     "file": "components/BackupPage.tsx",
-    "line": 234,
-    "text": "Weekly"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 235,
+    "line": 250,
     "text": "monthly"
   },
   {
     "file": "components/BackupPage.tsx",
-    "line": 235,
-    "text": "Monthly"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 241,
-    "text": "`Backup frequency ${label}`"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 259,
+    "line": 276,
     "text": "radio-button-on"
   },
   {
     "file": "components/BackupPage.tsx",
-    "line": 260,
+    "line": 277,
     "text": "radio-button-off"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 275,
-    "text": "Every workout copies follow a successful save. Weekly/monthly copies run while the app is open or next opened; active workouts are allowed to finish first. Copies stay in this app and do not protect against device loss or uninstall. Export a file for that."
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 276,
-    "text": "Automatic file copies are available in the iOS and Android app. You can export and import files here."
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 284,
-    "text": "Retry backup settings"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 292,
-    "text": "Restore all data"
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 298,
-    "text": "Replace this device with a full backup."
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 301,
-    "text": "Backup files contain personal data and are not encrypted. Choose a save destination in the export share sheet."
-  },
-  {
-    "file": "components/BackupPage.tsx",
-    "line": 306,
-    "text": "Finish or discard your active workout before importing or restoring. Export stays available."
   },
   {
     "file": "components/BodyWeight.tsx",
@@ -1171,448 +641,118 @@
   },
   {
     "file": "components/HistoryConflictReview.tsx",
-    "line": 20,
-    "text": "`${set.weight || '—'} kg × ${set.reps || '—'}${set.otherSideReps === undefined ? '' : ` / ${set.otherSideReps}`} · ${set.completedAt === undefined ? 'Not completed' : 'Completed'}`"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 20,
-    "text": "` / ${set.otherSideReps}`"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 20,
-    "text": "Not completed"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 20,
-    "text": "Completed"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 28,
+    "line": 36,
     "text": "Device"
   },
   {
     "file": "components/HistoryConflictReview.tsx",
-    "line": 28,
+    "line": 36,
     "text": "Cloud"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 40,
-    "text": "version"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 43,
-    "text": "Workout:"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 47,
-    "text": "Finished:"
   },
   {
     "file": "components/HistoryConflictReview.tsx",
     "line": 50,
-    "text": "Edit time unknown"
+    "text": "conflict.incomplete"
   },
   {
     "file": "components/HistoryConflictReview.tsx",
-    "line": 53,
-    "text": "`${completed} completed ${completed === 1 ? 'set' : 'sets'}`"
+    "line": 51,
+    "text": "conflict.complete"
   },
   {
     "file": "components/HistoryConflictReview.tsx",
-    "line": 53,
-    "text": "set"
+    "line": 60,
+    "text": "conflict.incomplete"
   },
   {
     "file": "components/HistoryConflictReview.tsx",
-    "line": 53,
-    "text": "sets"
+    "line": 61,
+    "text": "conflict.complete"
   },
   {
     "file": "components/HistoryConflictReview.tsx",
-    "line": 57,
-    "text": "`${volume(workout).toLocaleString()} kg recorded volume`"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 58,
-    "text": "Volume unavailable"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 62,
-    "text": "`${measured} of ${completed} completed sets have volume data`"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 78,
-    "text": "Target:"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 78,
-    "text": "reps"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 79,
-    "text": "per side"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 79,
-    "text": "· Rest"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 80,
-    "text": "s"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 94,
-    "text": "Set"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 98,
-    "text": "No sets"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 102,
-    "text": "No exercises"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 105,
-    "text": "Keep this version"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 106,
-    "text": "`Keep ${label.toLowerCase()} version`"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 144,
-    "text": "Could not load conflicts. Retry sync."
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 166,
-    "text": "The workout changed. Review the latest versions before choosing."
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 180,
-    "text": "Your account session changed. Sign in again to continue."
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 182,
-    "text": "Backup data could not be verified. Your local history is kept. Retry sync."
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 183,
-    "text": "Could not finish. Your history is kept. Retry sync to recover your last choice."
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 225,
-    "text": "Review conflicting workouts"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 228,
-    "text": "Changes to different workouts merge automatically. For different versions of the same workout, you choose what to keep. Dates do not decide which is correct."
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 234,
-    "text": "Checking your workout…"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 247,
-    "text": "This workout belongs to another account. It cannot be replaced here."
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 249,
-    "text": "This workout is currently active. Finish it before reviewing."
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 251,
-    "text": "These versions now match. Retry sync to update the conflict list."
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 252,
-    "text": "This workout is no longer available for comparison. Retry sync."
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 259,
-    "text": "Save device as a new workout?"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 260,
-    "text": "Save both workouts?"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 262,
-    "text": "Remove the device workout?"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 263,
-    "text": "`Keep the ${choice === 'local' ? 'device' : 'cloud'} version?`"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 263,
-    "text": "device"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 263,
-    "text": "cloud"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 268,
-    "text": "The device version will be saved as one new workout in History and Progress. The deleted cloud workout stays deleted."
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 269,
-    "text": "The device version will be saved as a new workout. The cloud version stays as it is. Both workouts will count in History and Progress"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 271,
-    "text": "The workout will be removed from this device to match its deletion in the cloud."
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 272,
-    "text": "`This replaces the ${choice === 'local' ? 'cloud' : 'device'} version with the version you selected.`"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 272,
-    "text": "cloud"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 272,
-    "text": "device"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 277,
-    "text": "Save both workouts"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 279,
-    "text": "Remove device workout"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 281,
-    "text": "Replace cloud version"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 282,
-    "text": "Replace device version"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 289,
-    "text": "Back to comparison"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 298,
-    "text": "Highlighted sets differ. Saved exercise or program details may also differ even when set values match."
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 304,
+    "line": 72,
     "text": "Device"
   },
   {
     "file": "components/HistoryConflictReview.tsx",
-    "line": 313,
-    "text": "Cloud"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 323,
-    "text": "Deleted in cloud"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 325,
-    "text": "Keep the device version as a new workout, or accept the deletion. The deleted workout will not be restored."
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 329,
-    "text": "Save device as new workout"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 334,
-    "text": "Accept cloud deletion"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 343,
-    "text": "More options"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 350,
-    "text": "Save both as separate workouts"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 361,
-    "text": "Back to conflict list"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 376,
-    "text": "Untitled workout"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 383,
-    "text": "No conflicts to review"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 388,
-    "text": "Retry sync"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 404,
-    "text": "Decide later"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 406,
-    "text": "Sign Out"
-  },
-  {
-    "file": "components/HistoryConflictReview.tsx",
-    "line": 416,
-    "text": "Could not sign out. Try again."
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 33,
-    "text": "Cloud backup is off"
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 35,
-    "text": "Cloud backup is paused"
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 37,
-    "text": "Synced"
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 39,
-    "text": "Syncing…"
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 41,
-    "text": "Couldn’t sync"
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 43,
-    "text": "Cloud backup unavailable"
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 44,
-    "text": "Sync pending"
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 47,
-    "text": "Enable to add this device’s workouts that aren’t linked to another account, and merge existing cloud history."
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 49,
-    "text": "Resume to merge this device’s history with your account. Cloud history has not been deleted."
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 51,
-    "text": "Completed workouts linked to this account are backed up. Workouts linked to another account stay separate. Active workouts and settings stay on this device."
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 53,
-    "text": "A workout differs between this device and your account. Review both versions and choose what to keep, or decide later."
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 55,
-    "text": "Could not confirm your account session. Try again or sign in again."
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 57,
-    "text": "Some backup data could not be verified. Keep your local copy and try again."
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 58,
-    "text": "Your workouts remain available on this device. Check your connection if sync cannot finish."
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 66,
-    "text": "Review conflicting workouts"
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
-    "line": 71,
-    "text": "Enable cloud backup"
-  },
-  {
-    "file": "components/HistorySyncPanel.tsx",
     "line": 73,
-    "text": "Resume cloud backup"
+    "text": "conflict.deviceVersion"
   },
   {
-    "file": "components/HistorySyncPanel.tsx",
+    "file": "components/HistoryConflictReview.tsx",
     "line": 74,
-    "text": "Sync Now"
+    "text": "conflict.cloudVersion"
+  },
+  {
+    "file": "components/HistoryConflictReview.tsx",
+    "line": 131,
+    "text": "conflict.targetPerSide"
+  },
+  {
+    "file": "components/HistoryConflictReview.tsx",
+    "line": 132,
+    "text": "conflict.target"
+  },
+  {
+    "file": "components/HistoryConflictReview.tsx",
+    "line": 170,
+    "text": "Device"
+  },
+  {
+    "file": "components/HistoryConflictReview.tsx",
+    "line": 170,
+    "text": "conflict.keepDevice"
+  },
+  {
+    "file": "components/HistoryConflictReview.tsx",
+    "line": 170,
+    "text": "conflict.keepCloud"
+  },
+  {
+    "file": "components/HistoryConflictReview.tsx",
+    "line": 246,
+    "text": "conflict.authError"
+  },
+  {
+    "file": "components/HistoryConflictReview.tsx",
+    "line": 248,
+    "text": "conflict.invalidError"
+  },
+  {
+    "file": "components/HistoryConflictReview.tsx",
+    "line": 249,
+    "text": "conflict.finishError"
+  },
+  {
+    "file": "components/HistoryConflictReview.tsx",
+    "line": 327,
+    "text": "conflict.keepDeviceQuestion"
+  },
+  {
+    "file": "components/HistoryConflictReview.tsx",
+    "line": 328,
+    "text": "conflict.keepCloudQuestion"
+  },
+  {
+    "file": "components/HistoryConflictReview.tsx",
+    "line": 340,
+    "text": "conflict.replaceCloudHint"
+  },
+  {
+    "file": "components/HistoryConflictReview.tsx",
+    "line": 341,
+    "text": "conflict.replaceDeviceHint"
+  },
+  {
+    "file": "components/HistoryConflictReview.tsx",
+    "line": 371,
+    "text": "Device"
+  },
+  {
+    "file": "components/HistoryConflictReview.tsx",
+    "line": 380,
+    "text": "Cloud"
   },
   {
     "file": "components/HomeDashboard.tsx",
@@ -1726,43 +866,33 @@
   },
   {
     "file": "components/LocalDataGate.tsx",
-    "line": 93,
-    "text": "Local data operation failed. Try again."
+    "line": 38,
+    "text": "error.localRecovery"
   },
   {
     "file": "components/LocalDataGate.tsx",
-    "line": 118,
+    "line": 38,
+    "text": "error.localOperation"
+  },
+  {
+    "file": "components/LocalDataGate.tsx",
+    "line": 133,
     "text": "auto"
   },
   {
     "file": "components/LocalDataGate.tsx",
-    "line": 118,
+    "line": 133,
     "text": "none"
   },
   {
     "file": "components/LocalDataGate.tsx",
-    "line": 121,
+    "line": 136,
     "text": "auto"
   },
   {
     "file": "components/LocalDataGate.tsx",
-    "line": 121,
+    "line": 136,
     "text": "no-hide-descendants"
-  },
-  {
-    "file": "components/LocalDataGate.tsx",
-    "line": 137,
-    "text": "Retry recovery"
-  },
-  {
-    "file": "components/LocalDataGate.tsx",
-    "line": 149,
-    "text": "Preparing local data…"
-  },
-  {
-    "file": "components/LocalDataGate.tsx",
-    "line": 150,
-    "text": "Checking local data…"
   },
   {
     "file": "components/MuscleMap.tsx",
@@ -1976,133 +1106,8 @@
   },
   {
     "file": "components/ProfileSettings.tsx",
-    "line": 97,
-    "text": "Back to Profile"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 107,
-    "text": "WORKOUTS"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 109,
-    "text": "Your saved training routines"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 129,
-    "text": "Hidden workouts"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 131,
-    "text": "Restore a workout to your list."
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 138,
-    "text": "Restore"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 139,
-    "text": "`Restore ${template.name}`"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 161,
-    "text": "Profile"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 163,
-    "text": "Your workouts and app details"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 178,
-    "text": "WORKOUTS"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 184,
-    "text": "saved workouts"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 198,
-    "text": "EXERCISE LIBRARY"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 204,
-    "text": "exercises"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 220,
-    "text": "Personalization"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 225,
-    "text": "Training preferences"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 243,
-    "text": "Backup & restore"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 248,
-    "text": "Files, history and backup schedule"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 265,
-    "text": "Account"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 272,
-    "text": "Account connected"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 273,
-    "text": "Optional email sign-in"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 284,
-    "text": "Local data"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 287,
-    "text": "Remove workouts and personal settings saved on this device."
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 291,
-    "text": "Reset local data"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 301,
+    "line": 320,
     "text": "CRESUM"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 302,
-    "text": "About the app"
-  },
-  {
-    "file": "components/ProfileSettings.tsx",
-    "line": 303,
-    "text": "Version"
   },
   {
     "file": "components/SetEntrySheet.tsx",
@@ -2766,82 +1771,72 @@
   },
   {
     "file": "lib/app-error.ts",
-    "line": 31,
+    "line": 59,
     "text": "AppError"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 29,
+    "line": 36,
     "text": "Too many requests. Please wait before trying again."
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 31,
+    "line": 40,
     "text": "AuthRetryableFetchError"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 32,
+    "line": 41,
     "text": "TypeError"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 35,
+    "line": 46,
     "text": "Could not connect to sign-in service. Check your connection and try again."
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 37,
+    "line": 51,
     "text": "Code invalid or expired. Try again or resend it."
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 38,
+    "line": 56,
     "text": "Could not send the code. Try again."
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 39,
+    "line": 60,
     "text": "Could not sign out. Check your connection and try again."
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 61,
+    "line": 84,
     "text": "initializing"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 61,
+    "line": 84,
     "text": "signed_out"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 119,
+    "line": 143,
     "text": "Account recovery metadata could not be verified. Retry account setup. Local workouts remain available."
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 133,
+    "line": 158,
     "text": "Account setup is unavailable. Local workouts remain available."
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 140,
+    "line": 165,
     "text": "initializing"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 140,
-    "text": "signed_out"
-  },
-  {
-    "file": "lib/auth-store.ts",
-    "line": 162,
-    "text": "signed_in"
-  },
-  {
-    "file": "lib/auth-store.ts",
-    "line": 162,
+    "line": 165,
     "text": "signed_out"
   },
   {
@@ -2856,62 +1851,82 @@
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 202,
+    "line": 212,
+    "text": "signed_in"
+  },
+  {
+    "file": "lib/auth-store.ts",
+    "line": 212,
+    "text": "signed_out"
+  },
+  {
+    "file": "lib/auth-store.ts",
+    "line": 228,
     "text": "Could not restore account session. Local workouts remain available."
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 266,
+    "line": 304,
     "text": "Sign out completed on this device, but could not confirm it on other devices."
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 271,
+    "line": 311,
     "text": "signed_out"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 293,
+    "line": 335,
     "text": "Account deletion is unavailable."
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 304,
+    "line": 348,
     "text": "Sign in to the same account before retrying deletion."
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 329,
+    "line": 374,
     "text": "Account changed"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 349,
+    "line": 394,
     "text": "Account deleted. Your local workouts and saved backup files are kept."
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 354,
+    "line": 398,
+    "text": "deletion_cleanup"
+  },
+  {
+    "file": "lib/auth-store.ts",
+    "line": 398,
+    "text": "deletion_pending"
+  },
+  {
+    "file": "lib/auth-store.ts",
+    "line": 400,
     "text": "Account deletion was confirmed, but local session cleanup is incomplete. Retry cleanup. Your local workouts are kept."
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 355,
+    "line": 401,
     "text": "Account deletion is not confirmed. Cloud backup stays paused. Retry deletion or keep using local workouts."
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 365,
+    "line": 412,
     "text": "signed_out"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 367,
+    "line": 414,
     "text": "confirmed"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 367,
+    "line": 414,
     "text": "pending"
   },
   {
@@ -2966,67 +1981,67 @@
   },
   {
     "file": "lib/backup-files.ts",
-    "line": 7,
+    "line": 10,
     "text": "File sharing is unavailable on this device."
   },
   {
     "file": "lib/backup-files.ts",
-    "line": 12,
+    "line": 16,
     "text": "`cresum-backup-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.json`"
   },
   {
     "file": "lib/backup-files.ts",
-    "line": 18,
+    "line": 24,
     "text": "Backup exceeds the 20 MiB file limit."
   },
   {
     "file": "lib/backup-files.ts",
-    "line": 22,
+    "line": 29,
     "text": "Save CRESUM backup"
   },
   {
     "file": "lib/backup-files.ts",
-    "line": 34,
+    "line": 41,
     "text": "application/json"
-  },
-  {
-    "file": "lib/backup-files.ts",
-    "line": 34,
-    "text": "text/plain"
   },
   {
     "file": "lib/backup-files.ts",
     "line": 41,
+    "text": "text/plain"
+  },
+  {
+    "file": "lib/backup-files.ts",
+    "line": 50,
     "text": "Choose a backup smaller than 20 MiB."
   },
   {
     "file": "lib/backup-files.ts",
-    "line": 46,
+    "line": 58,
     "text": "Choose a backup smaller than 20 MiB."
   },
   {
     "file": "lib/backup-files.web.ts",
-    "line": 6,
+    "line": 9,
     "text": "Backup exceeds the 20 MiB file limit."
   },
   {
     "file": "lib/backup-files.web.ts",
-    "line": 18,
+    "line": 22,
     "text": "application/json"
   },
   {
     "file": "lib/backup-files.web.ts",
-    "line": 18,
+    "line": 22,
     "text": "text/plain"
   },
   {
     "file": "lib/backup-files.web.ts",
-    "line": 24,
+    "line": 29,
     "text": "The selected file could not be read."
   },
   {
     "file": "lib/backup-files.web.ts",
-    "line": 26,
+    "line": 33,
     "text": "Choose a backup smaller than 20 MiB."
   },
   {
@@ -10916,77 +9931,87 @@
   },
   {
     "file": "lib/local-backup.ts",
-    "line": 9,
+    "line": 10,
     "text": "cresum_restore_journal_v1"
   },
   {
     "file": "lib/local-backup.ts",
-    "line": 39,
+    "line": 42,
     "text": "This is not a valid CRESUM backup. No local data was changed."
   },
   {
     "file": "lib/local-backup.ts",
-    "line": 147,
+    "line": 153,
     "text": "Finish local data recovery before exporting."
   },
   {
     "file": "lib/local-backup.ts",
-    "line": 176,
+    "line": 183,
     "text": "Local data verification failed."
   },
   {
     "file": "lib/local-backup.ts",
-    "line": 181,
+    "line": 188,
     "text": "Restore journal is still present."
   },
   {
     "file": "lib/local-backup.ts",
-    "line": 206,
+    "line": 214,
     "text": "Local data recovery is incomplete. Keep the app open and retry recovery before continuing."
   },
   {
     "file": "lib/local-backup.ts",
-    "line": 214,
+    "line": 223,
     "text": "A restore is already in progress."
   },
   {
     "file": "lib/local-backup.ts",
-    "line": 218,
+    "line": 229,
     "text": "Finish local data recovery before restoring."
   },
   {
     "file": "lib/local-backup.ts",
-    "line": 223,
+    "line": 236,
     "text": "Finish or discard the active workout before restoring a backup."
   },
   {
     "file": "lib/local-backup.ts",
-    "line": 229,
+    "line": 242,
     "text": "Journal could not be verified."
   },
   {
     "file": "lib/local-backup.ts",
-    "line": 241,
+    "line": 255,
     "text": "Backup could not be restored. Your previous local data was restored; try again."
   },
   {
     "file": "lib/local-data-reset.ts",
     "line": 38,
+    "text": "reset_incomplete"
+  },
+  {
+    "file": "lib/local-data-reset.ts",
+    "line": 38,
+    "text": "reset_recovered"
+  },
+  {
+    "file": "lib/local-data-reset.ts",
+    "line": 40,
     "text": "Local data could not be reset, and recovery was incomplete. Keep the app open and try again."
   },
   {
     "file": "lib/local-data-reset.ts",
-    "line": 39,
+    "line": 41,
     "text": "Local data could not be reset. Your saved data was restored; try again."
   },
   {
     "file": "lib/local-data-reset.ts",
-    "line": 58,
+    "line": 61,
     "text": "Local data could not be reset. No data was removed; try again."
   },
   {
     "file": "lib/local-data-reset.ts",
-    "line": 68,
+    "line": 71,
     "text": "One or more local data keys remain."
   },
   {

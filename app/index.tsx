@@ -18,6 +18,7 @@ import { BrandHeader } from '@/components/BrandHeader';
 import { useLocalization } from '@/components/LocalizationProvider';
 import { formatNumber } from '@/lib/i18n/format';
 import { presentAppError } from '@/lib/i18n/errors';
+import { AppError } from '@/lib/app-error';
 import {
   periodLabel,
   periodDescription,
@@ -447,7 +448,7 @@ function AppContent({
   const [discardSessionId, setDiscardSessionId] = useState<string | null>(null);
   const [confirmReset, setConfirmReset] = useState(false);
   const [resetBusy, setResetBusy] = useState(false);
-  const [resetError, setResetError] = useState('');
+  const [resetError, setResetError] = useState<{ problem: unknown }>();
   useEffect(() => {
     void store.load();
     let mounted = true;
@@ -725,73 +726,91 @@ function AppContent({
     mode: 'export' | 'restore' | 'import' | 'automatic' | 'saved' = 'restore',
   ) => {
     if (resetInProgress.current || backupInProgress.current) return;
-    runDataOperation(async (allowReloadAfterRecovery) => {
-      backupInProgress.current = true;
-      let releaseCloud: (() => void) | undefined;
-      try {
-        releaseCloud = await cloud.quiesce(Boolean(backup));
-        // LocalDataGate hides writable screens; let already queued work settle.
-        await programAcceptance.waitForPendingWrites();
-        await localBackups.repository.waitForPendingWrites();
-        await onboardingWrites.current;
-        await store.waitForPendingWrites();
-        await hiddenWrites.current;
-        await bodyWeightRepository.waitForPendingWrites();
-        const snapshot = store.getSnapshot();
-        if (
-          !snapshot.ready ||
-          snapshot.busy ||
-          snapshot.error ||
-          onboardingErrorRef.current ||
-          bodyWeightErrorRef.current ||
-          hiddenErrorRef.current ||
-          !programReady
-        )
-          throw Error(
-            'Save or retry your workout changes before using backup and restore.',
-          );
-        if (mode === 'automatic') {
-          if (snapshot.data.activeWorkout || !snapshot.data.history.length)
-            return '';
-          const livePolicy = await localBackups.repository.load();
-          const latestCopy = await localBackups.archive.load();
+    let importedCount = 0;
+    runDataOperation(
+      async (allowReloadAfterRecovery) => {
+        backupInProgress.current = true;
+        let releaseCloud: (() => void) | undefined;
+        try {
+          releaseCloud = await cloud.quiesce(Boolean(backup));
+          // LocalDataGate hides writable screens; let already queued work settle.
+          await programAcceptance.waitForPendingWrites();
+          await localBackups.repository.waitForPendingWrites();
+          await onboardingWrites.current;
+          await store.waitForPendingWrites();
+          await hiddenWrites.current;
+          await bodyWeightRepository.waitForPendingWrites();
+          const snapshot = store.getSnapshot();
           if (
-            !automaticBackupDue(
-              livePolicy,
-              latestCopy,
-              snapshot.data.history.map((w) => w.id),
-              Date.now(),
-            )
+            !snapshot.ready ||
+            snapshot.busy ||
+            snapshot.error ||
+            onboardingErrorRef.current ||
+            bodyWeightErrorRef.current ||
+            hiddenErrorRef.current ||
+            !programReady
           )
+            throw new AppError(
+              'backup_unsaved',
+              'Save or retry your workout changes before using backup and restore.',
+            );
+          if (mode === 'automatic') {
+            if (snapshot.data.activeWorkout || !snapshot.data.history.length)
+              return '';
+            const livePolicy = await localBackups.repository.load();
+            const latestCopy = await localBackups.archive.load();
+            if (
+              !automaticBackupDue(
+                livePolicy,
+                latestCopy,
+                snapshot.data.history.map((w) => w.id),
+                Date.now(),
+              )
+            )
+              return '';
+            const saved = await localBackups.archive.save(
+              await createLocalBackup(AsyncStorage),
+            );
+            localBackups.setCopy(saved);
             return '';
-          const saved = await localBackups.archive.save(
-            await createLocalBackup(AsyncStorage),
-          );
-          localBackups.setCopy(saved);
-          return '';
-        }
-        if (mode === 'saved') {
-          const saved = await localBackups.archive.load();
-          if (!saved) throw Error('No usable saved copy is available.');
-          await shareBackupFile(saved.backup.text);
-          return 'Saved local copy opened for export. Choose a destination to keep it outside this app.';
-        }
-        if (backup) {
-          allowReloadAfterRecovery();
-          if (mode === 'import') {
-            const count = await importBackupHistory(AsyncStorage, backup);
-            return `${count} workouts imported. Existing history was kept.`;
           }
-          await restoreLocalBackup(AsyncStorage, backup);
-          return 'Backup restored. Local data was replaced with your selected copy.';
+          if (mode === 'saved') {
+            const saved = await localBackups.archive.load();
+            if (!saved)
+              throw new AppError(
+                'backup_no_saved',
+                'No usable saved copy is available.',
+              );
+            await shareBackupFile(saved.backup.text);
+            return 'Saved local copy opened for export. Choose a destination to keep it outside this app.';
+          }
+          if (backup) {
+            allowReloadAfterRecovery();
+            if (mode === 'import') {
+              const count = await importBackupHistory(AsyncStorage, backup);
+              importedCount = count;
+              return `${count} workouts imported. Existing history was kept.`;
+            }
+            await restoreLocalBackup(AsyncStorage, backup);
+            return 'Backup restored. Local data was replaced with your selected copy.';
+          }
+          await shareBackupFile(await createLocalBackup(AsyncStorage));
+          return 'Backup sharing finished. A copy is kept only if you chose a save destination.';
+        } finally {
+          releaseCloud?.();
+          backupInProgress.current = false;
         }
-        await shareBackupFile(await createLocalBackup(AsyncStorage));
-        return 'Backup sharing finished. A copy is kept only if you chose a save destination.';
-      } finally {
-        releaseCloud?.();
-        backupInProgress.current = false;
-      }
-    }, !backup);
+      },
+      !backup,
+      (translate) =>
+        mode === 'saved'
+          ? translate('backup.savedExport')
+          : backup
+            ? mode === 'import'
+              ? translate('backup.imported', { count: importedCount })
+              : translate('backup.restored')
+            : translate('backup.shared'),
+    );
   };
   useEffect(() => {
     if (
@@ -859,7 +878,7 @@ function AppContent({
     programAcceptance.invalidate();
     ++hiddenEpoch.current;
     setResetBusy(true);
-    setResetError('');
+    setResetError(undefined);
     let releaseCloud: (() => void) | undefined;
     try {
       releaseCloud = await cloud.quiesce(true);
@@ -904,11 +923,7 @@ function AppContent({
             : 'Saved body weight is unavailable.',
         );
       }
-      setResetError(
-        problem instanceof Error
-          ? problem.message
-          : 'Local data could not be reset. Try again.',
-      );
+      setResetError({ problem });
     } finally {
       releaseCloud?.();
       resetInProgress.current = false;
@@ -925,19 +940,23 @@ function AppContent({
       ) : null}
       <Confirmation
         visible={confirmReset}
-        title="Reset CRESUM?"
-        message="All local CRESUM data on this device — workouts, history, templates, active workout, body-weight measurements, hidden-workout settings, personalization and onboarding data — will be permanently deleted. Saved backup files and backup account links are kept; automatic backups will be switched off. Cloud history is not deleted; cloud backup will pause until you choose Resume. This does not sign you out. This cannot be undone."
-        confirmLabel="Reset local data"
-        cancelLabel="Keep data"
+        title={t('reset.title')}
+        message={t('reset.warning')}
+        confirmLabel={t('profile.reset')}
+        cancelLabel={t('reset.keep')}
         destructive
         busy={resetBusy}
-        busyLabel="Resetting…"
-        error={resetError}
+        busyLabel={t('reset.busy')}
+        error={
+          resetError
+            ? presentAppError(t, resetError.problem, 'error.reset')
+            : ''
+        }
         onConfirm={() => void reset()}
         onCancel={() => {
           if (resetInProgress.current) return;
           setConfirmReset(false);
-          setResetError('');
+          setResetError(undefined);
         }}
       />
       <Confirmation
@@ -1274,7 +1293,7 @@ function AppContent({
               }}
               onPersonalize={() => setEditingPersonalization(true)}
               onResetLocalData={() => {
-                setResetError('');
+                setResetError(undefined);
                 setConfirmReset(true);
               }}
             />

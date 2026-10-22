@@ -1,3 +1,4 @@
+import { AppError } from './app-error';
 import { BodyWeightRepository, BODY_WEIGHT_KEY } from './body-weight';
 import { HIDDEN_BUILT_INS_KEY } from './hidden-builtins';
 import { LOCAL_DATA_KEYS } from './local-data-reset';
@@ -36,7 +37,10 @@ export type PreparedBackup = {
 const object = (v: unknown): v is Record<string, unknown> =>
   !!v && typeof v === 'object' && !Array.isArray(v);
 const invalid = () =>
-  Error('This is not a valid CRESUM backup. No local data was changed.');
+  new AppError(
+    'backup_invalid',
+    'This is not a valid CRESUM backup. No local data was changed.',
+  );
 const pending = new WeakSet<object>();
 async function readValues(storage: BackupStorage): Promise<Values> {
   return Object.fromEntries(
@@ -144,7 +148,10 @@ export async function createLocalBackup(
   now = Date.now(),
 ): Promise<string> {
   if ((await storage.getItem(RESTORE_JOURNAL_KEY)) !== null)
-    throw Error('Finish local data recovery before exporting.');
+    throw new AppError(
+      'backup_pending',
+      'Finish local data recovery before exporting.',
+    );
   const values = await readValues(storage);
   const { workouts } = await validate(values);
   const data = Object.fromEntries(
@@ -202,7 +209,8 @@ async function performRecovery(storage: BackupStorage): Promise<void> {
     await writeValues(storage, before as Values);
     await clearJournal(storage);
   } catch {
-    throw Error(
+    throw new AppError(
+      'local_recovery',
       'Local data recovery is incomplete. Keep the app open and retry recovery before continuing.',
     );
   }
@@ -211,15 +219,20 @@ export async function restoreLocalBackup(
   storage: BackupStorage,
   prepared: PreparedBackup,
 ): Promise<void> {
-  if (pending.has(storage)) throw Error('A restore is already in progress.');
+  if (pending.has(storage))
+    throw new AppError('backup_busy', 'A restore is already in progress.');
   pending.add(storage);
   try {
     if ((await storage.getItem(RESTORE_JOURNAL_KEY)) !== null)
-      throw Error('Finish local data recovery before restoring.');
+      throw new AppError(
+        'backup_pending',
+        'Finish local data recovery before restoring.',
+      );
     const checked = await parseLocalBackup(prepared.text);
     const before = await readValues(storage);
     if ((await new WorkoutRepository(memory(before)).load()).activeWorkout)
-      throw Error(
+      throw new AppError(
+        'backup_active',
         'Finish or discard the active workout before restoring a backup.',
       );
     const journal = JSON.stringify({ version: 1, before });
@@ -237,7 +250,8 @@ export async function restoreLocalBackup(
           return;
       }
       await recoverLocalRestore(storage);
-      throw Error(
+      throw new AppError(
+        'backup_restore',
         'Backup could not be restored. Your previous local data was restored; try again.',
       );
     }

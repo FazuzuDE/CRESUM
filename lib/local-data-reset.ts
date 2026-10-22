@@ -1,4 +1,5 @@
 import { BACKUP_POLICY_KEY } from './backup-policy';
+import { AppError } from './app-error';
 import { SYNC_METADATA_KEY } from './sync/storage';
 import { PROGRAM_KEY } from './training-programs/repository';
 import { BODY_WEIGHT_KEY } from './body-weight';
@@ -31,9 +32,10 @@ type Storage = {
   removeItem(key: string): Promise<unknown>;
 };
 
-export class LocalDataResetError extends Error {
+export class LocalDataResetError extends AppError {
   constructor(readonly recoveryIncomplete: boolean) {
     super(
+      recoveryIncomplete ? 'reset_incomplete' : 'reset_recovered',
       recoveryIncomplete
         ? 'Local data could not be reset, and recovery was incomplete. Keep the app open and try again.'
         : 'Local data could not be reset. Your saved data was restored; try again.',
@@ -54,7 +56,8 @@ export async function resetLocalData(
       ),
     );
   } catch {
-    throw new Error(
+    throw new AppError(
+      'reset_untouched',
       'Local data could not be reset. No data was removed; try again.',
     );
   }

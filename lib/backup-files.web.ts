@@ -1,9 +1,13 @@
+import { AppError } from './app-error';
 import { getDocumentAsync } from 'expo-document-picker';
 import { MAX_BACKUP_BYTES } from './local-backup';
 export async function shareBackupFile(text: string): Promise<void> {
   const blob = new Blob([text], { type: 'application/json' });
   if (blob.size > MAX_BACKUP_BYTES)
-    throw Error('Backup exceeds the 20 MiB file limit.');
+    throw new AppError(
+      'backup_too_large',
+      'Backup exceeds the 20 MiB file limit.',
+    );
   const url = URL.createObjectURL(blob),
     link = document.createElement('a');
   link.href = url;
@@ -21,9 +25,13 @@ export async function pickBackupFile(
   });
   if (result.canceled) return null;
   const file = result.assets[0].file;
-  if (!file) throw Error('The selected file could not be read.');
+  if (!file)
+    throw new AppError('backup_read', 'The selected file could not be read.');
   if (file.size > MAX_BACKUP_BYTES)
-    throw Error('Choose a backup smaller than 20 MiB.');
+    throw new AppError(
+      'backup_too_large',
+      'Choose a backup smaller than 20 MiB.',
+    );
   onName?.(file.name);
   return file.text();
 }
