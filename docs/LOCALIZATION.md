@@ -10,7 +10,9 @@ application translations and are not yet offered as production language choices.
 | -------------------------------------------------- | -------------------- | ------------------------------- |
 | Locale engine, plural and interpolation contracts  | Tested               | Tested                          |
 | Common language/settings message pack              | Complete             | Complete                        |
-| Existing onboarding, Home, workout screens         | Existing copy        | Pending connection              |
+| Active workout, set entry, rest and confirmations  | Connected            | Connected and tested            |
+| Home dashboard, calendar and layout editor         | Connected            | Connected and tested            |
+| Onboarding beyond language choice                  | Existing copy        | Pending connection              |
 | Catalog names and Exercise Library controls/search | Connected            | 105 labels + 29 messages tested |
 | Program/technique presentation beyond library      | Existing copy        | Pending connection/translation  |
 | History, Progress and muscle details               | Existing copy        | Pending connection              |
@@ -23,12 +25,36 @@ line and text. The AST inventory includes technical candidates: counts are not a
 claim about the percentage of translated UI. Classification and connection are
 required before a target locale can be enabled.
 
-The current resource catalog has 145 semantic messages per language (11 common,
-105 catalog labels, 29 library controls). Matching key counts are a structural
+The current resource catalog has 335 semantic messages per language (11 common,
+105 catalog labels, 29 library controls, 113 workout messages and 77 Home/calendar
+messages). Matching key counts are a structural
 check, not independent linguistic acceptance. The library's nested technique and
 statistics pages remain part of the pending screen migration. The native picker
 receives labels/values from JavaScript; it has no separate English UI copy in its
 current Swift implementation.
+
+The active-workout test mounts the real app, changes RU → DE → FR with an open
+set editor, saves a comma decimal, completes a set and switches language during
+rest. It verifies unchanged session identity, rest deadline and workout storage
+writes. It also covers translated unsaved-data and invalid-clock errors and a
+single final history entry. Exact decimal display avoids floating-point rounding,
+including manual values beyond JavaScript Number precision. A Home test preserves
+the selected calendar date and unsaved block visibility across language changes.
+These are renderer tests, not physical-device acceptance. TrainingProgramWeek
+and deeper program/technique screens remain pending.
+
+The pending candidate baseline was refreshed after this migration: removed UI
+copy is no longer listed; newly reviewed candidates are semantic message keys,
+the internal AppError class name and internal adjustment action names. No new
+untranslated visible text was accepted through that refresh. Remaining domain
+diagnostic messages are still inventoried even where the workout UI now presents
+stable error codes in the selected language.
+
+Checkpoint validation: Node 22.16.0/npm 10.9.2 `npm run check` passed with
+112 suites / 978 tests, including types, lint, formatting, anatomy, localization,
+configuration and dependency checks. iOS and Android exports passed. Independent
+review's exact-decimal rounding finding was reproduced and fixed; two translation
+wording findings were corrected. Physical-device checks remain pending.
 
 ## Every future change
 

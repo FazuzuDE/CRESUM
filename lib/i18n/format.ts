@@ -1,4 +1,18 @@
 import type { AppLocale } from './registry';
+const decimalSeparators = new Map<AppLocale, string>();
+export function formatEntryNumber(locale: AppLocale, raw: string): string {
+  const normalized = normalizeDecimalInput(raw);
+  if (normalized === null) return raw;
+  let separator = decimalSeparators.get(locale);
+  if (!separator) {
+    separator =
+      new Intl.NumberFormat(locale)
+        .formatToParts(1.1)
+        .find((part) => part.type === 'decimal')?.value ?? '.';
+    decimalSeparators.set(locale, separator);
+  }
+  return normalized.replace('.', separator);
+}
 export function formatNumber(
   locale: AppLocale,
   value: number,

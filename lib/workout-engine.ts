@@ -9,6 +9,7 @@ import {
   WorkoutTemplate,
 } from './workout-model';
 import { canonicalExerciseId } from './exercise-library';
+import { AppError } from './app-error';
 import { muscleLabel } from './exercise-taxonomy';
 import { normalizePlannedWeight, validPlannedSets } from './planned-exercise';
 
@@ -158,7 +159,10 @@ export const toggleSet = (
     (next.exercises[exerciseIndex].libraryId === 'bodyweight-step-up' &&
       Number(set.weight.replace(',', '.')) !== 0)
   ) {
-    throw new Error('Enter a valid weight and a whole number of reps.');
+    throw new AppError(
+      'invalid_set_values',
+      'Enter a valid weight and a whole number of reps.',
+    );
   }
 
   set.weight = set.weight.replace(',', '.').trim();
@@ -319,10 +323,14 @@ export const finishWorkout = (
   now = Date.now(),
 ): WorkoutSession => {
   if (completedSetCount(session) === 0) {
-    throw new Error('Complete at least one set before finishing.');
+    throw new AppError(
+      'empty_workout',
+      'Complete at least one set before finishing.',
+    );
   }
   if (!Number.isFinite(new Date(now).getTime()) || now < session.startedAt) {
-    throw new Error(
+    throw new AppError(
+      'invalid_finish_time',
       'Check your device time, then try Finish again. The finish time must not be earlier than the workout start. Your active workout is still here.',
     );
   }

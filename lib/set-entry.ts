@@ -1,4 +1,5 @@
 import { findExercise } from './exercise-library';
+import { AppError } from './app-error';
 import { normalizeDecimalInput } from './i18n/format';
 import { exerciseIdsMatch, setInputIsValid, updateSet } from './workout-engine';
 import {
@@ -102,7 +103,8 @@ export function saveSetEntry(
       (draft.otherSideReps === undefined) ||
     !entryIsValid(draft, session.exercises[e].libraryId)
   )
-    throw new Error(
+    throw new AppError(
+      'invalid_set_entry',
       'Enter a valid weight and positive whole repetitions for each side.',
     );
   return updateSet(session, e, s, draft);

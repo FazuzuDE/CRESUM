@@ -1,0 +1,110 @@
+export default {
+  'home.noAvailable': 'Aucun modèle avec des exercices disponibles',
+  'home.noTemplates': 'Aucun modèle d’entraînement disponible',
+  'home.editTemplate':
+    'Modifie un modèle dans le profil pour choisir des exercices disponibles.',
+  'home.createTemplate': 'Crée un modèle dans le profil pour commencer.',
+  'home.resume': 'Reprendre {{name}}',
+  'home.startNamed': 'Commencer {{name}}',
+  'home.inProgress': 'En cours',
+  'home.quickStart': 'Démarrage rapide',
+  'home.active': 'Entraînement en cours',
+  'home.saved': 'Entraînement enregistré',
+  'home.ready': 'Ton entraînement est prêt à reprendre.',
+  'home.planned': {
+    one: '{{count, number}} série prévue',
+    many: '{{count, number}} séries prévues',
+    other: '{{count, number}} séries prévues',
+  },
+  'home.exercises': {
+    one: '{{count, number}} exercice',
+    many: '{{count, number}} exercices',
+    other: '{{count, number}} exercices',
+  },
+  'home.availability':
+    'Disponibles : {{available, number}} · indisponibles : {{unavailable, number}}',
+  'home.fourWeeks': '4 dernières semaines',
+  'home.completed': {
+    one: '{{count, number}} entraînement terminé',
+    many: '{{count, number}} entraînements terminés',
+    other: '{{count, number}} entraînements terminés',
+  },
+  'home.local': ' · enregistré sur cet appareil',
+  'home.totalVolume': 'Volume total',
+  'home.tonnes': '{{value}} t',
+  'home.kilograms': '{{value}} kg',
+  'home.week': 'Ta semaine',
+  'home.workouts': {
+    one: '{{count, number}} entraînement',
+    many: '{{count, number}} entraînements',
+    other: '{{count, number}} entraînements',
+  },
+  'home.month': 'Mois',
+  'home.openCalendar': 'Ouvrir le calendrier mensuel',
+  'home.day': '{{date}} : {{completed}}',
+  'home.dayToday': '{{date}} : {{completed}}, aujourd’hui',
+  'home.last': 'DERNIER ENTRAÎNEMENT',
+  'home.volume': '{{value}} kg de volume',
+  'home.empty':
+    'Aucun entraînement terminé pour le moment. Termine un entraînement pour le voir ici.',
+  'home.templates': 'Modèles d’entraînement',
+  'home.moreTemplates': 'Autres modèles',
+  'home.finishFirst':
+    'Termine ton entraînement en cours pour en commencer un autre.',
+  'home.finishHint':
+    'Termine ton entraînement en cours avant d’en commencer un autre.',
+  'home.start': 'Commencer',
+  'home.welcomeNamed': 'Bon retour, {{name}} !',
+  'home.welcomeBack': 'Bon retour',
+  'home.welcome': 'Bienvenue',
+  'home.greeting': 'Une belle journée pour progresser.',
+  'home.openProfile': 'Ouvrir le profil',
+  'home.customize': 'Personnaliser l’accueil',
+  'home.loadError':
+    'Impossible de charger la disposition. Les blocs par défaut sont affichés ; tes entraînements restent disponibles.',
+  'home.retry': 'Recharger la disposition',
+  'home.reset': 'Réinitialiser la disposition',
+  'home.saveError': 'Impossible d’enregistrer la disposition. Réessaie.',
+  'home.editHint':
+    'Maintiens et déplace les blocs. Choisis Terminé pour enregistrer.',
+  'home.cancel': 'Annuler',
+  'home.saving': 'Enregistrement…',
+  'home.done': 'Terminé',
+  'home.order': 'Ordre et visibilité',
+  'home.saveDraftError':
+    'Impossible d’enregistrer la disposition. Choisis à nouveau Terminé ou Annuler.',
+  'home.editorIntro':
+    'Choisis les blocs visibles et leur ordre. L’action d’entraînement reste visible.',
+  'home.widget.week': 'Ta semaine',
+  'home.widget.primary': 'Commencer / reprendre l’entraînement',
+  'home.widget.summary': 'Bilan des entraînements',
+  'home.widget.latest': 'Dernier entraînement',
+  'home.widget.templates': 'Autres entraînements',
+  'home.moveUp': 'Monter : {{label}}',
+  'home.moveDown': 'Descendre : {{label}}',
+  'home.always': 'Toujours visible',
+  'home.shown': 'Visible',
+  'home.hidden': 'Masqué',
+  'home.show': 'Afficher : {{label}}',
+  'home.storage':
+    'Enregistré sur cet appareil. Certains blocs n’apparaissent que si des données sont disponibles. La disposition reste en place lors de la réinitialisation des entraînements et n’est pas incluse dans les sauvegardes ou la synchronisation cloud.',
+  'home.editorError':
+    'Impossible d’enregistrer la disposition. Réessaie ou annule.',
+  'home.saveLayout': 'Enregistrer la disposition',
+  'home.restoreOrder': 'Rétablir l’ordre par défaut',
+  'home.editAnnounce':
+    'Modification de l’accueil. Déplace les blocs, puis choisis Terminé ou Annuler.',
+  'home.moved':
+    'Bloc déplacé en position {{index, number}} sur {{total, number}}.',
+  'home.position':
+    '{{label}}, position {{index, number}} sur {{total, number}}',
+  'home.dragHint':
+    'Maintiens et fais glisser pour réorganiser. Les boutons sont dans Ordre et visibilité.',
+  'calendar.title': 'Calendrier',
+  'calendar.close': 'Fermer le calendrier',
+  'calendar.empty': 'Aucun entraînement terminé à cette date.',
+  'calendar.session': '{{time}} · {{volume}}',
+  'calendar.previous': 'Mois précédent',
+  'calendar.next': 'Mois suivant',
+  'calendar.legend': 'Dates bleues · entraînements terminés',
+} as const;

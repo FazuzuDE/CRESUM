@@ -134,6 +134,12 @@ are still pending. See ../../LOCALIZATION.md and the execution ledger for exact
 evidence. Each task ends with its own commit/checkpoint; partial checkpoints do
 not authorize enabling unfinished locales.
 
+Next checkpoint connects active workout/set entry/rest/finish/discard and Home
+dashboard/calendar/layout editing in all four locales. Actual mounted-screen
+tests retain editable drafts, rest deadlines, storage identity and layout drafts
+across language changes. Tasks 3–7 are still partial; onboarding, program and
+technique screens, History/Progress and account/backup/recovery remain pending.
+
 Official references checked for this plan:
 
 - [Expo SDK 57 localization](https://docs.expo.dev/versions/v57.0.0/sdk/localization/): `getLocales`, foreground behavior and compatible module version; confirmed against installed expo/bundledNativeModules.json (`~57.0.2`).

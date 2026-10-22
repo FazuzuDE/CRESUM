@@ -1,392 +1,322 @@
 [
   {
     "file": "app/index.tsx",
-    "line": 143,
+    "line": 145,
     "text": "Progress"
   },
   {
     "file": "app/index.tsx",
-    "line": 150,
+    "line": 152,
     "text": "Progress"
   },
   {
     "file": "app/index.tsx",
-    "line": 153,
+    "line": 155,
     "text": "Volume and estimated strength records"
   },
   {
     "file": "app/index.tsx",
-    "line": 164,
+    "line": 166,
     "text": "Overview"
   },
   {
     "file": "app/index.tsx",
-    "line": 166,
+    "line": 168,
     "text": "Muscles"
   },
   {
     "file": "app/index.tsx",
-    "line": 171,
+    "line": 173,
     "text": "Progress period"
   },
   {
     "file": "app/index.tsx",
-    "line": 176,
+    "line": 178,
     "text": "`Progress period ${option.id}`"
   },
   {
     "file": "app/index.tsx",
-    "line": 177,
+    "line": 179,
     "text": "`Show Progress for ${option.accessibilityLabel}`"
   },
   {
     "file": "app/index.tsx",
-    "line": 202,
+    "line": 204,
     "text": "Training Volume"
   },
   {
     "file": "app/index.tsx",
-    "line": 217,
+    "line": 219,
     "text": "Estimated 1RM"
   },
   {
     "file": "app/index.tsx",
-    "line": 222,
+    "line": 224,
     "text": "Estimated 1RM"
   },
   {
     "file": "app/index.tsx",
-    "line": 225,
+    "line": 227,
     "text": "Epley formula · based on completed sets"
   },
   {
     "file": "app/index.tsx",
-    "line": 229,
+    "line": 231,
     "text": "Some saved sets could not be included."
   },
   {
     "file": "app/index.tsx",
-    "line": 234,
+    "line": 236,
     "text": "No estimated records in this period."
   },
   {
     "file": "app/index.tsx",
-    "line": 248,
+    "line": 250,
     "text": "kg ×"
   },
   {
     "file": "app/index.tsx",
-    "line": 252,
+    "line": 254,
     "text": "TOP PR"
   },
   {
     "file": "app/index.tsx",
-    "line": 254,
+    "line": 256,
     "text": "kg"
   },
   {
     "file": "app/index.tsx",
-    "line": 266,
+    "line": 268,
     "text": "Logged exercise performance"
   },
   {
     "file": "app/index.tsx",
-    "line": 279,
+    "line": 281,
     "text": "Body weight"
   },
   {
     "file": "app/index.tsx",
-    "line": 290,
+    "line": 292,
     "text": "History"
   },
   {
     "file": "app/index.tsx",
-    "line": 310,
+    "line": 312,
     "text": "profile"
   },
   {
     "file": "app/index.tsx",
-    "line": 310,
+    "line": 312,
     "text": "home"
   },
   {
     "file": "app/index.tsx",
-    "line": 426,
+    "line": 439,
     "text": "Hidden workout settings are unavailable. All built-ins remain visible."
   },
   {
     "file": "app/index.tsx",
-    "line": 487,
+    "line": 500,
     "text": "Reset in progress."
   },
   {
     "file": "app/index.tsx",
-    "line": 534,
+    "line": 547,
     "text": "Program recovery is pending. Your workouts remain available."
   },
   {
     "file": "app/index.tsx",
-    "line": 543,
+    "line": 556,
     "text": "Program recovery is pending. Your workouts remain available."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 557,
-    "text": "Onboarding progress could not be saved. Retry before closing the app."
   },
   {
     "file": "app/index.tsx",
     "line": 570,
-    "text": "Program saving is pending. Retry START!"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 595,
-    "text": "Your workout was saved. Onboarding status could not be saved."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 615,
-    "text": "Cannot start workout"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 627,
-    "text": "Cannot start planned workout"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 645,
-    "text": "Hidden workout settings could not be saved. Try again."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 694,
-    "text": "Save or retry your workout changes before using backup and restore."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 718,
-    "text": "No usable saved copy is available."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 720,
-    "text": "Saved local copy opened for export. Choose a destination to keep it outside this app."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 726,
-    "text": "`${count} workouts imported. Existing history was kept.`"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 729,
-    "text": "Backup restored. Local data was replaced with your selected copy."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 732,
-    "text": "Backup sharing finished. A copy is kept only if you chose a save destination."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 847,
-    "text": "Saved body weight is unavailable."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 853,
-    "text": "Local data could not be reset. Try again."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 871,
-    "text": "Reset CRESUM?"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 872,
-    "text": "All local CRESUM data on this device — workouts, history, templates, active workout, body-weight measurements, hidden-workout settings, personalization and onboarding data — will be permanently deleted. Saved backup files and backup account links are kept; automatic backups will be switched off. Cloud history is not deleted; cloud backup will pause until you choose Resume. This does not sign you out. This cannot be undone."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 873,
-    "text": "Reset local data"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 874,
-    "text": "Keep data"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 877,
-    "text": "Resetting…"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 888,
-    "text": "Finish workout?"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 891,
-    "text": "Save your completed workout to History and Progress?"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 892,
-    "text": "Some sets are incomplete. Only completed sets count toward your progress."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 894,
-    "text": "Finish and save"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 895,
-    "text": "Keep training"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 908,
-    "text": "Discard workout?"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 909,
-    "text": "This deletes the active workout and its entered sets without adding it to History. Your saved routines and existing history will stay. This cannot be undone."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 910,
-    "text": "Discard workout"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 911,
-    "text": "Keep training"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 914,
-    "text": "Discarding…"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 932,
-    "text": "Retry program recovery"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 943,
-    "text": "Retry saving or loading"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 959,
-    "text": "Loading your workouts…"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 960,
-    "text": "Saved workouts are unavailable. Retry above."
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 969,
-    "text": "Retry onboarding"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 990,
     "text": "Onboarding progress could not be saved. Retry before closing the app."
   },
   {
     "file": "app/index.tsx",
-    "line": 997,
+    "line": 583,
+    "text": "Program saving is pending. Retry START!"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 608,
+    "text": "Your workout was saved. Onboarding status could not be saved."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 628,
+    "text": "Cannot start workout"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 640,
+    "text": "Cannot start planned workout"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 658,
+    "text": "Hidden workout settings could not be saved. Try again."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 707,
+    "text": "Save or retry your workout changes before using backup and restore."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 731,
+    "text": "No usable saved copy is available."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 733,
+    "text": "Saved local copy opened for export. Choose a destination to keep it outside this app."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 739,
+    "text": "`${count} workouts imported. Existing history was kept.`"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 742,
+    "text": "Backup restored. Local data was replaced with your selected copy."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 745,
+    "text": "Backup sharing finished. A copy is kept only if you chose a save destination."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 860,
+    "text": "Saved body weight is unavailable."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 866,
+    "text": "Local data could not be reset. Try again."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 884,
+    "text": "Reset CRESUM?"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 885,
+    "text": "All local CRESUM data on this device — workouts, history, templates, active workout, body-weight measurements, hidden-workout settings, personalization and onboarding data — will be permanently deleted. Saved backup files and backup account links are kept; automatic backups will be switched off. Cloud history is not deleted; cloud backup will pause until you choose Resume. This does not sign you out. This cannot be undone."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 886,
+    "text": "Reset local data"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 887,
+    "text": "Keep data"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 890,
+    "text": "Resetting…"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 945,
+    "text": "Retry program recovery"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 956,
+    "text": "Retry saving or loading"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 972,
+    "text": "Loading your workouts…"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 973,
+    "text": "Saved workouts are unavailable. Retry above."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 982,
+    "text": "Retry onboarding"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 1003,
+    "text": "Onboarding progress could not be saved. Retry before closing the app."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 1010,
     "text": "Continue to app"
   },
   {
     "file": "app/index.tsx",
-    "line": 1004,
+    "line": 1017,
     "text": "edit"
   },
   {
     "file": "app/index.tsx",
-    "line": 1004,
+    "line": 1017,
     "text": "first-run"
   },
   {
     "file": "app/index.tsx",
-    "line": 1011,
+    "line": 1024,
     "text": "welcome"
   },
   {
     "file": "app/index.tsx",
-    "line": 1024,
+    "line": 1037,
     "text": "profile"
   },
   {
     "file": "app/index.tsx",
-    "line": 1024,
+    "line": 1037,
     "text": "home"
   },
   {
     "file": "app/index.tsx",
-    "line": 1066,
-    "text": "Workout saved"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 1068,
-    "text": "sets ·"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 1069,
-    "text": "kg ·"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 1076,
-    "text": "Done"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 1092,
+    "line": 1107,
     "text": "Reset in progress."
   },
   {
     "file": "app/index.tsx",
-    "line": 1139,
+    "line": 1154,
     "text": "auto"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 1139,
-    "text": "none"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 1142,
-    "text": "auto"
-  },
-  {
-    "file": "app/index.tsx",
-    "line": 1142,
-    "text": "no-hide-descendants"
   },
   {
     "file": "app/index.tsx",
     "line": 1154,
+    "text": "none"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 1157,
+    "text": "auto"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 1157,
+    "text": "no-hide-descendants"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 1169,
     "text": "Finish the current data operation first."
   },
   {
     "file": "app/index.tsx",
-    "line": 1329,
+    "line": 1344,
     "text": "tabular-nums"
   },
   {
@@ -661,32 +591,27 @@
   },
   {
     "file": "components/AppPicker.tsx",
-    "line": 35,
-    "text": "CresumPicker"
-  },
-  {
-    "file": "components/AppPicker.tsx",
     "line": 36,
     "text": "CresumPicker"
   },
   {
     "file": "components/AppPicker.tsx",
-    "line": 160,
-    "text": "Swipe up or down to change the selected value"
+    "line": 37,
+    "text": "CresumPicker"
   },
   {
     "file": "components/AppPicker.tsx",
-    "line": 167,
+    "line": 169,
     "text": "increment"
   },
   {
     "file": "components/AppPicker.tsx",
-    "line": 167,
+    "line": 169,
     "text": "decrement"
   },
   {
     "file": "components/AppPicker.tsx",
-    "line": 260,
+    "line": 262,
     "text": "tabular-nums"
   },
   {
@@ -1141,78 +1066,23 @@
   },
   {
     "file": "components/CalendarMonth.tsx",
-    "line": 31,
-    "text": "Previous month"
-  },
-  {
-    "file": "components/CalendarMonth.tsx",
-    "line": 47,
-    "text": "Next month"
-  },
-  {
-    "file": "components/CalendarMonth.tsx",
-    "line": 57,
-    "text": "Mon"
-  },
-  {
-    "file": "components/CalendarMonth.tsx",
-    "line": 57,
-    "text": "Tue"
-  },
-  {
-    "file": "components/CalendarMonth.tsx",
-    "line": 57,
-    "text": "Wed"
-  },
-  {
-    "file": "components/CalendarMonth.tsx",
-    "line": 57,
-    "text": "Thu"
-  },
-  {
-    "file": "components/CalendarMonth.tsx",
-    "line": 57,
-    "text": "Fri"
-  },
-  {
-    "file": "components/CalendarMonth.tsx",
-    "line": 57,
-    "text": "Sat"
-  },
-  {
-    "file": "components/CalendarMonth.tsx",
-    "line": 57,
-    "text": "Sun"
-  },
-  {
-    "file": "components/CalendarMonth.tsx",
-    "line": 63,
+    "line": 68,
     "text": "`blank-${i}`"
   },
   {
     "file": "components/CalendarMonth.tsx",
-    "line": 77,
-    "text": "`${new Date(time).toLocaleDateString(undefined, { dateStyle: 'full' })}: ${count} completed workouts${today ? ', today' : ''}`"
+    "line": 82,
+    "text": "home.dayToday"
   },
   {
     "file": "components/CalendarMonth.tsx",
-    "line": 77,
-    "text": ", today"
+    "line": 82,
+    "text": "home.day"
   },
   {
     "file": "components/CalendarMonth.tsx",
-    "line": 92,
-    "text": "Blue dates · completed workouts"
-  },
-  {
-    "file": "components/CalendarMonth.tsx",
-    "line": 146,
+    "line": 154,
     "text": "tabular-nums"
-  },
-  {
-    "file": "components/Confirmation.tsx",
-    "line": 15,
-    "text": "Saving…"
   },
   {
     "file": "components/DatePickerSheet.tsx",
@@ -1231,62 +1101,62 @@
   },
   {
     "file": "components/Dock.tsx",
-    "line": 6,
+    "line": 7,
     "text": "home"
   },
   {
     "file": "components/Dock.tsx",
-    "line": 6,
-    "text": "Home"
+    "line": 7,
+    "text": "nav.home"
   },
   {
     "file": "components/Dock.tsx",
-    "line": 6,
+    "line": 7,
     "text": "home-outline"
   },
   {
     "file": "components/Dock.tsx",
-    "line": 7,
+    "line": 8,
     "text": "workout"
   },
   {
     "file": "components/Dock.tsx",
-    "line": 7,
-    "text": "Workout"
+    "line": 8,
+    "text": "nav.workout"
   },
   {
     "file": "components/Dock.tsx",
-    "line": 7,
+    "line": 8,
     "text": "barbell-outline"
   },
   {
     "file": "components/Dock.tsx",
-    "line": 8,
+    "line": 9,
     "text": "progress"
   },
   {
     "file": "components/Dock.tsx",
-    "line": 8,
-    "text": "Progress"
+    "line": 9,
+    "text": "nav.progress"
   },
   {
     "file": "components/Dock.tsx",
-    "line": 8,
+    "line": 9,
     "text": "stats-chart-outline"
   },
   {
     "file": "components/Dock.tsx",
-    "line": 9,
+    "line": 10,
     "text": "profile"
   },
   {
     "file": "components/Dock.tsx",
-    "line": 9,
-    "text": "Profile"
+    "line": 10,
+    "text": "nav.profile"
   },
   {
     "file": "components/Dock.tsx",
-    "line": 9,
+    "line": 10,
     "text": "person-outline"
   },
   {
@@ -2630,504 +2500,109 @@
     "text": "Sync Now"
   },
   {
-    "file": "components/HomeCalendar.tsx",
-    "line": 55,
-    "text": "Calendar"
-  },
-  {
-    "file": "components/HomeCalendar.tsx",
-    "line": 58,
-    "text": "Close calendar"
-  },
-  {
-    "file": "components/HomeCalendar.tsx",
-    "line": 90,
-    "text": "kg volume"
-  },
-  {
-    "file": "components/HomeCalendar.tsx",
-    "line": 95,
-    "text": "No completed workouts on this date."
+    "file": "components/HomeDashboard.tsx",
+    "line": 178,
+    "text": "home.tonnes"
   },
   {
     "file": "components/HomeDashboard.tsx",
-    "line": 70,
-    "text": "No templates with available exercises"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 71,
-    "text": "No workout templates available"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 75,
-    "text": "Edit a template in Profile to choose available exercises."
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 76,
-    "text": "Create a template in Profile to get started."
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 82,
-    "text": "`Resume ${activeWorkout.name}`"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 83,
-    "text": "`Start ${featured!.template.name}`"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 90,
-    "text": "In progress"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 90,
-    "text": "Quick start"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 94,
-    "text": "Active workout"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 94,
-    "text": "Saved workout"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 101,
-    "text": "Your workout is ready to continue."
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 105,
-    "text": "planned sets"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 135,
-    "text": "Last 4 weeks"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 139,
-    "text": "completed workout"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 139,
-    "text": "s"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 142,
-    "text": "· saved locally"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 145,
-    "text": "Total volume"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 151,
-    "text": "t"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 151,
-    "text": "kg"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 153,
-    "text": "Last 4 weeks"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 166,
-    "text": "Mon"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 166,
-    "text": "Tue"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 166,
-    "text": "Wed"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 166,
-    "text": "Thu"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 166,
-    "text": "Fri"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 166,
-    "text": "Sat"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 166,
-    "text": "Sun"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 171,
-    "text": "Your week"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 175,
-    "text": "workout"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 175,
-    "text": "s"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 180,
-    "text": "Month"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 181,
-    "text": "Open monthly calendar"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 192,
-    "text": "`${new Date(day.timestamp).toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}: ${day.completedCount} completed workouts${day.isToday ? ', today' : ''}`"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 192,
-    "text": ", today"
+    "line": 178,
+    "text": "home.kilograms"
   },
   {
     "file": "components/HomeDashboard.tsx",
     "line": 225,
-    "text": "LAST WORKOUT"
+    "text": "home.dayToday"
   },
   {
     "file": "components/HomeDashboard.tsx",
-    "line": 227,
-    "text": "kg volume"
+    "line": 225,
+    "text": "home.day"
   },
   {
     "file": "components/HomeDashboard.tsx",
-    "line": 231,
-    "text": "No completed workouts yet. Finish one to see your recent training."
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 248,
-    "text": "Workout templates"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 248,
-    "text": "More templates"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 251,
-    "text": "Finish your current workout to start another."
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 269,
-    "text": "Start"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 272,
-    "text": "Finish your current workout before starting another."
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 275,
-    "text": "Edit this template in Profile to choose available exercises."
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 285,
-    "text": "Start"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 494,
-    "text": "`Welcome back, ${displayName.trim()}!`"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 496,
-    "text": "Welcome back"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 497,
-    "text": "Welcome"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 499,
-    "text": "A good day for progress."
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 504,
-    "text": "Open Profile"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 518,
-    "text": "Customize Home"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 535,
-    "text": "Could not load Home layout. Default blocks are shown; your workouts remain available."
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 539,
-    "text": "Retry layout"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 547,
-    "text": "Reset Home layout"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 556,
-    "text": "Could not save Home layout. Try again."
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 600,
-    "text": "Hold and drag blocks to move them. Choose Done to save."
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 606,
-    "text": "Cancel"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 613,
-    "text": "Saving layout…"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 613,
-    "text": "Done"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 622,
-    "text": "Order & visibility"
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 631,
-    "text": "Could not save Home layout. Try Done again or Cancel."
-  },
-  {
-    "file": "components/HomeDashboard.tsx",
-    "line": 738,
+    "line": 784,
     "text": "tabular-nums"
   },
   {
     "file": "components/HomeDragGrid.tsx",
-    "line": 148,
+    "line": 154,
     "text": "inactive"
   },
   {
     "file": "components/HomeDragGrid.tsx",
-    "line": 148,
+    "line": 154,
     "text": "background"
   },
   {
     "file": "components/HomeDragGrid.tsx",
-    "line": 185,
-    "text": "Editing Home. Move blocks, then choose Done or Cancel."
-  },
-  {
-    "file": "components/HomeDragGrid.tsx",
-    "line": 216,
-    "text": "`Block moved to position ${drag.target + 1} of ${drag.order.length}.`"
-  },
-  {
-    "file": "components/HomeDragGrid.tsx",
-    "line": 373,
+    "line": 383,
     "text": "`home-drag-${id}`"
   },
   {
     "file": "components/HomeDragGrid.tsx",
-    "line": 391,
+    "line": 401,
     "text": "adjustable"
   },
   {
     "file": "components/HomeDragGrid.tsx",
-    "line": 394,
-    "text": "`${HOME_WIDGET_LABELS[id]}, position ${index + 1} of ${count}`"
-  },
-  {
-    "file": "components/HomeDragGrid.tsx",
-    "line": 397,
-    "text": "Hold and drag to reorder. Use Order & visibility for buttons."
-  },
-  {
-    "file": "components/HomeDragGrid.tsx",
-    "line": 401,
+    "line": 416,
     "text": "moveUp"
   },
   {
     "file": "components/HomeDragGrid.tsx",
-    "line": 401,
-    "text": "Move up"
-  },
-  {
-    "file": "components/HomeDragGrid.tsx",
-    "line": 403,
+    "line": 419,
     "text": "moveDown"
   },
   {
     "file": "components/HomeDragGrid.tsx",
-    "line": 403,
-    "text": "Move down"
-  },
-  {
-    "file": "components/HomeDragGrid.tsx",
-    "line": 417,
+    "line": 433,
     "text": "-0.4deg"
   },
   {
     "file": "components/HomeDragGrid.tsx",
-    "line": 417,
+    "line": 433,
     "text": "0.4deg"
   },
   {
     "file": "components/HomeDragGrid.tsx",
-    "line": 424,
+    "line": 440,
     "text": "none"
   },
   {
     "file": "components/HomeDragGrid.tsx",
-    "line": 424,
+    "line": 440,
     "text": "auto"
   },
   {
     "file": "components/HomeDragGrid.tsx",
-    "line": 425,
+    "line": 441,
     "text": "no-hide-descendants"
   },
   {
     "file": "components/HomeDragGrid.tsx",
-    "line": 425,
+    "line": 441,
     "text": "auto"
   },
   {
     "file": "components/HomeLayoutEditor.tsx",
-    "line": 50,
-    "text": "Cancel"
+    "line": 73,
+    "text": "home.moveUp"
   },
   {
     "file": "components/HomeLayoutEditor.tsx",
-    "line": 56,
-    "text": "Customize Home"
+    "line": 73,
+    "text": "home.moveDown"
   },
   {
     "file": "components/HomeLayoutEditor.tsx",
-    "line": 59,
-    "text": "Choose which blocks appear and their order. The workout action stays visible."
-  },
-  {
-    "file": "components/HomeLayoutEditor.tsx",
-    "line": 69,
-    "text": "up"
-  },
-  {
-    "file": "components/HomeLayoutEditor.tsx",
-    "line": 69,
-    "text": "down"
-  },
-  {
-    "file": "components/HomeLayoutEditor.tsx",
-    "line": 78,
-    "text": "`Move ${label} ${direction}`"
-  },
-  {
-    "file": "components/HomeLayoutEditor.tsx",
-    "line": 88,
+    "line": 85,
     "text": "arrow-up"
   },
   {
     "file": "components/HomeLayoutEditor.tsx",
-    "line": 88,
+    "line": 85,
     "text": "arrow-down"
-  },
-  {
-    "file": "components/HomeLayoutEditor.tsx",
-    "line": 96,
-    "text": "Always shown"
-  },
-  {
-    "file": "components/HomeLayoutEditor.tsx",
-    "line": 100,
-    "text": "Shown"
-  },
-  {
-    "file": "components/HomeLayoutEditor.tsx",
-    "line": 100,
-    "text": "Hidden"
-  },
-  {
-    "file": "components/HomeLayoutEditor.tsx",
-    "line": 103,
-    "text": "`Show ${label}`"
-  },
-  {
-    "file": "components/HomeLayoutEditor.tsx",
-    "line": 125,
-    "text": "Saved on this device. Some blocks appear only when data is available. Your Home layout stays when workout data is reset and is not included in backup files or cloud sync."
-  },
-  {
-    "file": "components/HomeLayoutEditor.tsx",
-    "line": 131,
-    "text": "Could not save Home layout. Try again or cancel."
-  },
-  {
-    "file": "components/HomeLayoutEditor.tsx",
-    "line": 135,
-    "text": "Saving layout…"
-  },
-  {
-    "file": "components/HomeLayoutEditor.tsx",
-    "line": 135,
-    "text": "Save layout"
-  },
-  {
-    "file": "components/HomeLayoutEditor.tsx",
-    "line": 140,
-    "text": "Restore default order"
   },
   {
     "file": "components/LanguageSettings.tsx",
@@ -3961,283 +3436,138 @@
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 57,
+    "line": 60,
     "text": "wheel"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 57,
+    "line": 60,
     "text": "keypad"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 68,
+    "line": 71,
     "text": "weight"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 68,
+    "line": 71,
     "text": "reps"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 68,
+    "line": 71,
     "text": "otherSideReps"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 69,
+    "line": 72,
     "text": "weight"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 69,
+    "line": 72,
     "text": "reps"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 71,
-    "text": "WEIGHT · KG"
+    "line": 83,
+    "text": "entry.decreaseLeft"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 71,
-    "text": "LEFT REPS"
+    "line": 83,
+    "text": "entry.decreaseReps"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 71,
-    "text": "RIGHT REPS"
+    "line": 84,
+    "text": "entry.increaseLeft"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 72,
-    "text": "WEIGHT · KG"
+    "line": 84,
+    "text": "entry.increaseReps"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 72,
-    "text": "REPETITIONS"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 121,
-    "text": "`${values.weight} kg × ${values.reps}${bilateral ? ` / ${values.otherSideReps}` : ''}`"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 121,
-    "text": "` / ${values.otherSideReps}`"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 133,
+    "line": 165,
     "text": "padding"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 133,
+    "line": 165,
     "text": "height"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 142,
-    "text": "Set"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 146,
-    "text": "Cancel set editing"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 150,
-    "text": "Cancel"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 155,
-    "text": "`Previous session · ${previous.weight} kg × ${previous.reps}${previous.otherSideReps === undefined ? '' : ` / ${previous.otherSideReps}`}`"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 155,
-    "text": "` / ${previous.otherSideReps}`"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 156,
-    "text": "No previous completed set"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 159,
+    "line": 191,
     "text": "wheel"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 159,
+    "line": 191,
     "text": "keypad"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 163,
-    "text": "`Use ${m}`"
+    "line": 196,
+    "text": "entry.useWheel"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 173,
-    "text": "Wheel"
+    "line": 196,
+    "text": "entry.useKeypad"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 173,
-    "text": "Keypad"
+    "line": 207,
+    "text": "entry.wheel"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 190,
-    "text": "none"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 190,
-    "text": "auto"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 193,
-    "text": "no-hide-descendants"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 193,
-    "text": "auto"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 220,
-    "text": "Exact weight in kilograms"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 222,
-    "text": "Exact right repetitions"
+    "line": 207,
+    "text": "entry.keypad"
   },
   {
     "file": "components/SetEntrySheet.tsx",
     "line": 224,
-    "text": "Exact left repetitions"
+    "text": "none"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 225,
-    "text": "Exact repetitions"
+    "line": 224,
+    "text": "auto"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 228,
+    "line": 227,
+    "text": "no-hide-descendants"
+  },
+  {
+    "file": "components/SetEntrySheet.tsx",
+    "line": 227,
+    "text": "auto"
+  },
+  {
+    "file": "components/SetEntrySheet.tsx",
+    "line": 262,
     "text": "decimal-pad"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 228,
+    "line": 262,
     "text": "number-pad"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 234,
-    "text": "Reps"
+    "line": 299,
+    "text": "minus"
   },
   {
     "file": "components/SetEntrySheet.tsx",
-    "line": 255,
-    "text": "Step ·"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 255,
-    "text": "`${step} kg`"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 255,
-    "text": "1 rep"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 260,
-    "text": "`${sign < 0 ? 'Decrease' : 'Increase'} ${k === 'weight' ? 'weight' : k === 'otherSideReps' ? 'right repetitions' : bilateral ? 'left repetitions' : 'repetitions'}`"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 260,
-    "text": "Decrease"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 260,
-    "text": "Increase"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 260,
-    "text": "weight"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 260,
-    "text": "right repetitions"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 260,
-    "text": "left repetitions"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 260,
-    "text": "repetitions"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 283,
-    "text": "Step ·"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 283,
-    "text": "`${step} kg`"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 283,
-    "text": "1 rep"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 292,
-    "text": "Unloaded step-up uses 0 kg. Enter positive whole repetitions for each side."
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 293,
-    "text": "Enter a non-negative weight and positive whole repetitions."
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 297,
-    "text": "Save set values"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 298,
-    "text": "`Save · ${summary}`"
-  },
-  {
-    "file": "components/SetEntrySheet.tsx",
-    "line": 298,
-    "text": "Save set"
+    "line": 299,
+    "text": "plus"
   },
   {
     "file": "components/TechniqueArtwork.tsx",
@@ -4896,297 +4226,127 @@
   },
   {
     "file": "components/Workout.tsx",
-    "line": 127,
-    "text": "No active workout"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 128,
-    "text": "Choose a template from Home."
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 156,
+    "line": 160,
     "text": "padding"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 156,
+    "line": 160,
     "text": "height"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 160,
-    "text": "Remove set?"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 161,
-    "text": "This removes its entered weight and reps."
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 162,
-    "text": "Remove set"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 163,
-    "text": "Keep set"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 199,
-    "text": "sets ·"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 199,
-    "text": "kg"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 210,
+    "line": 218,
     "text": "`${session.id}:${exercise.id}`"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 226,
-    "text": "`Technique for ${exercise.name}`"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 236,
-    "text": "Technique"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 242,
-    "text": "Last:"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 244,
-    "text": "kg ×"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 246,
-    "text": "First recorded session"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 251,
-    "text": "Target:"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 251,
-    "text": "reps"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 252,
-    "text": "per side"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 252,
-    "text": "· Rest"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 253,
-    "text": "s"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 256,
-    "text": "Warm up separately. Choose a manageable load; keep 2–3 reps in reserve."
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 260,
-    "text": "`Rest: ${session.restOverrideSeconds ?? exercise.target.restMin}s · change`"
-  },
-  {
-    "file": "components/Workout.tsx",
     "line": 278,
-    "text": "Unloaded step-up · enter 0 kg external load."
+    "text": "workout.targetPerSide"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 282,
-    "text": "SET"
+    "line": 279,
+    "text": "workout.target"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 283,
-    "text": "KG"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 284,
-    "text": "REPS"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 285,
-    "text": "DONE"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 294,
-    "text": "Remove set"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 295,
-    "text": "Opens a confirmation"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 305,
+    "line": 340,
     "text": "repetitions"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 306,
+    "line": 341,
     "text": "left repetitions"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 309,
-    "text": "Reps"
+    "line": 345,
+    "text": "entry.phReps"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 309,
-    "text": "Left"
+    "line": 346,
+    "text": "entry.phLeft"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 315,
+    "line": 353,
     "text": "right repetitions"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 317,
-    "text": "Right"
+    "line": 364,
+    "text": "workout.editWeight"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 324,
-    "text": "`Edit set ${i + 1} ${cell.field}`"
+    "line": 365,
+    "text": "right repetitions"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 325,
-    "text": "Not entered"
+    "line": 366,
+    "text": "workout.editRight"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 344,
-    "text": "Complete set"
+    "line": 367,
+    "text": "left repetitions"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 363,
-    "text": "Add set"
+    "line": 368,
+    "text": "workout.editLeft"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 374,
-    "text": "Rest timer"
+    "line": 369,
+    "text": "workout.editReps"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 374,
-    "text": "Rest complete"
+    "line": 429,
+    "text": "workout.restActive"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 377,
-    "text": "seconds remaining"
+    "line": 429,
+    "text": "workout.restDone"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 386,
-    "text": "−15s"
+    "line": 467,
+    "text": "workout.skipRest"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 394,
-    "text": "+15s"
+    "line": 467,
+    "text": "workout.continue"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 404,
-    "text": "Restart"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 412,
-    "text": "Skip rest"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 412,
-    "text": "Continue"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 424,
-    "text": "Add exercise"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 433,
-    "text": "Next exercise"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 446,
-    "text": "Saving…"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 448,
-    "text": "Finish and save"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 449,
-    "text": "Finish workout"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 456,
-    "text": "Discard workout"
-  },
-  {
-    "file": "components/Workout.tsx",
-    "line": 482,
+    "line": 537,
     "text": "`${editing.sessionId}:${editing.exerciseId}:${editing.setId}`"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 518,
+    "line": 573,
     "text": "tabular-nums"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 553,
+    "line": 608,
     "text": "tabular-nums"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 611,
+    "line": 666,
     "text": "tabular-nums"
   },
   {
     "file": "components/Workout.tsx",
-    "line": 637,
+    "line": 692,
     "text": "tabular-nums"
   },
   {
@@ -5271,97 +4431,57 @@
   },
   {
     "file": "components/WorkoutProgram.tsx",
-    "line": 68,
-    "text": "· Exercise"
+    "line": 80,
+    "text": "workout.collapseExercises"
   },
   {
     "file": "components/WorkoutProgram.tsx",
-    "line": 68,
-    "text": "of"
+    "line": 80,
+    "text": "workout.allExercises"
   },
   {
     "file": "components/WorkoutProgram.tsx",
-    "line": 73,
-    "text": "Collapse exercises"
+    "line": 87,
+    "text": "workout.collapse"
   },
   {
     "file": "components/WorkoutProgram.tsx",
-    "line": 73,
-    "text": "All exercises"
+    "line": 87,
+    "text": "workout.allExercises"
   },
   {
     "file": "components/WorkoutProgram.tsx",
-    "line": 79,
-    "text": "Collapse"
-  },
-  {
-    "file": "components/WorkoutProgram.tsx",
-    "line": 79,
-    "text": "All exercises"
-  },
-  {
-    "file": "components/WorkoutProgram.tsx",
-    "line": 237,
-    "text": "Move exercise up or down, then release."
-  },
-  {
-    "file": "components/WorkoutProgram.tsx",
-    "line": 268,
-    "text": "`Exercise moved to position ${held.target + 1} of ${ids.length}.`"
-  },
-  {
-    "file": "components/WorkoutProgram.tsx",
-    "line": 306,
-    "text": "`Exercise moved to position ${target + 1} of ${ids.length}.`"
-  },
-  {
-    "file": "components/WorkoutProgram.tsx",
-    "line": 473,
+    "line": 493,
     "text": "`program-row-${item.id}`"
   },
   {
     "file": "components/WorkoutProgram.tsx",
-    "line": 487,
-    "text": "`Select exercise ${index + 1}: ${item.name}${complete ? ', completed' : ''}`"
+    "line": 509,
+    "text": "workout.selectCompletedExercise"
   },
   {
     "file": "components/WorkoutProgram.tsx",
-    "line": 487,
-    "text": ", completed"
+    "line": 510,
+    "text": "workout.selectExercise"
   },
   {
     "file": "components/WorkoutProgram.tsx",
-    "line": 488,
-    "text": "Hold and drag to reorder, or use Move up and Move down actions."
-  },
-  {
-    "file": "components/WorkoutProgram.tsx",
-    "line": 494,
+    "line": 520,
     "text": "moveUp"
   },
   {
     "file": "components/WorkoutProgram.tsx",
-    "line": 494,
-    "text": "Move up"
-  },
-  {
-    "file": "components/WorkoutProgram.tsx",
-    "line": 496,
+    "line": 523,
     "text": "moveDown"
   },
   {
     "file": "components/WorkoutProgram.tsx",
-    "line": 496,
-    "text": "Move down"
-  },
-  {
-    "file": "components/WorkoutProgram.tsx",
-    "line": 523,
+    "line": 550,
     "text": "-0.6deg"
   },
   {
     "file": "components/WorkoutProgram.tsx",
-    "line": 523,
+    "line": 550,
     "text": "0.6deg"
   },
   {
@@ -5603,6 +4723,11 @@
     "file": "lib/account-deletion.ts",
     "line": 139,
     "text": "Session cleanup is incomplete."
+  },
+  {
+    "file": "lib/app-error.ts",
+    "line": 18,
+    "text": "AppError"
   },
   {
     "file": "lib/auth-store.ts",
@@ -14251,7 +13376,7 @@
   },
   {
     "file": "lib/set-entry.ts",
-    "line": 106,
+    "line": 108,
     "text": "Enter a valid weight and positive whole repetitions for each side."
   },
   {
@@ -15256,22 +14381,22 @@
   },
   {
     "file": "lib/workout-engine.ts",
-    "line": 20,
+    "line": 21,
     "text": "`${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`"
   },
   {
     "file": "lib/workout-engine.ts",
-    "line": 161,
+    "line": 164,
     "text": "Enter a valid weight and a whole number of reps."
   },
   {
     "file": "lib/workout-engine.ts",
-    "line": 322,
+    "line": 328,
     "text": "Complete at least one set before finishing."
   },
   {
     "file": "lib/workout-engine.ts",
-    "line": 326,
+    "line": 334,
     "text": "Check your device time, then try Finish again. The finish time must not be earlier than the workout start. Your active workout is still here."
   },
   {
@@ -15311,77 +14436,82 @@
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 60,
+    "line": 75,
     "text": "Could not load saved workouts. Your saved data has been kept. Retry to continue."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 78,
+    "line": 101,
     "text": "Changes are not saved yet. Keep the app open and retry."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 96,
+    "line": 110,
+    "text": "Changes are not saved yet. Keep the app open and retry."
+  },
+  {
+    "file": "lib/workout-store.ts",
+    "line": 129,
     "text": "Resume your active workout before starting another."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 103,
+    "line": 136,
     "text": "Required program exercises are unavailable."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 112,
+    "line": 145,
     "text": "This template has no available exercises."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 122,
+    "line": 155,
     "text": "Templates are not ready yet."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 126,
+    "line": 159,
     "text": "Template changes are already being saved. Try again shortly."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 144,
+    "line": 177,
     "text": "Template changes could not be saved. Try again."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 157,
+    "line": 190,
     "text": "Workouts are not ready. Try again shortly."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 173,
+    "line": 206,
     "text": "A generated workout was edited or deleted. Keep your changes and review the pending program."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 180,
+    "line": 213,
     "text": "Program template IDs already exist. No workouts were replaced."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 202,
+    "line": 235,
     "text": "Program workouts could not be saved. Retry the same proposal."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 300,
+    "line": 341,
     "text": "Workout could not be discarded. Keep the app open and retry. Your active workout is still here."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 317,
+    "line": 362,
     "text": "Workout could not be finished. Your active workout is still here."
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 346,
+    "line": 399,
     "text": "Workout could not be saved. Your active workout is still here. Try Finish again."
   },
   {

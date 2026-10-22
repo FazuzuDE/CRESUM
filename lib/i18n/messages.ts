@@ -10,10 +10,42 @@ import enLibrary from './locales/en/library';
 import ruLibrary from './locales/ru/library';
 import deLibrary from './locales/de/library';
 import frLibrary from './locales/fr/library';
-const en = { ...enCommon, ...enCatalog, ...enLibrary } as const;
-const ru = { ...ruCommon, ...ruCatalog, ...ruLibrary } as const;
-const de = { ...deCommon, ...deCatalog, ...deLibrary } as const;
-const fr = { ...frCommon, ...frCatalog, ...frLibrary } as const;
+import enWorkout from './locales/en/workout';
+import ruWorkout from './locales/ru/workout';
+import deWorkout from './locales/de/workout';
+import frWorkout from './locales/fr/workout';
+import enHome from './locales/en/home';
+import ruHome from './locales/ru/home';
+import deHome from './locales/de/home';
+import frHome from './locales/fr/home';
+const en = {
+  ...enCommon,
+  ...enCatalog,
+  ...enLibrary,
+  ...enWorkout,
+  ...enHome,
+} as const;
+const ru = {
+  ...ruCommon,
+  ...ruCatalog,
+  ...ruLibrary,
+  ...ruWorkout,
+  ...ruHome,
+} as const;
+const de = {
+  ...deCommon,
+  ...deCatalog,
+  ...deLibrary,
+  ...deWorkout,
+  ...deHome,
+} as const;
+const fr = {
+  ...frCommon,
+  ...frCatalog,
+  ...frLibrary,
+  ...frWorkout,
+  ...frHome,
+} as const;
 export type MessageValue =
   string | Readonly<Partial<Record<Intl.LDMLPluralRule, string>>>;
 export type MessageCatalog = Readonly<Record<string, MessageValue>>;

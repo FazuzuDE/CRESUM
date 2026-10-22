@@ -27,6 +27,7 @@ import {
 } from '@/lib/workout-model';
 import { cardShadow, colors, radius, spacing, typography } from '@/lib/theme';
 import type { ProgramScroll } from './useProgramScroll';
+import { useLocalization } from './LocalizationProvider';
 
 type Update = (transform: (session: WorkoutSession) => WorkoutSession) => void;
 type Layout = { y: number; height: number; width: number };
@@ -57,6 +58,7 @@ export function WorkoutProgram({
   update: Update;
   scroll: ProgramScroll;
 }) {
+  const { t } = useLocalization();
   const [expanded, setExpanded] = useState(false);
   const suppressTapRef = useRef(0);
   const index = session.currentExerciseIndex;
@@ -65,18 +67,24 @@ export function WorkoutProgram({
     <>
       <View style={s.top}>
         <Text style={s.position}>
-          {exercise.muscle} · Exercise {index + 1} of {session.exercises.length}
+          {t('workout.position', {
+            muscle: exercise.muscle,
+            index: index + 1,
+            total: session.exercises.length,
+          })}
         </Text>
         <Pressable
           disabled={busy}
           accessibilityRole="button"
-          accessibilityLabel={expanded ? 'Collapse exercises' : 'All exercises'}
+          accessibilityLabel={t(
+            expanded ? 'workout.collapseExercises' : 'workout.allExercises',
+          )}
           accessibilityState={{ expanded, disabled: busy }}
           onPress={() => setExpanded((value) => !value)}
           style={({ pressed }) => [s.toggle, (pressed || busy) && s.dim]}
         >
           <Text style={s.toggleText}>
-            {expanded ? 'Collapse' : 'All exercises'}
+            {t(expanded ? 'workout.collapse' : 'workout.allExercises')}
           </Text>
         </Pressable>
       </View>
@@ -110,6 +118,11 @@ function ProgramList({
   suppressTapRef: RefObject<number>;
   onSelect: () => void;
 }) {
+  const { t } = useLocalization();
+  const translate = useRef(t);
+  useLayoutEffect(() => {
+    translate.current = t;
+  }, [t]);
   const orderKey = JSON.stringify(session.exercises.map((item) => item.id));
   const ids = useMemo(() => JSON.parse(orderKey) as string[], [orderKey]);
   const latest = useRef({ update, onSelect });
@@ -234,7 +247,7 @@ function ProgramList({
       );
       move();
       AccessibilityInfo.announceForAccessibility(
-        'Move exercise up or down, then release.',
+        translate.current('workout.dragStart'),
       );
     },
     [busy, cancel, ids, move, scroll, suppressTapRef],
@@ -265,7 +278,10 @@ function ProgramList({
           return moveWorkoutExercise(current, held.id, held.target);
         });
         AccessibilityInfo.announceForAccessibility(
-          `Exercise moved to position ${held.target + 1} of ${ids.length}.`,
+          translate.current('workout.moved', {
+            index: held.target + 1,
+            total: ids.length,
+          }),
         );
       }
       cancel();
@@ -303,7 +319,10 @@ function ProgramList({
       );
       lightHaptic();
       AccessibilityInfo.announceForAccessibility(
-        `Exercise moved to position ${target + 1} of ${ids.length}.`,
+        translate.current('workout.moved', {
+          index: target + 1,
+          total: ids.length,
+        }),
       );
     },
     [busy, ids, session.id],
@@ -404,6 +423,7 @@ function ProgramRow({
   resetTap,
   measure,
 }: RowProps) {
+  const { t } = useLocalization();
   const [rotation] = useState(() => new Animated.Value(0));
   const [displaced] = useState(() => new Animated.Value(0));
   useLayoutEffect(() => {
@@ -484,16 +504,23 @@ function ProgramRow({
         <Pressable
           disabled={busy}
           accessibilityRole="button"
-          accessibilityLabel={`Select exercise ${index + 1}: ${item.name}${complete ? ', completed' : ''}`}
-          accessibilityHint="Hold and drag to reorder, or use Move up and Move down actions."
+          accessibilityLabel={t(
+            complete
+              ? 'workout.selectCompletedExercise'
+              : 'workout.selectExercise',
+            { index: index + 1, name: item.name },
+          )}
+          accessibilityHint={t('workout.dragHint')}
           accessibilityState={{ selected, disabled: busy }}
           accessibilityActions={
             busy
               ? []
               : [
-                  ...(index > 0 ? [{ name: 'moveUp', label: 'Move up' }] : []),
+                  ...(index > 0
+                    ? [{ name: 'moveUp', label: t('workout.moveUp') }]
+                    : []),
                   ...(index < count - 1
-                    ? [{ name: 'moveDown', label: 'Move down' }]
+                    ? [{ name: 'moveDown', label: t('workout.moveDown') }]
                     : []),
                 ]
           }

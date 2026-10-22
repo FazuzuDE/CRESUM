@@ -9,6 +9,8 @@ import { calendarTime } from '@/lib/picker-date';
 import { volume } from '@/lib/workout-metrics';
 import type { WorkoutSession } from '@/lib/workout-model';
 import { colors, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
+import { formatDate, formatNumber } from '@/lib/i18n/format';
 
 export function HomeCalendar({
   history,
@@ -19,6 +21,7 @@ export function HomeCalendar({
   now: number;
   onClose: () => void;
 }) {
+  const { t, locale } = useLocalization();
   const [selected, setSelected] = useState(() => {
     const d = new Date(now);
     return calendarTime(d.getFullYear(), d.getMonth(), d.getDate());
@@ -52,10 +55,10 @@ export function HomeCalendar({
       <SafeAreaView style={s.root}>
         <AppScrollView contentContainerStyle={s.content}>
           <Text accessibilityRole="header" style={s.title}>
-            Calendar
+            {t('calendar.title')}
           </Text>
           <AppButton
-            title="Close calendar"
+            title={t('calendar.close')}
             secondary
             presentation="text"
             onPress={onClose}
@@ -74,7 +77,7 @@ export function HomeCalendar({
             />
           </GlassCard>
           <Text accessibilityRole="header" style={s.date}>
-            {new Date(selected).toLocaleDateString(undefined, {
+            {formatDate(locale, selected, {
               dateStyle: 'full',
             })}
           </Text>
@@ -83,16 +86,20 @@ export function HomeCalendar({
               <GlassCard key={session.id}>
                 <Text style={s.name}>{session.name}</Text>
                 <Text style={s.context}>
-                  {new Date(session.finishedAt!).toLocaleTimeString(undefined, {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                  })}{' '}
-                  · {volume(session).toLocaleString()} kg volume
+                  {t('calendar.session', {
+                    time: formatDate(locale, session.finishedAt!, {
+                      hour: '2-digit',
+                      minute: '2-digit',
+                    }),
+                    volume: t('home.volume', {
+                      value: formatNumber(locale, volume(session)),
+                    }),
+                  })}
                 </Text>
               </GlassCard>
             ))
           ) : (
-            <Text style={s.context}>No completed workouts on this date.</Text>
+            <Text style={s.context}>{t('calendar.empty')}</Text>
           )}
         </AppScrollView>
       </SafeAreaView>

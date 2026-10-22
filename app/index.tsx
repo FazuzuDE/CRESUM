@@ -16,6 +16,8 @@ import {
 import { shareBackupFile } from '@/lib/backup-files';
 import { BrandHeader } from '@/components/BrandHeader';
 import { useLocalization } from '@/components/LocalizationProvider';
+import { formatNumber } from '@/lib/i18n/format';
+import { presentAppError } from '@/lib/i18n/errors';
 import {
   useCallback,
   useEffect,
@@ -325,6 +327,7 @@ function AppContent({
   initialTab: string;
 }) {
   const localization = useLocalization();
+  const { t, locale } = localization;
   const localBackups = useBackupArchive();
   const [store] = useState(
     () => new WorkoutStore(new WorkoutRepository(AsyncStorage)),
@@ -333,6 +336,16 @@ function AppContent({
     store.subscribe,
     store.getSnapshot,
   );
+  const errorProblems = store.getErrorProblems();
+  const workoutError = error
+    ? errorProblems.length
+      ? errorProblems
+          .map((problem) =>
+            presentAppError(t, problem, 'error.workoutOperation'),
+          )
+          .join(' ')
+      : t('error.workoutOperation')
+    : '';
   const [assignment, setAssignment] = useState<ProgramAssignment | null>(null);
   const [programError, setProgramError] = useState('');
   const programRecovered = useRef(false);
@@ -885,16 +898,16 @@ function AppContent({
       />
       <Confirmation
         visible={confirmFinish}
-        title="Finish workout?"
+        title={t('workout.finishTitle')}
         message={
           data.activeWorkout && workoutIsComplete(data.activeWorkout)
-            ? 'Save your completed workout to History and Progress?'
-            : 'Some sets are incomplete. Only completed sets count toward your progress.'
+            ? t('workout.finishFull')
+            : t('workout.finishPartial')
         }
-        confirmLabel="Finish and save"
-        cancelLabel="Keep training"
+        confirmLabel={t('workout.finishSave')}
+        cancelLabel={t('workout.keepTraining')}
         busy={busy}
-        error={error}
+        error={workoutError}
         onConfirm={() => {
           void finish();
         }}
@@ -905,14 +918,14 @@ function AppContent({
           discardSessionId !== null &&
           data.activeWorkout?.id === discardSessionId
         }
-        title="Discard workout?"
-        message="This deletes the active workout and its entered sets without adding it to History. Your saved routines and existing history will stay. This cannot be undone."
-        confirmLabel="Discard workout"
-        cancelLabel="Keep training"
+        title={t('workout.discardTitle')}
+        message={t('workout.discardMessage')}
+        confirmLabel={t('workout.discard')}
+        cancelLabel={t('workout.keepTraining')}
         destructive
         busy={busy}
-        busyLabel="Discarding…"
-        error={error}
+        busyLabel={t('workout.discarding')}
+        error={workoutError}
         onConfirm={() => {
           if (!discardSessionId) return;
           void store.discard(discardSessionId).then((discarded) => {
@@ -938,7 +951,7 @@ function AppContent({
       ) : null}
       {error ? (
         <View style={s.notice} accessibilityRole="alert">
-          <Text style={s.sub}>{error}</Text>
+          <Text style={s.sub}>{workoutError}</Text>
           <AppButton
             title="Retry saving or loading"
             secondary
@@ -1063,17 +1076,19 @@ function AppContent({
             <>
               {summary && (
                 <View style={s.notice}>
-                  <Text style={s.h3}>Workout saved</Text>
+                  <Text style={s.h3}>{t('workout.saved')}</Text>
                   <Text style={s.sub}>
-                    {completedSetCount(summary)} sets ·{' '}
-                    {volume(summary).toLocaleString()} kg ·{' '}
-                    {duration(
-                      (summary.finishedAt ?? summary.startedAt) -
-                        summary.startedAt,
-                    )}
+                    {t('workout.savedSummary', {
+                      count: completedSetCount(summary),
+                      volume: formatNumber(locale, volume(summary)),
+                      time: duration(
+                        (summary.finishedAt ?? summary.startedAt) -
+                          summary.startedAt,
+                      ),
+                    })}
                   </Text>
                   <AppButton
-                    title="Done"
+                    title={t('common.done')}
                     secondary
                     onPress={() => setSummary(null)}
                   />

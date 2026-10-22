@@ -1,0 +1,151 @@
+export default {
+  'picker.hint':
+    'Balayez vers le haut ou le bas pour modifier la valeur sélectionnée',
+  'nav.home': 'Accueil',
+  'nav.workout': 'Séance',
+  'nav.progress': 'Progrès',
+  'nav.profile': 'Profil',
+  'workout.noActive': 'Aucune séance en cours',
+  'workout.chooseTemplate': 'Choisis un programme depuis l’accueil.',
+  'workout.removeTitle': 'Supprimer la série ?',
+  'workout.removeMessage':
+    'Le poids et les répétitions saisis pour cette série seront supprimés.',
+  'workout.removeConfirm': 'Supprimer la série',
+  'workout.keepSet': 'Garder la série',
+  'workout.elapsed': '{{time}} écoulé',
+  'workout.summary': {
+    one: '{{completed}}/{{count}} série · {{volume}} kg',
+    many: '{{completed}}/{{count}} séries · {{volume}} kg',
+    other: '{{completed}}/{{count}} séries · {{volume}} kg',
+  },
+  'workout.last': 'Dernière fois : {{summary}}',
+  'workout.first': 'Première exécution enregistrée',
+  'workout.target':
+    'Objectif : {{min}}–{{max}} répétitions · Repos {{restMin}}–{{restMax}} s',
+  'workout.targetPerSide':
+    'Objectif : {{min}}–{{max}} répétitions par côté · Repos {{restMin}}–{{restMax}} s',
+  'workout.warmup':
+    'Échauffe-toi séparément. Choisis une charge maîtrisable et garde 2 à 3 répétitions en réserve.',
+  'workout.changeRest': 'Repos : {{seconds}} s · modifier',
+  'workout.stepUp':
+    'Montée sans charge supplémentaire · saisis 0 kg de charge externe.',
+  'workout.tableSet': 'SÉRIE',
+  'workout.tableKg': 'KG',
+  'workout.tableReps': 'RÉP.',
+  'workout.tableDone': 'FAIT',
+  'workout.removeNamed': 'Supprimer la série {{index}}',
+  'workout.confirmHint': 'Ouvre une confirmation',
+  'workout.editWeight': 'Modifier le poids de la série {{index}}',
+  'workout.editReps': 'Modifier les répétitions de la série {{index}}',
+  'workout.editLeft': 'Modifier les répétitions à gauche de la série {{index}}',
+  'workout.editRight':
+    'Modifier les répétitions à droite de la série {{index}}',
+  'workout.notEntered': 'Non renseigné',
+  'workout.completeNamed': 'Terminer la série {{index}}',
+  'workout.addSet': 'Ajouter une série',
+  'workout.restActive': 'Minuteur de repos',
+  'workout.restDone': 'Repos terminé',
+  'workout.remaining': {
+    one: '{{count, number}} seconde restante',
+    many: '{{count, number}} secondes restantes',
+    other: '{{count, number}} secondes restantes',
+  },
+  'workout.minus15': '−15 s',
+  'workout.plus15': '+15 s',
+  'workout.restart': 'Redémarrer',
+  'workout.skipRest': 'Passer le repos',
+  'workout.continue': 'Continuer',
+  'workout.addExercise': 'Ajouter un exercice',
+  'workout.nextExercise': 'Exercice suivant',
+  'workout.saving': 'Enregistrement…',
+  'workout.finishSave': 'Terminer et enregistrer',
+  'workout.finish': 'Terminer la séance',
+  'workout.discard': 'Abandonner la séance',
+  'workout.finishTitle': 'Terminer la séance ?',
+  'workout.finishFull':
+    'Enregistrer ta séance terminée dans l’historique et les progrès ?',
+  'workout.finishPartial':
+    'Certaines séries sont incomplètes. Seules les séries terminées comptent pour tes progrès.',
+  'workout.keepTraining': 'Continuer la séance',
+  'workout.discardTitle': 'Abandonner la séance ?',
+  'workout.discardMessage':
+    'La séance en cours et ses séries saisies seront supprimées sans être ajoutées à l’historique. Tes programmes enregistrés et ton historique existant seront conservés. Cette action est irréversible.',
+  'workout.discarding': 'Abandon en cours…',
+  'workout.saved': 'Séance enregistrée',
+  'workout.savedSummary': {
+    one: '{{count, number}} série · {{volume}} kg · {{time}}',
+    many: '{{count, number}} séries · {{volume}} kg · {{time}}',
+    other: '{{count, number}} séries · {{volume}} kg · {{time}}',
+  },
+  'workout.position': '{{muscle}} · Exercice {{index}} sur {{total}}',
+  'workout.allExercises': 'Tous les exercices',
+  'workout.collapseExercises': 'Replier les exercices',
+  'workout.collapse': 'Replier',
+  'workout.selectExercise': 'Sélectionner l’exercice {{index}} : {{name}}',
+  'workout.selectCompletedExercise':
+    'Sélectionner l’exercice {{index}} : {{name}}, terminé',
+  'workout.dragHint':
+    'Maintiens et fais glisser pour réorganiser, ou utilise les actions Monter et Descendre.',
+  'workout.dragStart':
+    'Déplace l’exercice vers le haut ou le bas, puis relâche.',
+  'workout.moved': 'Exercice déplacé à la position {{index}} sur {{total}}.',
+  'workout.moveUp': 'Monter',
+  'workout.moveDown': 'Descendre',
+  'entry.title': 'Série {{index}}',
+  'entry.cancelLabel': 'Annuler la modification de la série',
+  'entry.previous': 'Séance précédente · {{summary}}',
+  'entry.noPrevious': 'Aucune série terminée précédemment',
+  'entry.useWheel': 'Utiliser la molette',
+  'entry.useKeypad': 'Utiliser le clavier',
+  'entry.wheel': 'Molette',
+  'entry.keypad': 'Clavier',
+  'entry.weightHeading': 'POIDS · KG',
+  'entry.leftHeading': 'RÉP. À GAUCHE',
+  'entry.rightHeading': 'RÉP. À DROITE',
+  'entry.repsHeading': 'RÉPÉTITIONS',
+  'entry.exactWeight': 'Poids exact en kilogrammes',
+  'entry.exactReps': 'Nombre exact de répétitions',
+  'entry.exactLeft': 'Nombre exact de répétitions à gauche',
+  'entry.exactRight': 'Nombre exact de répétitions à droite',
+  'entry.phReps': 'Rép.',
+  'entry.phLeft': 'Gauche',
+  'entry.phRight': 'Droite',
+  'entry.stepWeight': 'Pas · {{step}} kg',
+  'entry.stepReps': 'Pas · 1 rép.',
+  'entry.decreaseWeight': 'Diminuer le poids',
+  'entry.increaseWeight': 'Augmenter le poids',
+  'entry.decreaseReps': 'Diminuer les répétitions',
+  'entry.increaseReps': 'Augmenter les répétitions',
+  'entry.decreaseLeft': 'Diminuer les répétitions à gauche',
+  'entry.increaseLeft': 'Augmenter les répétitions à gauche',
+  'entry.decreaseRight': 'Diminuer les répétitions à droite',
+  'entry.increaseRight': 'Augmenter les répétitions à droite',
+  'entry.errorStepUp':
+    'Pour la montée sans charge supplémentaire, saisis 0 kg. Indique un nombre entier positif de répétitions pour chaque côté.',
+  'entry.errorNumbers':
+    'Saisis un poids positif ou nul et un nombre entier positif de répétitions.',
+  'entry.saveValues': 'Enregistrer les valeurs de la série',
+  'entry.saveSummary': 'Enregistrer · {{summary}}',
+  'entry.saveSet': 'Enregistrer la série',
+  'entry.singleSummary': '{{weight}} kg × {{reps}}',
+  'entry.bilateralSummary': '{{weight}} kg × {{reps}} / {{other}}',
+  'error.invalidSet':
+    'Saisis un poids valide et un nombre entier de répétitions.',
+  'error.invalidEntry':
+    'Saisis un poids valide et un nombre entier positif de répétitions pour chaque côté.',
+  'error.noSets': 'Termine au moins une série avant de finir la séance.',
+  'error.finishTime':
+    'Vérifie l’heure de ton appareil, puis réessaie de terminer la séance. L’heure de fin ne peut pas précéder le début. Ta séance en cours est conservée.',
+  'error.workoutOperation':
+    'Impossible d’effectuer cette action. Ta séance en cours est conservée. Réessaie.',
+  'error.workoutLoad':
+    'Impossible de charger les séances enregistrées. Tes données sont conservées. Réessaie pour continuer.',
+  'error.workoutUnsaved':
+    'Les modifications ne sont pas encore enregistrées. Garde l’application ouverte et réessaie.',
+  'error.workoutDiscard':
+    'Impossible d’abandonner la séance. Garde l’application ouverte et réessaie. Ta séance en cours est conservée.',
+  'error.workoutSave':
+    'Impossible d’enregistrer la séance. Ta séance en cours est conservée. Réessaie de la terminer.',
+  'error.templateSave':
+    'Impossible d’enregistrer les modifications du programme. Réessaie.',
+} as const;

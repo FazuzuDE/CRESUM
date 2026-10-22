@@ -2,7 +2,19 @@ import {
   normalizeDecimalInput,
   formatNumber,
   formatDate,
+  formatEntryNumber,
 } from '../i18n/format';
+it('localizes exact entry display without rounding manual precision or reparsing drafts', () => {
+  expect(formatEntryNumber('ru', '82.1255')).toBe('82,1255');
+  expect(formatEntryNumber('de', '1000.25')).toBe('1000,25');
+  expect(formatEntryNumber('fr', '12,')).toBe('12,');
+  expect(formatEntryNumber('en', 'bad')).toBe('bad');
+  for (const locale of ['en', 'ru', 'de', 'fr'] as const) {
+    expect(formatEntryNumber(locale, '12.1234567890123456789')).toBe(
+      locale === 'en' ? '12.1234567890123456789' : '12,1234567890123456789',
+    );
+  }
+});
 it('normalizes one decimal separator without accepting grouping or ambiguous input', () => {
   expect(['12,50', '12.50', '1,234', ' 0 '].map(normalizeDecimalInput)).toEqual(
     ['12.50', '12.50', '1.234', '0'],

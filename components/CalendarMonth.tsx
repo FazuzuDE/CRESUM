@@ -2,6 +2,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { calendarTime } from '@/lib/picker-date';
 import { colors, radius, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
+import { formatDate } from '@/lib/i18n/format';
 
 export function CalendarMonth({
   month,
@@ -18,6 +20,7 @@ export function CalendarMonth({
   onMonth: (time: number) => void;
   onSelect: (time: number) => void;
 }) {
+  const { t, locale } = useLocalization();
   const date = new Date(month),
     year = date.getFullYear(),
     m = date.getMonth();
@@ -28,7 +31,7 @@ export function CalendarMonth({
       <View style={s.navigation}>
         <Pressable
           accessibilityRole="button"
-          accessibilityLabel="Previous month"
+          accessibilityLabel={t('calendar.previous')}
           disabled={year === 1 && m === 0}
           accessibilityState={{ disabled: year === 1 && m === 0 }}
           onPress={() => onMonth(calendarTime(year, m - 1, 1))}
@@ -37,14 +40,14 @@ export function CalendarMonth({
           <Ionicons name="chevron-back" size={22} color={colors.primary} />
         </Pressable>
         <Text accessibilityRole="header" style={s.heading}>
-          {date.toLocaleDateString(undefined, {
+          {formatDate(locale, month, {
             month: 'long',
             year: 'numeric',
           })}
         </Text>
         <Pressable
           accessibilityRole="button"
-          accessibilityLabel="Next month"
+          accessibilityLabel={t('calendar.next')}
           disabled={year === 9999 && m === 11}
           accessibilityState={{ disabled: year === 9999 && m === 11 }}
           onPress={() => onMonth(calendarTime(year, m + 1, 1))}
@@ -54,9 +57,11 @@ export function CalendarMonth({
         </Pressable>
       </View>
       <View style={s.grid}>
-        {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) => (
-          <Text key={day} style={s.weekday}>
-            {day}
+        {Array.from({ length: 7 }, (_, index) => (
+          <Text key={index} style={s.weekday}>
+            {formatDate(locale, calendarTime(2026, 0, 5 + index), {
+              weekday: 'short',
+            })}
           </Text>
         ))}
         {Array.from({ length: offset }, (_, i) => (
@@ -74,7 +79,10 @@ export function CalendarMonth({
               key={time}
               accessibilityRole="button"
               accessibilityState={{ selected: chosen }}
-              accessibilityLabel={`${new Date(time).toLocaleDateString(undefined, { dateStyle: 'full' })}: ${count} completed workouts${today ? ', today' : ''}`}
+              accessibilityLabel={t(today ? 'home.dayToday' : 'home.day', {
+                date: formatDate(locale, time, { dateStyle: 'full' }),
+                completed: t('home.completed', { count }),
+              })}
               onPress={() => onSelect(time)}
               style={[s.cell, chosen && s.selected]}
             >
@@ -89,7 +97,7 @@ export function CalendarMonth({
           );
         })}
       </View>
-      <Text style={s.context}>Blue dates · completed workouts</Text>
+      <Text style={s.context}>{t('calendar.legend')}</Text>
     </View>
   );
 }

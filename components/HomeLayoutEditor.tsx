@@ -5,12 +5,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { AppScrollView } from './AppScrollView';
 import { AppButton } from './AppButton';
 import { GlassCard } from './GlassCard';
-import {
-  defaultHomeLayout,
-  HOME_WIDGET_LABELS,
-  type HomeLayout,
-} from '@/lib/home-layout';
+import { defaultHomeLayout, type HomeLayout } from '@/lib/home-layout';
 import { colors, radius, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
 
 export function HomeLayoutEditor({
   initial,
@@ -25,6 +22,7 @@ export function HomeLayoutEditor({
   onSave: (layout: HomeLayout) => void;
   onClose: () => void;
 }) {
+  const { t } = useLocalization();
   const [draft, setDraft] = useState(initial);
   function move(index: number, delta: number) {
     const widgets = [...draft.widgets];
@@ -47,26 +45,22 @@ export function HomeLayoutEditor({
       <SafeAreaView style={s.screen}>
         <AppScrollView contentContainerStyle={s.content}>
           <AppButton
-            title="Cancel"
+            title={t('home.cancel')}
             secondary
             disabled={saving}
             onPress={close}
           />
           <Text accessibilityRole="header" style={s.title}>
-            Customize Home
+            {t('home.customize')}
           </Text>
-          <Text style={s.copy}>
-            Choose which blocks appear and their order. The workout action stays
-            visible.
-          </Text>
+          <Text style={s.copy}>{t('home.editorIntro')}</Text>
           {draft.widgets.map((widget, index) => {
-            const label = HOME_WIDGET_LABELS[widget.id];
+            const label = t(`home.widget.${widget.id}`);
             return (
               <GlassCard key={widget.id} style={s.card}>
                 <Text style={s.label}>{label}</Text>
                 <View style={s.controls}>
                   {([-1, 1] as const).map((delta) => {
-                    const direction = delta === -1 ? 'up' : 'down';
                     const disabled =
                       saving ||
                       index + delta < 0 ||
@@ -75,7 +69,10 @@ export function HomeLayoutEditor({
                       <Pressable
                         key={delta}
                         accessibilityRole="button"
-                        accessibilityLabel={`Move ${label} ${direction}`}
+                        accessibilityLabel={t(
+                          delta === -1 ? 'home.moveUp' : 'home.moveDown',
+                          { label },
+                        )}
                         accessibilityState={{ disabled }}
                         disabled={disabled}
                         onPress={() => move(index, delta)}
@@ -93,14 +90,14 @@ export function HomeLayoutEditor({
                     );
                   })}
                   {widget.id === 'primary' ? (
-                    <Text style={s.copy}>Always shown</Text>
+                    <Text style={s.copy}>{t('home.always')}</Text>
                   ) : (
                     <>
                       <Text style={s.copy}>
-                        {widget.visible ? 'Shown' : 'Hidden'}
+                        {widget.visible ? t('home.shown') : t('home.hidden')}
                       </Text>
                       <Switch
-                        accessibilityLabel={`Show ${label}`}
+                        accessibilityLabel={t('home.show', { label })}
                         disabled={saving}
                         value={widget.visible}
                         onValueChange={(visible) =>
@@ -121,23 +118,19 @@ export function HomeLayoutEditor({
               </GlassCard>
             );
           })}
-          <Text style={s.copy}>
-            Saved on this device. Some blocks appear only when data is
-            available. Your Home layout stays when workout data is reset and is
-            not included in backup files or cloud sync.
-          </Text>
+          <Text style={s.copy}>{t('home.storage')}</Text>
           {error ? (
             <Text accessibilityRole="alert" style={s.error}>
-              Could not save Home layout. Try again or cancel.
+              {t('home.editorError')}
             </Text>
           ) : null}
           <AppButton
-            title={saving ? 'Saving layout…' : 'Save layout'}
+            title={saving ? t('home.saving') : t('home.saveLayout')}
             disabled={saving}
             onPress={() => onSave(draft)}
           />
           <AppButton
-            title="Restore default order"
+            title={t('home.restoreOrder')}
             secondary
             disabled={saving}
             onPress={() => setDraft(defaultHomeLayout())}
