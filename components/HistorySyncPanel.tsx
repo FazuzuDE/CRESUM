@@ -1,3 +1,4 @@
+import { useLocalization } from './LocalizationProvider';
 import { StyleSheet, Text, View } from 'react-native';
 import { AppButton } from './AppButton';
 import type { HistorySyncSnapshot } from '@/lib/sync/history-coordinator';
@@ -27,35 +28,36 @@ export function HistorySyncPanel({
   review,
   onReview,
 }: HistorySyncControls) {
+  const { t } = useLocalization();
   const { status, kind } = snapshot;
   const title =
     status === 'disabled'
-      ? 'Cloud backup is off'
+      ? t('sync.off')
       : status === 'paused'
-        ? 'Cloud backup is paused'
+        ? t('sync.paused')
         : status === 'synced'
-          ? 'Synced'
+          ? t('sync.synced')
           : status === 'syncing'
-            ? 'Syncing…'
+            ? t('sync.syncing')
             : status === 'error'
-              ? 'Couldn’t sync'
+              ? t('sync.error')
               : status === 'unavailable'
-                ? 'Cloud backup unavailable'
-                : 'Sync pending';
+                ? t('sync.unavailable')
+                : t('sync.pending');
   const detail =
     status === 'disabled'
-      ? 'Enable to add this device’s workouts that aren’t linked to another account, and merge existing cloud history.'
+      ? t('sync.offHint')
       : status === 'paused'
-        ? 'Resume to merge this device’s history with your account. Cloud history has not been deleted.'
+        ? t('sync.pausedHint')
         : status === 'synced'
-          ? 'Completed workouts linked to this account are backed up. Workouts linked to another account stay separate. Active workouts and settings stay on this device.'
+          ? t('sync.syncedHint')
           : kind === 'conflict'
-            ? 'A workout differs between this device and your account. Review both versions and choose what to keep, or decide later.'
+            ? t('sync.conflictHint')
             : kind === 'auth'
-              ? 'Could not confirm your account session. Try again or sign in again.'
+              ? t('sync.authHint')
               : kind === 'invalid'
-                ? 'Some backup data could not be verified. Keep your local copy and try again.'
-                : 'Your workouts remain available on this device. Check your connection if sync cannot finish.';
+                ? t('sync.invalidHint')
+                : t('sync.localHint');
   return (
     <View style={s.root}>
       <Text style={s.title} accessibilityLiveRegion="polite">
@@ -63,15 +65,15 @@ export function HistorySyncPanel({
       </Text>
       <Text style={s.copy}>{detail}</Text>
       {kind === 'conflict' && review && onReview ? (
-        <AppButton title="Review conflicting workouts" onPress={onReview} />
+        <AppButton title={t('sync.review')} onPress={onReview} />
       ) : null}
       <AppButton
         title={
           status === 'disabled'
-            ? 'Enable cloud backup'
+            ? t('sync.enable')
             : status === 'paused'
-              ? 'Resume cloud backup'
-              : 'Sync Now'
+              ? t('sync.resume')
+              : t('sync.now')
         }
         disabled={status === 'syncing' || status === 'unavailable'}
         onPress={

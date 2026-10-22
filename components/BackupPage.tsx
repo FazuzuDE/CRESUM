@@ -1,3 +1,4 @@
+import { useLocalization } from './LocalizationProvider';
 import { useRef, useState } from 'react';
 import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -13,6 +14,8 @@ import type { WorkoutSession } from '@/lib/workout-model';
 import { emptyWorkoutState } from '@/lib/workout-repository';
 import type { BackupPolicy } from '@/lib/backup-policy';
 import { colors, radius, spacing, typography } from '@/lib/theme';
+import { presentAppError } from '@/lib/i18n/errors';
+import { formatDate, formatNumber } from '@/lib/i18n/format';
 export type BackupPageOptions = {
   policy: BackupPolicy;
   lastCopy?: { createdAt: number; workouts: number; routines: number };
@@ -34,21 +37,22 @@ export function BackupPage({
   history: readonly WorkoutSession[];
   onClose: () => void;
 }) {
+  const { t, locale } = useLocalization();
   const [fullRestore, setFullRestore] = useState(false),
     [importing, setImporting] = useState(false),
     [checking, setChecking] = useState(false),
-    [error, setError] = useState('');
+    [error, setError] = useState<{ problem: unknown }>();
   const [file, setFile] = useState<PreparedBackup>();
-  const [filename, setFilename] = useState('CRESUM backup file');
+  const [filename, setFilename] = useState('');
   const pickBusy = useRef(false);
   const busy = backup.disabled || checking || !!backup.settingsBusy;
   const choose = async () => {
     if (busy || pickBusy.current || backup.hasActiveWorkout) return;
     pickBusy.current = true;
     setChecking(true);
-    setError('');
+    setError(undefined);
     try {
-      let selectedName = 'CRESUM backup file';
+      let selectedName = '';
       const text = await pickBackupFile((name) => {
         selectedName = name;
       });
@@ -58,7 +62,7 @@ export function BackupPage({
         setImporting(true);
       }
     } catch (problem) {
-      setError((problem as Error).message);
+      setError({ problem });
     } finally {
       setChecking(false);
       pickBusy.current = false;
@@ -75,7 +79,7 @@ export function BackupPage({
       <AppScrollView contentContainerStyle={s.content}>
         <BrandHeader />
         <AppButton
-          title="Back to Backup"
+          title={t('backup.back')}
           secondary
           presentation="text"
           onPress={() => setFullRestore(false)}
@@ -88,7 +92,7 @@ export function BackupPage({
       <AppScrollView contentContainerStyle={s.content}>
         <BrandHeader />
         <AppButton
-          title="Back to Backup"
+          title={t('backup.back')}
           secondary
           presentation="text"
           disabled={checking}
@@ -98,36 +102,40 @@ export function BackupPage({
           }}
         />
         <Text style={s.title} accessibilityRole="header">
-          Import history
+          {t('backup.import')}
         </Text>
         <GlassCard>
-          <Text style={s.heading}>{filename}</Text>
+          <Text style={s.heading}>{filename || t('backup.filename')}</Text>
           <Text style={s.copy}>
-            {new Date(file.summary.createdAt).toLocaleString()}
+            {formatDate(locale, file.summary.createdAt, {
+              dateStyle: 'medium',
+              timeStyle: 'short',
+            })}
           </Text>
-          <Text style={s.success}>✓ File checked</Text>
+          <Text style={s.success}>{t('backup.checked')}</Text>
         </GlassCard>
         <GlassCard style={s.card}>
           {[
-            ['Workouts in file', preview.total],
-            ['New workouts', preview.added],
-            ['Already in history', preview.existing],
+            [t('backup.total'), preview.total],
+            [t('backup.new'), preview.added],
+            [t('backup.existing'), preview.existing],
           ].map(([name, value]) => (
             <View key={name} style={s.row}>
               <Text style={s.body}>{name}</Text>
-              <Text style={s.heading}>{value}</Text>
+              <Text style={s.heading}>
+                {typeof value === 'number'
+                  ? formatNumber(locale, value)
+                  : value}
+              </Text>
             </View>
           ))}
         </GlassCard>
         <GlassCard style={s.info}>
-          <Text style={s.heading}>Your current history stays.</Text>
-          <Text style={s.copy}>
-            Existing workout IDs are skipped. Only completed workouts are added;
-            routines, active sessions and profile settings are not imported.
-          </Text>
+          <Text style={s.heading}>{t('backup.historyStays')}</Text>
+          <Text style={s.copy}>{t('backup.importHint')}</Text>
         </GlassCard>
         <AppButton
-          title={`Import ${preview.added} ${preview.added === 1 ? 'workout' : 'workouts'}`}
+          title={t('backup.importCount', { count: preview.added })}
           disabled={busy || preview.added === 0 || backup.hasActiveWorkout}
           onPress={() => {
             if (!busy && !backup.hasActiveWorkout) {
@@ -139,7 +147,9 @@ export function BackupPage({
           }}
         />
         <AppButton
-          title={checking ? 'Checking file…' : 'Choose another file'}
+          title={
+            checking ? t('backup.checkingFile') : t('backup.chooseAnother')
+          }
           secondary
           presentation="text"
           disabled={busy}
@@ -147,7 +157,7 @@ export function BackupPage({
         />
         {error ? (
           <Text accessibilityRole="alert" style={s.copy}>
-            {error}
+            {presentAppError(t, error.problem, 'error.backupOpen')}
           </Text>
         ) : null}
       </AppScrollView>
@@ -156,14 +166,14 @@ export function BackupPage({
     <AppScrollView contentContainerStyle={s.content}>
       <BrandHeader />
       <AppButton
-        title="Back to Profile"
+        title={t('profile.back')}
         secondary
         presentation="text"
         disabled={busy}
         onPress={onClose}
       />
       <Text style={s.title} accessibilityRole="header">
-        Backup & restore
+        {t('backup.title')}
       </Text>
       <GlassCard style={s.card}>
         <View style={s.row}>
@@ -173,34 +183,39 @@ export function BackupPage({
             color={colors.textSecondary}
           />
           <View style={s.flex}>
-            <Text style={s.copy}>Last local copy</Text>
+            <Text style={s.copy}>{t('backup.last')}</Text>
             <Text style={s.heading}>
               {backup.lastCopy
-                ? new Date(backup.lastCopy.createdAt).toLocaleString()
-                : 'No saved copy yet'}
+                ? formatDate(locale, backup.lastCopy.createdAt, {
+                    dateStyle: 'medium',
+                    timeStyle: 'short',
+                  })
+                : t('backup.noCopy')}
             </Text>
             {backup.lastCopy ? (
               <Text style={s.copy}>
-                {backup.lastCopy.workouts} workouts · {backup.lastCopy.routines}{' '}
-                routines
+                {t('backup.copyCounts', {
+                  workouts: formatNumber(locale, backup.lastCopy.workouts),
+                  routines: formatNumber(locale, backup.lastCopy.routines),
+                })}
               </Text>
             ) : null}
           </View>
         </View>
         <AppButton
-          title="Export backup"
+          title={t('backup.export')}
           disabled={busy}
           onPress={backup.onExport}
         />
         <AppButton
-          title={checking ? 'Checking file…' : 'Import history'}
+          title={checking ? t('backup.checkingFile') : t('backup.import')}
           secondary
           disabled={busy || backup.hasActiveWorkout}
           onPress={() => void choose()}
         />
         {backup.lastCopy ? (
           <AppButton
-            title="Export saved copy"
+            title={t('backup.exportSaved')}
             secondary
             presentation="text"
             disabled={busy || backup.hasActiveWorkout}
@@ -209,13 +224,13 @@ export function BackupPage({
         ) : null}
       </GlassCard>
       <Text style={s.heading} accessibilityRole="header">
-        Automatic backups
+        {t('backup.automaticTitle')}
       </Text>
       <GlassCard style={s.card}>
         <View style={s.row}>
-          <Text style={[s.body, s.flex]}>Automatic backup</Text>
+          <Text style={[s.body, s.flex]}>{t('backup.automatic')}</Text>
           <Switch
-            accessibilityLabel="Automatic backup"
+            accessibilityLabel={t('backup.automatic')}
             value={!!backup.policy?.enabled}
             disabled={
               busy || !backup.settingsLoaded || !backup.automaticSupported
@@ -227,18 +242,20 @@ export function BackupPage({
             trackColor={{ true: colors.primary }}
           />
         </View>
-        <Text style={s.heading}>Frequency</Text>
+        <Text style={s.heading}>{t('backup.frequency')}</Text>
         {(
           [
-            ['workout', 'Every workout'],
-            ['weekly', 'Weekly'],
-            ['monthly', 'Monthly'],
+            ['workout', t('backup.everyWorkout')],
+            ['weekly', t('backup.weekly')],
+            ['monthly', t('backup.monthly')],
           ] as const
         ).map(([frequency, label]) => (
           <Pressable
             key={frequency}
             accessibilityRole="radio"
-            accessibilityLabel={`Backup frequency ${label}`}
+            accessibilityLabel={t('backup.frequencyLabel', {
+              frequency: label,
+            })}
             accessibilityState={{
               checked: backup.policy?.frequency === frequency,
               disabled:
@@ -272,16 +289,16 @@ export function BackupPage({
       </GlassCard>
       <Text style={s.copy}>
         {backup.automaticSupported
-          ? 'Every workout copies follow a successful save. Weekly/monthly copies run while the app is open or next opened; active workouts are allowed to finish first. Copies stay in this app and do not protect against device loss or uninstall. Export a file for that.'
-          : 'Automatic file copies are available in the iOS and Android app. You can export and import files here.'}
+          ? t('backup.automaticHint')
+          : t('backup.nativeOnly')}
       </Text>
       {backup.settingsError ? (
         <>
           <Text accessibilityRole="alert" style={s.copy}>
-            {backup.settingsError}
+            {t('error.backupSettings')}
           </Text>
           <AppButton
-            title="Retry backup settings"
+            title={t('backup.retrySettings')}
             secondary
             onPress={() => void backup.onRetrySettings?.()}
           />
@@ -289,27 +306,21 @@ export function BackupPage({
       ) : null}
       <GlassCard>
         <AppButton
-          title="Restore all data"
+          title={t('backup.restoreAll')}
           secondary
           presentation="row"
           disabled={busy}
           onPress={() => setFullRestore(true)}
         />
-        <Text style={s.copy}>Replace this device with a full backup.</Text>
+        <Text style={s.copy}>{t('backup.fullHint')}</Text>
       </GlassCard>
-      <Text style={s.copy}>
-        Backup files contain personal data and are not encrypted. Choose a save
-        destination in the export share sheet.
-      </Text>
+      <Text style={s.copy}>{t('backup.privacy')}</Text>
       {backup.hasActiveWorkout ? (
-        <Text style={s.copy}>
-          Finish or discard your active workout before importing or restoring.
-          Export stays available.
-        </Text>
+        <Text style={s.copy}>{t('backup.activeImport')}</Text>
       ) : null}
       {error ? (
         <Text accessibilityRole="alert" style={s.copy}>
-          {error}
+          {presentAppError(t, error.problem, 'error.backupOpen')}
         </Text>
       ) : null}
     </AppScrollView>

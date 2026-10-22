@@ -1,6 +1,7 @@
+import { useLocalization } from './LocalizationProvider';
 import { useRef, useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import { AuthActionError } from '@/lib/auth-store';
+import { presentAppError } from '@/lib/i18n/errors';
 import { colors, radius, spacing, typography } from '@/lib/theme';
 import type { AccountSectionProps } from './AccountSection';
 import { AppButton } from './AppButton';
@@ -14,9 +15,10 @@ export function AccountDeletionSection({
   busy: boolean;
   setBusy(value: boolean): void;
 }) {
+  const { t } = useLocalization();
   const [confirming, setConfirming] = useState(false);
   const [typed, setTyped] = useState('');
-  const [failure, setFailure] = useState('');
+  const [failure, setFailure] = useState<{ problem: unknown }>();
   const inFlight = useRef(false);
   const current = snapshot.identity;
   const recovery =
@@ -35,17 +37,13 @@ export function AccountDeletionSection({
       return;
     inFlight.current = true;
     setBusy(true);
-    setFailure('');
+    setFailure(undefined);
     try {
       await deleteAccount(userId);
       setConfirming(false);
       setTyped('');
     } catch (error) {
-      setFailure(
-        error instanceof AuthActionError
-          ? error.message
-          : 'Account deletion is not confirmed. Cloud backup stays paused. Your local workouts are kept.',
-      );
+      setFailure({ problem: error });
     } finally {
       inFlight.current = false;
       setBusy(false);
@@ -56,12 +54,9 @@ export function AccountDeletionSection({
     <View style={s.root}>
       {recovery?.status === 'confirmed' ? (
         <>
-          <Text style={s.copy}>
-            Account deletion was confirmed. Local session cleanup is incomplete.
-            Your local workouts are kept.
-          </Text>
+          <Text style={s.copy}>{t('deletion.confirmed')}</Text>
           <AppButton
-            title={busy ? 'Cleaning up…' : 'Retry session cleanup'}
+            title={busy ? t('deletion.cleaning') : t('deletion.retryCleanup')}
             disabled={!deleteAccount || busy}
             onPress={() => void submit(true)}
           />
@@ -69,60 +64,49 @@ export function AccountDeletionSection({
       ) : (
         <>
           {recovery ? (
-            <Text style={s.copy}>
-              Account deletion is not confirmed. Cloud backup stays paused. Sign
-              in to the same account to retry, or keep using your local
-              workouts.
-            </Text>
+            <Text style={s.copy}>{t('deletion.pending')}</Text>
           ) : null}
           {current && confirming ? (
             <>
               <Text style={s.heading}>
-                Delete {current.email ?? 'this account'}?
+                {t('deletion.question', {
+                  account: current.email ?? t('deletion.thisAccount'),
+                })}
               </Text>
-              <Text style={s.copy}>
-                Your account and cloud workout history will be permanently
-                deleted. Your local workouts, routines and saved backup files
-                stay on this device.
-              </Text>
-              <Text style={s.copy}>
-                Exported files, other devices’ local copies and provider backups
-                are not erased by this action.
-              </Text>
+              <Text style={s.copy}>{t('deletion.warning')}</Text>
+              <Text style={s.copy}>{t('deletion.exclusions')}</Text>
               <TextInput
                 style={s.input}
-                accessibilityLabel="Type DELETE to confirm account deletion"
+                accessibilityLabel={t('deletion.typeLabel')}
                 autoCapitalize="characters"
                 autoCorrect={false}
-                placeholder="Type DELETE"
+                placeholder={t('deletion.type')}
                 placeholderTextColor={colors.textSecondary}
                 editable={!busy}
                 value={typed}
                 onChangeText={setTyped}
               />
               <AppButton
-                title={
-                  busy ? 'Deleting account…' : 'Permanently delete account'
-                }
+                title={busy ? t('deletion.deleting') : t('deletion.permanent')}
                 destructive
                 disabled={!deleteAccount || busy || typed !== 'DELETE'}
                 onPress={() => void submit()}
               />
               <AppButton
-                title="Keep account"
+                title={t('deletion.keep')}
                 secondary
                 disabled={busy}
                 onPress={() => {
                   setConfirming(false);
                   setTyped('');
-                  setFailure('');
+                  setFailure(undefined);
                 }}
               />
             </>
           ) : current ? (
             <>
               <AppButton
-                title={recovery ? 'Retry account deletion' : 'Delete account'}
+                title={recovery ? t('deletion.retry') : t('deletion.delete')}
                 destructive
                 secondary
                 presentation="text"
@@ -130,13 +114,11 @@ export function AccountDeletionSection({
                 onPress={() => {
                   setConfirming(true);
                   setTyped('');
-                  setFailure('');
+                  setFailure(undefined);
                 }}
               />
               {!deleteAccount ? (
-                <Text style={s.copy}>
-                  Account deletion is not available yet in this build.
-                </Text>
+                <Text style={s.copy}>{t('deletion.disabled')}</Text>
               ) : null}
             </>
           ) : null}
@@ -144,7 +126,7 @@ export function AccountDeletionSection({
       )}
       {failure && !snapshot.error ? (
         <Text style={s.error} accessibilityRole="alert">
-          {failure}
+          {presentAppError(t, failure.problem, 'error.deletionPending')}
         </Text>
       ) : null}
     </View>

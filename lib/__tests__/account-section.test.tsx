@@ -79,6 +79,7 @@ it('showsOnlySafeActionErrorsWithoutHidingRateLimits', async () => {
   const send = jest.fn(async () => {
     throw new AuthActionError(
       'Too many requests. Please wait before trying again.',
+      'auth_rate',
     );
   });
   let view!: ReturnType<typeof create>;

@@ -20,7 +20,7 @@ application translations and are not yet offered as production language choices.
 | History details, filters and date/count pickers    | Connected            | Connected and tested            |
 | Progress, exercise statistics, charts and muscles  | Connected            | Connected and tested            |
 | Progress body-weight chart and measurement editor  | Connected            | Connected and tested            |
-| Profile, account, backup and recovery              | Existing copy        | Pending connection              |
+| Profile, account, backup and recovery              | Connected            | Connected and tested            |
 | Device rendering/accessibility acceptance          | Existing limitations | Pending                         |
 
 `npm run i18n:report` emits catalog counts, enabled locales, and pending source
@@ -29,11 +29,12 @@ line and text. The AST inventory includes technical candidates: counts are not a
 claim about the percentage of translated UI. Classification and connection are
 required before a target locale can be enabled.
 
-The current resource catalog has 1234 semantic messages per language (14 common,
+The current resource catalog has 1463 semantic messages per language (14 common,
 105 catalog labels, 29 library controls, 113 workout messages and 77 Home/calendar
 messages, 36 History/date-picker, 90 onboarding/program-preview and 39 manual
 editor messages, 74 program/technique/management messages and 494 technique-guide
-messages and 163 Progress/statistics/chart/muscle/body-weight messages). Matching
+messages, 163 Progress/statistics/chart/muscle/body-weight messages and 229
+Profile/account/backup/recovery messages). Matching
 key counts are a structural check, not independent linguistic acceptance. The native picker
 receives labels/values from JavaScript; it has no separate English UI copy in its
 current Swift implementation.
@@ -52,7 +53,7 @@ filter labels and date/count wheels. Tests retain the selected saved workout and
 exact decimal snapshot, then change language with an unconfirmed date and count
 selection and apply the filter. Calendar grouping, date bounds, stored titles
 and history records are unchanged. Shared scroll-return accessibility messages
-are translated as well. Progress charts and muscle details remain pending.
+are translated as well. Progress coverage is recorded below.
 
 Onboarding now translates name/body details, goals, experience, current program
 names, complete movement previews, schedule controls, first-session reduction,
@@ -67,7 +68,7 @@ The shared manual workout editor translates editing, reorder/remove accessibilit
 configuration, stale-exercise warnings, vanished-template failures and discard
 confirmation. Tests preserve custom names, canonical exercise IDs, comma input,
 order and failed-save drafts. Unknown callback diagnostics are replaced with a
-localized retry message. Profile account/backup controls remain pending. These renderer tests do not
+localized retry message. Profile account/backup coverage is recorded below. These renderer tests do not
 replace physical-phone layout, native wheel or screen-reader acceptance.
 
 The pending candidate baseline was refreshed after this migration: removed UI
@@ -119,8 +120,7 @@ aliases and unchanged sources/revisions. Canonical English technique text remain
 in the source inventory because it is authored domain content, not duplicate raw UI.
 New baseline candidates were reviewed: message keys, the internal START phase
 comparison and an interpolated translated badge; no new untranslated UI was accepted.
-The subsequent Progress checkpoint is described below; account/backup/recovery
-screens remain pending.
+The subsequent Progress and account/backup/recovery checkpoints are described below.
 
 The locale engine now reuses one private translator per language across component
 mounts; custom resource overrides remain isolated. A local 100-call measurement
@@ -175,6 +175,43 @@ overview fixed-decimal rounding and source-weight precision. Both were reproduce
 with failing tests and corrected; the full passing suite includes their guards.
 The body-weight header uses its existing owner clock, satisfying render purity.
 iOS/Android exports passed. Exact-head CI remains the final integration gate.
+
+## Profile/account/backup/recovery checkpoint
+
+All four locales now cover Profile navigation, hidden routine restoration,
+account OTP and deletion states, backup policies and file previews, destructive
+restore/reset confirmations, local recovery and cloud conflict comparison.
+Supplemental error codes preserve the existing diagnostic strings and domain
+returns. Unknown SDK/picker/storage diagnostics use localized recovery messages;
+error text is never matched to choose a translation. Reset distinguishes no
+removal, restored data and incomplete rollback; confirmed account deletion stays
+distinct from incomplete local session cleanup. The literal `DELETE` confirmation
+token stays the same in every language and is explained by translated labels.
+
+Mounted tests switch all four locales while retaining email/OTP and deletion
+drafts, invalid-file failures, a blocked recovery gate and the selected conflict
+version. Language changes trigger no auth/file/recovery/sync retry or resolution.
+Historical workout/exercise names and original filenames remain verbatim;
+displayed dates and numbers follow the selected locale. Backup schemas/bytes,
+account/session ownership, deletion rollout and cloud protocol are unchanged.
+The existing hooks keep their lifecycle dependencies and domain return values;
+their consumer screens own translation. Backup success notices have an optional
+presentation callback so their current wording can change without repeating work.
+
+The full local `npm run check` passed on Node 22.16.0/npm 10.9.2 with 121 suites /
+1008 tests, including online dependency validation. iOS and Android exports passed.
+Independent whole-branch review found no actionable bugs. The refreshed inventory has 2335
+candidates: new additions were reviewed semantic keys and internal error codes,
+not new untranslated interface copy. Remaining authored/domain/technical
+candidates still require final classification and do not represent a coverage
+percentage. RU/DE/FR remain release-disabled pending final acceptance.
+
+External exclusions include the native file chooser, Files/share menu, provider
+email/OTP delivery text and disabled Apple/Google provider pages. Those surfaces
+follow the OS/provider language, not the app setting. The app translates its own
+instructions around them. No live OTP, account deletion or database mutation was
+performed to test translation. Physical-phone Files/share, interruption recovery,
+screen-reader, Dynamic Type and language/foreground checks remain pending.
 
 ## Every future change
 

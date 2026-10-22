@@ -1,3 +1,4 @@
+import { useLocalization } from './LocalizationProvider';
 import { useEffect, useRef, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import type { HistoryReviewActions } from './HistorySyncPanel';
@@ -15,9 +16,16 @@ import { completedSetMetrics, volume } from '@/lib/workout-metrics';
 import { AppButton } from './AppButton';
 import { GlassCard } from './GlassCard';
 import { colors, spacing, typography } from '@/lib/theme';
+import type { MessageKey } from '@/lib/i18n/messages';
+import { formatDate, formatNumber, formatEntryNumber } from '@/lib/i18n/format';
 
 const setValue = (set: WorkoutSet) =>
-  `${set.weight || '—'} kg × ${set.reps || '—'}${set.otherSideReps === undefined ? '' : ` / ${set.otherSideReps}`} · ${set.completedAt === undefined ? 'Not completed' : 'Completed'}`;
+  JSON.stringify([
+    set.weight || '—',
+    set.reps || '—',
+    set.otherSideReps,
+    set.completedAt !== undefined,
+  ]);
 function Version({
   label,
   workout,
@@ -31,35 +39,78 @@ function Version({
   onChoose(): void;
   disabled: boolean;
 }) {
+  const { t, locale } = useLocalization();
+  const displaySet = (set: WorkoutSet) =>
+    set.otherSideReps === undefined
+      ? t('conflict.setValue', {
+          weight: formatEntryNumber(locale, set.weight || '—'),
+          reps: formatEntryNumber(locale, set.reps || '—'),
+          status: t(
+            set.completedAt === undefined
+              ? 'conflict.incomplete'
+              : 'conflict.complete',
+          ),
+        })
+      : t('conflict.setValueBoth', {
+          weight: formatEntryNumber(locale, set.weight || '—'),
+          reps: formatEntryNumber(locale, set.reps || '—'),
+          other: formatEntryNumber(locale, set.otherSideReps),
+          status: t(
+            set.completedAt === undefined
+              ? 'conflict.incomplete'
+              : 'conflict.complete',
+          ),
+        });
   const completed = completedSetCount(workout);
   const measured = workout.exercises
     .flatMap((exercise) => exercise.sets)
     .filter((set) => completedSetMetrics(set) !== undefined).length;
   return (
     <GlassCard style={s.version}>
-      <Text style={s.heading}>{label} version</Text>
+      <Text style={s.heading}>
+        {t(
+          label === 'Device'
+            ? 'conflict.deviceVersion'
+            : 'conflict.cloudVersion',
+        )}
+      </Text>
       <Text style={s.heading}>{workout.name}</Text>
       <Text style={s.copy}>
-        Workout: {new Date(workout.startedAt).toLocaleString()}
+        {t('conflict.started', {
+          date: formatDate(locale, workout.startedAt, {
+            dateStyle: 'medium',
+            timeStyle: 'short',
+          }),
+        })}
       </Text>
       {workout.finishedAt !== undefined ? (
         <Text style={s.copy}>
-          Finished: {new Date(workout.finishedAt).toLocaleString()}
+          {t('conflict.finished', {
+            date: formatDate(locale, workout.finishedAt, {
+              dateStyle: 'medium',
+              timeStyle: 'short',
+            }),
+          })}
         </Text>
       ) : null}
-      <Text style={s.copy}>Edit time unknown</Text>
+      <Text style={s.copy}>{t('conflict.unknownEdit')}</Text>
       <View style={s.group}>
         <Text style={s.heading}>
-          {`${completed} completed ${completed === 1 ? 'set' : 'sets'}`}
+          {t('conflict.completed', { count: completed })}
         </Text>
         <Text style={s.copy}>
           {measured
-            ? `${volume(workout).toLocaleString()} kg recorded volume`
-            : 'Volume unavailable'}
+            ? t('conflict.volume', {
+                volume: formatNumber(locale, volume(workout)),
+              })
+            : t('conflict.noVolume')}
         </Text>
         {measured > 0 && measured < completed ? (
           <Text style={s.copy}>
-            {`${measured} of ${completed} completed sets have volume data`}
+            {t('conflict.partialVolume', {
+              measured: formatNumber(locale, measured),
+              completed: formatNumber(locale, completed),
+            })}
           </Text>
         ) : null}
       </View>
@@ -75,9 +126,17 @@ function Version({
           </Text>
           {exercise.target ? (
             <Text style={s.copy}>
-              Target: {exercise.target.repMin}–{exercise.target.repMax} reps
-              {exercise.target.perSide ? ' per side' : ''} · Rest{' '}
-              {exercise.target.restMin}–{exercise.target.restMax}s
+              {t(
+                exercise.target.perSide
+                  ? 'conflict.targetPerSide'
+                  : 'conflict.target',
+                {
+                  min: formatNumber(locale, exercise.target.repMin),
+                  max: formatNumber(locale, exercise.target.repMax),
+                  restMin: formatNumber(locale, exercise.target.restMin),
+                  restMax: formatNumber(locale, exercise.target.restMax),
+                },
+              )}
             </Text>
           ) : null}
           {exercise.sets.map((set, j) => (
@@ -91,19 +150,25 @@ function Version({
                     : '') && s.changed,
               ]}
             >
-              <Text style={s.copy}>Set {j + 1}</Text>
-              <Text style={s.value}>{setValue(set)}</Text>
+              <Text style={s.copy}>
+                {t('conflict.set', { number: formatNumber(locale, j + 1) })}
+              </Text>
+              <Text style={s.value}>{displaySet(set)}</Text>
             </View>
           ))}
-          {!exercise.sets.length ? <Text style={s.copy}>No sets</Text> : null}
+          {!exercise.sets.length ? (
+            <Text style={s.copy}>{t('conflict.noSets')}</Text>
+          ) : null}
         </View>
       ))}
       {!workout.exercises.length ? (
-        <Text style={s.copy}>No exercises</Text>
+        <Text style={s.copy}>{t('conflict.noExercises')}</Text>
       ) : null}
       <AppButton
-        title="Keep this version"
-        accessibilityLabel={`Keep ${label.toLowerCase()} version`}
+        title={t('conflict.keep')}
+        accessibilityLabel={t(
+          label === 'Device' ? 'conflict.keepDevice' : 'conflict.keepCloud',
+        )}
         disabled={disabled}
         onPress={onChoose}
       />
@@ -120,12 +185,15 @@ export function HistoryConflictReview({
   onClose(): void;
   onSignOut(): Promise<void>;
 }) {
+  const { t } = useLocalization();
   const [items, setItems] = useState<HistoryConflictSummary[]>([]);
   const [view, setView] = useState<HistoryComparison | null>(null);
   const [choice, setChoice] = useState<ResolutionChoice | null>(null);
   const [more, setMore] = useState(false);
   const [busy, setBusy] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<
+    Extract<MessageKey, `conflict.${string}Error`> | ''
+  >('');
   const [signingOut, setSigningOut] = useState(false);
   const epoch = useRef(0);
   const inFlight = useRef(false);
@@ -141,7 +209,7 @@ export function HistoryConflictReview({
       },
       () => {
         if (epoch.current === token) {
-          setError('Could not load conflicts. Retry sync.');
+          setError('conflict.loadError');
           setBusy(false);
         }
       },
@@ -162,9 +230,7 @@ export function HistoryConflictReview({
       if (epoch.current !== token) return;
       setChoice(null);
       if (e instanceof HistoryProtocolError && e.kind === 'conflict') {
-        setError(
-          'The workout changed. Review the latest versions before choosing.',
-        );
+        setError('conflict.changedError');
         if (view) {
           try {
             const fresh = await actions.compare(view.workoutId);
@@ -177,10 +243,10 @@ export function HistoryConflictReview({
         setView(null);
         setError(
           e instanceof HistoryProtocolError && e.kind === 'auth'
-            ? 'Your account session changed. Sign in again to continue.'
+            ? 'conflict.authError'
             : e instanceof HistoryProtocolError && e.kind === 'invalid'
-              ? 'Backup data could not be verified. Your local history is kept. Retry sync.'
-              : 'Could not finish. Your history is kept. Retry sync to recover your last choice.',
+              ? 'conflict.invalidError'
+              : 'conflict.finishError',
         );
       }
     } finally {
@@ -222,21 +288,17 @@ export function HistoryConflictReview({
   return (
     <View style={s.root}>
       <Text style={s.title} accessibilityRole="header">
-        Review conflicting workouts
+        {t('sync.review')}
       </Text>
-      <Text style={s.copy}>
-        Changes to different workouts merge automatically. For different
-        versions of the same workout, you choose what to keep. Dates do not
-        decide which is correct.
-      </Text>
+      <Text style={s.copy}>{t('conflict.intro')}</Text>
       {busy ? (
         <Text style={s.copy} accessibilityLiveRegion="polite">
-          Checking your workout…
+          {t('conflict.checking')}
         </Text>
       ) : null}
       {error ? (
         <Text style={s.error} accessibilityRole="alert">
-          {error}
+          {t(error)}
         </Text>
       ) : null}
       {view ? (
@@ -244,49 +306,57 @@ export function HistoryConflictReview({
           {blocked ? (
             <Text style={s.copy}>
               {blocked === 'other-account'
-                ? 'This workout belongs to another account. It cannot be replaced here.'
+                ? t('conflict.otherAccount')
                 : blocked === 'active'
-                  ? 'This workout is currently active. Finish it before reviewing.'
+                  ? t('conflict.active')
                   : blocked === 'same'
-                    ? 'These versions now match. Retry sync to update the conflict list.'
-                    : 'This workout is no longer available for comparison. Retry sync.'}
+                    ? t('conflict.same')
+                    : t('conflict.unavailable')}
             </Text>
           ) : choice ? (
             <GlassCard style={s.group}>
               <Text style={s.heading}>
                 {choice === 'both'
                   ? deleted
-                    ? 'Save device as a new workout?'
-                    : 'Save both workouts?'
+                    ? t('conflict.saveNewQuestion')
+                    : t('conflict.saveBothQuestion')
                   : deleted
-                    ? 'Remove the device workout?'
-                    : `Keep the ${choice === 'local' ? 'device' : 'cloud'} version?`}
+                    ? t('conflict.removeQuestion')
+                    : t(
+                        choice === 'local'
+                          ? 'conflict.keepDeviceQuestion'
+                          : 'conflict.keepCloudQuestion',
+                      )}
               </Text>
               <Text style={s.copy}>
                 {choice === 'both'
                   ? deleted
-                    ? 'The device version will be saved as one new workout in History and Progress. The deleted cloud workout stays deleted.'
-                    : 'The device version will be saved as a new workout. The cloud version stays as it is. Both workouts will count in History and Progress'
+                    ? t('conflict.saveNewHint')
+                    : t('conflict.saveBothHint')
                   : deleted
-                    ? 'The workout will be removed from this device to match its deletion in the cloud.'
-                    : `This replaces the ${choice === 'local' ? 'cloud' : 'device'} version with the version you selected.`}
+                    ? t('conflict.removeHint')
+                    : t(
+                        choice === 'local'
+                          ? 'conflict.replaceCloudHint'
+                          : 'conflict.replaceDeviceHint',
+                      )}
               </Text>
               <AppButton
                 title={
                   choice === 'both'
-                    ? 'Save both workouts'
+                    ? t('conflict.saveBoth')
                     : deleted
-                      ? 'Remove device workout'
+                      ? t('conflict.remove')
                       : choice === 'local'
-                        ? 'Replace cloud version'
-                        : 'Replace device version'
+                        ? t('conflict.replaceCloud')
+                        : t('conflict.replaceDevice')
                 }
                 destructive={deleted && choice === 'cloud'}
                 disabled={busy}
                 onPress={confirm}
               />
               <AppButton
-                title="Back to comparison"
+                title={t('conflict.backComparison')}
                 secondary
                 disabled={busy}
                 onPress={() => setChoice(null)}
@@ -294,10 +364,7 @@ export function HistoryConflictReview({
             </GlassCard>
           ) : (
             <>
-              <Text style={s.copy}>
-                Highlighted sets differ. Saved exercise or program details may
-                also differ even when set values match.
-              </Text>
+              <Text style={s.copy}>{t('conflict.highlights')}</Text>
               <View style={s.versions}>
                 {local ? (
                   <Version
@@ -320,18 +387,15 @@ export function HistoryConflictReview({
               </View>
               {deleted ? (
                 <GlassCard style={s.group}>
-                  <Text style={s.heading}>Deleted in cloud</Text>
-                  <Text style={s.copy}>
-                    Keep the device version as a new workout, or accept the
-                    deletion. The deleted workout will not be restored.
-                  </Text>
+                  <Text style={s.heading}>{t('conflict.deleted')}</Text>
+                  <Text style={s.copy}>{t('conflict.deletedHint')}</Text>
                   <AppButton
-                    title="Save device as new workout"
+                    title={t('conflict.saveNew')}
                     disabled={busy}
                     onPress={() => setChoice('both')}
                   />
                   <AppButton
-                    title="Accept cloud deletion"
+                    title={t('conflict.acceptDeletion')}
                     secondary
                     disabled={busy}
                     onPress={() => setChoice('cloud')}
@@ -340,14 +404,14 @@ export function HistoryConflictReview({
               ) : (
                 <>
                   <AppButton
-                    title="More options"
+                    title={t('conflict.more')}
                     secondary
                     disabled={busy}
                     onPress={() => setMore(!more)}
                   />
                   {more ? (
                     <AppButton
-                      title="Save both as separate workouts"
+                      title={t('conflict.saveSeparate')}
                       secondary
                       disabled={busy}
                       onPress={() => setChoice('both')}
@@ -358,7 +422,7 @@ export function HistoryConflictReview({
             </>
           )}
           <AppButton
-            title="Back to conflict list"
+            title={t('conflict.backList')}
             secondary
             disabled={busy}
             onPress={() => {
@@ -373,19 +437,19 @@ export function HistoryConflictReview({
             items.map((item) => (
               <AppButton
                 key={item.id}
-                title={item.name || 'Untitled workout'}
+                title={item.name || t('conflict.untitled')}
                 presentation="row"
                 secondary
                 onPress={() => open(item.id)}
               />
             ))
           ) : !error ? (
-            <Text style={s.heading}>No conflicts to review</Text>
+            <Text style={s.heading}>{t('conflict.none')}</Text>
           ) : null}
         </>
       ) : null}
       <AppButton
-        title="Retry sync"
+        title={t('conflict.retry')}
         secondary
         disabled={busy}
         onPress={() => {
@@ -401,9 +465,9 @@ export function HistoryConflictReview({
           });
         }}
       />
-      <AppButton title="Decide later" secondary onPress={onClose} />
+      <AppButton title={t('conflict.later')} secondary onPress={onClose} />
       <AppButton
-        title="Sign Out"
+        title={t('account.signOut')}
         secondary
         disabled={signingOut}
         onPress={() => {
@@ -412,8 +476,7 @@ export function HistoryConflictReview({
           setSigningOut(true);
           void onSignOut()
             .catch(() => {
-              if (epoch.current === token)
-                setError('Could not sign out. Try again.');
+              if (epoch.current === token) setError('conflict.signOutError');
             })
             .finally(() => {
               if (epoch.current === token) setSigningOut(false);

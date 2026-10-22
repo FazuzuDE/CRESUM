@@ -1,3 +1,4 @@
+import { AppError, type AppErrorCode } from './app-error';
 import { HistoryProtocolError } from './sync/history-rpc';
 import type { AuthIdentity, AuthRepository } from './auth-repository';
 import type {
@@ -10,33 +11,55 @@ export type AuthSnapshot = {
   configured: boolean;
   identity: AuthIdentity | null;
   error: string | null;
+  errorCode?: AppErrorCode;
   busy: 'send' | 'verify' | 'sign_out' | 'delete' | null;
   deletion?: { userId: string; status: DeletionStatus };
   notice?: string;
 };
 
-export class AuthActionError extends Error {}
+export class AuthActionError extends AppError {
+  constructor(message: string, code: AppErrorCode = 'auth_generic') {
+    super(code, message);
+  }
+}
 
 function safeError(
   action: 'send' | 'verify' | 'sign_out',
   cause?: unknown,
-): string {
+): { message: string; code: AppErrorCode } {
   const details =
     cause && typeof cause === 'object'
       ? (cause as { status?: unknown; code?: unknown; name?: unknown })
       : null;
   if (details?.status === 429 || details?.code === 'over_request_rate_limit')
-    return 'Too many requests. Please wait before trying again.';
+    return {
+      message: 'Too many requests. Please wait before trying again.',
+      code: 'auth_rate',
+    };
   if (
     details?.name === 'AuthRetryableFetchError' ||
     details?.name === 'TypeError' ||
     (typeof details?.status === 'number' && details.status >= 500)
   )
-    return 'Could not connect to sign-in service. Check your connection and try again.';
+    return {
+      message:
+        'Could not connect to sign-in service. Check your connection and try again.',
+      code: 'auth_connection',
+    };
   if (action === 'verify')
-    return 'Code invalid or expired. Try again or resend it.';
-  if (action === 'send') return 'Could not send the code. Try again.';
-  return 'Could not sign out. Check your connection and try again.';
+    return {
+      message: 'Code invalid or expired. Try again or resend it.',
+      code: 'auth_verify',
+    };
+  if (action === 'send')
+    return {
+      message: 'Could not send the code. Try again.',
+      code: 'auth_send',
+    };
+  return {
+    message: 'Could not sign out. Check your connection and try again.',
+    code: 'auth_sign_out',
+  };
 }
 
 export class AuthStore {
@@ -101,7 +124,7 @@ export class AuthStore {
 
   private publish(next: AuthSnapshot): void {
     if (this.disposed) return;
-    this.snapshot = next;
+    this.snapshot = next.error ? next : { ...next, errorCode: undefined };
     this.listeners.forEach((listener) => listener());
   }
 
@@ -115,6 +138,7 @@ export class AuthStore {
         this.publish({
           ...this.snapshot,
           status: 'error',
+          errorCode: 'auth_recovery',
           error:
             'Account recovery metadata could not be verified. Retry account setup. Local workouts remain available.',
         });
@@ -129,6 +153,7 @@ export class AuthStore {
         this.publish({
           ...this.snapshot,
           status: 'error',
+          errorCode: 'auth_setup',
           error:
             'Account setup is unavailable. Local workouts remain available.',
         });
@@ -198,6 +223,7 @@ export class AuthStore {
         this.publish({
           ...this.snapshot,
           status: 'error',
+          errorCode: 'auth_session',
           error:
             'Could not restore account session. Local workouts remain available.',
         });
@@ -212,9 +238,14 @@ export class AuthStore {
       await this.repository.sendEmailOtp(email);
       this.publish({ ...this.snapshot, busy: null, error: null });
     } catch (cause) {
-      const message = safeError('send', cause);
-      this.publish({ ...this.snapshot, busy: null, error: message });
-      throw new AuthActionError(message);
+      const { message, code } = safeError('send', cause);
+      this.publish({
+        ...this.snapshot,
+        busy: null,
+        error: message,
+        errorCode: code,
+      });
+      throw new AuthActionError(message, code);
     }
   }
 
@@ -240,9 +271,14 @@ export class AuthStore {
         error: null,
       });
     } catch (cause) {
-      const message = safeError('verify', cause);
-      this.publish({ ...this.snapshot, busy: null, error: message });
-      throw new AuthActionError(message);
+      const { message, code } = safeError('verify', cause);
+      this.publish({
+        ...this.snapshot,
+        busy: null,
+        error: message,
+        errorCode: code,
+      });
+      throw new AuthActionError(message, code);
     }
   }
 
@@ -262,8 +298,12 @@ export class AuthStore {
         error: null,
       });
     } catch {
-      const message = this.signedOutDuringRequest
-        ? 'Sign out completed on this device, but could not confirm it on other devices.'
+      const { message, code } = this.signedOutDuringRequest
+        ? {
+            message:
+              'Sign out completed on this device, but could not confirm it on other devices.',
+            code: 'auth_partial_sign_out' as const,
+          }
         : safeError('sign_out');
       this.publish({
         ...this.snapshot,
@@ -273,8 +313,9 @@ export class AuthStore {
         identity: this.signedOutDuringRequest ? null : this.snapshot.identity,
         busy: null,
         error: message,
+        errorCode: code,
       });
-      throw new AuthActionError(message);
+      throw new AuthActionError(message, code);
     }
   }
 
@@ -290,7 +331,10 @@ export class AuthStore {
       this.disposed ||
       this.snapshot.busy
     )
-      throw new AuthActionError('Account deletion is unavailable.');
+      throw new AuthActionError(
+        'Account deletion is unavailable.',
+        'deletion_unavailable',
+      );
     let confirmed =
       this.confirmedHere.has(userId) || deletion.state(userId) === 'confirmed';
     if (
@@ -302,6 +346,7 @@ export class AuthStore {
     )
       throw new AuthActionError(
         'Sign in to the same account before retrying deletion.',
+        'deletion_account',
       );
     const epoch = this.ownerEpoch;
     this.revision++;
@@ -350,6 +395,7 @@ export class AuthStore {
             },
       );
     } catch {
+      const code = confirmed ? 'deletion_cleanup' : 'deletion_pending';
       const message = confirmed
         ? 'Account deletion was confirmed, but local session cleanup is incomplete. Retry cleanup. Your local workouts are kept.'
         : 'Account deletion is not confirmed. Cloud backup stays paused. Retry deletion or keep using local workouts.';
@@ -362,12 +408,13 @@ export class AuthStore {
               ...this.snapshot,
               busy: null,
               error: message,
+              errorCode: code,
               status: confirmed ? 'signed_out' : this.snapshot.status,
               identity: confirmed ? null : this.snapshot.identity,
               deletion: { userId, status: confirmed ? 'confirmed' : 'pending' },
             },
       );
-      throw new AuthActionError(message);
+      throw new AuthActionError(message, code);
     } finally {
       release?.();
     }

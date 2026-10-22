@@ -1,6 +1,34 @@
 import { AppError } from '../app-error';
 import type { Translate } from './messages';
 const errorMessages = {
+  reset_incomplete: 'error.resetIncomplete',
+  reset_recovered: 'error.resetRecovered',
+  reset_untouched: 'error.resetUntouched',
+  auth_generic: 'error.authGeneric',
+  auth_send: 'error.authSend',
+  auth_verify: 'error.authVerify',
+  auth_sign_out: 'error.authSignOut',
+  auth_rate: 'error.authRate',
+  auth_connection: 'error.authConnection',
+  auth_recovery: 'error.authRecovery',
+  auth_setup: 'error.authSetup',
+  auth_session: 'error.authSession',
+  auth_partial_sign_out: 'error.authPartialSignOut',
+  deletion_unavailable: 'error.deletionUnavailable',
+  deletion_account: 'error.deletionAccount',
+  deletion_cleanup: 'error.deletionCleanup',
+  deletion_pending: 'error.deletionPending',
+  backup_invalid: 'error.backupInvalid',
+  backup_too_large: 'error.backupTooLarge',
+  backup_share: 'error.backupShare',
+  backup_read: 'error.backupRead',
+  backup_restore: 'error.backupRestore',
+  backup_pending: 'error.backupPending',
+  backup_busy: 'error.backupBusy',
+  backup_active: 'error.backupActive',
+  backup_unsaved: 'error.backupUnsaved',
+  backup_no_saved: 'error.backupNoSaved',
+  local_recovery: 'error.localRecovery',
   invalid_set_values: 'error.invalidSet',
   invalid_set_entry: 'error.invalidEntry',
   empty_workout: 'error.noSets',
@@ -27,7 +55,12 @@ const errorMessages = {
 type ErrorKey =
   | (typeof errorMessages)[keyof typeof errorMessages]
   | 'error.workoutOperation'
-  | 'error.programSave';
+  | 'error.programSave'
+  | 'error.backupOpen'
+  | 'error.backupSettings'
+  | 'error.localOperation'
+  | 'error.reset';
+// Unknown diagnostics use a presentation fallback rather than their raw text.
 export function presentAppError(
   t: Translate,
   error: unknown,

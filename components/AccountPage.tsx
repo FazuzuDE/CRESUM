@@ -1,3 +1,4 @@
+import { useLocalization } from './LocalizationProvider';
 import { StyleSheet, Text } from 'react-native';
 import { AppScrollView } from './AppScrollView';
 import { BrandHeader } from './BrandHeader';
@@ -37,19 +38,20 @@ function AccountPageContent({
   onClose: () => void;
   owner: string | null;
 }) {
+  const { t } = useLocalization();
   const [reviewOwner, setReviewOwner] = useState<string | null>(null);
   const reviewing = !!owner && reviewOwner === owner && !!account.sync?.review;
   return (
     <AppScrollView contentContainerStyle={s.content}>
       <BrandHeader />
       <AppButton
-        title={reviewing ? 'Back to Account & Sync' : 'Back to Profile'}
+        title={reviewing ? t('account.back') : t('profile.back')}
         secondary
         presentation="text"
         onPress={reviewing ? () => setReviewOwner(null) : onClose}
       />
       <Text style={s.title} accessibilityRole="header">
-        {account.sync ? 'Account & Sync' : 'Account'}
+        {account.sync ? t('account.syncTitle') : t('account.title')}
       </Text>
       {reviewing && account.sync?.review ? (
         <HistoryConflictReview
