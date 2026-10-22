@@ -127,11 +127,12 @@
 
 ## Evidence and execution handoff
 
-Implementation has not started. Recommended execution: Native (one implementer in
-this session, then one independent whole-branch review), because all tasks share
-the same message and locale interfaces. Review this plan and select the execution
-method before beginning Task 1. Each task ends with its own commit/checkpoint;
-partial checkpoints do not authorize enabling unfinished locales.
+Native execution was approved 2026-10-22: one implementer and an independent
+review. Implementation is in progress. Foundation/settings, decimal helpers and
+catalog/library are checkpointed; remaining screen migration and full acceptance
+are still pending. See ../../LOCALIZATION.md and the execution ledger for exact
+evidence. Each task ends with its own commit/checkpoint; partial checkpoints do
+not authorize enabling unfinished locales.
 
 Official references checked for this plan:
 

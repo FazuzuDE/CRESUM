@@ -15,6 +15,7 @@ import {
 } from '@/lib/local-backup';
 import { shareBackupFile } from '@/lib/backup-files';
 import { BrandHeader } from '@/components/BrandHeader';
+import { useLocalization } from '@/components/LocalizationProvider';
 import {
   useCallback,
   useEffect,
@@ -323,6 +324,7 @@ function AppContent({
   notice: string;
   initialTab: string;
 }) {
+  const localization = useLocalization();
   const localBackups = useBackupArchive();
   const [store] = useState(
     () => new WorkoutStore(new WorkoutRepository(AsyncStorage)),
@@ -805,6 +807,7 @@ function AppContent({
     try {
       releaseCloud = await cloud.quiesce(true);
       await resetLocalData(AsyncStorage, async () => {
+        await localization.store?.waitForPendingWrites();
         await programAcceptance.waitForPendingWrites();
         await localBackups.repository.waitForPendingWrites();
         await onboardingWrites.current;
@@ -813,6 +816,7 @@ function AppContent({
         await bodyWeightRepository.waitForPendingWrites();
       });
       store.resetAfterLocalDataRemoval();
+      await localization.store?.load();
       await localBackups.refresh();
       setOnboardingState(initialOnboardingState);
       setBodyWeights([]);

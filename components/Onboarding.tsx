@@ -1,4 +1,5 @@
 import { BrandHeader } from './BrandHeader';
+import { LanguageSettings } from './LanguageSettings';
 import { programEligibilityError } from '@/lib/training-programs/eligibility';
 import { normalizeBirthDate } from '@/lib/personal-profile';
 import { DatePickerSheet } from './DatePickerSheet';
@@ -241,6 +242,7 @@ export function Onboarding({
         contentContainerStyle={s.content}
       >
         <BrandHeader tagline={false} />
+        {state.step === 'welcome' ? <LanguageSettings /> : null}
         {step === 'self_setup' ? (
           <>
             <Text style={s.title} accessibilityRole="header">

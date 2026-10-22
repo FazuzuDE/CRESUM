@@ -1,3 +1,4 @@
+import { normalizeDecimalInput } from './i18n/format';
 export const BODY_WEIGHT_KEY = 'cresum_body_weight_v1';
 export type BodyWeightEntry = { id: string; recordedAt: number; kg: number };
 type Storage = {
@@ -5,7 +6,7 @@ type Storage = {
   setItem(key: string, value: string): Promise<unknown>;
 };
 export function parseBodyWeight(value: string): number {
-  const normalized = value.trim().replace(',', '.');
+  const normalized = normalizeDecimalInput(value) ?? '';
   const kg = Number(normalized);
   if (
     !/^\d+(?:\.\d+)?$/.test(normalized) ||

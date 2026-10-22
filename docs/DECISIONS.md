@@ -1,5 +1,16 @@
 # CRESUM Decision Log
 
+## 2026-10-22 — Localization execution and ongoing coverage rule approved
+
+The user delegated implementation and thorough verification and requested clear
+visibility of translated versus untranslated areas. Execute the approved plan
+inline with an independent checkpoint/branch review. Include every enabled
+language with new app-controlled copy in the same change; author migration packs
+in EN/RU/DE/FR together. Add structural CI checks and a per-file pending-copy
+inventory. Foundation/settings/catalog/library work is an intermediate checkpoint,
+not full app-wide translation. Do not enable incomplete locales or label source
+candidate counts as a translation completeness percentage.
+
 ## 2026-10-21 — Multilingual written specification approved
 
 The user confirmed the written specification in PR #70. Prepare the linked

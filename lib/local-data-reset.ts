@@ -5,6 +5,7 @@ import { BODY_WEIGHT_KEY } from './body-weight';
 import { HIDDEN_BUILT_INS_KEY } from './hidden-builtins';
 import { ONBOARDING_KEY } from './onboarding-repository';
 import { LEGACY_KEYS, STATE_KEY } from './workout-repository';
+import { LANGUAGE_PREFERENCE_KEY } from './i18n/preference-store';
 
 // Remove the canonical workout document last. If interrupted earlier, it still
 // protects the existing workouts from legacy re-import or first-run gating.
@@ -18,6 +19,7 @@ export const LOCAL_DATA_KEYS = [
 ] as const;
 
 const RESET_DATA_KEYS = [
+  LANGUAGE_PREFERENCE_KEY,
   SYNC_METADATA_KEY,
   BACKUP_POLICY_KEY,
   ...LOCAL_DATA_KEYS,

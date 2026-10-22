@@ -1,8 +1,9 @@
 # CRESUM multilingual application
 
 Date: 2026-10-21. Status: written specification approved by the user on
-2026-10-21; implementation plan awaiting review. This document specifies future
-implementation, not shipped capability.
+2026-10-21; implementation plan approved for inline execution and thorough
+verification on 2026-10-22. Delivery is in progress; actual coverage is recorded
+in ../../LOCALIZATION.md, not inferred from this specification.
 
 ## Intent and scope
 

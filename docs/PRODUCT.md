@@ -12,7 +12,14 @@ Prepare for later expansion to 30 languages in total; prioritize the additional
 languages separately by market/audience. This is approved direction, not shipped
 coverage. The [written specification](superpowers/specs/2026-10-21-multilingual-design.md)
 was approved; the [implementation plan](superpowers/plans/2026-10-21-multilingual.md)
-awaits review and execution-method selection.
+was approved for inline execution and thorough verification on 2026-10-22.
+The foundation now includes a typed offline locale engine, durable device-local
+selection/reset handling, catalog labels and localized library search. Full screen
+migration remains in progress; English is the only release-enabled locale.
+See [coverage and contribution rules](LOCALIZATION.md). New app-controlled copy
+must include every enabled locale in the same change; during this migration all
+new message packs are authored in EN/RU/DE/FR. CI checks message contracts and
+tracks pending source candidates, blocking incomplete target-language activation.
 
 The app display name is CRESUM; package/Expo slug use `cresum`. Existing local
 data keys and installed application IDs remain stable across rebranding.

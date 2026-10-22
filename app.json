@@ -6,8 +6,13 @@
     "orientation": "portrait",
     "scheme": ["cresum", "fitflow"],
     "userInterfaceStyle": "light",
-    "plugins": ["expo-router"],
-    "ios": { "supportsTablet": false, "bundleIdentifier": "com.fitflow.app" },
-    "android": { "package": "com.fitflow.app" }
+    "plugins": ["expo-router", "expo-localization"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.fitflow.app"
+    },
+    "android": {
+      "package": "com.fitflow.app"
+    }
   }
 }
