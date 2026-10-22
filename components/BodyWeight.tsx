@@ -13,6 +13,9 @@ import { AppScrollView } from './AppScrollView';
 import { AppButton } from './AppButton';
 import { GlassCard } from './GlassCard';
 import { VolumeTrendChart } from './VolumeTrendChart';
+import { useLocalization } from './LocalizationProvider';
+import { formatDate } from '@/lib/i18n/format';
+import { volumeNumber, periodLabel } from '@/lib/i18n/progress';
 import { parseBodyWeight, type BodyWeightEntry } from '@/lib/body-weight';
 import {
   progressPeriodStart,
@@ -41,6 +44,7 @@ export function BodyWeight({
   period,
   now,
 }: { period: ProgressPeriodId; now: number } & BodyWeightProps) {
+  const { t, locale } = useLocalization();
   const [adding, setAdding] = useState(false),
     [value, setValue] = useState(''),
     [problem, setProblem] = useState(''),
@@ -68,17 +72,18 @@ export function BodyWeight({
   const save = async () => {
     try {
       parseBodyWeight(value);
+    } catch {
+      setProblem('invalid');
+      return;
+    }
+    try {
       setSaving(true);
       setProblem('');
       await onRecord(value);
       setAdding(false);
       setValue('');
-    } catch (e) {
-      setProblem(
-        e instanceof Error
-          ? e.message
-          : 'Could not save measurement. Try again.',
-      );
+    } catch {
+      setProblem('save');
     } finally {
       setSaving(false);
     }
@@ -87,10 +92,10 @@ export function BodyWeight({
     <GlassCard style={s.card}>
       <View style={s.row}>
         <Text accessibilityRole="header" style={s.heading}>
-          Body weight
+          {t('body.title')}
         </Text>
         <AppButton
-          title="Add measurement"
+          title={t('body.add')}
           presentation="text"
           disabled={busy}
           onPress={() => {
@@ -100,14 +105,14 @@ export function BodyWeight({
           }}
         />
       </View>
-      <Text style={s.sub}>Recorded measurements · kg</Text>
+      <Text style={s.sub}>{t('body.recorded')}</Text>
       {error ? (
         <>
           <Text style={s.error} accessibilityRole="alert">
-            {error}
+            {t('body.loadError')}
           </Text>
           <AppButton
-            title="Retry measurements"
+            title={t('body.retry')}
             secondary
             onPress={onRetry}
             disabled={busy}
@@ -118,28 +123,28 @@ export function BodyWeight({
         <>
           <View style={s.row}>
             <View>
-              <Text style={s.label}>Initial</Text>
+              <Text style={s.label}>{t('body.initial')}</Text>
               <Text style={s.value}>
-                {initial.kg} <Text style={s.unit}>kg</Text>
+                {volumeNumber(locale, initial.kg)}{' '}
+                <Text style={s.unit}>{t('progress.kg')}</Text>
               </Text>
             </View>
             <View>
-              <Text style={s.label}>Current</Text>
+              <Text style={s.label}>{t('body.current')}</Text>
               <Text style={s.value}>
-                {latest.kg} <Text style={s.unit}>kg</Text>
+                {volumeNumber(locale, latest.kg)}{' '}
+                <Text style={s.unit}>{t('progress.kg')}</Text>
               </Text>
             </View>
           </View>
           <Text style={s.sub}>
-            {latest.kg - initial.kg >= 0 ? '+' : ''}
-            {Number((latest.kg - initial.kg).toFixed(2))} kg since first
-            measurement
+            {t('body.change', {
+              change: `${latest.kg - initial.kg >= 0 ? '+' : ''}${volumeNumber(locale, Number((latest.kg - initial.kg).toFixed(2)))}`,
+            })}
           </Text>
         </>
       ) : !error ? (
-        <Text style={s.sub}>
-          Add your first measurement to start tracking body weight.
-        </Text>
+        <Text style={s.sub}>{t('body.empty')}</Text>
       ) : null}
       {selected.length ? (
         <VolumeTrendChart
@@ -152,17 +157,20 @@ export function BodyWeight({
           }))}
           start={start}
           end={now}
-          measureLabel="Body weight"
-          itemLabel="measurement"
+          measureLabel={t('body.title')}
+          itemLabel={t('chart.measurement')}
           valueRange={range}
           formatPoint={(p) =>
-            `${new Date(p.finishedAt).toLocaleDateString()} · ${p.volume} kg`
+            t('body.point', {
+              date: formatDate(locale, p.finishedAt),
+              value: volumeNumber(locale, p.volume),
+            })
           }
-          singlePointMessage="One measurement saved. Add another to see your trend."
+          singlePointMessage={t('body.one')}
         />
       ) : initial ? (
         <Text style={s.sub}>
-          No measurements in {period}. Your earlier measurements are retained.
+          {t('body.noPeriod', { period: periodLabel(t, period) })}
         </Text>
       ) : null}
       <Modal
@@ -181,17 +189,17 @@ export function BodyWeight({
               keyboardShouldPersistTaps="handled"
             >
               <Text accessibilityRole="header" style={s.title}>
-                Body weight
+                {t('body.title')}
               </Text>
               <Text style={s.sub}>
-                Add your current measurement. {new Date().toLocaleDateString()}
+                {t('body.addCurrent', { date: formatDate(locale, now) })}
               </Text>
               <View style={s.field}>
-                <Text style={s.label}>Current body weight (kg)</Text>
+                <Text style={s.label}>{t('body.input')}</Text>
                 <TextInput
-                  accessibilityLabel="Current body weight (kg)"
+                  accessibilityLabel={t('body.input')}
                   keyboardType="decimal-pad"
-                  placeholder="kg"
+                  placeholder={t('progress.kg')}
                   placeholderTextColor={colors.textTertiary}
                   style={s.input}
                   maxLength={32}
@@ -202,16 +210,16 @@ export function BodyWeight({
               </View>
               {problem ? (
                 <Text style={s.error} accessibilityRole="alert">
-                  {problem}
+                  {t(problem === 'invalid' ? 'body.invalid' : 'body.saveError')}
                 </Text>
               ) : null}
               <AppButton
-                title={saving ? 'Saving…' : 'Save measurement'}
+                title={t(saving ? 'progress.saving' : 'body.save')}
                 disabled={saving || busy || !value.trim()}
                 onPress={() => void save()}
               />
               <AppButton
-                title="Cancel"
+                title={t('common.cancel')}
                 secondary
                 disabled={saving}
                 onPress={close}

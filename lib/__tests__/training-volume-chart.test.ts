@@ -13,6 +13,9 @@ it('keeps axis labels readable for fractional and extreme scales', () => {
   expect(volumeChartTick(0.0001)).toBe('1e-4');
   expect(volumeChartTick(1e308)).toBe('1e+308');
   expect(volumeChartTick(0)).toBe('0');
+  expect(volumeChartTick(0.25, 'de')).toBe('0,25');
+  expect(volumeChartTick(1.25e8, 'fr')).toBe('1,25e+8');
+  expect(volumeChartTick(1e308, 'ru')).toBe('1e+308');
 });
 
 it('retains fractional volumes and a usable zero scale', () => {

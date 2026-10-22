@@ -25,19 +25,20 @@ import {
 import type { WorkoutSession } from '@/lib/workout-model';
 import type { WorkoutVolume } from '@/lib/progress-analytics';
 import { colors, radius, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
+import { formatNumber } from '@/lib/i18n/format';
+import {
+  progressNumber,
+  progressDate,
+  periodLabel,
+  volumeNumber,
+} from '@/lib/i18n/progress';
 
-const metrics: { id: ExerciseMetric; label: string }[] = [
-  { id: 'estimated1RM', label: 'Estimated 1RM' },
-  { id: 'volume', label: 'Volume' },
-  { id: 'topWeight', label: 'Top weight' },
-];
-const number = (v: number, estimate = false) =>
-  (v !== 0 && Math.abs(v) < 0.05) || Math.abs(v) >= 1e12
-    ? String(v)
-    : estimate
-      ? v.toFixed(1)
-      : v.toLocaleString(undefined, { maximumFractionDigits: 12 });
-const date = (v: number) => new Date(v).toLocaleString();
+const metrics = [
+  { id: 'estimated1RM', key: 'progress.estimated' },
+  { id: 'volume', key: 'stats.volume' },
+  { id: 'topWeight', key: 'stats.topWeight' },
+] as const;
 
 export function ExerciseStatistics({
   history,
@@ -50,6 +51,10 @@ export function ExerciseStatistics({
   name: string;
   now?: number;
 }) {
+  const { t, locale } = useLocalization();
+  const number = (v: number, estimate = false) =>
+    progressNumber(locale, v, estimate);
+  const date = (v: number) => progressDate(locale, v);
   const [period, setPeriod] = useState<ProgressPeriodId>('1M');
   const [metric, setMetric] = useState<ExerciseMetric>('estimated1RM');
   const [clock, setClock] = useState(Date.now);
@@ -78,7 +83,7 @@ export function ExerciseStatistics({
       ),
     [history, period, now, exerciseId, metric],
   );
-  const label = metrics.find((m) => m.id === metric)!.label;
+  const label = t(metrics.find((m) => m.id === metric)!.key);
   const points = result.points.map((p) => ({
     workoutId: p.workoutId,
     workoutName: p.workoutName,
@@ -88,18 +93,24 @@ export function ExerciseStatistics({
   const selectedPoint = result.points.find((p) => p.workoutId === selected);
   const selectPoint = (p: WorkoutVolume) => setSelected(p.workoutId);
   const pointLabel = (p: WorkoutVolume) =>
-    `${p.workoutName}, ${date(p.finishedAt)}, ${number(p.volume, metric === 'estimated1RM')} kg`;
+    t('progress.point', {
+      name: p.workoutName,
+      date: date(p.finishedAt),
+      value: number(p.volume, metric === 'estimated1RM'),
+    });
   const start =
     progressPeriodStart(period, now) ?? points[0]?.finishedAt ?? now;
   const comparison = result.comparison;
   return (
     <View style={s.content}>
-      <View style={s.segments} accessibilityLabel="Exercise statistics period">
+      <View style={s.segments} accessibilityLabel={t('stats.periodGroup')}>
         {PROGRESS_PERIODS.map((p) => (
           <Pressable
             key={p.id}
             accessibilityRole="button"
-            accessibilityLabel={`Exercise period ${p.id}`}
+            accessibilityLabel={t('stats.periodAction', {
+              period: periodLabel(t, p.id),
+            })}
             accessibilityState={{ selected: p.id === period }}
             onPress={() => {
               setPeriod(p.id);
@@ -108,17 +119,17 @@ export function ExerciseStatistics({
             style={[s.segment, p.id === period && s.active]}
           >
             <Text style={[s.segmentText, p.id === period && s.activeText]}>
-              {p.label}
+              {periodLabel(t, p.id)}
             </Text>
           </Pressable>
         ))}
       </View>
-      <View style={s.segments} accessibilityLabel="Exercise statistics metric">
+      <View style={s.segments} accessibilityLabel={t('stats.metricGroup')}>
         {metrics.map((m) => (
           <Pressable
             key={m.id}
             accessibilityRole="button"
-            accessibilityLabel={`Exercise metric ${m.label}`}
+            accessibilityLabel={t('stats.metricAction', { metric: t(m.key) })}
             accessibilityState={{ selected: m.id === metric }}
             onPress={() => {
               setMetric(m.id);
@@ -127,7 +138,7 @@ export function ExerciseStatistics({
             style={[s.segment, m.id === metric && s.active]}
           >
             <Text style={[s.segmentText, m.id === metric && s.activeText]}>
-              {m.label}
+              {t(m.key)}
             </Text>
           </Pressable>
         ))}
@@ -139,7 +150,7 @@ export function ExerciseStatistics({
             {result.value === undefined
               ? '—'
               : number(result.value, metric === 'estimated1RM')}{' '}
-            <Text style={s.unit}>kg</Text>
+            <Text style={s.unit}>{t('progress.kg')}</Text>
           </Text>
           {comparison ? (
             <View style={s.comparison}>
@@ -155,28 +166,28 @@ export function ExerciseStatistics({
               >
                 {comparison.kind === 'unavailable'
                   ? result.value === undefined
-                    ? 'Comparison unavailable'
-                    : 'No previous-period data'
-                  : `${comparison.kind === 'increase' ? '↑ +' : comparison.kind === 'decrease' ? '↓ −' : ''}${number(Math.abs(comparison.delta!), metric === 'estimated1RM')} kg`}
+                    ? t('stats.comparisonUnavailable')
+                    : t('stats.noPrevious')
+                  : t('progress.valueKg', {
+                      value: `${comparison.kind === 'increase' ? '↑ +' : comparison.kind === 'decrease' ? '↓ −' : ''}${number(Math.abs(comparison.delta!), metric === 'estimated1RM')}`,
+                    })}
               </Text>
               {comparison.kind !== 'unavailable' ? (
-                <Text style={s.note}>vs previous period</Text>
+                <Text style={s.note}>{t('progress.vsPrevious')}</Text>
               ) : null}
             </View>
           ) : null}
         </View>
         <Text style={s.note}>
           {metric === 'volume'
-            ? 'Completed training volume in this period'
+            ? t('stats.volumeHelp')
             : metric === 'topWeight'
-              ? 'Highest logged weight in this period'
-              : 'Best estimate per workout'}
+              ? t('stats.weightHelp')
+              : t('stats.estimateHelp')}
         </Text>
         {!points.length ? (
           <Text style={s.empty}>
-            {result.setCount
-              ? '1RM unavailable for paired-side or zero-load sets. Choose Volume or Top weight.'
-              : 'No completed sets for this exercise in this period.'}
+            {result.setCount ? t('stats.noEstimate') : t('stats.empty')}
           </Text>
         ) : period === '1W' ? (
           <EstimatedOneRepMaxBars
@@ -197,29 +208,31 @@ export function ExerciseStatistics({
           />
         )}
         {metric === 'estimated1RM' ? (
-          <Text style={s.note}>
-            Epley estimate, not a tested maximum. Paired-side and zero-load sets
-            are excluded.
-          </Text>
+          <Text style={s.note}>{t('stats.estimateNote')}</Text>
         ) : null}
-        {points.length ? (
-          <Text style={s.note}>Tap a point to view completed sets.</Text>
-        ) : null}
+        {points.length ? <Text style={s.note}>{t('stats.tap')}</Text> : null}
       </View>
       <View style={s.counts}>
         <View style={[s.card, s.count]}>
-          <Text style={s.countValue}>{result.workoutCount}</Text>
-          <Text style={s.note}>Workouts</Text>
+          <Text style={s.countValue}>
+            {formatNumber(locale, result.workoutCount)}
+          </Text>
+          <Text style={s.note}>{t('stats.workouts')}</Text>
         </View>
         <View style={[s.card, s.count]}>
-          <Text style={s.countValue}>{result.setCount}</Text>
-          <Text style={s.note}>Completed sets</Text>
+          <Text style={s.countValue}>
+            {formatNumber(locale, result.setCount)}
+          </Text>
+          <Text style={s.note}>{t('stats.completed')}</Text>
         </View>
       </View>
       {points.length ? (
         <View style={s.card}>
           <Text style={s.title}>
-            Recent workouts · {Math.min(3, points.length)} of {points.length}
+            {t('volume.recent', {
+              shown: Math.min(3, points.length),
+              total: points.length,
+            })}
           </Text>
           {[...points]
             .reverse()
@@ -228,14 +241,19 @@ export function ExerciseStatistics({
               <Pressable
                 key={p.workoutId}
                 accessibilityRole="button"
-                accessibilityLabel={`View ${p.workoutName} sets ${p.workoutId}`}
+                accessibilityLabel={t('stats.viewSets', {
+                  name: p.workoutName,
+                  id: p.workoutId,
+                })}
                 onPress={() => selectPoint(p)}
                 style={s.workout}
               >
                 <Text style={s.title}>{p.workoutName}</Text>
                 <Text style={s.note}>{date(p.finishedAt)}</Text>
                 <Text style={s.link}>
-                  {number(p.volume, metric === 'estimated1RM')} kg
+                  {t('progress.valueKg', {
+                    value: number(p.volume, metric === 'estimated1RM'),
+                  })}
                 </Text>
               </Pressable>
             ))}
@@ -261,6 +279,10 @@ function LoggedExerciseSets({
   name: string;
   onClose: () => void;
 }) {
+  const { t, locale } = useLocalization();
+  const number = (v: number, estimate = false) =>
+    progressNumber(locale, v, estimate);
+  const date = (v: number) => progressDate(locale, v);
   return (
     <Modal
       visible
@@ -273,30 +295,36 @@ function LoggedExerciseSets({
         <BrandHeader tagline={false} />
         <Pressable
           accessibilityRole="button"
-          accessibilityLabel="Back to exercise statistics"
+          accessibilityLabel={t('stats.backA11y')}
           onPress={onClose}
           style={s.back}
         >
-          <Text style={s.link}>‹ Statistics</Text>
+          <Text style={s.link}>{t('stats.back')}</Text>
         </Pressable>
         <AppScrollView contentContainerStyle={s.content}>
           <Text style={s.pageTitle} accessibilityRole="header">
-            Logged sets
+            {t('stats.logged')}
           </Text>
           <Text style={s.title}>{name}</Text>
           <Text style={s.note}>
             {date(point.finishedAt)} · {point.workoutName}
           </Text>
           <View style={s.card}>
-            <Text style={s.countValue}>{number(point.volume)} kg</Text>
+            <Text style={s.countValue}>
+              {t('progress.valueKg', { value: number(point.volume) })}
+            </Text>
             <Text style={s.note}>
-              Training volume · {point.sets.length} completed sets
+              {t('stats.trainingSets', { count: point.sets.length })}
             </Text>
           </View>
           <View style={s.card}>
-            <Text style={s.title}>Completed sets</Text>
+            <Text style={s.title}>{t('stats.completed')}</Text>
             <View style={s.setRow}>
-              {['SET', 'KG', 'REPS'].map((label) => (
+              {[
+                t('workout.tableSet'),
+                t('workout.tableKg'),
+                t('workout.tableReps'),
+              ].map((label) => (
                 <Text key={label} style={s.cellLabel}>
                   {label}
                 </Text>
@@ -307,31 +335,36 @@ function LoggedExerciseSets({
                 key={`${set.snapshotId}:${set.id}:${index}`}
                 style={s.setRow}
               >
-                <Text style={s.cell}>{index + 1}</Text>
+                <Text style={s.cell}>{formatNumber(locale, index + 1)}</Text>
                 <Text style={s.cell}>{number(set.weight)}</Text>
                 <Text style={s.cell}>
                   {set.otherSideReps === undefined
-                    ? set.reps
-                    : `${set.reps} L / ${set.otherSideReps} R`}
+                    ? formatNumber(locale, set.reps)
+                    : t('progress.bilateral', {
+                        reps: formatNumber(locale, set.reps),
+                        other: formatNumber(locale, set.otherSideReps),
+                      })}
                 </Text>
               </View>
             ))}
           </View>
           {point.estimated1RM !== undefined ? (
             <View style={s.card}>
-              <Text style={s.title}>Estimated 1RM</Text>
+              <Text style={s.title}>{t('progress.estimated')}</Text>
               <Text style={s.countValue}>
-                {number(point.estimated1RM, true)} kg
+                {t('progress.valueKg', {
+                  value: number(point.estimated1RM, true),
+                })}
               </Text>
               <Text style={s.note}>
-                From {point.estimateSource!.weight} kg ×{' '}
-                {point.estimateSource!.reps} · Epley estimate
+                {t('stats.source', {
+                  weight: volumeNumber(locale, point.estimateSource!.weight),
+                  reps: formatNumber(locale, point.estimateSource!.reps),
+                })}
               </Text>
             </View>
           ) : null}
-          <Text style={s.note}>
-            Only completed sets for this exercise are included.
-          </Text>
+          <Text style={s.note}>{t('stats.included')}</Text>
         </AppScrollView>
       </SafeAreaView>
     </Modal>

@@ -14,6 +14,9 @@ import {
 import type { MuscleId } from '@/lib/exercise-taxonomy';
 import type { WorkoutSession } from '@/lib/workout-model';
 import { colors, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
+import { catalogLabel } from '@/lib/i18n/catalog';
+import { formatDate, formatEntryNumber } from '@/lib/i18n/format';
 
 export function MuscleProgress({
   history,
@@ -26,6 +29,7 @@ export function MuscleProgress({
   now: number;
   onOverview: () => void;
 }) {
+  const { t, locale } = useLocalization();
   const [period, setPeriod] = useState<MusclePeriod>('7d');
   const [selected, setSelected] = useState<MuscleId>();
   const [showSets, setShowSets] = useState(false);
@@ -34,6 +38,20 @@ export function MuscleProgress({
     [history, activeWorkout, period, now],
   );
   const muscle = data.muscles.find((item) => item.id === selected);
+  const muscleLabel = (id: string, fallback: string) =>
+    catalogLabel(locale, 'muscle', id, fallback);
+  const context =
+    period === 'workout'
+      ? t(
+          activeWorkout &&
+            activeWorkout.finishedAt === undefined &&
+            Number.isFinite(activeWorkout.startedAt) &&
+            activeWorkout.startedAt >= 0 &&
+            activeWorkout.startedAt <= now
+            ? 'muscle.current'
+            : 'muscle.latest',
+        )
+      : t(period === '7d' ? 'muscle.lastSeven' : 'muscle.lastFour');
   function select(id: MuscleId) {
     setSelected(id);
     setShowSets(false);
@@ -43,21 +61,29 @@ export function MuscleProgress({
       <AppScrollView contentContainerStyle={s.content}>
         <BrandHeader />
         <Text style={s.title} accessibilityRole="header">
-          Progress
+          {t('progress.title')}
         </Text>
         <View style={s.tabs}>
-          <AppButton title="Overview" secondary onPress={onOverview} />
-          <AppButton title="Muscles" selected onPress={() => {}} />
+          <AppButton
+            title={t('progress.overview')}
+            secondary
+            onPress={onOverview}
+          />
+          <AppButton
+            title={t('progress.muscles')}
+            selected
+            onPress={() => {}}
+          />
         </View>
         <Text style={s.heading} accessibilityRole="header">
-          Muscle Map
+          {t('muscle.map')}
         </Text>
         <View style={s.periods}>
           {(
             [
-              ['workout', 'Workout'],
-              ['7d', '7 days'],
-              ['4w', '4 weeks'],
+              ['workout', t('muscle.workout')],
+              ['7d', t('muscle.seven')],
+              ['4w', t('muscle.four')],
             ] as const
           ).map(([id, label]) => (
             <AppButton
@@ -74,63 +100,62 @@ export function MuscleProgress({
         </View>
         <GlassCard>
           <View style={s.card}>
-            <Text style={s.heading}>{data.context}</Text>
+            <Text style={s.heading}>{context}</Text>
             {data.workoutName ? (
               <Text style={s.body}>{data.workoutName}</Text>
             ) : null}
-            <Text style={s.body}>{data.totalSets} completed sets</Text>
+            <Text style={s.body}>
+              {t('muscle.completed', { count: data.totalSets })}
+            </Text>
             <MuscleMap muscles={data.muscles} onSelect={select} />
             <View style={s.legend}>
               <Text style={s.body}>
-                <Text style={{ color: colors.musclePrimary }}>● </Text>Primary
+                <Text style={{ color: colors.musclePrimary }}>● </Text>
+                {t('muscle.primary')}
               </Text>
               <Text style={s.body}>
                 <Text style={{ color: colors.muscleSecondary }}>● </Text>
-                Secondary
+                {t('muscle.secondary')}
               </Text>
               <Text style={s.body}>
-                <Text style={{ color: colors.muscleNeutral }}>● </Text>No
-                highlight
+                <Text style={{ color: colors.muscleNeutral }}>● </Text>
+                {t('muscle.neutral')}
               </Text>
             </View>
+            <Text style={s.note}>{t('muscle.meaning')}</Text>
             <Text style={s.note}>
-              Schematic anatomical regions, not measured activation or recovery.
-              Color shows role, not intensity; primary takes precedence when
-              both roles occur.
-            </Text>
-            <Text style={s.note}>
-              Neutral areas may have no assigned map region. Map coverage is
-              pending for{' '}
-              {anatomicalMissingGroups.map((m) => m.label).join(', ')}; their
-              set counts remain available below. Lower-back highlights are
-              schematic projections beneath fascia.
+              {t('muscle.coverage', {
+                groups: anatomicalMissingGroups
+                  .map((m) => muscleLabel(m.id, m.label))
+                  .join(', '),
+              })}
             </Text>
           </View>
         </GlassCard>
         {data.totalSets === 0 ? (
-          <Text style={s.body}>
-            No completed sets in this period. Log a set to see muscle
-            participation.
-          </Text>
+          <Text style={s.body}>{t('muscle.empty')}</Text>
         ) : null}
         {data.unmappedSets > 0 ? (
           <Text style={s.body}>
-            {data.unmappedSets} completed sets have no catalog mapping and are
-            not shown on the map.
+            {t('muscle.unmapped', { count: data.unmappedSets })}
           </Text>
         ) : null}
-        <Text style={s.note}>
-          Based on current exercise catalog mappings. A set may involve several
-          muscles. Primary and secondary counts are separate, not additive
-          totals. One logged bilateral set counts once.
-        </Text>
+        <Text style={s.note}>{t('muscle.basis')}</Text>
         <GlassCard>
           <View style={s.card}>
             {data.muscles.map((item) => (
               <AppButton
                 key={item.id}
-                title={`${item.label} · ${item.primary} primary · ${item.secondary} secondary`}
-                accessibilityLabel={`${item.label}, ${item.primary} primary sets, ${item.secondary} secondary sets. Show details`}
+                title={t('muscle.row', {
+                  name: muscleLabel(item.id, item.label),
+                  primary: item.primary,
+                  secondary: item.secondary,
+                })}
+                accessibilityLabel={t('muscle.rowA11y', {
+                  name: muscleLabel(item.id, item.label),
+                  primary: item.primary,
+                  secondary: item.secondary,
+                })}
                 presentation="row"
                 onPress={() => select(item.id)}
               />
@@ -147,18 +172,21 @@ export function MuscleProgress({
         <SafeAreaView style={s.modal}>
           <AppScrollView contentContainerStyle={s.content}>
             <AppButton
-              title="Done"
+              title={t('common.done')}
               secondary
               onPress={() => setSelected(undefined)}
             />
             {muscle ? (
               <>
                 <Text style={s.title} accessibilityRole="header">
-                  {muscle.label}
+                  {muscleLabel(muscle.id, muscle.label)}
                 </Text>
-                <Text style={s.body}>{data.context}</Text>
+                <Text style={s.body}>{context}</Text>
                 <Text style={s.heading}>
-                  {muscle.primary} primary · {muscle.secondary} secondary sets
+                  {t('muscle.counts', {
+                    primary: muscle.primary,
+                    secondary: muscle.secondary,
+                  })}
                 </Text>
                 <MuscleMap
                   muscles={data.muscles.map((item) =>
@@ -169,7 +197,7 @@ export function MuscleProgress({
                   selected={muscle.id}
                   onSelect={select}
                 />
-                <Text style={s.heading}>Contributing exercises</Text>
+                <Text style={s.heading}>{t('muscle.contributing')}</Text>
                 {Array.from(
                   new Set(muscle.sets.map((set) => set.libraryId)),
                 ).map((id) => {
@@ -181,27 +209,24 @@ export function MuscleProgress({
                       <View style={s.card}>
                         <Text style={s.heading}>{sets[0].exerciseName}</Text>
                         <Text style={s.body}>
-                          {sets.filter((set) => set.role === 'primary').length}{' '}
-                          primary ·{' '}
-                          {
-                            sets.filter((set) => set.role === 'secondary')
-                              .length
-                          }{' '}
-                          secondary
+                          {t('muscle.counts', {
+                            primary: sets.filter(
+                              (set) => set.role === 'primary',
+                            ).length,
+                            secondary: sets.filter(
+                              (set) => set.role === 'secondary',
+                            ).length,
+                          })}
                         </Text>
                       </View>
                     </GlassCard>
                   );
                 })}
                 {!muscle.sets.length ? (
-                  <Text style={s.body}>
-                    No mapped completed sets for this muscle in this period.
-                  </Text>
+                  <Text style={s.body}>{t('muscle.noSets')}</Text>
                 ) : (
                   <AppButton
-                    title={
-                      showSets ? 'Hide completed sets' : 'View completed sets'
-                    }
+                    title={t(showSets ? 'muscle.hideSets' : 'muscle.showSets')}
                     secondary
                     onPress={() => setShowSets(!showSets)}
                   />
@@ -214,18 +239,38 @@ export function MuscleProgress({
                         <View style={s.card}>
                           <Text style={s.heading}>{set.exerciseName}</Text>
                           <Text style={s.body}>
-                            {set.workoutName} ·{' '}
-                            {new Date(set.date).toLocaleDateString()}
+                            {set.workoutName} · {formatDate(locale, set.date)}
                           </Text>
                           <Text style={s.body}>
-                            Set {set.setNumber} · {set.role}
+                            {t('muscle.setRole', {
+                              index: set.setNumber,
+                              role: t(
+                                set.role === 'primary'
+                                  ? 'muscle.primary'
+                                  : 'muscle.secondary',
+                              ),
+                            })}
                           </Text>
                           <Text style={s.body}>
-                            Logged weight: {set.weight || '—'} kg · Logged reps:{' '}
-                            {set.reps || '—'}
-                            {set.otherSideReps !== undefined
-                              ? ` / ${set.otherSideReps}`
-                              : ''}
+                            {t('muscle.logged', {
+                              weight: formatEntryNumber(
+                                locale,
+                                set.weight || '—',
+                              ),
+                              reps:
+                                set.otherSideReps !== undefined
+                                  ? t('progress.bilateral', {
+                                      reps: formatEntryNumber(
+                                        locale,
+                                        set.reps || '—',
+                                      ),
+                                      other: formatEntryNumber(
+                                        locale,
+                                        set.otherSideReps,
+                                      ),
+                                    })
+                                  : formatEntryNumber(locale, set.reps || '—'),
+                            })}
                           </Text>
                         </View>
                       </GlassCard>

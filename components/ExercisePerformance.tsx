@@ -12,6 +12,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { GlassCard } from './GlassCard';
 import { EstimatedOneRepMaxSeries } from './EstimatedOneRepMaxSeries';
+import { useLocalization } from './LocalizationProvider';
+import { formatNumber } from '@/lib/i18n/format';
+import { progressDate, periodLabel, volumeNumber } from '@/lib/i18n/progress';
 import {
   listPerformanceExercises,
   projectEstimatedOneRepMaxSeries,
@@ -34,6 +37,7 @@ type Props = {
 };
 
 export function ExercisePerformance({ history, period, now }: Props) {
+  const { t, locale } = useLocalization();
   const [identityKey, setIdentityKey] = useState<string>();
   const [selectorOpen, setSelectorOpen] = useState(false);
   const [setsOpen, setSetsOpen] = useState(false);
@@ -76,25 +80,25 @@ export function ExercisePerformance({ history, period, now }: Props) {
   return (
     <GlassCard style={s.card}>
       <Text style={s.title} accessibilityRole="header">
-        Logged exercise performance
+        {t('performance.title')}
       </Text>
-      <Text style={s.subtitle}>Saved completed sets · weight × reps</Text>
+      <Text style={s.subtitle}>{t('performance.subtitle')}</Text>
       {choices.length === 0 ? (
         <Text style={s.empty}>
           {history.length === 0
-            ? 'Finish a workout to see logged exercise performance.'
-            : 'No valid completed exercise sets yet.'}
+            ? t('performance.first')
+            : t('performance.empty')}
         </Text>
       ) : (
         <>
           <Pressable
             accessibilityRole="button"
-            accessibilityLabel="Choose exercise for logged performance"
+            accessibilityLabel={t('performance.chooseA11y')}
             onPress={() => setSelectorOpen(true)}
             style={({ pressed }) => [s.choose, pressed && s.pressed]}
           >
             <Text style={[s.chooseText, !selected && s.choosePlaceholder]}>
-              {selected ? choiceLabel(selected) : 'Choose exercise'}
+              {selected ? choiceLabel(selected) : t('performance.choose')}
             </Text>
             <Ionicons
               name="chevron-down"
@@ -108,18 +112,12 @@ export function ExercisePerformance({ history, period, now }: Props) {
               {entries.some((entry) =>
                 entry.sets.some((set) => set.otherSideReps !== undefined),
               ) ? (
-                <Text style={s.empty}>
-                  1RM is unavailable for paired left/right sets. Both sides
-                  remain in logged results.
-                </Text>
+                <Text style={s.empty}>{t('performance.paired')}</Text>
               ) : null}
               {entries.some((entry) =>
                 entry.sets.some((set) => set.weight === 0),
               ) ? (
-                <Text style={s.empty}>
-                  1RM is unavailable for zero-load sets. External load is not
-                  body weight.
-                </Text>
+                <Text style={s.empty}>{t('performance.zero')}</Text>
               ) : null}
               <EstimatedOneRepMaxSeries
                 points={estimates}
@@ -128,16 +126,16 @@ export function ExercisePerformance({ history, period, now }: Props) {
               />
               {entries.length === 0 ? (
                 <Text style={s.empty}>
-                  No logged sets for this exercise in {period}.
+                  {t('performance.noSets', { period: periodLabel(t, period) })}
                 </Text>
               ) : (
                 <Pressable
                   accessibilityRole="button"
-                  accessibilityLabel="View logged sets"
+                  accessibilityLabel={t('performance.viewSets')}
                   style={s.close}
                   onPress={() => setSetsOpen(true)}
                 >
-                  <Text style={s.closeText}>View logged sets</Text>
+                  <Text style={s.closeText}>{t('performance.viewSets')}</Text>
                 </Pressable>
               )}
             </>
@@ -155,17 +153,19 @@ export function ExercisePerformance({ history, period, now }: Props) {
             <Text
               style={s.sheetTitle}
               numberOfLines={2}
-              accessibilityLabel={`Logged sets · ${selected?.name}`}
+              accessibilityLabel={t('performance.loggedTitle', {
+                name: selected?.name ?? '',
+              })}
             >
-              Logged sets · {selected?.name}
+              {t('performance.loggedTitle', { name: selected?.name ?? '' })}
             </Text>
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel="Close logged sets"
+              accessibilityLabel={t('performance.closeSets')}
               style={s.close}
               onPress={() => setSetsOpen(false)}
             >
-              <Text style={s.closeText}>Close</Text>
+              <Text style={s.closeText}>{t('progress.close')}</Text>
             </Pressable>
           </View>
           <AppScrollView contentContainerStyle={s.results}>
@@ -176,18 +176,26 @@ export function ExercisePerformance({ history, period, now }: Props) {
                   style={s.entry}
                 >
                   <Text style={s.date}>
-                    {new Date(entry.finishedAt).toLocaleString()}
+                    {progressDate(locale, entry.finishedAt)}
                   </Text>
                   <Text style={s.workout}>{entry.workoutName}</Text>
                   <View style={s.loggedSets}>
                     {entry.sets.map((set, index) => (
                       <View key={set.id} style={s.setRow}>
-                        <Text style={s.setNumber}>{String(index + 1)}</Text>
+                        <Text style={s.setNumber}>
+                          {formatNumber(locale, index + 1)}
+                        </Text>
                         <Text style={s.set}>
-                          {set.weight} kg × {set.reps}
                           {set.otherSideReps === undefined
-                            ? ''
-                            : ` L / ${set.otherSideReps} R`}
+                            ? t('progress.loggedSet', {
+                                weight: volumeNumber(locale, set.weight),
+                                reps: formatNumber(locale, set.reps),
+                              })
+                            : t('progress.loggedBilateral', {
+                                weight: volumeNumber(locale, set.weight),
+                                reps: formatNumber(locale, set.reps),
+                                other: formatNumber(locale, set.otherSideReps),
+                              })}
                         </Text>
                       </View>
                     ))}
@@ -206,21 +214,21 @@ export function ExercisePerformance({ history, period, now }: Props) {
       >
         <SafeAreaView style={s.sheet}>
           <View style={s.header}>
-            <Text style={s.sheetTitle}>Trained exercises</Text>
+            <Text style={s.sheetTitle}>{t('performance.selectorTitle')}</Text>
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel="Close trained exercises"
+              accessibilityLabel={t('performance.closeSelector')}
               onPress={close}
               style={s.close}
             >
-              <Text style={s.closeText}>Close</Text>
+              <Text style={s.closeText}>{t('progress.close')}</Text>
             </Pressable>
           </View>
           <TextInput
-            accessibilityLabel="Search trained exercises"
+            accessibilityLabel={t('performance.search')}
             value={query}
             onChangeText={setQuery}
-            placeholder="Search trained exercises"
+            placeholder={t('performance.search')}
             placeholderTextColor={colors.textTertiary}
             returnKeyType="search"
             style={s.search}
@@ -230,13 +238,15 @@ export function ExercisePerformance({ history, period, now }: Props) {
             contentContainerStyle={s.results}
           >
             {matches.length === 0 ? (
-              <Text style={s.empty}>No trained exercises found.</Text>
+              <Text style={s.empty}>{t('performance.noMatches')}</Text>
             ) : (
               matches.map((choice) => (
                 <Pressable
                   key={choice.identityKey}
                   accessibilityRole="button"
-                  accessibilityLabel={`View ${choiceLabel(choice)} performance`}
+                  accessibilityLabel={t('performance.choice', {
+                    name: choiceLabel(choice),
+                  })}
                   accessibilityState={{
                     selected: choice.identityKey === identityKey,
                   }}

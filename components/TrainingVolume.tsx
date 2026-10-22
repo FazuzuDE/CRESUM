@@ -26,6 +26,13 @@ import {
   typography,
 } from '@/lib/theme';
 import { volumeChartScale, volumeChartTick } from '@/lib/training-volume-chart';
+import { useLocalization } from './LocalizationProvider';
+import { formatDate } from '@/lib/i18n/format';
+import {
+  volumeNumber as localizedVolume,
+  progressDate,
+  periodLabel,
+} from '@/lib/i18n/progress';
 
 type Props = {
   totalVolume: number;
@@ -35,19 +42,6 @@ type Props = {
   now: number;
 };
 
-const shortMonth = (timestamp: number) =>
-  new Date(timestamp).toLocaleDateString(undefined, {
-    month: 'short',
-  });
-const fullDate = (timestamp: number) => new Date(timestamp).toLocaleString();
-const volumeNumber = (volume: number) =>
-  volume < 1e12 && Number.isInteger(volume)
-    ? volume.toLocaleString()
-    : volume.toString();
-const volumeLabel = (volume: number) => `${volumeNumber(volume)} kg`;
-const pointLabel = (point: WorkoutVolume) =>
-  `${point.workoutName}, ${fullDate(point.finishedAt)}, ${volumeLabel(point.volume)}`;
-
 export function TrainingVolume({
   totalVolume,
   workoutVolumes,
@@ -55,6 +49,19 @@ export function TrainingVolume({
   comparison,
   now,
 }: Props) {
+  const { t, locale } = useLocalization();
+  const periodText = periodLabel(t, period);
+  const volumeNumber = (v: number) => localizedVolume(locale, v);
+  const volumeLabel = (v: number) =>
+    t('progress.valueKg', { value: volumeNumber(v) });
+  const fullDate = (v: number) => progressDate(locale, v);
+  const shortMonth = (v: number) => formatDate(locale, v, { month: 'short' });
+  const pointLabel = (p: WorkoutVolume) =>
+    t('progress.point', {
+      name: p.workoutName,
+      date: fullDate(p.finishedAt),
+      value: volumeNumber(p.volume),
+    });
   const [allOpen, setAllOpen] = useState(false);
   const { width, fontScale } = useWindowDimensions();
   const [measuredWidth, setMeasuredWidth] = useState<number>();
@@ -66,7 +73,7 @@ export function TrainingVolume({
     spacing.xxl,
     ...scale.ticks.map(
       (tick) =>
-        volumeChartTick(tick).length *
+        volumeChartTick(tick, locale).length *
         progressTypography.chart.fontSize *
         0.5 *
         textScale,
@@ -129,23 +136,31 @@ export function TrainingVolume({
       : undefined;
   const changeText =
     !comparison || comparison.kind === 'unavailable'
-      ? 'No data'
+      ? t('volume.noData')
       : comparison.kind === 'unchanged'
-        ? 'No change'
-        : `${comparison.delta > 0 ? '+' : '−'}${changeAmount} kg`;
+        ? t('volume.noChange')
+        : t('progress.valueKg', {
+            value: `${comparison.delta > 0 ? '+' : '−'}${changeAmount}`,
+          });
   const changeLabel =
     !comparison || comparison.kind === 'unavailable'
-      ? 'No comparison data for training volume'
+      ? t('volume.noComparison')
       : comparison.kind === 'unchanged'
-        ? 'Training volume unchanged vs previous period'
-        : `Training volume ${comparison.kind === 'increase' ? 'increased' : 'decreased'} by ${changeAmount} kg vs previous period`;
+        ? t('volume.unchanged')
+        : t(
+            comparison.kind === 'increase'
+              ? 'volume.increased'
+              : 'volume.decreased',
+            { amount: changeAmount! },
+          );
 
   return (
     <GlassCard style={s.card}>
-      <Text style={s.cardLabel}>TRAINING VOLUME</Text>
+      <Text style={s.cardLabel}>{t('volume.heading')}</Text>
       <View style={s.totalRow}>
         <Text style={[s.big, { flexBasis: spacing.xxxl * 4 * textScale }]}>
-          {volumeNumber(totalVolume)} <Text style={s.unit}>kg</Text>
+          {volumeNumber(totalVolume)}{' '}
+          <Text style={s.unit}>{t('progress.kg')}</Text>
         </Text>
         {comparison ? (
           <View
@@ -170,33 +185,44 @@ export function TrainingVolume({
               </Text>
             </View>
             <Text style={[s.subtitle, s.comparisonContext]}>
-              vs previous period
+              {t('progress.vsPrevious')}
             </Text>
           </View>
         ) : null}
       </View>
       <Text style={s.subtitle}>
-        {workoutVolumes.length} completed workouts in {period}
+        {t('volume.workouts', {
+          count: workoutVolumes.length,
+          period: periodText,
+        })}
       </Text>
       {recent.length === 0 ? (
-        <Text style={s.empty}>No workouts in this period yet.</Text>
+        <Text style={s.empty}>{t('volume.empty')}</Text>
       ) : (
         <>
           <View style={s.chartHeader}>
             <Text style={s.context}>
               {period === '1W'
-                ? `Recent workouts · ${recent.length} of ${workoutVolumes.length}`
+                ? t('volume.recent', {
+                    shown: recent.length,
+                    total: workoutVolumes.length,
+                  })
                 : period === '1M'
-                  ? 'Last 30 days · kg'
-                  : 'Volume by workout · kg'}
+                  ? t('volume.lastThirty')
+                  : t('volume.byWorkout')}
             </Text>
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel={`View all ${workoutVolumes.length} workout volumes in ${period}`}
+              accessibilityLabel={t('volume.viewAllA11y', {
+                count: workoutVolumes.length,
+                period: periodText,
+              })}
               onPress={() => setAllOpen(true)}
               style={({ pressed }) => [s.viewAll, pressed && s.pressed]}
             >
-              <Text style={s.viewAllText}>View all workouts in {period}</Text>
+              <Text style={s.viewAllText}>
+                {t('volume.viewAll', { period: periodText })}
+              </Text>
             </Pressable>
           </View>
           {period !== '1W' ? (
@@ -211,13 +237,14 @@ export function TrainingVolume({
             />
           ) : (
             <View
-              accessibilityLabel={
-                'Recent workout volumes in kilograms: ' +
-                recent.map(pointLabel).join('; ')
-              }
+              accessibilityLabel={t('volume.recentSummary', {
+                points: recent.map(pointLabel).join('; '),
+              })}
             >
               <View
-                accessibilityLabel="Workout volume chart"
+                accessibilityLabel={t('chart.title', {
+                  measure: t('chart.workoutVolume'),
+                })}
                 onLayout={(event) =>
                   setMeasuredWidth(event.nativeEvent.layout.width)
                 }
@@ -226,7 +253,9 @@ export function TrainingVolume({
                 {rows.map((row, rowIndex) => (
                   <View key={rowIndex} style={s.plotRow}>
                     <View
-                      accessibilityLabel="Workout volume scale in kilograms"
+                      accessibilityLabel={t('chart.scale', {
+                        measure: t('chart.workoutVolume'),
+                      })}
                       style={{ width: axisWidth }}
                     >
                       {scale.ticks.map((tick, index) => (
@@ -244,7 +273,7 @@ export function TrainingVolume({
                             },
                           ]}
                         >
-                          {volumeChartTick(tick)}
+                          {volumeChartTick(tick, locale)}
                         </Text>
                       ))}
                     </View>
@@ -270,7 +299,10 @@ export function TrainingVolume({
                           <View
                             key={point.workoutId}
                             accessible
-                            accessibilityLabel={`Workout volume: ${pointLabel(point)}`}
+                            accessibilityLabel={t('chart.point', {
+                              measure: t('chart.workoutVolume'),
+                              point: pointLabel(point),
+                            })}
                             style={[
                               s.column,
                               { maxWidth: spacing.xxxl * textScale },
@@ -308,10 +340,9 @@ export function TrainingVolume({
                             </View>
                             <View style={s.date}>
                               <Text style={s.day}>
-                                {new Date(point.finishedAt).toLocaleDateString(
-                                  undefined,
-                                  { day: 'numeric' },
-                                )}
+                                {formatDate(locale, point.finishedAt, {
+                                  day: 'numeric',
+                                })}
                               </Text>
                               <Text style={s.month}>
                                 {shortMonth(point.finishedAt)}
@@ -337,18 +368,21 @@ export function TrainingVolume({
         <SafeAreaView style={s.sheet}>
           <View style={s.header}>
             <View style={s.headerCopy}>
-              <Text style={s.title}>Workout volumes</Text>
+              <Text style={s.title}>{t('volume.listTitle')}</Text>
               <Text style={s.subtitle}>
-                All {workoutVolumes.length} workouts in {period}
+                {t('volume.all', {
+                  count: workoutVolumes.length,
+                  period: periodText,
+                })}
               </Text>
             </View>
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel="Close workout volumes"
+              accessibilityLabel={t('volume.close')}
               onPress={() => setAllOpen(false)}
               style={({ pressed }) => [s.close, pressed && s.pressed]}
             >
-              <Text style={s.closeText}>Close</Text>
+              <Text style={s.closeText}>{t('progress.close')}</Text>
             </Pressable>
           </View>
           <AppFlatList

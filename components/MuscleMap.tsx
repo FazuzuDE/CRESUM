@@ -1,4 +1,5 @@
 import { useId } from 'react';
+import { useLocalization } from './LocalizationProvider';
 import { View, Text, StyleSheet } from 'react-native';
 import Svg, { Defs, Image, Mask, ClipPath, Path, G } from 'react-native-svg';
 import type { MuscleId } from '@/lib/exercise-taxonomy';
@@ -26,6 +27,7 @@ export function MuscleMap({
   selected?: MuscleId;
   onSelect: (id: MuscleId) => void;
 }) {
+  const { t } = useLocalization();
   const instance = useId().replace(/[^a-zA-Z0-9]/g, '');
   return (
     <View style={s.row}>
@@ -133,7 +135,9 @@ export function MuscleMap({
                 );
               })}
             </Svg>
-            <Text style={s.label}>{view === 'front' ? 'Front' : 'Back'}</Text>
+            <Text style={s.label}>
+              {t(view === 'front' ? 'muscle.front' : 'muscle.back')}
+            </Text>
           </View>
         );
       })}

@@ -17,11 +17,13 @@ export const volumeChartScale = (values: readonly number[]) => {
   return { upper, ticks: [upper, upper * 0.75, upper * 0.5, upper * 0.25, 0] };
 };
 
-export const volumeChartTick = (value: number) => {
+export const volumeChartTick = (value: number, locale?: string) => {
   if (value === 0) return '0';
-  if (value >= 1e6 || value < 0.001)
-    return value.toExponential(2).replace(/\.?(0+)(?=e)/, '');
-  return Number(value.toPrecision(12)).toLocaleString(undefined, {
+  if (value >= 1e6 || value < 0.001) {
+    const [mantissa, exponent] = value.toExponential(2).split('e');
+    return `${Number(mantissa).toLocaleString(locale, { maximumFractionDigits: 2, useGrouping: false })}e${exponent}`;
+  }
+  return Number(value.toPrecision(12)).toLocaleString(locale, {
     maximumFractionDigits: 12,
   });
 };
