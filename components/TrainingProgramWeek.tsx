@@ -11,6 +11,10 @@ import {
 } from '@/lib/training-programs/schedule';
 import type { WorkoutSession, WorkoutTemplate } from '@/lib/workout-model';
 import { colors, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
+import { formatDate } from '@/lib/i18n/format';
+import { catalogLabel } from '@/lib/i18n/catalog';
+import { programDayLabel } from '@/lib/i18n/program';
 type Props = {
   assignment: ProgramAssignment;
   history: readonly WorkoutSession[];
@@ -29,6 +33,9 @@ export function TrainingProgramWeek({
   onStart,
   onManage,
 }: Props) {
+  const { t, locale } = useLocalization();
+  const dateLabel = (value: string) =>
+    formatDate(locale, new Date(`${value}T00:00:00`).getTime());
   const [selectedDate, setSelectedDate] = useState<string>();
   const week = projectProgramWeek(
     assignment,
@@ -49,11 +56,21 @@ export function TrainingProgramWeek({
   return (
     <GlassCard style={s.card}>
       <Text style={s.title} accessibilityRole="header">
-        Your training plan
+        {t('plan.title')}
       </Text>
-      <Text style={s.name}>{assignment.program.name}</Text>
+      <Text style={s.name}>
+        {catalogLabel(
+          locale,
+          'program',
+          assignment.program.id,
+          assignment.program.name,
+        )}
+      </Text>
       <Text style={s.meta}>
-        Week {week.weekIndex + 1} · {week.slots.length} planned workouts · Gym
+        {t('plan.week', {
+          week: week.weekIndex + 1,
+          workouts: t('plan.workouts', { count: week.slots.length }),
+        })}
       </Text>
       {week.slots.map((slot) => {
         const day = assignment.program.days.find((d) => d.key === slot.dayKey)!;
@@ -61,56 +78,61 @@ export function TrainingProgramWeek({
           <Pressable
             key={slot.date}
             accessibilityRole="radio"
-            accessibilityLabel={`Select ${day.name} on ${slot.date}`}
+            accessibilityLabel={t('plan.select', {
+              name: programDayLabel(t, day.key, day.name),
+              date: dateLabel(slot.date),
+            })}
             accessibilityState={{ selected: selected?.date === slot.date }}
             onPress={() => setSelectedDate(slot.date)}
             style={s.row}
           >
             <Text style={[s.day, selected?.date === slot.date && s.selected]}>
               {slot.completedWorkoutIds.length ? '✓ ' : ''}
-              {day.name}
+              {programDayLabel(t, day.key, day.name)}
             </Text>
             <Text style={s.meta}>
-              {slot.date} ·{' '}
-              {slot.completedWorkoutIds.length
-                ? 'Completed'
-                : slot.missed
-                  ? 'Missed · choose when ready'
-                  : 'Planned'}
+              {t('plan.status', {
+                date: dateLabel(slot.date),
+                status: slot.completedWorkoutIds.length
+                  ? t('plan.completed')
+                  : slot.missed
+                    ? t('plan.missed')
+                    : t('plan.planned'),
+              })}
             </Text>
           </Pressable>
         );
       })}
-      <Text style={s.meta}>
-        Other days: recovery. Missed sessions never add sets to another workout.
-      </Text>
+      <Text style={s.meta}>{t('plan.recovery')}</Text>
       {assignment.reducedFirstSession && week.weekIndex === 0 ? (
-        <Text style={s.meta}>
-          First planned session: 1 working set per exercise, as selected.
-        </Text>
+        <Text style={s.meta}>{t('plan.reduced')}</Text>
       ) : null}
       {assignment.program.cardio.length ? (
         <View style={s.guidance}>
-          <Text style={s.name}>Cardio guidance</Text>
+          <Text style={s.name}>{t('plan.cardio')}</Text>
           <Text style={s.meta}>
-            Walking or cycling · gradual target:{' '}
-            {assignment.program.cardio.reduce((n, c) => n + c.minutes, 0)}{' '}
-            moderate minutes per week. Begin with manageable 10–15 minute
-            sessions.
+            {t('plan.cardioHelp', {
+              minutes: assignment.program.cardio.reduce(
+                (n, c) => n + c.minutes,
+                0,
+              ),
+            })}
           </Text>
           {week.days
             .filter((d) => d.cardio.length)
             .map((d) => (
               <Text key={d.date} style={s.meta}>
-                {d.date} · {d.cardio.reduce((n, c) => n + c.minutes, 0)} min
-                target
+                {t('plan.cardioDay', {
+                  date: dateLabel(d.date),
+                  minutes: d.cardio.reduce((n, c) => n + c.minutes, 0),
+                })}
               </Text>
             ))}
         </View>
       ) : null}
       {unavailable ? (
         <Text accessibilityRole="alert" style={s.meta}>
-          {unavailable}
+          {t('plan.unavailable')}
         </Text>
       ) : null}
       {!active &&
@@ -118,24 +140,14 @@ export function TrainingProgramWeek({
       selected &&
       !selected.completedWorkoutIds.length ? (
         <AppButton
-          title={`Start planned workout · ${selected.dayKey}`}
+          title={t('plan.start', { key: selected.dayKey })}
           onPress={() => onStart(selected, template!)}
         />
       ) : null}
-      {active ? (
-        <Text style={s.meta}>
-          Resume your active workout above before starting another.
-        </Text>
-      ) : null}
-      {!week.nextSlot ? (
-        <Text style={s.name}>This week’s planned workouts are complete.</Text>
-      ) : null}
+      {active ? <Text style={s.meta}>{t('plan.resume')}</Text> : null}
+      {!week.nextSlot ? <Text style={s.name}>{t('plan.complete')}</Text> : null}
       {unavailable && onManage ? (
-        <AppButton
-          title="Review workouts in Profile"
-          secondary
-          onPress={onManage}
-        />
+        <AppButton title={t('plan.manage')} secondary onPress={onManage} />
       ) : null}
     </GlassCard>
   );

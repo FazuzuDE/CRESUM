@@ -15,7 +15,8 @@ application translations and are not yet offered as production language choices.
 | Onboarding, proposal preview and schedule editor   | Connected            | Connected and tested            |
 | Manual workout editor                              | Connected            | Connected and tested            |
 | Catalog names and Exercise Library controls/search | Connected            | 105 labels + 29 messages tested |
-| Program/technique presentation beyond library      | Existing copy        | Pending connection/translation  |
+| Program week and workout-template management       | Connected            | Connected and tested            |
+| Technique controls and 65 exercise guides          | Connected            | 494 guide messages connected    |
 | History details, filters and date/count pickers    | Connected            | Connected and tested            |
 | Progress, charts and muscle details                | Existing copy        | Pending connection              |
 | Profile, account, backup and recovery              | Existing copy        | Pending connection              |
@@ -27,12 +28,13 @@ line and text. The AST inventory includes technical candidates: counts are not a
 claim about the percentage of translated UI. Classification and connection are
 required before a target locale can be enabled.
 
-The current resource catalog has 503 semantic messages per language (14 common,
+The current resource catalog has 1071 semantic messages per language (14 common,
 105 catalog labels, 29 library controls, 113 workout messages and 77 Home/calendar
 messages, 36 History/date-picker, 90 onboarding/program-preview and 39 manual
-editor messages). Matching key counts are a structural
-check, not independent linguistic acceptance. The library's nested technique and
-statistics pages remain part of the pending screen migration. The native picker
+editor messages, 74 program/technique/management messages and 494 technique-guide
+messages). Matching key counts are a structural check, not independent linguistic
+acceptance. The library's nested statistics page remains part of the pending
+Progress migration. The native picker
 receives labels/values from JavaScript; it has no separate English UI copy in its
 current Swift implementation.
 
@@ -43,8 +45,7 @@ writes. It also covers translated unsaved-data and invalid-clock errors and a
 single final history entry. Exact decimal display avoids floating-point rounding,
 including manual values beyond JavaScript Number precision. A Home test preserves
 the selected calendar date and unsaved block visibility across language changes.
-These are renderer tests, not physical-device acceptance. TrainingProgramWeek
-and deeper program/technique screens remain pending.
+These are renderer tests, not physical-device acceptance.
 
 History presentation now translates controls, metadata, bilateral set details,
 filter labels and date/count wheels. Tests retain the selected saved workout and
@@ -66,8 +67,8 @@ The shared manual workout editor translates editing, reorder/remove accessibilit
 configuration, stale-exercise warnings, vanished-template failures and discard
 confirmation. Tests preserve custom names, canonical exercise IDs, comma input,
 order and failed-save drafts. Unknown callback diagnostics are replaced with a
-localized retry message. The surrounding Profile workout-management page and
-nested Technique/Statistics screens remain pending. These renderer tests do not
+localized retry message. Profile account/backup controls and nested Statistics
+screens remain pending. These renderer tests do not
 replace physical-phone layout, native wheel or screen-reader acceptance.
 
 The pending candidate baseline was refreshed after this migration: removed UI
@@ -102,6 +103,38 @@ passing regression scenarios. The full suite caught old raw-diagnostic assertion
 and a lost explicit empty-editor instruction; the latter was restored in all
 four languages. No packages or persisted schemas changed. Device acceptance and
 the pending screen migrations above are still required before enabling RU/DE/FR.
+
+Program/technique checkpoint: weekly dates, selection, status and recovery controls,
+template menus, counts, errors and accessibility are translated. Built-in template
+names use IDs; custom names and callback objects remain untouched. Regression
+tests switch languages with a selected planned day, an open technique mistake
+section, FINISH viewer and pending template deletion. Error diagnostics stay out
+of user-visible retry messages. Source bibliography titles and publishers retain
+their original names; links, canonical guide revisions and source IDs are unchanged.
+
+All 65 technique guides have translated scope, setup, movement, checks, mistakes
+and any adaptation note. `scripts/build-technique-messages.cjs` generates the English
+reference from the authored technique catalog; `i18n:check` rejects a stale generated
+reference and mismatched target keys. Guide tests verify every locale's lengths,
+aliases and unchanged sources/revisions. Canonical English technique text remains
+in the source inventory because it is authored domain content, not duplicate raw UI.
+New baseline candidates were reviewed: message keys, the internal START phase
+comparison and an interpolated translated badge; no new untranslated UI was accepted.
+Progress/statistics and account/backup/recovery screens are the next migration areas.
+
+The locale engine now reuses one private translator per language across component
+mounts; custom resource overrides remain isolated. A local 100-call measurement
+fell from 584 ms to 19 ms. Regression coverage verifies locale/override isolation,
+the plural polyfill and both localized start-error paths. The drag-release test
+uses a controlled clock to verify the 200 ms suppression window rather than depend
+on renderer speed. No production gesture timing changed.
+
+Program/technique local validation: six focused suites / 26 tests pass with a
+30-second CLI timeout. Default-limit local full runs encountered timeout cascades;
+the same 15-second workout scenario also timed out in an unchanged #71 checkout,
+while an isolated current run passed in 3.97 seconds. Repository test limits were
+not increased. The standard GitHub CI workflow remains a required integration gate;
+these focused results do not claim a passing local full suite or device acceptance.
 
 ## Every future change
 

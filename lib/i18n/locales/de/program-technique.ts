@@ -1,0 +1,94 @@
+export default {
+  'templates.deleteTitle': 'Training löschen?',
+  'templates.deleteMessage':
+    '„{{name}}“ löschen? Aktive und abgeschlossene Trainings bleiben erhalten.',
+  'templates.deleteConfirm': 'Training löschen',
+  'templates.keep': 'Training behalten',
+  'templates.resume': 'Aktives Training fortsetzen',
+  'templates.start': 'Training starten',
+  'templates.customize': 'Duplizieren / Anpassen',
+  'templates.hide': 'Aus meinen Trainings ausblenden',
+  'templates.edit': 'Bearbeiten',
+  'templates.duplicate': 'Duplizieren',
+  'templates.delete': 'Löschen',
+  'templates.close': 'Schließen',
+  'templates.heading': 'TRAININGS',
+  'templates.builtIn': 'Integriert',
+  'templates.empty': 'Keine Trainings verfügbar.',
+  'templates.create': 'Training erstellen',
+  'templates.duplicateNamed': '{{name}} duplizieren',
+  'templates.hideNamed': '{{name}} ausblenden',
+  'templates.editNamed': '{{name}} bearbeiten',
+  'templates.deleteNamed': '{{name}} löschen',
+  'templates.more': 'Weitere Aktionen für {{name}}',
+  'templates.resumeNamed': 'Aktives Training aus {{name}} fortsetzen',
+  'templates.startNamed': '{{name}} starten',
+  'templates.hint': 'Für weitere Trainingsaktionen lange drücken',
+  'templates.duplicateError':
+    'Dieses Training konnte nicht dupliziert werden. Versuche es erneut.',
+  'templates.hideError':
+    'Dieses Training konnte nicht ausgeblendet werden. Versuche es erneut.',
+  'templates.deleteError':
+    'Dieses Training konnte nicht gelöscht werden. Versuche es erneut.',
+  'plan.startError': 'Training kann nicht gestartet werden',
+  'plan.startPlannedError': 'Geplantes Training kann nicht gestartet werden',
+  'plan.title': 'Dein Trainingsplan',
+  'plan.week': 'Woche {{week, number}} · {{workouts}} · Fitnessstudio',
+  'plan.workouts': {
+    one: '{{count, number}} geplantes Training',
+    other: '{{count, number}} geplante Trainings',
+  },
+  'plan.select': '{{name}} am {{date}} auswählen',
+  'plan.status': '{{date}} · {{status}}',
+  'plan.completed': 'Abgeschlossen',
+  'plan.missed': 'Verpasst · auswählen, sobald du bereit bist',
+  'plan.planned': 'Geplant',
+  'plan.recovery':
+    'An den anderen Tagen: Erholung. Verpasste Einheiten fügen keinem anderen Training Sätze hinzu.',
+  'plan.reduced':
+    'Erste geplante Einheit: wie gewählt 1 Arbeitssatz pro Übung.',
+  'plan.cardio': 'Ausdauerempfehlungen',
+  'plan.cardioHelp':
+    'Gehen oder Radfahren · allmähliches Ziel: {{minutes, number}} Minuten moderate Aktivität pro Woche. Beginne mit gut machbaren Einheiten von 10–15 Minuten.',
+  'plan.cardioDay': '{{date}} · Ziel: {{minutes, number}} Min.',
+  'plan.unavailable':
+    'Diese Einheit wurde bearbeitet, gelöscht oder ist nicht verfügbar. Prüfe die Trainings im Profil; manuelle Trainings bleiben verfügbar.',
+  'plan.start': 'Geplantes Training starten · {{key}}',
+  'plan.resume':
+    'Setze oben dein aktives Training fort, bevor du ein weiteres startest.',
+  'plan.complete': 'Die geplanten Trainings dieser Woche sind abgeschlossen.',
+  'plan.manage': 'Trainings im Profil prüfen',
+  'plan.recoveryError':
+    'Die Wiederherstellung des Plans ist noch offen. Deine Trainings bleiben verfügbar. Versuche die Wiederherstellung erneut, ohne den Plan neu anzulegen.',
+  'plan.retry': 'Planwiederherstellung erneut versuchen',
+  'technique.title': 'Technik',
+  'technique.statistics': 'Statistik',
+  'technique.closeDetails': 'Übungsdetails schließen',
+  'technique.close': 'Technik schließen',
+  'technique.expand': 'Übungsabbildung vergrößern',
+  'technique.tab': 'Übungsbereich {{tab}}',
+  'technique.setup': 'Vorbereitung',
+  'technique.movement': 'Ausführung',
+  'technique.checks': 'Wichtige Hinweise',
+  'technique.mistakes': 'Häufige Fehler',
+  'technique.sources': 'Quellen',
+  'technique.sourceNote':
+    'CRESUM-Zusammenfassungen der folgenden Quellen. Quellen geprüft am {{date}}; keine individuelle Beurteilung.',
+  'technique.openSource': 'Quelle öffnen: {{title}}',
+  'technique.linkError':
+    'Die Quelle konnte nicht geöffnet werden. Versuche es erneut, wenn du online bist.',
+  'technique.safety':
+    'Verwende eine kontrollierbare Last und beachte die Anleitung des jeweiligen Geräts. Beende die Bewegung bei Schmerzen; hole bei Beschwerden oder unbekannten Geräten qualifizierten Rat ein.',
+  'technique.unavailable':
+    'Für diese Übung ist keine Technikbeschreibung verfügbar.',
+  'technique.closeViewer': 'Vollbildabbildung schließen',
+  'technique.viewerNote':
+    'Bilder der Start- und Endposition erscheinen nach der visuellen Prüfung.',
+  'technique.start': 'START',
+  'technique.finish': 'ENDE',
+  'technique.showStart': 'Startposition anzeigen',
+  'technique.showFinish': 'Endposition anzeigen',
+  'technique.placeholder': 'Abbildungsplatzhalter für {{imageKey}}: {{phase}}',
+  'technique.imageUnavailable': 'Abbildung nicht verfügbar',
+  'technique.imageSoon': 'Bild folgt',
+} as const;

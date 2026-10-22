@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
 import type { TechniquePhase } from '@/lib/exercise-technique';
 import { colors, radius, spacing, typography } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
 
 /** Future reviewed asset pairs attach here. Never render an unrelated or unapproved image. */
 export function TechniqueArtwork({
@@ -13,16 +14,22 @@ export function TechniqueArtwork({
   phase: TechniquePhase;
   expanded?: boolean;
 }) {
+  const { t } = useLocalization();
+  const phaseLabel =
+    phase === 'START' ? t('technique.start') : t('technique.finish');
   return (
     <View
-      accessibilityLabel={`${phase} artwork placeholder for ${imageKey}`}
+      accessibilityLabel={t('technique.placeholder', {
+        phase: phaseLabel,
+        imageKey,
+      })}
       style={[s.frame, expanded && s.expanded]}
     >
       <Ionicons name="image-outline" size={56} color={colors.primary} />
       <Text style={s.label}>
-        {expanded ? 'Illustration unavailable' : 'Image coming soon'}
+        {expanded ? t('technique.imageUnavailable') : t('technique.imageSoon')}
       </Text>
-      <Text style={s.phase}>{phase}</Text>
+      <Text style={s.phase}>{phaseLabel}</Text>
     </View>
   );
 }

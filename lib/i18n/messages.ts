@@ -30,6 +30,14 @@ import enEditor from './locales/en/editor';
 import ruEditor from './locales/ru/editor';
 import deEditor from './locales/de/editor';
 import frEditor from './locales/fr/editor';
+import enProgramTechnique from './locales/en/program-technique';
+import ruProgramTechnique from './locales/ru/program-technique';
+import deProgramTechnique from './locales/de/program-technique';
+import frProgramTechnique from './locales/fr/program-technique';
+import enTechniqueContent from './locales/en/technique-content';
+import ruTechniqueContent from './locales/ru/technique-content';
+import deTechniqueContent from './locales/de/technique-content';
+import frTechniqueContent from './locales/fr/technique-content';
 const en = {
   ...enCommon,
   ...enCatalog,
@@ -39,6 +47,8 @@ const en = {
   ...enHistory,
   ...enOnboarding,
   ...enEditor,
+  ...enProgramTechnique,
+  ...enTechniqueContent,
 } as const;
 const ru = {
   ...ruCommon,
@@ -49,6 +59,8 @@ const ru = {
   ...ruHistory,
   ...ruOnboarding,
   ...ruEditor,
+  ...ruProgramTechnique,
+  ...ruTechniqueContent,
 } as const;
 const de = {
   ...deCommon,
@@ -59,6 +71,8 @@ const de = {
   ...deHistory,
   ...deOnboarding,
   ...deEditor,
+  ...deProgramTechnique,
+  ...deTechniqueContent,
 } as const;
 const fr = {
   ...frCommon,
@@ -69,6 +83,8 @@ const fr = {
   ...frHistory,
   ...frOnboarding,
   ...frEditor,
+  ...frProgramTechnique,
+  ...frTechniqueContent,
 } as const;
 export type MessageValue =
   string | Readonly<Partial<Record<Intl.LDMLPluralRule, string>>>;

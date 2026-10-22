@@ -639,7 +639,10 @@ function AppContent({
       store.start(template);
       setTab('workout');
     } catch (problem) {
-      Alert.alert('Cannot start workout', (problem as Error).message);
+      Alert.alert(
+        t('plan.startError'),
+        presentAppError(t, problem, 'error.workoutOperation'),
+      );
     }
   };
   const startProgramSlot = (slot: ProjectedProgramSlot, template: Template) => {
@@ -651,7 +654,10 @@ function AppContent({
       store.start(template, slot.context);
       setTab('workout');
     } catch (problem) {
-      Alert.alert('Cannot start planned workout', (problem as Error).message);
+      Alert.alert(
+        t('plan.startPlannedError'),
+        presentAppError(t, problem, 'error.workoutOperation'),
+      );
     }
   };
   const updateHiddenBuiltIns = async (next: string[]): Promise<boolean> => {
@@ -954,9 +960,9 @@ function AppContent({
       />
       {programError ? (
         <View style={s.notice} accessibilityRole="alert">
-          <Text style={s.sub}>{programError}</Text>
+          <Text style={s.sub}>{t('plan.recoveryError')}</Text>
           <AppButton
-            title="Retry program recovery"
+            title={t('plan.retry')}
             secondary
             disabled={busy || resetBusy}
             onPress={() => void recoverProgram()}
