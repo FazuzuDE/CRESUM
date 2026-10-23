@@ -1550,3 +1550,23 @@ values in the review without applying the shift twice. Baseline drafts remain
 unchanged. Both 65% opacity values are preview-only. Appearance acceptance does
 not validate anatomical boundaries, regional exercise ratios or production
 shared-edge compositing. Keep schematic-regional-partition representation.
+
+### Workout plan actions approved — 2026-10-23
+
+The approved sharing mockup places two actions on the saved plan detail screen:
+a wide primary **Start workout** button and a separate square **Share** icon
+button immediately to its right, aligned to the same height. Use the existing
+primary blue, rounded corners and native square-with-up-arrow share symbol.
+Keep at least a 44×44 touch target and a localized accessibility label for Share.
+Retain Add exercise above this row. Share opens the proposed QR/link screen;
+Start workout enters the existing workout flow. The following sharing, recipient
+preview and plan-library screens retain the shown mockup direction. Generated
+exercise illustrations and the QR are demonstration content, not production assets.
+This approves the visual direction; implementation and access policy remain pending.
+
+### Unified WORKOUTS screen — approved 2026-10-23
+
+Use the approved Workout plans screen directly from Profile WORKOUTS. Preserve
+BrandHeader, individual saved-plan buttons, library control and detail Start/Share
+row. Add the existing localized Create Workout primary action. Retain management
+as a secondary action, avoiding an intermediate duplicate list in the main route.

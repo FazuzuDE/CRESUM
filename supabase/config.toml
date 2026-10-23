@@ -4,3 +4,8 @@ project_id = "cresum"
 [functions.delete-account]
 entrypoint = "./functions/delete-account/index.js"
 verify_jwt = true
+
+[functions.shared-plan]
+entrypoint = "./functions/shared-plan/index.js"
+# Public GET reads require no account; POST/DELETE authenticate in handler.
+verify_jwt = false

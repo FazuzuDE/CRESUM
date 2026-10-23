@@ -1,4 +1,8 @@
-import type { ExerciseTarget, PlannedExercise } from './workout-model';
+import type {
+  ExerciseTarget,
+  PlannedTarget,
+  PlannedExercise,
+} from './workout-model';
 
 export const validExerciseTarget = (
   value: unknown,
@@ -21,6 +25,27 @@ export const validExerciseTarget = (
     t.sourceRefs.every((s) => typeof s === 'string')
   );
 };
+export const validPlannedTarget = (value: unknown): value is PlannedTarget => {
+  if (typeof value !== 'object' || value === null) return false;
+  const t = value as Record<string, unknown>;
+  if (t.kind !== 'authored') return validExerciseTarget(value);
+  return (
+    Object.keys(t).every((k) =>
+      ['kind', 'repMin', 'repMax', 'restMin', 'restMax', 'perSide'].includes(k),
+    ) &&
+    ['repMin', 'repMax', 'restMin', 'restMax'].every(
+      (k) => typeof t[k] === 'number' && Number.isSafeInteger(t[k]),
+    ) &&
+    Number(t.repMin) >= 1 &&
+    Number(t.repMax) <= 1000 &&
+    Number(t.repMin) <= Number(t.repMax) &&
+    Number(t.restMin) >= 0 &&
+    Number(t.restMax) <= 3600 &&
+    Number(t.restMin) <= Number(t.restMax) &&
+    (t.perSide === undefined || typeof t.perSide === 'boolean')
+  );
+};
+
 export const MAX_PLANNED_SETS = 20;
 
 export const validPlannedSets = (sets: unknown): sets is number =>
@@ -44,7 +69,7 @@ export const validPlannedExerciseShape = (
   return (
     typeof item.exerciseId === 'string' &&
     validPlannedSets(item.sets) &&
-    (item.target === undefined || validExerciseTarget(item.target)) &&
+    (item.target === undefined || validPlannedTarget(item.target)) &&
     (item.weight === undefined ||
       (typeof item.weight === 'string' &&
         normalizePlannedWeight(item.weight) !== null))

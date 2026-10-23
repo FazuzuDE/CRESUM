@@ -203,3 +203,20 @@ it('does not resurrect a verified response after a newer signed-out event', asyn
   });
   store.dispose();
 });
+
+it('rejects sharing response after account changes', async () => {
+  const fake = fakeRepository();
+  let resolve: (v: unknown) => void = () => {};
+  fake.repository.invokeSharedPlan = async () =>
+    new Promise((r) => {
+      resolve = r;
+    });
+  fake.repository.getIdentity = async () => person;
+  const store = new AuthStore(fake.repository);
+  await store.initialize();
+  const work = store.invokeSharedPlan(person.id, 'POST', {});
+  fake.emit({ id: 'other', email: null });
+  resolve({ token: 'secret' });
+  await expect(work).rejects.toThrow();
+  store.dispose();
+});

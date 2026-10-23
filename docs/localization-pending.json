@@ -1,181 +1,205 @@
 [
   {
     "file": "app/index.tsx",
-    "line": 337,
+    "line": 376,
     "text": "profile",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:initialTab/JsxAttributes"
   },
   {
     "file": "app/index.tsx",
-    "line": 337,
+    "line": 376,
     "text": "home",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:initialTab/JsxAttributes"
   },
   {
     "file": "app/index.tsx",
-    "line": 477,
+    "line": 558,
     "text": "Hidden workout settings are unavailable. All built-ins remain visible.",
     "context": "StringLiteral/CallExpression/ExpressionStatement/IfStatement/Block"
   },
   {
     "file": "app/index.tsx",
-    "line": 538,
+    "line": 619,
     "text": "Reset in progress.",
     "context": "StringLiteral/NewExpression/CallExpression/ReturnStatement/IfStatement"
   },
   {
     "file": "app/index.tsx",
-    "line": 585,
+    "line": 666,
     "text": "Program recovery is pending. Your workouts remain available.",
     "context": "StringLiteral/BinaryExpression/CallExpression/ExpressionStatement/IfStatement"
   },
   {
     "file": "app/index.tsx",
-    "line": 594,
+    "line": 675,
     "text": "Program recovery is pending. Your workouts remain available.",
     "context": "StringLiteral/CallExpression/ArrowFunction/CallExpression/PropertyAccessExpression"
   },
   {
     "file": "app/index.tsx",
-    "line": 608,
+    "line": 689,
     "text": "Onboarding progress could not be saved. Retry before closing the app.",
     "context": "StringLiteral/CallExpression/ExpressionStatement/Block/ArrowFunction"
   },
   {
     "file": "app/index.tsx",
-    "line": 621,
+    "line": 702,
     "text": "Program saving is pending. Retry START!",
     "context": "StringLiteral/BinaryExpression/CallExpression/ThrowStatement/IfStatement"
   },
   {
     "file": "app/index.tsx",
-    "line": 646,
+    "line": 727,
     "text": "Your workout was saved. Onboarding status could not be saved.",
     "context": "StringLiteral/CallExpression/ExpressionStatement/Block/CatchClause"
   },
   {
     "file": "app/index.tsx",
-    "line": 703,
+    "line": 784,
     "text": "Hidden workout settings could not be saved. Try again.",
     "context": "StringLiteral/CallExpression/ExpressionStatement/IfStatement/Block"
   },
   {
     "file": "app/index.tsx",
-    "line": 755,
+    "line": 836,
     "text": "Save or retry your workout changes before using backup and restore.",
     "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
   },
   {
     "file": "app/index.tsx",
-    "line": 782,
+    "line": 863,
     "text": "No usable saved copy is available.",
     "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
   },
   {
     "file": "app/index.tsx",
-    "line": 785,
+    "line": 866,
     "text": "Saved local copy opened for export. Choose a destination to keep it outside this app.",
     "context": "StringLiteral/ReturnStatement/Block/IfStatement/Block"
   },
   {
     "file": "app/index.tsx",
-    "line": 792,
+    "line": 873,
     "text": "`${count} workouts imported. Existing history was kept.`",
     "context": "TemplateExpression/ReturnStatement/Block/IfStatement/Block"
   },
   {
     "file": "app/index.tsx",
-    "line": 795,
+    "line": 876,
     "text": "Backup restored. Local data was replaced with your selected copy.",
     "context": "StringLiteral/ReturnStatement/Block/IfStatement/Block"
   },
   {
     "file": "app/index.tsx",
-    "line": 801,
+    "line": 882,
     "text": "Backup sharing finished. A copy is kept only if you chose a save destination.",
     "context": "StringLiteral/ReturnStatement/Block/TryStatement/Block"
   },
   {
     "file": "app/index.tsx",
-    "line": 926,
+    "line": 1007,
     "text": "Saved body weight is unavailable.",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/Block"
   },
   {
     "file": "app/index.tsx",
-    "line": 1072,
+    "line": 1062,
+    "text": "Local data is busy.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 1067,
+    "text": "Local data is busy.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 1070,
+    "text": "Workouts are not ready.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 1076,
+    "text": "Workout did not start.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 1225,
     "text": "Onboarding progress could not be saved. Retry before closing the app.",
     "context": "StringLiteral/CallExpression/ArrowFunction/CallExpression/VoidExpression"
   },
   {
     "file": "app/index.tsx",
-    "line": 1086,
+    "line": 1239,
     "text": "edit",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:key/JsxAttributes"
   },
   {
     "file": "app/index.tsx",
-    "line": 1086,
+    "line": 1239,
     "text": "first-run",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:key/JsxAttributes"
   },
   {
     "file": "app/index.tsx",
-    "line": 1093,
+    "line": 1246,
     "text": "welcome",
     "context": "StringLiteral/ConditionalExpression/PropertyAssignment:step/ObjectLiteralExpression/ConditionalExpression"
   },
   {
     "file": "app/index.tsx",
-    "line": 1106,
+    "line": 1259,
     "text": "profile",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/Block"
   },
   {
     "file": "app/index.tsx",
-    "line": 1106,
+    "line": 1259,
     "text": "home",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/Block"
   },
   {
     "file": "app/index.tsx",
-    "line": 1176,
+    "line": 1329,
     "text": "Reset in progress.",
     "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
   },
   {
     "file": "app/index.tsx",
-    "line": 1223,
+    "line": 1376,
     "text": "auto",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes"
   },
   {
     "file": "app/index.tsx",
-    "line": 1223,
+    "line": 1376,
     "text": "none",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes"
   },
   {
     "file": "app/index.tsx",
-    "line": 1226,
+    "line": 1379,
     "text": "auto",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes"
   },
   {
     "file": "app/index.tsx",
-    "line": 1226,
+    "line": 1379,
     "text": "no-hide-descendants",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes"
   },
   {
     "file": "app/index.tsx",
-    "line": 1238,
+    "line": 1391,
     "text": "Finish the current data operation first.",
     "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
   },
   {
     "file": "app/index.tsx",
-    "line": 1413,
+    "line": 1570,
     "text": "tabular-nums",
     "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:fontVariant/ObjectLiteralExpression/PropertyAssignment:value2"
   },
@@ -193,25 +217,25 @@
   },
   {
     "file": "components/AccountSection.tsx",
-    "line": 32,
+    "line": 33,
     "text": "signed-in",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:key/JsxAttributes"
   },
   {
     "file": "components/AccountSection.tsx",
-    "line": 32,
+    "line": 33,
     "text": "signed-out",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:key/JsxAttributes"
   },
   {
     "file": "components/AccountSection.tsx",
-    "line": 76,
+    "line": 77,
     "text": "account.resent",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/Block"
   },
   {
     "file": "components/AccountSection.tsx",
-    "line": 76,
+    "line": 77,
     "text": "account.sent",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/Block"
   },
@@ -1015,37 +1039,37 @@
   },
   {
     "file": "components/LocalDataGate.tsx",
-    "line": 38,
+    "line": 39,
     "text": "error.localRecovery",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/VariableDeclaration"
   },
   {
     "file": "components/LocalDataGate.tsx",
-    "line": 38,
+    "line": 39,
     "text": "error.localOperation",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/VariableDeclaration"
   },
   {
     "file": "components/LocalDataGate.tsx",
-    "line": 133,
+    "line": 134,
     "text": "auto",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes"
   },
   {
     "file": "components/LocalDataGate.tsx",
-    "line": 133,
+    "line": 134,
     "text": "none",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes"
   },
   {
     "file": "components/LocalDataGate.tsx",
-    "line": 136,
+    "line": 137,
     "text": "auto",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes"
   },
   {
     "file": "components/LocalDataGate.tsx",
-    "line": 136,
+    "line": 137,
     "text": "no-hide-descendants",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes"
   },
@@ -1303,7 +1327,7 @@
   },
   {
     "file": "components/ProfileSettings.tsx",
-    "line": 320,
+    "line": 326,
     "text": "CRESUM",
     "context": "JsxText/JsxElement/JsxElement/JsxElement/ParenthesizedExpression"
   },
@@ -2046,6 +2070,132 @@
     "context": "StringLiteral/ConditionalExpression/PropertyAssignment:status/ObjectLiteralExpression/ConditionalExpression"
   },
   {
+    "file": "components/workout-sharing/PlanLibrary.tsx",
+    "line": 80,
+    "text": "build_muscle",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/JsxExpression"
+  },
+  {
+    "file": "components/workout-sharing/PlanLibrary.tsx",
+    "line": 80,
+    "text": "get_stronger",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/JsxExpression"
+  },
+  {
+    "file": "components/workout-sharing/PlanLibrary.tsx",
+    "line": 80,
+    "text": "general_fitness",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/JsxExpression"
+  },
+  {
+    "file": "components/workout-sharing/PlanLibrary.tsx",
+    "line": 96,
+    "text": "beginner",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/JsxExpression"
+  },
+  {
+    "file": "components/workout-sharing/PlanLibrary.tsx",
+    "line": 96,
+    "text": "some",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/JsxExpression"
+  },
+  {
+    "file": "components/workout-sharing/PlanLibrary.tsx",
+    "line": 96,
+    "text": "experienced",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/JsxExpression"
+  },
+  {
+    "file": "components/workout-sharing/PlanLibrary.tsx",
+    "line": 133,
+    "text": "sharing.error",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+  },
+  {
+    "file": "components/workout-sharing/PlanLibrary.tsx",
+    "line": 133,
+    "text": "sharing.unconfigured",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+  },
+  {
+    "file": "components/workout-sharing/PlanPreview.tsx",
+    "line": 113,
+    "text": "sharing.startSaved",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+  },
+  {
+    "file": "components/workout-sharing/PlanPreview.tsx",
+    "line": 113,
+    "text": "sharing.addStart",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+  },
+  {
+    "file": "components/workout-sharing/PlanPreview.tsx",
+    "line": 119,
+    "text": "sharing.openSaved",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+  },
+  {
+    "file": "components/workout-sharing/PlanPreview.tsx",
+    "line": 119,
+    "text": "sharing.save",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+  },
+  {
+    "file": "components/workout-sharing/PlanScanner.tsx",
+    "line": 23,
+    "text": "qr",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:barcodeTypes/ObjectLiteralExpression/JsxExpression"
+  },
+  {
+    "file": "components/workout-sharing/SharePlanSheet.tsx",
+    "line": 17,
+    "text": "M",
+    "context": "StringLiteral/CallExpression/VariableDeclaration/VariableDeclarationList/FirstStatement"
+  },
+  {
+    "file": "components/workout-sharing/SharePlanSheet.tsx",
+    "line": 18,
+    "text": "Byte",
+    "context": "StringLiteral/CallExpression/ExpressionStatement/Block/FunctionDeclaration"
+  },
+  {
+    "file": "components/workout-sharing/SharePlanSheet.tsx",
+    "line": 24,
+    "text": "`M${x + 4},${y + 4}h1v1h-1z`",
+    "context": "TemplateExpression/BinaryExpression/ExpressionStatement/IfStatement/ForStatement"
+  },
+  {
+    "file": "components/workout-sharing/SharePlanSheet.tsx",
+    "line": 29,
+    "text": "`0 0 ${n + 8} ${n + 8}`",
+    "context": "TemplateExpression/JsxExpression/JsxAttribute:viewBox/JsxAttributes/JsxOpeningElement"
+  },
+  {
+    "file": "components/workout-sharing/SharePlanSheet.tsx",
+    "line": 114,
+    "text": "sharing.copied",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+  },
+  {
+    "file": "components/workout-sharing/SharePlanSheet.tsx",
+    "line": 114,
+    "text": "sharing.copyLink",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+  },
+  {
+    "file": "components/workout-sharing/SharingHub.tsx",
+    "line": 293,
+    "text": "sharing.continue",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+  },
+  {
+    "file": "components/workout-sharing/SharingHub.tsx",
+    "line": 293,
+    "text": "sharing.start",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+  },
+  {
     "file": "lib/account-deletion.ts",
     "line": 3,
     "text": "cresum_account_deletion_v1",
@@ -2106,6 +2256,18 @@
     "context": "StringLiteral/BinaryExpression/ExpressionStatement/Block/Constructor"
   },
   {
+    "file": "lib/auth-repository.ts",
+    "line": 6,
+    "text": "POST",
+    "context": "StringLiteral/LiteralType/UnionType/Parameter/MethodSignature"
+  },
+  {
+    "file": "lib/auth-repository.ts",
+    "line": 6,
+    "text": "DELETE",
+    "context": "StringLiteral/LiteralType/UnionType/Parameter/MethodSignature"
+  },
+  {
     "file": "lib/auth-store.ts",
     "line": 36,
     "text": "Too many requests. Please wait before trying again.",
@@ -2161,133 +2323,157 @@
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 143,
+    "line": 94,
+    "text": "POST",
+    "context": "StringLiteral/LiteralType/UnionType/Parameter/ArrowFunction"
+  },
+  {
+    "file": "lib/auth-store.ts",
+    "line": 94,
+    "text": "DELETE",
+    "context": "StringLiteral/LiteralType/UnionType/Parameter/ArrowFunction"
+  },
+  {
+    "file": "lib/auth-store.ts",
+    "line": 98,
+    "text": "Sharing unavailable",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "lib/auth-store.ts",
+    "line": 102,
+    "text": "Sharing unavailable",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "lib/auth-store.ts",
+    "line": 156,
     "text": "Account recovery metadata could not be verified. Retry account setup. Local workouts remain available.",
     "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/CallExpression/ExpressionStatement"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 158,
+    "line": 171,
     "text": "Account setup is unavailable. Local workouts remain available.",
     "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/CallExpression/ExpressionStatement"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 165,
+    "line": 178,
     "text": "initializing",
     "context": "StringLiteral/ConditionalExpression/PropertyAssignment:status/ObjectLiteralExpression/CallExpression"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 165,
+    "line": 178,
     "text": "signed_out",
     "context": "StringLiteral/ConditionalExpression/PropertyAssignment:status/ObjectLiteralExpression/CallExpression"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 187,
+    "line": 200,
     "text": "signed_in",
     "context": "StringLiteral/ConditionalExpression/PropertyAssignment:status/ObjectLiteralExpression/CallExpression"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 187,
+    "line": 200,
     "text": "signed_out",
     "context": "StringLiteral/ConditionalExpression/PropertyAssignment:status/ObjectLiteralExpression/CallExpression"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 212,
+    "line": 225,
     "text": "signed_in",
     "context": "StringLiteral/ConditionalExpression/PropertyAssignment:status/ObjectLiteralExpression/CallExpression"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 212,
+    "line": 225,
     "text": "signed_out",
     "context": "StringLiteral/ConditionalExpression/PropertyAssignment:status/ObjectLiteralExpression/CallExpression"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 228,
+    "line": 241,
     "text": "Could not restore account session. Local workouts remain available.",
     "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/CallExpression/ExpressionStatement"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 304,
+    "line": 317,
     "text": "Sign out completed on this device, but could not confirm it on other devices.",
     "context": "StringLiteral/PropertyAssignment:message/ObjectLiteralExpression/ConditionalExpression/VariableDeclaration"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 311,
+    "line": 324,
     "text": "signed_out",
     "context": "StringLiteral/ConditionalExpression/PropertyAssignment:status/ObjectLiteralExpression/CallExpression"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 335,
+    "line": 348,
     "text": "Account deletion is unavailable.",
     "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 348,
+    "line": 361,
     "text": "Sign in to the same account before retrying deletion.",
     "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 374,
+    "line": 387,
     "text": "Account changed",
     "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 394,
+    "line": 407,
     "text": "Account deleted. Your local workouts and saved backup files are kept.",
     "context": "StringLiteral/PropertyAssignment:notice/ObjectLiteralExpression/ConditionalExpression/CallExpression"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 398,
+    "line": 411,
     "text": "deletion_cleanup",
     "context": "StringLiteral/ConditionalExpression/VariableDeclaration/VariableDeclarationList/FirstStatement"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 398,
+    "line": 411,
     "text": "deletion_pending",
     "context": "StringLiteral/ConditionalExpression/VariableDeclaration/VariableDeclarationList/FirstStatement"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 400,
+    "line": 413,
     "text": "Account deletion was confirmed, but local session cleanup is incomplete. Retry cleanup. Your local workouts are kept.",
     "context": "StringLiteral/ConditionalExpression/VariableDeclaration/VariableDeclarationList/FirstStatement"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 401,
+    "line": 414,
     "text": "Account deletion is not confirmed. Cloud backup stays paused. Retry deletion or keep using local workouts.",
     "context": "StringLiteral/ConditionalExpression/VariableDeclaration/VariableDeclarationList/FirstStatement"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 412,
+    "line": 425,
     "text": "signed_out",
     "context": "StringLiteral/ConditionalExpression/PropertyAssignment:status/ObjectLiteralExpression/ConditionalExpression"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 414,
+    "line": 427,
     "text": "confirmed",
     "context": "StringLiteral/ConditionalExpression/PropertyAssignment:status/ObjectLiteralExpression/PropertyAssignment:deletion"
   },
   {
     "file": "lib/auth-store.ts",
-    "line": 414,
+    "line": 427,
     "text": "pending",
     "context": "StringLiteral/ConditionalExpression/PropertyAssignment:status/ObjectLiteralExpression/PropertyAssignment:deletion"
   },
@@ -12343,32 +12529,92 @@
   },
   {
     "file": "lib/planned-exercise.ts",
-    "line": 9,
+    "line": 13,
     "text": "repMin",
     "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression"
   },
   {
     "file": "lib/planned-exercise.ts",
-    "line": 9,
+    "line": 13,
     "text": "repMax",
     "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression"
   },
   {
     "file": "lib/planned-exercise.ts",
-    "line": 9,
+    "line": 13,
     "text": "restMin",
     "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression"
   },
   {
     "file": "lib/planned-exercise.ts",
-    "line": 9,
+    "line": 13,
     "text": "restMax",
     "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression"
   },
   {
     "file": "lib/planned-exercise.ts",
-    "line": 9,
+    "line": 13,
     "text": "revision",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression"
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 34,
+    "text": "kind",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 34,
+    "text": "repMin",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 34,
+    "text": "repMax",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 34,
+    "text": "restMin",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 34,
+    "text": "restMax",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 34,
+    "text": "perSide",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 36,
+    "text": "repMin",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression"
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 36,
+    "text": "repMax",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression"
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 36,
+    "text": "restMin",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression"
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 36,
+    "text": "restMax",
     "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression"
   },
   {
@@ -12571,19 +12817,49 @@
   },
   {
     "file": "lib/supabase-auth.ts",
+    "line": 135,
+    "text": "Sharing unavailable",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "lib/supabase-auth.ts",
+    "line": 142,
+    "text": "Bearer",
+    "context": "StringLiteral/BinaryExpression/PropertyAssignment:Authorization/ObjectLiteralExpression/PropertyAssignment:headers"
+  },
+  {
+    "file": "lib/supabase-auth.ts",
+    "line": 144,
+    "text": "Content-Type",
+    "context": "StringLiteral/PropertyAssignment:'Content-Type'/ObjectLiteralExpression/PropertyAssignment:headers/ObjectLiteralExpression"
+  },
+  {
+    "file": "lib/supabase-auth.ts",
     "line": 150,
+    "text": "Sharing unavailable",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "lib/supabase-auth.ts",
+    "line": 153,
+    "text": "Sharing unavailable",
+    "context": "StringLiteral/NewExpression/ThrowStatement/Block/CatchClause"
+  },
+  {
+    "file": "lib/supabase-auth.ts",
+    "line": 182,
     "text": "Authorization",
     "context": "StringLiteral/CallExpression/PropertyAccessExpression/CallExpression/AwaitExpression"
   },
   {
     "file": "lib/supabase-auth.ts",
-    "line": 150,
+    "line": 182,
     "text": "`Bearer ${data.session.access_token}`",
     "context": "TemplateExpression/CallExpression/PropertyAccessExpression/CallExpression/AwaitExpression"
   },
   {
     "file": "lib/supabase-auth.ts",
-    "line": 216,
+    "line": 248,
     "text": "No verified session",
     "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
   },
@@ -13741,139 +14017,349 @@
   },
   {
     "file": "lib/workout-repository.ts",
-    "line": 13,
+    "line": 14,
     "text": "fitflow_state_v1",
     "context": "StringLiteral/VariableDeclaration/VariableDeclarationList/FirstStatement"
   },
   {
     "file": "lib/workout-repository.ts",
-    "line": 15,
+    "line": 16,
     "text": "fitflow_history",
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
   },
   {
     "file": "lib/workout-repository.ts",
-    "line": 16,
+    "line": 17,
     "text": "fitflow_active",
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
   },
   {
     "file": "lib/workout-repository.ts",
-    "line": 17,
+    "line": 18,
     "text": "fitflow_templates",
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
   },
   {
     "file": "lib/workout-repository.ts",
-    "line": 33,
+    "line": 34,
     "text": "Saved workout data could not be read. No data has been overwritten.",
     "context": "StringLiteral/NewExpression/ThrowStatement/Block/ArrowFunction"
   },
   {
     "file": "lib/workout-repository.ts",
-    "line": 200,
+    "line": 203,
     "text": "legacy",
     "context": "StringLiteral/ConditionalExpression/PropertyAssignment:templateId/ObjectLiteralExpression/ReturnStatement"
   },
   {
     "file": "lib/workout-repository.ts",
-    "line": 303,
+    "line": 306,
     "text": "Readback mismatch",
     "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
   },
   {
+    "file": "lib/workout-sharing/client.ts",
+    "line": 8,
+    "text": "POST",
+    "context": "StringLiteral/LiteralType/UnionType/Parameter/FunctionType"
+  },
+  {
+    "file": "lib/workout-sharing/client.ts",
+    "line": 8,
+    "text": "DELETE",
+    "context": "StringLiteral/LiteralType/UnionType/Parameter/FunctionType"
+  },
+  {
+    "file": "lib/workout-sharing/client.ts",
+    "line": 33,
+    "text": "Sharing unavailable",
+    "context": "StringLiteral/CallExpression/ThrowStatement/Block/CatchClause"
+  },
+  {
+    "file": "lib/workout-sharing/client.ts",
+    "line": 40,
+    "text": "Sharing unavailable",
+    "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "lib/workout-sharing/client.ts",
+    "line": 44,
+    "text": "Sharing unavailable",
+    "context": "StringLiteral/CallExpression/ThrowStatement/Block/CatchClause"
+  },
+  {
+    "file": "lib/workout-sharing/client.ts",
+    "line": 48,
+    "text": "Sharing unavailable",
+    "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "lib/workout-sharing/client.ts",
+    "line": 53,
+    "text": "Sharing unavailable",
+    "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "lib/workout-sharing/client.ts",
+    "line": 62,
+    "text": "POST",
+    "context": "StringLiteral/CallExpression/AwaitExpression/ParenthesizedExpression/AsExpression"
+  },
+  {
+    "file": "lib/workout-sharing/client.ts",
+    "line": 72,
+    "text": "Sharing unavailable",
+    "context": "StringLiteral/CallExpression/ThrowStatement/Block/CatchClause"
+  },
+  {
+    "file": "lib/workout-sharing/client.ts",
+    "line": 80,
+    "text": "POST",
+    "context": "StringLiteral/CallExpression/AwaitExpression/VariableDeclaration/VariableDeclarationList"
+  },
+  {
+    "file": "lib/workout-sharing/client.ts",
+    "line": 99,
+    "text": "Sharing unavailable",
+    "context": "StringLiteral/CallExpression/ThrowStatement/Block/CatchClause"
+  },
+  {
+    "file": "lib/workout-sharing/client.ts",
+    "line": 105,
+    "text": "DELETE",
+    "context": "StringLiteral/CallExpression/AwaitExpression/ExpressionStatement/Block"
+  },
+  {
+    "file": "lib/workout-sharing/client.ts",
+    "line": 107,
+    "text": "Sharing unavailable",
+    "context": "StringLiteral/CallExpression/ThrowStatement/Block/CatchClause"
+  },
+  {
+    "file": "lib/workout-sharing/import.ts",
+    "line": 6,
+    "text": "publicationId",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+  },
+  {
+    "file": "lib/workout-sharing/import.ts",
+    "line": 6,
+    "text": "version",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 19,
+    "text": "Invalid library",
+    "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 28,
+    "text": "Invalid library",
+    "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 31,
+    "text": "title",
+    "context": "StringLiteral/ArrayLiteralExpression/ForOfStatement/Block/ForOfStatement"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 31,
+    "text": "description",
+    "context": "StringLiteral/ArrayLiteralExpression/ForOfStatement/Block/ForOfStatement"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 35,
+    "text": "en",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 35,
+    "text": "ru",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 35,
+    "text": "de",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 35,
+    "text": "fr",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 42,
+    "text": "Incomplete library metadata",
+    "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 45,
+    "text": "build_muscle",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 45,
+    "text": "get_stronger",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 45,
+    "text": "general_fitness",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 48,
+    "text": "beginner",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 48,
+    "text": "some",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 48,
+    "text": "experienced",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 55,
+    "text": "Invalid library filters",
+    "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "lib/workout-sharing/links.ts",
+    "line": 6,
+    "text": "Invalid plan link",
+    "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "lib/workout-snapshot-id.web.ts",
+    "line": 12,
+    "text": "`${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`",
+    "context": "TemplateExpression/ReturnStatement/Block/FunctionDeclaration"
+  },
+  {
     "file": "lib/workout-store.ts",
-    "line": 76,
+    "line": 75,
     "text": "Could not load saved workouts. Your saved data has been kept. Retry to continue.",
     "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/CallExpression/ExpressionStatement"
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 102,
+    "line": 101,
     "text": "Changes are not saved yet. Keep the app open and retry.",
     "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PropertyAccessExpression"
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 111,
+    "line": 110,
     "text": "Changes are not saved yet. Keep the app open and retry.",
     "context": "StringLiteral/NewExpression/ArrayLiteralExpression/CallExpression/ExpressionStatement"
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 130,
+    "line": 129,
     "text": "Resume your active workout before starting another.",
     "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 137,
+    "line": 136,
     "text": "Required program exercises are unavailable.",
     "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 146,
+    "line": 145,
     "text": "This template has no available exercises.",
     "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 156,
+    "line": 155,
     "text": "Templates are not ready yet.",
     "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/ReturnStatement/IfStatement"
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 160,
+    "line": 159,
     "text": "Template changes are already being saved. Try again shortly.",
     "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/ReturnStatement/IfStatement"
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 178,
+    "line": 177,
     "text": "Template changes could not be saved. Try again.",
     "context": "StringLiteral/VariableDeclaration/VariableDeclarationList/FirstStatement/Block"
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 191,
+    "line": 190,
     "text": "Workouts are not ready. Try again shortly.",
     "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/ReturnStatement/IfStatement"
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 207,
+    "line": 206,
     "text": "A generated workout was edited or deleted. Keep your changes and review the pending program.",
     "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/ConditionalExpression/ReturnStatement"
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 214,
+    "line": 213,
     "text": "Program template IDs already exist. No workouts were replaced.",
     "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/ReturnStatement/IfStatement"
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 236,
+    "line": 235,
     "text": "Program workouts could not be saved. Retry the same proposal.",
     "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/ReturnStatement/Block"
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 342,
+    "line": 247,
+    "text": "Invalid shared plan origin.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "lib/workout-store.ts",
+    "line": 269,
+    "text": "Shared plan missing.",
+    "context": "StringLiteral/ConditionalExpression/NewExpression/ThrowStatement/IfStatement"
+  },
+  {
+    "file": "lib/workout-store.ts",
+    "line": 372,
     "text": "Workout could not be discarded. Keep the app open and retry. Your active workout is still here.",
     "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/CallExpression/ExpressionStatement"
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 363,
+    "line": 393,
     "text": "Workout could not be finished. Your active workout is still here.",
     "context": "StringLiteral/ConditionalExpression/BinaryExpression/ExpressionStatement/Block"
   },
   {
     "file": "lib/workout-store.ts",
-    "line": 400,
+    "line": 430,
     "text": "Workout could not be saved. Your active workout is still here. Try Finish again.",
     "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/CallExpression/ExpressionStatement"
   },

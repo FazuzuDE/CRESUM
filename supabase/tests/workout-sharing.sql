@@ -1,0 +1,22 @@
+begin;
+insert into auth.users(id) values('33333333-3333-4333-8333-333333333333') on conflict do nothing;
+do $$declare p jsonb; q jsonb; id uuid; w jsonb;begin
+ if has_function_privilege('anon','public.read_shared_plan(text)','EXECUTE') then raise exception 'anonymous RPC leak'; end if;
+ if has_function_privilege('authenticated','public.publish_shared_plan(uuid,text,jsonb,text,text)','EXECUTE') then raise exception 'client publish bypass'; end if;
+ if has_table_privilege('anon','cresum_private.shared_plans','SELECT') then raise exception 'token enumeration'; end if;
+ p:=public.publish_shared_plan('33333333-3333-4333-8333-333333333333','payload-hash','{"schemaVersion":1,"title":"Plan","exercises":[{"exerciseId":"barbell-bench-press","sets":3}]}','token-hash','encrypted-token');
+ q:=public.publish_shared_plan('33333333-3333-4333-8333-333333333333','payload-hash','{"schemaVersion":1,"title":"Plan","exercises":[{"exerciseId":"barbell-bench-press","sets":3}]}','other-hash','other-cipher');
+ if p<>q then raise exception 'idempotency lost'; end if;
+ id:=(p->'origin'->>'publicationId')::uuid;
+ if public.read_shared_plan('token-hash')->'plan'->>'title'<>'Plan' then raise exception 'token read failed'; end if;
+ if public.revoke_shared_plan('11111111-1111-4111-8111-111111111111',id) then raise exception 'cross-owner revoke'; end if;
+ if public.read_shared_plan('token-hash') is null then raise exception 'cross-owner changed plan'; end if;
+ if not public.revoke_shared_plan('33333333-3333-4333-8333-333333333333',id) then raise exception 'owner revoke failed'; end if;
+ if public.read_shared_plan('token-hash') is not null then raise exception 'revoked access'; end if;
+ if public.sharing_limit('test',1,60) is not true or public.sharing_limit('test',1,60) is not false then raise exception 'rate limit failed'; end if;
+ w:='{"workout_id":"w","template_id":"t","name":"Plan","started_at_ms":0,"finished_at_ms":1,"current_exercise_index":0,"rest_duration_seconds":90,"rest_override_seconds":null,"program_slot":null,"exercises":[{"exercise_index":0,"exercise_id":"e","library_id":"barbell-bench-press","name":"Bench","muscle":"Chest","sets":[],"target":{"kind":"authored","repMin":8,"repMax":12,"restMin":0,"restMax":90}}]}';
+ if not cresum_private.valid_history_workout(w) then raise exception 'Authored target rejected'; end if;
+ w:=jsonb_set(w,'{exercises,0,target,repMax}','1001');
+ if cresum_private.valid_history_workout(w) then raise exception 'Authored range overflow accepted'; end if;
+end $$;
+rollback;

@@ -407,3 +407,40 @@ it('roundtrips actual completed History, custom routines and every sidecar docum
     activeWorkout: false,
   });
 });
+
+it('round-trips a shared plan origin and authored targets without credentials', async () => {
+  const source = storage();
+  const core = emptyWorkoutState();
+  core.templates = [
+    {
+      id: 'copy',
+      name: 'Coach',
+      exerciseIds: ['barbell-bench-press'],
+      origin: {
+        publicationId: '550e8400-e29b-41d4-a716-446655440000',
+        version: 1,
+      },
+      plannedExercises: [
+        {
+          exerciseId: 'barbell-bench-press',
+          sets: 2,
+          target: {
+            kind: 'authored',
+            repMin: 8,
+            repMax: 12,
+            restMin: 0,
+            restMax: 90,
+          },
+        },
+      ],
+    },
+  ];
+  source.values.set(STATE_KEY, JSON.stringify(core));
+  const backup = await createLocalBackup(source, now);
+  const target = storage();
+  await restoreLocalBackup(target, await parseLocalBackup(backup));
+  expect((await new WorkoutRepository(target).load()).templates).toEqual(
+    core.templates,
+  );
+  expect(backup).not.toContain('access_token');
+});

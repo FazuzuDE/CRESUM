@@ -19,3 +19,6 @@ Thumbs.db
 /android/
 /ios/
 .tools/
+
+# Local Supabase CLI cache; no deployment state in source control.
+supabase/.temp/

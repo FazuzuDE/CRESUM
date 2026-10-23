@@ -2,6 +2,7 @@ import App from '../../app/index';
 import { ProfileSettings } from '../../components/ProfileSettings';
 import { AppButton } from '../../components/AppButton';
 import { Dock } from '../../components/Dock';
+import { SharingHub } from '../../components/workout-sharing/SharingHub';
 import { WorkoutTemplates } from '../../components/WorkoutTemplates';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { completeOnboardingForTest } from './onboarding-fixture';
@@ -101,6 +102,9 @@ it('keeps the Profile tab and navigation to Home functional', async () => {
       .find((b: { props: { title: string } }) => b.props.title === 'WORKOUTS')
       .props.onPress(),
   );
+  expect(view.root.findByType(SharingHub)).toBeDefined();
+  expect(view.root.findAllByType(WorkoutTemplates)).toHaveLength(0);
+  act(() => view.root.findByType(SharingHub).props.onManage());
   expect(view.root.findByType(WorkoutTemplates)).toBeDefined();
   act(() => view.root.findByType(Dock).props.onChange('home'));
   expect(view.root.findByType(Dock).props.active).toBe('home');

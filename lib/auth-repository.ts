@@ -1,6 +1,11 @@
 export type AuthIdentity = { id: string; email: string | null };
 
 export type AuthRepository = {
+  invokeSharedPlan?(
+    userId: string,
+    method: 'POST' | 'DELETE',
+    body: unknown,
+  ): Promise<unknown>;
   deleteAccount?(userId: string): Promise<void>;
   clearDeletedSession?(userId: string): Promise<void>;
   historyRpc?(

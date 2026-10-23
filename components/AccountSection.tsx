@@ -13,6 +13,7 @@ import { AccountDeletionSection } from './AccountDeletionSection';
 
 export type AccountSectionProps = {
   snapshot: AuthSnapshot;
+  invokeSharedPlan?: AuthRepository['invokeSharedPlan'];
   historyRpc?: AuthRepository['historyRpc'];
   isCurrentAccount?: (userId: string) => boolean;
   sync?: HistorySyncControls;

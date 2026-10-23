@@ -33,6 +33,7 @@ export type ProfileSettingsProps = {
   ) => Promise<TemplateMutationResult>;
   deleteTemplate: (templateId: string) => Promise<TemplateMutationResult>;
   duplicateTemplate?: (templateId: string) => Promise<TemplateMutationResult>;
+  onOpenPlans?: (onManage: () => void) => void;
   startTemplate?: (template: WorkoutTemplate) => void;
   hideBuiltIn?: (templateId: string) => Promise<boolean>;
   restoreBuiltIn?: (templateId: string) => Promise<boolean>;
@@ -55,6 +56,7 @@ export function ProfileSettings({
   deleteTemplate,
   duplicateTemplate,
   startTemplate,
+  onOpenPlans,
   hideBuiltIn,
   restoreBuiltIn,
   hiddenBuiltInIds = [],
@@ -196,7 +198,11 @@ export function ProfileSettings({
               wordmark
               secondary
               presentation="row"
-              onPress={() => setWorkoutsOpen(true)}
+              onPress={() =>
+                onOpenPlans
+                  ? onOpenPlans(() => setWorkoutsOpen(true))
+                  : setWorkoutsOpen(true)
+              }
             />
             <Text style={s.sub}>
               {t('profile.saved', { count: templates.length })}

@@ -693,6 +693,7 @@ describe('Workout Templates app integration', () => {
     const view = await renderApp();
     act(() => view.root.findByType(Dock).props.onChange('profile'));
     act(() => appButton(view, 'WORKOUTS')?.props.onPress());
+    act(() => appButton(view, 'Manage workouts')?.props.onPress());
     act(() => appButton(view, 'Create Workout')?.props.onPress());
     act(() =>
       view.root
@@ -709,6 +710,7 @@ describe('Workout Templates app integration', () => {
     act(() => view.root.findByType(Dock).props.onChange('home'));
     act(() => view.root.findByType(Dock).props.onChange('profile'));
     act(() => appButton(view, 'WORKOUTS')?.props.onPress());
+    act(() => appButton(view, 'Manage workouts')?.props.onPress());
     expect(JSON.stringify(view.toJSON())).toContain('Draft day');
     expect(JSON.stringify(view.toJSON())).toContain('Barbell Bench Press');
     expect(appButton(view, 'Save Workout')).toBeDefined();
@@ -719,6 +721,7 @@ describe('Workout Templates app integration', () => {
     let view = await renderApp();
     act(() => view.root.findByType(Dock).props.onChange('profile'));
     act(() => appButton(view, 'WORKOUTS')?.props.onPress());
+    act(() => appButton(view, 'Manage workouts')?.props.onPress());
     act(() => appButton(view, 'Create Workout')?.props.onPress());
     act(() =>
       view.root
@@ -765,6 +768,7 @@ describe('Workout Templates app integration', () => {
     let view = await renderApp();
     act(() => view.root.findByType(Dock).props.onChange('profile'));
     act(() => appButton(view, 'WORKOUTS')?.props.onPress());
+    act(() => appButton(view, 'Manage workouts')?.props.onPress());
     act(() => action(view, 'More actions for My Push')?.props.onPress());
     act(() => appButton(view, 'Edit')?.props.onPress());
     act(() => appButton(view, 'Back')?.props.onPress());
@@ -801,6 +805,7 @@ describe('Workout Templates app integration', () => {
     const view = await renderApp();
     act(() => view.root.findByType(Dock).props.onChange('profile'));
     act(() => appButton(view, 'WORKOUTS')?.props.onPress());
+    act(() => appButton(view, 'Manage workouts')?.props.onPress());
     act(() => action(view, 'More actions for My Push')?.props.onPress());
     act(() => appButton(view, 'Delete')?.props.onPress());
     act(() => view.root.findAllByType(Confirmation).at(-1)?.props.onCancel());
@@ -835,6 +840,7 @@ describe('Workout Templates app integration', () => {
     const view = await renderApp();
     act(() => view.root.findByType(Dock).props.onChange('profile'));
     act(() => appButton(view, 'WORKOUTS')?.props.onPress());
+    act(() => appButton(view, 'Manage workouts')?.props.onPress());
     act(() => action(view, 'More actions for Old custom')?.props.onPress());
     act(() => appButton(view, 'Edit')?.props.onPress());
     expect(JSON.stringify(view.toJSON())).toContain('removed-exercise');
@@ -842,5 +848,24 @@ describe('Workout Templates app integration', () => {
 
     expect(await AsyncStorage.getItem('fitflow_state_v1')).toBe(raw);
     act(() => view.unmount());
+  });
+});
+
+describe('Shared plans app entry', () => {
+  it('opens saved plans and starts through the existing engine', async () => {
+    await AsyncStorage.clear();
+    await completeOnboardingForTest();
+    const view = await renderApp();
+    act(() => view.root.findByType(Dock).props.onChange('profile'));
+    act(() => appButton(view, 'WORKOUTS')?.props.onPress());
+    act(() => appButton(view, 'Upper Body')?.props.onPress());
+    await act(async () => {
+      appButton(view, 'Start workout')?.props.onPress();
+      await settle();
+    });
+    expect(view.root.findByType(Workout).props.session?.templateId).toBe(
+      'upper',
+    );
+    await act(async () => view.unmount());
   });
 });

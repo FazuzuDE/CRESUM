@@ -123,6 +123,38 @@ export function createSupabaseAuthRepository(
           },
         }
       : {}),
+    async invokeSharedPlan(userId, method, body) {
+      const epoch = ownerEpoch;
+      const { data, error } = await supabase.auth.getSession();
+      if (
+        disposed ||
+        error ||
+        data.session?.user.id !== userId ||
+        !data.session.access_token
+      )
+        throw new Error('Sharing unavailable');
+      const controller = new AbortController();
+      const deadline = setTimeout(() => controller.abort(), 15000);
+      try {
+        const response = await fetch(url + '/functions/v1/shared-plan', {
+          method,
+          headers: {
+            Authorization: 'Bearer ' + data.session.access_token,
+            apikey: publishableKey,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(body),
+          signal: controller.signal,
+        });
+        if (!response.ok || disposed || epoch !== ownerEpoch)
+          throw new Error('Sharing unavailable');
+        return await response.json();
+      } catch {
+        throw new Error('Sharing unavailable');
+      } finally {
+        clearTimeout(deadline);
+      }
+    },
     async historyRpc(userId, name, args) {
       const controller = new AbortController();
       let deadline: ReturnType<typeof setTimeout> | undefined;
