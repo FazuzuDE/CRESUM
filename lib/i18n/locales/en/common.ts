@@ -1,4 +1,9 @@
 export default {
+  'brand.tagline': 'TRAIN. TRACK. GROW.',
+  'artwork.placeholder': 'Illustration unavailable: {{name}}',
+  'artwork.generic': 'Exercise illustration unavailable',
+  'backup.shareTitle': 'Save CRESUM backup',
+  'workout.retrySaveLoad': 'Retry saving or loading',
   'scroll.top': 'Back to page top',
   'scroll.section': 'Back to section start',
   'scroll.hint':

@@ -437,7 +437,11 @@ export function HistoryConflictReview({
             items.map((item) => (
               <AppButton
                 key={item.id}
-                title={item.name || t('conflict.untitled')}
+                title={
+                  item.fallbackName
+                    ? t('conflict.untitled')
+                    : item.name || t('conflict.untitled')
+                }
                 presentation="row"
                 secondary
                 onPress={() => open(item.id)}

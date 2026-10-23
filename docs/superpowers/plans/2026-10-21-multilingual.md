@@ -120,12 +120,22 @@
 
 **Interfaces:** Consume registry release status and coverage validator from Task 1; only fully covered locales may enter Task 2's selection UI. Produce a four-locale acceptance ledger with separate automated/web/native evidence.
 
-- [ ] Add RED release checks: deleting a target message/parameter/plural form or one catalog label prevents locale eligibility; unknown registry language cannot be selected; development pseudo-locale expands text but is excluded from published picker/resources. Exercise the installed plural polyfill with native Intl.PluralRules unavailable, checking Task 1's count matrix independently from Node's native Intl implementation.
+- [x] Add RED release checks: deleting a target message/parameter/plural form or one catalog label prevents locale eligibility; unknown registry language cannot be selected; development pseudo-locale expands text but is excluded from published picker/resources. Exercise the installed plural polyfill with native Intl.PluralRules unavailable, checking Task 1's count matrix independently from Node's native Intl implementation.
 - [ ] Run suite RED, then finish coverage and mark ru/de/fr eligible only after Tasks 1–7 pass. Pseudo-localization stays a development test utility; initial release remains four LTR languages. No unreviewed 26-language list or RTL claim.
 - [ ] Run `npm run check`, `npm run export:check`, `git diff --check`. Use real exported app in 320/390px layouts for all four languages and expanded text; inspect text wrapping, safe areas and every destructive/retry action. Verify no unexpected network requests for translations. Record physical iPhone/Android Hermes plural/formatting, screen-reader/Dynamic Type and foreground-language results explicitly; pending device checks remain release limitations.
 - [ ] Request one independent whole-branch review, resolve material findings, and rerun only affected checks. Update docs with actual supported scope, exclusions and pending physical acceptance. Create focused PR(s) against develop; do not merge or claim 30-language readiness merely from registry extensibility. Commit `feat: validate four-language localization coverage`.
 
 ## Evidence and execution handoff
+
+Task8 automated checkpoint after merged #73/#74: 1468 messages per locale,
+2331 inventoried candidates with exact classifications and zero unclassified.
+Full local check passes 122 suites / 1020 tests; iOS/Android exports pass and a
+fresh independent branch review found no actionable bugs. The cloud browser cannot
+reach the local server; 320/390px exported-app/expanded-text layout and physical
+Hermes/accessibility/foreground acceptance remain pending. Task8 remains partial
+and target locales stay release-disabled. See LOCALIZATION.md and the explicit
+acceptance ledger; neither structural completeness nor a native export activates
+a target locale by itself.
 
 Native execution was approved 2026-10-22: one implementer and an independent
 review. Implementation is in progress. Foundation/settings, decimal helpers and

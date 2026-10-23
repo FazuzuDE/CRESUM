@@ -24,6 +24,21 @@ function sourceCandidates(file, text) {
     true,
     file.endsWith('tsx') ? ts.ScriptKind.TSX : ts.ScriptKind.TS,
   );
+  function contextOf(node) {
+    const parts = [];
+    for (
+      let current = node;
+      current && parts.length < 5 && !ts.isSourceFile(current);
+      current = current.parent
+    ) {
+      const property =
+        ts.isPropertyAssignment(current) || ts.isJsxAttribute(current)
+          ? `:${current.name.getText(source)}`
+          : '';
+      parts.push(ts.SyntaxKind[current.kind] + property);
+    }
+    return parts.join('/');
+  }
   function visit(n) {
     const literal =
       ts.isStringLiteral(n) ||
@@ -56,6 +71,7 @@ function sourceCandidates(file, text) {
           file,
           line: source.getLineAndCharacterOfPosition(n.getStart()).line + 1,
           text: value,
+          context: contextOf(n),
         });
     }
     ts.forEachChild(n, visit);

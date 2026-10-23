@@ -781,7 +781,7 @@ function AppContent({
                 'backup_no_saved',
                 'No usable saved copy is available.',
               );
-            await shareBackupFile(saved.backup.text);
+            await shareBackupFile(saved.backup.text, t('backup.shareTitle'));
             return 'Saved local copy opened for export. Choose a destination to keep it outside this app.';
           }
           if (backup) {
@@ -794,7 +794,10 @@ function AppContent({
             await restoreLocalBackup(AsyncStorage, backup);
             return 'Backup restored. Local data was replaced with your selected copy.';
           }
-          await shareBackupFile(await createLocalBackup(AsyncStorage));
+          await shareBackupFile(
+            await createLocalBackup(AsyncStorage),
+            t('backup.shareTitle'),
+          );
           return 'Backup sharing finished. A copy is kept only if you chose a save destination.';
         } finally {
           releaseCloud?.();
@@ -1016,7 +1019,7 @@ function AppContent({
         <View style={s.notice} accessibilityRole="alert">
           <Text style={s.sub}>{workoutError}</Text>
           <AppButton
-            title="Retry saving or loading"
+            title={t('workout.retrySaveLoad')}
             secondary
             disabled={busy}
             onPress={() => {

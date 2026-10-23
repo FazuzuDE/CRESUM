@@ -1,4 +1,9 @@
 export default {
+  'brand.tagline': 'TRAINIEREN. ERFASSEN. WACHSEN.',
+  'artwork.placeholder': 'Abbildung nicht verfügbar: {{name}}',
+  'artwork.generic': 'Übungsabbildung nicht verfügbar',
+  'backup.shareTitle': 'CRESUM-Sicherung speichern',
+  'workout.retrySaveLoad': 'Speichern oder Laden erneut versuchen',
   'scroll.top': 'Zum Seitenanfang',
   'scroll.section': 'Zum Abschnittsanfang',
   'scroll.hint':

@@ -40,6 +40,16 @@ it('does not claim success when native sharing fails', async () => {
   await expect(shareBackupFile('{}')).rejects.toThrow('sharing failed');
   expect(mockDelete).toHaveBeenCalled();
 });
+it('passes the app-provided localized title to the OS without changing backup bytes', async () => {
+  await shareBackupFile('{"backup":true}', 'Сохранить резервную копию CRESUM');
+  expect(Sharing.shareAsync).toHaveBeenCalledWith(
+    'file:///cache/backup.json',
+    expect.objectContaining({
+      dialogTitle: 'Сохранить резервную копию CRESUM',
+    }),
+  );
+  expect(mockWrite).toHaveBeenCalledWith('{"backup":true}');
+});
 it('returns picker cancellation silently and rejects oversized files before reading', async () => {
   expect(await pickBackupFile()).toBeNull();
   jest.mocked(Picker.getDocumentAsync).mockResolvedValueOnce({

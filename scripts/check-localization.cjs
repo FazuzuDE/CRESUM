@@ -45,6 +45,59 @@ function compareInventory(current, baseline) {
   const known = new Set(baseline.map(identity));
   return current.filter((entry) => !known.has(identity(entry)));
 }
+const classificationKinds = new Set([
+  'internal',
+  'diagnostic',
+  'canonical',
+  'bibliography',
+  'developer',
+  'brand',
+  'confirmation_token',
+]);
+function classifyInventory(current, classifications) {
+  const site = (entry) => `${identity(entry)}\0${entry.context ?? ''}`;
+  const reviewed = new Map(
+    classifications
+      .flatMap((entry) =>
+        entry.entries
+          ? entry.entries.map((candidate) => ({ ...entry, ...candidate }))
+          : [entry],
+      )
+      .map((entry) => [site(entry), entry]),
+  );
+  return current.filter((entry) => {
+    const review = reviewed.get(site(entry));
+    return (
+      !review ||
+      !classificationKinds.has(review.kind) ||
+      typeof review.reason !== 'string' ||
+      !review.reason.trim()
+    );
+  });
+}
+function releaseEligibility(
+  catalogs,
+  registry,
+  { sourceCandidates, classifications, acceptance },
+) {
+  const unclassified = classifyInventory(sourceCandidates, classifications);
+  return Object.fromEntries(
+    Object.keys(registry).map((locale) => {
+      const errors = catalogs[locale]
+        ? validateCatalogs({ en: catalogs.en, [locale]: catalogs[locale] })
+        : [`${locale}: missing catalog`];
+      if (unclassified.length)
+        errors.push(`${unclassified.length} unclassified source candidates`);
+      if (
+        locale !== 'en' &&
+        (acceptance[locale]?.web !== true ||
+          acceptance[locale]?.native !== true)
+      )
+        errors.push(`${locale}: web/native acceptance pending`);
+      return [locale, { eligible: errors.length === 0, errors }];
+    }),
+  );
+}
 function loadTs(filename) {
   const code = ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
     compilerOptions: {
@@ -80,13 +133,31 @@ function run() {
     ...untracked.map((x) => `${x.file}:${x.line}: untracked copy: ${x.text}`),
   );
   const registry = loadTs(path.resolve('lib/i18n/registry.ts')).localeRegistry;
+  const classifications = JSON.parse(
+    fs.readFileSync('docs/localization-classified.json', 'utf8'),
+  );
+  const acceptance = JSON.parse(
+    fs.readFileSync('docs/localization-acceptance.json', 'utf8'),
+  );
+  const unclassified = classifyInventory(current, classifications);
+  const eligibility = releaseEligibility(catalogs, registry, {
+    sourceCandidates: current,
+    classifications,
+    acceptance,
+  });
+  errors.push(
+    ...unclassified.map(
+      (entry) =>
+        `${entry.file}:${entry.line}: unclassified copy/context: ${entry.text}`,
+    ),
+  );
   const remaining = current.filter((x) =>
     baseline.some((b) => identity(b) === identity(x)),
   );
   for (const [locale, entry] of Object.entries(registry))
-    if (locale !== 'en' && entry.released && remaining.length)
+    if (locale !== 'en' && entry.released && !eligibility[locale].eligible)
       errors.push(
-        `${locale}: cannot enable locale while ${remaining.length} source candidates await classification/translation`,
+        `${locale}: cannot enable locale: ${eligibility[locale].errors.join('; ')}`,
       );
   const byFile = Object.fromEntries(
     [...new Set(remaining.map((x) => x.file))]
@@ -107,9 +178,21 @@ function run() {
               },
             ]),
           ),
-          pendingSourceCandidates: remaining.length,
-          pendingByFile: byFile,
-          note: 'Candidates include technical strings. These are pending review, not a translation completeness percentage.',
+          sourceCandidates: current.length,
+          classifiedSourceCandidates: current.length - unclassified.length,
+          pendingSourceCandidates: unclassified.length,
+          unclassifiedSourceCandidates: unclassified.length,
+          releaseEligibility: eligibility,
+          sourceCandidatesByFile: byFile,
+          pendingByFile: Object.fromEntries(
+            [...new Set(unclassified.map((entry) => entry.file))]
+              .sort()
+              .map((file) => [
+                file,
+                unclassified.filter((entry) => entry.file === file).length,
+              ]),
+          ),
+          note: 'Source candidates include canonical content, diagnostics and technical strings. Classified sites are exact file/text/syntax-context reviews, not a translation percentage. Web/native acceptance is separate.',
         },
         null,
         2,
@@ -120,8 +203,13 @@ function run() {
     process.exitCode = 1;
   } else if (!process.argv.includes('--report'))
     console.log(
-      `Localization contracts pass; ${remaining.length} source candidates pending. New locales remain unavailable until complete.`,
+      `Localization contracts pass; ${current.length} source candidates inventoried, ${unclassified.length} unclassified. Target locales require web/native acceptance before release.`,
     );
 }
-module.exports = { validateCatalogs, compareInventory };
+module.exports = {
+  validateCatalogs,
+  compareInventory,
+  classifyInventory,
+  releaseEligibility,
+};
 if (require.main === module) run();

@@ -1,12 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, spacing, typography } from '@/lib/theme';
 import { BrandWordmark } from './BrandWordmark';
+import { useLocalization } from './LocalizationProvider';
 
 export function BrandHeader({ tagline = true }: { tagline?: boolean }) {
+  const { t } = useLocalization();
   return (
     <View style={s.root}>
       <BrandWordmark />
-      {tagline ? <Text style={s.tagline}>TRAIN. TRACK. GROW.</Text> : null}
+      {tagline ? <Text style={s.tagline}>{t('brand.tagline')}</Text> : null}
     </View>
   );
 }

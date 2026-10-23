@@ -17,6 +17,12 @@ date/number display. Keep user-authored names and historical snapshots intact.
 Plan catalog/registry expansion to 30 languages; RTL layout and script/font
 acceptance require their own checks before those locales are enabled.
 
+The shared tagline, illustration accessibility and native export dialog title
+follow the selected app language. CRESUM and the exact DELETE confirmation token
+remain unchanged. Release acceptance must include 320/390px wrapping, destructive
+and retry actions, safe areas, Dynamic Type and screen-reader use; renderer tests
+and native bundle exports are separate evidence and do not certify those checks.
+
 ### Selected CRESUM wordmark — approved 2026-10-21
 
 Use the compact, wide geometric uppercase CRESUM lettering from the phone

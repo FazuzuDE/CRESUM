@@ -1,8 +1,8 @@
 # Localization coverage and contribution rules
 
-Implementation in progress. English is the only release-enabled locale.
-Russian, German and French resources are being prepared; they are not complete
-application translations and are not yet offered as production language choices.
+English is the only release-enabled locale. Russian, German and French are
+connected across the existing application flows; final web/native acceptance is
+pending, so they are not yet offered as production language choices.
 
 ## Current status
 
@@ -23,13 +23,16 @@ application translations and are not yet offered as production language choices.
 | Profile, account, backup and recovery              | Connected            | Connected and tested            |
 | Device rendering/accessibility acceptance          | Existing limitations | Pending                         |
 
-`npm run i18n:report` emits catalog counts, enabled locales, and pending source
-candidates grouped by file. `docs/localization-pending.json` contains their file,
-line and text. The AST inventory includes technical candidates: counts are not a
-claim about the percentage of translated UI. Classification and connection are
-required before a target locale can be enabled.
+`npm run i18n:report` emits catalog counts, enabled locales, release eligibility,
+source candidates and unclassified candidates grouped by file.
+`docs/localization-pending.json` retains its compatibility filename and stores the
+full inventory with file, line, text and syntax-parent context.
+`docs/localization-classified.json` records exact reviewed sites and reasons;
+it does not exempt entire files or future strings. Moving an internal token into
+visible JSX invalidates that classification. The inventory includes technical
+and canonical content: counts are not a percentage of translated UI.
 
-The current resource catalog has 1463 semantic messages per language (14 common,
+The current resource catalog has 1468 semantic messages per language (19 common,
 105 catalog labels, 29 library controls, 113 workout messages and 77 Home/calendar
 messages, 36 History/date-picker, 90 onboarding/program-preview and 39 manual
 editor messages, 74 program/technique/management messages and 494 technique-guide
@@ -212,6 +215,63 @@ follow the OS/provider language, not the app setting. The app translates its own
 instructions around them. No live OTP, account deletion or database mutation was
 performed to test translation. Physical-phone Files/share, interruption recovery,
 screen-reader, Dynamic Type and language/foreground checks remain pending.
+
+## Automated release checkpoint and acceptance ledger
+
+The catalog contains 1468 messages per locale, including five final shared copy
+fixes: tagline, named/generic illustration placeholders, save/load retry and native
+share title. The body-weight chart's synthetic name also uses its translated
+title. A missing conflict name is translated via explicit `fallbackName` metadata;
+an actual saved title such as “Saved workout” stays verbatim. Native sharing
+accepts an optional translated dialog title without changing file bytes or legacy
+callers. Provider-owned email/OS controls remain external; the app-owned share
+title is translated.
+
+Every current source candidate has an exact classification with a reason in
+`localization-classified.json`. Categories distinguish internal tokens, safe
+diagnostics, canonical translated reference content, original bibliography,
+developer asset-authoring metadata, brand geometry and the DELETE token. The
+legacy `localization-pending.json` is the full inventory, not an untranslated-word
+list. Generated/copied and user-edited stored names remain canonical historical
+content; switching languages never rewrites those names or the existing Copy
+suffix. Current catalog/guide presentation translates by stable ID.
+
+`check-localization.cjs` reports unclassified sites separately and fails CI for
+any new/unreviewed usage. It combines catalog validation, classification and
+explicit acceptance flags in `localization-acceptance.json` to calculate release
+eligibility. RU/DE/FR flags stay false. English retains its existing release status;
+that exception does not certify its pending device checks.
+
+| Evidence                                         | EN      | RU      | DE      | FR      |
+| ------------------------------------------------ | ------- | ------- | ------- | ------- |
+| Message/parameter/plural/catalog contracts       | Pass    | Pass    | Pass    | Pass    |
+| Mounted flow/state/recovery regression tests     | Pass    | Pass    | Pass    | Pass    |
+| Installed plural polyfill with native API absent | Pass    | Pass    | Pass    | Pass    |
+| 320/390px real exported app and expanded text    | Blocked | Blocked | Blocked | Blocked |
+| Physical iOS/Android Hermes formatting/plurals   | Pending | Pending | Pending | Pending |
+| Dynamic Type, screen readers, safe areas/actions | Pending | Pending | Pending | Pending |
+| Native Files/share and foreground language       | Pending | Pending | Pending | Pending |
+
+Browser evidence is blocked by `net::ERR_CONNECTION_REFUSED` when the available
+cloud browser opens `http://127.0.0.1:4173`; the local server is in a different
+environment. No browser layout pass is claimed. There is no connected physical
+iPhone/Android environment. Renderer tests and native exports remain separate.
+No live account deletion/OTP or production storage was used for QA.
+
+The pseudo-catalog helper expands literal text while retaining interpolation
+tokens and plural structure. Tests reject its import into application code and
+verify it is absent from registry/published catalogs. Unknown or pseudo locale
+selection never persists a setting. The real installed plural polyfill is tested
+with native `Intl.PluralRules` removed, including Russian 0/1/2/5/11/21/22/25/1.5.
+These tests do not claim execution on a physical Hermes device.
+
+Automated checkpoint validation: full `npm run check` passed on Node 22.16.0/
+npm 10.9.2 with 122 suites / 1020 tests, including online dependency validation.
+iOS/Android exports passed. Independent whole-branch review found no actionable
+bugs; its focused verification passed 3 suites / 22 tests. Subsequent report/docs
+formatting passed lint, localization contracts and `git diff --check`. Exhaustive
+native-speaker linguistic acceptance remains unclaimed. Exact-head GitHub CI is
+the integration gate recorded in the PR.
 
 ## Every future change
 

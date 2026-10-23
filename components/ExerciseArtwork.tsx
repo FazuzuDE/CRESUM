@@ -1,6 +1,8 @@
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, View } from 'react-native';
 import { colors, radius } from '@/lib/theme';
+import { useLocalization } from './LocalizationProvider';
+import { catalogLabel } from '@/lib/i18n/catalog';
 
 export function ExerciseArtwork({
   imageKey,
@@ -9,9 +11,15 @@ export function ExerciseArtwork({
   imageKey: string;
   size?: number;
 }) {
+  const { t, locale } = useLocalization();
+  const name = catalogLabel(locale, 'exercise', imageKey, imageKey);
   return (
     <View
-      accessibilityLabel={`Artwork placeholder for ${imageKey}`}
+      accessibilityLabel={
+        name === imageKey
+          ? t('artwork.generic')
+          : t('artwork.placeholder', { name })
+      }
       style={[s.placeholder, { width: size, height: size }]}
     >
       <Ionicons
