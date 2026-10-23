@@ -38,6 +38,7 @@ export function useAccount(): AccountSectionProps {
   }, [store]);
   return {
     snapshot,
+    invokeSharedPlan: store.invokeSharedPlan,
     historyRpc: store.hasHistoryRpc() ? store.historyRpc : undefined,
     isCurrentAccount: store.isCurrentAccount,
     sendEmailOtp: (email) => store.sendEmailOtp(email),

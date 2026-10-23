@@ -1,10 +1,11 @@
+import { validPlanOrigin } from './workout-sharing/import';
 import { validLocalDate } from './training-programs/assignment';
 import type { ProgramSlotContext } from './workout-model';
 import { defaultTemplates } from './workout-catalog';
 import { WorkoutSession, WorkoutState, WorkoutTemplate } from './workout-model';
 import {
   validPlannedExerciseShape,
-  validExerciseTarget,
+  validPlannedTarget,
 } from './planned-exercise';
 import { canonicalExerciseId } from './exercise-library';
 
@@ -51,6 +52,8 @@ function template(value: unknown): WorkoutTemplate {
     !value.exerciseIds.every(string)
   )
     return invalid();
+  if (value.origin !== undefined && !validPlanOrigin(value.origin))
+    return invalid();
   const exerciseIds = value.exerciseIds as string[];
   let plannedExercises: WorkoutTemplate['plannedExercises'];
   if (value.plannedExercises !== undefined) {
@@ -74,6 +77,7 @@ function template(value: unknown): WorkoutTemplate {
   return {
     id: value.id,
     name: value.name,
+    ...(value.origin === undefined ? {} : { origin: { ...value.origin } }),
     exerciseIds,
     ...(plannedExercises === undefined ? {} : { plannedExercises }),
   };
@@ -131,8 +135,7 @@ function session(
       !string(exercise.name) ||
       !string(exercise.muscle) ||
       (!legacy && !string(exercise.libraryId)) ||
-      (exercise.target !== undefined &&
-        !validExerciseTarget(exercise.target)) ||
+      (exercise.target !== undefined && !validPlannedTarget(exercise.target)) ||
       !Array.isArray(exercise.sets)
     )
       return invalid();

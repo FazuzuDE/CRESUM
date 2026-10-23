@@ -443,3 +443,20 @@ L/R −5/−4 source px. The regional-division review block is closed. Next comp
 the nine-ID exact-configuration/evidence mapping with explicit unresolved entries;
 review numerical scoring separately. Preserve the current 92-region combined
 assembly until its regional replacement/compositing is explicitly prepared.
+
+### Workout sharing and plan library — 2026-10-23
+
+Requested next feature: coach-to-student link/QR handoff and adding a plan from
+the in-app library. Saved-plan Start plus square Share layout and no recipient
+account binding are approved. Draft the complete sharing design before product
+implementation. Proposed delivery order: local transfer/import contract, publishing
+and QR/link handoff, then curated library using the same importer. This does not
+close pending localization/device acceptance or domain/mail rollout dependencies.
+
+### Sharing implementation checkpoint — 2026-10-23
+
+Local import and UI, publication service migrations/function, QR/link/scanner and
+curated-library client are implemented with network rollout disabled by default.
+Next: reviewed integration/CI, then domain/association hosting, mail acceptance,
+controlled service deployment/content publication and real-device end-to-end QA.
+These external prerequisites do not block offline Core and are not reported as done.

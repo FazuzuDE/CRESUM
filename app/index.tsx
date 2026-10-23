@@ -1,3 +1,9 @@
+import { AppScrollView } from '@/components/AppScrollView';
+import { useLocalSearchParams } from 'expo-router';
+import * as Linking from 'expo-linking';
+import { SharingHub } from '@/components/workout-sharing/SharingHub';
+import { SharingClient, sharingConfig } from '@/lib/workout-sharing/client';
+import { parsePlanLink } from '@/lib/workout-sharing/links';
 import { useHistorySync } from '@/components/useHistorySync';
 import { useAccount } from '@/components/useAccount';
 import type { AccountSectionProps } from '@/components/AccountSection';
@@ -34,6 +40,7 @@ import {
   useSyncExternalStore,
 } from 'react';
 import {
+  Modal,
   ActivityIndicator,
   Alert,
   AppState,
@@ -327,11 +334,43 @@ function Stats({
 }
 export default function App() {
   const account = useAccount();
+  const { sharedToken } = useLocalSearchParams<{ sharedToken?: string }>();
+  const incoming =
+    typeof sharedToken === 'string' && /^[a-f0-9]{64}$/.test(sharedToken)
+      ? sharedToken
+      : undefined;
+  const [pendingSharingToken, setPendingSharingToken] = useState(incoming);
+  const [seenRouteToken, setSeenRouteToken] = useState(incoming);
+  if (incoming !== seenRouteToken) {
+    setSeenRouteToken(incoming);
+    if (incoming) setPendingSharingToken(incoming);
+  }
+  const configuration = useMemo(() => sharingConfig(), []);
+  useEffect(() => {
+    if (!configuration) return;
+    let alive = true;
+    const open = (url: string | null) => {
+      if (!alive || !url) return;
+      const parsed = parsePlanLink(url, configuration.host);
+      if (parsed) setPendingSharingToken(parsed.token);
+    };
+    void Linking.getInitialURL().then(open, () => {});
+    const subscription = Linking.addEventListener('url', ({ url }) =>
+      open(url),
+    );
+    return () => {
+      alive = false;
+      subscription.remove();
+    };
+  }, [configuration]);
   return (
     <LocalDataGate>
-      {(run, notice, profile) => (
+      {(run, notice, profile, access) => (
         <AppContent
           account={account}
+          incomingSharingToken={pendingSharingToken}
+          consumeSharingToken={() => setPendingSharingToken(undefined)}
+          localDataAccess={access}
           runDataOperation={run}
           notice={notice}
           initialTab={profile ? 'profile' : 'home'}
@@ -345,11 +384,17 @@ function AppContent({
   runDataOperation,
   notice,
   initialTab,
+  incomingSharingToken,
+  consumeSharingToken,
+  localDataAccess,
 }: {
   account: AccountSectionProps;
   runDataOperation: RunDataOperation;
   notice: string;
   initialTab: string;
+  incomingSharingToken?: string;
+  consumeSharingToken: () => void;
+  localDataAccess: { ready: boolean; isReady: () => boolean };
 }) {
   const localization = useLocalization();
   const { t, locale } = localization;
@@ -376,6 +421,40 @@ function AppContent({
   const programRecovered = useRef(false);
   const [programReady, setProgramReady] = useState(false);
   const [tab, setTab] = useState(initialTab);
+  const [sharingOpen, setSharingOpen] = useState(!!incomingSharingToken);
+  const [sharingToken, setSharingToken] = useState<string | undefined>(
+    incomingSharingToken,
+  );
+  const [seenSharingToken, setSeenSharingToken] =
+    useState(incomingSharingToken);
+  if (incomingSharingToken !== seenSharingToken) {
+    setSeenSharingToken(incomingSharingToken);
+    if (incomingSharingToken) {
+      setSharingToken(incomingSharingToken);
+      setSharingOpen(true);
+    }
+  }
+  const sharingConfiguration = useMemo(() => sharingConfig(), []);
+  const sharingClient = useMemo(
+    () =>
+      sharingConfiguration
+        ? new SharingClient(
+            sharingConfiguration.endpoint,
+            sharingConfiguration.key,
+            sharingConfiguration.host,
+            fetch,
+            account.snapshot.identity && account.invokeSharedPlan
+              ? (method, body) =>
+                  account.invokeSharedPlan!(
+                    account.snapshot.identity!.id,
+                    method,
+                    body,
+                  )
+              : undefined,
+          )
+        : null,
+    [sharingConfiguration, account.snapshot.identity, account.invokeSharedPlan],
+  );
   const [bodyWeightRepository] = useState(
     () => new BodyWeightRepository(AsyncStorage),
   );
@@ -936,6 +1015,67 @@ function AppContent({
   return (
     <SafeAreaView style={s.root}>
       <StatusBar style="dark" />
+      {sharingOpen && ready && localDataAccess.ready ? (
+        <Modal
+          visible
+          animationType="slide"
+          onRequestClose={() => {
+            if (!busy) setSharingOpen(false);
+          }}
+        >
+          <SafeAreaView style={s.root}>
+            <AppScrollView contentContainerStyle={{ padding: 16 }}>
+              <SharingHub
+                key={
+                  (account.snapshot.identity?.id ?? 'unsigned') +
+                  (sharingToken ?? '')
+                }
+                templates={data.templates}
+                busy={busy || resetBusy}
+                client={sharingClient}
+                signedIn={
+                  account.snapshot.status === 'signed_in' &&
+                  !account.snapshot.busy
+                }
+                initialToken={sharingToken}
+                onClose={() => {
+                  setSharingOpen(false);
+                  setSharingToken(undefined);
+                  consumeSharingToken();
+                }}
+                onUpdate={(id, draft) => store.updateTemplate(id, draft)}
+                onImport={(plan, origin, options) => {
+                  if (!localDataAccess.isReady())
+                    throw new Error('Local data is busy.');
+                  return store.importSharedPlan(plan, origin, options);
+                }}
+                onStart={(template) => {
+                  if (!localDataAccess.isReady())
+                    throw new Error('Local data is busy.');
+                  const before = store.getSnapshot();
+                  if (!before.ready || before.busy || before.data.activeWorkout)
+                    throw new Error('Workouts are not ready.');
+                  store.start(template);
+                  if (
+                    store.getSnapshot().data.activeWorkout?.templateId !==
+                    template.id
+                  )
+                    throw new Error('Workout did not start.');
+                  setTab('workout');
+                  setSharingOpen(false);
+                  consumeSharingToken();
+                }}
+                onContinue={() => {
+                  setTab('workout');
+                  setSharingOpen(false);
+                  consumeSharingToken();
+                }}
+                hasActiveWorkout={!!data.activeWorkout}
+              />
+            </AppScrollView>
+          </SafeAreaView>
+        </Modal>
+      ) : null}
       {notice ? (
         <Text accessibilityRole="alert" style={s.notice}>
           {notice}
@@ -1254,6 +1394,7 @@ function AppContent({
                 store.duplicateTemplate(templateId)
               }
               startTemplate={startTemplate}
+              onOpenPlans={() => setSharingOpen(true)}
               hideBuiltIn={(templateId) =>
                 updateHiddenBuiltIns([...hiddenBuiltInIds, templateId])
               }

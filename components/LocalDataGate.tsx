@@ -21,6 +21,7 @@ export function LocalDataGate({
     run: RunDataOperation,
     notice: string,
     profile: boolean,
+    access: { ready: boolean; isReady: () => boolean },
   ) => ReactNode;
 }) {
   const { t } = useLocalization();
@@ -138,7 +139,10 @@ export function LocalDataGate({
         >
           {/* The render callback only passes this handler to event props. */}
           {/* eslint-disable-next-line react-hooks/refs */}
-          {children(run, shownNotice, profile)}
+          {children(run, shownNotice, profile, {
+            ready: phase === 'ready',
+            isReady: () => phase === 'ready' && !running.current,
+          })}
         </View>
       ) : null}
       {phase !== 'ready' ? (

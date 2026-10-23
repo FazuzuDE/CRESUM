@@ -89,6 +89,19 @@ export class AuthStore {
     };
   }
 
+  invokeSharedPlan = async (
+    userId: string,
+    method: 'POST' | 'DELETE',
+    body: unknown,
+  ): Promise<unknown> => {
+    if (!this.isCurrentAccount(userId) || !this.repository?.invokeSharedPlan)
+      throw new Error('Sharing unavailable');
+    const epoch = this.ownerEpoch;
+    const result = await this.repository.invokeSharedPlan(userId, method, body);
+    if (epoch !== this.ownerEpoch || !this.isCurrentAccount(userId))
+      throw new Error('Sharing unavailable');
+    return result;
+  };
   hasHistoryRpc = (): boolean => !!this.repository?.historyRpc;
   hasAccountDeletion = (): boolean =>
     !!this.deletion &&

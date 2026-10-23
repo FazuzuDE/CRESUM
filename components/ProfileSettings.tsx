@@ -33,6 +33,7 @@ export type ProfileSettingsProps = {
   ) => Promise<TemplateMutationResult>;
   deleteTemplate: (templateId: string) => Promise<TemplateMutationResult>;
   duplicateTemplate?: (templateId: string) => Promise<TemplateMutationResult>;
+  onOpenPlans?: () => void;
   startTemplate?: (template: WorkoutTemplate) => void;
   hideBuiltIn?: (templateId: string) => Promise<boolean>;
   restoreBuiltIn?: (templateId: string) => Promise<boolean>;
@@ -55,6 +56,7 @@ export function ProfileSettings({
   deleteTemplate,
   duplicateTemplate,
   startTemplate,
+  onOpenPlans,
   hideBuiltIn,
   restoreBuiltIn,
   hiddenBuiltInIds = [],
@@ -110,6 +112,14 @@ export function ProfileSettings({
           {t('profile.workouts')}
         </Text>
         <Text style={s.subtitle}>{t('profile.routines')}</Text>
+        {onOpenPlans ? (
+          <AppButton
+            title={t('sharing.title')}
+            onPress={onOpenPlans}
+            disabled={busy}
+            secondary
+          />
+        ) : null}
         <View style={s.section}>
           <WorkoutTemplates
             showHeading={false}

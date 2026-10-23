@@ -45,6 +45,7 @@ jobs:
                 *_history_conflict_resolution.sql) cat supabase/tests/history-conflicts.sql ;;
               esac
             done
+            cat supabase/tests/workout-sharing.sql
             cat supabase/tests/account-deletion.sql
           } | docker exec -i "$POSTGRES_CONTAINER" psql -U postgres -d postgres --set ON_ERROR_STOP=on
   quality:

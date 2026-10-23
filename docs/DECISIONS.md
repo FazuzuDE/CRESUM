@@ -2105,3 +2105,39 @@ Selected raster partitions exactly sum to each parent with zero mutual ownership
 The representation remains schematic and anatomy unvalidated; 65% preview opacity
 is not a coefficient. Exercise mapping remains null. Next complete the nine-ID
 configuration/evidence mapping; no scoring, native integration or merge.
+
+## 2026-10-23 — Workout plan Start and Share actions approved
+
+The user explicitly approved the revised four-screen sharing mockup. On the
+first saved-plan screen, replace the full-width Share plan action with a wide
+Start workout button plus a separate square share-icon button on its right.
+Share opens the QR/link screen; keep the subsequent recipient-preview and
+plan-library visual direction. Record the interaction in PRODUCT and its layout
+in DESIGN_SYSTEM. This decision does not settle recipient authorization or
+constitute implementation approval for an unspecified backend. Documentation
+recorded locally; GitHub synchronization and integration remain pending.
+
+## 2026-10-23 — Initial sharing has no student account binding
+
+The user confirmed twice that the initial version must work without recipient
+account binding. Anyone possessing the QR/link can access the shared plan,
+including by forwarding it. Record this approved scope in PRODUCT and ROADMAP.
+The full sharing design is prepared separately; its unapproved proposals are
+explicitly distinguished from these approved inputs.
+
+## 2026-10-23 — Complete workout-sharing specification approved
+
+The user approved the complete sharing design, including signed-in author
+publication/revocation, unsigned recipient preview/import, independent local copies
+and the curated-library architecture. Prepare the implementation plan before
+product code. Implementation, deployment and real-device acceptance are pending.
+
+## 2026-10-23 — Workout-sharing implementation plan approved
+
+The user approved the implementation plan and native inline execution with final
+independent whole-branch review. Preserve the current20-set planned limit and
+three-set engine default. Use authenticated owner publication and token-only
+recipient access, independent durable copies and the common library importer.
+Network rollout is default off until real domain/mail/server/device acceptance.
+The public endpoint uses a conservative global rate ceiling until trusted
+gateway source limiting is configured; see WORKOUT_SHARING.md for the tradeoff.

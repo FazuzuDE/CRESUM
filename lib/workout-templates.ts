@@ -4,7 +4,7 @@ import type { PlannedExercise, WorkoutTemplate } from './workout-model';
 import {
   normalizePlannedWeight,
   validPlannedSets,
-  validExerciseTarget,
+  validPlannedTarget,
 } from './planned-exercise';
 
 export type TemplateDraft = Pick<
@@ -77,7 +77,7 @@ export const validateTemplateDraft = (
     for (const item of draft.plannedExercises) {
       if (
         !validPlannedSets(item.sets) ||
-        (item.target !== undefined && !validExerciseTarget(item.target))
+        (item.target !== undefined && !validPlannedTarget(item.target))
       )
         return {
           ok: false,
@@ -231,7 +231,7 @@ export const updateTemplate = (
     throw new Error('Duplicate template IDs cannot be changed safely.');
   const normalized = validDraft(draft);
   return templates.map((template) =>
-    template.id === templateId ? { id: template.id, ...normalized } : template,
+    template.id === templateId ? { ...template, ...normalized } : template,
   );
 };
 

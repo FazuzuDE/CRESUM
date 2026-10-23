@@ -1,3 +1,7 @@
+import { sharedPlanDraft } from './workout-sharing/adapter';
+import { validPlanOrigin } from './workout-sharing/import';
+import type { SharedPlanV1 } from './workout-sharing/contract';
+import type { PlanOrigin } from './workout-model';
 import { exerciseLibrary } from './workout-catalog';
 import { finishWorkout, startWorkout } from './workout-engine';
 import {
@@ -238,6 +242,37 @@ export class WorkoutStore {
     } finally {
       this.publish({ busy: false });
     }
+  }
+  async importSharedPlan(
+    plan: SharedPlanV1,
+    origin: PlanOrigin,
+    options?: { duplicate?: boolean },
+  ): Promise<{ template: WorkoutTemplate; created: boolean }> {
+    if (!validPlanOrigin(origin))
+      throw new Error('Invalid shared plan origin.');
+    const draft = sharedPlanDraft(plan);
+    let created = false;
+    const result = await this.commitTemplates((templates) => {
+      const existing = options?.duplicate
+        ? undefined
+        : templates.find(
+            (t) =>
+              t.origin?.publicationId === origin.publicationId &&
+              t.origin.version === origin.version,
+          );
+      if (existing) return { templates: [...templates], template: existing };
+      const added = createTemplateInList(
+        templates,
+        draft,
+        createWorkoutSnapshotId,
+      );
+      const template = { ...added.template, origin: { ...origin } };
+      created = true;
+      return { templates: [...templates, template], template };
+    });
+    if (!result.ok || !result.template)
+      throw new Error(result.ok ? 'Shared plan missing.' : result.error);
+    return { template: result.template, created };
   }
   createTemplate(
     draft: TemplateDraft,

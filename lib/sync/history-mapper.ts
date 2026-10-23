@@ -1,5 +1,5 @@
 import type {
-  ExerciseTarget,
+  PlannedTarget,
   ProgramSlotContext,
   WorkoutSession,
 } from '../workout-model';
@@ -21,7 +21,7 @@ export type CloudHistoryWorkout = {
     library_id: string;
     name: string;
     muscle: string;
-    target: ExerciseTarget | null;
+    target: PlannedTarget | null;
     sets: {
       set_index: number;
       set_id: string;

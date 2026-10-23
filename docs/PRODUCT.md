@@ -722,3 +722,33 @@ physiological coefficients or acceptance of the resulting internal boundaries.
 and right divider shifts −5 and −4 source px. This approves the schematic
 regional display, not exact anatomical boundaries or physiological coefficients.
 The 65% screenshot values remain preview-only; exercise mapping is unresolved.
+
+### Workout sharing interaction approved — 2026-10-23
+
+Support the requested coach-to-student plan handoff and adding plans from the
+CRESUM plan library. The approved saved-plan detail mockup has separate Start
+workout and Share actions. Starting and sharing are independent: Share opens
+the QR/link flow rather than starting a session. Preserve existing active-session
+protection; these actions must not silently discard logged sets. This is an
+approved interaction requirement, not a shipped feature. Account-bound recipient
+access versus possession of the link, publishing policy, versioning and the
+backend implementation still require a complete sharing design. The mockup does
+not approve those unresolved policies or sharing personal completed history.
+
+### Sharing access approved — 2026-10-23
+
+For the initial version, shared plans are accessible by possession of their link
+or QR without binding to a student account. Forwarding the link is possible.
+Recipient-account restrictions are deferred. The complete
+[sharing design](superpowers/specs/2026-10-23-workout-sharing-design.md) was prepared for review;
+the complete specification was subsequently approved on 2026-10-23.
+
+### Workout sharing implementation — 2026-10-23
+
+The approved sharing design is implemented behind a default-off network flag:
+validated local imports, independent copies, Start/Share actions, signed author
+publication/revocation, token-only recipient reads, QR/scanning/paste and a curated
+plan-library client. New UI copy is available in EN/RU/DE/FR without changing
+language release gates. Domain, real OTP delivery, server deployment, reviewed
+library content and signed-device acceptance remain before public rollout.
+See [setup and verification boundaries](WORKOUT_SHARING.md).

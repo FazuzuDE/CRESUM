@@ -8922,5 +8922,392 @@
         "context": "TemplateExpression/PropertyAssignment:name/ObjectLiteralExpression/VariableDeclaration/VariableDeclarationList"
       }
     ]
+  },
+  {
+    "file": "app/index.tsx",
+    "kind": "internal",
+    "reason": "Reviewed exact navigation/filter discriminants, translation-key selectors and QR/SVG encoding tokens. Visible copy uses EN/RU/DE/FR message catalogs; custom plan titles remain user content.",
+    "entries": [
+      {
+        "text": "Workouts are not ready.",
+        "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+      },
+      {
+        "text": "Workout did not start.",
+        "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+      }
+    ]
+  },
+  {
+    "file": "components/workout-sharing/PlanLibrary.tsx",
+    "kind": "internal",
+    "reason": "Reviewed exact navigation/filter discriminants, translation-key selectors and QR/SVG encoding tokens. Visible copy uses EN/RU/DE/FR message catalogs; custom plan titles remain user content.",
+    "entries": [
+      {
+        "text": "build_muscle",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/JsxExpression"
+      },
+      {
+        "text": "get_stronger",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/JsxExpression"
+      },
+      {
+        "text": "general_fitness",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/JsxExpression"
+      },
+      {
+        "text": "beginner",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/JsxExpression"
+      },
+      {
+        "text": "some",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/JsxExpression"
+      },
+      {
+        "text": "experienced",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/JsxExpression"
+      },
+      {
+        "text": "sharing.error",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+      },
+      {
+        "text": "sharing.unconfigured",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+      }
+    ]
+  },
+  {
+    "file": "components/workout-sharing/PlanPreview.tsx",
+    "kind": "internal",
+    "reason": "Reviewed exact navigation/filter discriminants, translation-key selectors and QR/SVG encoding tokens. Visible copy uses EN/RU/DE/FR message catalogs; custom plan titles remain user content.",
+    "entries": [
+      {
+        "text": "sharing.start",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+      },
+      {
+        "text": "sharing.addStart",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+      },
+      {
+        "text": "sharing.saved",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+      },
+      {
+        "text": "sharing.save",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+      }
+    ]
+  },
+  {
+    "file": "components/workout-sharing/PlanScanner.tsx",
+    "kind": "internal",
+    "reason": "Reviewed exact navigation/filter discriminants, translation-key selectors and QR/SVG encoding tokens. Visible copy uses EN/RU/DE/FR message catalogs; custom plan titles remain user content.",
+    "entries": [
+      {
+        "text": "qr",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:barcodeTypes/ObjectLiteralExpression/JsxExpression"
+      }
+    ]
+  },
+  {
+    "file": "components/workout-sharing/SharePlanSheet.tsx",
+    "kind": "internal",
+    "reason": "Reviewed exact navigation/filter discriminants, translation-key selectors and QR/SVG encoding tokens. Visible copy uses EN/RU/DE/FR message catalogs; custom plan titles remain user content.",
+    "entries": [
+      {
+        "text": "M",
+        "context": "StringLiteral/CallExpression/VariableDeclaration/VariableDeclarationList/FirstStatement"
+      },
+      {
+        "text": "Byte",
+        "context": "StringLiteral/CallExpression/ExpressionStatement/Block/FunctionDeclaration"
+      },
+      {
+        "text": "`M${x + 4},${y + 4}h1v1h-1z`",
+        "context": "TemplateExpression/BinaryExpression/ExpressionStatement/IfStatement/ForStatement"
+      },
+      {
+        "text": "`0 0 ${n + 8} ${n + 8}`",
+        "context": "TemplateExpression/JsxExpression/JsxAttribute:viewBox/JsxAttributes/JsxOpeningElement"
+      },
+      {
+        "text": "sharing.copied",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+      },
+      {
+        "text": "sharing.copyLink",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+      }
+    ]
+  },
+  {
+    "file": "components/workout-sharing/SharingHub.tsx",
+    "kind": "internal",
+    "reason": "Reviewed exact navigation/filter discriminants, translation-key selectors and QR/SVG encoding tokens. Visible copy uses EN/RU/DE/FR message catalogs; custom plan titles remain user content.",
+    "entries": [
+      {
+        "text": "sharing.continue",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+      },
+      {
+        "text": "sharing.start",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+      }
+    ]
+  },
+  {
+    "file": "lib/auth-repository.ts",
+    "kind": "internal",
+    "reason": "Reviewed exact navigation/filter discriminants, translation-key selectors and QR/SVG encoding tokens. Visible copy uses EN/RU/DE/FR message catalogs; custom plan titles remain user content.",
+    "entries": [
+      {
+        "text": "POST",
+        "context": "StringLiteral/LiteralType/UnionType/Parameter/MethodSignature"
+      },
+      {
+        "text": "DELETE",
+        "context": "StringLiteral/LiteralType/UnionType/Parameter/MethodSignature"
+      }
+    ]
+  },
+  {
+    "file": "lib/auth-store.ts",
+    "kind": "diagnostic",
+    "reason": "Reviewed sharing validation/transport diagnostics and exact protocol field/enum strings. Sharing screens catch failures and render translated semantic messages; no raw diagnostic text is displayed.",
+    "entries": [
+      {
+        "text": "POST",
+        "context": "StringLiteral/LiteralType/UnionType/Parameter/ArrowFunction"
+      },
+      {
+        "text": "DELETE",
+        "context": "StringLiteral/LiteralType/UnionType/Parameter/ArrowFunction"
+      },
+      {
+        "text": "Sharing unavailable",
+        "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+      }
+    ]
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "kind": "diagnostic",
+    "reason": "Reviewed sharing validation/transport diagnostics and exact protocol field/enum strings. Sharing screens catch failures and render translated semantic messages; no raw diagnostic text is displayed.",
+    "entries": [
+      {
+        "text": "kind",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+      },
+      {
+        "text": "repMin",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+      },
+      {
+        "text": "repMax",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+      },
+      {
+        "text": "restMin",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+      },
+      {
+        "text": "restMax",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+      },
+      {
+        "text": "perSide",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+      }
+    ]
+  },
+  {
+    "file": "lib/supabase-auth.ts",
+    "kind": "diagnostic",
+    "reason": "Reviewed sharing validation/transport diagnostics and exact protocol field/enum strings. Sharing screens catch failures and render translated semantic messages; no raw diagnostic text is displayed.",
+    "entries": [
+      {
+        "text": "Sharing unavailable",
+        "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+      },
+      {
+        "text": "Bearer",
+        "context": "StringLiteral/BinaryExpression/PropertyAssignment:Authorization/ObjectLiteralExpression/PropertyAssignment:headers"
+      },
+      {
+        "text": "Sharing unavailable",
+        "context": "StringLiteral/NewExpression/ThrowStatement/Block/CatchClause"
+      }
+    ]
+  },
+  {
+    "file": "lib/workout-sharing/client.ts",
+    "kind": "diagnostic",
+    "reason": "Reviewed sharing validation/transport diagnostics and exact protocol field/enum strings. Sharing screens catch failures and render translated semantic messages; no raw diagnostic text is displayed.",
+    "entries": [
+      {
+        "text": "POST",
+        "context": "StringLiteral/LiteralType/UnionType/Parameter/FunctionType"
+      },
+      {
+        "text": "DELETE",
+        "context": "StringLiteral/LiteralType/UnionType/Parameter/FunctionType"
+      },
+      {
+        "text": "Sharing unavailable",
+        "context": "StringLiteral/CallExpression/ThrowStatement/Block/CatchClause"
+      },
+      {
+        "text": "Sharing unavailable",
+        "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
+      },
+      {
+        "text": "POST",
+        "context": "StringLiteral/CallExpression/AwaitExpression/ParenthesizedExpression/AsExpression"
+      },
+      {
+        "text": "POST",
+        "context": "StringLiteral/CallExpression/AwaitExpression/VariableDeclaration/VariableDeclarationList"
+      },
+      {
+        "text": "DELETE",
+        "context": "StringLiteral/CallExpression/AwaitExpression/ExpressionStatement/Block"
+      }
+    ]
+  },
+  {
+    "file": "lib/workout-sharing/import.ts",
+    "kind": "diagnostic",
+    "reason": "Reviewed sharing validation/transport diagnostics and exact protocol field/enum strings. Sharing screens catch failures and render translated semantic messages; no raw diagnostic text is displayed.",
+    "entries": [
+      {
+        "text": "publicationId",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+      },
+      {
+        "text": "version",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction"
+      }
+    ]
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "kind": "diagnostic",
+    "reason": "Reviewed sharing validation/transport diagnostics and exact protocol field/enum strings. Sharing screens catch failures and render translated semantic messages; no raw diagnostic text is displayed.",
+    "entries": [
+      {
+        "text": "Invalid library",
+        "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
+      },
+      {
+        "text": "title",
+        "context": "StringLiteral/ArrayLiteralExpression/ForOfStatement/Block/ForOfStatement"
+      },
+      {
+        "text": "description",
+        "context": "StringLiteral/ArrayLiteralExpression/ForOfStatement/Block/ForOfStatement"
+      },
+      {
+        "text": "en",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+      },
+      {
+        "text": "ru",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+      },
+      {
+        "text": "de",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+      },
+      {
+        "text": "fr",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+      },
+      {
+        "text": "Incomplete library metadata",
+        "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
+      },
+      {
+        "text": "build_muscle",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+      },
+      {
+        "text": "get_stronger",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+      },
+      {
+        "text": "general_fitness",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+      },
+      {
+        "text": "beginner",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+      },
+      {
+        "text": "some",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+      },
+      {
+        "text": "experienced",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+      },
+      {
+        "text": "Invalid library filters",
+        "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
+      }
+    ]
+  },
+  {
+    "file": "lib/workout-sharing/links.ts",
+    "kind": "diagnostic",
+    "reason": "Reviewed sharing validation/transport diagnostics and exact protocol field/enum strings. Sharing screens catch failures and render translated semantic messages; no raw diagnostic text is displayed.",
+    "entries": [
+      {
+        "text": "Invalid plan link",
+        "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block"
+      }
+    ]
+  },
+  {
+    "file": "lib/workout-store.ts",
+    "kind": "diagnostic",
+    "reason": "Reviewed sharing validation/transport diagnostics and exact protocol field/enum strings. Sharing screens catch failures and render translated semantic messages; no raw diagnostic text is displayed.",
+    "entries": [
+      {
+        "text": "Invalid shared plan origin.",
+        "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+      },
+      {
+        "text": "Shared plan missing.",
+        "context": "StringLiteral/ConditionalExpression/NewExpression/ThrowStatement/IfStatement"
+      }
+    ]
+  },
+  {
+    "file": "app/index.tsx",
+    "kind": "internal",
+    "reason": "Reviewed exact local-data readiness guards, sharing state discriminants and translated-key selectors after final review. Exception diagnostics are caught and rendered through semantic localized errors.",
+    "entries": [
+      {
+        "text": "Local data is busy.",
+        "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+      }
+    ]
+  },
+  {
+    "file": "components/workout-sharing/PlanPreview.tsx",
+    "kind": "internal",
+    "reason": "Reviewed exact local-data readiness guards, sharing state discriminants and translated-key selectors after final review. Exception diagnostics are caught and rendered through semantic localized errors.",
+    "entries": [
+      {
+        "text": "sharing.startSaved",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+      },
+      {
+        "text": "sharing.openSaved",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+      }
+    ]
   }
 ]

@@ -14,6 +14,15 @@ export type ExerciseTarget = {
   revision: number;
   sourceRefs: string[];
 };
+export type AuthoredTarget = {
+  kind: 'authored';
+  repMin: number;
+  repMax: number;
+  restMin: number;
+  restMax: number;
+  perSide?: boolean;
+};
+export type PlannedTarget = ExerciseTarget | AuthoredTarget;
 export type WorkoutSet = {
   id: string;
   weight: string;
@@ -27,7 +36,7 @@ export type WorkoutExercise = {
   libraryId: string;
   name: string;
   muscle: string;
-  target?: ExerciseTarget;
+  target?: PlannedTarget;
   sets: WorkoutSet[];
 };
 
@@ -51,7 +60,9 @@ export type WorkoutSession = {
   exercises: WorkoutExercise[];
 };
 
+export type PlanOrigin = { publicationId: string; version: number };
 export type WorkoutTemplate = {
+  origin?: PlanOrigin;
   id: string;
   name: string;
   exerciseIds: string[];
@@ -62,7 +73,7 @@ export type PlannedExercise = {
   exerciseId: string;
   sets: number;
   weight?: string;
-  target?: ExerciseTarget;
+  target?: PlannedTarget;
 };
 
 export type LibraryExercise = {

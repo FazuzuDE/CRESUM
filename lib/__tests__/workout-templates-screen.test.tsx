@@ -844,3 +844,23 @@ describe('Workout Templates app integration', () => {
     act(() => view.unmount());
   });
 });
+
+describe('Shared plans app entry', () => {
+  it('opens saved plans and starts through the existing engine', async () => {
+    await AsyncStorage.clear();
+    await completeOnboardingForTest();
+    const view = await renderApp();
+    act(() => view.root.findByType(Dock).props.onChange('profile'));
+    act(() => appButton(view, 'WORKOUTS')?.props.onPress());
+    act(() => appButton(view, 'Workout plans')?.props.onPress());
+    act(() => appButton(view, 'Upper Body')?.props.onPress());
+    await act(async () => {
+      appButton(view, 'Start workout')?.props.onPress();
+      await settle();
+    });
+    expect(view.root.findByType(Workout).props.session?.templateId).toBe(
+      'upper',
+    );
+    await act(async () => view.unmount());
+  });
+});
