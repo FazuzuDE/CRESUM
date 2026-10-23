@@ -1,3 +1,4 @@
+import { TemplateEditor } from '../../components/TemplateEditor';
 import { SharingHub } from '../../components/workout-sharing/SharingHub';
 import { AppButton } from '../../components/AppButton';
 import { defaultTemplates } from '../workout-catalog';
@@ -152,5 +153,58 @@ test('saved-copy details show the instructions that starting that copy will use'
   expect(json).toContain('12.50');
   expect(json).toContain('60–90');
   expect(json).toContain('per side');
+  await act(async () => view!.unmount());
+});
+
+test('creates from the plan hub, retains failed drafts and returns to plans after save', async () => {
+  let saved = false;
+  let editing = false;
+  let view: ReturnType<typeof create>;
+  const draft = { name: 'New plan', exerciseIds: ['barbell-bench-press'] };
+  await act(async () => {
+    view = create(
+      <SharingHub
+        templates={defaultTemplates}
+        busy={false}
+        client={null}
+        signedIn={false}
+        onClose={() => {}}
+        onImport={async () => {
+          throw Error();
+        }}
+        onStart={() => {}}
+        onContinue={() => {}}
+        hasActiveWorkout={false}
+        onEditorChange={(value) => {
+          editing = value;
+        }}
+        onCreate={async () =>
+          saved ? { ok: true } : { ok: false, error: 'Save failed' }
+        }
+      />,
+    );
+  });
+  await act(async () =>
+    view!.root
+      .findAllByType(AppButton)
+      .find(
+        (b: { props: { title: string } }) => b.props.title === 'Create Workout',
+      )!
+      .props.onPress(),
+  );
+  expect(editing).toBe(true);
+  const editor = view!.root.findByType(TemplateEditor);
+  await act(async () =>
+    expect(await editor.props.onSave(draft)).toEqual({
+      ok: false,
+      error: 'Save failed',
+    }),
+  );
+  expect(view!.root.findAllByType(TemplateEditor)).toHaveLength(1);
+  saved = true;
+  await act(async () => editor.props.onSave(draft));
+  expect(view!.root.findAllByType(TemplateEditor)).toHaveLength(0);
+  expect(editing).toBe(false);
+  expect(JSON.stringify(view!.toJSON())).toContain('Workout plans');
   await act(async () => view!.unmount());
 });

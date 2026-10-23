@@ -1,4 +1,5 @@
 export default {
+  'sharing.manage': 'Gérer les entraînements',
   'sharing.title': 'Plans d’entraînement',
   'sharing.mine': 'Mes plans',
   'sharing.library': 'Bibliothèque de plans',

@@ -752,3 +752,12 @@ plan-library client. New UI copy is available in EN/RU/DE/FR without changing
 language release gates. Domain, real OTP delivery, server deployment, reviewed
 library content and signed-device acceptance remain before public rollout.
 See [setup and verification boundaries](WORKOUT_SHARING.md).
+
+### Unified saved workout entry — approved 2026-10-23
+
+Profile WORKOUTS opens Workout plans directly, with Create Workout and Plan
+library above saved plans. Creation reuses the existing durable editor and
+returns to the refreshed list. Plan details retain Start workout plus square
+Share. Existing management remains available through a secondary Manage workouts
+action; the active Workout tab retains its current meaning. Network sharing
+remains gated independently.

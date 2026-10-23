@@ -33,7 +33,7 @@ export type ProfileSettingsProps = {
   ) => Promise<TemplateMutationResult>;
   deleteTemplate: (templateId: string) => Promise<TemplateMutationResult>;
   duplicateTemplate?: (templateId: string) => Promise<TemplateMutationResult>;
-  onOpenPlans?: () => void;
+  onOpenPlans?: (onManage: () => void) => void;
   startTemplate?: (template: WorkoutTemplate) => void;
   hideBuiltIn?: (templateId: string) => Promise<boolean>;
   restoreBuiltIn?: (templateId: string) => Promise<boolean>;
@@ -112,14 +112,6 @@ export function ProfileSettings({
           {t('profile.workouts')}
         </Text>
         <Text style={s.subtitle}>{t('profile.routines')}</Text>
-        {onOpenPlans ? (
-          <AppButton
-            title={t('sharing.title')}
-            onPress={onOpenPlans}
-            disabled={busy}
-            secondary
-          />
-        ) : null}
         <View style={s.section}>
           <WorkoutTemplates
             showHeading={false}
@@ -206,7 +198,11 @@ export function ProfileSettings({
               wordmark
               secondary
               presentation="row"
-              onPress={() => setWorkoutsOpen(true)}
+              onPress={() =>
+                onOpenPlans
+                  ? onOpenPlans(() => setWorkoutsOpen(true))
+                  : setWorkoutsOpen(true)
+              }
             />
             <Text style={s.sub}>
               {t('profile.saved', { count: templates.length })}

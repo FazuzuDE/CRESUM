@@ -1,4 +1,5 @@
 export default {
+  'sharing.manage': 'Manage workouts',
   'sharing.title': 'Workout plans',
   'sharing.mine': 'My plans',
   'sharing.library': 'Plan library',

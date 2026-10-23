@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { TextInput } from 'react-native';
+import { Modal, TextInput } from 'react-native';
+import { SharingHub } from '../../components/workout-sharing/SharingHub';
 import App from '../../app/index';
 import { AppButton } from '../../components/AppButton';
 import { Dock } from '../../components/Dock';
@@ -142,8 +143,8 @@ it('keeps Profile compact and opens the saved workouts only through WORKOUTS', a
   act(() => v.root.findByType(Dock).props.onChange('profile'));
   expect(v.root.findAllByType(WorkoutTemplates)).toHaveLength(0);
   await act(async () => button(v, 'WORKOUTS').props.onPress());
-  expect(v.root.findByType(WorkoutTemplates)).toBeDefined();
-  await act(async () => button(v, 'Back to Profile').props.onPress());
+  expect(v.root.findByType(SharingHub)).toBeDefined();
+  await act(async () => button(v, 'Close').props.onPress());
   expect(v.root.findAllByType(WorkoutTemplates)).toHaveLength(0);
   await act(async () => v.unmount());
 });
@@ -201,7 +202,12 @@ it('keeps workout drafts protected when returning to Profile', async () => {
     act(() => v.root.findByType(Dock).props.onChange('profile'));
     await act(async () => button(v, 'WORKOUTS').props.onPress());
     await act(async () => button(v, 'Create Workout').props.onPress());
-    expect(button(v, 'Back to Profile').props.disabled).toBe(true);
+    const modal = v.root
+      .findAllByType(Modal)
+      .find((node: any) => node.props.visible);
+    await act(async () => modal.props.onRequestClose());
+    expect(button(v, 'Next')).toBeDefined();
+    expect(v.root.findByType(SharingHub)).toBeDefined();
   } finally {
     if (v) await act(async () => v.unmount());
   }

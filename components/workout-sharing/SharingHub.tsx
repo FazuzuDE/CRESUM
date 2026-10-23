@@ -40,6 +40,9 @@ export function SharingHub({
   initialTemplate,
   initialToken,
   onUpdate,
+  onCreate,
+  onManage,
+  onEditorChange,
 }: {
   templates: WorkoutTemplate[];
   busy: boolean;
@@ -52,6 +55,9 @@ export function SharingHub({
   hasActiveWorkout: boolean;
   initialTemplate?: WorkoutTemplate;
   initialToken?: string;
+  onCreate?: (draft: TemplateDraft) => Promise<TemplateMutationResult>;
+  onManage?: () => void;
+  onEditorChange?: (editing: boolean) => void;
   onUpdate?: (
     id: string,
     draft: TemplateDraft,
@@ -59,6 +65,11 @@ export function SharingHub({
 }) {
   const { t, locale } = useLocalization();
   const [editing, setEditing] = useState(false);
+  const [creating, setCreating] = useState(false);
+  useEffect(() => {
+    onEditorChange?.(creating || editing);
+    return () => onEditorChange?.(false);
+  }, [creating, editing, onEditorChange]);
   const [selected, setSelected] = useState(initialTemplate?.id);
   const [screen, setScreen] = useState<'mine' | 'library' | 'share' | 'scan'>(
     'mine',
@@ -135,6 +146,19 @@ export function SharingHub({
       /* Unsupported legacy catalog entries remain editable through existing management. */
     }
   }
+  if (creating && onCreate)
+    return (
+      <TemplateEditor
+        mode="create"
+        busy={busy}
+        onCancel={() => setCreating(false)}
+        onSave={async (draft) => {
+          const result = await onCreate(draft);
+          if (result.ok) setCreating(false);
+          return result;
+        }}
+      />
+    );
   if (editing && template && onUpdate)
     return (
       <TemplateEditor
@@ -290,6 +314,13 @@ export function SharingHub({
       ) : (
         <>
           <Text style={s.title}>{t('sharing.title')}</Text>
+          {onCreate ? (
+            <AppButton
+              title={t('templates.create')}
+              onPress={() => setCreating(true)}
+              disabled={busy}
+            />
+          ) : null}
           <AppButton
             title={t('sharing.library')}
             onPress={() => setScreen('library')}
@@ -334,6 +365,15 @@ export function SharingHub({
               secondary
             />
           ))}
+          {onManage ? (
+            <AppButton
+              title={t('sharing.manage')}
+              onPress={onManage}
+              disabled={busy}
+              secondary
+              presentation="text"
+            />
+          ) : null}
         </>
       )}
     </View>

@@ -2141,3 +2141,7 @@ recipient access, independent durable copies and the common library importer.
 Network rollout is default off until real domain/mail/server/device acceptance.
 The public endpoint uses a conservative global rate ceiling until trusted
 gateway source limiting is configured; see WORKOUT_SHARING.md for the tradeoff.
+
+- 2026-10-23: Approved direct Profile WORKOUTS → Workout plans navigation, existing
+  editor via Create Workout, preserved library and plan-detail Start/Share actions.
+  Existing management remains secondary; active Workout tab is unchanged.

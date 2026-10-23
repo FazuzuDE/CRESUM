@@ -1,3 +1,4 @@
+import { createWorkoutSnapshotId } from './workout-snapshot-id';
 import { sharedPlanDraft } from './workout-sharing/adapter';
 import { validPlanOrigin } from './workout-sharing/import';
 import type { SharedPlanV1 } from './workout-sharing/contract';
@@ -24,12 +25,6 @@ import {
 export type TemplateMutationResult =
   | { ok: true; template?: WorkoutTemplate }
   | { ok: false; error: string; code?: 'template_missing' };
-
-const createWorkoutSnapshotId = (): string => {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports -- Load native crypto only when starting a new workout, not while restoring existing data.
-  const crypto = require('expo-crypto') as typeof import('expo-crypto');
-  return crypto.randomUUID();
-};
 
 export class WorkoutStore {
   private listeners = new Set<() => void>();

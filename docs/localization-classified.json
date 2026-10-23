@@ -9309,5 +9309,16 @@
         "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
       }
     ]
+  },
+  {
+    "file": "lib/workout-snapshot-id.web.ts",
+    "kind": "internal",
+    "reason": "RFC4122 UUID v4 serialization is a stable machine identifier, never user-facing copy; translating it would corrupt identity.",
+    "entries": [
+      {
+        "text": "`${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`",
+        "context": "TemplateExpression/ReturnStatement/Block/FunctionDeclaration"
+      }
+    ]
   }
 ]

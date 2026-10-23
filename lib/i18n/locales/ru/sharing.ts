@@ -1,4 +1,5 @@
 export default {
+  'sharing.manage': 'Управление тренировками',
   'sharing.title': 'Планы тренировок',
   'sharing.mine': 'Мои планы',
   'sharing.library': 'Библиотека планов',

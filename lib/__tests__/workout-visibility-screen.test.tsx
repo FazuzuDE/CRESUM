@@ -60,6 +60,7 @@ const button = (view: ReturnType<typeof create>, title: string) =>
 const openProfile = (view: ReturnType<typeof create>) => {
   act(() => view.root.findByType(Dock).props.onChange('profile'));
   act(() => button(view, 'WORKOUTS')?.props.onPress());
+  act(() => button(view, 'Manage workouts')?.props.onPress());
 };
 const mount = async () => {
   let view!: ReturnType<typeof create>;

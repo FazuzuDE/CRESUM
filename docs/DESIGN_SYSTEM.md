@@ -1563,3 +1563,10 @@ Start workout enters the existing workout flow. The following sharing, recipient
 preview and plan-library screens retain the shown mockup direction. Generated
 exercise illustrations and the QR are demonstration content, not production assets.
 This approves the visual direction; implementation and access policy remain pending.
+
+### Unified WORKOUTS screen — approved 2026-10-23
+
+Use the approved Workout plans screen directly from Profile WORKOUTS. Preserve
+BrandHeader, individual saved-plan buttons, library control and detail Start/Share
+row. Add the existing localized Create Workout primary action. Retain management
+as a secondary action, avoiding an intermediate duplicate list in the main route.

@@ -460,3 +460,9 @@ curated-library client are implemented with network rollout disabled by default.
 Next: reviewed integration/CI, then domain/association hosting, mail acceptance,
 controlled service deployment/content publication and real-device end-to-end QA.
 These external prerequisites do not block offline Core and are not reported as done.
+
+### Workout plans navigation polish — approved 2026-10-23
+
+Unify Profile WORKOUTS with Workout plans, expose existing Create Workout there,
+and preserve management actions. Verify actual web start and muscle-map navigation
+before refreshing the preview. This does not activate public QR sharing.

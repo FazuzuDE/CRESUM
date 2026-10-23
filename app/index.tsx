@@ -421,6 +421,8 @@ function AppContent({
   const programRecovered = useRef(false);
   const [programReady, setProgramReady] = useState(false);
   const [tab, setTab] = useState(initialTab);
+  const [sharingEditing, setSharingEditing] = useState(false);
+  const [managePlans, setManagePlans] = useState<(() => void) | undefined>();
   const [sharingOpen, setSharingOpen] = useState(!!incomingSharingToken);
   const [sharingToken, setSharingToken] = useState<string | undefined>(
     incomingSharingToken,
@@ -1020,7 +1022,7 @@ function AppContent({
           visible
           animationType="slide"
           onRequestClose={() => {
-            if (!busy) setSharingOpen(false);
+            if (!busy && !sharingEditing) setSharingOpen(false);
           }}
         >
           <SafeAreaView style={s.root}>
@@ -1030,7 +1032,7 @@ function AppContent({
                   (account.snapshot.identity?.id ?? 'unsigned') +
                   (sharingToken ?? '')
                 }
-                templates={data.templates}
+                templates={visibleTemplates}
                 busy={busy || resetBusy}
                 client={sharingClient}
                 signedIn={
@@ -1043,6 +1045,17 @@ function AppContent({
                   setSharingToken(undefined);
                   consumeSharingToken();
                 }}
+                onEditorChange={setSharingEditing}
+                onCreate={(draft) => store.createTemplate(draft)}
+                onManage={
+                  !sharingToken && managePlans
+                    ? () => {
+                        setSharingOpen(false);
+                        managePlans();
+                        setManagePlans(undefined);
+                      }
+                    : undefined
+                }
                 onUpdate={(id, draft) => store.updateTemplate(id, draft)}
                 onImport={(plan, origin, options) => {
                   if (!localDataAccess.isReady())
@@ -1394,7 +1407,10 @@ function AppContent({
                 store.duplicateTemplate(templateId)
               }
               startTemplate={startTemplate}
-              onOpenPlans={() => setSharingOpen(true)}
+              onOpenPlans={(onManage) => {
+                setManagePlans(() => onManage);
+                setSharingOpen(true);
+              }}
               hideBuiltIn={(templateId) =>
                 updateHiddenBuiltIns([...hiddenBuiltInIds, templateId])
               }
