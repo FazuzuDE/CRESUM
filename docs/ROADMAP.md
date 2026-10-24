@@ -187,7 +187,9 @@ full web/native acceptance or activate target-language release flags. The next f
 reload/resume and populated History identity checks. The storage follow-up verifies one-shot browser write failures/retries and
 actual discard without losing earlier History. Technique follow-up adds a representative guide, disclosure and START/FINISH
 viewer check with unchanged Core/search state, plus explicit web accessibility
-state. Broader web/recovery coverage and physical-device checks remain next.
+state. The onboarding follow-up starts from empty storage and verifies a representative
+program acceptance and persisted answers/templates across reload. Broader
+web/recovery coverage and physical-device checks remain next.
 
 Device/development builds, error handling, store assets/metadata, privacy/permissions, subscriptions/paywall if required, RevenueCat if used, App Store/Google Play preparation.
 

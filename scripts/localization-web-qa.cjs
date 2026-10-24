@@ -247,15 +247,6 @@ async function main() {
               'cresum_language_preference_v1',
               JSON.stringify({ version: 1, preference: value }),
             );
-            localStorage.setItem(
-              'cresum_onboarding_v1',
-              JSON.stringify({
-                version: 1,
-                status: 'completed',
-                step: 'complete',
-                answers: {},
-              }),
-            );
           }, locale);
           const catalog = expand
             ? expandCatalog(catalogs[locale])
@@ -324,9 +315,128 @@ async function main() {
           };
           try {
             await page.goto(origin);
+            const nameInput = page.getByRole('textbox', {
+              name: text('onboarding.name'),
+              exact: true,
+            });
+            await nameInput.waitFor();
+            assert.equal(
+              await button('onboarding.continue').isDisabled(),
+              true,
+            );
+            await capture('onboarding-welcome');
+            await nameInput.fill('QA Athlete');
+            await button('onboarding.continue').click();
+            const heightInput = page.getByRole('textbox', {
+              name: text('onboarding.height'),
+              exact: true,
+            });
+            const weightInput = page.getByRole('textbox', {
+              name: text('onboarding.weight'),
+              exact: true,
+            });
+            await heightInput.fill('178');
+            await weightInput.fill('0');
+            await button('onboarding.continue').click();
+            await page
+              .getByText(text('error.bodyWeight'), { exact: true })
+              .waitFor();
+            await capture('onboarding-body-error');
+            await weightInput.fill('80,5');
+            await button('onboarding.back').click();
+            assert.equal(await nameInput.inputValue(), 'QA Athlete');
+            await button('onboarding.continue').click();
+            assert.equal(await heightInput.inputValue(), '178');
+            assert.equal(await weightInput.inputValue(), '80,5');
+            await capture('onboarding-body');
+            await button('onboarding.continue').click();
+            await button('onboarding.muscle').waitFor();
+            await capture('onboarding-goal');
+            await button('onboarding.muscle').click();
+            await button('onboarding.beginner').waitFor();
+            await capture('onboarding-experience');
+            await button('onboarding.beginner').click();
+            await button('onboarding.viewProgram').waitFor();
+            await capture('onboarding-proposal');
+            await button('onboarding.viewProgram').click();
+            await button('onboarding.hideProgram').waitFor();
+            await page
+              .getByText(text('onboarding.warmup'), { exact: true })
+              .scrollIntoViewIfNeeded();
+            await capture('onboarding-program');
+            await button('onboarding.schedule').click();
+            const sessionDay = page.getByRole('textbox', {
+              name: text('onboarding.sessionDayLabel', { index: 1 }),
+              exact: true,
+            });
+            await sessionDay.waitFor();
+            assert.equal(await sessionDay.inputValue(), '1');
+            await capture('onboarding-schedule');
+            await button('onboarding.reduce').click();
+            await button('onboarding.reduced').waitFor();
+            await button('onboarding.start').click();
             await page
               .getByRole('tab', { name: contains(text('nav.profile')) })
               .waitFor();
+            const accepted = await page.evaluate(() => ({
+              onboarding: JSON.parse(
+                localStorage.getItem('cresum_onboarding_v1'),
+              ),
+              program: JSON.parse(
+                localStorage.getItem('cresum_training_program_v1'),
+              ),
+              core: JSON.parse(localStorage.getItem('fitflow_state_v1')),
+            }));
+            assert.equal(accepted.onboarding.status, 'completed');
+            assert.deepEqual(accepted.onboarding.answers, {
+              displayName: 'QA Athlete',
+              heightCm: '178',
+              bodyWeightKg: '80,5',
+              dateOfBirth: '',
+              goal: 'build_muscle',
+              experience: 'beginner',
+              environment: 'gym',
+            });
+            assert.equal(accepted.program.pending, null);
+            const assignment = accepted.program.assignment;
+            assert.equal(assignment.program.id, 'gym-build_muscle-beginner');
+            assert.equal(assignment.reducedFirstSession, true);
+            assert.ok(assignment.templates.length > 0);
+            for (const template of assignment.templates) {
+              assert.deepEqual(
+                accepted.core.templates.find((item) => item.id === template.id),
+                template,
+                'Accepted program templates match persisted Core',
+              );
+            }
+            assert.equal(accepted.core.activeWorkout, null);
+            assert.deepEqual(accepted.core.history, []);
+            await page.reload();
+            await page
+              .getByRole('tab', { name: contains(text('nav.profile')) })
+              .waitFor();
+            const restored = await page.evaluate(() => ({
+              onboarding: JSON.parse(
+                localStorage.getItem('cresum_onboarding_v1'),
+              ),
+              program: JSON.parse(
+                localStorage.getItem('cresum_training_program_v1'),
+              ),
+              core: JSON.parse(localStorage.getItem('fitflow_state_v1')),
+            }));
+            assert.deepEqual(
+              restored,
+              accepted,
+              'Reload retains onboarding, assignment identity and templates',
+            );
+            result.onboarding = {
+              goal: 'build_muscle',
+              experience: 'beginner',
+              reducedFirstSession: true,
+              acceptedWithoutStartingWorkout: true,
+              reloadUnchanged: true,
+            };
+            await capture('onboarding-reloaded');
             await capture('home');
             await page
               .getByRole('tab', { name: contains(text('nav.profile')) })
