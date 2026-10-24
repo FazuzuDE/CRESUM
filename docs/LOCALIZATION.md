@@ -416,3 +416,29 @@ requests. The baseline commit and export hash identify the tested bundle
 including the local ARIA fixes. Full quality checks passed (135 suites / 1082
 tests); iOS/Android exports and independent review passed. This is not physical
 accessibility acceptance or a released-language build.
+
+## Fresh onboarding and program acceptance browser follow-up — 2026-10-24
+
+The real-export matrix now begins with empty context storage instead of seeding
+completed onboarding. It checks empty-name disablement, invalid body-weight
+validation, name/height/decimal-comma draft retention across Back, goal and
+experience selection, program preview, recommended schedule and reduced-first-
+session selection. It accepts the Build muscle / Beginner baseline without
+starting a workout or creating History, compares installed templates to the
+accepted assignment and verifies unchanged onboarding/program/Core after reload.
+The previous plan/technique/workout/retry/discard scenarios then run on this
+onboarded state. Reloads no longer overwrite saved onboarding answers with a QA
+completed-state fixture.
+
+This is one representative goal/experience variant and its recommended schedule,
+not all nine variants, manual setup, custom/date-wheel schedules or physical
+keyboard/accessibility acceptance. It verifies the reduced-session preference at
+acceptance, not a separately started program workout. Existing full web/native
+and linguistic gates remain pending; RU/DE/FR remain release-disabled.
+
+Evidence: [onboarding browser report](qa/2026-10-24-onboarding-web/report.json),
+16/16 cases and 656 checkpoints passed, with no recorded JS errors or external
+requests. The baseline commit and export hash identify the tested application;
+this follow-up changes only development QA and documentation. Full quality
+checks passed (135 suites / 1082 tests); independent review found no material
+issues. Physical-device acceptance remains pending.
