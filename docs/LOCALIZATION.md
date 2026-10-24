@@ -470,3 +470,30 @@ requests. Baseline commit and export hash identify the tested bundle including
 the local text-width fix. Full quality checks passed (135 suites / 1082 tests),
 as did iOS/Android exports and final affected type/lint/format checks. Independent
 review found no material issues. Full web/native acceptance remains pending.
+
+## Completed planned workout browser follow-up — 2026-10-25
+
+The representative first reduced program session is now logged through all eight
+exercises (one set each), including bilateral input, rest transitions and the
+full-completion confirmation. Exact exercise/set IDs, targets, values and program
+slot context must survive saving. The earlier manual History record stays exact.
+Seven ordinary sets at 12.5 × 10 and one bilateral 12.5 × 10/10 produce 1125 kg
+of recorded volume; Progress must show 1225 kg including the prior 100 kg session,
+and its workout-volume list must show the 1125 kg entry. History must show both
+ordinary and bilateral values.
+
+Home must mark the finished slot complete and suppress its planned-start action.
+The following slot must retain every authored exercise in order, its exact context
+and ordinary set counts. Discarding that new session and reloading must retain
+exactly two History records, the completed marker and unchanged program snapshot.
+This is representative program completion, not all variants, multi-week/adaptive
+progression, full web/native or physical-device acceptance. Locale flags stay off.
+
+Evidence: [completed-program browser report](qa/2026-10-25-program-completion/report.json),
+16/16 cases and 960 checkpoints passed with no recorded JS errors or external
+requests. Baseline commit and export hash identify the tested application. Full
+quality checks passed (135 suites / 1082 tests), as did iOS/Android exports and
+final script lint/format checks. Independent review found two evidence gaps
+(full-confirmation wording and following-slot completeness); both are covered by
+assertions in the passing matrix. The test handles locale nonbreaking grouping
+spaces through normalized text matching. No production logic changed.

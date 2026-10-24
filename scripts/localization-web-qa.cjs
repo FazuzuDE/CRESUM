@@ -1073,6 +1073,252 @@ async function main() {
             await capture('progress');
             await button('progress.muscles').click();
             await capture('muscles');
+            await page
+              .getByRole('tab', { name: contains(text('nav.home')) })
+              .click();
+            await planStart.click();
+            await button('workout.addSet').waitFor();
+            const plannedStartState = await state();
+            const plannedSession = plannedStartState.activeWorkout;
+            assert.equal(plannedSession.programSlot.slotIndex, 0);
+            assert.equal(
+              plannedSession.programSlot.assignmentId,
+              assignment.id,
+            );
+            assert.equal(plannedSession.exercises.length, 8);
+            const expectedLogged = structuredClone(plannedSession.exercises);
+            for (let index = 0; index < expectedLogged.length; index++) {
+              const exercise = expectedLogged[index];
+              assert.equal(exercise.sets.length, 1);
+              const set = exercise.sets[0];
+              const bilateral = set.otherSideReps !== undefined;
+              await editFirst.click();
+              await button('entry.useKeypad').click();
+              await exactWeight.fill('12,5');
+              await page
+                .getByRole('textbox', {
+                  name: text(bilateral ? 'entry.exactLeft' : 'entry.exactReps'),
+                  exact: true,
+                })
+                .fill('10');
+              if (bilateral)
+                await page
+                  .getByRole('textbox', {
+                    name: text('entry.exactRight'),
+                    exact: true,
+                  })
+                  .fill('10');
+              await button('entry.saveValues').click();
+              await exactWeight.waitFor({ state: 'hidden' });
+              await page
+                .getByRole('checkbox', {
+                  name: text('workout.completeNamed', { index: 1 }),
+                  exact: true,
+                })
+                .click();
+              await button(
+                index < 7 ? 'workout.skipRest' : 'workout.finishSave',
+              ).waitFor();
+              const active = (await state()).activeWorkout;
+              const logged = active.exercises[index].sets[0];
+              assert.equal(logged.id, set.id);
+              assert.equal(logged.weight, '12.5');
+              assert.equal(logged.reps, '10');
+              if (bilateral) assert.equal(logged.otherSideReps, '10');
+              assert.equal(typeof logged.completedAt, 'number');
+              set.weight = '12.5';
+              set.reps = '10';
+              if (bilateral) set.otherSideReps = '10';
+              set.completedAt = logged.completedAt;
+              assert.deepEqual(
+                active.exercises[index],
+                exercise,
+                'Logging retains exercise identity and targets',
+              );
+              assert.equal(active.currentExerciseIndex, Math.min(index + 1, 7));
+              if (index < 7) {
+                await button('workout.skipRest').click();
+                await button('workout.skipRest').waitFor({ state: 'hidden' });
+              }
+              await capture(`program-recorded-${index + 1}`);
+            }
+            const allRecorded = await state();
+            assert.deepEqual(
+              allRecorded.activeWorkout.exercises,
+              expectedLogged,
+            );
+            assert.deepEqual(
+              allRecorded.history,
+              discarded.history,
+              'Recording never creates premature History',
+            );
+            await button('workout.finishSave').click();
+            await button('workout.keepTraining').waitFor();
+            await page
+              .getByRole('dialog')
+              .getByText(text('workout.finishFull'), { exact: true })
+              .waitFor();
+            await capture('program-finish-confirmation');
+            await page
+              .getByRole('dialog')
+              .getByRole('button', {
+                name: text('workout.finishSave'),
+                exact: true,
+              })
+              .click();
+            await button('common.done').waitFor();
+            const plannedFinished = await state();
+            assert.equal(plannedFinished.activeWorkout, null);
+            assert.equal(plannedFinished.history.length, 2);
+            const completedProgram = plannedFinished.history[0];
+            assert.equal(completedProgram.id, plannedSession.id);
+            assert.deepEqual(completedProgram.exercises, expectedLogged);
+            assert.deepEqual(
+              completedProgram.programSlot,
+              plannedSession.programSlot,
+            );
+            assert.ok(completedProgram.finishedAt >= plannedSession.startedAt);
+            assert.deepEqual(
+              plannedFinished.history.slice(1),
+              discarded.history,
+              'Earlier manual History remains exact',
+            );
+            assert.deepEqual(plannedFinished.templates, discarded.templates);
+            await button('common.done').click();
+            // Seven ordinary sets × 125 kg plus one bilateral set × 250 kg.
+            const formatInteger = (value) =>
+              new Intl.NumberFormat(locale).format(value).replace(/\s/g, ' ');
+            await page
+              .getByText(`${formatInteger(1225)} ${text('progress.kg')}`, {
+                exact: false,
+              })
+              .first()
+              .waitFor();
+            await capture('program-progress-total');
+            await page
+              .getByText(
+                text('volume.viewAll', { period: text('progress.period.1M') }),
+                { exact: true },
+              )
+              .click();
+            await button('volume.close').waitFor();
+            await page
+              .getByText(
+                text('progress.valueKg', { value: formatInteger(1125) }),
+                { exact: true },
+              )
+              .waitFor();
+            await capture('program-workout-volume');
+            await button('volume.close').click();
+            const plannedHistory = namedButton('history.open', {
+              name: plannedSession.name,
+            });
+            await plannedHistory.click();
+            await button('history.back').waitFor();
+            await page
+              .getByText(
+                text('history.set', {
+                  index: 1,
+                  weight: locale === 'en' ? '12.5' : '12,5',
+                  reps: '10',
+                }),
+                { exact: true },
+              )
+              .first()
+              .waitFor();
+            await page
+              .getByText(
+                text('history.bilateralSet', {
+                  index: 1,
+                  weight: locale === 'en' ? '12.5' : '12,5',
+                  reps: '10',
+                  other: '10',
+                }),
+                { exact: true },
+              )
+              .waitFor();
+            await capture('program-completed-history');
+            await page
+              .getByRole('tab', { name: contains(text('nav.home')) })
+              .click();
+            const firstSlot = page.getByRole('radio').nth(0);
+            await firstSlot.waitFor();
+            assert.ok(
+              (await firstSlot.innerText()).includes('✓'),
+              'Finished program slot is marked completed',
+            );
+            await firstSlot.click();
+            assert.equal(
+              await planStart.count(),
+              0,
+              'Completed slot cannot be started again from the plan action',
+            );
+            await capture('program-completed-slot');
+            await page.getByRole('radio').nth(1).click();
+            await planStart.click();
+            await button('workout.addSet').waitFor();
+            const afterCompletionStart = (await state()).activeWorkout;
+            assert.equal(afterCompletionStart.programSlot.slotIndex, 1);
+            assert.deepEqual(
+              afterCompletionStart.programSlot,
+              regularSession.programSlot,
+            );
+            assert.deepEqual(
+              afterCompletionStart.exercises.map(
+                (exercise) => exercise.libraryId,
+              ),
+              assignment.templates[0].exerciseIds,
+              'Following slot retains every authored exercise in order',
+            );
+            afterCompletionStart.exercises.forEach((exercise, index) =>
+              assert.equal(
+                exercise.sets.length,
+                assignment.templates[0].plannedExercises[index].sets,
+              ),
+            );
+            await capture('program-following-slot');
+            await button('workout.discard').click();
+            await button('workout.keepTraining').waitFor();
+            await page
+              .getByRole('dialog')
+              .getByRole('button', {
+                name: text('workout.discard'),
+                exact: true,
+              })
+              .click();
+            await button('workout.keepTraining').waitFor({ state: 'hidden' });
+            assert.deepEqual(
+              await state(),
+              plannedFinished,
+              'Discarding following slot retains completed program History',
+            );
+            await page.reload();
+            await page
+              .getByRole('tab', { name: contains(text('nav.profile')) })
+              .waitFor();
+            assert.deepEqual(
+              await state(),
+              plannedFinished,
+              'Reload retains exactly two History records',
+            );
+            assert.ok(
+              (await page.getByRole('radio').nth(0).innerText()).includes('✓'),
+            );
+            assert.deepEqual(
+              (await readProgramState()).program,
+              accepted.program,
+              'Completion never rewrites authored program',
+            );
+            await capture('program-completion-reloaded');
+            result.programCompletion = {
+              completedExercises: 8,
+              completedSets: 8,
+              workoutVolumeKg: 1125,
+              combinedVolumeKg: 1225,
+              historyRecords: 2,
+              completedSlotRetained: true,
+              nextSlotUsesAuthoredSets: true,
+            };
             assert.deepEqual(result.errors, [], 'Browser runtime errors');
             assert.deepEqual(
               result.network,
