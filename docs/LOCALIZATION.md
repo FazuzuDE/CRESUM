@@ -442,3 +442,31 @@ requests. The baseline commit and export hash identify the tested application;
 this follow-up changes only development QA and documentation. Full quality
 checks passed (135 suites / 1082 tests); independent review found no material
 issues. Physical-device acceptance remains pending.
+
+## Planned workout start browser follow-up — 2026-10-24
+
+The representative accepted Build muscle / Beginner program is now started from
+Home's planned-workout action. Its first slot must create exactly one set per
+exercise, preserve authored targets and exercise IDs, and bind the correct
+assignment/week/slot/date. Weight and repetitions stay blank and no completed
+sets or History entries are invented. Reload/resume must preserve the complete
+active session. Saved templates, onboarding and the assignment stay unchanged.
+
+After discarding that test session, the second scheduled slot is selected and
+started. It must use the original authored set counts rather than inherit the
+first-slot reduction, with a new session ID and the second slot's context/date.
+Discarding it must restore the original persisted baseline before the remaining
+manual-plan/workout flows run. This is not a completed program workout or
+program History/progression acceptance; other variants and native checks remain
+pending.
+
+This run reproduced Russian repetitions-placeholder overflow in empty set cells
+at 320px. Constraining the existing value text to its cell width allows wrapping
+without shrinking typography or changing values, targets or workout logic.
+
+Evidence: [planned-start browser report](qa/2026-10-24-program-start/report.json),
+16/16 cases and 720 checkpoints passed; no recorded runtime errors or external
+requests. Baseline commit and export hash identify the tested bundle including
+the local text-width fix. Full quality checks passed (135 suites / 1082 tests),
+as did iOS/Android exports and final affected type/lint/format checks. Independent
+review found no material issues. Full web/native acceptance remains pending.
