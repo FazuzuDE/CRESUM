@@ -367,3 +367,26 @@ This remains representative browser smoke. It does not certify actual destructiv
 workout deletion, storage-error retries, native timer/background behavior,
 image compositing, complete web coverage or linguistic/accessibility acceptance.
 All production language and acceptance flags remain unchanged.
+
+## Browser storage failures and discard — 2026-10-24
+
+The same four-locale 320/390px normal/expanded matrix now injects a one-shot
+failure at the browser's real `localStorage.setItem` boundary for the Core key.
+It verifies localized failure messages, absence of internal diagnostics and
+unchanged durable data, then retries set saving, Finish and discard through the
+actual UI. The set retry must persist exactly `12.5` × `8`; Finish must retain
+session/set identity and produce exactly one History record.
+
+A second session is discarded through its confirmation after a failed first
+attempt. Its removal must survive reload while the original completed History
+and saved plans remain byte-for-byte equivalent as parsed documents. Faults are
+restricted to isolated browser contexts; no application hook or dependency is
+added. This covers one-shot web writes, not full-disk/device failures, interrupted
+writes, account deletion, reset/restore or all recovery paths. Native and full
+web acceptance, linguistic review and language release gates remain pending.
+
+Evidence: [storage recovery report](qa/2026-10-24-storage-recovery/report.json),
+16/16 cases and 384 checkpoints passed; no recorded JS errors or external
+requests. The baseline commit and export hash identify the actual tested app
+bundle; fault injection and runner changes are development-only. Full quality
+checks passed (135 suites / 1082 tests), as did iOS/Android exports.
