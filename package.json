@@ -25,7 +25,8 @@
     "i18n:check": "node scripts/build-sharing-catalog.cjs --check && node scripts/build-catalog-labels.cjs --check && node scripts/build-technique-messages.cjs --check && node scripts/check-localization.cjs",
     "i18n:report": "node scripts/check-localization.cjs --report",
     "anatomy:check": "node scripts/build-anatomical-muscle-map.cjs --check",
-    "export:check": "expo export --platform ios --platform android"
+    "export:check": "expo export --platform ios --platform android",
+    "i18n:web:qa": "expo export --platform web --output-dir .tools/localization-web-export && node scripts/localization-web-qa.cjs --export-dir .tools/localization-web-export"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",

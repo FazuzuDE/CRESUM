@@ -1,0 +1,313 @@
+{
+  "commit": "024b854e0e2762089c36397773bc718f71db5034",
+  "exportSha256": "231b46e41202641e932f1bffea6f281567ee03173cd09fb4cae2a9088f293034",
+  "browser": "153.0.8010.0",
+  "qaOnlyRegistryOverride": true,
+  "qaMutatedProductionFiles": false,
+  "results": [
+    {
+      "locale": "en",
+      "width": 320,
+      "expanded": false,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "expanded": false,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    },
+    {
+      "locale": "ru",
+      "width": 320,
+      "expanded": false,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    },
+    {
+      "locale": "ru",
+      "width": 390,
+      "expanded": false,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    },
+    {
+      "locale": "de",
+      "width": 320,
+      "expanded": false,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    },
+    {
+      "locale": "de",
+      "width": 390,
+      "expanded": false,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    },
+    {
+      "locale": "fr",
+      "width": 320,
+      "expanded": false,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    },
+    {
+      "locale": "fr",
+      "width": 390,
+      "expanded": false,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    },
+    {
+      "locale": "en",
+      "width": 320,
+      "expanded": true,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "expanded": true,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    },
+    {
+      "locale": "ru",
+      "width": 320,
+      "expanded": true,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    },
+    {
+      "locale": "ru",
+      "width": 390,
+      "expanded": true,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    },
+    {
+      "locale": "de",
+      "width": 320,
+      "expanded": true,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    },
+    {
+      "locale": "de",
+      "width": 390,
+      "expanded": true,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    },
+    {
+      "locale": "fr",
+      "width": 320,
+      "expanded": true,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    },
+    {
+      "locale": "fr",
+      "width": 390,
+      "expanded": true,
+      "screens": [
+        "home",
+        "profile",
+        "plans",
+        "library",
+        "exercise",
+        "discard",
+        "saved",
+        "progress",
+        "muscles"
+      ],
+      "errors": [],
+      "network": [],
+      "pass": true
+    }
+  ]
+}

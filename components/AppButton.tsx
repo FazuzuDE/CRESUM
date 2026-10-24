@@ -78,7 +78,12 @@ const s = StyleSheet.create({
   },
   secondary: { backgroundColor: colors.surfaceSubtle },
   destructive: { backgroundColor: colors.surfaceSubtle },
-  text: { ...typography.headline, color: colors.surface, textAlign: 'center' },
+  text: {
+    ...typography.headline,
+    color: colors.surface,
+    textAlign: 'center',
+    maxWidth: '100%',
+  },
   secondaryText: { color: colors.textPrimary },
   destructiveText: { color: colors.danger },
   row: {
@@ -86,7 +91,7 @@ const s = StyleSheet.create({
     justifyContent: 'space-between',
     gap: spacing.sm,
   },
-  rowText: { ...typography.body, flex: 1, textAlign: 'left' },
+  rowText: { ...typography.body, flex: 1, minWidth: 0, textAlign: 'left' },
   textAction: {
     minHeight: 44,
     paddingHorizontal: 0,

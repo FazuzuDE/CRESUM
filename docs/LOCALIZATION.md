@@ -247,14 +247,15 @@ that exception does not certify its pending device checks.
 | Message/parameter/plural/catalog contracts       | Pass    | Pass    | Pass    | Pass    |
 | Mounted flow/state/recovery regression tests     | Pass    | Pass    | Pass    | Pass    |
 | Installed plural polyfill with native API absent | Pass    | Pass    | Pass    | Pass    |
-| 320/390px real exported app and expanded text    | Blocked | Blocked | Blocked | Blocked |
+| Representative 320/390px and expanded-text smoke | Pass    | Pass    | Pass    | Pass    |
+| Complete web acceptance                          | Pending | Pending | Pending | Pending |
 | Physical iOS/Android Hermes formatting/plurals   | Pending | Pending | Pending | Pending |
 | Dynamic Type, screen readers, safe areas/actions | Pending | Pending | Pending | Pending |
 | Native Files/share and foreground language       | Pending | Pending | Pending | Pending |
 
-Browser evidence is blocked by `net::ERR_CONNECTION_REFUSED` when the available
-cloud browser opens `http://127.0.0.1:4173`; the local server is in a different
-environment. No browser layout pass is claimed. There is no connected physical
+The initial cloud-browser attempt was blocked by `net::ERR_CONNECTION_REFUSED`
+for `http://127.0.0.1:4173`. The local Playwright follow-up below now verifies a
+representative smoke matrix; complete web acceptance remains pending. There is no connected physical
 iPhone/Android environment. Renderer tests and native exports remain separate.
 No live account deletion/OTP or production storage was used for QA.
 
@@ -272,6 +273,51 @@ bugs; its focused verification passed 3 suites / 22 tests. Subsequent report/doc
 formatting passed lint, localization contracts and `git diff --check`. Exhaustive
 native-speaker linguistic acceptance remains unclaimed. Exact-head GitHub CI is
 the integration gate recorded in the PR.
+
+## Reproducible web smoke follow-up — 2026-10-24
+
+`npm run i18n:web:qa` exports the real application and checks four locales at
+320/390 px with normal and expanded text (16 isolated browser contexts). It
+checks Home, Profile, plan creation, exercise search/configuration, discard
+cancellation, saved-plan persistence, Progress and Muscle Map. It records
+screenshots, horizontal action clipping, runtime errors and unexpected external
+requests in `.tools/localization-web-qa/browser/report.json`.
+
+The runner needs a separately installed Playwright module and Chromium. Set
+`PLAYWRIGHT_MODULE=/absolute/path/to/tools/node_modules/playwright` if it is not
+resolvable from the project; optionally set `CHROMIUM_PATH` for a custom browser
+executable. Browser tooling is not an application dependency. To inspect an
+existing fresh export, invoke `node scripts/localization-web-qa.cjs --export-dir
+/absolute/path/to/export --output-dir /absolute/path/to/results`.
+
+Unreleased language choices are enabled only in the local server's JavaScript
+responses. Expanded runs replace only the served catalogs; original exports and
+the production registry are not rewritten. Each browser context starts with
+isolated test storage and no real account. The report retains the original
+export hash and browser version. This is a representative smoke matrix, not full
+web acceptance: onboarding/program/technique, populated History/charts, every
+destructive/retry route, native layout/keyboard/screen readers and independent
+linguistic review remain outside this runner. All web/native acceptance booleans
+and RU/DE/FR release flags remain false.
+
+The first run reproduced Profile row-label overflow in German and French at
+320 px. Extended labels also overflowed in expanded runs. The shared row-button
+label now has a zero minimum width, allowing its existing wrapping behavior to
+fit beside the chevron without hiding the action label. Primary/secondary button
+labels and Library technique/Add captions also stay inside their available width.
+Expanded labels cover Cyrillic and accented Latin text while preserving message
+parameters. Saved plan checks bind the exact exercise ID, four planned sets and
+weight `12.5` to the named routine, with no active workout or History entry.
+Screenshots do not certify image-loading/compositing or complete visual coverage.
+
+The focused matrix passes **16/16** cases (144 screen/action checkpoints), with
+no recorded runtime errors or external requests. See the [recorded report](qa/2026-10-24-localization-web/report.json),
+[German Profile before](qa/2026-10-24-localization-web/profile-de-before.png)
+and [after](qa/2026-10-24-localization-web/profile-de-after.png), and
+[expanded Russian confirmation](qa/2026-10-24-localization-web/discard-ru-expanded.png).
+The report's commit identifies the baseline; its export hash identifies the
+locally built bundle including this follow-up's uncommitted layout fixes. It is
+not evidence for a released build or a physical-device pass.
 
 ## Every future change
 
