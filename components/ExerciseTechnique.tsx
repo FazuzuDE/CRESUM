@@ -311,6 +311,7 @@ function Disclosure({
       accessibilityRole="button"
       accessibilityLabel={title}
       accessibilityState={{ expanded: open }}
+      aria-expanded={open}
       onPress={onPress}
       style={s.disclosure}
     >

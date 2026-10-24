@@ -22,6 +22,7 @@ export function TechniquePhaseControl({
               : t('technique.showFinish')
           }
           accessibilityState={{ selected: phase === value }}
+          aria-pressed={phase === value}
           onPress={() => onChange(value)}
           style={[s.button, phase === value && s.selected]}
         >
