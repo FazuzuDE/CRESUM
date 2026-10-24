@@ -390,3 +390,29 @@ Evidence: [storage recovery report](qa/2026-10-24-storage-recovery/report.json),
 requests. The baseline commit and export hash identify the actual tested app
 bundle; fault injection and runner changes are development-only. Full quality
 checks passed (135 suites / 1082 tests), as did iOS/Android exports.
+
+## Technique browser follow-up — 2026-10-24
+
+The representative real-export matrix now opens Dumbbell Lateral Raise technique
+from the plan editor's Library. It checks every authored paragraph for that
+exercise's setup, movement, checks and common mistakes, expands sources, switches
+to FINISH, opens the full-screen placeholder viewer and switches back to START.
+Closing the viewer must retain the phase and open disclosures; closing the guide
+must retain the Library search and leave serialized Core data unchanged.
+
+Browser checks exposed missing web accessibility state: legacy native
+`accessibilityState` did not produce disclosure/toggle attributes in the current
+React Native Web build. Technique disclosures now explicitly emit `aria-expanded`
+and phase buttons emit `aria-pressed`, retaining existing native state props.
+
+This is one representative guide and placeholder viewer, not anatomical/image
+approval, a review of all 65 guides, external-source availability or physical
+screen-reader acceptance. Full web/native/linguistic gates and release flags
+remain pending. Bibliographic links are not opened by this offline smoke.
+
+Evidence: [technique browser report](qa/2026-10-24-technique-web/report.json),
+16/16 cases and 512 checkpoints passed, with no recorded JS errors or external
+requests. The baseline commit and export hash identify the tested bundle
+including the local ARIA fixes. Full quality checks passed (135 suites / 1082
+tests); iOS/Android exports and independent review passed. This is not physical
+accessibility acceptance or a released-language build.

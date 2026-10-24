@@ -356,6 +356,135 @@ async function main() {
               })
               .scrollIntoViewIfNeeded();
             await capture('library');
+            const coreBeforeGuide = await page.evaluate(() =>
+              localStorage.getItem('fitflow_state_v1'),
+            );
+            await page
+              .getByRole('button', {
+                name: text('library.techniqueFor', {
+                  name: text('catalog.exercise.dumbbell-lateral-raise'),
+                }),
+                exact: true,
+              })
+              .click();
+            await button('technique.close').waitFor();
+            await capture('technique');
+            for (const field of ['setup', 'movement', 'checks']) {
+              const keys = Object.keys(catalog).filter((key) =>
+                key.startsWith(`guide.dumbbell-lateral-raise.${field}.`),
+              );
+              assert.ok(
+                keys.length > 0,
+                'Technique section has authored guidance',
+              );
+              for (const key of keys) {
+                await page
+                  .getByText(contains(text(key)))
+                  .scrollIntoViewIfNeeded();
+              }
+              await capture(`technique-${field}`);
+            }
+            await button('technique.mistakes').click();
+            assert.equal(
+              await button('technique.mistakes').getAttribute('aria-expanded'),
+              'true',
+            );
+            const mistakeKeys = Object.keys(catalog).filter((key) =>
+              key.startsWith('guide.dumbbell-lateral-raise.mistakes.'),
+            );
+            assert.ok(mistakeKeys.length > 0);
+            for (const key of mistakeKeys)
+              await page
+                .getByText(contains(text(key)))
+                .scrollIntoViewIfNeeded();
+            await capture('technique-mistakes');
+            await button('technique.sources').click();
+            assert.equal(
+              await button('technique.sources').getAttribute('aria-expanded'),
+              'true',
+            );
+            await capture('technique-sources');
+            await button('technique.showFinish').click();
+            assert.equal(
+              await button('technique.showFinish').getAttribute('aria-pressed'),
+              'true',
+            );
+            await page
+              .getByRole('button', {
+                name: text('technique.expand'),
+                exact: true,
+              })
+              .last()
+              .click();
+            await button('technique.closeViewer').waitFor();
+            const viewer = page
+              .getByRole('dialog')
+              .filter({ has: button('technique.closeViewer') });
+            assert.equal(
+              await viewer
+                .getByRole('button', {
+                  name: text('technique.showFinish'),
+                  exact: true,
+                })
+                .getAttribute('aria-pressed'),
+              'true',
+            );
+            await capture('technique-viewer-finish');
+            await viewer
+              .getByRole('button', {
+                name: text('technique.showStart'),
+                exact: true,
+              })
+              .click();
+            assert.equal(
+              await viewer
+                .getByRole('button', {
+                  name: text('technique.showStart'),
+                  exact: true,
+                })
+                .getAttribute('aria-pressed'),
+              'true',
+            );
+            await capture('technique-viewer-start');
+            await button('technique.closeViewer').click();
+            await button('technique.closeViewer').waitFor({ state: 'hidden' });
+            assert.equal(
+              await button('technique.showStart').getAttribute('aria-pressed'),
+              'true',
+            );
+            assert.equal(
+              await button('technique.mistakes').getAttribute('aria-expanded'),
+              'true',
+            );
+            assert.equal(
+              await button('technique.sources').getAttribute('aria-expanded'),
+              'true',
+            );
+            await button('technique.close').click();
+            await button('technique.close').waitFor({ state: 'hidden' });
+            assert.equal(
+              await page
+                .getByRole('textbox', {
+                  name: text('library.searchLabel'),
+                  exact: true,
+                })
+                .inputValue(),
+              'lateral',
+            );
+            assert.equal(
+              await page.evaluate(() =>
+                localStorage.getItem('fitflow_state_v1'),
+              ),
+              coreBeforeGuide,
+              'Guide/viewer never write Core',
+            );
+            result.technique = {
+              guideId: 'dumbbell-lateral-raise',
+              mistakes: mistakeKeys.length,
+              phaseRetained: true,
+              searchRetained: true,
+              coreUnchanged: true,
+            };
             await page
               .getByRole('button', {
                 name: text('library.addName', {
