@@ -1,4 +1,10 @@
 /* global jest */
+// Renderer tests do not install native gesture recognizers. Swipe callbacks are
+// exercised separately; physical gesture acceptance stays a device check.
+jest.mock('react-native-gesture-handler', () => ({
+  ...jest.requireActual('react-native-gesture-handler'),
+  GestureHandlerRootView: jest.requireActual('react-native').View,
+}));
 // Native crypto is unavailable in Jest. Use Node's real secure UUID generator
 // at this platform boundary instead of Expo's empty generated native mock.
 jest.mock('expo-crypto', () => ({

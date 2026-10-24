@@ -9320,5 +9320,56 @@
         "context": "TemplateExpression/ReturnStatement/Block/FunctionDeclaration"
       }
     ]
+  },
+  {
+    "file": "components/TemplateEditor.tsx",
+    "line": 56,
+    "text": "name",
+    "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/CallExpression",
+    "kind": "internal",
+    "reason": "Editor navigation state (name/library/composition), not displayed copy."
+  },
+  {
+    "file": "components/TemplateEditor.tsx",
+    "line": 56,
+    "text": "composition",
+    "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/CallExpression",
+    "kind": "internal",
+    "reason": "Editor navigation state (name/library/composition), not displayed copy."
+  },
+  {
+    "file": "components/workout-sharing/SharingHub.tsx",
+    "line": 172,
+    "text": "library",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:initialStep/JsxAttributes",
+    "kind": "internal",
+    "reason": "Editor navigation state (name/library/composition), not displayed copy."
+  },
+  {
+    "file": "components/workout-sharing/SharingHub.tsx",
+    "line": 172,
+    "text": "composition",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:initialStep/JsxAttributes",
+    "kind": "internal",
+    "reason": "Editor navigation state (name/library/composition), not displayed copy."
+  },
+  {
+    "file": "components/TemplateEditor.tsx",
+    "kind": "internal",
+    "reason": "Editor navigation state discriminants select a screen and never appear as user-facing copy.",
+    "entries": [
+      {
+        "text": "configure",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/VariableDeclaration/VariableDeclarationList"
+      },
+      {
+        "text": "name",
+        "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/ParenthesizedExpression"
+      },
+      {
+        "text": "composition",
+        "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/ParenthesizedExpression"
+      }
+    ]
   }
 ]

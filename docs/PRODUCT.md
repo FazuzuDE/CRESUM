@@ -1,5 +1,13 @@
 # CRESUM — Product Definition
 
+### Saved-plan exercise editing — requested 2026-10-24
+
+Saved plan details expose Add Exercise and a left-swipe Edit action, with an
+accessible 44×44 menu-button alternative. Edit opens the selected exercise configuration. Reuse the existing editor for set counts,
+weights, removal and ordering. Custom plans update durably; built-in plans save
+edits as a personal copy and select that copy. Explain this before editing.
+Cancel or failed saves preserve the original plan, active workout and History.
+
 ## Multilingual application — scope approved 2026-10-21
 
 Add Russian, German and French while retaining English. Default to a supported

@@ -12,6 +12,8 @@ import {
   View,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AppButton } from '../AppButton';
 import { BrandHeader } from '../BrandHeader';
 import { useLocalization } from '../LocalizationProvider';
@@ -65,6 +67,8 @@ export function SharingHub({
 }) {
   const { t, locale } = useLocalization();
   const [editing, setEditing] = useState(false);
+  const [adding, setAdding] = useState(false);
+  const [editingExercise, setEditingExercise] = useState<string>();
   const [creating, setCreating] = useState(false);
   useEffect(() => {
     onEditorChange?.(creating || editing);
@@ -159,22 +163,32 @@ export function SharingHub({
         }}
       />
     );
-  if (editing && template && onUpdate)
+  const canEdit =
+    template && (isBuiltInTemplate(template.id) ? onCreate : onUpdate);
+  if (editing && template && canEdit)
     return (
       <TemplateEditor
         mode="edit"
         template={template}
+        initialStep={adding ? 'library' : 'composition'}
+        initialExerciseId={adding ? undefined : editingExercise}
         busy={busy}
         onCancel={() => setEditing(false)}
         onSave={async (draft) => {
-          const result = await onUpdate(template.id, draft);
-          if (result.ok) setEditing(false);
+          const result = isBuiltInTemplate(template.id)
+            ? await onCreate!(draft)
+            : await onUpdate!(template.id, draft);
+          if (result.ok) {
+            if (result.template) setSelected(result.template.id);
+            setEditing(false);
+            setAdding(false);
+          }
           return result;
         }}
       />
     );
   return (
-    <View style={s.root}>
+    <GestureHandlerRootView style={s.root}>
       <BrandHeader />
       {Platform.OS === 'web' && initialToken ? (
         <Text style={s.copy}>{t('sharing.install')}</Text>
@@ -243,48 +257,113 @@ export function SharingHub({
               : template.name}
           </Text>
           {savedPlan?.exercises.map((e) => (
-            <View key={e.exerciseId} style={s.card}>
-              <Text style={s.name}>
-                {catalogLabel(
-                  locale,
-                  'exercise',
-                  e.exerciseId,
-                  findExercise(e.exerciseId)?.name ?? e.exerciseId,
-                )}
-              </Text>
-              <Text style={s.copy}>{t('sharing.sets', { count: e.sets })}</Text>
-              {e.target ? (
-                <Text style={s.copy}>
-                  {t('sharing.targetRange', {
-                    min: e.target.repMin,
-                    max: e.target.repMax,
-                    restMin: e.target.restMin,
-                    restMax: e.target.restMax,
+            <Swipeable
+              key={e.exerciseId}
+              enabled={!!canEdit && !busy}
+              overshootRight={false}
+              renderRightActions={() => (
+                <AppButton
+                  title={t('templates.edit')}
+                  accessibilityLabel={t('templates.editNamed', {
+                    name: catalogLabel(
+                      locale,
+                      'exercise',
+                      e.exerciseId,
+                      findExercise(e.exerciseId)?.name ?? e.exerciseId,
+                    ),
                   })}
-                </Text>
-              ) : null}
-              {e.target?.perSide ? (
-                <Text style={s.copy}>{t('sharing.perSide')}</Text>
-              ) : null}
-              {e.weightKg !== undefined ? (
+                  disabled={busy}
+                  onPress={() => {
+                    setAdding(false);
+                    setEditingExercise(e.exerciseId);
+                    setEditing(true);
+                  }}
+                />
+              )}
+            >
+              <View style={s.card}>
+                <View style={s.exerciseHeader}>
+                  <Text style={[s.name, s.start]}>
+                    {catalogLabel(
+                      locale,
+                      'exercise',
+                      e.exerciseId,
+                      findExercise(e.exerciseId)?.name ?? e.exerciseId,
+                    )}
+                  </Text>
+                  {canEdit ? (
+                    <Pressable
+                      style={s.more}
+                      accessibilityRole="button"
+                      accessibilityState={{ disabled: busy }}
+                      accessibilityLabel={t('templates.more', {
+                        name: catalogLabel(
+                          locale,
+                          'exercise',
+                          e.exerciseId,
+                          findExercise(e.exerciseId)?.name ?? e.exerciseId,
+                        ),
+                      })}
+                      disabled={busy}
+                      onPress={() => {
+                        setAdding(false);
+                        setEditingExercise(e.exerciseId);
+                        setEditing(true);
+                      }}
+                    >
+                      <Ionicons
+                        name="ellipsis-horizontal"
+                        size={24}
+                        color={colors.primary}
+                        accessible={false}
+                      />
+                    </Pressable>
+                  ) : null}
+                </View>
                 <Text style={s.copy}>
-                  {t('sharing.weight', {
-                    weight: formatEntryNumber(locale, e.weightKg),
-                  })}
+                  {t('sharing.sets', { count: e.sets })}
                 </Text>
-              ) : null}
-            </View>
+                {e.target ? (
+                  <Text style={s.copy}>
+                    {t('sharing.targetRange', {
+                      min: e.target.repMin,
+                      max: e.target.repMax,
+                      restMin: e.target.restMin,
+                      restMax: e.target.restMax,
+                    })}
+                  </Text>
+                ) : null}
+                {e.target?.perSide ? (
+                  <Text style={s.copy}>{t('sharing.perSide')}</Text>
+                ) : null}
+                {e.weightKg !== undefined ? (
+                  <Text style={s.copy}>
+                    {t('sharing.weight', {
+                      weight: formatEntryNumber(locale, e.weightKg),
+                    })}
+                  </Text>
+                ) : null}
+              </View>
+            </Swipeable>
           ))}
           {!savedPlan ? (
             <Text style={s.copy}>{t('sharing.unavailable')}</Text>
           ) : null}
-          {onUpdate && !isBuiltInTemplate(template.id) ? (
-            <AppButton
-              title={t('editor.addExercise')}
-              secondary
-              disabled={busy}
-              onPress={() => setEditing(true)}
-            />
+          {canEdit ? (
+            <>
+              {isBuiltInTemplate(template.id) ? (
+                <Text style={s.copy}>{t('sharing.editCopy')}</Text>
+              ) : null}
+              <AppButton
+                title={t('editor.addExercise')}
+                secondary
+                disabled={busy}
+                onPress={() => {
+                  setAdding(true);
+                  setEditing(true);
+                }}
+              />
+            </>
           ) : null}
           <View style={s.row}>
             <View style={s.start}>
@@ -376,10 +455,21 @@ export function SharingHub({
           ) : null}
         </>
       )}
-    </View>
+    </GestureHandlerRootView>
   );
 }
 const s = StyleSheet.create({
+  more: {
+    minWidth: 44,
+    minHeight: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  exerciseHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
   root: { gap: spacing.md },
   title: { ...typography.title1, color: colors.textPrimary },
   name: { ...typography.headline, color: colors.textPrimary },

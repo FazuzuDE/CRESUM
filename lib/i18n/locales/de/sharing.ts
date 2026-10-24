@@ -1,4 +1,6 @@
 export default {
+  'sharing.editCopy':
+    'Änderungen an diesem integrierten Plan werden als eigene Kopie gespeichert.',
   'sharing.manage': 'Trainings verwalten',
   'sharing.title': 'Trainingspläne',
   'sharing.mine': 'Meine Pläne',
