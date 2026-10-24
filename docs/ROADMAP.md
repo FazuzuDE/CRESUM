@@ -188,7 +188,8 @@ reload/resume and populated History identity checks. The storage follow-up verif
 actual discard without losing earlier History. Technique follow-up adds a representative guide, disclosure and START/FINISH
 viewer check with unchanged Core/search state, plus explicit web accessibility
 state. The onboarding follow-up starts from empty storage and verifies a representative
-program acceptance and persisted answers/templates across reload. Broader
+program acceptance and persisted answers/templates across reload. The planned-start follow-up verifies actual first-slot reduction, exact targets
+and reload identity, then standard authored sets on the next slot. Broader
 web/recovery coverage and physical-device checks remain next.
 
 Device/development builds, error handling, store assets/metadata, privacy/permissions, subscriptions/paywall if required, RevenueCat if used, App Store/Google Play preparation.

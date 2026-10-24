@@ -437,6 +437,146 @@ async function main() {
               reloadUnchanged: true,
             };
             await capture('onboarding-reloaded');
+            const planStart = page.getByRole('button', {
+              name: text('plan.start', { key: 'F' }),
+              exact: true,
+            });
+            const readProgramState = () =>
+              page.evaluate(() => ({
+                onboarding: JSON.parse(
+                  localStorage.getItem('cresum_onboarding_v1'),
+                ),
+                program: JSON.parse(
+                  localStorage.getItem('cresum_training_program_v1'),
+                ),
+                core: JSON.parse(localStorage.getItem('fitflow_state_v1')),
+              }));
+            const assertProgramSession = (snapshot, slotIndex, reduced) => {
+              const session = snapshot.core.activeWorkout;
+              const template = assignment.templates[0];
+              assert.equal(session.templateId, template.id);
+              assert.equal(session.name, template.name);
+              assert.equal(session.programSlot.assignmentId, assignment.id);
+              assert.equal(session.programSlot.weekIndex, 0);
+              assert.equal(session.programSlot.slotIndex, slotIndex);
+              assert.deepEqual(
+                session.exercises.map((item) => item.libraryId),
+                template.exerciseIds,
+              );
+              session.exercises.forEach((exercise, index) => {
+                const planned = template.plannedExercises[index];
+                assert.equal(exercise.sets.length, reduced ? 1 : planned.sets);
+                assert.deepEqual(
+                  exercise.target,
+                  planned.target,
+                  'Program targets retain exact authored values',
+                );
+                for (const set of exercise.sets) {
+                  assert.equal(set.weight, '', 'No working weight invented');
+                  assert.equal(
+                    set.reps,
+                    '',
+                    'Targets are not logged repetitions',
+                  );
+                  assert.equal(set.completedAt, undefined);
+                }
+              });
+              assert.deepEqual(
+                snapshot.program,
+                accepted.program,
+                'Starting never mutates the assignment',
+              );
+              assert.deepEqual(snapshot.onboarding, accepted.onboarding);
+              assert.deepEqual(
+                snapshot.core.templates,
+                accepted.core.templates,
+                'Reduction never rewrites saved templates',
+              );
+              assert.deepEqual(snapshot.core.history, []);
+              return session;
+            };
+            const discardProgramSession = async () => {
+              await button('workout.discard').click();
+              await button('workout.keepTraining').waitFor();
+              await page
+                .getByRole('dialog')
+                .getByRole('button', {
+                  name: text('workout.discard'),
+                  exact: true,
+                })
+                .click();
+              await button('workout.keepTraining').waitFor({ state: 'hidden' });
+              assert.deepEqual(
+                await readProgramState(),
+                accepted,
+                'Discard restores unchanged program/Core baseline',
+              );
+              await page
+                .getByRole('tab', { name: contains(text('nav.home')) })
+                .click();
+            };
+            await planStart.click();
+            await page
+              .getByRole('button', {
+                name: text('workout.editWeight', { index: 1 }),
+                exact: true,
+              })
+              .waitFor();
+            const reducedSnapshot = await readProgramState();
+            const reducedSession = assertProgramSession(
+              reducedSnapshot,
+              0,
+              true,
+            );
+            assert.equal(reducedSession.programSlot.date, assignment.startDate);
+            await capture('program-first-session');
+            await page.reload();
+            const programResume = page.getByRole('button', {
+              name: text('home.resume', { name: reducedSession.name }),
+              exact: true,
+            });
+            await programResume.waitFor();
+            assert.deepEqual(
+              await readProgramState(),
+              reducedSnapshot,
+              'Reload retains reduced session identity and targets',
+            );
+            await programResume.click();
+            await button('workout.addSet').waitFor();
+            await capture('program-first-resumed');
+            await discardProgramSession();
+            await page.getByRole('radio').nth(1).click();
+            await planStart.click();
+            await button('workout.addSet').waitFor();
+            const regularSnapshot = await readProgramState();
+            const regularSession = assertProgramSession(
+              regularSnapshot,
+              1,
+              false,
+            );
+            assert.notEqual(regularSession.id, reducedSession.id);
+            assert.ok(
+              regularSession.exercises.some(
+                (exercise) => exercise.sets.length > 1,
+              ),
+              'Only the first slot is reduced',
+            );
+            const secondDate = new Date(`${assignment.startDate}T12:00:00`);
+            secondDate.setDate(secondDate.getDate() + 2);
+            assert.equal(
+              regularSession.programSlot.date,
+              `${secondDate.getFullYear()}-${String(secondDate.getMonth() + 1).padStart(2, '0')}-${String(secondDate.getDate()).padStart(2, '0')}`,
+            );
+            await capture('program-next-session');
+            await discardProgramSession();
+            await capture('program-after-discard');
+            result.programStart = {
+              firstSlotSetsPerExercise: 1,
+              laterSlotUsesAuthoredSets: true,
+              targetsUnchanged: true,
+              reloadIdentityRetained: true,
+              noInventedWeightsOrHistory: true,
+            };
             await capture('home');
             await page
               .getByRole('tab', { name: contains(text('nav.profile')) })

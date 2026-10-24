@@ -568,6 +568,7 @@ export function Workout({
 const s = StyleSheet.create({
   valueCell: { justifyContent: 'center', alignItems: 'center' },
   valueText: {
+    maxWidth: '100%',
     ...typography.title3,
     color: colors.textPrimary,
     fontVariant: ['tabular-nums'],
