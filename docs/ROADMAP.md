@@ -192,6 +192,15 @@ program acceptance and persisted answers/templates across reload. The planned-st
 and reload identity, then standard authored sets on the next slot. Broader
 web/recovery coverage and physical-device checks remain next.
 
+### Completed program cycle → device builds — approved 2026-10-25
+
+Finish the representative planned-workout cycle through recorded sets, full
+completion, History, Progress and program completion markers. Then prioritize
+an installable test build and real iPhone acceptance, followed by Android, before
+unrelated feature expansion. Native acceptance and the remaining web/linguistic
+checks remain prerequisites for locale release. Domain/mail and independent
+disaster recovery remain deferred release tasks.
+
 Device/development builds, error handling, store assets/metadata, privacy/permissions, subscriptions/paywall if required, RevenueCat if used, App Store/Google Play preparation.
 
 ## Later

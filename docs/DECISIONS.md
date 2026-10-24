@@ -2164,3 +2164,11 @@ cancelled drafts/confirmations, rest deadline recovery and exact History identit
 at four locales, two widths and expanded text. Bound long technique/mode labels
 to their controls. Keep locale release flags off; this does not complete native
 or full web acceptance and introduces no storage/schema change.
+
+### 2026-10-25 — Acceptance order before release
+
+User approved completing the planned-workout cycle acceptance first, then an
+installable test build and physical iPhone/Android checks, correction of findings
+and language acceptance. Domain/mail, multi-device sync acceptance, independent
+backup and store preparation remain release work. Do not expand unrelated
+features or equate browser/export success with physical-device acceptance.
