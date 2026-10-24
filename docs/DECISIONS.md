@@ -1,5 +1,12 @@
 # CRESUM Decision Log
 
+- 2026-10-24 implementation checkpoint: continue approved multilingual Task8
+  with a representative 16-case exported-web smoke matrix (four locales,
+  320/390px, normal/expanded labels). Fix reproduced action-label overflow in
+  shared buttons and Exercise Library; preserve exact routine storage and
+  production release flags. This does not close full web/native or linguistic
+  acceptance; see LOCALIZATION.md for evidence and exclusions.
+
 - 2026-10-24: User requested Add Exercise on ready-made plan details and Apple-style
   left-swipe exercise actions. Reuse the existing editor; preserve built-in
   definitions by saving edited plans as personal copies, with an explicit hint.

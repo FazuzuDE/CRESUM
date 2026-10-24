@@ -414,7 +414,12 @@ const s = StyleSheet.create({
   copy: { flex: 1, minWidth: 0, gap: spacing.xs },
   nameCopy: { minHeight: 44, justifyContent: 'center', gap: spacing.xxs },
   techniqueAction: { width: 76, alignItems: 'center', gap: spacing.xxs },
-  techniqueLabel: { ...typography.caption, color: colors.primary },
+  techniqueLabel: {
+    ...typography.caption,
+    color: colors.primary,
+    maxWidth: '100%',
+    textAlign: 'center',
+  },
   statisticsAction: {
     minHeight: 44,
     justifyContent: 'center',
@@ -444,7 +449,12 @@ const s = StyleSheet.create({
     borderRadius: radius.md,
     backgroundColor: colors.primary,
   },
-  addActionText: { ...typography.headline, color: colors.surface },
+  addActionText: {
+    ...typography.headline,
+    color: colors.surface,
+    maxWidth: '100%',
+    textAlign: 'center',
+  },
   disabledAction: { backgroundColor: colors.surfaceSubtle },
   disabledActionText: { color: colors.textSecondary },
   empty: {
