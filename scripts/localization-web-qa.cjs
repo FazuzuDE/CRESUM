@@ -398,6 +398,34 @@ async function main() {
               page.evaluate(() =>
                 JSON.parse(localStorage.getItem('fitflow_state_v1')),
               );
+            // Fault only the real browser persistence boundary, never app logic.
+            const failNextWrite = () =>
+              page.evaluate(() => {
+                const original = Storage.prototype.setItem;
+                window.__cresumQaFaultConsumed = false;
+                Storage.prototype.setItem = function (key, value) {
+                  if (this === localStorage && key === 'fitflow_state_v1') {
+                    Storage.prototype.setItem = original;
+                    window.__cresumQaFaultConsumed = true;
+                    throw Error('QA_STORAGE_FAILURE');
+                  }
+                  return original.call(this, key, value);
+                };
+              });
+            const assertFailureConsumed = async () => {
+              assert.equal(
+                await page.evaluate(() => window.__cresumQaFaultConsumed),
+                true,
+                'The real Core write must consume the injected failure',
+              );
+              assert.equal(
+                await page
+                  .getByText('QA_STORAGE_FAILURE', { exact: false })
+                  .count(),
+                0,
+                'Internal diagnostics stay out of visible UI',
+              );
+            };
             const namedButton = (key, params) =>
               page.getByRole('button', {
                 name: text(key, params),
@@ -443,8 +471,22 @@ async function main() {
             await button('entry.useKeypad').click();
             await exactWeight.fill('12,5');
             await exactReps.fill('8');
+            await failNextWrite();
             await button('entry.saveValues').click();
             await exactWeight.waitFor({ state: 'hidden' });
+            await button('workout.retrySaveLoad').waitFor();
+            await assertFailureConsumed();
+            await page
+              .getByText(text('error.workoutUnsaved'), { exact: true })
+              .waitFor();
+            assert.deepEqual(
+              await state(),
+              started,
+              'Failed set write preserves durable Core',
+            );
+            await capture('set-save-error');
+            await button('workout.retrySaveLoad').click();
+            await button('workout.retrySaveLoad').waitFor({ state: 'hidden' });
             const entered = await state();
             assert.deepEqual(entered.activeWorkout.exercises[0].sets[0], {
               id: session.exercises[0].sets[0].id,
@@ -505,6 +547,19 @@ async function main() {
               'Finish cancel preserves Core',
             );
             await button('workout.finish').click();
+            await failNextWrite();
+            await button('workout.finishSave').click();
+            await page
+              .getByText(text('error.workoutSave'), { exact: false })
+              .first()
+              .waitFor();
+            await assertFailureConsumed();
+            assert.deepEqual(
+              await state(),
+              resting,
+              'Failed Finish preserves active workout',
+            );
+            await capture('finish-save-error');
             await button('workout.finishSave').click();
             await button('common.done').waitFor();
             const finished = await state();
@@ -558,6 +613,67 @@ async function main() {
               'Reload never duplicates History',
             );
             await capture('history-reloaded');
+            // Delete a second active workout, preserving the completed first one.
+            await page
+              .getByRole('tab', { name: contains(text('nav.profile')) })
+              .click();
+            await button('profile.workouts', false).click();
+            await page
+              .getByRole('button', { name: 'QA-localized-plan', exact: true })
+              .click();
+            await button('sharing.start').click();
+            await editFirst.waitFor();
+            const second = await state();
+            assert.notEqual(second.activeWorkout.id, session.id);
+            assert.deepEqual(second.history, finished.history);
+            await button('workout.discard').click();
+            await button('workout.keepTraining').waitFor();
+            await failNextWrite();
+            const confirmDiscard = page
+              .getByRole('dialog')
+              .getByRole('button', {
+                name: text('workout.discard'),
+                exact: true,
+              });
+            await confirmDiscard.click();
+            await page
+              .getByText(text('error.workoutDiscard'), { exact: false })
+              .first()
+              .waitFor();
+            await assertFailureConsumed();
+            assert.deepEqual(
+              await state(),
+              second,
+              'Failed discard preserves active workout',
+            );
+            await capture('discard-error');
+            await confirmDiscard.click();
+            await button('workout.keepTraining').waitFor({ state: 'hidden' });
+            const discarded = await state();
+            assert.equal(discarded.activeWorkout, null);
+            assert.deepEqual(
+              discarded.history,
+              finished.history,
+              'Discard preserves History',
+            );
+            assert.deepEqual(
+              discarded.templates,
+              finished.templates,
+              'Discard preserves plans',
+            );
+            await capture('discarded');
+            await page.reload();
+            await page
+              .getByRole('tab', { name: contains(text('nav.progress')) })
+              .click();
+            await openHistory.click();
+            await button('history.back').waitFor();
+            assert.deepEqual(
+              await state(),
+              discarded,
+              'Discard survives reload without History duplication',
+            );
+            await capture('discard-reloaded-history');
             result.workout = {
               completedSets: 1,
               plannedSets: 4,
@@ -565,6 +681,10 @@ async function main() {
               reps: first.reps,
               reloadPreservedRestDeadline: true,
               historyRecords: finished.history.length,
+              setWriteRetry: true,
+              finishWriteRetry: true,
+              discardWriteRetry: true,
+              discardedSessionAbsentAfterReload: true,
             };
             await button('history.back').click();
             await page

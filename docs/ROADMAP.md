@@ -184,8 +184,9 @@ Continue the approved multilingual Task8 with a repeatable real-export browser
 matrix: EN/RU/DE/FR, 320/390 px and expanded text. The focused follow-up adds the
 runner and fixes reproduced Profile action-label overflow. This does not close
 full web/native acceptance or activate target-language release flags. The next focused follow-up adds workout/set/rest, cancelled destructive actions,
-reload/resume and populated History identity checks. Broader recovery coverage
-and physical-device checks remain next.
+reload/resume and populated History identity checks. The storage follow-up verifies one-shot browser write failures/retries and
+actual discard without losing earlier History. Broader recovery coverage and
+physical-device checks remain next.
 
 Device/development builds, error handling, store assets/metadata, privacy/permissions, subscriptions/paywall if required, RevenueCat if used, App Store/Google Play preparation.
 
