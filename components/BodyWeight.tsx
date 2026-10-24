@@ -94,16 +94,18 @@ export function BodyWeight({
         <Text accessibilityRole="header" style={s.heading}>
           {t('body.title')}
         </Text>
-        <AppButton
-          title={t('body.add')}
-          presentation="text"
-          disabled={busy}
-          onPress={() => {
-            setValue('');
-            setProblem('');
-            setAdding(true);
-          }}
-        />
+        <View style={s.addAction}>
+          <AppButton
+            title={t('body.add')}
+            presentation="text"
+            disabled={busy}
+            onPress={() => {
+              setValue('');
+              setProblem('');
+              setAdding(true);
+            }}
+          />
+        </View>
       </View>
       <Text style={s.sub}>{t('body.recorded')}</Text>
       {error ? (
@@ -232,6 +234,7 @@ export function BodyWeight({
   );
 }
 const s = StyleSheet.create({
+  addAction: { maxWidth: '100%' },
   card: { gap: spacing.sm, borderRadius: radius.xxl },
   heading: { ...progressTypography.sectionTitle, color: colors.textEmphasis },
   row: {

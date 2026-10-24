@@ -2156,3 +2156,11 @@ gateway source limiting is configured; see WORKOUT_SHARING.md for the tradeoff.
 - 2026-10-23: Approved direct Profile WORKOUTS → Workout plans navigation, existing
   editor via Create Workout, preserved library and plan-detail Start/Share actions.
   Existing management remains secondary; active Workout tab is unchanged.
+
+### 2026-10-24 — Localized workout recovery smoke
+
+Continue approved multilingual Task8 with real-export workout recording,
+cancelled drafts/confirmations, rest deadline recovery and exact History identity
+at four locales, two widths and expanded text. Bound long technique/mode labels
+to their controls. Keep locale release flags off; this does not complete native
+or full web acceptance and introduces no storage/schema change.

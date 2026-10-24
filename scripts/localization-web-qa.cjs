@@ -263,7 +263,7 @@ async function main() {
           const text = (key, params = {}) => {
             assert.equal(typeof catalog[key], 'string', key);
             return catalog[key].replace(
-              /{{(\w+)}}/g,
+              /{{(\w+)(?:,\s*number)?}}/g,
               (_, name) => params[name] ?? `{{${name}}}`,
             );
           };
@@ -394,7 +394,179 @@ async function main() {
               localStorage.getItem('fitflow_state_v1'),
             );
             assertQaPlan(raw);
-            await button('sharing.close').click();
+            const state = () =>
+              page.evaluate(() =>
+                JSON.parse(localStorage.getItem('fitflow_state_v1')),
+              );
+            const namedButton = (key, params) =>
+              page.getByRole('button', {
+                name: text(key, params),
+                exact: true,
+              });
+            const editFirst = namedButton('workout.editWeight', { index: 1 });
+            const exactWeight = page.getByRole('textbox', {
+              name: text('entry.exactWeight'),
+              exact: true,
+            });
+            const exactReps = page.getByRole('textbox', {
+              name: text('entry.exactReps'),
+              exact: true,
+            });
+            await page
+              .getByRole('button', { name: 'QA-localized-plan', exact: true })
+              .click();
+            await button('sharing.start').click();
+            await editFirst.waitFor();
+            const started = await state();
+            const session = started.activeWorkout;
+            assert.equal(session.name, 'QA-localized-plan');
+            assert.equal(session.exercises.length, 1);
+            assert.equal(
+              session.exercises[0].libraryId,
+              'dumbbell-lateral-raise',
+            );
+            assert.equal(session.exercises[0].name, 'Dumbbell Lateral Raise');
+            assert.equal(session.exercises[0].sets.length, 4);
+            await capture('workout');
+
+            // Cancel discards only the draft, never the persisted session values.
+            await editFirst.click();
+            await button('entry.useKeypad').click();
+            await exactWeight.fill('99,5');
+            await exactReps.fill('7');
+            await capture('set-draft');
+            await button('entry.cancelLabel').click();
+            await exactWeight.waitFor({ state: 'hidden' });
+            assert.deepEqual(await state(), started, 'Cancel preserves Core');
+
+            await editFirst.click();
+            await button('entry.useKeypad').click();
+            await exactWeight.fill('12,5');
+            await exactReps.fill('8');
+            await button('entry.saveValues').click();
+            await exactWeight.waitFor({ state: 'hidden' });
+            const entered = await state();
+            assert.deepEqual(entered.activeWorkout.exercises[0].sets[0], {
+              id: session.exercises[0].sets[0].id,
+              weight: '12.5',
+              reps: '8',
+            });
+            await page
+              .getByRole('checkbox', {
+                name: text('workout.completeNamed', { index: 1 }),
+                exact: true,
+              })
+              .click();
+            await button('workout.skipRest').waitFor();
+            const resting = await state();
+            const first = resting.activeWorkout.exercises[0].sets[0];
+            assert.equal(first.weight, '12.5');
+            assert.equal(first.reps, '8');
+            assert.equal(typeof first.completedAt, 'number');
+            assert.equal(typeof resting.activeWorkout.restEndsAt, 'number');
+            assert.equal(resting.activeWorkout.id, session.id);
+            assert.deepEqual(resting.history, []);
+            await capture('rest');
+
+            await button('workout.discard').click();
+            await button('workout.keepTraining').waitFor();
+            await capture('workout-discard-cancel');
+            await button('workout.keepTraining').click();
+            await editFirst.waitFor();
+            assert.deepEqual(
+              await state(),
+              resting,
+              'Discard cancel preserves Core',
+            );
+
+            await page.reload();
+            const resume = namedButton('home.resume', {
+              name: 'QA-localized-plan',
+            });
+            await resume.waitFor();
+            assert.deepEqual(
+              await state(),
+              resting,
+              'Reload preserves session and rest deadline',
+            );
+            await capture('resume');
+            await resume.click();
+            await button('workout.skipRest').waitFor();
+            await capture('recovered-rest');
+            assert.deepEqual(await state(), resting, 'Resume preserves Core');
+            await button('workout.finish').click();
+            await button('workout.keepTraining').waitFor();
+            await capture('finish-cancel');
+            await button('workout.keepTraining').click();
+            await button('workout.finish').waitFor();
+            assert.deepEqual(
+              await state(),
+              resting,
+              'Finish cancel preserves Core',
+            );
+            await button('workout.finish').click();
+            await button('workout.finishSave').click();
+            await button('common.done').waitFor();
+            const finished = await state();
+            assert.equal(finished.activeWorkout, null);
+            assert.equal(
+              finished.history.length,
+              1,
+              'Finish creates exactly one record',
+            );
+            const savedWorkout = finished.history[0];
+            assert.equal(savedWorkout.id, session.id);
+            assert.equal(typeof savedWorkout.finishedAt, 'number');
+            assert.ok(savedWorkout.finishedAt >= session.startedAt);
+            const { finishedAt, ...savedSession } = savedWorkout;
+            // Finish clears rest state; every exercise/set snapshot stays exact.
+            const { restEndsAt, ...expectedSession } = resting.activeWorkout;
+            assert.deepEqual(
+              savedSession,
+              expectedSession,
+              'Exact saved workout',
+            );
+            assert.deepEqual(
+              finished.templates,
+              started.templates,
+              'Plans unchanged',
+            );
+            await capture('finished');
+            await button('common.done').click();
+            const openHistory = namedButton('history.open', {
+              name: 'QA-localized-plan',
+            });
+            await openHistory.click();
+            await button('history.back').waitFor();
+            const expectedSet = text('history.set', {
+              index: 1,
+              weight: locale === 'en' ? '12.5' : '12,5',
+              reps: '8',
+            });
+            await page.getByText(expectedSet, { exact: true }).waitFor();
+            await capture('history-detail');
+            await page.reload();
+            await page
+              .getByRole('tab', { name: contains(text('nav.progress')) })
+              .click();
+            await openHistory.click();
+            await button('history.back').waitFor();
+            await page.getByText(expectedSet, { exact: true }).waitFor();
+            assert.deepEqual(
+              await state(),
+              finished,
+              'Reload never duplicates History',
+            );
+            await capture('history-reloaded');
+            result.workout = {
+              completedSets: 1,
+              plannedSets: 4,
+              weight: first.weight,
+              reps: first.reps,
+              reloadPreservedRestDeadline: true,
+              historyRecords: finished.history.length,
+            };
+            await button('history.back').click();
             await page
               .getByRole('tab', { name: contains(text('nav.progress')) })
               .click();
