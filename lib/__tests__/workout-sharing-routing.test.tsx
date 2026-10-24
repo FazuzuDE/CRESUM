@@ -1,3 +1,4 @@
+import { TextInput } from 'react-native';
 import { TemplateEditor } from '../../components/TemplateEditor';
 import { SharingHub } from '../../components/workout-sharing/SharingHub';
 import { AppButton } from '../../components/AppButton';
@@ -50,6 +51,140 @@ test('saved plan exposes start independently from square share action', async ()
       .props.onPress(),
   );
   expect(starts).toBe(1);
+  await act(async () => view!.unmount());
+});
+
+test('built-in plan opens the exercise library and saves changes as a selected personal copy', async () => {
+  const copy = {
+    ...defaultTemplates[0],
+    id: 'personal-upper',
+    name: 'Personal upper',
+  };
+  let view: ReturnType<typeof create>;
+  const props = {
+    templates: [...defaultTemplates, copy],
+    busy: false,
+    client: null,
+    signedIn: false,
+    onClose: () => {},
+    onImport: async () => {
+      throw Error();
+    },
+    onStart: () => {},
+    onContinue: () => {},
+    hasActiveWorkout: false,
+    initialTemplate: defaultTemplates[0],
+    onCreate: async () => ({ ok: true as const, template: copy }),
+    onUpdate: async () => {
+      throw Error('Built-in must not be overwritten');
+    },
+  };
+  await act(async () => {
+    view = create(<SharingHub {...props} />);
+  });
+  const swipe = view!.root.findAll(
+    (node: any) => typeof node.props.renderRightActions === 'function',
+  )[0];
+  await act(async () => swipe.props.renderRightActions().props.onPress());
+  expect(
+    view!.root
+      .findAllByType(TextInput)
+      .find((n: any) => n.props.accessibilityLabel === 'Planned sets'),
+  ).toBeDefined();
+  expect(view!.root.findByType(TemplateEditor).props.initialExerciseId).toBe(
+    defaultTemplates[0].exerciseIds[0],
+  );
+  await act(async () => view!.root.findByType(TemplateEditor).props.onCancel());
+  await act(async () =>
+    view!.root
+      .findAllByType(AppButton)
+      .find((b: any) => b.props.title === 'Add Exercise')!
+      .props.onPress(),
+  );
+  expect(view!.root.findByType(TemplateEditor).props.initialStep).toBe(
+    'library',
+  );
+  await act(async () =>
+    view!.root.findByType(TemplateEditor).props.onSave({
+      name: copy.name,
+      exerciseIds: copy.exerciseIds,
+    }),
+  );
+  expect(JSON.stringify(view!.toJSON())).toContain('Personal upper');
+  expect(defaultTemplates[0].id).toBe('upper');
+  await act(async () => view!.unmount());
+});
+
+test('custom plan edits the swiped exercise and retains its draft after a failed save', async () => {
+  const template = {
+    ...defaultTemplates[0],
+    id: 'custom-plan',
+    name: 'My plan',
+  };
+  const exerciseId = template.exerciseIds[1];
+  let attempt = 0;
+  let saved: any;
+  let view: ReturnType<typeof create>;
+  await act(async () => {
+    view = create(
+      <SharingHub
+        templates={[template]}
+        busy={false}
+        client={null}
+        signedIn={false}
+        onClose={() => {}}
+        onImport={async () => {
+          throw Error();
+        }}
+        onStart={() => {}}
+        onContinue={() => {}}
+        hasActiveWorkout={false}
+        initialTemplate={template}
+        onUpdate={async (id, draft) => {
+          expect(id).toBe(template.id);
+          saved = draft;
+          attempt++;
+          return attempt === 1
+            ? { ok: false, error: 'disk' }
+            : { ok: true, template: { ...template, ...draft } };
+        }}
+      />,
+    );
+  });
+  const swipeActions = [
+    ...new Set(
+      view!.root
+        .findAll((n: any) => typeof n.props.renderRightActions === 'function')
+        .map((n: any) => n.props.renderRightActions),
+    ),
+  ] as (() => any)[];
+  await act(async () => swipeActions[1]().props.onPress());
+  expect(view!.root.findByType(TemplateEditor).props.initialExerciseId).toBe(
+    exerciseId,
+  );
+  const sets = view!.root
+    .findAllByType(TextInput)
+    .find((n: any) => n.props.accessibilityLabel === 'Planned sets');
+  await act(async () => sets.props.onChangeText('5'));
+  const press = async (title: string) =>
+    act(async () =>
+      view!.root
+        .findAllByType(AppButton)
+        .find((b: any) => b.props.title === title)!
+        .props.onPress(),
+    );
+  await press('Update Exercise');
+  await press('Save Workout');
+  expect(JSON.stringify(view!.toJSON())).toContain(
+    'Workout could not be saved. Try again.',
+  );
+  expect(
+    saved.plannedExercises.find((e: any) => e.exerciseId === exerciseId).sets,
+  ).toBe(5);
+  expect(saved.exerciseIds).toEqual(template.exerciseIds);
+  await press('Save Workout');
+  expect(view!.root.findAllByType(TemplateEditor)).toHaveLength(0);
+  expect(attempt).toBe(2);
   await act(async () => view!.unmount());
 });
 

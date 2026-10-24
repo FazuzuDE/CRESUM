@@ -1,4 +1,6 @@
 export default {
+  'sharing.editCopy':
+    'Les modifications de ce programme intégré seront enregistrées dans votre propre copie.',
   'sharing.manage': 'Gérer les entraînements',
   'sharing.title': 'Plans d’entraînement',
   'sharing.mine': 'Mes plans',

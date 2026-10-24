@@ -1,5 +1,12 @@
 # CRESUM Design System v1.0
 
+### Saved-plan exercise actions — requested 2026-10-24
+
+Place Add Exercise above the existing Start/Share row for saved plans, including
+built-ins through personal-copy creation. Left swipe reveals Edit; keep an
+accessible 44×44 visible menu action for each exercise. Edit opens the selected exercise configuration. Reuse existing swipe primitives,
+theme tokens and editor confirmation behavior.
+
 **Status:** approved baseline for CRESUM Core
 **Stack:** React Native + Expo + TypeScript  
 **Direction:** Light Premium / Apple-inspired iOS UI  

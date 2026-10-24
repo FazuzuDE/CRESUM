@@ -1,4 +1,6 @@
 export default {
+  'sharing.editCopy':
+    'Изменения встроенного плана сохранятся в вашей личной копии.',
   'sharing.manage': 'Управление тренировками',
   'sharing.title': 'Планы тренировок',
   'sharing.mine': 'Мои планы',

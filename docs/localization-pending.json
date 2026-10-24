@@ -1531,85 +1531,91 @@
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 54,
+    "line": 62,
+    "text": "configure",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/VariableDeclaration/VariableDeclarationList"
+  },
+  {
+    "file": "components/TemplateEditor.tsx",
+    "line": 63,
     "text": "name",
-    "context": "StringLiteral/ConditionalExpression/CallExpression/VariableDeclaration/VariableDeclarationList"
+    "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/ParenthesizedExpression"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 54,
+    "line": 63,
     "text": "composition",
-    "context": "StringLiteral/ConditionalExpression/CallExpression/VariableDeclaration/VariableDeclarationList"
+    "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/ParenthesizedExpression"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 74,
+    "line": 96,
     "text": "composition",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/Block"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 74,
+    "line": 96,
     "text": "library",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/Block"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 148,
+    "line": 170,
     "text": "composition",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/IfStatement"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 148,
+    "line": 170,
     "text": "library",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/IfStatement"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 150,
+    "line": 172,
     "text": "composition",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/IfStatement"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 150,
+    "line": 172,
     "text": "name",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/IfStatement"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 158,
+    "line": 180,
     "text": "error.editorEmpty",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/Block"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 160,
+    "line": 182,
     "text": "error.editorUnavailable",
     "context": "StringLiteral/ConditionalExpression/ConditionalExpression/CallExpression/ExpressionStatement"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 161,
+    "line": 183,
     "text": "error.editorReview",
     "context": "StringLiteral/ConditionalExpression/ConditionalExpression/CallExpression/ExpressionStatement"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 172,
+    "line": 194,
     "text": "error.editorMissing",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/IfStatement"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 173,
+    "line": 195,
     "text": "error.editorSave",
     "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/IfStatement"
   },
   {
     "file": "components/TemplateEditor.tsx",
-    "line": 301,
+    "line": 323,
     "text": "`${id}-${index}`",
     "context": "TemplateExpression/JsxExpression/JsxAttribute:key/JsxAttributes/JsxOpeningElement"
   },
@@ -2185,13 +2191,25 @@
   },
   {
     "file": "components/workout-sharing/SharingHub.tsx",
-    "line": 293,
+    "line": 173,
+    "text": "library",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:initialStep/JsxAttributes"
+  },
+  {
+    "file": "components/workout-sharing/SharingHub.tsx",
+    "line": 173,
+    "text": "composition",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:initialStep/JsxAttributes"
+  },
+  {
+    "file": "components/workout-sharing/SharingHub.tsx",
+    "line": 372,
     "text": "sharing.continue",
     "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
   },
   {
     "file": "components/workout-sharing/SharingHub.tsx",
-    "line": 293,
+    "line": 372,
     "text": "sharing.start",
     "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
   },

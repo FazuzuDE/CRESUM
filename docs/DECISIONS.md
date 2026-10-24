@@ -1,5 +1,9 @@
 # CRESUM Decision Log
 
+- 2026-10-24: User requested Add Exercise on ready-made plan details and Apple-style
+  left-swipe exercise actions. Reuse the existing editor; preserve built-in
+  definitions by saving edited plans as personal copies, with an explicit hint.
+
 ## 2026-10-22 — Four-language automated coverage and acceptance gates
 
 After merged #73/#74, complete the automated localization acceptance checkpoint.

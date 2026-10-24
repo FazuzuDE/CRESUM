@@ -29,6 +29,8 @@ import type { MessageKey } from '@/lib/i18n/messages';
 type Props = {
   mode: 'create' | 'edit';
   template?: WorkoutTemplate;
+  initialStep?: 'library' | 'composition';
+  initialExerciseId?: string;
   busy: boolean;
   onSave: (draft: TemplateDraft) => Promise<TemplateMutationResult>;
   onCancel: () => void;
@@ -47,13 +49,33 @@ export function TemplateEditor({
   busy,
   onSave,
   onCancel,
+  initialStep,
+  initialExerciseId,
 }: Props) {
   const { t, locale } = useLocalization();
   const [draft, setDraft] = useState(() => createTemplateDraft(template));
+  const selectedExercise = draft.exerciseIds.includes(initialExerciseId ?? '')
+    ? initialExerciseId
+    : undefined;
   const [step, setStep] = useState<Step>(
-    mode === 'create' ? 'name' : 'composition',
+    selectedExercise
+      ? 'configure'
+      : (initialStep ?? (mode === 'create' ? 'name' : 'composition')),
   );
-  const [configuration, setConfiguration] = useState<Configuration>();
+  const [configuration, setConfiguration] = useState<Configuration | undefined>(
+    () => {
+      if (!selectedExercise) return undefined;
+      const planned = draft.plannedExercises?.find(
+        (item) => item.exerciseId === selectedExercise,
+      );
+      return {
+        exerciseId: selectedExercise,
+        sets: String(planned?.sets ?? 3),
+        weight: planned?.weight ?? '',
+        editing: true,
+      };
+    },
+  );
   const [saving, setSaving] = useState(false);
   const [confirmCancel, setConfirmCancel] = useState(false);
   const [error, setError] = useState<

@@ -1,4 +1,6 @@
 export default {
+  'sharing.editCopy':
+    'Changes to this built-in plan will be saved as your own copy.',
   'sharing.manage': 'Manage workouts',
   'sharing.title': 'Workout plans',
   'sharing.mine': 'My plans',
