@@ -201,6 +201,11 @@ unrelated feature expansion. Native acceptance and the remaining web/linguistic
 checks remain prerequisites for locale release. Domain/mail and independent
 disaster recovery remain deferred release tasks.
 
+Internal-build preparation now supplies offline `preview` (physical iPhone/Android
+APK) and `preview-simulator` profiles plus the [device-build handoff](DEVICE_BUILDS.md).
+Expo account/project ownership, Apple membership/device provisioning and actual
+cloud compilation/install remain pending; no binary or phone pass is claimed.
+
 Device/development builds, error handling, store assets/metadata, privacy/permissions, subscriptions/paywall if required, RevenueCat if used, App Store/Google Play preparation.
 
 ## Later

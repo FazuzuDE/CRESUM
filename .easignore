@@ -1,0 +1,28 @@
+node_modules/
+.expo/
+dist/
+coverage/
+.npm-cache/
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.mobileprovision
+*.jks
+*.keystore
+credentials.json
+.DS_Store
+Thumbs.db
+/android/
+/ios/
+.tools/
+
+# Local Supabase CLI cache; no deployment state in source control.
+supabase/.temp/
+
+# Local execution notes and generated browser evidence are not build inputs.
+.superpowers/
+docs/qa/
