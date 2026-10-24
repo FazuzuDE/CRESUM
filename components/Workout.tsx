@@ -581,7 +581,12 @@ const s = StyleSheet.create({
   },
   exerciseName: { flex: 1, minWidth: 0 },
   techniqueEntry: { width: 76, alignItems: 'center', gap: spacing.xxs },
-  techniqueLabel: { ...typography.caption, color: colors.primary },
+  techniqueLabel: {
+    ...typography.caption,
+    color: colors.primary,
+    maxWidth: '100%',
+    textAlign: 'center',
+  },
   content: {
     padding: spacing.md,
     gap: spacing.lg,

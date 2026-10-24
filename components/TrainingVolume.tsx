@@ -539,8 +539,12 @@ const s = StyleSheet.create({
     color: colors.textSecondary,
     textAlign: 'center',
   },
-  viewAll: { minHeight: 44, justifyContent: 'center' },
-  viewAllText: { ...typography.footnote, color: colors.primary },
+  viewAll: { minHeight: 44, justifyContent: 'center', maxWidth: '100%' },
+  viewAllText: {
+    ...typography.footnote,
+    color: colors.primary,
+    maxWidth: '100%',
+  },
   pressed: { opacity: 0.6 },
   sheet: {
     flex: 1,

@@ -295,7 +295,7 @@ responses. Expanded runs replace only the served catalogs; original exports and
 the production registry are not rewritten. Each browser context starts with
 isolated test storage and no real account. The report retains the original
 export hash and browser version. This is a representative smoke matrix, not full
-web acceptance: onboarding/program/technique, populated History/charts, every
+web acceptance: onboarding/program/technique, complete chart coverage, every
 destructive/retry route, native layout/keyboard/screen readers and independent
 linguistic review remain outside this runner. All web/native acceptance booleans
 and RU/DE/FR release flags remain false.
@@ -343,3 +343,27 @@ external exclusions. No runtime translation network requests are permitted.
 The planned 30-language expansion uses the same contracts. Additional locales
 require complete catalogs, script/layout review and physical-device acceptance;
 RTL behavior is not certified by the initial four LTR languages.
+
+## Workout recovery browser follow-up — 2026-10-24
+
+The same 16-case real-export matrix now also records a workout from the saved
+QA plan. It cancels a changed set draft, saves decimal-comma input as `12.5`
+with eight repetitions, completes one of four sets, cancels discard, reloads
+and resumes the identical session and rest deadline. It cancels Finish before
+saving, compares the full saved exercise/set snapshot, and reopens populated
+History after another reload to reject duplicate records. Saved plans remain
+unchanged. These cases use isolated local test data, never a real account.
+
+Expanded text reproduced overflow in the Workout technique caption and German
+set-editor mode/cancel labels at 320px, as well as populated Progress actions
+for viewing workouts and adding a body-weight measurement. Their text now wraps within the existing control
+width, retaining typography and touch targets. Evidence for the extended matrix
+is recorded in [the report](qa/2026-10-24-workout-recovery/report.json):
+16/16 cases and 304 checkpoints passed with no recorded runtime errors or
+external requests. The baseline commit plus export hash identify the tested
+bundle, including the local layout fixes; this is not a released build.
+
+This remains representative browser smoke. It does not certify actual destructive
+workout deletion, storage-error retries, native timer/background behavior,
+image compositing, complete web coverage or linguistic/accessibility acceptance.
+All production language and acceptance flags remain unchanged.
