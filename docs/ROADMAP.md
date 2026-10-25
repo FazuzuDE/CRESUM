@@ -1,5 +1,22 @@
 # CRESUM — Development Roadmap
 
+### Exercise equipment picker and illustrations — approved 2026-10-25
+
+User approved the contextual attachment row and bottom-sheet picker, conditional
+no-accessory baseline, and attachment-grouped set configuration. Deliver focused
+increments: (1) register the compact ergonomic attachment as a new exact variant
+and review/export its existing image pair plus attachment thumbnail; (2) add
+compatible configuration selection; (3) preserve ordered variant blocks and
+per-set prescriptions across editing, sessions, History and supported transfer
+paths; (4) complete localized phone-size and regression checks. Exact medium/wide
+ergonomic configurations and their artwork remain pending, rather than inferred
+from their length. Existing generic and V-handle identities remain unchanged.
+
+The documentation records approval; it does not mark product code, asset QA or
+device acceptance complete. The existing device-build/release work remains open.
+See [design](superpowers/specs/2026-10-25-exercise-equipment-picker-design.md)
+and proposed [implementation plan](superpowers/plans/2026-10-25-exercise-equipment-picker.md).
+
 This is priority guidance, not a claim that items are unimplemented. Inspect the repository first.
 
 ## Objective

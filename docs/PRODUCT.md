@@ -1,5 +1,33 @@
 # CRESUM — Product Definition
 
+### Exercise equipment selection and grouped sets — approved 2026-10-25
+
+An exercise configuration shows its selected attachment as one tappable row
+with an image, name and grip summary. Tapping opens a bottom sheet containing
+compatible reviewed configurations; selecting one closes the sheet and updates
+the draft's technique, equipment image and exact-variant START/FINISH pair.
+Remove the duplicate permanent short/medium/wide selector. Preserve entered
+configuration drafts and already-added sets when browsing another attachment.
+
+Optional accessories have a baseline **Without additional accessories** option.
+Required attachments cannot be omitted. If accessories do not apply, show
+**Additional accessories not required** without an empty picker; integral machine
+handles are described as integral. Primary equipment remains required when an
+optional accessory is omitted. One available configuration does not need a picker.
+
+The user can add two sets for one attachment, configure another and add its
+sets, then add the sequence to a workout as one exercise/station card. Each
+ordered attachment block retains its exact exercise identity and individual
+weights/repetitions. Previous performance and strength records remain specific
+to that variant; completed sets contribute once to totals and factual muscle
+participation. Explicit grouping does not merge unrelated exercises or rewrite
+historical snapshots. Unsupported medium/wide ergonomic attachments remain
+unavailable until their exact geometry, grip and mechanics have been reviewed.
+
+This approves product/UX behavior, not a claim that it has shipped or that
+every prototype image is a production asset. See the [design](superpowers/specs/2026-10-25-exercise-equipment-picker-design.md)
+and proposed [implementation plan](superpowers/plans/2026-10-25-exercise-equipment-picker.md).
+
 ### Saved-plan exercise editing — requested 2026-10-24
 
 Saved plan details expose Add Exercise and a left-swipe Edit action, with an

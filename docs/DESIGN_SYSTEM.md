@@ -1,5 +1,29 @@
 # CRESUM Design System v1.0
 
+### Contextual exercise equipment picker — approved 2026-10-25
+
+Use the attachment summary beneath the phase control as one full-width,
+minimum 44-point press target: equipment thumbnail, name, short grip summary
+and a trailing chevron. Use a contextual label such as Handle, Bar or Cuff.
+Open an accessible bottom sheet with an image/name/grip row for each compatible
+reviewed choice and a selected checkmark. Selection closes the sheet; dismiss,
+back and Cancel keep the prior selection. Restore focus to the initiating row.
+Do not duplicate this with permanent short/medium/wide buttons below it.
+
+When optional, first offer **Without additional accessories**; when no
+accessories apply, show **Additional accessories not required** as noninteractive
+text. Never imply that required primary equipment or a mandatory attachment
+can be omitted. Describe integral handles without a redundant picker. With a
+single available configuration, retain the equipment information without a
+selection affordance. Keep all copy and spoken labels localized in EN/RU/DE/FR.
+
+Below configuration, keep set count, weight and repetitions directly editable.
+The workout presents one exercise/station card with ordered attachment headers,
+equipment images, set rows and explicit attachment-change cues. The approved
+prototype demonstrates the layout; medium/wide ergonomic rows in it are examples,
+not reviewed production configurations. Preserve light CRESUM tokens, white
+artwork backgrounds, readable numbers, Dynamic Type and 320/390-point layouts.
+
 ### Saved-plan exercise actions — requested 2026-10-24
 
 Place Add Exercise above the existing Start/Share row for saved plans, including
