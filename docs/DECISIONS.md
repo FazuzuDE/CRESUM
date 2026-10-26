@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-26 — V-handle thumbnail approved
+
+The user approved the generated isolated chrome close-neutral double-grip
+attachment. Integrate the transparent thumbnail under the existing exact
+`lat-pulldown-close-neutral-v-handle` ID and preserve its prompt/reference/hash
+provenance. This approval covers equipment appearance only, not athlete grip,
+START/FINISH or new muscle emphasis. Keep those technique assets pending and
+all stored exercise identities unchanged.
+
 ## 2026-10-25 — Contextual attachment picker and grouped sets approved
 
 Status: Approved — documented on a focused branch; integration pending.
