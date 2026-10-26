@@ -102,7 +102,7 @@ export async function parseLocalBackup(text: string): Promise<PreparedBackup> {
     if (
       !object(envelope) ||
       envelope.format !== 'cresum-local-backup' ||
-      envelope.version !== 1 ||
+      (envelope.version !== 1 && envelope.version !== 2) ||
       typeof envelope.createdAt !== 'number' ||
       !Number.isFinite(envelope.createdAt) ||
       envelope.createdAt < 0 ||
@@ -166,7 +166,15 @@ export async function createLocalBackup(
   );
   const text = JSON.stringify({
     format: 'cresum-local-backup',
-    version: 1,
+    version:
+      workouts.templates.some((t) =>
+        t.plannedExercises?.some((e) => e.exerciseGroup || e.plannedSets),
+      ) ||
+      [workouts.activeWorkout, ...workouts.history].some((w) =>
+        w?.exercises.some((e) => e.exerciseGroup),
+      )
+        ? 2
+        : 1,
     createdAt: now,
     data,
   });

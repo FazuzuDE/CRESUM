@@ -11,7 +11,16 @@ import {
 import { canonicalExerciseId } from './exercise-library';
 import { AppError } from './app-error';
 import { muscleLabel } from './exercise-taxonomy';
-import { normalizePlannedWeight, validPlannedSets } from './planned-exercise';
+import {
+  normalizePlannedWeight,
+  validPlannedSets,
+  validPlannedExerciseShape,
+} from './planned-exercise';
+import {
+  moveGroupedItems,
+  validateExerciseGroupMembers,
+  validGroupSequence,
+} from './exercise-groups';
 
 const clone = <T>(value: T): T => JSON.parse(JSON.stringify(value)) as T;
 
@@ -24,24 +33,40 @@ export const createExercise = (
   exercise: LibraryExercise,
   idFactory: IdFactory = defaultIdFactory,
   planned?: PlannedExercise,
-): WorkoutExercise => ({
-  id: idFactory(),
-  libraryId: exercise.id,
-  name: exercise.name,
-  muscle: muscleLabel(exercise.primaryMuscles[0]),
-  ...(planned?.target ? { target: clone(planned.target) } : {}),
-  sets: Array.from(
-    { length: planned && validPlannedSets(planned.sets) ? planned.sets : 3 },
-    () => ({
-      id: idFactory(),
-      weight: planned?.weight
-        ? (normalizePlannedWeight(planned.weight) ?? '')
-        : '',
-      reps: exercise.perSide || planned?.target ? '' : '10',
-      ...(exercise.perSide ? { otherSideReps: '' } : {}),
-    }),
-  ),
-});
+): WorkoutExercise => {
+  if (
+    (planned?.plannedSets || planned?.exerciseGroup) &&
+    !validPlannedExerciseShape(planned)
+  )
+    throw new AppError('invalid_set_values', 'Invalid planned exercise rows.');
+  return {
+    id: idFactory(),
+    libraryId: exercise.id,
+    name: exercise.name,
+    muscle: muscleLabel(exercise.primaryMuscles[0]),
+    ...(planned?.exerciseGroup
+      ? { exerciseGroup: clone(planned.exerciseGroup) }
+      : {}),
+    ...(planned?.target ? { target: clone(planned.target) } : {}),
+    sets: Array.from(
+      { length: planned && validPlannedSets(planned.sets) ? planned.sets : 3 },
+      (_, index) => ({
+        id: idFactory(),
+        weight: planned?.plannedSets
+          ? planned.plannedSets[index].weight
+            ? (normalizePlannedWeight(planned.plannedSets[index].weight!) ?? '')
+            : ''
+          : planned?.weight
+            ? (normalizePlannedWeight(planned.weight) ?? '')
+            : '',
+        reps:
+          planned?.plannedSets?.[index].reps ??
+          (exercise.perSide || planned?.target ? '' : '10'),
+        ...(exercise.perSide ? { otherSideReps: '' } : {}),
+      }),
+    ),
+  };
+};
 
 export const resolveTemplateExercises = (
   template: WorkoutTemplate,
@@ -195,6 +220,11 @@ export const addSet = (
   exerciseIndex: number,
   idFactory: IdFactory = defaultIdFactory,
 ): WorkoutSession => {
+  if (
+    session.exercises[exerciseIndex].exerciseGroup &&
+    session.exercises[exerciseIndex].sets.length >= 20
+  )
+    return session;
   const next = clone(session);
   const previous = next.exercises[exerciseIndex].sets.at(-1);
   next.exercises[exerciseIndex].sets.push({
@@ -229,6 +259,71 @@ export const appendExercise = (
   return next;
 };
 
+export function appendExerciseGroup(
+  session: WorkoutSession,
+  entries: readonly PlannedExercise[],
+  library: readonly LibraryExercise[],
+  idFactory: IdFactory = defaultIdFactory,
+): WorkoutSession {
+  const group = entries[0]?.exerciseGroup;
+  if (
+    session.finishedAt !== undefined ||
+    !group ||
+    !entries.length ||
+    !validateExerciseGroupMembers(entries) ||
+    entries.some((e) => e.exerciseGroup?.id !== group.id) ||
+    new Set(entries.map((e) => e.exerciseId)).size !== entries.length
+  )
+    throw new AppError('invalid_set_values', 'Invalid exercise group.');
+  const currentGroup = session.exercises.find(
+    (e) => e.exerciseGroup?.id === group.id,
+  )?.exerciseGroup;
+  if (
+    currentGroup &&
+    (currentGroup.name !== group.name ||
+      currentGroup.familyId !== group.familyId)
+  )
+    throw new AppError(
+      'invalid_set_values',
+      'Exercise group identity mismatch.',
+    );
+  const additions = entries.map((entry) => {
+    const exercise = library.find((e) => e.id === entry.exerciseId);
+    const existing = session.exercises.find((e) =>
+      exerciseIdsMatch(e.libraryId, entry.exerciseId),
+    );
+    if (
+      !exercise ||
+      (existing &&
+        (existing.exerciseGroup?.id !== group.id ||
+          existing.sets.length + entry.sets > 20))
+    )
+      throw new AppError(
+        'invalid_set_values',
+        'Exercise already exists outside this group or set limit exceeded.',
+      );
+    return createExercise(exercise!, idFactory, entry);
+  });
+  const next = clone(session);
+  let insertion = next.exercises.reduce(
+    (last, e, i) => (e.exerciseGroup?.id === group.id ? i + 1 : last),
+    -1,
+  );
+  if (insertion < 0) insertion = next.exercises.length;
+  for (const addition of additions) {
+    const existing = next.exercises.find(
+      (e) =>
+        exerciseIdsMatch(e.libraryId, addition.libraryId) &&
+        e.exerciseGroup?.id === group.id,
+    );
+    if (existing) existing.sets.push(...addition.sets);
+    else next.exercises.splice(insertion++, 0, addition);
+  }
+  if (!validGroupSequence(next.exercises))
+    throw new AppError('invalid_set_values', 'Invalid exercise group layout.');
+  return next;
+}
+
 export const setCurrentExercise = (
   session: WorkoutSession,
   index: number,
@@ -259,9 +354,7 @@ export const moveWorkoutExercise = (
     return session;
   const currentId = session.exercises[session.currentExerciseIndex]?.id;
   if (!currentId) return session;
-  const exercises = [...session.exercises];
-  const [moved] = exercises.splice(from, 1);
-  exercises.splice(targetIndex, 0, moved);
+  const exercises = moveGroupedItems(session.exercises, from, targetIndex);
   return {
     ...session,
     exercises,

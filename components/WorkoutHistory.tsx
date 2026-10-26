@@ -1,3 +1,5 @@
+import { ExerciseEquipmentRow } from './ExerciseEquipmentRow';
+import { setNumberInGroup } from '@/lib/exercise-groups';
 import { useMemo, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { HistoryFilterModal } from './HistoryFilterModal';
@@ -78,22 +80,44 @@ export function WorkoutHistory({
             })}
           </Text>
           <Text style={s.metadata}>{workoutMetadata(selected, t, locale)}</Text>
-          {selected.exercises.map((exercise) => {
+          {selected.exercises.map((exercise, exerciseIndex) => {
             const completedSets = exercise.sets.filter(isSetComplete);
             return (
               <View key={exercise.id} style={s.exercise}>
+                {exercise.exerciseGroup &&
+                selected.exercises[exerciseIndex - 1]?.exerciseGroup?.id !==
+                  exercise.exerciseGroup.id ? (
+                  <Text accessibilityRole="header" style={s.detailTitle}>
+                    {exercise.exerciseGroup.name}
+                  </Text>
+                ) : null}
                 <Text style={s.exerciseName}>{exercise.name}</Text>
+                {exercise.exerciseGroup ? (
+                  <ExerciseEquipmentRow exerciseId={exercise.libraryId} />
+                ) : null}
                 {completedSets.length ? (
                   completedSets.map((set, index) => (
                     <Text key={set.id} style={s.setValue}>
                       {set.otherSideReps === undefined
                         ? t('history.set', {
-                            index: index + 1,
+                            index: setNumberInGroup(
+                              selected,
+                              exerciseIndex,
+                              exercise.sets.findIndex(
+                                (row) => row.id === set.id,
+                              ),
+                            ),
                             weight: formatEntryNumber(locale, set.weight),
                             reps: formatEntryNumber(locale, set.reps),
                           })
                         : t('history.bilateralSet', {
-                            index: index + 1,
+                            index: setNumberInGroup(
+                              selected,
+                              exerciseIndex,
+                              exercise.sets.findIndex(
+                                (row) => row.id === set.id,
+                              ),
+                            ),
                             weight: formatEntryNumber(locale, set.weight),
                             reps: formatEntryNumber(locale, set.reps),
                             other: formatEntryNumber(locale, set.otherSideReps),

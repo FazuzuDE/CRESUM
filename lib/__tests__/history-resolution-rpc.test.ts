@@ -34,6 +34,7 @@ it('looks up only the requested identity and decodes live, deleted and missing r
   });
   expect(await api.get('legacy')).toEqual({ ...remote(), workout: w });
   expect(calls).toEqual([
+    ['get_equipment_group_capabilities', {}],
     ['get_completed_workout', { p_workout_id: 'legacy' }],
   ]);
   const deleted = new HistoryRpc(async () => ({

@@ -1,4 +1,8 @@
 import {
+  projectProgramSession,
+  applyProgramProjection,
+} from '@/lib/exercise-groups';
+import {
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -48,9 +52,9 @@ const lightHaptic = () => {
 // Keyed by session/current snapshot in Workout: selecting/progressing collapses,
 // but changing the same snapshot's index by reordering keeps the program open.
 export function WorkoutProgram({
-  session,
+  session: sourceSession,
   busy,
-  update,
+  update: sourceUpdate,
   scroll,
 }: {
   session: WorkoutSession;
@@ -58,6 +62,9 @@ export function WorkoutProgram({
   update: Update;
   scroll: ProgramScroll;
 }) {
+  const session = projectProgramSession(sourceSession);
+  const update: Update = (transform) =>
+    sourceUpdate((current) => applyProgramProjection(current, transform));
   const { t } = useLocalization();
   const [expanded, setExpanded] = useState(false);
   const suppressTapRef = useRef(0);

@@ -62,7 +62,7 @@ describe('Lat Pulldown Variant Pack v1', () => {
   });
 
   it('adds exactly three distinct specific variants beside the existing exercise', () => {
-    expect(exerciseLibrary).toHaveLength(65);
+    expect(exerciseLibrary).toHaveLength(66);
     const index = exerciseLibrary.findIndex(({ id }) => id === 'lat-pulldown');
     expect(
       exerciseLibrary.slice(index + 1, index + 4).map(({ id }) => id),
@@ -70,6 +70,7 @@ describe('Lat Pulldown Variant Pack v1', () => {
     expect(listFamilyVariants('lat-pulldown').map(({ id }) => id)).toEqual([
       'lat-pulldown',
       ...newIds,
+      'lat-pulldown-close-neutral-ergonomic-handle',
     ]);
     for (const id of newIds) {
       expect(canonicalExerciseId(id)).toBe(id);
@@ -139,14 +140,19 @@ describe('Lat Pulldown Variant Pack v1', () => {
       filterExercises(exerciseLibrary, { query: '  PULLDOWN  ' }).map(
         ({ id }) => id,
       ),
-    ).toEqual(['lat-pulldown', ...newIds, 'cable-straight-arm-pulldown']);
+    ).toEqual([
+      'lat-pulldown',
+      ...newIds,
+      'lat-pulldown-close-neutral-ergonomic-handle',
+      'cable-straight-arm-pulldown',
+    ]);
     expect(
       filterExercises(exerciseLibrary, {
         query: 'neutral',
         muscle: 'lats',
         equipment: 'cable',
       }).map(({ id }) => id),
-    ).toEqual([newIds[1]]);
+    ).toEqual([newIds[1], 'lat-pulldown-close-neutral-ergonomic-handle']);
     expect(
       filterExercises(exerciseLibrary, {
         query: 'neutral',

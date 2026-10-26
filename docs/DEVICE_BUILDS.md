@@ -84,6 +84,7 @@ device/OS, source/build ID, result and evidence for each row.
 | All exercise sets, exact comma input, bilateral values and Finish     | Pending | Pending |
 | Rest/background/foreground and active-session recovery                | Pending | Pending |
 | History, volume and completed program slot after relaunch             | Pending | Pending |
+| Grouped station, attachment changes, exact set rows and recovery      | Pending | Pending |
 | Native wheel fast flick → Save/Keypad, cancellation and date clamping | Pending | Pending |
 | Keyboard, safe areas, Dynamic Type and screen reader                  | Pending | Pending |
 | File export/restore/share and interrupted operations                  | Pending | Pending |
@@ -117,3 +118,26 @@ Official Expo documentation checked 2026-10-25:
 - [Upload exclusions](https://docs.expo.dev/build-reference/easignore/)
 - [Environment variables](https://docs.expo.dev/eas/environment-variables/)
 - [Local Xcode versus EAS](https://docs.expo.dev/develop/development-builds/introduction/)
+
+## Integration refresh after equipment groups — 2026-10-26
+
+Reconciled the preview branch with merged #87 at develop
+`88ea44836040d647e20a1d554f32c8d6bc544b42`. Both dated decision records remain
+in DECISIONS.md. The original eas.json and .easignore are byte-for-byte unchanged;
+no application code, services or locale gates are changed by this build slice.
+
+Repeated checks under Node 22.16.0 resolve the intended offline Expo config with
+both compatibility application IDs, no invented EAS project ID and no sharing
+associations. Apple autolinking still resolves CresumPickerModule. Upload-rule
+checks retain the native Swift/podspec/registration, catalog resolver and the new
+compact ergonomic START/FINISH/attachment assets, while excluding local evidence
+and dotenv/signing files. These are preparation checks, not a native compile.
+
+Account/project linking, provisioning, cloud compilation and physical acceptance
+remain pending. All rows above remain Pending, including grouped-station recovery.
+
+Full `npm run check` on the reconciled tree passes **142 suites / 1115 tests**
+under Node 22.16.0, including typecheck, lint, formatting, generated catalogs,
+localization, configuration and dependency checks. `npm run export:check` passes
+for iOS and Android. This is JavaScript bundle validation; no cloud job, native
+compile or physical-device pass is implied.

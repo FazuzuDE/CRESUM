@@ -1,5 +1,34 @@
 # CRESUM Design System v1.0
 
+### Contextual exercise equipment picker — approved 2026-10-25
+
+The shared `scrim` token is `rgba(0,0,0,0.24)` for the modal equipment-sheet
+backdrop. Reuse the opaque surface, radius and touch-target tokens above it.
+
+Use the attachment summary beneath the phase control as one full-width,
+minimum 44-point press target: equipment thumbnail, name, short grip summary
+and a trailing chevron. Use a contextual label such as Handle, Bar or Cuff.
+Open an accessible bottom sheet with an image/name/grip row for each compatible
+reviewed choice and a selected checkmark. Selection closes the sheet; dismiss,
+back and Cancel keep the prior selection. Restore focus to the initiating row.
+Do not duplicate this with permanent short/medium/wide buttons below it.
+
+When optional, first offer **Without additional accessories**; when no
+accessories apply, show **Additional accessories not required** as noninteractive
+text. Never imply that required primary equipment or a mandatory attachment
+can be omitted. Describe integral handles without a redundant picker. With a
+single available configuration, retain the equipment information without a
+selection affordance. Keep all copy and spoken labels localized in EN/RU/DE/FR.
+
+Below configuration, keep set count, weight and repetitions directly editable.
+The workout presents one exercise/station card with ordered attachment headers,
+equipment images, set rows and explicit attachment-change cues. The app now implements this layout with exact canonical children; synthetic
+station rows are presentation-only and never enter analytics or storage.
+Medium/wide ergonomic rows in earlier prototypes are examples, not reviewed
+production configurations. Constrain the technique image inside a square frame
+with contain sizing so intrinsic file height cannot stretch a phone layout. Preserve light CRESUM tokens, white
+artwork backgrounds, readable numbers, Dynamic Type and 320/390-point layouts.
+
 ### Saved-plan exercise actions — requested 2026-10-24
 
 Place Add Exercise above the existing Start/Share row for saved plans, including

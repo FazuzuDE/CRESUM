@@ -1,0 +1,149 @@
+{
+  "qaOnlyLocaleOverride": true,
+  "externalNetworkBlocked": true,
+  "results": [
+    {
+      "locale": "en",
+      "width": 320,
+      "screens": [
+        "workout",
+        "set-entry",
+        "configure",
+        "picker",
+        "history",
+        "not-applicable",
+        "unmapped-policy"
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "screens": [
+        "workout",
+        "set-entry",
+        "configure",
+        "picker",
+        "history",
+        "not-applicable",
+        "unmapped-policy"
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "locale": "ru",
+      "width": 320,
+      "screens": [
+        "workout",
+        "set-entry",
+        "configure",
+        "picker",
+        "history",
+        "not-applicable",
+        "unmapped-policy"
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "locale": "ru",
+      "width": 390,
+      "screens": [
+        "workout",
+        "set-entry",
+        "configure",
+        "picker",
+        "history",
+        "not-applicable",
+        "unmapped-policy"
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "locale": "de",
+      "width": 320,
+      "screens": [
+        "workout",
+        "set-entry",
+        "configure",
+        "picker",
+        "history",
+        "not-applicable",
+        "unmapped-policy"
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "locale": "de",
+      "width": 390,
+      "screens": [
+        "workout",
+        "set-entry",
+        "configure",
+        "picker",
+        "history",
+        "not-applicable",
+        "unmapped-policy"
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "locale": "fr",
+      "width": 320,
+      "screens": [
+        "workout",
+        "set-entry",
+        "configure",
+        "picker",
+        "history",
+        "not-applicable",
+        "unmapped-policy"
+      ],
+      "errors": [],
+      "pass": true
+    },
+    {
+      "locale": "fr",
+      "width": 390,
+      "screens": [
+        "workout",
+        "set-entry",
+        "configure",
+        "picker",
+        "history",
+        "not-applicable",
+        "unmapped-policy"
+      ],
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "sourceCommit": "a8377dd9c5905874fe432e50e9970c9805132665",
+  "exportEntrySha256": "1d1ae5f50b03255eeb45652e11c005cb879764d2b51dc279a72b18909ec45bb5",
+  "verification": {
+    "testSuites": 142,
+    "tests": 1115,
+    "check": "passed",
+    "nativeExports": ["ios", "android"],
+    "sqlContracts": [
+      "cloud-foundation",
+      "history-sync",
+      "history-conflicts",
+      "workout-sharing",
+      "exercise-attachment-groups",
+      "exercise-group-protocol",
+      "account-deletion"
+    ],
+    "physicalDeviceAcceptance": "pending",
+    "backendDeployment": "not performed"
+  },
+  "screenshots": {
+    "ru-390-picker.png": "0384f7eb8812d13af318b17443258a12d03462895471c73ad11f9c964c4dd2c6",
+    "ru-390-configure.png": "9ae218c272ddb9d75a089173e3ac14f58038ba7204c7ee215e40de9614144f8e"
+  }
+}

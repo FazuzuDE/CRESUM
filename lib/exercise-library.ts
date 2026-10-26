@@ -131,6 +131,14 @@ export const exerciseLibrary = [
     movementPattern: 'vertical-pull',
   }),
   exercise({
+    id: 'lat-pulldown-close-neutral-ergonomic-handle',
+    name: 'Close Neutral Ergonomic Handle Lat Pulldown',
+    primaryMuscles: ['lats'],
+    secondaryMuscles: ['biceps', 'upper-back'],
+    equipment: ['cable'],
+    movementPattern: 'vertical-pull',
+  }),
+  exercise({
     id: 'pull-up',
     name: 'Pull-Up',
     primaryMuscles: ['lats'],

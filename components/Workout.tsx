@@ -1,3 +1,8 @@
+import { workoutStyles as s } from './workout-styles';
+import { ExerciseAttachmentBlock } from './ExerciseAttachmentBlock';
+import { ExerciseGroupComposer } from './ExerciseGroupComposer';
+import { equipmentPolicyFor } from '@/lib/exercise-equipment';
+import { projectExerciseGroups, setNumberInGroup } from '@/lib/exercise-groups';
 import { BrandHeader } from './BrandHeader';
 import { useLocalization } from './LocalizationProvider';
 import { formatEntryNumber, formatNumber } from '@/lib/i18n/format';
@@ -7,9 +12,9 @@ import { useEffect, useRef, useState } from 'react';
 import {
   AppState,
   KeyboardAvoidingView,
+  Modal,
   Platform,
   Pressable,
-  StyleSheet,
   Text,
   View,
 } from 'react-native';
@@ -23,7 +28,7 @@ import { ExerciseArtwork } from './ExerciseArtwork';
 import { SetEntrySheet } from './SetEntrySheet';
 import { previousEntry, saveSetEntry } from '@/lib/set-entry';
 import { findExercise } from '@/lib/exercise-library';
-import type { LibraryExercise } from '@/lib/workout-model';
+import type { LibraryExercise, PlannedExercise } from '@/lib/workout-model';
 import { WorkoutProgram } from './WorkoutProgram';
 import { useProgramScroll } from './useProgramScroll';
 import {
@@ -43,7 +48,7 @@ import {
 } from '@/lib/workout-engine';
 import { isSetComplete, WorkoutSession } from '@/lib/workout-model';
 import { volume } from '@/lib/workout-metrics';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { spacing } from '@/lib/theme';
 
 export const successHaptic = () => {
   void Haptics.notificationAsync(
@@ -64,6 +69,7 @@ export function Workout({
   finish,
   discard,
   busy,
+  appendGroup,
 }: {
   session: WorkoutSession | null;
   history: WorkoutSession[];
@@ -71,6 +77,10 @@ export function Workout({
   finish: () => void;
   discard?: () => void;
   busy: boolean;
+  appendGroup?: (
+    entries: readonly PlannedExercise[],
+    expectedSessionId: string,
+  ) => Promise<boolean>;
 }) {
   const { t, locale } = useLocalization();
   const [now, setNow] = useState(Date.now());
@@ -82,7 +92,14 @@ export function Workout({
     exerciseId: string;
     setId: string;
   } | null>(null);
-  const [removeIndex, setRemoveIndex] = useState<number | null>(null);
+  const [removeIndex, setRemoveIndex] = useState<{
+    exerciseId: string;
+    setId: string;
+  } | null>(null);
+  const [composition, setComposition] = useState<{
+    sessionId: string;
+    exerciseId: string;
+  } | null>(null);
   const {
     attachRef,
     dragging,
@@ -134,6 +151,10 @@ export function Workout({
     );
   const index = session.currentExerciseIndex;
   const exercise = session.exercises[index];
+  const station = projectExerciseGroups(session.exercises).find((g) =>
+    g.indices.includes(index),
+  )!;
+  const nextStation = station.indices.at(-1)! + 1;
   const rest = remainingRestSeconds(session, now);
   const completed = completedSetCount(session);
   const total = totalSetCount(session);
@@ -143,17 +164,26 @@ export function Workout({
       .flatMap((item) => item.exercises)
       .find((item) => exerciseIdsMatch(item.libraryId, exercise.libraryId))
       ?.sets.filter(isSetComplete);
-  const toggle = (setIndex: number) => {
+  const toggle = (setIndex: number, child = index) => {
     try {
-      update((current) => toggleSet(current, index, setIndex).session);
+      update(
+        (current) =>
+          toggleSet(setCurrentExercise(current, child), child, setIndex)
+            .session,
+      );
       setNow(Date.now());
       setInputError(null);
-      if (!isSetComplete(exercise.sets[setIndex])) successHaptic();
+      if (!isSetComplete(session.exercises[child].sets[setIndex]))
+        successHaptic();
     } catch (error) {
       setInputError(error);
     }
   };
-  const remove = (setIndex: number) => setRemoveIndex(setIndex);
+  const remove = (setIndex: number) =>
+    setRemoveIndex({
+      exerciseId: exercise.id,
+      setId: exercise.sets[setIndex].id,
+    });
   return (
     <KeyboardAvoidingView
       style={s.flex}
@@ -168,7 +198,18 @@ export function Workout({
         onCancel={() => setRemoveIndex(null)}
         onConfirm={() => {
           if (removeIndex !== null)
-            update((current) => removeSet(current, index, removeIndex));
+            update((current) => {
+              const child = current.exercises.findIndex(
+                (e) => e.id === removeIndex.exerciseId,
+              );
+              const row =
+                current.exercises[child]?.sets.findIndex(
+                  (s) => s.id === removeIndex.setId,
+                ) ?? -1;
+              return child >= 0 && row >= 0
+                ? removeSet(current, child, row)
+                : current;
+            });
           setRemoveIndex(null);
         }}
       />
@@ -221,205 +262,257 @@ export function Workout({
               update={update}
               scroll={programScroll}
             />
-            <View style={s.exerciseHeading}>
-              <Text
-                style={[s.heading, s.exerciseName]}
-                accessibilityRole="header"
-              >
-                {exercise.name}
-              </Text>
-              {findExercise(exercise.libraryId) ? (
-                <Pressable
-                  accessibilityRole="button"
-                  accessibilityLabel={t('library.techniqueFor', {
-                    name: exercise.name,
-                  })}
-                  onPress={() =>
-                    setTechnique(findExercise(exercise.libraryId) ?? null)
-                  }
-                  style={s.techniqueEntry}
-                >
-                  <ExerciseArtwork
-                    imageKey={findExercise(exercise.libraryId)!.imageKey}
-                    size={76}
-                  />
-                  <Text style={s.techniqueLabel}>{t('library.technique')}</Text>
-                </Pressable>
-              ) : null}
-            </View>
-            <Text style={s.previous}>
-              {previous?.length
-                ? t('workout.last', {
-                    summary: previous
-                      .map((set) =>
-                        set.otherSideReps === undefined
-                          ? t('entry.singleSummary', {
-                              weight: formatEntryNumber(locale, set.weight),
-                              reps: formatEntryNumber(locale, set.reps),
-                            })
-                          : t('entry.bilateralSummary', {
-                              weight: formatEntryNumber(locale, set.weight),
-                              reps: formatEntryNumber(locale, set.reps),
-                              other: formatEntryNumber(
-                                locale,
-                                set.otherSideReps,
-                              ),
-                            }),
-                      )
-                      .join(' · '),
-                  })
-                : t('workout.first')}
-            </Text>
-            {exercise.target ? (
-              <View style={{ gap: spacing.sm }}>
-                <Text style={s.previous}>
-                  {t(
-                    exercise.target.perSide
-                      ? 'workout.targetPerSide'
-                      : 'workout.target',
-                    {
-                      min: formatNumber(locale, exercise.target.repMin),
-                      max: formatNumber(locale, exercise.target.repMax),
-                      restMin: formatNumber(locale, exercise.target.restMin),
-                      restMax: formatNumber(locale, exercise.target.restMax),
-                    },
-                  )}
+            {exercise.exerciseGroup ? (
+              <>
+                <Text style={s.heading} accessibilityRole="header">
+                  {exercise.exerciseGroup.name}
                 </Text>
-                <Text style={s.previous}>{t('workout.warmup')}</Text>
-                <AppButton
-                  title={t('workout.changeRest', {
-                    seconds: formatNumber(
-                      locale,
-                      session.restOverrideSeconds ?? exercise.target.restMin,
-                    ),
-                  })}
-                  secondary
-                  disabled={busy}
-                  onPress={() =>
-                    update((current) => ({
-                      ...current,
-                      restOverrideSeconds:
-                        (current.restOverrideSeconds ??
-                          exercise.target!.restMin) === exercise.target!.restMin
-                          ? exercise.target!.restMax
-                          : exercise.target!.restMin,
-                    }))
-                  }
-                />
-              </View>
-            ) : null}
-            {exercise.libraryId === 'bodyweight-step-up' ? (
-              <Text style={s.previous}>{t('workout.stepUp')}</Text>
-            ) : null}
-            <View style={s.tableHeader}>
-              <Text style={s.number}>{t('workout.tableSet')}</Text>
-              <Text style={s.column}>{t('workout.tableKg')}</Text>
-              <Text style={s.column}>{t('workout.tableReps')}</Text>
-              <Text style={s.number}>{t('workout.tableDone')}</Text>
-            </View>
-            {exercise.sets.map((set, i) => {
-              const done = isSetComplete(set);
-              return (
-                <View key={set.id} style={s.setRow}>
-                  <Pressable
-                    style={({ pressed }) => [s.target, pressed && s.dim]}
-                    disabled={busy || exercise.sets.length === 1}
-                    accessibilityLabel={t('workout.removeNamed', {
-                      index: i + 1,
-                    })}
-                    accessibilityHint={t('workout.confirmHint')}
-                    onPress={() => remove(i)}
-                  >
-                    <Text style={s.setNumber}>{i + 1}</Text>
-                  </Pressable>
-                  {[
-                    { field: 'weight', value: set.weight, placeholder: '0' },
-                    {
-                      field:
-                        set.otherSideReps === undefined
-                          ? 'repetitions'
-                          : 'left repetitions',
-                      value: set.reps,
-                      placeholder: t(
-                        set.otherSideReps === undefined
-                          ? 'entry.phReps'
-                          : 'entry.phLeft',
-                      ),
-                    },
-                    ...(set.otherSideReps === undefined
-                      ? []
-                      : [
-                          {
-                            field: 'right repetitions',
-                            value: set.otherSideReps,
-                            placeholder: t('entry.phRight'),
-                          },
-                        ]),
-                  ].map((cell) => (
-                    <Pressable
-                      key={cell.field}
-                      accessibilityRole="button"
-                      accessibilityLabel={t(
-                        cell.field === 'weight'
-                          ? 'workout.editWeight'
-                          : cell.field === 'right repetitions'
-                            ? 'workout.editRight'
-                            : cell.field === 'left repetitions'
-                              ? 'workout.editLeft'
-                              : 'workout.editReps',
-                        { index: i + 1 },
-                      )}
-                      accessibilityValue={{
-                        text: cell.value
-                          ? formatEntryNumber(locale, cell.value)
-                          : t('workout.notEntered'),
+                {station.indices.map((child, position) => (
+                  <View key={session.exercises[child].id}>
+                    {position > 0 ? (
+                      <Text style={s.previous}>
+                        {t('equipment.changeAttachment')}
+                      </Text>
+                    ) : null}
+                    <ExerciseAttachmentBlock
+                      session={session}
+                      index={child}
+                      history={history}
+                      busy={busy}
+                      update={update}
+                      onTechnique={setTechnique}
+                      onEdit={(value) => {
+                        update((current) => setCurrentExercise(current, child));
+                        setEditing(value);
                       }}
-                      accessibilityState={{ disabled: done || busy }}
-                      disabled={done || busy}
-                      style={[s.input, s.valueCell, done && s.completed]}
-                      onPress={() =>
-                        setEditing({
-                          sessionId: session.id,
-                          exerciseId: exercise.id,
-                          setId: set.id,
+                      onToggle={(i) => toggle(i, child)}
+                      onRemove={(i) =>
+                        setRemoveIndex({
+                          exerciseId: session.exercises[child].id,
+                          setId: session.exercises[child].sets[i].id,
                         })
                       }
+                    />
+                  </View>
+                ))}
+              </>
+            ) : (
+              <>
+                <View style={s.exerciseHeading}>
+                  <Text
+                    style={[s.heading, s.exerciseName]}
+                    accessibilityRole="header"
+                  >
+                    {exercise.name}
+                  </Text>
+                  {findExercise(exercise.libraryId) ? (
+                    <Pressable
+                      accessibilityRole="button"
+                      accessibilityLabel={t('library.techniqueFor', {
+                        name: exercise.name,
+                      })}
+                      onPress={() =>
+                        setTechnique(findExercise(exercise.libraryId) ?? null)
+                      }
+                      style={s.techniqueEntry}
                     >
-                      <Text style={s.valueText}>
-                        {cell.value
-                          ? formatEntryNumber(locale, cell.value)
-                          : cell.placeholder}
+                      <ExerciseArtwork
+                        imageKey={findExercise(exercise.libraryId)!.imageKey}
+                        size={76}
+                      />
+                      <Text style={s.techniqueLabel}>
+                        {t('library.technique')}
                       </Text>
                     </Pressable>
-                  ))}
-                  <Pressable
-                    accessibilityRole="checkbox"
-                    accessibilityLabel={t('workout.completeNamed', {
-                      index: i + 1,
-                    })}
-                    accessibilityState={{ checked: done, disabled: busy }}
-                    disabled={busy}
-                    onPress={() => toggle(i)}
-                    style={({ pressed }) => [
-                      s.target,
-                      s.check,
-                      done && s.checked,
-                      (pressed || busy) && s.dim,
-                    ]}
-                  >
-                    <Text style={[s.checkText, done && s.checkedText]}>
-                      {done ? '✓' : '○'}
-                    </Text>
-                  </Pressable>
+                  ) : null}
                 </View>
-              );
-            })}
-            <AppButton
-              title={t('workout.addSet')}
-              secondary
-              disabled={busy}
-              onPress={() => update((current) => addSet(current, index))}
-            />
+                <Text style={s.previous}>
+                  {previous?.length
+                    ? t('workout.last', {
+                        summary: previous
+                          .map((set) =>
+                            set.otherSideReps === undefined
+                              ? t('entry.singleSummary', {
+                                  weight: formatEntryNumber(locale, set.weight),
+                                  reps: formatEntryNumber(locale, set.reps),
+                                })
+                              : t('entry.bilateralSummary', {
+                                  weight: formatEntryNumber(locale, set.weight),
+                                  reps: formatEntryNumber(locale, set.reps),
+                                  other: formatEntryNumber(
+                                    locale,
+                                    set.otherSideReps,
+                                  ),
+                                }),
+                          )
+                          .join(' · '),
+                      })
+                    : t('workout.first')}
+                </Text>
+                {exercise.target ? (
+                  <View style={{ gap: spacing.sm }}>
+                    <Text style={s.previous}>
+                      {t(
+                        exercise.target.perSide
+                          ? 'workout.targetPerSide'
+                          : 'workout.target',
+                        {
+                          min: formatNumber(locale, exercise.target.repMin),
+                          max: formatNumber(locale, exercise.target.repMax),
+                          restMin: formatNumber(
+                            locale,
+                            exercise.target.restMin,
+                          ),
+                          restMax: formatNumber(
+                            locale,
+                            exercise.target.restMax,
+                          ),
+                        },
+                      )}
+                    </Text>
+                    <Text style={s.previous}>{t('workout.warmup')}</Text>
+                    <AppButton
+                      title={t('workout.changeRest', {
+                        seconds: formatNumber(
+                          locale,
+                          session.restOverrideSeconds ??
+                            exercise.target.restMin,
+                        ),
+                      })}
+                      secondary
+                      disabled={busy}
+                      onPress={() =>
+                        update((current) => ({
+                          ...current,
+                          restOverrideSeconds:
+                            (current.restOverrideSeconds ??
+                              exercise.target!.restMin) ===
+                            exercise.target!.restMin
+                              ? exercise.target!.restMax
+                              : exercise.target!.restMin,
+                        }))
+                      }
+                    />
+                  </View>
+                ) : null}
+                {exercise.libraryId === 'bodyweight-step-up' ? (
+                  <Text style={s.previous}>{t('workout.stepUp')}</Text>
+                ) : null}
+                <View style={s.tableHeader}>
+                  <Text style={s.number}>{t('workout.tableSet')}</Text>
+                  <Text style={s.column}>{t('workout.tableKg')}</Text>
+                  <Text style={s.column}>{t('workout.tableReps')}</Text>
+                  <Text style={s.number}>{t('workout.tableDone')}</Text>
+                </View>
+                {exercise.sets.map((set, i) => {
+                  const done = isSetComplete(set);
+                  return (
+                    <View key={set.id} style={s.setRow}>
+                      <Pressable
+                        style={({ pressed }) => [s.target, pressed && s.dim]}
+                        disabled={busy || exercise.sets.length === 1}
+                        accessibilityLabel={t('workout.removeNamed', {
+                          index: i + 1,
+                        })}
+                        accessibilityHint={t('workout.confirmHint')}
+                        onPress={() => remove(i)}
+                      >
+                        <Text style={s.setNumber}>{i + 1}</Text>
+                      </Pressable>
+                      {[
+                        {
+                          field: 'weight',
+                          value: set.weight,
+                          placeholder: '0',
+                        },
+                        {
+                          field:
+                            set.otherSideReps === undefined
+                              ? 'repetitions'
+                              : 'left repetitions',
+                          value: set.reps,
+                          placeholder: t(
+                            set.otherSideReps === undefined
+                              ? 'entry.phReps'
+                              : 'entry.phLeft',
+                          ),
+                        },
+                        ...(set.otherSideReps === undefined
+                          ? []
+                          : [
+                              {
+                                field: 'right repetitions',
+                                value: set.otherSideReps,
+                                placeholder: t('entry.phRight'),
+                              },
+                            ]),
+                      ].map((cell) => (
+                        <Pressable
+                          key={cell.field}
+                          accessibilityRole="button"
+                          accessibilityLabel={t(
+                            cell.field === 'weight'
+                              ? 'workout.editWeight'
+                              : cell.field === 'right repetitions'
+                                ? 'workout.editRight'
+                                : cell.field === 'left repetitions'
+                                  ? 'workout.editLeft'
+                                  : 'workout.editReps',
+                            { index: i + 1 },
+                          )}
+                          accessibilityValue={{
+                            text: cell.value
+                              ? formatEntryNumber(locale, cell.value)
+                              : t('workout.notEntered'),
+                          }}
+                          accessibilityState={{ disabled: done || busy }}
+                          disabled={done || busy}
+                          style={[s.input, s.valueCell, done && s.completed]}
+                          onPress={() =>
+                            setEditing({
+                              sessionId: session.id,
+                              exerciseId: exercise.id,
+                              setId: set.id,
+                            })
+                          }
+                        >
+                          <Text style={s.valueText}>
+                            {cell.value
+                              ? formatEntryNumber(locale, cell.value)
+                              : cell.placeholder}
+                          </Text>
+                        </Pressable>
+                      ))}
+                      <Pressable
+                        accessibilityRole="checkbox"
+                        accessibilityLabel={t('workout.completeNamed', {
+                          index: i + 1,
+                        })}
+                        accessibilityState={{ checked: done, disabled: busy }}
+                        disabled={busy}
+                        onPress={() => toggle(i)}
+                        style={({ pressed }) => [
+                          s.target,
+                          s.check,
+                          done && s.checked,
+                          (pressed || busy) && s.dim,
+                        ]}
+                      >
+                        <Text style={[s.checkText, done && s.checkedText]}>
+                          {done ? '✓' : '○'}
+                        </Text>
+                      </Pressable>
+                    </View>
+                  );
+                })}
+                <AppButton
+                  title={t('workout.addSet')}
+                  secondary
+                  disabled={busy}
+                  onPress={() => update((current) => addSet(current, index))}
+                />
+              </>
+            )}
           </GlassCard>
         )}
         {deadline !== undefined && (
@@ -482,14 +575,14 @@ export function Workout({
               onPress={() => setPicker(true)}
             />
           </View>
-          {index < session.exercises.length - 1 && (
+          {nextStation < session.exercises.length && (
             <View style={s.action}>
               <AppButton
                 title={t('workout.nextExercise')}
                 secondary
                 disabled={busy}
                 onPress={() =>
-                  update((current) => setCurrentExercise(current, index + 1))
+                  update((current) => setCurrentExercise(current, nextStation))
                 }
               />
             </View>
@@ -521,10 +614,39 @@ export function Workout({
         visible={picker}
         onClose={() => setPicker(false)}
         onAdd={(item) => {
+          if ((equipmentPolicyFor(item.id)?.choices.length ?? 0) > 1) {
+            setComposition({ sessionId: session.id, exerciseId: item.id });
+            setPicker(false);
+            return;
+          }
           update((current) => appendExercise(current, item));
           setPicker(false);
         }}
       />
+      {composition && composition.sessionId === session.id ? (
+        <Modal
+          visible
+          animationType="slide"
+          presentationStyle="pageSheet"
+          onRequestClose={() => setComposition(null)}
+        >
+          <AppScrollView contentContainerStyle={s.content}>
+            <ExerciseGroupComposer
+              initialExerciseId={composition.exerciseId}
+              existingOutsideIds={session.exercises.map((e) => e.libraryId)}
+              busy={busy}
+              onCancel={() => setComposition(null)}
+              onApply={async (entries) => {
+                const saved =
+                  (await appendGroup?.(entries, composition.sessionId)) ??
+                  false;
+                if (saved) setComposition(null);
+                return saved;
+              }}
+            />
+          </AppScrollView>
+        </Modal>
+      ) : null}
       {technique ? (
         <ExerciseTechnique
           key={technique.id}
@@ -536,7 +658,11 @@ export function Workout({
         <SetEntrySheet
           key={`${editing.sessionId}:${editing.exerciseId}:${editing.setId}`}
           set={editedSet}
-          setNumber={editedIndex + 1}
+          setNumber={setNumberInGroup(
+            session,
+            session.exercises.findIndex((e) => e.id === editedExercise.id),
+            editedIndex,
+          )}
           libraryId={editedExercise.libraryId}
           previous={previousEntry(
             history,
@@ -564,141 +690,3 @@ export function Workout({
     </KeyboardAvoidingView>
   );
 }
-
-const s = StyleSheet.create({
-  valueCell: { justifyContent: 'center', alignItems: 'center' },
-  valueText: {
-    maxWidth: '100%',
-    ...typography.title3,
-    color: colors.textPrimary,
-    fontVariant: ['tabular-nums'],
-    textAlign: 'center',
-  },
-  flex: { flex: 1 },
-  exerciseHeading: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.md,
-  },
-  exerciseName: { flex: 1, minWidth: 0 },
-  techniqueEntry: { width: 76, alignItems: 'center', gap: spacing.xxs },
-  techniqueLabel: {
-    ...typography.caption,
-    color: colors.primary,
-    maxWidth: '100%',
-    textAlign: 'center',
-  },
-  content: {
-    padding: spacing.md,
-    gap: spacing.lg,
-    width: '100%',
-    maxWidth: 600,
-    alignSelf: 'center',
-  },
-  header: { gap: spacing.sm, paddingVertical: spacing.sm },
-  titleRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: spacing.sm,
-  },
-  title: { ...typography.largeTitle, flexShrink: 1, color: colors.textPrimary },
-  elapsed: {
-    backgroundColor: colors.primaryTint,
-    borderRadius: radius.md,
-    padding: spacing.sm,
-  },
-  elapsedText: {
-    ...typography.headline,
-    fontVariant: ['tabular-nums'],
-    color: colors.textPrimary,
-  },
-  summary: { ...typography.subheadline, color: colors.textSecondary },
-  heading: { ...typography.title2, color: colors.textPrimary },
-  sub: { ...typography.footnote, color: colors.textSecondary },
-  error: { ...typography.footnote, color: colors.danger },
-  empty: {
-    flex: 1,
-    padding: spacing.md,
-    justifyContent: 'center',
-    gap: spacing.md,
-  },
-  exerciseCard: {
-    padding: spacing.lg,
-    borderRadius: radius.xxl,
-    gap: spacing.xs,
-  },
-  previous: {
-    ...typography.footnote,
-    color: colors.textSecondary,
-    marginBottom: spacing.sm,
-  },
-  tableHeader: {
-    flexDirection: 'row',
-    gap: spacing.xs,
-    alignItems: 'center',
-  },
-  setRow: {
-    flexDirection: 'row',
-    gap: spacing.xs,
-    alignItems: 'center',
-  },
-  number: {
-    ...typography.caption,
-    width: 44,
-    textAlign: 'center',
-    color: colors.textSecondary,
-  },
-  column: {
-    ...typography.caption,
-    flex: 1,
-    textAlign: 'center',
-    color: colors.textSecondary,
-  },
-  target: {
-    width: 44,
-    minHeight: 48,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  setNumber: { ...typography.subheadline, color: colors.textSecondary },
-  check: { borderRadius: radius.md, backgroundColor: colors.surfaceSubtle },
-  checked: { backgroundColor: colors.success },
-  checkText: { ...typography.title2, color: colors.primary },
-  checkedText: { color: colors.textPrimary },
-  input: {
-    ...typography.headline,
-    fontVariant: ['tabular-nums'],
-    flex: 1,
-    minWidth: 0,
-    minHeight: 48,
-    borderRadius: radius.md,
-    backgroundColor: colors.surfaceSubtle,
-    color: colors.textPrimary,
-    textAlign: 'center',
-  },
-  completed: { borderColor: colors.success, borderWidth: 2 },
-  restCard: {
-    padding: spacing.lg,
-    borderRadius: radius.xxl,
-    backgroundColor: colors.primaryTint,
-    gap: spacing.xs,
-  },
-  restHeading: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: spacing.sm,
-    marginBottom: spacing.sm,
-  },
-  timer: {
-    ...typography.largeTitle,
-    fontVariant: ['tabular-nums'],
-    color: colors.primary,
-  },
-  actionRow: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs },
-  action: { flexGrow: 1, flexBasis: 120, minWidth: 0 },
-  dim: { opacity: 0.6 },
-});

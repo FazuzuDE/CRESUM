@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-unresolved -- Resolved by the Edge runtime.
 import { createClient } from 'npm:@supabase/supabase-js@2.117.2';
 import { createSharedPlanHandler } from './handler.ts';
-import catalog from '../_shared/plan-catalog.ts';
+import catalog, { planFamilyByVariant } from '../_shared/plan-catalog.ts';
 const url = Deno.env.get('SUPABASE_URL');
 const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
 const encryptionSecret = Deno.env.get('SHARING_ENCRYPTION_SECRET');
@@ -70,6 +70,15 @@ Deno.serve(async (request) => {
         : null;
     },
     resolveExercise: (id) => (Object.hasOwn(catalog, id) ? catalog[id] : null),
+    resolveFamily: (id) =>
+      Object.hasOwn(planFamilyByVariant, id) ? planFamilyByVariant[id] : null,
+    async capabilities() {
+      try {
+        return await rpc('get_equipment_group_capabilities');
+      } catch {
+        return {};
+      }
+    },
     // A conservative global ceiling prevents forwarded-IP spoofing bypasses.
     async limit() {
       return rpc('sharing_limit', {

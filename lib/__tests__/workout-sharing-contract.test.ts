@@ -71,7 +71,7 @@ test('exports only plan data and opts weights out by default', () => {
 test.each([
   ['title', () => ({ ...plan(), title: 'x'.repeat(121) })],
   ['empty title', () => ({ ...plan(), title: ' ' })],
-  ['version', () => ({ ...plan(), schemaVersion: 2 })],
+  ['version', () => ({ ...plan(), schemaVersion: 3 })],
   [
     'sets',
     () => ({ ...plan(), exercises: [{ ...plan().exercises[0], sets: 21 }] }),

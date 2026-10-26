@@ -1,5 +1,28 @@
 # CRESUM Exercise Biomechanics — Lat Pulldown v1
 
+## Additive compact ergonomic variant — 2026-10-25
+
+`lat-pulldown-close-neutral-ergonomic-handle` is a separate seated front cable
+pulldown, using the selected compact black ergonomic attachment. Both palms
+face each other, supported by its opposed wings; fingers wrap their rounded
+grip edges with a secure opposing thumb contact. Keep wrists approximately in
+line with forearms. This contact geometry is not the old chrome V-handle.
+
+Face the high pulley, stabilize thighs and pelvis and support both feet. From
+comfortable overhead arm extension, draw elbows down toward the sides to an
+upper-chest endpoint without increasing the modest torso lean. Chest contact is
+optional; stop before forcing the shoulders or driving elbows far behind the
+trunk. Allow natural scapular motion and return under control. Cable, carabiner
+and central eyelet must remain plausibly connected; keep the same attachment,
+camera, machine and lower-body support in both phases.
+
+Primary: lats; Secondary: biceps and upper-back, as conservative catalog roles.
+Width alone establishes neither regional load coefficients nor superiority.
+Sources: the existing ACE Seated Lat Pulldown reference supports shared motion;
+the selected hardware/grip references establish the attachment adaptation.
+The local asset manifest records the reviewed image pair; earlier three-variant
+specifications and their historical IDs below retain their meaning.
+
 This is the biomechanics source of truth for the three exact Lat Pulldown variants listed below. It constrains future START/FINISH images, prompt inputs, technique descriptions, and human biomechanics QA; it does not create or approve any production asset. The general production and pair-acceptance gate remains in [EXERCISE_ASSETS.md](EXERCISE_ASSETS.md). Stable IDs and current product muscle metadata remain owned by [EXERCISE_LIBRARY.md](EXERCISE_LIBRARY.md) and the catalog.
 
 Only a standard **seated, front-of-body cable pulldown** is specified here. Seat and thigh-pad stabilization, a high pulley, a connected cable and the same attachment throughout a pair must be visibly plausible. These are visual/biomechanical constraints, not new catalog metadata or a claim that one machine design is canonical. A comfortable, controlled range takes priority over touching the chest or reaching a fixed angle. Do not depict behind-neck pulling, body swing, forced shoulder positioning, or an anatomically impossible cable path. The original `lat-pulldown` (including legacy alias `pulldown`) remains **unspecified**: none of the three exact specifications below applies retroactively to it or its History snapshots.

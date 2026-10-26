@@ -1,4 +1,6 @@
 export default {
+  'catalog.exercise.lat-pulldown-close-neutral-ergonomic-handle':
+    'Latzug mit kurzem ergonomischem Griff',
   'catalog.exercise.barbell-bench-press': 'Langhantel-Bankdrücken',
   'catalog.exercise.incline-dumbbell-press': 'Kurzhantel-Schrägbankdrücken',
   'catalog.exercise.dumbbell-bench-press': 'Kurzhantel-Bankdrücken',

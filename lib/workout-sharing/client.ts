@@ -1,13 +1,20 @@
 import { validPlanOrigin } from './import';
-import { parseSharedPlan, type SharedPlanV1 } from './contract';
+import { parseSharedPlan, type SharedPlan } from './contract';
 import type { PlanOrigin } from '../workout-model';
 import { createPlanLink } from './links';
-export type ResolvedPlan = { origin: PlanOrigin; plan: SharedPlanV1 };
+export type ResolvedPlan = { origin: PlanOrigin; plan: SharedPlan };
 export type PublishedPlan = { origin: PlanOrigin; url: string };
 export type SharingInvoke = (
   method: 'POST' | 'DELETE',
   body: unknown,
 ) => Promise<unknown>;
+export class EquipmentSharingUnavailable extends Error {
+  constructor() {
+    super(
+      'Grouped plan publishing needs backend support. The local plan is unchanged.',
+    );
+  }
+}
 export class SharingClient {
   constructor(
     private endpoint: string,
@@ -56,10 +63,23 @@ export class SharingClient {
   async list(): Promise<unknown> {
     return this.get('?library=1');
   }
-  async publish(plan: SharedPlanV1): Promise<PublishedPlan> {
+  async publish(plan: SharedPlan): Promise<PublishedPlan> {
     try {
       if (!this.invoke) throw Error();
-      const result = (await this.invoke('POST', parseSharedPlan(plan))) as {
+      const validated = parseSharedPlan(plan);
+      if (validated.schemaVersion === 2) {
+        let capabilities: { sharedPlan?: unknown };
+        try {
+          capabilities = (await this.get('?capabilities=1')) as {
+            sharedPlan?: unknown;
+          };
+        } catch {
+          throw new EquipmentSharingUnavailable();
+        }
+        if (!capabilities || capabilities.sharedPlan !== 2)
+          throw new EquipmentSharingUnavailable();
+      }
+      const result = (await this.invoke('POST', validated)) as {
         origin: PlanOrigin;
         token: string;
       };
@@ -68,7 +88,8 @@ export class SharingClient {
         origin: result.origin,
         url: createPlanLink(this.host, result.token),
       };
-    } catch {
+    } catch (error) {
+      if (error instanceof EquipmentSharingUnavailable) throw error;
       throw Error('Sharing unavailable');
     }
   }

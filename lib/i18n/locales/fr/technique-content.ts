@@ -1,5 +1,25 @@
 import { flattenTechniqueText } from '../../technique-text';
 export default flattenTechniqueText({
+  'lat-pulldown-close-neutral-ergonomic-handle': {
+    scope:
+      'Tirage vertical assis devant le corps ; poignée ergonomique courte ; prise neutre serrée.',
+    setup: [
+      'Bloquez les cuisses et posez les pieds au sol. Asseyez-vous face à la poulie haute ; appuyez les paumes sur les supports et entourez les bords arrondis avec les doigts, paumes face à face.',
+    ],
+    movement: [
+      'Dirigez les coudes vers le bas près des flancs en amenant la poignée vers le haut du torse ; revenez lentement à une extension confortable au-dessus de la tête.',
+    ],
+    checks: [
+      'Gardez les poignets alignés, le bassin stable et une légère inclinaison constante. Laissez les omoplates bouger naturellement ; toucher le torse est facultatif.',
+    ],
+    mistakes: [
+      'Élan du tronc : réduisez la charge.',
+      'Mauvais contact des mains ou poignets cassés : corrigez la prise.',
+      'Coudes très loin derrière le tronc : arrêtez la traction plus tôt.',
+    ],
+    adaptation:
+      'La technique générale du tirage est adaptée à la poignée ergonomique courte choisie. Les rôles musculaires qualitatifs ne prouvent aucun avantage sur les autres largeurs de prise.',
+  },
   'barbell-bench-press': {
     scope: 'Banc horizontal ; barre.',
     setup: [

@@ -1,5 +1,25 @@
 import { flattenTechniqueText } from '../../technique-text';
 export default flattenTechniqueText({
+  'lat-pulldown-close-neutral-ergonomic-handle': {
+    scope:
+      'Latzug im Sitzen vor dem Körper; kurzer ergonomischer Griff; enger Neutralgriff.',
+    setup: [
+      'Oberschenkel fixieren und Füße abstützen. Zur oberen Rolle sitzen; Handflächen an die Auflagen legen und die abgerundeten Kanten umgreifen, Handflächen zueinander.',
+    ],
+    movement: [
+      'Ellenbogen seitlich nach unten führen und den Griff zur oberen Brust ziehen; kontrolliert bis zur angenehmen Armstreckung über dem Kopf zurückkehren.',
+    ],
+    checks: [
+      'Handgelenke ausrichten, Becken stabil und eine leichte Rücklage konstant halten. Natürliche Schulterblattbewegung zulassen; Brustkontakt ist nicht nötig.',
+    ],
+    mistakes: [
+      'Schwung aus dem Oberkörper: Gewicht reduzieren.',
+      'Falscher Handkontakt oder abgeknickte Handgelenke: Griff korrigieren.',
+      'Ellenbogen weit hinter dem Körper: Zug früher beenden.',
+    ],
+    adaptation:
+      'Die allgemeine Latzugtechnik wurde an den ausgewählten kurzen ergonomischen Griff angepasst. Qualitative Muskelrollen belegen keinen Vorteil gegenüber anderen Griffbreiten.',
+  },
   'barbell-bench-press': {
     scope: 'Flachbank; Langhantel.',
     setup: [

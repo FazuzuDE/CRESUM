@@ -1,4 +1,6 @@
 export default {
+  'catalog.exercise.lat-pulldown-close-neutral-ergonomic-handle':
+    'Тяга верхнего блока с короткой эргономической рукояткой',
   'catalog.exercise.barbell-bench-press': 'Жим штанги лёжа',
   'catalog.exercise.incline-dumbbell-press': 'Жим гантелей на наклонной скамье',
   'catalog.exercise.dumbbell-bench-press': 'Жим гантелей лёжа',

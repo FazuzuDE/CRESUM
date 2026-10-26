@@ -1283,6 +1283,9 @@ function AppContent({
               session={data.activeWorkout}
               history={data.history}
               update={(transform) => store.updateWorkout(transform)}
+              appendGroup={(entries, id) =>
+                store.appendEquipmentGroup(entries, id)
+              }
               finish={() => {
                 setDiscardSessionId(null);
                 setConfirmFinish(true);
