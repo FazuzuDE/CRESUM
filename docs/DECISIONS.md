@@ -2191,6 +2191,14 @@ and language acceptance. Domain/mail, multi-device sync acceptance, independent
 backup and store preparation remain release work. Do not expand unrelated
 features or equate browser/export success with physical-device acceptance.
 
+### 2026-10-25 — First internal build preparation
+
+Following merged #84, prepare the existing Expo app for an internal bundled
+preview with offline Core and the local native picker. Preserve compatibility
+identifiers and locale/service gates. Provider account/project binding, signing,
+cloud compilation and installation remain explicit external prerequisites.
+Physical iPhone acceptance precedes Android; no store release is introduced.
+
 ### 2026-10-26 — Equipment picker implementation and activation boundary
 
 Implement the approved summary-row bottom sheet and exact attachment blocks in
