@@ -1,0 +1,34 @@
+{
+  "variantId": "lat-pulldown-close-neutral-v-handle",
+  "assetKind": "attachment-thumbnail",
+  "reviewDate": "2026-10-26",
+  "status": "user-approved-thumbnail",
+  "reviewScope": "User approved the isolated attachment candidate. Visual geometry reference only; not CAD or biomechanical certification. Exercise START/FINISH and hand contact remain unapproved and unavailable.",
+  "geometryChecks": [
+    "two parallel cylindrical knurled grips",
+    "two rigid triangular side frames",
+    "central steel bridge with one attachment hole",
+    "no cable, carabiner or hands depicted"
+  ],
+  "geometryReference": {
+    "url": "https://bodysolid.com/seated-row-handle",
+    "model": "MB502",
+    "use": "Physical construction reference; not a frozen brand/model requirement for canonical exercise identity."
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "attachment-prompt.txt",
+    "styleReference": "../lat-pulldown-close-neutral-ergonomic-handle/attachment.webp"
+  },
+  "assets": {
+    "attachment": {
+      "file": "attachment.webp",
+      "sourceSha256": "f80d24e6e356c6d85cea232baab0e0b1f158d3fba09c6aaadf1b9ef06365c47f",
+      "sha256": "9b9a3f385291382fe4e768cd5e229ee635ff936ec197d431cf0958cdd5ef1fe7",
+      "width": 512,
+      "height": 512,
+      "quality": 90,
+      "alpha": true
+    }
+  }
+}

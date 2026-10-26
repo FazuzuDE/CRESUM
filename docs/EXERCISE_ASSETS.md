@@ -1,12 +1,28 @@
 # CRESUM Exercise Assets — approved production rules
 
+## V-handle attachment thumbnail — approved 2026-10-26
+
+The user approved the isolated chrome double-grip candidate as the V-handle
+thumbnail. Bind it only to `lat-pulldown-close-neutral-v-handle` in the shared
+attachment resolver; the equipment picker, configuration and grouped-set rows
+reuse that resolver. The transparent 512px WebP preserves the selected image's
+two parallel knurled cylinders, triangular frames and central mounting hole.
+
+Store the generation prompt, physical reference URL, source/output hashes and
+limited approval scope in this variant's asset folder. Body-Solid MB502 supplied
+the construction reference; manufacturer/model remains unfrozen in the canonical
+variant. No hand contact, carabiner connection or exercise START/FINISH is approved
+by this thumbnail review. Both technique phases and other attachment images
+retain placeholders. Preserve all existing grip, muscle and History semantics.
+
 ## Compact ergonomic handle — first local image integration, 2026-10-25
 
 The exact `lat-pulldown-close-neutral-ergonomic-handle` now has a local Male
 Technique pair and attachment thumbnail under `assets/exercises/` with an
 explicit resolver in `lib/exercise-artwork.ts`. This supersedes the placeholder-
 only implementation status below for this variant alone. Other configurations
-and Female artwork retain placeholders. The older V-handle profile is unchanged.
+and Female technique artwork retain placeholders. The older V-handle technique
+profile is unchanged; its attachment thumbnail is covered by the approval above.
 
 The manifest records source/output SHA-256, export size/quality and review scope.
 The user selected START and approved the proposed app integration using this
@@ -17,7 +33,7 @@ bottom raised plate. This is a visual reference review, not measured CAD or
 clinician certification. It does not fabricate an old tracker/prompt approval.
 Physical-device presentation/accessibility remains a separate acceptance check.
 
-This document owns exercise-asset production and acceptance rules. The compact ergonomic variant above is the first local manifest/resolver integration; all unrelated configurations retain placeholders. Automated biomechanics QA and integration with the separate asset tracker are not implemented. Canonical exercise identity and variant boundaries belong to `EXERCISE_LIBRARY.md`; the first three exact Lat Pulldown mechanics specifications belong to `EXERCISE_BIOMECHANICS.md`; visual language belongs to `DESIGN_SYSTEM.md`. Asset production status is not Exercise Library metadata.
+This document owns exercise-asset production and acceptance rules. The compact ergonomic variant above is the first local technique-pair manifest/resolver integration; other technique configurations retain placeholders. The V-handle thumbnail is a separate equipment-only approval. Automated biomechanics QA and integration with the separate asset tracker are not implemented. Canonical exercise identity and variant boundaries belong to `EXERCISE_LIBRARY.md`; the first three exact Lat Pulldown mechanics specifications belong to `EXERCISE_BIOMECHANICS.md`; visual language belongs to `DESIGN_SYSTEM.md`. Asset production status is not Exercise Library metadata.
 
 ## Pipeline boundary
 
