@@ -146,7 +146,10 @@ export function TemplateEditor({
     groupDirty ||
     JSON.stringify(draft) !== JSON.stringify(createTemplateDraft(template)) ||
     (configuration !== undefined &&
-      (configuration.sets !== '3' || configuration.weight.trim() !== ''));
+      (configuration.sets !== '3' ||
+        configuration.weight.trim() !== '' ||
+        JSON.stringify(configuration.plannedSets) !==
+          JSON.stringify(configuredEntry?.plannedSets)));
 
   const nextFromName = () => {
     if (!draft.name.trim()) {
