@@ -1,5 +1,20 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Wide pronated bar thumbnail — approved 2026-10-26
+
+The user approved the isolated chrome wide-bar candidate. Bind its transparent
+512px equipment thumbnail only to `lat-pulldown-wide-pronated-bar` through the
+shared attachment resolver, covering the compatible picker and grouped-set rows.
+Preserve the selected appearance, central swivel collar and matching angled ends;
+the export changes only size/format. Save its prompt, reference URL and hashes in
+the variant's asset folder. Body-Solid MB148 was the physical reference, not a
+new canonical brand, measured width or curvature requirement.
+
+This equipment-only approval does not approve athlete grip, cable connection or
+START/FINISH, which retain placeholders. It adds no ergonomic wide/medium variant
+and changes no muscle mapping, exercise identity or historical data. Physical
+device readability remains a separate acceptance check.
+
 ## V-handle attachment thumbnail — approved 2026-10-26
 
 The user approved the isolated chrome double-grip candidate as the V-handle
@@ -12,7 +27,7 @@ Store the generation prompt, physical reference URL, source/output hashes and
 limited approval scope in this variant's asset folder. Body-Solid MB502 supplied
 the construction reference; manufacturer/model remains unfrozen in the canonical
 variant. No hand contact, carabiner connection or exercise START/FINISH is approved
-by this thumbnail review. Both technique phases and other attachment images
+by this thumbnail review. Both technique phases and unapproved attachment images
 retain placeholders. Preserve all existing grip, muscle and History semantics.
 
 ## Compact ergonomic handle — first local image integration, 2026-10-25
