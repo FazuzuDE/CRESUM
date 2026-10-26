@@ -103,4 +103,7 @@
 - [x] Run `npm run check` and `npm run export:check`. Record exact results; fix regressions caused by these changes and distinguish unrelated baseline failures.
 - [x] Inspect the actual exported app at 320/390px in EN/RU/DE/FR: picker close/back/focus, static/not-applicable states, unavailable images, groups, set entry, retry, History and variant records. Verify bundle images decode offline. Keep physical gesture/screen-reader/device acceptance explicitly open if unavailable.
 - [x] Review the whole branch against the spec, especially optional-none policy, variant identity, copy/import/sync fidelity and double-counting. Resolve findings before reporting completion.
-- [ ] Open focused PRs targeting develop with implementation, checks and remaining deployment/device gates. Do not merge automatically. Do not claim the complete feature while any user-facing stage is only a prototype.
+- [x] Open focused PRs targeting develop with implementation, checks and remaining deployment/device gates. Do not merge automatically. Do not claim the complete feature while any user-facing stage is only a prototype.
+
+Delivery: [PR #87](https://github.com/FazuzuDE/CRESUM/pull/87), targeting develop.
+No automatic merge, backend deployment or physical-device acceptance is claimed.
