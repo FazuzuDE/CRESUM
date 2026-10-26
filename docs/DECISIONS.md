@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-26 — Wide pronated bar thumbnail approved
+
+The user approved the isolated chrome wide bar with symmetrical angled ends and
+central swivel attachment. Integrate it only as the equipment thumbnail for
+`lat-pulldown-wide-pronated-bar`, retaining prompt/reference/hash provenance.
+Preserve existing muscle roles and stored variant identities. This does not
+approve athlete hand contact, technique phase images, measured bar geometry or
+the separately pending wide/medium ergonomic attachments.
+
 ## 2026-10-26 — V-handle thumbnail approved
 
 The user approved the generated isolated chrome close-neutral double-grip

@@ -30,6 +30,15 @@ it('resolves each exact phase without borrowing another setup or model', () => {
   expect(resolveExerciseArtwork(ergonomic, 'finish', 'male')).not.toBeNull();
   expect(resolveAttachmentArtwork(ergonomic)).not.toBeNull();
   expect(
+    resolveAttachmentArtwork('lat-pulldown-wide-pronated-bar'),
+  ).not.toBeNull();
+  expect(
+    resolveExerciseArtwork('lat-pulldown-wide-pronated-bar', 'start', 'male'),
+  ).toBeNull();
+  expect(
+    resolveExerciseArtwork('lat-pulldown-wide-pronated-bar', 'finish', 'male'),
+  ).toBeNull();
+  expect(
     resolveAttachmentArtwork('lat-pulldown-close-neutral-v-handle'),
   ).not.toBeNull();
   expect(
@@ -46,12 +55,7 @@ it('resolves each exact phase without borrowing another setup or model', () => {
       'male',
     ),
   ).toBeNull();
-  for (const id of [
-    'pulldown',
-    'lat-pulldown',
-    'lat-pulldown-wide-pronated-bar',
-    'unknown',
-  ]) {
+  for (const id of ['pulldown', 'lat-pulldown', 'unknown']) {
     expect(resolveExerciseArtwork(id, 'start', 'male')).toBeNull();
     expect(resolveAttachmentArtwork(id)).toBeNull();
   }
