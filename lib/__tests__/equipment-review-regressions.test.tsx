@@ -4,6 +4,7 @@ import { ExerciseGroupComposer } from '../../components/ExerciseGroupComposer';
 import { WorkoutHistory } from '../../components/WorkoutHistory';
 import { PlanPreview } from '../../components/workout-sharing/PlanPreview';
 import { AppButton } from '../../components/AppButton';
+import { Confirmation } from '../../components/Confirmation';
 import { findExercise } from '../exercise-library';
 import { isPressable } from './pressable';
 import { parseSharedPlan } from '../workout-sharing/contract';
@@ -297,4 +298,92 @@ it('shows V2 station and exact row prescriptions before import, without leaking 
   expect(output).not.toContain('45 kg');
   expect(output).toContain('12');
   act(() => view.unmount());
+});
+
+const scalarPresetTemplate = (): WorkoutTemplate => ({
+  id: 'scalar-presets',
+  name: 'Bench',
+  exerciseIds: ['barbell-bench-press'],
+  plannedExercises: [
+    {
+      exerciseId: 'barbell-bench-press',
+      sets: 3,
+      plannedSets: [
+        { id: 'first', weight: '60', reps: '12' },
+        { id: 'second', weight: '65', reps: '10' },
+        { id: 'third', weight: '70', reps: '8' },
+      ],
+    },
+  ],
+});
+
+it.each([
+  ['Weight for set 2', '67.5'],
+  ['Repetitions for set 2', '11'],
+])(
+  'confirms cancellation of a changed per-set prescription: %s',
+  (label, value) => {
+    const original = scalarPresetTemplate();
+    const before = JSON.stringify(original);
+    const save = jest.fn(async () => ({ ok: true as const })),
+      cancel = jest.fn();
+    let view: any;
+    act(() => {
+      view = create(
+        <TemplateEditor
+          mode="edit"
+          template={original}
+          initialExerciseId="barbell-bench-press"
+          busy={false}
+          onSave={save}
+          onCancel={cancel}
+        />,
+      );
+    });
+    try {
+      field(view, label, value);
+      act(() => button(view, 'Cancel').props.onPress());
+      expect(view.root.findByType(Confirmation).props.visible).toBe(true);
+      expect(cancel).not.toHaveBeenCalled();
+      expect(save).not.toHaveBeenCalled();
+      act(() => view.root.findByType(Confirmation).props.onCancel());
+      expect(view.root.findByType(Confirmation).props.visible).toBe(false);
+      expect(
+        view.root
+          .findAllByType(TextInput)
+          .find((n: any) => n.props.accessibilityLabel === label).props.value,
+      ).toBe(value);
+      act(() => button(view, 'Cancel').props.onPress());
+      act(() => view.root.findByType(Confirmation).props.onConfirm());
+      expect(cancel).toHaveBeenCalledTimes(1);
+      expect(save).not.toHaveBeenCalled();
+      expect(JSON.stringify(original)).toBe(before);
+    } finally {
+      act(() => view.unmount());
+    }
+  },
+);
+
+it('closes an untouched per-set prescription without a discard warning', () => {
+  const cancel = jest.fn();
+  let view: any;
+  act(() => {
+    view = create(
+      <TemplateEditor
+        mode="edit"
+        template={scalarPresetTemplate()}
+        initialExerciseId="barbell-bench-press"
+        busy={false}
+        onSave={async () => ({ ok: true })}
+        onCancel={cancel}
+      />,
+    );
+  });
+  try {
+    act(() => button(view, 'Cancel').props.onPress());
+    expect(view.root.findByType(Confirmation).props.visible).toBe(false);
+    expect(cancel).toHaveBeenCalledTimes(1);
+  } finally {
+    act(() => view.unmount());
+  }
 });
