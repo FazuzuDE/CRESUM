@@ -1,5 +1,9 @@
 import type { WorkoutSession } from '../workout-model';
-import { encodeHistoryWorkout, decodeHistoryWorkout } from './history-mapper';
+import {
+  encodeHistoryWorkout,
+  decodeHistoryWorkout,
+  type CloudHistoryWorkout,
+} from './history-mapper';
 import { identifier, positiveInteger, type SyncErrorKind } from './model';
 
 export type HistoryRpcCall = (
@@ -85,12 +89,33 @@ function category(error: unknown): SyncErrorKind {
     e.code === 'PGRST301'
   )
     return 'auth';
+  if (e.code === '0A000') return 'unsupported';
   if (e.code === '40001') return 'conflict';
   if (typeof e.code === 'string' && /^(22|23)/.test(e.code)) return 'invalid';
   return 'retryable';
 }
 export class HistoryRpc {
   constructor(private readonly rpc: HistoryRpcCall) {}
+  private async equipmentSupport(
+    payload: CloudHistoryWorkout | null = null,
+  ): Promise<boolean> {
+    let capabilities: unknown;
+    try {
+      capabilities = await this.call('get_equipment_group_capabilities', {});
+    } catch {
+      capabilities = null;
+    }
+    const supported =
+      object(capabilities) &&
+      capabilities.historyGroups === 1 &&
+      capabilities.historyProtocol === 2;
+    if (
+      payload?.exercises.some((e) => e.exercise_group !== undefined) &&
+      !supported
+    )
+      throw new HistoryProtocolError('unsupported');
+    return supported;
+  }
   private async call(
     name: string,
     args: Record<string, unknown>,
@@ -106,9 +131,13 @@ export class HistoryRpc {
   }
   async get(workoutId: string): Promise<HistoryRemote | null> {
     if (typeof workoutId !== 'string') return invalid();
-    const value = await this.call('get_completed_workout', {
-      p_workout_id: workoutId,
-    });
+    const upgraded = await this.equipmentSupport();
+    const value = await this.call(
+      upgraded ? 'get_completed_workout_v2' : 'get_completed_workout',
+      {
+        p_workout_id: workoutId,
+      },
+    );
     return value === null ? null : decodeRemote(value, workoutId);
   }
   async resolve(
@@ -137,15 +166,19 @@ export class HistoryRpc {
       }
       if (payload.workout_id !== input.workoutId) return invalid();
     }
-    const value = await this.call('resolve_completed_workout', {
-      p_workout_id: input.workoutId,
-      p_mutation_id: input.mutationId,
-      p_device_id: input.deviceId,
-      p_expected_revision: input.expectedRevision,
-      p_choice: input.choice,
-      p_copy_id: input.copyId,
-      p_workout: payload,
-    });
+    const upgraded = await this.equipmentSupport(payload);
+    const value = await this.call(
+      upgraded ? 'resolve_completed_workout_v2' : 'resolve_completed_workout',
+      {
+        p_workout_id: input.workoutId,
+        p_mutation_id: input.mutationId,
+        p_device_id: input.deviceId,
+        p_expected_revision: input.expectedRevision,
+        p_choice: input.choice,
+        p_copy_id: input.copyId,
+        p_workout: payload,
+      },
+    );
     if (!object(value) || value.kind !== 'history_resolution') return invalid();
     const original = decodeRemote(value.original, input.workoutId);
     if (
@@ -185,13 +218,17 @@ export class HistoryRpc {
       return invalid();
     }
     if (payload && payload.workout_id !== input.workoutId) return invalid();
-    const result = await this.call('publish_completed_workout', {
-      p_workout_id: input.workoutId,
-      p_mutation_id: input.mutationId,
-      p_device_id: input.deviceId,
-      p_expected_revision: input.expectedRevision,
-      p_workout: payload,
-    });
+    const upgraded = await this.equipmentSupport(payload);
+    const result = await this.call(
+      upgraded ? 'publish_completed_workout_v2' : 'publish_completed_workout',
+      {
+        p_workout_id: input.workoutId,
+        p_mutation_id: input.mutationId,
+        p_device_id: input.deviceId,
+        p_expected_revision: input.expectedRevision,
+        p_workout: payload,
+      },
+    );
     if (
       !object(result) ||
       !positiveInteger(result.revision) ||
@@ -205,10 +242,14 @@ export class HistoryRpc {
   async pull(after = '0', limit = 50): Promise<HistoryPage> {
     if (!cursor(after) || !Number.isInteger(limit) || limit < 1 || limit > 100)
       return invalid();
-    const result = await this.call('pull_completed_workouts', {
-      p_after: after,
-      p_limit: limit,
-    });
+    const upgraded = await this.equipmentSupport();
+    const result = await this.call(
+      upgraded ? 'pull_completed_workouts_v2' : 'pull_completed_workouts',
+      {
+        p_after: after,
+        p_limit: limit,
+      },
+    );
     if (
       !object(result) ||
       !cursor(result.cursor) ||

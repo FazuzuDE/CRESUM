@@ -1,4 +1,5 @@
 export default {
+  'technique.image': '{{name}} : {{phase}}',
   'templates.deleteTitle': 'Supprimer l’entraînement ?',
   'templates.deleteMessage':
     'Supprimer « {{name}} » ? Les entraînements actifs et terminés seront conservés.',

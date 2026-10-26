@@ -12,8 +12,14 @@ paths; (4) complete localized phone-size and regression checks. Exact medium/wid
 ergonomic configurations and their artwork remain pending, rather than inferred
 from their length. Existing generic and V-handle identities remain unchanged.
 
-The documentation records approval; it does not mark product code, asset QA or
-device acceptance complete. The existing device-build/release work remains open.
+The feature branch now includes the local image pair, compatible picker,
+retained drafts, grouped logging/History and versioned backup/share support.
+Backend migration and Edge changes are prepared but undeployed; group publication
+and sync fail closed until reviewed capability activation. Complete regression
+checks and real-export browser evidence are recorded in EQUIPMENT_GROUPS.md.
+The existing physical-device build/release and language-activation gates remain
+open. Next: merge the reviewed feature, then validate it in an installable build;
+deploy backend support separately after migration/RLS/roundtrip acceptance.
 See [design](superpowers/specs/2026-10-25-exercise-equipment-picker-design.md)
 and proposed [implementation plan](superpowers/plans/2026-10-25-exercise-equipment-picker.md).
 

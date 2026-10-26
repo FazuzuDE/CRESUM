@@ -1,5 +1,6 @@
 // Values from docs/DESIGN_SYSTEM.md. Native/system font is intentional.
 export const colors = {
+  scrim: 'rgba(0,0,0,0.24)',
   primary: '#0A84FF',
   primaryTint: '#EAF5FF',
   secondary: '#5E5CE6',

@@ -16,6 +16,11 @@ import { AppScrollView } from './AppScrollView';
 import { TechniqueArtwork } from './TechniqueArtwork';
 import { TechniquePhaseControl } from './TechniquePhaseControl';
 import { TechniqueViewer } from './TechniqueViewer';
+import { ExerciseEquipmentRow } from './ExerciseEquipmentRow';
+import { ExerciseEquipmentSheet } from './ExerciseEquipmentSheet';
+import { equipmentPolicyFor } from '@/lib/exercise-equipment';
+import { useEquipmentFocus } from './useEquipmentFocus';
+import { findExercise } from '@/lib/exercise-library';
 import {
   techniqueSources,
   type TechniquePhase,
@@ -29,7 +34,7 @@ import { formatDate } from '@/lib/i18n/format';
 import { localizedTechnique } from '@/lib/i18n/technique';
 
 export function ExerciseTechnique({
-  exercise,
+  exercise: initialExercise,
   onClose,
   history,
   initialTab = 'Technique',
@@ -41,6 +46,11 @@ export function ExerciseTechnique({
   initialTab?: 'Technique' | 'Statistics';
   now?: number;
 }) {
+  const [viewedId, setViewedId] = useState(initialExercise.id);
+  const exercise = findExercise(viewedId) ?? initialExercise;
+  const [equipmentOpen, setEquipmentOpen] = useState(false);
+  const equipmentFocus = useEquipmentFocus(equipmentOpen);
+  const equipmentPolicy = equipmentPolicyFor(exercise.id);
   const { t, locale } = useLocalization();
   const exerciseName = catalogLabel(
     locale,
@@ -183,6 +193,19 @@ export function ExerciseTechnique({
               </View>
             </Pressable>
             <TechniquePhaseControl phase={phase} onChange={setPhase} />
+            <ExerciseEquipmentRow
+              exerciseId={exercise.id}
+              focusRef={equipmentFocus}
+              onPress={() => setEquipmentOpen(true)}
+            />
+            {equipmentOpen && equipmentPolicy ? (
+              <ExerciseEquipmentSheet
+                policy={equipmentPolicy}
+                selectedVariantId={exercise.id}
+                onSelect={(id) => setViewedId(id)}
+                onClose={() => setEquipmentOpen(false)}
+              />
+            ) : null}
             {guide ? (
               <>
                 <Text style={s.metadata}>{guide.scope}</Text>

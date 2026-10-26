@@ -1,4 +1,5 @@
 export default {
+  'technique.image': '{{name}}: {{phase}}',
   'templates.deleteTitle': 'Delete workout?',
   'templates.deleteMessage':
     'Delete “{{name}}”? Active and completed workouts will stay unchanged.',

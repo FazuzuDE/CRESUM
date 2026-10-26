@@ -1,3 +1,7 @@
+import frEquipment from './locales/fr/equipment';
+import deEquipment from './locales/de/equipment';
+import ruEquipment from './locales/ru/equipment';
+import enEquipment from './locales/en/equipment';
 import frSharing from './locales/fr/sharing';
 import deSharing from './locales/de/sharing';
 import ruSharing from './locales/ru/sharing';
@@ -51,6 +55,7 @@ import ruTechniqueContent from './locales/ru/technique-content';
 import deTechniqueContent from './locales/de/technique-content';
 import frTechniqueContent from './locales/fr/technique-content';
 const en = {
+  ...enEquipment,
   ...enSharing,
   ...enProfile,
   ...enProgress,
@@ -66,6 +71,7 @@ const en = {
   ...enTechniqueContent,
 } as const;
 const ru = {
+  ...ruEquipment,
   ...ruSharing,
   ...ruProfile,
   ...ruProgress,
@@ -81,6 +87,7 @@ const ru = {
   ...ruTechniqueContent,
 } as const;
 const de = {
+  ...deEquipment,
   ...deSharing,
   ...deProfile,
   ...deProgress,
@@ -96,6 +103,7 @@ const de = {
   ...deTechniqueContent,
 } as const;
 const fr = {
+  ...frEquipment,
   ...frSharing,
   ...frProfile,
   ...frProgress,

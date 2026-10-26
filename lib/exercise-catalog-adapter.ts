@@ -206,6 +206,14 @@ const mapping = {
     equipmentType: 'cable',
     grip: { kind: 'grip', id: 'supinated' },
   },
+  'lat-pulldown-close-neutral-ergonomic-handle': {
+    familyId: 'lat-pulldown',
+    configuration: 'specific',
+    equipmentType: 'cable',
+    attachmentType: { kind: 'attachment', id: 'ergonomic-handle' },
+    grip: { kind: 'grip', id: 'neutral' },
+    gripWidth: 'close',
+  },
 } as const satisfies Partial<Record<ExerciseId, CatalogMapping>>;
 
 const hasMapping = (id: string): id is keyof typeof mapping =>

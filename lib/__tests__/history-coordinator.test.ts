@@ -139,6 +139,38 @@ async function setup(history: WorkoutSession[] = [w('local')]) {
     server: new Server(),
   };
 }
+it('retains unsupported grouped history locally while syncing the other workouts', async () => {
+  const grouped: WorkoutSession = {
+    ...w('grouped'),
+    exercises: [
+      {
+        id: 'e',
+        libraryId: 'lat-pulldown-close-neutral-ergonomic-handle',
+        name: 'Ergonomic',
+        muscle: 'Lats',
+        exerciseGroup: { id: 'g', familyId: 'lat-pulldown', name: 'Pulldown' },
+        sets: [{ id: 's', weight: '45', reps: '12', completedAt: 5 }],
+      },
+    ],
+  };
+  const x = await setup([grouped, w('plain')]);
+  const api = x.server.api('A');
+  const original = api.publish;
+  api.publish = async (input) => {
+    if (input.workout?.exercises.some((e) => e.exerciseGroup))
+      throw new HistoryProtocolError('unsupported');
+    return original(input);
+  };
+  await x.engine.setAccount('A', api);
+  await x.engine.enable();
+  expect(x.server.rows.get('A')?.has('plain')).toBe(true);
+  expect(x.server.rows.get('A')?.has('grouped')).not.toBe(true);
+  expect(
+    x.store.getSnapshot().data.history.find((w) => w.id === 'grouped')
+      ?.exercises[0].exerciseGroup?.id,
+  ).toBe('g');
+  expect(x.engine.getSnapshot().kind).toBe('unsupported');
+});
 it('requires explicit enable then merges distinct cloud/local history and survives restart', async () => {
   const x = await setup();
   x.server.seed('A', w('remote'));

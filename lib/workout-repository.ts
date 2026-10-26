@@ -6,7 +6,9 @@ import { WorkoutSession, WorkoutState, WorkoutTemplate } from './workout-model';
 import {
   validPlannedExerciseShape,
   validPlannedTarget,
+  validExerciseGroup,
 } from './planned-exercise';
+import { validGroupSequence } from './exercise-groups';
 import { canonicalExerciseId } from './exercise-library';
 
 // Stable on-device identifiers survive the CRESUM rebrand; renaming them
@@ -72,7 +74,22 @@ function template(value: unknown): WorkoutTemplate {
       ids.some((id) => !availableIds.has(id))
     )
       return invalid();
-    plannedExercises = value.plannedExercises.map((item) => ({ ...item }));
+    plannedExercises = value.plannedExercises.map((item) =>
+      JSON.parse(JSON.stringify(item)),
+    );
+    if (
+      !validGroupSequence(
+        exerciseIds.map(
+          (id) =>
+            plannedExercises!.find(
+              (e) =>
+                (canonicalExerciseId(e.exerciseId) ?? e.exerciseId) ===
+                (canonicalExerciseId(id) ?? id),
+            ) ?? { exerciseId: id },
+        ),
+      )
+    )
+      return invalid();
   }
   return {
     id: value.id,
@@ -136,6 +153,8 @@ function session(
       !string(exercise.muscle) ||
       (!legacy && !string(exercise.libraryId)) ||
       (exercise.target !== undefined && !validPlannedTarget(exercise.target)) ||
+      (exercise.exerciseGroup !== undefined &&
+        !validExerciseGroup(exercise.exerciseGroup)) ||
       !Array.isArray(exercise.sets)
     )
       return invalid();
@@ -146,6 +165,9 @@ function session(
         : exercise.id.split('-')[0],
       name: exercise.name,
       muscle: exercise.muscle,
+      ...(exercise.exerciseGroup === undefined
+        ? {}
+        : { exerciseGroup: { ...exercise.exerciseGroup } }),
       ...(exercise.target === undefined
         ? {}
         : { target: JSON.parse(JSON.stringify(exercise.target)) }),
@@ -178,6 +200,7 @@ function session(
       }),
     };
   });
+  if (!validGroupSequence(exercises)) return invalid();
   if (
     !legacy &&
     (!Number.isInteger(value.currentExerciseIndex) ||

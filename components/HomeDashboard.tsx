@@ -50,12 +50,26 @@ function templatePresentation(
   return {
     count: unavailable
       ? t('home.availability', {
-          available: details.availableCount,
+          available: details.stationCount ?? details.availableCount,
           unavailable,
         })
-      : t('home.exercises', { count: details.availableCount }),
+      : t('home.exercises', {
+          count: details.stationCount ?? details.availableCount,
+        }),
     preview: details.template.exerciseIds
-      .flatMap((id) => {
+      .flatMap((id, index) => {
+        const group = details.template.plannedExercises?.find(
+          (e) => e.exerciseId === id,
+        )?.exerciseGroup;
+        if (group) {
+          const first = details.template.exerciseIds.findIndex(
+            (other) =>
+              details.template.plannedExercises?.find(
+                (e) => e.exerciseId === other,
+              )?.exerciseGroup?.id === group.id,
+          );
+          return first === index ? [group.name] : [];
+        }
         const exercise = findExercise(id);
         return exercise
           ? [catalogLabel(locale, 'exercise', exercise.id, exercise.name)]

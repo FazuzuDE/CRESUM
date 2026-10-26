@@ -1,5 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
+import { resolveExerciseArtwork } from '@/lib/exercise-artwork';
 import { colors, radius } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { catalogLabel } from '@/lib/i18n/catalog';
@@ -13,6 +14,19 @@ export function ExerciseArtwork({
 }) {
   const { t, locale } = useLocalization();
   const name = catalogLabel(locale, 'exercise', imageKey, imageKey);
+  const source = resolveExerciseArtwork(imageKey, 'start', 'male');
+  if (source)
+    return (
+      <Image
+        source={source}
+        resizeMode="contain"
+        accessibilityLabel={name}
+        style={[
+          s.placeholder,
+          { width: size, height: size, backgroundColor: colors.surface },
+        ]}
+      />
+    );
   return (
     <View
       accessibilityLabel={

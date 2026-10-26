@@ -24,8 +24,19 @@ participation. Explicit grouping does not merge unrelated exercises or rewrite
 historical snapshots. Unsupported medium/wide ergonomic attachments remain
 unavailable until their exact geometry, grip and mechanics have been reviewed.
 
-This approves product/UX behavior, not a claim that it has shipped or that
-every prototype image is a production asset. See the [design](superpowers/specs/2026-10-25-exercise-equipment-picker-design.md)
+Implementation is prepared on the feature branch: the compact ergonomic Male
+START/FINISH pair and thumbnail, retained configuration drafts, exact attachment
+blocks, one-station navigation and per-row prescriptions are connected. Local
+sessions, History, backups and versioned imports retain the metadata. Grouped
+cloud writes and shared-plan publication require a separately reviewed backend
+capability; unsupported servers keep those groups local and continue legacy
+workout sync. No server migration or Edge deployment was performed.
+
+The initial picker offers the compact ergonomic handle, existing V-handle and
+existing wide pronated bar. These are three distinct reviewed configurations,
+not short/medium/wide versions of the same ergonomic attachment. Only the compact
+configuration has this image pair; missing variants retain placeholders.
+Physical-device and language release acceptance remain open. See the [design](superpowers/specs/2026-10-25-exercise-equipment-picker-design.md)
 and proposed [implementation plan](superpowers/plans/2026-10-25-exercise-equipment-picker.md).
 
 ### Saved-plan exercise editing — requested 2026-10-24
@@ -294,7 +305,7 @@ Future working-weight recommendations must primarily use history for the specifi
 
 Find/select exercises and retain data required by workouts/history.
 
-The current 58-record catalog and its stable exercise IDs remain the compatibility baseline. The approved model groups exercises into stable families and mechanically meaningful variants, so equipment, attachments, grip, support, laterality, technique, muscle mapping, and artwork can later describe an exact movement rather than only a broad name. Additive family/variant types and a partial catalog adapter exist; the flat catalog still serves Core. Production assets do not exist. See `EXERCISE_LIBRARY.md` for identity and compatibility rules and `EXERCISE_ASSETS.md` for production rules.
+The current 58-record catalog and its stable exercise IDs remain the compatibility baseline. The approved model groups exercises into stable families and mechanically meaningful variants, so equipment, attachments, grip, support, laterality, technique, muscle mapping, and artwork can later describe an exact movement rather than only a broad name. Additive family/variant types and a partial catalog adapter exist; the flat catalog still serves Core. The compact ergonomic Male pair is the first explicit local integration; other variants retain placeholders. See `EXERCISE_LIBRARY.md` for identity and compatibility rules and `EXERCISE_ASSETS.md` for production rules.
 
 Existing saved workouts and History keep their original meaning. Specific existing IDs may become variants without changing stored identity; overly generic old IDs must not be retroactively assigned a particular grip, machine, attachment, or position. New exact variants receive new stable IDs. Progress must not silently combine materially different variants into one performance series. The current schema-v1 snapshots are not rewritten for catalog refinement.
 

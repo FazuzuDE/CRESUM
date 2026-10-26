@@ -1,15 +1,20 @@
 import { createWorkoutSnapshotId } from './workout-snapshot-id';
 import { sharedPlanDraft } from './workout-sharing/adapter';
 import { validPlanOrigin } from './workout-sharing/import';
-import type { SharedPlanV1 } from './workout-sharing/contract';
+import type { SharedPlan } from './workout-sharing/contract';
 import type { PlanOrigin } from './workout-model';
 import { exerciseLibrary } from './workout-catalog';
-import { finishWorkout, startWorkout } from './workout-engine';
+import {
+  appendExerciseGroup,
+  finishWorkout,
+  startWorkout,
+} from './workout-engine';
 import {
   ProgramSlotContext,
   WorkoutSession,
   WorkoutState,
   WorkoutTemplate,
+  PlannedExercise,
 } from './workout-model';
 import { emptyWorkoutState, WorkoutRepository } from './workout-repository';
 import { AppError, type AppErrorCode } from './app-error';
@@ -121,6 +126,48 @@ export class WorkoutStore {
     const { data, ready, busy } = this.snapshot;
     if (!ready || busy || !data.activeWorkout) return;
     this.persist({ ...data, activeWorkout: transform(data.activeWorkout) });
+  }
+  async appendEquipmentGroup(
+    entries: readonly PlannedExercise[],
+    expectedSessionId: string,
+  ): Promise<boolean> {
+    const { data, ready, busy } = this.snapshot;
+    if (
+      !ready ||
+      busy ||
+      !data.activeWorkout ||
+      data.activeWorkout.id !== expectedSessionId
+    )
+      return false;
+    this.publish({ busy: true, error: '' });
+    try {
+      await this.repository.waitForWrites();
+      const next = {
+        ...data,
+        activeWorkout: appendExerciseGroup(
+          data.activeWorkout,
+          entries,
+          exerciseLibrary,
+          createWorkoutSnapshotId,
+        ),
+      };
+      const result = await this.repository.saveVerified(next);
+      // A write that threw after committing is safe to accept only after exact readback.
+      if (!result.saved && result.data !== next)
+        throw Error('Exercise group write failed.');
+      this.publish({ data: next, error: '' });
+      return true;
+    } catch {
+      this.publish(
+        {
+          error: 'Could not save the exercise group. Keep the draft and retry.',
+        },
+        'workout_save_failed',
+      );
+      return false;
+    } finally {
+      this.publish({ busy: false });
+    }
   }
   start(template: WorkoutTemplate, programSlot?: ProgramSlotContext) {
     const { data, ready, busy } = this.snapshot;
@@ -239,7 +286,7 @@ export class WorkoutStore {
     }
   }
   async importSharedPlan(
-    plan: SharedPlanV1,
+    plan: SharedPlan,
     origin: PlanOrigin,
     options?: { duplicate?: boolean },
   ): Promise<{ template: WorkoutTemplate; created: boolean }> {

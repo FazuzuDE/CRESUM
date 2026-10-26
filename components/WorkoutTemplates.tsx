@@ -429,11 +429,13 @@ export function WorkoutTemplates({
                     <Text style={s.metadata}>
                       {unavailable
                         ? t('home.availability', {
-                            available: details.availableCount,
+                            available:
+                              details.stationCount ?? details.availableCount,
                             unavailable,
                           })
                         : t('editor.exercises', {
-                            count: details.availableCount,
+                            count:
+                              details.stationCount ?? details.availableCount,
                           })}{' '}
                       · {t('home.planned', { count: details.plannedSetCount })}
                       {builtIn ? ` · ${t('templates.builtIn')}` : ''}

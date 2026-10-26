@@ -1,10 +1,15 @@
 import { defaultTemplates } from './workout-catalog';
+import {
+  moveGroupedItems,
+  validateExerciseGroupMembers,
+} from './exercise-groups';
 import { canonicalExerciseId, findExercise } from './exercise-library';
 import type { PlannedExercise, WorkoutTemplate } from './workout-model';
 import {
   normalizePlannedWeight,
   validPlannedSets,
   validPlannedTarget,
+  validPlannedExerciseShape,
 } from './planned-exercise';
 
 export type TemplateDraft = Pick<
@@ -76,6 +81,7 @@ export const validateTemplateDraft = (
     const seen = new Set<string>();
     for (const item of draft.plannedExercises) {
       if (
+        !validPlannedExerciseShape({ ...item, weight: undefined }) ||
         !validPlannedSets(item.sets) ||
         (item.target !== undefined && !validPlannedTarget(item.target))
       )
@@ -101,12 +107,27 @@ export const validateTemplateDraft = (
       plannedExercises.push({
         exerciseId,
         sets: item.sets,
+        ...(item.exerciseGroup
+          ? { exerciseGroup: JSON.parse(JSON.stringify(item.exerciseGroup)) }
+          : {}),
+        ...(item.plannedSets
+          ? { plannedSets: JSON.parse(JSON.stringify(item.plannedSets)) }
+          : {}),
         ...(item.target
           ? { target: JSON.parse(JSON.stringify(item.target)) }
           : {}),
         ...(normalizedWeight ? { weight: normalizedWeight } : {}),
       });
     }
+    const ordered = exerciseIds.map(
+      (id) =>
+        plannedExercises!.find((p) => p.exerciseId === id) ?? {
+          exerciseId: id,
+          sets: 3,
+        },
+    );
+    if (!validateExerciseGroupMembers(ordered))
+      return { ok: false, error: 'Invalid exercise group layout.' };
   }
 
   return {
@@ -152,11 +173,20 @@ export const moveDraftExercise = (
   const target = index + offset;
   if (index < 0 || index >= draft.exerciseIds.length) return draft;
   if (target < 0 || target >= draft.exerciseIds.length) return draft;
-  const exerciseIds = [...draft.exerciseIds];
-  [exerciseIds[index], exerciseIds[target]] = [
-    exerciseIds[target],
-    exerciseIds[index],
-  ];
+  const items = draft.exerciseIds.map((exerciseId) => ({
+    exerciseId,
+    exerciseGroup: draft.plannedExercises?.find(
+      (e) => e.exerciseId === exerciseId,
+    )?.exerciseGroup,
+  }));
+  const currentGroup = items[index].exerciseGroup?.id;
+  let neighbor = target;
+  while (currentGroup && items[neighbor]?.exerciseGroup?.id === currentGroup)
+    neighbor += offset;
+  if (!items[neighbor]) return draft;
+  const exerciseIds = moveGroupedItems(items, index, neighbor).map(
+    (e) => e.exerciseId,
+  );
   return { ...draft, exerciseIds };
 };
 

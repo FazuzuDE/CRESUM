@@ -21,6 +21,7 @@ describe('canonical exercise metadata', () => {
               'lat-pulldown-wide-pronated-bar',
               'lat-pulldown-close-neutral-v-handle',
               'lat-pulldown-reverse-grip',
+              'lat-pulldown-close-neutral-ergonomic-handle',
               'standing-cable-anti-rotation-press',
               'bodyweight-step-up',
               'dumbbell-floor-glute-bridge',
@@ -92,7 +93,7 @@ describe('canonical exercise metadata', () => {
 
   it('contains a curated catalog with unique stable ids', () => {
     expect(exerciseLibrary.length).toBeGreaterThanOrEqual(45);
-    expect(exerciseLibrary.length).toBeLessThanOrEqual(65);
+    expect(exerciseLibrary.length).toBeLessThanOrEqual(66);
     expect(new Set(exerciseLibrary.map((item) => item.id)).size).toBe(
       exerciseLibrary.length,
     );

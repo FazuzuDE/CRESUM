@@ -1,12 +1,14 @@
 import {
   validateSharedPlan,
-  type SharedPlanV1,
+  type SharedPlan,
 } from '../_shared/plan-contract.ts';
 export type SharedPlanService = {
   getUser(token: string): Promise<{ id: string; isAnonymous: boolean } | null>;
   resolveExercise(id: string): string | null;
+  resolveFamily?(id: string): string | null;
+  capabilities?(): Promise<{ historyGroups?: number; sharedPlan?: number }>;
   limit(): Promise<boolean>;
-  publish(owner: string, plan: SharedPlanV1): Promise<unknown>;
+  publish(owner: string, plan: SharedPlan): Promise<unknown>;
   read(token: string): Promise<unknown | null>;
   revoke(owner: string, id: string): Promise<void>;
   library(): Promise<unknown>;
@@ -56,6 +58,8 @@ export function createSharedPlanHandler(service: SharedPlanService) {
       if (!(await service.limit())) return response(429, { code: 'rate' });
       const url = new URL(request.url);
       if (request.method === 'GET') {
+        if (url.searchParams.get('capabilities') === '1')
+          return response(200, (await service.capabilities?.()) ?? {});
         if (url.searchParams.get('library') === '1')
           return response(200, await service.library());
         const publicationId = url.searchParams.get('publicationId');
@@ -96,12 +100,21 @@ export function createSharedPlanHandler(service: SharedPlanService) {
           (value as { action?: unknown }).action === 'list'
         )
           return response(200, (await service.owned?.(user.id)) ?? []);
-        let plan: SharedPlanV1;
+        let plan: SharedPlan;
         try {
-          plan = validateSharedPlan(value, service.resolveExercise);
+          plan = validateSharedPlan(
+            value,
+            service.resolveExercise,
+            service.resolveFamily,
+          );
         } catch {
           return response(400, { code: 'invalid' });
         }
+        if (
+          plan.schemaVersion === 2 &&
+          (await service.capabilities?.())?.sharedPlan !== 2
+        )
+          return response(409, { code: 'equipment_support_required' });
         return response(200, await service.publish(user.id, plan));
       }
       const id = (value as { publicationId?: unknown })?.publicationId;

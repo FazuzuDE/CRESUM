@@ -12,6 +12,7 @@ import type {
   PublishedPlan,
 } from '@/lib/workout-sharing/client';
 import { exportSharedPlan } from '@/lib/workout-sharing/adapter';
+import { EquipmentSharingUnavailable } from '@/lib/workout-sharing/client';
 import { colors, spacing, typography } from '@/lib/theme';
 function PlanQR({ url, label }: { url: string; label: string }) {
   const qr = createQr(0, 'M');
@@ -50,6 +51,7 @@ export function SharePlanSheet({
   const [disabled, setDisabled] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
+  const [equipmentPending, setEquipmentPending] = useState(false);
   const [copied, setCopied] = useState(false);
   const flight = useRef(false);
   const run = async (work: () => Promise<void>) => {
@@ -57,9 +59,11 @@ export function SharePlanSheet({
     flight.current = true;
     setBusy(true);
     setError(false);
+    setEquipmentPending(false);
     try {
       await work();
-    } catch {
+    } catch (cause) {
+      setEquipmentPending(cause instanceof EquipmentSharingUnavailable);
       setError(true);
     } finally {
       flight.current = false;
@@ -164,7 +168,7 @@ export function SharePlanSheet({
       ) : null}
       {error ? (
         <Text accessibilityRole="alert" style={s.copy}>
-          {t('sharing.error')}
+          {equipmentPending ? t('equipment.sharePending') : t('sharing.error')}
         </Text>
       ) : null}
     </View>
