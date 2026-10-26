@@ -565,6 +565,7 @@ export class HistoryCoordinator {
         if (!this.current(c)) return;
         const kind = e instanceof HistoryProtocolError ? e.kind : 'retryable';
         await this.queue.defer(c.userId, workout.id, intent.token, kind);
+        if (kind === 'unsupported') continue;
         throw new HistoryProtocolError(kind);
       }
     }

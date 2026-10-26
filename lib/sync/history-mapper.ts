@@ -2,6 +2,7 @@ import type {
   PlannedTarget,
   ProgramSlotContext,
   WorkoutSession,
+  ExerciseGroupSnapshot,
 } from '../workout-model';
 import { readCompletedWorkout } from '../workout-repository';
 
@@ -22,6 +23,7 @@ export type CloudHistoryWorkout = {
     name: string;
     muscle: string;
     target: PlannedTarget | null;
+    exercise_group?: ExerciseGroupSnapshot;
     sets: {
       set_index: number;
       set_id: string;
@@ -62,6 +64,7 @@ export function encodeHistoryWorkout(
       name: e.name,
       muscle: e.muscle,
       target: e.target ?? null,
+      ...(e.exerciseGroup ? { exercise_group: { ...e.exerciseGroup } } : {}),
       sets: e.sets.map((s, set_index) => ({
         set_index,
         set_id: s.id,
@@ -95,6 +98,9 @@ export function decodeHistoryWorkout(value: unknown): WorkoutSession {
         libraryId: e.library_id,
         name: e.name,
         muscle: e.muscle,
+        ...(e.exercise_group == null
+          ? {}
+          : { exerciseGroup: e.exercise_group }),
         ...(e.target == null ? {} : { target: e.target }),
         sets: array(e.sets).map((item, j) => {
           const s = record(item);

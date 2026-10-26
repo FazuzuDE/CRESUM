@@ -2,6 +2,8 @@ import type {
   ExerciseTarget,
   PlannedTarget,
   PlannedExercise,
+  ExerciseGroupSnapshot,
+  PlannedSet,
 } from './workout-model';
 
 export const validExerciseTarget = (
@@ -61,6 +63,44 @@ export const normalizePlannedWeight = (weight: string): string | null => {
   return normalized;
 };
 
+export function validExerciseGroup(
+  value: unknown,
+): value is ExerciseGroupSnapshot {
+  if (typeof value !== 'object' || value === null || Array.isArray(value))
+    return false;
+  const v = value as Record<string, unknown>;
+  return (
+    Object.keys(v).every((k) => ['id', 'familyId', 'name'].includes(k)) &&
+    ['id', 'familyId', 'name'].every(
+      (k) =>
+        typeof v[k] === 'string' &&
+        (v[k] as string).trim().length > 0 &&
+        (v[k] as string).length <= 160,
+    )
+  );
+}
+
+export function validPlannedSet(value: unknown): value is PlannedSet {
+  if (typeof value !== 'object' || value === null || Array.isArray(value))
+    return false;
+  const v = value as Record<string, unknown>;
+  return (
+    Object.keys(v).every((k) => ['id', 'weight', 'reps'].includes(k)) &&
+    typeof v.id === 'string' &&
+    v.id.trim().length > 0 &&
+    v.id.length <= 160 &&
+    (v.weight === undefined ||
+      (typeof v.weight === 'string' &&
+        normalizePlannedWeight(v.weight) !== null)) &&
+    (v.reps === undefined ||
+      (typeof v.reps === 'string' &&
+        /^\d+$/.test(v.reps) &&
+        Number.isSafeInteger(Number(v.reps)) &&
+        Number(v.reps) > 0 &&
+        Number(v.reps) <= 1000))
+  );
+}
+
 export const validPlannedExerciseShape = (
   value: unknown,
 ): value is PlannedExercise => {
@@ -69,6 +109,14 @@ export const validPlannedExerciseShape = (
   return (
     typeof item.exerciseId === 'string' &&
     validPlannedSets(item.sets) &&
+    (item.exerciseGroup === undefined ||
+      validExerciseGroup(item.exerciseGroup)) &&
+    (item.plannedSets === undefined ||
+      (Array.isArray(item.plannedSets) &&
+        item.plannedSets.length === item.sets &&
+        item.plannedSets.every(validPlannedSet) &&
+        new Set(item.plannedSets.map((s) => s.id)).size ===
+          item.plannedSets.length)) &&
     (item.target === undefined || validPlannedTarget(item.target)) &&
     (item.weight === undefined ||
       (typeof item.weight === 'string' &&

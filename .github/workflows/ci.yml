@@ -46,6 +46,8 @@ jobs:
               esac
             done
             cat supabase/tests/workout-sharing.sql
+            cat supabase/tests/exercise-attachment-groups.sql
+            cat supabase/tests/exercise-group-protocol.sql
             cat supabase/tests/account-deletion.sql
           } | docker exec -i "$POSTGRES_CONTAINER" psql -U postgres -d postgres --set ON_ERROR_STOP=on
   quality:

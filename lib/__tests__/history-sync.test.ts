@@ -137,7 +137,7 @@ it('publishes deletions with an expected revision and null aggregate', async () 
     expectedRevision: 2,
     workout: null,
   });
-  expect(rpc.mock.calls[0]).toEqual([
+  expect(rpc.mock.calls.at(-1)).toEqual([
     'publish_completed_workout',
     expect.objectContaining({ p_expected_revision: 2, p_workout: null }),
   ]);

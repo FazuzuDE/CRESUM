@@ -1,5 +1,15 @@
 # Exercise Library contracts
 
+## Additive compact ergonomic handle — 2026-10-25
+
+The catalog adds `lat-pulldown-close-neutral-ergonomic-handle` as a separate
+specific member of `lat-pulldown`: ergonomic attachment, neutral close grip,
+lats Primary and biceps/upper-back Secondary. The library now has 66 records.
+Generic `lat-pulldown`/`pulldown` and the old V-handle retain their identities;
+no stored records are renamed. Its Male technique pair and attachment image
+resolve locally by this exact ID only; other variants do not borrow them.
+See EXERCISE_BIOMECHANICS and EXERCISE_ASSETS for scope and review evidence.
+
 The Exercise Library is CRESUM Core's canonical, offline exercise metadata source. Its implementation lives in `lib/exercise-library.ts`; taxonomy IDs and display labels live in `lib/exercise-taxonomy.ts`.
 
 ## Canonical IDs

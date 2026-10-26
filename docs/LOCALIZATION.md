@@ -14,9 +14,9 @@ pending, so they are not yet offered as production language choices.
 | Home dashboard, calendar and layout editor         | Connected            | Connected and tested            |
 | Onboarding, proposal preview and schedule editor   | Connected            | Connected and tested            |
 | Manual workout editor                              | Connected            | Connected and tested            |
-| Catalog names and Exercise Library controls/search | Connected            | 105 labels + 29 messages tested |
+| Catalog names and Exercise Library controls/search | Connected            | 106 labels + 29 messages tested |
 | Program week and workout-template management       | Connected            | Connected and tested            |
-| Technique controls and 65 exercise guides          | Connected            | 494 guide messages connected    |
+| Technique controls and 66 exercise guides          | Connected            | 502 guide messages connected    |
 | History details, filters and date/count pickers    | Connected            | Connected and tested            |
 | Progress, exercise statistics, charts and muscles  | Connected            | Connected and tested            |
 | Progress body-weight chart and measurement editor  | Connected            | Connected and tested            |
@@ -32,12 +32,9 @@ it does not exempt entire files or future strings. Moving an internal token into
 visible JSX invalidates that classification. The inventory includes technical
 and canonical content: counts are not a percentage of translated UI.
 
-The current resource catalog has 1468 semantic messages per language (19 common,
-105 catalog labels, 29 library controls, 113 workout messages and 77 Home/calendar
-messages, 36 History/date-picker, 90 onboarding/program-preview and 39 manual
-editor messages, 74 program/technique/management messages and 494 technique-guide
-messages, 163 Progress/statistics/chart/muscle/body-weight messages and 229
-Profile/account/backup/recovery messages). Matching
+The current resource catalog has 1567 semantic messages per language, including
+106 catalog labels, 66 exercise guides (502 guide messages) and the new equipment
+selection, grouped-set, retry and capability-status messages. Matching
 key counts are a structural check, not independent linguistic acceptance. The native picker
 receives labels/values from JavaScript; it has no separate English UI copy in its
 current Swift implementation.

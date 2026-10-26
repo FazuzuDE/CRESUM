@@ -267,6 +267,28 @@ export const techniqueCatalog = {
     adaptation:
       'Shared pulldown mechanics adapted to the approved CRESUM V-handle variant.',
   },
+  'lat-pulldown-close-neutral-ergonomic-handle': {
+    revision: 1,
+    scope:
+      'Seated front pulldown; compact ergonomic handle; close neutral grip.',
+    setup: [
+      'Secure thighs and support feet. Face the high pulley; rest palms on the handle supports and wrap fingers around the rounded edges, palms facing each other.',
+    ],
+    movement: [
+      'Draw elbows down toward your sides, bringing the handle toward the upper chest; return under control to comfortable overhead extension.',
+    ],
+    checks: [
+      'Keep wrists aligned, pelvis stable and a modest constant lean. Allow natural shoulder-blade movement; chest contact is optional.',
+    ],
+    mistakes: [
+      'Pulling with a body swing: lower the load.',
+      'Reversing the hand contact or forcing bent wrists: reset the grip.',
+      'Driving elbows far behind the trunk: stop the pull earlier.',
+    ],
+    sources: ['ace-158'],
+    adaptation:
+      'Shared pulldown mechanics adapted to the selected compact ergonomic attachment. Qualitative muscle roles do not measure activation or prove a benefit over other widths.',
+  },
   'lat-pulldown-reverse-grip': {
     revision: 1,
     scope: 'Supinated grip; attachment and width unspecified.',

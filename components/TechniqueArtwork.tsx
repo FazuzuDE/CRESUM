@@ -1,5 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { resolveExerciseArtwork } from '@/lib/exercise-artwork';
+import { catalogLabel } from '@/lib/i18n/catalog';
 import type { TechniquePhase } from '@/lib/exercise-technique';
 import { colors, radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
@@ -14,9 +16,28 @@ export function TechniqueArtwork({
   phase: TechniquePhase;
   expanded?: boolean;
 }) {
-  const { t } = useLocalization();
+  const { t, locale } = useLocalization();
   const phaseLabel =
     phase === 'START' ? t('technique.start') : t('technique.finish');
+  const source = resolveExerciseArtwork(
+    imageKey,
+    phase === 'START' ? 'start' : 'finish',
+    'male',
+  );
+  if (source)
+    return (
+      <View style={[s.frame, s.image]}>
+        <Image
+          source={source}
+          resizeMode="contain"
+          accessibilityLabel={t('technique.image', {
+            phase: phaseLabel,
+            name: catalogLabel(locale, 'exercise', imageKey, imageKey),
+          })}
+          style={s.picture}
+        />
+      </View>
+    );
   return (
     <View
       accessibilityLabel={t('technique.placeholder', {
@@ -34,6 +55,14 @@ export function TechniqueArtwork({
   );
 }
 const s = StyleSheet.create({
+  picture: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+  },
+  image: { backgroundColor: colors.surface, padding: 0 },
   frame: {
     width: '100%',
     aspectRatio: 1,

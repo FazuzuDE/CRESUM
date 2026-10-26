@@ -1,5 +1,23 @@
 # CRESUM Decision Log
 
+## 2026-10-25 — Contextual attachment picker and grouped sets approved
+
+Status: Approved — documented on a focused branch; integration pending.
+
+The user approved the revised exercise configuration: tap the current attachment
+row to open a bottom-sheet list of compatible equipment; choose and return to
+configuration without permanent short/medium/wide chips. Optional accessories
+have a no-accessory baseline; mandatory handles cannot be removed; irrelevant
+or single-choice pickers are omitted. One exercise/station card groups ordered
+attachment-specific sets without merging variant records or double-counting.
+Descriptions, qualitative muscle roles and images follow the exact configuration.
+The compact ergonomic attachment is distinct from the existing V-handle;
+medium/wide ergonomic examples do not establish reviewed variants or artwork.
+
+Record the agreed UX in PRODUCT and DESIGN_SYSTEM and staged delivery in ROADMAP.
+The accompanying implementation plan is proposed for review; this documentation
+does not report app implementation, production asset promotion or device QA.
+
 - 2026-10-24 implementation checkpoint: continue approved multilingual Task8
   with a representative 16-case exported-web smoke matrix (four locales,
   320/390px, normal/expanded labels). Fix reproduced action-label overflow in
@@ -2172,3 +2190,18 @@ installable test build and physical iPhone/Android checks, correction of finding
 and language acceptance. Domain/mail, multi-device sync acceptance, independent
 backup and store preparation remain release work. Do not expand unrelated
 features or equate browser/export success with physical-device acceptance.
+
+### 2026-10-26 — Equipment picker implementation and activation boundary
+
+Implement the approved summary-row bottom sheet and exact attachment blocks in
+one station. Preserve existing generic/V-handle identities; add the ergonomic
+handle under a new exact ID. Repeated additions append within one exact block;
+there is no implicit A–B–A/superset interpretation. Existing outside occurrences
+are rejected instead of moved. Keep unspecified row values empty.
+
+Group-bearing transfers and backups use version 2; legacy-only exports retain
+version 1. Old readers must require an update instead of flattening new metadata.
+Require explicit server capability for grouped cloud writes/publication and
+continue other workout uploads when a group is unsupported. Prepared migration
+and Edge changes remain undeployed. See EQUIPMENT_GROUPS.md for evidence and
+activation/device gates. No merge or language release activation is implied.

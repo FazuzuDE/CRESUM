@@ -15,6 +15,7 @@ export default {
   "catalog.exercise.lat-pulldown-wide-pronated-bar": "Wide Pronated Bar Lat Pulldown",
   "catalog.exercise.lat-pulldown-close-neutral-v-handle": "Close Neutral V-Handle Lat Pulldown",
   "catalog.exercise.lat-pulldown-reverse-grip": "Reverse-Grip Lat Pulldown",
+  "catalog.exercise.lat-pulldown-close-neutral-ergonomic-handle": "Close Neutral Ergonomic Handle Lat Pulldown",
   "catalog.exercise.pull-up": "Pull-Up",
   "catalog.exercise.assisted-pull-up": "Assisted Pull-Up",
   "catalog.exercise.machine-high-row": "Machine High Row",

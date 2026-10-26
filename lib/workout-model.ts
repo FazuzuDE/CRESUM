@@ -31,7 +31,15 @@ export type WorkoutSet = {
   otherSideReps?: string;
 };
 
+export type ExerciseGroupSnapshot = {
+  id: string;
+  familyId: string;
+  name: string;
+};
+export type PlannedSet = { id: string; weight?: string; reps?: string };
+
 export type WorkoutExercise = {
+  exerciseGroup?: ExerciseGroupSnapshot;
   id: string;
   libraryId: string;
   name: string;
@@ -70,6 +78,8 @@ export type WorkoutTemplate = {
 };
 
 export type PlannedExercise = {
+  exerciseGroup?: ExerciseGroupSnapshot;
+  plannedSets?: PlannedSet[];
   exerciseId: string;
   sets: number;
   weight?: string;

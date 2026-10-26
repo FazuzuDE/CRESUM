@@ -6,10 +6,14 @@ import { useLocalization } from '../LocalizationProvider';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { findExercise } from '@/lib/exercise-library';
 import type { PlanOrigin, WorkoutTemplate } from '@/lib/workout-model';
-import type { SharedPlanV1 } from '@/lib/workout-sharing/contract';
+import { ExerciseEquipmentRow } from '../ExerciseEquipmentRow';
+import type {
+  SharedPlan,
+  SharedPlanExerciseV2,
+} from '@/lib/workout-sharing/contract';
 import { colors, spacing, typography, radius } from '@/lib/theme';
 export type ImportPlan = (
-  plan: SharedPlanV1,
+  plan: SharedPlan,
   origin: PlanOrigin,
   options?: { duplicate?: boolean },
 ) => Promise<{ template: WorkoutTemplate; created: boolean }>;
@@ -23,7 +27,7 @@ export function PlanPreview({
   savedTemplate,
   onOpenSaved,
 }: {
-  plan: SharedPlanV1;
+  plan: SharedPlan;
   origin: PlanOrigin;
   onImport: ImportPlan;
   onStart: (template: WorkoutTemplate) => void;
@@ -59,39 +63,83 @@ export function PlanPreview({
   return (
     <View style={s.content}>
       <Text style={s.title}>{plan.title}</Text>
-      {plan.exercises.map((e) => (
-        <View key={e.exerciseId} style={s.card}>
-          <Text style={s.name}>
-            {catalogLabel(
-              locale,
-              'exercise',
-              e.exerciseId,
-              findExercise(e.exerciseId)?.name ?? e.exerciseId,
-            )}
-          </Text>
-          <Text style={s.copy}>{t('sharing.sets', { count: e.sets })}</Text>
-          {e.target ? (
-            <Text style={s.copy}>
-              {t('sharing.targetRange', {
-                min: e.target.repMin,
-                max: e.target.repMax,
-                restMin: e.target.restMin,
-                restMax: e.target.restMax,
-              })}
+      {plan.exercises.map((entry, index) => {
+        const e = entry as SharedPlanExerciseV2;
+        const numberOffset = e.exerciseGroup
+          ? plan.exercises
+              .slice(0, index)
+              .reduce(
+                (sum, other) =>
+                  sum +
+                  ((other as SharedPlanExerciseV2).exerciseGroup?.id ===
+                  e.exerciseGroup!.id
+                    ? other.sets
+                    : 0),
+                0,
+              )
+          : 0;
+        return (
+          <View key={e.exerciseId} style={s.card}>
+            {e.exerciseGroup &&
+            (plan.exercises[index - 1] as SharedPlanExerciseV2 | undefined)
+              ?.exerciseGroup?.id !== e.exerciseGroup.id ? (
+              <Text style={s.title}>{e.exerciseGroup.name}</Text>
+            ) : null}
+            <Text style={s.name}>
+              {catalogLabel(
+                locale,
+                'exercise',
+                e.exerciseId,
+                findExercise(e.exerciseId)?.name ?? e.exerciseId,
+              )}
             </Text>
-          ) : null}
-          {e.target?.perSide ? (
-            <Text style={s.copy}>{t('sharing.perSide')}</Text>
-          ) : null}
-          {e.weightKg !== undefined ? (
-            <Text style={s.copy}>
-              {t('sharing.weight', {
-                weight: formatEntryNumber(locale, e.weightKg),
-              })}
-            </Text>
-          ) : null}
-        </View>
-      ))}
+            {e.exerciseGroup ? (
+              <ExerciseEquipmentRow exerciseId={e.exerciseId} />
+            ) : null}
+            <Text style={s.copy}>{t('sharing.sets', { count: e.sets })}</Text>
+            {e.plannedSets?.map((row, i) => (
+              <View key={row.id} style={{ gap: spacing.xxs }}>
+                <Text style={s.copy}>
+                  {t('entry.title', { index: numberOffset + i + 1 })}
+                </Text>
+                {row.weight !== undefined ? (
+                  <Text style={s.copy}>
+                    {t('sharing.weight', {
+                      weight: formatEntryNumber(locale, row.weight),
+                    })}
+                  </Text>
+                ) : null}
+                {row.reps !== undefined ? (
+                  <Text style={s.copy}>
+                    {t('workout.tableReps')}:{' '}
+                    {formatEntryNumber(locale, row.reps)}
+                  </Text>
+                ) : null}
+              </View>
+            ))}
+            {e.target ? (
+              <Text style={s.copy}>
+                {t('sharing.targetRange', {
+                  min: e.target.repMin,
+                  max: e.target.repMax,
+                  restMin: e.target.restMin,
+                  restMax: e.target.restMax,
+                })}
+              </Text>
+            ) : null}
+            {e.target?.perSide ? (
+              <Text style={s.copy}>{t('sharing.perSide')}</Text>
+            ) : null}
+            {e.weightKg !== undefined ? (
+              <Text style={s.copy}>
+                {t('sharing.weight', {
+                  weight: formatEntryNumber(locale, e.weightKg),
+                })}
+              </Text>
+            ) : null}
+          </View>
+        );
+      })}
       <Text style={s.copy}>{t('sharing.copy')}</Text>
       {saved ? <Text style={s.copy}>{t('sharing.savedInfo')}</Text> : null}
       {error ? (

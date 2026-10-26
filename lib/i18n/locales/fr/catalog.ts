@@ -1,4 +1,6 @@
 export default {
+  'catalog.exercise.lat-pulldown-close-neutral-ergonomic-handle':
+    'Tirage vertical avec poignée ergonomique courte',
   'catalog.exercise.barbell-bench-press': 'Développé couché à la barre',
   'catalog.exercise.incline-dumbbell-press': 'Développé incliné aux haltères',
   'catalog.exercise.dumbbell-bench-press': 'Développé couché aux haltères',

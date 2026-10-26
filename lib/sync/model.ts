@@ -1,4 +1,5 @@
-export type SyncErrorKind = 'retryable' | 'auth' | 'conflict' | 'invalid';
+export type SyncErrorKind =
+  'retryable' | 'auth' | 'conflict' | 'invalid' | 'unsupported';
 export type SyncIntentInput = {
   entityId: string;
   operation: 'upsert' | 'delete';
@@ -48,6 +49,7 @@ export const errorKind = (value: unknown): value is SyncErrorKind =>
   value === 'retryable' ||
   value === 'auth' ||
   value === 'conflict' ||
+  value === 'unsupported' ||
   value === 'invalid';
 export function validateInput(value: SyncIntentInput): void {
   if (

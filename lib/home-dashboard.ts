@@ -16,6 +16,7 @@ export const HOME_WIDGET_LAYOUT = [
 export type HomeTemplateDetails = {
   template: WorkoutTemplate;
   availableCount: number;
+  stationCount?: number;
   count: string;
   preview: string;
   plannedSetCount: number;
@@ -29,9 +30,20 @@ export function templateDetails(
     return exercise ? [exercise] : [];
   });
   const unavailable = template.exerciseIds.length - available.length;
+  const grouped = template.plannedExercises?.some((e) => e.exerciseGroup);
+  const stationCount = grouped
+    ? new Set(
+        available.map(
+          (e) =>
+            template.plannedExercises?.find((p) => p.exerciseId === e.id)
+              ?.exerciseGroup?.id ?? e.id,
+        ),
+      ).size
+    : undefined;
   return {
     template,
     availableCount: available.length,
+    ...(stationCount === undefined ? {} : { stationCount }),
     plannedSetCount: available.reduce((total, exercise) => {
       const planned = template.plannedExercises?.find((item) =>
         exerciseIdsMatch(item.exerciseId, exercise.id),

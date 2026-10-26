@@ -53,11 +53,13 @@ export function HistorySyncPanel({
           ? t('sync.syncedHint')
           : kind === 'conflict'
             ? t('sync.conflictHint')
-            : kind === 'auth'
-              ? t('sync.authHint')
-              : kind === 'invalid'
-                ? t('sync.invalidHint')
-                : t('sync.localHint');
+            : kind === 'unsupported'
+              ? t('equipment.syncPending')
+              : kind === 'auth'
+                ? t('sync.authHint')
+                : kind === 'invalid'
+                  ? t('sync.invalidHint')
+                  : t('sync.localHint');
   return (
     <View style={s.root}>
       <Text style={s.title} accessibilityLiveRegion="polite">

@@ -1,6 +1,23 @@
 # CRESUM Exercise Assets — approved production rules
 
-This document owns future exercise-asset production and acceptance rules. The current app uses an artwork placeholder; no production exercise-image manifest, renderer, automated biomechanics QA, or asset-tracker integration is implemented. Canonical exercise identity and variant boundaries belong to `EXERCISE_LIBRARY.md`; the first three exact Lat Pulldown mechanics specifications belong to `EXERCISE_BIOMECHANICS.md`; visual language belongs to `DESIGN_SYSTEM.md`. Asset production status is not Exercise Library metadata.
+## Compact ergonomic handle — first local image integration, 2026-10-25
+
+The exact `lat-pulldown-close-neutral-ergonomic-handle` now has a local Male
+Technique pair and attachment thumbnail under `assets/exercises/` with an
+explicit resolver in `lib/exercise-artwork.ts`. This supersedes the placeholder-
+only implementation status below for this variant alone. Other configurations
+and Female artwork retain placeholders. The older V-handle profile is unchanged.
+
+The manifest records source/output SHA-256, export size/quality and review scope.
+The user selected START and approved the proposed app integration using this
+pair. Assistant visual review checked common identity, outfit/camera/machine,
+neutral hand contact, seated support/feet and coherent cable/stack motion.
+FINISH retains eight raised and eleven resting plates, with the selector at the
+bottom raised plate. This is a visual reference review, not measured CAD or
+clinician certification. It does not fabricate an old tracker/prompt approval.
+Physical-device presentation/accessibility remains a separate acceptance check.
+
+This document owns exercise-asset production and acceptance rules. The compact ergonomic variant above is the first local manifest/resolver integration; all unrelated configurations retain placeholders. Automated biomechanics QA and integration with the separate asset tracker are not implemented. Canonical exercise identity and variant boundaries belong to `EXERCISE_LIBRARY.md`; the first three exact Lat Pulldown mechanics specifications belong to `EXERCISE_BIOMECHANICS.md`; visual language belongs to `DESIGN_SYSTEM.md`. Asset production status is not Exercise Library metadata.
 
 ## Pipeline boundary
 

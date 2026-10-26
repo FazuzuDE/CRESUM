@@ -9371,5 +9371,565 @@
         "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/ParenthesizedExpression"
       }
     ]
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 22,
+    "text": "START",
+    "context": "StringLiteral/BinaryExpression/ConditionalExpression/CallExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Exact asset identity or phase discriminant; localized text supplies the visible and spoken label."
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 22,
+    "text": "start",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/VariableDeclaration/VariableDeclarationList",
+    "kind": "internal",
+    "reason": "Exact asset identity or phase discriminant; localized text supplies the visible and spoken label."
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 22,
+    "text": "finish",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/VariableDeclaration/VariableDeclarationList",
+    "kind": "internal",
+    "reason": "Exact asset identity or phase discriminant; localized text supplies the visible and spoken label."
+  },
+  {
+    "file": "lib/exercise-artwork.ts",
+    "line": 4,
+    "text": "lat-pulldown-close-neutral-ergonomic-handle",
+    "context": "StringLiteral/VariableDeclaration/VariableDeclarationList/FirstStatement",
+    "kind": "internal",
+    "reason": "Exact asset identity or phase discriminant; localized text supplies the visible and spoken label."
+  },
+  {
+    "file": "lib/exercise-library.ts",
+    "line": 135,
+    "text": "Close Neutral Ergonomic Handle Lat Pulldown",
+    "context": "StringLiteral/PropertyAssignment:name/ObjectLiteralExpression/CallExpression/ArrayLiteralExpression",
+    "kind": "canonical",
+    "reason": "Reviewed exact ergonomic variant reference; runtime labels and technique are localized in EN/RU/DE/FR."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 272,
+    "text": "Seated front pulldown; compact ergonomic handle; close neutral grip.",
+    "context": "StringLiteral/PropertyAssignment:scope/ObjectLiteralExpression/PropertyAssignment:'lat-pulldown-close-neutral-ergonomic-handle'/ObjectLiteralExpression",
+    "kind": "canonical",
+    "reason": "Reviewed exact ergonomic variant reference; runtime labels and technique are localized in EN/RU/DE/FR."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 273,
+    "text": "Secure thighs and support feet. Face the high pulley; rest palms on the handle supports and wrap fingers around the rounded edges, palms facing each other.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:setup/ObjectLiteralExpression/PropertyAssignment:'lat-pulldown-close-neutral-ergonomic-handle'",
+    "kind": "canonical",
+    "reason": "Reviewed exact ergonomic variant reference; runtime labels and technique are localized in EN/RU/DE/FR."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 274,
+    "text": "Draw elbows down toward your sides, bringing the handle toward the upper chest; return under control to comfortable overhead extension.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:movement/ObjectLiteralExpression/PropertyAssignment:'lat-pulldown-close-neutral-ergonomic-handle'",
+    "kind": "canonical",
+    "reason": "Reviewed exact ergonomic variant reference; runtime labels and technique are localized in EN/RU/DE/FR."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 275,
+    "text": "Keep wrists aligned, pelvis stable and a modest constant lean. Allow natural shoulder-blade movement; chest contact is optional.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:checks/ObjectLiteralExpression/PropertyAssignment:'lat-pulldown-close-neutral-ergonomic-handle'",
+    "kind": "canonical",
+    "reason": "Reviewed exact ergonomic variant reference; runtime labels and technique are localized in EN/RU/DE/FR."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 276,
+    "text": "Pulling with a body swing: lower the load.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:mistakes/ObjectLiteralExpression/PropertyAssignment:'lat-pulldown-close-neutral-ergonomic-handle'",
+    "kind": "canonical",
+    "reason": "Reviewed exact ergonomic variant reference; runtime labels and technique are localized in EN/RU/DE/FR."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 276,
+    "text": "Reversing the hand contact or forcing bent wrists: reset the grip.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:mistakes/ObjectLiteralExpression/PropertyAssignment:'lat-pulldown-close-neutral-ergonomic-handle'",
+    "kind": "canonical",
+    "reason": "Reviewed exact ergonomic variant reference; runtime labels and technique are localized in EN/RU/DE/FR."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 276,
+    "text": "Driving elbows far behind the trunk: stop the pull earlier.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:mistakes/ObjectLiteralExpression/PropertyAssignment:'lat-pulldown-close-neutral-ergonomic-handle'",
+    "kind": "canonical",
+    "reason": "Reviewed exact ergonomic variant reference; runtime labels and technique are localized in EN/RU/DE/FR."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 277,
+    "text": "ace-158",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:sources/ObjectLiteralExpression/PropertyAssignment:'lat-pulldown-close-neutral-ergonomic-handle'",
+    "kind": "bibliography",
+    "reason": "Existing source reference ID, not displayed as technique copy."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 278,
+    "text": "Shared pulldown mechanics adapted to the selected compact ergonomic attachment. Qualitative muscle roles do not measure activation or prove a benefit over other widths.",
+    "context": "StringLiteral/PropertyAssignment:adaptation/ObjectLiteralExpression/PropertyAssignment:'lat-pulldown-close-neutral-ergonomic-handle'/ObjectLiteralExpression",
+    "kind": "canonical",
+    "reason": "Reviewed exact ergonomic variant reference; runtime labels and technique are localized in EN/RU/DE/FR."
+  },
+  {
+    "file": "components/ExerciseEquipmentSheet.tsx",
+    "line": 36,
+    "text": "bottom",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes",
+    "kind": "internal",
+    "reason": "Reviewed equipment picker: native edge/icon/phase identifier or typed translation key; visible copy is localized."
+  },
+  {
+    "file": "components/ExerciseEquipmentSheet.tsx",
+    "line": 36,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes",
+    "kind": "internal",
+    "reason": "Reviewed equipment picker: native edge/icon/phase identifier or typed translation key; visible copy is localized."
+  },
+  {
+    "file": "components/ExerciseEquipmentSheet.tsx",
+    "line": 36,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes",
+    "kind": "internal",
+    "reason": "Reviewed equipment picker: native edge/icon/phase identifier or typed translation key; visible copy is localized."
+  },
+  {
+    "file": "components/ExerciseEquipmentSheet.tsx",
+    "line": 110,
+    "text": "checkmark-circle",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes",
+    "kind": "internal",
+    "reason": "Reviewed equipment picker: native edge/icon/phase identifier or typed translation key; visible copy is localized."
+  },
+  {
+    "file": "components/ExerciseEquipmentSheet.tsx",
+    "line": 110,
+    "text": "ellipse-outline",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes",
+    "kind": "internal",
+    "reason": "Reviewed equipment picker: native edge/icon/phase identifier or typed translation key; visible copy is localized."
+  },
+  {
+    "file": "components/TemplateEditor.tsx",
+    "line": 65,
+    "text": "START",
+    "context": "StringLiteral/CallExpression/VariableDeclaration/VariableDeclarationList/FirstStatement",
+    "kind": "internal",
+    "reason": "Reviewed equipment picker: native edge/icon/phase identifier or typed translation key; visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment.ts",
+    "line": 21,
+    "text": "equipment.handle",
+    "context": "StringLiteral/PropertyAssignment:label/ObjectLiteralExpression/VariableDeclaration/VariableDeclarationList",
+    "kind": "internal",
+    "reason": "Reviewed equipment picker: native edge/icon/phase identifier or typed translation key; visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment.ts",
+    "line": 70,
+    "text": "equipment.accessories",
+    "context": "StringLiteral/PropertyAssignment:label/ObjectLiteralExpression/ReturnStatement/IfStatement",
+    "kind": "internal",
+    "reason": "Reviewed equipment picker: native edge/icon/phase identifier or typed translation key; visible copy is localized."
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 73,
+    "text": "id",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction",
+    "kind": "internal",
+    "reason": "Reviewed strict snapshot/preset property key; runtime field labels are localized."
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 73,
+    "text": "familyId",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction",
+    "kind": "internal",
+    "reason": "Reviewed strict snapshot/preset property key; runtime field labels are localized."
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 73,
+    "text": "name",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction",
+    "kind": "internal",
+    "reason": "Reviewed strict snapshot/preset property key; runtime field labels are localized."
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 74,
+    "text": "id",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression",
+    "kind": "internal",
+    "reason": "Reviewed strict snapshot/preset property key; runtime field labels are localized."
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 74,
+    "text": "familyId",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression",
+    "kind": "internal",
+    "reason": "Reviewed strict snapshot/preset property key; runtime field labels are localized."
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 74,
+    "text": "name",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression",
+    "kind": "internal",
+    "reason": "Reviewed strict snapshot/preset property key; runtime field labels are localized."
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 88,
+    "text": "id",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction",
+    "kind": "internal",
+    "reason": "Reviewed strict snapshot/preset property key; runtime field labels are localized."
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 88,
+    "text": "weight",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction",
+    "kind": "internal",
+    "reason": "Reviewed strict snapshot/preset property key; runtime field labels are localized."
+  },
+  {
+    "file": "lib/planned-exercise.ts",
+    "line": 88,
+    "text": "reps",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ArrowFunction",
+    "kind": "internal",
+    "reason": "Reviewed strict snapshot/preset property key; runtime field labels are localized."
+  },
+  {
+    "file": "lib/workout-engine.ts",
+    "line": 41,
+    "text": "Invalid planned exercise rows.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block",
+    "kind": "diagnostic",
+    "reason": "Group validation/persistence diagnostic, surfaced through existing localized editor/workout error handling; never raw UI copy."
+  },
+  {
+    "file": "lib/workout-engine.ts",
+    "line": 277,
+    "text": "Invalid exercise group.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block",
+    "kind": "diagnostic",
+    "reason": "Group validation/persistence diagnostic, surfaced through existing localized editor/workout error handling; never raw UI copy."
+  },
+  {
+    "file": "lib/workout-engine.ts",
+    "line": 288,
+    "text": "Exercise group identity mismatch.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block",
+    "kind": "diagnostic",
+    "reason": "Group validation/persistence diagnostic, surfaced through existing localized editor/workout error handling; never raw UI copy."
+  },
+  {
+    "file": "lib/workout-engine.ts",
+    "line": 303,
+    "text": "Exercise already exists outside this group or set limit exceeded.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block",
+    "kind": "diagnostic",
+    "reason": "Group validation/persistence diagnostic, surfaced through existing localized editor/workout error handling; never raw UI copy."
+  },
+  {
+    "file": "lib/workout-engine.ts",
+    "line": 323,
+    "text": "Invalid exercise group layout.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block",
+    "kind": "diagnostic",
+    "reason": "Group validation/persistence diagnostic, surfaced through existing localized editor/workout error handling; never raw UI copy."
+  },
+  {
+    "file": "lib/workout-store.ts",
+    "line": 157,
+    "text": "Exercise group write failed.",
+    "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block",
+    "kind": "diagnostic",
+    "reason": "Group validation/persistence diagnostic, surfaced through existing localized editor/workout error handling; never raw UI copy."
+  },
+  {
+    "file": "lib/workout-store.ts",
+    "line": 163,
+    "text": "Could not save the exercise group. Keep the draft and retry.",
+    "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/CallExpression/ExpressionStatement",
+    "kind": "diagnostic",
+    "reason": "Group validation/persistence diagnostic, surfaced through existing localized editor/workout error handling; never raw UI copy."
+  },
+  {
+    "file": "lib/workout-templates.ts",
+    "line": 130,
+    "text": "Invalid exercise group layout.",
+    "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/ReturnStatement/IfStatement",
+    "kind": "diagnostic",
+    "reason": "Group validation/persistence diagnostic, surfaced through existing localized editor/workout error handling; never raw UI copy."
+  },
+  {
+    "file": "lib/workout-sharing/client.ts",
+    "line": 14,
+    "text": "Grouped plan publishing needs backend support. The local plan is unchanged.",
+    "context": "StringLiteral/CallExpression/ExpressionStatement/Block/Constructor",
+    "kind": "diagnostic",
+    "reason": "Typed equipment-transfer capability error; SharePlanSheet shows equipment.sharePending in EN/RU/DE/FR instead of this diagnostic."
+  },
+  {
+    "file": "components/ExerciseAttachmentBlock.tsx",
+    "line": 101,
+    "text": "workout.targetPerSide",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/ExerciseAttachmentBlock.tsx",
+    "line": 102,
+    "text": "workout.target",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/ExerciseAttachmentBlock.tsx",
+    "line": 165,
+    "text": "repetitions",
+    "context": "StringLiteral/ConditionalExpression/PropertyAssignment:field/ObjectLiteralExpression/ArrayLiteralExpression",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/ExerciseAttachmentBlock.tsx",
+    "line": 166,
+    "text": "left repetitions",
+    "context": "StringLiteral/ConditionalExpression/PropertyAssignment:field/ObjectLiteralExpression/ArrayLiteralExpression",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/ExerciseAttachmentBlock.tsx",
+    "line": 170,
+    "text": "entry.phReps",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/PropertyAssignment:placeholder/ObjectLiteralExpression",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/ExerciseAttachmentBlock.tsx",
+    "line": 171,
+    "text": "entry.phLeft",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/PropertyAssignment:placeholder/ObjectLiteralExpression",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/ExerciseAttachmentBlock.tsx",
+    "line": 178,
+    "text": "right repetitions",
+    "context": "StringLiteral/PropertyAssignment:field/ObjectLiteralExpression/ArrayLiteralExpression/ConditionalExpression",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/ExerciseAttachmentBlock.tsx",
+    "line": 189,
+    "text": "workout.editWeight",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:accessibilityLabel",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/ExerciseAttachmentBlock.tsx",
+    "line": 190,
+    "text": "right repetitions",
+    "context": "StringLiteral/BinaryExpression/ConditionalExpression/ConditionalExpression/CallExpression",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/ExerciseAttachmentBlock.tsx",
+    "line": 191,
+    "text": "workout.editRight",
+    "context": "StringLiteral/ConditionalExpression/ConditionalExpression/CallExpression/JsxExpression",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/ExerciseAttachmentBlock.tsx",
+    "line": 192,
+    "text": "left repetitions",
+    "context": "StringLiteral/BinaryExpression/ConditionalExpression/ConditionalExpression/ConditionalExpression",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/ExerciseAttachmentBlock.tsx",
+    "line": 193,
+    "text": "workout.editLeft",
+    "context": "StringLiteral/ConditionalExpression/ConditionalExpression/ConditionalExpression/CallExpression",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/ExerciseAttachmentBlock.tsx",
+    "line": 194,
+    "text": "workout.editReps",
+    "context": "StringLiteral/ConditionalExpression/ConditionalExpression/ConditionalExpression/CallExpression",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/ExerciseGroupComposer.tsx",
+    "line": 94,
+    "text": "START",
+    "context": "StringLiteral/CallExpression/VariableDeclaration/VariableDeclarationList/FirstStatement",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/ExerciseGroupComposer.tsx",
+    "line": 418,
+    "text": "tabular-nums",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:fontVariant/ObjectLiteralExpression/PropertyAssignment:input",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/workout-styles.ts",
+    "line": 9,
+    "text": "tabular-nums",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:fontVariant/ObjectLiteralExpression/PropertyAssignment:valueText",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/workout-styles.ts",
+    "line": 49,
+    "text": "tabular-nums",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:fontVariant/ObjectLiteralExpression/PropertyAssignment:elapsedText",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/workout-styles.ts",
+    "line": 107,
+    "text": "tabular-nums",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:fontVariant/ObjectLiteralExpression/PropertyAssignment:input",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "components/workout-styles.ts",
+    "line": 133,
+    "text": "tabular-nums",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:fontVariant/ObjectLiteralExpression/PropertyAssignment:timer",
+    "kind": "internal",
+    "reason": "Reviewed exact site: phase/style identifier, typed translation key or internal set-cell discriminator; visible/spoken copy comes from translated messages."
+  },
+  {
+    "file": "lib/exercise-groups.ts",
+    "line": 131,
+    "text": "Invalid equipment group",
+    "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block",
+    "kind": "diagnostic",
+    "reason": "Internal composition validation diagnostic caught by localized equipment/editor error UI."
+  },
+  {
+    "file": "lib/exercise-groups.ts",
+    "line": 146,
+    "text": "Missing plan slot",
+    "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block",
+    "kind": "diagnostic",
+    "reason": "Internal composition validation diagnostic caught by localized equipment/editor error UI."
+  },
+  {
+    "file": "lib/exercise-groups.ts",
+    "line": 152,
+    "text": "Duplicate exercise outside group",
+    "context": "StringLiteral/CallExpression/ThrowStatement/IfStatement/Block",
+    "kind": "diagnostic",
+    "reason": "Internal composition validation diagnostic caught by localized equipment/editor error UI."
+  },
+  {
+    "file": "lib/sync/history-rpc.ts",
+    "line": 136,
+    "text": "get_completed_workout_v2",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/AwaitExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed History RPC protocol endpoint name selected after capability negotiation; never visible or spoken UI copy."
+  },
+  {
+    "file": "lib/sync/history-rpc.ts",
+    "line": 136,
+    "text": "get_completed_workout",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/AwaitExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed History RPC protocol endpoint name selected after capability negotiation; never visible or spoken UI copy."
+  },
+  {
+    "file": "lib/sync/history-rpc.ts",
+    "line": 171,
+    "text": "resolve_completed_workout_v2",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/AwaitExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed History RPC protocol endpoint name selected after capability negotiation; never visible or spoken UI copy."
+  },
+  {
+    "file": "lib/sync/history-rpc.ts",
+    "line": 171,
+    "text": "resolve_completed_workout",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/AwaitExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed History RPC protocol endpoint name selected after capability negotiation; never visible or spoken UI copy."
+  },
+  {
+    "file": "lib/sync/history-rpc.ts",
+    "line": 223,
+    "text": "publish_completed_workout_v2",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/AwaitExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed History RPC protocol endpoint name selected after capability negotiation; never visible or spoken UI copy."
+  },
+  {
+    "file": "lib/sync/history-rpc.ts",
+    "line": 223,
+    "text": "publish_completed_workout",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/AwaitExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed History RPC protocol endpoint name selected after capability negotiation; never visible or spoken UI copy."
+  },
+  {
+    "file": "lib/sync/history-rpc.ts",
+    "line": 247,
+    "text": "pull_completed_workouts_v2",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/AwaitExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed History RPC protocol endpoint name selected after capability negotiation; never visible or spoken UI copy."
+  },
+  {
+    "file": "lib/sync/history-rpc.ts",
+    "line": 247,
+    "text": "pull_completed_workouts",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/AwaitExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed History RPC protocol endpoint name selected after capability negotiation; never visible or spoken UI copy."
   }
 ]

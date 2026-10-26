@@ -194,7 +194,7 @@ describe('exercise asset specifications', () => {
   });
 
   it('leaves the existing generic Exercise Library contract unchanged', () => {
-    expect(exerciseLibrary).toHaveLength(65);
+    expect(exerciseLibrary).toHaveLength(66);
     expect(findExercise('lat-pulldown')).toEqual({
       id: 'lat-pulldown',
       name: 'Lat Pulldown',
@@ -209,6 +209,7 @@ describe('exercise asset specifications', () => {
       'lat-pulldown-wide-pronated-bar',
       'lat-pulldown-close-neutral-v-handle',
       'lat-pulldown-reverse-grip',
+      'lat-pulldown-close-neutral-ergonomic-handle',
     ];
     for (const id of exactIds) expect(findExercise(id)?.id).toBe(id);
     expect(
@@ -231,6 +232,6 @@ describe('exercise asset specifications', () => {
     expect(approvedExerciseAssetSpecifications.variant).toEqual(
       getCatalogVariant('lat-pulldown-close-neutral-v-handle'),
     );
-    expect(new Set(exerciseLibrary.map(({ id }) => id)).size).toBe(65);
+    expect(new Set(exerciseLibrary.map(({ id }) => id)).size).toBe(66);
   });
 });
