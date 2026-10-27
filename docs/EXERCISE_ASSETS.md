@@ -1,5 +1,16 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Source archive workflow — approved 2026-10-27
+
+Use private versioned Oracle Object Storage for visual sources, references,
+candidates, 3D assets and available prompts. Keep selected WebP runtime exports
+and provenance in GitHub; app images remain local and offline. Future workflow:
+generate, archive original, verify upload/download checksum, select and perform
+visual QA, then integrate. Pending uploads must be explicitly recorded rather
+than represented as verified; source-archive status is independent of visual
+acceptance and biomechanics QA. Existing approved runtime pairs remain available
+while historical backfill is pending. See VISUAL_STORAGE.md.
+
 ## Wide pronated Male pair — runtime integration, 2026-10-27
 
 The user approved local phase integration for

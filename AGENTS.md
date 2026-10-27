@@ -64,6 +64,10 @@ Do not accidentally lose active workouts or logged sets, duplicate completed wor
 - Preserve stable exercise IDs and historical meaning; do not casually rename or reinterpret saved IDs.
 - Exercise assets are not approved until they pass the biomechanics QA in `docs/EXERCISE_ASSETS.md`.
 
+- Follow `docs/VISUAL_STORAGE.md` for visual-source archiving. Record archive
+  status truthfully: local files and inventory entries are not verified uploads.
+  Keep future source-archive receipts separate from visual/biomechanics approval.
+
 ## Muscle Map granularity
 
 - Before tracing a new muscle group, identify the useful visible anatomical

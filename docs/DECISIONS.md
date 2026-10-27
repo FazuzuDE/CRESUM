@@ -1,5 +1,17 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — Oracle visual-source archive approved
+
+The user approved the storage scheme: private versioned Oracle Object Storage
+for original PNGs, references, intermediate candidates, 3D assets and available
+prompts; GitHub for selected runtime WebP exports and provenance manifests;
+local app assets preserve offline behavior. New generation workflow is
+generate, archive original, verify upload, select/review and integrate.
+
+Actual OCI access and uploads are pending. See VISUAL_STORAGE.md and the local
+backfill inventory. This approval does not assert that a bucket exists or any
+source is remotely backed up, and does not activate Oracle marketing services.
+
 ## 2026-10-27 — Wide pronated pair integration approved
 
 The user approved connecting the selected Male START and stack-repaired FINISH

@@ -1,0 +1,647 @@
+{
+  "inventoryDate": "2026-10-27",
+  "bucket": "cresum-visuals",
+  "status": "local-inventory-only",
+  "sourceRoot": "Current project workspace; sourcePath is relative to that workspace, not the git repository.",
+  "scope": "Available generated PNG candidates and final local 3D model exports. Does not claim all historical chat images or original prompts are available. User-uploaded references require a separate inventory.",
+  "totalBytes": 150900419,
+  "files": [
+    {
+      "sourcePath": "generated_images/exec-01e4b7ef-6b16-4454-8b87-70ff5faf9ce9.png",
+      "sha256": "14ed4a33a1f142fc59cb0c9536b1b10c1d305adba9f44dca087cd4385ca07e09",
+      "bytes": 1596655,
+      "proposedObjectKey": "backfill/2026-10-27/14ed4a33a1f142fc59cb0c9536b1b10c1d305adba9f44dca087cd4385ca07e09.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-02bea1db-d5e4-4eb4-a24b-23e2c2324858.png",
+      "sha256": "220d426cefb8cbf2ca8f9176b35d2070cd6f8691a316fe3db196105b1ad776ef",
+      "bytes": 1744389,
+      "proposedObjectKey": "backfill/2026-10-27/220d426cefb8cbf2ca8f9176b35d2070cd6f8691a316fe3db196105b1ad776ef.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-0b0183c6-2fb0-4795-b479-18bd2b33960c.png",
+      "sha256": "7500d847014f25ed58981ed0e69444bae8481075cc3bd34c13c4c21d373bea2a",
+      "bytes": 1795030,
+      "proposedObjectKey": "backfill/2026-10-27/7500d847014f25ed58981ed0e69444bae8481075cc3bd34c13c4c21d373bea2a.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-0fbecdf8-a877-4007-ad15-4f02cae84737.png",
+      "sha256": "efd9b06a1eb90c828cf6451ac29ea8ba4b11f3c7be7ef518294b2905648fab8b",
+      "bytes": 1647222,
+      "proposedObjectKey": "backfill/2026-10-27/efd9b06a1eb90c828cf6451ac29ea8ba4b11f3c7be7ef518294b2905648fab8b.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-150a1ee5-4399-4cb2-b432-f72bd326f887.png",
+      "sha256": "9b677530c0c25b5f2bc42bf7ff040f488e65d168169ce7e60da5f6ecb0571162",
+      "bytes": 1533105,
+      "proposedObjectKey": "backfill/2026-10-27/9b677530c0c25b5f2bc42bf7ff040f488e65d168169ce7e60da5f6ecb0571162.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-16e4a169-00f2-483c-a4f4-e1d0bf6add24.png",
+      "sha256": "71eb5686d972b1d7a5b6ca43003680ecf8df17bee0355e08a594a52904cf2025",
+      "bytes": 1678037,
+      "proposedObjectKey": "backfill/2026-10-27/71eb5686d972b1d7a5b6ca43003680ecf8df17bee0355e08a594a52904cf2025.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-1cf6e649-8c50-4d27-a46d-cd360c4f44ae.png",
+      "sha256": "ac7ed30ceb81ec2fdb80e36e6d76d80b7e2e41eafa8a019e9faa1136c442dc9a",
+      "bytes": 1640113,
+      "proposedObjectKey": "backfill/2026-10-27/ac7ed30ceb81ec2fdb80e36e6d76d80b7e2e41eafa8a019e9faa1136c442dc9a.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-2039e8d0-0c7b-4359-b666-f9a1d045915b.png",
+      "sha256": "b48947ce7a93938b349bc0af221173a9e2846a2fa8bd57a882ab49f6ca46c721",
+      "bytes": 1621665,
+      "proposedObjectKey": "backfill/2026-10-27/b48947ce7a93938b349bc0af221173a9e2846a2fa8bd57a882ab49f6ca46c721.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-20a46495-706c-4321-aa5c-95ebd4dd1b16.png",
+      "sha256": "d60f6cfc6be7a8a252830b3ce7cf0a773e65ea76ad78f9bd4cf2eba72ba3348f",
+      "bytes": 1628473,
+      "proposedObjectKey": "backfill/2026-10-27/d60f6cfc6be7a8a252830b3ce7cf0a773e65ea76ad78f9bd4cf2eba72ba3348f.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-24122292-be6a-49ff-8003-71bd19f1f9be.png",
+      "sha256": "b9aa617758da94fb96a93058446705d85d889ceb0187efbcd73dac0b4f3c3d10",
+      "bytes": 1630021,
+      "proposedObjectKey": "backfill/2026-10-27/b9aa617758da94fb96a93058446705d85d889ceb0187efbcd73dac0b4f3c3d10.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-25262683-9da3-4584-b06a-5f3209f0015b.png",
+      "sha256": "da59757a33647aa9a76c81196a99e4b27967c8d6dee9a417da771a026a4efad4",
+      "bytes": 1662146,
+      "proposedObjectKey": "backfill/2026-10-27/da59757a33647aa9a76c81196a99e4b27967c8d6dee9a417da771a026a4efad4.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-2922d435-bc93-4dd1-85b5-44f5c2f66183.png",
+      "sha256": "a122680b5a1e3b4f8921885120ea7e5a9ea6e71fcc376c3b3284d9629eb61a7f",
+      "bytes": 1665991,
+      "proposedObjectKey": "backfill/2026-10-27/a122680b5a1e3b4f8921885120ea7e5a9ea6e71fcc376c3b3284d9629eb61a7f.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-29ab85b5-15ed-4102-b070-d25a30b45841.png",
+      "sha256": "c6453e709752bdbd6d128aa99b28a59ae2e1b3a7459dbb911d495b0a260b23b7",
+      "bytes": 1249160,
+      "proposedObjectKey": "backfill/2026-10-27/c6453e709752bdbd6d128aa99b28a59ae2e1b3a7459dbb911d495b0a260b23b7.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-29cb97d7-91d9-47db-bda4-86cb169048c1.png",
+      "sha256": "365a2f718146bd4d585a3615bcc2a688fe2c2a90eaa472156284dddb654d0a79",
+      "bytes": 1600528,
+      "proposedObjectKey": "backfill/2026-10-27/365a2f718146bd4d585a3615bcc2a688fe2c2a90eaa472156284dddb654d0a79.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-2c152348-c39e-42a5-8735-2f09bfa87c97.png",
+      "sha256": "56be84f500eb6dbe2a7ba7e0bf68b679719dcf06e086ff9e4374ada35fb194aa",
+      "bytes": 1582835,
+      "proposedObjectKey": "backfill/2026-10-27/56be84f500eb6dbe2a7ba7e0bf68b679719dcf06e086ff9e4374ada35fb194aa.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-3955a2c7-c0e5-4cf3-8d9c-27f7bc79cef6.png",
+      "sha256": "4748782b8f9d669a78c8fdf70554a60dd100523d2b8e00054b91082eddfc83b1",
+      "bytes": 1573738,
+      "proposedObjectKey": "backfill/2026-10-27/4748782b8f9d669a78c8fdf70554a60dd100523d2b8e00054b91082eddfc83b1.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-398d7d6a-a3f8-44ea-b92e-64f2d8ddce52.png",
+      "sha256": "928ed313dcb62f9ee244440044849138ae69729e4dba39c9ec2f1be266e30780",
+      "bytes": 1635681,
+      "proposedObjectKey": "backfill/2026-10-27/928ed313dcb62f9ee244440044849138ae69729e4dba39c9ec2f1be266e30780.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-3a3f1155-4ae0-4db3-a537-ccea28ae6b2a.png",
+      "sha256": "daad3efb7b14c4f412997789b1017378b1c121e6a8bf9975b09a568247958af5",
+      "bytes": 1740488,
+      "proposedObjectKey": "backfill/2026-10-27/daad3efb7b14c4f412997789b1017378b1c121e6a8bf9975b09a568247958af5.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-3da2105e-9e4d-4634-afea-b7e49d15173b.png",
+      "sha256": "53c3e286aa65e519708d99843038dcac212dec73b31a7865a3785e485890c517",
+      "bytes": 1358379,
+      "proposedObjectKey": "backfill/2026-10-27/53c3e286aa65e519708d99843038dcac212dec73b31a7865a3785e485890c517.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-3e046d01-d7c1-40e0-8b91-c8a0f7861000.png",
+      "sha256": "aa327c22c2ce1b9d8ef58179a7d0e19200d75457f7619c4742dac517da23e733",
+      "bytes": 1628520,
+      "proposedObjectKey": "backfill/2026-10-27/aa327c22c2ce1b9d8ef58179a7d0e19200d75457f7619c4742dac517da23e733.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-3f293158-4cb2-4283-8760-9c43f0bc574d.png",
+      "sha256": "cd0debcc23ab2ff381ca351c18c0726e378e76832a09a52fb694462b1b397846",
+      "bytes": 1634247,
+      "proposedObjectKey": "backfill/2026-10-27/cd0debcc23ab2ff381ca351c18c0726e378e76832a09a52fb694462b1b397846.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-3ffcb5d1-bd30-4cfb-b30e-d5044122d8ff.png",
+      "sha256": "bd39b6db768b279015e83a92053bb21cf016611716bbc80d9e2bb68cb2ae2bcd",
+      "bytes": 1390086,
+      "proposedObjectKey": "backfill/2026-10-27/bd39b6db768b279015e83a92053bb21cf016611716bbc80d9e2bb68cb2ae2bcd.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-436806d4-0de9-4a86-9451-d42bcd033e37.png",
+      "sha256": "9fb53a4cd39ea5219bbd8f3212872dc8578445a1a7717d9fa6be6f3fa397811c",
+      "bytes": 1736165,
+      "proposedObjectKey": "backfill/2026-10-27/9fb53a4cd39ea5219bbd8f3212872dc8578445a1a7717d9fa6be6f3fa397811c.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-45776953-f2c2-460f-9750-5f17bcdb064c.png",
+      "sha256": "ef0c0b773eae0a46efc0bde1e04ff17c24b39ce17518a22da174da59b046c677",
+      "bytes": 1551013,
+      "proposedObjectKey": "backfill/2026-10-27/ef0c0b773eae0a46efc0bde1e04ff17c24b39ce17518a22da174da59b046c677.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-466fbc70-de80-4f1e-9005-fdb8d2b464ff.png",
+      "sha256": "d1f83908152d6e0001c855aacc88f9d5039ae9c1ff08867efabebb59998b62e6",
+      "bytes": 1637835,
+      "proposedObjectKey": "backfill/2026-10-27/d1f83908152d6e0001c855aacc88f9d5039ae9c1ff08867efabebb59998b62e6.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-4c8a76ce-619e-4a49-8a0d-15f42591a8ee.png",
+      "sha256": "a885de9e01b54592be5fb43fd78d94c0026b781b0ad9f9eacc3f710d6d8f5376",
+      "bytes": 1770468,
+      "proposedObjectKey": "backfill/2026-10-27/a885de9e01b54592be5fb43fd78d94c0026b781b0ad9f9eacc3f710d6d8f5376.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-555651f3-008a-4ec5-a450-15ae838a0a77.png",
+      "sha256": "ae07cb79a12d5c3a4c60ec5d49351929811892e38746b1c46aaf5be1f552f591",
+      "bytes": 1638947,
+      "proposedObjectKey": "backfill/2026-10-27/ae07cb79a12d5c3a4c60ec5d49351929811892e38746b1c46aaf5be1f552f591.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-5654bc25-ee99-461e-bf5b-f03500210a17.png",
+      "sha256": "617aacfd5f3a5dd558b26daeb640d64b2abbc048a1b403c9e197e06aa45d1722",
+      "bytes": 2102046,
+      "proposedObjectKey": "backfill/2026-10-27/617aacfd5f3a5dd558b26daeb640d64b2abbc048a1b403c9e197e06aa45d1722.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-583feb89-c2c0-426a-91cc-2cd11a221800.png",
+      "sha256": "3e03b5f7489a4ce868201fae069373638514cb598b9fa3a5ba2d09c967b82cdd",
+      "bytes": 1647856,
+      "proposedObjectKey": "backfill/2026-10-27/3e03b5f7489a4ce868201fae069373638514cb598b9fa3a5ba2d09c967b82cdd.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-5929ac93-7228-490a-bd5f-0c53a0ea2268.png",
+      "sha256": "a15b8bf887949e03cbd0f897dcf8f5c5719478c968965e12579a018669ce9703",
+      "bytes": 1695856,
+      "proposedObjectKey": "backfill/2026-10-27/a15b8bf887949e03cbd0f897dcf8f5c5719478c968965e12579a018669ce9703.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-5a338a8d-5f6b-4ae1-8bff-1395400855c7.png",
+      "sha256": "9a598ebcf5035fa8b8ae0d327faa0db2baee14911397ea0c56c2e25718d9c578",
+      "bytes": 1641387,
+      "proposedObjectKey": "backfill/2026-10-27/9a598ebcf5035fa8b8ae0d327faa0db2baee14911397ea0c56c2e25718d9c578.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-5bd66452-d9dd-40f9-a326-d05aba088e23.png",
+      "sha256": "677aa6dd007075470a89e4f65c710627794550df9600551787b17026fb40d3f6",
+      "bytes": 1257188,
+      "proposedObjectKey": "backfill/2026-10-27/677aa6dd007075470a89e4f65c710627794550df9600551787b17026fb40d3f6.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-5d33b478-945a-406d-95ea-cf14e2e8160f.png",
+      "sha256": "ac464449117de3a6ad2300066401936a214f31d7426b1e445bb9657f6184669d",
+      "bytes": 1556212,
+      "proposedObjectKey": "backfill/2026-10-27/ac464449117de3a6ad2300066401936a214f31d7426b1e445bb9657f6184669d.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-5d9ed12a-e23d-41a4-aa9f-f34cb847ab43.png",
+      "sha256": "99bb39dbf89db44a08ae5089da5e3f2d613a8bceca7a9042bf4672f263c1e653",
+      "bytes": 1662232,
+      "proposedObjectKey": "backfill/2026-10-27/99bb39dbf89db44a08ae5089da5e3f2d613a8bceca7a9042bf4672f263c1e653.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-60bdbe73-3aff-49d7-b526-f238f08f5bab.png",
+      "sha256": "e396e1b22b8b9b805160486e4898d1d0f0e3739cdd541b6cd2d568e8938d3cba",
+      "bytes": 1666644,
+      "proposedObjectKey": "backfill/2026-10-27/e396e1b22b8b9b805160486e4898d1d0f0e3739cdd541b6cd2d568e8938d3cba.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-648d931b-3a20-470a-b390-fc617baf7d62.png",
+      "sha256": "d8aed49616e70c6056959fc1b2f8e1eb2772086bd76188a2e242e19870b9e5ea",
+      "bytes": 1886202,
+      "proposedObjectKey": "backfill/2026-10-27/d8aed49616e70c6056959fc1b2f8e1eb2772086bd76188a2e242e19870b9e5ea.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-668c8340-de39-4114-b186-214b26f0e2fc.png",
+      "sha256": "77d61b536137b430659d8180c66c033d55c7f5c7d2e21c7515929b316587b62a",
+      "bytes": 204114,
+      "proposedObjectKey": "backfill/2026-10-27/77d61b536137b430659d8180c66c033d55c7f5c7d2e21c7515929b316587b62a.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-66fe5bdb-1947-4f0c-9036-d8765e29e729.png",
+      "sha256": "1e6e868e6ee962dd4e7bfbec876323f54c477c83a2351aa02ebf92b8979b12db",
+      "bytes": 1624704,
+      "proposedObjectKey": "backfill/2026-10-27/1e6e868e6ee962dd4e7bfbec876323f54c477c83a2351aa02ebf92b8979b12db.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-68006636-5b56-4b88-9343-6b5a9ffc2359.png",
+      "sha256": "a0e15a33ace03cbc6489876263ad3b8d7c752d98c02ac4ee7b9e523905262cc4",
+      "bytes": 1637439,
+      "proposedObjectKey": "backfill/2026-10-27/a0e15a33ace03cbc6489876263ad3b8d7c752d98c02ac4ee7b9e523905262cc4.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-690b17b4-2c6b-4eb5-8496-329626575e2f.png",
+      "sha256": "f86cf968cdb75bb1ea104f1343faf3ee47ff49de762242bf3be2ff1e4cdb8595",
+      "bytes": 1628631,
+      "proposedObjectKey": "backfill/2026-10-27/f86cf968cdb75bb1ea104f1343faf3ee47ff49de762242bf3be2ff1e4cdb8595.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-6a6f0187-6463-4d4b-81f7-f4054c7c90bc.png",
+      "sha256": "49cf60b80b3e7fe789e10a1886c8a0eb5c7a88e5c9f089b6abecbdee3d860526",
+      "bytes": 1657821,
+      "proposedObjectKey": "backfill/2026-10-27/49cf60b80b3e7fe789e10a1886c8a0eb5c7a88e5c9f089b6abecbdee3d860526.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-6fad55da-4e0a-46c5-85fd-8cad6991a30d.png",
+      "sha256": "658dd4b309ee8f9d15e33d8bbccd5bf7891987de22b8aa95d50a84b110562ccc",
+      "bytes": 1523576,
+      "proposedObjectKey": "backfill/2026-10-27/658dd4b309ee8f9d15e33d8bbccd5bf7891987de22b8aa95d50a84b110562ccc.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-70c3f069-d542-4f48-ae37-e6a41842629b.png",
+      "sha256": "90cc4db466c5f1ddca63c82596c4b5013c1ce194f074b2cda53c10e32c621407",
+      "bytes": 1655764,
+      "proposedObjectKey": "backfill/2026-10-27/90cc4db466c5f1ddca63c82596c4b5013c1ce194f074b2cda53c10e32c621407.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-7a880825-820d-4efe-85d0-916868da89bc.png",
+      "sha256": "f80d24e6e356c6d85cea232baab0e0b1f158d3fba09c6aaadf1b9ef06365c47f",
+      "bytes": 1307952,
+      "proposedObjectKey": "backfill/2026-10-27/f80d24e6e356c6d85cea232baab0e0b1f158d3fba09c6aaadf1b9ef06365c47f.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-7bd67b69-390d-42fb-b7f5-51b30c4d77dd.png",
+      "sha256": "e8533880c31a6cde1cbf2498ec5746ea7830c7c119fb492536f7dd335630e7ca",
+      "bytes": 1892855,
+      "proposedObjectKey": "backfill/2026-10-27/e8533880c31a6cde1cbf2498ec5746ea7830c7c119fb492536f7dd335630e7ca.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-7d5fc06d-3bc3-4af0-8fae-fc368aaa4fe0.png",
+      "sha256": "09795cd73a5a08af63474373df0934823dab602abdf8bbb749ba06d0b1c15e57",
+      "bytes": 1650536,
+      "proposedObjectKey": "backfill/2026-10-27/09795cd73a5a08af63474373df0934823dab602abdf8bbb749ba06d0b1c15e57.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-89360c8d-d51f-46e1-b80a-99f4e9d673a2.png",
+      "sha256": "88c97f0f3399dde80650c48abfa24f72ccc204ecc505004f77a9895c08ff9554",
+      "bytes": 1620830,
+      "proposedObjectKey": "backfill/2026-10-27/88c97f0f3399dde80650c48abfa24f72ccc204ecc505004f77a9895c08ff9554.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-8e00aef4-2043-43d4-9c81-8b1e0ef41144.png",
+      "sha256": "4ad6dc4596410b29a12b9cb20d132fa2ff9d1426e23b3cf24134b99f4f5d144a",
+      "bytes": 1308300,
+      "proposedObjectKey": "backfill/2026-10-27/4ad6dc4596410b29a12b9cb20d132fa2ff9d1426e23b3cf24134b99f4f5d144a.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-9185825f-7d91-4303-a6c3-dc2148994f6f.png",
+      "sha256": "3c9db0e5d86d28e84fde35ca4c934772a280e180c6619f75f7cc7a542ab81a4d",
+      "bytes": 1646507,
+      "proposedObjectKey": "backfill/2026-10-27/3c9db0e5d86d28e84fde35ca4c934772a280e180c6619f75f7cc7a542ab81a4d.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-91d6e4ee-d154-4809-9f2b-e21dc76a675a.png",
+      "sha256": "370d80eca091a3da2430b02e152d975c749d9b12ce3224cd6c2f87b4b6b608cb",
+      "bytes": 2116766,
+      "proposedObjectKey": "backfill/2026-10-27/370d80eca091a3da2430b02e152d975c749d9b12ce3224cd6c2f87b4b6b608cb.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-958ab71e-d24f-49dd-9112-f4a7780cb586.png",
+      "sha256": "f57834cba07d74fcfc92774019e5f0a60f1c3726f8175b972f1c3653f34dfb26",
+      "bytes": 1622699,
+      "proposedObjectKey": "backfill/2026-10-27/f57834cba07d74fcfc92774019e5f0a60f1c3726f8175b972f1c3653f34dfb26.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-9be01d30-a542-4b22-8132-3d65f092e388.png",
+      "sha256": "aff2ea27dd55c3c47e6e19e48ef6c32910eaf1e4230072858a6a519ade492ce2",
+      "bytes": 1713304,
+      "proposedObjectKey": "backfill/2026-10-27/aff2ea27dd55c3c47e6e19e48ef6c32910eaf1e4230072858a6a519ade492ce2.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-9cc0b713-dfa8-4b88-b439-95b5993d18a7.png",
+      "sha256": "a8b5eccaf57eab309e4500d7dd49f1419c453bfc1484d53956317e6f51fe1462",
+      "bytes": 2033463,
+      "proposedObjectKey": "backfill/2026-10-27/a8b5eccaf57eab309e4500d7dd49f1419c453bfc1484d53956317e6f51fe1462.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-a2c28138-8ec9-48a4-add1-10abaae837df.png",
+      "sha256": "561df4b0fb0ad0aa40dc1356ba1a50892a59dd301d907f40f570627ab25ef3ab",
+      "bytes": 1653196,
+      "proposedObjectKey": "backfill/2026-10-27/561df4b0fb0ad0aa40dc1356ba1a50892a59dd301d907f40f570627ab25ef3ab.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-a404f543-4fa7-4659-8f4f-772a4413e063.png",
+      "sha256": "fb5511b8f5c4d4ea659460b777f85b0b2df748d733f55a89a1b1fad9828d513b",
+      "bytes": 1629523,
+      "proposedObjectKey": "backfill/2026-10-27/fb5511b8f5c4d4ea659460b777f85b0b2df748d733f55a89a1b1fad9828d513b.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-a477ff28-4779-49fa-873d-7da23442c737.png",
+      "sha256": "cd93136fc35e385f578bb7703d4daf10080582e0b614431e63443fe4d537167e",
+      "bytes": 1718656,
+      "proposedObjectKey": "backfill/2026-10-27/cd93136fc35e385f578bb7703d4daf10080582e0b614431e63443fe4d537167e.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-a698b238-d6a8-4150-aa8f-e0e2cd6a6bf2.png",
+      "sha256": "0bd2fa838764a1054c7b1c4dacb6543a78601f9e0428d3261a82715985000d44",
+      "bytes": 1650763,
+      "proposedObjectKey": "backfill/2026-10-27/0bd2fa838764a1054c7b1c4dacb6543a78601f9e0428d3261a82715985000d44.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-a6a9d3d2-9d12-4cc6-ac9a-f6ad0a0b0a4e.png",
+      "sha256": "e435afb3ec3a337987b61de7f3443bf3ccf36d78dff0853556edf125ea1ad3a6",
+      "bytes": 1821762,
+      "proposedObjectKey": "backfill/2026-10-27/e435afb3ec3a337987b61de7f3443bf3ccf36d78dff0853556edf125ea1ad3a6.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-ac01a32e-5ccb-433a-8d45-133d8c6b66da.png",
+      "sha256": "5d0b70fdb2f6040c11e941112059d72d4efdc257fb8b1634db202dfccc2cb5f1",
+      "bytes": 1774559,
+      "proposedObjectKey": "backfill/2026-10-27/5d0b70fdb2f6040c11e941112059d72d4efdc257fb8b1634db202dfccc2cb5f1.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-b1aa979f-44be-43f3-bfe3-ab2fbbf0072b.png",
+      "sha256": "5fda282cd169482f685b949a6d46da0057f88063b4082433ec4b35a074ffdde1",
+      "bytes": 1613684,
+      "proposedObjectKey": "backfill/2026-10-27/5fda282cd169482f685b949a6d46da0057f88063b4082433ec4b35a074ffdde1.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-b2573a44-749f-40b9-ba6a-be5f321cc0a7.png",
+      "sha256": "11386c4631dfd3f8b874103cb643e9414c07fd63db72c1b90609299f79184887",
+      "bytes": 1694262,
+      "proposedObjectKey": "backfill/2026-10-27/11386c4631dfd3f8b874103cb643e9414c07fd63db72c1b90609299f79184887.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-bb76a401-6ad4-4ec1-b235-f14ac66eaddb.png",
+      "sha256": "3fe76e88c18eaa3fed69c6f1dda60da8e055f53acabd630f9688d1d993e2d714",
+      "bytes": 1669403,
+      "proposedObjectKey": "backfill/2026-10-27/3fe76e88c18eaa3fed69c6f1dda60da8e055f53acabd630f9688d1d993e2d714.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-c2d291cc-50cc-475f-b39f-8f893d48720c.png",
+      "sha256": "5dcad24ff1bddb6672ff870486b35a75dd9b5c00204b3514cfa7b12284ac104d",
+      "bytes": 1646083,
+      "proposedObjectKey": "backfill/2026-10-27/5dcad24ff1bddb6672ff870486b35a75dd9b5c00204b3514cfa7b12284ac104d.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-cadbd41f-d69e-46d4-a400-c0d03c0a8232.png",
+      "sha256": "d34d31ef408c880d1bd5c523fa6d837f085174a55f67865b4eadb55e9e420e41",
+      "bytes": 1698593,
+      "proposedObjectKey": "backfill/2026-10-27/d34d31ef408c880d1bd5c523fa6d837f085174a55f67865b4eadb55e9e420e41.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-ce4b0772-ae2f-428b-a220-38ddaa51a5ea.png",
+      "sha256": "f0504f269b23e8909ecf7e7c7c46e4bb9412eb5dc01cdb0503bfa74921c9bc76",
+      "bytes": 1620729,
+      "proposedObjectKey": "backfill/2026-10-27/f0504f269b23e8909ecf7e7c7c46e4bb9412eb5dc01cdb0503bfa74921c9bc76.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-ce56a792-df72-48c4-9bab-629333fb4260.png",
+      "sha256": "fdad8c1cb7b0a6f98c0c2068def977a77e449a9864e508371ae3691946562058",
+      "bytes": 1272661,
+      "proposedObjectKey": "backfill/2026-10-27/fdad8c1cb7b0a6f98c0c2068def977a77e449a9864e508371ae3691946562058.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-cf954204-a24a-4783-af93-70e812c04a31.png",
+      "sha256": "e5921ffed5e03ab8a0b31ec7c35036dbc9d9d8495fd347cf6fbf6848b052d9fc",
+      "bytes": 1623116,
+      "proposedObjectKey": "backfill/2026-10-27/e5921ffed5e03ab8a0b31ec7c35036dbc9d9d8495fd347cf6fbf6848b052d9fc.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-d0086478-f09a-47c1-980e-a8f43422cf30.png",
+      "sha256": "6e45e7bd5bb46cdb9bd255ed1a3f7af20650f4501294685e77ad03519493e9b8",
+      "bytes": 1666123,
+      "proposedObjectKey": "backfill/2026-10-27/6e45e7bd5bb46cdb9bd255ed1a3f7af20650f4501294685e77ad03519493e9b8.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-d0ed6e2f-f08f-4fc9-b158-b82a8d3878ed.png",
+      "sha256": "013b236440997a446fafa5d737c1c424871299c9b484cf1ba6fd1aa73a65f1dc",
+      "bytes": 2007996,
+      "proposedObjectKey": "backfill/2026-10-27/013b236440997a446fafa5d737c1c424871299c9b484cf1ba6fd1aa73a65f1dc.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-d1c0902c-aaf8-453e-98ab-7d8bc1e38048.png",
+      "sha256": "e9563ebbe2439bdf4907c2d436ed999dacf271b7f66bba9292ffdf4f1d5c9794",
+      "bytes": 1611657,
+      "proposedObjectKey": "backfill/2026-10-27/e9563ebbe2439bdf4907c2d436ed999dacf271b7f66bba9292ffdf4f1d5c9794.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-d471aeed-c07d-4ba9-941b-639201c5d5c5.png",
+      "sha256": "cc9feec0dd3118aab43efccac8a0279650d9e5430fb00c8cb84f53937bfa7f59",
+      "bytes": 1611012,
+      "proposedObjectKey": "backfill/2026-10-27/cc9feec0dd3118aab43efccac8a0279650d9e5430fb00c8cb84f53937bfa7f59.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-d5066743-054e-4127-a4f0-1ad68343b3f1.png",
+      "sha256": "4479ed30c2e78596cb11a3f5be4c80434cab79133d18ffd716c5f5f58bc4f39a",
+      "bytes": 1277582,
+      "proposedObjectKey": "backfill/2026-10-27/4479ed30c2e78596cb11a3f5be4c80434cab79133d18ffd716c5f5f58bc4f39a.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-dab3ef52-8b75-4bee-965e-8057144101ca.png",
+      "sha256": "35f8047f453e47edd7e4ed8cd6a9e29f113493a09f8c7f0dfd7701600ab507b6",
+      "bytes": 1775244,
+      "proposedObjectKey": "backfill/2026-10-27/35f8047f453e47edd7e4ed8cd6a9e29f113493a09f8c7f0dfd7701600ab507b6.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-dad3c0ca-a39f-4141-b6ab-19fe7a95a986.png",
+      "sha256": "4286dc3fbd6988f7bfb6e46a974074c82c620f5389bc58b97254c9d8b07d322d",
+      "bytes": 1525918,
+      "proposedObjectKey": "backfill/2026-10-27/4286dc3fbd6988f7bfb6e46a974074c82c620f5389bc58b97254c9d8b07d322d.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-e4df2d81-57bf-4df3-ae1c-ebb07f8414a4.png",
+      "sha256": "fb5ea9284bc6621e14bb98cf4bc937b475b6ec5feb754ef84536127ed7ad2821",
+      "bytes": 1640265,
+      "proposedObjectKey": "backfill/2026-10-27/fb5ea9284bc6621e14bb98cf4bc937b475b6ec5feb754ef84536127ed7ad2821.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-e7aab0b8-cde8-4985-aaaf-b4c83cf7da88.png",
+      "sha256": "929dd69aae4a605599441775caba99f3784906080c65bf2885d5396eec4ae7ed",
+      "bytes": 1558378,
+      "proposedObjectKey": "backfill/2026-10-27/929dd69aae4a605599441775caba99f3784906080c65bf2885d5396eec4ae7ed.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-e8702470-65c6-48c8-b0b2-331313c96c8b.png",
+      "sha256": "89d686481d7cc6f1c63189143585dab162a9cd8871b5bc3cbf675e23afff7ed0",
+      "bytes": 1357504,
+      "proposedObjectKey": "backfill/2026-10-27/89d686481d7cc6f1c63189143585dab162a9cd8871b5bc3cbf675e23afff7ed0.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-e940a56f-5315-4932-a0ca-36c35e58a280.png",
+      "sha256": "e01844dd340b29fde06975736c558e7f4b4429c06025b6ab0d3bfb3a79d14040",
+      "bytes": 1660418,
+      "proposedObjectKey": "backfill/2026-10-27/e01844dd340b29fde06975736c558e7f4b4429c06025b6ab0d3bfb3a79d14040.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-eed33f9d-3dea-440b-8edc-7c725cd73d63.png",
+      "sha256": "d8586b71a83c261a0caebac29be12cebf25f052117f111cfa62478daf03296b5",
+      "bytes": 1622528,
+      "proposedObjectKey": "backfill/2026-10-27/d8586b71a83c261a0caebac29be12cebf25f052117f111cfa62478daf03296b5.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-f162884a-2d0c-4840-837f-123e2df23e6a.png",
+      "sha256": "a6ad80350d91fcdd1a104079feac60eaa0b34f4f1aa54d0c9dc25e643b57c31d",
+      "bytes": 1626059,
+      "proposedObjectKey": "backfill/2026-10-27/a6ad80350d91fcdd1a104079feac60eaa0b34f4f1aa54d0c9dc25e643b57c31d.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-f439b8be-f004-458f-bc8b-e0592651b79e.png",
+      "sha256": "5dde953c3fe1e778fea3102bbe0b667b54e94e87de9eeae760f6c4cd7e635f28",
+      "bytes": 1649581,
+      "proposedObjectKey": "backfill/2026-10-27/5dde953c3fe1e778fea3102bbe0b667b54e94e87de9eeae760f6c4cd7e635f28.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-f681b00c-5a57-495a-90d2-99e3dcfdbf4a.png",
+      "sha256": "5645cb1942893c3bf1dc3020f45d12ac78faee5cd8b4b2a839f2b9791194202f",
+      "bytes": 1712041,
+      "proposedObjectKey": "backfill/2026-10-27/5645cb1942893c3bf1dc3020f45d12ac78faee5cd8b4b2a839f2b9791194202f.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-f6951ab9-0578-4f45-802b-0be0b8b9541c.png",
+      "sha256": "073abe291a8d328209cd325eadb9379f0731482ff004385e70a908c1649dc3c0",
+      "bytes": 1801887,
+      "proposedObjectKey": "backfill/2026-10-27/073abe291a8d328209cd325eadb9379f0731482ff004385e70a908c1649dc3c0.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-f740f103-bee5-4b6e-a9a7-59e8f3a5cf68.png",
+      "sha256": "8ad53e3da354c84f3ea325a69fea040182382fb975240256d8d9a181644ddcbd",
+      "bytes": 1652499,
+      "proposedObjectKey": "backfill/2026-10-27/8ad53e3da354c84f3ea325a69fea040182382fb975240256d8d9a181644ddcbd.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-f7ecd690-eac0-4fdc-b89d-0bac28b1fee2.png",
+      "sha256": "3445319f9cb748357ab38bf90d1aa1e334167aa0cfc98661fad5785ae72763f9",
+      "bytes": 1316859,
+      "proposedObjectKey": "backfill/2026-10-27/3445319f9cb748357ab38bf90d1aa1e334167aa0cfc98661fad5785ae72763f9.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-f8d47efe-0737-42f3-9bdf-26c23129b236.png",
+      "sha256": "018e9692a22382fbfb399f225153a8a250ae4009ddfb17e2284c806ba9d5645a",
+      "bytes": 1642054,
+      "proposedObjectKey": "backfill/2026-10-27/018e9692a22382fbfb399f225153a8a250ae4009ddfb17e2284c806ba9d5645a.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "generated_images/exec-fd3af1e8-bde7-4c03-928d-01574593f079.png",
+      "sha256": "16ec714044579e3a01ee28a5d2c2972cc36d902a36643621af4a2950d7b738d3",
+      "bytes": 1362497,
+      "proposedObjectKey": "backfill/2026-10-27/16ec714044579e3a01ee28a5d2c2972cc36d902a36643621af4a2950d7b738d3.png",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "handle-3d-v1/cresum-v-handle-v1.glb",
+      "sha256": "d7280a0129c3f89de8355b044727ad934724562e3912264047a96a8b14f0851a",
+      "bytes": 80452,
+      "proposedObjectKey": "backfill/2026-10-27/d7280a0129c3f89de8355b044727ad934724562e3912264047a96a8b14f0851a.glb",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "handle-3d-v1/cresum-v-handle-v1.obj",
+      "sha256": "e9e54654b673677197cb75d1d7c504225832c080c4f7b95b0de1b7616d5e7190",
+      "bytes": 139584,
+      "proposedObjectKey": "backfill/2026-10-27/e9e54654b673677197cb75d1d7c504225832c080c4f7b95b0de1b7616d5e7190.obj",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "grip-rig-v2/output/cresum-grip-rig-v2.glb",
+      "sha256": "748658012a8a59375b3b0b8ba66c44506d76971f6141f46eec93a592149e14ed",
+      "bytes": 1552512,
+      "proposedObjectKey": "backfill/2026-10-27/748658012a8a59375b3b0b8ba66c44506d76971f6141f46eec93a592149e14ed.glb",
+      "archiveStatus": "pending-upload"
+    },
+    {
+      "sourcePath": "grip-rig-v2/output/cresum-grip-rig-v2.obj",
+      "sha256": "daf1b412acb1c51bd23f2add76e147c6c62553718e5011876e5fa37156816e01",
+      "bytes": 8430958,
+      "proposedObjectKey": "backfill/2026-10-27/daf1b412acb1c51bd23f2add76e147c6c62553718e5011876e5fa37156816e01.obj",
+      "archiveStatus": "pending-upload"
+    }
+  ]
+}
