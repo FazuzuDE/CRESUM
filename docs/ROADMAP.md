@@ -1,5 +1,15 @@
 # CRESUM — Development Roadmap
 
+### Visual-source archive — approved 2026-10-27
+
+Deliver a private versioned Oracle Object Storage archive independently of the
+app runtime. First verify OCI access and create/validate the bucket, then
+round-trip one source with matching SHA-256, backfill available originals and
+models, and record archive receipts in provenance. Finally connect the archive
+step to future visual production. The current inventory is not an upload receipt.
+Local app assets, workout sync and Oracle marketing infrastructure are unchanged.
+See VISUAL_STORAGE.md.
+
 ### Exercise equipment picker and illustrations — approved 2026-10-25
 
 User approved the contextual attachment row and bottom-sheet picker, conditional

@@ -1,5 +1,13 @@
 # CRESUM — Product Definition
 
+### Visual-source storage — approved 2026-10-27
+
+Oracle Object Storage holds the private versioned source archive: PNG originals,
+references, candidates, 3D models and available prompts. GitHub retains selected
+runtime WebP exports and source/version/checksum manifests. App illustrations
+remain local and offline; cloud archive access is not required to log workouts.
+See VISUAL_STORAGE.md for the workflow and pending infrastructure status.
+
 ### Exercise equipment selection and grouped sets — approved 2026-10-25
 
 An exercise configuration shows its selected attachment as one tappable row
