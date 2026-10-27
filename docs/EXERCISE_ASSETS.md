@@ -180,6 +180,37 @@ For one exact variant, START and FINISH retain the same character identity, body
 
 The approved male production identity is **CRESUM Male Master Reference**: the same face, short brown hair, clean-shaven appearance, young-adult age type, athletic/fit build, realistic proportions and overall character identity. Clothing is not immutable character identity: switching an approved outfit does not create another Male Master. The approved external visual reference grounds identity and the blue-gray preset; it is not copied into the repository or represented by an invented binary path. The logical `cresum-male-master-reference` remains unresolved in Prompt Packages and must be supplied externally for generation. Camera language and premium semi-realistic 3D rendering remain visual-production constraints. Use a clean white background with soft natural contact shadows; avoid heavy cinematic lighting, dirty shadows/textures and visual noise that obscures mechanics.
 
+### Material and color continuity — 2026-10-27
+
+Approved — pending Git sync. The user re-supplied the five-view Male Master
+sheet `0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg` (external Library source
+`libfile_d7825f8808208191a57c6053608dff8f`). Use that actual image as a generation
+reference for identity, proportions, skin and the active blue-gray outfit;
+do not use a repeatedly edited exercise frame as the sole character reference.
+This reference remains externally supplied, not a resolved Prompt Package binary.
+The re-supplied sheet is 1536 × 1024; its SHA-256 is
+`0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182`.
+
+Before presenting each new candidate, compare it with the Master sheet and its
+accepted START/FINISH partner at full size and at phone display size:
+
+- Preserve natural skin tone, fine texture and anatomical detail; reject waxy,
+  blotchy, oversharpened or locally repainted skin and inconsistent hand color.
+- Keep the shirt muted blue-gray, shorts dark gray, socks white and shoes light
+  gray. Natural folds, contact shadows and illumination may vary; unexplained
+  color patches, different fabric textures or a saturated/glossy finish may not.
+- Retain the approved machine's coherent dark matte metal, restrained chrome
+  reflections and consistent upholstery. Reject melted edges, patchwork gloss,
+  noisy surfaces and material/color drift introduced by successive repairs.
+- Review both movement mechanics and material continuity. A corrected grip does
+  not compensate for degraded face, body, fabric or machine quality. If repairs
+  accumulate visible drift, return to clean approved references and regenerate.
+
+The character sheet does not define machine geometry; supply the accepted
+machine/phase reference separately. These are human visual QA requirements,
+not automated certification. Existing provisional assets retain their recorded
+limitations and are not retroactively declared to pass these checks.
+
 ### Approved Male outfit presets v1
 
 Structured outfit data live in `lib/exercise-assets/specifications.ts`, separately from Model Profile identity. Exactly two approved Male presets exist, both at revision `1`:

@@ -64,6 +64,10 @@ Do not accidentally lose active workouts or logged sets, duplicate completed wor
 - Preserve stable exercise IDs and historical meaning; do not casually rename or reinterpret saved IDs.
 - Exercise assets are not approved until they pass the biomechanics QA in `docs/EXERCISE_ASSETS.md`.
 
+- For every new Male exercise illustration, apply the Male Master and material/color
+  continuity review in `docs/EXERCISE_ASSETS.md`; repeated edits must not degrade
+  skin, clothing or machine surfaces.
+
 - Follow `docs/VISUAL_STORAGE.md` for visual-source archiving. Record archive
   status truthfully: local files and inventory entries are not verified uploads.
   Keep future source-archive receipts separate from visual/biomechanics approval.
