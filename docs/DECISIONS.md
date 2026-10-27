@@ -10,6 +10,7 @@ identity, technique, muscle mapping, History and saved workouts unchanged.
 Independent detailed hand/anatomy/biomechanics review and physical-device
 acceptance remain open; Oracle upload stays pending. This supersedes the
 FINISH-pending/runtime-unavailable checkpoint below.
+PR #102 uses display version `0.1.02` (package/Expo `0.1.2`).
 
 ## 2026-10-27 — Chest-supported dumbbell row START selected
 
