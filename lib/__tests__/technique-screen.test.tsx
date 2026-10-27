@@ -2,6 +2,23 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock(
+  '../../assets/exercises/lat-pulldown-wide-pronated-bar/start.webp',
+  () => 301,
+);
+jest.mock(
+  '../../assets/exercises/lat-pulldown-wide-pronated-bar/finish.webp',
+  () => 302,
+);
+
+jest.mock(
+  '../../assets/exercises/lat-pulldown-reverse-grip/start.webp',
+  () => 401,
+);
+jest.mock(
+  '../../assets/exercises/lat-pulldown-reverse-grip/finish.webp',
+  () => 402,
+);
 const { act, create } = jest.requireActual('react-test-renderer');
 jest.mock('react-native-safe-area-context', () => ({
   SafeAreaView: jest.requireActual('react-native').View,
@@ -99,47 +116,45 @@ it('opens from a browse name and preserves query and phase across full-screen vi
     act(() => v.unmount());
   }
 });
-it('shows wide pronated phases inline and retains FINISH when expanded', () => {
-  const v = render();
-  try {
-    act(() =>
-      button(
-        v,
-        'Technique for Wide Pronated Bar Lat Pulldown',
-      )!.props.onPress(),
-    );
-    const images = (phase: string) =>
-      v.root
-        .findAllByType(Image)
-        .filter(
-          (n: any) =>
-            n.props.accessibilityLabel ===
-            `Wide Pronated Bar Lat Pulldown: ${phase}`,
-        );
-    expect(images('START')).toHaveLength(1);
-    expect(images('START')[0].props.source).not.toBeNull();
-    act(() => button(v, 'Show FINISH')!.props.onPress());
-    expect(images('START')).toHaveLength(0);
-    expect(images('FINISH')).toHaveLength(1);
-    act(() => button(v, 'Expand exercise illustration')!.props.onPress());
-    expect(images('FINISH')).toHaveLength(2);
-    expect(text(v)).not.toContain(
-      'Illustration unavailable: Wide Pronated Bar Lat Pulldown',
-    );
-    act(() => button(v, 'Close full-screen illustration')!.props.onPress());
-    expect(button(v, 'Show FINISH')!.props.accessibilityState.selected).toBe(
-      true,
-    );
-  } finally {
-    act(() => v.unmount());
-  }
-});
+it.each([
+  ['Wide Pronated Bar Lat Pulldown', 301, 302],
+  ['Reverse-Grip Lat Pulldown', 401, 402],
+] as const)(
+  'shows %s phases inline and retains FINISH when expanded',
+  (name, startAsset, finishAsset) => {
+    const v = render();
+    try {
+      act(() => button(v, `Technique for ${name}`)!.props.onPress());
+      const images = (phase: string) =>
+        v.root
+          .findAllByType(Image)
+          .filter(
+            (n: any) => n.props.accessibilityLabel === `${name}: ${phase}`,
+          );
+      expect(images('START')).toHaveLength(1);
+      expect(images('START')[0].props.source).toBe(startAsset);
+      act(() => button(v, 'Show FINISH')!.props.onPress());
+      expect(images('START')).toHaveLength(0);
+      expect(images('FINISH')).toHaveLength(1);
+      expect(images('FINISH')[0].props.source).toBe(finishAsset);
+      act(() => button(v, 'Expand exercise illustration')!.props.onPress());
+      expect(images('FINISH')).toHaveLength(2);
+      for (const image of images('FINISH'))
+        expect(image.props.source).toBe(finishAsset);
+      expect(text(v)).not.toContain(`Illustration unavailable: ${name}`);
+      act(() => button(v, 'Close full-screen illustration')!.props.onPress());
+      expect(button(v, 'Show FINISH')!.props.accessibilityState.selected).toBe(
+        true,
+      );
+    } finally {
+      act(() => v.unmount());
+    }
+  },
+);
 it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
   const v = render();
   try {
-    act(() =>
-      button(v, 'Technique for Reverse-Grip Lat Pulldown')!.props.onPress(),
-    );
+    act(() => button(v, 'Technique for Barbell Bench Press')!.props.onPress());
     expect(text(v)).toContain('Image coming soon');
     act(() => button(v, 'Show FINISH')!.props.onPress());
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());

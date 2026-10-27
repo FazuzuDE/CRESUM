@@ -2,10 +2,10 @@
   "variantId": "lat-pulldown-reverse-grip",
   "model": "male",
   "selectionDate": "2026-10-27",
-  "status": "user-selected-start",
+  "status": "user-selected-pair",
   "userDecision": "Принимаю",
   "archiveStatus": "pending-upload",
-  "runtimeIntegration": "pending; FINISH not yet selected",
+  "runtimeIntegration": "User-selected provisional local pair; known weight-stack inconsistency remains open.",
   "productionChoice": "Existing long chrome bar, bilateral supinated grip on straight inner sections near comfortable shoulder width; visual implementation only, not frozen catalog geometry.",
   "assets": {
     "start": {
@@ -16,7 +16,17 @@
       "width": 1120,
       "height": 1280,
       "quality": 92
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-5d533486-cd2e-44bc-a550-c0f60c1d8169.png",
+      "sourceSha256": "fbd8f44a71cda9f189a4983c24b1ac75caf52c4acb66c6fe5ccf8750ad902bda",
+      "sha256": "c2b5e7468665b9f9023ee629ff9ca815746486ff56e831d16265ff189ac2798a",
+      "width": 1120,
+      "height": 1280,
+      "quality": 92
     }
   },
-  "reviewScope": "User visual selection of START only; no passed independent biomechanics certification and no approval of FINISH or runtime integration."
+  "reviewScope": "User accepted both visual phases after being informed that the FINISH stack still required reconciliation. Preserve the accepted original FINISH, not rejected repair candidates. User visual selection is not completed biomechanics QA.",
+  "finishDecision": "Утверждаю"
 }

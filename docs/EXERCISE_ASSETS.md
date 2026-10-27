@@ -1,5 +1,23 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Reverse-grip Male pair — provisional local integration, 2026-10-27
+
+The user accepted START and FINISH, with the previously disclosed stack issue
+still open. Bind only `lat-pulldown-reverse-grip` / Male to `start.webp` and
+`finish.webp`. Retain the original accepted FINISH; generated repair attempts
+were not adopted because plate counts and character details drifted.
+
+This is a narrow user-selected provisional-use exception, not a passed general
+biomechanics gate or tracker approval. FINISH stack-count/selector continuity
+still differs from START. Final anatomy/bar-clearance and physical-device
+readability remain unverified. `technique-manifest.json` records these limits
+and current hashes; `technique-selection.json`, `start-prompt.json` and
+`finish-prompt.json` preserve selection and exact generation provenance.
+
+This supersedes the FINISH-pending/runtime-unavailable status below. It does not
+freeze catalog attachment dimensions, approve Female images, change muscle roles
+or rewrite History. Oracle archiving remains deferred and pending.
+
 ## Reverse-grip Male START — user selection, 2026-10-27
 
 The user accepted the first reverse-grip Male START. Preserve its `start.webp`,
