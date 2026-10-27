@@ -21,6 +21,17 @@ it('covers every current exercise with offline setup, execution, control and err
     }
   }
 });
+
+it('provides real ISO calendar dates for every rendered reference', () => {
+  for (const source of Object.values(techniqueSources)) {
+    expect(source.checkedOn).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    const timestamp = Date.parse(source.checkedOn);
+    expect(Number.isFinite(timestamp)).toBe(true);
+    expect(new Date(timestamp).toISOString().slice(0, 10)).toBe(
+      source.checkedOn,
+    );
+  }
+});
 it('resolves legacy names without rewriting generic identities or inventing unknown techniques', () => {
   expect(findTechnique('pulldown')).toBe(findTechnique('lat-pulldown'));
   expect(findTechnique('not-an-exercise')).toBeUndefined();

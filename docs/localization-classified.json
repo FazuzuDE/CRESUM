@@ -10059,5 +10059,13 @@
     "context": "TemplateExpression/ConditionalExpression/ReturnStatement/Block/FunctionDeclaration",
     "kind": "internal",
     "reason": "Numeric application version formatting; the surrounding profile.version sentence is localized and the version number is its unchanged interpolation value."
+  },
+  {
+    "file": "components/ExerciseTechnique.tsx",
+    "line": 248,
+    "text": "UTC",
+    "context": "StringLiteral/PropertyAssignment:timeZone/ObjectLiteralExpression/CallExpression/PropertyAssignment:date",
+    "kind": "internal",
+    "reason": "IANA time-zone identifier used only by Intl date formatting to preserve authored calendar dates; user-facing checked-on labels are localized in EN/RU/DE/FR."
   }
 ]

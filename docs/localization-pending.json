@@ -14950,5 +14950,11 @@
     "line": 5,
     "text": "`${match[1]}.${match[2]}.${match[3].padStart(2, '0')}`",
     "context": "TemplateExpression/ConditionalExpression/ReturnStatement/Block/FunctionDeclaration"
+  },
+  {
+    "file": "components/ExerciseTechnique.tsx",
+    "line": 248,
+    "text": "UTC",
+    "context": "StringLiteral/PropertyAssignment:timeZone/ObjectLiteralExpression/CallExpression/PropertyAssignment:date"
   }
 ]

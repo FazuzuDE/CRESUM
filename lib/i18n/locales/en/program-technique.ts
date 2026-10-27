@@ -70,7 +70,8 @@ export default {
   'technique.mistakes': 'Common mistakes',
   'technique.sources': 'Sources',
   'technique.sourceNote':
-    'CRESUM summaries of the references below. Source-checked {{date}}; not an individualized assessment.',
+    'CRESUM summaries of the references below; not an individualized assessment.',
+  'technique.sourceCheckedOn': 'Source checked {{date}}.',
   'technique.openSource': 'Open source {{title}}',
   'technique.linkError': 'Could not open this source. Try again when online.',
   'technique.safety':

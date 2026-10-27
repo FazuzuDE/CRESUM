@@ -1,5 +1,13 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — Correct source-check date presentation
+
+Under the user's instruction to continue development, close the Sources-panel
+follow-up deferred in #98. Display each source's own checked date beside its
+link in EN/RU/DE/FR, using a fixed calendar-date time zone. Preserve the existing
+source catalog, technique content, identities and artwork; no new source review
+is claimed. PR #100 uses the approved display version `0.1.00` (package `0.1.0`).
+
 ## 2026-10-27 — Version encodes the PR number
 
 Approved — pending integration. The user requires #98 → `0.0.98` and

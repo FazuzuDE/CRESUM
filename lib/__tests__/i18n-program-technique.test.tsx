@@ -9,7 +9,10 @@ import { selectProgram } from '../training-programs/selectors';
 import { exerciseLibrary } from '../exercise-library';
 import { calendarTime } from '../picker-date';
 import { isPressable } from './pressable';
+import { Text } from 'react-native';
+import type { AppLocale } from '../i18n/registry';
 const { act, create } = jest.requireActual('react-test-renderer');
+const DateTimeFormat = Intl.DateTimeFormat;
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -19,14 +22,83 @@ jest.mock('react-native-safe-area-context', () => ({
 jest.mock('expo-blur', () => ({
   BlurView: jest.requireActual('react-native').View,
 }));
-const store = () =>
+const store = (preference: AppLocale = 'ru') =>
   new LocaleStore(
     {
-      getItem: async () => JSON.stringify({ version: 1, preference: 'ru' }),
+      getItem: async () => JSON.stringify({ version: 1, preference }),
       setItem: async () => {},
     },
     () => ['en'],
   );
+
+describe.each(['America/Los_Angeles', 'Pacific/Kiritimati'])(
+  'source dates on a device in %s',
+  (timeZone) => {
+    it.each([
+      ['en', 'Sources', 'Oct 12, 2026', 'Oct 27, 2026'],
+      ['ru', 'Источники', '12 окт. 2026 г.', '27 окт. 2026 г.'],
+      ['de', 'Quellen', '12. Okt. 2026', '27. Okt. 2026'],
+      ['fr', 'Sources', '12 oct. 2026', '27 oct. 2026'],
+    ] as const)(
+      'keeps each reference date beside its own link in %s',
+      async (language, sourcesLabel, aceDate, rowDate) => {
+        const dateFormat = jest
+          .spyOn(Intl, 'DateTimeFormat')
+          .mockImplementation(
+            (locales, options) =>
+              new DateTimeFormat(locales, { timeZone, ...options }),
+          );
+        const locale = store(language);
+        const exercise = exerciseLibrary.find(
+          (e) => e.id === 'seated-cable-row-close-neutral-v-handle',
+        )!;
+        let view!: ReturnType<typeof create>;
+        try {
+          await act(async () => {
+            view = create(
+              <LocalizationProvider store={locale}>
+                <ExerciseTechnique exercise={exercise} onClose={() => {}} />
+              </LocalizationProvider>,
+            );
+          });
+          await act(async () => {
+            view.root
+              .findAll(isPressable)
+              .find((n: any) => n.props.accessibilityLabel === sourcesLabel)!
+              .props.onPress();
+          });
+          const links = view.root
+            .findAll(isPressable)
+            .filter((n: any) => n.props.accessibilityRole === 'link');
+          const sourceText = (publisher: string) => {
+            const link = links.find((n: any) =>
+              n
+                .findAllByType(Text)
+                .some((t: any) => t.props.children === publisher),
+            );
+            expect(link).toBeDefined();
+            const date = publisher === 'Muscle & Strength' ? rowDate : aceDate;
+            expect(link!.props.accessibilityLabel).toContain(date);
+            return link!
+              .findAllByType(Text)
+              .map((n: any) => n.props.children)
+              .join(' ');
+          };
+          expect(sourceText('American Council on Exercise')).toContain(aceDate);
+          expect(sourceText('American Council on Exercise')).not.toContain(
+            rowDate,
+          );
+          expect(sourceText('Muscle & Strength')).toContain(rowDate);
+          expect(sourceText('Muscle & Strength')).not.toContain(aceDate);
+        } finally {
+          if (view) await act(async () => view.unmount());
+          dateFormat.mockRestore();
+        }
+      },
+      30_000,
+    );
+  },
+);
 it('retains the selected planned slot and canonical template across language changes', async () => {
   const locale = store();
   const a = makeAssignment(

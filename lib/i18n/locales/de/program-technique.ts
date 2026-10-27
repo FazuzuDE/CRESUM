@@ -74,7 +74,8 @@ export default {
   'technique.mistakes': 'Häufige Fehler',
   'technique.sources': 'Quellen',
   'technique.sourceNote':
-    'CRESUM-Zusammenfassungen der folgenden Quellen. Quellen geprüft am {{date}}; keine individuelle Beurteilung.',
+    'CRESUM-Zusammenfassungen der folgenden Quellen; keine individuelle Beurteilung.',
+  'technique.sourceCheckedOn': 'Quelle geprüft am {{date}}.',
   'technique.openSource': 'Quelle öffnen: {{title}}',
   'technique.linkError':
     'Die Quelle konnte nicht geöffnet werden. Versuche es erneut, wenn du online bist.',

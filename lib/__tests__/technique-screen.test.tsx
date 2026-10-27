@@ -183,7 +183,10 @@ it('keeps instructions readable when an external source fails', async () => {
     act(() => button(v, 'Technique for Barbell Bench Press')!.props.onPress());
     act(() => button(v, 'Sources')!.props.onPress());
     await act(async () => {
-      button(v, 'Open source Chest Press')!.props.onPress();
+      button(
+        v,
+        'Open source Chest Press. Source checked Oct 12, 2026.',
+      )!.props.onPress();
     });
     expect(text(v)).toContain('Could not open this source');
     expect(text(v)).toContain('Setup');
