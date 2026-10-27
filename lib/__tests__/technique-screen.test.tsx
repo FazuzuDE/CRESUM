@@ -2,6 +2,15 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock(
+  '../../assets/exercises/lat-pulldown-wide-pronated-bar/start.webp',
+  () => 301,
+);
+jest.mock(
+  '../../assets/exercises/lat-pulldown-wide-pronated-bar/finish.webp',
+  () => 302,
+);
+
 const { act, create } = jest.requireActual('react-test-renderer');
 jest.mock('react-native-safe-area-context', () => ({
   SafeAreaView: jest.requireActual('react-native').View,
@@ -117,12 +126,14 @@ it('shows wide pronated phases inline and retains FINISH when expanded', () => {
             `Wide Pronated Bar Lat Pulldown: ${phase}`,
         );
     expect(images('START')).toHaveLength(1);
-    expect(images('START')[0].props.source).not.toBeNull();
+    expect(images('START')[0].props.source).toBe(301);
     act(() => button(v, 'Show FINISH')!.props.onPress());
     expect(images('START')).toHaveLength(0);
     expect(images('FINISH')).toHaveLength(1);
+    expect(images('FINISH')[0].props.source).toBe(302);
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
     expect(images('FINISH')).toHaveLength(2);
+    for (const image of images('FINISH')) expect(image.props.source).toBe(302);
     expect(text(v)).not.toContain(
       'Illustration unavailable: Wide Pronated Bar Lat Pulldown',
     );

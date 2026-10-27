@@ -1,5 +1,11 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — Oracle activation deferred
+
+The user deferred Oracle setup/backfill after console access was unavailable
+and resumed app development. Keep the approved source-storage design and pending
+inventory; no bucket/upload is claimed. Local runtime artwork remains available.
+
 ## 2026-10-27 — Oracle visual-source archive approved
 
 The user approved the storage scheme: private versioned Oracle Object Storage

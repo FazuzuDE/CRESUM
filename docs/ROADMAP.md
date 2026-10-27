@@ -1,6 +1,9 @@
 # CRESUM — Development Roadmap
 
-### Visual-source archive — approved 2026-10-27
+### Visual-source archive — approved 2026-10-27, provisioning deferred
+
+The user deferred Oracle provisioning/backfill and resumed application work.
+The approved storage design is retained; activation waits for workable access.
 
 Deliver a private versioned Oracle Object Storage archive independently of the
 app runtime. First verify OCI access and create/validate the bucket, then
