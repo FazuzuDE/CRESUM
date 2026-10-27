@@ -5,7 +5,7 @@
   "selectionDate": "2026-10-27",
   "status": "user-selected-pending-pair-qa",
   "userDecision": "Принимем",
-  "runtimeIntegration": "pending; resolver unchanged",
+  "runtimeIntegration": "Superseded by technique-manifest.json; retained as historical visual selection.",
   "generation": {
     "tool": "built-in image_gen",
     "promptRetention": "Exact tool prompts and source PNGs retained in the conversation; prompts not exported in this selection record."
@@ -26,7 +26,7 @@
       "quality": 92
     },
     "finish": {
-      "file": "finish.webp",
+      "file": "selected-finish-before-stack-repair.webp",
       "sourceFile": "exec-5d9ed12a-e23d-41a4-aa9f-f34cb847ab43.png",
       "sourceSha256": "99bb39dbf89db44a08ae5089da5e3f2d613a8bceca7a9042bf4672f263c1e653",
       "sha256": "ec39c7a8969a467234081f4bd6f92769f90e4b0bc0240202989f414ae953771c",

@@ -37,7 +37,9 @@ existing wide pronated bar. These are three distinct reviewed configurations,
 not short/medium/wide versions of the same ergonomic attachment. The compact
 configuration has its existing image pair; the V-handle Male variant additionally
 uses the user-selected provisional pair dated 2026-10-27. See EXERCISE_ASSETS.md
-for its open review scope. Missing variants retain placeholders.
+for its open review scope. The wide-pronated Male configuration now also has
+its user-selected START and stack-repaired FINISH pair locally connected.
+Missing variants/models retain placeholders.
 Physical-device and language release acceptance remain open. See the [design](superpowers/specs/2026-10-25-exercise-equipment-picker-design.md)
 and proposed [implementation plan](superpowers/plans/2026-10-25-exercise-equipment-picker.md).
 

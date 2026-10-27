@@ -99,7 +99,7 @@ it('opens from a browse name and preserves query and phase across full-screen vi
     act(() => v.unmount());
   }
 });
-it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
+it('shows wide pronated phases inline and retains FINISH when expanded', () => {
   const v = render();
   try {
     act(() =>
@@ -107,6 +107,38 @@ it('keeps inline and full-screen placeholders for variants without phase artwork
         v,
         'Technique for Wide Pronated Bar Lat Pulldown',
       )!.props.onPress(),
+    );
+    const images = (phase: string) =>
+      v.root
+        .findAllByType(Image)
+        .filter(
+          (n: any) =>
+            n.props.accessibilityLabel ===
+            `Wide Pronated Bar Lat Pulldown: ${phase}`,
+        );
+    expect(images('START')).toHaveLength(1);
+    expect(images('START')[0].props.source).not.toBeNull();
+    act(() => button(v, 'Show FINISH')!.props.onPress());
+    expect(images('START')).toHaveLength(0);
+    expect(images('FINISH')).toHaveLength(1);
+    act(() => button(v, 'Expand exercise illustration')!.props.onPress());
+    expect(images('FINISH')).toHaveLength(2);
+    expect(text(v)).not.toContain(
+      'Illustration unavailable: Wide Pronated Bar Lat Pulldown',
+    );
+    act(() => button(v, 'Close full-screen illustration')!.props.onPress());
+    expect(button(v, 'Show FINISH')!.props.accessibilityState.selected).toBe(
+      true,
+    );
+  } finally {
+    act(() => v.unmount());
+  }
+});
+it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
+  const v = render();
+  try {
+    act(() =>
+      button(v, 'Technique for Reverse-Grip Lat Pulldown')!.props.onPress(),
     );
     expect(text(v)).toContain('Image coming soon');
     act(() => button(v, 'Show FINISH')!.props.onPress());

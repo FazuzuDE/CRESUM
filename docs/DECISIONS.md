@@ -1,5 +1,16 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — Wide pronated pair integration approved
+
+The user approved connecting the selected Male START and stack-repaired FINISH
+to the exact wide-pronated variant. Eight raised and twelve stationary plates
+were checked in the repaired FINISH, with the pin in the bottom raised plate.
+The shared resolver now serves both phases locally, including expanded viewing.
+Keep the original selected FINISH export and historical selection manifest;
+`technique-manifest.json` identifies the current runtime pair and repair chain.
+Other variant/model boundaries and all muscle/History semantics remain intact.
+User acceptance does not certify biomechanics or physical-device readability.
+
 ## 2026-10-27 — Wide pronated START/FINISH selected
 
 The user accepted the latest Male wide-pronated pair ("Принимем"). Exact source

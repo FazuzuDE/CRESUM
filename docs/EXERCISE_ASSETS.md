@@ -1,5 +1,25 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Wide pronated Male pair — runtime integration, 2026-10-27
+
+The user approved local phase integration for
+`lat-pulldown-wide-pronated-bar` / Male. The shared artwork resolver now binds
+`start.webp` and stack-repaired `finish.webp`; inline and full-screen viewers
+use these same phase assets. The repaired FINISH depicts eight raised plates,
+twelve stationary plates and the yellow pin in the bottom raised plate.
+
+`technique-manifest.json` records current source/output hashes, the repair
+chain, selection and review scope. `technique-selection.json` remains the
+historical selection record: its original FINISH export is preserved as
+`selected-finish-before-stack-repair.webp`. Original generated PNGs and exact
+tool prompts remain in the conversation; the repository contains WebP exports.
+
+This supersedes the pending runtime/stack-count status below, not the general
+biomechanics gate. User visual acceptance and assistant checks do not represent
+independent anatomical certification; final bar-clearance/anatomical review and
+physical-device readability remain open. Do not mark automated tracker approval
+or borrow these assets for Female, reverse-grip or legacy/generic variants.
+
 ## Wide pronated Male pair — user selection, 2026-10-27
 
 The user accepted the latest START/FINISH for
