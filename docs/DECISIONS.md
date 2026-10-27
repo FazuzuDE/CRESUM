@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — Male Master and material quality reaffirmed
+
+Approved — pending Git sync. After merging #96, the user re-supplied the
+five-view Male Master and reported uneven character/machine colors and textures
+in recent generations. Use the Master sheet alongside the accepted machine
+reference for future generations; inspect skin, outfit, lighting and machine
+material continuity before presenting candidates. See EXERCISE_ASSETS.md.
+No new image or retrospective QA approval is implied.
+
 ## 2026-10-27 — Reverse-grip visual pair accepted
 
 The user accepted FINISH source `exec-5d533486-cd2e-44bc-a550-c0f60c1d8169.png`
