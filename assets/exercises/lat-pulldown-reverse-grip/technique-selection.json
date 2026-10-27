@@ -1,0 +1,22 @@
+{
+  "variantId": "lat-pulldown-reverse-grip",
+  "model": "male",
+  "selectionDate": "2026-10-27",
+  "status": "user-selected-start",
+  "userDecision": "Принимаю",
+  "archiveStatus": "pending-upload",
+  "runtimeIntegration": "pending; FINISH not yet selected",
+  "productionChoice": "Existing long chrome bar, bilateral supinated grip on straight inner sections near comfortable shoulder width; visual implementation only, not frozen catalog geometry.",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-d74bf8ae-4eba-4fb7-afc7-d55866f70bf7.png",
+      "sourceSha256": "ad1ba897312dd511f10fc051af9321d5047d5eee4329ec27a678bd9b5c17d77c",
+      "sha256": "eb51e0652fd55416e8cc17c8f5b0e0ee7e57aac841a8ffa3bac71a0081ab578c",
+      "width": 1120,
+      "height": 1280,
+      "quality": 92
+    }
+  },
+  "reviewScope": "User visual selection of START only; no passed independent biomechanics certification and no approval of FINISH or runtime integration."
+}

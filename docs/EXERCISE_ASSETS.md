@@ -1,5 +1,17 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Reverse-grip Male START — user selection, 2026-10-27
+
+The user accepted the first reverse-grip Male START. Preserve its `start.webp`,
+`start-prompt.json` and `technique-selection.json` in
+`assets/exercises/lat-pulldown-reverse-grip/`. The selected bar/inner hand
+placement is a visual production choice within the existing supinated variant,
+not a new canonical attachment, manufacturer or exact-width definition.
+
+FINISH remains a generated draft awaiting selection/pair review; runtime phase
+resolution remains unavailable. START selection does not approve independent
+biomechanics QA or other models/variants. Oracle upload remains pending.
+
 ## Source archive workflow — approved 2026-10-27
 
 Use private versioned Oracle Object Storage for visual sources, references,

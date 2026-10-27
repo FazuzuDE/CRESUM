@@ -1,5 +1,13 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — Reverse-grip Male START selected
+
+The user accepted START source `exec-d74bf8ae-4eba-4fb7-afc7-d55866f70bf7.png`.
+Retain its export, exact prompt and hashes in the reverse-grip asset folder.
+The illustration uses the existing long chrome bar with a supinated grip on
+its straight inner sections. This is a visual production choice, not a newly
+frozen attachment/width contract. FINISH review and runtime binding are pending.
+
 ## 2026-10-27 — Oracle visual-source archive approved
 
 The user approved the storage scheme: private versioned Oracle Object Storage
