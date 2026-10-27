@@ -14944,5 +14944,11 @@
     "line": 4,
     "text": "Seated Cable Row",
     "context": "StringLiteral/PropertyAssignment:title/ObjectLiteralExpression/PropertyAssignment:'muscle-strength-seated-row'/ObjectLiteralExpression"
+  },
+  {
+    "file": "lib/app-version.ts",
+    "line": 5,
+    "text": "`${match[1]}.${match[2]}.${match[3].padStart(2, '0')}`",
+    "context": "TemplateExpression/ConditionalExpression/ReturnStatement/Block/FunctionDeclaration"
   }
 ]
