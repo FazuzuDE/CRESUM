@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — Wide pronated START/FINISH selected
+
+The user accepted the latest Male wide-pronated pair ("Принимем"). Exact source
+filenames/hashes and retained WebP exports are recorded in
+`assets/exercises/lat-pulldown-wide-pronated-bar/technique-selection.json`.
+Selection covers this exact variant only. Runtime binding remains pending;
+visual selection does not claim a passed biomechanics gate. Review stack
+plate/selector continuity and front-of-body bar clearance before final pair QA.
+
 ## 2026-10-27 — V-handle START/FINISH provisionally selected
 
 The user accepted the latest Male V-handle technique pair for current use and

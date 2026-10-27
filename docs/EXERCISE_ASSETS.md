@@ -1,5 +1,20 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Wide pronated Male pair — user selection, 2026-10-27
+
+The user accepted the latest START/FINISH for
+`lat-pulldown-wide-pronated-bar` / Male. Preserve the selected exports
+`start.webp`, `finish.webp` and `technique-selection.json` in this variant folder.
+Original PNGs and generation prompts remain in the conversation. The existing
+thumbnail manifest is unchanged. The selection advances the visual candidates;
+runtime phase images still retain placeholders until focused integration.
+
+User visual selection and completed biomechanics QA are separate: weight-stack
+plate count/selector continuity differs visually across the generated pair and
+needs reconciliation. Bar clearance, hand contact and device readability still
+require pair review. Do not promote the automated asset tracker to approved,
+change muscle mapping or borrow these illustrations for another variant/model.
+
 ## V-handle Male technique pair — provisional selection, 2026-10-27
 
 The user selected the current START/FINISH pair for use now, with later
