@@ -1,0 +1,38 @@
+{
+  "variantId": "lat-pulldown-wide-pronated-bar",
+  "model": "male",
+  "visualMode": "technique",
+  "selectionDate": "2026-10-27",
+  "status": "user-selected-pending-pair-qa",
+  "userDecision": "Принимем",
+  "runtimeIntegration": "pending; resolver unchanged",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptRetention": "Exact tool prompts and source PNGs retained in the conversation; prompts not exported in this selection record."
+  },
+  "openReview": [
+    "Weight-stack total plate count and selected-group continuity differ visually across the generated pair; reconcile before claiming machine-motion QA.",
+    "Review front-of-body bar clearance and hand/wrist anatomy in the chosen camera.",
+    "Physical-device readability unverified."
+  ],
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-eed33f9d-3dea-440b-8edc-7c725cd73d63.png",
+      "sourceSha256": "d8586b71a83c261a0caebac29be12cebf25f052117f111cfa62478daf03296b5",
+      "sha256": "24b9c18141adb17a0ace9c86d3e94d694acaca57d09c99c656aff8d530fd29aa",
+      "width": 1120,
+      "height": 1280,
+      "quality": 92
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-5d9ed12a-e23d-41a4-aa9f-f34cb847ab43.png",
+      "sourceSha256": "99bb39dbf89db44a08ae5089da5e3f2d613a8bceca7a9042bf4672f263c1e653",
+      "sha256": "ec39c7a8969a467234081f4bd6f92769f90e4b0bc0240202989f414ae953771c",
+      "width": 1120,
+      "height": 1280,
+      "quality": 92
+    }
+  }
+}
