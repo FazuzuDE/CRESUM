@@ -1,5 +1,29 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — Reverse-grip visual pair accepted
+
+The user accepted FINISH source `exec-5d533486-cd2e-44bc-a550-c0f60c1d8169.png`
+after START acceptance and disclosure of the open stack reconciliation. Connect
+the exact Male reverse-grip pair provisionally, preserving the accepted original
+FINISH rather than unsuccessful repairs that changed the character/plate count.
+The stack inconsistency remains an explicit open review item; this is not
+completed biomechanical QA. Preserve phase/variant boundaries, stable IDs and
+current muscle roles. Female and generic exercises do not borrow the pair.
+
+## 2026-10-27 — Reverse-grip Male START selected
+
+The user accepted START source `exec-d74bf8ae-4eba-4fb7-afc7-d55866f70bf7.png`.
+Retain its export, exact prompt and hashes in the reverse-grip asset folder.
+The illustration uses the existing long chrome bar with a supinated grip on
+its straight inner sections. This is a visual production choice, not a newly
+frozen attachment/width contract. FINISH review and runtime binding are pending.
+
+## 2026-10-27 — Oracle activation deferred
+
+The user deferred Oracle setup/backfill after console access was unavailable
+and resumed app development. Keep the approved source-storage design and pending
+inventory; no bucket/upload is claimed. Local runtime artwork remains available.
+
 ## 2026-10-27 — Oracle visual-source archive approved
 
 The user approved the storage scheme: private versioned Oracle Object Storage

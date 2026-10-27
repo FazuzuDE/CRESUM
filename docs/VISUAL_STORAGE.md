@@ -1,6 +1,9 @@
 # CRESUM visual-source storage
 
 Approved by the user on 2026-10-27. Infrastructure and uploads are pending.
+The user subsequently deferred Oracle setup/backfill and resumed app development.
+Retain the approved scheme and local inventory; do not block app work or report
+any upload as complete.
 
 ## Ownership and availability
 

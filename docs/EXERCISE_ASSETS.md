@@ -1,5 +1,47 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Reverse-grip FINISH — shoulder occlusion repair, 2026-10-27
+
+The user identified an exposed chrome bar end behind the right shoulder in
+their supplied FINISH frame. Replace the runtime FINISH with the generated
+local occlusion correction: the far end is hidden by the torso in this view.
+Manifest revision 2 records the uploaded reference hash, exact repair prompt,
+new source/output hashes and previous runtime FINISH export. The historical
+selection record points to `selected-finish-before-occlusion-repair.webp`.
+This supersedes the original-FINISH runtime statement below; known stack/pair
+QA and Oracle upload remain open. Do not claim pixel-identical preservation
+of all details or independent biomechanical certification.
+
+## Reverse-grip Male pair — provisional local integration, 2026-10-27
+
+The user accepted START and FINISH, with the previously disclosed stack issue
+still open. Bind only `lat-pulldown-reverse-grip` / Male to `start.webp` and
+`finish.webp`. Retain the original accepted FINISH; generated repair attempts
+were not adopted because plate counts and character details drifted.
+
+This is a narrow user-selected provisional-use exception, not a passed general
+biomechanics gate or tracker approval. FINISH stack-count/selector continuity
+still differs from START. Final anatomy/bar-clearance and physical-device
+readability remain unverified. `technique-manifest.json` records these limits
+and current hashes; `technique-selection.json`, `start-prompt.json` and
+`finish-prompt.json` preserve selection and exact generation provenance.
+
+This supersedes the FINISH-pending/runtime-unavailable status below. It does not
+freeze catalog attachment dimensions, approve Female images, change muscle roles
+or rewrite History. Oracle archiving remains deferred and pending.
+
+## Reverse-grip Male START — user selection, 2026-10-27
+
+The user accepted the first reverse-grip Male START. Preserve its `start.webp`,
+`start-prompt.json` and `technique-selection.json` in
+`assets/exercises/lat-pulldown-reverse-grip/`. The selected bar/inner hand
+placement is a visual production choice within the existing supinated variant,
+not a new canonical attachment, manufacturer or exact-width definition.
+
+FINISH remains a generated draft awaiting selection/pair review; runtime phase
+resolution remains unavailable. START selection does not approve independent
+biomechanics QA or other models/variants. Oracle upload remains pending.
+
 ## Source archive workflow — approved 2026-10-27
 
 Use private versioned Oracle Object Storage for visual sources, references,

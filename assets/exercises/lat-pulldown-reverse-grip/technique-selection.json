@@ -1,0 +1,32 @@
+{
+  "variantId": "lat-pulldown-reverse-grip",
+  "model": "male",
+  "selectionDate": "2026-10-27",
+  "status": "user-selected-pair",
+  "userDecision": "Принимаю",
+  "archiveStatus": "pending-upload",
+  "runtimeIntegration": "Historical accepted pair; see technique-manifest.json for current FINISH after user-requested shoulder occlusion correction.",
+  "productionChoice": "Existing long chrome bar, bilateral supinated grip on straight inner sections near comfortable shoulder width; visual implementation only, not frozen catalog geometry.",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-d74bf8ae-4eba-4fb7-afc7-d55866f70bf7.png",
+      "sourceSha256": "ad1ba897312dd511f10fc051af9321d5047d5eee4329ec27a678bd9b5c17d77c",
+      "sha256": "eb51e0652fd55416e8cc17c8f5b0e0ee7e57aac841a8ffa3bac71a0081ab578c",
+      "width": 1120,
+      "height": 1280,
+      "quality": 92
+    },
+    "finish": {
+      "file": "selected-finish-before-occlusion-repair.webp",
+      "sourceFile": "exec-5d533486-cd2e-44bc-a550-c0f60c1d8169.png",
+      "sourceSha256": "fbd8f44a71cda9f189a4983c24b1ac75caf52c4acb66c6fe5ccf8750ad902bda",
+      "sha256": "c2b5e7468665b9f9023ee629ff9ca815746486ff56e831d16265ff189ac2798a",
+      "width": 1120,
+      "height": 1280,
+      "quality": 92
+    }
+  },
+  "reviewScope": "User accepted both visual phases after being informed that the FINISH stack still required reconciliation. Preserve the accepted original FINISH, not rejected repair candidates. User visual selection is not completed biomechanics QA.",
+  "finishDecision": "Утверждаю"
+}

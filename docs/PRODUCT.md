@@ -47,7 +47,9 @@ configuration has its existing image pair; the V-handle Male variant additionall
 uses the user-selected provisional pair dated 2026-10-27. See EXERCISE_ASSETS.md
 for its open review scope. The wide-pronated Male configuration now also has
 its user-selected START and stack-repaired FINISH pair locally connected.
-Missing variants/models retain placeholders.
+The reverse-grip Male configuration also uses its user-selected provisional
+START/FINISH pair; its known stack inconsistency and review scope are recorded
+in EXERCISE_ASSETS.md. Missing variants/models retain placeholders.
 Physical-device and language release acceptance remain open. See the [design](superpowers/specs/2026-10-25-exercise-equipment-picker-design.md)
 and proposed [implementation plan](superpowers/plans/2026-10-25-exercise-equipment-picker.md).
 
