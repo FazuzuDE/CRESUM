@@ -27,6 +27,8 @@ jest.mock(
   '../../assets/exercises/seated-cable-row-close-neutral-v-handle/finish.webp',
   () => 502,
 );
+jest.mock('../../assets/exercises/one-arm-dumbbell-row/start.webp', () => 601);
+jest.mock('../../assets/exercises/one-arm-dumbbell-row/finish.webp', () => 602);
 const { act, create } = jest.requireActual('react-test-renderer');
 jest.mock('react-native-safe-area-context', () => ({
   SafeAreaView: jest.requireActual('react-native').View,
@@ -128,6 +130,7 @@ it.each([
   ['Wide Pronated Bar Lat Pulldown', 301, 302],
   ['Reverse-Grip Lat Pulldown', 401, 402],
   ['Close Neutral V-Handle Seated Cable Row', 501, 502],
+  ['One-Arm Dumbbell Row', 601, 602],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {

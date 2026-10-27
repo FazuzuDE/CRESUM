@@ -1,5 +1,25 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — One-arm dumbbell row pair selected
+
+Approved — pending integration. After START selection, the user accepted FINISH
+("Утверждаю"). Preserve both exact exports and source/prompt provenance and
+connect them provisionally to the existing `one-arm-dumbbell-row` / Male guide,
+including the expanded illustration. Keep IDs, History, catalog/muscle data
+and technique content unchanged. Full-frame and reduced-preview comparison
+is recorded separately from independent anatomy/biomechanics and physical
+phone acceptance, which remain open. Oracle upload remains pending.
+This supersedes the FINISH-pending/runtime-unavailable checkpoint below.
+PR #101 uses display version `0.1.01` (package/Expo `0.1.1`).
+
+## 2026-10-27 — One-arm dumbbell row START selected
+
+Approved — pending pair selection and integration. The user accepted the Male
+START ("Утверждаю, продолжай"). Retain its exact selected export and provenance,
+then generate FINISH against the same character, flat bench, dumbbell, camera
+and support contacts. FINISH remains a draft until separately selected. No
+runtime image binding, catalog/history change or Oracle upload is claimed.
+
 ## 2026-10-27 — Correct source-check date presentation
 
 Under the user's instruction to continue development, close the Sources-panel

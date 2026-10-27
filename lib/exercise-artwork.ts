@@ -22,6 +22,10 @@ const seatedRowPair = {
   start: require('../assets/exercises/seated-cable-row-close-neutral-v-handle/start.webp'),
   finish: require('../assets/exercises/seated-cable-row-close-neutral-v-handle/finish.webp'),
 };
+const oneArmRowPair = {
+  start: require('../assets/exercises/one-arm-dumbbell-row/start.webp'),
+  finish: require('../assets/exercises/one-arm-dumbbell-row/finish.webp'),
+};
 const attachment = require('../assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/attachment.webp');
 const vHandleAttachment = require('../assets/exercises/lat-pulldown-close-neutral-v-handle/attachment.webp');
 const wideBarAttachment = require('../assets/exercises/lat-pulldown-wide-pronated-bar/attachment.webp');
@@ -39,6 +43,7 @@ export function resolveExerciseArtwork(
   if (variantId === 'lat-pulldown-reverse-grip') return reverseGripPair[phase];
   if (variantId === 'seated-cable-row-close-neutral-v-handle')
     return seatedRowPair[phase];
+  if (variantId === 'one-arm-dumbbell-row') return oneArmRowPair[phase];
   return null;
 }
 

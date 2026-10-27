@@ -1,0 +1,33 @@
+{
+  "exerciseId": "one-arm-dumbbell-row",
+  "model": "male",
+  "phase": "start",
+  "status": "user-selected-start",
+  "archiveStatus": "pending-upload",
+  "tool": "built-in image_gen",
+  "references": [
+    {
+      "role": "identity/outfit/material reference",
+      "libraryFileId": "libfile_d7825f8808208191a57c6053608dff8f",
+      "fileName": "0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+      "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+      "scope": "Externally supplied Master sheet; not a resolved production Prompt Package binary."
+    },
+    {
+      "role": "rendering/material style only; not equipment geometry",
+      "file": "../seated-cable-row-close-neutral-v-handle/start.webp",
+      "sha256": "7f08081f16091d36bd03d3d359f51ce88f202980983d99912e7c0039c4ac4cd2"
+    }
+  ],
+  "prompt": "Use case: identity-preserve / scientific-educational exercise illustration.\nCreate ONE new CRESUM exercise illustration: bench-supported single-arm dumbbell row, START / bottom position only. This is a draft for a mobile fitness app.\nREFERENCE ROLES:\nImage 1 is the exact approved CRESUM Male Master identity and outfit reference. Extract ONE man from this five-view sheet: preserve his face, short brown hair, clean-shaven young-adult appearance, normal adult limb and torso proportions, athletic but not bodybuilder build, natural skin tone, muted blue-gray fitted T-shirt, dark-gray athletic shorts, visible normal-length white socks and clean light-gray trainers. Never copy the five-view composition.\nImage 2 is ONLY the established CRESUM rendering/material language: clean white background, soft grounding, coherent dark matte gym-equipment metal and dark upholstery. It is NOT the equipment or exercise to depict. Do not include its cable tower, pulley, handles, footplates or cables.\n\nEXACT SCENE AND MECHANICS:\nOne flat stable upholstered gym bench, one man and one medium-size dumbbell. The athlete performs the conventional bench-supported right-arm dumbbell row START. His LEFT palm and LEFT knee bear weight on the bench pad. Supporting left hand is beneath left shoulder, supporting left knee beneath left hip. The right foot stands firmly on the floor alongside the bench, slightly behind the hip, creating a stable base. The left shin rests along the pad naturally; the left shoe/ankle anatomy must remain intelligible.\nTorso braced and approximately parallel to the bench, with a neutral flat spine, level unrotated pelvis and shoulders, neck in line with the spine, gaze naturally toward the floor. Do not lift or rotate the torso to show the face.\nRIGHT arm hangs down beneath the RIGHT shoulder in the foreground with the elbow comfortably extended, not hyperextended. The right hand securely wraps around the dumbbell's single short straight chrome handle with a natural closed neutral grip, thumb opposing fingers, wrist aligned with forearm and palm facing inward toward the bench. The shoulder remains controlled; the weight must not pull it into a collapsed hanging shoulder. The dumbbell is clear of the floor and bench and has two equally sized restrained dark-metal round ends. No second dumbbell.\n\nCOMPOSITION:\nLandscape 3:2 image, one full exercise setup, generous but restrained pure-white margins. Camera on the working RIGHT side, slightly toward the athlete's head, a clear three-quarter side view that simultaneously reveals the supporting left palm and knee on the bench, planted right shoe, hanging right arm and actual hand-to-dumbbell contact. The head is toward image left and the hips toward image right. Keep the complete man, bench, its stable base and dumbbell inside the frame. Normal perspective, no wide-angle distortion. Retain realistic adult proportions: natural head size, long anatomically proportionate arms and legs, no shortened or thick stubby limbs.\n\nSTYLE AND QUALITY:\nMatch the approved premium semi-realistic CRESUM 3D/catalog visual language in the references. Natural consistent skin, subtle fine skin detail, uniform matte blue-gray shirt fabric and dark-gray shorts with only physically plausible folds and lighting. Coherent dark matte bench frame with clean continuous metal edges and a smooth dark-gray padded top. Soft natural contact shadows on white, no artificial heavy studio floor or dramatic lighting. Both hands must be anatomically correct with plausible separate fingers, proper thumb placement, visible support/grip contact, no intersecting fingers or duplicated arms. No unexplained skin patches, waxy skin, blotchy fabric, noisy or melted metal, excessive chrome shine, glossy clothing or oversharpening.\nOne START phase only. No collage, inset, mirror, second athlete, exercise labels, lettering, numbers, logos, arrows, red muscle overlays or watermark.",
+  "sources": [
+    "https://www.acefitness.org/resources/everyone/exercise-library/126/single-arm-row/"
+  ],
+  "output": {
+    "sourceFile": "exec-95a68ba8-a079-464f-880f-7e9c18095bb8.png",
+    "sha256": "84a0cbdf5bd6c285098f1c2af9b1a6a9a34cfa236548b98e17f5b811d3c1170b",
+    "size": [1536, 1024],
+    "bytes": 1420454
+  },
+  "productionChoice": "Bench-supported right-arm row; left palm/knee on flat bench, right foot on floor. This visual example does not change the saved exercise ID or catalog semantics."
+}

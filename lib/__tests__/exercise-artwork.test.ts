@@ -61,6 +61,9 @@ jest.mock(
   () => 502,
 );
 
+jest.mock('../../assets/exercises/one-arm-dumbbell-row/start.webp', () => 601);
+jest.mock('../../assets/exercises/one-arm-dumbbell-row/finish.webp', () => 602);
+
 const ergonomic = 'lat-pulldown-close-neutral-ergonomic-handle';
 
 it('binds the selected row pair only to its exact close neutral configuration', () => {
@@ -158,5 +161,31 @@ it('resolves each exact phase without borrowing another setup or model', () => {
     expect(
       resolveExerciseArtwork('lat-pulldown-reverse-grip', phase, 'female'),
     ).toBeNull();
+  }
+});
+
+it('binds the bench-supported one-arm pair without changing identity or borrowing other rows', () => {
+  const id = 'one-arm-dumbbell-row';
+  expect(findExercise(id)).toMatchObject({
+    id,
+    primaryMuscles: ['lats', 'upper-back'],
+    secondaryMuscles: ['biceps', 'rear-delts'],
+    equipment: ['dumbbell', 'bench'],
+    movementPattern: 'horizontal-pull',
+  });
+  expect(findTechnique(id)?.scope).toBe('Bench-supported single-arm row.');
+  expect(resolveExerciseArtwork(id, 'start', 'male')).toBe(601);
+  expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(602);
+  expect(resolveAttachmentArtwork(id)).toBeNull();
+  for (const phase of ['start', 'finish'] as const) {
+    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
+    for (const other of [
+      'row',
+      'seated-cable-row',
+      'chest-supported-dumbbell-row',
+      'unknown',
+    ]) {
+      expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
+    }
   }
 });
