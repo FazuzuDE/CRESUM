@@ -63,6 +63,14 @@ jest.mock(
 
 jest.mock('../../assets/exercises/one-arm-dumbbell-row/start.webp', () => 601);
 jest.mock('../../assets/exercises/one-arm-dumbbell-row/finish.webp', () => 602);
+jest.mock(
+  '../../assets/exercises/chest-supported-dumbbell-row/start.webp',
+  () => 701,
+);
+jest.mock(
+  '../../assets/exercises/chest-supported-dumbbell-row/finish.webp',
+  () => 702,
+);
 
 const ergonomic = 'lat-pulldown-close-neutral-ergonomic-handle';
 
@@ -182,7 +190,33 @@ it('binds the bench-supported one-arm pair without changing identity or borrowin
     for (const other of [
       'row',
       'seated-cable-row',
-      'chest-supported-dumbbell-row',
+      'barbell-bent-over-row',
+      'unknown',
+    ]) {
+      expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
+    }
+  }
+});
+
+it('binds both chest-supported phases only to the existing two-arm incline-bench row', () => {
+  const id = 'chest-supported-dumbbell-row';
+  expect(findExercise(id)).toMatchObject({
+    id,
+    primaryMuscles: ['upper-back', 'lats'],
+    secondaryMuscles: ['biceps', 'rear-delts'],
+    equipment: ['dumbbell', 'bench'],
+    movementPattern: 'horizontal-pull',
+  });
+  expect(findTechnique(id)?.scope).toBe('Two-arm incline-bench row.');
+  expect(resolveExerciseArtwork(id, 'start', 'male')).toBe(701);
+  expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(702);
+  expect(resolveAttachmentArtwork(id)).toBeNull();
+  for (const phase of ['start', 'finish'] as const) {
+    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
+    for (const other of [
+      'barbell-bent-over-row',
+      'row',
+      'seated-cable-row',
       'unknown',
     ]) {
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();

@@ -1,5 +1,16 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — Chest-supported dumbbell row pair selected
+
+Approved — pending integration. After START selection, the user accepted
+FINISH ("Утверждаю"). Preserve both exact exports and prompt/source provenance
+and connect them provisionally to the existing `chest-supported-dumbbell-row`
+/ Male guide, including expanded viewing. Keep the two-arm incline-bench
+identity, technique, muscle mapping, History and saved workouts unchanged.
+Independent detailed hand/anatomy/biomechanics review and physical-device
+acceptance remain open; Oracle upload stays pending. This supersedes the
+FINISH-pending/runtime-unavailable checkpoint below.
+
 ## 2026-10-27 — Chest-supported dumbbell row START selected
 
 Approved — pending pair selection and integration. The user accepted the Male

@@ -30,7 +30,7 @@
     "size": [1536, 1024],
     "bytes": 1421723
   },
-  "reviewScope": "User visually selected START. Independent anatomy/biomechanics QA, pair review and physical-device acceptance remain pending. No runtime binding.",
+  "reviewScope": "User visually selected START. Pair status is recorded separately in technique-selection.json and technique-manifest.json; this is not independent anatomy/biomechanics QA or native-device acceptance.",
   "userDecision": "Отлично, далее",
   "selectionDate": "2026-10-27"
 }

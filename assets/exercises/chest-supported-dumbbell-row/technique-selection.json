@@ -2,10 +2,10 @@
   "exerciseId": "chest-supported-dumbbell-row",
   "model": "male",
   "selectionDate": "2026-10-27",
-  "status": "user-selected-start",
-  "userDecision": "Отлично, далее",
+  "status": "user-selected-pair",
+  "userDecision": "Утверждаю",
   "archiveStatus": "pending-upload",
-  "runtimeIntegration": "Pending FINISH selection and pair review; existing runtime placeholders remain.",
+  "runtimeIntegration": "Exact selected START/FINISH WebPs are bound locally only to chest-supported-dumbbell-row / Male.",
   "assets": {
     "start": {
       "file": "start.webp",
@@ -17,6 +17,19 @@
       "width": 1280,
       "height": 853,
       "bytes": 54818,
+      "quality": 92,
+      "method": 6
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-f961d75e-ca11-4c87-9f75-334702c7dd05.png",
+      "sourceSha256": "61cbda5891e0786ba61c277d7a13cc4c84d5a0158d5edb144efce9f4150313ab",
+      "sourceSize": [1536, 1024],
+      "sourceBytes": 1654381,
+      "sha256": "788b071059bd293f1793557b57e874df5a09f85ad3fc9634543d45e954e98d6c",
+      "width": 1280,
+      "height": 853,
+      "bytes": 52270,
       "quality": 92,
       "method": 6
     }
@@ -32,11 +45,17 @@
     "method": 6,
     "pillowVersion": "12.3.0"
   },
-  "reviewScope": "START visual selection only, not independent anatomy/biomechanics QA, automated tracker approval or native-device acceptance. Original PNG remains in the conversation; selected WebP and exact prompt/reference provenance retained in Git.",
-  "finishCandidate": {
-    "status": "generated-draft-not-selected",
-    "sourceFile": "exec-f961d75e-ca11-4c87-9f75-334702c7dd05.png",
-    "sourceSha256": "61cbda5891e0786ba61c277d7a13cc4c84d5a0158d5edb144efce9f4150313ab",
-    "promptFile": "finish-prompt.json"
-  }
+  "reviewScope": "User selected both phases. Assistant compared full frames and 350px-wide previews for phase separation, chest/pad and foot support, bench geometry, identity, outfit and materials. This visual review is not independent anatomy/biomechanics QA, automated tracker approval or native-device acceptance. Original PNGs remain in the conversation; exact selected WebPs and prompt/reference provenance are retained in Git.",
+  "selectionHistory": [
+    {
+      "phase": "start",
+      "date": "2026-10-27",
+      "userDecision": "Отлично, далее"
+    },
+    {
+      "phase": "finish",
+      "date": "2026-10-27",
+      "userDecision": "Утверждаю"
+    }
+  ]
 }

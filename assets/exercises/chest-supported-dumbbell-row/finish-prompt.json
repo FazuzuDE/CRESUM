@@ -2,7 +2,7 @@
   "exerciseId": "chest-supported-dumbbell-row",
   "model": "male",
   "phase": "finish",
-  "status": "generated-draft-not-selected",
+  "status": "user-selected-finish",
   "archiveStatus": "pending-upload",
   "tool": "built-in image_gen",
   "references": [
@@ -24,11 +24,13 @@
     "https://www.acefitness.org/continuing-education/prosource/september-2014/4972/dynamite-delts-ace-research-identifies-top-shoulder-exercises/"
   ],
   "productionChoice": "Two-arm neutral-grip row with moderate elbow path is the visual example within the existing catalog guide's stated adaptation; not a high-row reinterpretation or changed exercise identity.",
-  "runtimeIntegration": "No FINISH export or runtime binding until user selection and pair review.",
+  "runtimeIntegration": "Selected FINISH is exported as finish.webp and bound with the approved START only to chest-supported-dumbbell-row / Male.",
   "output": {
     "sourceFile": "exec-f961d75e-ca11-4c87-9f75-334702c7dd05.png",
     "sha256": "61cbda5891e0786ba61c277d7a13cc4c84d5a0158d5edb144efce9f4150313ab",
     "size": [1536, 1024],
     "bytes": 1654381
-  }
+  },
+  "userDecision": "Утверждаю",
+  "selectionDate": "2026-10-27"
 }
