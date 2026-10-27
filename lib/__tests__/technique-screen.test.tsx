@@ -1,5 +1,6 @@
 import { ExerciseLibrary } from '../../components/ExerciseLibrary';
-import { TextInput, Linking } from 'react-native';
+import { TextInput, Linking, Image } from 'react-native';
+import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
 const { act, create } = jest.requireActual('react-test-renderer');
 jest.mock('react-native-safe-area-context', () => ({
@@ -37,7 +38,20 @@ it('opens the correct offline guide from thumbnail without toggling or adding an
     act(() => technique!.props.onPress());
     expect(text(v)).toContain('Setup');
     expect(text(v)).toContain('V-handle');
-    expect(text(v)).toContain('Image coming soon');
+    const illustration = v.root
+      .findAllByType(Image)
+      .find(
+        (n: any) =>
+          n.props.accessibilityLabel ===
+          'Close Neutral V-Handle Lat Pulldown: START',
+      );
+    expect(illustration?.props.source).toEqual(
+      resolveExerciseArtwork(
+        'lat-pulldown-close-neutral-v-handle',
+        'start',
+        'male',
+      ),
+    );
     expect(add).not.toHaveBeenCalled();
     expect(toggle).not.toHaveBeenCalled();
     act(() => button(v, 'Common mistakes')!.props.onPress());
@@ -58,13 +72,47 @@ it('opens from a browse name and preserves query and phase across full-screen vi
     act(() => button(v, 'Show FINISH')!.props.onPress());
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
     expect(button(v, 'Close full-screen illustration')).toBeDefined();
-    expect(text(v)).toContain('Illustration unavailable');
+    const illustrations = v.root
+      .findAllByType(Image)
+      .filter(
+        (n: any) =>
+          n.props.accessibilityLabel ===
+          'Close Neutral V-Handle Lat Pulldown: FINISH',
+      );
+    expect(illustrations).toHaveLength(2);
+    for (const image of illustrations) {
+      expect(image.props.source).toEqual(
+        resolveExerciseArtwork(
+          'lat-pulldown-close-neutral-v-handle',
+          'finish',
+          'male',
+        ),
+      );
+    }
     act(() => button(v, 'Close full-screen illustration')!.props.onPress());
     expect(button(v, 'Show FINISH')!.props.accessibilityState.selected).toBe(
       true,
     );
     act(() => button(v, 'Close technique')!.props.onPress());
     expect(v.root.findByType(TextInput).props.value).toBe('V-Handle');
+  } finally {
+    act(() => v.unmount());
+  }
+});
+it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
+  const v = render();
+  try {
+    act(() =>
+      button(
+        v,
+        'Technique for Wide Pronated Bar Lat Pulldown',
+      )!.props.onPress(),
+    );
+    expect(text(v)).toContain('Image coming soon');
+    act(() => button(v, 'Show FINISH')!.props.onPress());
+    act(() => button(v, 'Expand exercise illustration')!.props.onPress());
+    expect(text(v)).toContain('Illustration unavailable');
+    expect(button(v, 'Close full-screen illustration')).toBeDefined();
   } finally {
     act(() => v.unmount());
   }
