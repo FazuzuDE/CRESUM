@@ -1,9 +1,18 @@
 # CRESUM visual-source storage
 
-Approved by the user on 2026-10-27. Infrastructure and uploads are pending.
-The user subsequently deferred Oracle setup/backfill and resumed app development.
-Retain the approved scheme and local inventory; do not block app work or report
-any upload as complete.
+Approved by the user on 2026-10-27; revised checkpoint workflow below.
+The user deferred Oracle uploads and resumed app development. After a major
+visual block or at the end of work, prepare an up-to-date source ZIP with a
+manifest and SHA-256 checksums and provide it for download to the user's PC.
+Include available original images, references, candidates, 3D assets and exact
+prompts; disclose missing historical sources. Providing a link is not evidence
+that the user has downloaded or backed up the archive. Do not block app work.
+
+User Cloud Shell screenshots confirmed creation of `cresum-visuals` in home
+region `eu-frankfurt-1`, compartment `fitflow-ai`, with `NoPublicAccess`,
+`Standard` and versioning `Enabled`. Reported availability before creation was
+21,474,836,480 bytes, usage 0. No object upload or round-trip was confirmed.
+Keep Oracle as a deferred optional archive; no deletion/lifecycle is authorized.
 
 ## Ownership and availability
 
@@ -38,9 +47,11 @@ loading. It does not activate Oracle marketing or analytics infrastructure.
 - Archive status, user visual acceptance and biomechanics QA are independent.
   Existing integrated images remain usable while historical backfill is pending.
 
-For new visual work: generate → archive original → verify transfer → select and
-review → export and integrate. If access is unavailable, retain originals and
-record the pending archive explicitly; do not claim that the workflow completed.
+Current workflow: generate → retain original and exact prompt → select and
+review → export and integrate → prepare source ZIP at major-block/end checkpoints
+for PC download. Oracle's upload/verification workflow below remains deferred;
+its `pending-upload` status must not be changed to `archive-verified` based on
+local retention, ZIP preparation or user selection.
 
 ## Current inventory and migration
 
@@ -57,10 +68,10 @@ referenced by current runtime manifests, then the remaining candidates/models.
 
 ## Provisioning and first round-trip
 
-No OCI CLI, OCI config, Oracle connector or OCI environment configuration was
-available to the authoring session. No bucket was created or queried and no
-file was uploaded. Use authenticated Oracle Cloud Shell or a configured trusted
-production host. Never put private keys, tokens or signed-access URLs in Git,
+The authoring session has no direct OCI access. The user subsequently created
+the bucket through authenticated Cloud Shell as recorded above, then deferred
+uploads. The commands below remain a future reference, not completed actions.
+Use authenticated Oracle Cloud Shell or a configured trusted production host. Never put private keys, tokens or signed-access URLs in Git,
 the mobile bundle or chat.
 
 Confirm CLI options on that host before running commands:

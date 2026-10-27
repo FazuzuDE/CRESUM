@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — Barbell row pair selected; PC source archive checkpoints
+
+The user selected both Male barbell-bent-over-row phases. Integrate exact local
+exports provisionally without restricting the generic grip or changing saved
+exercise identity, guide or muscle roles. Independent biomechanics/device
+acceptance remains open. Oracle uploads are deferred: prepare an up-to-date
+source ZIP for PC download after major visual blocks or at work completion.
+The private versioned Oracle bucket exists, but no object upload is confirmed.
+
 ## 2026-10-27 — Chest-supported dumbbell row pair selected
 
 Approved — pending integration. After START selection, the user accepted

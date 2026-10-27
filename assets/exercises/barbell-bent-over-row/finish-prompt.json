@@ -1,0 +1,29 @@
+{
+  "exerciseId": "barbell-bent-over-row",
+  "model": "male",
+  "phase": "finish",
+  "prompt": "Use case: identity-preserve / precise exercise-phase edit.\nEDIT IMAGE 1 ONLY: user-approved CRESUM barbell bent-over row START. Generate its matching FINISH/top phase, one single landscape 3:2 image. Image 2 is the original five-view Male Master: identity, proportions, outfit, skin/fabric material reference only.\nLOCK: exact same man, face, hairstyle, adult proportions, muted blue-gray shirt, dark gray shorts, white socks, light gray trainers. Same camera, crop, perspective, white background, lighting and soft grounding shadows. Same hip hinge, pelvis position, trunk angle, neutral back, head/neck angle and gaze. Keep BOTH feet and legs in EXACT same positions with same soft knee bend. Do not stand him up, deepen knee bend, lift chest, arch back or rotate torso.\nMOVE ONLY arms/shoulder blades and the SAME barbell into ROW FINISH: flex BOTH elbows and draw them backward toward the hips. Pull the straight shaft up close along the legs to lightly approach the abdomen around navel/lower-abdominal level. Elbows finish approximately alongside or modestly behind the trunk, shoulders controlled, natural scapular retraction without shrugging. Both arms reach same coherent top phase; no high elbows flared sideways. Wrists neutral, elbows roughly bent around a right angle with realistic individual anatomy. Maintain the exact same secure closed PRONATED/overhand grips at the same shaft positions and grip width, opposing thumbs and fingers naturally enclosing the bar. Hands must remain physically attached to this single shaft. Do not switch to underhand or mixed grip. Move the bar as one rigid object toward the abdomen, with identical plate count, plate diameter/thickness, sleeves, collar geometry, chrome reflections and perspective: exactly ONE black plate at each end, same bar length. Keep the bar straight and load symmetric. Near bar/hand occludes legs/abdomen appropriately; no shaft through torso or forearm, no plate intersection with body. Do not reshape, duplicate or enlarge weights or hands. Preserve all visible body supports and floor contacts.\nOnly allow natural pose-related folds and shadows around moving arms/scapula. Preserve even fine skin detail, coherent shirt color and matte materials. No skin patches, waxy texture, fabric drift, changed face, short limbs, extra/missing fingers, disconnected wrists, crooked shaft, extra equipment. Full man and entire barbell remain uncropped with same margins. FINISH ONLY: no split view, inset, arrows, text, labels, numbers, logos, muscle overlays or watermark.\nThis is an educational barbell bent-over ROW top phase toward the abdomen, not a deadlift, shrug or upright row. Approved source: ACE Bent-over Row /12. Grip remains an illustrative overhand example, not a redefinition of generic catalog identity.",
+  "tool": "built-in image_gen",
+  "references": [
+    "actual Male Master SHA256 0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "approved START SHA256 9a85d1d1bc35dd1c9f272e8fb2a3638f4d564a00516846e99c36fa5dd9ac8a14"
+  ],
+  "sources": [
+    "https://www.acefitness.org/resources/everyone/exercise-library/12/bent-over-row/"
+  ],
+  "output": {
+    "file": "finish.webp",
+    "sourceFile": "exec-509fb6b6-8639-4df8-8a32-843de939f947.png",
+    "sourceSha256": "893050532baf5a1a21381d7391e384c079d31fbfb26bc3767ac999cd889db5f2",
+    "sourceSize": [1536, 1024],
+    "sourceBytes": 1698097,
+    "sha256": "33cbc694e2e0b6bc54a7e09c915f83cf9bfcc7f2c5c8f7b95cce3bb0c0dbaae4",
+    "width": 1280,
+    "height": 853,
+    "bytes": 54690,
+    "quality": 92,
+    "method": 6
+  },
+  "userDecision": "Утверждаю",
+  "selectionDate": "2026-10-27"
+}

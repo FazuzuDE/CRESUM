@@ -1,0 +1,28 @@
+{
+  "exerciseId": "barbell-bent-over-row",
+  "model": "male",
+  "phase": "start",
+  "prompt": "Use case: scientific-educational, identity-preserving premium semi-realistic 3D exercise illustration.\nAsset: CRESUM Male Technique View, barbell-bent-over-row, START phase ONLY, one single landscape 3:2 frame.\nREFERENCE: supplied five-view sheet is the actual approved CRESUM Male Master. It depicts one person from multiple views, not multiple characters for output. Match exactly that adult man's face, short brown hair, clean-shaven identity, athletic natural build, full adult leg/arm proportions, muted blue-gray fitted T-shirt, dark-gray shorts, white training socks, light-gray trainers. Preserve even natural skin texture and coherent matte fabric colors.\nSCENE: one man holding one ordinary straight Olympic-style barbell with a single matching modest-size dark round plate on EACH end and identical collars. No bench, rack, machine, cables or gym room. Clean white seamless background, soft natural grounding shadows.\nPOSE: lowered START of a standing bilateral bent-over barbell ROW. Stand with both feet flat approximately hip-width, knees softly flexed. Hinge at the HIPS, hips back, trunk angled forward about 30 degrees above horizontal. Preserve a long neutral back and neck with downward gaze. Shoulders naturally ahead of hips; balanced over midfoot, no squat-like deep knee bend and no arched or rounded spine. BOTH arms hang vertically down from shoulders under gravity, comfortably extended elbows, not pulled back. Hands securely enclose the bar with a closed PRONATED/overhand grip approximately shoulder width/slightly wider; both thumbs wrap opposite fingers, wrists straight. Correct palms toward the legs in this lowered pose, two separate anatomically natural hands gripping the SAME uninterrupted straight shaft. Bar is horizontal across the body just below knee level, close to legs but clear of knees/shins. Its shaft is in front of both legs, never passing through them. Plates clear the floor; this is a suspended rowing START, not a deadlift setup with plates resting on ground. Bar perpendicular to sagittal body plane, symmetric load and equal shaft/sleeve construction.\nCAMERA: three-quarter SIDE view slightly from the front so trunk hinge and full limb lengths read clearly, both hands visibly separated on the bar, both feet planted and both barbell ends visible with physically correct perspective. Head toward image-left and hips toward image-right, modest lens perspective, whole body and entire barbell in frame with generous margins. Show one uninterrupted shaft, exactly two hands, two arms, two legs, two shoes, one plate each end. Avoid foreshortening that hides the far grip.\nQUALITY: premium clean CRESUM 3D catalog rendering, natural subtle muscle definition, no oversized bodybuilder or short limbs. Even blue-gray shirt and consistent dark shorts, finely detailed natural hands/skin, restrained chrome and matte black plates without text. No patchy/waxy skin, mottled colors, glossy fabric, melted equipment, crooked bar, extra joints/fingers/limbs, duplicate plates, floating contacts. START only, no insets, no split frame, no text, logos, labels, arrows, numbers, watermarks or muscle overlays.\nMovement reference: ACE Bent-over Row exercise library /12: overhand example, hip hinge with soft knees and straight back, lower until arms extend, row toward abdomen. This chosen overhand depiction is a visual example only; existing generic catalog grip stays unspecified.",
+  "tool": "built-in image_gen",
+  "references": [
+    "actual Male Master SHA256 0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182"
+  ],
+  "sources": [
+    "https://www.acefitness.org/resources/everyone/exercise-library/12/bent-over-row/"
+  ],
+  "output": {
+    "file": "start.webp",
+    "sourceFile": "exec-018bc335-743e-4b9b-b136-b42d909e3965.png",
+    "sourceSha256": "9a85d1d1bc35dd1c9f272e8fb2a3638f4d564a00516846e99c36fa5dd9ac8a14",
+    "sourceSize": [1536, 1024],
+    "sourceBytes": 1725758,
+    "sha256": "706a40834ba8927231560889ad9f9aee6697869ddacfc9a533784c4eb458cd59",
+    "width": 1280,
+    "height": 853,
+    "bytes": 57490,
+    "quality": 92,
+    "method": 6
+  },
+  "userDecision": "Утверждаю",
+  "selectionDate": "2026-10-27"
+}

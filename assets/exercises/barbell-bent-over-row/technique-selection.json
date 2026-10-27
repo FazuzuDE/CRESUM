@@ -1,0 +1,36 @@
+{
+  "exerciseId": "barbell-bent-over-row",
+  "status": "user-selected-pair",
+  "model": "male",
+  "selectionDate": "2026-10-27",
+  "userDecision": "Утверждаю",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-018bc335-743e-4b9b-b136-b42d909e3965.png",
+      "sourceSha256": "9a85d1d1bc35dd1c9f272e8fb2a3638f4d564a00516846e99c36fa5dd9ac8a14",
+      "sourceSize": [1536, 1024],
+      "sourceBytes": 1725758,
+      "sha256": "706a40834ba8927231560889ad9f9aee6697869ddacfc9a533784c4eb458cd59",
+      "width": 1280,
+      "height": 853,
+      "bytes": 57490,
+      "quality": 92,
+      "method": 6
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-509fb6b6-8639-4df8-8a32-843de939f947.png",
+      "sourceSha256": "893050532baf5a1a21381d7391e384c079d31fbfb26bc3767ac999cd889db5f2",
+      "sourceSize": [1536, 1024],
+      "sourceBytes": 1698097,
+      "sha256": "33cbc694e2e0b6bc54a7e09c915f83cf9bfcc7f2c5c8f7b95cce3bb0c0dbaae4",
+      "width": 1280,
+      "height": 853,
+      "bytes": 54690,
+      "quality": 92,
+      "method": 6
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

@@ -1,3 +1,8 @@
+jest.mock('../../assets/exercises/barbell-bent-over-row/start.webp', () => 801);
+jest.mock(
+  '../../assets/exercises/barbell-bent-over-row/finish.webp',
+  () => 802,
+);
 import {
   resolveExerciseArtwork,
   resolveAttachmentArtwork,
@@ -187,12 +192,7 @@ it('binds the bench-supported one-arm pair without changing identity or borrowin
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
     expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
-    for (const other of [
-      'row',
-      'seated-cable-row',
-      'barbell-bent-over-row',
-      'unknown',
-    ]) {
+    for (const other of ['row', 'seated-cable-row', 'unknown']) {
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
     }
   }
@@ -213,10 +213,27 @@ it('binds both chest-supported phases only to the existing two-arm incline-bench
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
     expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
+    for (const other of ['row', 'seated-cable-row', 'unknown']) {
+      expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
+    }
+  }
+});
+
+it('shows selected barbell row phases without redefining its unspecified grip or other rows', () => {
+  const id = 'barbell-bent-over-row';
+  expect(findTechnique(id)?.scope).toBe(
+    'Two-arm barbell row; grip remains unspecified.',
+  );
+  expect(findExercise(id)?.equipment).toEqual(['barbell']);
+  expect(resolveExerciseArtwork(id, 'start', 'male')).toBe(801);
+  expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(802);
+  expect(resolveAttachmentArtwork(id)).toBeNull();
+  for (const phase of ['start', 'finish'] as const) {
+    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
     for (const other of [
-      'barbell-bent-over-row',
       'row',
       'seated-cable-row',
+      'barbell-deadlift',
       'unknown',
     ]) {
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
