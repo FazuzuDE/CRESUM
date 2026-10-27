@@ -34,8 +34,10 @@ workout sync. No server migration or Edge deployment was performed.
 
 The initial picker offers the compact ergonomic handle, existing V-handle and
 existing wide pronated bar. These are three distinct reviewed configurations,
-not short/medium/wide versions of the same ergonomic attachment. Only the compact
-configuration has this image pair; missing variants retain placeholders.
+not short/medium/wide versions of the same ergonomic attachment. The compact
+configuration has its existing image pair; the V-handle Male variant additionally
+uses the user-selected provisional pair dated 2026-10-27. See EXERCISE_ASSETS.md
+for its open review scope. Missing variants retain placeholders.
 Physical-device and language release acceptance remain open. See the [design](superpowers/specs/2026-10-25-exercise-equipment-picker-design.md)
 and proposed [implementation plan](superpowers/plans/2026-10-25-exercise-equipment-picker.md).
 

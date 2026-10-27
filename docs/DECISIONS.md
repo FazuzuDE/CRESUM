@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — V-handle START/FINISH provisionally selected
+
+The user accepted the latest Male V-handle technique pair for current use and
+allowed later replacement. START source `exec-3e046d01-d7c1-40e0-8b91-c8a0f7861000.png`;
+FINISH source `exec-25262683-9da3-4584-b06a-5f3209f0015b.png`. Connect only the
+existing exact V-handle variant. Keep source/output hashes and prompt provenance.
+This does not close outstanding hand/attachment biomechanics QA, authorize
+Female/other-variant fallback, or change exercise/muscle/History semantics.
+
 ## 2026-10-26 — Wide pronated bar thumbnail approved
 
 The user approved the isolated chrome wide bar with symmetrical angled ends and
