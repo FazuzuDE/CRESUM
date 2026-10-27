@@ -47,17 +47,29 @@ it('resolves each exact phase without borrowing another setup or model', () => {
       'start',
       'male',
     ),
-  ).toBeNull();
+  ).not.toBeNull();
   expect(
     resolveExerciseArtwork(
       'lat-pulldown-close-neutral-v-handle',
       'finish',
       'male',
     ),
-  ).toBeNull();
+  ).not.toBeNull();
   for (const id of ['pulldown', 'lat-pulldown', 'unknown']) {
     expect(resolveExerciseArtwork(id, 'start', 'male')).toBeNull();
     expect(resolveAttachmentArtwork(id)).toBeNull();
   }
   expect(resolveExerciseArtwork(ergonomic, 'start', 'female')).toBeNull();
+  for (const phase of ['start', 'finish'] as const) {
+    expect(
+      resolveExerciseArtwork(
+        'lat-pulldown-close-neutral-v-handle',
+        phase,
+        'female',
+      ),
+    ).toBeNull();
+    expect(
+      resolveExerciseArtwork('lat-pulldown-reverse-grip', phase, 'male'),
+    ).toBeNull();
+  }
 });

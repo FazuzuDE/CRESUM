@@ -1,5 +1,24 @@
 # CRESUM Exercise Assets — approved production rules
 
+## V-handle Male technique pair — provisional selection, 2026-10-27
+
+The user selected the current START/FINISH pair for use now, with later
+replacement permitted ("Пока берем их , позже если что изменим."). Bind these
+local illustrations only to `lat-pulldown-close-neutral-v-handle` / Male through
+`resolveExerciseArtwork`. `technique-manifest.json` records the exact selected
+source filenames/hashes, exports and provisional scope separately from the
+existing thumbnail manifest. Preserve both prompts in `technique-prompts.json`.
+
+This is an explicit provisional-use exception for this pair, not a passed
+biomechanics acceptance gate. Hand orientation/contact and exact attachment
+geometry remain open for refinement and final pair review. Do not record these
+images as approved assets in the automated tracker or claim mechanical
+certification. Other variants and Female phase images retain placeholders.
+Existing canonical IDs, technique instructions, muscle roles and saved History
+are unchanged. Future replacements update these same exact-variant files.
+The thumbnail-only approval below remains historical and does not itself approve
+this pair; the later user selection above authorizes provisional phase use.
+
 ## Wide pronated bar thumbnail — approved 2026-10-26
 
 The user approved the isolated chrome wide-bar candidate. Bind its transparent
