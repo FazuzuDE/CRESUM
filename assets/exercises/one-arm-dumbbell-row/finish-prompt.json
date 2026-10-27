@@ -2,7 +2,7 @@
   "exerciseId": "one-arm-dumbbell-row",
   "model": "male",
   "phase": "finish",
-  "status": "generated-draft-not-selected",
+  "status": "user-selected-finish",
   "archiveStatus": "pending-upload",
   "tool": "built-in image_gen",
   "references": [
@@ -29,5 +29,7 @@
     "size": [1536, 1024],
     "bytes": 1662287
   },
-  "runtimeIntegration": "No FINISH export or runtime binding until user selection and pair review."
+  "runtimeIntegration": "Selected FINISH is exported as finish.webp and bound with the approved START only to one-arm-dumbbell-row / Male.",
+  "userDecision": "Утверждаю",
+  "selectionDate": "2026-10-27"
 }

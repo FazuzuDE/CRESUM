@@ -2,10 +2,10 @@
   "exerciseId": "one-arm-dumbbell-row",
   "model": "male",
   "selectionDate": "2026-10-27",
-  "status": "user-selected-start",
-  "userDecision": "Утверждаю, продолжай",
+  "status": "user-selected-pair",
+  "userDecision": "Утверждаю",
   "archiveStatus": "pending-upload",
-  "runtimeIntegration": "Pending FINISH selection and pair review; existing application placeholders remain unchanged.",
+  "runtimeIntegration": "Exact selected START/FINISH WebPs are bound locally only to one-arm-dumbbell-row / Male.",
   "assets": {
     "start": {
       "file": "start.webp",
@@ -19,13 +19,20 @@
       "bytes": 53884,
       "quality": 92,
       "method": 6
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-e6e3ec40-e3c7-4c97-9958-b653749d6eda.png",
+      "sourceSha256": "e0946f3d9dd3071ebaf46a7146edf4e5e96d82eb799ba0529ad5296fb368f541",
+      "sourceSize": [1536, 1024],
+      "sourceBytes": 1662287,
+      "sha256": "6d053474d21e368397e3b33e6808a391cdd95d9c3834a039551adc31d8858f85",
+      "width": 1280,
+      "height": 853,
+      "bytes": 53482,
+      "quality": 92,
+      "method": 6
     }
-  },
-  "finishCandidate": {
-    "status": "generated-draft-not-selected",
-    "sourceFile": "exec-e6e3ec40-e3c7-4c97-9958-b653749d6eda.png",
-    "sourceSha256": "e0946f3d9dd3071ebaf46a7146edf4e5e96d82eb799ba0529ad5296fb368f541",
-    "promptFile": "finish-prompt.json"
   },
   "export": {
     "format": "WebP",
@@ -38,5 +45,17 @@
     "method": 6,
     "pillowVersion": "12.3.0"
   },
-  "reviewScope": "User selected the START appearance and setup. The generated FINISH remains a draft. Single-phase visual selection is not independent biomechanics/anatomy QA, automated tracker approval or native-device acceptance. Original PNGs and prompts remain in the conversation; selected WebP and provenance are retained in Git."
+  "reviewScope": "User selected both phases. Assistant compared the exact full frames and 350px-wide previews for support contacts, pose/load path, identity and materials. This visual review is not independent biomechanics/anatomy QA, automated tracker approval or native-device acceptance. Original PNGs and prompts remain in the conversation; selected WebPs and provenance are retained in Git.",
+  "selectionHistory": [
+    {
+      "phase": "start",
+      "date": "2026-10-27",
+      "userDecision": "Утверждаю, продолжай"
+    },
+    {
+      "phase": "finish",
+      "date": "2026-10-27",
+      "userDecision": "Утверждаю"
+    }
+  ]
 }

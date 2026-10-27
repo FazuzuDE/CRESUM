@@ -1,19 +1,27 @@
 # CRESUM Exercise Assets — approved production rules
 
-## One-arm dumbbell row — START selected, 2026-10-27
+## One-arm dumbbell row — selected Male pair, 2026-10-27
 
-The user approved the Male START for `one-arm-dumbbell-row`: left hand and knee
-supported by the flat bench, right foot on the floor and right hand holding the
-dumbbell. Preserve this exact selection as `assets/exercises/one-arm-dumbbell-row/start.webp`
-with the original PNG/export hashes, exact prompt, Master/style reference
-provenance and the user decision in `technique-selection.json`.
+The user selected START and FINISH for `one-arm-dumbbell-row`: left hand and
+knee on the flat bench, right foot on the floor and right hand holding the
+same dumbbell. Preserve the exact selected WebPs, original PNG/export hashes,
+exact prompts, Master/style reference provenance and phase-specific decisions
+in `assets/exercises/one-arm-dumbbell-row/`.
 
-FINISH is generated from this approved START and the actual five-view Male Master;
-its exact prompt/source hash is retained separately as a draft pending selection
-and pair review. Runtime placeholders, exercise identity, guide/muscle metadata
-and historical workouts are unchanged. Independent hand/anatomy QA and physical
-phone readability remain open. Source PNGs remain in the conversation; Oracle
-archive status is `pending-upload`, not a verified upload.
+Bind both phases only to this existing ID / Male. Inline and full-screen views
+reuse the same local resolver and contain sizing. Female and other row setups
+retain their existing availability; no equipment thumbnail is borrowed.
+The right-side visual example does not redefine the exercise's laterality or
+change technique, muscle mapping, catalog identity, History or saved workouts.
+
+This selected pair is integrated provisionally. Assistant review compared the
+full frames and 350px-wide previews: steady palm/knee/foot supports, neutral
+back, downward START arm, bent FINISH elbow toward the hip, visible neutral
+dumbbell grip, consistent bench, character, outfit and materials. Detailed
+independent hand/anatomy/biomechanics review and physical-device acceptance
+remain open; the manifest is `user-selected-provisional`, not tracker approval.
+Original PNGs remain in the conversation; Oracle archive status remains
+`pending-upload`, not a verified upload.
 
 ## Close neutral seated row — selected Male pair, 2026-10-27
 
