@@ -74,7 +74,8 @@ export default {
   'technique.mistakes': 'Частые ошибки',
   'technique.sources': 'Источники',
   'technique.sourceNote':
-    'Краткие описания CRESUM по указанным ниже источникам. Источники проверены {{date}}; это не индивидуальная оценка.',
+    'Краткие описания CRESUM по указанным ниже источникам; это не индивидуальная оценка.',
+  'technique.sourceCheckedOn': 'Источник проверен {{date}}.',
   'technique.openSource': 'Открыть источник: {{title}}',
   'technique.linkError':
     'Не удалось открыть источник. Повторите попытку при подключении к интернету.',

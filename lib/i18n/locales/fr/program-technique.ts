@@ -74,7 +74,8 @@ export default {
   'technique.mistakes': 'Erreurs fréquentes',
   'technique.sources': 'Sources',
   'technique.sourceNote':
-    'Résumés CRESUM des références ci-dessous. Sources vérifiées le {{date}} ; il ne s’agit pas d’une évaluation individuelle.',
+    'Résumés CRESUM des références ci-dessous ; il ne s’agit pas d’une évaluation individuelle.',
+  'technique.sourceCheckedOn': 'Source vérifiée le {{date}}.',
   'technique.openSource': 'Ouvrir la source {{title}}',
   'technique.linkError':
     'Impossible d’ouvrir cette source. Réessaie une fois en ligne.',

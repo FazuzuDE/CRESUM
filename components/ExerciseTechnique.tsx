@@ -234,27 +234,28 @@ export function ExerciseTechnique({
                 />
                 {sources ? (
                   <View style={s.sourceList}>
-                    <Text style={s.metadata}>
-                      {t('technique.sourceNote', {
-                        date: formatDate(
-                          locale,
-                          new Date(2026, 9, 12).getTime(),
-                          { day: 'numeric', month: 'short', year: 'numeric' },
-                        ),
-                      })}
-                    </Text>
+                    <Text style={s.metadata}>{t('technique.sourceNote')}</Text>
                     {guide.adaptation ? (
                       <Text style={s.metadata}>{guide.adaptation}</Text>
                     ) : null}
                     {guide.sources.map((id) => {
                       const source = techniqueSources[id];
+                      const checkedOn = t('technique.sourceCheckedOn', {
+                        date: formatDate(locale, Date.parse(source.checkedOn), {
+                          day: 'numeric',
+                          month: 'short',
+                          year: 'numeric',
+                          timeZone: 'UTC',
+                        }),
+                      });
                       return (
                         <Pressable
                           key={id}
                           accessibilityRole="link"
-                          accessibilityLabel={t('technique.openSource', {
-                            title: source.title,
-                          })}
+                          accessibilityLabel={[
+                            t('technique.openSource', { title: source.title }),
+                            checkedOn,
+                          ].join('. ')}
                           onPress={() => {
                             setLinkError(false);
                             void Linking.openURL(source.url).catch(() =>
@@ -265,6 +266,7 @@ export function ExerciseTechnique({
                         >
                           <Text style={s.link}>{source.title}</Text>
                           <Text style={s.metadata}>{source.publisher}</Text>
+                          <Text style={s.metadata}>{checkedOn}</Text>
                         </Pressable>
                       );
                     })}

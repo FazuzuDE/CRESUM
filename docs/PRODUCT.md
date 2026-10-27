@@ -1,5 +1,13 @@
 # CRESUM — Product Definition
 
+### Technique source dates — correction prepared 2026-10-27
+
+The Sources disclosure shows each reference's authored `checkedOn` date beside
+its link. Mixed-date reference lists retain each source's own date; the general
+summary does not imply that all references were checked together. Format calendar
+dates in the selected language without device-time-zone day shifts. This is a
+presentation correction, not a new source review or a change to exercise guidance.
+
 ### PR-based application version — approved 2026-10-27
 
 The visible application version encodes its actual PR number: #98 → `0.0.98`,
