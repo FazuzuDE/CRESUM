@@ -106,6 +106,15 @@ Never claim completion while relevant checks fail. Clearly distinguish pre-exist
 - Keep commits focused.
 - Never discard uncommitted work just to obtain a clean tree.
 
+## Application version per PR
+
+- Follow `docs/PR_VERSIONING.md`: after opening a draft PR, use its actual number
+  with `npm run version:pr -- <number>`, commit the synchronized metadata and
+  verify before marking ready. Never predict the next PR number or hand-edit a
+  padded value into package/Expo SemVer. Apply this to every PR, including docs.
+- Commits within the same PR retain that PR's version. Do not change native
+  build counters, installation IDs or data/schema versions for this rule.
+
 ## Approved decision sync
 
 - An explicitly approved product or design decision is not permanent until it is synchronized to its owning repository document and merged.

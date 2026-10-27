@@ -1,4 +1,5 @@
 import { useLocalization } from './LocalizationProvider';
+import { displayAppVersion } from '@/lib/app-version';
 import { AccountPage } from './AccountPage';
 import type { AccountSectionProps } from './AccountSection';
 import { Ionicons } from '@expo/vector-icons';
@@ -326,7 +327,9 @@ export function ProfileSettings({
         <Text style={s.aboutTitle}>CRESUM</Text>
         <Text style={s.sub}>{t('profile.about')}</Text>
         {version ? (
-          <Text style={s.sub}>{t('profile.version', { version })}</Text>
+          <Text style={s.sub}>
+            {t('profile.version', { version: displayAppVersion(version) })}
+          </Text>
         ) : null}
       </GlassCard>
     </AppScrollView>

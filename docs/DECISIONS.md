@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — Version encodes the PR number
+
+Approved — pending integration. The user requires #98 → `0.0.98` and
+#105 → `0.1.05`. Calculate from the actual PR number, carry patch/minor in
+base 100 and pad the visible patch to two digits. Normalize package/Expo
+SemVer and preserve the padded user-facing display. Add a deterministic stamp
+command and a read-only PR-metadata CI guard; no automatic merges, deployment,
+build-counter changes or data/schema migration. See PR_VERSIONING.md.
+
 ## 2026-10-27 — Corrected seated row pair selected
 
 Approved — pending integration. The user accepted the START/FINISH pair after

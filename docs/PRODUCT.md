@@ -1,5 +1,14 @@
 # CRESUM — Product Definition
 
+### PR-based application version — approved 2026-10-27
+
+The visible application version encodes its actual PR number: #98 → `0.0.98`,
+#105 → `0.1.05`; the last field always has two digits. Package/Expo metadata
+uses normalized numeric fields without leading zeros, while Profile displays
+the requested form. Version generation and PR CI keep metadata synchronized.
+This does not change workout/backup schema versions or native installation IDs.
+See PR_VERSIONING.md for calculation and the per-PR workflow.
+
 ### Close neutral seated cable row — selected 2026-10-27
 
 The library adds a distinct seated cable row with a V-handle and close neutral

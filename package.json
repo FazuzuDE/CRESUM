@@ -1,6 +1,6 @@
 {
   "name": "cresum",
-  "version": "0.3.0",
+  "version": "0.0.99",
   "private": true,
   "engines": {
     "node": ">=22.16.0 <23",
@@ -21,12 +21,14 @@
     "test:watch": "jest --watch",
     "config:check": "node scripts/check-config.cjs && expo config --type public",
     "deps:check": "expo install --check",
-    "check": "npm run typecheck && npm run lint && npm run format:check && npm run anatomy:check && npm run i18n:check && npm test && npm run config:check && npm run deps:check",
+    "check": "npm run version:check && npm run typecheck && npm run lint && npm run format:check && npm run anatomy:check && npm run i18n:check && npm test && npm run config:check && npm run deps:check",
     "i18n:check": "node scripts/build-sharing-catalog.cjs --check && node scripts/build-catalog-labels.cjs --check && node scripts/build-technique-messages.cjs --check && node scripts/check-localization.cjs",
     "i18n:report": "node scripts/check-localization.cjs --report",
     "anatomy:check": "node scripts/build-anatomical-muscle-map.cjs --check",
     "export:check": "expo export --platform ios --platform android",
-    "i18n:web:qa": "expo export --platform web --output-dir .tools/localization-web-export && node scripts/localization-web-qa.cjs --export-dir .tools/localization-web-export"
+    "i18n:web:qa": "expo export --platform web --output-dir .tools/localization-web-export && node scripts/localization-web-qa.cjs --export-dir .tools/localization-web-export",
+    "version:pr": "node scripts/pr-version.cjs",
+    "version:check": "node scripts/pr-version.cjs --check"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",

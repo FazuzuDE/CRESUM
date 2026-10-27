@@ -10051,5 +10051,13 @@
     "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:sources/ObjectLiteralExpression/PropertyAssignment:'seated-cable-row-close-neutral-v-handle'",
     "kind": "internal",
     "reason": "Existing stable ACE source ID for the new exact row guide; source title remains bibliographic metadata."
+  },
+  {
+    "file": "lib/app-version.ts",
+    "line": 5,
+    "text": "`${match[1]}.${match[2]}.${match[3].padStart(2, '0')}`",
+    "context": "TemplateExpression/ConditionalExpression/ReturnStatement/Block/FunctionDeclaration",
+    "kind": "internal",
+    "reason": "Numeric application version formatting; the surrounding profile.version sentence is localized and the version number is its unchanged interpolation value."
   }
 ]

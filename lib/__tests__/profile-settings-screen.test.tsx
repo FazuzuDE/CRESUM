@@ -37,7 +37,7 @@ it('shows a truthful Profile and About without fake account or preference contro
       <ProfileSettings
         templates={defaultTemplates}
         busy={false}
-        version="9.4.7"
+        version="0.1.5"
         createTemplate={jest.fn()}
         updateTemplate={jest.fn()}
         deleteTemplate={jest.fn()}
@@ -58,7 +58,7 @@ it('shows a truthful Profile and About without fake account or preference contro
   expect(text).toContain('WORKOUTS');
   expect(text).toContain('TRAIN. TRACK. GROW.');
   expect(text).not.toContain('Saved workouts');
-  expect(text).toContain('Version 9.4.7');
+  expect(text).toContain('Version 0.1.05');
   expect(text).not.toContain('FitFlow');
   expect(text).not.toContain('Local MVP');
   expect(text).not.toContain('Sign in');
