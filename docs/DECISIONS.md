@@ -10,6 +10,7 @@ and technique content unchanged. Full-frame and reduced-preview comparison
 is recorded separately from independent anatomy/biomechanics and physical
 phone acceptance, which remain open. Oracle upload remains pending.
 This supersedes the FINISH-pending/runtime-unavailable checkpoint below.
+PR #101 uses display version `0.1.01` (package/Expo `0.1.1`).
 
 ## 2026-10-27 — One-arm dumbbell row START selected
 
