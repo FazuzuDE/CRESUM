@@ -1,5 +1,28 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Chest-supported dumbbell row — selected Male pair, 2026-10-27
+
+The user selected START ("Отлично, далее") and FINISH ("Утверждаю") for
+`chest-supported-dumbbell-row`. Preserve the exact selected WebPs, original
+PNG/export hashes, generation prompts, actual Male Master/style reference
+provenance and phase-specific decisions in its exercise asset directory.
+
+Bind both phases only to this existing ID / Male through the local resolver.
+The inline and full-screen views use the same selected assets and contain
+sizing. Keep the two-arm incline-bench scope, stable identity, guide, muscle
+mapping, saved workouts and History unchanged; do not borrow an equipment
+thumbnail or assign these phases to another row or Female.
+The pictured neutral grip and bench angle are visual production choices, not
+new canonical qualifiers or a change to the guide's high-row adaptation.
+
+This pair is integrated provisionally. Assistant comparison covered full
+frames and 350px-wide previews for phase separation, chest/pad and foot
+support, bench geometry, identity, outfit and materials. Far-arm/hand contact
+is partly occluded; independent detailed anatomy/biomechanics review and
+physical-device acceptance remain open. Manifest status is
+`user-selected-provisional`, not automated tracker approval. Original PNGs
+remain in the conversation; Oracle archive status stays `pending-upload`.
+
 ## One-arm dumbbell row — selected Male pair, 2026-10-27
 
 The user selected START and FINISH for `one-arm-dumbbell-row`: left hand and

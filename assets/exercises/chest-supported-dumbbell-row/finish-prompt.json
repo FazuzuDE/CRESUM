@@ -1,0 +1,36 @@
+{
+  "exerciseId": "chest-supported-dumbbell-row",
+  "model": "male",
+  "phase": "finish",
+  "status": "user-selected-finish",
+  "archiveStatus": "pending-upload",
+  "tool": "built-in image_gen",
+  "references": [
+    {
+      "role": "approved START edit target",
+      "sourceFile": "exec-057c86bc-9c3c-4b34-b255-301f6fa8241f.png",
+      "sha256": "616fe128f3d254d869c2e422b86c36bde1366bfc108101fc6116bf6eb67bf1c3"
+    },
+    {
+      "role": "identity/outfit/material reference",
+      "libraryFileId": "libfile_d7825f8808208191a57c6053608dff8f",
+      "fileName": "0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+      "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+      "scope": "Externally supplied actual Master, not a resolved Prompt Package binary."
+    }
+  ],
+  "prompt": "Use case: identity-preserve / precise exercise-pose edit.\nEDIT IMAGE 1 ONLY. It is the user-approved START for the CRESUM chest-supported TWO-ARM dumbbell row. Produce its matching FINISH / top phase as one single image.\nImage 2 is the actual approved CRESUM five-view Male Master, an identity/outfit/material reference only. Use it to prevent accumulated face, body, skin and clothing drift. Retain the established man in image 1.\n\nLOCK IMAGE 1:\nKeep the exact landscape 3:2 canvas, camera position, perspective, crop, white margins, background and soft lighting. Keep the complete existing incline bench at its ACTUAL depicted angle, with identical pad, seat, upholstery, hinge, adjustment rail, frame, legs, bolts, floor contact and shadows. Do not redesign the bench or change its angle.\nKeep the same character, face, short brown hair, neutral neck and head angle, downward gaze, adult proportions, torso/pelvis position and body scale. Preserve the muted blue-gray shirt, dark-gray shorts, white socks and light-gray trainers with consistent matte fabric and natural skin texture.\nHis CHEST AND ABDOMEN MUST REMAIN FIRMLY AGAINST THE SAME INCLINED PAD. Preserve the exact hips, legs, knee angles and BOTH feet's positions/orientations on the floor, including the naturally different near/far leg projections. Do not straighten, shorten or move the supporting legs. No raised chest, arched back, torso rotation, upward heave or shifted support.\n\nONLY INTENDED CHANGE — BOTH ARMS ROW TOGETHER:\nDraw BOTH elbows backward toward the hips along a comfortable moderately close rowing path. Bend both elbows around 90 degrees and bring the SAME TWO dumbbells up beside the lower ribs, one on each side of the bench/body. The upper arms finish approximately alongside/in line with the supported trunk; do not force the elbows far behind the back or flare them out at shoulder height. This is a supported row, not a reverse fly, shrug or biceps curl.\nBoth sides must clearly reach the SAME FINISH phase, allowing correct perspective and occlusion. Forearms hang approximately down from the bent elbows, wrists straight. Keep shoulders controlled with restrained natural scapular retraction, not shrugging toward the ears.\nPreserve the SAME secure closed NEUTRAL grips, palms facing inward toward one another/bench, thumbs opposing the fingers. Each real hand must actually hold its own short chrome grip, with natural finger/thumb placement and no floating or intersecting geometry.\nMove the existing dumbbells coherently with the arms. Retain exactly TWO matching dumbbells with the same size, round matte dark ends and short chrome handles. Keep each weight outside its corresponding pad/body edge, clear of the bench, frame, torso, shorts and the other weight. The far arm/hand/weight may be naturally partly occluded by the chest pad or body; respect that depth instead of adding a duplicate hand/arm, passing the grip through the pad or moving the camera.\n\nPRESERVATION / QUALITY:\nOnly the arms, scapular region and two dumbbells move materially; allow small natural shirt-fold and shadow changes from that movement. Keep unaffected skin, bench, outfit and background surfaces as close as possible to image 1. Match the clean premium semi-realistic CRESUM 3D rendering and the actual Master: natural even skin tone/detail, coherent blue-gray fabric, dark shorts, smooth dark bench upholstery and matte steel.\nNo waxy or patchy skin, repainted color blocks, glossy/saturated shirt, exaggerated muscles, melted equipment, shortened limbs, extra fingers/limbs, extra weights or altered supports. Entire man, bench and weights remain in frame.\nFINISH only: one frame, no split view, inset, labels, text, numbers, arrows, logos, muscle overlays or watermark.",
+  "sources": [
+    "https://www.acefitness.org/continuing-education/prosource/september-2014/4972/dynamite-delts-ace-research-identifies-top-shoulder-exercises/"
+  ],
+  "productionChoice": "Two-arm neutral-grip row with moderate elbow path is the visual example within the existing catalog guide's stated adaptation; not a high-row reinterpretation or changed exercise identity.",
+  "runtimeIntegration": "Selected FINISH is exported as finish.webp and bound with the approved START only to chest-supported-dumbbell-row / Male.",
+  "output": {
+    "sourceFile": "exec-f961d75e-ca11-4c87-9f75-334702c7dd05.png",
+    "sha256": "61cbda5891e0786ba61c277d7a13cc4c84d5a0158d5edb144efce9f4150313ab",
+    "size": [1536, 1024],
+    "bytes": 1654381
+  },
+  "userDecision": "Утверждаю",
+  "selectionDate": "2026-10-27"
+}

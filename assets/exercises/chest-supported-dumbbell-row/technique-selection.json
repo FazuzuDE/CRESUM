@@ -1,0 +1,61 @@
+{
+  "exerciseId": "chest-supported-dumbbell-row",
+  "model": "male",
+  "selectionDate": "2026-10-27",
+  "status": "user-selected-pair",
+  "userDecision": "Утверждаю",
+  "archiveStatus": "pending-upload",
+  "runtimeIntegration": "Exact selected START/FINISH WebPs are bound locally only to chest-supported-dumbbell-row / Male.",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-057c86bc-9c3c-4b34-b255-301f6fa8241f.png",
+      "sourceSha256": "616fe128f3d254d869c2e422b86c36bde1366bfc108101fc6116bf6eb67bf1c3",
+      "sourceSize": [1536, 1024],
+      "sourceBytes": 1421723,
+      "sha256": "fbc69a80d8c2406dcf78dc44b456b2f6b990460acd7e65e67fab86e7a25e57ea",
+      "width": 1280,
+      "height": 853,
+      "bytes": 54818,
+      "quality": 92,
+      "method": 6
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-f961d75e-ca11-4c87-9f75-334702c7dd05.png",
+      "sourceSha256": "61cbda5891e0786ba61c277d7a13cc4c84d5a0158d5edb144efce9f4150313ab",
+      "sourceSize": [1536, 1024],
+      "sourceBytes": 1654381,
+      "sha256": "788b071059bd293f1793557b57e874df5a09f85ad3fc9634543d45e954e98d6c",
+      "width": 1280,
+      "height": 853,
+      "bytes": 52270,
+      "quality": 92,
+      "method": 6
+    }
+  },
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "resize": "Pillow thumbnail",
+    "maxWidth": 1280,
+    "maxHeight": 1280,
+    "resampling": "LANCZOS",
+    "quality": 92,
+    "method": 6,
+    "pillowVersion": "12.3.0"
+  },
+  "reviewScope": "User selected both phases. Assistant compared full frames and 350px-wide previews for phase separation, chest/pad and foot support, bench geometry, identity, outfit and materials. This visual review is not independent anatomy/biomechanics QA, automated tracker approval or native-device acceptance. Original PNGs remain in the conversation; exact selected WebPs and prompt/reference provenance are retained in Git.",
+  "selectionHistory": [
+    {
+      "phase": "start",
+      "date": "2026-10-27",
+      "userDecision": "Отлично, далее"
+    },
+    {
+      "phase": "finish",
+      "date": "2026-10-27",
+      "userDecision": "Утверждаю"
+    }
+  ]
+}
