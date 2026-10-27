@@ -1,0 +1,15 @@
+{
+  "prompt": "Use case: precise-object-edit. Make ONE tiny localized occlusion repair in this exact image. The user identifies the stray chrome handle/bar end at x89%, y48% of the image, immediately to the RIGHT of the man's blue-gray shoulder/upper back. It is a short diagonal silver rod sticking out into the white background behind the right edge of his shoulder, roughly pixel x1001–1041, y611–650 in this 1173x1341 image.\n\nREMOVE ONLY that exposed silver diagonal segment and its end cap. Replace the removed rod outside the shirt silhouette with the same clean white studio background. Where its root overlaps the shoulder boundary, restore a smooth natural edge of the existing blue-gray shirt. The far end of the front-of-chest bar must be OCCLUDED by the torso in this camera view, not visible behind the shoulder. Do not redraw the hidden segment elsewhere, do not add a new nub, stub or rod, do not widen the shoulder to cover it.\n\nKeep the visible FRONT section of the chrome bar intact, including the left angled end, BOTH hands, underhand grip, straight inner shaft, central collar, carabiner and cable. Preserve the man's face, hair, head position, shirt folds, arm anatomy, elbows, whole body pose, legs and shoes. Keep the machine, weight-stack plate counts and yellow selector, seat, thigh pads, camera, framing, white background and lighting unchanged. Do NOT attempt any other repair. This is erasing one erroneous visible protrusion via correct foreground-body occlusion; it is not a new exercise rendering. Full portrait output, no annotations or comparison.",
+  "sourceFile": "01-file_00000000a8a88211bc189a332b9ae813",
+  "archiveStatus": "pending-upload",
+  "status": "user-requested-local-correction",
+  "input": {
+    "kind": "conversation-upload",
+    "file": "01-file_00000000a8a88211bc189a332b9ae813",
+    "sha256": "7da7b372149366b1c3c62d7e9ef49b913735fbdfcb594cda0fe6ba548ef6ab30"
+  },
+  "output": {
+    "sourceFile": "exec-9d029dcb-019f-405a-ae08-4ccc6fa3a55d.png",
+    "sha256": "eb3756c81ad68f83d48467eebcfb017e44f6fc7fa317c96c21635c88c092db69"
+  }
+}

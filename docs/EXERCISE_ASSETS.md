@@ -1,5 +1,17 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Reverse-grip FINISH — shoulder occlusion repair, 2026-10-27
+
+The user identified an exposed chrome bar end behind the right shoulder in
+their supplied FINISH frame. Replace the runtime FINISH with the generated
+local occlusion correction: the far end is hidden by the torso in this view.
+Manifest revision 2 records the uploaded reference hash, exact repair prompt,
+new source/output hashes and previous runtime FINISH export. The historical
+selection record points to `selected-finish-before-occlusion-repair.webp`.
+This supersedes the original-FINISH runtime statement below; known stack/pair
+QA and Oracle upload remain open. Do not claim pixel-identical preservation
+of all details or independent biomechanical certification.
+
 ## Reverse-grip Male pair — provisional local integration, 2026-10-27
 
 The user accepted START and FINISH, with the previously disclosed stack issue

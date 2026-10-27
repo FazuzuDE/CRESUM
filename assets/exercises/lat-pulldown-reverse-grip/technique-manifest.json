@@ -2,7 +2,7 @@
   "variantId": "lat-pulldown-reverse-grip",
   "model": "male",
   "visualMode": "technique",
-  "revision": 1,
+  "revision": 2,
   "selectionDate": "2026-10-27",
   "status": "user-selected-provisional",
   "archiveStatus": "pending-upload",
@@ -18,9 +18,9 @@
     },
     "finish": {
       "file": "finish.webp",
-      "sourceFile": "exec-5d533486-cd2e-44bc-a550-c0f60c1d8169.png",
-      "sourceSha256": "fbd8f44a71cda9f189a4983c24b1ac75caf52c4acb66c6fe5ccf8750ad902bda",
-      "sha256": "c2b5e7468665b9f9023ee629ff9ca815746486ff56e831d16265ff189ac2798a",
+      "sourceFile": "exec-9d029dcb-019f-405a-ae08-4ccc6fa3a55d.png",
+      "sourceSha256": "eb3756c81ad68f83d48467eebcfb017e44f6fc7fa317c96c21635c88c092db69",
+      "sha256": "41f20b2ccbc0c6a176770f94b86b0bb3736de10560ef872d79c6908a53fd1020",
       "width": 1120,
       "height": 1280,
       "quality": 92
@@ -29,14 +29,18 @@
   "productionChoice": "Existing long chrome bar, bilateral supinated grip on straight inner sections near comfortable shoulder width; visual implementation only, not frozen catalog geometry.",
   "generation": {
     "tool": "built-in image_gen",
-    "promptFiles": ["start-prompt.json", "finish-prompt.json"],
-    "sourceRetention": "Original generated PNGs retained in the conversation. Runtime FINISH is the original user-accepted source. Stack-repair attempts were not adopted."
+    "promptFiles": [
+      "start-prompt.json",
+      "finish-prompt.json",
+      "finish-occlusion-repair-prompt.json"
+    ],
+    "sourceRetention": "Current FINISH corrects the user-uploaded frame at the requested right-shoulder occlusion. Generated original PNGs remain in the conversation; the previously selected runtime FINISH export is retained separately."
   },
   "openReview": [
     "FINISH weight-stack plate count/selector continuity is inconsistent with START; no passed mechanical-pair QA claimed.",
     "Independent hand/wrist/bar-clearance biomechanics review and physical-device readability remain unverified."
   ],
-  "reviewScope": "User accepted both visual phases after being informed that the FINISH stack still required reconciliation. Preserve the accepted original FINISH, not rejected repair candidates. User visual selection is not completed biomechanics QA.",
+  "reviewScope": "User accepted the visual pair and then requested removal of the exposed bar end behind the right shoulder in their uploaded frame. Runtime FINISH uses that localized correction. Existing stack consistency and independent biomechanics review remain open.",
   "export": {
     "format": "WebP",
     "mode": "RGB",
@@ -46,5 +50,14 @@
     "resampling": "LANCZOS",
     "quality": 92,
     "method": 6
+  },
+  "previousFinish": {
+    "file": "selected-finish-before-occlusion-repair.webp",
+    "sourceFile": "exec-5d533486-cd2e-44bc-a550-c0f60c1d8169.png",
+    "sourceSha256": "fbd8f44a71cda9f189a4983c24b1ac75caf52c4acb66c6fe5ccf8750ad902bda",
+    "sha256": "c2b5e7468665b9f9023ee629ff9ca815746486ff56e831d16265ff189ac2798a",
+    "width": 1120,
+    "height": 1280,
+    "quality": 92
   }
 }

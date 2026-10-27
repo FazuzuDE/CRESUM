@@ -5,7 +5,7 @@
   "status": "user-selected-pair",
   "userDecision": "Принимаю",
   "archiveStatus": "pending-upload",
-  "runtimeIntegration": "User-selected provisional local pair; known weight-stack inconsistency remains open.",
+  "runtimeIntegration": "Historical accepted pair; see technique-manifest.json for current FINISH after user-requested shoulder occlusion correction.",
   "productionChoice": "Existing long chrome bar, bilateral supinated grip on straight inner sections near comfortable shoulder width; visual implementation only, not frozen catalog geometry.",
   "assets": {
     "start": {
@@ -18,7 +18,7 @@
       "quality": 92
     },
     "finish": {
-      "file": "finish.webp",
+      "file": "selected-finish-before-occlusion-repair.webp",
       "sourceFile": "exec-5d533486-cd2e-44bc-a550-c0f60c1d8169.png",
       "sourceSha256": "fbd8f44a71cda9f189a4983c24b1ac75caf52c4acb66c6fe5ccf8750ad902bda",
       "sha256": "c2b5e7468665b9f9023ee629ff9ca815746486ff56e831d16265ff189ac2798a",
