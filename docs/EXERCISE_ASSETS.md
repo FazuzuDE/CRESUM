@@ -1,5 +1,20 @@
 # CRESUM Exercise Assets — approved production rules
 
+## One-arm dumbbell row — START selected, 2026-10-27
+
+The user approved the Male START for `one-arm-dumbbell-row`: left hand and knee
+supported by the flat bench, right foot on the floor and right hand holding the
+dumbbell. Preserve this exact selection as `assets/exercises/one-arm-dumbbell-row/start.webp`
+with the original PNG/export hashes, exact prompt, Master/style reference
+provenance and the user decision in `technique-selection.json`.
+
+FINISH is generated from this approved START and the actual five-view Male Master;
+its exact prompt/source hash is retained separately as a draft pending selection
+and pair review. Runtime placeholders, exercise identity, guide/muscle metadata
+and historical workouts are unchanged. Independent hand/anatomy QA and physical
+phone readability remain open. Source PNGs remain in the conversation; Oracle
+archive status is `pending-upload`, not a verified upload.
+
 ## Close neutral seated row — selected Male pair, 2026-10-27
 
 The user accepted the corrected START and FINISH after removal of the extra

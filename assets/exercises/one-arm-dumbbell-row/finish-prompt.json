@@ -1,0 +1,33 @@
+{
+  "exerciseId": "one-arm-dumbbell-row",
+  "model": "male",
+  "phase": "finish",
+  "status": "generated-draft-not-selected",
+  "archiveStatus": "pending-upload",
+  "tool": "built-in image_gen",
+  "references": [
+    {
+      "role": "approved START edit target",
+      "sourceFile": "exec-95a68ba8-a079-464f-880f-7e9c18095bb8.png",
+      "sha256": "84a0cbdf5bd6c285098f1c2af9b1a6a9a34cfa236548b98e17f5b811d3c1170b"
+    },
+    {
+      "role": "identity/outfit/material reference",
+      "libraryFileId": "libfile_d7825f8808208191a57c6053608dff8f",
+      "fileName": "0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+      "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+      "scope": "Externally supplied Master sheet; not a resolved production Prompt Package binary."
+    }
+  ],
+  "prompt": "Use case: identity-preserve / precise pose edit for a CRESUM exercise illustration.\nEDIT IMAGE 1 ONLY. It is the user-approved START for a bench-supported one-arm RIGHT dumbbell row. Produce its matching FINISH / top phase as one single image.\nImage 2 is the approved CRESUM Male Master identity and material/color reference only. Preserve image 1's established man while using image 2 to prevent facial, body-proportion, skin or outfit drift.\n\nLOCKED INVARIANTS FROM IMAGE 1:\nKeep the exact same camera, landscape 3:2 canvas, crop, perspective, white margins and white background. Keep the same single flat bench: identical pad, upholstery, seams, frame, bolts, leg positions and contact shadows. Keep face, hair, head angle and downward gaze, neck alignment, body scale and proportions, torso angle, neutral back, hip/pelvis position, dark-gray shorts, muted blue-gray T-shirt, white socks, light-gray trainers, and consistent natural skin/material textures.\nThe LEFT palm must remain planted at the same place on the bench and the LEFT knee/shin/shoe remain on the same support points. The RIGHT foot remains flat on the floor in precisely the same place and orientation. Torso and pelvis remain square and steady, with no rotation, extension, upward heave or shifting onto the supporting arm. Do not add another person, dumbbell, limb or piece of equipment.\n\nONLY INTENDED MOVEMENT:\nMove the working RIGHT upper arm backward close alongside the ribs and bend its elbow to bring the SAME dumbbell upward toward the right lower-rib/upper-hip area. This is a controlled rowing finish, not a biceps curl: right elbow travels back toward the hip, not out sideways, and the forearm hangs approximately downward from the bent elbow. End the pull with the upper arm approximately in line with the torso, without forcing the elbow far above or behind the back and without pulling the shoulder into excessive extension.\nKeep the right shoulder controlled, with natural restrained scapular retraction; the chest and hips do not twist. Keep the wrist straight and preserve the same secure closed neutral grip, thumb opposing the curled fingers, palm facing inward toward the bench. The hand must actually contact the chrome grip with anatomically correct finger/thumb placement, not intersect or float through it.\nThe dumbbell remains on the camera-facing RIGHT side outside the bench edge, clear of the bench, pad, shorts and torso. Preserve its exact two dark circular ends, chrome handle, size, material, weight geometry and physical grip relationship, reprojected coherently for the bent arm. Do not change it into a different dumbbell or add a spare one.\nOnly the right arm, right scapular region and dumbbell move materially. Allow only small natural fabric folds and soft contact-shadow changes caused by that arm motion; keep all unaffected surfaces and supporting contacts as close to image 1 as possible.\n\nQUALITY:\nPremium semi-realistic CRESUM 3D/catalog illustration. Preserve natural fine skin detail and uniform skin tone, the same matte blue-gray fabric and dark-gray shorts, consistent smooth bench upholstery and dark matte metal. No patchy/waxy skin, repainted color blocks, glossy shirt, exaggerated flexed muscles, shortened limbs, hand deformities or melted equipment. Keep the complete man, entire bench and dumbbell visible. FINISH only: no split view, inset, instructions, text, numbers, arrows, logos, muscle overlays or watermark.",
+  "sources": [
+    "https://www.acefitness.org/resources/everyone/exercise-library/126/single-arm-row/"
+  ],
+  "output": {
+    "sourceFile": "exec-e6e3ec40-e3c7-4c97-9958-b653749d6eda.png",
+    "sha256": "e0946f3d9dd3071ebaf46a7146edf4e5e96d82eb799ba0529ad5296fb368f541",
+    "size": [1536, 1024],
+    "bytes": 1662287
+  },
+  "runtimeIntegration": "No FINISH export or runtime binding until user selection and pair review."
+}

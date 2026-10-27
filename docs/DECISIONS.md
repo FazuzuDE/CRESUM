@@ -1,5 +1,13 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — One-arm dumbbell row START selected
+
+Approved — pending pair selection and integration. The user accepted the Male
+START ("Утверждаю, продолжай"). Retain its exact selected export and provenance,
+then generate FINISH against the same character, flat bench, dumbbell, camera
+and support contacts. FINISH remains a draft until separately selected. No
+runtime image binding, catalog/history change or Oracle upload is claimed.
+
 ## 2026-10-27 — Correct source-check date presentation
 
 Under the user's instruction to continue development, close the Sources-panel
