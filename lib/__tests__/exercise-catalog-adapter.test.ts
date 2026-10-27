@@ -37,13 +37,15 @@ const snapshot = (libraryId: string): WorkoutSession => ({
 
 describe('non-destructive exercise catalog adapter', () => {
   it('keeps the existing catalog as the source of display and movement metadata', () => {
-    expect(exerciseLibrary).toHaveLength(66);
+    expect(exerciseLibrary).toHaveLength(67);
     expect(catalogVariants.map(({ id }) => id)).toEqual([
       'barbell-bench-press',
       'incline-dumbbell-press',
       'dumbbell-bench-press',
       'cable-chest-fly',
       'pec-deck-fly',
+      'seated-cable-row',
+      'seated-cable-row-close-neutral-v-handle',
       'lat-pulldown',
       'lat-pulldown-wide-pronated-bar',
       'lat-pulldown-close-neutral-v-handle',
@@ -121,10 +123,10 @@ describe('non-destructive exercise catalog adapter', () => {
   });
 
   it('leaves unresolved exercises explicitly unmapped rather than inventing families', () => {
-    expect(unmappedExerciseIds).toContain('seated-cable-row');
+    expect(unmappedExerciseIds).toContain('machine-high-row');
     expect(unmappedExerciseIds).toContain('machine-chest-press');
-    expect(getCatalogVariant('seated-cable-row')).toBeUndefined();
-    expect(getFamilyForExercise('seated-cable-row')).toBeUndefined();
+    expect(getCatalogVariant('machine-high-row')).toBeUndefined();
+    expect(getFamilyForExercise('machine-high-row')).toBeUndefined();
     expect(getCatalogFamily('row')).toBeUndefined();
     expect(getCatalogVariant('unknown')).toBeUndefined();
     expect(getCatalogVariant('toString')).toBeUndefined();
@@ -146,7 +148,7 @@ describe('non-destructive exercise catalog adapter', () => {
         exerciseLibrary.some((item) => item.id === id),
       ),
     ).toBe(true);
-    expect(catalogVariants.length + unmappedExerciseIds.length).toBe(66);
+    expect(catalogVariants.length + unmappedExerciseIds.length).toBe(67);
     expect(getFamilyForExercise('barbell-bench-press')).toBe(
       getCatalogFamily('bench-press'),
     );
@@ -178,4 +180,25 @@ describe('non-destructive exercise catalog adapter', () => {
     expect(legacy.exercises[0].libraryId).toBe('bench');
     expect(legacy.exercises[0].name).toBe('Saved name');
   });
+});
+
+it('keeps old row snapshots generic and specific row performance separate', () => {
+  const id = 'seated-cable-row-close-neutral-v-handle';
+  const old = snapshot('row');
+  const before = JSON.stringify(old);
+  const exact = snapshot(id);
+  expect(canonicalExerciseId('row')).toBe('seated-cable-row');
+  expect(getCatalogVariant('row')).toMatchObject({
+    familyId: 'seated-cable-row',
+    configuration: 'unspecified',
+  });
+  expect(getCatalogVariant('row')?.attachmentType).toBeUndefined();
+  expect(getCatalogVariant('row')?.grip).toBeUndefined();
+  expect(stableExerciseIdentity(old, old.exercises[0]).identityKey).toBe(
+    'canonical:seated-cable-row',
+  );
+  expect(stableExerciseIdentity(exact, exact.exercises[0]).identityKey).toBe(
+    `canonical:${id}`,
+  );
+  expect(JSON.stringify(old)).toBe(before);
 });

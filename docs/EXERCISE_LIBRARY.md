@@ -1,5 +1,16 @@
 # Exercise Library contracts
 
+## Close neutral seated row — additive configuration, 2026-10-27
+
+Add `seated-cable-row-close-neutral-v-handle` as a specific child of the new
+`seated-cable-row` family: low cable, V-handle, close neutral bilateral grip.
+The catalog now has 67 records. Preserve `seated-cable-row` and legacy `row`
+as unspecified; no saved workout, plan or Progress identity is migrated.
+The adapter maps the generic row into this family without adding grip qualifiers.
+Existing upper-back/lats Primary and biceps/rear-delts Secondary roles remain
+qualitative. Only the exact child resolves the selected Male pair and the
+existing isolated V-handle thumbnail. No automatic conversion of generic rows.
+
 ## Additive compact ergonomic handle — 2026-10-25
 
 The catalog adds `lat-pulldown-close-neutral-ergonomic-handle` as a separate

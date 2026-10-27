@@ -19,6 +19,14 @@ jest.mock(
   '../../assets/exercises/lat-pulldown-reverse-grip/finish.webp',
   () => 402,
 );
+jest.mock(
+  '../../assets/exercises/seated-cable-row-close-neutral-v-handle/start.webp',
+  () => 501,
+);
+jest.mock(
+  '../../assets/exercises/seated-cable-row-close-neutral-v-handle/finish.webp',
+  () => 502,
+);
 const { act, create } = jest.requireActual('react-test-renderer');
 jest.mock('react-native-safe-area-context', () => ({
   SafeAreaView: jest.requireActual('react-native').View,
@@ -119,11 +127,13 @@ it('opens from a browse name and preserves query and phase across full-screen vi
 it.each([
   ['Wide Pronated Bar Lat Pulldown', 301, 302],
   ['Reverse-Grip Lat Pulldown', 401, 402],
+  ['Close Neutral V-Handle Seated Cable Row', 501, 502],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
     const v = render();
     try {
+      expect(button(v, `Technique for ${name}`)).toBeDefined();
       act(() => button(v, `Technique for ${name}`)!.props.onPress());
       const images = (phase: string) =>
         v.root

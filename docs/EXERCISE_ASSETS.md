@@ -1,5 +1,30 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Close neutral seated row — selected Male pair, 2026-10-27
+
+The user accepted the corrected START and FINISH after removal of the extra
+unheld central post in both frames. Preserve those exact exports, generation
+and repair prompts, source/output hashes and selection in
+`assets/exercises/seated-cable-row-close-neutral-v-handle/`. Bind this pair only
+to the new exact child, not generic `seated-cable-row`/`row` or Female.
+
+Reuse the existing isolated V-handle thumbnail explicitly for this same piece
+of equipment. One required attachment information row is sufficient; do not
+open a picker with one choice. Instructions and labels cover EN/RU/DE/FR.
+The landscape images use contain sizing in the existing phase/full-screen UI.
+
+The implementation choice of a new stable ID preserves generic row semantics
+and historical records; accepting a visual example does not redefine them.
+User selection and full-frame assistant review are not independent anatomy or
+automated tracker certification. Far-hand contact is partly occluded; stack
+internals are hidden by the shroud and cannot be verified; physical-phone
+readability remains open. Manifest status is `user-selected-provisional` and
+Oracle archive status remains `pending-upload`. The generated shared-plan
+catalog includes this ID, but no server was deployed; older sharing servers
+may reject it until updated. Local plans retain their exact identity.
+Original PNGs remain in the
+conversation; selected runtime WebPs and provenance are versioned here.
+
 ## Reverse-grip FINISH — shoulder occlusion repair, 2026-10-27
 
 The user identified an exposed chrome bar end behind the right shoulder in

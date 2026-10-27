@@ -1,4 +1,6 @@
 export default {
+  'catalog.exercise.seated-cable-row-close-neutral-v-handle':
+    'Tirage horizontal avec poignée en V en prise neutre serrée',
   'catalog.exercise.lat-pulldown-close-neutral-ergonomic-handle':
     'Tirage vertical avec poignée ergonomique courte',
   'catalog.exercise.barbell-bench-press': 'Développé couché à la barre',

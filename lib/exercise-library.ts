@@ -83,6 +83,14 @@ export const exerciseLibrary = [
     movementPattern: 'horizontal-pull',
   }),
   exercise({
+    id: 'seated-cable-row-close-neutral-v-handle',
+    name: 'Close Neutral V-Handle Seated Cable Row',
+    primaryMuscles: ['upper-back', 'lats'],
+    secondaryMuscles: ['biceps', 'rear-delts'],
+    equipment: ['cable'],
+    movementPattern: 'horizontal-pull',
+  }),
+  exercise({
     id: 'one-arm-dumbbell-row',
     name: 'One-Arm Dumbbell Row',
     primaryMuscles: ['lats', 'upper-back'],

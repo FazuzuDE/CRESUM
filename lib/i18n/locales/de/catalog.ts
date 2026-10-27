@@ -1,4 +1,6 @@
 export default {
+  'catalog.exercise.seated-cable-row-close-neutral-v-handle':
+    'Rudern am Kabelzug mit V-Griff im engen Neutralgriff',
   'catalog.exercise.lat-pulldown-close-neutral-ergonomic-handle':
     'Latzug mit kurzem ergonomischem Griff',
   'catalog.exercise.barbell-bench-press': 'Langhantel-Bankdrücken',

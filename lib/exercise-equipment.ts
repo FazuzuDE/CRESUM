@@ -68,6 +68,19 @@ export function equipmentPolicyFor(
   exerciseId: string,
 ): ExerciseEquipmentPolicy | null {
   const id = findExercise(exerciseId)?.id;
+  if (id === 'seated-cable-row-close-neutral-v-handle')
+    return {
+      label: 'equipment.handle',
+      requirement: 'required',
+      choices: [
+        {
+          id: 'v-handle',
+          variantId: id,
+          nameKey: 'equipment.vHandle',
+          gripKey: 'equipment.closeNeutral',
+        },
+      ],
+    };
   if (id === 'lat-pulldown' || pulldown.choices.some((c) => c.variantId === id))
     return pulldown;
   // Reviewed unloaded configuration; step platform is still primary equipment.

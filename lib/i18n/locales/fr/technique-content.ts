@@ -1,5 +1,25 @@
 import { flattenTechniqueText } from '../../technique-text';
 export default flattenTechniqueText({
+  'seated-cable-row-close-neutral-v-handle': {
+    scope:
+      'Tirage assis à la poulie basse ; poignée en V ; prise neutre serrée.',
+    setup: [
+      'Asseyez-vous droit, pieds fermement en appui et genoux légèrement fléchis. Saisissez chaque poignée parallèle avec une main, paumes face à face ; tendez les bras sans arrondir le dos.',
+    ],
+    movement: [
+      'Tirez la poignée vers le ventre en ramenant les coudes près du corps ; tendez lentement les bras pour revenir.',
+    ],
+    checks: [
+      'Gardez le buste stable et les poignets alignés avec les avant-bras. Laissez les omoplates bouger naturellement sans hausser les épaules.',
+    ],
+    mistakes: [
+      'Se balancer en arrière pour tirer : réduisez la charge et stabilisez le buste.',
+      'Casser les poignets : réajustez la prise neutre.',
+      'Laisser les plaques retomber brutalement : contrôlez le retour.',
+    ],
+    adaptation:
+      'L’exemple avec poignée serrée est utilisé pour cette configuration précise en prise neutre. Les rôles musculaires sont qualitatifs et ne mesurent ni l’activation ni une supériorité sur les autres prises.',
+  },
   'lat-pulldown-close-neutral-ergonomic-handle': {
     scope:
       'Tirage vertical assis devant le corps ; poignée ergonomique courte ; prise neutre serrée.',

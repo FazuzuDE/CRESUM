@@ -29,11 +29,25 @@ export const catalogFamilies = [
   { id: 'calf-raise', name: 'Calf Raise' },
   { id: 'pull-up', name: 'Pull-Up' },
   { id: 'lat-pulldown', name: 'Lat Pulldown' },
+  { id: 'seated-cable-row', name: 'Seated Cable Row' },
 ] as const satisfies readonly ExerciseFamily[];
 
 // The existing catalog does not identify primary equipment separately from
 // accessory equipment such as a bench. Keep that choice explicit and checked.
 const mapping = {
+  'seated-cable-row': {
+    familyId: 'seated-cable-row',
+    configuration: 'unspecified',
+    equipmentType: 'cable',
+  },
+  'seated-cable-row-close-neutral-v-handle': {
+    familyId: 'seated-cable-row',
+    configuration: 'specific',
+    equipmentType: 'cable',
+    attachmentType: { kind: 'attachment', id: 'v-handle' },
+    grip: { kind: 'grip', id: 'neutral' },
+    gripWidth: 'close',
+  },
   'barbell-bench-press': {
     familyId: 'bench-press',
     configuration: 'specific',

@@ -176,6 +176,27 @@ export const techniqueCatalog = {
     adaptation:
       'The source uses a narrow handle; this generic catalog ID does not prescribe one grip.',
   },
+  'seated-cable-row-close-neutral-v-handle': {
+    revision: 1,
+    scope: 'Seated low cable row; V-handle; close neutral grip.',
+    setup: [
+      'Sit tall with feet firmly supported and knees slightly bent. Wrap each hand around its own parallel grip, palms facing each other, and extend arms without rounding the back.',
+    ],
+    movement: [
+      'Pull the handle toward the abdomen with elbows moving back near your sides; slowly extend arms to return.',
+    ],
+    checks: [
+      'Keep the torso steady and wrists aligned with forearms. Allow natural shoulder-blade movement without shrugging.',
+    ],
+    mistakes: [
+      'Rocking backward to pull: reduce the load and keep the trunk steady.',
+      'Bending the wrists: reset the neutral grip.',
+      'Crashing the stack: control the return.',
+    ],
+    sources: ['ace-48', 'muscle-strength-seated-row'],
+    adaptation:
+      'The narrow-handle source example is used for this explicit neutral-grip configuration. Muscle roles are qualitative and do not measure activation or establish superiority over other grips.',
+  },
   'one-arm-dumbbell-row': {
     revision: 1,
     scope: 'Bench-supported single-arm row.',
