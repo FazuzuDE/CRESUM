@@ -1,0 +1,36 @@
+{
+  "exerciseId": "chest-supported-dumbbell-row",
+  "model": "male",
+  "phase": "start",
+  "status": "user-selected-start",
+  "archiveStatus": "pending-upload",
+  "tool": "built-in image_gen",
+  "baseSha": "e773233ff52cde600cf636b216a9888e8a49b210",
+  "prompt": "Use case: scientific-educational / premium semi-realistic 3D exercise illustration.\nAsset: CRESUM Male Technique View, chest-supported-dumbbell-row, START phase only.\n\nREFERENCE ROLES:\nImage 1 is the actual approved five-view CRESUM Male Master. Match this exact adult man's face, short brown hair, clean-shaven identity, fit but not oversized muscular build, realistic full-length limbs and body proportions. Match the muted blue-gray fitted T-shirt, dark-gray shorts, white training socks and light-gray trainers.\nImage 2 is an accepted CRESUM exercise illustration for rendering, skin/fabric/equipment materials, white background and dumbbell design only. Do NOT copy its kneeling pose or its flat bench. This is a different, TWO-ARM chest-supported incline-bench row, not a one-arm row.\n\nSCENE:\nOne man, one physically coherent adjustable incline gym bench, exactly TWO identical moderate-size dumbbells, one securely held in each hand. White seamless background, soft natural grounding shadows, no gym room or decorative objects.\nThe bench has a long dark-charcoal upholstered back pad set approximately 45 degrees above horizontal, a small lower seat, a clear hinge/adjustment support and a stable dark matte steel base. It must look like one real usable incline bench, without duplicated pads, floating rails or rods through the body. Leave the space beside and below the shoulders unobstructed for both hanging dumbbells.\n\nEXACT START:\nThe man lies PRONE, chest-down along the inclined back pad, with sternum/chest and abdomen visibly in contact with the supporting pad. His shoulders and head extend naturally beyond its raised end so both arms can hang freely alongside the bench. His head is at the raised end toward image-left; his pelvis is toward the lower end toward image-right. His trunk follows the pad's incline, with a neutral comfortable back and neck, downward gaze, no arching or lifting the chest.\nThe legs extend naturally toward the lower end, straddling the bench. BOTH feet are stably planted on the floor on their respective sides, knees softly bent; no knee on the pad, no dangling legs, no impossible ankle angles. Keep normal adult leg lengths.\nBOTH arms hang approximately VERTICALLY DOWN toward the floor directly under the shoulders, elbows extended comfortably but not hyperlocked. The shoulders are controlled, with natural slight scapular protraction rather than an exaggerated shrug. This is the lowered START, not the pulled top, not a reverse fly.\nEach hand actually encloses its own dumbbell's short chrome central grip with a secure closed NEUTRAL grip: palms face inward toward each other/bench, opposing thumbs and natural fingers, straight wrists. Two separate correct hands, two separate dumbbells, matching grip geometry. The identical dumbbells have two round dark matte ends each, restrained chrome handle reflections, and modest weight size. Both weights hang clear of the floor, pad, bench frame and one another.\n\nCAMERA:\nOne single landscape 3:2 full-body image, camera three-quarter side view slightly toward the head end, at a natural distance using restrained perspective. Show the entire man, bench base, BOTH hands and BOTH dumbbells with enough separation to read their contacts. The far arm and far dumbbell must be visibly distinct from the near ones, with physically correct occlusion. Choose the camera for clear chest support and straight downward arms, not dramatic foreshortening. Generous clean margins around all extremities; nothing cropped.\n\nQUALITY:\nCohesive premium semi-realistic 3D catalog rendering matching the references. Natural even skin tone and fine skin detail; coherent matte blue-gray fabric, dark-gray shorts and consistent bench upholstery/metal. Soft realistic shadows. No waxy skin, patchy colors, glossy/saturated shirt, repainted textures, distorted anatomy, shortened limbs, extra or merged fingers/limbs, equipment intersections, mismatched dumbbells or floating contacts.\nSTART only, one frame, no split screen, no inset, no text, arrows, labels, numbers, logos, watermark or muscle-color overlays.",
+  "references": [
+    {
+      "role": "Male Master identity/outfit/material",
+      "fileName": "0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+      "libraryFileId": "libfile_d7825f8808208191a57c6053608dff8f",
+      "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182"
+    },
+    {
+      "role": "style/material/dumbbell reference only",
+      "path": "assets/exercises/one-arm-dumbbell-row/start.webp",
+      "sha256": "7072425b2d1ade0f475de6041f8ace634b7f5276ad956be5f4578f5822ab3410"
+    }
+  ],
+  "sources": [
+    "https://www.acefitness.org/continuing-education/prosource/september-2014/4972/dynamite-delts-ace-research-identifies-top-shoulder-exercises/"
+  ],
+  "productionChoice": "Two-arm chest-supported incline-bench START with a neutral grip. Bench angle/grip are visual production choices within existing scope, not new canonical qualifiers or changed muscle roles. Catalog explicitly adapts ACE's high-row example without fixing that elbow path.",
+  "output": {
+    "sourceFile": "exec-057c86bc-9c3c-4b34-b255-301f6fa8241f.png",
+    "sha256": "616fe128f3d254d869c2e422b86c36bde1366bfc108101fc6116bf6eb67bf1c3",
+    "size": [1536, 1024],
+    "bytes": 1421723
+  },
+  "reviewScope": "User visually selected START. Independent anatomy/biomechanics QA, pair review and physical-device acceptance remain pending. No runtime binding.",
+  "userDecision": "Отлично, далее",
+  "selectionDate": "2026-10-27"
+}

@@ -1,5 +1,13 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — Chest-supported dumbbell row START selected
+
+Approved — pending pair selection and integration. The user accepted the Male
+START ("Отлично, далее"). Preserve the exact selected export and provenance,
+then generate FINISH with the same character, incline bench, two dumbbells,
+camera and chest/foot support contacts. FINISH remains a draft until selected.
+No runtime binding, catalog/history/muscle change or Oracle upload is claimed.
+
 ## 2026-10-27 — One-arm dumbbell row pair selected
 
 Approved — pending integration. After START selection, the user accepted FINISH

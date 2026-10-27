@@ -1,5 +1,27 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Chest-supported dumbbell row — START selected, 2026-10-27
+
+The user accepted the Male START for `chest-supported-dumbbell-row`
+("Отлично, далее"). Preserve the exact selected WebP, original PNG/export
+hashes, exact prompt and actual Male Master/style reference provenance in
+`assets/exercises/chest-supported-dumbbell-row/`.
+
+The image shows the existing two-arm chest-supported incline-bench exercise:
+both hands hold separate dumbbells in a neutral grip, chest remains on the pad
+and both feet support the body on the floor. The depicted bench angle and grip
+are visual production choices within the existing guide, not new catalog
+qualifiers. The guide's explicit adaptation from ACE's high-row example does
+not require that high elbow path. Keep catalog, technique, muscle mapping,
+History and stable identity unchanged.
+
+FINISH was generated from this START and the actual five-view Male Master;
+its exact prompt and source hash are retained as a draft until separately
+selected and reviewed as a pair. Runtime phase bindings remain unavailable.
+Independent detailed hand/anatomy/biomechanics review and physical-phone
+acceptance remain open. Original PNGs remain in the conversation. Oracle
+archive status stays `pending-upload`, not a verified upload.
+
 ## One-arm dumbbell row — selected Male pair, 2026-10-27
 
 The user selected START and FINISH for `one-arm-dumbbell-row`: left hand and
