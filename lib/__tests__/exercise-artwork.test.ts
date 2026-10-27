@@ -52,8 +52,44 @@ jest.mock(
   '../../assets/exercises/lat-pulldown-reverse-grip/finish.webp',
   () => 402,
 );
+jest.mock(
+  '../../assets/exercises/seated-cable-row-close-neutral-v-handle/start.webp',
+  () => 501,
+);
+jest.mock(
+  '../../assets/exercises/seated-cable-row-close-neutral-v-handle/finish.webp',
+  () => 502,
+);
 
 const ergonomic = 'lat-pulldown-close-neutral-ergonomic-handle';
+
+it('binds the selected row pair only to its exact close neutral configuration', () => {
+  const id = 'seated-cable-row-close-neutral-v-handle';
+  expect(findExercise(id)).toMatchObject({
+    id,
+    primaryMuscles: ['upper-back', 'lats'],
+    secondaryMuscles: ['biceps', 'rear-delts'],
+    movementPattern: 'horizontal-pull',
+  });
+  expect(getCatalogVariant(id)).toMatchObject({
+    familyId: 'seated-cable-row',
+    configuration: 'specific',
+    attachmentType: { kind: 'attachment', id: 'v-handle' },
+    grip: { kind: 'grip', id: 'neutral' },
+    gripWidth: 'close',
+  });
+  expect(findTechnique(id)?.scope).toMatch(/neutral/i);
+  expect(resolveExerciseArtwork(id, 'start', 'male')).toBe(501);
+  expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(502);
+  expect(resolveAttachmentArtwork(id)).toBe(203);
+  for (const phase of ['start', 'finish'] as const) {
+    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
+    for (const generic of ['row', 'seated-cable-row']) {
+      expect(resolveExerciseArtwork(generic, phase, 'male')).toBeNull();
+      expect(resolveAttachmentArtwork(generic)).toBeNull();
+    }
+  }
+});
 
 it('keeps the ergonomic setup distinct from V-handle and unspecified history', () => {
   expect(findExercise(ergonomic)?.id).toBe(ergonomic);

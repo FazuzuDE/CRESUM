@@ -3,6 +3,25 @@ import {
   isValidEquipmentPolicy,
 } from '../exercise-equipment';
 const ergonomic = 'lat-pulldown-close-neutral-ergonomic-handle';
+it('shows one required row handle without changing generic row equipment', () => {
+  const id = 'seated-cable-row-close-neutral-v-handle';
+  const policy = equipmentPolicyFor(id);
+  expect(policy).toEqual({
+    label: 'equipment.handle',
+    requirement: 'required',
+    choices: [
+      {
+        id: 'v-handle',
+        variantId: id,
+        nameKey: 'equipment.vHandle',
+        gripKey: 'equipment.closeNeutral',
+      },
+    ],
+  });
+  expect(isValidEquipmentPolicy(policy!)).toBe(true);
+  expect(equipmentPolicyFor('seated-cable-row')).toBeNull();
+  expect(equipmentPolicyFor('row')).toBeNull();
+});
 it('offers exact reviewed alternatives without making unknown equipment optional', () => {
   const policy = equipmentPolicyFor(ergonomic)!;
   expect(policy.requirement).toBe('required');

@@ -2,6 +2,7 @@ export const planFamilyByVariant = {
   'barbell-bench-press': 'bench-press',
   'incline-dumbbell-press': 'bench-press',
   'dumbbell-bench-press': 'bench-press',
+  'seated-cable-row-close-neutral-v-handle': 'seated-cable-row',
   'lat-pulldown-wide-pronated-bar': 'lat-pulldown',
   'lat-pulldown-close-neutral-v-handle': 'lat-pulldown',
   'lat-pulldown-reverse-grip': 'lat-pulldown',
@@ -31,6 +32,8 @@ export default {
   'push-up': 'push-up',
   'barbell-bent-over-row': 'barbell-bent-over-row',
   'seated-cable-row': 'seated-cable-row',
+  'seated-cable-row-close-neutral-v-handle':
+    'seated-cable-row-close-neutral-v-handle',
   'one-arm-dumbbell-row': 'one-arm-dumbbell-row',
   'chest-supported-dumbbell-row': 'chest-supported-dumbbell-row',
   'lat-pulldown': 'lat-pulldown',

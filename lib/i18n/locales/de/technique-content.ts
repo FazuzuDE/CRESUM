@@ -1,5 +1,24 @@
 import { flattenTechniqueText } from '../../technique-text';
 export default flattenTechniqueText({
+  'seated-cable-row-close-neutral-v-handle': {
+    scope: 'Sitzendes Rudern am tiefen Kabelzug; V-Griff; enger Neutralgriff.',
+    setup: [
+      'Sitze aufrecht mit fest abgestützten Füßen und leicht gebeugten Knien. Umfasse mit jeder Hand einen der parallelen Griffe, Handflächen zueinander; strecke die Arme, ohne den Rücken zu runden.',
+    ],
+    movement: [
+      'Ziehe den Griff zum Bauch und führe die Ellenbogen nahe am Körper nach hinten; strecke die Arme langsam zur Rückkehr.',
+    ],
+    checks: [
+      'Halte den Rumpf stabil und die Handgelenke in einer Linie mit den Unterarmen. Lass die Schulterblätter natürlich mitgehen, ohne die Schultern hochzuziehen.',
+    ],
+    mistakes: [
+      'Zurückschwingen beim Ziehen: reduziere das Gewicht und halte den Rumpf stabil.',
+      'Abgeknickte Handgelenke: richte den Neutralgriff neu aus.',
+      'Aufschlagen des Gewichtsblocks: kontrolliere die Rückkehr.',
+    ],
+    adaptation:
+      'Das Beispiel mit engem Griff wird für diese konkrete Konfiguration im Neutralgriff verwendet. Muskelrollen sind qualitativ und messen weder Aktivierung noch einen Vorteil gegenüber anderen Griffen.',
+  },
   'lat-pulldown-close-neutral-ergonomic-handle': {
     scope:
       'Latzug im Sitzen vor dem Körper; kurzer ergonomischer Griff; enger Neutralgriff.',

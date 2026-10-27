@@ -1,5 +1,15 @@
 # CRESUM — Product Definition
 
+### Close neutral seated cable row — selected 2026-10-27
+
+The library adds a distinct seated cable row with a V-handle and close neutral
+grip, including its accepted Male START/FINISH pair, required attachment image
+and specific technique in EN/RU/DE/FR. Reuse the existing inline and full-screen
+viewer. Generic seated row and old `row` workouts retain their identities;
+no automatic plan/history migration or merging of strength records occurs.
+The single reviewed attachment is shown as information rather than an empty
+choice flow. See EXERCISE_ASSETS.md for selection and remaining visual QA.
+
 ### Visual-source storage — approved 2026-10-27
 
 Oracle Object Storage holds the private versioned source archive: PNG originals,

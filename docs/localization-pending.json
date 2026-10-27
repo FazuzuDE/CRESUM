@@ -14866,5 +14866,83 @@
     "line": 247,
     "text": "pull_completed_workouts",
     "context": "StringLiteral/ConditionalExpression/CallExpression/AwaitExpression/VariableDeclaration"
+  },
+  {
+    "file": "lib/exercise-catalog-adapter.ts",
+    "line": 32,
+    "text": "Seated Cable Row",
+    "context": "StringLiteral/PropertyAssignment:name/ObjectLiteralExpression/ArrayLiteralExpression/AsExpression"
+  },
+  {
+    "file": "lib/exercise-library.ts",
+    "line": 87,
+    "text": "Close Neutral V-Handle Seated Cable Row",
+    "context": "StringLiteral/PropertyAssignment:name/ObjectLiteralExpression/CallExpression/ArrayLiteralExpression"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 181,
+    "text": "Seated low cable row; V-handle; close neutral grip.",
+    "context": "StringLiteral/PropertyAssignment:scope/ObjectLiteralExpression/PropertyAssignment:'seated-cable-row-close-neutral-v-handle'/ObjectLiteralExpression"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 183,
+    "text": "Sit tall with feet firmly supported and knees slightly bent. Wrap each hand around its own parallel grip, palms facing each other, and extend arms without rounding the back.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:setup/ObjectLiteralExpression/PropertyAssignment:'seated-cable-row-close-neutral-v-handle'"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 186,
+    "text": "Pull the handle toward the abdomen with elbows moving back near your sides; slowly extend arms to return.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:movement/ObjectLiteralExpression/PropertyAssignment:'seated-cable-row-close-neutral-v-handle'"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 189,
+    "text": "Keep the torso steady and wrists aligned with forearms. Allow natural shoulder-blade movement without shrugging.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:checks/ObjectLiteralExpression/PropertyAssignment:'seated-cable-row-close-neutral-v-handle'"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 192,
+    "text": "Rocking backward to pull: reduce the load and keep the trunk steady.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:mistakes/ObjectLiteralExpression/PropertyAssignment:'seated-cable-row-close-neutral-v-handle'"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 193,
+    "text": "Bending the wrists: reset the neutral grip.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:mistakes/ObjectLiteralExpression/PropertyAssignment:'seated-cable-row-close-neutral-v-handle'"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 194,
+    "text": "Crashing the stack: control the return.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:mistakes/ObjectLiteralExpression/PropertyAssignment:'seated-cable-row-close-neutral-v-handle'"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 196,
+    "text": "muscle-strength-seated-row",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:sources/ObjectLiteralExpression/PropertyAssignment:'seated-cable-row-close-neutral-v-handle'"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 198,
+    "text": "The narrow-handle source example is used for this explicit neutral-grip configuration. Muscle roles are qualitative and do not measure activation or establish superiority over other grips.",
+    "context": "StringLiteral/PropertyAssignment:adaptation/ObjectLiteralExpression/PropertyAssignment:'seated-cable-row-close-neutral-v-handle'/ObjectLiteralExpression"
+  },
+  {
+    "file": "lib/exercise-technique/sources.ts",
+    "line": 3,
+    "text": "Muscle & Strength",
+    "context": "StringLiteral/PropertyAssignment:publisher/ObjectLiteralExpression/PropertyAssignment:'muscle-strength-seated-row'/ObjectLiteralExpression"
+  },
+  {
+    "file": "lib/exercise-technique/sources.ts",
+    "line": 4,
+    "text": "Seated Cable Row",
+    "context": "StringLiteral/PropertyAssignment:title/ObjectLiteralExpression/PropertyAssignment:'muscle-strength-seated-row'/ObjectLiteralExpression"
   }
 ]

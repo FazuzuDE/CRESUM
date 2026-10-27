@@ -1,4 +1,10 @@
 export const techniqueSources = {
+  'muscle-strength-seated-row': {
+    publisher: 'Muscle & Strength',
+    title: 'Seated Cable Row',
+    url: 'https://www.muscleandstrength.com/exercises/seated-row.html',
+    checkedOn: '2026-10-27',
+  },
   'ace-5': {
     publisher: 'American Council on Exercise',
     title: 'Chest Press',

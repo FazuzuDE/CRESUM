@@ -62,7 +62,7 @@ describe('Lat Pulldown Variant Pack v1', () => {
   });
 
   it('adds exactly three distinct specific variants beside the existing exercise', () => {
-    expect(exerciseLibrary).toHaveLength(66);
+    expect(exerciseLibrary).toHaveLength(67);
     const index = exerciseLibrary.findIndex(({ id }) => id === 'lat-pulldown');
     expect(
       exerciseLibrary.slice(index + 1, index + 4).map(({ id }) => id),
@@ -152,7 +152,11 @@ describe('Lat Pulldown Variant Pack v1', () => {
         muscle: 'lats',
         equipment: 'cable',
       }).map(({ id }) => id),
-    ).toEqual([newIds[1], 'lat-pulldown-close-neutral-ergonomic-handle']);
+    ).toEqual([
+      'seated-cable-row-close-neutral-v-handle',
+      newIds[1],
+      'lat-pulldown-close-neutral-ergonomic-handle',
+    ]);
     expect(
       filterExercises(exerciseLibrary, {
         query: 'neutral',

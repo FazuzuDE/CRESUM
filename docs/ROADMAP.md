@@ -1,5 +1,13 @@
 # CRESUM — Development Roadmap
 
+### Close neutral seated row images — selected 2026-10-27
+
+Connect the user-selected, central-post-corrected Male START/FINISH to one
+additive exact row configuration, preserving generic row and historical data.
+Include the required V-handle image, specific technique and four-language copy.
+Keep independent hand-contact/internal-stack and physical-phone review open;
+user selection does not certify those checks. Oracle remains deferred.
+
 ### Visual-source archive — approved 2026-10-27, provisioning deferred
 
 The user deferred Oracle provisioning/backfill and resumed application work.

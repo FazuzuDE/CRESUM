@@ -1,0 +1,139 @@
+{
+  "variantId": "seated-cable-row-close-neutral-v-handle",
+  "archiveStatus": "pending-upload",
+  "note": "Historical draft prompts refer to the generic catalog ID as preview context; runtime binding uses the new exact ID only. Exact tool prompts and reference hashes are preserved below.",
+  "records": {
+    "initialStart": {
+      "exerciseId": "seated-cable-row",
+      "visualConfiguration": "narrow-neutral-parallel-handle example",
+      "phase": "start",
+      "status": "draft-not-selected",
+      "archiveStatus": "pending-upload",
+      "scope": "Preview only. Generic catalog attachment remains unspecified; no runtime artwork binding or new canonical variant is authorized by this draft.",
+      "references": [
+        {
+          "file": "/workspace/scratch/ee0063cb4eb8/upload/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+          "role": "Character identity, proportions, blue-gray outfit, skin and fabric material reference",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182"
+        },
+        {
+          "file": "/workspace/scratch/ee0063cb4eb8/research/seated-cable-row/intenza-single-station-reference.webp",
+          "role": "Manufacturer single-cable low-row station geometry only; unbranded rendering, not exact CAD",
+          "sha256": "6bc3b9576933c4082e9897d7e023788d3bd193ac9693334fc419f1a8ab519d0f"
+        },
+        {
+          "file": "/workspace/cresum-equipment/assets/exercises/lat-pulldown-close-neutral-v-handle/attachment.webp",
+          "role": "Approved two-parallel-grip attachment geometry; rotate entire rigid attachment to the horizontal cable pull",
+          "sha256": "9b9a3f385291382fe4e768cd5e229ee635ff936ec197d431cf0958cdd5ef1fe7"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.acefitness.org/resources/everyone/exercise-library/48/seated-row/",
+          "use": "Existing catalog source; steady trunk and elbows toward abdomen"
+        },
+        {
+          "url": "https://www.muscleandstrength.com/exercises/seated-row.html",
+          "use": "Neutral grip, slightly bent legs, extended-arm upright START and stationary-trunk FINISH"
+        },
+        {
+          "url": "https://www.puregym.com/exercises/back/rows/seated-cable-row/",
+          "use": "Bench/footplate support and natural scapular glide; embedded video on page is mislabeled and was not used"
+        },
+        {
+          "url": "https://www.intenzafitness.com/products/cable-stations/cable-machine-seated-row-single-station/",
+          "use": "Equipment layout only; downloaded manufacturer product reference, no CAD/brand guarantee"
+        }
+      ],
+      "prompt": "Use case: scientific-educational.\nCreate one CRESUM seated LOW CABLE ROW START illustration, a premium natural semi-realistic 3D instructional studio rendering. One male, one phase, full equipment and entire body visible. Clean white background and soft contact shadows. No labels, arrows, logos or montage.\n\nREFERENCES:\nIMAGE 1 is the actual approved Male Master sheet: preserve this exact man's face, short brown hair, clean-shaven identity, realistic athletic but not oversized body, limb proportions, natural warm skin, muted blue-gray fitted short-sleeve T-shirt, charcoal shorts, white socks and light gray trainers. It defines identity and consistent clean materials, NOT an exercise pose. Render only one man.\nIMAGE 2 shows a real single-cable low-row station: use this coherent equipment layout, long horizontal narrow padded bench, two inclined footplates ahead of the bench, one low front output pulley between/above the footplates, and an upright selectorized weight tower behind that pulley. Make an unbranded charcoal/dark matte metal version with gray upholstery, clean restrained chrome and coherent hardware. The tower is covered by its opaque dark protective shroud; no exposed plate-count illustration is required. It is a seated rowing station, with no chest pad, no thigh rollers and no overhead lat-pulldown boom. Do not copy any stray transparency/checkerboard artifacts from the product photo.\nIMAGE 3 defines the chrome attachment: TWO distinct straight parallel knurled cylindrical grips of equal size, their two triangular side frames/four braces and ONE transverse connecting steel bridge with one central hole. Use that rigid manufactured object, not a black wing handle or straight bar. Reorient the WHOLE attachment for a HORIZONTAL cable pull. In this row exercise its two grip cylinders are approximately VERTICAL, one in each hand, so the palms face one another and the wrists line up with the forward-reaching forearms. The steel bridge and single closed carabiner point FORWARD toward the low pulley. Never retain the overhead orientation from a lat pulldown. The grips, braces and bridge rotate together as one object.\n\nCOMPOSITION: three-quarter SIDE view, enough side-on to read spine, elbows, grip and both foot contacts. Tower on the LEFT, the man seated on the bench on the RIGHT facing the tower. Show a recognizable side/three-quarter view of the man's face, not only his back. Keep generous white margin around full machine, feet, head and bench; large clear character and hands, not a tiny figure. Camera natural human perspective, no wide-angle distortion.\n\nSTART: hips fully supported on the bench, not hovering or sitting on its edge. Torso upright and steady, ribs over pelvis, natural spine and head alignment. Chest comfortably lifted without a forced lower-back arch. BOTH feet press securely against their own matching angled footplates; shoes' soles contact the plates, toes/heels aligned with the plate surfaces. Legs reach forward with a modest, visible knee bend, never locked straight, and hips stay back on the bench. Both arms reach forward and slightly down toward the low cable, elbows almost extended without hyperextension. The shoulder blades may glide forward naturally without collapsing the upper back or hunching to the ears. Hands are between lower-chest/upper-abdominal height and lower than shoulders.\n\nHANDS: genuine anatomical left and right hands, natural adult palm size, four fingers curling around each separate vertical cylinder, opposing wrapped thumbs, palms facing one another with space between the hands. Wrists straight relative to forearms, no twisting, dislocation or skin-metal intersection. Honest perspective/occlusion is allowed; don't rotate individual hands or handle parts separately to show them. Fine skin and knuckle detail, no balloon fists or tiny hands.\n\nMECHANICS: ONE taut continuous cable from the real front output pulley directly to its terminal, small black stop and ONE CLOSED carabiner through the attachment's central hole. Cable approaches from the machine in front of the man, low and almost horizontal/slightly rising toward hands; no cable from above, through a knee or through a footplate. Output pulley, cable, bench, footplates and both hands share the same perspective. All hardware remains physically joined.\n\nQUALITY: natural fine skin and subtle believable muscle shape matching IMAGE 1; matte blue-gray textile with consistent hue and fine weave, natural folds only; uniform charcoal shorts; coherent dark powder-coated machine with restrained highlights and clean upholstery. Neutral soft studio lighting. No patchy skin or fabric color, oily/waxy body, over-sharpened noise, melted equipment, duplicates or extra limbs. Only the controlled START, arms extended and trunk upright, not the contracted finish.\n",
+      "output": {
+        "sourceFile": "exec-932a7349-147d-4946-b9d3-a237fe67436c.png",
+        "sha256": "c9e634153c43274d58ba8e3174f70835d78a14e091299a41013fd79981a11771"
+      }
+    },
+    "initialFinish": {
+      "exerciseId": "seated-cable-row",
+      "visualConfiguration": "narrow-neutral-parallel-handle example",
+      "phase": "finish",
+      "status": "draft-not-selected",
+      "archiveStatus": "pending-upload",
+      "scope": "Preview only. Generic catalog attachment remains unspecified; no runtime artwork binding or new canonical variant is authorized by this draft.",
+      "references": [
+        {
+          "file": "/workspace/scratch/ee0063cb4eb8/generated_images/exec-932a7349-147d-4946-b9d3-a237fe67436c.png",
+          "role": "START edit target; exact machine, camera, seated support and character",
+          "sha256": "c9e634153c43274d58ba8e3174f70835d78a14e091299a41013fd79981a11771"
+        },
+        {
+          "file": "/workspace/scratch/ee0063cb4eb8/upload/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+          "role": "Master identity, skin and outfit material reference only",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182"
+        },
+        {
+          "file": "/workspace/cresum-equipment/assets/exercises/lat-pulldown-close-neutral-v-handle/attachment.webp",
+          "role": "Approved attachment geometry only, rotated as one rigid object for the horizontal row",
+          "sha256": "9b9a3f385291382fe4e768cd5e229ee635ff936ec197d431cf0958cdd5ef1fe7"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.acefitness.org/resources/everyone/exercise-library/48/seated-row/",
+          "use": "Existing catalog source; steady trunk and elbows toward abdomen"
+        },
+        {
+          "url": "https://www.muscleandstrength.com/exercises/seated-row.html",
+          "use": "Neutral grip, slightly bent legs, extended-arm upright START and stationary-trunk FINISH"
+        },
+        {
+          "url": "https://www.puregym.com/exercises/back/rows/seated-cable-row/",
+          "use": "Bench/footplate support and natural scapular glide; embedded video on page is mislabeled and was not used"
+        },
+        {
+          "url": "https://www.intenzafitness.com/products/cable-stations/cable-machine-seated-row-single-station/",
+          "use": "Equipment layout only; downloaded manufacturer product reference, no CAD/brand guarantee"
+        }
+      ],
+      "prompt": "Use case: scientific-educational, precise exercise-phase edit.\nCreate ONE matching FINISH of this seated low CABLE ROW with a narrow NEUTRAL PARALLEL grip.\n\nIMAGE 1 is the START frame to edit. Preserve its exact CRESUM man, face, hairstyle, physique, natural warm skin tone, muted blue-gray shirt, charcoal shorts, white socks, gray trainers, entire unbranded dark row machine, bench, low pulley, protective tower shroud, two footplates, camera, perspective, framing, white studio background and soft lighting. The hips stay at the exact same point on the bench. Both feet stay in the exact same contact positions on the same angled footplates; preserve shoe shape and the slight knee bends. Keep the whole lower body and machine stationary.\nIMAGE 2 is the approved character sheet, used only to keep identity, proportions and skin/fabric materials clean and natural. Do not add a second man or copy its standing pose.\nIMAGE 3 is the selected manufactured chrome two-grip attachment, not a different exercise: the same two parallel cylindrical grips, side triangles/four braces and one central connecting bridge. In this horizontal row the two grip cylinders remain approximately VERTICAL, exactly as in IMAGE 1. Keep its current real dimensions and the SAME rigid orientation throughout the pull; palms facing each other. Do not turn it back into an overhead-pulldown handle.\n\nCHANGE ONLY THE MOVEMENT PHASE:\nThe man has smoothly pulled the SAME attachment back from the extended-arm position to the front of his upper/lower abdomen, around navel level and below the sternum, comfortably close to his shirt without intersecting it. The handle remains centered in front of the body, never beside one hip. The two elbows bend and travel back close to the flanks. The upper arms finish beside the torso, with elbows at most slightly behind it, not dragged far back or flared sideways. Forearms point forward naturally from elbows to the two grips. The shoulder blades naturally retract with the movement, without exaggeration, shrugging or rigid pinning.\nTorso remains upright with the SAME stable spine/pelvis alignment as IMAGE 1: no recline, rotation, hip slide, head thrust, rib flare, lumbar arch or rocking backward to move the weight. Keep the face/gaze level toward the machine. Natural movement-caused shirt folds at the shoulders/elbows are allowed, not changes of fabric, color, muscles or body size.\n\nHAND/ATTACHMENT DETAIL:\nOne anatomically true left hand on its own cylinder, right hand on the other, same contact placement and neutral grip as START. Palms face one another. Proportional adult palms, four curled fingers around each cylinder and an opposing wrapped thumb. Neutral wrists continue the forearms without kinks; realistic knuckles, fine skin and believable gentle pressure contact, no metal through fingers. Preserve honest side-view occlusion; parts of the far hand/frame can be hidden. Do not twist separate hands or stretch/resize the attachment to make everything visible.\nThe whole attachment and its one CLOSED central carabiner have translated back toward the abdomen. ONE taut cable now extends farther out from the SAME fixed low output pulley on the left to the attachment on the right. Cable line stays continuous and unobstructed above the legs, in front of the torso, never through the man, bench or footplates. Keep the same small rubber stop, terminal and direct single-hole connection. Tower's protective shroud stays unchanged; do not invent exposed moving plates or an extra stack.\n\nFINISH must remain visually the SAME photograph/render as START, with only the arms/shoulder-blade position, pulled-back handle, longer exposed cable and natural local shirt folds changed. Keep the same camera and scale. The man stays fit but realistic, no increased bulk or veins. Consistent subtle skin tone, matte finely woven blue-gray fabric, coherent charcoal machine finish, clean chrome highlights. No patchy colors, waxy or plastic skin, noisy texture, melted parts, extra limbs or fingers. One full landscape FINISH only, no text, logos, arrows, panels or overlays.\n",
+      "output": {
+        "sourceFile": "exec-235949a4-1ce1-4cba-ace6-c61e65f480e8.png",
+        "sha256": "d05be935fe9c204cb19fcfc784c15c5a0bf1298e4aff203adf8926ccc4552589"
+      }
+    },
+    "repairStart": {
+      "phase": "start",
+      "status": "user-requested-local-correction-draft",
+      "archiveStatus": "pending-upload",
+      "target": "extra unheld central vertical grip/post at x53%, y52%",
+      "input": {
+        "file": "01-file_0000000072d0820a8a3147932295fa6f",
+        "sha256": "c9e634153c43274d58ba8e3174f70835d78a14e091299a41013fd79981a11771"
+      },
+      "prompt": "Use case: precise-object-edit.\nMake ONE highly localized correction to this exact seated cable row START image. The user marked x53%, y52%: the EXTRA UNHELD GRAY VERTICAL CYLINDER inside the chrome row attachment, immediately LEFT of the gripping fingers, between the forward triangular braces and the hands. In this 1536x1024 image it is the gray knurled vertical piece centered near pixel (803,529), extending roughly from y499 to y554. It is an erroneous extra internal post/third grip.\n\nREMOVE that extra gray vertical cylinder and its own little end collars completely. Restore the small open interior space with the same white background behind the attachment. There must be no unheld gray post/bar suspended in this central space. Keep the surrounding thin chrome triangular braces and their natural continuous joins intact. Retain the real TWO grip cylinders held by the man's left and right hands; the far grip may be hidden by the hands in this side view. Do not expose or insert a replacement bar. Do not rotate the attachment, stretch the frame, change grip spacing, redraw the fingers or modify the actual two held grips.\n\nKeep the central cable connection, single closed carabiner, black stop and taut cable exactly where they are. Preserve the man, face, head, natural adult hands, arms, pose, proportions, skin tone/detail, blue-gray shirt and fabric texture, shorts, legs, shoes and footplate contacts. Preserve the entire machine, bench, tower, pulleys, camera, composition, soft lighting, clean materials and white background. No color, surface texture or contrast drift, no sharpening, no redesign. Only erase the identified small extra inner post; do not make other repairs. Full original landscape composition, one START frame, no annotations or text.\n",
+      "output": {
+        "sourceFile": "exec-a9d48407-5090-4a34-834a-5b46cf89c338.png",
+        "sha256": "5f32853aeea7d7d347d70415e991bd4209485de3c2ba223ae22e643fc8aea4d9"
+      }
+    },
+    "repairFinish": {
+      "phase": "finish",
+      "status": "matching-local-correction-draft",
+      "archiveStatus": "pending-upload",
+      "target": "same extra unheld central vertical grip/post as the user-marked START",
+      "references": [
+        {
+          "file": "/workspace/scratch/ee0063cb4eb8/generated_images/exec-235949a4-1ce1-4cba-ace6-c61e65f480e8.png",
+          "sha256": "d05be935fe9c204cb19fcfc784c15c5a0bf1298e4aff203adf8926ccc4552589"
+        },
+        {
+          "file": "/workspace/scratch/ee0063cb4eb8/generated_images/exec-a9d48407-5090-4a34-834a-5b46cf89c338.png",
+          "sha256": "5f32853aeea7d7d347d70415e991bd4209485de3c2ba223ae22e643fc8aea4d9"
+        }
+      ],
+      "prompt": "Use case: precise-object-edit.\nMake one tiny localized cleanup in IMAGE 1, the seated low cable row FINISH frame. IMAGE 2 is its corrected START and shows the intended cleanup only; do not copy its extended-arm pose or move the FINISH hands.\n\nRemove the erroneous unheld GRAY VERTICAL KNURLED POST inside the attachment in IMAGE 1. It is the extra cylinder centered around pixel (997,518), roughly x990-1006, y488-546, immediately to the LEFT of the fingers and the actual held chrome cylinder, between the forward triangular braces and the gripping hands. This is the exact counterpart of the extra center post already removed from IMAGE 2. Erase that unheld gray post and its own little top/bottom collars so this tiny interior space is open, showing the correct white background where unobstructed.\n\nKeep the surrounding thin chrome triangular frame braces continuously joined; preserve the two actual grip cylinders held by the left and right hands, with natural side-view occlusion. Keep both hands, all fingers, wrists and forearms exactly as in IMAGE 1. Do not add a replacement post, rotate the handle, shift it or change its size/spacing. Keep its central carabiner, terminal, black stop and taut cable intact.\n\nPreserve the FINISH position: handle at abdomen, elbows back near the torso, steady upright trunk. Entire character identity, skin detail/tone, blue-gray shirt and fabric, shorts, hips, legs, shoes, foot contacts, bench, all equipment, tower, cable output, camera, crop, lighting and white background remain as in IMAGE 1. No color/texture drift, sharpening, body reshaping or new hardware. Only remove this small extra internal unheld post. Full original landscape FINISH, no labels, annotations or montage.\n",
+      "output": {
+        "sourceFile": "exec-3967f155-7f60-4164-b6be-28dab000ded7.png",
+        "sha256": "3305da3a6ea7cee5e4a6da35afc0eb1ab8730878e593005dd9a46587f1fafa99"
+      }
+    }
+  }
+}

@@ -9,6 +9,7 @@ export default {
   "catalog.exercise.push-up": "Push-Up",
   "catalog.exercise.barbell-bent-over-row": "Barbell Bent-Over Row",
   "catalog.exercise.seated-cable-row": "Seated Cable Row",
+  "catalog.exercise.seated-cable-row-close-neutral-v-handle": "Close Neutral V-Handle Seated Cable Row",
   "catalog.exercise.one-arm-dumbbell-row": "One-Arm Dumbbell Row",
   "catalog.exercise.chest-supported-dumbbell-row": "Chest-Supported Dumbbell Row",
   "catalog.exercise.lat-pulldown": "Lat Pulldown",

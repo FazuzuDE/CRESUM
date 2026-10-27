@@ -1,5 +1,30 @@
 # CRESUM Exercise Biomechanics — Lat Pulldown v1
 
+## `seated-cable-row-close-neutral-v-handle` — 2026-10-27
+
+This exact configuration belongs to `seated-cable-row`. The existing generic
+row and legacy alias remain unspecified. These requirements describe a visual
+configuration, not measured manufacturer geometry or independent certification.
+
+| Aspect              | Requirement                                                                                                                                                                                                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Equipment           | Low-pulley cable row station, stable bench and firm foot support. No chest support or thigh rollers required for this selected configuration.                                                                                                                      |
+| Attachment and grip | Same two parallel grip cylinders, rigid side frames and single central mounting point in both phases; bilateral close neutral grip, palms facing each other. Rotate the whole handle coherently toward the horizontal cable; do not rotate individual frame parts. |
+| START               | Sit tall with supported hips/feet and slightly bent knees; arms extended comfortably without locked elbows, rounded lumbar spine or forced shoulder-blade pinning.                                                                                                 |
+| Movement and FINISH | Pull toward the abdomen with elbows near the flanks; stop before a forced backward swing or excessive elbow travel behind the trunk. Return slowly while allowing natural shoulder-blade movement.                                                                 |
+| Wrists and contact  | Wrists align with forearms; each hand wraps its own grip with natural contact and proportions. Perspective may occlude the far hand but cannot change anatomy or construction.                                                                                     |
+| Cable and support   | One taut cable from the real low output pulley through a plausible terminal/carabiner to the mounting hole. Preserve bench, foot contacts, pelvis and camera across the pair.                                                                                      |
+| Muscle roles        | Current qualitative mapping: upper-back and lats Primary; biceps and rear-delts Secondary. No percentages or grip-superiority claim.                                                                                                                               |
+| Rejection criteria  | Upright-pulldown cable, arbitrary third internal grip, mismatched hands, broken wrists, cable clipping, changed attachment, torso rocking, locked knees, floating feet or material/identity drift.                                                                 |
+| Open review         | Far-hand contact is partly occluded; shrouded stack internals cannot be checked from the selected images. User selection does not certify these internals or independent anatomical QA. Exact handle dimensions, seat settings and joint angles remain unfrozen.   |
+
+Technique sources checked 2026-10-27:
+[ACE Seated Row (48)](https://www.acefitness.org/resources/everyone/exercise-library/48/seated-row/)
+and [Muscle & Strength Seated Cable Row](https://www.muscleandstrength.com/exercises/seated-row.html).
+The Intenza single-station manufacturer photo informed equipment layout only;
+its brand/model is not a catalog requirement. The approved Male Master grounds
+identity, outfit and materials. See EXERCISE_ASSETS.md for provenance.
+
 ## Additive compact ergonomic variant — 2026-10-25
 
 `lat-pulldown-close-neutral-ergonomic-handle` is a separate seated front cable

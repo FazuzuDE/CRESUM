@@ -1,4 +1,6 @@
 export default {
+  'catalog.exercise.seated-cable-row-close-neutral-v-handle':
+    'Тяга нижнего блока с V-рукоятью узким нейтральным хватом',
   'catalog.exercise.lat-pulldown-close-neutral-ergonomic-handle':
     'Тяга верхнего блока с короткой эргономической рукояткой',
   'catalog.exercise.barbell-bench-press': 'Жим штанги лёжа',

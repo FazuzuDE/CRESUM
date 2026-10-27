@@ -1,5 +1,16 @@
 # CRESUM Decision Log
 
+## 2026-10-27 — Corrected seated row pair selected
+
+Approved — pending integration. The user accepted the START/FINISH pair after
+the extra unheld central post was removed in both frames. Preserve the corrected
+sources, exact prompts and hashes and connect them locally. Implementation uses
+an additive close-neutral V-handle child of seated cable row to avoid assigning
+a grip to the unspecified generic ID or migrating old history. Reuse the same
+isolated attachment thumbnail; add specific guide/name translations. Independent
+hand-contact and shrouded-stack checks and physical-device acceptance remain
+open; Oracle upload remains pending. No backend/schema changes.
+
 ## 2026-10-27 — Male Master and material quality reaffirmed
 
 Approved — pending Git sync. After merging #96, the user re-supplied the
