@@ -1,12 +1,12 @@
+import { ExerciseLibrary } from '../../components/ExerciseLibrary';
+import { TextInput, Linking, Image } from 'react-native';
+import { resolveExerciseArtwork } from '../exercise-artwork';
+import { isPressable } from './pressable';
 jest.mock('../../assets/exercises/barbell-bent-over-row/start.webp', () => 801);
 jest.mock(
   '../../assets/exercises/barbell-bent-over-row/finish.webp',
   () => 802,
 );
-import { ExerciseLibrary } from '../../components/ExerciseLibrary';
-import { TextInput, Linking, Image } from 'react-native';
-import { resolveExerciseArtwork } from '../exercise-artwork';
-import { isPressable } from './pressable';
 jest.mock(
   '../../assets/exercises/lat-pulldown-wide-pronated-bar/start.webp',
   () => 301,

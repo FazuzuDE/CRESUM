@@ -1,8 +1,3 @@
-jest.mock('../../assets/exercises/barbell-bent-over-row/start.webp', () => 801);
-jest.mock(
-  '../../assets/exercises/barbell-bent-over-row/finish.webp',
-  () => 802,
-);
 import {
   resolveExerciseArtwork,
   resolveAttachmentArtwork,
@@ -10,6 +5,11 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock('../../assets/exercises/barbell-bent-over-row/start.webp', () => 801);
+jest.mock(
+  '../../assets/exercises/barbell-bent-over-row/finish.webp',
+  () => 802,
+);
 
 // Distinct native asset IDs make wrong-phase and wrong-attachment bindings observable.
 jest.mock(

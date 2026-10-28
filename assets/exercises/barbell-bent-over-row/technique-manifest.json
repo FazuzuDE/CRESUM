@@ -18,7 +18,8 @@
       "height": 853,
       "bytes": 57490,
       "quality": 92,
-      "method": 6
+      "method": 6,
+      "sourceLibraryFileId": "libfile_33a306effb708191861aec3b94e0f2f5"
     },
     "finish": {
       "file": "finish.webp",
@@ -31,7 +32,8 @@
       "height": 853,
       "bytes": 54690,
       "quality": 92,
-      "method": 6
+      "method": 6,
+      "sourceLibraryFileId": "libfile_d3e12e77d48c8191b6db6d638e7e5dfe"
     }
   },
   "productionChoice": "Overhand grip is a visual example, not a restriction of the generic barbell row catalog ID. Catalog, technique, muscle mapping, History and saved workouts unchanged. No equipment-thumbnail binding.",
@@ -39,7 +41,7 @@
   "openReview": [
     "Independent detailed hand/anatomy/biomechanics review and physical-device acceptance remain open."
   ],
-  "sourceRetention": "Original PNGs retained in visual workspace; ZIP for PC download at major-block/end checkpoints. Oracle uploads deferred; no verified remote receipt.",
+  "sourceRetention": "Original PNGs recovered from persistent files on 2026-10-28 and verified against recorded SHA-256 and byte counts; per-phase sourceLibraryFileId records recovery identity. Checksummed ZIP for PC download remains pending until a major-block/end checkpoint. Oracle uploads deferred; no verified remote receipt.",
   "export": {
     "format": "WebP",
     "maxWidth": 1280,

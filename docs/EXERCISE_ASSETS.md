@@ -14,8 +14,10 @@ Assistant full-frame and phone-size comparison checked phase separation,
 hip hinge, foot support, bar/plate continuity, grip contacts, identity and
 materials. Independent detailed anatomy/biomechanics and physical-device
 acceptance remain open. Status is `user-selected-provisional`, not automated
-tracker approval. Original sources remain pending PC archive download;
-Oracle upload remains deferred and unverified.
+tracker approval. Original PNGs were recovered on 2026-10-28 and verified against recorded
+source hashes/bytes; both WebP exports reproduce byte-for-byte. Persistent
+source identities are recorded in the manifest. A PC ZIP checkpoint is still
+pending; Oracle upload remains deferred and unverified.
 
 ## Chest-supported dumbbell row — selected Male pair, 2026-10-27
 
