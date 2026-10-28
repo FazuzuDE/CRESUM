@@ -1,0 +1,51 @@
+{
+  "exerciseId": "pull-up",
+  "model": "male",
+  "status": "user-selected-pair",
+  "selectionDate": "2026-10-28",
+  "archiveStatus": "pending-upload",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-3036b9bf-1abd-4121-a040-096630fc9453.png",
+      "sourceSha256": "410671429fc7976fe5ec9ee9066a9d62c4cd00c89e8fcac692be64168b68e7cb",
+      "sourceSize": [1536, 1024],
+      "sourceBytes": 1603949,
+      "sourceMime": "image/png",
+      "sha256": "ba46363333b06bdcc9b5fae5724205a6019001ea33de55debec4adf73b134049",
+      "width": 1280,
+      "height": 853,
+      "bytes": 40022
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "279376DA-7BB1-4D73-94DA-53ED51C62E86.jpeg",
+      "sourceSha256": "ea44b5b12c530c51511d1496c3aa233cb31f9edddf22f9189202133a091931c3",
+      "sourceSize": [1536, 1024],
+      "sourceBytes": 174080,
+      "sourceMime": "image/jpeg",
+      "sha256": "fc9b1c82011da245423cf0595e37eaf4a2568f101dccfc0d5ba89a833bea9c89",
+      "width": 1280,
+      "height": 853,
+      "bytes": 37096,
+      "sourceLibraryFileId": "libfile_241752108d9c819185c50be9f053e909"
+    }
+  },
+  "selectionHistory": [
+    {
+      "phase": "initial-start",
+      "sourceFile": "exec-9d8d227e-1795-43b7-bdd7-93bb6ffa397e.png",
+      "decision": "Утверждаю"
+    },
+    {
+      "phase": "finish",
+      "sourceFile": "279376DA-7BB1-4D73-94DA-53ED51C62E86.jpeg",
+      "decision": "Вот это винишь"
+    },
+    {
+      "phase": "aligned-start",
+      "sourceFile": "exec-3036b9bf-1abd-4121-a040-096630fc9453.png",
+      "decision": "Утверждаю"
+    }
+  ]
+}

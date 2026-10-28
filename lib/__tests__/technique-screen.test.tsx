@@ -2,6 +2,8 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/pull-up/start.webp', () => 901);
+jest.mock('../../assets/exercises/pull-up/finish.webp', () => 902);
 jest.mock('../../assets/exercises/barbell-bent-over-row/start.webp', () => 801);
 jest.mock(
   '../../assets/exercises/barbell-bent-over-row/finish.webp',
@@ -146,6 +148,7 @@ it.each([
   ['One-Arm Dumbbell Row', 601, 602],
   ['Chest-Supported Dumbbell Row', 701, 702],
   ['Barbell Bent-Over Row', 801, 802],
+  ['Pull-Up', 901, 902],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {

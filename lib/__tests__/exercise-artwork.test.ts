@@ -5,6 +5,8 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock('../../assets/exercises/pull-up/start.webp', () => 901);
+jest.mock('../../assets/exercises/pull-up/finish.webp', () => 902);
 jest.mock('../../assets/exercises/barbell-bent-over-row/start.webp', () => 801);
 jest.mock(
   '../../assets/exercises/barbell-bent-over-row/finish.webp',
@@ -237,6 +239,31 @@ it('shows selected barbell row phases without redefining its unspecified grip or
       'unknown',
     ]) {
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
+    }
+  }
+});
+
+it('binds the selected overhand bodyweight pull-up without borrowing its pair for assisted pull-ups', () => {
+  expect(findTechnique('pull-up')?.scope).toBe(
+    'Bodyweight pull-up; overhand grip.',
+  );
+  expect(findExercise('pull-up')).toMatchObject({
+    equipment: ['bodyweight'],
+    primaryMuscles: ['lats'],
+    secondaryMuscles: ['biceps', 'upper-back', 'forearms'],
+  });
+  expect(resolveExerciseArtwork('pull-up', 'start', 'male')).toBe(901);
+  expect(resolveExerciseArtwork('pull-up', 'finish', 'male')).toBe(902);
+  expect(resolveAttachmentArtwork('pull-up')).toBeNull();
+  for (const phase of ['start', 'finish'] as const) {
+    expect(resolveExerciseArtwork('pull-up', phase, 'female')).toBeNull();
+    for (const id of [
+      'assisted-pull-up',
+      'lat-pulldown',
+      'pulldown',
+      'unknown',
+    ]) {
+      expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
     }
   }
 });
