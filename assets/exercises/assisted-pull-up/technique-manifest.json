@@ -1,0 +1,165 @@
+{
+  "variantId": "assisted-pull-up",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "selectionDate": "2026-10-28",
+  "status": "user-selected-provisional",
+  "archiveStatus": "pending-upload",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-88534ef6-9b82-42aa-ab79-9d3b71f1d549.png",
+      "sourceSha256": "673adfb3d427d1e4ce7c1759ef6e2a0bd0dbc63c18887e59d4ce277b549365da",
+      "sourceBytes": 1583945,
+      "sourceSize": [1536, 1024],
+      "sha256": "546b92eab10d851bdf47fa5d64c63f3b143ab834624e3583094e2c16f6fcb44e",
+      "bytes": 41238,
+      "width": 1280,
+      "height": 853
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-bd67d5b0-dd4d-4fae-b01f-fe62b023fd2e.png",
+      "sourceSha256": "10520c81f697f3ae0dd742fb745c3293a7c1c3818430c546d59b1f584db0d097",
+      "sourceBytes": 1567310,
+      "sourceSize": [1536, 1024],
+      "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+      "bytes": 42162,
+      "width": 1280,
+      "height": 853
+    }
+  },
+  "presentation": {
+    "scope": "Square contain frames in shared TechniqueArtwork, inline and expanded. START uses default placement; FINISH receives uniform whole-image scale/translation. No independent body/equipment stretch or source repaint.",
+    "finish": {
+      "method": "NCC template matching of fixed machine landmarks; robust uniform-scale/translation fit, no stretch",
+      "landmarks": [
+        {
+          "start": [1000, 400],
+          "finish": [997, 387],
+          "correlation": 0.991
+        },
+        {
+          "start": [558, 903],
+          "finish": [557, 875],
+          "correlation": 0.977
+        },
+        {
+          "start": [655, 974],
+          "finish": [654, 947],
+          "correlation": 0.959
+        },
+        {
+          "start": [867, 935],
+          "finish": [863, 908],
+          "correlation": 0.974
+        },
+        {
+          "start": [610, 795],
+          "finish": [609, 764],
+          "correlation": 0.917
+        },
+        {
+          "start": [646, 887],
+          "finish": [646, 859],
+          "correlation": 0.901
+        },
+        {
+          "start": [840, 780],
+          "finish": [836, 749],
+          "correlation": 0.932
+        },
+        {
+          "start": [884, 864],
+          "finish": [881, 835],
+          "correlation": 0.96
+        },
+        {
+          "start": [730, 821],
+          "finish": [729, 790],
+          "correlation": 0.976
+        }
+      ],
+      "scale": 1.0096737522484573,
+      "tx": -5.27197172288502,
+      "ty": 20.148032868852116,
+      "medianResidualSourcePixels": 2.309723161126392,
+      "maxResidualSourcePixels": 10.977942904809973,
+      "medianBeforeSourcePixels": 28.0178514522438,
+      "squareContainStylePercent": {
+        "width": 100.9674,
+        "height": 100.9674,
+        "left": -0.3432,
+        "top": 1.1505
+      },
+      "sourceNames": [
+        "exec-88534ef6-9b82-42aa-ab79-9d3b71f1d549.png",
+        "exec-bd67d5b0-dd4d-4fae-b01f-fe62b023fd2e.png"
+      ]
+    },
+    "renderingSource": "lib/exercise-artwork.ts resolveExerciseArtworkPlacement",
+    "sourceCanvasAspectRatio": 1.5
+  },
+  "productionChoice": "Photo-based Life Fitness SS-ADC knee-supported example, overhand grip and rear three-quarter view are visual production choices. Existing generic assisted-pull-up identity, instructions, muscle mapping, History, workouts and other configurations remain unchanged. No attachment-thumbnail binding.",
+  "references": {
+    "manufacturer": "Life Fitness",
+    "physicalModel": "Insignia Series Assist Dip Chin SS-ADC",
+    "productURL": "https://www.lifefitness.com/en-eu/catalog/strength-training/selectorized/insignia-series-assist-dip-chin",
+    "manualURL": "https://kb.cybexintl.com/Owners_Manuals/Strength/Life_Fitness_Insignia_Series_Owners_Manual_9481201_Rev_BE.pdf",
+    "manualPrintedPage": 11,
+    "photoURLs": [
+      "https://www.lifefitness.com/Kentico13CoreBase/media/LFMedia/LifeFitnessImages/MediaSync/322-995-assist-dip-chin.png",
+      "https://www.lifefitness.com/Kentico13CoreBase/media/LFMedia/LifeFitnessImages/MediaSync/133-109-insignia-series-assist-dip-chin-image-7--data.jpg",
+      "https://www.lifefitness.com/Kentico13CoreBase/media/LFMedia/LifeFitnessImages/MediaSync/116-445-insignia-series-assist-dip-chin-image-8--data.jpg"
+    ],
+    "references": [
+      {
+        "file": "assisted-pullup-draft/real-machine/official-equipment-full.png",
+        "sha256": "14f295d77943ecb0429674806c01a8a6a383b6ab79c67bb62c924e86f01e617b",
+        "bytes": 322995
+      },
+      {
+        "file": "assisted-pullup-draft/real-machine/official-detail-0.jpg",
+        "sha256": "b61658f48e8fa2752026e3c9cdbca53fc58d06e23f466bb60e0f5aec0f3672bb",
+        "bytes": 133109
+      },
+      {
+        "file": "assisted-pullup-draft/real-machine/official-detail-1.jpg",
+        "sha256": "4e02df3c92b8ad59717e14217e3dda2d498b28910b12e41fdfdf73d03fe70e9c",
+        "bytes": 116445
+      }
+    ],
+    "observedFeatures": [
+      "curved paired frame and multi-grip overhead assembly",
+      "two fixed lateral dip bars",
+      "four access footplates across two levels",
+      "forward-projecting knee cushion mounted on rear sliding carriage/paired guide rods",
+      "real pulleys/cable route and enclosed selectorized counterweight tower"
+    ],
+    "operatorSetup": "Kneel on moving pad, grip actual overhead handles, use machine operating space toward its frame. More selected counterweight means more assistance.",
+    "catalogBoundary": "Physical production reference only; generic assisted-pull-up identity/support/grip scope not redefined. Brand/model not added to canonical catalog."
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "history": "Earlier collision repair removed real machine parts and was rejected; final pair regenerated from official product photos, not that generic rack candidate."
+  },
+  "reviewScope": "User selected image2 START and image4 FINISH and prioritized harmonious card proportions. Assistant compared manufacturer photos/manual, full frames and contact crops, then measured fixed-machine landmarks to align whole-image presentation in square contain frames. Not independent biomechanics, measured CAD or physical-device acceptance.",
+  "openReview": [
+    "Small non-rigid differences in generated fixed-machine details remain; uniform display placement reduces the global jump, not every pixel difference.",
+    "Internal cable/counterweight kinematics are not certified from generated shrouded views.",
+    "Independent detailed grip/anatomy/biomechanics and physical-device acceptance remain open."
+  ],
+  "sourceRetention": "Selected original PNGs and prompt/reference chain retained in visual workspace and conversation; available sources join the next PC ZIP checkpoint. Oracle uploads deferred; no verified receipt.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "resize": "Pillow thumbnail",
+    "maxWidth": 1280,
+    "maxHeight": 1280,
+    "resampling": "LANCZOS",
+    "quality": 92,
+    "method": 6
+  }
+}

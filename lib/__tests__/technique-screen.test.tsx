@@ -2,6 +2,8 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/assisted-pull-up/start.webp', () => 1001);
+jest.mock('../../assets/exercises/assisted-pull-up/finish.webp', () => 1002);
 jest.mock('../../assets/exercises/pull-up/start.webp', () => 901);
 jest.mock('../../assets/exercises/pull-up/finish.webp', () => 902);
 jest.mock('../../assets/exercises/barbell-bent-over-row/start.webp', () => 801);
@@ -149,6 +151,7 @@ it.each([
   ['Chest-Supported Dumbbell Row', 701, 702],
   ['Barbell Bent-Over Row', 801, 802],
   ['Pull-Up', 901, 902],
+  ['Assisted Pull-Up', 1001, 1002],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
