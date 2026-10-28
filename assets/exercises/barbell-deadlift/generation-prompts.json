@@ -1,0 +1,139 @@
+{
+  "exerciseId": "barbell-deadlift",
+  "tool": "built-in image_gen",
+  "selected": {
+    "start": "START r2",
+    "finish": "FINISH r1"
+  },
+  "records": [
+    {
+      "exerciseId": "barbell-deadlift",
+      "gender": "male",
+      "phase": "start",
+      "revision": 1,
+      "status": "superseded-for-pair-framing",
+      "createdAt": "2026-10-28T19:26:34.185885+00:00",
+      "prompt": "Create ONE CRESUM exercise-technique illustration: conventional BARBELL DEADLIFT, START with the loaded bar resting ON THE FLOOR. Photorealistic premium 3D, white studio, landscape 1536 x 1024.\n\nINPUT ROLES:\n1. The ORIGINAL five-view Male Master sheet is the exact character reference: one adult athletic natural-proportioned man, same face, short styled brown hair, clean-shaven, fitted blue-gray T-shirt, dark-gray shorts, white socks and light-gray trainers. Render ONE instance, not a contact sheet.\n2. Frozen equipment-style reference supplies the quiet premium rendering, satin/light silver metal, deep graphite/black equipment details, matte materials, fine clean skin/fabric and soft neutral contact shadows ONLY. Do not copy its pullup machine, kneeling body or construction. This scene needs ONLY a barbell and the man.\n\nEXERCISE AND POSE:\nConventional deadlift setup, bar on floor, not sumo, Romanian deadlift, bent-over row or a squat. Feet approximately hip-width with slight natural toe-out, both whole soles grounded. A normal full-length silver Olympic-style bar lies horizontally across the FRONT of the shins, close to them, vertically over midfoot. One identical full-size dark round plate on EACH sleeve, outside the hands, with realistic collars. Both full-size plate rims rest tangentially on the SAME floor plane. The bar's axis is at a natural mid-shin height established by those plates; no floating load or miniature discs.\nThe athlete hinges at the hips and bends the knees to reach the shaft. Hips ABOVE the knees and BELOW the shoulders. Shoulders approximately over/slightly ahead of the shaft, shins only mildly angled forward, hips back, chest naturally open, braced NEUTRAL SPINE and head aligned with the torso, gaze slightly forward/down. Do not round or hyperextend the back or crane the neck toward the viewer.\nBoth arms hang long and STRAIGHT from the shoulders. Hands are on the shaft just OUTSIDE the legs, clear of the knees: symmetric CLOSED DOUBLE-OVERHAND grip, both palms oriented the same way, thumbs wrapped, neutral wrists. Secure plausible fingers actually encircle the shaft. No mixed grip, bent elbows, curling or pulling the bar off the floor. The shaft is in front of the shins with small clearance, not through the flesh.\n\nCOMPOSITION:\nClear front/side-three-quarter view, mild perspective, showing both hand contacts, whole body, both entire plates and both sleeve ends. Camera at roughly waist height, no dramatic lens distortion. Physically coherent bar/plate/body proportions, full apparatus comfortably framed.\nReserve sufficient blank upper headroom for this SAME man to stand fully upright in the later matching FINISH without camera zoom, rescaling or cropping. The composition must accommodate the eventual standing body at the SAME scale and floor/foot positions; START should not be independently enlarged to fill the frame. Keep all objects and shoes within comfortable margins. White floor with soft grounding/contact shadows.\n\nUse the actual Master identity, natural fine skin, matte blue-gray shirt/dark shorts, realistic light silver bar, dark matte plates, restrained reflections and clean white studio. No machine, bench, lifting straps, belt, extra weights, text, plate numbers, logos, arrows, anatomy colors, inset views or duplicate people. Output ONE floor-supported START illustration only.",
+      "references": [
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+          "role": "Actual original Male Master identity/outfit",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+          "role": "Frozen equipment style materials/rendering only",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        }
+      ],
+      "transparent_background": false,
+      "techniqueSource": "https://www.acefitness.org/resources/everyone/exercise-library/6/deadlift/",
+      "sourceScope": "ACE text verified through web search; source photos were not used after public CDN download returned403. Double-overhand is the existing catalog adaptation.",
+      "equipmentChoice": "Illustrative standard silver bar with identical dark full-size floor-supported plates; no exact weight or model qualifier added.",
+      "output": {
+        "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-22324b23-0fc5-4a93-9af3-09edbcd1944e.png",
+        "sha256": "64fa3bd689a49f9c53e91c7ee9c74cb9bf5c5883da6f2002c55c179c5246ac1b",
+        "bytes": 1645777,
+        "dimensions": [1536, 1024]
+      },
+      "qaFinding": "Valid-looking floor setup but insufficient headroom for standing FINISH at unchanged scale; one uniform scene reframing requested."
+    },
+    {
+      "exerciseId": "barbell-deadlift",
+      "gender": "male",
+      "phase": "start",
+      "revision": 2,
+      "status": "presented-awaiting-user-selection",
+      "createdAt": "2026-10-28T19:28:49.431815+00:00",
+      "prompt": "Edit the LAST image: the conventional barbell deadlift START with bar and plates on the floor. First image is actual original Male Master for identity/outfit. Second is equipment materials/style only.\n\nMake ONE framing correction so the future upright FINISH will fit at the SAME camera and scale:\nUniformly ZOOM OUT the ENTIRE man + barbell scene by about 20 percent, and place the floor contacts around 86–89 percent of canvas height. Keep 1536 x 1024 landscape. In this START the man's head should be around 25–30 percent down from the TOP, leaving a generous blank white zone above him for the standing FINISH. The complete barbell should occupy about 60–65 percent of the image width, with generous margins at both sleeve ends.\nDo not crop the bar, plates, body or shoes. Do not merely move the existing large man downward and crop his feet. Reduce ALL objects together by the SAME uniform factor; preserve their relative proportions, equipment scale, coherent perspective and grounding.\n\nPreserve the exact same conventional START pose and body: braced natural neutral back, hips above knees/below shoulders, bent knees, straight long arms, both closed double-overhand grips just outside the legs, feet flat, bar close in front of the shins and over midfoot. Both full-size plate rims remain on the same physical floor plane.\nPreserve the same original Master man and face, blue-gray T-shirt, dark-gray shorts, white socks, light-gray shoes, silver bar and dark plates, realistic material quality, neutral white studio and soft contact shadows. No new objects, pose changes, labels, arrows, logos or different exercise.\nOutput ONE reframed START only.",
+      "references": [
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-22324b23-0fc5-4a93-9af3-09edbcd1944e.png",
+          "sha256": "64fa3bd689a49f9c53e91c7ee9c74cb9bf5c5883da6f2002c55c179c5246ac1b",
+          "bytes": 1645777,
+          "dimensions": [1536, 1024]
+        }
+      ],
+      "transparent_background": false,
+      "reason": "Reserve consistent-camera full-standing FINISH headroom before START selection",
+      "output": {
+        "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-3a75dea3-ff26-4f2e-8327-ed19672d11eb.png",
+        "sha256": "6937af8715d1aa9fa30ab7800115de1c8fd28be9e5c3cc583c558ad6d902f45e",
+        "bytes": 1517394,
+        "dimensions": [1536, 1024]
+      },
+      "visualQA": {
+        "phase": "Floor-supported conventional deadlift setup, hands outside legs and straight arms",
+        "framing": "Whole athlete and both plate/sleeve ends visible; added white headroom for same-scale upright FINISH",
+        "continuity": "Actual original Master and frozen equipment style supplied",
+        "scope": "Visual candidate, not independent biomechanics/device certification; pair reviewed again after FINISH selection."
+      }
+    },
+    {
+      "exerciseId": "barbell-deadlift",
+      "gender": "male",
+      "phase": "finish",
+      "revision": 1,
+      "status": "presented-awaiting-user-selection",
+      "createdAt": "2026-10-28T19:35:07.856481+00:00",
+      "prompt": "Edit the LAST image, the user-approved CRESUM conventional BARBELL DEADLIFT START, into its matching FINISH. Output ONE complete landscape 1536 x 1024 white-studio illustration.\n\nREFERENCE ROLES:\n1. ORIGINAL five-view Male Master: exact character identity, face/hair, natural anatomical proportions, blue-gray fitted T-shirt, dark-gray shorts, white socks, light-gray trainers. One man only.\n2. Frozen equipment-style reference: refined realistic 3D, satin light silver metal, dark matte equipment, even fine skin/fabric, soft neutral lighting and contact shadows ONLY; not its pullup apparatus or pose.\n3. LAST image: the exact selected START and the full-scene edit target. It controls camera, canvas, man/equipment scale, floor plane, foot positions, grip width, bar geometry and plate/collar design.\n\nFINISH:\nThe man has completed the conventional deadlift and stands FULLY UPRIGHT, with hips and knees extended naturally, neutral long spine, head aligned and gaze calmly ahead. Pelvis rises and comes forward into a normal standing position over the feet. Shoulders are natural and level, no exaggerated shrug or forced retraction. Do not lean backward, arch the lower back, keep the START knee bend or thrust the hips past the upright position.\nBoth arms hang STRAIGHT down, no elbow curl or row. The SAME bar shaft is held close across the FRONT OF THE UPPER THIGHS, below the hips, with normal clearance rather than body penetration.\nPreserve both closed double-overhand grips, hands just outside the legs, symmetric spacing and wrapped thumbs, neutral wrists. No mixed grip or altered grip width.\n\nEQUIPMENT AND MOTION:\nLift the SAME entire rigid barbell assembly from START to thigh height: same bar length and diameter, sleeves, exactly one matching full-size dark plate per side, same collar details and consistent perspective. Keep the same horizontal bar orientation relative to camera and similar projected width; move the load upward, do not shorten it or enlarge the man.\nBoth plates are now clearly SUSPENDED ABOVE THE FLOOR with believable equal physical clearance. They do not rest on the floor or float independently of the shaft. Remove the old floor-supported bar/plates and their contact marks; there must be only ONE barbell and one pair of plates. Natural diffuse cast shadows may remain below the elevated load, but no old plate-contact shadows suggesting a second floor load.\n\nPAIR CONTINUITY:\nKeep the EXACT foot placements, shoe orientations and soles grounded as in START. Maintain the SAME camera, lens perspective, scale, white canvas and floor plane. Use the reserved upper white space for the standing man's head. Do not zoom, move the whole composition, change body proportions, stretch limbs, crop the head/shoes/bar ends or turn this into a close-up. All body parts, both full plates and both sleeve ends remain visible with comfortable margins.\nOnly change the anatomical pose from bent setup to standing lockout and lift the bar accordingly. The original Master identity, outfit/material colors, silver/graphite bar/plate palette, fine skin/fabric and neutral soft lighting stay consistent. No machine, belt, straps, extra plates, text, labels, logos, arrows, muscle colors or insets.\nOutput ONE matching FINISH illustration with the man UPRIGHT and plates OFF THE FLOOR.",
+      "references": [
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+          "role": "Actual original Male Master identity/outfit",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+          "role": "Frozen equipment materials/rendering only",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-3a75dea3-ff26-4f2e-8327-ed19672d11eb.png",
+          "role": "User-selected START r2 exact generated PNG edit target",
+          "sha256": "6937af8715d1aa9fa30ab7800115de1c8fd28be9e5c3cc583c558ad6d902f45e",
+          "bytes": 1517394,
+          "dimensions": [1536, 1024]
+        }
+      ],
+      "transparent_background": false,
+      "selectedStartRecord": "start-selection.json",
+      "techniqueSource": "https://www.acefitness.org/resources/everyone/exercise-library/6/deadlift/",
+      "output": {
+        "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-1296f392-9603-4e8b-b4e1-d584e6c13693.png",
+        "sha256": "ea363706afde62b4b891481d40d90ba437025771f27e6afd8269cdbe21f74784",
+        "bytes": 1467021,
+        "dimensions": [1536, 1024],
+        "mode": "RGB"
+      },
+      "visualQA": {
+        "phase": "Upright finish, hips/knees naturally extended, no obvious backward lean; long arms and bar in front of upper thighs",
+        "load": "Same one-plate-per-side barbell type; plates suspended above floor, no duplicated floor load",
+        "identity": "Actual original Male Master and frozen material/style inputs supplied",
+        "framing": "Full upright head, feet and both bar ends visible; plate diameters and scene scale visually coherent with selected START",
+        "pairReview": "Small foot-baseline and projected bar-position variation should be checked in shared square-contain phone projection during integration; no exact pixel placement or measured kinematics certification asserted."
+      }
+    }
+  ],
+  "sourceScope": "Exact recorded prompts/reference order preserved, including superseded START r1 used by selected r2. ACE text informed existing guide; unavailable CDN photos were not generation inputs."
+}

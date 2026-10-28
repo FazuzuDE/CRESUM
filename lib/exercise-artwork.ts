@@ -50,6 +50,10 @@ const straightArmPair = {
   start: require('../assets/exercises/cable-straight-arm-pulldown/start.webp'),
   finish: require('../assets/exercises/cable-straight-arm-pulldown/finish.webp'),
 };
+const deadliftPair = {
+  start: require('../assets/exercises/barbell-deadlift/start.webp'),
+  finish: require('../assets/exercises/barbell-deadlift/finish.webp'),
+};
 const attachment = require('../assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/attachment.webp');
 const vHandleAttachment = require('../assets/exercises/lat-pulldown-close-neutral-v-handle/attachment.webp');
 const wideBarAttachment = require('../assets/exercises/lat-pulldown-wide-pronated-bar/attachment.webp');
@@ -71,6 +75,7 @@ export function resolveExerciseArtwork(
   if (variantId === 'chest-supported-dumbbell-row')
     return chestSupportedRowPair[phase];
   if (variantId === 'barbell-bent-over-row') return barbellRowPair[phase];
+  if (variantId === 'barbell-deadlift') return deadliftPair[phase];
   if (variantId === 'pull-up') return pullUpPair[phase];
   if (variantId === 'assisted-pull-up') return assistedPullUpPair[phase];
   if (variantId === 'machine-high-row') return highRowPair[phase];
@@ -99,6 +104,14 @@ export function resolveExerciseArtworkPlacement(
     model === 'male'
   )
     return assistedPullUpFinishPlacement;
+  // Align the selected near shoe baseline by ~33 source pixels at 1536px width.
+  // Translation only: both phases retain the same contain scale and geometry.
+  if (
+    variantId === 'barbell-deadlift' &&
+    phase === 'finish' &&
+    model === 'male'
+  )
+    return { top: '-2.1484%' };
   return undefined;
 }
 

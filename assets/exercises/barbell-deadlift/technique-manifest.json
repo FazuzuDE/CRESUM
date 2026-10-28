@@ -1,0 +1,65 @@
+{
+  "variantId": "barbell-deadlift",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "selectionDate": "2026-10-28",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-3a75dea3-ff26-4f2e-8327-ed19672d11eb.png",
+      "sourceSha256": "6937af8715d1aa9fa30ab7800115de1c8fd28be9e5c3cc583c558ad6d902f45e",
+      "sourceBytes": 1517394,
+      "sourceSize": [1536, 1024],
+      "sha256": "84a3d2909857d71ea42982ca82c3ac258d061b501aabe22a22de0c200657be0d",
+      "bytes": 32590,
+      "width": 1280,
+      "height": 853
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-1296f392-9603-4e8b-b4e1-d584e6c13693.png",
+      "sourceSha256": "ea363706afde62b4b891481d40d90ba437025771f27e6afd8269cdbe21f74784",
+      "sourceBytes": 1467021,
+      "sourceSize": [1536, 1024],
+      "sha256": "fcd56f694106e4a2cb70c611e4d4279bc68c43aa40983bea638fe3bf22ee9735",
+      "bytes": 34300,
+      "width": 1280,
+      "height": 853
+    }
+  },
+  "productionChoice": "Conventional floor deadlift with double-overhand grip and one full-size dark plate per side on a silver bar; visual example, not new canonical grip/load/model constraints.",
+  "presentation": {
+    "frame": "Shared square contain, inline and expanded",
+    "start": "default",
+    "finish": {
+      "top": "-2.1484%",
+      "scale": 1
+    },
+    "calibration": "Whole image shifted up by approximately 33/1536 of square width: selected source near shoe baseline START ~866, FINISH ~899. Preserves source geometry and relative body/equipment scale.",
+    "residual": "Small shoe orientation/bar projection differences remain; not pixel-identical camera reconstruction."
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "equipmentStyle": "cresum-equipment-style-v1"
+  },
+  "reviewScope": "User visual selection and assistant full-frame/phone projection comparison; not independent biomechanics or physical-device certification.",
+  "openReview": [
+    "Independent detailed anatomy/biomechanics and physical-device acceptance remain open.",
+    "Verified full PC source backup remains pending; Oracle uploads deferred."
+  ],
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original PNGs and complete available generation/reference history retained for next full PC source ZIP checkpoint; no verified Oracle upload.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "maxWidth": 1280,
+    "maxHeight": 1280,
+    "resampling": "LANCZOS",
+    "quality": 92,
+    "method": 6
+  }
+}
