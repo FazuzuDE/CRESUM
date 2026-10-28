@@ -1,0 +1,52 @@
+{
+  "exerciseId": "barbell-overhead-press",
+  "model": "male",
+  "selectionDate": "2026-10-28",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "selectedCandidates": {
+    "start": "pair r1 left",
+    "finish": "pair r1 right"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-338a528c-a66b-4f93-90ec-5ca79bc23fd3.png",
+      "sourceSha256": "e9dedadeb24c4980cfee9db63b1727de04838420831be16835aadd51be4259fb",
+      "sourceBytes": 1264117,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "padding": {
+        "left": 32,
+        "top": 32,
+        "right": 32,
+        "bottom": 32,
+        "color": "#FFFFFF"
+      },
+      "sha256": "f5e44d3cf31ac0a3d460489648855b4f2aa9e18c172479eaa8f3cade1e9aa50b",
+      "bytes": 30484,
+      "width": 951,
+      "height": 951
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-338a528c-a66b-4f93-90ec-5ca79bc23fd3.png",
+      "sourceSha256": "e9dedadeb24c4980cfee9db63b1727de04838420831be16835aadd51be4259fb",
+      "sourceBytes": 1264117,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "padding": {
+        "left": 32,
+        "top": 32,
+        "right": 32,
+        "bottom": 32,
+        "color": "#FFFFFF"
+      },
+      "sha256": "16b5d6b7d5e8e76b9c1e1b5ea02c2deebed5f79d2ce5bd27a5193361e3b99f07",
+      "bytes": 30948,
+      "width": 951,
+      "height": 951
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

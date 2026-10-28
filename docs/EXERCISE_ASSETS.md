@@ -1,5 +1,25 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Barbell Overhead Press — selected single-generation Male pair, 2026-10-28
+
+The user approved pair r1 from `exec-338a528c-a66b-4f93-90ec-5ca79bc23fd3.png`
+(1774 x 887). Export LEFT START from [0,0,887,887] and RIGHT FINISH from
+[887,0,1774,887], using Pillow-exclusive right/bottom bounds. Add the same
+32px white border on every side of both crops; export RGB WebP quality92/method6
+at 951 x 951 without resampling. The modest common border protects FINISH's
+upper plate while preserving dense framing and a shared subject scale.
+No repaint, warp, artificial upscaling or phase-specific enlargement.
+
+Bind only existing `barbell-overhead-press` / Male with default shared square
+contain in inline and expanded views. Keep strict standing guide, identity,
+qualitative muscles, attachments, History and other/Female fallbacks unchanged.
+Selection, source/export hashes, crop bounds and actual Master/style/prompt lineage
+live in this exercise's asset folder. The pictured bar, plates and grip do not
+add canonical weight/model qualifiers. Status stays `user-selected-provisional`:
+user selection and assistant 320/390 projections do not certify independent
+biomechanics or physical-device acceptance. Sources join the next major-block
+PC archive; Oracle remains deferred and `pending-upload`.
+
 ## Dumbbell Shoulder Press — selected Male pair, 2026-10-28
 
 The user accepted START r2 and FINISH r1. Export exact generated PNGs
