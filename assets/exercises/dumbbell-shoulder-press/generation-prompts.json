@@ -1,0 +1,102 @@
+{
+  "exerciseId": "dumbbell-shoulder-press",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "dumbbell-shoulder-press",
+      "phase": "start",
+      "revision": 1,
+      "status": "superseded-for-pair-framing",
+      "prompt": "Create ONE CRESUM technique illustration, seated DUMBBELL SHOULDER PRESS, START lower position. Landscape 1536x1024, premium realistic 3D on white.\nReference1 is actual original five-view Male Master: use same face, short brown hair, clean-shaven natural athletic proportions, muted blue-gray fitted T-shirt, dark-gray shorts, white socks and light-gray trainers. ONE man only.\nReference2 supplies equipment MATERIAL/RENDERING style only: satin silver metal, dark matte upholstery, soft neutral lighting, clean fine surfaces. Do not copy its pull-up machine or pose.\nThe man sits on a real adjustable gym bench with tall nearly upright back pad (about 80-85 degrees), small horizontal seat, realistic hinged support and stable satin silver frame with dark feet. Back and pelvis supported, trunk upright and braced, normal modest lumbar curve, no exaggerated arch. Both feet flat on floor, knees naturally bent, feet apart.\nSTART: two matching compact dark round dumbbells with silver handles held BESIDE the shoulders, just outside the head. Elbows bent about90degrees, slightly forward of torso in scapular plane rather than behind body; upper arms approximately horizontal, forearms upright underneath dumbbells. Both hands securely wrap the handles, thumbs closed, wrists neutral and stacked over elbows. Palms generally forward with slight comfortable inward angle; not an Arnold press, not a curl. Dumbbells do not intersect head/shoulders. Each dumbbell has two coherent dark solid weight heads joined by its handle, no detached plates.\nCamera front three-quarter, both hands, dumbbells, full head, whole bench, frame and both grounded shoes clearly visible. Make the mechanics easy to read. Reserve generous white space ABOVE the current dumbbells so later FINISH with arms extended overhead fits at exactly the same scale and camera; do not enlarge START to fill canvas. Scene fits comfortably inside canvas, feet around86percent image height, natural proportions, no cropping.\nQuiet premium lighting, subtle contact shadows, fine natural skin/fabric, restrained metal reflections. No branding, text, arrows, anatomy coloring, extra equipment, extra hands or duplicate people. One START frame only.",
+      "references": [
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        }
+      ],
+      "previousPR": {
+        "number": 109,
+        "merged": true,
+        "mergeCommit": "0adc64b15824a633133859ae4fcef9fc94a889b1"
+      },
+      "scope": "Supported seating is existing catalog adaptation; visual choice does not narrow generic standing/seated identity.",
+      "techniqueSource": "https://www.acefitness.org/continuing-education/prosource/september-2014/4972/dynamite-delts-ace-research-identifies-top-shoulder-exercises/",
+      "output": {
+        "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-863000ce-2cd2-4dcf-9da6-1f289319857b.png",
+        "sha256": "65baadff1a3e2676000e98bbffb6cacec20013daf6d92cdcb4de2a5e08ce3f3d",
+        "bytes": 1262836,
+        "dimensions": [1536, 1024]
+      }
+    },
+    {
+      "exerciseId": "dumbbell-shoulder-press",
+      "phase": "start",
+      "revision": 2,
+      "prompt": "Edit LAST image only for pair framing. Uniformly zoom OUT the ENTIRE seated man, bench and both dumbbells by 22 percent, keeping all relative proportions and exact START pose. Position soles around88percent canvas height. Leave ample blank white above the head: top of head around30percent canvas height, so future overhead straight arms and dumbbells will fit at same scale. Do not change pose, grip, face, clothing, dumbbell geometry, bench structure or materials. Reference1 original Male Master identity/outfit, reference2 silver/dark equipment materials only, reference3 LAST is exact scene edit target. Landscape1536x1024. White studio soft contact shadows. One reframed START only, no text.",
+      "references": [
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-863000ce-2cd2-4dcf-9da6-1f289319857b.png",
+          "sha256": "65baadff1a3e2676000e98bbffb6cacec20013daf6d92cdcb4de2a5e08ce3f3d",
+          "bytes": 1262836
+        }
+      ],
+      "status": "presented-awaiting-user-selection",
+      "output": {
+        "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-51d52bd6-f32c-4514-93ed-d740ea83627e.png",
+        "sha256": "58dbdd03d1ffcef1712e8931a7ef194b6161df06b9c832d3185b111e5ba52dac",
+        "bytes": 1510588,
+        "dimensions": [1536, 1024]
+      },
+      "visualQA": "Full seated supported lower press, secure visible grips, grounded feet and complete bench. Original Master/style supplied. Added headroom for overhead partner; independent biomechanics/device acceptance not asserted."
+    },
+    {
+      "exerciseId": "dumbbell-shoulder-press",
+      "phase": "finish",
+      "revision": 1,
+      "prompt": "Edit LAST image, approved CRESUM seated dumbbell shoulder press START, into ONE matching FINISH. Same1536x1024 landscape white studio, identical camera, scene scale, bench location, shoes/floor contacts and character proportions. Reference1 actual original Male Master identity/outfit; reference2 satin silver and dark matte material style only; reference3 LAST exact scene edit target.\nFINISH: same seated man has pressed BOTH same dumbbells overhead. Both elbows extend naturally almost straight, no backward hyperextension; upper arms rise beside ears in comfortable overhead position, forearms aligned with upper arms. Dumbbells above shoulders and wrists, slight natural convergence without weights touching each other or head. Both secure closed grips, thumbs around same silver handles, neutral wrists, no Arnold rotation. Same two dark round dumbbells, same size/shape, four coherent weight heads total. No residual lower dumbbells/arms or duplicate limbs.\nKeep pelvis and back supported by same nearly upright bench, ribs controlled and torso neutral, no added lumbar arch, feet flat in EXACT original positions, unchanged knees/legs/head position and gaze. Preserve natural shoulder/scapular upward movement rather than forcing shoulders down. Only arm/shoulder pose and lifted weights materially change.\nKeep exact full bench geometry, silver frame, dark pads, foot positions, shirt blue-gray, shorts dark-gray, white socks, light-gray shoes, Master face/hair and fine natural skin/fabric. Use reserved upper white space for full overhead weights; no zoom/rescale/crop/reframe. Entire man, both overhead dumbbells, entire bench and shoes fit comfortably. No text, arrows, labels, logos, anatomy colors or new objects. Output ONE FINISH only; START already approved.",
+      "references": [
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-51d52bd6-f32c-4514-93ed-d740ea83627e.png",
+          "sha256": "58dbdd03d1ffcef1712e8931a7ef194b6161df06b9c832d3185b111e5ba52dac",
+          "bytes": 1510588
+        }
+      ],
+      "status": "presented-awaiting-user-selection",
+      "output": {
+        "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-d463d049-48e9-4cd1-80f0-0815c9d88274.png",
+        "sha256": "7de03c24846a147c56e878059ea2b0663370c9dbbb2ce125b0d8d4633a45bfbc",
+        "bytes": 1562858,
+        "dimensions": [1536, 1024]
+      },
+      "visualQA": "Both weights overhead, extended arms, supported seated trunk, complete frame. Bench/feet/camera continuity visually close to selected START. No further generation required before selection; independent mechanics/device acceptance remains separate."
+    }
+  ]
+}

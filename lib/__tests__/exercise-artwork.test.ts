@@ -5,6 +5,14 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock(
+  '../../assets/exercises/dumbbell-shoulder-press/start.webp',
+  () => 1401,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-shoulder-press/finish.webp',
+  () => 1402,
+);
 jest.mock('../../assets/exercises/barbell-deadlift/start.webp', () => 1301);
 jest.mock('../../assets/exercises/barbell-deadlift/finish.webp', () => 1302);
 jest.mock(
@@ -379,5 +387,32 @@ it('binds selected deadlift phases without narrowing conventional identity or bo
     expect(
       resolveExerciseArtwork('barbell-bent-over-row', phase, 'male'),
     ).not.toBe(resolveExerciseArtwork(id, phase, 'male'));
+  }
+});
+
+it('binds selected shoulder press phases without narrowing standing or seated scope', () => {
+  const id = 'dumbbell-shoulder-press';
+  expect(findExercise(id)).toMatchObject({
+    id,
+    equipment: ['dumbbell'],
+    movementPattern: 'vertical-push',
+    primaryMuscles: ['front-delts', 'side-delts'],
+    secondaryMuscles: ['triceps'],
+  });
+  expect(findExercise('press')?.id).toBe(id);
+  expect(findTechnique(id)?.scope).toBe('Dumbbell overhead press.');
+  expect(findTechnique(id)?.setup.join(' ')).toMatch(/Stand.*sit/);
+  expect(resolveExerciseArtwork(id, 'start', 'male')).toBe(1401);
+  expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(1402);
+  expect(resolveAttachmentArtwork(id)).toBeNull();
+  for (const phase of ['start', 'finish'] as const) {
+    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
+    for (const other of [
+      'press',
+      'barbell-overhead-press',
+      'machine-shoulder-press',
+      'unknown',
+    ])
+      expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
   }
 });

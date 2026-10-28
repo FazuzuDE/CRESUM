@@ -1,5 +1,34 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Dumbbell Shoulder Press — selected Male pair, 2026-10-28
+
+The user accepted START r2 and FINISH r1. Export exact generated PNGs
+`exec-51d52bd6-f32c-4514-93ed-d740ea83627e.png` and
+`exec-d463d049-48e9-4cd1-80f0-0815c9d88274.png`; original/export hashes and
+complete actual Master/style/prompt lineage live under
+`assets/exercises/dumbbell-shoulder-press/`.
+
+Bind only existing `dumbbell-shoulder-press` / Male, using default shared square
+contain in both viewers. Retain selected geometry without retouch or placement
+adjustment. Supported seating is the existing guide's stability adaptation;
+the depicted bench and grip do not restrict the generic standing/seated ID.
+Preserve guide, muscles, attachments, legacy resolution, History and Female or
+other-exercise fallbacks. Phone projections at 320/390 were reviewed. Selection
+remains `user-selected-provisional`: independent detailed biomechanics and
+physical-device acceptance stay open. Sources join the next PC checkpoint;
+Oracle is deferred and archive status remains `pending-upload`.
+
+## Pair generation workflow — approved 2026-10-28
+
+For future exercises, request START and FINISH together in one generation,
+without routinely generating a second preliminary START. Plan headroom and
+shared camera/scale for both phases up front. If a generator returns a combined
+source sheet, export each phase to its own runtime file, preserving geometry
+and recording the source and crop bounds. This does not authorize a combined
+production panel or waive phase/pair QA. Additional repair is reserved for a
+concrete material defect. The current shoulder START was already selected;
+its FINISH was therefore generated alone without repeating START.
+
 ## Barbell Deadlift — selected Male pair, 2026-10-28
 
 The user approved START r2 and FINISH r1 individually ("Утверждаю"). Preserve

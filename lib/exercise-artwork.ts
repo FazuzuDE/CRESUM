@@ -50,6 +50,10 @@ const straightArmPair = {
   start: require('../assets/exercises/cable-straight-arm-pulldown/start.webp'),
   finish: require('../assets/exercises/cable-straight-arm-pulldown/finish.webp'),
 };
+const shoulderPressPair = {
+  start: require('../assets/exercises/dumbbell-shoulder-press/start.webp'),
+  finish: require('../assets/exercises/dumbbell-shoulder-press/finish.webp'),
+};
 const deadliftPair = {
   start: require('../assets/exercises/barbell-deadlift/start.webp'),
   finish: require('../assets/exercises/barbell-deadlift/finish.webp'),
@@ -75,6 +79,7 @@ export function resolveExerciseArtwork(
   if (variantId === 'chest-supported-dumbbell-row')
     return chestSupportedRowPair[phase];
   if (variantId === 'barbell-bent-over-row') return barbellRowPair[phase];
+  if (variantId === 'dumbbell-shoulder-press') return shoulderPressPair[phase];
   if (variantId === 'barbell-deadlift') return deadliftPair[phase];
   if (variantId === 'pull-up') return pullUpPair[phase];
   if (variantId === 'assisted-pull-up') return assistedPullUpPair[phase];

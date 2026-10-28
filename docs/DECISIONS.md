@@ -1,5 +1,15 @@
 # CRESUM Decision Log
 
+## 2026-10-28 — Shoulder press pair and single-generation workflow
+
+Integrate user-selected seated shoulder-press START r2 / FINISH r1 through
+existing Male-only resolver and shared square contain, preserving generic
+standing/seated identity, guide, muscles and History. Keep exact sources and
+full Master/style/prompt lineage with provisional biomechanics/device scope.
+For subsequent exercises, generate START and FINISH together in one request,
+without preliminary duplicate START; keep separate runtime phase files and
+record crop bounds if splitting a source sheet. EXERCISE_ASSETS.md owns details.
+
 ## 2026-10-28 — Conventional Barbell Deadlift pair selected
 
 The user accepted START r2 and FINISH r1 separately. Integrate exact generated
