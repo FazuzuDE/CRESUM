@@ -1,5 +1,15 @@
 # CRESUM Decision Log
 
+## 2026-10-28 — Conventional Barbell Deadlift pair selected
+
+The user accepted START r2 and FINISH r1 separately. Integrate exact generated
+sources through the existing Male-only artwork resolver, retaining complete
+Master/style and generation lineage. Use shared square contain presentation
+with a small whole-image FINISH vertical alignment; keep image proportions and
+selected pixels. Preserve canonical and legacy identity, guide, muscles, History
+and attachments. EXERCISE_ASSETS.md owns selected sources and provisional
+mechanics/device scope; source backup remains pending for the full PC checkpoint.
+
 ## 2026-10-28 — User-selected Cable Straight-Arm Pulldown illustration pair
 
 Accept the new diagram-based Male START and final FINISH as selected visual

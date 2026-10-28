@@ -1,5 +1,28 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Barbell Deadlift — selected Male pair, 2026-10-28
+
+The user approved START r2 and FINISH r1 individually ("Утверждаю"). Preserve
+exact generated PNGs `exec-3a75dea3-ff26-4f2e-8327-ed19672d11eb.png` and
+`exec-1296f392-9603-4e8b-b4e1-d584e6c13693.png`. Selected original/export
+hashes and complete actual Master/style/prompt lineage, including the initial
+START used by its reframing edit, live under `assets/exercises/barbell-deadlift/`.
+
+Bind only existing `barbell-deadlift` / Male. The conventional double-overhand
+example and pictured bar/plate design do not add grip, model or load qualifiers
+to the catalog. Preserve guide, qualitative muscles, legacy alias resolution,
+History, attachment contracts and other-exercise/Female fallbacks.
+
+Both viewers share square contain sizing. Shift the entire FINISH image up by
+`2.1484%` of square width to align its approximately 33px lower source shoe
+baseline; retain the original aspect ratio and image scale. No source retouch,
+warp or regeneration. Phone-size projections at 320/390 were reviewed; small
+shoe/bar projection differences remain, not an exact rigid-camera reconstruction.
+User selection and assistant visual inspection do not certify independent
+anatomy/biomechanics or physical-device acceptance. Status remains
+`user-selected-provisional`; originals/prompts/references join the next full PC
+source ZIP checkpoint. Oracle stays deferred and `pending-upload`.
+
 ## Cable Straight-Arm Pulldown — selected Male pair, 2026-10-28
 
 The user explicitly accepted the newly generated diagram-based START and final

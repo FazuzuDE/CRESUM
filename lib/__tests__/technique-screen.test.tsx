@@ -1,7 +1,9 @@
 import { ExerciseLibrary } from '../../components/ExerciseLibrary';
-import { TextInput, Linking, Image } from 'react-native';
+import { TextInput, Linking, Image, StyleSheet } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/barbell-deadlift/start.webp', () => 1301);
+jest.mock('../../assets/exercises/barbell-deadlift/finish.webp', () => 1302);
 jest.mock(
   '../../assets/exercises/cable-straight-arm-pulldown/start.webp',
   () => 1201,
@@ -164,6 +166,7 @@ it.each([
   ['Assisted Pull-Up', 1001, 1002],
   ['Machine High Row', 1101, 1102],
   ['Cable Straight-Arm Pulldown', 1201, 1202],
+  ['Barbell Deadlift', 1301, 1302],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
@@ -279,6 +282,45 @@ it('allows disclosure labels to wrap beside their indicator at larger text sizes
       flex: 1,
       flexShrink: 1,
     });
+  } finally {
+    act(() => v.unmount());
+  }
+});
+
+it('keeps deadlift FINISH uniformly aligned in both viewers and resets placement for START', () => {
+  const v = render();
+  const images = (phase: string) =>
+    v.root
+      .findAllByType(Image)
+      .filter(
+        (n: any) => n.props.accessibilityLabel === `Barbell Deadlift: ${phase}`,
+      );
+  try {
+    act(() => button(v, 'Technique for Barbell Deadlift')!.props.onPress());
+    expect(StyleSheet.flatten(images('START')[0].props.style)).toMatchObject({
+      top: 0,
+      width: '100%',
+      height: '100%',
+    });
+    act(() => button(v, 'Show FINISH')!.props.onPress());
+    act(() => button(v, 'Expand exercise illustration')!.props.onPress());
+    expect(images('FINISH')).toHaveLength(2);
+    const inlineStyle = StyleSheet.flatten(images('FINISH')[0].props.style);
+    expect(parseFloat(String(inlineStyle.top))).toBeLessThan(0);
+    expect(inlineStyle).toMatchObject({
+      left: 0,
+      width: '100%',
+      height: '100%',
+    });
+    for (const image of images('FINISH')) {
+      expect(image.props.source).toBe(1302);
+      expect(image.props.resizeMode).toBe('contain');
+      expect(StyleSheet.flatten(image.props.style)).toEqual(inlineStyle);
+    }
+    act(() => button(v, 'Close full-screen illustration')!.props.onPress());
+    act(() => button(v, 'Show START')!.props.onPress());
+    expect(images('START')[0].props.source).toBe(1301);
+    expect(StyleSheet.flatten(images('START')[0].props.style).top).toBe(0);
   } finally {
     act(() => v.unmount());
   }

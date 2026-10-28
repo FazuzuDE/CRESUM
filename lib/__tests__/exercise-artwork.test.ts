@@ -5,6 +5,8 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock('../../assets/exercises/barbell-deadlift/start.webp', () => 1301);
+jest.mock('../../assets/exercises/barbell-deadlift/finish.webp', () => 1302);
 jest.mock(
   '../../assets/exercises/cable-straight-arm-pulldown/start.webp',
   () => 1201,
@@ -244,12 +246,7 @@ it('shows selected barbell row phases without redefining its unspecified grip or
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
     expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
-    for (const other of [
-      'row',
-      'seated-cable-row',
-      'barbell-deadlift',
-      'unknown',
-    ]) {
+    for (const other of ['row', 'seated-cable-row', 'unknown']) {
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
     }
   }
@@ -353,5 +350,34 @@ it('binds selected straight-arm phases only to the existing Male exercise', () =
     expect(resolveExerciseArtwork('machine-high-row', phase, 'male')).not.toBe(
       resolveExerciseArtwork(id, phase, 'male'),
     );
+  }
+});
+
+it('binds selected deadlift phases without narrowing conventional identity or borrowing other hinges', () => {
+  const id = 'barbell-deadlift';
+  expect(findExercise(id)).toMatchObject({
+    id,
+    equipment: ['barbell'],
+    movementPattern: 'hinge',
+    primaryMuscles: ['glutes', 'hamstrings', 'lower-back'],
+    secondaryMuscles: ['traps', 'forearms', 'quadriceps'],
+  });
+  expect(findExercise('deadlift')?.id).toBe(id);
+  expect(findTechnique(id)?.scope).toBe('Conventional barbell deadlift.');
+  expect(resolveExerciseArtwork(id, 'start', 'male')).toBe(1301);
+  expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(1302);
+  expect(resolveAttachmentArtwork(id)).toBeNull();
+  for (const phase of ['start', 'finish'] as const) {
+    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
+    for (const other of [
+      'deadlift',
+      'romanian-deadlift',
+      'barbell-romanian-deadlift',
+      'unknown',
+    ])
+      expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
+    expect(
+      resolveExerciseArtwork('barbell-bent-over-row', phase, 'male'),
+    ).not.toBe(resolveExerciseArtwork(id, phase, 'male'));
   }
 });
