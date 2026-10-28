@@ -1,0 +1,87 @@
+{
+  "variantId": "machine-high-row",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "selectionDate": "2026-10-28",
+  "status": "user-selected-provisional",
+  "archiveStatus": "pending-upload",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "53EB5825-B7A1-4BB3-BE68-0BBCA667CE5D.jpeg",
+      "sourceSha256": "afc27eb7bd424465f34e82e39882254fb6119a50c20908264b1faf7636ba9e8d",
+      "sourceBytes": 241992,
+      "sourceSize": [1536, 1024],
+      "sourceLibraryFileId": "libfile_35ca98962e0881919ba7982244da8801",
+      "sha256": "d1fdff96ac5701f15dd283516a439a50b07bc60ceb51f637a99618f1fcdc7363",
+      "bytes": 66232,
+      "width": 1280,
+      "height": 853,
+      "generationOrigin": {
+        "sourceFile": "exec-d61ce1a8-06a0-44c5-b5ce-1d20ecf8a482.png",
+        "sha256": "7b14e6ad537fa3474cd6959205ce3599928916a796c14ee2b843b9dc3888fccc",
+        "bytes": 1389836,
+        "sourceSize": [1536, 1024],
+        "relationship": "Generated PNG provenance retained separately; runtime export comes from the user-selected JPEG, with different source bytes."
+      }
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "F4149A6C-4722-4CED-AC3A-0F2F461C0B2C.jpeg",
+      "sourceSha256": "b0f3c846545e9ff26e387456540e9550ade2c0dc93fb526296bf30eb50fec18b",
+      "sourceBytes": 231181,
+      "sourceSize": [1536, 1024],
+      "sourceLibraryFileId": "libfile_19fb37806008819183e425af7dd99ece",
+      "sha256": "69229e7da3d9de91ad1ea86a07df7e381108ffe0b41d20c718ac8cf9b098365b",
+      "bytes": 64194,
+      "width": 1280,
+      "height": 853,
+      "generationOrigin": {
+        "sourceFile": "exec-bcdbf96d-85eb-4ea0-b641-fa9b24a220d3.png",
+        "sha256": "43285196cf8c70e9d37ba9d4e6ecd2ff93d76aaa98da8a812c3dc5a3cd9bfe84",
+        "bytes": 1688556,
+        "sourceSize": [1536, 1024],
+        "relationship": "Generated PNG provenance retained separately; runtime export comes from the user-selected JPEG, with different source bytes."
+      }
+    }
+  },
+  "productionChoice": "User-requested plate-loaded independent lever high-row example with light silver-gray structure, dark plates and padding. Hammer Strength IL-HR is a physical production reference, not a new canonical model/grip/load qualifier. Existing generic seated high-row identity, guide, qualitative muscle roles, History and saved data remain unchanged.",
+  "presentation": "Unmodified selected-source geometry, same square contain frame and default placement in shared inline/expanded TechniqueArtwork. No phase-specific placement adjustment, geometry repaint or synthesized interpolation.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "selectedStartGeneration": "plate-loaded START r4",
+    "selectedFinishGeneration": "FIRST FINISH r1",
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "equipmentStyle": "cresum-equipment-style-v1",
+    "userMechanismReference": {
+      "sourceFile": "B5819D1D-B273-46A5-8F3C-52A825435590.png",
+      "sha256": "e75c87839b2ac327c4d3bc8b71f6e349e8c3812bb43eea967662c5ecb83dbc45",
+      "sourceLibraryFileId": "libfile_f5ccf4a7895c8191a292e167da8a29ad"
+    }
+  },
+  "references": {
+    "manufacturerURL": "https://www.lifefitness.com/en-us/catalog/strength-training/plate-loaded/plate-loaded-iso-lateral-high-row",
+    "photoSourceURL": "https://shop.lifefitness.com/products/hammer-strength-iso-lateral-high-row",
+    "existingGenericGuideURL": "https://www.acefitness.org/resources/everyone/exercise-library/169/seated-high-back-rows/",
+    "scope": "Manufacturer/User images ground this plate-loaded production example; existing generic scope remains Seated high-row machine; handle path varies."
+  },
+  "reviewScope": "User selected the exact supplied START and FIRST FINISH. Assistant viewed both full frames for phase separation, bilateral pull, plate movement, Master/material continuity and support/hand contacts; square-contain phone projections are reviewed during integration. This does not certify measured CAD, independent biomechanics or physical-device acceptance.",
+  "openReview": [
+    "Visible upper pivot/carrier placement and other generated hardware vary locally between selected phases; user-selected FIRST FINISH is preserved without geometry retouch.",
+    "Exact rigid-link motion, swept clearance, detailed anatomy/grip and independent biomechanics remain open.",
+    "Physical-device rendering acceptance and verified PC/Oracle source backup remain open."
+  ],
+  "sourceRetention": "Selected JPEGs are Library-backed attachments; generated PNG origins, exact prompts, references and discarded candidates are retained in the visual workspace/conversation for the next PC ZIP checkpoint. Oracle uploads remain deferred with no verified receipt.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "resize": "Pillow thumbnail",
+    "maxWidth": 1280,
+    "maxHeight": 1280,
+    "resampling": "LANCZOS",
+    "quality": 92,
+    "method": 6
+  }
+}

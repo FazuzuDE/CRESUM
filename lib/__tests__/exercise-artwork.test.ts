@@ -5,6 +5,8 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock('../../assets/exercises/machine-high-row/start.webp', () => 1101);
+jest.mock('../../assets/exercises/machine-high-row/finish.webp', () => 1102);
 jest.mock('../../assets/exercises/assisted-pull-up/start.webp', () => 1001);
 jest.mock('../../assets/exercises/assisted-pull-up/finish.webp', () => 1002);
 jest.mock('../../assets/exercises/pull-up/start.webp', () => 901);
@@ -285,5 +287,34 @@ it('keeps selected assisted pull-up phases distinct from the free bodyweight pai
     );
     for (const other of ['lat-pulldown', 'pulldown', 'unknown'])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
+  }
+});
+
+it('binds the selected high-row pair without narrowing the generic exercise scope', () => {
+  const id = 'machine-high-row';
+  expect(findTechnique(id)?.scope).toBe(
+    'Seated high-row machine; handle path varies.',
+  );
+  expect(findExercise(id)).toMatchObject({
+    equipment: ['machine'],
+    movementPattern: 'horizontal-pull',
+    primaryMuscles: ['upper-back', 'lats'],
+    secondaryMuscles: ['rear-delts', 'biceps'],
+  });
+  expect(resolveExerciseArtwork(id, 'start', 'male')).toBe(1101);
+  expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(1102);
+  expect(resolveAttachmentArtwork(id)).toBeNull();
+  for (const phase of ['start', 'finish'] as const) {
+    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
+    for (const other of [
+      'lat-pulldown',
+      'seated-cable-row',
+      'machine-chest-press',
+      'unknown',
+    ])
+      expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
+    expect(resolveExerciseArtwork('assisted-pull-up', phase, 'male')).not.toBe(
+      resolveExerciseArtwork(id, phase, 'male'),
+    );
   }
 });

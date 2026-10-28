@@ -1,5 +1,33 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Machine High Row — selected plate-loaded Male pair, 2026-10-28
+
+The user selected START via `53EB5825-B7A1-4BB3-BE68-0BBCA667CE5D.jpeg`
+("Вот эта") and the FIRST FINISH via
+`F4149A6C-4722-4CED-AC3A-0F2F461C0B2C.jpeg` ("Первая утверждаю").
+Export those exact supplied JPEGs; retain their separate generated PNG origins,
+exact prompts, actual Male Master/style inputs, user mechanism reference and
+manufacturer photo provenance under `assets/exercises/machine-high-row/`.
+The later FINISH r2 and superseded MTS drafts are not runtime sources.
+
+Bind only existing `machine-high-row` / Male through the shared resolver for
+inline/expanded technique and the existing START exercise artwork. Keep the
+generic seated high-row scope, guide, qualitative muscle roles, saved data,
+History, other exercise/Female fallbacks and attachment-thumbnail contracts.
+The plate-loaded IL-HR-style station, depicted grip and loading are visual
+production choices; they do not add canonical model/grip/load qualifiers.
+
+Use the selected light equipment style v1 and the default square contain frame.
+Preserve selected image geometry and first-FINISH choice without repainting or
+phase-specific placement adjustments. Local upper hardware/pivot placement
+varies between these generated phases; record that open review scope rather
+than claiming a measured rigid-link reconstruction. User selection and
+assistant full-frame/phone-size inspection do not certify independent detailed
+mechanics/anatomy/biomechanics or physical-device acceptance. Status remains
+`user-selected-provisional`. Selected JPEGs are Library-backed attachments;
+the available PNG/prompt/reference history joins the next PC ZIP checkpoint.
+Oracle uploads remain deferred and `pending-upload`, with no verified receipt.
+
 ## Equipment style reference v1 — approved 2026-10-28
 
 Use `assets/visual-references/equipment-style-v1/reference.webp` as the preferred

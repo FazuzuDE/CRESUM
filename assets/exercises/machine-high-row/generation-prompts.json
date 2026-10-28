@@ -1,0 +1,118 @@
+{
+  "variantId": "machine-high-row",
+  "tool": "built-in image_gen",
+  "status": "exact-selected-generation-chain",
+  "start": {
+    "exerciseId": "machine-high-row",
+    "revision": 4,
+    "phase": "START",
+    "userRequest": "Должно быть примерно такая механика",
+    "tool": "built-in image_gen",
+    "prompt": "Create ONE new CRESUM Machine High Row START illustration using the USER'S PLATE-LOADED LEVER MECHANISM. Reconstruct the station around this mechanism. This is not the previous stack-based MTS machine.\n\nREFERENCE PRIORITY:\nIMAGE1 = USER'S primary mechanism and pose reference: a plate-loaded high-row station, stable A-shaped rear uprights, overhead independent lever arms, actual circular weight plates carried on moving loading horns, seated supported athlete reaching forward/up. Reproduce this working principle and readable side silhouette. The red anatomical coloring and tiny illustration style are NOT part of the requested CRESUM artwork.\nIMAGE2 = official Hammer Strength IL-HR product photo, detailed real-world assembled geometry: use real main bearings, continuous rigid lever beams, rear loading arms/horns, fixed frame/braces, adjustable seat, chest pad and thigh supports.\nIMAGE3 = ACTUAL original CRESUM Male Master sheet, exact character identity, natural adult proportions, face/brown hair/clean-shaven appearance, muted blue-gray shirt, dark-gray shorts, white socks and light-gray trainers.\nIMAGE4 = approved CRESUM equipment-style-v1 MATERIAL/LIGHTING reference only: satin light silver-gray structural metal, graphite/black equipment details, dark matte upholstery and rubber, white studio/soft contact shadows. Do not import this reference's gravitron construction or knee-pad pose.\nIMAGE5 = official IL-HR exerciser photo showing authentic extended-arm START and real seat/chest/thigh/foot contacts. Its older man, dark gym, brand text and clothing must be replaced by image3's exact Male Master and the CRESUM studio presentation.\n\nACTUAL PLATE-LOADED MECHANICS:\nTwo independent working lever assemblies, each rigidly connected to its own curved rubber handle at the front/user end and to a genuine loading horn with weight plates at the rear load end. Each complete assembly rotates about ONE real main axis in a robust bearing bracket on the fixed upper rear upright. Both sides are at the same START phase.\nKeep the load arm, pivot and handle arm physically connected as in image1/2. The loading horn must sit on the MOVING load arm, with the pivot between the functional handle and load arms. As the user later pulls handles down/back, the corresponding loaded horns/plates rise against gravity. This must be a coherent rigid lever, not a plate attached to the fixed frame, an ornamental floating disc or a second free joint. Retain the real lever angles, end stops and independent clearance of the IL-HR source.\nLoad ONE matching dark circular Olympic-style plate on EACH working horn, with correct central hole, sleeve, hub and retention; consistent diameter/thickness, safe clearance from upright and athlete. Near disc/horn/axis should be visually legible; far disc may be naturally partly occluded. Leave any genuine storage horns empty so the functional loaded lever is clear.\nRetain a real stable light-metal base and fixed A-frame/rear crossbracing supporting the main axes. Stationary frame and moving arms must be clearly separated by proper bearings and air gaps. No selectorized weight towers, cables, belts, pulley stacks, MTS-style gantry, fake parallelogram/scissor linkage, arms welded to static frame at two points or mechanism passing through the person.\n\nPERSON / START:\nUse a side three-quarter view similar to image1, with the rear machine structure/loading discs to image-left/back and the athlete naturally seated toward image-right, facing the handles and padded support. Preserve a natural visible Master side profile rather than hiding the face.\nPelvis on the adjustable dark seat, chest supported by the real front face of the chest pad, upper thighs comfortably beneath the actual padded hold-downs, both shoes firmly supported on the floor as in the manufacturer exercising photo. Natural knee/hip bends, neutral head/spine, upright braced torso without swinging or a deep backwards lean. All support posts stay outside skin/clothing; no pad/bar through thighs, abdomen, knees or feet.\nBOTH arms extend forward/up to the real grip ends in START, near-straight soft elbows, controlled shoulders and neutral wrists, five natural fingers/opposed thumbs closing around each real rubber grip. Arms/body stay clear of discs, lever swept volumes and fixed crossmembers. No bent-elbow FINISH, distorted limb lengths or floating grips.\n\nVISUAL / CAMERA:\nPremium clean semi-realistic CRESUM 3D. LIGHT SATIN SILVER-GRAY frame/working levers, dark graphite weight plates and hardware, dark matte chest/seat/thigh padding, fine consistent skin/fabric and controlled metal highlights. No bulky dark towers; keep the open plate-loaded geometry from image1/2.\nWhite studio, soft neutral lighting, natural small floor-contact shadows. Balanced full-machine/full-body side three-quarter product view, landscape1536x1024, plausible adult-to-machine proportions, all lever ends/discs/head/feet within comfortable margins. Make the near main shaft, connected lever and loading disc readable without removing genuine frame members. Reserve natural swing room for the matching FINISH. One frame only, no text, logos, numbers, arrows, anatomy highlights, cutaways, split views or watermarks.",
+    "referencedImagePaths": [
+      "/workspace/scratch/44db0ba1caa2/upload/B5819D1D-B273-46A5-8F3C-52A825435590.png",
+      "/workspace/scratch/44db0ba1caa2/high-row-draft/plate-loaded/official-main.jpg",
+      "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+      "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+      "/workspace/scratch/44db0ba1caa2/high-row-draft/plate-loaded/official-view-8.jpg"
+    ],
+    "referenceRoles": [
+      "user mechanism/pose reference",
+      "manufacturer IL-HR assembled geometry",
+      "actual original Male Master",
+      "frozen equipment-style-v1",
+      "manufacturer extended-arm setup/contact reference"
+    ],
+    "userReferenceLibraryFileId": "libfile_f5ccf4a7895c8191a292e167da8a29ad",
+    "physicalProductionChoice": "Plate-loaded independent lever high row, as user reference; IL-HR is real-world geometry example, generic catalog identity unchanged.",
+    "status": "prepared-plate-loaded-START",
+    "sourceURLs": [
+      "https://www.lifefitness.com/en-us/catalog/strength-training/plate-loaded/plate-loaded-iso-lateral-high-row",
+      "https://shop.lifefitness.com/products/hammer-strength-iso-lateral-high-row"
+    ],
+    "previousMTSStatus": "superseded by explicit user mechanism reference",
+    "referenceHashes": [
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/upload/B5819D1D-B273-46A5-8F3C-52A825435590.png",
+        "sha256": "e75c87839b2ac327c4d3bc8b71f6e349e8c3812bb43eea967662c5ecb83dbc45",
+        "bytes": 15154
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/high-row-draft/plate-loaded/official-main.jpg",
+        "sha256": "45b66ee6a43def60e167f6fa30388ff0b0a38a7a258b5889088a6b34502154f9",
+        "bytes": 70088
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+        "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+        "bytes": 42162
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/high-row-draft/plate-loaded/official-view-8.jpg",
+        "sha256": "457a5ee54437251c3663e6a178d54b8d3c66c431ca37a6a9ade2bdcfa601d24c",
+        "bytes": 113471
+      }
+    ]
+  },
+  "finish": {
+    "exerciseId": "machine-high-row",
+    "model": "male",
+    "phase": "FINISH",
+    "revision": 1,
+    "tool": "built-in image_gen",
+    "prompt": "CRESUM Machine High Row FINISH. Edit IMAGE1, the USER-SELECTED START, into its matching FINISH. It must look like the same frozen camera shot of the same physical machine, with only the real movement phase changed.\n\nREFERENCES:\nIMAGE1 = exact user-selected START: authoritative machine construction, scale, camera, actor placement, all fixed supports, plate count and appearance. Preserve the full1536x1024 landscape composition.\nIMAGE2 = actual ORIGINAL CRESUM Male Master sheet: exact same man/face/brown hair/natural fit proportions; muted blue-gray fitted shirt, dark-gray shorts, white socks/light-gray trainers, fine even skin and matte cloth. Prevent identity/material drift during the edit.\nIMAGE3 = frozen CRESUM equipment-style-v1 for light silver-gray/graphite material and soft white-studio rendering continuity ONLY. Keep image1's plate-loaded lever station.\n\nFINISH BODY:\nKeep his pelvis seated at exactly the same position, sternum in contact with the same chest-pad face, upper thighs under the same pads, both knees/lower legs/shoes at the same support positions. Same steady upright torso, neutral neck and head/profile, same shoulder height and natural adult scale.\nPull BOTH real handgrips down and back toward the upper ribs/upper-chest region in a complete controlled high-row FINISH. Bend BOTH elbows naturally around85-100degrees, drawing them down/back beside the trunk, slightly behind it if comfortable. Hands remain in front of the upper trunk on the SAME corresponding curved grip segments, with closed fingers/opposing thumbs and straight wrists. Natural small shoulder-blade retraction; no shrug, torso swing, neck jut, deep back lean, rotated body or lengthened/shortened limbs. Both sides finish together, not an alternating one-arm pose. Keep chest support and clear separation from the thigh pad and face.\n\nCOUPLED MACHINE MOVEMENT:\nRotate EACH ENTIRE real welded working lever assembly about its ORIGINAL fixed main shaft. The long front beam and attached curved handle move as ONE rigid unit down/back toward the user's chest; the opposite rear loading arm, loading horn and its SAME plate rotate UP together against gravity. No independent sliding handle, telescope, extra hinge, dangling grip or new cable. Make the phase visibly different from START without forcing an excessive range: about30-35degrees lever rotation is a useful visual guide, governed by this actual shaft/grip geometry.\nKeep one matching dark plate on each working horn: same plate diameter, thickness, hub/hole, retention and material, with near/far perspective unchanged. Both loading discs rise visibly relative to the fixed rear frame as the front grips descend. The loading horns and connected rear arms rise with them; no detached plate, plate attached to static frame or unchanged load while handles move. Keep every moving attachment a coherent part of the same rigid lever.\nThe main axes/bearing supports, fixed A-frame uprights/base/braces, seat/chest/thigh supports, empty storage horns, floor contacts and camera remain in EXACTLY their START positions. Preserve all fixed machine geometry and depth; do not redesign or add/delete members. Leave original START lever/hand positions empty rather than duplicating arms or grips. Moving parts remain clear of head, chest, knees and fixed frame; no hardware cutting through clothing/skin.\n\nPAIR PRESENTATION:\nMatch image1's camera, perspective, image bounds, image/object scale, head/torso/seat/foot placement and centered floor position. NO zoom, reframing, scene translation, different lens, crop or larger machine. Preserve light satin silver-gray frame/lever metal, dark graphite plates, dark matte pads/grips/rubber, white studio background, soft neutral lighting and natural contact shadows.\nKeep the WHOLE athlete and apparatus, including raised disc tops and all lever ends, inside the existing canvas; use a mechanically comfortable FINISH within the available clearance. Both phases should toggle harmoniously in the same square-contain phone card. Fine consistent Master skin, fabric and material detail; avoid waxy patches, oversharpening, melted metal or random color changes.\nProduce ONE FINISH frame, no labels, logos, numbers, arrows, muscle colors, inset, split panel, ghosted START, duplicate limbs/hands/plates or watermark.",
+    "referencedImagePaths": [
+      "/workspace/scratch/44db0ba1caa2/upload/53EB5825-B7A1-4BB3-BE68-0BBCA667CE5D.jpeg",
+      "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+      "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp"
+    ],
+    "referenceRoles": [
+      "exact user-selected START JPEG",
+      "actual original Male Master",
+      "equipment-style-v1 materials only"
+    ],
+    "selectedStartLibraryFileId": "libfile_35ca98962e0881919ba7982244da8801",
+    "status": "prepared",
+    "reviewScope": "Source-grounded provisional technique illustration; no independent mechanics or physical-device certification.",
+    "referenceHashes": [
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/upload/53EB5825-B7A1-4BB3-BE68-0BBCA667CE5D.jpeg",
+        "sha256": "afc27eb7bd424465f34e82e39882254fb6119a50c20908264b1faf7636ba9e8d",
+        "bytes": 241992
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+        "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+        "bytes": 42162
+      }
+    ]
+  },
+  "selectionRelationship": "Both selected sources are user-provided JPEGs visually matching the generated START r4 and FIRST FINISH r1; generated PNG origins have separate hashes. Later FINISH r2 was not selected. Earlier MTS drafts are superseded and not runtime ancestry.",
+  "manufacturerPhotoProvenance": {
+    "official-main.jpg": {
+      "url": "https://shop.lifefitness.com/cdn/shop/files/hammer-strength-plate-loadediso-lateral-high-row-1000x1000.jpg?v=1748945111&width=1000",
+      "sha256": "45b66ee6a43def60e167f6fa30388ff0b0a38a7a258b5889088a6b34502154f9",
+      "bytes": 70088
+    },
+    "official-view-8.jpg": {
+      "url": "https://shop.lifefitness.com/cdn/shop/files/Hammer_Strength_-_Plate_Loaded_-_Iso-Lateral_High_Row_IL-HR_8__mr.jpg?v=1748945111&width=1000",
+      "sha256": "457a5ee54437251c3663e6a178d54b8d3c66c431ca37a6a9ade2bdcfa601d24c",
+      "bytes": 113471
+    },
+    "official-view-14.jpg": {
+      "url": "https://shop.lifefitness.com/cdn/shop/files/Hammer_Strength_-_Plate_Loaded_-_Iso-Lateral_High_Row_IL-HR_14__mr.jpg?v=1748945112&width=1000",
+      "sha256": "de23daa273bfeb760f49fdf56b1fdbf7591b4d9ff6e419ed6b6e3600ad183ba7",
+      "bytes": 144692
+    }
+  }
+}

@@ -1,5 +1,17 @@
 # CRESUM Decision Log
 
+## 2026-10-28 — Plate-loaded Machine High Row pair selected
+
+The user's lever/disc reference replaced the earlier MTS production example.
+START was selected through the supplied JPEG ("Вот эта"); the FIRST FINISH was
+explicitly selected through its supplied JPEG ("Первая утверждаю"). Integrate
+those exact selected sources and their separate PNG generation provenance for
+existing `machine-high-row` / Male, using light equipment style v1 and shared
+square contain rendering. Retain generic catalog/guide/muscle/History semantics.
+The later FINISH r2 is unselected. Local upper hardware variation and independent
+mechanics/device acceptance stay open; selection is `user-selected-provisional`.
+EXERCISE_ASSETS.md owns the selection and source-retention scope.
+
 ## 2026-10-28 — Selected gravitron establishes equipment visual style v1
 
 After merging PR #105, the user asked to fix the last gravitron image's equipment
