@@ -1,0 +1,43 @@
+{
+  "id": "cresum-equipment-style-v1",
+  "revision": 1,
+  "status": "user-approved-visual-style",
+  "approvalDate": "2026-10-28",
+  "userDecision": "В последнем фото получился довольно симпатичный дизайн тренажера, можем ли мы его зафиксировать, мне кажется что он более приятный для нашего дизайна.",
+  "scope": "Equipment materials, palette, surface finish and studio rendering direction for new or explicitly revised exercise illustrations.",
+  "reference": {
+    "file": "reference.webp",
+    "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+    "bytes": 42162,
+    "width": 1280,
+    "height": 853,
+    "sourceRepositoryPath": "assets/exercises/assisted-pull-up/finish.webp",
+    "sourceRepositoryCommit": "4779ffd4947d08241629b25670e80c1368f8e441",
+    "sourceSelection": "Image 4 FINISH, merged in PR #105",
+    "originalPng": {
+      "file": "exec-bd67d5b0-dd4d-4fae-b01f-fe62b023fd2e.png",
+      "sha256": "10520c81f697f3ae0dd742fb745c3293a7c1c3818430c546d59b1f584db0d097",
+      "bytes": 1567310,
+      "width": 1536,
+      "height": 1024
+    }
+  },
+  "visualLanguage": {
+    "frame": "Satin silver-gray metal with smooth, restrained highlights and clean joins.",
+    "enclosures": "Deep graphite or near-black weight-stack covers, with calm continuous surfaces and softly rounded transitions supported by the real machine.",
+    "upholsteryAndGrips": "Dark matte padding, rubber grips and feet; fine consistent material texture.",
+    "accents": "Small functional controls remain legible and restrained; equipment stays visually subordinate to the movement.",
+    "rendering": "Premium semi-realistic 3D on a clean white studio background, soft neutral light and natural contact shadows.",
+    "cardPresentation": "Full athlete and apparatus, coherent body-to-machine proportions, comparable scale and stable fixed equipment across START/FINISH in the existing square contain frame."
+  },
+  "referenceAuthority": {
+    "equipmentMaterialsAndRendering": "This frozen reference.webp.",
+    "equipmentGeometry": "Verified real-machine references for the exact exercise/configuration, preserving functional dimensions, support, mechanisms, handles and contact clearances.",
+    "maleIdentityAndOutfit": "Actual externally supplied CRESUM Male Master; this exercise frame is an additional equipment-style reference.",
+    "phaseContinuity": "The selected START frame grounds FINISH camera, equipment, proportions and material continuity."
+  },
+  "productionUse": "Supply reference.webp alongside the actual character Master and exact equipment/phase references in future generation calls. Compare full frames and phone-size START/FINISH before presenting candidates. This is a human production reference; no automatic Prompt Package or runtime resolver binding is added.",
+  "reviewScope": "User preference approves the equipment visual language. Source assisted-pull-up pair remains user-selected-provisional for its detailed anatomy/biomechanics, concealed counterweight mechanics and physical-device acceptance.",
+  "sourceArchiveStatus": "pending-upload",
+  "sourceRetention": "Exact WebP reference is committed independently of the exercise asset path. Original PNG and generation/reference chain retain their existing provenance; source PC ZIP checkpoint and Oracle upload remain separate."
+}
