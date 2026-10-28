@@ -2,6 +2,11 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/barbell-bent-over-row/start.webp', () => 801);
+jest.mock(
+  '../../assets/exercises/barbell-bent-over-row/finish.webp',
+  () => 802,
+);
 jest.mock(
   '../../assets/exercises/lat-pulldown-wide-pronated-bar/start.webp',
   () => 301,
@@ -140,6 +145,7 @@ it.each([
   ['Close Neutral V-Handle Seated Cable Row', 501, 502],
   ['One-Arm Dumbbell Row', 601, 602],
   ['Chest-Supported Dumbbell Row', 701, 702],
+  ['Barbell Bent-Over Row', 801, 802],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {

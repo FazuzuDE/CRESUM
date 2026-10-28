@@ -1,5 +1,13 @@
 # CRESUM — Development Roadmap
 
+## Visual archive checkpoint update — 2026-10-27
+
+Oracle uploads/backfill are deferred by the user. Continue exercise artwork;
+after major visual blocks or at the end, prepare the available originals,
+references, candidates, 3D files and exact prompts as a checksummed ZIP for PC
+download. Do not require Oracle completion before app integration. See
+VISUAL_STORAGE.md; a prepared ZIP is not a confirmed PC backup.
+
 ### Close neutral seated row images — selected 2026-10-27
 
 Connect the user-selected, central-post-corrected Male START/FINISH to one
