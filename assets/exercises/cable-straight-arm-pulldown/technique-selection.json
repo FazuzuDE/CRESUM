@@ -1,0 +1,41 @@
+{
+  "exerciseId": "cable-straight-arm-pulldown",
+  "model": "male",
+  "selectionDate": "2026-10-28",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю сгенерированные картинки как старт и финиш. Подходят",
+  "selectedCandidates": {
+    "start": "diagram-pair START r1",
+    "finish": "diagram-pair final FINISH r2"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-2fb97651-abe0-4448-9bef-ff7ebcec2881.png",
+      "sourceSha256": "c2bdeb43c6e4805e698849098d6d3e8c5ade7298340102e7a4a42ee7ce9a0798",
+      "sourceBytes": 1416168,
+      "sourceSize": [1536, 1024],
+      "sha256": "1fb6885ee7badb6f45f8ea7d1b584b71891f0ecfdc7cb498e0d686ab23231ed9",
+      "bytes": 55628,
+      "width": 1280,
+      "height": 853
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-a81793f8-eac8-4dda-bfa8-a27486ebdf55.png",
+      "sourceSha256": "554ae4f9556d4c7dfcb8ad4f39567fee840b8c766ff41fcf3ab52341ec5237c1",
+      "sourceBytes": 1594676,
+      "sourceSize": [1536, 1024],
+      "sha256": "5159720294314423492fbcfb5ef021c7e94e96aaa616e2b5c79fd95d79c34865",
+      "bytes": 54140,
+      "width": 1280,
+      "height": 853
+    }
+  },
+  "approvalEvidence": {
+    "file": "E6B8090D-D14C-4189-A4FE-D60678B927A7.png",
+    "libraryFileId": "libfile_dbef74f007488191b042a953def4d2d8",
+    "role": "approval screenshot only; not an artwork export source"
+  },
+  "archiveStatus": "pending-upload"
+}

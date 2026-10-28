@@ -1,5 +1,16 @@
 # CRESUM Decision Log
 
+## 2026-10-28 — User-selected Cable Straight-Arm Pulldown illustration pair
+
+Accept the new diagram-based Male START and final FINISH as selected visual
+artwork, without further retouch. Integrate exact generated PNG exports through
+the existing shared artwork resolver and default square contain presentation.
+Keep IDs, guide, muscles, saved data and attachment contracts unchanged. Preserve
+actual Master/style and full generation provenance. Keep provisional mechanics
+scope explicit: FINISH connector centering/occlusion and independent device QA
+remain unresolved despite visual selection. Source backup stays pending until
+the next full PC archive checkpoint; no Oracle upload is asserted.
+
 ## 2026-10-28 — Plate-loaded Machine High Row pair selected
 
 The user's lever/disc reference replaced the earlier MTS production example.

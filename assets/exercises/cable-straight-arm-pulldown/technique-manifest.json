@@ -1,0 +1,57 @@
+{
+  "variantId": "cable-straight-arm-pulldown",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "selectionDate": "2026-10-28",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-2fb97651-abe0-4448-9bef-ff7ebcec2881.png",
+      "sourceSha256": "c2bdeb43c6e4805e698849098d6d3e8c5ade7298340102e7a4a42ee7ce9a0798",
+      "sourceBytes": 1416168,
+      "sourceSize": [1536, 1024],
+      "sha256": "1fb6885ee7badb6f45f8ea7d1b584b71891f0ecfdc7cb498e0d686ab23231ed9",
+      "bytes": 55628,
+      "width": 1280,
+      "height": 853
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-a81793f8-eac8-4dda-bfa8-a27486ebdf55.png",
+      "sourceSha256": "554ae4f9556d4c7dfcb8ad4f39567fee840b8c766ff41fcf3ab52341ec5237c1",
+      "sourceBytes": 1594676,
+      "sourceSize": [1536, 1024],
+      "sha256": "5159720294314423492fbcfb5ef021c7e94e96aaa616e2b5c79fd95d79c34865",
+      "bytes": 54140,
+      "width": 1280,
+      "height": 853
+    }
+  },
+  "productionChoice": "User diagram-based hinged straight-arm cable pulldown with short straight bar and light silver/graphite functional trainer. Visual production example only; generic ID, guide, attachment scope, muscles and History unchanged.",
+  "presentation": "Unretouched exact selected PNGs, default square contain shared inline/expanded frame; no placement adjustment.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "equipmentStyle": "cresum-equipment-style-v1"
+  },
+  "reviewScope": "User accepted generated START and final FINISH explicitly after the local connector limitation was disclosed. Visual selection, not independent mechanics/device certification.",
+  "openReview": [
+    "FINISH connector still projects near the near grip; exact centered attachment and forearm occlusion remain unresolved. User accepted the selected pixels without retouch.",
+    "Hinged visual example differs from the existing tall-standing ACE guide; it does not replace or narrow that generic guide.",
+    "Independent biomechanics, physical-device geometry acceptance and verified PC/Oracle source backup remain open."
+  ],
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original PNGs and all available draft/prompts/reference inputs retained in visual workspace/conversation for next full PC archive checkpoint; no verified Oracle upload.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "maxWidth": 1280,
+    "maxHeight": 1280,
+    "resampling": "LANCZOS",
+    "quality": 92,
+    "method": 6
+  }
+}
