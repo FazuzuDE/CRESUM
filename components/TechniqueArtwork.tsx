@@ -1,6 +1,9 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { resolveExerciseArtwork } from '@/lib/exercise-artwork';
+import {
+  resolveExerciseArtwork,
+  resolveExerciseArtworkPlacement,
+} from '@/lib/exercise-artwork';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import type { TechniquePhase } from '@/lib/exercise-technique';
 import { colors, radius, spacing, typography } from '@/lib/theme';
@@ -24,6 +27,11 @@ export function TechniqueArtwork({
     phase === 'START' ? 'start' : 'finish',
     'male',
   );
+  const placement = resolveExerciseArtworkPlacement(
+    imageKey,
+    phase === 'START' ? 'start' : 'finish',
+    'male',
+  );
   if (source)
     return (
       <View style={[s.frame, s.image]}>
@@ -34,7 +42,7 @@ export function TechniqueArtwork({
             phase: phaseLabel,
             name: catalogLabel(locale, 'exercise', imageKey, imageKey),
           })}
-          style={s.picture}
+          style={[s.picture, placement]}
         />
       </View>
     );
@@ -62,7 +70,7 @@ const s = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  image: { backgroundColor: colors.surface, padding: 0 },
+  image: { backgroundColor: colors.surface, padding: 0, overflow: 'hidden' },
   frame: {
     width: '100%',
     aspectRatio: 1,

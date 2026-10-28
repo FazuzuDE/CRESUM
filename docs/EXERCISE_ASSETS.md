@@ -1,5 +1,28 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Assisted pull-up — selected photo-based Male pair, 2026-10-28
+
+The user selected image 2 as START and image 4 as FINISH, prioritizing harmonious
+card proportions and sizes. Preserve exact exports/source hashes, the actual
+Male Master reference, official Life Fitness SS-ADC photo/manual provenance,
+generation/repair prompts and selection under `assets/exercises/assisted-pull-up/`.
+Earlier collision-repair candidates that removed real equipment parts were
+rejected and are not runtime sources.
+
+Bind only existing `assisted-pull-up` / Male, keeping free bodyweight pull-up,
+Female, equipment thumbnails, guide, muscles, History and saved data unchanged.
+The pictured SS-ADC machine, overhand grip and rear three-quarter view are visual
+production choices; they do not narrow the generic catalog's support/grip scope.
+
+Keep the square contain frame. A measured uniform whole-image FINISH placement
+aligns fixed-machine landmarks with START in shared inline/expanded rendering;
+original PNGs and reproducible WebP exports are not repainted or stretched.
+The manifest records calibration and residual differences. User selection and
+assistant reference/contact/phone-size review do not certify measured CAD,
+internal counterweight kinematics, independent anatomy/biomechanics or physical
+device acceptance. Status is `user-selected-provisional`; PC source ZIP checkpoint
+is pending and Oracle archive status remains `pending-upload`.
+
 ## Overhand pull-up — selected Male pair, 2026-10-28
 
 The user selected corrected FINISH via the supplied

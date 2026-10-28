@@ -5,6 +5,8 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock('../../assets/exercises/assisted-pull-up/start.webp', () => 1001);
+jest.mock('../../assets/exercises/assisted-pull-up/finish.webp', () => 1002);
 jest.mock('../../assets/exercises/pull-up/start.webp', () => 901);
 jest.mock('../../assets/exercises/pull-up/finish.webp', () => 902);
 jest.mock('../../assets/exercises/barbell-bent-over-row/start.webp', () => 801);
@@ -257,13 +259,31 @@ it('binds the selected overhand bodyweight pull-up without borrowing its pair fo
   expect(resolveAttachmentArtwork('pull-up')).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
     expect(resolveExerciseArtwork('pull-up', phase, 'female')).toBeNull();
-    for (const id of [
-      'assisted-pull-up',
-      'lat-pulldown',
-      'pulldown',
-      'unknown',
-    ]) {
+    for (const id of ['lat-pulldown', 'pulldown', 'unknown']) {
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
     }
+  }
+});
+
+it('keeps selected assisted pull-up phases distinct from the free bodyweight pair', () => {
+  const id = 'assisted-pull-up';
+  expect(findTechnique(id)?.scope).toBe(
+    'Counterweighted pull-up; machine support differs.',
+  );
+  expect(findExercise(id)).toMatchObject({
+    equipment: ['machine'],
+    primaryMuscles: ['lats'],
+    secondaryMuscles: ['biceps', 'upper-back'],
+  });
+  expect(resolveExerciseArtwork(id, 'start', 'male')).toBe(1001);
+  expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(1002);
+  expect(resolveAttachmentArtwork(id)).toBeNull();
+  for (const phase of ['start', 'finish'] as const) {
+    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
+    expect(resolveExerciseArtwork('pull-up', phase, 'male')).not.toBe(
+      resolveExerciseArtwork(id, phase, 'male'),
+    );
+    for (const other of ['lat-pulldown', 'pulldown', 'unknown'])
+      expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
   }
 });

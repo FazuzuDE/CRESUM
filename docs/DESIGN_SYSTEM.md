@@ -1,5 +1,20 @@
 # CRESUM Design System v1.0
 
+### Exercise-card image harmony — approved 2026-10-28
+
+Selected START/FINISH images should read as one coherent pair in exercise
+cards: use the same square contain viewport, comparable athlete/equipment
+scale and stable fixed-equipment placement. Keep the athlete's proportions
+relative to the machine; phase changes do not justify independent stretching
+or a different crop that clips the person or apparatus. Compare at phone size.
+Inline and expanded viewing must share the same presentation calibration.
+
+For the selected assisted-pull-up pair, the implementation preserves the exact
+source exports and applies a small uniform whole-image FINISH placement in
+`TechniqueArtwork` to reduce the measured global offset. This is presentation
+alignment, not measured reconstruction of every generated machine detail.
+Previously integrated pairs keep their existing provenance/review scope.
+
 ### Contextual exercise equipment picker — approved 2026-10-25
 
 The shared `scrim` token is `rgba(0,0,0,0.24)` for the modal equipment-sheet

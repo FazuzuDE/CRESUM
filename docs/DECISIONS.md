@@ -1,5 +1,15 @@
 # CRESUM Decision Log
 
+## 2026-10-28 — Photo-based assisted pull-up pair and card harmony selected
+
+The user approved image 2 START and image 4 FINISH after rejecting a generic
+rack-like gravitron, with the priority that exercise-card images have harmonious
+proportions/sizes. Integrate exact selected Male assets only for assisted-pull-up,
+with shared contain framing and small uniform presentation alignment; retain
+source/reference/prompt provenance. Do not change catalog/history/muscles or
+borrow free pull-up/Female artwork. Independent mechanics/device acceptance
+remains open. The visual harmony requirement is recorded in DESIGN_SYSTEM.md.
+
 ## 2026-10-28 — Overhand pull-up pair selected
 
 The user selected corrected FINISH via an uploaded JPEG ("Вот это винишь")

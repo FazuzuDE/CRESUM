@@ -1,4 +1,4 @@
-import type { ImageSourcePropType } from 'react-native';
+import type { ImageSourcePropType, ImageStyle } from 'react-native';
 
 // Explicit exact-variant bindings; technique pairs and equipment have separate approval.
 const ergonomic = 'lat-pulldown-close-neutral-ergonomic-handle';
@@ -38,6 +38,10 @@ const pullUpPair = {
   start: require('../assets/exercises/pull-up/start.webp'),
   finish: require('../assets/exercises/pull-up/finish.webp'),
 };
+const assistedPullUpPair = {
+  start: require('../assets/exercises/assisted-pull-up/start.webp'),
+  finish: require('../assets/exercises/assisted-pull-up/finish.webp'),
+};
 const attachment = require('../assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/attachment.webp');
 const vHandleAttachment = require('../assets/exercises/lat-pulldown-close-neutral-v-handle/attachment.webp');
 const wideBarAttachment = require('../assets/exercises/lat-pulldown-wide-pronated-bar/attachment.webp');
@@ -60,7 +64,31 @@ export function resolveExerciseArtwork(
     return chestSupportedRowPair[phase];
   if (variantId === 'barbell-bent-over-row') return barbellRowPair[phase];
   if (variantId === 'pull-up') return pullUpPair[phase];
+  if (variantId === 'assisted-pull-up') return assistedPullUpPair[phase];
   return null;
+}
+
+// Whole-image placement in the shared square contain frame. Calibrated to
+// this selected pair's fixed equipment; preserve aspect ratio and source bytes.
+const assistedPullUpFinishPlacement: ImageStyle = {
+  width: '100.9674%',
+  height: '100.9674%',
+  left: '-0.3432%',
+  top: '1.1505%',
+};
+
+export function resolveExerciseArtworkPlacement(
+  variantId: string,
+  phase: 'start' | 'finish',
+  model: 'male' | 'female',
+): ImageStyle | undefined {
+  if (
+    variantId === 'assisted-pull-up' &&
+    phase === 'finish' &&
+    model === 'male'
+  )
+    return assistedPullUpFinishPlacement;
+  return undefined;
 }
 
 export function resolveAttachmentArtwork(
