@@ -1,0 +1,39 @@
+{
+  "exerciseId": "dumbbell-shoulder-press",
+  "model": "male",
+  "selectionDate": "2026-10-28",
+  "status": "user-selected-pair",
+  "decisions": {
+    "start": "Не делай для старта по 2 картинки, лучше делай старт и финиш за одну генерацию. Это утверждаю. Продолжай",
+    "finish": "Утверждаю"
+  },
+  "selectedCandidates": {
+    "start": "START r2",
+    "finish": "FINISH r1"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-51d52bd6-f32c-4514-93ed-d740ea83627e.png",
+      "sourceSha256": "58dbdd03d1ffcef1712e8931a7ef194b6161df06b9c832d3185b111e5ba52dac",
+      "sourceBytes": 1510588,
+      "sourceSize": [1536, 1024],
+      "sha256": "6f2d4271ced155af4ee47896ca050cbddb0550e43f8de5d9a87b8f1138b52801",
+      "bytes": 30010,
+      "width": 1280,
+      "height": 853
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-d463d049-48e9-4cd1-80f0-0815c9d88274.png",
+      "sourceSha256": "7de03c24846a147c56e878059ea2b0663370c9dbbb2ce125b0d8d4633a45bfbc",
+      "sourceBytes": 1562858,
+      "sourceSize": [1536, 1024],
+      "sha256": "655d345eb571bc275191d649d08c89f4f89a56e516f853ead9c71f77db681a38",
+      "bytes": 33334,
+      "width": 1280,
+      "height": 853
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
