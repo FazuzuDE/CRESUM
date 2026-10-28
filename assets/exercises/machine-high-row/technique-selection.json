@@ -1,0 +1,55 @@
+{
+  "exerciseId": "machine-high-row",
+  "model": "male",
+  "selectionDate": "2026-10-28",
+  "status": "user-selected-pair",
+  "decisions": {
+    "start": "Вот эта",
+    "finish": "Первая утверждаю"
+  },
+  "selectedCandidates": {
+    "start": "plate-loaded START r4, exact supplied JPEG",
+    "finish": "FIRST FINISH r1, exact supplied JPEG"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "53EB5825-B7A1-4BB3-BE68-0BBCA667CE5D.jpeg",
+      "sourceSha256": "afc27eb7bd424465f34e82e39882254fb6119a50c20908264b1faf7636ba9e8d",
+      "sourceBytes": 241992,
+      "sourceSize": [1536, 1024],
+      "sourceLibraryFileId": "libfile_35ca98962e0881919ba7982244da8801",
+      "sha256": "d1fdff96ac5701f15dd283516a439a50b07bc60ceb51f637a99618f1fcdc7363",
+      "bytes": 66232,
+      "width": 1280,
+      "height": 853,
+      "generationOrigin": {
+        "sourceFile": "exec-d61ce1a8-06a0-44c5-b5ce-1d20ecf8a482.png",
+        "sha256": "7b14e6ad537fa3474cd6959205ce3599928916a796c14ee2b843b9dc3888fccc",
+        "bytes": 1389836,
+        "sourceSize": [1536, 1024],
+        "relationship": "Generated PNG provenance retained separately; runtime export comes from the user-selected JPEG, with different source bytes."
+      }
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "F4149A6C-4722-4CED-AC3A-0F2F461C0B2C.jpeg",
+      "sourceSha256": "b0f3c846545e9ff26e387456540e9550ade2c0dc93fb526296bf30eb50fec18b",
+      "sourceBytes": 231181,
+      "sourceSize": [1536, 1024],
+      "sourceLibraryFileId": "libfile_19fb37806008819183e425af7dd99ece",
+      "sha256": "69229e7da3d9de91ad1ea86a07df7e381108ffe0b41d20c718ac8cf9b098365b",
+      "bytes": 64194,
+      "width": 1280,
+      "height": 853,
+      "generationOrigin": {
+        "sourceFile": "exec-bcdbf96d-85eb-4ea0-b641-fa9b24a220d3.png",
+        "sha256": "43285196cf8c70e9d37ba9d4e6ecd2ff93d76aaa98da8a812c3dc5a3cd9bfe84",
+        "bytes": 1688556,
+        "sourceSize": [1536, 1024],
+        "relationship": "Generated PNG provenance retained separately; runtime export comes from the user-selected JPEG, with different source bytes."
+      }
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
