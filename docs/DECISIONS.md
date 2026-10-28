@@ -1,5 +1,15 @@
 # CRESUM Decision Log
 
+## 2026-10-28 — Dense framing and selected barbell overhead press pair
+
+The user requested fuller use of the frame while preserving image quality and
+pair harmony. DESIGN_SYSTEM.md owns the shared-scale motion-envelope rule:
+large readable subjects, modest margins, no independently reduced START or
+artificial upscaling. Integrate the selected single-generation barbell press pair
+as separate exact source crops with common 32px padding and full provenance.
+Preserve existing exercise semantics and provisional mechanics/device scope.
+EXERCISE_ASSETS.md owns crop/export details and pending archive status.
+
 ## 2026-10-28 — Shoulder press pair and single-generation workflow
 
 Integrate user-selected seated shoulder-press START r2 / FINISH r1 through

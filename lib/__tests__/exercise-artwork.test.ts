@@ -6,6 +6,14 @@ import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
 jest.mock(
+  '../../assets/exercises/barbell-overhead-press/start.webp',
+  () => 1501,
+);
+jest.mock(
+  '../../assets/exercises/barbell-overhead-press/finish.webp',
+  () => 1502,
+);
+jest.mock(
   '../../assets/exercises/dumbbell-shoulder-press/start.webp',
   () => 1401,
 );
@@ -407,12 +415,32 @@ it('binds selected shoulder press phases without narrowing standing or seated sc
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
     expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
-    for (const other of [
-      'press',
-      'barbell-overhead-press',
-      'machine-shoulder-press',
-      'unknown',
-    ])
+    for (const other of ['press', 'machine-shoulder-press', 'unknown'])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
+  }
+});
+
+it('binds selected strict barbell press without borrowing other presses', () => {
+  const id = 'barbell-overhead-press';
+  expect(findExercise(id)).toMatchObject({
+    id,
+    equipment: ['barbell'],
+    movementPattern: 'vertical-push',
+    primaryMuscles: ['front-delts', 'side-delts'],
+    secondaryMuscles: ['triceps', 'abs'],
+  });
+  expect(findTechnique(id)?.scope).toBe(
+    'Standing strict barbell overhead press.',
+  );
+  expect(resolveExerciseArtwork(id, 'start', 'male')).toBe(1501);
+  expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(1502);
+  expect(resolveAttachmentArtwork(id)).toBeNull();
+  for (const phase of ['start', 'finish'] as const) {
+    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
+    for (const other of ['press', 'machine-shoulder-press', 'unknown'])
+      expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
+    expect(
+      resolveExerciseArtwork('dumbbell-shoulder-press', phase, 'male'),
+    ).not.toBe(resolveExerciseArtwork(id, phase, 'male'));
   }
 });

@@ -1,5 +1,16 @@
 # CRESUM Design System v1.0
 
+### Efficient exercise framing — approved 2026-10-28
+
+Use the available frame for a large, readable athlete/equipment scene, retaining
+quality, harmonious proportions and modest safety margins. Choose the largest
+shared uniform scale that fits the complete START/FINISH motion envelope in the
+square card. Reserve only the headroom the movement needs; avoid excessive white
+space or independently shrinking START. Preserve full implements, hands, head,
+feet and supports without stretching or artificial resolution enhancement.
+Inspect both phases at 320/390 points. When a selected source needs edge clearance,
+use the same small padding for both phases and record it in export provenance.
+
 ### Equipment visual language — approved 2026-10-28
 
 The user selected the last assisted-pull-up FINISH image as the preferred

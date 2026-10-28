@@ -1,0 +1,68 @@
+{
+  "variantId": "barbell-overhead-press",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-338a528c-a66b-4f93-90ec-5ca79bc23fd3.png",
+      "sourceSha256": "e9dedadeb24c4980cfee9db63b1727de04838420831be16835aadd51be4259fb",
+      "sourceBytes": 1264117,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "padding": {
+        "left": 32,
+        "top": 32,
+        "right": 32,
+        "bottom": 32,
+        "color": "#FFFFFF"
+      },
+      "sha256": "f5e44d3cf31ac0a3d460489648855b4f2aa9e18c172479eaa8f3cade1e9aa50b",
+      "bytes": 30484,
+      "width": 951,
+      "height": 951
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-338a528c-a66b-4f93-90ec-5ca79bc23fd3.png",
+      "sourceSha256": "e9dedadeb24c4980cfee9db63b1727de04838420831be16835aadd51be4259fb",
+      "sourceBytes": 1264117,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "padding": {
+        "left": 32,
+        "top": 32,
+        "right": 32,
+        "bottom": 32,
+        "color": "#FFFFFF"
+      },
+      "sha256": "16b5d6b7d5e8e76b9c1e1b5ea02c2deebed5f79d2ce5bd27a5193361e3b99f07",
+      "bytes": 30948,
+      "width": 951,
+      "height": 951
+    }
+  },
+  "productionChoice": "Standing strict barbell overhead press, depicted bar/plate design and grip are visual examples, not new canonical load/model qualifiers.",
+  "presentation": "Default shared square contain, both viewers. Exact center split of selected sheet with identical32px white border per side. No repaint, warp, phase-specific scaling or runtime adjustment.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "equipmentStyle": "cresum-equipment-style-v1"
+  },
+  "reviewScope": "User visual selection plus assistant full-frame/phone projections; independent detailed biomechanics/physical-device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original pair PNG and exact prompt/reference inputs retained for next major-block PC checkpoint; no verified Oracle upload or PC download.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "resampling": "none",
+    "quality": 92,
+    "method": 6,
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive",
+    "sharedPaddingPixels": 32,
+    "paddingReason": "A modest common safety margin protects tight FINISH upper plate; both phases keep identical scale, without upscaling."
+  }
+}

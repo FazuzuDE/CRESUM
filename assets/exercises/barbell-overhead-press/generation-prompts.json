@@ -1,0 +1,35 @@
+{
+  "exerciseId": "barbell-overhead-press",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "barbell-overhead-press",
+      "revision": 1,
+      "phase": "pair",
+      "prompt": "Create TWO coordinated CRESUM exercise technique phases together as ONE wide source sheet: LEFT panel START, RIGHT panel FINISH, standing strict BARBELL OVERHEAD PRESS. Exactly two equally sized square panels side by side, canvas aspect2:1 (prefer3072x1536), no divider line or text. Each panel independently shows one complete athlete and one complete barbell on clean white. These panels will be exported separately.\nReference1 ORIGINAL five-view Male Master: same exact face, short brown hair, clean-shaven natural athletic body, muted blue-gray T-shirt, dark-gray shorts, white socks, light-gray trainers. Reference2 equipment style MATERIALS ONLY: satin silver bar and restrained graphite dark plates, premium soft neutral 3D rendering; do not copy pullup machine.\nPAIR FRAMING IS CRITICAL: same person size, camera, foot coordinates, floor baseline and barbell dimensions in both square panels. Frame the entire UNION of the motion compactly: FINISH top plate rim at about5percent panel height, soles at about94percent; use the largest UNIFORM subject scale that fits the complete extended overhead scene, with only modest margins at left and right bar ends. START retains same scale and feet, not separately enlarged or shrunk. No huge white headroom beyond actual overhead range. Both images must feel large and readable in a phone card. Full head, shoes, both plates and sleeves visible without cropping.\nView front three-quarter, mildly angled enough to show bar clearance in front of face but clear bilateral grip. One straight silver Olympic-style bar with ONE modest dark plate each side, securely collared, identical assembly both phases.\nSTART LEFT: man standing upright stable feet about hip-width, knees naturally straight without locking, pelvis neutral and ribs controlled. Bar close to upper chest/front shoulders BELOW chin, in FRONT of body, not behind neck. Hands just outside shoulder width, secure closed pronated grip, thumbs around shaft, wrists stacked and only mild natural extension, elbows slightly forward supporting bar. Forearms approximately upright under load. No deep squat, no exaggerated backbend.\nFINISH RIGHT: SAME strict press complete overhead. Both arms naturally extended, bar balanced over shoulders and approximately midfoot, head neutrally returned between upper arms with clearance, natural scapular upward rotation. Upright braced trunk, no excessive arch, same feet/knees, no leg drive. Both hands same grip spacing, same closed pronated contact. Entire shaft and both plates overhead clear of head. Move same rigid assembly upward, no second low bar, no duplicate hands.\nKeep consistent identity, outfit, skin/fabric detail, white studio, neutral lighting and soft floor shadows. Natural body proportions, no waxy skin, warped shaft, fused fingers, extra equipment, rack, bench, text, branding, labels, arrows, anatomy highlighting or inset panels. EXACTLY LEFT START + RIGHT FINISH at matching scale, tightly and harmoniously framed.",
+      "references": [
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162
+        }
+      ],
+      "status": "presented-awaiting-user-selection",
+      "feedback": "Use available frame space efficiently, quality/harmony retained; one generation for both phases.",
+      "previousPR": 110,
+      "previousPRMerged": true,
+      "output": {
+        "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-338a528c-a66b-4f93-90ec-5ca79bc23fd3.png",
+        "sha256": "e9dedadeb24c4980cfee9db63b1727de04838420831be16835aadd51be4259fb",
+        "bytes": 1264117,
+        "dimensions": [1774, 887]
+      },
+      "visualQA": "Two equal square panels, close foot baseline and character/equipment scale; entire load and shoes visible. FINISH upper plate has tight top margin, allow modest shared white padding on export if needed rather than shrink START alone. User selection and independent mechanics/device review pending."
+    }
+  ]
+}
