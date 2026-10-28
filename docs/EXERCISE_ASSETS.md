@@ -1,5 +1,28 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Overhand pull-up — selected Male pair, 2026-10-28
+
+The user selected corrected FINISH via the supplied
+`279376DA-7BB1-4D73-94DA-53ED51C62E86.jpeg`, then approved the reframed
+START. Preserve exact exports, source hashes, selection history and full
+available prompt chain under `assets/exercises/pull-up/`. FINISH exports
+that exact uploaded JPEG; the generated corrected FINISH PNG is retained as
+separate provenance, not falsely represented as identical source bytes.
+
+Bind the pair only to existing `pull-up` / Male in the shared local resolver
+for inline and expanded viewing. This remains the catalog's overhand bodyweight
+pull-up. The freestanding straight bar and moderate grip width are visual
+choices, not new canonical configuration constraints. Assisted pull-ups,
+Female images, equipment thumbnails, guide, muscles, History and saved data
+retain their existing contracts.
+
+User selection and assistant full-frame/phone-size comparison do not certify
+independent biomechanics or physical-device acceptance. Frame/bar placement
+still differs slightly between phases; pixel-identical alignment is not claimed.
+Manifest status remains `user-selected-provisional`. Original sources/prompts
+are retained for the next PC ZIP checkpoint; Oracle upload remains deferred
+and `pending-upload`, not verified.
+
 ## Barbell bent-over row — selected Male pair, 2026-10-27
 
 The user selected START and FINISH ("Утверждаю" for each). Retain the exact

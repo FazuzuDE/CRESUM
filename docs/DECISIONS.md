@@ -1,5 +1,15 @@
 # CRESUM Decision Log
 
+## 2026-10-28 — Overhand pull-up pair selected
+
+The user selected corrected FINISH via an uploaded JPEG ("Вот это винишь")
+and approved aligned START ("Утверждаю"). Integrate those exact visual choices
+provisionally as local `pull-up` / Male phases. Preserve original sources,
+exports, hashes, prompts and phase selection history. Do not borrow this pair
+for assisted pull-ups or change the guide, grip scope, muscles or History.
+Slight frame alignment variation, independent biomechanics and physical-device
+acceptance remain open. PC source ZIP checkpoints continue; Oracle stays deferred.
+
 ## 2026-10-27 — Barbell row pair selected; PC source archive checkpoints
 
 The user selected both Male barbell-bent-over-row phases. Integrate exact local

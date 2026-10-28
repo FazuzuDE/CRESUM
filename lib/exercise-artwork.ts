@@ -34,6 +34,10 @@ const barbellRowPair = {
   start: require('../assets/exercises/barbell-bent-over-row/start.webp'),
   finish: require('../assets/exercises/barbell-bent-over-row/finish.webp'),
 };
+const pullUpPair = {
+  start: require('../assets/exercises/pull-up/start.webp'),
+  finish: require('../assets/exercises/pull-up/finish.webp'),
+};
 const attachment = require('../assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/attachment.webp');
 const vHandleAttachment = require('../assets/exercises/lat-pulldown-close-neutral-v-handle/attachment.webp');
 const wideBarAttachment = require('../assets/exercises/lat-pulldown-wide-pronated-bar/attachment.webp');
@@ -55,6 +59,7 @@ export function resolveExerciseArtwork(
   if (variantId === 'chest-supported-dumbbell-row')
     return chestSupportedRowPair[phase];
   if (variantId === 'barbell-bent-over-row') return barbellRowPair[phase];
+  if (variantId === 'pull-up') return pullUpPair[phase];
   return null;
 }
 
