@@ -6,6 +6,14 @@ import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
 jest.mock(
+  '../../assets/exercises/machine-shoulder-press/start.webp',
+  () => 1601,
+);
+jest.mock(
+  '../../assets/exercises/machine-shoulder-press/finish.webp',
+  () => 1602,
+);
+jest.mock(
   '../../assets/exercises/barbell-overhead-press/start.webp',
   () => 1501,
 );
@@ -415,7 +423,7 @@ it('binds selected shoulder press phases without narrowing standing or seated sc
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
     expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
-    for (const other of ['press', 'machine-shoulder-press', 'unknown'])
+    for (const other of ['press', 'unknown'])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
   }
 });
@@ -437,10 +445,36 @@ it('binds selected strict barbell press without borrowing other presses', () => 
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
     expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
-    for (const other of ['press', 'machine-shoulder-press', 'unknown'])
+    for (const other of ['press', 'unknown'])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
     expect(
       resolveExerciseArtwork('dumbbell-shoulder-press', phase, 'male'),
     ).not.toBe(resolveExerciseArtwork(id, phase, 'male'));
+  }
+});
+
+it('binds selected machine press without narrowing generic grip or borrowing free-weight presses', () => {
+  const id = 'machine-shoulder-press';
+  expect(findExercise(id)).toMatchObject({
+    id,
+    equipment: ['machine'],
+    movementPattern: 'vertical-push',
+    primaryMuscles: ['front-delts', 'side-delts'],
+    secondaryMuscles: ['triceps'],
+  });
+  expect(findTechnique(id)?.scope).toBe(
+    'Supported overhead machine press; grip unspecified.',
+  );
+  expect(resolveExerciseArtwork(id, 'start', 'male')).toBe(1601);
+  expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(1602);
+  expect(resolveAttachmentArtwork(id)).toBeNull();
+  for (const phase of ['start', 'finish'] as const) {
+    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
+    for (const other of ['press', 'machine-chest-press', 'unknown'])
+      expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
+    for (const other of ['dumbbell-shoulder-press', 'barbell-overhead-press'])
+      expect(resolveExerciseArtwork(other, phase, 'male')).not.toBe(
+        resolveExerciseArtwork(id, phase, 'male'),
+      );
   }
 });

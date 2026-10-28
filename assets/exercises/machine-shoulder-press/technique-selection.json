@@ -1,0 +1,38 @@
+{
+  "exerciseId": "machine-shoulder-press",
+  "model": "male",
+  "selectionDate": "2026-10-28",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "selectedCandidates": {
+    "start": "pair r1 left",
+    "finish": "pair r1 right"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-1f384b56-7a7d-4813-b1af-6a6ef56d8c51.png",
+      "sourceSha256": "641ef1b35d813f237776ff7f9e7a488ac80f6e554571a4e58241b62185425639",
+      "sourceBytes": 1595798,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "2f787db2880238be9a9177cecfbbc79f37f1b05da57a13e5d1db5f41595ec08c",
+      "bytes": 56740,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-1f384b56-7a7d-4813-b1af-6a6ef56d8c51.png",
+      "sourceSha256": "641ef1b35d813f237776ff7f9e7a488ac80f6e554571a4e58241b62185425639",
+      "sourceBytes": 1595798,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "66ea469bf1c3b7a02b7756d6c5fb56d85ca11a65ddefcc92331e35b4032920d2",
+      "bytes": 60136,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
