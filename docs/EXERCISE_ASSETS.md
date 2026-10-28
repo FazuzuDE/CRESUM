@@ -1,5 +1,32 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Cable Straight-Arm Pulldown — selected Male pair, 2026-10-28
+
+The user explicitly accepted the newly generated diagram-based START and final
+FINISH ("Утверждаю сгенерированные картинки как старт и финиш. Подходят").
+Export exact generated PNGs `exec-2fb97651-abe0-4448-9bef-ff7ebcec2881.png`
+and `exec-a81793f8-eac8-4dda-bfa8-a27486ebdf55.png`; approval screenshots
+are evidence only, not artwork export sources. Selection, original/export
+hashes and complete selected prompt/reference lineage live under
+`assets/exercises/cable-straight-arm-pulldown/`.
+
+Bind only existing `cable-straight-arm-pulldown` / Male in the shared resolver.
+Use default square contain placement for inline and expanded phases. Preserve
+generic exercise identity, qualitative muscles, guide, History, attachment
+contracts and Female/other-exercise fallbacks. The hinged example, short bar
+and illustrated light functional trainer do not add canonical attachment/model
+qualifiers or replace the tall-standing generic ACE guide.
+
+Preserve the selected pixels without additional generation or manual retouch.
+The user accepted this pair after disclosure that FINISH's connector still
+projects near the near grip; exact centered attachment/forearm occlusion and
+independent detailed biomechanics/device acceptance remain unresolved. Retain
+`user-selected-provisional` and this explicit review boundary; user visual
+selection does not assert those checks passed. The diagram's colored muscles
+and labels do not change exercise mapping. Available originals, prompts and
+references join the next full PC archive checkpoint; Oracle remains deferred,
+`pending-upload`, without a verified receipt.
+
 ## Machine High Row — selected plate-loaded Male pair, 2026-10-28
 
 The user selected START via `53EB5825-B7A1-4BB3-BE68-0BBCA667CE5D.jpeg`

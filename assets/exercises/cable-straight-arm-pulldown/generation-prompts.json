@@ -1,0 +1,401 @@
+{
+  "start": {
+    "exerciseId": "cable-straight-arm-pulldown",
+    "gender": "male",
+    "phase": "start",
+    "series": "user-diagram-pair",
+    "revision": 1,
+    "status": "START-candidate-presented-not-yet-user-selected",
+    "createdAt": "2026-10-28T16:41:18.249132+00:00",
+    "prompt": "Create a NEW CRESUM exercise illustration: Cable Straight-Arm Pulldown, START. One complete white-studio frame, landscape 1536 x 1024.\n\nREFERENCE ROLES:\n1. ORIGINAL five-view Male Master: exact adult man's identity, face/hair, natural athletic proportions, fitted blue-gray T-shirt, dark-gray shorts, white socks, light-gray shoes. Render ONE man.\n2. Frozen CRESUM equipment style: satin light silver-gray structure, graphite shrouds and black matte hardware, clean joins, neutral soft lighting, gentle contact shadows and refined realistic 3D materials ONLY. Do not copy this reference's assisted-pullup apparatus or pose.\n3. Official Axiom OP-DAP side photograph: real apparatus geometry and physical pulley system. Show the complete dual adjustable pulley station, both columns, fixed upper bridge/braces, protected stacks, supported high carriage and base feet. Recolor only structural metal to the approved light silver finish. No logos or stickers.\n4. User's TWO-PHASE diagram: movement/pose reference ONLY. For THIS frame use the LEFT-panel START. The RIGHT-panel finish is for the later matching frame. Do not copy its gray anatomical person, muscle highlights, red text, labels, simplified machine or two-panel layout.\n\nNEW COMPOSITION:\nFollow the diagram's overall direction: athlete primarily on the LEFT facing the cable station on the RIGHT. Use a clear side/front-three-quarter camera, mild perspective, so both closed hand grips, the middle of the short straight bar, cable terminal and the supported high pulley are legible. Entire apparatus and entire athlete visible with comfortable white margins. The athlete stands on open floor outside the station and clear of its bases. Physically correct man-to-machine scale: this is the same roughly 178-cm Master man in a hinge, not a larger or smaller person.\nKeep this camera and all floor/foot/machine positions suitable for an exactly matching FINISH.\n\nSTART POSE, from the diagram:\nA stable moderate HIP HINGE (roughly 30–40 degrees forward from vertical), hips back, knees softly bent, both feet grounded about hip-width apart. Neutral long spine and head aligned with the torso; no rounded back, arch or squat. Keep the trunk and lower-body angles fixed for the future FINISH.\nBoth arms reach FORWARD AND UP toward the high pulley, as in the diagram's LEFT panel. Long nearly straight arms with only a small soft elbow bend. Hands around head height/upward in front of the inclined torso. This is standing straight-arm shoulder-extension pulldown, not a row or triceps pushdown.\n\nATTACHMENT:\nA SHORT STRAIGHT BLACK BAR with matching small rounded cylindrical black end caps. Symmetric approximately shoulder-width closed pronated hand grips, thumbs wrapped and wrists neutral. The cable-attachment eye is at the actual bar midpoint, visibly BETWEEN the two hand grips. Each hand must be on a different side of the eye. Both end caps have only a short modest extension beyond the hands. Do not invent a long free bar extension or hide an end inside the person.\nONE taut cable leaves the real groove of a genuinely supported HIGH pulley and runs through air to ONE small central carabiner/eye on that bar. The active carriage is locked high. No second working cable or extra lower handle on the active column. The other station output remains normally parked.\n\nSTYLE:\nPhotorealistic premium 3D, actual Master character and calm consistent skin/fabric. Full body and full machine, white studio, satin silver/graphite equipment, matte surfaces, neutral soft light and contact shadows. No text, phase labels, muscle colors, diagrams, inset views or arrows. Output ONE START frame only.",
+    "references": [
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+        "role": "Original Male Master",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046,
+        "dimensions": [1536, 1024]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+        "role": "Frozen equipment materials/style only",
+        "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+        "bytes": 42162,
+        "dimensions": [1280, 853]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/straight-arm-draft/life-fitness-axiom-op-dap-side.jpg",
+        "role": "Actual OP-DAP construction",
+        "sha256": "a0e89bfddff1538d78399148b36fd0ce8fd1a0fc46ba0a0f7c6706cf6ff68fcc",
+        "bytes": 51821,
+        "dimensions": [1000, 1000]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/upload/C69197A6-75C7-40A3-A8CB-003667EB8798.png",
+        "role": "User two-phase pose diagram; no labels/muscle mapping adopted",
+        "sha256": "720057bae164f8a12feb79d43a0972ba14bcb9af20544e57c27151665240c615",
+        "bytes": 83772,
+        "dimensions": [447, 447]
+      }
+    ],
+    "transparent_background": false,
+    "output": {
+      "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-2fb97651-abe0-4448-9bef-ff7ebcec2881.png",
+      "sha256": "c2bdeb43c6e4805e698849098d6d3e8c5ade7298340102e7a4a42ee7ce9a0798",
+      "bytes": 1416168,
+      "dimensions": [1536, 1024]
+    },
+    "visualQA": {
+      "pose": "Moderate forward hinge and soft knees; raised long-arm START follows user left panel",
+      "connection": "One cable to visible center attachment between closed grips",
+      "scene": "Whole athlete and cable apparatus in the requested light style; device rendering remains illustrative rather than CAD-certified"
+    }
+  },
+  "finish": {
+    "exerciseId": "cable-straight-arm-pulldown",
+    "gender": "male",
+    "phase": "finish",
+    "series": "user-diagram-pair",
+    "revision": 2,
+    "status": "pose-preview-presented-attachment-center-still-unresolved",
+    "createdAt": "2026-10-28T16:47:22.431203+00:00",
+    "prompt": "Edit the LAST image only: the full-scene hinged Cable Straight-Arm Pulldown FINISH with the man on the LEFT and station on the RIGHT. Preserve its entire composition, hip hinge, soft knees, torso/head/feet, machine, light and scale.\n\nImage 1 is the actual original Male Master for identity/proportions/outfit. Image 2 is equipment materials only. Image 3 is a CLOSE-UP with the CORRECT handle arrangement: two closed pronated hands, one on EACH SIDE of a true central attachment eye, and two short capped ends. Use only that bar/hand topology, adapted to the target camera and cable direction, not its body/view/crop.\n\nREPLACE THE WHOLE LOCAL HANDS + SHORT BAR + TERMINAL ASSEMBLY in the LAST image with the correct relation from image 3. Both forearms, wrists and hands may adjust naturally to fit the grips; do not preserve their old incorrect arrangement. Keep the shoulders and the rest of the man fixed.\n\nDraw the bar across the FRONT of the upper thighs: small capped end, first hand, VISIBLE CENTER COLLAR/EYE, second hand, matching small capped end. Each hand is on a DIFFERENT side of the eye. The eye is at the midpoint of the whole bar. Both caps have only short equal outboard extensions. Preserve the START frame's short straight matte-black handle type, not a long bar.\nThe active cable comes down from the HIGH WORKING LEFT COLUMN on the RIGHT-side machine. ONE short real carabiner clips to the bar's MIDPOINT BETWEEN THE HANDS. It must not attach beside the right/end grip or onto an end cap.\nNormal arm/connector occlusion is acceptable according to depth. If a small part of the cable/carabiner is naturally hidden by a forearm, allow that occlusion rather than shifting the anchor outside the grips. Keep separate solid objects and no bodily penetration.\n\nPreserve relaxed almost-straight arms down in FINISH, neutral wrists, pronated closed grips, same forward hinged torso/knee/foot positions, exact original Master face/outfit and high-quality skin/fabric. All fixed apparatus and white studio framing stay unchanged. No raised arms, extra cable, body lean change, long empty bar extensions, labels, diagrams, text or inset. One complete 1536 x 1024 FINISH scene, not a close-up.",
+    "references": [
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046,
+        "dimensions": [1536, 1024]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+        "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+        "bytes": 42162,
+        "dimensions": [1280, 853]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-1f33432f-bcfc-494a-a553-394483d72a12.png",
+        "sha256": "dbbb9ea5ef67c46373bb8e00895c91dd28cbfd9dc4535e369945a3a4e516156b",
+        "bytes": 1964194,
+        "dimensions": [1536, 1024]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-b1603a80-8c02-43ac-9f9e-a0b0ba3cd792.png",
+        "sha256": "b9bf605159a52757bff2c094b1f8597f60c86975a0780b3c10b15354317c7f1f",
+        "bytes": 1593334,
+        "dimensions": [1536, 1024]
+      }
+    ],
+    "transparent_background": false,
+    "reason": "One targeted whole hand/bar assembly correction, allowing natural foreground/behind-arm occlusion",
+    "output": {
+      "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-a81793f8-eac8-4dda-bfa8-a27486ebdf55.png",
+      "sha256": "554ae4f9556d4c7dfcb8ad4f39567fee840b8c766ff41fcf3ab52341ec5237c1",
+      "bytes": 1594676,
+      "dimensions": [1536, 1024],
+      "mode": "RGB"
+    },
+    "visualQA": {
+      "pose": "Downward almost-straight-arm phase with the forward hinge, knees and feet retained from new START",
+      "pairContinuity": "Full machine, floor, body scale and framing visually coherent",
+      "barEnds": "Short black capped bar with visible outboard ends; resembles new START attachment family",
+      "attachment": "Terminal still projects at the near grip rather than an unambiguous central eye in the gap. Not accepted as fully corrected.",
+      "approval": "Neither new phase has been selected by user; do not integrate this FINISH as approved."
+    }
+  },
+  "finishBase": {
+    "exerciseId": "cable-straight-arm-pulldown",
+    "gender": "male",
+    "phase": "finish",
+    "series": "user-diagram-pair",
+    "revision": 1,
+    "status": "pose-candidate-local-attachment-correction-required",
+    "createdAt": "2026-10-28T16:44:14.132930+00:00",
+    "prompt": "Create the matching FINISH by editing the LAST image, the new CRESUM Cable Straight-Arm Pulldown START. One complete landscape 1536 x 1024 white-studio image.\n\nREFERENCES:\n1. Original five-view Male Master: exact adult man's identity, face, natural athletic body proportions, blue-gray fitted T-shirt, dark shorts, white socks, light-gray shoes and refined skin/fabric.\n2. Frozen equipment style: materials/rendering only; not its different machine or kneeling pose.\n3. User's two-phase diagram: for THIS image use the RIGHT PANEL FINISH, arms down toward thighs. It is a pose reference only, no anatomy colors, labels, gray figure, text or two-panel layout.\n4. LAST image: the exact full-scene START to edit into FINISH. Keep its entire cable station, camera, lighting, floor, man-to-machine scale, foot positions and bent-knee/hip-hinge body pose.\n\nFINISH MOTION:\nKeep the SAME moderate forward hip hinge, neutral spine, hips-back position, soft knee angles, flat feet, shoulder location, head and stable torso from the LAST image. Do not stand upright or change the body angle.\nSweep BOTH long almost-straight arms DOWN THROUGH THE SHOULDERS until the SAME short straight bar is in front of the upper thighs, just below the hips, like the diagram's RIGHT panel. Preserve a small soft elbow bend and neutral wrists. No elbow-flexion row, triceps pushdown, exaggerated elbow movement behind the trunk, arching or momentum.\nBoth hands grip the SAME short black straight bar at the SAME symmetric approximately shoulder-width pronated grips as START. Thumbs wrapped, each hand on a DIFFERENT SIDE of the bar's center collar/eye. Keep the attachment BETWEEN THE HANDS at the physical midpoint of the bar. The bar's diameter, length, two small black rounded end caps and short outboard ends match the LAST image. Do not lengthen the bar, invent empty extensions or hide a bar end inside the body.\nThe whole attachment is in FRONT of the upper thighs with clearance. From this view the completed bar will be near the man's thighs toward the left-center of the scene, not near head height.\n\nCABLE:\nThe SAME supported high pulley on the station's LEFT / working column stays locked at the SAME high position. ONE taut cable now runs diagonally down-left to a short real carabiner clipped onto the CENTER eye BETWEEN the two hand grips at thigh height. A natural small foreground occlusion is acceptable, with separate surfaces and no bodily penetration.\nRemove the raised START-position bar, hands and old diagonal cable. There is only one new lowered bar and one active cable. Keep the unused right D-handle and its normal parked outlet unchanged. The active selected plates may rise only inside their existing left shroud; fixed enclosures, uprights, bridge, feet and bases do not move.\n\nPreserve the original Master identity and clean fine skin, matte fabrics, satin silver structure, graphite shrouds, white floor/background, soft neutral light, contact shadows, complete scene framing and comfortable margins. No words, START/FINISH labels, logos, muscle highlights, diagrams, arrows, inset close-ups, extra cable, machine redesign or duplicate person. Output ONE full-scene FINISH with ARMS DOWN and unchanged hinged torso.",
+    "references": [
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046,
+        "dimensions": [1536, 1024]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+        "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+        "bytes": 42162,
+        "dimensions": [1280, 853]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/upload/C69197A6-75C7-40A3-A8CB-003667EB8798.png",
+        "sha256": "720057bae164f8a12feb79d43a0972ba14bcb9af20544e57c27151665240c615",
+        "bytes": 83772,
+        "dimensions": [447, 447]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-2fb97651-abe0-4448-9bef-ff7ebcec2881.png",
+        "sha256": "c2bdeb43c6e4805e698849098d6d3e8c5ade7298340102e7a4a42ee7ce9a0798",
+        "bytes": 1416168,
+        "dimensions": [1536, 1024]
+      }
+    ],
+    "transparent_background": false,
+    "output": {
+      "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-b1603a80-8c02-43ac-9f9e-a0b0ba3cd792.png",
+      "sha256": "b9bf605159a52757bff2c094b1f8597f60c86975a0780b3c10b15354317c7f1f",
+      "bytes": 1593334,
+      "dimensions": [1536, 1024]
+    },
+    "qaFinding": "Hinge/knees/camera coherent with START; cable terminal projects beside near grip instead of clearly anchored between hands. One targeted correction requested."
+  },
+  "workingHandle": {
+    "exerciseId": "cable-straight-arm-pulldown",
+    "gender": "male",
+    "phase": "finish",
+    "assetRole": "working-closeup-only-not-full-scene-candidate",
+    "revision": 2,
+    "status": "working-hardware-reference-for-transfer-not-user-selected",
+    "createdAt": "2026-10-28T16:27:02.223395+00:00",
+    "prompt": "Create a detailed CLOSE-UP correction of the bar and hands for a standing straight-arm cable pulldown FINISH. Output 1536 x 1024.\n\nThe LAST image is the user's preferred FINISH: arms DOWN, bar in front of upper thighs. Zoom into that phase's two hands, forearms, short bar and upper thighs. This is a working close-up, not a complete person/machine view. White studio, realistic 3D.\nReference 1 is the ORIGINAL Male Master for natural arm proportions, skin and blue-gray T-shirt/dark-gray shorts.\nReference 2 is CRESUM materials/rendering only.\nReference 3 is the approved START: COPY ITS SAME SHORT STRAIGHT BLACK BAR, its small rounded black end caps, diameter, symmetric grip spacing and short outboard ends. Its raised-arm pose is irrelevant.\nReference 4 / LAST is the down-at-thighs FINISH to correct, with the same side/back-three-quarter viewing direction.\n\nMAKE THE WHOLE HANDLE LEGIBLE:\nFrame the ENTIRE short straight bar with BOTH end caps visible, in front of the thighs. The bar must not disappear into the body or end inside a closed hand.\nUse two closed pronated grips, one hand on EACH SIDE of the bar midpoint, symmetric grip spacing as START. The visible ordering must be:\nsmall rounded end cap — short overhang — first closed hand — open central section and SINGLE central eye — second closed hand — short overhang — matching small rounded end cap.\nBoth overhangs beyond the fingers should be modest and comparable, roughly half a hand's width or less, like START. Absolutely no long unused extension on the left.\nThe attachment collar/eye is at the ACTUAL MIDPOINT of the whole bar, centered between the hand grips. Leave a visible gap free of fingers around it. Redraw both forearms and wrists naturally to fit this grip; long nearly straight arms, neutral wrists, no mixed grip.\nA small real carabiner clips directly to that CENTER eye BETWEEN the hands. One taut cable enters diagonally from the upper left and ends on that carabiner. In this view, cable/connector can pass IN FRONT of and briefly occlude the near forearm. Keep the true midpoint connection despite this overlap.\nUse the same small understated black/graphite center collar as START with a metal eye/carabiner. No giant plate/bracket, no extra ring assemblies, V-bar or new handle type.\n\nKeep camera orientation and natural down-at-thighs FINISH. Refined clean skin and matte fabric, black bar/grips, realistic metal connector. Cropped lower chest/forearms/hands/upper thighs only, all of the bar visible. No station/head/shoes, text, diagrams, inset images or arrows. One close-up only.",
+    "references": [
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046,
+        "dimensions": [1536, 1024]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+        "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+        "bytes": 42162,
+        "dimensions": [1280, 853]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/upload/B325A874-D10D-4F43-A138-2075089A566F.jpeg",
+        "sha256": "6d1f237ffdf8d742e5022198d29d613281ae6fc2149707aae8b59beb215bf28d",
+        "bytes": 221618,
+        "dimensions": [1536, 1024]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/upload/8D602DE1-C552-4E1F-9703-AACFA6CC9BCA.jpeg",
+        "sha256": "4c26fe92f1a8ff7f415820bad0370cb421430cc64199610b7bdfab630e646d39",
+        "bytes": 219600,
+        "dimensions": [1536, 1024]
+      }
+    ],
+    "transparent_background": false,
+    "reason": "Resolve central attachment AND START-matched short equal overhangs/end caps at readable scale",
+    "output": {
+      "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-1f33432f-bcfc-494a-a553-394483d72a12.png",
+      "sha256": "dbbb9ea5ef67c46373bb8e00895c91dd28cbfd9dc4535e369945a3a4e516156b",
+      "bytes": 1964194,
+      "dimensions": [1536, 1024]
+    },
+    "visualQA": {
+      "connection": "Central collar/eye between two closed grips",
+      "endCaps": "Both end caps visible, modest outboard lengths, matching short straight-bar family",
+      "scope": "Handle topology/material reference only; close-up body/view is not canonical for FINISH"
+    }
+  },
+  "workingHandleBase": {
+    "exerciseId": "cable-straight-arm-pulldown",
+    "gender": "male",
+    "phase": "finish",
+    "revision": 3,
+    "status": "superseded-after-visual-QA",
+    "createdAt": "2026-10-28T15:59:27.052445+00:00",
+    "prompt": "Use case: identity-preserve.\nCreate ONE matching FINISH for the standing Cable Straight-Arm Pulldown by editing image 1, the user's selected START. Landscape 1536 x 1024.\n\nReferences: 1 is the exact selected START and controls the machine, scene, camera, placement, scale and bar. 2 is the ORIGINAL five-view Male Master and controls character identity, proportions and outfit. 3 controls approved CRESUM equipment materials and rendering only, never its different apparatus.\n\nKeep the whole station absolutely fixed and the man's torso, head, hips, legs and foot positions unchanged. Keep the same blue-gray T-shirt, dark-gray shorts, white socks, gray shoes, refined skin/fabric, satin silver frame, graphite enclosures, white studio and lighting. Only swing the long nearly straight arms down through the shoulders, with the same soft elbow bend, until the same straight bar is held just in front of the upper thighs below the waist.\n\nMANDATORY HAND / BAR TOPOLOGY:\nShow the entire short straight bar and TWO distinct hands gripping it.\nAlong the bar, the visible physical order must be:\nleft bar end — first hand gripping its own grip area — open CENTER section with the SINGLE cable attachment eye — second hand gripping its own grip area — right bar end.\nThe central eye is at the MIDPOINT of the bar AND BETWEEN the two hands. Both hands must be on opposite sides of this eye. Leave a clearly visible small section of bar around the center eye, free of fingers. Keep the same approximately shoulder-width symmetric pronated grip as START, wrapped thumbs and neutral wrists.\nMove the camera-near hand slightly farther forward toward the machine if needed so it visibly holds the grip on the machine-facing SIDE of the central eye. Do not put both hands together on the body-facing side of the attachment. Do not make a long empty bar extension to one side. The two grip positions must actually straddle the central eye.\n\nOne taut cable descends diagonally from the SAME high pulley in the SAME locked carriage position to a small stop/carabiner connected to that CENTRAL eye BETWEEN the hands. Natural perspective occlusion is acceptable; the cable must stay physically in front of the athlete without piercing skin, arms, shorts or the bar. The cable length/angle changes to reach thigh height. Remove all traces of the raised START bar/arms/cable.\n\nFINISH has both arms long and almost straight, shoulders neutral, the bar across the front of the thighs with clearance. No bent-elbow row, no elbows pulled behind the torso, no back arch, deep hinge, lean-back or leg movement. Preserve natural adult arm length from the actual Master.\nExactly one active high outlet on the right column; keep the unused left handle. No extra outlets, hanging right handle, new apparatus, pads, seat, levers, plates, text, logos, labels, arrows or duplicate person. Same full-machine/full-person framing. Output ONE FINISH image only.",
+    "references": [
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/upload/B325A874-D10D-4F43-A138-2075089A566F.jpeg",
+        "sha256": "6d1f237ffdf8d742e5022198d29d613281ae6fc2149707aae8b59beb215bf28d",
+        "bytes": 221618,
+        "dimensions": [1536, 1024]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046,
+        "dimensions": [1536, 1024]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+        "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+        "bytes": 42162,
+        "dimensions": [1280, 853]
+      }
+    ],
+    "transparent_background": false,
+    "reason": "Rebuild from selected START, with hands explicitly straddling central cable eye",
+    "output": {
+      "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-98ce0650-658b-488b-a616-62c2bb54fbb4.png",
+      "sha256": "95f4cd7328ffed8d100bb43cc876af97243b107a7b8d4b9de46f5e217053da78",
+      "bytes": 1611044,
+      "dimensions": [1536, 1024]
+    },
+    "qaFinding": "Hands remain on same side of eye despite text constraint; switch to explicit independent visual topology diagram and primary-source pose reference."
+  },
+  "initialStart": {
+    "exerciseId": "cable-straight-arm-pulldown",
+    "gender": "male",
+    "phase": "start",
+    "revision": 2,
+    "status": "presented-awaiting-user-selection",
+    "createdAt": "2026-10-28T15:47:49.716394+00:00",
+    "prompt": "Edit the FIRST image only. This is a targeted engineering correction to the START illustration of a standing Cable Straight-Arm Pulldown, not a new phase.\n\nReference roles:\n1. Current START image: preserve its complete composition, camera, full person, full cable station, scale, lighting, character pose and straight bar.\n2. Original Male Master sheet: preserve exact adult man's identity, outfit, body proportions, skin and matte clothing.\n3. Official Life Fitness Axiom OP-DAP FRONT photo: real apparatus geometry.\n4. Official Life Fitness Axiom OP-DAP SIDE photo: real carriage, swiveling pulley housing, guide column, protected internal cable route.\n5. Approved CRESUM equipment-style reference: silver/graphite materials and rendering only; not its apparatus geometry or pose.\n\nCORRECT THE DUPLICATED WORKING-SIDE CABLE ASSEMBLY:\nIn image 1 the screen-right machine column has the correct active high pulley leading to the man's bar, but ALSO a second lower inactive cable outlet, long dangling strap and D-handle halfway down that SAME right column. This duplicate is erroneous. Remove that extra lower right outlet/bracket, its dangling cable/carabiner/strap and its D-handle entirely, restoring an uninterrupted normal adjustment column in that area.\nThe screen-right column must have exactly ONE genuine adjustable working carriage, locked HIGH. Integrate its swivel pulley housing, short carriage body, supported axle, locking mechanism and column mounting into one coherent real unit following references 3 and 4. Keep one taut active cable tangent to its pulley groove, passing in unobstructed air to the SINGLE centered eye/carabiner of the straight bar held by the athlete. Keep the bar center fastening, closed symmetric pronated hand grips, nearly straight softly bent elbows, high reaching START pose and stable standing torso.\nThe screen-left column may keep its one ordinary parked pulley and unused D-handle as it is. Do not remove the legitimate second tower. The machine's protected internal return cable and weight-stack mechanics remain plausible, but no second output or unused handle may hang from the working right column.\n\nPreserve all the successful aspects of image 1: same whole-man/whole-machine framing, white studio, satin light silver-gray structure, dark graphite stack shrouds, feet and upper bridge, the same single adult male, same stance and raised-arm pose, shoes and contact shadows, attachment bar and readable cable. No seat, lever, thigh pad, knee pad, new attachments, text, labels, logos, numbers, arrows or highlighted muscles. Do not lower the athlete's arms or change this to FINISH. Output one corrected START image, landscape 1536 x 1024.",
+    "references": [
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-c7a52695-47a7-40bc-bfc9-40c3f867f063.png",
+        "sha256": "5a2339f66610cc56ef33756dcbd403374831aff38c616d047ac184c66588797d",
+        "bytes": 1385530,
+        "dimensions": [1536, 1024]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046,
+        "dimensions": [1536, 1024]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/straight-arm-draft/life-fitness-axiom-op-dap-front.jpg",
+        "sha256": "5673ec4cc9b9ab6368c44a4335006e3035a616f64280f6bd0fcb00306e1fd66c",
+        "bytes": 61067,
+        "dimensions": [1000, 1000]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/straight-arm-draft/life-fitness-axiom-op-dap-side.jpg",
+        "sha256": "a0e89bfddff1538d78399148b36fd0ce8fd1a0fc46ba0a0f7c6706cf6ff68fcc",
+        "bytes": 51821,
+        "dimensions": [1000, 1000]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+        "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+        "bytes": 42162,
+        "dimensions": [1280, 853]
+      }
+    ],
+    "transparent_background": false,
+    "reason": "Remove duplicate output on working column; keep START composition",
+    "output": {
+      "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-3e30b80b-6c1f-4cfd-bf44-3e961322de78.png",
+      "sha256": "99f251189ca1ddbf2c8f3c0f83e3ebb7d40f65bb312b4ac180ee727d3e6adb22",
+      "bytes": 1623467,
+      "dimensions": [1536, 1024]
+    },
+    "visualQA": {
+      "duplicateRightOutput": "removed; one high active output remains",
+      "attachment": "single taut cable to centered bar eye/carabiner visible",
+      "pose": "standing START, raised nearly straight arms, both feet grounded",
+      "style": "silver frame and graphite enclosures, original Male Master referenced",
+      "framing": "whole athlete and apparatus visible",
+      "scope": "visual review only; no CAD or device-mechanics certification"
+    }
+  },
+  "initialStartBase": {
+    "exerciseId": "cable-straight-arm-pulldown",
+    "gender": "male",
+    "phase": "start",
+    "revision": 1,
+    "status": "superseded-after-visual-QA",
+    "createdAt": "2026-10-28T15:45:44.047930+00:00",
+    "prompt": "Create ONE polished photorealistic 3D exercise illustration for the CRESUM fitness app, landscape 1536 x 1024, white studio background. Exercise: standing Cable Straight-Arm Pulldown, START phase only.\n\nREFERENCE ROLES, in supplied order:\n1. The ORIGINAL five-view Male Master sheet: exact character identity and outfit reference. Render only ONE instance of that adult man: short styled brown hair, clean-shaven face, athletic natural proportions, fitted blue-gray T-shirt, dark-gray shorts, white ankle socks, light-gray trainers. Preserve this person's face, build, skin texture, clothing cut, and colors.\n2. Official Life Fitness Axiom OP-DAP platinum FRONT product photograph: actual cable-station geometry and proportions.\n3. Official Life Fitness Axiom OP-DAP platinum SIDE product photograph: same machine's depth, protected cable routing, carriage construction, feet, and fixed braces.\n4. Approved CRESUM equipment-style reference: materials, rendering quality, restrained silver finish and graphite details ONLY. Do not copy its assisted-pullup apparatus, kneeling pose, knee pad, steps, or any other geometry.\n\nSCENE AND CAMERA:\nUse the real dual adjustable cable station from references 2 and 3. Its satin light silver-gray uprights and structural members, two dark graphite weight-stack shrouds, realistic fixed upper bridge and diagonal upper braces, base rails, and dark rubber feet must form one coherent grounded object. Keep the actual OP-DAP construction rather than inventing a standalone modular pulley tower. Remove all brand logos, text, numbered scales, stickers, and decorative attachments. Keep any adjustment knob small and unobtrusive. The unused second cable system remains mechanically normal and parked, without a second cable leading to the active bar.\nCompose the whole machine primarily at the left, with the athlete standing in unobstructed open floor to the right, facing the working high pulley. Use a clear natural side-three-quarter camera at approximately the athlete's lower-chest height so both arms, hands, attachment, and active cable are readable, while the whole station and both feet remain visible. The man is standing OUTSIDE the machine, clear of its frame and base rails. Keep correct adult-to-machine scale (roughly 178 cm man, 220 cm station). Full machine, bar, man and shoes must fit with comfortable margins, no cropped apparatus or body parts. Unified perspective and consistent scale for a future matching FINISH image. A coherent centered composition that will also look balanced inside a square contain-fit card.\n\nSTART POSE:\nFeet about hip-width apart, both soles on the floor, soft knees, stable pelvis and braced neutral torso. At most a very slight natural forward inclination; no deep hip hinge, back arch, twisting or momentum. Head follows the torso with a neutral neck. The man reaches both arms forward and upward, with the hands above shoulder height, approximately eye-to-forehead height. Both elbows have only a SMALL soft bend (about 10–15 degrees); clearly show long nearly straight arms, not elbows bent to a right angle. Shoulders are flexed comfortably, arms roughly 25–35 degrees above horizontal. He holds a short straight cable bar with symmetric closed pronated grips a little wider than shoulder-width, thumbs wrapped around it, anatomically plausible fingers and neutral wrists. The bar stays straight and perpendicular to the direction of the pull. This is a standing straight-arm shoulder-extension pulldown, not a triceps pushdown or seated lat pulldown.\n\nCRITICAL MECHANICS:\nThe active adjustable pulley carriage on the working column is locked at a genuinely HIGH position above the man's hands. Show an intact actual swivel pulley housing, supported and attached to its guide column. Exactly ONE taut working cable leaves the real pulley groove tangentially, travels clearly through empty air diagonally down toward the athlete, and ends at a single centered metal eye/carabiner on the straight bar. A plausible cable stop and connector belong to this same line. No floating attachment, no cable ending on a hand, no off-center bar fastening, no cable cutting through a person or frame, no extra diagonal cable from a random brace. Leave enough standing distance for the same long arms to sweep the bar down toward the thighs in FINISH without hitting the machine. The actual machine support frame, stack shrouds, and guide columns remain fixed. Do not add a seat, thigh roller, chest pad, knee pad, plate-loaded lever or free weight plates.\n\nRENDER:\nMatch the approved CRESUM series: high-quality realistic 3D product visualization, even clean skin with fine natural texture, matte fabric, satin light metal, dark graphite polymer and rubber, soft neutral studio light, gentle contact shadows, white seamless floor/background, restrained reflections, crisp believable engineering and human anatomy. No dramatic shadows, excessive gloss, orange cast, text, START labels, arrows, inset views, watermarks, transparent background, muscle highlighting, or duplicate people. Output the ONE START illustration only.",
+    "references": [
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/visual-references/CRESUM/0AB6F93A-ED92-4F34-949C-C8AFA32D44CD(1).jpeg",
+        "role": "Original Male Master; identity and outfit",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046,
+        "dimensions": [1536, 1024]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/straight-arm-draft/life-fitness-axiom-op-dap-front.jpg",
+        "role": "OP-DAP front; geometry",
+        "sha256": "5673ec4cc9b9ab6368c44a4335006e3035a616f64280f6bd0fcb00306e1fd66c",
+        "bytes": 61067,
+        "dimensions": [1000, 1000]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/straight-arm-draft/life-fitness-axiom-op-dap-side.jpg",
+        "role": "OP-DAP side; geometry",
+        "sha256": "a0e89bfddff1538d78399148b36fd0ce8fd1a0fc46ba0a0f7c6706cf6ff68fcc",
+        "bytes": 51821,
+        "dimensions": [1000, 1000]
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+        "role": "Frozen equipment style v1; materials/rendering only",
+        "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+        "bytes": 42162,
+        "dimensions": [1280, 853]
+      }
+    ],
+    "transparent_background": false,
+    "equipmentSources": [
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/straight-arm-draft/life-fitness-axiom-op-dap-three-quarter.jpg",
+        "sourceUrl": "https://shop.lifefitness.com/cdn/shop/files/axiom-dual-adjustable-pulley-platinum-1000x1000_1.jpg?v=1748945285&width=1000",
+        "sourcePage": "https://shop.lifefitness.com/products/axiom-dual-adjustable-pulley",
+        "sha256": "4b77044aa727ae85e8bc0f680d094dadc38ea3cdf44ca1284b4b0fc104ba148c",
+        "bytes": 60547,
+        "dimensions": [1000, 1000],
+        "role": "Observed charcoal front view; not a three-quarter view, unused in imagegen"
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/straight-arm-draft/life-fitness-axiom-op-dap-front.jpg",
+        "sourceUrl": "https://shop.lifefitness.com/cdn/shop/products/axiom-dual-adjustable-pulley-platinum-1000x1000.jpg?v=1748945285&width=1000",
+        "sourcePage": "https://shop.lifefitness.com/products/axiom-dual-adjustable-pulley",
+        "sha256": "5673ec4cc9b9ab6368c44a4335006e3035a616f64280f6bd0fcb00306e1fd66c",
+        "bytes": 61067,
+        "dimensions": [1000, 1000],
+        "role": "Real cable-station construction reference; Life Fitness Axiom OP-DAP, platinum"
+      },
+      {
+        "path": "/workspace/scratch/44db0ba1caa2/straight-arm-draft/life-fitness-axiom-op-dap-side.jpg",
+        "sourceUrl": "https://shop.lifefitness.com/cdn/shop/products/axiom-dual-adjustable-pulley-platinum-side-1000x1000.jpg?v=1748945285&width=1000",
+        "sourcePage": "https://shop.lifefitness.com/products/axiom-dual-adjustable-pulley",
+        "sha256": "a0e89bfddff1538d78399148b36fd0ce8fd1a0fc46ba0a0f7c6706cf6ff68fcc",
+        "bytes": 51821,
+        "dimensions": [1000, 1000],
+        "role": "Real cable-station construction side reference; Life Fitness Axiom OP-DAP, platinum"
+      }
+    ],
+    "techniqueSource": "https://www.acefitness.org/resources/everyone/exercise-library/334/straight-arm-pressdown/",
+    "scope": "Straight bar is an illustrative attachment; generic exercise and technique scope stay unchanged",
+    "output": {
+      "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-c7a52695-47a7-40bc-bfc9-40c3f867f063.png",
+      "sha256": "5a2339f66610cc56ef33756dcbd403374831aff38c616d047ac184c66588797d",
+      "bytes": 1385530,
+      "dimensions": [1536, 1024]
+    },
+    "qaFinding": "Extra lower pulley outlet and parked D-handle on active right column; correction requested before selection."
+  },
+  "equipmentReferences": [
+    {
+      "path": "/workspace/scratch/44db0ba1caa2/straight-arm-draft/life-fitness-axiom-op-dap-three-quarter.jpg",
+      "sourceUrl": "https://shop.lifefitness.com/cdn/shop/files/axiom-dual-adjustable-pulley-platinum-1000x1000_1.jpg?v=1748945285&width=1000",
+      "sourcePage": "https://shop.lifefitness.com/products/axiom-dual-adjustable-pulley",
+      "sha256": "4b77044aa727ae85e8bc0f680d094dadc38ea3cdf44ca1284b4b0fc104ba148c",
+      "bytes": 60547,
+      "dimensions": [1000, 1000],
+      "role": "Observed charcoal front view; not a three-quarter view, unused in imagegen"
+    },
+    {
+      "path": "/workspace/scratch/44db0ba1caa2/straight-arm-draft/life-fitness-axiom-op-dap-front.jpg",
+      "sourceUrl": "https://shop.lifefitness.com/cdn/shop/products/axiom-dual-adjustable-pulley-platinum-1000x1000.jpg?v=1748945285&width=1000",
+      "sourcePage": "https://shop.lifefitness.com/products/axiom-dual-adjustable-pulley",
+      "sha256": "5673ec4cc9b9ab6368c44a4335006e3035a616f64280f6bd0fcb00306e1fd66c",
+      "bytes": 61067,
+      "dimensions": [1000, 1000],
+      "role": "Real cable-station construction reference; Life Fitness Axiom OP-DAP, platinum"
+    },
+    {
+      "path": "/workspace/scratch/44db0ba1caa2/straight-arm-draft/life-fitness-axiom-op-dap-side.jpg",
+      "sourceUrl": "https://shop.lifefitness.com/cdn/shop/products/axiom-dual-adjustable-pulley-platinum-side-1000x1000.jpg?v=1748945285&width=1000",
+      "sourcePage": "https://shop.lifefitness.com/products/axiom-dual-adjustable-pulley",
+      "sha256": "a0e89bfddff1538d78399148b36fd0ce8fd1a0fc46ba0a0f7c6706cf6ff68fcc",
+      "bytes": 51821,
+      "dimensions": [1000, 1000],
+      "role": "Real cable-station construction side reference; Life Fitness Axiom OP-DAP, platinum"
+    }
+  ]
+}

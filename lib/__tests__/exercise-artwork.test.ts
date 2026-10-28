@@ -5,6 +5,14 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock(
+  '../../assets/exercises/cable-straight-arm-pulldown/start.webp',
+  () => 1201,
+);
+jest.mock(
+  '../../assets/exercises/cable-straight-arm-pulldown/finish.webp',
+  () => 1202,
+);
 jest.mock('../../assets/exercises/machine-high-row/start.webp', () => 1101);
 jest.mock('../../assets/exercises/machine-high-row/finish.webp', () => 1102);
 jest.mock('../../assets/exercises/assisted-pull-up/start.webp', () => 1001);
@@ -314,6 +322,35 @@ it('binds the selected high-row pair without narrowing the generic exercise scop
     ])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
     expect(resolveExerciseArtwork('assisted-pull-up', phase, 'male')).not.toBe(
+      resolveExerciseArtwork(id, phase, 'male'),
+    );
+  }
+});
+
+it('binds selected straight-arm phases only to the existing Male exercise', () => {
+  const id = 'cable-straight-arm-pulldown';
+  expect(findTechnique(id)?.scope).toBe(
+    'Standing shoulder-extension pulldown.',
+  );
+  expect(findExercise(id)).toMatchObject({
+    equipment: ['cable'],
+    movementPattern: 'isolation',
+    primaryMuscles: ['lats'],
+    secondaryMuscles: ['triceps'],
+  });
+  expect(resolveExerciseArtwork(id, 'start', 'male')).toBe(1201);
+  expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(1202);
+  expect(resolveAttachmentArtwork(id)).toBeNull();
+  for (const phase of ['start', 'finish'] as const) {
+    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
+    for (const other of [
+      'lat-pulldown',
+      'seated-cable-row',
+      'triceps-pushdown',
+      'unknown',
+    ])
+      expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
+    expect(resolveExerciseArtwork('machine-high-row', phase, 'male')).not.toBe(
       resolveExerciseArtwork(id, phase, 'male'),
     );
   }
