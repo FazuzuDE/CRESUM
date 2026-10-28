@@ -27,6 +27,11 @@ export function TechniqueArtwork({
     phase === 'START' ? 'start' : 'finish',
     'male',
   );
+  const placement = resolveExerciseArtworkPlacement(
+    imageKey,
+    phase === 'START' ? 'start' : 'finish',
+    'male',
+  );
   if (source)
     return (
       <View style={[s.frame, s.image]}>
@@ -37,14 +42,7 @@ export function TechniqueArtwork({
             phase: phaseLabel,
             name: catalogLabel(locale, 'exercise', imageKey, imageKey),
           })}
-          style={[
-            s.picture,
-            resolveExerciseArtworkPlacement(
-              imageKey,
-              phase === 'START' ? 'start' : 'finish',
-              'male',
-            ),
-          ]}
+          style={[s.picture, placement]}
         />
       </View>
     );
