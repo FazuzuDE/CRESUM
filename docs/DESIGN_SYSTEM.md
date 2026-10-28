@@ -1,5 +1,26 @@
 # CRESUM Design System v1.0
 
+### Equipment visual language — approved 2026-10-28
+
+The user selected the last assisted-pull-up FINISH image as the preferred
+equipment design direction for CRESUM. The frozen reference is
+[`cresum-equipment-style-v1`](../assets/visual-references/equipment-style-v1/reference.webp),
+with exact source identity and approval scope in its
+[manifest](../assets/visual-references/equipment-style-v1/manifest.json).
+
+Apply this visual language to equipment in new or explicitly revised exercise
+illustrations: satin silver-gray frames with restrained highlights, deep graphite
+enclosures, dark matte upholstery/grips/feet, clean joins and softly rounded
+transitions where the real construction supports them. Use restrained functional
+accents, a clean white studio background, soft neutral lighting and natural
+contact shadows. Preserve fine, consistent surfaces and the calm premium 3D look.
+
+The exact real machine governs structure, dimensions, support, mechanisms,
+handles and body clearances. The actual character Master governs identity and
+outfit; supply this frozen frame as the additional equipment-style reference.
+Apply the card-harmony rule below to scale, framing and phase continuity.
+Detailed mechanics, anatomy and device acceptance retain their separate QA.
+
 ### Exercise-card image harmony — approved 2026-10-28
 
 Selected START/FINISH images should read as one coherent pair in exercise

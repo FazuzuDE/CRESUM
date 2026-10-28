@@ -1,5 +1,17 @@
 # CRESUM Decision Log
 
+## 2026-10-28 — Selected gravitron establishes equipment visual style v1
+
+After merging PR #105, the user asked to fix the last gravitron image's equipment
+design as a more pleasant direction for CRESUM. Freeze an exact independent
+copy of image 4 FINISH as `cresum-equipment-style-v1`, with source hashes and
+approval scope. Use its satin silver-gray frames, graphite enclosures, dark
+matte upholstery and soft white-studio rendering for new or explicitly revised
+exercise illustrations. DESIGN_SYSTEM.md owns this visual language;
+EXERCISE_ASSETS.md owns reference use and continuity review. Real-machine
+geometry, actual character Master, detailed mechanics/device QA and source
+backup retain their separate authority and recorded scope.
+
 ## 2026-10-28 — Photo-based assisted pull-up pair and card harmony selected
 
 The user approved image 2 START and image 4 FINISH after rejecting a generic

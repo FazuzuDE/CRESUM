@@ -1,5 +1,27 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Equipment style reference v1 — approved 2026-10-28
+
+Use `assets/visual-references/equipment-style-v1/reference.webp` as the preferred
+equipment material/palette/rendering reference for new or explicitly revised
+exercise illustrations. It is an exact independent copy of the selected image 4
+assisted-pull-up FINISH from merged PR #105. Its manifest pins the source commit,
+original PNG and exported WebP hashes, sizes, user decision and approval scope;
+keep revision 1 frozen if a future exercise image changes. Create a new explicit
+style revision when the user chooses another direction.
+
+Visual rules belong to DESIGN_SYSTEM.md. For generation, provide this equipment
+style reference together with verified geometry for the exact real machine,
+the actual externally supplied character Master and the accepted phase partner.
+Review material continuity, physical contacts and the paired phone-size framing.
+This reference is a human production input; the Prompt Package builder and
+runtime resolver gain no automatic reference binding from this record.
+
+The source pair's `user-selected-provisional` mechanics/anatomy/device scope
+and `pending-upload` source archive status remain independent of this style
+approval. The original PNG and prompt/reference chain join the next PC ZIP
+checkpoint under the existing visual-source workflow.
+
 ## Assisted pull-up — selected photo-based Male pair, 2026-10-28
 
 The user selected image 2 as START and image 4 as FINISH, prioritizing harmonious
@@ -335,9 +357,11 @@ accepted START/FINISH partner at full size and at phone display size:
 - Keep the shirt muted blue-gray, shorts dark gray, socks white and shoes light
   gray. Natural folds, contact shadows and illumination may vary; unexplained
   color patches, different fabric textures or a saturated/glossy finish may not.
-- Retain the approved machine's coherent dark matte metal, restrained chrome
-  reflections and consistent upholstery. Reject melted edges, patchwork gloss,
-  noisy surfaces and material/color drift introduced by successive repairs.
+- Apply the equipment style reference's satin silver-gray frames, graphite
+  enclosures and dark matte upholstery with restrained metal reflections.
+  Keep these materials consistent across the selected machine's START/FINISH
+  pair. Reject melted edges, patchwork gloss, noisy surfaces and material/color
+  drift introduced by successive repairs.
 - Review both movement mechanics and material continuity. A corrected grip does
   not compensate for degraded face, body, fabric or machine quality. If repairs
   accumulate visible drift, return to clean approved references and regenerate.
