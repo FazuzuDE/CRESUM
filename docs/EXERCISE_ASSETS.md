@@ -1,5 +1,30 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Band Pull-Apart — selected Male pair, 2026-10-29
+
+The user approved paired r1 from
+`exec-acdda835-8a6e-48b6-abc2-cbbb2cefe6b7.png` (1774 x 887), SHA-256
+`a5d9abfcc2c0686dc497b8bb832d9854435a42a94af77f6a2c60edc8b8fe0fe6`.
+Export LEFT START [0,0,887,887] and RIGHT FINISH [887,0,1774,887],
+Pillow-exclusive right/bottom bounds, RGB WebP quality92/method6 at 887 square.
+Preserve selected pixels without further retouch, padding, resampling or separate
+phase transforms. Use existing shared square contain in both viewers.
+
+Bind only existing `resistance-band-pull-apart` / Male. The supplied example
+sets the rear three-quarter pose and phase direction; actual Male Master sets
+identity, natural adult proportions and blue-gray outfit. The orange flat strip,
+grip and stance are illustrative production choices within the generic standing
+horizontal pull-apart. Preserve ID, guide, qualitative muscles, History/data,
+attachments and unrelated/Female fallbacks. Do not transfer anatomical overlays,
+branding or screenshot UI. Exact original/reference hashes, prompt and exports
+live under the asset folder.
+
+Keep `user-selected-provisional`: full-frame and 320/390-point visual review
+and selection do not certify detailed independent biomechanics, measured elastic
+strain or physical-device acceptance. Original/prompt/references are retained in
+the shoulder source supplement; add selected exports at this checkpoint. No
+verified PC download or Oracle upload; Oracle stays deferred, `pending-upload`.
+
 ## Reverse Pec Deck — selected Male pair, 2026-10-29
 
 The user approved template-based r5 apart from FINISH load motion, requested

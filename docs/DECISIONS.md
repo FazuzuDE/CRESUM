@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-29 — Band Pull-Apart Male pair selected
+
+The user approved the single-generation START/FINISH pair based on the supplied
+pose example and original Male Master. Integrate exact 887-square source halves
+for existing Male resistance-band-pull-apart only; retain shared square contain,
+complete provenance and provisional independent biomechanics/device scope.
+Preserve generic identity, instructions, muscles, data, attachments and Female
+fallbacks. Source-archive preparation does not certify PC/Oracle backup.
+
 ## 2026-10-29 — Reverse Pec Deck template pair and raised FINISH load selected
 
 The user chose the supplied rear-fly template, approved the pair subject to
