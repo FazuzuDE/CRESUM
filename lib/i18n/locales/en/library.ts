@@ -1,4 +1,16 @@
 export default {
+  'exerciseMuscles.title': 'Working muscles',
+  'exerciseMuscles.more': 'More details',
+  'exerciseMuscles.open': 'Muscle details for {{name}}',
+  'exerciseMuscles.close': 'Close muscle details',
+  'exerciseMuscles.meaning':
+    'Qualitative muscle roles for this exercise, not measured activation, load percentages or recovery.',
+  'exerciseMuscles.coverage':
+    'Not highlighted on this map: {{muscles}}. These muscles are still listed above.',
+  'exerciseMuscles.lowerBack':
+    'Lower-back highlights are schematic projections beneath fascia.',
+  'exerciseMuscles.none': 'None listed',
+
   'library.title': 'Exercise Library',
   'library.count': {
     one: '{{count, number}} exercise',

@@ -1,5 +1,8 @@
+import { MuscleMap } from '../../components/MuscleMap';
+import { Path } from 'react-native-svg';
+import { colors } from '../theme';
 import { ExerciseLibrary } from '../../components/ExerciseLibrary';
-import { TextInput, Linking, Image, StyleSheet } from 'react-native';
+import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
 jest.mock('../../assets/exercises/dumbbell-biceps-curl/start.webp', () => 2101);
@@ -381,4 +384,71 @@ it('keeps deadlift FINISH uniformly aligned in both viewers and resets placement
   } finally {
     act(() => v.unmount());
   }
+});
+
+// Removing the per-exercise card, using history tint or omitting dismissal breaks these scenarios.
+it('shows exact curl roles and opens/closes larger anatomy without changing FINISH', () => {
+  const v = render();
+  act(() => button(v, 'Technique for Dumbbell Biceps Curl')!.props.onPress());
+  expect(text(v)).toContain('Working muscles');
+  const map = v.root.findByType(MuscleMap);
+  expect(map.props.height).toBe(160);
+  const regions = v.root
+    .findAllByType(Path)
+    .filter((n: any) => n.props.testID?.startsWith('anatomical-region-'));
+  expect(regions.some((n: any) => n.props.fill === colors.musclePrimary)).toBe(
+    true,
+  );
+  expect(
+    regions.some((n: any) => n.props.fill === colors.muscleSecondary),
+  ).toBe(true);
+  for (const muscle of map.props.muscles) {
+    expect(muscle.primary).toBe(muscle.id === 'biceps' ? 1 : 0);
+    expect(muscle.secondary).toBe(muscle.id === 'forearms' ? 1 : 0);
+  }
+  expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
+  act(() => button(v, 'Show FINISH')!.props.onPress());
+  act(() =>
+    button(v, 'Muscle details for Dumbbell Biceps Curl')!.props.onPress(),
+  );
+  expect(
+    v.root.findAllByType(MuscleMap).map((n: any) => n.props.height),
+  ).toEqual([160, 340]);
+  expect(text(v)).toContain('Qualitative muscle roles');
+  const modal = v.root
+    .findAllByType(Modal)
+    .find((n: any) => n.props.testID === 'exercise-muscle-details')!;
+  act(() => modal.props.onRequestClose());
+  expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
+  expect(
+    v.root
+      .findAllByType(Image)
+      .some(
+        (n: any) =>
+          n.props.accessibilityLabel === 'Dumbbell Biceps Curl: FINISH',
+      ),
+  ).toBe(true);
+  act(() =>
+    button(v, 'Muscle details for Dumbbell Biceps Curl')!.props.onPress(),
+  );
+  act(() => button(v, 'Close muscle details')!.props.onPress());
+  expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
+  act(() => v.unmount());
+});
+
+it('keeps unmapped exercise roles named without painting guessed regions', () => {
+  const v = render();
+  act(() => button(v, 'Technique for Reverse Pec Deck')!.props.onPress());
+  expect(text(v)).toContain('Not highlighted on this map:');
+  expect(text(v)).toContain('Rear Delts');
+  const map = v.root.findByType(MuscleMap);
+  expect(
+    map.props.muscles.find((m: any) => m.id === 'rear-delts').primary,
+  ).toBe(1);
+  expect(
+    v.root
+      .findAllByType(Path)
+      .some((n: any) => n.props.testID?.includes('posterior-shoulder-surface')),
+  ).toBe(false);
+  act(() => v.unmount());
 });
