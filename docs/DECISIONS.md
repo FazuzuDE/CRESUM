@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-29 — Compact per-exercise muscle card, option3 approved
+
+User selected option3 of the three-screen comparison: compact anatomical
+front/back summary under movement controls, exact Primary/Secondary labels,
+and More details for a larger map. Reuse current roles and accepted SVG masks,
+keep all unmapped groups in text with a coverage explanation; no percentages
+or calculated physiological load. Sync owning PRODUCT/DESIGN_SYSTEM/ROADMAP
+and implement offline in EN/RU/DE/FR. Device acceptance stays open.
+
 ## 2026-10-29 — Dumbbell curl pair and supplementary-source approach accepted
 
 The user approved the clear bilateral START/FINISH pair based on actual Male

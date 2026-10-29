@@ -3,7 +3,6 @@ import { useLocalization } from './LocalizationProvider';
 import { View, Text, StyleSheet } from 'react-native';
 import Svg, { Defs, Image, Mask, ClipPath, Path, G } from 'react-native-svg';
 import type { MuscleId } from '@/lib/exercise-taxonomy';
-import type { MuscleParticipation } from '@/lib/muscle-participation';
 import {
   anatomicalAtlas,
   anatomicalGroups,
@@ -22,10 +21,12 @@ export function MuscleMap({
   muscles,
   selected,
   onSelect,
+  height = muscleMapPresentation.height,
 }: {
-  muscles: MuscleParticipation['muscles'];
+  muscles: readonly { id: MuscleId; primary: number; secondary: number }[];
   selected?: MuscleId;
-  onSelect: (id: MuscleId) => void;
+  onSelect?: (id: MuscleId) => void;
+  height?: number;
 }) {
   const { t } = useLocalization();
   const instance = useId().replace(/[^a-zA-Z0-9]/g, '');
@@ -40,7 +41,7 @@ export function MuscleMap({
           <View key={view} style={s.body}>
             <Svg
               width="100%"
-              height={muscleMapPresentation.height}
+              height={height}
               viewBox={anatomicalAtlas.views[view].viewBox.join(' ')}
               accessible={false}
             >
@@ -127,7 +128,9 @@ export function MuscleMap({
                           strokeWidth={
                             muscleMapPresentation.selectedStrokeWidth
                           }
-                          onPress={() => onSelect(group.id)}
+                          onPress={
+                            onSelect ? () => onSelect(group.id) : undefined
+                          }
                         />
                       </G>
                     ))}

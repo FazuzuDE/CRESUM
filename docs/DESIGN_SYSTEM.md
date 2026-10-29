@@ -1,5 +1,17 @@
 # CRESUM Design System v1.0
 
+### Compact exercise muscle card — approved 2026-10-29
+
+Use selected option3: accepted front/back anatomy beside wrapping role labels,
+with a44pt More details action opening a scrollable native page sheet. Keep
+movement artwork and START/FINISH above. Use existing tokens, fixed role colors
+and opacities, unchanged source/masks; no generated mockup pixels in runtime.
+Compact map160pt, expanded340pt. Below375pt window width or fontScale above1.2,
+stack the map above labels. Decorative regions have no press handlers; accessible
+text names all roles. Details exposes exercise name, role meaning, applicable
+missing-mask/lower-back caveats, Close, Android Back/swipe dismissal and focus
+restoration. Native layout/compositing/screen-reader acceptance remains open.
+
 ### Efficient exercise framing — approved 2026-10-28
 
 Use the available frame for a large, readable athlete/equipment scene, retaining

@@ -1,5 +1,15 @@
 # CRESUM — Product Definition
 
+### Per-exercise muscle summary — approved 2026-10-29
+
+Option3 adds a compact Working muscles card below the movement controls in
+exercise Technique details. Show the existing anatomical front/back character
+and exact catalog Primary/Secondary names; More details opens a larger map.
+This describes qualitative exercise roles, independently of logged sets or
+History, without percentages or measured activation/recovery claims. Retain
+text for unmapped groups and explain relevant coverage limits. All copy is
+bundled in EN/RU/DE/FR. See the exercise-muscle-card design specification.
+
 ### Technique source dates — correction prepared 2026-10-27
 
 The Sources disclosure shows each reference's authored `checkedOn` date beside

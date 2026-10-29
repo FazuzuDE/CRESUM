@@ -66,6 +66,9 @@ export const brand = {
 // Fixed factual role presentation, not load or physiological coefficients.
 export const muscleMapPresentation = {
   height: 340,
+  compactHeight: 160,
+  compactStackWidth: 375,
+  compactStackFontScale: 1.2,
   primaryOpacity: 0.62,
   secondaryOpacity: 0.55,
   selectedStrokeWidth: 2.5,

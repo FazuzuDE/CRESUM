@@ -1,4 +1,16 @@
 export default {
+  'exerciseMuscles.title': 'Работающие мышцы',
+  'exerciseMuscles.more': 'Подробнее',
+  'exerciseMuscles.open': 'Карта мышц: {{name}}',
+  'exerciseMuscles.close': 'Закрыть карту мышц',
+  'exerciseMuscles.meaning':
+    'Качественная роль мышц в упражнении, без измерения активации, процентов нагрузки или восстановления.',
+  'exerciseMuscles.coverage':
+    'Не выделены на этой карте: {{muscles}}. Эти мышцы указаны в списке выше.',
+  'exerciseMuscles.lowerBack':
+    'Подсветка поясницы — схематическая проекция мышц под фасцией.',
+  'exerciseMuscles.none': 'Не указаны',
+
   'library.title': 'Библиотека упражнений',
   'library.count': {
     one: '{{count, number}} упражнение',

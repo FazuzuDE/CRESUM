@@ -1,4 +1,16 @@
 export default {
+  'exerciseMuscles.title': 'Beanspruchte Muskeln',
+  'exerciseMuscles.more': 'Mehr erfahren',
+  'exerciseMuscles.open': 'Muskeldetails für {{name}}',
+  'exerciseMuscles.close': 'Muskeldetails schließen',
+  'exerciseMuscles.meaning':
+    'Qualitative Muskelrollen dieser Übung, keine gemessene Aktivierung, Belastungsprozente oder Erholung.',
+  'exerciseMuscles.coverage':
+    'Auf dieser Karte nicht hervorgehoben: {{muscles}}. Diese Muskeln stehen weiterhin in der Liste oben.',
+  'exerciseMuscles.lowerBack':
+    'Die Markierungen am unteren Rücken sind schematische Projektionen unter der Faszie.',
+  'exerciseMuscles.none': 'Keine angegeben',
+
   'library.title': 'Übungsbibliothek',
   'library.count': {
     one: '{{count, number}} Übung',

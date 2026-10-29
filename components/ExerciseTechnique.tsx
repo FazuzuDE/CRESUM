@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BrandHeader } from './BrandHeader';
+import { ExerciseMuscles } from './ExerciseMuscles';
 import { ExerciseStatistics } from './ExerciseStatistics';
 import { ExerciseArtwork } from './ExerciseArtwork';
 import {
@@ -193,6 +194,7 @@ export function ExerciseTechnique({
               </View>
             </Pressable>
             <TechniquePhaseControl phase={phase} onChange={setPhase} />
+            <ExerciseMuscles key={exercise.id} exercise={exercise} />
             <ExerciseEquipmentRow
               exerciseId={exercise.id}
               focusRef={equipmentFocus}

@@ -1,4 +1,16 @@
 export default {
+  'exerciseMuscles.title': 'Muscles sollicités',
+  'exerciseMuscles.more': 'En savoir plus',
+  'exerciseMuscles.open': 'Détails musculaires pour {{name}}',
+  'exerciseMuscles.close': 'Fermer les détails musculaires',
+  'exerciseMuscles.meaning':
+    'Rôle qualitatif des muscles dans cet exercice, sans mesure de l’activation, du pourcentage de charge ou de la récupération.',
+  'exerciseMuscles.coverage':
+    'Non surlignés sur cette carte : {{muscles}}. Ces muscles figurent dans la liste ci-dessus.',
+  'exerciseMuscles.lowerBack':
+    'Le surlignage du bas du dos est une projection schématique sous le fascia.',
+  'exerciseMuscles.none': 'Aucun indiqué',
+
   'library.title': 'Bibliothèque d’exercices',
   'library.count': {
     one: '{{count, number}} exercice',

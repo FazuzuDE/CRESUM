@@ -1,5 +1,13 @@
 # CRESUM — Development Roadmap
 
+### Exercise muscle summary — approved priority 2026-10-29
+
+Implement selected compact card option3 in exercise Technique details before
+resuming the illustration queue. Reuse current catalog roles and approved
+anatomical atlas; do not expand uncertain masks as part of this feature.
+Keep missing-group text and relevant coverage disclosures. Physical-device
+small-phone, Dynamic Type and VoiceOver/TalkBack acceptance follows implementation.
+
 ## Visual archive checkpoint update — 2026-10-27
 
 Oracle uploads/backfill are deferred by the user. Continue exercise artwork;
