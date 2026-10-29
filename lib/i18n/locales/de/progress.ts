@@ -1,4 +1,6 @@
 export default {
+  'muscle.upperBackProjection':
+    'Die Markierung des oberen Rückens ist eine schematische Projektion unter dem Trapezmuskel, keine exakte Darstellung freigelegter Rautenmuskeln.',
   'volume.recentSummary': 'Letzte Trainingsvolumen in Kilogramm: {{points}}',
   'progress.title': 'Fortschritt',
   'progress.overview': 'Übersicht',

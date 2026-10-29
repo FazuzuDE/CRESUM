@@ -1,5 +1,15 @@
 # CRESUM Decision Log
 
+## 2026-10-29 — Upper-back projection r3 selected
+
+User approved screenshot244AF30D: inset0/0, inward0/0, Y0/-1.5 source px.
+Preserve exact r3 paths and independent masks;70% is preview-only. Integrate
+as a schematic upper-back projection beneath trapezius, with EN/RU/DE/FR
+explanation. Rendering gives Primary precedence over Secondary, ties to the
+projection, without double tint or changes to group counts/accepted contours.
+Source/previous94 regions and36 unresolved identities remain unchanged. Rear
+Delts/Adductors and physical-device acceptance stay open.
+
 ## 2026-10-29 — Compact per-exercise muscle card, option3 approved
 
 User selected option3 of the three-screen comparison: compact anatomical

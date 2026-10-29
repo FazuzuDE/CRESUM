@@ -1,0 +1,20 @@
+{
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "maskRegions": 2,
+  "selectedSettings": {
+    "upper-back-projection-left": {
+      "inset": 0,
+      "shift": 0,
+      "shiftY": 0
+    },
+    "upper-back-projection-right": {
+      "inset": 0,
+      "shift": 0,
+      "shiftY": -1.5
+    }
+  },
+  "selectedMaskBackgroundPixels": 0,
+  "selectedMaskMutualOverlapPixels": 0,
+  "exactSVGPathAndTransform": true,
+  "scope": "SVG reference renderer/technical proof; native device compositing acceptance still open"
+}

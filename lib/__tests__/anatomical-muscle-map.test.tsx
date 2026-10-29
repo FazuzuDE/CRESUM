@@ -24,12 +24,20 @@ it('preserves accepted exteriors, transforms, clips and all unresolved assignmen
   expect(anatomicalAtlas.provenance['source.png']).toBe(
     '39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a',
   );
-  expect(anatomicalAtlas.regions).toHaveLength(94);
+  expect(anatomicalAtlas.regions).toHaveLength(96);
   expect(
     anatomicalAtlas.regions.filter((r) => r.groupId === null),
   ).toHaveLength(36);
   for (const r of anatomicalAtlas.regions) {
-    if (r.groupId === 'chest') {
+    if (r.groupId === 'upper-back') {
+      const selected = require('../../assets/muscle-map/male-anatomy-v1/upper-back-projection-study/selected-geometry.json');
+      const accepted = selected.regions.find(
+        (p: { id: string }) => p.id === r.id,
+      );
+      expect(r.path).toBe(accepted.path);
+      expect(r.transform).toBe(accepted.transform);
+      expect(r.representation).toBe('schematic-projection-beneath-trapezius');
+    } else if (r.groupId === 'chest') {
       const accepted = chest.regions.find((p: { id: string }) => p.id === r.id);
       expect(r.path).toBe(accepted.parentPath);
       expect(r.partitionPath).toBe(accepted.partitionPath);
@@ -48,7 +56,6 @@ it('preserves accepted exteriors, transforms, clips and all unresolved assignmen
   expect(anatomicalMissingGroups.map((m) => m.id).sort()).toEqual([
     'adductors',
     'rear-delts',
-    'upper-back',
   ]);
 });
 
@@ -72,7 +79,7 @@ it('renders the selected original character in both views, with a neutral no-set
     .filter((n: { props: { testID?: string } }) =>
       n.props.testID?.startsWith('anatomical-region-'),
     );
-  expect(paths).toHaveLength(58);
+  expect(paths).toHaveLength(60);
   expect(
     paths.every(
       (n: { props: { fill: string } }) => n.props.fill === 'transparent',
@@ -156,3 +163,88 @@ it('retains secondary role, never paints unresolved shoulder regions, and scopes
   expect(new Set(ids).size).toBe(ids.length);
   act(() => view.unmount());
 });
+
+it('renders the selected bilateral projection at fixed role opacity and the approved rightY offset', () => {
+  const muscles = neutral.map((m) =>
+    m.id === 'upper-back' ? { ...m, primary: 3 } : m,
+  );
+  const select = jest.fn();
+  let v!: ReturnType<typeof create>;
+  act(() => {
+    v = create(<MuscleMap muscles={muscles} onSelect={select} />);
+  });
+  const p = v.root
+    .findAllByType(Path)
+    .find(
+      (n: any) =>
+        n.props.testID === 'anatomical-region-upper-back-projection-right',
+    );
+  expect(p).toBeDefined();
+  expect(p!.props.transform).toBe('translate(0 -1.5)');
+  expect(p!.props.fill).toBe(colors.musclePrimary);
+  act(() => p!.props.onPress());
+  expect(select).toHaveBeenCalledWith('upper-back');
+  const groups = v.root
+    .findAllByType(G)
+    .filter((n: any) => n.props.testID?.startsWith('anatomical-group-back-'));
+  expect(
+    groups.findIndex((n: any) => n.props.testID.endsWith('upper-back')),
+  ).toBeGreaterThan(
+    groups.findIndex((n: any) => n.props.testID.endsWith('traps')),
+  );
+  expect(
+    groups.find((n: any) => n.props.testID.endsWith('upper-back'))!.props
+      .opacity,
+  ).toBe(0.62);
+  act(() => v.unmount());
+});
+
+it.each([
+  [1, 0, 0, 1, 'traps', 'upper-back'],
+  [0, 1, 1, 0, 'upper-back', 'traps'],
+  [1, 0, 1, 0, 'traps', 'upper-back'],
+  [0, 1, 0, 1, 'traps', 'upper-back'],
+  [1, 0, 0, 0, null, null],
+  [0, 1, 0, 0, null, null],
+  [0, 0, 1, 0, null, null],
+] as const)(
+  'resolves projection/traps role pair %s/%s against %s/%s once',
+  (up, us, tp, ts, loser, winner) => {
+    const muscles = neutral.map((m) =>
+      m.id === 'upper-back'
+        ? { ...m, primary: up!, secondary: us! }
+        : m.id === 'traps'
+          ? { ...m, primary: tp!, secondary: ts! }
+          : m,
+    );
+    const original = JSON.stringify(muscles);
+    let v!: ReturnType<typeof create>;
+    act(() => {
+      v = create(<MuscleMap muscles={muscles} />);
+    });
+    const cutouts = v.root
+      .findAllByType(Mask)
+      .filter((n: any) => n.props.testID === 'anatomical-role-occlusion-back');
+    expect(cutouts).toHaveLength(loser ? 1 : 0);
+    if (loser) {
+      const group = v.root
+        .findAllByType(G)
+        .find((n: any) => n.props.testID === 'anatomical-group-back-' + loser)!;
+      expect(group.props.mask).toBe('url(#' + cutouts[0].props.id + ')');
+      const expected = anatomicalAtlas.regions.filter(
+        (r) => r.groupId === winner,
+      );
+      const black = cutouts[0]
+        .findAllByType(Path)
+        .filter((n: any) => n.props.fill === 'black');
+      expect(black.map((n: any) => n.props.d)).toEqual(
+        expected.map((r) => r.path),
+      );
+      expect(black.map((n: any) => n.props.transform)).toEqual(
+        expected.map((r) => r.transform || undefined),
+      );
+    }
+    expect(JSON.stringify(muscles)).toBe(original);
+    act(() => v.unmount());
+  },
+);

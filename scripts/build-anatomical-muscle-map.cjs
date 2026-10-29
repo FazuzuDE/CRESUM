@@ -1,4 +1,4 @@
-/* Repackage accepted geometry for native SVG; never retrace or assign muscles. */
+/* Repackage accepted paths and explicit selected parent bindings; never retrace. */
 /* global __dirname */
 const fs = require('node:fs');
 const path = require('node:path');
@@ -14,6 +14,18 @@ const hash = (p) =>
 const combined = read('combined-review/geometry.json');
 const chest = read('chest-regional-study/selected-geometry.json');
 const layers = read('layers.json');
+const upper = read('upper-back-projection-study/selected-geometry.json');
+const upperSelection = read('upper-back-projection-study/selection.json');
+const upperBaseline = read('upper-back-projection-study/geometry.json');
+assert.equal(
+  hash('upper-back-projection-study/geometry.json'),
+  upperSelection.baselineGeometrySha256,
+);
+assert.equal(upper.status, 'visually-approved-schematic-projection');
+assert.equal(upper.sourceSha256, layers.sourceSha256);
+assert.equal(upperSelection.sourceSha256, layers.sourceSha256);
+assert.deepEqual(upper.canvas, [layers.width, layers.height]);
+assert.equal(upper.regions.length, 2);
 assert.equal(hash('source.png'), layers.sourceSha256);
 assert.equal(chest.status, 'visually-approved');
 assert.equal(chest.sourceSha256, layers.sourceSha256);
@@ -53,8 +65,30 @@ for (const r of chest.regions) {
     representation: r.representation,
   });
 }
+// Preserve all previous94 records; add only the two explicitly selected projections.
 assert.equal(regions.length, 94);
-assert.equal(new Set(regions.map((r) => r.id)).size, 94);
+for (const r of upper.regions) {
+  const setting = upperSelection.regions[r.id];
+  assert.equal(r.path, upperBaseline.regions.find((b) => b.id === r.id).path);
+  assert.equal(setting.inset, 0);
+  assert.equal(setting.shift, 0);
+  assert.equal(setting.shiftY, r.side === 'left' ? 0 : -1.5);
+  assert.equal(r.transform, `translate(0 ${setting.shiftY})`);
+  assert.equal(r.muscleGroupId, 'upper-back');
+  assert.equal(r.representation, 'schematic-projection-beneath-trapezius');
+  regions.push({
+    id: r.id,
+    view: r.view,
+    groupId: 'upper-back',
+    path: r.path,
+    transform: r.transform,
+    clipId: null,
+    partitionPath: null,
+    representation: r.representation,
+  });
+}
+assert.equal(regions.length, 96);
+assert.equal(new Set(regions.map((r) => r.id)).size, 96);
 assert.equal(regions.filter((r) => r.groupId === null).length, 36);
 for (const r of regions)
   assert(!r.clipId || clips.some((c) => c.id === r.clipId));
@@ -63,6 +97,9 @@ const files = [
   'layers.json',
   'combined-review/geometry.json',
   'chest-regional-study/selected-geometry.json',
+  'upper-back-projection-study/geometry.json',
+  'upper-back-projection-study/selected-geometry.json',
+  'upper-back-projection-study/selection.json',
 ];
 const result = {
   version: 1,
@@ -82,5 +119,5 @@ if (process.argv.includes('--check'))
   );
 else fs.writeFileSync(output, encoded);
 console.log(
-  'Anatomy atlas: 94 preserved regions, 36 unresolved, four chest partitions.',
+  'Anatomy atlas: 94 preserved + 2 selected upper-back projections, 36 unresolved.',
 );

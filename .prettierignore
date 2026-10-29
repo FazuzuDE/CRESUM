@@ -226,3 +226,7 @@ assets/muscle-map/male-anatomy-v1/chest-regional-study/selection-report.json
 # Per-feature execution logs and ledger, not deliverables.
 .superpowers/sdd/2026-10-23-workout-sharing/
 .superpowers/
+
+# Selected upper-back projection study exports
+assets/muscle-map/male-anatomy-v1/upper-back-projection-study/*.svg
+assets/muscle-map/male-anatomy-v1/upper-back-projection-study/*.json
