@@ -1,9 +1,9 @@
-jest.mock('../../assets/exercises/reverse-pec-deck/start.webp', () => 1901);
-jest.mock('../../assets/exercises/reverse-pec-deck/finish.webp', () => 1902);
 import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/reverse-pec-deck/start.webp', () => 1901);
+jest.mock('../../assets/exercises/reverse-pec-deck/finish.webp', () => 1902);
 jest.mock('../../assets/exercises/cable-lateral-raise/start.webp', () => 1801);
 jest.mock('../../assets/exercises/cable-lateral-raise/finish.webp', () => 1802);
 jest.mock(
