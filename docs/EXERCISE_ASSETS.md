@@ -1,5 +1,30 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Dumbbell Biceps Curl — selected Male pair, 2026-10-29
+
+The user approved pair r1 from
+`exec-874186c0-ddc3-486d-b09a-a4ab938659d0.png` (1774 x 887), SHA-256
+`1b0de5fe37a162794c1a32bad70132c52b6199e035db54a1c783b3c27bda10f2`.
+Export LEFT START [0,0,887,887] and RIGHT FINISH [887,0,1774,887],
+Pillow-exclusive right/bottom bounds, RGB WebP quality92/method6 at887 square.
+No further retouch, padding, resampling or phase-specific transforms. Keep
+existing shared square contain in inline and expanded viewers.
+
+Bind only existing `dumbbell-biceps-curl` / Male. The selected standing bilateral
+supinated example makes START/FINISH explicit; the supplied alternating-arm
+anatomical image is a pose/equipment reference, not the selected phases. Actual
+Male Master governs identity, natural adult proportions and blue-gray outfit.
+ACE seated mechanics inform the already documented standing/seated adaptation;
+this does not redefine generic identity or change guide, muscles, History/data,
+attachments or Female/unrelated fallbacks. Preserve the exact historical prompt,
+actual original/reference hashes, source/crop/export metadata and selection.
+
+Retain `user-selected-provisional`: full-frame and320/390 visual inspection and
+selection do not certify detailed independent biomechanics/anatomy or physical-
+device acceptance. Original/prompt/references are retained in the upper-body
+source supplement; add selected exports at this checkpoint. No verified PC
+backup or Oracle upload; Oracle stays deferred and archive `pending-upload`.
+
 ## Band Pull-Apart — selected Male pair, 2026-10-29
 
 The user approved paired r1 from

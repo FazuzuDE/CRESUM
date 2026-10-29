@@ -1,5 +1,19 @@
 # CRESUM Decision Log
 
+## 2026-10-29 — Dumbbell curl pair and supplementary-source approach accepted
+
+The user approved the clear bilateral START/FINISH pair based on actual Male
+Master and the supplied alternating-curl example. Integrate exact887-square
+source halves for existing Male dumbbell-biceps-curl only, with shared contain,
+full provenance and provisional independent biomechanics/device scope; preserve
+generic identity, guides, muscles, data, attachments and Female fallbacks.
+
+Gymbot is accepted as supplementary discovery, with independently authored
+CRESUM content and exact-variant technical verification against authoritative
+sources. Only the category landing page was inspected; no blanket reliability,
+reuse rights, bulk import or guide replacement is asserted. Owning source rules
+are recorded in EXERCISE_LIBRARY.md.
+
 ## 2026-10-29 — Band Pull-Apart Male pair selected
 
 The user approved the single-generation START/FINISH pair based on the supplied

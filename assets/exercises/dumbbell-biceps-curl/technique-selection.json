@@ -1,0 +1,38 @@
+{
+  "exerciseId": "dumbbell-biceps-curl",
+  "model": "male",
+  "selectionDate": "2026-10-29",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "selectedCandidates": {
+    "start": "pair r1 left",
+    "finish": "pair r1 right"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-874186c0-ddc3-486d-b09a-a4ab938659d0.png",
+      "sourceSha256": "1b0de5fe37a162794c1a32bad70132c52b6199e035db54a1c783b3c27bda10f2",
+      "sourceBytes": 1310051,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "e3a7f955c935aaa0fdfc9ce43d75f851fc144e13d1600d7f5dac9b0456a02df5",
+      "bytes": 34074,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-874186c0-ddc3-486d-b09a-a4ab938659d0.png",
+      "sourceSha256": "1b0de5fe37a162794c1a32bad70132c52b6199e035db54a1c783b3c27bda10f2",
+      "sourceBytes": 1310051,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "b06ec9e46d5b75b96dbf79cd73d55ce1aa5aca311bb2a14ac2d1b908d0397bc5",
+      "bytes": 32704,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

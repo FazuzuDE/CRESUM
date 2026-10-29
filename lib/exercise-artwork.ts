@@ -50,6 +50,10 @@ const straightArmPair = {
   start: require('../assets/exercises/cable-straight-arm-pulldown/start.webp'),
   finish: require('../assets/exercises/cable-straight-arm-pulldown/finish.webp'),
 };
+const dumbbellCurlPair = {
+  start: require('../assets/exercises/dumbbell-biceps-curl/start.webp'),
+  finish: require('../assets/exercises/dumbbell-biceps-curl/finish.webp'),
+};
 const bandPullApartPair = {
   start: require('../assets/exercises/resistance-band-pull-apart/start.webp'),
   finish: require('../assets/exercises/resistance-band-pull-apart/finish.webp'),
@@ -108,6 +112,7 @@ export function resolveExerciseArtwork(
   if (variantId === 'reverse-pec-deck') return reversePecDeckPair[phase];
   if (variantId === 'resistance-band-pull-apart')
     return bandPullApartPair[phase];
+  if (variantId === 'dumbbell-biceps-curl') return dumbbellCurlPair[phase];
   if (variantId === 'machine-shoulder-press')
     return machineShoulderPressPair[phase];
   if (variantId === 'barbell-overhead-press') return overheadPressPair[phase];
