@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-28 — Selected Machine Shoulder Press pair
+
+Integrate the user-approved single-generation Male shoulder-machine pair as
+exact separate half-sheet crops, preserving dense framing and shared scale.
+Retain actual Master/style and official HS-SP photo/prompt provenance. The
+machine and grip are visual production choices, not new canonical restrictions;
+guide, muscles, History and attachments remain unchanged. EXERCISE_ASSETS.md
+owns crop details and provisional linkage/device/archive review scope.
+
 ## 2026-10-28 — Dense framing and selected barbell overhead press pair
 
 The user requested fuller use of the frame while preserving image quality and

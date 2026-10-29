@@ -1,5 +1,28 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Machine Shoulder Press — selected Male pair, 2026-10-28
+
+The user approved single-generation pair r1 from
+`exec-1f384b56-7a7d-4813-b1af-6a6ef56d8c51.png` (1774 x 887).
+Export LEFT START [0,0,887,887] and RIGHT FINISH [887,0,1774,887], with
+Pillow-exclusive right/bottom bounds. Use RGB WebP quality92/method6 at 887 square,
+without resampling, added padding, retouch or phase-specific transforms.
+
+Bind only existing `machine-shoulder-press` / Male in the shared resolver, with
+default square contain for inline and expanded views. The HS-SP-inspired
+selectorized station, illustrated grip, light frame and opaque front shroud are
+visual examples; preserve generic grip/model scope, guide, qualitative muscles,
+attachments, History and other-exercise/Female fallbacks.
+
+Source/crop/export hashes, complete prompt and actual Master/style/manufacturer
+photo provenance live in this exercise's folder. The selected sheet was reviewed
+at full size and 320/390-point projections. Retain `user-selected-provisional`:
+generated linkage details are not measured HS-SP reconstruction, and detailed
+rigid-link, independent anatomy/biomechanics and physical-device acceptance
+remain open. Hidden stack internals are not certified. Original PNG, prompts
+and references join the next major-block PC archive checkpoint. Oracle remains
+deferred and archive status `pending-upload`; no verified PC backup is asserted.
+
 ## Barbell Overhead Press — selected single-generation Male pair, 2026-10-28
 
 The user approved pair r1 from `exec-338a528c-a66b-4f93-90ec-5ca79bc23fd3.png`

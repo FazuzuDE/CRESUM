@@ -1,0 +1,52 @@
+{
+  "variantId": "machine-shoulder-press",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-1f384b56-7a7d-4813-b1af-6a6ef56d8c51.png",
+      "sourceSha256": "641ef1b35d813f237776ff7f9e7a488ac80f6e554571a4e58241b62185425639",
+      "sourceBytes": 1595798,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "2f787db2880238be9a9177cecfbbc79f37f1b05da57a13e5d1db5f41595ec08c",
+      "bytes": 56740,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-1f384b56-7a7d-4813-b1af-6a6ef56d8c51.png",
+      "sourceSha256": "641ef1b35d813f237776ff7f9e7a488ac80f6e554571a4e58241b62185425639",
+      "sourceBytes": 1595798,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "66ea469bf1c3b7a02b7756d6c5fb56d85ca11a65ddefcc92331e35b4032920d2",
+      "bytes": 60136,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Supported seated selectorized shoulder press inspired by HS-SP, silver CRESUM frame and opaque front shroud. Pictured machine/grip do not narrow generic machine/grip scope.",
+  "presentation": "Default shared square contain, both viewers. Exact center split, no padding, repaint, resampling, artificial upscaling or runtime adjustment.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "equipmentStyle": "cresum-equipment-style-v1"
+  },
+  "reviewScope": "User visual selection plus assistant full-frame/phone projection review. Generated linkage details are not measured HS-SP reconstruction; detailed rigid-link, independent anatomy/biomechanics and physical-device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original pair PNG, exact prompt and actual Master/style/manufacturer references retained for next major-block PC checkpoint; no verified PC download or Oracle upload.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "resampling": "none",
+    "quality": 92,
+    "method": 6,
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

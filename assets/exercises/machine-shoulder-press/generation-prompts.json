@@ -1,0 +1,52 @@
+{
+  "exerciseId": "machine-shoulder-press",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "machine-shoulder-press",
+      "phase": "pair",
+      "revision": 1,
+      "status": "presented-awaiting-user-selection",
+      "prompt": "Create ONE wide CRESUM source sheet containing TWO coordinated square exercise panels side by side: LEFT START and RIGHT FINISH, supported SEATED MACHINE SHOULDER PRESS. Wide aspect2:1, ideally3072x1536. No text or dividing line; panels later exported separately.\nREFERENCE ROLES:1 actual original five-view Male Master, exact identity/proportions/outfit.2 frozen CRESUM equipment-style reference for satin light SILVER frame, deep graphite shroud, dark matte pads/grips and neutral premium realistic3D surfaces ONLY; do not copy assisted-pullup machine.3 official Hammer Strength HS-SP shoulder press photo is STRUCTURAL/MECHANISM reference: actual adjustable seated press with long nearly upright back pad, small seat, left weight tower, rigid base, rear pivot assembly and two lever arms extending forward along the sides of the backrest to shoulder-height grips. Recolor its dark structural frame SATIN LIGHT SILVER, retain graphite stack housing and black pads/grips; keep real construction.\nONE same man PER panel, same Master face, short brown hair, clean-shaven, natural athletic body, muted blue-gray fitted shirt, dark-gray shorts, white socks/light-gray shoes.\nMACHINE: same dimensions/seat-height/pivots/base/floor placement in both panels. Real fixed axes behind the upper seat, rigid moving paired press levers. The levers ROTATE around those same stationary pivots when hands press upward; do not telescope, bend, disconnect or add a cable from hands. Use coherent finite lengths so the grips follow upward press arcs. Structure never passes through man's arms/torso/head. Keep front/side grip clearance. Stack tower may have a full opaque graphite FRONT SHROUD (real optional cover) to conceal internal plates; retain guide/mechanism housing consistently. No invented floating load/discs. Do not create plate-loaded machine or free bar/dumbbells.\nSTART LEFT: seated pelvis/back supported, soles flat in natural stance, knees bent, stable ribs and no excessive lumbar arch. Hands securely encircle matched forward-facing horizontal dark rubber grips beside shoulders, closed pronated grip with wrapped thumbs. Elbows bent near90degrees and slightly forward of torso, forearms supporting handles and wrists aligned. Grips are connected to real rigid arms at shoulder level.\nFINISH RIGHT: SAME feet/seat/back/pelvis/head locations and entire fixed machine unchanged. Both hands press the SAME integral grips UPWARD above head/shoulders along pivot arcs, elbows naturally nearly straight, wrists neutral. Both levers rotate coherently around identical fixed rear axes; shoulder blades can naturally rotate upward. Stay seated/braced, no arching/pelvis lift or leg drive. Hands remain attached to grips, no ghost arms or extra unused upper handles.\nCAMERA AND DENSE HARMONY: matching front three-quarter angle that shows seated support, both grip contacts and rear lever pivot logic. Same scale and fixed camera BOTH panels. Fill EACH square with the complete machine/person/movement envelope using largest common UNIFORM scale, about85-90percent height/width with modest margins; raised hands, all machine top/base, full shoes and support clearances entirely visible. Do not leave excessive white fields or shrink START independently. The fixed tower and base must align exactly across phases. Natural proportional athlete relative to real machine.\nClean white studio, soft neutral lighting, fine skin/fabric, smooth satin metal, restrained highlights and gentle contact shadows. No product logos, labels, weight markings, arrows, anatomy colors, text, extra objects or insets. Exactly two full scenes, left lower START/right raised FINISH.",
+      "references": [
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/machine-shoulder-draft/hs-sp-manufacturer.jpg",
+          "sha256": "063756a4ff576b2d3cf5f8a44760092cba969c6491abb4cd445c868d3f25aeb8",
+          "bytes": 73976
+        }
+      ],
+      "geometrySource": "https://shop.lifefitness.com/products/hammer-strength-select-shoulder-press",
+      "scope": "HS-SP-inspired visual example and optional front shroud; existing generic supported machine-press grip/model semantics unchanged.",
+      "previousPR": {
+        "number": 111,
+        "merged": true,
+        "mergeCommit": "326169cd93b066ea88dcbd51739848cfd978d985"
+      },
+      "output": {
+        "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-1f384b56-7a7d-4813-b1af-6a6ef56d8c51.png",
+        "sha256": "641ef1b35d813f237776ff7f9e7a488ac80f6e554571a4e58241b62185425639",
+        "bytes": 1595798,
+        "dimensions": [1774, 887]
+      },
+      "visualQA": "Full supported seated START and raised FINISH; stable tower/base/seat/feet closely aligned, complete grips/shoes, dense square-panel framing. Actual Master/style/manufacturer structure input supplied. Generated linkage details are not measured HS-SP reconstruction; detailed rigid-link and independent anatomy/device acceptance remain open."
+    }
+  ],
+  "physicalReference": {
+    "page": "https://shop.lifefitness.com/products/hammer-strength-select-shoulder-press",
+    "imageURL": "https://shop.lifefitness.com/cdn/shop/files/outlet-hammer-strength-select-shoulder-press-charcoal-black-1000x1000_1200x1200.jpg?v=1748945064",
+    "file": "hs-sp-manufacturer.jpg",
+    "sha256": "063756a4ff576b2d3cf5f8a44760092cba969c6491abb4cd445c868d3f25aeb8",
+    "bytes": 73976,
+    "scope": "Manufacturer geometry reference, materials replaced with approved CRESUM palette; not canonical model restriction."
+  }
+}
