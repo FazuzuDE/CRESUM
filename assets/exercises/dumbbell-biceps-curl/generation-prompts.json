@@ -1,0 +1,48 @@
+{
+  "exerciseId": "dumbbell-biceps-curl",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "dumbbell-biceps-curl",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "presented-awaiting-user-selection",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "be8735451aa97b13910f38696d224009cd99e24d",
+      "baseTree": "581c7b82f7a93aa1cabeda60cd30d775892fb0e0",
+      "previousPR": {
+        "number": 116,
+        "merged": true
+      },
+      "prompt": "Use case: stylized-concept.\nCreate a NEW ORIGINAL CRESUM fitness app technique illustration of a STANDING BILATERAL SUPINATED DUMBBELL BICEPS CURL. Generate START and FINISH TOGETHER in ONE 2:1 landscape sheet containing two equal square scenes, LEFT START and RIGHT FINISH, with no labels or divider.\n\nREFERENCES:\nImage 1 is the original CRESUM Male Master five-view sheet: the only character identity, face, short brown hair, clean-shaven adult appearance, natural athletic adult proportions, skin and approved outfit source.\nImage 2 is a user-provided ANATOMICAL ALTERNATING CURL example. Use only its general front-three-quarter exercise viewpoint, dumbbell equipment archetype and secure curl grip as a movement reference. Do NOT reproduce its two alternating-arm snapshots. Our two panels must show a clear COMPLETE bilateral movement: BOTH arms lowered in START, BOTH arms curled in FINISH. Make fresh artwork with the clothed Master; do not trace or recolor the anatomical figure.\n\nSubject: SAME recognizable young adult Male Master in both scenes, natural adult build, fit not bodybuilder, natural limbs/head proportions. Fitted muted blue-gray T-shirt, dark-gray athletic shorts, visible normal white training socks and light-gray clean modern training shoes. All unbranded. Consistent natural skin detail and fabric folds, no waxy skin, blotches or locally different fabric color.\n\nEquipment: SAME TWO matching compact moderate-size dumbbells in both phases. Dark graphite round weight heads/discs, satin silver straight handles, restrained highlights, no text or brands. Identical head diameter, thickness, plate count, handle length and load appearance across the pair. Each hand wraps the CENTER handle, fingers and thumb securely closed; no fingers through the solid weight heads. Palms are SUPINATED throughout: forward at the bottom, upward/toward the shoulders during the curl. This is not a hammer curl. Straight neutral wrists aligned with forearms, no wrist bending to compensate for a bad grip.\n\nPosture and setup: stand naturally with feet about hip width, both shoes flat and entirely visible, knees softly unlocked. Upright braced torso, level shoulders, neutral head and forward gaze. Same feet, pelvis, shoulder position and body anchor throughout. The upper arms remain close to the sides and approximately vertical, with elbows near the torso. No body lean, hip swing, shrugged shoulders, elbow flare or excessive forward elbow travel.\n\nLEFT START: BOTH arms hang down beside the body, elbows nearly extended with a natural soft end position, not hyperextended. Dumbbells beside the outer thighs with clear body/clothing clearance. Both palms face forward, both secure handle grips visible.\nRIGHT FINISH: BOTH elbows flex together to lift both dumbbells toward the lower shoulder/upper chest area. Forearms angle upward, the hands are above the elbows, about a comfortable 110–130 degrees of elbow FLEXION from straight, not an exaggerated folded pose. Upper arms stay beside the ribs and elbows stay near their starting locations; raise the weights by bending elbows, not by lifting upper arms forward. Dumbbells do not touch or hide the face and do not intersect the torso, forearms or each other. Preserve both actual dumbbell sizes rather than shrinking the raised pair.\n\nCamera/framing: fixed shallow FRONT THREE-QUARTER view similar to the example, enough frontal view to show the face, BOTH hands, palms/handles and elbow movement without overlap. Same camera, perspective, scale, body anchor, floor baseline, outfit, lighting and background in both square scenes; only the forearms and weights materially change phase. Use the LARGEST COMMON UNIFORM scale that fits the complete body and full dumbbell motion envelope in BOTH squares with modest edge clearance. No independently shrinking START, no head/shoe/weight clipping and no excessive blank margins.\n\nStyle: premium semi-realistic 3D instructional illustration on a pure white seamless studio background, soft neutral light and subtle natural ground/contact shadows, calm even materials. No gym or bench; this is the standing catalog example.\nAvoid: anatomical skin removal, red muscle overlays, gray body, labels, text, titles, arrows, watermarks, logos, extra people/limbs/fingers, mismatched dumbbells, inconsistent grips or body proportions.",
+      "templateLibraryFileId": "libfile_085df88b7ba4819190e2dac4d06e46e9",
+      "techniqueSource": "https://www.acefitness.org/resources/everyone/exercise-library/44/seated-biceps-curl/",
+      "sourceCheckedOn": "2026-10-29",
+      "scope": "Existing unspecified standing/seated dumbbell curl: choose standing bilateral fixed-supinated example for clear full START/FINISH. ACE seated mechanics adapted as already documented in catalog. User image shows alternating arms and supplies general pose/equipment cues only. Generic identity/guides not changed; user selection pending.",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/upload/F42CA6E3-4D02-4CF6-BB7F-57CD98E7AD73.png",
+          "sha256": "3ad960781639dfc5aca9d51adb50609b52f00d2162b9a4a9c71e2e19ab5b2d9c",
+          "bytes": 205608,
+          "dimensions": [666, 500]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-874186c0-ddc3-486d-b09a-a4ab938659d0.png",
+        "sha256": "1b0de5fe37a162794c1a32bad70132c52b6199e035db54a1c783b3c27bda10f2",
+        "bytes": 1310051,
+        "dimensions": [1774, 887]
+      },
+      "visualQA": "Full-frame and 320/390 comparison: bilateral arms-down START versus curled FINISH, matching round dumbbells, closed supinated grips, upright trunk and stable feet, natural adult Master/outfit and comparable uniform scale. Hands, face, shoes and weights fit full frame; no anatomy overlays. Small generated projection differences remain; not measured anatomy/biomechanics or device acceptance."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "variantId": "dumbbell-biceps-curl",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-874186c0-ddc3-486d-b09a-a4ab938659d0.png",
+      "sourceSha256": "1b0de5fe37a162794c1a32bad70132c52b6199e035db54a1c783b3c27bda10f2",
+      "sourceBytes": 1310051,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "e3a7f955c935aaa0fdfc9ce43d75f851fc144e13d1600d7f5dac9b0456a02df5",
+      "bytes": 34074,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-874186c0-ddc3-486d-b09a-a4ab938659d0.png",
+      "sourceSha256": "1b0de5fe37a162794c1a32bad70132c52b6199e035db54a1c783b3c27bda10f2",
+      "sourceBytes": 1310051,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "b06ec9e46d5b75b96dbf79cd73d55ce1aa5aca311bb2a14ac2d1b908d0397bc5",
+      "bytes": 32704,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Standing bilateral fixed-supinated dumbbell curl. This clear arms-down/arms-flexed example does not narrow the existing standing/seated generic curl ID. User alternating-arm anatomical image supplies pose/equipment cues only.",
+  "presentation": "Default shared square contain in both viewers. Exact half-sheet crops without retouch, resampling, padding, artificial upscaling or phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 1,
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "lineage": "One paired generation using actual Male Master and user alternating-curl example. Original clothed CRESUM illustration, no anatomical overlays."
+  },
+  "reviewScope": "User selection plus assistant full-frame and320/390 projections. ACE seated curl mechanics inform the existing documented standing/seated adaptation; this is not independent detailed biomechanics/anatomy or physical-device acceptance.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original PNG, exact prompt and actual references retained in upper-body source supplement; selected exports join this checkpoint. PC download and Oracle upload unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

@@ -5,6 +5,11 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock('../../assets/exercises/dumbbell-biceps-curl/start.webp', () => 2101);
+jest.mock(
+  '../../assets/exercises/dumbbell-biceps-curl/finish.webp',
+  () => 2102,
+);
 jest.mock(
   '../../assets/exercises/resistance-band-pull-apart/start.webp',
   () => 2001,

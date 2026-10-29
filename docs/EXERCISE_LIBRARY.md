@@ -1,5 +1,21 @@
 # Exercise Library contracts
 
+## Supplementary discovery sources — approved 2026-10-29
+
+Gymbot's [exercise category](https://gymbot.ru/journal/category/uprazhneniya)
+may be used as an additional discovery catalogue for examples and coverage gaps.
+Only its category page was inspected for this decision; this is not a blanket
+verification of its articles or permission to reuse their protected content.
+
+Write CRESUM descriptions independently and create original CRESUM illustrations.
+Changing wording or rendering style alone is not evidence of originality or reuse
+rights. Validate technical claims for the exact exercise/setup against relevant
+authoritative sources such as ACE, research or manufacturer instructions. Keep
+source links, actual generation inputs, review dates and any adaptation limits
+in provenance; a supplied example is not automatically biomechanical truth.
+Do not bulk-import articles/images or silently replace existing validated guides.
+This is an approved editorial/source workflow, not an implemented ingestion tool.
+
 ## Close neutral seated row — additive configuration, 2026-10-27
 
 Add `seated-cable-row-close-neutral-v-handle` as a specific child of the new
