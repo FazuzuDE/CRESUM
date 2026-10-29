@@ -10067,5 +10067,43 @@
     "context": "StringLiteral/PropertyAssignment:timeZone/ObjectLiteralExpression/CallExpression/PropertyAssignment:date",
     "kind": "internal",
     "reason": "IANA time-zone identifier used only by Intl date formatting to preserve authored calendar dates; user-facing checked-on labels are localized in EN/RU/DE/FR."
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "kind": "canonical",
+    "reason": "Existing stable muscle taxonomy IDs used only for pairwise render-role precedence; visible labels use localized catalog names.",
+    "entries": [
+      {
+        "text": "traps",
+        "context": "StringLiteral/ConditionalExpression/PropertyAssignment:occluded/ObjectLiteralExpression/ConditionalExpression"
+      },
+      {
+        "text": "upper-back",
+        "context": "StringLiteral/ConditionalExpression/PropertyAssignment:occluded/ObjectLiteralExpression/ConditionalExpression"
+      },
+      {
+        "text": "upper-back",
+        "context": "StringLiteral/ConditionalExpression/PropertyAssignment:occluder/ObjectLiteralExpression/ConditionalExpression"
+      },
+      {
+        "text": "traps",
+        "context": "StringLiteral/ConditionalExpression/PropertyAssignment:occluder/ObjectLiteralExpression/ConditionalExpression"
+      }
+    ]
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "kind": "internal",
+    "reason": "Map-instance-scoped SVG mask IDs/references, never visible UI copy.",
+    "entries": [
+      {
+        "text": "`${prefix}role-occlusion`",
+        "context": "TemplateExpression/JsxExpression/JsxAttribute:id/JsxAttributes/JsxOpeningElement"
+      },
+      {
+        "text": "`url(#${prefix}role-occlusion)`",
+        "context": "TemplateExpression/ConditionalExpression/JsxExpression/JsxAttribute:mask/JsxAttributes"
+      }
+    ]
   }
 ]
