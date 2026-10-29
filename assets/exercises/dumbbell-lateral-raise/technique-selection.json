@@ -1,0 +1,40 @@
+{
+  "exerciseId": "dumbbell-lateral-raise",
+  "model": "male",
+  "selectionDate": "2026-10-29",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "selectedCandidates": {
+    "start": "pair r1 left",
+    "finish": "pair r1 right"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-e9efbee4-55ae-445d-8d06-51055b6a480e.png",
+      "sourceSha256": "a6af435858523bb6663b3ee547ee09148af1939df5b17708f97c475511149536",
+      "sourceBytes": 1636997,
+      "sourceSize": [1774, 887],
+      "sourceLibraryFileId": "libfile_76e999cefed08191ab972c6476109d89",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "e7db133ff05954da9275071d92f4edf853964f592a1dcac23db0ac6caa3eda8f",
+      "bytes": 30966,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-e9efbee4-55ae-445d-8d06-51055b6a480e.png",
+      "sourceSha256": "a6af435858523bb6663b3ee547ee09148af1939df5b17708f97c475511149536",
+      "sourceBytes": 1636997,
+      "sourceSize": [1774, 887],
+      "sourceLibraryFileId": "libfile_76e999cefed08191ab972c6476109d89",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "0a3aa371f70ebd44ab53e8ed5101b2bf4e5940af5caae7dc5706a933ec252a45",
+      "bytes": 32974,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

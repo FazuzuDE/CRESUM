@@ -1,5 +1,26 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Dumbbell Lateral Raise — selected Male pair, 2026-10-29
+
+The user approved single-generation pair r1 from
+`exec-e9efbee4-55ae-445d-8d06-51055b6a480e.png` (1774 x 887).
+Export LEFT START [0,0,887,887] and RIGHT FINISH [887,0,1774,887], with
+Pillow-exclusive right/bottom bounds, RGB WebP quality92/method6 at 887 square.
+Preserve the selected pixels without retouch, padding, resampling or separate
+phase transforms. Use default shared square contain in both viewers.
+
+Bind only existing `dumbbell-lateral-raise` / Male. The pictured dumbbells are
+a visual example, not a new load/model qualifier. Preserve the standing guide,
+stable/legacy identity, qualitative muscles, History, attachments and all
+unrelated/Female fallbacks. Record source/crop/export hashes and the exact prompt
+with actual Male Master, equipment-style and dumbbell material inputs.
+
+Retain `user-selected-provisional`: visual selection and assistant projection
+review do not certify independent detailed anatomy/biomechanics or physical-device
+acceptance. The original source is Library-backed; exact prompts and references
+join the next major-block PC archive checkpoint. Oracle remains deferred and
+archive status `pending-upload`; no verified PC backup is asserted.
+
 ## Machine Shoulder Press — selected Male pair, 2026-10-28
 
 The user approved single-generation pair r1 from

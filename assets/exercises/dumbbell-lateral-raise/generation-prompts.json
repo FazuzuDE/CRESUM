@@ -1,0 +1,53 @@
+{
+  "exerciseId": "dumbbell-lateral-raise",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "dumbbell-lateral-raise",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "presented-awaiting-user-selection",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: stylized-concept, coordinated exercise instruction.\nCreate the NEXT CRESUM illustration from the supplied references: ONE wide source sheet with TWO equal SQUARE panels side by side, LEFT = START and RIGHT = FINISH of a STANDING DUMBBELL LATERAL RAISE. No words or divider. Aim for high-detail 3072 x 1536, exact 2:1 composition so each half is square.\n\nREFERENCE ROLES:\nImage 1 is the ACTUAL five-view CRESUM Male Master. Match this same face, short brown hair, clean-shaven young-adult identity, natural fit athletic build, normal adult proportions, muted blue-gray fitted shirt, dark gray shorts, normal white socks and clean light-gray shoes. Preserve realistic body length and ordinary athletic musculature.\nImage 2 is the frozen CRESUM rendering/material style ONLY: premium clean realistic 3D, white studio floor/background, soft neutral lighting and restrained natural contact shadows. Do not depict its machine.\nImage 3 is the accepted dumbbell/shirt/material continuity reference ONLY. Show a standing lateral raise, no bench, no shoulder press. Use a matching lighter compact pair of matte dark round-head dumbbells with short metal handles, exact same dumbbell geometry and size in both phases. No text, logos or weight numbers.\n\nCOMPOSITION AND CONTINUITY:\nOne full-body man in each square. Same nearly frontal camera with a very shallow three-quarter angle, natural perspective, no wide-angle distortion. Use the SAME large uniform athlete scale, exact same head height, foot baseline, stance, floor position, camera, lighting, clothing and dumbbells in both panels. Only arms and natural pose-caused folds change. Fit the COMPLETE extended-arm motion envelope including both dumbbells in the FINISH square with modest 4-6% margins. Fill the available square efficiently; head near the top and shoes near the bottom. Do not make START smaller or FINISH larger, do not crop feet, hands or weights. No artificial dwarf proportions.\n\nSTART LEFT:\nStand upright, feet slightly wider than hip width, both soles fully supported, knees softly unlocked. Spine/pelvis neutral, abdomen steady, chest natural, neck long and gaze forward. Each hand firmly wraps its own dumbbell handle with thumb around. Arms down beside the OUTSIDE of the thighs, small consistent 10-15 degree elbow bend. Palms face the thighs, wrists straight. Weights clear the legs and fingers actually grasp the handles.\n\nFINISH RIGHT:\nKeep the same stable upright torso, pelvis, head, feet and camera. Both upper arms have lifted out to the sides in a natural plane just slightly forward of the torso, to approximately SHOULDER HEIGHT, not overhead. Elbows and wrists at or slightly below shoulder level. Preserve the small 10-15 degree elbow bend; forearms continue naturally outward, not upright. Arms are nearly long, never bent into a 90-degree goalpost. Elbows lead slightly; hands/weights do not rise above elbows. Comfortable neutral-to-slightly-upward thumb orientation, a tiny front-edge-up dumbbell tilt, no forced thumbs-down pouring. Real closed grips, straight wrists. Shoulders naturally supported without an exaggerated shrug. No back arch, body swing, lean, knee drive or changed stance.\n\nQUALITY:\nClean consistent skin tone and fine skin/fabric detail, no patchy repaint, waxy skin or oversharpening. Natural hands with anatomically correct fingers and thumbs; two arms/two hands per man, two dumbbells per panel. No muscle tint, arrows, captions, branding, scenery, racks, benches or extra objects. This is a matched pair of the SAME adult man at the beginning and the top of ONE controlled lateral raise, not two alternative poses or characters.",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/generated_images/exec-51d52bd6-f32c-4514-93ed-d740ea83627e.png",
+          "sha256": "58dbdd03d1ffcef1712e8931a7ef194b6161df06b9c832d3185b111e5ba52dac",
+          "bytes": 1510588,
+          "dimensions": [1536, 1024]
+        }
+      ],
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "6510059bd834ad20d69b5e65528af9ec6fb7423c",
+      "baseTree": "d2f68e5ed88186c622af574abd7d49a26c7adef1",
+      "previousPR": {
+        "number": 112,
+        "merged": true
+      },
+      "techniqueSource": "https://www.acefitness.org/resources/everyone/exercise-library/26/lateral-raise/",
+      "sourceCheckedOn": "2026-10-29",
+      "scope": "Existing standing dumbbell lateral raise, no catalog changes. One generation for START+FINISH with shared square framing; user selection pending.",
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-e9efbee4-55ae-445d-8d06-51055b6a480e.png",
+        "sha256": "a6af435858523bb6663b3ee547ee09148af1939df5b17708f97c475511149536",
+        "bytes": 1636997,
+        "dimensions": [1774, 887]
+      },
+      "visualReview": "Full sheet inspected against original Male Master: stable standing stance, equal head/foot scale, two distinct phases, complete dumbbells/hands/shoes, consistent outfit and material. User selection and independent detailed biomechanics/device acceptance pending."
+    }
+  ]
+}

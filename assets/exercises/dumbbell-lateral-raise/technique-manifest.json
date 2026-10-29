@@ -1,0 +1,55 @@
+{
+  "variantId": "dumbbell-lateral-raise",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-e9efbee4-55ae-445d-8d06-51055b6a480e.png",
+      "sourceSha256": "a6af435858523bb6663b3ee547ee09148af1939df5b17708f97c475511149536",
+      "sourceBytes": 1636997,
+      "sourceSize": [1774, 887],
+      "sourceLibraryFileId": "libfile_76e999cefed08191ab972c6476109d89",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "e7db133ff05954da9275071d92f4edf853964f592a1dcac23db0ac6caa3eda8f",
+      "bytes": 30966,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-e9efbee4-55ae-445d-8d06-51055b6a480e.png",
+      "sourceSha256": "a6af435858523bb6663b3ee547ee09148af1939df5b17708f97c475511149536",
+      "sourceBytes": 1636997,
+      "sourceSize": [1774, 887],
+      "sourceLibraryFileId": "libfile_76e999cefed08191ab972c6476109d89",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "0a3aa371f70ebd44ab53e8ed5101b2bf4e5940af5caae7dc5706a933ec252a45",
+      "bytes": 32974,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Standing bilateral dumbbell lateral raise; depicted compact round-head dumbbells are a visual example, not a canonical load/model restriction.",
+  "presentation": "Default shared square contain, both viewers. Exact center split, no padding, repaint, resampling, artificial upscaling or runtime adjustment.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "equipmentStyle": "cresum-equipment-style-v1",
+    "dumbbellMaterialInputSha256": "58dbdd03d1ffcef1712e8931a7ef194b6161df06b9c832d3185b111e5ba52dac"
+  },
+  "reviewScope": "User visual selection plus assistant full-frame and phone-projection review; independent detailed anatomy/biomechanics and physical-device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original pair PNG is Library-backed. Exact prompt and actual Master/style/dumbbell inputs retained for next major-block PC source checkpoint; no verified PC download or Oracle upload.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "resampling": "none",
+    "quality": 92,
+    "method": 6,
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

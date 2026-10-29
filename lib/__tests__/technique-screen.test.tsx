@@ -3,6 +3,14 @@ import { TextInput, Linking, Image, StyleSheet } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
 jest.mock(
+  '../../assets/exercises/dumbbell-lateral-raise/start.webp',
+  () => 1701,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-lateral-raise/finish.webp',
+  () => 1702,
+);
+jest.mock(
   '../../assets/exercises/machine-shoulder-press/start.webp',
   () => 1601,
 );
@@ -194,6 +202,7 @@ it.each([
   ['Dumbbell Shoulder Press', 1401, 1402],
   ['Barbell Overhead Press', 1501, 1502],
   ['Machine Shoulder Press', 1601, 1602],
+  ['Dumbbell Lateral Raise', 1701, 1702],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {

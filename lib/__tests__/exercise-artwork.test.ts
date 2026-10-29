@@ -6,6 +6,14 @@ import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
 jest.mock(
+  '../../assets/exercises/dumbbell-lateral-raise/start.webp',
+  () => 1701,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-lateral-raise/finish.webp',
+  () => 1702,
+);
+jest.mock(
   '../../assets/exercises/machine-shoulder-press/start.webp',
   () => 1601,
 );
