@@ -1,5 +1,29 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Cable Lateral Raise — selected Male pair, 2026-10-29
+
+The user approved repaired pair r2 from
+`exec-80ca6901-7489-464a-9b99-cfbfa1ec79f0.png` (1774 x 887).
+Export LEFT START [0,0,887,887] and RIGHT FINISH [887,0,1774,887], with
+Pillow-exclusive right/bottom bounds, RGB WebP quality92/method6 at 887 square.
+Use the exact selected source without further retouch, padding, resampling or
+phase-specific transforms. Both viewers retain default shared square contain.
+
+Bind only existing `cable-lateral-raise` / Male. The depicted waist-height
+pulley, left working arm, handle and OP-DAP-inspired station are production
+examples within the existing generic single-arm scope. Preserve stable identity,
+guide, qualitative muscles, History, attachment contracts and unrelated/Female
+fallbacks. Keep both actual generation records: the initial pair and its targeted
+branding-removal repair, with complete original Master/style/manufacturer inputs.
+
+Source/crop/export hashes and exact prompts live in the asset folder. Retain
+`user-selected-provisional`: full-frame and 320/390-point projection review do
+not certify measured OP-DAP reconstruction, hidden stack mechanics, detailed
+independent anatomy/biomechanics or physical-device acceptance. Generated originals
+are Library-backed; prompts and references join the next major-block PC source
+checkpoint. Oracle remains deferred and archive status `pending-upload`; no
+verified PC download or Oracle upload is asserted.
+
 ## Dumbbell Lateral Raise — selected Male pair, 2026-10-29
 
 The user approved single-generation pair r1 from

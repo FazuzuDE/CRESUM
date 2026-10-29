@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-29 — Selected Cable Lateral Raise pair
+
+Integrate the user-approved Male pair r2 after targeted manufacturer-marking
+removal. Preserve exact half-sheet crops, common scale and shared square contain.
+The pictured waist-height setup, working side, station and handle do not narrow
+the generic exercise ID or change guides, muscles, History or attachment contracts.
+EXERCISE_ASSETS.md owns export details, full original/repair prompt lineage and
+provisional mechanics/device/archive review scope.
+
 ## 2026-10-29 — Selected Dumbbell Lateral Raise pair
 
 Integrate the user-approved single-generation Male lateral-raise pair as exact

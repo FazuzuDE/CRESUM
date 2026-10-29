@@ -1,0 +1,54 @@
+{
+  "variantId": "cable-lateral-raise",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 2,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-80ca6901-7489-464a-9b99-cfbfa1ec79f0.png",
+      "sourceSha256": "a12197187cdffda53ec1e52e2f59c00edddfc09146b89032230f769311438d1b",
+      "sourceBytes": 1702961,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "e98c1f62fa0322d6083edcbbad97b243508e228d53e2a17cadf31b01837d057f",
+      "bytes": 52826,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-80ca6901-7489-464a-9b99-cfbfa1ec79f0.png",
+      "sourceSha256": "a12197187cdffda53ec1e52e2f59c00edddfc09146b89032230f769311438d1b",
+      "sourceBytes": 1702961,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "af641fe5f9893cb9d64288d813808b199c0cb4e18cb8c4b3559280439467688b",
+      "bytes": 53188,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Standing single-arm lateral raise with waist-height pulley, anatomical left working arm and OP-DAP-inspired station; pictured side, height, handle and model do not narrow generic canonical identity.",
+  "presentation": "Default shared square contain in both viewers. Exact half-sheet crops, no further retouch, resampling, padding, artificial upscaling or phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 2,
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "equipmentStyle": "cresum-equipment-style-v1",
+    "lineage": "Pair r1 with actual Master/manufacturer front and side/style inputs; pair r2 removes markings with r1/Master/style inputs."
+  },
+  "reviewScope": "User visual selection plus assistant full-frame and 320/390-point projections. Not measured OP-DAP reconstruction; hidden stack mechanics, detailed independent anatomy/biomechanics and physical-device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Generated originals are Library-backed. Exact initial/repair prompts and actual references are retained for next major-block PC source checkpoint; no verified PC download or Oracle upload.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

@@ -5,6 +5,8 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock('../../assets/exercises/cable-lateral-raise/start.webp', () => 1801);
+jest.mock('../../assets/exercises/cable-lateral-raise/finish.webp', () => 1802);
 jest.mock(
   '../../assets/exercises/dumbbell-lateral-raise/start.webp',
   () => 1701,
