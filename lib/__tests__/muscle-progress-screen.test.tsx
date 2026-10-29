@@ -134,3 +134,21 @@ it('does not reinterpret saved reps as seconds or meters for duration exercises'
   ).toBe(false);
   act(() => view.unmount());
 });
+
+it('explains the upper-back projection in Progress and its muscle details', () => {
+  let v!: ReturnType<typeof create>;
+  act(() => {
+    v = create(
+      <MuscleProgress history={history} now={now} onOverview={() => {}} />,
+    );
+  });
+  const copy = () =>
+    v.root
+      .findAllByType(Text)
+      .map((n: any) => n.props.children)
+      .join(' ');
+  expect(copy()).toContain('beneath trapezius');
+  act(() => v.root.findByType(MuscleMap).props.onSelect('upper-back'));
+  expect(copy().match(/beneath trapezius/g)).toHaveLength(2);
+  act(() => v.unmount());
+});

@@ -1,5 +1,14 @@
 # CRESUM — Development Roadmap
 
+### Missing map groups — upper-back selected 2026-10-29
+
+Integrate the approved r3 bilateral upper-back schematic projection and exact
+screenshot settings into the shared exercise/Progress map, with overlap handling
+and visible projection semantics. Next review Rear Delts, then Adductors; their
+existing unresolved masks are not approved by this upper-back selection.
+Physical-device SVG, selection, Dynamic Type and VoiceOver/TalkBack acceptance
+remains a release step.
+
 ### Exercise muscle summary — approved priority 2026-10-29
 
 Implement selected compact card option3 in exercise Technique details before

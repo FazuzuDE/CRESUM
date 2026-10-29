@@ -1,7 +1,15 @@
 import { useId } from 'react';
 import { useLocalization } from './LocalizationProvider';
 import { View, Text, StyleSheet } from 'react-native';
-import Svg, { Defs, Image, Mask, ClipPath, Path, G } from 'react-native-svg';
+import Svg, {
+  Defs,
+  Image,
+  Mask,
+  ClipPath,
+  Path,
+  G,
+  Rect,
+} from 'react-native-svg';
 import type { MuscleId } from '@/lib/exercise-taxonomy';
 import {
   anatomicalAtlas,
@@ -30,6 +38,27 @@ export function MuscleMap({
 }) {
   const { t } = useLocalization();
   const instance = useId().replace(/[^a-zA-Z0-9]/g, '');
+  const role = (id: MuscleId) => {
+    const value = muscles.find((m) => m.id === id);
+    return value?.primary ? 2 : value?.secondary ? 1 : 0;
+  };
+  const upperRole = role('upper-back'),
+    trapsRole = role('traps');
+  const projectionWins = upperRole > 0 && upperRole >= trapsRole;
+  const cutout =
+    upperRole && trapsRole
+      ? {
+          occluded: projectionWins ? 'traps' : 'upper-back',
+          occluder: projectionWins ? 'upper-back' : 'traps',
+        }
+      : undefined;
+  // Keep the visible winning projection above even neutral selectable traps.
+  const groups = projectionWins
+    ? [
+        ...anatomicalGroups.filter((g) => g.id !== 'upper-back'),
+        ...anatomicalGroups.filter((g) => g.id === 'upper-back'),
+      ]
+    : anatomicalGroups;
   return (
     <View style={s.row}>
       {(['front', 'back'] as const).map((view) => {
@@ -46,6 +75,31 @@ export function MuscleMap({
               accessible={false}
             >
               <Defs>
+                {view === 'back' && cutout ? (
+                  <Mask
+                    id={`${prefix}role-occlusion`}
+                    testID="anatomical-role-occlusion-back"
+                    maskUnits="userSpaceOnUse"
+                    maskContentUnits="userSpaceOnUse"
+                    maskType="luminance"
+                    x={0}
+                    y={0}
+                    width={1312}
+                    height={1199}
+                  >
+                    <Rect x={0} y={0} width={1312} height={1199} fill="white" />
+                    {regions
+                      .filter((r) => r.groupId === cutout.occluder)
+                      .map((r) => (
+                        <Path
+                          key={r.id}
+                          d={r.path}
+                          transform={r.transform || undefined}
+                          fill="black"
+                        />
+                      ))}
+                  </Mask>
+                ) : null}
                 {anatomicalAtlas.clips.map((clip) => (
                   <Mask
                     key={clip.id}
@@ -83,7 +137,7 @@ export function MuscleMap({
                 height={1199}
                 pointerEvents="none"
               />
-              {anatomicalGroups.map((group) => {
+              {groups.map((group) => {
                 const parts = regions.filter((r) => r.groupId === group.id);
                 if (!parts.length) return null;
                 const participation = muscles.find((m) => m.id === group.id);
@@ -104,6 +158,11 @@ export function MuscleMap({
                     key={group.id}
                     testID={`anatomical-group-${view}-${group.id}`}
                     opacity={opacity}
+                    mask={
+                      view === 'back' && cutout?.occluded === group.id
+                        ? `url(#${prefix}role-occlusion)`
+                        : undefined
+                    }
                   >
                     {parts.map((r) => (
                       <G

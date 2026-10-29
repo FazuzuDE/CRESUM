@@ -1,5 +1,23 @@
 # CRESUM Design System v1.0
 
+### Selected upper-back projection — approved 2026-10-29
+
+Retain r3 source-space contours and the user's screenshot244AF30D settings:
+inset L/R0/0, inward0/0, vertical0/-1.5 on the unchanged1312x1199 source.
+70% is a review setting; runtime retains the existing fixed role opacities.
+Use separate currentColor masks, no baked stroke/paint/extra blur. The region
+remains explicitly a schematic projection beneath trapezius, not precise exposed
+rhomboid anatomy. Preserve all previous94 regions and36 unresolved assignments.
+
+For active upper-back and traps tint in their shared area, Primary takes
+precedence; equal roles prefer the upper-back projection. Use a map-instance/
+view-scoped luminance cutout on the competing tint, keeping source paths exact.
+Draw a winning active projection above traps so Progress selection follows the
+visible region. With an inactive projection, preserve legacy traps rendering.
+Do not change factual group counts or unassigned scapular/shoulder regions.
+Expose the caveat in compact/expanded exercise and Progress views, EN/RU/DE/FR.
+Native SVG compositing/touch, small phones and screen-reader acceptance stay open.
+
 ### Compact exercise muscle card — approved 2026-10-29
 
 Use selected option3: accepted front/back anatomy beside wrapping role labels,

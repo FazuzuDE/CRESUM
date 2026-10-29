@@ -1,4 +1,6 @@
 export default {
+  'muscle.upperBackProjection':
+    'Le surlignage du haut du dos est une projection schématique sous le trapèze, et non le contour exact des rhomboïdes exposés.',
   'volume.recentSummary':
     'Volumes des entraînements récents en kilogrammes : {{points}}',
   'progress.title': 'Progression',

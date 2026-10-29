@@ -1,4 +1,6 @@
 export default {
+  'muscle.upperBackProjection':
+    'Upper-back highlights are a schematic projection beneath trapezius, not exact exposed rhomboid boundaries.',
   'volume.recentSummary': 'Recent workout volumes in kilograms: {{points}}',
   'progress.title': 'Progress',
   'progress.overview': 'Overview',

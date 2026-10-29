@@ -140,3 +140,16 @@ it('updates role copy in all four languages while details stay open', async () =
   }
   act(() => v.unmount());
 });
+
+it('explains upper-back projection in summary and expanded exercise details', () => {
+  let v: any;
+  act(() => {
+    v = create(
+      <ExerciseMuscles exercise={findExercise('seated-cable-row')!} />,
+    );
+  });
+  expect(copy(v)).toContain('beneath trapezius');
+  press(v, 'Muscle details for Seated Cable Row');
+  expect(copy(v).match(/beneath trapezius/g)).toHaveLength(2);
+  act(() => v.unmount());
+});

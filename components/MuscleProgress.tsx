@@ -123,6 +123,7 @@ export function MuscleProgress({
               </Text>
             </View>
             <Text style={s.note}>{t('muscle.meaning')}</Text>
+            <Text style={s.note}>{t('muscle.upperBackProjection')}</Text>
             <Text style={s.note}>
               {t('muscle.coverage', {
                 groups: anatomicalMissingGroups
@@ -197,6 +198,9 @@ export function MuscleProgress({
                   selected={muscle.id}
                   onSelect={select}
                 />
+                {muscle.id === 'upper-back' ? (
+                  <Text style={s.note}>{t('muscle.upperBackProjection')}</Text>
+                ) : null}
                 <Text style={s.heading}>{t('muscle.contributing')}</Text>
                 {Array.from(
                   new Set(muscle.sets.map((set) => set.libraryId)),

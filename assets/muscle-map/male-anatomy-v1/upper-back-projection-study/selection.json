@@ -1,0 +1,28 @@
+{
+  "status": "visually-approved-schematic-projection",
+  "selectedOn": "2026-10-29",
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "reviewRevision": 3,
+  "regions": {
+    "upper-back-projection-left": {
+      "inset": 0,
+      "shift": 0,
+      "shiftY": 0
+    },
+    "upper-back-projection-right": {
+      "inset": 0,
+      "shift": 0,
+      "shiftY": -1.5
+    }
+  },
+  "screenshot": {
+    "libraryFileId": "libfile_3e8b006fa2d081918a48b1e28afa3bd6",
+    "filename": "244AF30D-F706-4028-9591-53C17FD30EBE.png",
+    "sha256": "3150d451e8b95ff9a9a152fb9b76c6155fbd16ef453ff60b2bea1d8de3b6fcd5",
+    "bytes": 475864
+  },
+  "previewOpacity": 0.7,
+  "previewOpacityIsRuntimeValue": false,
+  "anatomicalValidation": "pending; appearance selection does not certify hidden rhomboid boundaries",
+  "baselineGeometrySha256": "e450aa74a7e38ab0e5ca79b2202746e238f05f06c5331994101b398c963d7dc9"
+}

@@ -77,6 +77,9 @@ export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
           {t('exerciseMuscles.coverage', { muscles: names(missing) })}
         </Text>
       ) : null}
+      {involved.includes('upper-back') ? (
+        <Text style={s.note}>{t('muscle.upperBackProjection')}</Text>
+      ) : null}
       {involved.includes('lower-back') ? (
         <Text style={s.note}>{t('exerciseMuscles.lowerBack')}</Text>
       ) : null}

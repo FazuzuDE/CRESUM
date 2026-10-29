@@ -1,5 +1,18 @@
 # CRESUM — Product Definition
 
+### Upper-back projection — selected 2026-10-29
+
+The shared exercise/Progress map adds the two user-selected upper-back regional
+projections: exact r3 contours with inset0/0, inward0/0 and Y0/-1.5 source px.
+This is a schematic projection beneath trapezius, not exposed rhomboid boundaries;
+show that explanation in exercise summary/details and Progress/map details in
+EN/RU/DE/FR. Screenshot70% is preview-only. Existing categorical colors/counts,
+catalog semantics and History stay unchanged. The atlas now has96 records;
+36 unresolved identities remain unassigned. Rear Delts/Adductors retain missing
+coverage disclosures. Resolve intentional upper-back/traps overlap by role:
+Primary beats Secondary, ties prefer the projection, with no double tint. Keep
+both groups' factual counts and accessible text rows. Device acceptance remains open.
+
 ### Per-exercise muscle summary — approved 2026-10-29
 
 Option3 adds a compact Working muscles card below the movement controls in
@@ -701,13 +714,15 @@ Primary/Secondary completed-set semantics and every stored workout.
 
 The native rendering snapshot repackages the 92-region review, replacing its
 two whole-chest regions with the four accepted complementary chest partitions
-(94 records total). Both chest subdivisions share the current chest parent role;
+(94 records before the two upper-back projections selected on2026-10-29;
+96 now). Both chest subdivisions share the current chest parent role;
 this stage assigns no regional coefficients or measured intensity. Preserve the
 original exteriors, transforms, clips, source pixels and selected dividers.
 
 The 36 unresolved regions remain neutral and receive no guessed group mapping.
-Upper Back, Rear Delts and Adductors retain factual counts and accessible detail
-buttons even though no accepted parent assignment is available on this atlas.
+Rear Delts and Adductors retain factual counts and accessible detail buttons
+even though no accepted parent assignment is available on this atlas. Upper Back
+now uses the explicitly selected beneath-trapezius schematic projection.
 Explain missing visual coverage and the beneath-fascia lower-back projection.
 Appearance approval is not a claim of exact anatomy or complete map coverage.
 
