@@ -1,0 +1,118 @@
+{
+  "exerciseId": "cable-lateral-raise",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "cable-lateral-raise",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "superseded-for-branding-removal",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: stylized-concept, coordinated exercise technique illustration.\nCreate ONE wide CRESUM source sheet with TWO coordinated equal SQUARE panels, LEFT START and RIGHT FINISH of a STANDING SINGLE-ARM CABLE LATERAL RAISE. High-detail wide 2:1 composition, ideally 3072 x 1536, so each half exports as a separate square. No text or divider.\n\nREFERENCE ROLES IN ORDER:\n1. Actual original five-view CRESUM Male Master: same clean-shaven young adult man, face, short brown hair, natural athletic build, realistic adult proportions, muted blue-gray fitted shirt, dark gray shorts, normal white socks and clean light-gray shoes.\n2 and 3. Official Life Fitness Axiom OP-DAP platinum front and side photos: REAL MACHINE STRUCTURE, compact dual adjustable pulley, two guide uprights, rear central graphite stack enclosures, upper bridge/diagonal braces/pull-up grips and stable base rails. Preserve coherent actual construction, not an invented isolated column.\n4. Approved frozen CRESUM equipment style: satin LIGHT SILVER frames, graphite guards, dark matte grips and feet, premium neutral realistic 3D surface quality. Style only; do not borrow its assisted-pullup pose, pads, steps or mechanism.\n\nLAYOUT:\nOne SAME man and SAME machine in each half. Put the full compact station mainly at the LEFT of each square; the man stands in open floor immediately to its RIGHT, outside the frame/base. A natural shallow front-three-quarter camera shows the whole machine in depth while the man is nearly front-facing. His ANATOMICAL RIGHT side is next to the working column; his ANATOMICAL LEFT arm is the far arm and works outward to the viewer's RIGHT, away from the machine. Keep that exact handedness in both panels, no mirrored FINISH.\nChoose the largest SHARED UNIFORM scale that fits the full machine, head, hands, feet and full working-arm arc. Modest 4-6% margins, no excessive blank headroom. Same camera, body size, foot baseline, stance, floor position, equipment dimensions, fixed guide uprights/base/shrouds and lighting in both phases. The approx 178cm adult is correctly sized against the approx 220cm station; do not shrink the athlete independently or make him short-legged.\n\nFIXED SETUP AND ATTACHMENT:\nSet the ACTIVE carriage on the column nearest the man to WAIST HEIGHT, matching ACE's single-arm lateral raise, and keep that SAME waist-height pivot/pulley in BOTH panels. Show its real supported swivel housing and clear cable exit. The unused second cable stays parked and never connects to the working hand.\nExactly ONE taut active cable exits the actual groove of that waist-height pulley and passes through clear space IN FRONT OF the man's pelvis toward the LEFT hand. At its end, one closed silver carabiner attaches at the apex of a compact single triangular stirrup handle with two dark strap legs and one horizontal black cylindrical grip. LEFT hand firmly grasps that grip, thumb wrapped, straight wrist. Force must run pulley -> cable -> closed carabiner -> handle apex -> grip -> hand. No cable ending on a finger, no cable wrapped around a hand, no second cable, broken connector or free-floating fitting.\nLeave enough distance from the column for the cable/hand to clear torso, thighs, free arm and frame. Cable can project in front of the body but must never pass through flesh or clothes. Free RIGHT hand rests naturally by the right hip OUTSIDE the active cable path.\n\nLEFT PANEL START:\nStable upright stance, feet comfortably hip-width apart with both soles grounded, soft knees, neutral pelvis/spine, steady chest, relaxed long neck, gaze forward. Working LEFT arm hangs with a small soft 10-15 degree elbow bend, LEFT hand holding the single handle just in front of the OUTER LEFT thigh. The cable crosses the front of the pelvis diagonally from the waist-height pulley on viewer left toward this low hand on viewer right. Genuine tension, no slack loops. No torso lean, twist or raised shoulder.\n\nRIGHT PANEL FINISH:\nKeep the same stable body, feet, camera and waist-height pulley. Working LEFT upper arm has lifted SIDEWAYS away from the station, slightly in front of the torso, to about SHOULDER HEIGHT, not overhead. Preserve the small elbow bend; long forearm follows outward, not a 90-degree goalpost. Hand at or slightly below elbow height, wrist straight, secure closed grip, comfortable neutral/slightly-up thumb, no forced thumbs-down. The SINGLE taut cable now slopes upward from the SAME waist-height pulley toward the raised hand and its visible connector. It remains clear in front of the torso. Do not move the carriage upward to follow the hand, do not turn this into a cable front raise, biceps curl, reverse fly or press.\nOnly the working arm, handle/cable direction, natural garment folds and mechanically coherent active load movement differ. Preserve the stationary stack enclosure and total stack/selector geometry. No changing station, shroud widths, carriage height or plate inventory between phases.\n\nRENDER:\nClean white seamless floor/background, soft neutral studio lighting, natural contact shadows, even realistic skin and fine matte fabric detail. Same Male Master face/outfit and restrained satin/graphite materials throughout. No waxy or patchy skin, glossy/color-drifting shirt, melted metal, extra limbs, hand anomalies, logos, numbers, arrows, captions, muscle tint or decorative objects. Deliver the TWO phases together in this ONE generation.",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/straight-arm-draft/life-fitness-axiom-op-dap-front.jpg",
+          "sha256": "5673ec4cc9b9ab6368c44a4335006e3035a616f64280f6bd0fcb00306e1fd66c",
+          "bytes": 61067,
+          "dimensions": [1000, 1000]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/straight-arm-draft/life-fitness-axiom-op-dap-side.jpg",
+          "sha256": "a0e89bfddff1538d78399148b36fd0ce8fd1a0fc46ba0a0f7c6706cf6ff68fcc",
+          "bytes": 51821,
+          "dimensions": [1000, 1000]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        }
+      ],
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "eda8a4ffae428170db7a4a9d533077b24b2c0700",
+      "baseTree": "6be723fa2c7e74aa5319635e9d05e342e2bbd2e5",
+      "previousPR": {
+        "number": 113,
+        "merged": true
+      },
+      "techniqueSource": "https://www.acefitness.org/resources/everyone/exercise-library/354/single-arm-lateral-raise/",
+      "sourceCheckedOn": "2026-10-29",
+      "geometrySource": "https://shop.lifefitness.com/products/axiom-dual-adjustable-pulley",
+      "scope": "Existing single-arm cable lateral raise. Waist-height pulley chosen from ACE; pictured station/handle do not narrow generic canonical ID. Actual retained manufacturer photos are generation inputs, not measured CAD reconstruction. START+FINISH one generation; user selection pending.",
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-0d5cd920-53a0-4cb6-a9e9-7f7c3d4c9f7b.png",
+        "sha256": "70f4b509bf9bb9adb8a4f412834a74d03dc842c1476e845fc92f548c261ba795",
+        "bytes": 1718725,
+        "dimensions": [1774, 887]
+      },
+      "visualQA": "Fixed waist-height pulley and full standing phases; matched frame/stance and actual manufacturer structure. Manufacturer lettering and pulley decals remain visible, requiring targeted branding removal. User selection and independent biomechanics/device checks pending."
+    },
+    {
+      "exerciseId": "cable-lateral-raise",
+      "model": "male",
+      "phase": "pair",
+      "revision": 2,
+      "status": "presented-awaiting-user-selection",
+      "tool": "built-in image_gen",
+      "prompt": "Edit IMAGE 1 ONLY, the existing two-panel CRESUM standing single-arm cable lateral raise START/FINISH sheet. Make ONE strictly targeted correction in BOTH panels: REMOVE ALL manufacturer branding, lettering, logos and printed graphic decals from the machine, including the white Life Fitness lettering on the graphite shrouds and the little white/yellow brand decals on the pulley housings. Replace only those markings with clean uninterrupted matching graphite/silver material and its original shading. Keep functional adjustment holes, knobs, metal components, cable exits and connectors intact.\n\nEverything else in IMAGE 1 is LOCKED: same exact two panels and square split, camera, canvas, crop, machine frame/base/pulley heights, athlete identities and adult proportions, head/feet locations, clothing colors/textures, skin, grips, hand anatomy, cable/attachment topology, START arm-down pose, FINISH anatomical LEFT arm raised sideways, shadows and white background. Do not redesign the machine, move any cable, change a pose, change body/equipment scale, add white padding or repaint the people.\n\nIMAGE 2 is the actual original Male Master and IMAGE 3 the frozen CRESUM material reference, supplied ONLY to prevent identity, skin/clothing and material drift. Do not borrow their compositions or additional people/equipment. Output the SAME complete paired image with only branding/printed markings removed, no added text.",
+      "repairReason": "Remove manufacturer branding and printed decals only; lock full pair geometry and rendering.",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-0d5cd920-53a0-4cb6-a9e9-7f7c3d4c9f7b.png",
+          "sha256": "70f4b509bf9bb9adb8a4f412834a74d03dc842c1476e845fc92f548c261ba795",
+          "bytes": 1718725,
+          "dimensions": [1774, 887]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-80ca6901-7489-464a-9b99-cfbfa1ec79f0.png",
+        "sha256": "a12197187cdffda53ec1e52e2f59c00edddfc09146b89032230f769311438d1b",
+        "bytes": 1702961,
+        "dimensions": [1774, 887]
+      },
+      "visualQA": "Machine lettering removed in both phases; fixed waist carriage, stance, shared scale, cable/handle relationship and full body/equipment retained. Minor residual pulley surface details are not legible manufacturer labels. Detailed independent mechanism/biomechanics and physical-device acceptance remain open."
+    }
+  ],
+  "manufacturerSources": [
+    {
+      "path": "/workspace/scratch/44db0ba1caa2/straight-arm-draft/life-fitness-axiom-op-dap-front.jpg",
+      "sourceUrl": "https://shop.lifefitness.com/cdn/shop/products/axiom-dual-adjustable-pulley-platinum-1000x1000.jpg?v=1748945285&width=1000",
+      "sourcePage": "https://shop.lifefitness.com/products/axiom-dual-adjustable-pulley",
+      "sha256": "5673ec4cc9b9ab6368c44a4335006e3035a616f64280f6bd0fcb00306e1fd66c",
+      "bytes": 61067,
+      "dimensions": [1000, 1000],
+      "role": "Real cable-station construction reference; Life Fitness Axiom OP-DAP, platinum"
+    },
+    {
+      "path": "/workspace/scratch/44db0ba1caa2/straight-arm-draft/life-fitness-axiom-op-dap-side.jpg",
+      "sourceUrl": "https://shop.lifefitness.com/cdn/shop/products/axiom-dual-adjustable-pulley-platinum-side-1000x1000.jpg?v=1748945285&width=1000",
+      "sourcePage": "https://shop.lifefitness.com/products/axiom-dual-adjustable-pulley",
+      "sha256": "a0e89bfddff1538d78399148b36fd0ce8fd1a0fc46ba0a0f7c6706cf6ff68fcc",
+      "bytes": 51821,
+      "dimensions": [1000, 1000],
+      "role": "Real cable-station construction side reference; Life Fitness Axiom OP-DAP, platinum"
+    }
+  ],
+  "manufacturerPageCheckedOn": "2026-10-29"
+}

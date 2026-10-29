@@ -2,6 +2,8 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/cable-lateral-raise/start.webp', () => 1801);
+jest.mock('../../assets/exercises/cable-lateral-raise/finish.webp', () => 1802);
 jest.mock(
   '../../assets/exercises/dumbbell-lateral-raise/start.webp',
   () => 1701,
@@ -203,6 +205,7 @@ it.each([
   ['Barbell Overhead Press', 1501, 1502],
   ['Machine Shoulder Press', 1601, 1602],
   ['Dumbbell Lateral Raise', 1701, 1702],
+  ['Cable Lateral Raise', 1801, 1802],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
