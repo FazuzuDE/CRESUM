@@ -1,0 +1,297 @@
+{
+  "exerciseId": "reverse-pec-deck",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "reverse-pec-deck",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "superseded-for-handle-and-frame-repair",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "1b052681dc014b76ea0653918de4df70ab4fa8bf",
+      "baseTree": "e1afb41ff86b322a65919cba57109c3d4dc90427",
+      "previousPR": {
+        "number": 114,
+        "merged": true
+      },
+      "sourceCheckedOn": "2026-10-29",
+      "techniqueSources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/353/reverse-fly/",
+        "https://kb.cybexintl.com/Owners_Manuals/Strength/Life_Fitness_Insignia_Series_Owners_Manual_9481201_Rev_BE.pdf"
+      ],
+      "geometrySource": "https://shop.lifefitness.com/products/insignia-series-pectoral-fly-rear-deltoid",
+      "scope": "Existing chest-supported reverse-fly machine ID. Pictured SS-FLY station and horizontal grip are production examples, not measured CAD reconstruction or a new canonical variant. Paired source generation; user selection and independent biomechanics/device checks pending.",
+      "prompt": "Use case: stylized-concept.\nAsset type: CRESUM fitness app Male technique artwork, one paired source sheet for later exact square crops.\nPrimary request: Generate START and FINISH of the seated chest-supported reverse pec deck / machine rear deltoid fly TOGETHER in ONE image. Two equal square panels side by side on a 2:1 landscape sheet: LEFT START, RIGHT FINISH. No divider and no text.\n\nInput images and roles:\n1. CRESUM Male Master five-view sheet: identity, adult proportions, natural skin, hair and approved blue-gray outfit only.\n2. Official Life Fitness Insignia SS-FLY product photo: the actual machine's structure, overhead pivots, descending lever arms, dual handles, chest pad, seat and floor supports. This shows an empty machine, not the rear-delt exercise setup.\n3. Official SS-FLY owner's manual exercise page: use the REAR DELTOID setup and the lower-right top-view motion diagram, not the pectoral-fly setup or the colored anatomy illustrations. Its rear-deltoid instruction specifies facing the pad, inside HORIZONTAL handles, arms parallel to floor and slightly bent elbows.\n4. Frozen CRESUM equipment style reference: ONLY satin silver-gray metal, graphite stack shrouds, dark matte upholstery/grips, soft lighting and premium semi-realistic 3D finish. Do not copy its assisted-pull-up machine, kneeling posture or handles.\n\nScene/backdrop: clean white seamless studio, soft neutral light, light natural grounding/contact shadows.\nSubject: the SAME recognizable clean-shaven young adult Male Master in BOTH panels, short brown hair, athletic natural adult build. Fitted muted blue-gray T-shirt, dark gray shorts, visible normal-length white athletic socks, light-gray training shoes, all unbranded. Preserve fine consistent skin and fabric; no exaggerated muscles or waxy skin.\n\nMachine/setup: a realistic SS-FLY-type selectorized pec-fly/rear-delt station. Fixed stack tower, base, upright pad and seat, upper support/crosshead, two overhead vertical-axis pivots, two rigid moving lever assemblies descending to the dual handles. Retain plausible manufacturer geometry and clearances; change its frame finish to CRESUM satin silver-gray while retaining graphite shrouds and dark matte pads. Remove ALL manufacturer lettering, decals, numbers, logos and instructional placards: clean blank surfaces. Do not invent cables attached to the hands, loose D-handles, resistance bands, elbow pads or a different machine.\nThe athlete sits astride the seat FACING the upright pad and stack, chest supported against the front pad, upright neutral torso, hips remain seated, neck relaxed, gaze forward. Both feet planted naturally on the floor beside the base. Seat height places the working arms approximately horizontal at shoulder level. Both hands wrap the INSIDE HORIZONTAL grip segments of the two lever handles, thumbs and fingers naturally closed around them, wrists aligned. The outside vertical chest-fly grips remain unused.\n\nLEFT START: both working arms reach forward toward the machine, at shoulder height, hands separated comfortably at roughly shoulder width. Elbows retain a small soft bend. The machine's two moving arms are set in the narrow forward rear-delt starting configuration. Chest stays on the pad; do not cross the arms.\nRIGHT FINISH: spread both arms out sideways in a broad controlled arc to approximately the shoulder line, retaining the same small elbow bend and the SAME horizontal handle grip. No pulling behind the torso, no elbow-flexion row, no shrugging, no chest lift. The two RIGID lever assemblies rotate about their overhead pivots to follow the hands; their lengths and handle shapes remain the same.\n\nComposition/framing: SAME fixed rear three-quarter viewpoint in both panels, looking slightly from the athlete's right and behind, so both arms' phase difference, hand/handle contacts, the pad contact, seat, legs and feet are readable. Same camera elevation, perspective, machine anchoring and UNIFORM athlete/machine scale in both squares. The fixed machine structure is identical; ONLY the moving lever arms and athlete's arms change phase. Choose the LARGEST common uniform scale that fits the complete machine and the full FINISH motion envelope with modest safety clearance around every edge. Do not independently shrink START. Full head, both hands/handles, all moving levers and overhead pivots, both shoes and full floor supports must fit each square. No clipped edges, no giant white margins, no stretched anatomy.\n\nStyle/medium: polished premium semi-realistic 3D instructional illustration matching the Master and frozen style. Calm neutral materials, even fine surfaces and restrained metal highlights.\nAvoid: text of any kind, labels START/FINISH, titles, arrows, diagram overlays, colored muscle highlights, logos, watermarks, extra people/limbs/hands, floating handles, intersecting body/frame, drift between panels, changed grip, glossy saturated clothing, noisy metal or excessive white space.",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/reverse-pec-deck-draft/life-fitness-insignia-ss-fly.jpg",
+          "sha256": "09a23742059b6ea571571bd090a9c7e93825bccc7f3ac10a8ebcd30869c325ed",
+          "bytes": 60777,
+          "dimensions": [1000, 1000]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/reverse-pec-deck-draft/ss-fly-manual-exercise-page.png",
+          "sha256": "3e351c60494d9dac385cfc66c028684727653a81538f1bbc87a37d036e8cdadc",
+          "bytes": 353555,
+          "dimensions": [1237, 1600]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-85a60a78-e5ac-4e33-97b8-a566041196ce.png",
+        "sha256": "4db4c22a2155472082c5b95e234d09071febc97a455441cb4ac5814256bc1ed1",
+        "bytes": 1526155,
+        "dimensions": [1774, 887]
+      },
+      "visualQA": "Good identity, proportions, material continuity, full framing and recognizable phase separation. All four contacts use the unused vertical handle segments rather than manufacturer horizontal rear-delt grips. Fixed tower/base in FINISH is shifted left compared with START at a comparable common scale. Targeted repair requested; no user selection, integration or independent acceptance."
+    },
+    {
+      "exerciseId": "reverse-pec-deck",
+      "model": "male",
+      "phase": "pair",
+      "revision": 2,
+      "status": "superseded-for-start-pose-repair",
+      "tool": "built-in image_gen",
+      "parentGeneration": "pair-r1-generation.json",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "1b052681dc014b76ea0653918de4df70ab4fa8bf",
+      "baseTree": "e1afb41ff86b322a65919cba57109c3d4dc90427",
+      "sourceCheckedOn": "2026-10-29",
+      "prompt": "Use case: precise-object-edit.\nEdit the FIRST image, the paired reverse pec deck source sheet. Repair its four HAND/HANDLE CONTACTS and phase anchoring. Preserve the same clean premium 3D illustration, same Male Master, natural adult body proportions, blue-gray shirt, dark gray shorts, white socks, light-gray shoes, camera, seated chest-supported reverse-fly poses, arm movement, full machine geometry, framing height, white background, fine surfaces and satin silver/graphite materials. Keep LEFT START and RIGHT FINISH as two equal square panels, without labels or divider.\n\nReferences: image 1 is the EDIT TARGET. Image 2 is the actual Male Master identity/outfit. Image 3 is the actual SS-FLY product hardware. Image 4 is its owner's manual: ONLY REAR DELTOID instructions and the lower-right movement diagram apply. Image 5 is the frozen equipment MATERIAL/RENDERING style, not machine geometry.\n\nConcrete correction: the target currently grips the downward vertical chest-fly grips. In BOTH phases, put BOTH hands around the short INSIDE HORIZONTAL rear-delt grip segments of the two-part machine handles, as required by the manual. The black horizontal cylindrical segments must be visibly supported by the rigid descending lever assemblies, with a clearly horizontal fore-aft orientation appropriate to each rotated lever. Keep the existing outer black vertical grip sections visibly UNUSED, hanging below/outside each working hand. Show natural closed OVERHAND grips, palms generally down, thumbs wrapped, fingers visibly encircling the horizontal bars; aligned wrists and the same soft elbow bend. Do not merely repaint vertical sticks silver: there must be real horizontal black grip sections through the hands. Preserve the overhead pivots, lever lengths and plausible rigid connections. Change the moving lever/hand junctions only as needed for correct contacts. No new floating handles, wires, independent handles or extra fingers.\n\nPair anchoring: retain the current RIGHT FINISH scene's scale, floor baseline and fixed tower/base placement, which fits the full broad motion. Align the LEFT START fixed tower, upper crosshead, chest pad, seat and feet to that same common camera and framing. Translate the entire LEFT scene slightly left as a unit if needed; do not change its scale or make START smaller. Match the fixed machine and body anchoring, allowing only arm/lever phase motion. Both squares retain full overhead structure, hands, seat, shoes and supports with modest safety clearance.\n\nDo not change anything else. No text, logos, manufacturer decals, labels, arrows, anatomy highlights, borders or watermark.",
+      "repairScope": "Correct horizontal rear-delt grips and common fixed-frame anchoring; retain identity, phase poses, common scale and materials.",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-85a60a78-e5ac-4e33-97b8-a566041196ce.png",
+          "sha256": "4db4c22a2155472082c5b95e234d09071febc97a455441cb4ac5814256bc1ed1",
+          "bytes": 1526155,
+          "dimensions": [1774, 887]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/reverse-pec-deck-draft/life-fitness-insignia-ss-fly.jpg",
+          "sha256": "09a23742059b6ea571571bd090a9c7e93825bccc7f3ac10a8ebcd30869c325ed",
+          "bytes": 60777,
+          "dimensions": [1000, 1000]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/reverse-pec-deck-draft/ss-fly-manual-exercise-page.png",
+          "sha256": "3e351c60494d9dac385cfc66c028684727653a81538f1bbc87a37d036e8cdadc",
+          "bytes": 353555,
+          "dimensions": [1237, 1600]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-a642d2a6-8973-4c36-91e3-3f712c4f4e21.png",
+        "sha256": "fe89152dc86fa9989360edf7df76dd10f3f871e0fa8101aedd13a90558d07f58",
+        "bytes": 1720497,
+        "dimensions": [1774, 887]
+      },
+      "visualQA": "Horizontal grips now visible, identity/materials retained. START repair introduced substantial elbow flexion rather than preserving a soft elbow angle and forward-reaching machine reverse-fly setup. START far arm remains too open. Fixed-frame translation not reliably applied. START-only pose and corresponding moving lever correction requested; no user selection or independent acceptance."
+    },
+    {
+      "exerciseId": "reverse-pec-deck",
+      "model": "male",
+      "phase": "pair",
+      "revision": 3,
+      "status": "superseded-for-clean-pose-reference-regeneration",
+      "tool": "built-in image_gen",
+      "parentGeneration": "pair-r2-generation.json",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "1b052681dc014b76ea0653918de4df70ab4fa8bf",
+      "baseTree": "e1afb41ff86b322a65919cba57109c3d4dc90427",
+      "sourceCheckedOn": "2026-10-29",
+      "prompt": "Use case: precise-object-edit.\nImage 1 is the target CRESUM paired reverse pec deck illustration. Correct ONLY THE LEFT START PANEL's arm pose and the two corresponding MOVING lever assemblies. Keep the RIGHT FINISH PANEL unchanged in appearance, pose, hardware, scale, materials and placement. Keep the LEFT athlete's head, torso, chest/pad contact, hips, legs, seat, shoes, outfit, face and natural adult proportions unchanged. Preserve the fixed machine tower, base and overhead support. No global recropping or resizing.\n\nCRITICAL START correction: this is a REAR DELTOID FLY, not a row. The man faces toward the chest pad and machine tower, toward the upper-left in this camera. BOTH his arms must reach FORWARD in that same direction at shoulder height, with long arms and only a SMALL comfortable elbow bend, the same soft elbow angle used in RIGHT FINISH. Do not leave the near elbow folded at 90 degrees. Do not leave the far hand out to the right side of his body. Both START hands must be IN FRONT OF his supported chest, comfortably separated roughly shoulder-width, not flanking his torso. His near right arm extends diagonally toward the left/front of the image; the far left arm also extends forward toward the machine, visible as perspective permits. Keep neutral wrists.\n\nThe START's two rigid machine levers must actually ROTATE ABOUT THEIR OVERHEAD PIVOTS to bring BOTH handles into this close forward position in front of the chest. They must NOT remain in the wide empty-machine position from the product photo. The hands still wrap the short HORIZONTAL black inside grip segments with an overhand grip, thumbs naturally closed. The unused vertical outer grip sections hang below/outside the hands. Keep the same lever lengths and real two-part handle design as FINISH; do not bend, shorten or add cables to the rigid lever assemblies. Natural rear-fly setup, not elbow-flexion rowing or chest-fly sitting backwards.\n\nReference roles: image 2 actual Male Master for identity and outfit; image 3 owner's manual, specifically the lower-right REAR DELTOID diagram whose start has both arms reaching forward and whose motion opens the long arms out to the sides. Image 4 manufacturer SS-FLY product geometry, which depicts EMPTY MACHINE ARM POSITIONS rather than the correct occupied rear-delt START. Image 5 satin silver/graphite equipment rendering style only; ignore its exercise.\n\nKeep the same clean white background, soft contact shadows, premium semi-realistic 3D quality, even skin and fabric detail, satin silver frame, graphite shrouds and dark matte grips/pads. Preserve full machine, hands, head and shoes within each square. No text, labels, arrows, divider, logos or watermark.",
+      "repairScope": "START forward reaching arms and rigid moving levers; preserve FINISH, fixed scene and materials.",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-a642d2a6-8973-4c36-91e3-3f712c4f4e21.png",
+          "sha256": "fe89152dc86fa9989360edf7df76dd10f3f871e0fa8101aedd13a90558d07f58",
+          "bytes": 1720497,
+          "dimensions": [1774, 887]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/reverse-pec-deck-draft/ss-fly-manual-exercise-page.png",
+          "sha256": "3e351c60494d9dac385cfc66c028684727653a81538f1bbc87a37d036e8cdadc",
+          "bytes": 353555,
+          "dimensions": [1237, 1600]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/reverse-pec-deck-draft/life-fitness-insignia-ss-fly.jpg",
+          "sha256": "09a23742059b6ea571571bd090a9c7e93825bccc7f3ac10a8ebcd30869c325ed",
+          "bytes": 60777,
+          "dimensions": [1000, 1000]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-d490f59d-f0f5-4bd5-9437-b48bcfea2ad2.png",
+        "sha256": "745d500c489285f27119e560d5daf00d3b0891f4b15c5649661e40b20531ba98",
+        "bytes": 1684554,
+        "dimensions": [1774, 887]
+      },
+      "visualQA": "START far lever now rotated forward, but near arm remains too flexed relative to FINISH; repair did not establish consistent soft elbow angle. Return to clean actual Master/hardware/style plus newly obtained occupied-machine pose photographs rather than continue repainting this failed START. No user selection or integration."
+    },
+    {
+      "exerciseId": "reverse-pec-deck",
+      "model": "male",
+      "phase": "pair",
+      "revision": 4,
+      "status": "presented-awaiting-user-selection",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "1b052681dc014b76ea0653918de4df70ab4fa8bf",
+      "baseTree": "e1afb41ff86b322a65919cba57109c3d4dc90427",
+      "sourceCheckedOn": "2026-10-29",
+      "prompt": "Use case: stylized-concept.\nCreate a CLEAN NEW CRESUM Male exercise illustration, not an edit of previous drafts. One wide 2:1 sheet with two equal SQUARE scenes: LEFT reverse pec deck START, RIGHT reverse pec deck FINISH. No labels or divider.\n\nReference roles:\nImage 1: actual five-view CRESUM Male Master, the only character identity and blue-gray outfit source.\nImage 2: instructor's real occupied-machine START photograph. COPY THE REAR-FLY SETUP AND ARM POSITION: chest against pad, both arms reaching forward toward the machine, hands in front of the chest, elbows only comfortably slightly bent.\nImage 3: instructor's matching real occupied-machine FINISH photograph. COPY ITS OUTWARD ARM MOTION AND NATURAL OVERHAND HORIZONTAL GRIP. Open the long arms to the shoulder line with a similar elbow bend, do not row by bending elbows.\nImages 2/3 use another Life Fitness series: they establish actual body/hand/phase relationships, NOT character identity, clothing, environment or exact machine body.\nImage 4: Life Fitness Insignia SS-FLY hardware. Use its fixed base, seat, chest pad, graphite tower, upper support with two overhead vertical-axis pivots, rigid moving arms and descending dual-handle levers. Its EMPTY-MACHINE handle positions are NOT the rear-fly START setup.\nImage 5: frozen CRESUM satin silver/graphite equipment material and premium semi-realistic 3D rendering reference ONLY; ignore its pull-up equipment and kneeling posture.\n\nAnatomy and phase: the adult man sits facing the chest pad and stack, chest supported, neutral neck, hips stay seated and both feet flat naturally beside the machine base. Natural adult limb proportions. Set the seat so working hands/arms are about shoulder height. Both hands tightly wrap the INSIDE HORIZONTAL black handle segments in an overhand grip, thumbs closed, neutral wrists; outer curved/vertical chest-fly grips remain UNUSED.\nLEFT START: follow image 2, both arms extend FORWARD in front of the chest toward the machine tower, comfortably separated. The elbows are long and only softly bent. Both moving lever assemblies rotate inward to put the horizontal handles in that forward position. Do not draw one hand still spread out beside the torso, no tightly folded elbows, no hands near the face.\nRIGHT FINISH: follow image 3, arms spread sideways into a controlled broad arc to about the shoulder line, keeping the same long-arm soft elbow bend. Both rigid handle levers rotate outward about their overhead pivots. No elbows pulling back into a row, no chest lift, no shrugging, no overpull behind the torso.\n\nCharacter/style: recognizable Male Master face, clean-shaven, short brown hair, fit natural adult build, realistic even skin detail. Fitted muted blue-gray T-shirt, dark gray athletic shorts, normal visible white socks, light-gray clean training shoes, all unbranded. Premium semi-realistic 3D instructional rendering. Silver-gray satin frame, graphite shrouds, dark matte pads/grips, restrained metal highlights and consistent fine surfaces. Pure white studio background, soft neutral light, light natural contact shadows.\n\nFraming: both panels use the SAME rear three-quarter camera comparable to the instructor photos, enough side angle to make the FORWARD START arms readable rather than foreshortening them into bent elbows. FULL body, feet, entire machine upper pivots, moving handles and supports visible. Match fixed machine and seat anchoring, body position, floor baseline, camera elevation and SCALE across panels. Only the arms and moving levers change phase. Fit the complete FINISH movement at the largest COMMON uniform scale with modest edge clearance; keep START at that exact scale without independently shrinking it. Do not copy the cropped feet/upper frame, busy gym, mirrors, branding or green uniform from the exercise photos.\nNo text, numbers, labels, logos, decals, placards, arrows, colored muscle overlays, watermark, extra limbs, cables attached to hands, floating grips, disconnected levers or intersecting frame/body.",
+      "techniqueSources": [
+        "https://fitnessinstitute.com.au/rear-delt-pin-loaded/",
+        "https://kb.cybexintl.com/Owners_Manuals/Strength/Life_Fitness_Insignia_Series_Owners_Manual_9481201_Rev_BE.pdf",
+        "https://www.acefitness.org/resources/everyone/exercise-library/353/reverse-fly/"
+      ],
+      "geometrySource": "https://shop.lifefitness.com/products/insignia-series-pectoral-fly-rear-deltoid",
+      "scope": "Clean paired regeneration from actual Master, occupied-machine pose photos and SS-FLY hardware/style. Earlier failed drafts are retained history, not reference inputs. Depicted model/grip are production examples within existing chest-supported reverse-fly ID; independent biomechanics and device acceptance pending.",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/reverse-pec-deck-draft/fitness-institute-rear-delt-start.jpg",
+          "sha256": "cc1d2e89a06550648ad2bf2d41e2182a220fd1170307f038627534bd8dea74b5",
+          "bytes": 246715,
+          "dimensions": [1800, 1013]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/reverse-pec-deck-draft/fitness-institute-rear-delt-finish.jpg",
+          "sha256": "7aa6c009706fc9a9e40d00fd48db9a8e48f93355ebc165e19c8da331fe984743",
+          "bytes": 224234,
+          "dimensions": [1800, 1013]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/reverse-pec-deck-draft/life-fitness-insignia-ss-fly.jpg",
+          "sha256": "09a23742059b6ea571571bd090a9c7e93825bccc7f3ac10a8ebcd30869c325ed",
+          "bytes": 60777,
+          "dimensions": [1000, 1000]
+        },
+        {
+          "path": "/workspace/scratch/44db0ba1caa2/CRESUM-barbell-row/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-30b15fe8-da27-43bd-8074-d0bf73ae8d20.png",
+        "sha256": "6d3a25fc09b3fa133cba139eb9ccad1ea5980048a9a60112a6f07bb86c444764",
+        "bytes": 1618628,
+        "dimensions": [1774, 887]
+      },
+      "visualQA": "Full-frame and 320/390-point square contain comparison: recognizable chest-supported forward START versus lateral FINISH, long arms with comparable soft elbow bend, horizontal handle contacts, seated hips and planted full shoes. Master identity, blue-gray outfit, satin silver/graphite materials and comparable shared scene scale retained. Small generated fixed-frame/perspective differences remain; not a measured rigid reconstruction. No apparent clipping or material degradation. User selection, independent detailed biomechanics/hidden mechanisms and physical-device acceptance remain pending."
+    },
+    {
+      "exerciseId": "reverse-pec-deck",
+      "model": "male",
+      "phase": "pair",
+      "revision": 5,
+      "status": "presented-awaiting-user-selection",
+      "tool": "built-in image_gen",
+      "prompt": "Create a premium semi-realistic 3D CRESUM exercise technique illustration using image 1 as the user's chosen TEMPLATE for BOTH phases of REVERSE PEC DECK. One 2:1 landscape source sheet containing two equal square panels, LEFT START and RIGHT FINISH, without any labels or divider.\n\nREFERENCE PRIORITY:\nImage 1: authoritative template for machine archetype, rear three-quarter camera from the athlete's LEFT, seated orientation, hand/handle relationship, START forward arms and FINISH spread arms. Keep its orientation: the man faces diagonally toward the RIGHT; the machine's stack is toward the RIGHT in each scene. Use its simple overhead-pivot rigid-arm rear-fly machine, not an Insignia machine from older drafts. Extend the cropped upper apparatus naturally so the ENTIRE machine is inside the frame.\nImage 2: actual CRESUM Male Master five-view sheet. Replace the anatomical figure with this SAME recognizable naturally proportioned adult man, short brown hair, clean-shaven, fit but not a bodybuilder. His approved outfit is a fitted muted blue-gray T-shirt, dark gray athletic shorts, visible white training socks, light-gray shoes, all unbranded.\nImage 3: equipment MATERIALS and rendering style ONLY: light satin silver-gray metal, graphite shrouds, dark matte upholstery and rubber grips, restrained highlights, even fine surfaces. Do not copy its assisted-pull-up machine or kneeling pose.\n\nRecreate the TEMPLATE'S exercise and paired pose geometry faithfully. The athlete sits astride the seat facing the chest support and machine, chest supported, feet planted, hips remain seated and torso stable. Maintain the same natural adult limb proportions in both phases. Hands actually encircle the horizontal grip portions attached to the rigid swinging arms, with wrapped thumbs, neutral wrists and natural fingers. Unused vertical hanging grip sections remain free below the hands, as in the template.\nLEFT START follows the LEFT template: BOTH arms extend FORWARD toward the machine in front of his chest, about shoulder height, with only a soft elbow bend. Both moving levers are swung forward, handles comfortably separated.\nRIGHT FINISH follows the RIGHT template: BOTH arms spread out laterally to approximately the shoulder line, keeping a comparable small elbow bend. No rowing by bending elbows, no shrugging, no trunk leaning or pulling far behind the torso. The rigid lever assemblies rotate about the overhead vertical pivots; they do not deform or change length.\nKeep the fixed machine frame, pivot supports, chest pad, seat, stack, floor supports, athlete placement and camera identical between phases. Only the arms, scapular position and connected moving lever assemblies change. Physically coherent closed machine linkage and handle contacts; do not copy any ambiguity as extra bars through the body.\n\nUse the largest COMMON uniform scale that fits the complete machine and entire FINISH motion envelope in BOTH square panels with modest safety margins. Do not independently shrink START. Full head, both hands, upper pivots and cross-frame, both shoes, and floor supports must remain inside each square; do not repeat the template's clipped upper frame. Keep soft natural ground/contact shadows on a pure white studio backdrop, neutral light and consistent fine skin/fabric/metal quality.\n\nThis is CLOTHED TECHNIQUE VIEW: NO anatomical skin removal, NO red muscle overlays or grayscale body, no muscle labels. No text, logos, decals, arrows, watermark, border, gym interior or extra people. Do not use previous generated drafts as pose references.",
+      "userDirection": "Use attached image as template; this supersedes assistant-chosen SS-FLY hardware and camera from r1-r4. Clothed CRESUM technique view retains approved Master/outfit/materials.",
+      "templateLibraryFileId": "libfile_84fd2991451481919af63b2e1a467205",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/upload/C524301D-8F77-4C90-9DC8-1348F226DD5E.png",
+          "sha256": "786e0ee871460a03537df929fc2dfeb5024d5501e70bd09c14b75e24a6ce245a",
+          "bytes": 209357,
+          "dimensions": [650, 366]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/reverse-pec-deck-draft/equipment-style-v1.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-5e6c4042-194f-406f-8d94-8419a18d0d85.png",
+        "sha256": "17ce9e20fc3d1d52131011050764d5004b31b5ead5627fb33b8babce34a41315",
+        "bytes": 1538997,
+        "dimensions": [1774, 887]
+      },
+      "visualQA": "Compared with user template and Master at full frame and 320/390-point paired square projections. Template orientation, forward START and lateral FINISH, overhead rigid lever archetype, horizontal grip contacts, supported seated posture, full shoes/frame and consistent scale/materials retained. Generated linkage/perspective is not a measured mechanical reconstruction; detailed independent biomechanics and physical-device acceptance remain pending."
+    },
+    {
+      "exerciseId": "reverse-pec-deck",
+      "model": "male",
+      "phase": "pair",
+      "revision": 6,
+      "status": "requested-load-stack-correction-completed",
+      "tool": "built-in image_gen",
+      "parentGeneration": "pair-r5-generation.json",
+      "prompt": "Use case: precise-object-edit.\nEdit this paired CRESUM reverse pec deck illustration. The user APPROVED the character, two poses, machine, framing and style and requests ONLY that the load visibly lifts during the FINISH.\n\nChange ONLY the weight stack mechanism within the RIGHT FINISH panel. Keep the complete LEFT START panel unchanged. On the RIGHT, lift a selected UPPER GROUP of approximately the top five black rectangular weight plates together with their top lifting/selector crosshead upward along the existing parallel guide rods. Leave all remaining lower plates resting in their original position at the base. Create a clear, plausible open vertical GAP between the raised selected group and the stationary lower stack, around four plate heights, readable at phone size. Preserve the total number and dimensions of all plates: the gap is created by moving the selected upper group UP, not by deleting plates or cutting a hole into the stack. Extend the exposed central selector rod and guide-rod sections naturally through this gap. The connected lifting carriage moves with the selected upper plates, the lifting cable remains straight, taut, routed through the same existing pulley. Any pulley physically fixed to the frame stays fixed; only the moving lifting assembly and selected plates rise. Do not raise the entire tower or all plates, do not move the base or fixed rods. No floating plates, duplicated plates, extra pulley, loose cable or new parts.\n\nEverything else must remain visually unchanged: RIGHT athlete's arms and natural horizontal grip contacts, torso, head, face, hands, chest support, seat, legs, socks and shoes, rigid swinging arms, overhead pivots, fixed silver frame, camera, scale, position and white backdrop. Retain fine even natural skin, muted blue-gray shirt, dark-gray shorts, satin silver metal, graphite black plates and dark matte pads/grips. Keep the same two equal square panels, full apparatus and shoes, no crops, no text, labels, arrows, red anatomy highlights, watermark or logos. This is a targeted load-stack repair, not a redesign or regenerated pose.",
+      "userDecision": "User approves r5 otherwise and requests visible load-stack elevation in FINISH only; preserve approved START and all other artwork.",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-5e6c4042-194f-406f-8d94-8419a18d0d85.png",
+          "sha256": "17ce9e20fc3d1d52131011050764d5004b31b5ead5627fb33b8babce34a41315",
+          "bytes": 1538997,
+          "dimensions": [1774, 887]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-11ca7134-b790-4217-8827-070ca4d7841d.png",
+        "sha256": "33c568c58a4c10bcc8e5685d42665658216eb0242db75f2df0a1d7f95e265219",
+        "bytes": 1738297,
+        "dimensions": [1774, 887]
+      },
+      "visualQA": "FINISH selected upper plate group and moving lifting carriage visibly raised with guide rods exposed across gap above resting lower plates. START and pose/style visually retained. User approved prior artwork subject to this requested correction; precise transmission reconstruction and device checks remain unverified."
+    }
+  ]
+}

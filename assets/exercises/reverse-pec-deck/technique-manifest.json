@@ -1,0 +1,54 @@
+{
+  "variantId": "reverse-pec-deck",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 6,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-11ca7134-b790-4217-8827-070ca4d7841d.png",
+      "sourceSha256": "33c568c58a4c10bcc8e5685d42665658216eb0242db75f2df0a1d7f95e265219",
+      "sourceBytes": 1738297,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "74ac33498bcb99589bfc097f88fa6b41e5c7fcdf1143d09e4a5d56ded6e95135",
+      "bytes": 54878,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-11ca7134-b790-4217-8827-070ca4d7841d.png",
+      "sourceSha256": "33c568c58a4c10bcc8e5685d42665658216eb0242db75f2df0a1d7f95e265219",
+      "sourceBytes": 1738297,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "061e4425af57cbe990dd433d8f8ee573df8058413181e8bfae1a4ca0db9d702f",
+      "bytes": 59666,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Chest-supported rear-fly machine based on user-supplied overhead-pivot template. Depicted horizontal grips and hardware are a production example, not a new canonical variant. Earlier SS-FLY drafts do not define selected machine geometry.",
+  "presentation": "Default shared square contain in both viewers. Exact half-sheet crops, no retouch, resampling, padding, artificial upscaling or phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 6,
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "equipmentStyle": "cresum-equipment-style-v1",
+    "lineage": "r1-r3 SS-FLY attempts; r4 clean occupied-machine pose-reference regeneration; r5 user-template pair with actual Master/style; r6 FINISH load-stack repair of r5. All exact records retained."
+  },
+  "reviewScope": "User visual selection and assistant full-frame/phone projections. FINISH upper plate group and moving lifting carriage visibly elevated. Detailed independent anatomy/biomechanics, measured transmission reconstruction and physical-device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "All six originals, exact prompts and actual references retained in CRESUM-Shoulder-Sources-2026-10-29.zip source supplement. PC download and Oracle upload not verified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

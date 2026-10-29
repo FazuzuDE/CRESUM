@@ -1,0 +1,38 @@
+{
+  "exerciseId": "reverse-pec-deck",
+  "model": "male",
+  "selectionDate": "2026-10-29",
+  "status": "user-selected-pair",
+  "decision": "User approved template-based r5 except requested FINISH load lift; after r6 repair explicitly confirmed Утверждаю.",
+  "selectedCandidates": {
+    "start": "repaired pair r6 left",
+    "finish": "repaired pair r6 right"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-11ca7134-b790-4217-8827-070ca4d7841d.png",
+      "sourceSha256": "33c568c58a4c10bcc8e5685d42665658216eb0242db75f2df0a1d7f95e265219",
+      "sourceBytes": 1738297,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "74ac33498bcb99589bfc097f88fa6b41e5c7fcdf1143d09e4a5d56ded6e95135",
+      "bytes": 54878,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-11ca7134-b790-4217-8827-070ca4d7841d.png",
+      "sourceSha256": "33c568c58a4c10bcc8e5685d42665658216eb0242db75f2df0a1d7f95e265219",
+      "sourceBytes": 1738297,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "061e4425af57cbe990dd433d8f8ee573df8058413181e8bfae1a4ca0db9d702f",
+      "bytes": 59666,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

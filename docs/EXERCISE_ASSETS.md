@@ -1,5 +1,32 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Reverse Pec Deck — selected Male pair, 2026-10-29
+
+The user approved template-based r5 apart from FINISH load motion, requested
+that the selected load rise, then explicitly approved repaired r6. Preserve
+`exec-11ca7134-b790-4217-8827-070ca4d7841d.png` (1774 x 887), SHA-256
+`33c568c58a4c10bcc8e5685d42665658216eb0242db75f2df0a1d7f95e265219`.
+Export LEFT START [0,0,887,887] and RIGHT FINISH [887,0,1774,887],
+Pillow-exclusive right/bottom bounds, RGB WebP quality92/method6, 887 square.
+No further retouch, padding, resampling or phase-specific transforms; use the
+existing shared square contain in inline and expanded views.
+
+Bind only existing `reverse-pec-deck` / Male. The user template governs the
+selected overhead-pivot machine example, rear three-quarter view and phase
+positions. Actual Master and frozen equipment style govern identity/materials;
+earlier SS-FLY photos/drafts do not define the selected hardware. FINISH visibly
+raises the selected upper plate group and moving lifting carriage above the
+resting stack. Preserve generic identity, guide, qualitative muscles, History,
+attachments and unrelated/Female fallbacks. Record all six historical generation
+prompts, original/reference hashes and exact selected exports in the asset folder.
+
+Retain `user-selected-provisional`: assistant full-frame and 320/390 projections
+and user selection do not certify measured transmission reconstruction, hidden
+mechanisms, detailed independent biomechanics or physical-device acceptance.
+The source supplement retains all six originals/prompts/references; update it
+with selected exports at this checkpoint. No verified PC download or Oracle
+upload; Oracle remains deferred and archive status `pending-upload`.
+
 ## Cable Lateral Raise — selected Male pair, 2026-10-29
 
 The user approved repaired pair r2 from
