@@ -50,6 +50,10 @@ const straightArmPair = {
   start: require('../assets/exercises/cable-straight-arm-pulldown/start.webp'),
   finish: require('../assets/exercises/cable-straight-arm-pulldown/finish.webp'),
 };
+const reversePecDeckPair = {
+  start: require('../assets/exercises/reverse-pec-deck/start.webp'),
+  finish: require('../assets/exercises/reverse-pec-deck/finish.webp'),
+};
 const cableLateralRaisePair = {
   start: require('../assets/exercises/cable-lateral-raise/start.webp'),
   finish: require('../assets/exercises/cable-lateral-raise/finish.webp'),
@@ -97,6 +101,7 @@ export function resolveExerciseArtwork(
   if (variantId === 'barbell-bent-over-row') return barbellRowPair[phase];
   if (variantId === 'dumbbell-lateral-raise') return lateralRaisePair[phase];
   if (variantId === 'cable-lateral-raise') return cableLateralRaisePair[phase];
+  if (variantId === 'reverse-pec-deck') return reversePecDeckPair[phase];
   if (variantId === 'machine-shoulder-press')
     return machineShoulderPressPair[phase];
   if (variantId === 'barbell-overhead-press') return overheadPressPair[phase];

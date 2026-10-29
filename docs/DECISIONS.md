@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-10-29 — Reverse Pec Deck template pair and raised FINISH load selected
+
+The user chose the supplied rear-fly template, approved the pair subject to
+visible FINISH load movement and explicitly accepted repaired r6. Integrate exact
+887-square source halves for existing Male reverse-pec-deck only; preserve
+identity, instructions, muscles, data, attachments and Female fallbacks. Keep
+all six prompt/source records, selected WebP hashes and provisional independent
+mechanics/device acceptance. Source archiving does not certify PC/Oracle backup.
+
 ## 2026-10-29 — Selected Cable Lateral Raise pair
 
 Integrate the user-approved Male pair r2 after targeted manufacturer-marking

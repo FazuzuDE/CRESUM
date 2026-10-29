@@ -1,3 +1,5 @@
+jest.mock('../../assets/exercises/reverse-pec-deck/start.webp', () => 1901);
+jest.mock('../../assets/exercises/reverse-pec-deck/finish.webp', () => 1902);
 import {
   resolveExerciseArtwork,
   resolveAttachmentArtwork,
