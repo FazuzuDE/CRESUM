@@ -1,5 +1,13 @@
 # CRESUM Decision Log
 
+## 2026-10-29 — Selected Dumbbell Lateral Raise pair
+
+Integrate the user-approved single-generation Male lateral-raise pair as exact
+separate half-sheet crops, retaining the common scale and dense square framing.
+Preserve the standing exercise, stable/legacy identity, guide, qualitative muscles,
+History and attachment contracts. EXERCISE_ASSETS.md owns export, complete actual
+reference/prompt provenance and provisional device/biomechanics/archive scope.
+
 ## 2026-10-28 — Selected Machine Shoulder Press pair
 
 Integrate the user-approved single-generation Male shoulder-machine pair as
