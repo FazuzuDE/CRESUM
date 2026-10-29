@@ -1,0 +1,46 @@
+{
+  "exerciseId": "resistance-band-pull-apart",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "resistance-band-pull-apart",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "presented-awaiting-user-selection",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "7f8619b2bbeda8feff65ac7640ab7f54f9795dce",
+      "baseTree": "a8c6a2b08479f5a99866ba8ddfed3f87d170fd86",
+      "previousPR": {
+        "number": 115,
+        "merged": true
+      },
+      "prompt": "Use case: stylized-concept. Create a NEW clean CRESUM fitness technique illustration of STANDING RESISTANCE BAND PULL-APART, two coordinated phases in one landscape 2:1 sheet. Two equal square panels side by side, LEFT START and RIGHT FINISH. No divider or labels.\n\nImage 1 is the USER'S EXERCISE EXAMPLE screenshot: use ONLY the rear three-quarter viewpoint, standing orientation and arm/band movement relationship from its two exercise figures. It is a pose reference, not an image to retouch or reproduce. Do not reproduce the screenshot's UI, text, watermarks, branding, anatomical skin, red highlights, bodybuilder muscles or gray figure.\nImage 2 is the actual CRESUM Male Master five-view reference: the ONLY character identity, adult proportions, skin, face, brown hair and clothing source. Depict the same clean-shaven fit young adult man, with natural adult limb lengths and moderate athletic build, in BOTH panels.\n\nOutfit/style: fitted muted blue-gray T-shirt, dark-gray athletic shorts, visible normal white training socks and clean light-gray athletic shoes, all unbranded. Premium semi-realistic 3D instructional rendering, fine even natural skin and fabric texture. Pure white seamless background, soft neutral studio light, modest natural ground/contact shadows. No gym or machinery.\n\nEquipment: one simple orange FLAT elastic resistance strip, held securely by both hands with natural closed overhand grips and wrapped thumbs. No rigid handles, cables, attachment points or anchor. The same single strip is used throughout. Small free tails may extend just beyond the gripping hands, but the working segment stays connected between them. Realistic elastic tension and flat strip cross-section, no floating end or additional loop.\n\nPosture and camera: use a fixed rear three-quarter view comparable to the example, from slightly behind the athlete's LEFT, with him facing diagonally to the RIGHT. A natural shallow staggered stance, both complete shoes planted on the floor. Maintain exactly the same stance, supported body weight, neutral head/neck, upright steady trunk and relaxed shoulders in both phases. Do not lean backward, arch the back, shrug or alter the feet to fake the motion.\n\nLEFT START: BOTH long arms reach forward in front of the chest at approximately shoulder height, hands comfortably shoulder-width apart, elbows softly bent. A short straight working span of the orange strip connects both closed hands with LIGHT initial tension. Clearly show both hands gripping the strip. This is the forward start, not a biceps curl or upright row.\nRIGHT FINISH: open both long arms SIDEWAYS to approximately the shoulder line, preserving the same small elbow bend. Hands are now widely separated and the SAME strip is visibly stretched LONG and taut across the FRONT of the upper chest. Because the camera views the athlete from behind, the central band section must be naturally OCCLUDED BY HIS TORSO: show the orange spans entering behind the two front shoulder/chest edges and extending to the hands; do not draw the band across his back, through the shirt/body, or behind his neck. Keep wrists neutral, elbows gently soft, no pulling beyond a comfortable shoulder line.\n\nFraming: identical camera, perspective, body anchor, foot baseline and UNIFORM body scale across both square panels. Choose the LARGEST shared uniform scale that fits the full FINISH arms/band and full body with modest edge clearance. START must not be independently shrunk or enlarged. Full head, hands, strip, both shoes and floor contact visible within each square. Avoid excessive white margins or top padding, no clipped hands/feet, no stretched or stocky anatomy.\n\nNo text, labels, arrows, overlay, border, muscle coloring, logos, watermarks, extra fingers/limbs or duplicated bands. Make an original clothed CRESUM scene grounded in the Master and the example's exercise setup.",
+      "templateLibraryFileId": "libfile_01ea3923f6108191a4867b0d837ea3e9",
+      "scope": "Existing standing horizontal band pull-apart. User example is pose reference only; clothed CRESUM Master and no anatomical highlights. New paired candidate pending user selection.",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/upload/IMG_8334.jpeg",
+          "sha256": "031e81ff1ff96e038a65c2b1ba2baeb252628e48974b9d4c9612b492316764b8",
+          "bytes": 180666,
+          "dimensions": [1290, 1232]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-acdda835-8a6e-48b6-abc2-cbbb2cefe6b7.png",
+        "sha256": "a5d9abfcc2c0686dc497b8bb832d9854435a42a94af77f6a2c60edc8b8fe0fe6",
+        "bytes": 1245192,
+        "dimensions": [1774, 887]
+      },
+      "visualQA": "Full-frame and 320/390-point comparison with supplied example and Male Master: readable forward START versus lateral FINISH, stretched orange strip with torso-occluded front section, wrapped grips, stable stance, full hands/head/shoes and comparable uniform scale. Small generated perspective/placement differences remain. User selection, independent detailed biomechanics, measured elastic strain and physical-device acceptance pending."
+    }
+  ]
+}

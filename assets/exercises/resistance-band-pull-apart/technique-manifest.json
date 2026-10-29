@@ -1,0 +1,53 @@
+{
+  "variantId": "resistance-band-pull-apart",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-acdda835-8a6e-48b6-abc2-cbbb2cefe6b7.png",
+      "sourceSha256": "a5d9abfcc2c0686dc497b8bb832d9854435a42a94af77f6a2c60edc8b8fe0fe6",
+      "sourceBytes": 1245192,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "f7aa0219b662bd5de82df0aa9809276ed339d14c7010325e522a3619b48f991f",
+      "bytes": 25822,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-acdda835-8a6e-48b6-abc2-cbbb2cefe6b7.png",
+      "sourceSha256": "a5d9abfcc2c0686dc497b8bb832d9854435a42a94af77f6a2c60edc8b8fe0fe6",
+      "sourceBytes": 1245192,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "cd14ccf58ea1d51f6a9c08591b382b94110f76ae47613db5bd330d19ac36da66",
+      "bytes": 28508,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Standing horizontal band pull-apart, orange flat strip and rear three-quarter example based on the supplied pose reference. Grip, strip appearance and stance are production choices, not new canonical exercise qualifiers.",
+  "presentation": "Default shared square contain in both viewers. Exact half-sheet crops, no retouch, padding, resampling, artificial upscaling or phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 1,
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "lineage": "One paired generation using actual user-supplied pose example and original Male Master. No anatomy overlays or screenshot UI reproduced."
+  },
+  "reviewScope": "User visual selection plus assistant full-frame and 320/390 projections. Visible band tension and torso occlusion are illustrative, not measured elastic strain; detailed independent biomechanics and physical-device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original PNG, exact prompt and actual references retained in shoulder source supplement. Selected exports join this checkpoint. PC download and Oracle upload not verified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

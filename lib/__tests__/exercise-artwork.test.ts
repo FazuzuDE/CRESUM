@@ -5,6 +5,14 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock(
+  '../../assets/exercises/resistance-band-pull-apart/start.webp',
+  () => 2001,
+);
+jest.mock(
+  '../../assets/exercises/resistance-band-pull-apart/finish.webp',
+  () => 2002,
+);
 jest.mock('../../assets/exercises/reverse-pec-deck/start.webp', () => 1901);
 jest.mock('../../assets/exercises/reverse-pec-deck/finish.webp', () => 1902);
 jest.mock('../../assets/exercises/cable-lateral-raise/start.webp', () => 1801);

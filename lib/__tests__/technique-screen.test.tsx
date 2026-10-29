@@ -2,6 +2,14 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock(
+  '../../assets/exercises/resistance-band-pull-apart/start.webp',
+  () => 2001,
+);
+jest.mock(
+  '../../assets/exercises/resistance-band-pull-apart/finish.webp',
+  () => 2002,
+);
 jest.mock('../../assets/exercises/reverse-pec-deck/start.webp', () => 1901);
 jest.mock('../../assets/exercises/reverse-pec-deck/finish.webp', () => 1902);
 jest.mock('../../assets/exercises/cable-lateral-raise/start.webp', () => 1801);
@@ -209,6 +217,7 @@ it.each([
   ['Dumbbell Lateral Raise', 1701, 1702],
   ['Cable Lateral Raise', 1801, 1802],
   ['Reverse Pec Deck', 1901, 1902],
+  ['Resistance Band Pull-Apart', 2001, 2002],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
