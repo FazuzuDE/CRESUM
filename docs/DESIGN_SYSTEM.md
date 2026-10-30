@@ -1,5 +1,28 @@
 # CRESUM Design System v1.0
 
+## Close-Grip Bench Press selected Male pair — 2026-10-30
+
+User approved corrected r4 exec-6176333d-946c-43cf-96f6-22bc30452026.png,
+SHA0911383aa6ecbe85f3db2b2bd69d53bcf4893781022858ad015eac44c980aeb6.
+Use exact887-square LEFT START/RIGHT FINISH halves, RGB WebP92 method6;
+no retouch, resampling, padding or independent phase placement. Bind only
+existing close-grip-bench-press/Male, retaining shared viewers/map: triceps
+Primary and chest/front-delts Secondary. Preserve ACE311 shoulder-width guide
+including safeties/spotter cue, stable IDs, History/data and other/Female/
+attachment fallbacks; no new attachment thumbnail. ACE311 asset-specific
+recheck2026-10-30 confirmed grip/elbow/support cues; registry date unchanged.
+Actual Master/style informed r1; r2 edited r1 with Master; r3 is a
+new paired generation from Master/style. Review found its projected grip too
+narrow; selected r4 edits r3 with actual Master, visibly widening both phase
+grips, and user approved this new pair. Originals recovered from known native
+file identities after workspace maintenance; r1-r3 exact prompts restored
+verbatim from visible original tool calls; original r4 prompt retained.
+Keep user-selected-provisional:
+projected grip width, detailed hand contact, exact registration, safety setup,
+source-edge shoe margins and device/accessibility are not certified. Retain
+all originals/prompts/actual inputs/exports in source checkpoint, preserving
+prior bytes. PC/Oracle backup unverified; Oracle deferred.
+
 ## Dumbbell Overhead Triceps Extension selected Male pair — 2026-10-30
 
 User approved r1 original exec-913acc08-4a67-44dd-b4ac-998469f2e679.png,

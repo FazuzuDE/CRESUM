@@ -1,0 +1,54 @@
+{
+  "variantId": "close-grip-bench-press",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-6176333d-946c-43cf-96f6-22bc30452026.png",
+      "sourceSha256": "0911383aa6ecbe85f3db2b2bd69d53bcf4893781022858ad015eac44c980aeb6",
+      "sourceBytes": 1742165,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "f075bfaef000af15f775c9edf1ac82a3392a9ce2c950b099cc6fe82f3386c997",
+      "bytes": 48776,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-6176333d-946c-43cf-96f6-22bc30452026.png",
+      "sourceSha256": "0911383aa6ecbe85f3db2b2bd69d53bcf4893781022858ad015eac44c980aeb6",
+      "sourceBytes": 1742165,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "f3f8b97f9fe43a7d8c0ea25b80e94410d65faa994835929629fa4705c1256065",
+      "bytes": 52532,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Selected side-view freestanding-rack/flat-bench close-grip barbell press. Preserve existing shoulder-width ACE311 guide including safeties/spotter cue, triceps Primary and chest/front-delts Secondary. No new attachment thumbnail.",
+  "presentation": "Default shared square contain in both viewers. Exact half-sheet crops without retouch, resampling, padding, artificial upscaling or phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 4,
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "equipmentStyleSha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+    "lineage": "r1 actual Master+frozen style; r2 edit target r1+actual Master; selected r3 new clean paired generation from actual Master+frozen style, not r2. Selected r4 targeted edit of r3 with actual Master; both grips widened after review and newly user-approved."
+  },
+  "reviewScope": "Selected r4 original and320/390 projections: both grips visibly broadened after r3 Important review finding and new user approval. Broad bottom/top phases/material continuity preserved. Exact physical grip/contact anatomy, phase registration, safety-setup completeness, source-edge shoe margins and physical-device/accessibility acceptance remain provisional.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "All four originals and exact prompts/input chain retained for source checkpoint; r1-r3 recovered after maintenance, their prompts restored verbatim from visible original tool calls. r4 exact original prompt file retained. PC/Oracle unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}
