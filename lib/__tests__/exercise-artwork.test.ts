@@ -5,6 +5,8 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock('../../assets/exercises/barbell-curl/start.webp', () => 2201);
+jest.mock('../../assets/exercises/barbell-curl/finish.webp', () => 2202);
 jest.mock('../../assets/exercises/dumbbell-biceps-curl/start.webp', () => 2101);
 jest.mock(
   '../../assets/exercises/dumbbell-biceps-curl/finish.webp',
@@ -502,4 +504,23 @@ it('binds selected machine press without narrowing generic grip or borrowing fre
         resolveExerciseArtwork(id, phase, 'male'),
       );
   }
+});
+
+it('binds only the selected straight-bar Male curl and preserves its roles', () => {
+  expect(resolveExerciseArtwork('barbell-curl', 'start', 'male')).toBe(2201);
+  expect(resolveExerciseArtwork('barbell-curl', 'finish', 'male')).toBe(2202);
+  expect(findExercise('barbell-curl')).toMatchObject({
+    primaryMuscles: ['biceps'],
+    secondaryMuscles: ['forearms'],
+    equipment: ['barbell'],
+  });
+  expect(findTechnique('barbell-curl')?.scope).toBe(
+    'Straight-bar standing curl.',
+  );
+  for (const phase of ['start', 'finish'] as const) {
+    expect(resolveExerciseArtwork('barbell-curl', phase, 'female')).toBeNull();
+    for (const id of ['ez-bar-curl', 'hammer-curl', 'cable-curl', 'unknown'])
+      expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
+  }
+  expect(resolveAttachmentArtwork('barbell-curl')).toBeNull();
 });

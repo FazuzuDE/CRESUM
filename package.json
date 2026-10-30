@@ -1,6 +1,6 @@
 {
   "name": "cresum",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "private": true,
   "engines": {
     "node": ">=22.16.0 <23",
