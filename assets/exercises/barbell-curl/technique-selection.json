@@ -1,0 +1,38 @@
+{
+  "exerciseId": "barbell-curl",
+  "model": "male",
+  "selectionDate": "2026-10-30",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "selectedCandidates": {
+    "start": "pair r1 left",
+    "finish": "pair r1 right"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-abfbc589-0130-44aa-b2cf-72d472c1caaa.png",
+      "sourceSha256": "51beaf560ba59af3612d7abaf8b2720f5cffdef0e4f15ff599758f0a66499d64",
+      "sourceBytes": 1692781,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "220be8cca1dce4154e08e34be44a21a7f2b8d9618c0a06b072abc3c69fc3ec4c",
+      "bytes": 37756,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-abfbc589-0130-44aa-b2cf-72d472c1caaa.png",
+      "sourceSha256": "51beaf560ba59af3612d7abaf8b2720f5cffdef0e4f15ff599758f0a66499d64",
+      "sourceBytes": 1692781,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "2e10fe91f56285e6f8cb2478d7b55688443d85275bb2051f99e15d3ea62a4036",
+      "bytes": 36116,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

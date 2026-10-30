@@ -1,0 +1,39 @@
+{
+  "exerciseId": "barbell-curl",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "barbell-curl",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "user-selected",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "65887307c66e7dbc2da92a5af65d4dd75ab3b86c",
+      "prompt": "Use case: scientific-educational. Create one original premium CRESUM exercise illustration DIPTYCH for standing BARBELL BICEPS CURL with a STRAIGHT bar, not EZ bar. Exactly two equal square panels side by side on one landscape 2:1 image: LEFT START, RIGHT FINISH. No labels, text, border, arrows, logos, watermark, anatomy overlays, or extra poses.\nREFERENCE IMAGE: use the supplied five-view Male Master solely for the exact same adult male identity, face, short brown hair, realistic athletic proportions, natural skin, blue-gray fitted T-shirt, dark charcoal shorts, white training socks, light gray shoes. Do not reproduce the five-view layout. He is naturally fit with normal-length limbs and adult proportions, not bulky, not short-legged. Same character, outfit and skin/fabric quality in both panels.\nSCENE: clean white studio background, soft neutral contact shadows, premium semi-realistic 3D educational render matching the reference. Smooth coherent matte fabrics and metal/rubber surfaces, natural fine skin detail, no patchy color/noise/plastic skin.\nCOMPOSITION: full head-to-shoes view in each square, figure occupies about 88% of the panel height with small balanced margins. Exactly equal figure scale, head height, foot baseline, camera distance, lighting and three-quarter FRONT camera about20 degrees off straight-on. Both hands and bar contacts clearly visible. Use available space harmoniously; do not make one phase smaller. Both panels show the entire bar with clear margins.\nEQUIPMENT: the identical modestly loaded STRAIGHT steel curl bar in both panels, one identical small matte black round plate at each end and secure collars. The shaft is ONE rigid straight line with symmetric sleeves, identical length/diameter/plate dimensions in both phases. No EZ bends, no dumbbells, no extra handle, no extra plates. Hands grasp the bare shaft about shoulder width apart with a natural bilateral SUPINATED closed grip; fingers wrap around it and thumbs oppose naturally. Anatomically correct two hands, each continuous with its own forearm; no phantom fingers, floating grip or bar through flesh.\nLEFT START: stable standing stance about hip width, both feet flat, knees softly unlocked, neutral upright spine, shoulders relaxed, torso still. Upper arms next to ribs. Elbows nearly extended naturally without hyperextension. Bar just in front of upper thighs, not intersecting thighs; palms face forward/up in the underhand grip. Wrists straight, aligned with forearms.\nRIGHT FINISH: same feet, pelvis, upright torso, neutral neck and head direction, shoulders and upper-arm placement. Both elbows flex to bring bar toward lower chest/upper abdomen, around110-120 degrees of elbow flexion. Upper arms remain close to the sides; do not lift elbows into a front raise. Forearms rotate around elbows while the hands retain the same supinated grip width. Wrists stay neutral rather than curled back. Bar stays rigid and level in space with natural matching perspective; small air gap in front of torso, never through shirt. No backward lean, shrug, leg drive or swinging. Only the arm movement phase changes.\nQuality priorities: accurate straight-bar grip and continuous wrists; believable phase movement with stable elbows; locked male identity and adult proportions; equally large clean full-body framing; matched materials and equipment.",
+      "sourceCheckedOn": "2026-10-30",
+      "techniqueSources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/70/bicep-curl/",
+        "https://www.mayoclinic.org/healthy-lifestyle/fitness/multimedia/biceps-curl/vid-20084678"
+      ],
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-abfbc589-0130-44aa-b2cf-72d472c1caaa.png",
+        "libraryFileId": "libfile_2e6efecb99e08191b662b6878f1bc418",
+        "sha256": "51beaf560ba59af3612d7abaf8b2720f5cffdef0e4f15ff599758f0a66499d64",
+        "bytes": 1692781,
+        "dimensions": [1774, 887]
+      },
+      "visualQA": "Matched full-body adult Master, outfit, pose anchor, straight steel bar and one black plate per end; START lowered, FINISH curled, no labels or overlays. Wrist/hand/finger detail and rigid-camera reconstruction remain provisional; no certified anatomy or native device acceptance."
+    }
+  ]
+}

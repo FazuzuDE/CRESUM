@@ -1,5 +1,20 @@
 # CRESUM Design System v1.0
 
+## Barbell Curl selected Male pair — 2026-10-30
+
+User approved paired original exec-abfbc589-0130-44aa-b2cf-72d472c1caaa.png,
+SHA51beaf560ba59af3612d7abaf8b2720f5cffdef0e4f15ff599758f0a66499d64.
+Use exact887-square half-sheet crops LEFT START / RIGHT FINISH as RGB WebP92
+method6, without retouch, resampling, padding or phase-specific transforms.
+Bind only existing barbell-curl/Male; preserve straight-bar ACE70 guide, primary
+biceps/secondary forearms, shared compact/expanded muscle map, stable IDs,
+History, attachment absence and Female/unrelated fallbacks. Actual Male Master
+sets identity and blue-gray material continuity. Retain user-selected-provisional:
+visual selection/full-frame/320/390 inspection is not certified detailed hand
+anatomy, independent biomechanics or native device acceptance. Exact prompt,
+original/reference hashes and export metadata are retained; source supplement
+is updated at this checkpoint, not proof of PC/Oracle backup. EZ Bar Curl is next.
+
 ### Adductor visible-surface binding — 2026-10-30
 
 User approved reusing four existing visually approved adductor-longus/gracilis
