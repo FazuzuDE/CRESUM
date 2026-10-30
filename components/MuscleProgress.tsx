@@ -125,13 +125,17 @@ export function MuscleProgress({
             <Text style={s.note}>{t('muscle.meaning')}</Text>
             <Text style={s.note}>{t('muscle.upperBackProjection')}</Text>
             <Text style={s.note}>{t('muscle.rearDeltRegion')}</Text>
-            <Text style={s.note}>
-              {t('muscle.coverage', {
-                groups: anatomicalMissingGroups
-                  .map((m) => muscleLabel(m.id, m.label))
-                  .join(', '),
-              })}
-            </Text>
+            <Text style={s.note}>{t('muscle.adductorRegion')}</Text>
+            <Text style={s.note}>{t('exerciseMuscles.lowerBack')}</Text>
+            {anatomicalMissingGroups.length ? (
+              <Text style={s.note}>
+                {t('muscle.coverage', {
+                  groups: anatomicalMissingGroups
+                    .map((m) => muscleLabel(m.id, m.label))
+                    .join(', '),
+                })}
+              </Text>
+            ) : null}
           </View>
         </GlassCard>
         {data.totalSets === 0 ? (
@@ -199,6 +203,12 @@ export function MuscleProgress({
                   selected={muscle.id}
                   onSelect={select}
                 />
+                {muscle.id === 'lower-back' ? (
+                  <Text style={s.note}>{t('exerciseMuscles.lowerBack')}</Text>
+                ) : null}
+                {muscle.id === 'adductors' ? (
+                  <Text style={s.note}>{t('muscle.adductorRegion')}</Text>
+                ) : null}
                 {muscle.id === 'rear-delts' ? (
                   <Text style={s.note}>{t('muscle.rearDeltRegion')}</Text>
                 ) : null}

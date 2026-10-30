@@ -152,3 +152,23 @@ it('explains the upper-back projection in Progress and its muscle details', () =
   expect(copy().match(/beneath trapezius/g)).toHaveLength(2);
   act(() => v.unmount());
 });
+
+it('explains partial adductor coverage in overview and selected detail without empty missing copy', () => {
+  let v: ReturnType<typeof create>;
+  act(() => {
+    v = create(<MuscleProgress history={[]} now={now} onOverview={() => {}} />);
+  });
+  const copy = () =>
+    v!.root
+      .findAllByType(Text)
+      .map((n: any) => n.props.children)
+      .join(' ');
+  expect(copy()).toContain('selected visible medial-thigh patches');
+  expect(copy()).not.toContain('Map coverage is pending for');
+  expect(copy()).toContain('schematic projections beneath fascia');
+  act(() => v!.root.findByType(MuscleMap).props.onSelect('adductors'));
+  expect(copy().match(/selected visible medial-thigh patches/g)).toHaveLength(
+    2,
+  );
+  act(() => v!.unmount());
+});

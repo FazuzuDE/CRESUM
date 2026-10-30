@@ -168,3 +168,19 @@ it('explains rear-shoulder regional coverage in summary and details', () => {
   );
   act(() => v.unmount());
 });
+
+it('explains partial adductor coverage without a missing-group warning', () => {
+  let v: any;
+  act(() => {
+    v = create(
+      <ExerciseMuscles exercise={findExercise('machine-hip-adduction')!} />,
+    );
+  });
+  expect(copy(v)).toContain('selected visible medial-thigh patches');
+  expect(copy(v)).not.toContain('Not highlighted on this map:');
+  press(v, 'Muscle details for Machine Hip Adduction');
+  expect(copy(v).match(/selected visible medial-thigh patches/g)).toHaveLength(
+    2,
+  );
+  act(() => v.unmount());
+});

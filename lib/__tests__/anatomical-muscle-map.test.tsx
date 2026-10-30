@@ -27,7 +27,7 @@ it('preserves accepted exteriors, transforms, clips and all unresolved assignmen
   expect(anatomicalAtlas.regions).toHaveLength(96);
   expect(
     anatomicalAtlas.regions.filter((r) => r.groupId === null),
-  ).toHaveLength(34);
+  ).toHaveLength(30);
   for (const r of anatomicalAtlas.regions) {
     if (r.groupId === 'upper-back') {
       const selected = require('../../assets/muscle-map/male-anatomy-v1/upper-back-projection-study/selected-geometry.json');
@@ -37,6 +37,14 @@ it('preserves accepted exteriors, transforms, clips and all unresolved assignmen
       expect(r.path).toBe(accepted.path);
       expect(r.transform).toBe(accepted.transform);
       expect(r.representation).toBe('schematic-projection-beneath-trapezius');
+    } else if (r.groupId === 'adductors') {
+      const accepted = original.regions.find(
+        (p: { id: string }) => p.id === r.id,
+      );
+      expect(r.path).toBe(accepted.path);
+      expect(r.transform).toBe(accepted.transform);
+      expect(r.clipId).toBe(accepted.clipId);
+      expect(r.representation).toBe('partial-visible-medial-thigh-surface');
     } else if (r.groupId === 'rear-delts') {
       const selected = require('../../assets/muscle-map/male-anatomy-v1/rear-deltoid-selected-study/selected-geometry.json');
       const accepted = selected.regions.find(
@@ -61,9 +69,7 @@ it('preserves accepted exteriors, transforms, clips and all unresolved assignmen
     if (r.groupId !== null)
       expect(muscleTaxonomy.some((m) => m.id === r.groupId)).toBe(true);
   }
-  expect(anatomicalMissingGroups.map((m) => m.id).sort()).toEqual([
-    'adductors',
-  ]);
+  expect(anatomicalMissingGroups.map((m) => m.id).sort()).toEqual([]);
 });
 
 it('renders the selected original character in both views, with a neutral no-set state', () => {
@@ -86,7 +92,7 @@ it('renders the selected original character in both views, with a neutral no-set
     .filter((n: { props: { testID?: string } }) =>
       n.props.testID?.startsWith('anatomical-region-'),
     );
-  expect(paths).toHaveLength(62);
+  expect(paths).toHaveLength(66);
   expect(
     paths.every(
       (n: { props: { fill: string } }) => n.props.fill === 'transparent',
@@ -281,6 +287,40 @@ it('selects both saved rear-shoulder regions as rear-delts with fixed roles and 
     act(() => p.props.onPress());
   }
   expect(onSelect.mock.calls).toEqual([['rear-delts'], ['rear-delts']]);
-  expect(anatomicalMissingGroups.map((m) => m.id)).toEqual(['adductors']);
+  expect(anatomicalMissingGroups.map((m) => m.id)).toEqual([]);
+  act(() => v!.unmount());
+});
+
+it('binds all four accepted medial-thigh patches to the adductor parent', () => {
+  const onSelect = jest.fn();
+  let v: ReturnType<typeof create>;
+  act(() => {
+    v = create(
+      <MuscleMap
+        muscles={neutral.map((m) =>
+          m.id === 'adductors' ? { ...m, secondary: 1 } : m,
+        )}
+        onSelect={onSelect}
+      />,
+    );
+  });
+  for (const [id, transform] of [
+    ['adductor-longus-left', 'translate(0.5 1.5)'],
+    ['adductor-longus-right', 'translate(1.5 0.5)'],
+    ['gracilis-left', 'translate(0 0)'],
+    ['gracilis-right', 'translate(1.5 2)'],
+  ]) {
+    const p = v!.root.findByProps({ testID: `anatomical-region-${id}` });
+    expect(p.props.fill).toBe(colors.muscleSecondary);
+    expect(p.props.transform).toBe(transform);
+    act(() => p.props.onPress());
+  }
+  expect(onSelect.mock.calls).toEqual([
+    ['adductors'],
+    ['adductors'],
+    ['adductors'],
+    ['adductors'],
+  ]);
+  expect(anatomicalMissingGroups).toEqual([]);
   act(() => v!.unmount());
 });

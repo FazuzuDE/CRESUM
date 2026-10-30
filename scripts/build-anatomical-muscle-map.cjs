@@ -134,15 +134,46 @@ for (const r of rear.regions) {
     representation: r.representation,
   });
 }
+// Bind only the four already accepted visible medial-thigh patches.
+for (const study of ['adductor-longus', 'gracilis']) {
+  const selected = read(`${study}-surface-study/selected-geometry.json`);
+  const selection = read(`${study}-surface-study/selection.json`);
+  assert.equal(selected.status, 'visually-approved');
+  assert.equal(selection.status, 'visually-approved');
+  assert.deepEqual(selected.canvas, combined.canvas);
+  assert.equal(selected.regions.length, 2);
+  for (const r of selected.regions) {
+    const previous = regions.find((p) => p.id === r.id);
+    assert(previous && previous.groupId === null && previous.view === 'front');
+    assert.equal(previous.path, r.path);
+    assert.equal(previous.transform, r.transform);
+    const s = selection.regions[r.id];
+    const expected = {
+      'adductor-longus-left': [0, -0.5, 1.5],
+      'adductor-longus-right': [-0.5, 1.5, 0.5],
+      'gracilis-left': [-2, 0, 0],
+      'gracilis-right': [-1.5, 1.5, 2],
+    }[r.id];
+    assert.deepEqual([s.inset, s.shift, s.shiftY], expected);
+    const x = s.shift * (r.side === 'left' ? -1 : 1);
+    assert.equal(r.transform, `translate(${x} ${s.shiftY})`);
+    previous.groupId = 'adductors';
+    previous.representation = 'partial-visible-medial-thigh-surface';
+  }
+}
 assert.equal(regions.length, 96);
 assert.equal(new Set(regions.map((r) => r.id)).size, 96);
-assert.equal(regions.filter((r) => r.groupId === null).length, 34);
+assert.equal(regions.filter((r) => r.groupId === null).length, 30);
 for (const r of regions)
   assert(!r.clipId || clips.some((c) => c.id === r.clipId));
 const files = [
   'rear-deltoid-selected-study/selected-geometry.json',
   'rear-deltoid-selected-study/selection.json',
   'rear-deltoid-selected-study/source-silhouette.png',
+  'adductor-longus-surface-study/selected-geometry.json',
+  'adductor-longus-surface-study/selection.json',
+  'gracilis-surface-study/selected-geometry.json',
+  'gracilis-surface-study/selection.json',
   'source.png',
   'layers.json',
   'combined-review/geometry.json',
@@ -169,5 +200,5 @@ if (process.argv.includes('--check'))
   );
 else fs.writeFileSync(output, encoded);
 console.log(
-  'Anatomy atlas: 96 regions: rear-shoulder selections bound, 34 unresolved.',
+  'Anatomy atlas: 96 regions: all17 parent groups represented; 30 unresolved regions.',
 );

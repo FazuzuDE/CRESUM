@@ -1,4 +1,6 @@
 export default {
+  'muscle.adductorRegion':
+    'Die Adduktorenmarkierung zeigt nur ausgewählte sichtbare Bereiche der Oberschenkelinnenseite; Grenzen sind vorläufig, tiefe Anteile sind nicht dargestellt.',
   'muscle.rearDeltRegion':
     'Die hinteren Deltas werden als schematische hintere Schulterregion dargestellt; die Grenze zum seitlichen Anteil ist ungefähr.',
   'muscle.upperBackProjection':

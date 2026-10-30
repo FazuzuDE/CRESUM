@@ -1,4 +1,6 @@
 export default {
+  'muscle.adductorRegion':
+    'Adductor highlights show only selected visible medial-thigh patches; boundaries are provisional and deep portions are not shown.',
   'muscle.rearDeltRegion':
     'Rear-deltoid highlights show a schematic rear-shoulder region; the rear/lateral boundary is approximate.',
   'muscle.upperBackProjection':
