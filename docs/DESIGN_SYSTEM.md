@@ -1,5 +1,20 @@
 # CRESUM Design System v1.0
 
+## Hammer Curl selected Male pair — 2026-10-30
+
+User approved r1 original exec-d2b8ac2f-07c7-4f43-a21e-b18ec7f5a562.png,
+SHAcc72b151f65acb2fbf7ac3b6061eeee54895ab8de33990355d7844cc5b52c519. Use exact887-square half-sheet crops,
+LEFT START / RIGHT FINISH, RGB WebP92 method6; no retouch, resampling,
+padding or phase-specific transforms. Bind only existing hammer-curl/Male.
+Preserve ACE10 neutral-grip guide and current biceps/forearms Primary roles
+with no Secondary, shared compact/expanded muscle map, stable IDs and History.
+The bilateral example uses a small staggered stance; closed neutral grip remains
+through both phases. Actual Male Master is the sole visual generation input.
+Keep user-selected-provisional: selection/full-frame/320/390 review is not
+detailed independent hand/wrist biomechanics or physical-device acceptance.
+Retain exact prompt, original, actual Master input and selected exports in the
+source checkpoint. PC backup unverified; Oracle deferred/pending-upload.
+
 ## EZ Bar Curl selected Male pair — 2026-10-30
 
 User approved r5 after two targeted grip-contact corrections on the angled shaft.

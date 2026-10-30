@@ -5,6 +5,8 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock('../../assets/exercises/hammer-curl/start.webp', () => 2401);
+jest.mock('../../assets/exercises/hammer-curl/finish.webp', () => 2402);
 jest.mock('../../assets/exercises/ez-bar-curl/start.webp', () => 2301);
 jest.mock('../../assets/exercises/ez-bar-curl/finish.webp', () => 2302);
 jest.mock('../../assets/exercises/barbell-curl/start.webp', () => 2201);
@@ -521,7 +523,7 @@ it('binds only the selected straight-bar Male curl and preserves its roles', () 
   );
   for (const phase of ['start', 'finish'] as const) {
     expect(resolveExerciseArtwork('barbell-curl', phase, 'female')).toBeNull();
-    for (const id of ['hammer-curl', 'cable-biceps-curl', 'unknown'])
+    for (const id of ['preacher-curl', 'cable-biceps-curl', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('barbell-curl')).toBeNull();
@@ -543,8 +545,36 @@ it('binds selected Male EZ curl only and preserves angled grip guide and roles',
     expect(resolveExerciseArtwork('barbell-curl', phase, 'male')).toBe(
       phase === 'start' ? 2201 : 2202,
     );
-    for (const id of ['hammer-curl', 'cable-biceps-curl', 'unknown'])
+    for (const id of ['preacher-curl', 'cable-biceps-curl', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('ez-bar-curl')).toBeNull();
+});
+
+it('keeps selected Male hammer curl separate from supinated and EZ curls', () => {
+  expect(resolveExerciseArtwork('hammer-curl', 'start', 'male')).toBe(2401);
+  expect(resolveExerciseArtwork('hammer-curl', 'finish', 'male')).toBe(2402);
+  expect(findExercise('hammer-curl')).toMatchObject({
+    primaryMuscles: ['biceps', 'forearms'],
+    secondaryMuscles: [],
+    equipment: ['dumbbell'],
+  });
+  expect(findTechnique('hammer-curl')?.scope).toBe(
+    'Neutral-grip dumbbell curl.',
+  );
+  for (const phase of ['start', 'finish'] as const) {
+    expect(resolveExerciseArtwork('hammer-curl', phase, 'female')).toBeNull();
+    expect(resolveExerciseArtwork('barbell-curl', phase, 'male')).toBe(
+      phase === 'start' ? 2201 : 2202,
+    );
+    expect(resolveExerciseArtwork('ez-bar-curl', phase, 'male')).toBe(
+      phase === 'start' ? 2301 : 2302,
+    );
+    expect(resolveExerciseArtwork('dumbbell-biceps-curl', phase, 'male')).toBe(
+      phase === 'start' ? 2101 : 2102,
+    );
+    for (const id of ['preacher-curl', 'cable-biceps-curl', 'unknown'])
+      expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
+  }
+  expect(resolveAttachmentArtwork('hammer-curl')).toBeNull();
 });

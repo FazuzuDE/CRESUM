@@ -1,0 +1,38 @@
+{
+  "exerciseId": "hammer-curl",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "hammer-curl",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "user-selected",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "accfb3e0b9407c5d9be65a074424e989d11dc712",
+      "prompt": "Use case: scientific-educational.\nCreate ONE original CRESUM standing DUMBBELL HAMMER CURL exercise diptych: two equal square panels side-by-side, landscape2:1. LEFT START and RIGHT FINISH, no printed labels.\nInput image1 is the actual five-view Male Master reference, solely for the exact same adult male identity, face, brown hairstyle, natural athletic adult proportions, fitted blue-gray shirt, charcoal shorts, white normal training socks and light gray shoes. Do not reproduce five-view layout. Natural long limbs, not bulky or short-legged.\nPremium semi-realistic3D educational render, clean white studio with soft neutral contact shadows, even natural skin and coherent matte fabrics, no patchy textures. Identical character, clothes, lighting, camera and figure scale in both panels. Full head/shoes/equipment within each square with modest balanced margins, figure fills about92% of height. Front-three-quarter camera around25degrees off straight-on, clearly show each hand gripping its own dumbbell. Preserve largest shared framing with equal head height and foot baseline.\nEQUIPMENT: exactly TWO identical moderate-size round black dumbbells, one per hand, matching fixed plates, diameter, handle length and material in both panels. Closed neutral hammer grip, thumbs oppose curled fingers around metal handle. NEVER supinate/palms-up. Palm planes face medially toward each other throughout, thumbs remain on the upper/radial side of each fist, wrists straight in line with forearms. The dumbbell plate-to-plate axis is perpendicular to the fist/forearm as physically appropriate, not an arbitrary vertical weight pasted through a wrist. Natural continuous hands/fingers/forearms, no floating contact or fused fingers.\nLEFT START: stand upright with a small stable staggered stance, feet planted, knees softly unlocked. Torso braced and neutral, shoulders quiet/down, head aligned. Arms lowered beside torso, elbows naturally extended without hyperextension. Palms face thighs/inward, NOT forward/up. Dumbbells beside thighs with a small natural clearance; each dumbbell's plate-to-plate axis runs front-to-back, so one plate is ahead of its hand and the other behind it. Hands genuinely encircle handles at their centers.\nRIGHT FINISH: same stance/feet/pelvis/torso/shoulders/head. BOTH elbows flex together; upper arms remain alongside ribs, without elbows moving forward into a front raise. Bring each dumbbell toward the front of its respective shoulder, keeping neutral hammer grip and straight wrists. In this upper phase the two dumbbells are approximately UPRIGHT: one black end above each fist, the other below, with hands visibly around central handles. Keep plausible clearance from shoulders, chest and head; no plate through flesh or shirt. Around110-120degrees elbow flexion, no forearm supination, crossed-body curl, shrug, backward lean or swinging. Exactly the same equipment and grip through the motion.\nAvoid: straight-bar or EZbar, extra hands/weights, fully palms-up grip, horizontal supinated-curl dumbbells in FINISH, wrist bending, enlarged biceps anatomy, overlays, text, logos, arrows or watermarks. Priority: clear neutral hammer grip in BOTH phases, actual hand-handle contact and anatomically continuous straight wrists, believable bilateral elbow motion, identity/material continuity, equally large full-body framing.\n",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024],
+          "role": "actual Male Master identity/outfit only"
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-d2b8ac2f-07c7-4f43-a21e-b18ec7f5a562.png",
+        "sha256": "cc72b151f65acb2fbf7ac3b6061eeee54895ab8de33990355d7844cc5b52c519",
+        "bytes": 1676994,
+        "dimensions": [1774, 887]
+      },
+      "sourceCheckedOn": "2026-10-30",
+      "techniqueSources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      ],
+      "visualQA": "Selected bilateral neutral-grip example within existing guide; small staggered stance, straight wrists and stable torso. No certified detailed hand biomechanics or device acceptance."
+    }
+  ]
+}
