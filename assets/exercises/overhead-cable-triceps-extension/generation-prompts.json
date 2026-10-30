@@ -1,0 +1,83 @@
+{
+  "exerciseId": "overhead-cable-triceps-extension",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "overhead-cable-triceps-extension",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "superseded-framing",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "06af5dff4b25df660696924f8dca2b6913c650d7",
+      "prompt": "Use case: scientific-educational.\nGenerate ONE original CRESUM standing OVERHEAD CABLE TRICEPS EXTENSION diptych: landscape2:1 with TWO equal square panels, LEFT START bent elbows/hands behind head, RIGHT FINISH elbows extended overhead. No labels/text/arrows/logos/watermarks or anatomy overlay.\nINPUT1 actual five-view Male Master defines exact adult male identity, face/short brown hair, natural athletic proportions (normal long limbs), fitted muted blue-gray shirt, charcoal shorts, normal white socks/light-gray shoes. Do not copy five-view layout. INPUT2 frozen equipment STYLE only defines satin brushed silver frame, black/graphite stack and matte rubber, restrained orange selector, coherent premium studio materials. Do not copy assisted-pull-up equipment/pose/pads.\nSCENE: compact generic adjustable cable tower to the LEFT in each panel, man on RIGHT facing AWAY from it toward screen-right in a front-side three-quarter view. His BACK faces the pulley. Tower behind him in physical space, not in front. Man steps forward about70cm from outlet, stable small split stance, knees soft, upright braced torso with very slight natural forward inclination, ribs controlled/no low-back arch. Fixed camera sees face/profile, both elevated arms, behind-head hands/rope contacts, cable clearance and weight stack. Leave real clear air space between head, attachment and tower.\nFRAME CONTINUITY: identical fixed machine, camera, stance/feet, torso, upper-arm orientation, head height/foot baseline, body proportions/scale and lighting in both panels. Largest shared framing that includes ALL shoes, head, raised hands and rope even in FINISH, plus tower/base, with small balanced margins. Do not shrink FINISH man to fit raised arms; establish the SAME scale for both. White studio/soft contact shadows, even natural skin and smooth coherent matte fabrics/metals, no blotchy color or skin/fabric degradation.\nEQUIPMENT: one silver selectorized adjustable cable column on broad safe floor base, two guide rods and clearly visible black stack. Its adjustable outlet pulley is fixed at approximately the man's HEAD HEIGHT in BOTH panels (NOT ankle-high, not moved between phases). A single taut cable leaves that pulley and runs forward to a metal terminal, black rubber stop, ONE closed carabiner and the rope's central eye. Keep this complete free cable and attachment visibly BEHIND/CLEAR OF the man's head/neck/ears, never threaded through his head, hair, body or armpit. The pulley-to-attachment line is a straight tensioned segment; cable wraps the pulley tangentially and returns coherently inside the station.\nROPE: one black twisted triceps rope folded centrally through a metal bracket/eye, two equal flexible tails, one black rubber bulb stop at the end of each tail. Identical length/thickness/endstops in both panels. Each hand firmly wraps its own rope tail immediately ABOVE its stop with curled fingers and opposing thumb; neutral comfortable wrist aligned with forearm. No floating handles, rope around wrists, fingers merged with rope, third tail or duplicated cable/carabiner. Rope center and carabiner remain behind the handgrips toward the pulley, with no head contact.\nLEFT START: upper arms raised beside ears, pointing up and slightly forward, elbows shoulder-width apart rather than flared wide; both elbows comfortably bent about90degrees. Forearms fold BACK so both closed hands are behind and slightly above the back of the head, with a VISIBLE AIR GAP from hair/skull. Rope/contact must remain readable from camera. Neck neutral, do not bow head to make room. This is the bent-overhead start, not a face pull or pushdown.\nRIGHT FINISH: SAME shoulder/upper-arm position, upright controlled trunk and feet. Extend BOTH elbows upward until naturally almost straight without hyperextension, hands above and slightly IN FRONT OF the crown, maintaining actual neutral rope grips. Arms extend along the raised upper-arm lines beside ears; do not lower elbows to chest, perform a shoulder press, shrug, swing torso or arch back. Show clear elbow-extension motion from START while upper arms stay substantially still. Central rope connector moves upward/forward with hands; taut cable still traces a clear line back to the SAME head-height outlet, behind and above the head with clearance.\nLOAD: fixed guide rods/base and same black stack in both scenes. Keep the SAME selected upper plate group with ONE orange selector pin in its bottom plate, and same stationary lower plates. START selected upper group low/slightly tensioned. FINISH that SAME upper group and lifting assembly raised about25-35cm with a visible gap above unchanged stationary plates. Never duplicate selector pins, change selected plate count or levitate whole stack.\nQuality priorities: correct overhead ELBOW-extension phases and stable upper arms/ribs; closed hands physically gripping two rope tails; head/neck/cable clearance; coherent center eye/carabiner connection and fixed head-height pulley; visible selected load rise; same Master identity/materials and large matched framing. Return only the complete two-panel image.\n",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/CRESUM-reverse-pec-deck/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        }
+      ],
+      "inputRoles": [
+        "actual Male Master identity/outfit",
+        "frozen equipment style only"
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-e240340d-e45a-4923-a04f-29e1d4b2a703.png",
+        "sha256": "d2ccccd713b114a0063e5073837c26a83f08aeaea67fdc130704c390318f1e78",
+        "bytes": 1711532,
+        "dimensions": [1774, 887],
+        "libraryFileId": "libfile_830c0358180881919055b2fd1faa56c2"
+      },
+      "sourceCheckedOn": "2026-10-30",
+      "techniqueSources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/74/triceps-extension/",
+        "https://www.puregym.com/exercises/arms-and-shoulders/tricep-extension/overhead-tricep-extension/"
+      ],
+      "adaptation": "ACE74 overhead dumbbell mechanics adapted to cable; PureGym supports illustrative rope/head-height outlet. Generic guide retains pulley-varies scope. Exact body anchors, fingers and hidden transmission not certified."
+    },
+    {
+      "exerciseId": "overhead-cable-triceps-extension",
+      "model": "male",
+      "phase": "pair",
+      "revision": 2,
+      "status": "user-selected",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "06af5dff4b25df660696924f8dca2b6913c650d7",
+      "prompt": "Use case: precise-object-edit. Repair framing and paired-body continuity in this original CRESUM overhead cable triceps extension diptych. Keep its selected visual concept and exercise, not a new design.\nProblem1: BOTH cable columns are cut off at the top of the image. Reframe BOTH scenes with one identical modest zoom-out/extended field of view so the COMPLETE top cap of each cable tower and both overhead hands are fully inside each square, with small comfortable white margins. Keep whole floor bases/shoes too. Do NOT merely shorten the equipment or crop the hands.\nProblem2: RIGHT FINISH man currently has head/shoulders/torso noticeably lower/shorter than LEFT START. Use LEFT START man's actual adult head/neck/torso/pelvis/legs and upright split stance as the body authority. In FINISH, head top, face/neck position, shoulders, shirt waist, pelvis, knees and shoes MUST match the START anchors at the SAME scale and location relative to the machine. No squatting, compressed torso, forward head drop, shortened legs or different figure size. Only elbows/forearms/hands change phase; keep upper arms raised beside ears. Recompose both with the same camera, head height, shoe baseline and largest common uniform scale fitting complete equipment and FINISH arms.\nLEFT START still: elbows bent about90degrees, closed hands behind/just above back of head with real hair clearance, upper arms raised. RIGHT FINISH: extend elbows up nearly straight without hyperextension, hands above/slightly in front of crown. Stable upper arms and controlled ribs, straight wrists, actual closed neutral grips around two rope tails just above rubber stops. Same rope length, one central eye and closed carabiner. Taut cable from SAME adjustable outlet near head height behind man; never through head/neck. Man faces away from machine, tower on left, faces right.\nPreserve male identity/face/hair, blue-gray shirt/charcoal shorts/white socks/light shoes and natural athletic body proportions, satin silver machine/black stack, white studio/lighting and coherent materials. Machine geometry and outlet fixed between scenes. Retain same single orange selector pin on selected plates and raised FINISH selected group above fixed lower group. No extra attachments, labels, text, arrows, logos or overlays.\nReturn ONE complete2:1 diptych, two equal square scenes, LEFT bent START and RIGHT extended FINISH. Priorities: complete unclipped equipment and hands; SAME standing body/head/torso anchors and scale in both panels; only elbow extension changes the man.\n",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-e240340d-e45a-4923-a04f-29e1d4b2a703.png",
+          "sha256": "d2ccccd713b114a0063e5073837c26a83f08aeaea67fdc130704c390318f1e78",
+          "bytes": 1711532,
+          "dimensions": [1774, 887]
+        }
+      ],
+      "inputRoles": ["actual r1 edit target only"],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-14d7d86f-2b77-497a-9155-3ed36ee6ee43.png",
+        "sha256": "21a4d6d22e49050679ef27112c9930963d1e4dc4914cd54daa438c49bdb9db02",
+        "bytes": 1687145,
+        "dimensions": [1774, 887],
+        "libraryFileId": "libfile_2c975fb87a008191b564cdcf9611c84c"
+      },
+      "sourceCheckedOn": "2026-10-30",
+      "techniqueSources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/74/triceps-extension/",
+        "https://www.puregym.com/exercises/arms-and-shoulders/tricep-extension/overhead-tricep-extension/"
+      ],
+      "adaptation": "ACE74 overhead dumbbell mechanics adapted to cable; PureGym supports illustrative rope/head-height outlet. Generic guide retains pulley-varies scope. Exact body anchors, fingers and hidden transmission not certified."
+    }
+  ]
+}

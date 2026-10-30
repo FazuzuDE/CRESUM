@@ -50,6 +50,10 @@ const straightArmPair = {
   start: require('../assets/exercises/cable-straight-arm-pulldown/start.webp'),
   finish: require('../assets/exercises/cable-straight-arm-pulldown/finish.webp'),
 };
+const overheadCableTricepsPair = {
+  start: require('../assets/exercises/overhead-cable-triceps-extension/start.webp'),
+  finish: require('../assets/exercises/overhead-cable-triceps-extension/finish.webp'),
+};
 const tricepsPushdownPair = {
   start: require('../assets/exercises/cable-triceps-pushdown/start.webp'),
   finish: require('../assets/exercises/cable-triceps-pushdown/finish.webp'),
@@ -136,6 +140,8 @@ export function resolveExerciseArtwork(
   if (variantId === 'ez-bar-curl') return ezBarCurlPair[phase];
   if (variantId === 'hammer-curl') return hammerCurlPair[phase];
   if (variantId === 'cable-biceps-curl') return cableCurlPair[phase];
+  if (variantId === 'overhead-cable-triceps-extension')
+    return overheadCableTricepsPair[phase];
   if (variantId === 'cable-triceps-pushdown') return tricepsPushdownPair[phase];
   if (variantId === 'dumbbell-biceps-curl') return dumbbellCurlPair[phase];
   if (variantId === 'machine-shoulder-press')

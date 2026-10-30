@@ -1,0 +1,38 @@
+{
+  "exerciseId": "overhead-cable-triceps-extension",
+  "model": "male",
+  "selectionDate": "2026-10-30",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "selectedCandidates": {
+    "start": "pair r2 left",
+    "finish": "pair r2 right"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-14d7d86f-2b77-497a-9155-3ed36ee6ee43.png",
+      "sourceSha256": "21a4d6d22e49050679ef27112c9930963d1e4dc4914cd54daa438c49bdb9db02",
+      "sourceBytes": 1687145,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "172e71eb41ef80c432588e4ad2f5dbce4dcfd42276f77f683745e9a5b463dee6",
+      "bytes": 48438,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-14d7d86f-2b77-497a-9155-3ed36ee6ee43.png",
+      "sourceSha256": "21a4d6d22e49050679ef27112c9930963d1e4dc4914cd54daa438c49bdb9db02",
+      "sourceBytes": 1687145,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "de64175b88aa5aec86d0a1c8258c0b76b493977c15bf3498dee199200af746e8",
+      "bytes": 49386,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
