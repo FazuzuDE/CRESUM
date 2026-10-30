@@ -1,0 +1,50 @@
+{
+  "exerciseId": "close-grip-bench-press",
+  "model": "male",
+  "selectionDate": "2026-10-30",
+  "status": "user-selected-pair",
+  "decision": "Да (исправленный r4)",
+  "selectedCandidates": {
+    "start": "pair r4 left",
+    "finish": "pair r4 right"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-6176333d-946c-43cf-96f6-22bc30452026.png",
+      "sourceSha256": "0911383aa6ecbe85f3db2b2bd69d53bcf4893781022858ad015eac44c980aeb6",
+      "sourceBytes": 1742165,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "f075bfaef000af15f775c9edf1ac82a3392a9ce2c950b099cc6fe82f3386c997",
+      "bytes": 48776,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-6176333d-946c-43cf-96f6-22bc30452026.png",
+      "sourceSha256": "0911383aa6ecbe85f3db2b2bd69d53bcf4893781022858ad015eac44c980aeb6",
+      "sourceBytes": 1742165,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "f3f8b97f9fe43a7d8c0ea25b80e94410d65faa994835929629fa4705c1256065",
+      "bytes": 52532,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload",
+  "decisionHistory": [
+    {
+      "revision": 3,
+      "decision": "Утверждаю",
+      "outcome": "Important grip-width review finding"
+    },
+    {
+      "revision": 4,
+      "decision": "Да",
+      "outcome": "user-selected after grip correction"
+    }
+  ]
+}

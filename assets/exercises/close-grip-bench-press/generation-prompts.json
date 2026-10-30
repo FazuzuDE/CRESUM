@@ -1,0 +1,182 @@
+{
+  "exerciseId": "close-grip-bench-press",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "close-grip-bench-press",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "superseded-position-framing",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "1acbdb3594ecab97fa4f6b918bb28b370535fd25",
+      "prompt": "Use case: scientific-educational.\nCreate ONE original CRESUM close-grip BARBELL BENCH PRESS exercise diptych: landscape2:1, TWO equal square panels, LEFT START at bottom of press and RIGHT FINISH at top. No text/labels/arrows/logos/watermarks/anatomical overlays.\nREFERENCE1 actual five-view Male Master defines adult male identity/face/short brown hair, natural athletic body proportions, fitted muted blue-gray T-shirt, charcoal shorts, white socks/light-gray training shoes. Do not reproduce reference sheet layout. REFERENCE2 equipment STYLE ONLY: satin silver-gray frames, dark matte graphite padding/black rubber, restrained metal reflections, clean premium realistic3D educational studio rendering. Do NOT copy assisted pull-up machine geometry or its pose.\nSCENE: man lying SUPINE on the SAME flat horizontal bench, with a compact free-weight bench-press half-rack/safety supports, in BOTH panels. Front-side three-quarter camera from near the feet, slightly elevated, sees the face, BOTH hands/bar contact and near/far elbow position clearly. Bench runs diagonally from head/back at upper-left toward feet at lower-right. Same camera, perspective, machine geometry, bench, floor/shoe anchors and SAME LARGE UNIFORM SCALE for both phases. Entire bench/support base, head, both planted shoes, barbell ends/plates and FINISH extended arms fit in each square with small white margins. No oversized blank top area; fit the full movement envelope harmoniously. Do not resize athlete between phases or crop equipment to gain scale.\nBODY: head/upper back and buttocks supported on pad throughout. Modest natural lumbar arch only, ribs controlled, no exaggerated bridge. Both feet planted on floor, knees comfortably bent, lower legs natural adult length. Same stable pelvis/feet/head/shoulder anchors, face, proportions and lighting both panels. Hips never lifted. No spotter/extra person. Silver rack uprights behind head with unused J-hooks; side safeties below bottom bar position, not obscuring chest/hands. Bar is UNRACKED and supported by hands in BOTH phases, never resting on hooks or safeties.\nBARBELL: ONE straight steel bar, ONE modest round black plate per side with collars and visible outer sleeves, identical dimensions/plate counts between phases. Correct rigid continuous bar through both hand grips and between plates. Realistic perspective foreshortening, no bent shaft or floating/duplicate plates. Plate/bar ends do not intersect rack or body.\nEXACT GRIP: closed symmetrical PRONATED palms-forward grip around SHOULDER WIDTH, comfortably narrower than standard wide bench grip. Hands clearly separated by about shoulder breadth, NEVER touching each other or ultra-close. Each thumb wraps securely around bar opposing curled fingers. Bar rests low across palm above forearm, wrists comfortably stacked, not sharply bent back. Both hands stay at EXACT SAME shaft positions throughout. Show actual contact, two credible hands, no extra fingers/merged palms/shaft through fingers.\nLEFT START: lowered bar at or just above LOWER STERNUM/lower chest, NOT throat/neck/face. Both elbows bent and tracking near ribs, upper arms about20-40degrees from torso rather than flared90degrees; forearms close to vertical under the bar viewed in physical space, elbows under wrists. Slight clear separation from shirt so bar is not buried in torso. Shoulder blades supported on bench; head/hips/feet stable. This is the controlled bottom of a close-grip bench press, not skull crusher.\nRIGHT FINISH: press bar up to above mid-chest/shoulder-joint line, arms extended naturally nearly straight without hyperextension. Bar slightly travels back toward shoulder line as it rises, never over face. Same closed shoulder-width grip and comfortable stacked wrists. Elbows extend, NOT flare out sideways or bend to lower bar behind head. Same stable torso/hips/head/feet on bench/floor, no shrug, sit-up or leg movement. Only elbows/arms/barbell move with the press.\nMATERIALS: consistent Master face/skin, smooth matte blue-gray shirt/charcoal shorts, unbranded white socks/light-gray shoes, satin silver rack/bench frame, dark graphite pad and black plates. White studio background, soft natural contact shadows, clean coherent surfaces, no patchy colors/waxy skin/melted metal. Priorities: readable actual shoulder-width closed grip and wrist/forearm alignment; bottom lower-chest vs top extended-arm phases; stable supine support and planted feet; SAME complete equipment/body scale and frame. Return only the complete two-panel illustration.\n",
+      "promptRecovery": "Verbatim from visible original tool-call prompt, not reconstructed description.",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/CRESUM-reverse-pec-deck/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        }
+      ],
+      "inputRoles": [
+        "actual Male Master identity/outfit",
+        "frozen equipment style only"
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-61d512ac-3acd-4a31-aed2-f104809c8acc.png",
+        "sha256": "52b152ddcda1bb1d85f134ad9910f2ef013ac04476e77f492bf7a9489041aed5",
+        "bytes": 1798824,
+        "dimensions": [1774, 887],
+        "libraryFileId": "libfile_a4a65376eb288191b077a8f5f51b21da"
+      },
+      "techniqueSources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/311/close-grip-bench-press/"
+      ],
+      "sourceReview": "Generation-time live recheck attempts failed. Integration recheck2026-10-30 succeeded at ACE311: hands in line with shoulders, elbows near ribs, feet into floor and hips against bench. Existing guide/source registry checkedOn2026-10-12 remains unchanged; this is asset-specific review.",
+      "adaptation": "Illustrative side-view flat-bench setup; guide retains shoulder-width closed grip and safeties/spotter cue. Selected image is not certification of exact grip width, safety setup or clinical biomechanics.",
+      "integrationSourceCheckedOn": "2026-10-30"
+    },
+    {
+      "exerciseId": "close-grip-bench-press",
+      "model": "male",
+      "phase": "pair",
+      "revision": 2,
+      "status": "superseded-position-framing",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "1acbdb3594ecab97fa4f6b918bb28b370535fd25",
+      "prompt": "Use case: precise-object-edit.\nCorrect this CRESUM close-grip bench press diptych; preserve the same man/face/outfit/materials, single straight bar/black plates, silver flat bench and two-panel educational realistic3D style. The FIRST supplied image is the actual edit target. The SECOND actual Male Master preserves face/adult proportions/clothing only.\nCRITICAL ERROR1: LEFT START bar is currently across upper chest/clavicle almost neck/chin. Move LEFT bar and BOTH gripping hands toward the LOWER STERNUM, meaning TOWARD HIS WAIST/FEET on the bench and AWAY FROM HEAD. The bar must pass across the blue shirt at the lower chest near bottom of pectorals, roughly halfway between collarbone and shirt waist, with clearly visible space between bar and throat. Move BOTH wrists together with bar and reposition elbows below wrists, near ribs, forearms upright under bar in real space. Upper arms20-40degrees from torso. Do NOT leave one hand at throat or lower only one side. Bar stays horizontal in physical space (same perspective axis), rigid and above shirt surface, not buried. Not a skullcrusher or reverse curl. Closed pronated shoulder-width grip, thumbs actually opposing fingers, wrists aligned reasonably with forearms, no extreme backbend. Match same exact hand spacing and shaft contacts in FINISH.\nRIGHT FINISH must be above MID CHEST/shoulder-joint line, arms extended almost straight; bar visibly HIGHER off the torso than LEFT. It must not drift above eyes/neck. Keep supported shoulders/head/pelvis stable; do not shrink or move the FINISH athlete. Only arms/forearms/bar move. Feet stay planted and hips supported in both. Preserve body/bench anchors and one uniform scale between panels.\nCRITICAL ERROR2: BOTH vertical rack posts are currently chopped by top border; LEFT bar sleeve nearly hits left edge. Reframe BOTH panels with the SAME modest uniform zoom-out/extended view, centering the entire bench/rack/man/bar movement envelope. Show COMPLETE modest-height independent bench-press uprights with proper top caps, hooks and bases, full sleeves/plates, full head/shoes. Convert the unnecessarily tall cut-off uprights into plausible compact bench-press uprights ending a small distance above their top hooks. Do not add overhead crossbeam/full power cage. Keep safety arms at below-bottom-bar height, not intersecting man/bar or blocking hands; bar stays un-racked. Small comfortable white margin around ALL hardware, including left sleeve and top caps, in BOTH square scenes. Use largest shared frame that truly fits. Do not make one phase smaller.\nMaterials remain satin silver-gray frame, graphite pad, matte black plates, natural clean skin/blue-gray shirt/charcoal shorts/white socks/light-gray shoes, white studio/soft contact shadows, no patchy repaints. One plate per side, same bar/plate geometry between phases. Return ONE complete2:1 diptych, two equal squares, LEFT lowered bar at LOWER CHEST and RIGHT extended press. No text/logos/arrows or overlays. Prioritize correct lower-chest bottom position and complete rack/frame over retaining the mistaken original bar location.\n",
+      "promptRecovery": "Verbatim from visible original tool-call prompt, not reconstructed description.",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-61d512ac-3acd-4a31-aed2-f104809c8acc.png",
+          "sha256": "52b152ddcda1bb1d85f134ad9910f2ef013ac04476e77f492bf7a9489041aed5",
+          "bytes": 1798824,
+          "dimensions": [1774, 887]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        }
+      ],
+      "inputRoles": [
+        "actual r1 edit target",
+        "actual Male Master identity/proportions only"
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-10e2ce1f-d324-413c-a4bd-8875a954f795.png",
+        "sha256": "902f4b110c2adf7c4a0e270e605f378047e5d6056cb3ec3f1fc00de04f4f4ea5",
+        "bytes": 1720887,
+        "dimensions": [1774, 887],
+        "libraryFileId": "libfile_8dd0b4c9525c81918685075458ead6ca"
+      },
+      "techniqueSources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/311/close-grip-bench-press/"
+      ],
+      "sourceReview": "Generation-time live recheck attempts failed. Integration recheck2026-10-30 succeeded at ACE311: hands in line with shoulders, elbows near ribs, feet into floor and hips against bench. Existing guide/source registry checkedOn2026-10-12 remains unchanged; this is asset-specific review.",
+      "adaptation": "Illustrative side-view flat-bench setup; guide retains shoulder-width closed grip and safeties/spotter cue. Selected image is not certification of exact grip width, safety setup or clinical biomechanics.",
+      "integrationSourceCheckedOn": "2026-10-30"
+    },
+    {
+      "exerciseId": "close-grip-bench-press",
+      "model": "male",
+      "phase": "pair",
+      "revision": 3,
+      "status": "superseded-review-grip-too-narrow",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "1acbdb3594ecab97fa4f6b918bb28b370535fd25",
+      "prompt": "Use case: scientific-educational. NEW CLEAN GENERATION of original CRESUM CLOSE-GRIP BARBELL BENCH PRESS pair. One landscape2:1 diptych, two equal square scenes: LEFT bottom START, RIGHT top FINISH. No captions/text/arrows/overlays.\nReference1 actual five-view Male Master controls face/hair/athletic adult long-limbed proportions and blue-gray shirt/charcoal shorts/white socks/light-gray shoes. Reference2 is STYLE ONLY for satin silver frame/graphite pad/matte black plates and clean white premium realistic3D studio, NOT machine geometry or pose.\nIMPORTANT CAMERA: choose a strongly SIDE-ON, slightly elevated three-quarter SIDE view. The flat bench runs almost HORIZONTALLY left-to-right across the square: HEAD at LEFT, TORSO in CENTER, feet at RIGHT. Look from the athlete's SIDE, only about20degrees toward the foot end, NOT from between his feet and NOT looking along bench length. This must show the long side profile of torso so lower chest is clearly FAR TO THE RIGHT of his neck/head in screen space. Both hands visible separated in depth through mild oblique angle. Do NOT use a dramatically foreshortened bench/torso.\nSame exact flat bench and compact free-weight bench stand with two silver capped uprights behind head, unused hooks and safe side rails below bottom bar. Entire rack tops/bases, bench, full adult athlete and both shoes, all bar sleeves/plates and top extended arms inside BOTH squares with comfortable small white margins. Same camera, geometry, largest fitting uniform scale, torso/head/shoe anchors and material continuity both panels. Do not stretch/compress/reposition FINISH body. One modest black plate and collar per sleeve, one rigid straight steel bar identical both scenes. No added person.\nBODY: lies supine, head/shoulders/upper back and buttocks supported on graphite flat bench, small natural lumbar arch only. Knees bent naturally, BOTH feet firmly planted floor on either side of bench, not on footrest. Hips remain down, no bridge, head neutral on pad.\nGRIP: closed PRONATED grip about SHOULDER WIDTH. Symmetrical natural shoulder-width spacing (not ultranarrow touching hands and not wide bench grip), both thumbs wrap against curled fingers. Bar rests low in palms aligned above forearms, neutral comfortable wrists rather than strongly bent-back wrists. Same exact grip points in both phases. Two real hands actually around bar. Bar never touches neck/face.\nLEFT BOTTOM START — HIGHEST PRIORITY: bar lowered at LOWER PECTORAL BORDER / LOWER STERNUM, just above the shirt, on torso's footward half. In this side camera the bar and BOTH hands must be conspicuously TO THE RIGHT / TOWARD FEET relative to neck, shoulder joint and upper chest. The head/neck are at far-left and the bar must be centered over the LOWER CHEST near the ribcage above upper abdomen, NEVER over collarbones or throat. A long clearly visible stretch of upper chest separates lower bar contact from neck. BOTH elbows bent, upper arms near ribs about20-40degrees from torso, forearms close to vertical with elbows directly below hands. Elbows not flared sideways. Bar is supported ONLY by hands, not on hooks/safeties; no bar embedded in torso.\nRIGHT TOP FINISH: same unchanged supported body; BOTH elbows extend almost straight without hyperextension. Bar rises clear above mid-chest toward shoulder-joint line, describing a natural modest up-and-back bench path. FINISH bar still away from face and never over eyes. Same shoulder-width closed grip and straight wrists. No dumbbell motion, skullcrusher, sit-up or shoulder shrug.\nKeep shirt natural muted blue-gray, shorts charcoal, skin clean with natural fine texture, no blotches, metal coherent satin silver and rubber matte. White studio background/soft contact shadows. Entire movement envelope equally large and complete in both scenes. Before rendering prioritize the side-view geometry: clearly show lowered bar over LOWER CHEST away from neck in LEFT, and bar raised above chest with extended elbows in RIGHT. Return only the complete paired illustration.\n",
+      "promptRecovery": "Verbatim from visible original tool-call prompt, not reconstructed description.",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/CRESUM-reverse-pec-deck/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        }
+      ],
+      "inputRoles": [
+        "actual Male Master identity/outfit",
+        "frozen equipment style only"
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-33d525d4-7d90-435b-bdf7-6dd45afbf0c8.png",
+        "sha256": "016d450e839a71360382563b22ac0116731ff92e4d4a9596bd37941bac6c6bd2",
+        "bytes": 1523097,
+        "dimensions": [1774, 887],
+        "libraryFileId": "libfile_5095e44342308191b2e7ad3f6cd97d05"
+      },
+      "techniqueSources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/311/close-grip-bench-press/"
+      ],
+      "sourceReview": "Generation-time live recheck attempts failed. Integration recheck2026-10-30 succeeded at ACE311: hands in line with shoulders, elbows near ribs, feet into floor and hips against bench. Existing guide/source registry checkedOn2026-10-12 remains unchanged; this is asset-specific review.",
+      "adaptation": "Illustrative side-view flat-bench setup; guide retains shoulder-width closed grip and safeties/spotter cue. Selected image is not certification of exact grip width, safety setup or clinical biomechanics.",
+      "integrationSourceCheckedOn": "2026-10-30"
+    },
+    {
+      "exerciseId": "close-grip-bench-press",
+      "model": "male",
+      "phase": "pair",
+      "revision": 4,
+      "status": "user-selected",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "1acbdb3594ecab97fa4f6b918bb28b370535fd25",
+      "prompt": "Use case: precise-object-edit.\nEdit this original CRESUM close-grip bench press diptych. FIRST image is actual r3 edit target; SECOND image is actual Male Master identity/material authority. Return ONE2:1 diptych with the same two equal square scenes, LEFT bottom START/RIGHT extended FINISH.\nTARGETED IMPORTANT CORRECTION: current hands are visibly TOO CLOSE TOGETHER in BOTH panels and read as an ultra-narrow grip. WIDEN THE HAND POSITIONS ON THE BAR IN BOTH PANELS to a clearly readable SHOULDER-WIDTH closed pronated grip. They should be comfortably separated, approximately four realistic palm breadths between hand centers in physical space, with a substantial bare shaft gap between the inner hands. Do not merely change fingertips or widen wrists on stationary hand centers. Move the near hand OUTWARD toward its near plate and the far hand OUTWARD toward its far plate, symmetrically along the actual bar axis, roughly doubling the current hand-center separation. BOTH phases use exactly the same new hand positions on the same shaft. Avoid a wide powerlifting bench grip; this remains shoulder-width close-grip bench press, not hands-touching and not a wide grip.\nMake the short shaft segment between hands VISIBLY LONGER in both square panels. Use a credible standard straight barbell, not a short miniature curl bar. If necessary correct the foreshortened shaft/collar spacing consistently in BOTH panels so each hand has real bar surface and normal clearance from inner collars/plates. Same straight bar, same black plate size/count and collars across both phases. Never put a hand inside a plate, through a collar or floating beside the bar.\nReposition elbows/forearms naturally to follow the widened grip. In LEFT, elbows stay near ribs with controlled tuck rather than extreme flare; wrists/forearms stack below the bar. Bar still lowers to lower-chest/lower-sternum area well away from neck, not collarbone. In RIGHT, elbows extend naturally almost straight, same shoulder-width grip and comfortable wrists, bar above mid-chest/shoulder line. Do not solve width by tilting/bending shaft or rotating only one wrist. Both grips closed/pronated, opposing thumbs and naturally curled fingers, no extra digits.\nPRESERVE the selected SIDE three-quarter camera (head LEFT, feet RIGHT, bench nearly horizontal), actual male face/hair/adult proportions, torso/head/pelvis/shoe and bench/rack anchors, modest natural arch with hips/shoulders supported, planted feet, same overall scene framing and shared scale, blue-gray shirt/charcoal shorts/white socks/light-gray shoes, satin silver/graphite bench/rack, white studio and soft shadows. Do not regenerate a new character, distort skin/fabric or change the exercise into a skullcrusher/shoulder press. No text/labels/arrows/logos/anatomical overlay.\nQuality priority is a clearly shoulder-width two-hand grip visibly broader than the mistaken r3 in BOTH START and FINISH, with coherent hand/bar contact, near-rib elbows and unchanged readable chest press phases. Return only complete corrected pair.\n",
+      "promptRecovery": "Original exact retained r4 tool-call prompt file; no restoration needed for this revision.",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-33d525d4-7d90-435b-bdf7-6dd45afbf0c8.png",
+          "sha256": "016d450e839a71360382563b22ac0116731ff92e4d4a9596bd37941bac6c6bd2",
+          "bytes": 1523097,
+          "dimensions": [1774, 887]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        }
+      ],
+      "inputRoles": [
+        "actual r3 edit target for Important grip correction",
+        "actual Male Master identity/material authority"
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-6176333d-946c-43cf-96f6-22bc30452026.png",
+        "sha256": "0911383aa6ecbe85f3db2b2bd69d53bcf4893781022858ad015eac44c980aeb6",
+        "bytes": 1742165,
+        "dimensions": [1774, 887],
+        "libraryFileId": "libfile_900f3fe7913881918d08c4f6715ed00c"
+      },
+      "techniqueSources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/311/close-grip-bench-press/"
+      ],
+      "sourceReview": "Generation-time live recheck attempts failed. Integration recheck2026-10-30 succeeded at ACE311: hands in line with shoulders, elbows near ribs, feet into floor and hips against bench. Existing guide/source registry checkedOn2026-10-12 remains unchanged; this is asset-specific review.",
+      "adaptation": "Targeted r3 grip-width repair in both phases; user approved r4 after Important instructional-width review finding. Shoulder-width cue and categorical muscle roles unchanged; exact physical dimensions/clinical acceptance not certified.",
+      "integrationSourceCheckedOn": "2026-10-30"
+    }
+  ]
+}

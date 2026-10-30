@@ -6,6 +6,14 @@ import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
 jest.mock(
+  '../../assets/exercises/close-grip-bench-press/start.webp',
+  () => 2901,
+);
+jest.mock(
+  '../../assets/exercises/close-grip-bench-press/finish.webp',
+  () => 2902,
+);
+jest.mock(
   '../../assets/exercises/dumbbell-overhead-triceps-extension/start.webp',
   () => 2801,
 );
@@ -265,6 +273,7 @@ it.each([
   ['Cable Triceps Pushdown', 2601, 2602],
   ['Overhead Cable Triceps Extension', 2701, 2702],
   ['Dumbbell Overhead Triceps Extension', 2801, 2802],
+  ['Close-Grip Bench Press', 2901, 2902],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
@@ -864,6 +873,63 @@ it('shows selected overhead dumbbell extension roles and opens/closes larger ana
         v,
         'Muscle details for Dumbbell Overhead Triceps Extension',
       )!.props.onPress(),
+    );
+    act(() => button(v, 'Close muscle details')!.props.onPress());
+    expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
+  } finally {
+    act(() => v.unmount());
+  }
+});
+
+it('shows selected close grip bench press roles and opens/closes larger anatomy without changing FINISH', () => {
+  const v = render();
+  try {
+    act(() =>
+      button(v, 'Technique for Close-Grip Bench Press')!.props.onPress(),
+    );
+    expect(text(v)).toContain('Working muscles');
+    const map = v.root.findByType(MuscleMap);
+    expect(map.props.height).toBe(160);
+    const regions = v.root
+      .findAllByType(Path)
+      .filter((n: any) => n.props.testID?.startsWith('anatomical-region-'));
+    expect(
+      regions.some((n: any) => n.props.fill === colors.musclePrimary),
+    ).toBe(true);
+    expect(
+      regions.some((n: any) => n.props.fill === colors.muscleSecondary),
+    ).toBe(true);
+    for (const muscle of map.props.muscles) {
+      expect(muscle.primary).toBe(muscle.id === 'triceps' ? 1 : 0);
+      expect(muscle.secondary).toBe(
+        muscle.id === 'chest' || muscle.id === 'front-delts' ? 1 : 0,
+      );
+    }
+    expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
+    act(() => button(v, 'Show FINISH')!.props.onPress());
+    act(() =>
+      button(v, 'Muscle details for Close-Grip Bench Press')!.props.onPress(),
+    );
+    expect(
+      v.root.findAllByType(MuscleMap).map((n: any) => n.props.height),
+    ).toEqual([160, 340]);
+    expect(text(v)).toContain('Qualitative muscle roles');
+    const modal = v.root
+      .findAllByType(Modal)
+      .find((n: any) => n.props.testID === 'exercise-muscle-details')!;
+    act(() => modal.props.onRequestClose());
+    expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
+    expect(
+      v.root
+        .findAllByType(Image)
+        .some(
+          (n: any) =>
+            n.props.accessibilityLabel === 'Close-Grip Bench Press: FINISH' &&
+            n.props.source === 2902,
+        ),
+    ).toBe(true);
+    act(() =>
+      button(v, 'Muscle details for Close-Grip Bench Press')!.props.onPress(),
     );
     act(() => button(v, 'Close muscle details')!.props.onPress());
     expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
