@@ -1,0 +1,38 @@
+{
+  "exerciseId": "hammer-curl",
+  "model": "male",
+  "selectionDate": "2026-10-30",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "selectedCandidates": {
+    "start": "pair r1 left",
+    "finish": "pair r1 right"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-d2b8ac2f-07c7-4f43-a21e-b18ec7f5a562.png",
+      "sourceSha256": "cc72b151f65acb2fbf7ac3b6061eeee54895ab8de33990355d7844cc5b52c519",
+      "sourceBytes": 1676994,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "0dfe6d7247e2b100a85641287e584f7ab15676cd5793fb392cc2bf6a4c659d66",
+      "bytes": 34314,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-d2b8ac2f-07c7-4f43-a21e-b18ec7f5a562.png",
+      "sourceSha256": "cc72b151f65acb2fbf7ac3b6061eeee54895ab8de33990355d7844cc5b52c519",
+      "sourceBytes": 1676994,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "87a918b14d51070020a5663ad400567fcf918c7bd04ccc9733cb39b33909bec7",
+      "bytes": 36096,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
