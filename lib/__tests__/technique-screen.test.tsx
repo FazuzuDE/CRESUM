@@ -5,6 +5,8 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/ez-bar-curl/start.webp', () => 2301);
+jest.mock('../../assets/exercises/ez-bar-curl/finish.webp', () => 2302);
 jest.mock('../../assets/exercises/barbell-curl/start.webp', () => 2201);
 jest.mock('../../assets/exercises/barbell-curl/finish.webp', () => 2202);
 jest.mock('../../assets/exercises/dumbbell-biceps-curl/start.webp', () => 2101);
@@ -229,6 +231,7 @@ it.each([
   ['Reverse Pec Deck', 1901, 1902],
   ['Resistance Band Pull-Apart', 2001, 2002],
   ['Dumbbell Biceps Curl', 2101, 2102],
+  ['EZ Bar Curl', 2301, 2302],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
@@ -496,4 +499,53 @@ it('shows selected barbell curl roles and opens/closes larger anatomy without ch
   act(() => button(v, 'Close muscle details')!.props.onPress());
   expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
   act(() => v.unmount());
+});
+
+it('shows selected EZ curl roles and opens/closes larger anatomy without changing FINISH', () => {
+  const v = render();
+  try {
+    act(() => button(v, 'Technique for EZ Bar Curl')!.props.onPress());
+    expect(text(v)).toContain('Working muscles');
+    const map = v.root.findByType(MuscleMap);
+    expect(map.props.height).toBe(160);
+    const regions = v.root
+      .findAllByType(Path)
+      .filter((n: any) => n.props.testID?.startsWith('anatomical-region-'));
+    expect(
+      regions.some((n: any) => n.props.fill === colors.musclePrimary),
+    ).toBe(true);
+    expect(
+      regions.some((n: any) => n.props.fill === colors.muscleSecondary),
+    ).toBe(true);
+    for (const muscle of map.props.muscles) {
+      expect(muscle.primary).toBe(muscle.id === 'biceps' ? 1 : 0);
+      expect(muscle.secondary).toBe(muscle.id === 'forearms' ? 1 : 0);
+    }
+    expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
+    act(() => button(v, 'Show FINISH')!.props.onPress());
+    act(() => button(v, 'Muscle details for EZ Bar Curl')!.props.onPress());
+    expect(
+      v.root.findAllByType(MuscleMap).map((n: any) => n.props.height),
+    ).toEqual([160, 340]);
+    expect(text(v)).toContain('Qualitative muscle roles');
+    const modal = v.root
+      .findAllByType(Modal)
+      .find((n: any) => n.props.testID === 'exercise-muscle-details')!;
+    act(() => modal.props.onRequestClose());
+    expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
+    expect(
+      v.root
+        .findAllByType(Image)
+        .some(
+          (n: any) =>
+            n.props.accessibilityLabel === 'EZ Bar Curl: FINISH' &&
+            n.props.source === 2302,
+        ),
+    ).toBe(true);
+    act(() => button(v, 'Muscle details for EZ Bar Curl')!.props.onPress());
+    act(() => button(v, 'Close muscle details')!.props.onPress());
+    expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
+  } finally {
+    act(() => v.unmount());
+  }
 });

@@ -1,0 +1,38 @@
+{
+  "exerciseId": "ez-bar-curl",
+  "model": "male",
+  "selectionDate": "2026-10-30",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "selectedCandidates": {
+    "start": "pair r5 left",
+    "finish": "pair r5 right"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-30d9d590-3a45-4e2c-8967-beac41271d6d.png",
+      "sourceSha256": "fe13ff935666d7e6391ea5f2d46d5a422ba9223a907c8b8872925b4aefb84087",
+      "sourceBytes": 1643361,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "58012a6e13d86d693e61dc30e34d23ab38090d4d73e890ca0376bcd1c3990142",
+      "bytes": 40094,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-30d9d590-3a45-4e2c-8967-beac41271d6d.png",
+      "sourceSha256": "fe13ff935666d7e6391ea5f2d46d5a422ba9223a907c8b8872925b4aefb84087",
+      "sourceBytes": 1643361,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "afa113937fb22bb66e92e922d1aeac4116c164e2ed5517d971b25010e0c98848",
+      "bytes": 38958,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

@@ -5,6 +5,8 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock('../../assets/exercises/ez-bar-curl/start.webp', () => 2301);
+jest.mock('../../assets/exercises/ez-bar-curl/finish.webp', () => 2302);
 jest.mock('../../assets/exercises/barbell-curl/start.webp', () => 2201);
 jest.mock('../../assets/exercises/barbell-curl/finish.webp', () => 2202);
 jest.mock('../../assets/exercises/dumbbell-biceps-curl/start.webp', () => 2101);
@@ -519,8 +521,30 @@ it('binds only the selected straight-bar Male curl and preserves its roles', () 
   );
   for (const phase of ['start', 'finish'] as const) {
     expect(resolveExerciseArtwork('barbell-curl', phase, 'female')).toBeNull();
-    for (const id of ['ez-bar-curl', 'hammer-curl', 'cable-curl', 'unknown'])
+    for (const id of ['hammer-curl', 'cable-biceps-curl', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('barbell-curl')).toBeNull();
+});
+
+it('binds selected Male EZ curl only and preserves angled grip guide and roles', () => {
+  expect(resolveExerciseArtwork('ez-bar-curl', 'start', 'male')).toBe(2301);
+  expect(resolveExerciseArtwork('ez-bar-curl', 'finish', 'male')).toBe(2302);
+  expect(findExercise('ez-bar-curl')).toMatchObject({
+    primaryMuscles: ['biceps'],
+    secondaryMuscles: ['forearms'],
+    equipment: ['ez-bar'],
+  });
+  expect(findTechnique('ez-bar-curl')?.scope).toBe(
+    'Standing angled EZ-bar curl.',
+  );
+  for (const phase of ['start', 'finish'] as const) {
+    expect(resolveExerciseArtwork('ez-bar-curl', phase, 'female')).toBeNull();
+    expect(resolveExerciseArtwork('barbell-curl', phase, 'male')).toBe(
+      phase === 'start' ? 2201 : 2202,
+    );
+    for (const id of ['hammer-curl', 'cable-biceps-curl', 'unknown'])
+      expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
+  }
+  expect(resolveAttachmentArtwork('ez-bar-curl')).toBeNull();
 });

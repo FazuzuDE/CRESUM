@@ -1,0 +1,53 @@
+{
+  "variantId": "ez-bar-curl",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 5,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-30d9d590-3a45-4e2c-8967-beac41271d6d.png",
+      "sourceSha256": "fe13ff935666d7e6391ea5f2d46d5a422ba9223a907c8b8872925b4aefb84087",
+      "sourceBytes": 1643361,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "58012a6e13d86d693e61dc30e34d23ab38090d4d73e890ca0376bcd1c3990142",
+      "bytes": 40094,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-30d9d590-3a45-4e2c-8967-beac41271d6d.png",
+      "sourceSha256": "fe13ff935666d7e6391ea5f2d46d5a422ba9223a907c8b8872925b4aefb84087",
+      "sourceBytes": 1643361,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "afa113937fb22bb66e92e922d1aeac4116c164e2ed5517d971b25010e0c98848",
+      "bytes": 38958,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Standing angled EZ-bar curl with user-selected grip contacts; no universal exact spacing. Existing NASM adaptation and catalog roles unchanged.",
+  "presentation": "Default shared square contain in both viewers. Exact half-sheet crops without retouch, resampling, padding, artificial upscaling or phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 5,
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "lineage": "r1 actual Male Master and selected straight-bar pose reference; r2 edits r1; r3 edits original r1; r4 edits r3 with user grip reference; r5 edits r4 uploaded target with two user-marked START grip locations, transferred to FINISH."
+  },
+  "reviewScope": "User-selected pair; assistant full-frame/320/390 inspection. Grip, bar rigidity, wrist alignment and elbow movement assessed visually, not independent detailed biomechanics or physical-device acceptance.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original PNG, exact prompt, actual Male Master and selected crops retained for upper-body source supplement; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

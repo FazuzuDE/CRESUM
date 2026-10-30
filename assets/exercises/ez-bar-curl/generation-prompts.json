@@ -1,0 +1,161 @@
+{
+  "exerciseId": "ez-bar-curl",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "ez-bar-curl",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "superseded",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "c864318cbd7ab402ae390e0019c225edc37c2e0d",
+      "prompt": "Use case: precise-object-edit / identity-preserve. Produce the next original CRESUM exercise pair, STANDING EZ-BAR CURL, by adapting reference image2, the approved straight-bar curl diptych. Reference1 is the actual five-view Male Master identity/outfit reference. Keep the approved character, face, natural adult proportions, blue-gray shirt, charcoal shorts, white training socks and light-gray shoes. Do not reproduce reference1's five-view layout.\nONE 2:1 landscape image, exactly TWO equal square scenes side-by-side: left START, right FINISH, no text, labels, arrows, borders, logos, watermarks or anatomy overlay. Preserve reference2's full-body framing, equal figure scale, head height/foot baseline, stance, front-three-quarter camera, soft studio background and lighting, coherent matte materials and natural skin. Use all available space with modest margins. Exactly one man and one bar in each square. No scene or body restyling.\nESSENTIAL CHANGE: replace the straight bar in BOTH panels with THE SAME real-looking compact EZ CURL BAR. Its continuous satin-silver steel shaft has unmistakable shallow symmetric zigzag/camber bends, forming mirrored angled handgrip sections and a short central span. The bar is mechanically rigid with consistent shaft thickness, bend angles, distance between bends and sleeve spacing across the two phases. The metal curves smoothly through the manufactured bends, not melted/wavy or broken. Straight horizontal sleeves at the ends remain collinear, with the SAME one moderate matte black round plate per end and secure collars, matched size/load in both phases. No cable eyelet, no rope attachment, no handles bolted onto it, no straight center shaft disguised as an EZ bar. Generic unbranded equipment, not a replica of a named manufacturer's model.\nGRIP: BOTH hands wrap the corresponding mirror-symmetric slanted KNURLED GRIP SECTIONS, not the smooth central span or loading sleeves. Hands comfortably around shoulder width, not a forced exact spacing. The angled grips place the forearms in a natural SEMI-SUPINATED position, between fully palms-up and neutral; thumbs wrap opposite fingers. Hands and bar are physically connected, fingers curl around metal naturally. Wrists stay straight in line with forearms, without radial/ulnar deviation or backward wrist extension. Update both hand orientations and subtle forearm rotation to fit the actual angled grips; do not simply paste a bent shaft through the old straight-bar grips. Exactly two anatomically plausible hands per man.\nLEFT START: same stable hip-width stance and upright braced torso as reference2. Shoulders relaxed, upper arms beside ribs, elbows near natural extension with no hyperextension. EZ bar just in front of upper thighs with clothing/body clearance. Both grips clearly on the slanted portions, palms semi-supinated forward-and-inward.\nRIGHT FINISH: same foot positions, torso, head, shoulder and elbow anchors, no backward lean, shrug, leg drive or swinging. Curl through both elbows to lift EZ bar toward lower chest/upper abdomen with forearms angled upward and hands above elbows. Keep upper arms close to body instead of a front raise. Hands remain on the SAME angled sections, palms semi-supinated upward-and-inward, wrists neutral. Preserve exact equipment dimensions rather than shrinking it in FINISH. Bar never intersects shirt or forearms. The manufactured EZ shape must visibly match the START bar, allowing only coherent whole-bar rotation/projection with the moving forearms.\nHighest priorities: believable symmetric EZ-bar geometry in both phases, actual semi-supinated hand/shaft contact, straight wrists, stable elbows, exact Male Master/style continuity and equally large full-body framing. No visual changes to any other exercise assets.\n",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-abfbc589-0130-44aa-b2cf-72d472c1caaa.png",
+          "sha256": "51beaf560ba59af3612d7abaf8b2720f5cffdef0e4f15ff599758f0a66499d64",
+          "bytes": 1692781,
+          "dimensions": [1774, 887]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-0f664759-3ba4-4c1e-b728-37a77d54c6a3.png",
+        "sha256": "2a6f9423605c19a95ec5c8ae7b64c39d2c331e011767fb7924aec369988b1890",
+        "bytes": 1692107,
+        "dimensions": [1774, 887],
+        "libraryFileId": "libfile_05b35a70a37c8191b7f1f6f14b5f4705"
+      },
+      "inputRoles": [
+        "identity Male Master",
+        "pose/style reference selected straight-bar curl"
+      ]
+    },
+    {
+      "exerciseId": "ez-bar-curl",
+      "model": "male",
+      "phase": "pair",
+      "revision": 2,
+      "status": "superseded",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "c864318cbd7ab402ae390e0019c225edc37c2e0d",
+      "prompt": "TARGETED GRIP CORRECTION to the supplied CRESUM standing EZ-bar curl diptych. Edit this exact image, not a new character or exercise. Keep the two equal square panels, same man/face/hair/adult proportions, blue-gray shirt, shorts/socks/shoes, body anchors, feet, elbows, camera, full-body scale, lighting/background and existing START/FINISH movement. Do not shrink either panel. No text/arrows/anatomy overlays.\nCRITICAL PROBLEM: both hands currently look like the fully palms-up grip from a straight-bar curl and grasp sections too close to horizontal. Correct BOTH HANDS in BOTH PHASES to an authentic underhand SEMI-SUPINATED EZ-bar grip.\nEach hand must close around one of the two mirror-symmetric sloping knurled grip sections of the EZ shaft. Put the palm/finger center on the MIDDLE of the sloped section, not across a bend junction, not on a near-horizontal section, not on the sleeves or smooth center. Keep a comfortable medium grip. Move hands slightly inward onto the angled sections if necessary. The local shaft THROUGH each closed hand must be visibly angled relative to the horizontal center/end sleeves, roughly a mild-to-moderate 25–35-degree manufacturing angle, mirror-symmetric. If the existing short slopes do not provide a usable grip, adjust ONLY their local length/angle minimally so an entire palm fits on each straight angled grip; retain one coherent symmetric rigid EZ bar with matching geometry/load in both panels. Do not bend metal arbitrarily beneath fingers.\nShow natural FOREARM ROTATION, not bent wrists: roll each forearm/hand from fully supinated toward neutral so the palms are diagonal, part upward/forward and part facing each other. Thumbs incline toward one another; the right and left hands are mirror-anatomical, not duplicated hands. It must clearly differ from a straight-bar palms-up grip but must NOT become a hammer grip with parallel completely inward palms. The radial/ulnar wrist alignment remains a straight continuation of the forearm, with no sideways wrist kink and no wrist extension. Fingers curve around the metal, thumb counter-wraps securely; show believable skin-metal contact, five natural digits per hand and no added hands/straps/gloves.\nLEFT START: arms remain nearly straight beside the torso, upper arms/elbows stationary. The semi-supinated palms face diagonally forward-and-inward, gripping the angled shaft sections near upper-thigh height with clear body clearance.\nRIGHT FINISH: keep elbow-flexed curl and elbows beside ribs. Same hands remain on the same sloped grip sections, now palms diagonally up-and-inward. Reconstruct only the wrist/hand and small adjacent forearm rotation/contact, not a front raise or torso lean. Preserve the EZ bar's manufactured bend pattern and rigid continuity as a single physical object between frames; coherent bar roll/perspective is allowed. Identical straight loading sleeves, one black round plate and collar at each end in both phases. Bar stays in front of the body, not through the shirt or fingers.\nPreserve clean high-detail matched materials, natural skin and recognizable original Male Master. No patchy retouch, extra fingers, swollen hands, melted bar, ungrasped bar or enlarged wrist joints. Prioritize anatomically plausible actual angled grip over superficially keeping the old straight-bar hand pose.\n",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-0f664759-3ba4-4c1e-b728-37a77d54c6a3.png",
+          "sha256": "2a6f9423605c19a95ec5c8ae7b64c39d2c331e011767fb7924aec369988b1890",
+          "bytes": 1692107,
+          "dimensions": [1774, 887]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-122017cd-b52c-4657-8787-e2d62405d2af.png",
+        "sha256": "7bbe92b1d01fa2353ce23504c3a7864c3120bd465b154a69c9a9287c08ebd7e0",
+        "bytes": 1694727,
+        "dimensions": [1774, 887],
+        "libraryFileId": "libfile_4e396f0877508191bef725e917c6affc"
+      },
+      "inputRoles": ["edit target"]
+    },
+    {
+      "exerciseId": "ez-bar-curl",
+      "model": "male",
+      "phase": "pair",
+      "revision": 3,
+      "status": "superseded",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "c864318cbd7ab402ae390e0019c225edc37c2e0d",
+      "prompt": "EDIT THE SUPPLIED EZ-CURL DIPTYCH. Make a CLEAR, visible correction of HAND POSITIONS AND FOREARM ROTATION in BOTH PANELS. The previous rendering was rejected because the hands stayed on nearly horizontal outer shaft sections, preserving a straight-bar palms-up grip.\nKeep the original man, face, clothes, clean rendering, framing, white/light studio background, stance, torso and elbow anchors. Exactly two square panels: START left, FINISH right. No labels or added diagrams.\nREQUIRED HAND RELOCATION: move EACH HAND INWARD TOWARD THE CENTER OF THE EZ BAR by approximately ONE PALM WIDTH. Currently the hands sit at the OUTER shoulders of the zigzag. They must instead grasp the long DIAGONAL steel runs between those outer shoulders and the inner valleys. Each entire palm must close around the MIDDLE OF A DIAGONAL RUN. Leave a plainly visible bare stretch of metal where each hand used to sit on the outer near-horizontal run. This bare gap proves the hand actually moved; do not leave the old hands fixed. Keep each grip separate on its own side of the central span, a comfortable moderately close EZ grip, never touching palms together. Preserve mirror-symmetric functional grip positions in START and FINISH.\nANGLE AND ANATOMY: rotate the forearms so both palms are SEMI-SUPINATED, diagonal rather than fully face-up. In START they face diagonally forward-and-inward; in FINISH diagonally upward-and-inward. Fingers surround the slanted metal, and the thumb closes opposite the fingers. The bar's diagonal segment must visibly pass through the CENTER of each grip, not an outer fingertip and not under an open palm. The hand/knuckle plane follows the local angled grip. Wrists are straight continuations of the forearms; no sideways or backward wrist kink. Small inward adjustments of forearms are required to reach the new grip, while upper arms stay close to the ribs and elbows stay at the sides. Anatomically correct 5-digit hands, no floating fingers or invisible contact.\nEZ BAR: retain a single continuous rigid symmetric cambered steel bar with recognizable shallow W/zigzag shape and usable straight sloping grip sections about25–35 degrees to horizontal. Do not place the grips on the flat end runs, sleeves or center bridge. Same manufactured angles, shaft length/thickness, straight sleeves, black round plates and collars in both panels, allowing coherent whole-bar roll/projection during movement. If necessary subtly lengthen the diagonal runs so a real palm fits, but keep the SAME adjusted bar in both phases. No melted/wavy steel or extra bends beneath fingers.\nSTART: bar near upper thighs, elbows close to natural extension, stable shoulders and upright trunk; hands relocated inward and semi-supinated with a clear air gap from thighs.\nFINISH: bar curled toward lower chest, hands above elbows, elbows beside ribs, no front raise or backward lean; same relocated diagonal grips and semisupinated wrists.\nDo not return a near-identical old grip. The user's request is an actual functional grip correction, not a cosmetic retouch. Preserve adult proportions, skin/fabric fidelity, matched full-body scale and original identity. No arrows, text, marks or muscle overlays.\n",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-0f664759-3ba4-4c1e-b728-37a77d54c6a3.png",
+          "sha256": "2a6f9423605c19a95ec5c8ae7b64c39d2c331e011767fb7924aec369988b1890",
+          "bytes": 1692107,
+          "dimensions": [1774, 887]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-b99cc0f6-98d2-42d4-98c1-4fb5f41c02f5.png",
+        "sha256": "f4d5fa8ab5e476cbabcae58548cc5a76b5c9f4387cf1a3194eca2be010768360",
+        "bytes": 1690345,
+        "dimensions": [1774, 887],
+        "libraryFileId": "libfile_211dfcaf8904819192e9bff374714642"
+      },
+      "inputRoles": ["edit target"]
+    },
+    {
+      "exerciseId": "ez-bar-curl",
+      "model": "male",
+      "phase": "pair",
+      "revision": 4,
+      "status": "superseded",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "c864318cbd7ab402ae390e0019c225edc37c2e0d",
+      "prompt": "PRECISE LOCAL EDIT. IMAGE1 is the CRESUM MALE EZ-CURL DIPTYCH TO EDIT. IMAGE2 is the user's primary mechanical GRIP REFERENCE, a woman demonstrating two phases with an EZ bar. Transfer ONLY the hand–wrist–forearm orientation and its exact relationship to the angled EZ shaft from IMAGE2 into the corresponding phase of IMAGE1. Do not transfer the woman, anatomy illustration, muscle coloring, clothing, black background, body proportions, camera or overall layout.\nThe USER explicitly asks: carefully transfer the grip. Prior edits did not adequately change the straight-bar-like hand pose. IMAGE2 now overrides the target's existing grip and nearby shaft geometry. Treat each hand plus the metal it wraps as one coherent functional unit, not an independently pasted fist.\nLEFT scene corresponds to image2's arms-down pose; RIGHT scene corresponds to image2's raised curl. Study the reference's actual palm orientation, thumb side, finger wrap, wrist axis, placement on the angled portions, and mirrored relationship between the hands. Recreate those specific relationships with natural MALE hands and forearms matching image1. Both hands must visibly grasp the inclined EZ sections with a semi-supinated underhand grip, not the target's old horizontal palms-up straight-bar pose. Use the reference's comfortable spacing relative to its bar bends and the man's shoulder width. The exact reference's shaft bend pattern may replace the target's local EZ geometry where needed for matching contact, but the same coherent bar must then appear in both phases.\nKeep a secure closed grip: palm base contacting shaft, four fingers curled around it, thumb opposite fingers. Wrists stay aligned as a straight continuation of the forearm without sideways kinks or excessive backward bend. Adjust small forearm rotations and hand positions as needed to MATCH THE REFERENCE; do not preserve the incorrect old hands just to keep pixels. No broken anatomical joints, doubled knuckles, extra fingers, hand through shaft or floating fingertips. Natural contact shadows and clean male skin texture, not white anatomical hands.\nPreserve IMAGE1's exact recognizable man and face, hair, head/body/adult limb proportions, blue-gray T-shirt, dark shorts, white socks, light shoes, stance, torso, camera angle, equal full-body scale, crop, background and soft lighting. Keep upper arms/elbows close to the body with a stable torso. LEFT bar remains near upper thighs; RIGHT remains in the raised curling phase with hands above elbows. Copy reference grip mechanics without copying its different camera or forcing extreme movement. Maintain both complete figures and all plates within their square frames.\nRetain the target's moderate matching black round plates, collars and silver metal material. The EZ bar must be a single rigid manufactured object, symmetric, with identical dimensions/bends/plate size in both scenes, allowing natural whole-object roll/perspective during the curl. Keep obvious EZ angles and usable angled gripping sections; do not revert to a straight bar. No brand, lettering, labels, arrows, watermarks, grip annotations or anatomy overlays.\nOutput the same two equal square panels together in ONE 2:1 sheet. A careful natural-looking reference-matched hand/shaft correction is the entire task; everything outside the arm/hand/bar correction stays visually unchanged.\n",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-b99cc0f6-98d2-42d4-98c1-4fb5f41c02f5.png",
+          "sha256": "f4d5fa8ab5e476cbabcae58548cc5a76b5c9f4387cf1a3194eca2be010768360",
+          "bytes": 1690345,
+          "dimensions": [1774, 887]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/upload/E5A0DE0E-7CAE-49D6-A96A-51814A619A8B.png",
+          "sha256": "bb26b42e5178d3ced0d86b63665831290c6875fe042372b755421e2f193294c9",
+          "bytes": 225103,
+          "dimensions": [900, 643]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-a61c39f6-bd20-4bd9-b223-aab3391efd46.png",
+        "sha256": "68da33741a3f8587438d586904a74bd4a16acc8c33aa9a9d0011de719ba19c96",
+        "bytes": 1686613,
+        "dimensions": [1774, 887],
+        "libraryFileId": "libfile_ca174d217440819186c3195701817cea"
+      },
+      "inputRoles": ["edit target", "user grip-only reference"]
+    },
+    {
+      "exerciseId": "ez-bar-curl",
+      "model": "male",
+      "phase": "pair",
+      "revision": 5,
+      "status": "user-selected",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "c864318cbd7ab402ae390e0019c225edc37c2e0d",
+      "prompt": "Use case: precise-object-edit.\nEdit target: attached two-panel male EZ bar curl illustration. Correct ONLY the grip, hand contact, and the small necessary wrist/forearm rotation.\nThe user marked exact grip locations in the LEFT START panel at full-canvas normalized (x=21%, y=54%) and (x=30%, y=53%). These correspond approximately to pixel (373,479) and (532,470) in the 1774x887 image. Move the actual palm contact centers onto those sloping inner shaft sections, rather than keeping the hands on the outer peaks. The left-on-screen hand shifts slightly inward/right, the right-on-screen hand shifts slightly inward/left.\nCrucial visible change: each closed hand must follow the LOCAL DIAGONAL ANGLE of the EZ shaft beneath it. Rotate the hand grip axis to match that diagonal: mirror-image semi-supinated grips, palms partly toward each other, rather than two parallel fully palms-up straight-bar grips. The tilted row of knuckles and fingers must visibly fit the slope. Four fingers curl around the cylinder with thumb opposing; bar passes THROUGH the grasp, naturally occluded by fingers, never pasted over a palm or bending through flesh. Keep wrist straight with forearm, adjusting forearm rotation modestly to support the grip; do not kink the wrist. Preserve the bar's existing rigid cambered geometry, plates, width and placement.\nCarry the same hand positions RELATIVE TO THE SAME angled sections of the bar into the RIGHT FINISH panel, with consistent rotation and plausible finger occlusion. No grip sliding between phases.\nKeep the existing man, face, body proportions, clothing, full-body framing, panel sizes, white center gutter, stance, lighting, background, shoes, and equipment unchanged. Preserve high resolution and material quality. No labels, arrows, markers, circles, text, anatomy overlays or extra objects. Return ONE complete 2:1 two-panel image, START on left and FINISH on right.\n",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/upload/01-file_00000000150c8243baaeed7d4c3863c7",
+          "sha256": "68da33741a3f8587438d586904a74bd4a16acc8c33aa9a9d0011de719ba19c96",
+          "bytes": 1686613,
+          "dimensions": [1774, 887]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-30d9d590-3a45-4e2c-8967-beac41271d6d.png",
+        "sha256": "fe13ff935666d7e6391ea5f2d46d5a422ba9223a907c8b8872925b4aefb84087",
+        "bytes": 1643361,
+        "dimensions": [1774, 887],
+        "libraryFileId": "libfile_fb7015caa79c81918e989599e66b1dc4"
+      },
+      "inputRoles": ["edit target"]
+    }
+  ]
+}
