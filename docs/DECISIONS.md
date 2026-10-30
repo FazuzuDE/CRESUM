@@ -1,5 +1,21 @@
 # CRESUM Decision Log
 
+## Cable Triceps Pushdown selected Male pair — 2026-10-30
+
+User approved r1 original exec-0265cbc1-b821-4192-8a50-5756ebc43731.png,
+SHAe4741c18c1bd3045882ba10c37c87bda065027b93eb1765f1042e23cea2f3847. Exact887-square LEFT START /
+RIGHT FINISH halves, RGB WebP92 method6; no retouch, resampling, padding or
+phase-specific transforms. Bind only existing cable-triceps-pushdown/Male.
+The rope/high-pulley column is an illustration example, not a narrowing of
+attachment-unspecified identity/ACE3 guide adaptation. Preserve triceps Primary,
+no Secondary, shared compact/expanded muscle map, stable IDs, History/data and
+unrelated/Female/attachment fallbacks. No new attachment thumbnail. FINISH
+extends elbows downward and raises the selected load. Actual Master and frozen
+equipment style govern identity/material continuity. Keep user-selected-provisional:
+detailed hands, exact plate-count/hidden reeving and physical-device acceptance
+are not certified. Retain original/exact prompt/actual inputs and selected exports
+in source checkpoint; PC backup unverified and Oracle deferred/pending-upload.
+
 ## Cable Biceps Curl selected Male pair — 2026-10-30
 
 User approved repaired r2 original exec-a95656f4-3a9b-4660-9513-fc51e194fb4f.png,

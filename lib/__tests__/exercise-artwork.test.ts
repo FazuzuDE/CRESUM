@@ -5,6 +5,14 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock(
+  '../../assets/exercises/cable-triceps-pushdown/start.webp',
+  () => 2601,
+);
+jest.mock(
+  '../../assets/exercises/cable-triceps-pushdown/finish.webp',
+  () => 2602,
+);
 jest.mock('../../assets/exercises/cable-biceps-curl/start.webp', () => 2501);
 jest.mock('../../assets/exercises/cable-biceps-curl/finish.webp', () => 2502);
 jest.mock('../../assets/exercises/hammer-curl/start.webp', () => 2401);
@@ -525,7 +533,11 @@ it('binds only the selected straight-bar Male curl and preserves its roles', () 
   );
   for (const phase of ['start', 'finish'] as const) {
     expect(resolveExerciseArtwork('barbell-curl', phase, 'female')).toBeNull();
-    for (const id of ['preacher-curl', 'cable-triceps-pushdown', 'unknown'])
+    for (const id of [
+      'preacher-curl',
+      'overhead-cable-triceps-extension',
+      'unknown',
+    ])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('barbell-curl')).toBeNull();
@@ -547,7 +559,11 @@ it('binds selected Male EZ curl only and preserves angled grip guide and roles',
     expect(resolveExerciseArtwork('barbell-curl', phase, 'male')).toBe(
       phase === 'start' ? 2201 : 2202,
     );
-    for (const id of ['preacher-curl', 'cable-triceps-pushdown', 'unknown'])
+    for (const id of [
+      'preacher-curl',
+      'overhead-cable-triceps-extension',
+      'unknown',
+    ])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('ez-bar-curl')).toBeNull();
@@ -575,7 +591,11 @@ it('keeps selected Male hammer curl separate from supinated and EZ curls', () =>
     expect(resolveExerciseArtwork('dumbbell-biceps-curl', phase, 'male')).toBe(
       phase === 'start' ? 2101 : 2102,
     );
-    for (const id of ['preacher-curl', 'cable-triceps-pushdown', 'unknown'])
+    for (const id of [
+      'preacher-curl',
+      'overhead-cable-triceps-extension',
+      'unknown',
+    ])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('hammer-curl')).toBeNull();
@@ -609,8 +629,44 @@ it('binds selected Male low cable curl without narrowing guide or borrowing othe
       expect(resolveExerciseArtwork(id, phase, 'male')).toBe(
         phase === 'start' ? start : finish,
       );
-    for (const id of ['cable-triceps-pushdown', 'preacher-curl', 'unknown'])
+    for (const id of [
+      'overhead-cable-triceps-extension',
+      'preacher-curl',
+      'unknown',
+    ])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('cable-biceps-curl')).toBeNull();
+});
+
+it('binds Male high cable pushdown without narrowing generic attachment or borrowing curls', () => {
+  expect(
+    resolveExerciseArtwork('cable-triceps-pushdown', 'start', 'male'),
+  ).toBe(2601);
+  expect(
+    resolveExerciseArtwork('cable-triceps-pushdown', 'finish', 'male'),
+  ).toBe(2602);
+  expect(findExercise('cable-triceps-pushdown')).toMatchObject({
+    primaryMuscles: ['triceps'],
+    secondaryMuscles: [],
+    equipment: ['cable'],
+  });
+  expect(findTechnique('cable-triceps-pushdown')?.scope).toBe(
+    'High-cable elbow extension; attachment unspecified.',
+  );
+  for (const phase of ['start', 'finish'] as const) {
+    expect(
+      resolveExerciseArtwork('cable-triceps-pushdown', phase, 'female'),
+    ).toBeNull();
+    expect(resolveExerciseArtwork('cable-biceps-curl', phase, 'male')).toBe(
+      phase === 'start' ? 2501 : 2502,
+    );
+    for (const id of [
+      'overhead-cable-triceps-extension',
+      'lying-barbell-triceps-extension',
+      'unknown',
+    ])
+      expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
+  }
+  expect(resolveAttachmentArtwork('cable-triceps-pushdown')).toBeNull();
 });
