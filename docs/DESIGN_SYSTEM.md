@@ -1,5 +1,22 @@
 # CRESUM Design System v1.0
 
+## Overhead Cable Triceps Extension selected Male pair — 2026-10-30
+
+User approved r2 original exec-14d7d86f-2b77-497a-9155-3ed36ee6ee43.png,
+SHA21a4d6d22e49050679ef27112c9930963d1e4dc4914cd54daa438c49bdb9db02.
+Exact887-square LEFT START / RIGHT FINISH halves, RGB WebP92 method6;
+no retouch, resampling, padding or independent phase placement. Bind only
+existing overhead-cable-triceps-extension/Male. Head-height outlet and rope
+are illustrative; preserve pulley-varies scope and ACE74 dumbbell-to-cable
+adaptation. Keep triceps Primary/no Secondary, existing compact/expanded muscle
+map, stable IDs, History/data and unrelated/Female/attachment fallbacks.
+No new attachment thumbnail. FINISH extends elbows overhead and raises load;
+full tower, hands and shoes fit. Actual Male Master/frozen style informed r1;
+r2 edits r1 only. Keep user-selected-provisional: exact body-anchor matching,
+detailed hands, plate counts/hidden reeving and physical-device acceptance
+are not certified. Retain both originals, exact prompts, actual input chain
+and exports in source checkpoint; PC download unverified, Oracle deferred.
+
 ## Cable Triceps Pushdown selected Male pair — 2026-10-30
 
 User approved r1 original exec-0265cbc1-b821-4192-8a50-5756ebc43731.png,

@@ -1,0 +1,54 @@
+{
+  "variantId": "overhead-cable-triceps-extension",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-14d7d86f-2b77-497a-9155-3ed36ee6ee43.png",
+      "sourceSha256": "21a4d6d22e49050679ef27112c9930963d1e4dc4914cd54daa438c49bdb9db02",
+      "sourceBytes": 1687145,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "172e71eb41ef80c432588e4ad2f5dbce4dcfd42276f77f683745e9a5b463dee6",
+      "bytes": 48438,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-14d7d86f-2b77-497a-9155-3ed36ee6ee43.png",
+      "sourceSha256": "21a4d6d22e49050679ef27112c9930963d1e4dc4914cd54daa438c49bdb9db02",
+      "sourceBytes": 1687145,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "de64175b88aa5aec86d0a1c8258c0b76b493977c15bf3498dee199200af746e8",
+      "bytes": 49386,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Standing overhead cable elbow extension illustrated with rope and a head-height outlet. Existing pulley-varies scope and ACE74 dumbbell-to-cable adaptation retained; triceps Primary/no Secondary. No new attachment thumbnail.",
+  "presentation": "Default shared square contain in both viewers. Exact half-sheet crops without retouch, resampling, padding, artificial upscaling or phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 2,
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "equipmentStyleSha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+    "lineage": "r1 paired generation with actual Male Master and frozen equipment-style-v1; r2 framing edit of r1 only."
+  },
+  "reviewScope": "User-selected pair, full-frame/320/390 visual review of elbow-extension phases, hand-rope/carabiner/cable and head clearance and raised FINISH load. Exact body-anchor matching, detailed fingers/wrists, exact plate count/reeving/transmission and physical-device rendering/accessibility remain provisional, not independently certified.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Both original PNGs, exact r1/r2 prompts and actual input chain (Male Master/style then r1 edit target), with selected crops retained in upper-body source supplement; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}
