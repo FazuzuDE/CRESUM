@@ -6,6 +6,14 @@ import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
 jest.mock(
+  '../../assets/exercises/dumbbell-overhead-triceps-extension/start.webp',
+  () => 2801,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-overhead-triceps-extension/finish.webp',
+  () => 2802,
+);
+jest.mock(
   '../../assets/exercises/overhead-cable-triceps-extension/start.webp',
   () => 2701,
 );
@@ -256,6 +264,7 @@ it.each([
   ['Cable Biceps Curl', 2501, 2502],
   ['Cable Triceps Pushdown', 2601, 2602],
   ['Overhead Cable Triceps Extension', 2701, 2702],
+  ['Dumbbell Overhead Triceps Extension', 2801, 2802],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
@@ -789,6 +798,71 @@ it('shows selected overhead cable extension roles and opens/closes larger anatom
       button(
         v,
         'Muscle details for Overhead Cable Triceps Extension',
+      )!.props.onPress(),
+    );
+    act(() => button(v, 'Close muscle details')!.props.onPress());
+    expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
+  } finally {
+    act(() => v.unmount());
+  }
+});
+
+it('shows selected overhead dumbbell extension roles and opens/closes larger anatomy without changing FINISH', () => {
+  const v = render();
+  try {
+    act(() =>
+      button(
+        v,
+        'Technique for Dumbbell Overhead Triceps Extension',
+      )!.props.onPress(),
+    );
+    expect(text(v)).toContain('Working muscles');
+    const map = v.root.findByType(MuscleMap);
+    expect(map.props.height).toBe(160);
+    const regions = v.root
+      .findAllByType(Path)
+      .filter((n: any) => n.props.testID?.startsWith('anatomical-region-'));
+    expect(
+      regions.some((n: any) => n.props.fill === colors.musclePrimary),
+    ).toBe(true);
+    expect(
+      regions.some((n: any) => n.props.fill === colors.muscleSecondary),
+    ).toBe(false);
+    for (const muscle of map.props.muscles) {
+      expect(muscle.primary).toBe(muscle.id === 'triceps' ? 1 : 0);
+      expect(muscle.secondary).toBe(0);
+    }
+    expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
+    act(() => button(v, 'Show FINISH')!.props.onPress());
+    act(() =>
+      button(
+        v,
+        'Muscle details for Dumbbell Overhead Triceps Extension',
+      )!.props.onPress(),
+    );
+    expect(
+      v.root.findAllByType(MuscleMap).map((n: any) => n.props.height),
+    ).toEqual([160, 340]);
+    expect(text(v)).toContain('Qualitative muscle roles');
+    const modal = v.root
+      .findAllByType(Modal)
+      .find((n: any) => n.props.testID === 'exercise-muscle-details')!;
+    act(() => modal.props.onRequestClose());
+    expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
+    expect(
+      v.root
+        .findAllByType(Image)
+        .some(
+          (n: any) =>
+            n.props.accessibilityLabel ===
+              'Dumbbell Overhead Triceps Extension: FINISH' &&
+            n.props.source === 2802,
+        ),
+    ).toBe(true);
+    act(() =>
+      button(
+        v,
+        'Muscle details for Dumbbell Overhead Triceps Extension',
       )!.props.onPress(),
     );
     act(() => button(v, 'Close muscle details')!.props.onPress());

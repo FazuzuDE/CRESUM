@@ -1,0 +1,53 @@
+{
+  "variantId": "dumbbell-overhead-triceps-extension",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-913acc08-4a67-44dd-b4ac-998469f2e679.png",
+      "sourceSha256": "2200cf7f9e4c9f5de2d59623e69e50c25fac0360cd326842c09c2c364623f72e",
+      "sourceBytes": 1611773,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "50be15788f67a3175b7dbebe4547d6f904d1ff9747212e9cbb30fd08d082c438",
+      "bytes": 28412,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-913acc08-4a67-44dd-b4ac-998469f2e679.png",
+      "sourceSha256": "2200cf7f9e4c9f5de2d59623e69e50c25fac0360cd326842c09c2c364623f72e",
+      "sourceBytes": 1611773,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "ab8bee2aea4b967ed46c6ec40a1cb717abf36bab6177f5bc30243e4eb24a2d70",
+      "bytes": 27206,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Standing two-hand single-dumbbell overhead elbow extension. Both hands support the underside of the upper head. Preserve existing ACE74 guide and triceps Primary/no Secondary; no new attachment thumbnail.",
+  "presentation": "Default shared square contain in both viewers. Exact half-sheet crops without retouch, resampling, padding, artificial upscaling or phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 1,
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "lineage": "One paired generation; sole actual visual input is Male Master."
+  },
+  "reviewScope": "User-selected pair with overhead elbow-extension phases, visible head clearance, full-frame and320/390 review. Exact phase body anchors, detailed finger/wrist/contact anatomy and physical-device rendering/accessibility not certified.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original PNG, exact prompt and actual Male Master input retained with selected exports in source checkpoint; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

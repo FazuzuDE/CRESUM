@@ -6,6 +6,14 @@ import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
 jest.mock(
+  '../../assets/exercises/dumbbell-overhead-triceps-extension/start.webp',
+  () => 2801,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-overhead-triceps-extension/finish.webp',
+  () => 2802,
+);
+jest.mock(
   '../../assets/exercises/overhead-cable-triceps-extension/start.webp',
   () => 2701,
 );
@@ -541,11 +549,7 @@ it('binds only the selected straight-bar Male curl and preserves its roles', () 
   );
   for (const phase of ['start', 'finish'] as const) {
     expect(resolveExerciseArtwork('barbell-curl', phase, 'female')).toBeNull();
-    for (const id of [
-      'preacher-curl',
-      'dumbbell-overhead-triceps-extension',
-      'unknown',
-    ])
+    for (const id of ['preacher-curl', 'close-grip-bench-press', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('barbell-curl')).toBeNull();
@@ -567,11 +571,7 @@ it('binds selected Male EZ curl only and preserves angled grip guide and roles',
     expect(resolveExerciseArtwork('barbell-curl', phase, 'male')).toBe(
       phase === 'start' ? 2201 : 2202,
     );
-    for (const id of [
-      'preacher-curl',
-      'dumbbell-overhead-triceps-extension',
-      'unknown',
-    ])
+    for (const id of ['preacher-curl', 'close-grip-bench-press', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('ez-bar-curl')).toBeNull();
@@ -599,11 +599,7 @@ it('keeps selected Male hammer curl separate from supinated and EZ curls', () =>
     expect(resolveExerciseArtwork('dumbbell-biceps-curl', phase, 'male')).toBe(
       phase === 'start' ? 2101 : 2102,
     );
-    for (const id of [
-      'preacher-curl',
-      'dumbbell-overhead-triceps-extension',
-      'unknown',
-    ])
+    for (const id of ['preacher-curl', 'close-grip-bench-press', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('hammer-curl')).toBeNull();
@@ -637,11 +633,7 @@ it('binds selected Male low cable curl without narrowing guide or borrowing othe
       expect(resolveExerciseArtwork(id, phase, 'male')).toBe(
         phase === 'start' ? start : finish,
       );
-    for (const id of [
-      'dumbbell-overhead-triceps-extension',
-      'preacher-curl',
-      'unknown',
-    ])
+    for (const id of ['close-grip-bench-press', 'preacher-curl', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('cable-biceps-curl')).toBeNull();
@@ -670,7 +662,7 @@ it('binds Male high cable pushdown without narrowing generic attachment or borro
       phase === 'start' ? 2501 : 2502,
     );
     for (const id of [
-      'dumbbell-overhead-triceps-extension',
+      'close-grip-bench-press',
       'lying-barbell-triceps-extension',
       'unknown',
     ])
@@ -713,7 +705,7 @@ it('binds only Male overhead cable extension while retaining generic guide and t
       phase === 'start' ? 2501 : 2502,
     );
     for (const id of [
-      'dumbbell-overhead-triceps-extension',
+      'close-grip-bench-press',
       'lying-barbell-triceps-extension',
       'unknown',
     ])
@@ -721,5 +713,54 @@ it('binds only Male overhead cable extension while retaining generic guide and t
   }
   expect(
     resolveAttachmentArtwork('overhead-cable-triceps-extension'),
+  ).toBeNull();
+});
+
+it('binds only Male two-hand overhead dumbbell extension and preserves guide and triceps roles', () => {
+  expect(
+    resolveExerciseArtwork(
+      'dumbbell-overhead-triceps-extension',
+      'start',
+      'male',
+    ),
+  ).toBe(2801);
+  expect(
+    resolveExerciseArtwork(
+      'dumbbell-overhead-triceps-extension',
+      'finish',
+      'male',
+    ),
+  ).toBe(2802);
+  expect(findExercise('dumbbell-overhead-triceps-extension')).toMatchObject({
+    primaryMuscles: ['triceps'],
+    secondaryMuscles: [],
+    equipment: ['dumbbell'],
+  });
+  expect(findTechnique('dumbbell-overhead-triceps-extension')?.scope).toBe(
+    'Two-hand overhead dumbbell extension.',
+  );
+  for (const phase of ['start', 'finish'] as const) {
+    expect(
+      resolveExerciseArtwork(
+        'dumbbell-overhead-triceps-extension',
+        phase,
+        'female',
+      ),
+    ).toBeNull();
+    expect(
+      resolveExerciseArtwork('overhead-cable-triceps-extension', phase, 'male'),
+    ).toBe(phase === 'start' ? 2701 : 2702);
+    expect(
+      resolveExerciseArtwork('cable-triceps-pushdown', phase, 'male'),
+    ).toBe(phase === 'start' ? 2601 : 2602);
+    for (const id of [
+      'lying-barbell-triceps-extension',
+      'close-grip-bench-press',
+      'unknown',
+    ])
+      expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
+  }
+  expect(
+    resolveAttachmentArtwork('dumbbell-overhead-triceps-extension'),
   ).toBeNull();
 });

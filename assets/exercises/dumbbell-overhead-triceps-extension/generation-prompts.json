@@ -1,0 +1,41 @@
+{
+  "exerciseId": "dumbbell-overhead-triceps-extension",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "dumbbell-overhead-triceps-extension",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "user-selected",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "cebe04d6acd579085fa1ece943804368335e8726",
+      "prompt": "Use case: scientific-educational.\nCreate ONE original CRESUM exercise illustration diptych, landscape2:1, two equal square panels. LEFT START and RIGHT FINISH of standing TWO-HAND SINGLE-DUMBBELL OVERHEAD TRICEPS EXTENSION. No text, labels, arrows, logos or anatomical overlays.\nINPUT1 actual five-view Male Master is the sole visual reference for adult male face, short brown hair, natural athletic adult proportions/long legs, fitted muted blue-gray shirt, charcoal shorts, normal white socks and light-gray training shoes. Do not copy its multiple-view layout. Premium realistic3D educational studio illustration, coherent natural skin/fabric materials and soft white backdrop/contact shadows.\nBoth panels show exactly the same full-body man from a fixed front-side three-quarter view, facing slightly toward screen-right, with enough side visibility to read the behind-head weight and both hands. Stable modest staggered stance, feet planted, knees softly extended, trunk upright and ribs controlled. No squat, torso swing, lower-back arch or head bow. Same face/head/neck/shoulder/pelvis/knee/shoe anchors, proportions, camera, lighting and SAME UNIFORM SCALE across phases. Use largest common framing fitting all shoes AND FINISH raised hands/entire dumbbell with small white safety margins. Do not compress or shrink FINISH man. No cut-off equipment/hands/feet.\nONE compact classic black rubber dumbbell, same geometry/size both panels: two equal round black heads joined by a short metal handle, oriented VERTICALLY. BOTH hands cradle and securely support the INSIDE UNDERSIDE of its UPPER head: palms facing up against that head, thumbs and index fingers making a stable opening around the metal shaft, naturally curled remaining fingers around inner rim, wrists comfortable. The shaft hangs vertically down between the hands with the lower head below them. Show two anatomically credible hands, real physical hand-to-weight contact, no merged fingers or palms floating through solid rubber. This is the two-hand cupped support of ONE dumbbell, not each hand holding a separate dumbbell, not gripping both heads, not a horizontal bar grip. Make contact readable from the camera, arms not hiding all fingers.\nLEFT START: upper arms raised beside ears, elbows comfortably near shoulder-width and pointing up, both elbows bent about90degrees. Forearms fold back; supported upper dumbbell head and both cupped hands just behind/above the crown. Vertical shaft/lower head descend behind the head toward upper back with a VISIBLE AIR GAP to hair/neck/back. Head stays upright and neutral. Both upper arms remain elevated, not dropped to chest.\nRIGHT FINISH: same standing body and raised upper-arm orientation; extend both elbows smoothly until almost straight without hyperextension. Hands and same vertical dumbbell are overhead, visibly above and clear of the crown. Both hands STILL cup/support the inner underside of its UPPER head, shaft and lower head hanging below the hands without head contact. Only elbow/forearm/hand/weight movement changes materially. No dumbbell shoulder press, wrist flip, shrug, torso lean, different stance or shorter torso.\nPreserve identity, natural limb lengths, muted clothing colors, clean skin, smooth matte fabrics, restrained metal/rubber reflections and consistent dumbbell head count/size/orientation. Priorities: unmistakable bent START versus extended overhead FINISH, secure two-hand upper-head support, head clearance, stable trunk/upper arms, full unclipped equally large framing. Return only the complete two-panel image.\n",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        }
+      ],
+      "inputRoles": [
+        "actual Male Master identity/proportions/outfit; sole input"
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-913acc08-4a67-44dd-b4ac-998469f2e679.png",
+        "sha256": "2200cf7f9e4c9f5de2d59623e69e50c25fac0360cd326842c09c2c364623f72e",
+        "bytes": 1611773,
+        "dimensions": [1774, 887],
+        "libraryFileId": "libfile_b510f8a4a53c819188562df008420b1d"
+      },
+      "techniqueSources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/74/triceps-extension/"
+      ],
+      "sourceReview": "Existing ACE74-backed two-hand overhead dumbbell guide retained unchanged. New live web recheck attempted2026-10-30 but search tool failed; not represented as a fresh primary-source verification.",
+      "adaptation": "Selected standing two-hand single vertical dumbbell example. No new clinical, activation or precise anatomical claims."
+    }
+  ]
+}
