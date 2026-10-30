@@ -1,0 +1,48 @@
+{
+  "exerciseId": "cable-triceps-pushdown",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "cable-triceps-pushdown",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "user-selected",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "ba8c48ca5d2c85889e23f37044ef7b19a3eae708",
+      "prompt": "Use case: scientific-educational.\nCreate ONE original CRESUM exercise diptych for standing HIGH-CABLE ROPE TRICEPS PUSHDOWN. Landscape2:1, exactly TWO equal square panels: LEFT START (elbows bent), RIGHT FINISH (elbows extended downward). No text, labels, arrows, logos, watermark or anatomy overlay.\nInput1 is the actual five-view Male Master solely for exact identity, natural athletic adult proportions, face/brown hair, fitted muted blue-gray shirt, charcoal shorts, normal white training socks and light-gray shoes. Do not reproduce five-view layout; no bulky bodybuilding anatomy or short legs.\nInput2 is frozen equipment STYLE only: satin brushed silver frame, dark graphite stack/shroud, black rubber and restrained orange selector, white studio and premium coherent materials. Do NOT copy assisted-pull-up machine, pose, knee pad or grips.\nSCENE: one original compact high-pulley selectorized column slightly taller than the man. Man stands to the left/center of each square, physically FACING the column which is to the right/in front of him. Front-three-quarter camera about45degrees allows face, BOTH hand-rope contacts, elbow movement, attachment center, high pulley and weight stack to be seen clearly. Same machine geometry, camera, lighting, stance, head height/shoe baseline and figure scale in both panels. Entire head/shoes/rope/tower/base visible within balanced small margins; use largest common harmonious framing, man about82% of square height. Same natural skin and clean matte clothing texture, no blotchy recoloring.\nMACHINE: stable silver single column and wide safe floor base; a visible fixed HIGH outlet pulley just ABOVE head height at the front top of column, with coherent internal cable return to weight stack. One taut black cable descends diagonally from that exact fixed high pulley toward the man, ending at one cable terminal, small black rubber stop and CLOSED metal carabiner. Cable stays clear of face/head/neck/torso, never passes through flesh. The outlet remains HIGH and fixed in both phases. No low-pulley connection, no seated machine, pads, bar attachment or spare handles.\nROPE: identical commercial black twisted triceps rope in both panels, one continuous folded rope held by a metal central eye/bracket at its top, two equal flexible tails around30cm each, each with one black rubber bulb/endstop. The eye attaches by ONE carabiner exactly between the hands. Each hand firmly encircles its own rope tail immediately ABOVE its endstop, four fingers wrap naturally and thumb opposes, neutral palms facing each other. Rope is continuous from the central bracket to BOTH grips, visibly tensioned, no floating grips, closed loops around wrists, third tail, duplicated carabiner or metal handle. Same length, thickness and endstops in both panels.\nLEFT START: stand stable with feet hip-width, soft knees, neutral upright braced trunk and pelvis, shoulders down/quiet. Upper arms close beside ribs, elbows bent about90degrees, hands at upper abdomen/lower chest in front of body. Central rope bracket above and between hands, cable taut from high pulley. No overhead extension, curl, front raise or rowing pose.\nRIGHT FINISH: SAME stance/trunk/shoulder/upper-arm position; extend BOTH elbows naturally nearly straight without hyperextension, pushing rope ends DOWN toward outer front of upper thighs. Hands separate only modestly at the bottom, staying near thighs; straight wrists aligned with forearms, not bent outward to fake separation. Elbows stay by ribs instead of swinging behind body. Rope center descends with hands and cable remains taut to the SAME HIGH pulley. No forward lean/bodyweight press, hip drive, shrug or backward arch.\nWEIGHT STACK CONTINUITY IS IMPORTANT: show a clear stack opening with two vertical guide rods. In BOTH panels there are exactly SIX equal moving selected top plates and exactly TEN equal stationary plates below; identical width/thickness/count, not a different weight load between phases. ONE orange selector pin in the SIXTH/bottom selected moving plate. No other orange pin on stationary plates. START selected six-plate group low with minimal tension gap; FINISH SAME six-plate group and its central lifting rod raised about25-35cm, clear gap above unchanged ten-plate bottom stack. Guide rods and floor base remain fixed. No whole stack levitation, disappearing/duplicated plates, selector moving to a different plate or two selector pins.\nPriorities: unmistakable elbow EXTENSION from bent START to lowered straight FINISH; actual closed hands on rope above endstops and straight wrists; correct continuous rope-center/carabiner/high-cable connection; visible selected load rises in FINISH; same Master identity/materials/large matched framing. Return only one finished two-panel illustration.\n",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/CRESUM-reverse-pec-deck/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        }
+      ],
+      "inputRoles": [
+        "actual Male Master identity/outfit",
+        "frozen equipment style only"
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-0265cbc1-b821-4192-8a50-5756ebc43731.png",
+        "sha256": "e4741c18c1bd3045882ba10c37c87bda065027b93eb1765f1042e23cea2f3847",
+        "bytes": 1666923,
+        "dimensions": [1774, 887],
+        "libraryFileId": "libfile_bfda7efdc5708191838e08b9f27358f0"
+      },
+      "sourceCheckedOn": "2026-10-30",
+      "techniqueSources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/3/triceps-pressdown/"
+      ],
+      "adaptation": "Source depicts rope; existing generic catalog/guide does not mandate that attachment. Illustrated station is not a measured commercial machine replica."
+    }
+  ]
+}

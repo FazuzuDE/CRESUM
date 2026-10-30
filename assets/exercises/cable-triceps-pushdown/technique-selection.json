@@ -1,0 +1,38 @@
+{
+  "exerciseId": "cable-triceps-pushdown",
+  "model": "male",
+  "selectionDate": "2026-10-30",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "selectedCandidates": {
+    "start": "pair r1 left",
+    "finish": "pair r1 right"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-0265cbc1-b821-4192-8a50-5756ebc43731.png",
+      "sourceSha256": "e4741c18c1bd3045882ba10c37c87bda065027b93eb1765f1042e23cea2f3847",
+      "sourceBytes": 1666923,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "0a185ffc0cdaa03f101b5c78ab6dd7380838b3a961e69e0a1bd3a389303158c6",
+      "bytes": 48712,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-0265cbc1-b821-4192-8a50-5756ebc43731.png",
+      "sourceSha256": "e4741c18c1bd3045882ba10c37c87bda065027b93eb1765f1042e23cea2f3847",
+      "sourceBytes": 1666923,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "5a8362bec3240d45ebc0fa07c49d68e6be8bb65605a4a6c472cd0c812c3a1ae6",
+      "bytes": 52778,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
