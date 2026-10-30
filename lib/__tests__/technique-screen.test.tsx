@@ -436,10 +436,11 @@ it('shows exact curl roles and opens/closes larger anatomy without changing FINI
   act(() => v.unmount());
 });
 
-it('keeps unmapped exercise roles named without painting guessed regions', () => {
+it('shows bound partial adductor regions without claiming missing coverage', () => {
   const v = render();
   act(() => button(v, 'Technique for Machine Hip Adduction')!.props.onPress());
-  expect(text(v)).toContain('Not highlighted on this map:');
+  expect(text(v)).not.toContain('Not highlighted on this map:');
+  expect(text(v)).toContain('selected visible medial-thigh patches');
   expect(text(v)).toContain('Adductors');
   const map = v.root.findByType(MuscleMap);
   expect(map.props.muscles.find((m: any) => m.id === 'adductors').primary).toBe(
@@ -449,6 +450,6 @@ it('keeps unmapped exercise roles named without painting guessed regions', () =>
     v.root
       .findAllByType(Path)
       .some((n: any) => n.props.testID?.includes('adductor')),
-  ).toBe(false);
+  ).toBe(true);
   act(() => v.unmount());
 });

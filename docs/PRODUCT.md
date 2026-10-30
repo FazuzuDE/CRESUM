@@ -1,5 +1,17 @@
 # CRESUM — Product Definition
 
+### Adductor visible-surface binding — 2026-10-30
+
+User approved reusing four existing visually approved adductor-longus/gracilis
+patches. Preserve selected paths, transforms, clips, SVG/PNG and screenshot settings
+from2026-10-20 exactly. Bind adductors with partial-visible-medial-thigh-surface
+semantics; disclose provisional boundaries and absent deep portions in exercise
+summary/details and Progress overview/adductor details, EN/RU/DE/FR.
+The atlas has96 regions,30 unresolved, and some representation for all17 parent
+groups. This is not complete anatomical coverage. Hide empty missing-group copy.
+Other92 records, original source, catalog roles, counts, opacity and History stay
+unchanged. No new tracing or load coefficients. Native device acceptance remains.
+
 ### Rear-deltoid regional map — 2026-10-30
 
 The shared map binds the two existing posterior-shoulder IDs to rear-delts using the selected settings. This is a schematic visible rear-shoulder region, not exact head-boundary validation. Atlas remains96 records;34 unassigned;16/17 parent groups; only adductors lacks coverage. Catalog roles, counts and History remain unchanged.

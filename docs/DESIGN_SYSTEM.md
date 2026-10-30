@@ -1,5 +1,17 @@
 # CRESUM Design System v1.0
 
+### Adductor visible-surface binding — 2026-10-30
+
+User approved reusing four existing visually approved adductor-longus/gracilis
+patches. Preserve selected paths, transforms, clips, SVG/PNG and screenshot settings
+from2026-10-20 exactly. Bind adductors with partial-visible-medial-thigh-surface
+semantics; disclose provisional boundaries and absent deep portions in exercise
+summary/details and Progress overview/adductor details, EN/RU/DE/FR.
+The atlas has96 regions,30 unresolved, and some representation for all17 parent
+groups. This is not complete anatomical coverage. Hide empty missing-group copy.
+Other92 records, original source, catalog roles, counts, opacity and History stay
+unchanged. No new tracing or load coefficients. Native device acceptance remains.
+
 ### Selected rear-shoulder region — 2026-10-30
 
 Reuse existing masks with L/R inset3.5/3, inward0/-1.5, Y0/0 source px. Bind rear-delts as a schematic posterior-shoulder region; disclose approximate rear/lateral boundary in exercise summary/details and Progress/detail in four locales. Preserve other contours and runtime role colors/opacity;70% is preview-only.

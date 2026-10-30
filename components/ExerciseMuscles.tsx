@@ -77,6 +77,9 @@ export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
           {t('exerciseMuscles.coverage', { muscles: names(missing) })}
         </Text>
       ) : null}
+      {involved.includes('adductors') ? (
+        <Text style={s.note}>{t('muscle.adductorRegion')}</Text>
+      ) : null}
       {involved.includes('rear-delts') ? (
         <Text style={s.note}>{t('muscle.rearDeltRegion')}</Text>
       ) : null}

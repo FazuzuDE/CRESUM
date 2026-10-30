@@ -1,5 +1,17 @@
 # CRESUM — Development Roadmap
 
+### Adductor visible-surface binding — 2026-10-30
+
+User approved reusing four existing visually approved adductor-longus/gracilis
+patches. Preserve selected paths, transforms, clips, SVG/PNG and screenshot settings
+from2026-10-20 exactly. Bind adductors with partial-visible-medial-thigh-surface
+semantics; disclose provisional boundaries and absent deep portions in exercise
+summary/details and Progress overview/adductor details, EN/RU/DE/FR.
+The atlas has96 regions,30 unresolved, and some representation for all17 parent
+groups. This is not complete anatomical coverage. Hide empty missing-group copy.
+Other92 records, original source, catalog roles, counts, opacity and History stay
+unchanged. No new tracing or load coefficients. Native device acceptance remains.
+
 ### Remaining map coverage — 2026-10-30
 
 Connect approved rear-shoulder selections to rear-delts; then audit existing adductor selections before any new tracing or repeated approval. Do not restart completed mask work.

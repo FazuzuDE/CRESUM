@@ -1,4 +1,6 @@
 export default {
+  'muscle.adductorRegion':
+    'La coloration des adducteurs montre uniquement certaines zones visibles de la face médiale de la cuisse ; les limites sont provisoires et les parties profondes ne sont pas représentées.',
   'muscle.rearDeltRegion':
     'La coloration des deltoïdes postérieurs représente une région schématique de l’épaule ; la limite avec la partie latérale est approximative.',
   'muscle.upperBackProjection':
