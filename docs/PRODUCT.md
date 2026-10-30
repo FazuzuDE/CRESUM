@@ -1,5 +1,23 @@
 # CRESUM — Product Definition
 
+## EZ Bar Curl selected Male pair — 2026-10-30
+
+User approved r5 after two targeted grip-contact corrections on the angled shaft.
+Selected original exec-30d9d590-3a45-4e2c-8967-beac41271d6d.png,
+SHAfe13ff935666d7e6391ea5f2d46d5a422ba9223a907c8b8872925b4aefb84087.
+Use exact887-square half-sheet crops LEFT START / RIGHT FINISH, RGB WebP92
+method6; no retouch, resampling, padding or phase-specific transforms. Bind only
+existing ez-bar-curl/Male. Keep standing angled EZ guide and its explicit
+adaptation/no universal spacing, biceps Primary and forearms Secondary, shared
+compact/expanded muscle map, stable IDs, History and unrelated/Female/attachment
+fallbacks. The selected grip is an illustration example, not a prescribed width.
+Actual Male Master sets identity/materials. Preserve user-selected-provisional:
+visual selection and full-frame/320/390 inspection are not detailed independent
+biomechanics, precise finger/wrist certification or physical-device acceptance.
+Retain all five original generations, exact historical prompts, actual inputs,
+export hashes and selection in the source supplement at this checkpoint.
+PC backup is unverified and Oracle uploads remain deferred/pending-upload.
+
 ## Barbell Curl selected Male pair — 2026-10-30
 
 User approved paired original exec-abfbc589-0130-44aa-b2cf-72d472c1caaa.png,
