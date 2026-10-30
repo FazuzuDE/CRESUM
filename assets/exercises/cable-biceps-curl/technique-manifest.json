@@ -1,0 +1,54 @@
+{
+  "variantId": "cable-biceps-curl",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 2,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-a95656f4-3a9b-4660-9513-fc51e194fb4f.png",
+      "sourceSha256": "579c9fc78d7ddd7f011e0dd9f17a86750beb010a60d593dd223605285515fa9f",
+      "sourceBytes": 1673177,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "d936e92f20f7c92414eab1b056d333ff5a93df885da80a4d14606fb8c342353d",
+      "bytes": 45920,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-a95656f4-3a9b-4660-9513-fc51e194fb4f.png",
+      "sourceSha256": "579c9fc78d7ddd7f011e0dd9f17a86750beb010a60d593dd223605285515fa9f",
+      "sourceBytes": 1673177,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "2e4bc3000126a80cb9c3c292081acc136336b113c29c35d66a86896356e3b57c",
+      "bytes": 46264,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Standing bilateral low-cable curl illustrated with short straight bar and central swivel/carabiner. Attachment remains unspecified in catalog/guide; no canonical variant narrowing or new attachment thumbnail. Existing ACE322 band-to-cable adaptation retained; biceps Primary/forearms Secondary.",
+  "presentation": "Default shared square contain in both viewers. Exact half-sheet crops without retouch, resampling, padding, artificial upscaling or phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 2,
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "equipmentStyleSha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+    "lineage": "r1 actual Male Master and frozen equipment-style-v1 inputs; r2 edits r1 to remove duplicate FINISH selector pin and refine stack continuity."
+  },
+  "reviewScope": "User-selected pair, full-frame/320/390 visual review. Central connection, closed underhand grip, stable body, taut cable and raised FINISH load assessed visually. Detailed fingers/wrists, exact selected plate count/reeving/transmission and physical-device acceptance remain provisional, not independently certified.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original PNG, exact prompt, actual Male Master and selected crops retained for upper-body source supplement; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}
