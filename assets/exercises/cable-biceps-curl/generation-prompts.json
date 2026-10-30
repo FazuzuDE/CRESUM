@@ -1,0 +1,83 @@
+{
+  "exerciseId": "cable-biceps-curl",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "cable-biceps-curl",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "superseded",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "9e5adc2bf4bc6b21e2f66181b1eb4e09cf78fa6b",
+      "prompt": "Use case: scientific-educational.\nCreate ONE original premium CRESUM exercise illustration DIPTYCH for standing LOW CABLE BICEPS CURL, bilateral short straight-bar attachment. Landscape2:1, TWO equal square panels: LEFT START, RIGHT FINISH. No labels/text/arrows/logos/watermarks/anatomy overlays.\nInput1: actual five-view Male Master, identity/proportions/outfit only. Same realistic adult man, short brown hair, natural athletic proportions with normal-length legs, fitted blue-gray T-shirt, charcoal shorts, white training socks, light-gray shoes. Never copy its five-view layout.\nInput2: frozen CRESUM equipment STYLE reference only: satin brushed silver frame, dark graphite/black weight-stack covers and rubber components, modest orange selector accents, premium clean studio rendering. DO NOT copy the assisted pull-up equipment, its grips, knee pad, pose or geometry.\nSCENE AND CAMERA: original compact single low-pulley cable tower, man standing facing its low outlet about60cm away. Arrange man in left/central part of each square and tower to right; camera front-three-quarter45degrees so face, both closed underhand grips, central bar attachment, unobstructed diagonal cable, fixed low pulley and weight stack are readable. The machine is in FRONT of the man in physical space, not behind him. Lock machine, camera, stance, body scale, head height and shoe baseline across the two panels. Entire head/shoes/bar/base/tower fit with modest margins; largest common harmonious scale (man about82% panel height), no tiny man or cropped equipment. Neutral white studio, soft contact shadows, natural even skin, consistent matte fabrics and coherent metal/rubber, no patchy colors.\nMACHINE: one physically plausible stable silver selectorized cable column slightly taller than the man, broad safe floor base, black vertical stack on two guide rods with a visible stack opening. Fixed low cable pulley mounted around lower shin/ankle height, low outlet ALWAYS in the same place in both phases. The cable wraps the pulley tangentially and continues within the column's mechanically coherent return to the stack. One taut free cable runs from low outlet to the bar's central swivel. Generic unbranded example, not a measured replica of a named commercial station. No seat, thigh restraint, knee pad, high-pulldown bar, dumbbells, barbell plates or spare attachments.\nATTACHMENT: short rigid STRAIGHT silver curl bar, dark textured cylindrical grips near its two ends, small central welded swivel eye. ONE closed metal carabiner links that central eye to ONE cable terminal; small black rubber cable stop above terminal. The cable connects exactly halfway BETWEEN the two hands. It does not attach to either hand, wrap the bar or branch into two. Both hands physically wrap handles about comfortable shoulder width apart, supinated palms forward/up, fingers and opposing thumbs closed around metal, straight neutral wrists. No EZ bends, V-handle, rope or palms-down grip. Same bar size, shape, contact and grip width both phases.\nLEFT START: stable hip-width standing feet, soft knees, upright neutral torso/pelvis, shoulders relaxed/down. Upper arms close beside ribs, elbows naturally nearly extended, no hyperextension. Bar in front of upper thighs with body clearance; taut cable angles downward and forward toward fixed low pulley without intersecting body, legs or base. Show weight stack selected top plate group low, slightly tensioned above unselected lower stack if appropriate.\nRIGHT FINISH: same feet, upright torso, head and quiet shoulders. Flex BOTH elbows while upper arms stay beside ribs, bringing bar toward lower chest/upper abdomen with clearance; no front raise, shrug, backward lean, hip drive or supination change. Wrists straight and fingers gripping actual bar. Cable stays taut from central carabiner to the SAME low pulley. Increased free cable length visibly raises the selected top weight-plate group and lifting rod/carriage above the stationary unselected stack, making a clear air gap. Do not raise the entire stack or floor base. Preserve same plate count, dimensions, selector pin and guides; move only the selected plates/lifting parts. No fake cable connected to a plate edge.\nQuality priorities: real central cable-to-bar connection, actual underhand hand contacts, straight wrists, stable elbows/upright body, credible taut cable/load movement, same machine geometry and body scale/material quality in both scenes. Return only the two-panel image.\n",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/CRESUM-reverse-pec-deck/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        }
+      ],
+      "inputRoles": [
+        "actual Male Master identity/outfit",
+        "frozen equipment style only"
+      ],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-74d8955b-2e8d-4694-9454-e2892ffb5ae7.png",
+        "sha256": "9a128bda5d6d21fc0f9f4fed82143d3c7edf417034987fadaa2b742c5996d277",
+        "bytes": 1690685,
+        "dimensions": [1774, 887],
+        "libraryFileId": "libfile_ca7b70df2138819189fcd53af5863f89"
+      },
+      "sourceCheckedOn": "2026-10-30",
+      "techniqueSources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/322/standing-bicep-curl/",
+        "https://www.bodysolid.com/images/Poster_G3S.pdf"
+      ],
+      "adaptation": "Existing ACE band-to-low-cable guide preserved. Manufacturer instructions inform short-bar example, not a measured machine replica or universal catalog attachment."
+    },
+    {
+      "exerciseId": "cable-biceps-curl",
+      "model": "male",
+      "phase": "pair",
+      "revision": 2,
+      "status": "user-selected",
+      "tool": "built-in image_gen",
+      "baseRepository": "FazuzuDE/CRESUM",
+      "baseRef": "develop",
+      "baseCommit": "9e5adc2bf4bc6b21e2f66181b1eb4e09cf78fa6b",
+      "prompt": "Use case: precise-object-edit. Edit this CRESUM two-panel low-cable curl illustration with ONE targeted mechanical consistency repair in the RIGHT FINISH weight stack only.\nLEFT START is the authority for the weight stack, plate dimensions, selected load and selector pin. The selected group is precisely the contiguous top plates from the top of the stack down THROUGH the plate bearing the ONE orange selector pin. In RIGHT FINISH, show that SAME selected plate group raised bodily together with the lifting assembly, with the SAME number/thickness/width of plates and orange pin in the same bottom selected plate relative to that group. Keep the stationary remainder below at its original base height and show a clear separation gap. Guide rods stay continuous.\nCurrently RIGHT FINISH incorrectly has TWO orange selector pins, one on raised group and another on lower stationary group. REMOVE the lower orange pin completely; that unselected lower plate must have only a small dark unused hole, no orange/yellow part. There is exactly ONE orange selector pin per scene. Preserve the upper group's orange selector and align selected group height/count to LEFT START as described. Never add extra moving plates or lift the entire stack.\nKeep everything else unchanged: male identity, face, hair, blue-gray outfit/materials, pose and both phases, grip and fingers, wrists/elbows, bar, center carabiner/cable stop and taut cable, pulley and full station shell/base, camera/light/background, framing, equal scale and two square panels. No additional repair/restyling, text or labels. Return one complete2:1 paired image.\n",
+      "references": [
+        {
+          "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-74d8955b-2e8d-4694-9454-e2892ffb5ae7.png",
+          "sha256": "9a128bda5d6d21fc0f9f4fed82143d3c7edf417034987fadaa2b742c5996d277",
+          "bytes": 1690685,
+          "dimensions": [1774, 887]
+        }
+      ],
+      "inputRoles": ["edit target r1"],
+      "output": {
+        "path": "/workspace/scratch/6ffd398a5fb4/generated_images/exec-a95656f4-3a9b-4660-9513-fc51e194fb4f.png",
+        "sha256": "579c9fc78d7ddd7f011e0dd9f17a86750beb010a60d593dd223605285515fa9f",
+        "bytes": 1673177,
+        "dimensions": [1774, 887],
+        "libraryFileId": "libfile_2c2677e1b0c0819194d0759940678b02"
+      },
+      "sourceCheckedOn": "2026-10-30",
+      "techniqueSources": [
+        "https://www.acefitness.org/resources/everyone/exercise-library/322/standing-bicep-curl/",
+        "https://www.bodysolid.com/images/Poster_G3S.pdf"
+      ],
+      "adaptation": "Existing ACE band-to-low-cable guide preserved. Manufacturer instructions inform short-bar example, not a measured machine replica or universal catalog attachment."
+    }
+  ]
+}

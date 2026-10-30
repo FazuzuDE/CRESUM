@@ -1,5 +1,22 @@
 # CRESUM — Product Definition
 
+## Cable Biceps Curl selected Male pair — 2026-10-30
+
+User approved repaired r2 original exec-a95656f4-3a9b-4660-9513-fc51e194fb4f.png,
+SHA579c9fc78d7ddd7f011e0dd9f17a86750beb010a60d593dd223605285515fa9f. Exact887-square half-sheet crops,
+LEFT START / RIGHT FINISH, RGB WebP92 method6; no retouch, resampling,
+padding or phase-specific transforms. Bind only existing cable-biceps-curl/Male.
+The short straight bar/central swivel and generic silver low-pulley column are
+illustration choices; retain attachment-unspecified catalog/guide and ACE322
+band-to-cable adaptation. Preserve biceps Primary/forearms Secondary, shared
+compact/expanded muscle map, stable IDs, History and unrelated/Female fallbacks.
+No new attachment thumbnail. FINISH raises the selected load; duplicate lower
+selector pin removed. Actual Master and frozen equipment style govern continuity.
+Keep user-selected-provisional: detailed hand biomechanics, exact plate count,
+hidden reeving/transmission and physical-device acceptance are not certified.
+Retain both historical originals/prompts/actual inputs and selected exports in
+the source checkpoint. PC backup unverified; Oracle deferred/pending-upload.
+
 ## Hammer Curl selected Male pair — 2026-10-30
 
 User approved r1 original exec-d2b8ac2f-07c7-4f43-a21e-b18ec7f5a562.png,

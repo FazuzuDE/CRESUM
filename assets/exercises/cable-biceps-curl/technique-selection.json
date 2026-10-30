@@ -1,0 +1,38 @@
+{
+  "exerciseId": "cable-biceps-curl",
+  "model": "male",
+  "selectionDate": "2026-10-30",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "selectedCandidates": {
+    "start": "pair r2 left",
+    "finish": "pair r2 right"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-a95656f4-3a9b-4660-9513-fc51e194fb4f.png",
+      "sourceSha256": "579c9fc78d7ddd7f011e0dd9f17a86750beb010a60d593dd223605285515fa9f",
+      "sourceBytes": 1673177,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "d936e92f20f7c92414eab1b056d333ff5a93df885da80a4d14606fb8c342353d",
+      "bytes": 45920,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-a95656f4-3a9b-4660-9513-fc51e194fb4f.png",
+      "sourceSha256": "579c9fc78d7ddd7f011e0dd9f17a86750beb010a60d593dd223605285515fa9f",
+      "sourceBytes": 1673177,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "2e4bc3000126a80cb9c3c292081acc136336b113c29c35d66a86896356e3b57c",
+      "bytes": 46264,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

@@ -5,6 +5,8 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/cable-biceps-curl/start.webp', () => 2501);
+jest.mock('../../assets/exercises/cable-biceps-curl/finish.webp', () => 2502);
 jest.mock('../../assets/exercises/hammer-curl/start.webp', () => 2401);
 jest.mock('../../assets/exercises/hammer-curl/finish.webp', () => 2402);
 jest.mock('../../assets/exercises/ez-bar-curl/start.webp', () => 2301);
@@ -235,6 +237,7 @@ it.each([
   ['Dumbbell Biceps Curl', 2101, 2102],
   ['EZ Bar Curl', 2301, 2302],
   ['Hammer Curl', 2401, 2402],
+  ['Cable Biceps Curl', 2501, 2502],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
@@ -597,6 +600,59 @@ it('shows selected hammer curl roles and opens/closes larger anatomy without cha
         ),
     ).toBe(true);
     act(() => button(v, 'Muscle details for Hammer Curl')!.props.onPress());
+    act(() => button(v, 'Close muscle details')!.props.onPress());
+    expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
+  } finally {
+    act(() => v.unmount());
+  }
+});
+
+it('shows selected low cable curl roles and opens/closes larger anatomy without changing FINISH', () => {
+  const v = render();
+  try {
+    act(() => button(v, 'Technique for Cable Biceps Curl')!.props.onPress());
+    expect(text(v)).toContain('Working muscles');
+    const map = v.root.findByType(MuscleMap);
+    expect(map.props.height).toBe(160);
+    const regions = v.root
+      .findAllByType(Path)
+      .filter((n: any) => n.props.testID?.startsWith('anatomical-region-'));
+    expect(
+      regions.some((n: any) => n.props.fill === colors.musclePrimary),
+    ).toBe(true);
+    expect(
+      regions.some((n: any) => n.props.fill === colors.muscleSecondary),
+    ).toBe(true);
+    for (const muscle of map.props.muscles) {
+      expect(muscle.primary).toBe(muscle.id === 'biceps' ? 1 : 0);
+      expect(muscle.secondary).toBe(muscle.id === 'forearms' ? 1 : 0);
+    }
+    expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
+    act(() => button(v, 'Show FINISH')!.props.onPress());
+    act(() =>
+      button(v, 'Muscle details for Cable Biceps Curl')!.props.onPress(),
+    );
+    expect(
+      v.root.findAllByType(MuscleMap).map((n: any) => n.props.height),
+    ).toEqual([160, 340]);
+    expect(text(v)).toContain('Qualitative muscle roles');
+    const modal = v.root
+      .findAllByType(Modal)
+      .find((n: any) => n.props.testID === 'exercise-muscle-details')!;
+    act(() => modal.props.onRequestClose());
+    expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
+    expect(
+      v.root
+        .findAllByType(Image)
+        .some(
+          (n: any) =>
+            n.props.accessibilityLabel === 'Cable Biceps Curl: FINISH' &&
+            n.props.source === 2502,
+        ),
+    ).toBe(true);
+    act(() =>
+      button(v, 'Muscle details for Cable Biceps Curl')!.props.onPress(),
+    );
     act(() => button(v, 'Close muscle details')!.props.onPress());
     expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
   } finally {
