@@ -153,3 +153,18 @@ it('explains upper-back projection in summary and expanded exercise details', ()
   expect(copy(v).match(/beneath trapezius/g)).toHaveLength(2);
   act(() => v.unmount());
 });
+
+it('explains rear-shoulder regional coverage in summary and details', () => {
+  let v: any;
+  act(() => {
+    v = create(
+      <ExerciseMuscles exercise={findExercise('seated-cable-row')!} />,
+    );
+  });
+  expect(copy(v)).toContain('rear/lateral boundary is approximate');
+  press(v, 'Muscle details for Seated Cable Row');
+  expect(copy(v).match(/rear\/lateral boundary is approximate/g)).toHaveLength(
+    2,
+  );
+  act(() => v.unmount());
+});

@@ -124,6 +124,7 @@ export function MuscleProgress({
             </View>
             <Text style={s.note}>{t('muscle.meaning')}</Text>
             <Text style={s.note}>{t('muscle.upperBackProjection')}</Text>
+            <Text style={s.note}>{t('muscle.rearDeltRegion')}</Text>
             <Text style={s.note}>
               {t('muscle.coverage', {
                 groups: anatomicalMissingGroups
@@ -198,6 +199,9 @@ export function MuscleProgress({
                   selected={muscle.id}
                   onSelect={select}
                 />
+                {muscle.id === 'rear-delts' ? (
+                  <Text style={s.note}>{t('muscle.rearDeltRegion')}</Text>
+                ) : null}
                 {muscle.id === 'upper-back' ? (
                   <Text style={s.note}>{t('muscle.upperBackProjection')}</Text>
                 ) : null}

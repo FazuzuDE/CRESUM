@@ -1,5 +1,9 @@
 # CRESUM Decision Log
 
+### Rear-shoulder reuse and binding — 2026-10-30
+
+User confirmed these masks already existed and approved revised screenshot settings: left inset3.5/inward0/Y0; right inset3/inward-1.5/Y0 (source X+1.5). Reuse, do not retrace. Bind as disclosed schematic rear-shoulder region; exact head boundary remains provisional.
+
 ## 2026-10-29 — Upper-back projection r3 selected
 
 User approved screenshot244AF30D: inset0/0, inward0/0, Y0/-1.5 source px.

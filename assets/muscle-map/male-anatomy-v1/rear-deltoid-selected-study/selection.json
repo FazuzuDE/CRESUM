@@ -1,0 +1,30 @@
+{
+  "status": "visually-approved-schematic-region",
+  "sourceSha256": "39c66852a6e3ae4a93fac1b0ca29ede1bc17d15520f6d0106d0d135a5d8a7e4a",
+  "optionsSha256": "34df49824406d86ff1955e61ebaca34b576cc7273a7faa2ecc59e7bbe045a1c2",
+  "regions": {
+    "posterior-shoulder-surface-left-reference": {
+      "inset": 3.5,
+      "shift": 0,
+      "shiftY": 0
+    },
+    "posterior-shoulder-surface-right-reference": {
+      "inset": 3,
+      "shift": -1.5,
+      "shiftY": 0
+    }
+  },
+  "approvalScreenshot": {
+    "libraryFileId": "libfile_148c195ab0dc8191af178dd97b4eed5a",
+    "sha256": "5a46e36d54876205e7a48fa67cb3c624372337466db3648eb5b3a3166b2a8fc8",
+    "bytes": 349699
+  },
+  "previewOpacity": 0.7,
+  "previewOpacityIsRuntimeValue": false,
+  "integrationStatus": "selected schematic regional rear-delts binding; exact head boundary provisional",
+  "earlierVisualApproval": "Both inset 3.5 source px; 2026-10-18; unchanged baseline preserved",
+  "pathSha256": {
+    "posterior-shoulder-surface-left-reference": "90b975f058dd1fd6ddc8d9c51da6906ed76795a9d7fe67655425d6c5f431c61f",
+    "posterior-shoulder-surface-right-reference": "d43b539c944832ee0979ae0f4ace1c5c91db7c9025b8f407732bcf81037f87f7"
+  }
+}

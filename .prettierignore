@@ -230,3 +230,7 @@ assets/muscle-map/male-anatomy-v1/chest-regional-study/selection-report.json
 # Selected upper-back projection study exports
 assets/muscle-map/male-anatomy-v1/upper-back-projection-study/*.svg
 assets/muscle-map/male-anatomy-v1/upper-back-projection-study/*.json
+
+# Selected rear-shoulder geometry exports
+assets/muscle-map/male-anatomy-v1/rear-deltoid-selected-study/*.svg
+assets/muscle-map/male-anatomy-v1/rear-deltoid-selected-study/*.json

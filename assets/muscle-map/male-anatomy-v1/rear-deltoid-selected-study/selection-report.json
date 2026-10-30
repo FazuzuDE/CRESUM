@@ -1,0 +1,14 @@
+{
+  "leftRasterByteUnchanged": true,
+  "backgroundThresholdPixels": {
+    "left": 0,
+    "right": 0
+  },
+  "mutualThresholdOverlapPixels": 0,
+  "rightSourceTranslation": [
+    1.5,
+    0
+  ],
+  "exactReviewedPaths": true,
+  "anatomicalAssignment": "pending"
+}
