@@ -1,0 +1,38 @@
+{
+  "exerciseId": "dumbbell-overhead-triceps-extension",
+  "model": "male",
+  "selectionDate": "2026-10-30",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "selectedCandidates": {
+    "start": "pair r1 left",
+    "finish": "pair r1 right"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-913acc08-4a67-44dd-b4ac-998469f2e679.png",
+      "sourceSha256": "2200cf7f9e4c9f5de2d59623e69e50c25fac0360cd326842c09c2c364623f72e",
+      "sourceBytes": 1611773,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "50be15788f67a3175b7dbebe4547d6f904d1ff9747212e9cbb30fd08d082c438",
+      "bytes": 28412,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-913acc08-4a67-44dd-b4ac-998469f2e679.png",
+      "sourceSha256": "2200cf7f9e4c9f5de2d59623e69e50c25fac0360cd326842c09c2c364623f72e",
+      "sourceBytes": 1611773,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "ab8bee2aea4b967ed46c6ec40a1cb717abf36bab6177f5bc30243e4eb24a2d70",
+      "bytes": 27206,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

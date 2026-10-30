@@ -1,5 +1,23 @@
 # CRESUM — Product Definition
 
+## Dumbbell Overhead Triceps Extension selected Male pair — 2026-10-30
+
+User approved r1 original exec-913acc08-4a67-44dd-b4ac-998469f2e679.png,
+SHA2200cf7f9e4c9f5de2d59623e69e50c25fac0360cd326842c09c2c364623f72e.
+Exact887-square LEFT START / RIGHT FINISH halves, RGB WebP92 method6;
+no retouch, resampling, padding or independent phase placement. Bind only
+existing dumbbell-overhead-triceps-extension/Male. One vertical dumbbell with
+two hands supporting its upper head; bent START, overhead extended FINISH.
+Preserve ACE74 two-hand guide, triceps Primary/no Secondary, existing compact/
+expanded muscle map, stable IDs, History/data and other/Female/attachment
+fallbacks. No new attachment thumbnail. Sole actual generation input Male
+Master; preserve identity, natural proportions and clothing/material continuity.
+Keep user-selected-provisional: exact phase registration, detailed hand/wrist/
+contact anatomy and physical-device/accessibility acceptance are not certified.
+Live source recheck unavailable after web-tool errors; existing guide unchanged,
+no new primary-source verification claimed. Retain original, exact prompt,
+actual input and exports in source checkpoint; PC/Oracle backup unverified.
+
 ## Overhead Cable Triceps Extension selected Male pair — 2026-10-30
 
 User approved r2 original exec-14d7d86f-2b77-497a-9155-3ed36ee6ee43.png,
