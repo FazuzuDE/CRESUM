@@ -1,5 +1,9 @@
 # CRESUM Design System v1.0
 
+### Selected rear-shoulder region — 2026-10-30
+
+Reuse existing masks with L/R inset3.5/3, inward0/-1.5, Y0/0 source px. Bind rear-delts as a schematic posterior-shoulder region; disclose approximate rear/lateral boundary in exercise summary/details and Progress/detail in four locales. Preserve other contours and runtime role colors/opacity;70% is preview-only.
+
 ### Selected upper-back projection — approved 2026-10-29
 
 Retain r3 source-space contours and the user's screenshot244AF30D settings:

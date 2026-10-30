@@ -438,17 +438,17 @@ it('shows exact curl roles and opens/closes larger anatomy without changing FINI
 
 it('keeps unmapped exercise roles named without painting guessed regions', () => {
   const v = render();
-  act(() => button(v, 'Technique for Reverse Pec Deck')!.props.onPress());
+  act(() => button(v, 'Technique for Machine Hip Adduction')!.props.onPress());
   expect(text(v)).toContain('Not highlighted on this map:');
-  expect(text(v)).toContain('Rear Delts');
+  expect(text(v)).toContain('Adductors');
   const map = v.root.findByType(MuscleMap);
-  expect(
-    map.props.muscles.find((m: any) => m.id === 'rear-delts').primary,
-  ).toBe(1);
+  expect(map.props.muscles.find((m: any) => m.id === 'adductors').primary).toBe(
+    1,
+  );
   expect(
     v.root
       .findAllByType(Path)
-      .some((n: any) => n.props.testID?.includes('posterior-shoulder-surface')),
+      .some((n: any) => n.props.testID?.includes('adductor')),
   ).toBe(false);
   act(() => v.unmount());
 });

@@ -1,4 +1,6 @@
 export default {
+  'muscle.rearDeltRegion':
+    'Die hinteren Deltas werden als schematische hintere Schulterregion dargestellt; die Grenze zum seitlichen Anteil ist ungefähr.',
   'muscle.upperBackProjection':
     'Die Markierung des oberen Rückens ist eine schematische Projektion unter dem Trapezmuskel, keine exakte Darstellung freigelegter Rautenmuskeln.',
   'volume.recentSummary': 'Letzte Trainingsvolumen in Kilogramm: {{points}}',

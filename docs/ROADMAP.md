@@ -1,5 +1,9 @@
 # CRESUM — Development Roadmap
 
+### Remaining map coverage — 2026-10-30
+
+Connect approved rear-shoulder selections to rear-delts; then audit existing adductor selections before any new tracing or repeated approval. Do not restart completed mask work.
+
 ### Missing map groups — upper-back selected 2026-10-29
 
 Integrate the approved r3 bilateral upper-back schematic projection and exact

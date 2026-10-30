@@ -87,12 +87,62 @@ for (const r of upper.regions) {
     representation: r.representation,
   });
 }
+const rear = read('rear-deltoid-selected-study/selected-geometry.json');
+const rearSelection = read('rear-deltoid-selected-study/selection.json');
+assert.equal(rear.status, 'visually-approved-schematic-region');
+assert.equal(rear.sourceSha256, layers.sourceSha256);
+assert.equal(rearSelection.sourceSha256, layers.sourceSha256);
+assert.deepEqual(rear.canvas, combined.canvas);
+assert.equal(rear.regions.length, 2);
+const rearClipId = 'rear-shoulder-source-body';
+clips.push({
+  id: rearClipId,
+  image:
+    'data:image/png;base64,' +
+    fs
+      .readFileSync(
+        path.join(base, 'rear-deltoid-selected-study/source-silhouette.png'),
+      )
+      .toString('base64'),
+});
+for (const r of rear.regions) {
+  const previous = regions.find((p) => p.id === r.id);
+  assert(previous && previous.groupId === null && previous.view === 'back');
+  assert.equal(r.muscleGroupId, 'rear-delts');
+  assert.equal(r.representation, 'schematic-posterior-shoulder-region');
+  const setting = rearSelection.regions[r.id];
+  assert.deepEqual(
+    setting,
+    r.side === 'left'
+      ? { inset: 3.5, shift: 0, shiftY: 0 }
+      : { inset: 3, shift: -1.5, shiftY: 0 },
+  );
+  assert.equal(
+    crypto.createHash('sha256').update(r.path).digest('hex'),
+    rearSelection.pathSha256[r.id],
+  );
+  assert.equal(
+    r.transform,
+    r.side === 'left' ? 'translate(0 0)' : 'translate(1.5 0)',
+  );
+  if (r.side === 'left') assert.equal(r.path, previous.path);
+  Object.assign(previous, {
+    groupId: 'rear-delts',
+    path: r.path,
+    transform: r.transform,
+    clipId: rearClipId,
+    representation: r.representation,
+  });
+}
 assert.equal(regions.length, 96);
 assert.equal(new Set(regions.map((r) => r.id)).size, 96);
-assert.equal(regions.filter((r) => r.groupId === null).length, 36);
+assert.equal(regions.filter((r) => r.groupId === null).length, 34);
 for (const r of regions)
   assert(!r.clipId || clips.some((c) => c.id === r.clipId));
 const files = [
+  'rear-deltoid-selected-study/selected-geometry.json',
+  'rear-deltoid-selected-study/selection.json',
+  'rear-deltoid-selected-study/source-silhouette.png',
   'source.png',
   'layers.json',
   'combined-review/geometry.json',
@@ -119,5 +169,5 @@ if (process.argv.includes('--check'))
   );
 else fs.writeFileSync(output, encoded);
 console.log(
-  'Anatomy atlas: 94 preserved + 2 selected upper-back projections, 36 unresolved.',
+  'Anatomy atlas: 96 regions: rear-shoulder selections bound, 34 unresolved.',
 );

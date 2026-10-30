@@ -1,4 +1,6 @@
 export default {
+  'muscle.rearDeltRegion':
+    'Rear-deltoid highlights show a schematic rear-shoulder region; the rear/lateral boundary is approximate.',
   'muscle.upperBackProjection':
     'Upper-back highlights are a schematic projection beneath trapezius, not exact exposed rhomboid boundaries.',
   'volume.recentSummary': 'Recent workout volumes in kilograms: {{points}}',

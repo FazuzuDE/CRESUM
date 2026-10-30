@@ -1,4 +1,6 @@
 export default {
+  'muscle.rearDeltRegion':
+    'La coloration des deltoïdes postérieurs représente une région schématique de l’épaule ; la limite avec la partie latérale est approximative.',
   'muscle.upperBackProjection':
     'Le surlignage du haut du dos est une projection schématique sous le trapèze, et non le contour exact des rhomboïdes exposés.',
   'volume.recentSummary':

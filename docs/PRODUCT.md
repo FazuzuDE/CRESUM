@@ -1,5 +1,9 @@
 # CRESUM — Product Definition
 
+### Rear-deltoid regional map — 2026-10-30
+
+The shared map binds the two existing posterior-shoulder IDs to rear-delts using the selected settings. This is a schematic visible rear-shoulder region, not exact head-boundary validation. Atlas remains96 records;34 unassigned;16/17 parent groups; only adductors lacks coverage. Catalog roles, counts and History remain unchanged.
+
 ### Upper-back projection — selected 2026-10-29
 
 The shared exercise/Progress map adds the two user-selected upper-back regional
