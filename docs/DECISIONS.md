@@ -1,5 +1,20 @@
 # CRESUM Decision Log
 
+## Leg Press selected Male pair — 2026-10-31
+
+User approved r1 `exec-9a36f9a9-2167-4c81-940f-ed39f5cd891b.png`.
+Exact 887-square LEFT extended START / RIGHT bent FINISH crops, RGB WebP92/method6.
+45-degree plate-loaded example does not narrow generic leg-press identity.
+Bind only `leg-press`/Male; preserve stable IDs and generic leg-press identity, existing
+guide, quadriceps/glutes Primary and hamstrings/adductors Secondary,
+shared viewers and other/Female/attachment fallbacks. No retouch/resampling/
+padding/phase-specific transforms. Actual user pose sheet and Male Master,
+original/exact prompt retained for final checkpoint; no per-exercise ZIP.
+Status user-selected-provisional: precise foot/handle/padding contacts, knee extension/depth,
+rigid frame/rail/sled geometry/registration and device/accessibility not
+independently certified. Existing guide unchanged; no new live source review.
+PC/Oracle backup unverified.
+
 ## Barbell Front Squat selected Male pair — 2026-10-31
 
 User approved r1 `exec-8b8a0698-fede-4d7e-becc-1b510c55aa6f.png`.

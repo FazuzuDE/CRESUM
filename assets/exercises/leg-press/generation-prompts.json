@@ -1,0 +1,33 @@
+{
+  "exerciseId": "leg-press",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "leg-press",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "user-selected",
+      "prompt": "Create ONE original premium CRESUM fitness technique illustration diptych for a 45-DEGREE PLATE-LOADED LEG PRESS, wide landscape exactly2:1, TWO equal independently crop-safe square halves, no divider. Input1 supplies approximate machine configuration, pose phases and side-three-quarter camera; REDESIGN AND REFINE its crude machine into a coherent premium functional gym machine, not a literal copy. Input2 actual locked CRESUM Male Master defines SAME natural athletic clean-shaven man, short brown hair, fitted muted blue-gray T-shirt, charcoal shorts, white ankle socks/light gray training sneakers in BOTH phases. Premium realistic/semi-realistic clean3D studio rendering, uniform smooth materials, white seamless background, subtle contact shadows. Fully clothed normal skin, no anatomical/red overlays, text, branding, labels, arrows or watermarks.\nMACHINE DESIGN: substantial satin light silver/white rectangular steel base and rear cross-bracing, black rubber floor feet, dark graphite inclined backrest/headrest plus matching seat cushion fixed near bottom-left; two identical parallel polished-steel guide rails ascending from lower-left to upper-right at45degrees. A single connected moving sled/carriage runs on BOTH rails using plausible enclosed bearing blocks. Rigid broad rectangular dark graphite textured footplate with rounded edges, angled approximately perpendicular to travel, firmly connected to carriage. Both soles face the plate and stay planted on its front surface. Two symmetrical lateral weight horns attached to the moving carriage, each loaded with ONE black circular weight plate and a collar; near load clearly visible, far load may be naturally occluded. Same number/size of plates in both scenes. The carriage, platform, horns and ALL loaded plates translate together as ONE assembly along the rails. Fixed frame, rear brace, rail ends, seat/backrest and handles NEVER change shape, position or angle between phases. Add readable mechanical travel stops and reachable safety-release handles near hips; no cables, selector stack, stray rods, floating discs, duplicated platform or disconnected steel. Keep design simple enough that all joints and rail/carriage relationship are credible.\nSAME camera in both square scenes, side/front three-quarter view similar to input1; see man's near side/face, both legs/shoes, platform front and moving load. LEFT START: sled higher/farther from pelvis along rails, legs extended with a small visible soft knee bend, no hyperextension. RIGHT FINISH: sled slides LOWER and CLOSER along EXACT SAME rails, hips/knees flexed with knees around90degrees or modestly deeper as comfortable, thighs approach torso without compressing chest or rolling pelvis. Both knees track in same direction as toes. Back, head and pelvis remain supported on fixed padding in IDENTICAL location in both phases. Both hands wrap separate fixed handles beside hips and never hold knees. Both feet shoulder-width around mid-footplate with modest toe-out, complete heels and forefeet on plate in both phases. No slipping or feet passing through platform. No raised heels, hips leaving seat, extreme deep knee compression or completely locked knees.\nFULL MACHINE including entire upper rail ends, braces, carriage travel envelope, all platform corners and base feet, full man's head/hands/both shoes fits COMPLETELY inside each individual square with comfortable margins at outer and center edges. Identical equipment/body scale, camera and floor baseline in both panels; fixed machine geometry registration should match, no phase-specific zoom. Use available canvas harmoniously, no giant unused whitespace and no cropping for scale. Return only the complete paired illustration.",
+      "references": [
+        {
+          "file": "BD5DC98F-55CD-4B62-BFD3-E780DF938FA1.png",
+          "sha256": "9dc0a4aa5acbb89f29b9f934fab716d40b1601043049731ed57a8a2dfa84a081",
+          "bytes": 163263
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-9a36f9a9-2167-4c81-940f-ed39f5cd891b.png",
+        "sha256": "5f1ef2c934b252a4758da99a48508679eff9a280dfd77774d3ff32ce592826fc",
+        "bytes": 1885852,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}
