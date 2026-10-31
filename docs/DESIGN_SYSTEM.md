@@ -1,5 +1,20 @@
 # CRESUM Design System v1.0
 
+## Assisted Dip Machine selected Male pair — 2026-10-31
+
+User approved r2 `exec-bda3c995-8e76-4188-b34e-46184674283b.png`.
+Use exact887-square LEFT upper START / RIGHT lower FINISH crops, RGB
+WebP92/method6; no retouch/resampling/padding/independent placement. Bind
+only existing assisted-dip-machine/Male. Shared viewers/map retain triceps
+Primary, chest/front-delts Secondary; existing counterweighted guide and
+stable IDs/History/data remain unchanged. Knee platform follows athlete;
+selected counterweight rises on descent. Pictured kneeling station is a
+visual example, not new canonical geometry. Other/Female/attachment fallbacks
+remain unchanged. Retain two originals/exact prompts/user reference/Master
+input chain. Keep user-selected-provisional: exact plate counts/pin continuity,
+hidden transmission ratios, detailed anatomical contacts, tight upper margins
+and device/accessibility acceptance not certified. PC/Oracle backup unverified.
+
 ## User-reference illustration workflow — approved 2026-10-31
 
 Name the next exact exercise/configuration first. The user supplies START and

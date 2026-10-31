@@ -1,0 +1,35 @@
+{
+  "exerciseId": "assisted-dip-machine",
+  "model": "male",
+  "selectionDate": "2026-10-31",
+  "decision": "утверждаю",
+  "status": "user-selected-pair",
+  "selectedRevision": 2,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-bda3c995-8e76-4188-b34e-46184674283b.png",
+      "sourceSha256": "5dc38c014a899822095338a888109ee02982bfe4ba5555461e9ba2d2253b8173",
+      "sourceBytes": 1703000,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "256c93a24c4b3e450e680f0469c1050743e51591a53752e3d08bcde9bdd9a05c",
+      "bytes": 46978,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-bda3c995-8e76-4188-b34e-46184674283b.png",
+      "sourceSha256": "5dc38c014a899822095338a888109ee02982bfe4ba5555461e9ba2d2253b8173",
+      "sourceBytes": 1703000,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "b036a34e3ad2b6bf15a6655ab2a1c7b28fd33dc24c643690589fb20c888474bb",
+      "bytes": 49000,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

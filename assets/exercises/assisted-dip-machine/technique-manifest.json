@@ -1,0 +1,52 @@
+{
+  "variantId": "assisted-dip-machine",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-bda3c995-8e76-4188-b34e-46184674283b.png",
+      "sourceSha256": "5dc38c014a899822095338a888109ee02982bfe4ba5555461e9ba2d2253b8173",
+      "sourceBytes": 1703000,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "256c93a24c4b3e450e680f0469c1050743e51591a53752e3d08bcde9bdd9a05c",
+      "bytes": 46978,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-bda3c995-8e76-4188-b34e-46184674283b.png",
+      "sourceSha256": "5dc38c014a899822095338a888109ee02982bfe4ba5555461e9ba2d2253b8173",
+      "sourceBytes": 1703000,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "b036a34e3ad2b6bf15a6655ab2a1c7b28fd33dc24c643690589fb20c888474bb",
+      "bytes": 49000,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Counterweighted kneeling dip station. User-reference phase order: LEFT upper nearly straight elbows START; RIGHT bent elbows/lowered FINISH. Platform follows athlete; selected counterweight rises on descent. Preserve existing generic counterweighted guide and triceps Primary, chest/front-delts Secondary; pictured station not universal manufacturer geometry.",
+  "presentation": "Default shared square contain in both viewers. Exact half-sheet crops without retouch, resampling, padding, artificial upscaling or phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 2,
+    "lineage": "r1 actual user pose sheet + actual Male Master; selected r2 r1 + actual Male Master equipment/framing repair."
+  },
+  "reviewScope": "User-selected-provisional. Broad upper/lower phases, platform/counterweight opposite movement and material continuity inspected. Exact plate count/pin continuity, hidden reeving/ratios, detailed grip/anatomy and physical-device/accessibility acceptance not certified.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Two originals/exact prompts/actual input chain retained for cumulative source checkpoint. Previous source bytes preserved; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

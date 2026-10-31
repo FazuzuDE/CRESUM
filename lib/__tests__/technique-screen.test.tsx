@@ -5,6 +5,11 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/assisted-dip-machine/start.webp', () => 3101);
+jest.mock(
+  '../../assets/exercises/assisted-dip-machine/finish.webp',
+  () => 3102,
+);
 jest.mock(
   '../../assets/exercises/lying-barbell-triceps-extension/start.webp',
   () => 3001,
@@ -283,6 +288,7 @@ it.each([
   ['Dumbbell Overhead Triceps Extension', 2801, 2802],
   ['Close-Grip Bench Press', 2901, 2902],
   ['Lying Barbell Triceps Extension', 3001, 3002],
+  ['Assisted Dip Machine', 3101, 3102],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
@@ -1004,6 +1010,61 @@ it('shows selected lying barbell extension roles and opens/closes larger anatomy
         v,
         'Muscle details for Lying Barbell Triceps Extension',
       )!.props.onPress(),
+    );
+    act(() => button(v, 'Close muscle details')!.props.onPress());
+    expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
+  } finally {
+    act(() => v.unmount());
+  }
+});
+
+it('shows selected assisted dip machine roles and opens/closes larger anatomy without changing FINISH', () => {
+  const v = render();
+  try {
+    act(() => button(v, 'Technique for Assisted Dip Machine')!.props.onPress());
+    expect(text(v)).toContain('Working muscles');
+    const map = v.root.findByType(MuscleMap);
+    expect(map.props.height).toBe(160);
+    const regions = v.root
+      .findAllByType(Path)
+      .filter((n: any) => n.props.testID?.startsWith('anatomical-region-'));
+    expect(
+      regions.some((n: any) => n.props.fill === colors.musclePrimary),
+    ).toBe(true);
+    expect(
+      regions.some((n: any) => n.props.fill === colors.muscleSecondary),
+    ).toBe(true);
+    for (const muscle of map.props.muscles) {
+      expect(muscle.primary).toBe(muscle.id === 'triceps' ? 1 : 0);
+      expect(muscle.secondary).toBe(
+        muscle.id === 'chest' || muscle.id === 'front-delts' ? 1 : 0,
+      );
+    }
+    expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
+    act(() => button(v, 'Show FINISH')!.props.onPress());
+    act(() =>
+      button(v, 'Muscle details for Assisted Dip Machine')!.props.onPress(),
+    );
+    expect(
+      v.root.findAllByType(MuscleMap).map((n: any) => n.props.height),
+    ).toEqual([160, 340]);
+    expect(text(v)).toContain('Qualitative muscle roles');
+    const modal = v.root
+      .findAllByType(Modal)
+      .find((n: any) => n.props.testID === 'exercise-muscle-details')!;
+    act(() => modal.props.onRequestClose());
+    expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
+    expect(
+      v.root
+        .findAllByType(Image)
+        .some(
+          (n: any) =>
+            n.props.accessibilityLabel === 'Assisted Dip Machine: FINISH' &&
+            n.props.source === 3102,
+        ),
+    ).toBe(true);
+    act(() =>
+      button(v, 'Muscle details for Assisted Dip Machine')!.props.onPress(),
     );
     act(() => button(v, 'Close muscle details')!.props.onPress());
     expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
