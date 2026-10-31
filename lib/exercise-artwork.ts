@@ -50,6 +50,10 @@ const straightArmPair = {
   start: require('../assets/exercises/cable-straight-arm-pulldown/start.webp'),
   finish: require('../assets/exercises/cable-straight-arm-pulldown/finish.webp'),
 };
+const frontSquatPair = {
+  start: require('../assets/exercises/barbell-front-squat/start.webp'),
+  finish: require('../assets/exercises/barbell-front-squat/finish.webp'),
+};
 const backSquatPair = {
   start: require('../assets/exercises/barbell-back-squat/start.webp'),
   finish: require('../assets/exercises/barbell-back-squat/finish.webp'),
@@ -188,6 +192,7 @@ export function resolveExerciseArtwork(
   if (variantId === 'ez-bar-curl') return ezBarCurlPair[phase];
   if (variantId === 'hammer-curl') return hammerCurlPair[phase];
   if (variantId === 'cable-biceps-curl') return cableCurlPair[phase];
+  if (variantId === 'barbell-front-squat') return frontSquatPair[phase];
   if (variantId === 'barbell-back-squat') return backSquatPair[phase];
   if (variantId === 'push-up') return pushUpPair[phase];
   if (variantId === 'pec-deck-fly') return pecDeckPair[phase];

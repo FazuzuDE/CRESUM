@@ -5,6 +5,8 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/barbell-front-squat/start.webp', () => 4001);
+jest.mock('../../assets/exercises/barbell-front-squat/finish.webp', () => 4002);
 jest.mock('../../assets/exercises/barbell-back-squat/start.webp', () => 3901);
 jest.mock('../../assets/exercises/barbell-back-squat/finish.webp', () => 3902);
 jest.mock('../../assets/exercises/push-up/start.webp', () => 3801);
@@ -322,6 +324,7 @@ it.each([
   ['Pec Deck Fly', 3701, 3702],
   ['Push-Up', 3801, 3802],
   ['Barbell Back Squat', 3901, 3902],
+  ['Barbell Front Squat', 4001, 4002],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
@@ -358,7 +361,7 @@ it.each([
 it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Barbell Front Squat')!.props.onPress());
+    act(() => button(v, 'Technique for Leg Press')!.props.onPress());
     expect(text(v)).toContain('Image coming soon');
     act(() => button(v, 'Show FINISH')!.props.onPress());
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
@@ -1208,6 +1211,46 @@ it('keeps Back Squat muscle roles and FINISH while expanding anatomy', () => {
           (n: any) =>
             n.props.accessibilityLabel === 'Barbell Back Squat: FINISH' &&
             n.props.source === 3902,
+        ),
+    ).toBe(true);
+  } finally {
+    act(() => v.unmount());
+  }
+});
+
+it('keeps Front Squat muscle roles and FINISH while expanding anatomy', () => {
+  const v = render();
+  try {
+    act(() => button(v, 'Technique for Barbell Front Squat')!.props.onPress());
+    const muscles = v.root.findByType(MuscleMap).props.muscles;
+    expect(
+      muscles
+        .filter((m: any) => m.primary === 1)
+        .map((m: any) => m.id)
+        .sort(),
+    ).toEqual(['glutes', 'quadriceps']);
+    expect(
+      muscles
+        .filter((m: any) => m.secondary === 1)
+        .map((m: any) => m.id)
+        .sort(),
+    ).toEqual(['abs', 'upper-back']);
+    act(() => button(v, 'Show FINISH')!.props.onPress());
+    act(() =>
+      button(v, 'Muscle details for Barbell Front Squat')!.props.onPress(),
+    );
+    expect(
+      v.root.findAllByType(MuscleMap).map((m: any) => m.props.height),
+    ).toEqual([160, 340]);
+    act(() => button(v, 'Close muscle details')!.props.onPress());
+    expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
+    expect(
+      v.root
+        .findAllByType(Image)
+        .some(
+          (n: any) =>
+            n.props.accessibilityLabel === 'Barbell Front Squat: FINISH' &&
+            n.props.source === 4002,
         ),
     ).toBe(true);
   } finally {
