@@ -1,3 +1,5 @@
+jest.mock('../../assets/exercises/push-up/start.webp', () => 3801);
+jest.mock('../../assets/exercises/push-up/finish.webp', () => 3802);
 import { MuscleMap } from '../../components/MuscleMap';
 import { Path } from 'react-native-svg';
 import { colors } from '../theme';
@@ -316,6 +318,7 @@ it.each([
   ['Machine Chest Press', 3501, 3502],
   ['Cable Chest Fly', 3601, 3602],
   ['Pec Deck Fly', 3701, 3702],
+  ['Push-Up', 3801, 3802],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
@@ -352,7 +355,7 @@ it.each([
 it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Push-Up')!.props.onPress());
+    act(() => button(v, 'Technique for Barbell Back Squat')!.props.onPress());
     expect(text(v)).toContain('Image coming soon');
     act(() => button(v, 'Show FINISH')!.props.onPress());
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
@@ -1107,6 +1110,7 @@ it.each([
   ['Machine Chest Press', 3502],
   ['Cable Chest Fly', 3602],
   ['Pec Deck Fly', 3702],
+  ['Push-Up', 3802],
 ] as const)(
   'shows %s roles and opens/closes larger anatomy without changing FINISH',
   (name, finishAsset) => {
@@ -1129,6 +1133,7 @@ it.each([
         expect(muscle.primary).toBe(muscle.id === 'chest' ? 1 : 0);
         expect(muscle.secondary).toBe(
           muscle.id === 'front-delts' ||
+            (name === 'Push-Up' && muscle.id === 'abs') ||
             (!['Cable Chest Fly', 'Pec Deck Fly'].includes(name) &&
               muscle.id === 'triceps')
             ? 1

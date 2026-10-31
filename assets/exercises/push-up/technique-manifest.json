@@ -1,0 +1,52 @@
+{
+  "variantId": "push-up",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-16a5e257-fa76-4204-ac62-dc610485a205.png",
+      "sourceSha256": "fb5b00f3e67e95066ad6cde1514d5d9ce836ca2a5eaed195a614e339ef34e3b0",
+      "sourceBytes": 1355968,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "d11a71570401460b71c7d8f7823a5bb12b0964bc17c2df703a3d1368f796052f",
+      "bytes": 34046,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-16a5e257-fa76-4204-ac62-dc610485a205.png",
+      "sourceSha256": "fb5b00f3e67e95066ad6cde1514d5d9ce836ca2a5eaed195a614e339ef34e3b0",
+      "sourceBytes": 1355968,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "efbac32c56a45d6afd19460f8c2ee0402f2b5392001dd848e5ec22b50b1960f0",
+      "bytes": 37020,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "LEFT lower START / RIGHT upper FINISH illustrates upward press, not the full-cycle setup order. Preserve existing guide and chest Primary/triceps/front-delts/abs Secondary.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch/resampling/padding/phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 1,
+    "lineage": "Two actual user pose references and Male Master."
+  },
+  "reviewScope": "Broad phase/identity/material continuity reviewed. Precise hand/finger contacts, toe support, elbow angles, plank alignment and inter-phase registration not independently certified. Physical-device/accessibility QA pending. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original/exact prompt/actual inputs retained locally for final checkpoint. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}
