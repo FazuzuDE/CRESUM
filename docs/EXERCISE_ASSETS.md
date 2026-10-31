@@ -1,5 +1,21 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Cable Chest Fly selected Male pair — 2026-10-31
+
+User approved latest side-view r5 `exec-191fd8b7-40a3-4097-bfc5-6f1db0a51cb7.png`.
+Exact887-square LEFT bent-elbow START / RIGHT hands-together FINISH halves,
+RGB WebP92/method6; no retouch/resampling/padding/phase-specific transforms.
+Bind only `cable-chest-fly`/Male, retaining chest Primary and front-delts
+Secondary(no triceps), shared phase/anatomy viewers, stable IDs/History/data
+and other/Female/attachment fallbacks. High-to-low camera/pose is an example,
+not a narrowing of generic pulley-angle-varies identity or existing guide.
+User corrections: visible elbow bend at START and side-three-quarter view.
+Retain5originals/exact prompts/actual input lineage for final checkpoint,
+no per-exercise ZIP. Keep user-selected-provisional: exact plate counts/hidden
+mechanism, far-stack occlusion, constant elbow-angle fidelity across phases,
+detailed hand/cable contacts, frame registration and device/accessibility
+not certified. PC/Oracle backup unverified.
+
 ## Machine Chest Press selected Male pair — 2026-10-31
 
 User approved r1 `exec-02ab8a98-b93d-4f96-9d3c-3ca1f33591e1.png`.

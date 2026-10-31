@@ -1,0 +1,151 @@
+{
+  "exerciseId": "cable-chest-fly",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "cable-chest-fly",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "superseded",
+      "tool": "built-in image_gen",
+      "prompt": "Create ONE original CRESUM STANDING HIGH-TO-LOW CABLE CHEST FLY exercise diptych, landscape2:1, TWO equal square independently crop-safe panels. Input1 is user equipment/pose/camera reference ONLY. Input2 is actual locked CRESUM Male Master: same face, short brown hair, clean-shaven natural athletic proportions, smooth blue-gray short-sleeve T-shirt, charcoal shorts, white socks/light-gray sneakers. Premium realistic3D clean studio rendering, white background/soft contact shadows; light satin silver cable frame, dark rubber grips and black selectorized weight plates. No anatomical exposed muscles, colored overlays, arrows, text, logos, watermarks or panel divider.\nLEFT START: both arms opened out to sides slightly behind chest, soft constant bend at elbows, separate single-hand D-handles held securely with wrapped fingers/opposing thumbs, aligned wrists. RIGHT FINISH: sweep both hands downward and inward to meet just in front of LOWER CHEST/upper abdomen with small visible separation between handles; elbows retain roughly the same modest bend, shoulders adduct. This is a FLY not a press: don't start with sharply bent elbows and extend them; don't turn into a curl. High cable exits ABOVE shoulder/head level on BOTH columns, taut cables slope DOWNWARD to respective hand handles through realistic swivels/carabiners. At finish each cable remains connected to the correct separate hand handle and its own high pulley, no wrist wrapping or disconnected ends. Hands come together without overlapping/fused fingers.\nStanding slightly ahead of compact cable crossover frame, front-side three-quarter camera matching reference: athlete faces slightly toward viewer-left. Staggered split stance with one foot forward, knees soft, slight constant forward hip hinge, back neutral, torso/head/pelvis/feet remain fixed in both phases. Same full character identity and anchor positions between panels. Both shoes firmly placed, no bare feet or tiptoe floating, no changed stance. No chest support, no seated bench.\nEquipment same physical twin-column cable station in BOTH panels, one left column and one right column linked by overhead crossbar, SAME dimensions/pulley height/ground feet/camera/scale/registration. Both stacks visible behind/aside athlete without obstructing hands. Each station has two independent matching selectorized stacks. At START selected top block of plates sits just above lower stationary stack (minimal tension gap); at FINISH drawing handles away from high outlets raises the SAME selected upper block on BOTH stacks, opening clearly visible gaps above the SAME lower stationary plates. Do NOT lift the entire stack, alter plate count or selector settings, move lower fixed plates, or leave load frozen in finish. Keep same number and thickness of plates between phases and no ambiguous extra weight towers. Single continuous credible cable path per arm; no dangling extra cords. Preserve fixed pulley/crossbar/base geometry.\nFraming: ONE shared front-side three-quarter camera and exactly equal large scale across panels. Full frame top/crossbar, all machine feet, full head, both shoes, both arms/handles and movement envelope fit in EACH independent square with small comfortable clean white margin to all edges and central boundary. Do not crop top crossbar or arm reach or make finish athlete smaller. Fit the whole apparatus harmoniously while keeping hand mechanics legible. Uniform smooth skin/shirt/shorts/metal textures, no patchy recoloring. Return only the complete two-phase illustration.",
+      "references": [
+        {
+          "file": "A61C9C05-B582-45C8-87F4-B26CBBC8A107.png",
+          "sha256": "a615a9efe03310e35f849ca6fae2660f025287b1d2c2d9144487d6b9091c19cb",
+          "bytes": 117652
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-46833be8-e59d-4243-8a75-75ba930e55df.png",
+        "sha256": "900a73416930b66ea9d9131fb4e491d8ec776c33690bc2f6d76fb06b657be706",
+        "bytes": 1579781,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    },
+    {
+      "exerciseId": "cable-chest-fly",
+      "model": "male",
+      "phase": "pair",
+      "revision": 2,
+      "status": "superseded",
+      "tool": "built-in image_gen",
+      "prompt": "Targeted equipment repair ONLY on the first image, a CRESUM two-panel high-to-low cable fly. Second image actual Male Master preserves identity/materials only. Preserve first image BOTH athlete poses, hands, face/outfit/skin textures, exact stance/body anchors, all cable/grip geometry, machine fixed frame/pulleys/base, camera/scale/framing and white background. LEFT panel open-arm START remains unchanged. RIGHT panel hands-together FINISH has an equipment error: rightmost weight stack shows a raised upper selected block with a gap, but the OTHER stack (behind the athlete's forward forearm/hands on viewer-left of the RIGHT panel) is still down. Repair BOTH stacks in RIGHT FINISH into matching coherent states: each tower must contain the same total count of16 equal black plates as its corresponding START stack, selected upper8 plates and stationary lower8 plates. In LEFT START all16 sit in one continuous column near base, at minimal gap/pre-tension. In RIGHT FINISH lift selected upper8plates on BOTH towers by the same physical travel, leave each lower8plate block at the exact SAME base height as its respective START. Clear visible vertical air gap between raised and stationary blocks on BOTH finish towers; gap may be partially occluded by correct original hand/forearm but enough of the raised block and gap must remain visible to either side. Keep selected upper8 block within original guide rods, with credible lifting fitting/cable connection; don't move stack column sideways, don't put plates in front of arms, don't lift all16, don't add floating plates, don't change selector setting or plate thickness between panels. Use same totalplate count on all4depictions, same split8+8. You may correct the existing finish rightmost block to this exact same count as needed. The only image edits allowed are consistent plate counts/positions and their associated lifting fittings on the4stack depictions; do not redesign apparatus or change poses, grip mechanics, cables to hands, Master body/shirt colors or entire scene registration. Full top crossbar/shoes/base remain in frame. No text, arrows, watermark or anatomical overlay. Return complete same two-panel image.",
+      "references": [
+        {
+          "file": "exec-46833be8-e59d-4243-8a75-75ba930e55df.png",
+          "sha256": "900a73416930b66ea9d9131fb4e491d8ec776c33690bc2f6d76fb06b657be706",
+          "bytes": 1579781
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-feab728a-38dc-4f08-8db8-c0b0ac1c285b.png",
+        "sha256": "f1a3fa8023e574a1a38bea769bf83be9646af56d19725b44bd8429f7a12bddee",
+        "bytes": 1669138,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    },
+    {
+      "exerciseId": "cable-chest-fly",
+      "model": "male",
+      "phase": "pair",
+      "revision": 3,
+      "status": "superseded",
+      "tool": "built-in image_gen",
+      "prompt": "Edit target image1 CRESUM standing high-to-low cable fly paired sheet; image2 Male Master identity continuity. Preserve the same character identity, exact blue-gray shirt/charcoal shorts/white socks/gray shoes, LEFT open arms and RIGHT hands together lower chest, same stance/pose/head/body anchors, camera and scale, clean white/studio look, silver overhead-crossbar cable frame, two high cable outlets and hand cable connections. CRITICAL REPAIR: current RIGHT FINISH left weight stack remains unraised and obscured by forearm. Change the stack assembly arrangement consistently on BOTH machines to an outer-column stack layout, leaving athlete and cable fly poses untouched. Move each stack/guide-rod assembly to the OUTSIDE edge of its corresponding upright, symmetrically and identically in START and FINISH. Specifically viewer-left tower's stack goes to LEFT of that tower, away from the athlete/forearm, not on its inner right side. Viewer-right tower's stack goes to RIGHT of that tower, away from the athlete. Connect guide rail supports plausibly to the same silver frame bases and route the lifting cables over compact top sheaves to their existing high hand-cable outlets. No additional stacks, exactly TWO stacks per scene.\nEach stack has12 uniform black plates TOTAL, same dimensions and fixed selected load throughout. LEFT START BOTH stacks all12 contiguous near base. RIGHT FINISH BOTH stacks upper6 plates visibly RAISED about one block-height above the lower6 stationary plates: TWO clear separated raised blocks and TWO clear air gaps, one on EACH outside tower. Leave lower6 plates fixed at same base height as START. This bilateral finish must be obvious: both raised six-plate blocks sit completely beside the athlete rather than behind his hands/forearms, with dark upper blocks and clean white air gaps down to stationary lower blocks. Do not raise the whole12 or leave one stack down. No need to expose hidden internal transmission details, but visible stacks/guide rods/support brackets/cables must be plausible and consistent between phases. Frame both COMPLETE machines and all added outer stack widths, full head/shoes/base/crossbar with the same modest uniform camera zoom-out if necessary for BOTH panels. No cropping, phase-specific sizing, missing cables, floating weights, extra people, text, arrows, labels, logos, watermark, red muscle overlays or outfit/skin texture changes. Return the complete two-panel sheet only.",
+      "references": [
+        {
+          "file": "exec-feab728a-38dc-4f08-8db8-c0b0ac1c285b.png",
+          "sha256": "f1a3fa8023e574a1a38bea769bf83be9646af56d19725b44bd8429f7a12bddee",
+          "bytes": 1669138
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-65e6e30d-e0bb-42fd-be7d-14c88fcae1f4.png",
+        "sha256": "e3043af7b6c8f319ba74b986c0b6a18ee2091cbdb59fffe3bdccb2a4192203ca",
+        "bytes": 1676065,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    },
+    {
+      "exerciseId": "cable-chest-fly",
+      "model": "male",
+      "phase": "pair",
+      "revision": 4,
+      "status": "superseded",
+      "tool": "built-in image_gen",
+      "prompt": "Targeted pose correction to first image, the current CRESUM high-to-low cable fly diptych. Second image is user's original pose reference. Change ONLY BOTH arm poses and necessary cable/handle endpoints in the LEFT START panel. User specifically rejects the almost-straight horizontally outstretched start arms. Match original reference START: clearly BEND BOTH ELBOWS, upper arms opened sideways/slightly back at about shoulder level, forearms visibly angled forward and slightly down to the handles. Draw a readily visible angular elbow bend of approximately50-60degrees of flexion (interior elbow angle about120-130degrees), NOT a tiny5degree soft bend and NOT ruler-straight arms. Both wrists/handles must move visibly closer toward the shoulders/body than in the current image, shortening lateral reach. Keep elbows distinctly out wide behind the hands; show two anatomically credible upper-arm and forearm segments with readable elbow creases. Both hands still securely grip their own separate D-handles with wrapped thumbs; wrists aligned; taut cables run directly from the unchanged high pulleys to each newly positioned handle. Original reference arm bends govern pose, do not copy reference grayscale anatomy/body/style. Maintain CRESUM blue-gray T-shirt, same face/hair/skin/materials/identity, same split stance, torso/head/hips/feet/camera/framing/scale. Preserve BOTH complete machine frames, outer-side weight stacks, all equipment dimensions and plate positions from target. Preserve the ENTIRE RIGHT FINISH panel unchanged, including athlete arms/hands/stance, two raised selected blocks and their stationary lower blocks/gaps, cables, outfit, face, machine, white background and shadows. No new text, overlays, arrows, watermarks, extra limbs, altered clothing colors or cropping. Return complete two-panel sheet, left start with clearly bent elbows and original right finish.",
+      "references": [
+        {
+          "file": "exec-65e6e30d-e0bb-42fd-be7d-14c88fcae1f4.png",
+          "sha256": "e3043af7b6c8f319ba74b986c0b6a18ee2091cbdb59fffe3bdccb2a4192203ca",
+          "bytes": 1676065
+        },
+        {
+          "file": "A61C9C05-B582-45C8-87F4-B26CBBC8A107.png",
+          "sha256": "a615a9efe03310e35f849ca6fae2660f025287b1d2c2d9144487d6b9091c19cb",
+          "bytes": 117652
+        }
+      ],
+      "output": {
+        "file": "exec-85fd776f-0767-4f89-8c85-c86ab8328bb5.png",
+        "sha256": "ccb7efe023eda61bd764dcabc2b8ab55922e4d6753003e59c23adc1a7a7f8332",
+        "bytes": 1661374,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    },
+    {
+      "exerciseId": "cable-chest-fly",
+      "model": "male",
+      "phase": "pair",
+      "revision": 5,
+      "status": "user-selected",
+      "tool": "built-in image_gen",
+      "prompt": "Re-render/edit the current CRESUM high-to-low cable fly two-panel illustration from a NEW CAMERA ANGLE matching image2 exactly. Image1 is current edit target defining man, outfit/materials, two phases, cable machine and selected weights. Image2 is user's CAMERA AND POSE reference and takes priority for view orientation. Image3 actual Male Master preserves face/build/outfit. Required camera change: NOT the broad near-frontal symmetrical view in image1. Use image2's noticeably SIDE-ON THREE-QUARTER view, looking down slightly, athlete facing toward viewer-left, cable station receding diagonally into background toward viewer-right. The athlete is positioned ahead/left of apparatus in each scene, with nearer/right-side column clearly farther to viewer-right, rear crossbeam foreshortened diagonally. Show front and side surfaces with clear depth like reference. Roughly rotate whole scene35-45degrees from target's frontal view toward the user's side view; do NOT just turn the man's head or mirror the figure while leaving frontal frame. Match image2 visible side profile of torso/face, staggered stance, pronounced but controlled slight forward lean from hips. LEFT START upper arms open sideways and slightly backward at shoulder level, BOTH ELBOWS CLEARLY BENT as in user pose reference, about50-60degrees flexion (interior120-130), hands in front of corresponding elbows, not straight wide T-pose. RIGHT FINISH sweep both hands DOWN and inward in front of lower chest/upper abdomen, two separate D-handles almost touching, elbows softly bent, not a shoulder press/curl. Same bent-elbow start that user corrected remains mandatory.\nPreserve SAME CRESUM male face/short brown hair/blue-gray T-shirt/charcoal shorts/white socks/light-gray shoes, natural proportions and consistent smooth skin/clothing/materials. Light silver/white twin-column cable frame, dark grips/black plates. Same physical machine dimension/pulley positions/body/feet/head anchors across both phases viewed by EXACT SAME new camera and uniform large scale. Both high outlets clearly above shoulder/head with taut cable connected to correct separate D-handle via metal swivel/carabiner, secure thumb/finger grip and aligned wrists, no wrist-wrapped cable. Full overhead crossbar, all base feet, complete shoes/head/handles fit in each independent square, crop-safe white margins on every side.\nRetain two weight stack assemblies on outside of their respective towers so selected load travel stays visible in new view, no inner stack hidden completely by forearm. LEFT START selected upper blocks down close to remaining plates. RIGHT FINISH raise selected upper blocks on BOTH columns with visible gaps above stationary lower plates; preserve total number of plates and pin setting/plate thickness across phases. Do not raise whole stacks, add extra plates or freeze one side. Exact stance/torso/feet remain stable between phases; only arms/handles/cable lengths and selected load move. Same equipment and camera scale/registration between LEFT START and RIGHT FINISH. White studio background/soft ground shadows, coherent premium realistic3D CRESUM style. No anatomical overlay, text, arrows, branding, watermarks, divider or additional people. Return ONE2:1 landscape sheet of TWO equal square scenes, matching the user's side-three-quarter camera reference.",
+      "references": [
+        {
+          "file": "exec-85fd776f-0767-4f89-8c85-c86ab8328bb5.png",
+          "sha256": "ccb7efe023eda61bd764dcabc2b8ab55922e4d6753003e59c23adc1a7a7f8332",
+          "bytes": 1661374
+        },
+        {
+          "file": "369B86AF-2779-4251-A66A-8D9875EA2F3E.png",
+          "sha256": "a615a9efe03310e35f849ca6fae2660f025287b1d2c2d9144487d6b9091c19cb",
+          "bytes": 117652
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-191fd8b7-40a3-4097-bfc5-6f1db0a51cb7.png",
+        "sha256": "b92b34bfa5b106bb97f4acbcd17bc7c91bf196a035ee4e564c8660aff020147c",
+        "bytes": 1696953,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}
