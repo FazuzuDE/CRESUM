@@ -1,0 +1,35 @@
+{
+  "exerciseId": "machine-chest-press",
+  "model": "male",
+  "selectionDate": "2026-10-31",
+  "decision": "Утверждаю",
+  "status": "user-selected-pair",
+  "selectedRevision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-02ab8a98-b93d-4f96-9d3c-3ca1f33591e1.png",
+      "sourceSha256": "cd917f343f25e9b0ca16320fc8940ab6b306a96f623bc7f72b2d6a538c0dc659",
+      "sourceBytes": 1500215,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "ce71562613b33221aaab6c3a492267a8b787809be6d4480683d6e17a7694557d",
+      "bytes": 54402,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-02ab8a98-b93d-4f96-9d3c-3ca1f33591e1.png",
+      "sourceSha256": "cd917f343f25e9b0ca16320fc8940ab6b306a96f623bc7f72b2d6a538c0dc659",
+      "sourceBytes": 1500215,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "c48e5186c4a5b04989293c4fc1cf90287a42ff74c23dc1699893a01713dddf25",
+      "bytes": 52076,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

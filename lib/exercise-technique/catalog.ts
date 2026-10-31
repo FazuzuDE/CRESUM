@@ -59,14 +59,12 @@ export const techniqueCatalog = {
     sources: ['ace-19'],
   },
   'machine-chest-press': {
-    revision: 1,
+    revision: 2,
     scope: 'Seated machine press; handle geometry varies.',
     setup: [
       'Adjust seat so handles are around mid-chest. Keep back supported and feet stable.',
     ],
-    movement: [
-      'Press forward smoothly; return without letting the stack crash.',
-    ],
+    movement: ['Press forward smoothly; return the handles under control.'],
     checks: [
       'Use a closed grip, aligned wrists and a controlled comfortable range.',
     ],

@@ -96,7 +96,7 @@ export default flattenTechniqueText({
       'Stelle den Sitz so ein, dass die Griffe etwa auf Brustmitte liegen. Halte den Rücken gestützt und die Füße stabil.',
     ],
     movement: [
-      'Drücke gleichmäßig nach vorn; führe zurück, ohne den Gewichtsblock aufschlagen zu lassen.',
+      'Drücke gleichmäßig nach vorn; führe die Griffe kontrolliert zurück.',
     ],
     checks: [
       'Nutze einen geschlossenen Griff, gerade Handgelenke und einen angenehmen kontrollierten Bewegungsumfang.',
