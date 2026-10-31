@@ -1,0 +1,33 @@
+{
+  "exerciseId": "barbell-back-squat",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "barbell-back-squat",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "user-selected",
+      "prompt": "Create ONE original CRESUM fitness exercise illustration pair for BARBELL BACK SQUAT, landscape canvas exactly 2:1, two equal independently crop-safe square halves side by side with no visible divider. Reference1 defines exercise, upper/lower poses and front-side three-quarter camera facing viewer-right. Reference2 is the locked Male Master: use the SAME natural athletic man, short brown hair, clean-shaven face, fitted muted blue-gray short-sleeve T-shirt, charcoal shorts, white ankle socks and light gray training sneakers. Premium realistic/semi-realistic 3D white studio render, smooth uniform clothing/skin/metal surfaces, soft subtle contact shadows on white ground, pure white background. Fully clothed normal skin, no anatomical overlays or red muscles, no text/logos/arrows/watermarks. LEFT START: standing tall holding a straight Olympic barbell across the muscular upper back/trapezius behind the shoulders, not on neck and not in front. RIGHT FINISH: controlled bottom of back squat, hips move back and down, thighs approximately parallel to floor, hips around knee height, knees flexed and tracking in line with toes, natural forward torso inclination with neutral flat spine and neck. Same planted shoulder-width stance, slight outward toe angle, whole soles and heels flat on floor in BOTH phases. Same bar across upper back, same closed overhand grip outside shoulder width, both thumbs around bar, wrists aligned naturally, elbows angled down/back. Bar stays balanced over midfoot, level with gravity, clearly passes behind neck across upper back; do not make front squat, overhead squat or Smith machine. Head follows torso with neutral neck and gaze naturally forward/downward. Reproduce source front-side three-quarter perspective that shows face/chest, both legs/feet and hand placement, without extreme perspective. EXACT SAME man/proportions/camera and body scale between panels, no phase-specific zoom. Same straight steel bar length and symmetrical loading of ONE black round plate on each side with identical collars in both phases. Entire bar, both sleeves/plates, fingers, head and sneakers included within each individual square with comfortable margins on every side and central boundary. Center each complete subject-and-bar assembly in its own half and use the available canvas harmoniously; preserve equal scale even though squat is shorter. No rack or other equipment. Both hands must visibly grip the same continuous bar, correct fingers, plausible shoulder contact; no floating bar, extra limbs, bent shaft or changing plate size. Return only the complete paired illustration.",
+      "references": [
+        {
+          "file": "665112E9-2EA1-4C7F-9471-208C17FD73CC.png",
+          "sha256": "687ecdeb4a5fb48d4a691c2ec7d2d86d7f57566328084f2014f484deffa727c1",
+          "bytes": 132876
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-8555e880-10c1-4897-a77f-d140d5c0a5e3.png",
+        "sha256": "94eb191b4e2ed742d11ead8bb708c7a69f482b810f0cd957f95536a7272e5398",
+        "bytes": 1371246,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}
