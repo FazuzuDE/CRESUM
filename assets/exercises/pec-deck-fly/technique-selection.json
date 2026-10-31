@@ -1,0 +1,35 @@
+{
+  "exerciseId": "pec-deck-fly",
+  "model": "male",
+  "selectionDate": "2026-10-31",
+  "decision": "Утверждаю",
+  "status": "user-selected-pair",
+  "selectedRevision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-71005bce-5bdb-4c9b-9a5d-24c77c88e307.png",
+      "sourceSha256": "7963082133e48efa1acfd94a8006991e918c6c2b0b49acb165ac9ced88e386c1",
+      "sourceBytes": 1461739,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "4659d78e55bc151cfdb58de6c2de7d8fb5a7071eba83318a6bfd3b8d6c240470",
+      "bytes": 53574,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-71005bce-5bdb-4c9b-9a5d-24c77c88e307.png",
+      "sourceSha256": "7963082133e48efa1acfd94a8006991e918c6c2b0b49acb165ac9ced88e386c1",
+      "sourceBytes": 1461739,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "957fba96e1d072e71a53649d8575f4294752b624d10626c7549d4cd3961b21a5",
+      "bytes": 50716,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

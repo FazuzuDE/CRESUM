@@ -1,5 +1,18 @@
 # CRESUM Decision Log
 
+## Pec Deck Fly selected Male pair — 2026-10-31
+
+User approved r1 `exec-71005bce-5bdb-4c9b-9a5d-24c77c88e307.png`.
+Exact887-square LEFT open START / RIGHT closed FINISH, RGB WebP92/method6;
+no retouch/resampling/padding/phase-specific transforms. Bind only existing
+`pec-deck-fly`/Male. Preserve chest Primary/front-delts Secondary, shared
+phase/anatomy viewers, generic handle/forearm-pad guide, IDs/History/data and
+other/Female/attachment fallbacks. Vertical-handle machine is an example,
+not a narrowing of the saved identity. Retain original/exact prompt/actual
+inputs for final checkpoint; no ZIP. Keep user-selected-provisional: precise
+plate counts/hidden linkage, rigid lever dimensions, hand/wrist contacts,
+elbow-angle fidelity and device/accessibility not certified. PC/Oracle unverified.
+
 ## Cable Chest Fly selected Male pair — 2026-10-31
 
 User approved latest side-view r5 `exec-191fd8b7-40a3-4097-bfc5-6f1db0a51cb7.png`.

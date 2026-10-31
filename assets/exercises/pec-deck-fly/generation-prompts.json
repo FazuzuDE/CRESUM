@@ -1,0 +1,33 @@
+{
+  "exerciseId": "pec-deck-fly",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "pec-deck-fly",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "user-selected",
+      "prompt": "Create ONE original CRESUM SEATED PEC DECK CHEST FLY exercise diptych, landscape2:1 sheet with TWO equal independently crop-safe square panels. Input1 is user's exact equipment/pose/phase/camera reference, not artistic style. Input2 actual locked CRESUM Male Master defines face, short brown hair, clean-shaven natural athletic proportions, blue-gray fitted short-sleeve T-shirt, charcoal shorts, white socks/light-gray sneakers. SAME man, identity/outfit and smooth uniform materials in BOTH scenes. Premium realistic3D clean white studio background with soft contact shadows, satin light silver/white machine frame, dark graphite seat/back padding, black rubber vertical grip handles and black selectorized weight plates. No anatomical exposed muscle fibers, red overlays, text, logos, watermarks, arrows, captions or center divider.\nRecreate the HANDLE-GRIP PEC DECK in Input1, not the elbow-pad butterfly and not a chest press: seated upright against backrest, knees bent and legs naturally apart, both feet supported on floor, two overhead pivoting lever assemblies sweeping arms in a horizontal chest fly arc. Each hand holds a VERTICAL grip at chest/shoulder height with closed neutral palms-inward grip, thumbs around the grips, no forearm pads. SAME fixed frame, seat adjustment, overhead pivots/cams, lever lengths and handle geometry in both phases. Preserve all rigid lever segment lengths as arms pivot. LEFT START: arms opened to either side at chest height with modest visible maintained elbow bend, not hyperextended, hands no farther back than a comfortable shoulder/chest line. RIGHT FINISH: both handles sweep forward and INWARD to just in front of mid chest, small clear separation, elbows retain the same modest bend. Hands and separate vertical grips never fuse/overlap. Do not turn it into an elbow-extension chest press or shrug; shoulder horizontal adduction creates motion. Head, supported torso/back/hips, seat and both feet stay in the SAME positions between phases; only arms and machine moving levers/load move.\nSingle selectorized stack tower behind and to viewer-left of the seat, positioned so its load motion remains visible in BOTH panels. Show exactly12 equal-thickness black rectangular plates TOTAL in EACH depiction, same selected setting upper6 plates and lower6 stationary plates. LEFT START all12 contiguous near base under mild tension. RIGHT FINISH lift only upper6plates as one block upward on guide rods, leave lower6 at the exactsame base height, with a clearly visible air gap. Do not lift entire stack, duplicate plates, add plates, move lower6 or change selector setting. Overhead cam/cable linkage connects movement plausibly to stack without stray cords, floating weights or impossible disconnected rods.\nCamera matches reference front-side three-quarter slightly elevated view, seeing chest and both grips clearly. Both square panels use EXACT SAME camera/scene registration and large uniform scale, not mirrored or phase-specific zoom. Include COMPLETE overhead pivots/cams/frame top, full head, handles/arms, both shoes, whole stack movement envelope and ALL base feet in each independent square, comfortable white margins on every edge and central boundary. Use available canvas harmoniously without giant blank space; never clip machine to gain scale. Same face/build, even skin/shirt/short colors, smooth coherent metal/pad textures. Return complete paired illustration only.",
+      "references": [
+        {
+          "file": "C16142C1-DD0A-4754-A09B-B8EB563D173D.png",
+          "sha256": "3e9bc279161554e09cbfc839da0d7b473c17739543202067fb3b40f7f0a48f85",
+          "bytes": 223436
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-71005bce-5bdb-4c9b-9a5d-24c77c88e307.png",
+        "sha256": "7963082133e48efa1acfd94a8006991e918c6c2b0b49acb165ac9ced88e386c1",
+        "bytes": 1461739,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}

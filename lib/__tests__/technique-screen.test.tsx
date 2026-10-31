@@ -5,6 +5,8 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/pec-deck-fly/start.webp', () => 3701);
+jest.mock('../../assets/exercises/pec-deck-fly/finish.webp', () => 3702);
 jest.mock('../../assets/exercises/cable-chest-fly/start.webp', () => 3601);
 jest.mock('../../assets/exercises/cable-chest-fly/finish.webp', () => 3602);
 jest.mock('../../assets/exercises/machine-chest-press/start.webp', () => 3501);
@@ -313,6 +315,7 @@ it.each([
   ['Dumbbell Bench Press', 3401, 3402],
   ['Machine Chest Press', 3501, 3502],
   ['Cable Chest Fly', 3601, 3602],
+  ['Pec Deck Fly', 3701, 3702],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
@@ -349,7 +352,7 @@ it.each([
 it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Pec Deck Fly')!.props.onPress());
+    act(() => button(v, 'Technique for Push-Up')!.props.onPress());
     expect(text(v)).toContain('Image coming soon');
     act(() => button(v, 'Show FINISH')!.props.onPress());
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
@@ -1103,6 +1106,7 @@ it.each([
   ['Dumbbell Bench Press', 3402],
   ['Machine Chest Press', 3502],
   ['Cable Chest Fly', 3602],
+  ['Pec Deck Fly', 3702],
 ] as const)(
   'shows %s roles and opens/closes larger anatomy without changing FINISH',
   (name, finishAsset) => {
@@ -1125,7 +1129,8 @@ it.each([
         expect(muscle.primary).toBe(muscle.id === 'chest' ? 1 : 0);
         expect(muscle.secondary).toBe(
           muscle.id === 'front-delts' ||
-            (name !== 'Cable Chest Fly' && muscle.id === 'triceps')
+            (!['Cable Chest Fly', 'Pec Deck Fly'].includes(name) &&
+              muscle.id === 'triceps')
             ? 1
             : 0,
         );
