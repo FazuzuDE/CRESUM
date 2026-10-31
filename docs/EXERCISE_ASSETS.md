@@ -1,5 +1,18 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Push-Up selected Male pair — 2026-10-31
+
+User approved r1 `exec-16a5e257-fa76-4204-ac62-dc610485a205.png`.
+Exact887-square LEFT lower START / RIGHT upper FINISH crops, RGB WebP92/method6.
+This pair illustrates the upward press, not full-cycle setup order. Preserve
+existing guide, stable `push-up` identity, chest Primary and triceps/front-delts/
+abs Secondary, shared viewers and all other/Female/attachment fallbacks.
+No retouch/resampling/padding/phase-specific transforms. Actual two pose inputs
+and Male Master retained with original/exact prompt for final checkpoint; no ZIP.
+Status user-selected-provisional: precise hand/finger contacts, toe support,
+elbow angles, plank alignment/registration and device/accessibility not certified.
+No new live source review claimed. PC/Oracle backup unverified.
+
 ## Pec Deck Fly selected Male pair — 2026-10-31
 
 User approved r1 `exec-71005bce-5bdb-4c9b-9a5d-24c77c88e307.png`.

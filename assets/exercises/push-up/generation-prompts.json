@@ -1,0 +1,38 @@
+{
+  "exerciseId": "push-up",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "push-up",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "user-selected",
+      "prompt": "Create one premium CRESUM fitness exercise illustration pair for standard floor PUSH-UPS, wide canvas exactly 2:1, composed of two independently crop-safe equal square panels side by side with no divider. LEFT is the lowered bent-elbow phase from reference image 1. RIGHT is the raised straight-arm phase from reference image 2. Use references 1 and 2 for the poses, orientation and elevated three-quarter front-side camera view: feet toward the left/back, head toward the right/front. Use reference 3 strictly for the SAME male model identity, natural athletic proportions, face, short brown hair, fitted muted blue-gray crewneck T-shirt, charcoal shorts, white ankle socks, and light gray training sneakers. Fully clothed; normal skin. Premium realistic/semi-realistic clean 3D product illustration on pure white seamless floor/background, soft subtle contact shadows, smooth even textures and natural anatomy. No exposed anatomy, red muscle overlays, text, labels, arrows, logos, panels or watermark. Both figures full body, identical body scale and camera, complete head, all fingers and both sneakers entirely inside their own square with generous margins for mobile crops. Pose accuracy: standard push-up on palms and toes of sneakers; palms flat and fingers naturally spread, hands slightly wider than shoulders; feet together or hip-width, knees straight; head neck torso hips and legs form one rigid neutral plank without sagging hips or piking. LEFT chest close to floor, elbows visibly bent approximately 90 degrees and angled back about 45 degrees from torso, forearms nearly vertical, chest does not rest on floor. RIGHT body lifted as a single unit with elbows extended naturally, wrists below shoulders, no elbow hyperextension. Hands and toes stay at matching floor positions between phases. Match the supplied camera angle so both hands are readable and their ground contacts are unambiguous. Clean uncluttered composition with the two figures occupying similar useful visual area.",
+      "references": [
+        {
+          "file": "IMG_8388.jpeg",
+          "sha256": "3015da6b495ca1659b8e8c0b5a0ebc04df0d950bb9efee19f3e6f5ef7dfe7baf",
+          "bytes": 136656
+        },
+        {
+          "file": "IMG_8387.jpeg",
+          "sha256": "d7a7723ee57e0fe1d3fd0470b004a8d5c9e46422266db8548ad6358fe9606967",
+          "bytes": 166097
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-16a5e257-fa76-4204-ac62-dc610485a205.png",
+        "sha256": "fb5b00f3e67e95066ad6cde1514d5d9ce836ca2a5eaed195a614e339ef34e3b0",
+        "bytes": 1355968,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}
