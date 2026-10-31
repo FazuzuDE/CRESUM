@@ -1,0 +1,52 @@
+{
+  "variantId": "cable-chest-fly",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-191fd8b7-40a3-4097-bfc5-6f1db0a51cb7.png",
+      "sourceSha256": "b92b34bfa5b106bb97f4acbcd17bc7c91bf196a035ee4e564c8660aff020147c",
+      "sourceBytes": 1696953,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "724ad00d6cbeac0ca38a16fb1ca0cacb3170463c97eabf34b68afc8f91621117",
+      "bytes": 49710,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-191fd8b7-40a3-4097-bfc5-6f1db0a51cb7.png",
+      "sourceSha256": "b92b34bfa5b106bb97f4acbcd17bc7c91bf196a035ee4e564c8660aff020147c",
+      "sourceBytes": 1696953,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "fefdac36c339bc4a8e4a9e0ad45004e7ac0679af0401257a892f0fcb3cc49124",
+      "bytes": 54608,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "User-selected high-to-low side-three-quarter cable fly example. LEFT bent-elbow START / RIGHT hands-together FINISH. Preserve generic pulley-angle-varies ID/guide, chest Primary/front-delts Secondary; no triceps role added.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch/resampling/padding/phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 5,
+    "lineage": "r1 user pose+Master; r2 r1+Master stack repair; r3 r2+Master outer-stack repair; r4 r3+pose elbow correction; selected r5 r4+user camera+Master side view."
+  },
+  "reviewScope": "User-selected-provisional. Bent-elbow start, side view, broad fly phases/material continuity reviewed. Exact stack plate counts/hidden mechanism, far-stack occlusion, constant elbow-angle fidelity across phases, precise hand/cable contacts, frame registration and physical-device/accessibility acceptance not certified. Existing source guide unchanged; no new live primary-source verification claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "All5originals/exact prompts/actual input lineage retained locally for end-of-block checkpoint. No per-exercise ZIP. PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}
