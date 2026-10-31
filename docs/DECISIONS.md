@@ -12,7 +12,8 @@ padding/phase-specific transforms. Actual user pose sheet and Male Master,
 original/exact prompt retained for final checkpoint; no per-exercise ZIP.
 Status user-selected-provisional: precise foot/handle/padding contacts, knee extension/depth,
 rigid frame/rail/sled geometry/registration and device/accessibility not
-independently certified. Existing guide unchanged; no new live source review.
+independently certified. Fixed-frame/rail positioning visibly differs across phases.
+Existing guide unchanged; no new live source review.
 PC/Oracle backup unverified.
 
 ## Barbell Front Squat selected Male pair — 2026-10-31
