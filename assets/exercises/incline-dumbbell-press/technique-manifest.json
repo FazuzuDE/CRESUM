@@ -1,0 +1,58 @@
+{
+  "variantId": "incline-dumbbell-press",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-fe91dc7e-1678-4623-b7b5-3060cb76feb6.png",
+      "sourceSha256": "35e2854d65e68b9913fc491cd9de42a3992904061d366483fc1c1cda5b7832b6",
+      "sourceBytes": 1571799,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "33d043f1a8c2e841f133ef8fdb8a11fae619fb16ae6ee8f555512333221566ae",
+      "bytes": 53706,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-fe91dc7e-1678-4623-b7b5-3060cb76feb6.png",
+      "sourceSha256": "35e2854d65e68b9913fc491cd9de42a3992904061d366483fc1c1cda5b7832b6",
+      "sourceBytes": 1571799,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "35141fe3ef0d1859c57b8d17873759043d3f1296bc969dcfb6340833ccb12402",
+      "bytes": 52442,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Incline dumbbell chest press. LEFT lower START / RIGHT extended FINISH. Illustrated approximately45-degree bench is an example, not a restriction of the existing angle-unspecified ID. Preserve ACE25 guide, chest Primary; front-delts/triceps Secondary.",
+  "presentation": "Shared square contain, exact half-sheet crops without retouch/resampling/padding/phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 1,
+    "lineage": "User pose sheet and actual Male Master."
+  },
+  "reviewScope": "User-selected-provisional. Broad phases, full-frame fit/material continuity reviewed. Precise wrist/finger contacts, exact phase registration, bench geometry, tight top margin and physical-device/accessibility acceptance not certified. No new regional masks or load fractions.",
+  "sourceReview": {
+    "checkedOn": "2026-10-31",
+    "guide": "https://www.acefitness.org/resources/everyone/exercise-library/25/incline-chest-press/",
+    "regionalContext": "https://pubmed.ncbi.nlm.nih.gov/26464884/",
+    "scope": "ACE25 movement/support/grip cues rechecked. Dumbbell EMG abstract indicates phase-dependent clavicular/anterior-deltoid activity; no universal upper-chest isolation or numerical participation inferred."
+  },
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original/exact prompt/two actual inputs retained locally for end-of-block checkpoint. No per-exercise ZIP. PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "exerciseId": "incline-dumbbell-press",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "incline-dumbbell-press",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "user-selected",
+      "tool": "built-in image_gen",
+      "prompt": "Create ONE original CRESUM incline dumbbell chest press illustration diptych, landscape 2:1 sheet, TWO equally sized independently crop-safe square panels, LEFT lower bent-elbow phase START and RIGHT extended-arm phase FINISH. Image1 is supplied exercise pose/camera/mechanics reference only, not art style; Image2 is the locked actual CRESUM Male Master character identity and outfit. Recreate the exercise with the SAME man from Image2, face/short brown hair/clean-shaven/athletic natural proportions, muted blue-gray T-shirt, charcoal shorts, white socks/light gray sneakers in BOTH panels. Premium realistic 3D studio illustration, clean white background, soft natural contact shadows, smooth even skin/cloth/metal surfaces. NO anatomical exposed muscle fibers, colored muscle overlays, arrows, labels, text, logos, watermarks. The working chest/front shoulder/triceps mechanics should be evident in the accurate incline pressing pose; muscle highlighting is handled separately by the app's anatomy map, not painted on the shirt.\nEquipment: SAME adjustable incline bench in both halves, backrest at 45 degrees above horizontal, dark graphite padding, light silver/white frame, visible plausible hinge and angle adjustment support, slightly inclined seat. No barbell rack. TWO matching separate black dumbbells, one in each hand, SAME size, plate count and shape in both phases, short straight metal grip handles with visible secure closed hands/thumbs around them. Not a barbell, not cable, not overhead shoulder press. Both feet planted on floor, head/upper back/pelvis remain against bench in both phases, natural modest lumbar curve, no lifted hips or exaggerated arch. Camera matches image1 front-side elevated three-quarter view, feet toward bottom-left, head toward upper-right, both hands and both dumbbells legible. LEFT: elbows flexed approximately 90 degrees, dumbbells beside upper chest just outside shoulder line, forearms aligned below handles, wrists neutral, upper arms moderately angled away from torso (not maximally flared). Pronated palms toward feet/forward, grip same orientation in both phases. RIGHT: press both dumbbells upward above upper chest/shoulder line in physical space, elbows nearly fully extended without hyperextension, dumbbells approach one another with a small visible gap, no clanking or overlapping, wrists stay stacked. Arms move upward away from inclined torso, not vertically straight along the torso like a seated shoulder press. Only arms and dumbbells move; exactly register the same bench/body/head/feet anchors and same camera and large scale between phases.\nComposition: show COMPLETE man, both shoes, bench top/all frame feet and all dumbbells in each independent square. Enclose the entire combined movement envelope in each panel at identical large scale, with comfortable white margins at top/sides/bottom and central boundary. No clipping raised weights or shoe tips. Fill available space harmoniously, no extra items or background environment. Render one coherent pair with consistent materials, lighting and equipment dimensions.",
+      "references": [
+        {
+          "role": "user pose/camera reference with muscle labels",
+          "file": "image(20261031-104749).png",
+          "sha256": "da6c93034c49dfe6ad356bf80f8da35270f1288bd007059fb3c9eb27349ea0a9",
+          "bytes": 628218
+        },
+        {
+          "role": "actual Male Master identity/clothing",
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-fe91dc7e-1678-4623-b7b5-3060cb76feb6.png",
+        "sha256": "35e2854d65e68b9913fc491cd9de42a3992904061d366483fc1c1cda5b7832b6",
+        "bytes": 1571799,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}

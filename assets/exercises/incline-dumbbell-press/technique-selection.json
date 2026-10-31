@@ -1,0 +1,35 @@
+{
+  "exerciseId": "incline-dumbbell-press",
+  "model": "male",
+  "selectionDate": "2026-10-31",
+  "decision": "otvržda. (interpreted in context as approval)",
+  "status": "user-selected-pair",
+  "selectedRevision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-fe91dc7e-1678-4623-b7b5-3060cb76feb6.png",
+      "sourceSha256": "35e2854d65e68b9913fc491cd9de42a3992904061d366483fc1c1cda5b7832b6",
+      "sourceBytes": 1571799,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "33d043f1a8c2e841f133ef8fdb8a11fae619fb16ae6ee8f555512333221566ae",
+      "bytes": 53706,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-fe91dc7e-1678-4623-b7b5-3060cb76feb6.png",
+      "sourceSha256": "35e2854d65e68b9913fc491cd9de42a3992904061d366483fc1c1cda5b7832b6",
+      "sourceBytes": 1571799,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "35141fe3ef0d1859c57b8d17873759043d3f1296bc969dcfb6340833ccb12402",
+      "bytes": 52442,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
