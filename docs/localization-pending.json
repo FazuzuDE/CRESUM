@@ -8330,7 +8330,7 @@
   {
     "file": "lib/exercise-technique/catalog.ts",
     "line": 68,
-    "text": "Press forward smoothly; return without letting the stack crash.",
+    "text": "Press forward smoothly; return the handles under control.",
     "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:movement/ObjectLiteralExpression/PropertyAssignment:'machine-chest-press'"
   },
   {
