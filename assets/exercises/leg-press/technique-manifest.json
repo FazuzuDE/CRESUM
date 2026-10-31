@@ -1,0 +1,52 @@
+{
+  "variantId": "leg-press",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-9a36f9a9-2167-4c81-940f-ed39f5cd891b.png",
+      "sourceSha256": "5f1ef2c934b252a4758da99a48508679eff9a280dfd77774d3ff32ce592826fc",
+      "sourceBytes": 1885852,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "575312e23f6ab58d2833ae4980fa75763be3808807318b88f003a89e92886360",
+      "bytes": 90450,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-9a36f9a9-2167-4c81-940f-ed39f5cd891b.png",
+      "sourceSha256": "5f1ef2c934b252a4758da99a48508679eff9a280dfd77774d3ff32ce592826fc",
+      "sourceBytes": 1885852,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "a44842a7d9b7abf2e620396ab11641eea22fff470a810755f726bf38e1d70ecb",
+      "bytes": 83524,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "LEFT extended START / RIGHT bent FINISH. 45-degree plate-loaded example does not narrow generic leg-press ID. Preserve guide, saved generic leg-press identity and quadriceps/glutes Primary; hamstrings/adductors Secondary.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch/resampling/padding/phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 1,
+    "lineage": "Actual user two-phase leg-press reference and Male Master."
+  },
+  "reviewScope": "Broad phase/identity/material continuity reviewed. Precise foot/handle/padding contacts, knee extension/depth, rigid frame/rail/sled geometry/registration and physical-device/accessibility not independently certified. Existing guide unchanged; no new live source review claimed. Fixed-frame/rail positioning visibly differs across phases; exact rigid registration is not achieved.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original/exact prompt/actual inputs retained locally for final checkpoint. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}
