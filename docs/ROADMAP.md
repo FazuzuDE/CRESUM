@@ -1,5 +1,23 @@
 # CRESUM — Development Roadmap
 
+## Lying Barbell Triceps Extension selected Male pair — 2026-10-31
+
+User approved the latest supplied-reference adaptation,
+`exec-e23a9759-fb9b-40cf-b044-3beb55578e3e.png`,
+SHA `b8aefe7574bcf9ec9108eb4c44ce1bf3ef77be7957e0ceb92c61db3b0941a9a4`.
+Use exact 887-square LEFT bent START / RIGHT extended FINISH halves,
+RGB WebP92/method6, no retouch, resampling, padding or independent placement.
+Bind existing `lying-barbell-triceps-extension` / Male only; shared phase
+viewers/map retain triceps Primary/no Secondary and ACE36 guide. Preserve
+stable IDs, saved workouts/History, unrelated/Female/attachment fallbacks.
+Four originals and exact prompt/input chains retained: r1 Master/style;
+r2 r1/Master framing; r3 two user pose references + actual Master; selected
+r4 r3/Master framing. Source ACE36 rechecked 2026-10-30; guide/registry unchanged.
+Keep user-selected-provisional: detailed grip/wrist/finger/contact, precise
+registration/physical dimensions and device/accessibility acceptance not certified.
+Source checkpoint supplements prior archive preserving existing source bytes;
+PC download/Oracle backup unverified, Oracle deferred.
+
 ## Close-Grip Bench Press selected Male pair — 2026-10-30
 
 User approved corrected r4 exec-6176333d-946c-43cf-96f6-22bc30452026.png,

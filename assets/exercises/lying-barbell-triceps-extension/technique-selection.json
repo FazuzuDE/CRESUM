@@ -1,0 +1,38 @@
+{
+  "exerciseId": "lying-barbell-triceps-extension",
+  "model": "male",
+  "selectionDate": "2026-10-31",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю — последняя пара по присланным старт/финиш референсам",
+  "selectedCandidates": {
+    "start": "r4 left",
+    "finish": "r4 right"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-e23a9759-fb9b-40cf-b044-3beb55578e3e.png",
+      "sourceSha256": "b8aefe7574bcf9ec9108eb4c44ce1bf3ef77be7957e0ceb92c61db3b0941a9a4",
+      "sourceBytes": 1656774,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "6da5be298183ad1928ea268b4023d50a41050a8d4e313584cb94e09349496cb0",
+      "bytes": 40214,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-e23a9759-fb9b-40cf-b044-3beb55578e3e.png",
+      "sourceSha256": "b8aefe7574bcf9ec9108eb4c44ce1bf3ef77be7957e0ceb92c61db3b0941a9a4",
+      "sourceBytes": 1656774,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "1d612a385ad16fff74b30646ff031ff342351e90826e9bf5c66630ffa39230ab",
+      "bytes": 40606,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

@@ -1,0 +1,146 @@
+{
+  "exerciseId": "lying-barbell-triceps-extension",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "lying-barbell-triceps-extension",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "superseded-frame-clipping",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: scientific-educational.\nAsset type: CRESUM exercise-library Male technique candidate, one paired source sheet for two square app images.\nPrimary request: Create ONE polished original premium semi-realistic 3D illustration sheet of LYING STRAIGHT-BARBELL TRICEPS EXTENSION on a flat bench. Exactly TWO equal square panels side by side, landscape aspect ratio 2:1. LEFT shows the lowered, elbows-bent phase; RIGHT shows the completed elbow-extension phase. These must be different phases of the same repetition, not two starts.\nInput images: Image 1 is the actual CRESUM Male Master identity, proportions, skin, hairstyle and blue-gray outfit authority. Image 2 is the frozen equipment MATERIAL/RENDER STYLE reference only: satin silver frame, dark matte upholstery, clean premium white studio. Do not draw its pull-up machine or borrow its kneeling pose.\nCharacter in BOTH panels: same young adult clean-shaven brown-haired man, fit natural build, same face as Master, muted blue-gray short sleeve t-shirt, dark charcoal shorts, white ankle socks, light gray training shoes. Consistent natural skin and fabric texture; no blotches, waxy skin, oversaturated blue, patchwork colors or degraded hands.\nEquipment: ONE identical flat exercise bench per panel with a dark matte charcoal rectangular padded top and a simple functional satin silver-gray frame with stable feet. ONE short STRAIGHT chrome barbell with a modest matching black round plate on each end, collars securing both plates. Same bar length, plate sizes, shaft and grip in both phases. No EZ curves, dumbbells, cables, machine, rack, extra bar or decorative parts.\nBody/support: supine along the bench, head at LEFT and feet to RIGHT in both panels. Head, shoulder blades, upper back and pelvis supported. Knees naturally bent, both feet planted fully on floor. Calm neutral posture and modest natural lumbar curve, no raised hips or exaggerated arch.\nView/composition: identical fixed slightly elevated three-quarter side view from the near side, sufficient visible bar span to clearly distinguish both separate hands and both forearms. Head-left/feet-right orientation, same bench/feet/head locations, subject scale, perspective, lighting and framing in both square panels. Use available square area generously while keeping ALL head, bar ends/plates, elbows, bench legs and both shoes fully inside each panel with small clean 4 percent edge clearance. Equal large character/equipment scale, no tiny subject in one phase. Clean white background, soft contact shadows, sharp continuous equipment edges. No center divider, typography, labels, arrows, muscle overlays, UI or watermark. The app adds phase labels separately.\nMECHANICS — this is ELBOW EXTENSION, not a chest press or pullover:\nKeep both upper arms nearly vertical to the floor with elbows approximately shoulder-width apart, in the SAME location in both phases. Shoulder position and upper-arm direction stay stable; only forearms rotate around elbows.\nLEFT LOWERED PHASE: both elbows comfortably flexed about 90 degrees. Forearms incline toward the head; short straight bar is held just ABOVE the forehead with a plainly visible safe gap; no contact with face/hair/skull. Both upper arms remain upright and do not fall beside chest. Clear two-handed closed overhand/pronated grip, palms toward feet, thumbs wrapped around shaft. No bar behind neck, no bar on chest.\nRIGHT EXTENDED PHASE: smoothly extend BOTH elbows until arms are nearly straight without hyperextension. Same upper-arm position; forearms align with upper arms so the bar sits above the face/head-upper-chest region. Same grip width and pronated hand orientation. This is the return along an elbow-centered arc, not a press with moving upper arms.\nIn both phases every hand physically encloses the straight shaft at plausible shoulder-width hand separation within the collars. Neutral aligned wrists, ordinary anatomical fingers/thumbs; two arms, two hands, no duplicated hands, fused digits, detached grips or forearm/plate intersections. Forehead clearance must be legible. Visible differences are elbow flexion and bar position ONLY; do not move body, bench or feet between panels.\nBiomechanics grounding: CRESUM existing lying-barbell-triceps-extension ID, supine flat bench, closed pronated grip and neutral wrists, stable upper arms, elbow flexion/extension with head clearance. ACE exercise 36 rechecked 2026-10-30. Create original CRESUM imagery from these mechanics, not a copy of third-party photos. Triceps is the catalog Primary, no Secondary; do not paint any muscle highlights.\nOutput: exactly one clean 2:1 TWO-PANEL source sheet, LEFT bent elbows / RIGHT extended elbows.",
+      "promptRecovery": "Retained exact submitted tool-call string; r3/r4 restored from current conversation tool arguments after workspace maintenance.",
+      "references": [
+        {
+          "path": "/workspace/scratch/b2562391f291/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        },
+        {
+          "path": "/workspace/scratch/b2562391f291/CRESUM/assets/visual-references/equipment-style-v1/reference.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "dimensions": [1280, 853]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/b2562391f291/generated_images/exec-213507aa-418d-46a1-919f-28a78250e9df.png",
+        "sha256": "e14133cbc8b5bb05f8345d3e2a672aaeee4694bf24f170ca142987fc6348a290",
+        "bytes": 1669031,
+        "dimensions": [1774, 887]
+      },
+      "inputLocationNote": "Equipment-style reference restored from same committed bytes in new clone; actual original submitted path was /workspace/scratch/6ffd398a5fb4/CRESUM-reverse-pec-deck/assets/visual-references/equipment-style-v1/reference.webp."
+    },
+    {
+      "exerciseId": "lying-barbell-triceps-extension",
+      "model": "male",
+      "phase": "pair",
+      "revision": 2,
+      "status": "superseded-by-user-pose-references",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: precise-object-edit.\nAsset: CRESUM lying straight-barbell triceps extension two-phase source sheet.\nInput 1 is the current paired exercise sheet and the edit target. Input 2 is the actual Male Master identity and material reference.\nMake ONE targeted framing correction to input 1. Keep this same character, outfit, lighting, realistic skin and cloth, bench, straight barbell, plate geometry, closed pronated grip, elbow positions and the two different exercise phases. Preserve original clean render quality with no patchwork or waxy textures.\nCRITICAL PROBLEM: the shoes at the far right are clipped, and the LEFT phase far shoe extends past the 50 percent panel boundary, making two clean square crops impossible.\nOUTPUT: exactly TWO equally sized SQUARE scenes in one 2:1 landscape image. The 50 percent vertical line divides panels, but DO NOT DRAW a line. Each square MUST independently contain the ENTIRE person, both complete shoes, full bench legs, both complete plates and bar ends with at least 4 percent clean whitespace margin inside EVERY outer edge and inside the central boundary. No shoe or other object may touch or cross the center boundary. The rightmost shoe must be fully inside the overall right edge, including toe and sole.\nTo solve this, pull the SAME camera back by about 10 percent for BOTH panels, maintaining SAME large scale and SAME camera perspective between phases. Center each complete scene within its own square. Do not independently shrink or shift one phase. Use square space efficiently but never crop anatomy, shoes, bench or equipment.\nKeep the man supine head-left/feet-right with head, back, pelvis supported, both feet planted. LEFT elbows bent with bar held above forehead and visible clearance; RIGHT elbows extended with bar above face. Upper arms stable, wrists aligned, both hands enclosing straight bar. Do not move torso, shoulder/elbow anchors, knees, feet or bench between phases. No chest press, no pullover, no EZ bar.\nWhite background, soft contact shadows, satin silver-gray bench frame, dark matte pad. No text, labels, lines, arrows, UI, muscle highlights or watermark. Change ONLY common framing/zoom and necessary whitespace.",
+      "promptRecovery": "Retained exact submitted tool-call string; r3/r4 restored from current conversation tool arguments after workspace maintenance.",
+      "references": [
+        {
+          "path": "/workspace/scratch/b2562391f291/generated_images/exec-213507aa-418d-46a1-919f-28a78250e9df.png",
+          "sha256": "e14133cbc8b5bb05f8345d3e2a672aaeee4694bf24f170ca142987fc6348a290",
+          "bytes": 1669031,
+          "dimensions": [1774, 887]
+        },
+        {
+          "path": "/workspace/scratch/b2562391f291/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/b2562391f291/generated_images/exec-d2375596-91fa-4bcd-8544-2f9a2fbd9245.png",
+        "sha256": "32bf7c9ccf99fed951bb8e04f5a5a74d4f9fd173de3e7c71e2d7e370741919c3",
+        "bytes": 1354862,
+        "dimensions": [1774, 887]
+      },
+      "inputRoles": [
+        "previous pair edit target",
+        "actual Male Master identity/materials"
+      ]
+    },
+    {
+      "exerciseId": "lying-barbell-triceps-extension",
+      "model": "male",
+      "phase": "pair",
+      "revision": 3,
+      "status": "superseded-frame-clipping",
+      "tool": "built-in image_gen",
+      "prompt": "Edit/re-render the supplied exercise references into an original CRESUM premium semi-realistic 3D two-phase exercise illustration. ONE landscape 2:1 sheet, exactly TWO equal square panels, no divider or text.\nINPUT ROLES: Image1 is user-specified LOWERED START pose and camera reference. Image2 is user-specified EXTENDED FINISH pose and SAME camera reference. Image3 is the actual CRESUM Male Master identity/proportions/skin/outfit reference. Use all three. Do not reuse the earlier side-view candidates: the user specifically supplied these new poses and this elevated diagonal three-quarter angle.\nLEFT panel adapt image1; RIGHT panel adapt image2. Preserve their recognizable elevated near-head three-quarter perspective: head at left, legs toward right, bar axis diagonal in projection with near plate lower-left and far plate upper-right. Maintain identical camera, scene scale and registration between phases; only forearms/elbow flexion and bar position change. The supplied bar is straight, not EZ.\nReplace the anatomical mannequin with the SAME CRESUM man from image3: brown short hair, clean-shaven face, natural athletic proportions, muted blue-gray t-shirt, charcoal shorts, white ankle socks, light-gray trainers. Natural uniform skin and textile textures. Remove anatomical cutaways and red muscle coloring; show normal clothed character. No logos/numbers/writing on plates or clothes.\nUse a coherent full flat bench with dark matte upholstered top, satin light silver-gray frame and stable feet. Same bench in both phases. Head, upper back and pelvis supported, feet planted on ground in shoes, natural knees, no raised pelvis. Same modest straight chrome bar with a secured black disc and collar at each end, same grip width/plates throughout.\nLEFT: elbows bent, bar above forehead with visible head clearance as in image1. RIGHT: elbows extended upward as in image2 without hyperextension. Stable near-vertical upper arms and shoulder-width elbows; no chest pressing or shoulder pullover. Both hands fully enclose bar with closed pronated grip, thumbs wrapped, neutral wrists, no impossible duplicated fingers, disconnected hands or bar intersections. Make far hand and near hand visually distinct and physically credible.\nComposition: each phase entirely inside its own square. Fit ALL bar ends, both full plates, full head, full bench feet and BOTH complete shoes with clean small 4 percent edge margins, including central boundary. Use available space generously and equally; do not crop any foot, plate or bench. Do not enlarge one phase independently. Clean white studio, soft contact shadows, smooth consistent satin frame and matte plates/pad, same lighting. No arrows, labels, UI, muscle overlays or watermark.\nGoal: faithful adaptation of the USER'S two movement-phase references into our clothed CRESUM character/style, rather than copying the mannequin rendering. Exactly one pair: lowered LEFT, extended RIGHT.",
+      "promptRecovery": "Retained exact submitted tool-call string; r3/r4 restored from current conversation tool arguments after workspace maintenance.",
+      "references": [
+        {
+          "path": "/workspace/scratch/b2562391f291/upload/IMG_8381(2).jpeg",
+          "sha256": "d2b5faac4ae6f3ab283998ad1840e537d9ed525580f7222e508d6ef582cb4bac",
+          "bytes": 123528,
+          "dimensions": [1290, 1245]
+        },
+        {
+          "path": "/workspace/scratch/b2562391f291/upload/IMG_8380(2).jpeg",
+          "sha256": "58194e1d2c4f6886dba3a16799c1c78ac453c2310e91fdb73c9c415b8ebb705a",
+          "bytes": 132526,
+          "dimensions": [1290, 1271]
+        },
+        {
+          "path": "/workspace/scratch/b2562391f291/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/b2562391f291/generated_images/exec-df316817-1a43-445c-b44d-ebb295b1ef58.png",
+        "sha256": "bfb948c0474dcc7a4f6aae5056d974b598a5f81b4993d8e51a89dc7e68f416a4",
+        "bytes": 1517637,
+        "dimensions": [1774, 887]
+      },
+      "inputRoles": [
+        "user supplied bent-elbow pose/camera",
+        "user supplied extended-elbow pose/camera",
+        "actual Male Master identity/materials"
+      ]
+    },
+    {
+      "exerciseId": "lying-barbell-triceps-extension",
+      "model": "male",
+      "phase": "pair",
+      "revision": 4,
+      "status": "user-selected",
+      "tool": "built-in image_gen",
+      "prompt": "Targeted framing repair of image1, the new CRESUM adaptation of the supplied user START/FINISH references. Keep the two poses, diagonal three-quarter camera, all character identity/outfit/skin/fabric, grip, straight barbell and bench style exactly as the current candidate. Image2 is CRESUM Male Master only to prevent identity/material degradation.\nOne landscape 2:1 source sheet, exactly TWO equal square panels. LEFT bent-elbow lowered phase, RIGHT extended phase. NO dividing line.\nCRITICAL: currently the far shoe in LEFT phase crosses the 50 percent boundary. Each half must be independently crop-safe. Zoom BOTH scenes out by the SAME approximately 10 percent around their scene centers. Place each ENTIRE scene inside its own square, leaving at least 4 percent white margin on every edge, INCLUDING the invisible central boundary. All shoes/toes/heels, plates, bar ends and bench legs must be complete and inside their own half. Absolutely nothing from left scene may cross x=50 percent. Right top plate must also have a clear white top margin.\nPreserve identical scale, camera, body/bench/foot registration between phases. Both scenes large but equally sized. Retain original user-reference movement: elbows bent and bar clear of forehead LEFT; extended arms and bar above face RIGHT. No chest press. Same firm closed pronated grips, neutral wrists aligned to forearms. Keep blue-gray shirt, charcoal shorts, white socks, gray shoes, light silver bench frame, black pad/plates, clean white studio and soft shadows. No muscle colors, labels, graphics, text or watermark. ONLY adjust common camera zoom/framing; do not invent new poses or redesign objects.",
+      "promptRecovery": "Retained exact submitted tool-call string; r3/r4 restored from current conversation tool arguments after workspace maintenance.",
+      "references": [
+        {
+          "path": "/workspace/scratch/b2562391f291/generated_images/exec-df316817-1a43-445c-b44d-ebb295b1ef58.png",
+          "sha256": "bfb948c0474dcc7a4f6aae5056d974b598a5f81b4993d8e51a89dc7e68f416a4",
+          "bytes": 1517637,
+          "dimensions": [1774, 887]
+        },
+        {
+          "path": "/workspace/scratch/b2562391f291/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "dimensions": [1536, 1024]
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/b2562391f291/generated_images/exec-e23a9759-fb9b-40cf-b044-3beb55578e3e.png",
+        "sha256": "b8aefe7574bcf9ec9108eb4c44ce1bf3ef77be7957e0ceb92c61db3b0941a9a4",
+        "bytes": 1656774,
+        "dimensions": [1774, 887]
+      },
+      "inputRoles": [
+        "previous pair edit target",
+        "actual Male Master identity/materials"
+      ]
+    }
+  ]
+}
