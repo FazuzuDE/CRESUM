@@ -1,5 +1,20 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Flat Dumbbell Bench Press selected Male pair — 2026-10-31
+
+User approved r1 `exec-4be5134f-8839-4977-955e-6ab36d4b2f5a.png`.
+Use exact887-square LEFT lower START / RIGHT extended FINISH halves,
+RGB WebP92/method6; no retouch/resampling/padding/phase-specific transforms.
+Bind only existing `dumbbell-bench-press`/Male. Retain chest Primary,
+triceps/front-delts Secondary, existing ACE19 guide, shared viewers/map,
+stable IDs/History/data and unrelated/Female/attachment fallbacks.
+Actual user pose sheet and Male Master informed generation. Retain original,
+exact prompt and inputs locally for final checkpoint, no per-exercise ZIP.
+Keep user-selected-provisional: precise wrist/grip contacts, far-foot
+occlusion, exact bench/body registration and device/accessibility not certified.
+No new live primary-source recheck claimed; ACE19 guide unchanged.
+PC/Oracle backup unverified.
+
 ## Incline Dumbbell Press selected Male pair — 2026-10-31
 
 User approved r1 `exec-fe91dc7e-1678-4623-b7b5-3060cb76feb6.png`.

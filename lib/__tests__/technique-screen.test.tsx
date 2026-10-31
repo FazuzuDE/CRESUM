@@ -5,6 +5,11 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/dumbbell-bench-press/start.webp', () => 3401);
+jest.mock(
+  '../../assets/exercises/dumbbell-bench-press/finish.webp',
+  () => 3402,
+);
 jest.mock(
   '../../assets/exercises/incline-dumbbell-press/start.webp',
   () => 3301,
@@ -301,6 +306,7 @@ it.each([
   ['Assisted Dip Machine', 3101, 3102],
   ['Barbell Bench Press', 3201, 3202],
   ['Incline Dumbbell Press', 3301, 3302],
+  ['Dumbbell Bench Press', 3401, 3402],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
@@ -337,7 +343,7 @@ it.each([
 it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Dumbbell Bench Press')!.props.onPress());
+    act(() => button(v, 'Technique for Machine Chest Press')!.props.onPress());
     expect(text(v)).toContain('Image coming soon');
     act(() => button(v, 'Show FINISH')!.props.onPress());
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
@@ -1088,6 +1094,7 @@ it('shows selected assisted dip machine roles and opens/closes larger anatomy wi
 it.each([
   ['Barbell Bench Press', 3202],
   ['Incline Dumbbell Press', 3302],
+  ['Dumbbell Bench Press', 3402],
 ] as const)(
   'shows %s roles and opens/closes larger anatomy without changing FINISH',
   (name, finishAsset) => {
