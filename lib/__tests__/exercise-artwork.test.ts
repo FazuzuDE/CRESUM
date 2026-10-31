@@ -1,5 +1,3 @@
-jest.mock('../../assets/exercises/push-up/start.webp', () => 3801);
-jest.mock('../../assets/exercises/push-up/finish.webp', () => 3802);
 import {
   resolveExerciseArtwork,
   resolveAttachmentArtwork,
@@ -7,6 +5,8 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock('../../assets/exercises/push-up/start.webp', () => 3801);
+jest.mock('../../assets/exercises/push-up/finish.webp', () => 3802);
 jest.mock('../../assets/exercises/assisted-dip-machine/start.webp', () => 3101);
 jest.mock(
   '../../assets/exercises/assisted-dip-machine/finish.webp',

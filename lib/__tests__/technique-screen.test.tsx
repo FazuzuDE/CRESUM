@@ -1,5 +1,3 @@
-jest.mock('../../assets/exercises/push-up/start.webp', () => 3801);
-jest.mock('../../assets/exercises/push-up/finish.webp', () => 3802);
 import { MuscleMap } from '../../components/MuscleMap';
 import { Path } from 'react-native-svg';
 import { colors } from '../theme';
@@ -7,6 +5,8 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/push-up/start.webp', () => 3801);
+jest.mock('../../assets/exercises/push-up/finish.webp', () => 3802);
 jest.mock('../../assets/exercises/pec-deck-fly/start.webp', () => 3701);
 jest.mock('../../assets/exercises/pec-deck-fly/finish.webp', () => 3702);
 jest.mock('../../assets/exercises/cable-chest-fly/start.webp', () => 3601);
