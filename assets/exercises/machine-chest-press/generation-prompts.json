@@ -1,0 +1,36 @@
+{
+  "exerciseId": "machine-chest-press",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "machine-chest-press",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "user-selected",
+      "tool": "built-in image_gen",
+      "prompt": "Create ONE original CRESUM SEATED PLATE-LOADED LEVER CHEST PRESS exercise illustration diptych, landscape2:1 with TWO equal square independently crop-safe panels. LEFT START elbows bent, handles near chest; RIGHT FINISH arms pressing forward nearly extended. Input1 is exact equipment configuration/pose/phase mechanics and three-quarter camera reference. Input2 is actual locked CRESUM Male Master identity/outfit: same face, short brown hair, clean-shaven natural athletic body, blue-gray short-sleeve T-shirt, charcoal shorts, white socks/light gray sneakers. Premium clean coherent realistic3D fitness studio illustration on white background, soft contact shadows, satin light silver/white machine frame, black padding, black rubber grips and black weight plates. No exposed anatomical muscles, red overlays, labels, arrows, lettering, branding, watermark, panel divider.\nRecreate the specific general mechanism shown in Input1: seated plate-loaded chest press with upright/slightly reclined dark backrest and seat, stable floor base and tall rear support structure; TWO independent overhead-pivoted lever arms reaching down/forward to horizontal hand grips, ONE weight-loading horn with ONE matching black round plate on each moving lever. Keep exactly the SAME machine, seat adjustment, pivot locations, lever dimensions, grip geometry, horn placement, plate diameter/count and camera scale in both panels. The weight horns/plates are RIGIDLY ATTACHED to their corresponding moving levers, so plates rotate and RISE with the lever as the athlete pushes handles forward in FINISH, matching the supplied phase reference. Do not leave plates frozen at START positions, teleport them to frame, add a weight stack/cables, Smith bar or overhead shoulder press. Fixed base/rear supports/seat/pivots never move or morph. No additional plate storage horns that confuse the moving load.\nAthlete sits fully supported, head/back and pelvis stable, feet flat on floor, knees bent, same body anchors in both scenes. Hand grips at mid-chest/shoulder region, closed pronated grip palms down/fingers/thumb securely wrapped around the horizontal grips. Hands connect to actual grip bars, not plates or frame. LEFT: elbows bent about90degrees with upper arms moderately out and forearms aligned with pushing direction, chest open, wrists aligned with forearms. RIGHT: press handles forward AWAY from chest with a modest upward arc matching machine levers, elbows nearly extended without hyperextension, arms remain in chest-press path not vertical overhead; both shoulders stay against backrest, no shrug, no torso lean forward, no fly/curl. Both lever arms and their plates move physically coherently with the hands, preserving rigid geometry and fixed pivots.\nFront-side three-quarter camera similar to Input1, see both hand contacts and actual forward reach clearly; same view, scene placement and exact uniform size between the two halves. Frame the COMPLETE machine top/supports, FULL plate/sleeve travel envelope, complete head, both shoes and all base feet in each square with small comfortable white margins on all sides including the center boundary; never crop frame or raised plates to gain size. Use the largest shared full movement frame harmoniously. Same consistent face/skin/outfit, uniform cloth color and smooth metal texture in both phases. Return only the complete two-phase illustration.",
+      "references": [
+        {
+          "role": "user plate-loaded machine/pose reference",
+          "file": "818B3D29-CA13-4416-B2E5-9608A0D36B72.png",
+          "sha256": "91660d6cc8766f292ad7bba68fe4872dab89eede3d1cda71b648dc6b5cf8cafb",
+          "bytes": 150095
+        },
+        {
+          "role": "actual Male Master identity/clothing",
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-02ab8a98-b93d-4f96-9d3c-3ca1f33591e1.png",
+        "sha256": "cd917f343f25e9b0ca16320fc8940ab6b306a96f623bc7f72b2d6a538c0dc659",
+        "bytes": 1500215,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}

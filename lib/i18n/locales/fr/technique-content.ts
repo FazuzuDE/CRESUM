@@ -97,7 +97,7 @@ export default flattenTechniqueText({
       'Règle le siège pour placer les poignées environ au milieu de la poitrine. Garde le dos en appui et les pieds stables.',
     ],
     movement: [
-      'Pousse régulièrement vers l’avant ; reviens sans laisser les plaques s’entrechoquer.',
+      'Pousse régulièrement vers l’avant ; ramène les poignées de manière contrôlée.',
     ],
     checks: [
       'Utilise une prise fermée, des poignets alignés et une amplitude confortable et contrôlée.',

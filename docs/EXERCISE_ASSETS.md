@@ -1,5 +1,22 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Machine Chest Press selected Male pair — 2026-10-31
+
+User approved r1 `exec-02ab8a98-b93d-4f96-9d3c-3ca1f33591e1.png`.
+Use exact887-square LEFT bent START / RIGHT extended FINISH halves,
+RGB WebP92/method6; no retouch/resampling/padding/phase-specific transforms.
+Bind existing `machine-chest-press`/Male, retain chest Primary and
+triceps/front-delts Secondary, shared viewers/map, stable IDs/History/data
+and unrelated/Female/attachment fallbacks. Overhead-pivot plate-loaded machine
+is an illustration example, not a narrowing of generic machine identity.
+Both moving plates rise with the pressing levers. Guide revision2 replaces
+stack-only return cue with equipment-neutral controlled return in EN/RU/DE/FR;
+ACE188 source/scope unchanged. Actual user pose sheet and Male Master informed
+generation; retain original/exact prompt/actual inputs for final checkpoint,
+no per-exercise ZIP. Keep user-selected-provisional: exact rigid lever/pivot
+geometry, grip contacts, tight FINISH upper margin and device/accessibility
+not certified. PC/Oracle backup unverified.
+
 ## Flat Dumbbell Bench Press selected Male pair — 2026-10-31
 
 User approved r1 `exec-4be5134f-8839-4977-955e-6ab36d4b2f5a.png`.

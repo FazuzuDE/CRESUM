@@ -1,0 +1,52 @@
+{
+  "variantId": "machine-chest-press",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-02ab8a98-b93d-4f96-9d3c-3ca1f33591e1.png",
+      "sourceSha256": "cd917f343f25e9b0ca16320fc8940ab6b306a96f623bc7f72b2d6a538c0dc659",
+      "sourceBytes": 1500215,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "ce71562613b33221aaab6c3a492267a8b787809be6d4480683d6e17a7694557d",
+      "bytes": 54402,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-02ab8a98-b93d-4f96-9d3c-3ca1f33591e1.png",
+      "sourceSha256": "cd917f343f25e9b0ca16320fc8940ab6b306a96f623bc7f72b2d6a538c0dc659",
+      "sourceBytes": 1500215,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "c48e5186c4a5b04989293c4fc1cf90287a42ff74c23dc1699893a01713dddf25",
+      "bytes": 52076,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Seated plate-loaded overhead-pivot lever chest press example. LEFT bent START / RIGHT extended FINISH; moving lever plates rise. Illustration does not narrow generic machine-chest-press identity. Chest Primary; triceps/front-delts Secondary.",
+  "presentation": "Shared square contain, exact half-sheet crops without retouch/resampling/padding/phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 1,
+    "lineage": "Actual user plate-loaded machine pose reference and Male Master."
+  },
+  "reviewScope": "User-selected-provisional. Broad pressing phases and elevated moving plates/material continuity reviewed. Exact rigid lever geometry/pivot registration/grip contacts, tight FINISH upper margin and physical-device/accessibility acceptance not certified. Generic machine guide revision2 neutralizes weight-stack-only return cue without changing sourceACE188.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original/exact prompt/two actual inputs retained locally for end-of-block checkpoint. No per-exercise ZIP. PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

@@ -23,7 +23,7 @@ export default {
   "guide.dumbbell-bench-press.mistakes.2": "Lifting hips: maintain contact.",
   "guide.machine-chest-press.scope": "Seated machine press; handle geometry varies.",
   "guide.machine-chest-press.setup.0": "Adjust seat so handles are around mid-chest. Keep back supported and feet stable.",
-  "guide.machine-chest-press.movement.0": "Press forward smoothly; return without letting the stack crash.",
+  "guide.machine-chest-press.movement.0": "Press forward smoothly; return the handles under control.",
   "guide.machine-chest-press.checks.0": "Use a closed grip, aligned wrists and a controlled comfortable range.",
   "guide.machine-chest-press.mistakes.0": "Seat too low: reset height.",
   "guide.machine-chest-press.mistakes.1": "Shoulders leaving pad: reduce reach.",
