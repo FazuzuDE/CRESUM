@@ -1,0 +1,58 @@
+{
+  "variantId": "lying-barbell-triceps-extension",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-e23a9759-fb9b-40cf-b044-3beb55578e3e.png",
+      "sourceSha256": "b8aefe7574bcf9ec9108eb4c44ce1bf3ef77be7957e0ceb92c61db3b0941a9a4",
+      "sourceBytes": 1656774,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "6da5be298183ad1928ea268b4023d50a41050a8d4e313584cb94e09349496cb0",
+      "bytes": 40214,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-e23a9759-fb9b-40cf-b044-3beb55578e3e.png",
+      "sourceSha256": "b8aefe7574bcf9ec9108eb4c44ce1bf3ef77be7957e0ceb92c61db3b0941a9a4",
+      "sourceBytes": 1656774,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "1d612a385ad16fff74b30646ff031ff342351e90826e9bf5c66630ffa39230ab",
+      "bytes": 40606,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Supine flat-bench straight-barbell elbow extension, closed pronated grip. Selected user-reference elevated diagonal three-quarter view; LEFT lowered/bent START, RIGHT extended FINISH. Preserve ACE36 guide and triceps Primary/no Secondary; no attachment thumbnail.",
+  "presentation": "Default shared square contain in both viewers. Exact half-sheet crops without retouch, resampling, padding, artificial upscaling or phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 4,
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "lineage": "r1 Master/style; r2 r1/Master framing repair; r3 adapts two user pose images + Master, superseding r1/r2; selected r4 edits r3/Master for common framing."
+  },
+  "reviewScope": "User selected latest r4. Full source and320/390 projections checked for different bent/extended phases, head clearance and full-frame fit/material continuity. Exact grip/finger/wrist contacts, physical dimensions, precise registration and device/accessibility acceptance remain provisional.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Four originals, exact prompts, both user pose references and actual Master/style retained for cumulative source supplement. Older archive bytes preserved; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "sourceReview": {
+    "url": "https://www.acefitness.org/resources/everyone/exercise-library/36/lying-barbell-triceps-extensions/",
+    "checkedOn": "2026-10-30",
+    "scope": "Stable upper arms, closed pronated grip, neutral wrists, head clearance; existing guide/registry unchanged."
+  }
+}

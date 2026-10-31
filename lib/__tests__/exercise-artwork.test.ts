@@ -6,6 +6,14 @@ import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
 jest.mock(
+  '../../assets/exercises/lying-barbell-triceps-extension/start.webp',
+  () => 3001,
+);
+jest.mock(
+  '../../assets/exercises/lying-barbell-triceps-extension/finish.webp',
+  () => 3002,
+);
+jest.mock(
   '../../assets/exercises/close-grip-bench-press/start.webp',
   () => 2901,
 );
@@ -669,11 +677,7 @@ it('binds Male high cable pushdown without narrowing generic attachment or borro
     expect(resolveExerciseArtwork('cable-biceps-curl', phase, 'male')).toBe(
       phase === 'start' ? 2501 : 2502,
     );
-    for (const id of [
-      'assisted-dip-machine',
-      'lying-barbell-triceps-extension',
-      'unknown',
-    ])
+    for (const id of ['assisted-dip-machine', 'barbell-bench-press', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('cable-triceps-pushdown')).toBeNull();
@@ -712,11 +716,7 @@ it('binds only Male overhead cable extension while retaining generic guide and t
     expect(resolveExerciseArtwork('cable-biceps-curl', phase, 'male')).toBe(
       phase === 'start' ? 2501 : 2502,
     );
-    for (const id of [
-      'assisted-dip-machine',
-      'lying-barbell-triceps-extension',
-      'unknown',
-    ])
+    for (const id of ['assisted-dip-machine', 'barbell-bench-press', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(
@@ -761,11 +761,7 @@ it('binds only Male two-hand overhead dumbbell extension and preserves guide and
     expect(
       resolveExerciseArtwork('cable-triceps-pushdown', phase, 'male'),
     ).toBe(phase === 'start' ? 2601 : 2602);
-    for (const id of [
-      'lying-barbell-triceps-extension',
-      'assisted-dip-machine',
-      'unknown',
-    ])
+    for (const id of ['barbell-bench-press', 'assisted-dip-machine', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(
@@ -802,12 +798,53 @@ it('binds only Male close grip bench press and preserves shoulder-width guide an
     expect(
       resolveExerciseArtwork('overhead-cable-triceps-extension', phase, 'male'),
     ).toBe(phase === 'start' ? 2701 : 2702);
-    for (const id of [
-      'lying-barbell-triceps-extension',
-      'assisted-dip-machine',
-      'unknown',
-    ])
+    for (const id of ['barbell-bench-press', 'assisted-dip-machine', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('close-grip-bench-press')).toBeNull();
+});
+
+it('resolves only exact Male lying triceps phases without borrowing bench or extension artwork', () => {
+  expect(
+    resolveExerciseArtwork('lying-barbell-triceps-extension', 'start', 'male'),
+  ).toBe(3001);
+  expect(
+    resolveExerciseArtwork('lying-barbell-triceps-extension', 'finish', 'male'),
+  ).toBe(3002);
+  expect(findExercise('lying-barbell-triceps-extension')).toMatchObject({
+    primaryMuscles: ['triceps'],
+    secondaryMuscles: [],
+    equipment: ['barbell', 'bench'],
+  });
+  expect(findTechnique('lying-barbell-triceps-extension')?.scope).toBe(
+    'Supine barbell elbow extension.',
+  );
+  for (const phase of ['start', 'finish'] as const) {
+    expect(
+      resolveExerciseArtwork(
+        'lying-barbell-triceps-extension',
+        phase,
+        'female',
+      ),
+    ).toBeNull();
+    expect(
+      resolveExerciseArtwork('close-grip-bench-press', phase, 'male'),
+    ).toBe(phase === 'start' ? 2901 : 2902);
+    expect(
+      resolveExerciseArtwork(
+        'dumbbell-overhead-triceps-extension',
+        phase,
+        'male',
+      ),
+    ).toBe(phase === 'start' ? 2801 : 2802);
+    expect(
+      resolveExerciseArtwork('barbell-bench-press', phase, 'male'),
+    ).toBeNull();
+    expect(
+      resolveExerciseArtwork('assisted-dip-machine', phase, 'male'),
+    ).toBeNull();
+  }
+  expect(
+    resolveAttachmentArtwork('lying-barbell-triceps-extension'),
+  ).toBeNull();
 });
