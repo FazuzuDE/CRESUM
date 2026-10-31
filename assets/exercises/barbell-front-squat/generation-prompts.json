@@ -1,0 +1,33 @@
+{
+  "exerciseId": "barbell-front-squat",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "barbell-front-squat",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "user-selected",
+      "prompt": "Create ONE original premium CRESUM fitness technique illustration pair for BARBELL FRONT SQUAT WITH CROSS-ARM FRONT RACK, exactly 2:1 landscape, two equal independently crop-safe square halves side by side with no divider. Input1 defines front squat poses, CROSS-ARM grip and front-side three-quarter camera facing viewer-right. Input2 is the actual locked Male Master for the SAME male identity, short brown hair, clean-shaven face, natural athletic proportions, fitted muted blue-gray T-shirt, charcoal shorts, white ankle socks and light gray training sneakers. Premium realistic/semi-realistic 3D white studio render, uniform smooth materials, subtle soft floor contact shadows, pure white background. Fully clothed normal skin, NO red muscle highlights, exposed muscle fibers, labels, text, logo, arrows or watermarks. LEFT START: standing upright, knees extended naturally. RIGHT FINISH: bottom of front squat, hips lowered to approximately knee height, thighs near parallel to floor, chest lifted with natural relatively upright torso, neutral back/neck, knees tracking outward in line with toes. BOTH phases feet stay in SAME shoulder-width stance, slight outward toe angle, entire soles/heels firmly on the ground. Same camera, body size, bar dimensions, stance and identity between phases; no zooming the squat larger merely because it is shorter. CRITICAL FRONT RACK: straight bar rests across the FRONT of BOTH shoulders on the anterior deltoid shelf near clavicles, in front of neck, never behind head/on upper back. Upper arms raised FORWARD with elbows pointing forward and high at about shoulder level in BOTH phases. Forearms CROSS over the upper chest, RIGHT hand stabilizes bar near LEFT shoulder, LEFT hand stabilizes bar near RIGHT shoulder; fingers rest naturally OVER the bar, clear separate hands/arms without fusion or extra digits. Match cross-arm configuration in Input1; do not substitute clean-grip wrists under the bar, back-squat grip, arms hanging down or bar held by hands alone. Weight supported by front shoulders, hands only stabilize. Clearly visible continuous shaft contacts front deltoid shelf, no bar through neck/arms/body and no floating bar. Same straight steel Olympic bar with ONE equal black round plate at EACH end and identical collars/sleeves in both phases; no changing plate size/count or bent shaft. Front-side three-quarter view shows chest/face, both knees and shoes and crossed arms clearly. Center each full man-and-bar assembly within its square; entire bar ends/plates, head, elbows, hands and both shoes fully included with comfortable outer and center margins. Use available canvas harmoniously at identical scale and foot baseline. No rack or other equipment. Return complete paired illustration only.",
+      "references": [
+        {
+          "file": "D0C3648E-C3E2-4AAD-804B-F7DAC4AB4E6F.png",
+          "sha256": "5976fd09b67f749eef4bdfd5bf47a0958add263b2d70d42a91fd91bf83ee0226",
+          "bytes": 112359
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-8b8a0698-fede-4d7e-becc-1b510c55aa6f.png",
+        "sha256": "c2db12b4f2df4fe033e12372cfec4137d370fa599438d638e8b53ff42704174f",
+        "bytes": 1325733,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}

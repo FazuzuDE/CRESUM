@@ -1,5 +1,20 @@
 # CRESUM Decision Log
 
+## Barbell Front Squat selected Male pair — 2026-10-31
+
+User approved r1 `exec-8b8a0698-fede-4d7e-becc-1b510c55aa6f.png`.
+Exact 887-square LEFT standing START / RIGHT lower FINISH crops, RGB WebP92/method6.
+Cross-arm rack example does not narrow generic front-rack identity.
+Bind only `barbell-front-squat`/Male; preserve stable IDs and generic front-rack identity, existing
+guide, quadriceps/glutes Primary and abs/upper-back Secondary,
+shared viewers and other/Female/attachment fallbacks. No retouch/resampling/
+padding/phase-specific transforms. Actual user pose sheet and Male Master,
+original/exact prompt retained for final checkpoint; no per-exercise ZIP.
+Status user-selected-provisional: precise bar/hand/shoulder contacts, elbow height/neck
+angles, stance/bar geometry/registration, depth and device/accessibility not
+independently certified. Existing guide unchanged; no new live source review.
+PC/Oracle backup unverified.
+
 ## Barbell Back Squat selected Male pair — 2026-10-31
 
 User approved r1 `exec-8555e880-10c1-4897-a77f-d140d5c0a5e3.png`.

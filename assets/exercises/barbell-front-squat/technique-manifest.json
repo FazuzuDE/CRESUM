@@ -1,0 +1,52 @@
+{
+  "variantId": "barbell-front-squat",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-8b8a0698-fede-4d7e-becc-1b510c55aa6f.png",
+      "sourceSha256": "c2db12b4f2df4fe033e12372cfec4137d370fa599438d638e8b53ff42704174f",
+      "sourceBytes": 1325733,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "8e16d22b6ccade5180c6b1b12741880aa72374c9c8bd84031a4ea32026997237",
+      "bytes": 33994,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-8b8a0698-fede-4d7e-becc-1b510c55aa6f.png",
+      "sourceSha256": "c2db12b4f2df4fe033e12372cfec4137d370fa599438d638e8b53ff42704174f",
+      "sourceBytes": 1325733,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "9fe1ee07d0570c1b137d1291533afb0648c85e25027e2268fd7f0fae6a9f128d",
+      "bytes": 34766,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "LEFT standing START / RIGHT lower FINISH. Cross-arm rack example does not narrow generic front-rack ID. Preserve guide, saved generic front-rack identity and quadriceps/glutes Primary; abs/upper-back Secondary.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch/resampling/padding/phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 1,
+    "lineage": "Actual user two-phase squat reference and Male Master."
+  },
+  "reviewScope": "Broad phase/identity/material continuity reviewed. Precise bar/hand/shoulder contacts, elbow height/neck angles, stance and bar geometry/registration, squat depth and physical-device/accessibility not independently certified. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original/exact prompt/actual inputs retained locally for final checkpoint. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}
