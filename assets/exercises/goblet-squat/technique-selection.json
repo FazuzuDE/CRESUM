@@ -1,0 +1,31 @@
+{
+  "exerciseId": "goblet-squat",
+  "decision": "Утверждаю",
+  "selectionDate": "2026-10-31",
+  "status": "user-selected-pair",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "b77c126c4ab5510dabd50755123cda769bda5493954c5062543d21b79f9687c7",
+      "bytes": 35532,
+      "width": 887,
+      "height": 887,
+      "sourceFile": "exec-638a92dc-7f30-476e-95b6-4faacd4ceb75.png",
+      "sourceSha256": "28a62f0ccc4deed2fa0dda4540449a5d55aefff41640830af4e3df3524e1fe78",
+      "sourceSize": [1774, 887]
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "423a869cc5b1c52c9ba5af535af1726a00b1867a052127389282c4488f9ca713",
+      "bytes": 37216,
+      "width": 887,
+      "height": 887,
+      "sourceFile": "exec-638a92dc-7f30-476e-95b6-4faacd4ceb75.png",
+      "sourceSha256": "28a62f0ccc4deed2fa0dda4540449a5d55aefff41640830af4e3df3524e1fe78",
+      "sourceSize": [1774, 887]
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

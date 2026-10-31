@@ -5,6 +5,8 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/goblet-squat/start.webp', () => 4401);
+jest.mock('../../assets/exercises/goblet-squat/finish.webp', () => 4402);
 jest.mock(
   '../../assets/exercises/kettlebell-goblet-squat/start.webp',
   () => 4301,
@@ -375,7 +377,9 @@ it.each([
 it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Goblet Squat')!.props.onPress());
+    act(() =>
+      button(v, 'Technique for Dumbbell Reverse Lunge')!.props.onPress(),
+    );
     expect(text(v)).toContain('Image coming soon');
     act(() => button(v, 'Show FINISH')!.props.onPress());
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());

@@ -1,0 +1,12 @@
+{
+  "exerciseId": "goblet-squat",
+  "records": [
+    {
+      "revision": 1,
+      "tool": "built-in image_gen",
+      "prompt": "Create ONE CRESUM DUMBBELL GOBLET SQUAT technique diptych, exactly2:1 landscape two independently crop-safe equal square panels. Input1 pose/grip reference; input2 locked Male Master identity/outfit: natural athletic clean-shaven brown-haired man, fitted muted blue-gray T-shirt, charcoal shorts, white ankle socks/light gray sneakers. Premium realistic3D white studio soft shadows, uniform materials, no text/logos/red anatomy overlays. LEFT standing START, RIGHT controlled lower FINISH thighs near parallel, hips between knees, neutral torso/neck, chest lifted, whole soles/heels planted same shoulder-width toe-out stance. Hold ONE black dumbbell VERTICALLY at upper chest: both palms CUP UNDER underside of TOP dumbbell head on either side of shaft, fingers curled securely around head rim, elbows point down. Bottom head hangs below the hands; two identical heads connected by visible short continuous steel handle, identical equipment in both phases. Do not use a kettlebell, do not grip shaft one-handed, no floating weights or fused fingers. Same camera front-three-quarter facing viewer-right, same body size/floor baseline, full hair/hands/dumbbell/both shoes within each square with comfortable white margins. No phase-specific zoom. Lower pose maintains load close to chest, elbows near inside knees, knees track with toes, no knee collapse or heel lift. Return only paired image.",
+      "transparentBackground": false,
+      "status": "user-selected"
+    }
+  ]
+}

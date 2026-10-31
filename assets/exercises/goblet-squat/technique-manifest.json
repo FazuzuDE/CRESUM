@@ -1,0 +1,59 @@
+{
+  "variantId": "goblet-squat",
+  "model": "male",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "b77c126c4ab5510dabd50755123cda769bda5493954c5062543d21b79f9687c7",
+      "bytes": 35532,
+      "width": 887,
+      "height": 887,
+      "sourceFile": "exec-638a92dc-7f30-476e-95b6-4faacd4ceb75.png",
+      "sourceSha256": "28a62f0ccc4deed2fa0dda4540449a5d55aefff41640830af4e3df3524e1fe78",
+      "sourceSize": [1774, 887]
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "423a869cc5b1c52c9ba5af535af1726a00b1867a052127389282c4488f9ca713",
+      "bytes": 37216,
+      "width": 887,
+      "height": 887,
+      "sourceFile": "exec-638a92dc-7f30-476e-95b6-4faacd4ceb75.png",
+      "sourceSha256": "28a62f0ccc4deed2fa0dda4540449a5d55aefff41640830af4e3df3524e1fe78",
+      "sourceSize": [1774, 887]
+    }
+  },
+  "generation": {
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "C9FF67A4-641F-4E5B-8065-C0D93C785AF0.png",
+        "sha256": "67ac32e09400f9b811f000e91933ca3b4d4e181d93d7662cdbadd869a9871120",
+        "bytes": 104734
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      }
+    ],
+    "output": {
+      "file": "exec-638a92dc-7f30-476e-95b6-4faacd4ceb75.png",
+      "sha256": "28a62f0ccc4deed2fa0dda4540449a5d55aefff41640830af4e3df3524e1fe78",
+      "bytes": 1650615
+    }
+  },
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none"
+  },
+  "reviewScope": "User selected. Fine dumbbell-head/palm contacts, stance registration, depth, center divider edge and physical-device/accessibility not independently certified.",
+  "archiveStatus": "pending-upload"
+}

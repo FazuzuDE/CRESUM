@@ -9,6 +9,8 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { ExerciseStatistics } from '../../components/ExerciseStatistics';
 import { Image, TextInput } from 'react-native';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/goblet-squat/start.webp', () => 4401);
+jest.mock('../../assets/exercises/goblet-squat/finish.webp', () => 4402);
 jest.mock(
   '../../assets/exercises/kettlebell-goblet-squat/start.webp',
   () => 4301,
@@ -164,7 +166,7 @@ it('counts the visible family once in the profile library summary', () => {
   act(() => view.unmount());
 });
 
-it('switches Goblet artwork with the equipment choice and keeps dumbbell placeholders', () => {
+it('switches Goblet artwork with the equipment choice and retains the selected phase', () => {
   let view: any;
   act(() => {
     view = create(<ExerciseLibrary visible onClose={() => {}} />);
@@ -173,10 +175,8 @@ it('switches Goblet artwork with the equipment choice and keeps dumbbell placeho
   press(view, 'Technique for Goblet Squat');
   const details = { root: view.root.findByType(ExerciseTechnique) };
   expect(
-    details.root
-      .findAllByType(Image)
-      .some((x: any) => x.props.source === 4301 || x.props.source === 4302),
-  ).toBe(false);
+    details.root.findAllByType(Image).some((x: any) => x.props.source === 4401),
+  ).toBe(true);
   press(details, 'Change equipment: Dumbbell');
   press(details, 'Kettlebell');
   expect(
@@ -189,9 +189,7 @@ it('switches Goblet artwork with the equipment choice and keeps dumbbell placeho
   press(details, 'Change equipment: Kettlebell');
   press(details, 'Dumbbell');
   expect(
-    details.root
-      .findAllByType(Image)
-      .some((x: any) => x.props.source === 4301 || x.props.source === 4302),
-  ).toBe(false);
+    details.root.findAllByType(Image).some((x: any) => x.props.source === 4402),
+  ).toBe(true);
   act(() => view.unmount());
 });
