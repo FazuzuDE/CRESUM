@@ -1,0 +1,58 @@
+{
+  "exerciseId": "assisted-dip-machine",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "assisted-dip-machine",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "superseded-equipment-continuity",
+      "prompt": "Create an original CRESUM semi-realistic premium 3D adaptation of the user-supplied ASSISTED DIP MACHINE exercise reference. ONE landscape 2:1 source sheet, exactly TWO equal square panels. Input1 supplies the exercise, machine archetype, rear three-quarter camera and phases. Input2 is actual CRESUM Male Master identity/proportions/skin/outfit authority. Replace the anatomical mannequin with this SAME brown-haired, clean-shaven, naturally athletic CRESUM man wearing muted blue-gray t-shirt, charcoal shorts, white socks and light gray trainers. Normal clothed skin surfaces; NO anatomical cutaways, red muscle overlays, words or logos.\nPreserve reference phase order: LEFT UPPER position with elbows almost straight; RIGHT LOWER position with elbows comfortably bent about90degrees. Same fixed rear three-quarter viewpoint, frame, apparatus, character scale, grip and camera in both squares. No chest press or overhead pull-up. Athlete faces into machine, both hands firmly enclose the two stationary waist-height PARALLEL DIP HANDLES, palms facing inward/thumbs wrapped, neutral wrists. Both knees rest on the same padded moving assistance platform, lower legs bent behind, two shoes visible. Keep torso upright or only slightly forward, shoulders controlled away from ears, elbows tracking backwards, no extreme shoulder depth. Upper position body higher above fixed handles; lower position body lower with elbows bent. Hands do not change height or detach from grips.\nMACHINE: coherent full-height assisted dip/pull-up station inspired by input1. Satin light silver-gray structural frame, dark matte graphite pads and grip rubber, restrained chrome rails, stable full base and fixed access steps. Same exact frame/handrails/grips/weights/pad geometry in both panels. The black rectangular front pad is chest-facing stationary padding like reference, not an extra seat under pelvis. Both knees supported together by ONE horizontal dark padded platform on a credible vertical guided carriage. No phantom grips, floating supports, extra limbs, merged rails or melted structure. Camera must let both fixed dip hand contacts, knee support and assistance mechanism read.\nCOUNTERWEIGHT PHYSICS: knee platform travels WITH athlete. LEFT upper body position = knee platform HIGHER; RIGHT lower body position = platform LOWER by corresponding controlled distance. Counterweight travels OPPOSITE platform, not like a standard cable-lift exercise. Show a clearly visible vertical weight stack to the side with identical total plates, selected load and pin setting in both panels: same selected block LOW with little gap at LEFT upper phase; selected block RAISED above stationary plates with an obvious air gap at RIGHT lower phase. Same number of lifted plates and same selector pin in that block; do not add/delete plates. Frame and handles stationary. Do not show the same stack/platform height in both scenes. Cable routed plausibly over top pulley, no cable crossing anatomy.\nCOMPOSITION: two independently crop-safe SQUARE views side-by-side, same camera and magnification, full machine base/top, full head, full shoes, all hands and knee pad entirely inside each own square with at least4percent white edge margin including invisible central boundary. Use available area generously and equally without clipping tall apparatus. Neither scene crosses middle. Clean white studio, soft contact shadows, no dividing line, text, phase labels, arrows, muscle colors, watermark or UI. Uniform Master skin, blue-gray fabric and satin equipment materials, no patchy repainting or plastic skin. Exactly one paired sheet, distinct upper LEFT/lower RIGHT phases following user's source.",
+      "references": [
+        {
+          "path": "/workspace/scratch/b2562391f291/upload/image(20261031-100808).png",
+          "bytes": 174590,
+          "sha256": "9020d45c2846df3145c737cb303053eb20616d6227df498f655418dfa79994d5"
+        },
+        {
+          "path": "/workspace/scratch/b2562391f291/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "bytes": 325046,
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182"
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/b2562391f291/generated_images/exec-edfa6a02-829f-490b-9b9f-9b6e840cdde2.png",
+        "bytes": 1488657,
+        "sha256": "0d91df07c11749bb924cbd5d14b5dbf67b5f5431950f65061b73431cb2afbba4"
+      },
+      "tool": "built-in image_gen"
+    },
+    {
+      "exerciseId": "assisted-dip-machine",
+      "model": "male",
+      "phase": "pair",
+      "revision": 2,
+      "status": "user-selected",
+      "prompt": "Targeted equipment continuity and framing repair. Input1 is current CRESUM assisted-dip paired image, edit target; input2 actual Male Master to preserve identity/skin/outfit. Preserve exact rear three-quarter angle, fixed machine, hand grip, upper LEFT and bent-elbow lower RIGHT phases, knee pad moving with athlete and stack moving opposite. Keep same blue-gray shirt, charcoal shorts, white socks/gray shoes, satin silver frame/black pads and natural clean textures.\nCorrect ONLY two things:\n1. Same physical weight stack in both panels. Render exactly16 clearly separated equal-thickness black rectangular plates TOTAL per machine, plus the same thin top lifting fitting. Selected load is8plates, same pin in the8th selected plate. LEFT upper athlete: all16plates form one continuous stack down at base, selected8 immediately above stationary8 with virtually no visible gap. RIGHT lower athlete: lift ONLY the upper8plates as one block; retain lower8plates stationary at exact same base height as left. Distinct realistic gap between these8+8 groups. Do not add/remove plates, alter plate thickness, change selector setting or lift the entire stack. Keep guide rods and cable credible and unobstructed.\n2. Pull camera back a little equally in BOTH panels so full hair/head, full apparatus top/base, both shoes and all frame feet fit with at least4percent clean white margin, including central boundary. Identical machine size and registration, no phase-specific zoom/placement, no cropping.\nDo NOT change the character or body poses: LEFT arms nearly straight upper position with knee platform higher. RIGHT elbows bent roughly90degrees lower position with platform lower, torso nearly upright, fixed dip grips stay at same height. Both knees supported on same pad, both hands wrap stationary grips, neutral wrists, shoulders controlled. Premium clean white studio and soft shadows. One2:1 landscape sheet of TWO equal independently crop-safe square panels. No divider,text,labels,muscle overlays,arrows or watermark. Preserve smooth uniform skin/cloth/metal; no patchwork repainting.",
+      "references": [
+        {
+          "path": "/workspace/scratch/b2562391f291/generated_images/exec-edfa6a02-829f-490b-9b9f-9b6e840cdde2.png",
+          "bytes": 1488657,
+          "sha256": "0d91df07c11749bb924cbd5d14b5dbf67b5f5431950f65061b73431cb2afbba4"
+        },
+        {
+          "path": "/workspace/scratch/b2562391f291/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "bytes": 325046,
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182"
+        }
+      ],
+      "output": {
+        "path": "/workspace/scratch/b2562391f291/generated_images/exec-bda3c995-8e76-4188-b34e-46184674283b.png",
+        "bytes": 1703000,
+        "sha256": "5dc38c014a899822095338a888109ee02982bfe4ba5555461e9ba2d2253b8173"
+      },
+      "tool": "built-in image_gen"
+    }
+  ]
+}
