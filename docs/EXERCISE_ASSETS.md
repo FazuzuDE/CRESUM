@@ -3,7 +3,7 @@
 ## Barbell Front Squat selected Male pair — 2026-10-31
 
 User approved r1 `exec-8b8a0698-fede-4d7e-becc-1b510c55aa6f.png`.
-Exact887-square LEFT standing START / RIGHT lower FINISH crops, RGB WebP92/method6.
+Exact 887-square LEFT standing START / RIGHT lower FINISH crops, RGB WebP92/method6.
 Cross-arm rack example does not narrow generic front-rack identity.
 Bind only `barbell-front-squat`/Male; preserve stable IDs and generic front-rack identity, existing
 guide, quadriceps/glutes Primary and abs/upper-back Secondary,
