@@ -5,6 +5,8 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/smith-machine-squat/start.webp', () => 4201);
+jest.mock('../../assets/exercises/smith-machine-squat/finish.webp', () => 4202);
 jest.mock('../../assets/exercises/leg-press/start.webp', () => 4101);
 jest.mock('../../assets/exercises/leg-press/finish.webp', () => 4102);
 jest.mock('../../assets/exercises/barbell-front-squat/start.webp', () => 4001);
@@ -328,6 +330,7 @@ it.each([
   ['Barbell Back Squat', 3901, 3902],
   ['Barbell Front Squat', 4001, 4002],
   ['Leg Press', 4101, 4102],
+  ['Smith Machine Squat', 4201, 4202],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
@@ -364,7 +367,7 @@ it.each([
 it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Smith Machine Squat')!.props.onPress());
+    act(() => button(v, 'Technique for Goblet Squat')!.props.onPress());
     expect(text(v)).toContain('Image coming soon');
     act(() => button(v, 'Show FINISH')!.props.onPress());
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
@@ -1292,6 +1295,46 @@ it('keeps Leg Press muscle roles and FINISH while expanding anatomy', () => {
           (n: any) =>
             n.props.accessibilityLabel === 'Leg Press: FINISH' &&
             n.props.source === 4102,
+        ),
+    ).toBe(true);
+  } finally {
+    act(() => v.unmount());
+  }
+});
+
+it('keeps Smith Machine Squat muscle roles and FINISH while expanding anatomy', () => {
+  const v = render();
+  try {
+    act(() => button(v, 'Technique for Smith Machine Squat')!.props.onPress());
+    const muscles = v.root.findByType(MuscleMap).props.muscles;
+    expect(
+      muscles
+        .filter((m: any) => m.primary === 1)
+        .map((m: any) => m.id)
+        .sort(),
+    ).toEqual(['glutes', 'quadriceps']);
+    expect(
+      muscles
+        .filter((m: any) => m.secondary === 1)
+        .map((m: any) => m.id)
+        .sort(),
+    ).toEqual(['adductors', 'hamstrings']);
+    act(() => button(v, 'Show FINISH')!.props.onPress());
+    act(() =>
+      button(v, 'Muscle details for Smith Machine Squat')!.props.onPress(),
+    );
+    expect(
+      v.root.findAllByType(MuscleMap).map((m: any) => m.props.height),
+    ).toEqual([160, 340]);
+    act(() => button(v, 'Close muscle details')!.props.onPress());
+    expect(v.root.findAllByType(MuscleMap)).toHaveLength(1);
+    expect(
+      v.root
+        .findAllByType(Image)
+        .some(
+          (n: any) =>
+            n.props.accessibilityLabel === 'Smith Machine Squat: FINISH' &&
+            n.props.source === 4202,
         ),
     ).toBe(true);
   } finally {
