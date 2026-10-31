@@ -1,0 +1,36 @@
+{
+  "exerciseId": "dumbbell-bench-press",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "dumbbell-bench-press",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "user-selected",
+      "tool": "built-in image_gen",
+      "prompt": "Create ONE original CRESUM FLAT DUMBBELL BENCH PRESS exercise illustration diptych. Landscape 2:1 sheet of TWO equal square independently crop-safe scenes, LEFT lower bent-elbow START, RIGHT raised extended-arm FINISH. Input1 defines exact exercise, pose order and camera orientation ONLY. Input2 is actual locked CRESUM Male Master identity, natural athletic build, face, short brown hair, blue-gray fitted short sleeve T-shirt, charcoal shorts, white socks and light gray sneakers. SAME man, same outfit and smooth uniform materials in both halves. Premium semi-realistic polished 3D studio rendering on clean white with soft contact shadows. No anatomy overlays, exposed muscles, text, arrows, captions, logos, watermarks or center divider.\nMatch Input1's elevated three-quarter camera looking diagonally from the HEAD end: his head at lower-left of each scene, body runs toward upper-right, knees and feet toward upper-right. Do not mirror one scene relative to the other. Both scenes must have identical camera angle, uniform scale, same bench/body/head/hip/foot anchor registration. Same fully horizontal FLAT narrow dark graphite padded bench with satin silver/light gray legs and stable T bases in both scenes, no incline, no rack. Adult man supine with head, shoulders/upper back and buttocks supported on pad, modest natural lumbar curve only, no lifted hips. Both knees bent and feet planted firmly on floor either side of bench, soles credible and visible, not bare feet. Full head, all bench feet, both shoes and complete weights fit comfortably in each square.\nEquipment: TWO identical separate black dumbbells per scene, each with short steel central handle and equal black round discs on BOTH ends; same size, disc count and design in both phases. Each hand securely wraps its own central handle with fingers and opposing thumb, no floating weights or handle through palm. Closed pronated grip, palms toward feet, forearms stacked under handles with neutral wrists. LEFT lower position: upper arms moderately out from torso, bent elbows around90degrees, dumbbells beside mid chest, elbows below wrists. Not a chest fly: elbows clearly bent. RIGHT upper position: extend elbows almost straight above mid chest/shoulder line, weights move upward and gently inward with distinct small space between dumbbells, no overlap/collision; same grip orientation. No sideways fly path, no curl, no shoulder shrug, no dumbbells above abdomen. Only arms and dumbbells move; keep all other body/bench anchors consistent. Use the entire available frame at the SAME large scale in both square panels, allowing the complete combined movement envelope and small clean margins on every side; no clipping at top, central boundary or corners. Keep face, cloth color, skin, bench metal and dumbbell geometry coherent and evenly textured. Return only the complete two-phase illustration.",
+      "references": [
+        {
+          "role": "user pose/camera reference",
+          "file": "image(20261031-111835).png",
+          "sha256": "a152dba618cd66aa569088724681fd91c9b0a15e58251c0f648de3117d0092c3",
+          "bytes": 176984
+        },
+        {
+          "role": "actual Male Master identity/clothing",
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-4be5134f-8839-4977-955e-6ab36d4b2f5a.png",
+        "sha256": "574fefa54384c8aa89399e3d37da826f65d87afab9d9bc0836154b84b7517992",
+        "bytes": 1636937,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}

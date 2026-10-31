@@ -1,0 +1,35 @@
+{
+  "exerciseId": "dumbbell-bench-press",
+  "model": "male",
+  "selectionDate": "2026-10-31",
+  "decision": "Утврдио. (interpreted in context as approval)",
+  "status": "user-selected-pair",
+  "selectedRevision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-4be5134f-8839-4977-955e-6ab36d4b2f5a.png",
+      "sourceSha256": "574fefa54384c8aa89399e3d37da826f65d87afab9d9bc0836154b84b7517992",
+      "sourceBytes": 1636937,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "bf495efb5cb096a75d354f73b42dfa19d11531dc17f94d791338064c89d67b03",
+      "bytes": 54476,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-4be5134f-8839-4977-955e-6ab36d4b2f5a.png",
+      "sourceSha256": "574fefa54384c8aa89399e3d37da826f65d87afab9d9bc0836154b84b7517992",
+      "sourceBytes": 1636937,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "9300cbc647767f635991a581528ebba78b385d58d9224ce8c7fadca3c2ffa48c",
+      "bytes": 55854,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
