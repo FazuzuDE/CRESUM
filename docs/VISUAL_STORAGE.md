@@ -1,5 +1,13 @@
 # CRESUM visual-source storage
 
+## Checkpoint timing — revised 2026-10-31
+
+Do not create a ZIP after every exercise. Preserve originals, exact prompts
+and reference provenance as work proceeds; prepare the cumulative source ZIP
+at the end of the visual block or when the user requests it. This supersedes
+any per-exercise archive practice. Oracle remains deferred; do not claim a
+verified backup from local retention alone.
+
 Approved by the user on 2026-10-27; revised checkpoint workflow below.
 The user deferred Oracle uploads and resumed app development. After a major
 visual block or at the end of work, prepare an up-to-date source ZIP with a

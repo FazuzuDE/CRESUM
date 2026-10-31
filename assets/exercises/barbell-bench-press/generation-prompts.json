@@ -1,0 +1,36 @@
+{
+  "exerciseId": "barbell-bench-press",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "barbell-bench-press",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "user-selected",
+      "tool": "built-in image_gen",
+      "prompt": "Create an original CRESUM exercise illustration pair, one landscape image with two equally sized panels side by side. Input 1 is a pose and camera reference ONLY for flat barbell bench press, not its artistic style or branding. Input 2 is the locked CRESUM male character appearance, face, build, hair and clothing: blue short-sleeved T-shirt, charcoal shorts, white socks, gray sneakers. Use this same man in BOTH panels, polished realistic 3D illustration with smooth even colors. White background, subtle ground shadows, no text or logos. Left panel lower position: lying on flat horizontal black padded bench, bar just above mid/lower chest, bent elbows, standard pronated grip wider than shoulders (NOT close-grip), wrists aligned over forearms. Right panel upper position: same man, same fixed bench and light silver/white rack, arms extended above chest, same grip width. Match the reference three-quarter elevated camera looking from the foot/side toward the head, feet toward lower left and head toward upper right in both panels. Feet firmly planted, knees bent, head shoulders and hips supported. Straight steel barbell with matching dark weight plates on each end, consistent bar length and plates across phases, hands actually wrapped around bar. Light silver/white metal rack and bench frame, dark padding. Original equipment rendering. Precisely equal camera scale and matching equipment placement in both halves, only arms and bar move. Maximize useful frame occupancy while keeping entire rack, barbell ends, plates, shoes, bench legs visible with comfortable small margins; no clipping, no overlap between panels. No anatomical skin, exposed muscle fibers, colored muscle overlays, watermark, brand lettering, captions or panel divider.",
+      "references": [
+        {
+          "role": "user pose and camera reference",
+          "file": "image(20261031-102836).png",
+          "sha256": "95c8a67959766a80ecb9059bf12bf5b111f00a6f5e09390ecc7acd895168b63a",
+          "bytes": 279167
+        },
+        {
+          "role": "actual Male Master identity/clothing",
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-3e3e0607-f1cc-4b41-a513-5538d9a619f4.png",
+        "sha256": "693c8e1ac19448cba57625e2d138b84aa2bd1ec651d283d2e2a340efec9493bc",
+        "bytes": 1596629,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}
