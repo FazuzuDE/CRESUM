@@ -1,5 +1,19 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Barbell Back Squat selected Male pair — 2026-10-31
+
+User approved r1 `exec-8555e880-10c1-4897-a77f-d140d5c0a5e3.png`.
+Exact887-square LEFT standing START / RIGHT lower FINISH crops, RGB WebP92/method6.
+Bind only `barbell-back-squat`/Male; preserve stable IDs/legacy alias, existing
+guide, quadriceps/glutes Primary and hamstrings/adductors/lower-back Secondary,
+shared viewers and other/Female/attachment fallbacks. No retouch/resampling/
+padding/phase-specific transforms. Actual user pose sheet and Male Master,
+original/exact prompt retained for final checkpoint; no per-exercise ZIP.
+Status user-selected-provisional: precise bar/hand/shoulder contacts, wrist/neck
+angles, stance/bar geometry/registration, depth and device/accessibility not
+independently certified. Existing guide unchanged; no new live source review.
+PC/Oracle backup unverified.
+
 ## Push-Up selected Male pair — 2026-10-31
 
 User approved r1 `exec-16a5e257-fa76-4204-ac62-dc610485a205.png`.

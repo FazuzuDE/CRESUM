@@ -1,0 +1,35 @@
+{
+  "exerciseId": "barbell-back-squat",
+  "model": "male",
+  "selectionDate": "2026-10-31",
+  "decision": "Утверждаю",
+  "status": "user-selected-pair",
+  "selectedRevision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-8555e880-10c1-4897-a77f-d140d5c0a5e3.png",
+      "sourceSha256": "94eb191b4e2ed742d11ead8bb708c7a69f482b810f0cd957f95536a7272e5398",
+      "sourceBytes": 1371246,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "fb048f1678eeb9031ac24d648d8d716fc8596a9e2ff068a76cb02992d3382015",
+      "bytes": 37550,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-8555e880-10c1-4897-a77f-d140d5c0a5e3.png",
+      "sourceSha256": "94eb191b4e2ed742d11ead8bb708c7a69f482b810f0cd957f95536a7272e5398",
+      "sourceBytes": 1371246,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "b4a8f85337f04a0c8d7e4a2ea70be977eefa00ff1821b6270f8fb79a464e0c34",
+      "bytes": 37996,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

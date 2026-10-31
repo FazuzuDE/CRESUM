@@ -1,0 +1,52 @@
+{
+  "variantId": "barbell-back-squat",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-8555e880-10c1-4897-a77f-d140d5c0a5e3.png",
+      "sourceSha256": "94eb191b4e2ed742d11ead8bb708c7a69f482b810f0cd957f95536a7272e5398",
+      "sourceBytes": 1371246,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "fb048f1678eeb9031ac24d648d8d716fc8596a9e2ff068a76cb02992d3382015",
+      "bytes": 37550,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-8555e880-10c1-4897-a77f-d140d5c0a5e3.png",
+      "sourceSha256": "94eb191b4e2ed742d11ead8bb708c7a69f482b810f0cd957f95536a7272e5398",
+      "sourceBytes": 1371246,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "b4a8f85337f04a0c8d7e4a2ea70be977eefa00ff1821b6270f8fb79a464e0c34",
+      "bytes": 37996,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "LEFT standing START / RIGHT lower FINISH. Preserve guide, saved identity/legacy alias and quadriceps/glutes Primary; hamstrings/adductors/lower-back Secondary.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch/resampling/padding/phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 1,
+    "lineage": "Actual user two-phase squat reference and Male Master."
+  },
+  "reviewScope": "Broad phase/identity/material continuity reviewed. Precise bar/hand/shoulder contacts, wrist/neck angles, stance and bar geometry/registration, squat depth and physical-device/accessibility not independently certified. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original/exact prompt/actual inputs retained locally for final checkpoint. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}
