@@ -10,16 +10,8 @@
       "sourceFile": "exec-9a36f9a9-2167-4c81-940f-ed39f5cd891b.png",
       "sourceSha256": "5f1ef2c934b252a4758da99a48508679eff9a280dfd77774d3ff32ce592826fc",
       "sourceBytes": 1885852,
-      "sourceSize": [
-        1774,
-        887
-      ],
-      "cropBox": [
-        0,
-        0,
-        887,
-        887
-      ],
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
       "sha256": "575312e23f6ab58d2833ae4980fa75763be3808807318b88f003a89e92886360",
       "bytes": 90450,
       "width": 887,
@@ -30,16 +22,8 @@
       "sourceFile": "exec-9a36f9a9-2167-4c81-940f-ed39f5cd891b.png",
       "sourceSha256": "5f1ef2c934b252a4758da99a48508679eff9a280dfd77774d3ff32ce592826fc",
       "sourceBytes": 1885852,
-      "sourceSize": [
-        1774,
-        887
-      ],
-      "cropBox": [
-        887,
-        0,
-        1774,
-        887
-      ],
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
       "sha256": "a44842a7d9b7abf2e620396ab11641eea22fff470a810755f726bf38e1d70ecb",
       "bytes": 83524,
       "width": 887,
