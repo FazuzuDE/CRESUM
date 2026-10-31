@@ -194,7 +194,7 @@ describe('exercise asset specifications', () => {
   });
 
   it('leaves the existing generic Exercise Library contract unchanged', () => {
-    expect(exerciseLibrary).toHaveLength(67);
+    expect(exerciseLibrary).toHaveLength(68);
     expect(findExercise('lat-pulldown')).toEqual({
       id: 'lat-pulldown',
       name: 'Lat Pulldown',
@@ -222,6 +222,7 @@ describe('exercise asset specifications', () => {
             'dumbbell-floor-glute-bridge',
             'lying-barbell-triceps-extension',
             'seated-cable-row-close-neutral-v-handle',
+            'kettlebell-goblet-squat',
           ].includes(id),
       ),
     ).toHaveLength(58);
@@ -233,6 +234,6 @@ describe('exercise asset specifications', () => {
     expect(approvedExerciseAssetSpecifications.variant).toEqual(
       getCatalogVariant('lat-pulldown-close-neutral-v-handle'),
     );
-    expect(new Set(exerciseLibrary.map(({ id }) => id)).size).toBe(67);
+    expect(new Set(exerciseLibrary.map(({ id }) => id)).size).toBe(68);
   });
 });

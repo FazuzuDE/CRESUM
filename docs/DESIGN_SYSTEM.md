@@ -1,5 +1,26 @@
 # CRESUM Design System v1.0
 
+## Dumbbell Goblet Squat selected Male pair — 2026-10-31
+
+User approved exec-638a92dc-7f30-476e-95b6-4faacd4ceb75.png. Exact887-square
+LEFT standing START / RIGHT lower FINISH, RGB WebP92/method6, no retouch or
+resampling. Bind only goblet-squat/Male; preserve kettlebell choice and guide,
+IDs/history, shared viewers/map/statistics. Fine head/palm contacts, stance,
+depth, center-divider edge and device/accessibility remain provisional.
+Original/exact prompt/actual inputs retained; no ZIP, archive pending-upload.
+This supersedes earlier pending-selection/placeholder status for this source.
+
+## Goblet Squat equipment UI — approved 2026-10-31
+
+One visible Goblet Squat card; choose Dumbbell or Kettlebell inside it.
+Technique image/instructions and future plan/workout additions follow that
+choice. Statistics adds All / Dumbbell / Kettlebell alongside existing period,
+metric and chart controls; retain the existing MuscleMap. All combines display
+results with equipment attribution; stored configuration IDs remain distinct.
+Existing goblet-squat records remain dumbbell. Do not rewrite past snapshots.
+The generated two-screen concept illustrates new controls; it does not replace
+current graphs or anatomical map with its illustrative list/text substitutes.
+
 ## Smith Machine Squat selected Male pair — 2026-10-31
 
 User approved r1 `exec-28cae04d-aa85-4431-abb9-43c912f4e049.png`.

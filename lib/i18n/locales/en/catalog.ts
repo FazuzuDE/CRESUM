@@ -44,6 +44,7 @@ export default {
   "catalog.exercise.leg-press": "Leg Press",
   "catalog.exercise.smith-machine-squat": "Smith Machine Squat",
   "catalog.exercise.goblet-squat": "Goblet Squat",
+  "catalog.exercise.kettlebell-goblet-squat": "Goblet Squat",
   "catalog.exercise.dumbbell-reverse-lunge": "Dumbbell Reverse Lunge",
   "catalog.exercise.bulgarian-split-squat": "Bulgarian Split Squat",
   "catalog.exercise.leg-extension": "Leg Extension",

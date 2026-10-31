@@ -26,6 +26,7 @@ import type { WorkoutSession } from '@/lib/workout-model';
 import type { WorkoutVolume } from '@/lib/progress-analytics';
 import { colors, radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
+import { catalogLabel } from '@/lib/i18n/catalog';
 import { formatNumber } from '@/lib/i18n/format';
 import {
   progressNumber,
@@ -55,6 +56,16 @@ export function ExerciseStatistics({
   const number = (v: number, estimate = false) =>
     progressNumber(locale, v, estimate);
   const date = (v: number) => progressDate(locale, v);
+  const goblet =
+    exerciseId === 'goblet-squat' || exerciseId === 'kettlebell-goblet-squat';
+  const [equipment, setEquipment] = useState('all');
+  const equipmentName = (id: string) =>
+    catalogLabel(
+      locale,
+      'equipment',
+      id === 'kettlebell-goblet-squat' ? 'kettlebell' : 'dumbbell',
+      id,
+    );
   const [period, setPeriod] = useState<ProgressPeriodId>('1M');
   const [metric, setMetric] = useState<ExerciseMetric>('estimated1RM');
   const [clock, setClock] = useState(Date.now);
@@ -78,10 +89,14 @@ export function ExerciseStatistics({
         history,
         period,
         now,
-        `canonical:${exerciseId}`,
+        goblet
+          ? equipment === 'all'
+            ? 'family:goblet-squat'
+            : `canonical:${equipment}`
+          : `canonical:${exerciseId}`,
         metric,
       ),
-    [history, period, now, exerciseId, metric],
+    [history, period, now, exerciseId, metric, goblet, equipment],
   );
   const label = t(metrics.find((m) => m.id === metric)!.key);
   const points = result.points.map((p) => ({
@@ -89,12 +104,17 @@ export function ExerciseStatistics({
     workoutName: p.workoutName,
     finishedAt: p.finishedAt,
     volume: p[metric]!,
+    equipment: [
+      ...new Set(p.sets.map((s) => equipmentName(s.exerciseId))),
+    ].join(' · '),
   }));
   const selectedPoint = result.points.find((p) => p.workoutId === selected);
   const selectPoint = (p: WorkoutVolume) => setSelected(p.workoutId);
   const pointLabel = (p: WorkoutVolume) =>
     t('progress.point', {
-      name: p.workoutName,
+      name: goblet
+        ? `${p.workoutName} · ${points.find((point) => point.workoutId === p.workoutId)?.equipment ?? ''}`
+        : p.workoutName,
       date: date(p.finishedAt),
       value: number(p.volume, metric === 'estimated1RM'),
     });
@@ -103,6 +123,30 @@ export function ExerciseStatistics({
   const comparison = result.comparison;
   return (
     <View style={s.content}>
+      {goblet ? (
+        <View style={s.segments} accessibilityLabel={t('library.equipment')}>
+          {['all', 'goblet-squat', 'kettlebell-goblet-squat'].map((id) => {
+            const title = id === 'all' ? t('library.all') : equipmentName(id);
+            return (
+              <Pressable
+                key={id}
+                accessibilityRole="button"
+                accessibilityLabel={title}
+                accessibilityState={{ selected: equipment === id }}
+                onPress={() => {
+                  setEquipment(id);
+                  setSelected(undefined);
+                }}
+                style={[s.segment, equipment === id && s.active]}
+              >
+                <Text style={[s.segmentText, equipment === id && s.activeText]}>
+                  {title}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </View>
+      ) : null}
       <View style={s.segments} accessibilityLabel={t('stats.periodGroup')}>
         {PROGRESS_PERIODS.map((p) => (
           <Pressable
@@ -144,7 +188,12 @@ export function ExerciseStatistics({
         ))}
       </View>
       <View style={s.card}>
-        <Text style={s.caption}>{label.toUpperCase()}</Text>
+        <Text style={s.caption}>
+          {label.toUpperCase()}
+          {goblet
+            ? ` · ${equipment === 'all' ? t('library.all') : equipmentName(equipment)}`
+            : ''}
+        </Text>
         <View style={s.summary}>
           <Text style={s.value}>
             {result.value === undefined
@@ -249,6 +298,7 @@ export function ExerciseStatistics({
                 style={s.workout}
               >
                 <Text style={s.title}>{p.workoutName}</Text>
+                {goblet ? <Text style={s.note}>{p.equipment}</Text> : null}
                 <Text style={s.note}>{date(p.finishedAt)}</Text>
                 <Text style={s.link}>
                   {t('progress.valueKg', {
@@ -263,6 +313,7 @@ export function ExerciseStatistics({
         <LoggedExerciseSets
           point={selectedPoint}
           name={name}
+          showEquipment={goblet}
           onClose={() => setSelected(undefined)}
         />
       ) : null}
@@ -273,10 +324,12 @@ export function ExerciseStatistics({
 function LoggedExerciseSets({
   point,
   name,
+  showEquipment,
   onClose,
 }: {
   point: ExerciseStatisticsPoint;
   name: string;
+  showEquipment?: boolean;
   onClose: () => void;
 }) {
   const { t, locale } = useLocalization();
@@ -335,7 +388,12 @@ function LoggedExerciseSets({
                 key={`${set.snapshotId}:${set.id}:${index}`}
                 style={s.setRow}
               >
-                <Text style={s.cell}>{formatNumber(locale, index + 1)}</Text>
+                <Text style={s.cell}>
+                  {formatNumber(locale, index + 1)}
+                  {showEquipment
+                    ? ` · ${catalogLabel(locale, 'equipment', set.exerciseId === 'kettlebell-goblet-squat' ? 'kettlebell' : 'dumbbell', set.exerciseId)}`
+                    : ''}
+                </Text>
                 <Text style={s.cell}>{number(set.weight)}</Text>
                 <Text style={s.cell}>
                   {set.otherSideReps === undefined

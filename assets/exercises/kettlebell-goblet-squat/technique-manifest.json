@@ -1,0 +1,59 @@
+{
+  "variantId": "kettlebell-goblet-squat",
+  "model": "male",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "214e16d0561ce37749a6576105b1ebccfc3dbb13bcdc967243c5367b05eecc4b",
+      "bytes": 30870,
+      "width": 887,
+      "height": 887,
+      "sourceFile": "exec-499ace3d-8dbd-4a34-935c-becea291fca4.png",
+      "sourceSha256": "938fc020fc34538c985e09f52d253300d1b30f5828aba7c6e3f060f4994e2882",
+      "sourceSize": [1774, 887]
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "965e23258777b8202005b64c4cbb88f111faa468ba357eb251b5c418438cce96",
+      "bytes": 31012,
+      "width": 887,
+      "height": 887,
+      "sourceFile": "exec-499ace3d-8dbd-4a34-935c-becea291fca4.png",
+      "sourceSha256": "938fc020fc34538c985e09f52d253300d1b30f5828aba7c6e3f060f4994e2882",
+      "sourceSize": [1774, 887]
+    }
+  },
+  "generation": {
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "5CA59B9B-2C4B-4C7C-8586-2E88EDF6659C.png",
+        "sha256": "896615620027b63f82b826d4025456c535d5acc83447b10b313a15d27631873e",
+        "bytes": 553662
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      }
+    ],
+    "output": {
+      "file": "exec-499ace3d-8dbd-4a34-935c-becea291fca4.png",
+      "sha256": "938fc020fc34538c985e09f52d253300d1b30f5828aba7c6e3f060f4994e2882",
+      "bytes": 1299611
+    }
+  },
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none"
+  },
+  "reviewScope": "User selected. Fine horn/finger contacts, stance registration, squat depth and physical-device/accessibility not independently certified.",
+  "archiveStatus": "pending-upload"
+}

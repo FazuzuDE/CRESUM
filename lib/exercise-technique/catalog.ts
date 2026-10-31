@@ -812,6 +812,25 @@ export const techniqueCatalog = {
     adaptation:
       "Controlled comfortable depth takes priority over the source's below-knee example.",
   },
+  'kettlebell-goblet-squat': {
+    revision: 1,
+    scope: 'One kettlebell held at chest height with both hands.',
+    setup: [
+      'Hold the kettlebell at your chest; stand about shoulder-width with toes slightly outward.',
+    ],
+    movement: [
+      'Bend hips and knees, lowering under control; press through your feet to stand.',
+    ],
+    checks: ['Keep your chest lifted, back controlled and elbows forward.'],
+    mistakes: [
+      'Weight drifting away: keep it close.',
+      'Heels lifting: reduce depth.',
+      'Trunk collapsing: use a lighter weight.',
+    ],
+    sources: ['ace-kettlebells'],
+    adaptation:
+      'ACE kettlebell instructions condensed; use a comfortable controlled depth and keep the whole foot supported.',
+  },
   'dumbbell-reverse-lunge': {
     revision: 1,
     scope: 'Dumbbells at sides; backward step.',

@@ -1,4 +1,10 @@
 export const techniqueSources = {
+  'ace-kettlebells': {
+    publisher: 'American Council on Exercise',
+    title: 'How to Get Started With Kettlebells — Goblet Squat',
+    url: 'https://www.acefitness.org/resources/pros/expert-articles/5269/how-to-get-started-with-kettlebells/',
+    checkedOn: '2026-10-31',
+  },
   'muscle-strength-seated-row': {
     publisher: 'Muscle & Strength',
     title: 'Seated Cable Row',

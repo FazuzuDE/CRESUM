@@ -1,5 +1,26 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Dumbbell Goblet Squat selected Male pair — 2026-10-31
+
+User approved exec-638a92dc-7f30-476e-95b6-4faacd4ceb75.png. Exact887-square
+LEFT standing START / RIGHT lower FINISH, RGB WebP92/method6, no retouch or
+resampling. Bind only goblet-squat/Male; preserve kettlebell choice and guide,
+IDs/history, shared viewers/map/statistics. Fine head/palm contacts, stance,
+depth, center-divider edge and device/accessibility remain provisional.
+Original/exact prompt/actual inputs retained; no ZIP, archive pending-upload.
+This supersedes earlier pending-selection/placeholder status for this source.
+
+## Kettlebell Goblet Squat selected Male pair — 2026-10-31
+
+User approved exec-499ace3d-8dbd-4a34-935c-becea291fca4.png. Exact887-square
+LEFT standing START / RIGHT lower FINISH halves, RGB WebP92/method6, no retouch
+or resampling. Bind only kettlebell-goblet-squat/Male, not existing dumbbell ID.
+Record exact prompt and source/reference hashes. Fine horn/finger contacts,
+stance registration, depth and device/accessibility remain provisional.
+Dumbbell candidate exec-638a92dc-7f30-476e-95b6-4faacd4ceb75.png is retained
+pending user selection and remains unbound. No per-exercise ZIP; archive
+pending-upload, PC/Oracle backup unverified.
+
 ## Smith Machine Squat selected Male pair — 2026-10-31
 
 User approved r1 `exec-28cae04d-aa85-4431-abb9-43c912f4e049.png`.

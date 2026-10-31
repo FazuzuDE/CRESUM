@@ -1,5 +1,24 @@
 import { flattenTechniqueText } from '../../technique-text';
 export default flattenTechniqueText({
+  'kettlebell-goblet-squat': {
+    scope: 'Une kettlebell tenue à deux mains à hauteur de poitrine.',
+    setup: [
+      'Tenez la kettlebell contre la poitrine ; écartez les pieds environ à la largeur des épaules, pointes légèrement vers l’extérieur.',
+    ],
+    movement: [
+      'Fléchissez les hanches et les genoux en descendant avec contrôle ; poussez dans les pieds pour vous relever.',
+    ],
+    checks: [
+      'Gardez la poitrine relevée, le dos contrôlé et les coudes vers l’avant.',
+    ],
+    mistakes: [
+      'Charge qui s’éloigne : gardez-la près du corps.',
+      'Talons qui se soulèvent : réduisez la profondeur.',
+      'Buste qui s’effondre : réduisez la charge.',
+    ],
+    adaptation:
+      'Consignes ACE pour kettlebell condensées ; choisissez une profondeur confortable et contrôlée en gardant tout le pied en appui.',
+  },
   'seated-cable-row-close-neutral-v-handle': {
     scope:
       'Tirage assis à la poulie basse ; poignée en V ; prise neutre serrée.',

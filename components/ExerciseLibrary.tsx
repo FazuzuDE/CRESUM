@@ -11,6 +11,10 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { ExerciseEquipmentRow } from './ExerciseEquipmentRow';
+import { ExerciseEquipmentSheet } from './ExerciseEquipmentSheet';
+import { equipmentPolicyFor } from '@/lib/exercise-equipment';
+import { findExercise } from '@/lib/exercise-library';
 import { ExerciseTechnique } from './ExerciseTechnique';
 import { ExerciseArtwork } from './ExerciseArtwork';
 import { catalogLabel, searchLocalizedExercises } from '@/lib/i18n/catalog';
@@ -57,6 +61,8 @@ export function ExerciseLibrary({
     setGuideTab(tab);
     setGuide(exercise);
   };
+  const [gobletId, setGobletId] = useState<string>();
+  const [gobletEquipmentOpen, setGobletEquipmentOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [muscle, setMuscle] = useState<MuscleId>();
   const [equipment, setEquipment] = useState<EquipmentId>();
@@ -68,12 +74,16 @@ export function ExerciseLibrary({
   };
   const close = () => {
     setGuide(null);
+    setGobletId(undefined);
+    setGobletEquipmentOpen(false);
     reset();
     onClose();
   };
 
   useEffect(() => {
     if (!visible) {
+      setGobletId(undefined);
+      setGobletEquipmentOpen(false);
       setGuide(null);
       setQuery('');
       setMuscle(undefined);
@@ -188,7 +198,21 @@ export function ExerciseLibrary({
             <Text style={s.subtitle}>{t('library.emptyHint')}</Text>
           </View>
         ) : (
-          results.map((exercise) => {
+          results.map((listedExercise) => {
+            const exercise =
+              listedExercise.id === 'goblet-squat'
+                ? findExercise(
+                    gobletId ??
+                      selectedIds.find(
+                        (id) =>
+                          id === 'goblet-squat' ||
+                          id === 'kettlebell-goblet-squat',
+                      ) ??
+                      (equipment === 'kettlebell'
+                        ? 'kettlebell-goblet-squat'
+                        : 'goblet-squat'),
+                  )!
+                : listedExercise;
             const name = catalogLabel(
               locale,
               'exercise',
@@ -234,6 +258,12 @@ export function ExerciseLibrary({
                         {t('library.statistics')}
                       </Text>
                     </Pressable>
+                  ) : null}
+                  {listedExercise.id === 'goblet-squat' ? (
+                    <ExerciseEquipmentRow
+                      exerciseId={exercise.id}
+                      onPress={() => setGobletEquipmentOpen(true)}
+                    />
                   ) : null}
                   {selectionMode ? (
                     <Pressable
@@ -289,10 +319,32 @@ export function ExerciseLibrary({
           })
         )}
       </AppScrollView>
+      {gobletEquipmentOpen ? (
+        <ExerciseEquipmentSheet
+          policy={equipmentPolicyFor('goblet-squat')!}
+          selectedVariantId={
+            gobletId ??
+            selectedIds.find(
+              (id) => id === 'goblet-squat' || id === 'kettlebell-goblet-squat',
+            ) ??
+            (equipment === 'kettlebell'
+              ? 'kettlebell-goblet-squat'
+              : 'goblet-squat')
+          }
+          onSelect={setGobletId}
+          onClose={() => setGobletEquipmentOpen(false)}
+        />
+      ) : null}
       {guide ? (
         <ExerciseTechnique
           key={guide.id}
           exercise={guide}
+          onEquipmentChange={
+            guide.id === 'goblet-squat' ||
+            guide.id === 'kettlebell-goblet-squat'
+              ? setGobletId
+              : undefined
+          }
           history={history}
           initialTab={guideTab}
           now={now}

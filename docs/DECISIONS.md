@@ -1,5 +1,36 @@
 # CRESUM Decision Log
 
+## Dumbbell Goblet Squat selected Male pair — 2026-10-31
+
+User approved exec-638a92dc-7f30-476e-95b6-4faacd4ceb75.png. Exact887-square
+LEFT standing START / RIGHT lower FINISH, RGB WebP92/method6, no retouch or
+resampling. Bind only goblet-squat/Male; preserve kettlebell choice and guide,
+IDs/history, shared viewers/map/statistics. Fine head/palm contacts, stance,
+depth, center-divider edge and device/accessibility remain provisional.
+Original/exact prompt/actual inputs retained; no ZIP, archive pending-upload.
+This supersedes earlier pending-selection/placeholder status for this source.
+
+## Goblet Squat combined statistics — user addition, 2026-10-31
+
+The single Goblet Squat statistics screen offers All / Dumbbell / Kettlebell.
+All shows results regardless of equipment, retaining equipment attribution per
+result. Individual filters restrict results to the selected equipment. This
+combined display does not merge stored variant identities or rewrite history.
+Implemented with display-only family aggregation, equipment labels on results and
+per-set concrete identity in the detail sheet. Previous-performance suggestions
+remain equipment-specific; no stored-data migration.
+
+## Goblet Squat equipment choice — approved intent, 2026-10-31
+
+User selected one visible exercise, Goblet Squat, with dumbbell/kettlebell as
+internal equipment choices, rather than duplicate visible exercises. Preserve
+existing `goblet-squat` dumbbell history and identity; do not reinterpret saved
+records as kettlebell. The selected kettlebell artwork must resolve only for
+that equipment choice. The new dumbbell reference is a pose source, not an
+approved CRESUM production image. The concrete kettlebell configuration is
+`kettlebell-goblet-squat`; the library groups both IDs behind one visible entry.
+Browse, plan selection and workout addition retain the chosen concrete ID.
+
 ## Smith Machine Squat selected Male pair — 2026-10-31
 
 User approved r1 `exec-28cae04d-aa85-4431-abb9-43c912f4e049.png`.

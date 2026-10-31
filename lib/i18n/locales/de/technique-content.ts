@@ -1,5 +1,24 @@
 import { flattenTechniqueText } from '../../technique-text';
 export default flattenTechniqueText({
+  'kettlebell-goblet-squat': {
+    scope: 'Eine Kettlebell mit beiden Händen auf Brusthöhe.',
+    setup: [
+      'Halte die Kettlebell an der Brust; stelle die Füße etwa schulterbreit mit leicht nach außen gerichteten Zehen auf.',
+    ],
+    movement: [
+      'Beuge Hüfte und Knie und senke dich kontrolliert ab; drücke dich über die Füße in den Stand.',
+    ],
+    checks: [
+      'Halte die Brust aufgerichtet, den Rücken kontrolliert und die Ellbogen nach vorn.',
+    ],
+    mistakes: [
+      'Gewicht wandert nach vorn: halte es nah am Körper.',
+      'Fersen heben ab: verringere die Tiefe.',
+      'Oberkörper sackt zusammen: verwende weniger Gewicht.',
+    ],
+    adaptation:
+      'Gekürzte ACE-Anleitung für Kettlebells; wähle eine angenehme kontrollierte Tiefe und belaste den ganzen Fuß.',
+  },
   'seated-cable-row-close-neutral-v-handle': {
     scope: 'Sitzendes Rudern am tiefen Kabelzug; V-Griff; enger Neutralgriff.',
     setup: [
