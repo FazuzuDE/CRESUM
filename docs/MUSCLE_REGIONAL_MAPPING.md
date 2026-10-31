@@ -101,3 +101,18 @@ Implementation checks must cover exact-variant matching, unknown-setup fallback,
 source/revision provenance, non-duplicated parent counts, stable IDs/history and
 independent regional rendering with unchanged exterior geometry. This checkpoint
 contains documentation only, with no new coefficients or runtime behavior.
+
+## Incline dumbbell illustration context — 2026-10-31
+
+The selected illustration depicts an approximately45-degree incline as one
+example. The existing stable ID remains angle-unspecified and parent-level
+chest Primary / front-delts and triceps Secondary. No regional production
+binding is added by selecting artwork.
+
+[Luczak et al., 2013](https://pubmed.ncbi.nlm.nih.gov/26464884/) directly studied
+flat, 45-degree incline and shoulder presses with dumbbells in young women.
+The indexed abstract reports phase-dependent clavicular pectoralis activity
+and greater anterior-deltoid activity for incline than flat press. This adds
+dumbbell-specific context to the review queue; it does not establish universal
+regional dominance, load fractions, isolated upper-chest work or drawable masks.
+The earlier nine-ID audit remains an unresolved implementation queue.

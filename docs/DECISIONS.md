@@ -1,5 +1,24 @@
 # CRESUM Decision Log
 
+## Incline Dumbbell Press selected Male pair — 2026-10-31
+
+User approved r1 `exec-fe91dc7e-1678-4623-b7b5-3060cb76feb6.png`.
+Use exact 887-square LEFT lower START / RIGHT extended FINISH halves,
+RGB WebP92/method6; no retouch/resampling/padding/phase-specific transforms.
+Bind only existing `incline-dumbbell-press`/Male. Keep chest Primary and
+front-delts/triceps Secondary, existing ACE25 guide, shared viewers/map,
+stable IDs/History/data and unrelated/Female/attachment fallbacks. The pictured
+approximately45-degree incline does not redefine the angle-unspecified ID.
+User highlighted upper chest, anterior deltoid and triceps: upper chest means
+pectoralis-major clavicular region, not an isolated muscle. Existing parent
+map remains; no unreviewed regional mask, isolation claim or load fraction.
+Actual user pose sheet and Male Master informed generation. Retain original,
+exact prompt and inputs locally for final checkpoint, no per-exercise ZIP.
+Keep user-selected-provisional: detailed wrist/finger contacts, registration,
+bench geometry, tight top margin and device/accessibility not certified.
+PC/Oracle backup unverified. ACE25 rechecked; dumbbell-specific regional context
+is indexed abstract https://pubmed.ncbi.nlm.nih.gov/26464884/ (phase-dependent).
+
 ## Barbell Bench Press selected Male pair — 2026-10-31
 
 User approved r1 `exec-3e3e0607-f1cc-4b41-a513-5538d9a619f4.png`.
