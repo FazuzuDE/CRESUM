@@ -1,0 +1,52 @@
+{
+  "variantId": "pec-deck-fly",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-71005bce-5bdb-4c9b-9a5d-24c77c88e307.png",
+      "sourceSha256": "7963082133e48efa1acfd94a8006991e918c6c2b0b49acb165ac9ced88e386c1",
+      "sourceBytes": 1461739,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "4659d78e55bc151cfdb58de6c2de7d8fb5a7071eba83318a6bfd3b8d6c240470",
+      "bytes": 53574,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-71005bce-5bdb-4c9b-9a5d-24c77c88e307.png",
+      "sourceSha256": "7963082133e48efa1acfd94a8006991e918c6c2b0b49acb165ac9ced88e386c1",
+      "sourceBytes": 1461739,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "957fba96e1d072e71a53649d8575f4294752b624d10626c7549d4cd3961b21a5",
+      "bytes": 50716,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "productionChoice": "Vertical-handle seated pec deck example. LEFT open START / RIGHT closed FINISH. Preserve generic handle/forearm-pad ID/guide, chest Primary/front-delts Secondary.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch/resampling/padding/phase-specific transforms.",
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "records": 1,
+    "lineage": "User equipment/pose reference and actual Male Master."
+  },
+  "reviewScope": "User-selected-provisional: broad phases/material continuity reviewed. Precise plate counts/hidden linkage, rigid lever dimensions, wrist/grip contacts/elbow-angle fidelity and physical-device/accessibility not certified. Existing guide unchanged; no live source recheck claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original/exact prompt/actual inputs retained locally for final checkpoint. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}
