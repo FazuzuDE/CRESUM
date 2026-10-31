@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.kettlebell-goblet-squat': 'Гоблет-приседание',
   'catalog.exercise.seated-cable-row-close-neutral-v-handle':
     'Тяга нижнего блока с V-рукоятью узким нейтральным хватом',
   'catalog.exercise.lat-pulldown-close-neutral-ergonomic-handle':

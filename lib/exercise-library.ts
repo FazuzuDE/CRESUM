@@ -363,6 +363,14 @@ export const exerciseLibrary = [
     movementPattern: 'squat',
   }),
   exercise({
+    id: 'kettlebell-goblet-squat',
+    name: 'Goblet Squat',
+    primaryMuscles: ['quadriceps', 'glutes'],
+    secondaryMuscles: ['hamstrings', 'adductors', 'abs'],
+    equipment: ['kettlebell'],
+    movementPattern: 'squat',
+  }),
+  exercise({
     id: 'dumbbell-reverse-lunge',
     name: 'Dumbbell Reverse Lunge',
     primaryMuscles: ['quadriceps', 'glutes'],

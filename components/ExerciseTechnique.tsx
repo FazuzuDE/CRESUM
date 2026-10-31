@@ -40,12 +40,14 @@ export function ExerciseTechnique({
   history,
   initialTab = 'Technique',
   now,
+  onEquipmentChange,
 }: {
   exercise: LibraryExercise;
   onClose: () => void;
   history?: readonly WorkoutSession[];
   initialTab?: 'Technique' | 'Statistics';
   now?: number;
+  onEquipmentChange?: (id: string) => void;
 }) {
   const [viewedId, setViewedId] = useState(initialExercise.id);
   const exercise = findExercise(viewedId) ?? initialExercise;
@@ -204,7 +206,10 @@ export function ExerciseTechnique({
               <ExerciseEquipmentSheet
                 policy={equipmentPolicy}
                 selectedVariantId={exercise.id}
-                onSelect={(id) => setViewedId(id)}
+                onSelect={(id) => {
+                  setViewedId(id);
+                  onEquipmentChange?.(id);
+                }}
                 onClose={() => setEquipmentOpen(false)}
               />
             ) : null}

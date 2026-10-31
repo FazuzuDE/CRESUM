@@ -27,6 +27,7 @@ describe('canonical exercise metadata', () => {
               'bodyweight-step-up',
               'dumbbell-floor-glute-bridge',
               'lying-barbell-triceps-extension',
+              'kettlebell-goblet-squat',
             ].includes(id),
         )
         .map(({ id }) => id),
@@ -94,7 +95,7 @@ describe('canonical exercise metadata', () => {
 
   it('contains a curated catalog with unique stable ids', () => {
     expect(exerciseLibrary.length).toBeGreaterThanOrEqual(45);
-    expect(exerciseLibrary.length).toBeLessThanOrEqual(67);
+    expect(exerciseLibrary.length).toBeLessThanOrEqual(68);
     expect(new Set(exerciseLibrary.map((item) => item.id)).size).toBe(
       exerciseLibrary.length,
     );

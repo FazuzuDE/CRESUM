@@ -335,7 +335,7 @@ export function TemplateEditor({
         ) : null}
         {step === 'configure' &&
         configuration &&
-        ((equipmentPolicy?.choices.length ?? 0) > 1 ||
+        (equipmentPolicy?.supportsSetGroups ||
           configuredEntry?.exerciseGroup) ? (
           <ExerciseGroupComposer
             key={configuration.exerciseId}

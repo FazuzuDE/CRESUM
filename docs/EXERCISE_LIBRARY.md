@@ -1,5 +1,33 @@
 # Exercise Library contracts
 
+## Goblet Squat equipment choice — implementation, 2026-10-31
+
+User selected one visible exercise, Goblet Squat, with dumbbell/kettlebell as
+internal equipment choices, rather than duplicate visible exercises. Preserve
+existing `goblet-squat` dumbbell history and identity; do not reinterpret saved
+records as kettlebell. The selected kettlebell artwork must resolve only for
+that equipment choice. The new dumbbell reference is a pose source, not an
+approved CRESUM production image.
+
+`goblet-squat` continues to mean the dumbbell configuration; new
+`kettlebell-goblet-squat` is the concrete kettlebell configuration. Both retain
+quadriceps/glutes Primary and hamstrings/adductors/abs Secondary. The localized
+library listing shows one Goblet Squat entry found by either equipment filter;
+its equipment selector supplies a concrete ID to plan and workout callbacks.
+Snapshots, recovery, backups and sharing use existing concrete ID fields with
+no schema migration or rewrite. Previous completed-set suggestions remain
+separate for each identity. Goblet statistics default to All with optional
+Dumbbell/Kettlebell filters; All aggregates each session once and preserves
+concrete equipment on every included set. Existing charts and muscle map remain.
+
+The kettlebell guide independently cites ACE's _How to Get Started With
+Kettlebells_, Goblet Squat section, checked 2026-10-31. It does not inherit the
+dumbbell-only ACE362 source. CRESUM condenses the setup/movement and uses a
+comfortable controlled depth with whole-foot support; source metadata and this
+adaptation are recorded in the technique catalog. RU/DE/FR guide text is authored.
+Only Lat Pulldown supports station set groups; having multiple equipment choices
+does not itself authorize station grouping.
+
 ## Supplementary discovery sources — approved 2026-10-29
 
 Gymbot's [exercise category](https://gymbot.ru/journal/category/uprazhneniya)

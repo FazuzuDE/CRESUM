@@ -13,14 +13,13 @@ import { StyleSheet, Text, View } from 'react-native';
 import { GlassCard } from './GlassCard';
 import { AppButton } from './AppButton';
 import { ExerciseLibrary } from './ExerciseLibrary';
-import { exerciseLibrary } from '@/lib/exercise-library';
 import { WorkoutTemplates } from './WorkoutTemplates';
 import { defaultTemplates } from '@/lib/workout-catalog';
 import type { WorkoutTemplate, WorkoutSession } from '@/lib/workout-model';
 import type { TemplateMutationResult } from '@/lib/workout-store';
 import type { TemplateDraft } from '@/lib/workout-templates';
 import { colors, radius, spacing, typography } from '@/lib/theme';
-import { catalogLabel } from '@/lib/i18n/catalog';
+import { catalogLabel, searchLocalizedExercises } from '@/lib/i18n/catalog';
 
 export type ProfileSettingsProps = {
   templates: WorkoutTemplate[];
@@ -228,7 +227,9 @@ export function ProfileSettings({
               onPress={() => setLibraryOpen(true)}
             />
             <Text style={s.sub}>
-              {t('profile.exercises', { count: exerciseLibrary.length })}
+              {t('profile.exercises', {
+                count: searchLocalizedExercises({}, locale).length,
+              })}
             </Text>
           </View>
         </View>

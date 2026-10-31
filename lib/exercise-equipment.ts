@@ -2,6 +2,9 @@ import { findExercise } from './exercise-library';
 import type { MessageKey } from './i18n/messages';
 type EquipmentLabelKey = Extract<
   MessageKey,
+  | 'library.equipment'
+  | 'catalog.equipment.dumbbell'
+  | 'catalog.equipment.kettlebell'
   | 'equipment.handle'
   | 'equipment.accessories'
   | 'equipment.compact'
@@ -19,11 +22,13 @@ export type EquipmentChoice = {
 };
 export type ExerciseEquipmentPolicy = {
   label: EquipmentLabelKey;
+  supportsSetGroups?: boolean;
   requirement: 'required' | 'optional' | 'not-applicable';
   choices: readonly EquipmentChoice[];
 };
 
 const pulldown: ExerciseEquipmentPolicy = {
+  supportsSetGroups: true,
   label: 'equipment.handle',
   requirement: 'required',
   choices: [
@@ -68,6 +73,23 @@ export function equipmentPolicyFor(
   exerciseId: string,
 ): ExerciseEquipmentPolicy | null {
   const id = findExercise(exerciseId)?.id;
+  if (id === 'goblet-squat' || id === 'kettlebell-goblet-squat')
+    return {
+      label: 'library.equipment',
+      requirement: 'required',
+      choices: [
+        {
+          id: 'dumbbell',
+          variantId: 'goblet-squat',
+          nameKey: 'catalog.equipment.dumbbell',
+        },
+        {
+          id: 'kettlebell',
+          variantId: 'kettlebell-goblet-squat',
+          nameKey: 'catalog.equipment.kettlebell',
+        },
+      ],
+    };
   if (id === 'seated-cable-row-close-neutral-v-handle')
     return {
       label: 'equipment.handle',

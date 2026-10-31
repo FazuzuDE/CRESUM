@@ -22,7 +22,11 @@ export type ExerciseStatisticsPoint = {
   topWeight: number;
   estimated1RM?: number;
   estimateSource?: { weight: number; reps: number };
-  sets: (CompletedSetMetrics & { id: string; snapshotId: string })[];
+  sets: (CompletedSetMetrics & {
+    id: string;
+    snapshotId: string;
+    exerciseId: string;
+  })[];
 };
 
 const finiteSum = (values: number[]) =>
@@ -39,8 +43,15 @@ function pointsFor(
     let best:
       (EstimatedSetCandidate & { weight: number; reps: number }) | undefined;
     const sets = session.exercises.flatMap((exercise, exerciseIndex) => {
-      if (stableExerciseIdentity(session, exercise).identityKey !== identityKey)
-        return [];
+      const identity = stableExerciseIdentity(session, exercise);
+      const matches =
+        identityKey === 'family:goblet-squat'
+          ? [
+              'canonical:goblet-squat',
+              'canonical:kettlebell-goblet-squat',
+            ].includes(identity.identityKey)
+          : identity.identityKey === identityKey;
+      if (!matches) return [];
       return exercise.sets.flatMap((set, setIndex) => {
         const completedAt = completedSetTimestamp(set, session.finishedAt!);
         if (completedAt === undefined) return [];
@@ -60,7 +71,14 @@ function pointsFor(
           if (!best || isBetterEstimate(candidate, best)) best = candidate;
         }
         return metrics
-          ? [{ ...metrics, id: set.id, snapshotId: exercise.id }]
+          ? [
+              {
+                ...metrics,
+                id: set.id,
+                snapshotId: exercise.id,
+                exerciseId: identity.exerciseId,
+              },
+            ]
           : [];
       });
     });

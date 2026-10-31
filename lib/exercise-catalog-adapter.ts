@@ -153,6 +153,11 @@ const mapping = {
     configuration: 'specific',
     equipmentType: 'dumbbell',
   },
+  'kettlebell-goblet-squat': {
+    familyId: 'squat',
+    configuration: 'specific',
+    equipmentType: 'kettlebell',
+  },
   'lying-leg-curl': {
     familyId: 'leg-curl',
     configuration: 'unspecified',

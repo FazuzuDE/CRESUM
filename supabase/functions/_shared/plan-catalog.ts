@@ -19,6 +19,7 @@ export const planFamilyByVariant = {
   'barbell-front-squat': 'squat',
   'smith-machine-squat': 'squat',
   'goblet-squat': 'squat',
+  'kettlebell-goblet-squat': 'squat',
   'barbell-romanian-deadlift': 'romanian-deadlift',
   'dumbbell-romanian-deadlift': 'romanian-deadlift',
 } as const;
@@ -69,6 +70,7 @@ export default {
   'leg-press': 'leg-press',
   'smith-machine-squat': 'smith-machine-squat',
   'goblet-squat': 'goblet-squat',
+  'kettlebell-goblet-squat': 'kettlebell-goblet-squat',
   'dumbbell-reverse-lunge': 'dumbbell-reverse-lunge',
   'bulgarian-split-squat': 'bulgarian-split-squat',
   'leg-extension': 'leg-extension',

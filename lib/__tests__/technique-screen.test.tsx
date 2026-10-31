@@ -5,6 +5,14 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock(
+  '../../assets/exercises/kettlebell-goblet-squat/start.webp',
+  () => 4301,
+);
+jest.mock(
+  '../../assets/exercises/kettlebell-goblet-squat/finish.webp',
+  () => 4302,
+);
 jest.mock('../../assets/exercises/smith-machine-squat/start.webp', () => 4201);
 jest.mock('../../assets/exercises/smith-machine-squat/finish.webp', () => 4202);
 jest.mock('../../assets/exercises/leg-press/start.webp', () => 4101);

@@ -26,18 +26,31 @@ export function searchLocalizedExercises(
   locale: AppLocale,
 ): LibraryExercise[] {
   const query = filters.query?.trim().toLocaleLowerCase(locale) ?? '';
-  return filterExercises(exerciseLibrary, {
-    ...filters,
-    query: undefined,
-  }).filter((item) => {
-    if (!query) return true;
-    const aliases = Object.entries(legacyExerciseIds)
-      .filter(([, canonical]) => canonical === item.id)
-      .map(([alias]) => alias);
-    return [
-      item.name,
-      catalogLabel(locale, 'exercise', item.id, item.name),
-      ...aliases,
-    ].some((name) => name.toLocaleLowerCase(locale).includes(query));
-  });
+  // Both concrete identities persist normally; only the library listing is grouped.
+  const visible = exerciseLibrary.filter(
+    (x) => x.id !== 'kettlebell-goblet-squat',
+  );
+  return filterExercises(
+    visible.map((x) =>
+      x.id === 'goblet-squat'
+        ? { ...x, equipment: ['dumbbell', 'kettlebell'] }
+        : x,
+    ),
+    {
+      ...filters,
+      query: undefined,
+    },
+  )
+    .map((item) => exerciseLibrary.find((x) => x.id === item.id)!)
+    .filter((item) => {
+      if (!query) return true;
+      const aliases = Object.entries(legacyExerciseIds)
+        .filter(([, canonical]) => canonical === item.id)
+        .map(([alias]) => alias);
+      return [
+        item.name,
+        catalogLabel(locale, 'exercise', item.id, item.name),
+        ...aliases,
+      ].some((name) => name.toLocaleLowerCase(locale).includes(query));
+    });
 }

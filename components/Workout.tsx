@@ -614,7 +614,7 @@ export function Workout({
         visible={picker}
         onClose={() => setPicker(false)}
         onAdd={(item) => {
-          if ((equipmentPolicyFor(item.id)?.choices.length ?? 0) > 1) {
+          if (equipmentPolicyFor(item.id)?.supportsSetGroups) {
             setComposition({ sessionId: session.id, exerciseId: item.id });
             setPicker(false);
             return;

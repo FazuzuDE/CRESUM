@@ -10105,5 +10105,346 @@
         "context": "TemplateExpression/ConditionalExpression/JsxExpression/JsxAttribute:mask/JsxAttributes"
       }
     ]
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "kettlebell-goblet-squat",
+        "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/CallExpression"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "goblet-squat",
+        "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/CallExpression"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "kettlebell-goblet-squat",
+        "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/JsxExpression"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "goblet-squat",
+        "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/JsxExpression"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "kettlebell",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/ArrowFunction/VariableDeclaration"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "dumbbell",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/ArrowFunction/VariableDeclaration"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "family:goblet-squat",
+        "context": "StringLiteral/ConditionalExpression/ConditionalExpression/CallExpression/ArrowFunction"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "`canonical:${equipment}`",
+        "context": "TemplateExpression/ConditionalExpression/ConditionalExpression/CallExpression/ArrowFunction"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "`canonical:${exerciseId}`",
+        "context": "TemplateExpression/ConditionalExpression/CallExpression/ArrowFunction/CallExpression"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "`${p.workoutName} · ${points.find((point) => point.workoutId === p.workoutId)?.equipment ?? ''}`",
+        "context": "TemplateExpression/ConditionalExpression/PropertyAssignment:name/ObjectLiteralExpression/CallExpression"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "all",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/JsxExpression"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "goblet-squat",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/JsxExpression"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "kettlebell-goblet-squat",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/JsxExpression"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "` · ${equipment === 'all' ? t('library.all') : equipmentName(equipment)}`",
+        "context": "TemplateExpression/ConditionalExpression/JsxExpression/JsxElement/JsxElement"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "` · ${catalogLabel(locale, 'equipment', set.exerciseId === 'kettlebell-goblet-squat' ? 'kettlebell' : 'dumbbell', set.exerciseId)}`",
+        "context": "TemplateExpression/ConditionalExpression/JsxExpression/JsxElement/JsxElement"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "kettlebell",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/TemplateSpan/TemplateExpression"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "dumbbell",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/TemplateSpan/TemplateExpression"
+      }
+    ]
+  },
+  {
+    "file": "lib/exercise-equipment.ts",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "library.equipment",
+        "context": "StringLiteral/PropertyAssignment:label/ObjectLiteralExpression/ReturnStatement/IfStatement"
+      }
+    ]
+  },
+  {
+    "file": "lib/exercise-statistics.ts",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "canonical:goblet-squat",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ConditionalExpression"
+      }
+    ]
+  },
+  {
+    "file": "lib/exercise-statistics.ts",
+    "kind": "internal",
+    "reason": "Concrete equipment identities, lookup keys and localized label formatting; user-visible equipment names use catalog translations.",
+    "entries": [
+      {
+        "text": "canonical:kettlebell-goblet-squat",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ConditionalExpression"
+      }
+    ]
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "kind": "canonical",
+    "reason": "Authored kettlebell-specific guide reference text is localized through generated English keys and reviewed RU/DE/FR technique content. Source ID remains internal.",
+    "entries": [
+      {
+        "text": "One kettlebell held at chest height with both hands.",
+        "context": "StringLiteral/PropertyAssignment:scope/ObjectLiteralExpression/PropertyAssignment:'kettlebell-goblet-squat'/ObjectLiteralExpression"
+      }
+    ]
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "kind": "canonical",
+    "reason": "Authored kettlebell-specific guide reference text is localized through generated English keys and reviewed RU/DE/FR technique content. Source ID remains internal.",
+    "entries": [
+      {
+        "text": "Hold the kettlebell at your chest; stand about shoulder-width with toes slightly outward.",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:setup/ObjectLiteralExpression/PropertyAssignment:'kettlebell-goblet-squat'"
+      }
+    ]
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "kind": "canonical",
+    "reason": "Authored kettlebell-specific guide reference text is localized through generated English keys and reviewed RU/DE/FR technique content. Source ID remains internal.",
+    "entries": [
+      {
+        "text": "Bend hips and knees, lowering under control; press through your feet to stand.",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:movement/ObjectLiteralExpression/PropertyAssignment:'kettlebell-goblet-squat'"
+      }
+    ]
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "kind": "canonical",
+    "reason": "Authored kettlebell-specific guide reference text is localized through generated English keys and reviewed RU/DE/FR technique content. Source ID remains internal.",
+    "entries": [
+      {
+        "text": "Keep your chest lifted, back controlled and elbows forward.",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:checks/ObjectLiteralExpression/PropertyAssignment:'kettlebell-goblet-squat'"
+      }
+    ]
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "kind": "canonical",
+    "reason": "Authored kettlebell-specific guide reference text is localized through generated English keys and reviewed RU/DE/FR technique content. Source ID remains internal.",
+    "entries": [
+      {
+        "text": "Weight drifting away: keep it close.",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:mistakes/ObjectLiteralExpression/PropertyAssignment:'kettlebell-goblet-squat'"
+      }
+    ]
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "kind": "canonical",
+    "reason": "Authored kettlebell-specific guide reference text is localized through generated English keys and reviewed RU/DE/FR technique content. Source ID remains internal.",
+    "entries": [
+      {
+        "text": "Heels lifting: reduce depth.",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:mistakes/ObjectLiteralExpression/PropertyAssignment:'kettlebell-goblet-squat'"
+      }
+    ]
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "kind": "canonical",
+    "reason": "Authored kettlebell-specific guide reference text is localized through generated English keys and reviewed RU/DE/FR technique content. Source ID remains internal.",
+    "entries": [
+      {
+        "text": "Trunk collapsing: use a lighter weight.",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:mistakes/ObjectLiteralExpression/PropertyAssignment:'kettlebell-goblet-squat'"
+      }
+    ]
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "kind": "canonical",
+    "reason": "Authored kettlebell-specific guide reference text is localized through generated English keys and reviewed RU/DE/FR technique content. Source ID remains internal.",
+    "entries": [
+      {
+        "text": "ace-kettlebells",
+        "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:sources/ObjectLiteralExpression/PropertyAssignment:'kettlebell-goblet-squat'"
+      }
+    ]
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "kind": "canonical",
+    "reason": "Authored kettlebell-specific guide reference text is localized through generated English keys and reviewed RU/DE/FR technique content. Source ID remains internal.",
+    "entries": [
+      {
+        "text": "ACE kettlebell instructions condensed; use a comfortable controlled depth and keep the whole foot supported.",
+        "context": "StringLiteral/PropertyAssignment:adaptation/ObjectLiteralExpression/PropertyAssignment:'kettlebell-goblet-squat'/ObjectLiteralExpression"
+      }
+    ]
+  },
+  {
+    "file": "lib/exercise-technique/sources.ts",
+    "kind": "bibliography",
+    "reason": "Source publisher and title are bibliographic metadata retained in the original language.",
+    "entries": [
+      {
+        "text": "American Council on Exercise",
+        "context": "StringLiteral/PropertyAssignment:publisher/ObjectLiteralExpression/PropertyAssignment:'ace-kettlebells'/ObjectLiteralExpression"
+      }
+    ]
+  },
+  {
+    "file": "lib/exercise-technique/sources.ts",
+    "kind": "bibliography",
+    "reason": "Source publisher and title are bibliographic metadata retained in the original language.",
+    "entries": [
+      {
+        "text": "How to Get Started With Kettlebells — Goblet Squat",
+        "context": "StringLiteral/PropertyAssignment:title/ObjectLiteralExpression/PropertyAssignment:'ace-kettlebells'/ObjectLiteralExpression"
+      }
+    ]
   }
 ]

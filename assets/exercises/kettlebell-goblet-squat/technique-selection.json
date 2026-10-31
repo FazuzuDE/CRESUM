@@ -1,0 +1,31 @@
+{
+  "exerciseId": "kettlebell-goblet-squat",
+  "decision": "Утверждаю",
+  "selectionDate": "2026-10-31",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "214e16d0561ce37749a6576105b1ebccfc3dbb13bcdc967243c5367b05eecc4b",
+      "bytes": 30870,
+      "width": 887,
+      "height": 887,
+      "sourceFile": "exec-499ace3d-8dbd-4a34-935c-becea291fca4.png",
+      "sourceSha256": "938fc020fc34538c985e09f52d253300d1b30f5828aba7c6e3f060f4994e2882",
+      "sourceSize": [1774, 887]
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "965e23258777b8202005b64c4cbb88f111faa468ba357eb251b5c418438cce96",
+      "bytes": 31012,
+      "width": 887,
+      "height": 887,
+      "sourceFile": "exec-499ace3d-8dbd-4a34-935c-becea291fca4.png",
+      "sourceSha256": "938fc020fc34538c985e09f52d253300d1b30f5828aba7c6e3f060f4994e2882",
+      "sourceSize": [1774, 887]
+    }
+  },
+  "status": "user-selected-pair",
+  "archiveStatus": "pending-upload"
+}
