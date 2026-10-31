@@ -1,5 +1,25 @@
 # CRESUM Decision Log
 
+## Barbell Bench Press selected Male pair — 2026-10-31
+
+User approved r1 `exec-3e3e0607-f1cc-4b41-a513-5538d9a619f4.png`.
+Use exact 887-square LEFT lower START / RIGHT extended FINISH halves,
+RGB WebP92/method6; no retouch/resampling/padding/phase-specific transforms.
+Bind only existing `barbell-bench-press`/Male, retaining shared viewers/map:
+chest Primary, triceps/front-delts Secondary. Existing ACE5 guide, stable IDs,
+History/data and unrelated/Female/attachment fallbacks remain unchanged.
+Actual user pose sheet and Male Master are generation inputs. Original, exact
+prompt and actual references retained locally for end-of-block checkpoint.
+No per-exercise ZIP per user request. Keep user-selected-provisional: precise
+lower-bar chest location, wrist/finger contacts, rack registration/safety setup
+and device/accessibility acceptance are not certified. PC/Oracle unverified.
+
+## Source checkpoint timing — 2026-10-31
+
+User approved skipping ZIP creation after each exercise to conserve limits.
+Retain originals, exact prompts and input provenance continuously; prepare the
+cumulative archive at the end or on request. Oracle remains deferred.
+
 ## Assisted Dip Machine selected Male pair — 2026-10-31
 
 User approved r2 `exec-bda3c995-8e76-4188-b34e-46184674283b.png`.

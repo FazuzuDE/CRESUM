@@ -1,0 +1,35 @@
+{
+  "exerciseId": "barbell-bench-press",
+  "model": "male",
+  "selectionDate": "2026-10-31",
+  "decision": "Утверждаю.",
+  "status": "user-selected-pair",
+  "selectedRevision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-3e3e0607-f1cc-4b41-a513-5538d9a619f4.png",
+      "sourceSha256": "693c8e1ac19448cba57625e2d138b84aa2bd1ec651d283d2e2a340efec9493bc",
+      "sourceBytes": 1596629,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "a2690c7324a4ff892d3334272c33b83b4cc0df0de83964c2eccc1e88911ffe53",
+      "bytes": 57330,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-3e3e0607-f1cc-4b41-a513-5538d9a619f4.png",
+      "sourceSha256": "693c8e1ac19448cba57625e2d138b84aa2bd1ec651d283d2e2a340efec9493bc",
+      "sourceBytes": 1596629,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "649f360d980ef764662d1a14a20aa07603acabc64611cc576a655448789593ef",
+      "bytes": 58702,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
