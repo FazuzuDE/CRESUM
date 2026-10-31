@@ -1,0 +1,33 @@
+{
+  "exerciseId": "smith-machine-squat",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "exerciseId": "smith-machine-squat",
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "status": "user-selected",
+      "prompt": "Create ONE original premium CRESUM fitness exercise illustration diptych for SMITH MACHINE BACK SQUAT, landscape exactly2:1, two equal independently crop-safe square halves side by side, no divider. Input1 is exact movement/equipment/camera reference: left standing tall, right lowered squat, man facing viewer-left in front-side three-quarter view inside guided Smith rack. Input2 is locked CRESUM Male Master: SAME natural athletic man, clean-shaven, short brown hair, fitted muted blue-gray T-shirt, charcoal shorts, white ankle socks and light gray sneakers in both phases. Premium realistic/semi-realistic clean3D white studio render, smooth coherent materials, satin light silver/white frame, polished steel guides, black plates/rubber floor feet, white seamless background and soft contact shadows. Fully clothed normal skin. No red muscle overlays, exposed anatomy, captions, text, logos, numbers, watermarks or arrows.\nSMITH MACHINE must be mechanically readable: two parallel VERTICAL polished guide rods inside two substantial fixed uprights joined by rigid overhead crossmember; wide stable base feet and rear braces, short empty black plate-storage pegs to rear sides. ONE continuous straight horizontal steel bar with two clearly connected sliding bearing sleeves/carriages, one on EACH guide rod. Bar ends/weight horns extend outward beyond carriages with ONE black round weight plate and collar on each side, same plates/diameters/count throughout. Include plausible rotating re-rack hooks beside carriage and stationary catch ladder along uprights. Both adjustable safety-stop collars stay fixed BELOW the lower squat bar position in both phases. No cables or stack, free floating bar, rods through body, disconnected sleeves or extra bar. Entire bar, both carriages and loaded plates translate down/up together along the same guides. SAME FIXED MACHINE in both panels: identical top/rail/base geometry and camera registration, identical feet/base positions and scale. Only bar/carriages/loaded plates and athlete squat joints move. Do not shrink rack or change camera between phases.\nLEFT START: standing tall with knees naturally extended, bar resting across upper-back/trapezius shelf behind shoulders, not on neck or front chest. Both hands in closed overhand grip outside shoulders, thumbs around bar, natural wrists/elbows angled down/back. RIGHT FINISH: hips and knees flexed to controlled squat with thighs near parallel, pelvis around knee level, chest lifted with modest natural forward torso lean, neutral spine/neck. Same hand grip and same upper-back contact, bar remains level and constrained to vertical path. Feet shoulder-width with mild toe-out, slightly forward of bar path as in reference, firmly fixed in SAME floor locations in both scenes. Both heels/whole soles stay on floor, knees track with toes, no buckling or forced exaggerated depth. Show both hands and shoes clearly, without extra fingers/limbs. Use reference camera orientation and comfortable natural pose.\nInclude COMPLETE rack top, guide ends, all loaded bar sleeves, full head/hands/both shoes, all base feet and rear braces within EACH individual square with comfortable white margins on every edge and center boundary. Same body/machine scale in both halves; use available space harmoniously without cropping, giant blank margins or phase-specific enlargement. Return only complete paired illustration.",
+      "references": [
+        {
+          "file": "image(20261031-172945).png",
+          "sha256": "f83dfea2221948fb648a7f753972fc1edc92b5885c6d7d4988a6dd0456f86201",
+          "bytes": 719331
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-28cae04d-aa85-4431-abb9-43c912f4e049.png",
+        "sha256": "76cc290ede2aa1bb3c53ad54b5cab755f26c8833019d464789f818a85dcd66d2",
+        "bytes": 1495926,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}

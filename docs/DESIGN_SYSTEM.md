@@ -1,5 +1,20 @@
 # CRESUM Design System v1.0
 
+## Smith Machine Squat selected Male pair — 2026-10-31
+
+User approved r1 `exec-28cae04d-aa85-4431-abb9-43c912f4e049.png`.
+Exact 887-square LEFT standing START / RIGHT lower FINISH crops, RGB WebP92/method6.
+Vertical-guide Smith example does not narrow generic smith-machine-squat identity.
+Bind only `smith-machine-squat`/Male; preserve stable IDs and generic smith-machine-squat identity, existing
+guide, quadriceps/glutes Primary and hamstrings/adductors Secondary,
+shared viewers and other/Female/attachment fallbacks. No retouch/resampling/
+padding/phase-specific transforms. Actual user pose sheet and Male Master,
+original/exact prompt retained for final checkpoint; no per-exercise ZIP.
+Status user-selected-provisional: precise hand/bar/shoulder contacts, squat depth,
+rigid frame/guide/carriage geometry and registration and device/accessibility not
+independently certified. Existing guide unchanged; no new live source review.
+PC/Oracle backup unverified.
+
 ## Leg Press selected Male pair — 2026-10-31
 
 User approved r1 `exec-9a36f9a9-2167-4c81-940f-ed39f5cd891b.png`.
