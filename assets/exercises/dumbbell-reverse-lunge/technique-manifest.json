@@ -1,0 +1,68 @@
+{
+  "variantId": "dumbbell-reverse-lunge",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-2899adcb-cda5-483c-84b2-49837e87d32c.png",
+      "sourceSha256": "9458bc97a5a883fff32262db3669343e2aa55ee1a904853083ce168dcf0b548c",
+      "sourceBytes": 1272359,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "f0632adac8b6b33b7a4ab8cedda889f18599a2a61f7f8abea6f7238c6949fd23",
+      "bytes": 28506,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-2899adcb-cda5-483c-84b2-49837e87d32c.png",
+      "sourceSha256": "9458bc97a5a883fff32262db3669343e2aa55ee1a904853083ce168dcf0b548c",
+      "sourceBytes": 1272359,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "f2908e19f0e93f9bfcaedfec8cee35e3f55ad15a41c55e8535bd3f3c6ed0ed6d",
+      "bytes": 29184,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "43698DA4-43BA-4FEE-9825-06349B68F3FA.png",
+        "sha256": "42b6c166ba5708c2e0913cba2e4fc066c271d8405410164eda88a5c45049ee62",
+        "bytes": 105980
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      }
+    ],
+    "output": {
+      "file": "exec-2899adcb-cda5-483c-84b2-49837e87d32c.png",
+      "sha256": "9458bc97a5a883fff32262db3669343e2aa55ee1a904853083ce168dcf0b548c",
+      "bytes": 1272359,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User reselected original r1 after discussing proportions; LEFT standing START / RIGHT lowered reverse-lunge FINISH. No exact Male Master proportion-match claim.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch/resampling/padding/phase-specific transforms.",
+  "reviewScope": "Broad phase and outfit continuity visually reviewed. Fine dumbbell grip, rear-toe contact, knee/depth geometry, proportions and pair registration not independently certified. Physical-device/accessibility QA pending. Existing guide and muscle mapping unchanged; no new live source review.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original and available actual inputs retained locally for block checkpoint. Original prompt unavailable in restored workspace. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

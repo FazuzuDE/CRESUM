@@ -1,5 +1,20 @@
 # CRESUM Design System v1.0
 
+## Dumbbell Reverse Lunge selected Male pair — 2026-11-01
+
+User reselected original r1 `exec-2899adcb-cda5-483c-84b2-49837e87d32c.png`
+after discussing proportions. LEFT standing START / RIGHT lowered FINISH, exact
+887-square RGB WebP92/method6 crops. No retouch, resampling, padding or phase-specific
+transforms. Bind only `dumbbell-reverse-lunge`/Male through shared viewers; preserve
+stable identity, guide, quadriceps/glutes Primary and hamstrings/adductors Secondary.
+Female, attachment and unsupported-variant fallbacks remain. Status is
+user-selected-provisional: fine grip/rear-toe contacts, knee/depth geometry,
+proportions/registration and device/accessibility QA not independently certified.
+No exact Male Master proportion-match claim. Original and actual input files retained;
+exact original prompt unavailable in restored workspace, explicitly marked missing.
+No new guide/source review or per-exercise ZIP. Archive pending-upload; PC/Oracle
+backup unverified.
+
 ## Dumbbell Goblet Squat selected Male pair — 2026-10-31
 
 User approved exec-638a92dc-7f30-476e-95b6-4faacd4ceb75.png. Exact887-square
