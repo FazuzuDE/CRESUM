@@ -395,9 +395,7 @@ it.each([
 it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
   const v = render();
   try {
-    act(() =>
-      button(v, 'Technique for Leg Extension')!.props.onPress(),
-    );
+    act(() => button(v, 'Technique for Leg Extension')!.props.onPress());
     expect(text(v)).toContain('Image coming soon');
     act(() => button(v, 'Show FINISH')!.props.onPress());
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
