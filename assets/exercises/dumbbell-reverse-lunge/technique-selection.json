@@ -1,0 +1,35 @@
+{
+  "exerciseId": "dumbbell-reverse-lunge",
+  "model": "male",
+  "selectionDate": "2026-11-01",
+  "decision": "утверждаю этот все таки",
+  "selectedRevision": 1,
+  "status": "user-selected-pair",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-2899adcb-cda5-483c-84b2-49837e87d32c.png",
+      "sourceSha256": "9458bc97a5a883fff32262db3669343e2aa55ee1a904853083ce168dcf0b548c",
+      "sourceBytes": 1272359,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "f0632adac8b6b33b7a4ab8cedda889f18599a2a61f7f8abea6f7238c6949fd23",
+      "bytes": 28506,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-2899adcb-cda5-483c-84b2-49837e87d32c.png",
+      "sourceSha256": "9458bc97a5a883fff32262db3669343e2aa55ee1a904853083ce168dcf0b548c",
+      "sourceBytes": 1272359,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "f2908e19f0e93f9bfcaedfec8cee35e3f55ad15a41c55e8535bd3f3c6ed0ed6d",
+      "bytes": 29184,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

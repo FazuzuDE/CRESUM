@@ -1,0 +1,33 @@
+{
+  "exerciseId": "dumbbell-reverse-lunge",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "prompt": null,
+      "promptStatus": "Exact original prompt unavailable in restored workspace; not reconstructed.",
+      "references": [
+        {
+          "file": "43698DA4-43BA-4FEE-9825-06349B68F3FA.png",
+          "sha256": "42b6c166ba5708c2e0913cba2e4fc066c271d8405410164eda88a5c45049ee62",
+          "bytes": 105980
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "referenceProvenance": "Actual r1 inputs recorded in prior session handoff; files available and hashed. Later uploaded Male sheet was not an r1 input.",
+      "output": {
+        "file": "exec-2899adcb-cda5-483c-84b2-49837e87d32c.png",
+        "sha256": "9458bc97a5a883fff32262db3669343e2aa55ee1a904853083ce168dcf0b548c",
+        "bytes": 1272359,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}
