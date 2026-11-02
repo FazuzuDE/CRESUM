@@ -4,10 +4,7 @@
     "slug": "cresum",
     "version": "0.1.59",
     "orientation": "portrait",
-    "scheme": [
-      "cresum",
-      "fitflow"
-    ],
+    "scheme": ["cresum", "fitflow"],
     "userInterfaceStyle": "light",
     "plugins": [
       "expo-router",
