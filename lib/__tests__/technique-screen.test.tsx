@@ -414,7 +414,7 @@ it('keeps inline and full-screen placeholders for variants without phase artwork
   const v = render();
   try {
     act(() =>
-      button(v, 'Technique for Barbell Romanian Deadlift')!.props.onPress(),
+      button(v, 'Technique for Dumbbell Romanian Deadlift')!.props.onPress(),
     );
     expect(text(v)).toContain('Image coming soon');
     act(() => button(v, 'Show FINISH')!.props.onPress());
