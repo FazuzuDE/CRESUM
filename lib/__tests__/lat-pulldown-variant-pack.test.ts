@@ -62,7 +62,7 @@ describe('Lat Pulldown Variant Pack v1', () => {
   });
 
   it('adds exactly three distinct specific variants beside the existing exercise', () => {
-    expect(exerciseLibrary).toHaveLength(69);
+    expect(exerciseLibrary).toHaveLength(70);
     const index = exerciseLibrary.findIndex(({ id }) => id === 'lat-pulldown');
     expect(
       exerciseLibrary.slice(index + 1, index + 4).map(({ id }) => id),

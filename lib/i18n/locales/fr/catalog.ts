@@ -1,4 +1,6 @@
 export default {
+  'catalog.exercise.hanging-straight-leg-raise':
+    'Relevé des jambes tendues en suspension',
   'catalog.exercise.captains-chair-knee-raise':
     'Relevé des genoux à la chaise romaine',
   'catalog.exercise.kettlebell-goblet-squat': 'Goblet squat',

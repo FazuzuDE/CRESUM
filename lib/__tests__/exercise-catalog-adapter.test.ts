@@ -37,7 +37,7 @@ const snapshot = (libraryId: string): WorkoutSession => ({
 
 describe('non-destructive exercise catalog adapter', () => {
   it('keeps the existing catalog as the source of display and movement metadata', () => {
-    expect(exerciseLibrary).toHaveLength(69);
+    expect(exerciseLibrary).toHaveLength(70);
     expect(catalogVariants.map(({ id }) => id)).toEqual([
       'barbell-bench-press',
       'incline-dumbbell-press',
@@ -149,7 +149,7 @@ describe('non-destructive exercise catalog adapter', () => {
         exerciseLibrary.some((item) => item.id === id),
       ),
     ).toBe(true);
-    expect(catalogVariants.length + unmappedExerciseIds.length).toBe(69);
+    expect(catalogVariants.length + unmappedExerciseIds.length).toBe(70);
     expect(getFamilyForExercise('barbell-bench-press')).toBe(
       getCatalogFamily('bench-press'),
     );
@@ -202,4 +202,21 @@ it('keeps old row snapshots generic and specific row performance separate', () =
     `canonical:${id}`,
   );
   expect(JSON.stringify(old)).toBe(before);
+});
+
+it('keeps three knee and straight-leg raise histories distinct', () => {
+  const ids = [
+    'hanging-straight-leg-raise',
+    'hanging-knee-raise',
+    'captains-chair-knee-raise',
+  ];
+  const sessions = ids.map(snapshot);
+  const before = JSON.stringify(sessions);
+  expect(
+    sessions.map(
+      (session) =>
+        stableExerciseIdentity(session, session.exercises[0]).identityKey,
+    ),
+  ).toEqual(ids.map((id) => `canonical:${id}`));
+  expect(JSON.stringify(sessions)).toBe(before);
 });

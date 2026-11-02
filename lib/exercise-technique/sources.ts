@@ -1,4 +1,10 @@
 export const techniqueSources = {
+  'puregym-hanging-leg-raise': {
+    publisher: 'PureGym',
+    title: 'How To Do Hanging Leg Raises',
+    url: 'https://www.puregym.com/exercises/abs/hanging-leg-raises/',
+    checkedOn: '2026-11-02',
+  },
   'ace-captains-chair': {
     publisher: 'American Council on Exercise',
     title:

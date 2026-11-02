@@ -1,0 +1,35 @@
+{
+  "exerciseId": "hanging-straight-leg-raise",
+  "model": "male",
+  "selectedRevision": 1,
+  "selectionDate": "2026-11-02",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "6a09ae3c8a6775f955632c4b778f609e2a66d8485673a570b786af134a193a95",
+      "bytes": 32594,
+      "sourceFile": "exec-63750832-c16f-4f80-a513-a3a91d7018ff.png",
+      "sourceSha256": "4f9a6cabe0078b20baa88fc508835f9b249b9e00aa1306dc4da5182b5631b0b5",
+      "sourceBytes": 1307317,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "a8fe0b33a96780532a0b3b664a2efc4a347b39bf67613b5f88eb0ec15180f964",
+      "bytes": 31942,
+      "sourceFile": "exec-63750832-c16f-4f80-a513-a3a91d7018ff.png",
+      "sourceSha256": "4f9a6cabe0078b20baa88fc508835f9b249b9e00aa1306dc4da5182b5631b0b5",
+      "sourceBytes": 1307317,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

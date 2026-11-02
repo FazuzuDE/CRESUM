@@ -1,5 +1,22 @@
 # CRESUM Decision Log
 
+## Hanging Straight Leg Raise — 2026-11-02
+
+User approved r1 `exec-63750832-c16f-4f80-a513-a3a91d7018ff.png`.
+Add stable `hanging-straight-leg-raise`: overhead bar, straight-leg raise to
+approximately horizontal, bodyweight, abs Primary and forearms Secondary.
+Hip flexors participate but lack a dedicated current taxonomy region; this map
+is partial and does not quantify muscle recruitment. Do not rename or reinterpret
+`hanging-knee-raise` or `captains-chair-knee-raise`, their guides or saved history.
+Independently authored EN/RU/DE/FR guide follows PureGym's Hanging Leg Raises,
+checked 2026-11-02: https://www.puregym.com/exercises/abs/hanging-leg-raises/.
+LEFT lowered START / RIGHT raised FINISH; exact 887-square RGB WebP92/method6
+crops, shared contain, no retouch/resampling/padding or phase transforms.
+Male only through shared phase/anatomy viewers; no Female or attachment image.
+Actual source, prompt and reference hashes recorded. User-selected-provisional:
+exact hand contact, pelvic motion, registration and device/accessibility QA open.
+Oracle source upload remains pending; no verified backup claim.
+
 ## Captain’s Chair Knee Raise — 2026-11-02
 
 User approved r1 `exec-341c9532-d508-4da4-a00a-10f9c1cc3530.png`.

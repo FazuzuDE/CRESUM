@@ -6,6 +6,14 @@ import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
 jest.mock(
+  '../../assets/exercises/hanging-straight-leg-raise/start.webp',
+  () => 6001,
+);
+jest.mock(
+  '../../assets/exercises/hanging-straight-leg-raise/finish.webp',
+  () => 6002,
+);
+jest.mock(
   '../../assets/exercises/captains-chair-knee-raise/start.webp',
   () => 5901,
 );
@@ -1024,6 +1032,7 @@ it.each([
   'kettlebell-swing',
   'plank',
   'captains-chair-knee-raise',
+  'hanging-straight-leg-raise',
   'seated-leg-curl',
   'barbell-romanian-deadlift',
 ])('keeps %s Female and attachment fallbacks', (id) => {
@@ -1056,4 +1065,28 @@ it('resolves supported knee raise separately from hanging', () => {
   expect(
     resolveExerciseArtwork('hanging-knee-raise', 'start', 'male'),
   ).toBeNull();
+});
+
+it('keeps straight-leg artwork separate from bent-knee and supported raises', () => {
+  expect(findExercise('hanging-straight-leg-raise')).toMatchObject({
+    name: 'Hanging Straight Leg Raise',
+    equipment: ['bodyweight'],
+    primaryMuscles: ['abs'],
+    secondaryMuscles: ['forearms'],
+  });
+  expect(
+    resolveExerciseArtwork('hanging-straight-leg-raise', 'start', 'male'),
+  ).toBe(6001);
+  expect(
+    resolveExerciseArtwork('hanging-straight-leg-raise', 'finish', 'male'),
+  ).toBe(6002);
+  expect(
+    resolveExerciseArtwork('hanging-knee-raise', 'start', 'male'),
+  ).toBeNull();
+  expect(
+    resolveExerciseArtwork('captains-chair-knee-raise', 'start', 'male'),
+  ).toBe(5901);
+  expect(
+    findTechnique('hanging-straight-leg-raise')?.movement.join(' '),
+  ).toContain('straight legs');
 });

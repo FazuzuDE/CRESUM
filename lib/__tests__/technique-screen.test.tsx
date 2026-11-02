@@ -6,6 +6,14 @@ import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
 jest.mock(
+  '../../assets/exercises/hanging-straight-leg-raise/start.webp',
+  () => 6001,
+);
+jest.mock(
+  '../../assets/exercises/hanging-straight-leg-raise/finish.webp',
+  () => 6002,
+);
+jest.mock(
   '../../assets/exercises/captains-chair-knee-raise/start.webp',
   () => 5901,
 );
@@ -423,6 +431,7 @@ it.each([
   ['Kettlebell Swing', 5701, 5702],
   ['Plank', 5801, 5802],
   ['Captain’s Chair Knee Raise', 5901, 5902],
+  ['Hanging Straight Leg Raise', 6001, 6002],
   ['Seated Leg Curl', 4901, 4902],
   ['Barbell Romanian Deadlift', 5001, 5002],
 ] as const)(
@@ -1464,6 +1473,7 @@ it.each([
   ['Machine Hip Adduction', 5602, ['adductors'], []],
   ['Plank', 5802, ['abs'], ['glutes']],
   ['Captain’s Chair Knee Raise', 5902, ['abs'], []],
+  ['Hanging Straight Leg Raise', 6002, ['abs'], ['forearms']],
   [
     'Kettlebell Swing',
     5702,

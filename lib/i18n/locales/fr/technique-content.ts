@@ -1,5 +1,19 @@
 import { flattenTechniqueText } from '../../technique-text';
 export default flattenTechniqueText({
+  'hanging-straight-leg-raise': {
+    scope: 'Relevé des jambes tendues en suspension à une barre.',
+    setup: [
+      'Saisissez la barre en pronation, largeur des épaules ; gardez bras et jambes tendus.',
+    ],
+    movement: [
+      'Montez les jambes tendues ensemble à l’horizontale, marquez une pause puis redescendez lentement.',
+    ],
+    checks: ['Gainez le tronc et contrôlez le bassin.'],
+    mistakes: [
+      'Balancement : arrêtez-vous et reprenez le contrôle.',
+      'Genoux fléchis : choisissez plutôt le relevé des genoux.',
+    ],
+  },
   'captains-chair-knee-raise': {
     scope:
       'Relevé des genoux avec appui des avant-bras et du dos sur une chaise romaine.',

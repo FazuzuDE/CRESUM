@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.hanging-straight-leg-raise': 'Подъём прямых ног в висе',
   'catalog.exercise.captains-chair-knee-raise':
     'Подъём коленей в упоре на предплечья',
   'catalog.exercise.kettlebell-goblet-squat': 'Гоблет-приседание',

@@ -1,6 +1,22 @@
 import type { ExerciseId } from '../exercise-library';
 import type { ExerciseTechnique } from './types';
 export const techniqueCatalog = {
+  'hanging-straight-leg-raise': {
+    revision: 1,
+    scope: 'Straight-leg raise while hanging from an overhead bar.',
+    setup: [
+      'Grip the bar overhand at shoulder width; hang with straight arms and legs.',
+    ],
+    movement: [
+      'Raise straight legs together toward horizontal, pause, then lower slowly.',
+    ],
+    checks: ['Brace the trunk and keep the pelvis controlled.'],
+    mistakes: [
+      'Swinging: stop and reset.',
+      'Bending knees: choose the knee-raise variant instead.',
+    ],
+    sources: ['puregym-hanging-leg-raise'],
+  },
   'captains-chair-knee-raise': {
     revision: 1,
     scope:
