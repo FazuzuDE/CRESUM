@@ -1,6 +1,10 @@
 import type { ImageSourcePropType, ImageStyle } from 'react-native';
 
 // Explicit exact-variant bindings; technique pairs and equipment have separate approval.
+const seatedLegCurlPair = {
+  start: require('../assets/exercises/seated-leg-curl/start.webp'),
+  finish: require('../assets/exercises/seated-leg-curl/finish.webp'),
+};
 const lyingLegCurlPair = {
   start: require('../assets/exercises/lying-leg-curl/start.webp'),
   finish: require('../assets/exercises/lying-leg-curl/finish.webp'),
@@ -204,6 +208,7 @@ export function resolveExerciseArtwork(
   model: 'male' | 'female',
 ): ImageSourcePropType | null {
   if (model !== 'male') return null;
+  if (variantId === 'seated-leg-curl') return seatedLegCurlPair[phase];
   if (variantId === 'lying-leg-curl') return lyingLegCurlPair[phase];
   if (variantId === 'leg-extension') return legExtensionPair[phase];
   if (variantId === 'bulgarian-split-squat')
