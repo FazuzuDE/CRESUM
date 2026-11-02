@@ -1,0 +1,70 @@
+{
+  "variantId": "leg-extension",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-9fe7942e-82b7-4714-bbcb-e2e7107d909b.png",
+      "sourceSha256": "d878c77fb55f5cec88a089c145b63410dbfd12c1ea65f7e8f53e35b541187e21",
+      "sourceBytes": 1552535,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "ec6d647a3b6c9220a96e087a7e7ed083c62889326ee6dd2f8c141c303100f0a1",
+      "bytes": 53978,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-9fe7942e-82b7-4714-bbcb-e2e7107d909b.png",
+      "sourceSha256": "d878c77fb55f5cec88a089c145b63410dbfd12c1ea65f7e8f53e35b541187e21",
+      "sourceBytes": 1552535,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "d5b8a800fb3bdbe8bd51c39a4a9c4b697fec0b6369c77778c8d3361f5621a9d7",
+      "bytes": 55320,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "C422A6EA-037A-4CF4-BBB9-A924A727DD8F.png",
+        "sha256": "0d10b6eafc9f160e5e4b894fa660c280687acadd63a77c5a715632f91587012b",
+        "bytes": 114458,
+        "role": "User-supplied exercise, equipment and phase example only"
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046,
+        "role": "CRESUM Male Master identity, proportions and blue-gray outfit"
+      }
+    ],
+    "output": {
+      "file": "exec-9fe7942e-82b7-4714-bbcb-e2e7107d909b.png",
+      "sha256": "d878c77fb55f5cec88a089c145b63410dbfd12c1ea65f7e8f53e35b541187e21",
+      "bytes": 1552535,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User approved original r1. LEFT bent-knee START / RIGHT extended-knee FINISH. Selected top load group is raised in FINISH.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, resampling, padding or phase-specific transforms.",
+  "reviewScope": "Broad phase order, supported seated posture, full-machine framing and material/outfit continuity reviewed. Exact pivot/lever and roller/shin contacts, knee range, plate/pin counts and rigid machine registration not independently certified. Physical-device/accessibility QA pending. Existing guide and muscle mapping unchanged; no new live source review.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original, exact generation prompt and actual input files retained for visual-block checkpoint. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

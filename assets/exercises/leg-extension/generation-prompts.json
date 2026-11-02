@@ -1,0 +1,33 @@
+{
+  "exerciseId": "leg-extension",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "prompt": "Use case: identity-preserve / original CRESUM exercise illustration. Create ONE wide paired image, 2:1 aspect ratio, composed of TWO equal SQUARE panels side by side: seated LEG EXTENSION machine, START on LEFT and FINISH on RIGHT. Input 1 is an exercise/equipment/phase example ONLY; use its bent-knee and extended-knee movement as reference. Input 2 is the LOCKED CRESUM Male Master character: preserve that exact face, brown hair, adult age, natural athletic body proportions, muted blue-gray t-shirt, charcoal shorts, visible white socks and light gray sneakers. Clean premium semi-realistic 3D fitness illustration matching input 2, not a muscular anatomical diagram. Create an original clean illustration, no copied graphic textures. White studio background, subtle soft contact shadows, consistent clean skin and cloth, satin light-silver/white machine frame, matte charcoal seat/backrest and black lower-shin roller, dark weight plates. Full character and full machine fit both square panels efficiently with small safe margins, no clipping. Same front-side three-quarter camera as input 1, athlete faces toward image LEFT-front so both legs and their contact with the roller are readable. Machine is a coherent selectorized seated knee-extension station: stable floor base; adjustable padded seat with backrest behind athlete; side handles beside hips gripped securely by both hands; knee/lever pivot aligned with knees at the front edge of the seat; single transverse padded roller contacts FRONT of both lower shins just above ankles, NEVER across feet, knees or behind calves. Feet in shoes extend beyond roller naturally. Weight tower is visible beside the seat in the same fixed position in both panels, with clear vertical guide rods and identical number of plates. LEFT START: hips and back supported, thighs resting on seat, knees bent about ninety degrees, lower legs hang downward, shin roller in its lowered position, selected plates resting on stack. RIGHT FINISH: same seated posture, pelvis/back/thigh contacts and hand positions; extend both knees forward to near straight with soft unlocked knees, lower legs approximately horizontal, roller rotates upward with the lever while maintaining shin contact; raise the selected top group of weight plates clearly along guide rods leaving a visible gap above lower resting plates. Keep selected pin/plate count consistent. Do not move the whole stack or machine. Hip, seat, knee pivot, backrest, tower and fixed frame remain registered, identical camera scale/position and baseline in both panels. Only lower legs, attached moving lever/roller and selected load group move. Correct two legs, two feet, two hands, anatomical grip. Match body proportions to the Male Master in BOTH phases and maintain consistent character face/clothes/material colors. No muscle highlighting, no anatomical skin, no labels, no letters, no logos, no watermarks, no UI or arrows, no extra padding hovering between legs, no duplicate rollers, no merged legs or impossible frame intersections.",
+      "references": [
+        {
+          "file": "C422A6EA-037A-4CF4-BBB9-A924A727DD8F.png",
+          "sha256": "0d10b6eafc9f160e5e4b894fa660c280687acadd63a77c5a715632f91587012b",
+          "bytes": 114458,
+          "role": "User-supplied exercise, equipment and phase example only"
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "role": "CRESUM Male Master identity, proportions and blue-gray outfit"
+        }
+      ],
+      "output": {
+        "file": "exec-9fe7942e-82b7-4714-bbcb-e2e7107d909b.png",
+        "sha256": "d878c77fb55f5cec88a089c145b63410dbfd12c1ea65f7e8f53e35b541187e21",
+        "bytes": 1552535,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}
