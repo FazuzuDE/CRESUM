@@ -1,0 +1,68 @@
+{
+  "variantId": "farmers-carry",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 3,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "9b28b57b8db887dc51ca4b78c9b8d1a00c529fdcdd1662b5dd060a0db5b7dee4",
+      "bytes": 32750,
+      "sourceFile": "exec-094435fd-5939-482e-9ba7-7acff2e63a92.png",
+      "sourceSha256": "7bf5813097f3357f56d5cac52721ae82f10aff2afc1faf24746cef68113ede6f",
+      "sourceBytes": 1318775,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "ed2d4b392e41fcf164e754f5cd7bbf4c75a2d0e909a33dc577f826a4d22977a9",
+      "bytes": 35578,
+      "sourceFile": "exec-094435fd-5939-482e-9ba7-7acff2e63a92.png",
+      "sourceSha256": "7bf5813097f3357f56d5cac52721ae82f10aff2afc1faf24746cef68113ede6f",
+      "sourceBytes": 1318775,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "275EAAC6-E1C8-4FEE-A9C8-8C7E2B068B64.png",
+        "sha256": "013cbb51ab0c8853580f7993d212e1743a06c3621da242e67c7c1b35a95acfca",
+        "bytes": 529873
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      }
+    ],
+    "output": {
+      "file": "exec-094435fd-5939-482e-9ba7-7acff2e63a92.png",
+      "sha256": "7bf5813097f3357f56d5cac52721ae82f10aff2afc1faf24746cef68113ede6f",
+      "bytes": 1318775,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User approved LEFT stationary ready stance START / RIGHT walking step FINISH. These are instructional slots for continuous distance-based walking, not one repetition or the end of a set.",
+  "presentation": "Exact square half-sheet crops, shared contain; no retouch, resampling, padding or independent phase transforms.",
+  "reviewScope": "Broad ready/walking distinction, common character/materials and full-frame fit reviewed. Exact gait mechanics, hand/grip anatomy and physical-device/accessibility acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Actual reference and generated input/output files identified by hash in generation-prompts.json. Oracle upload deferred and unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "left/top inclusive, right/bottom exclusive"
+  }
+}

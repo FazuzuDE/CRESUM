@@ -1,5 +1,22 @@
 # CRESUM Design System v1.0
 
+## Farmer's Carry selected Male pair — 2026-11-02
+
+User approved r3 `exec-094435fd-5939-482e-9ba7-7acff2e63a92.png`.
+LEFT stationary carry-ready START / RIGHT walking-step FINISH; these are
+instructional slots for continuous distance-based walking, not a repetition
+or the end of a set. Earlier nearly repeated walking-step candidates superseded.
+Bind only existing `farmers-carry` / Male through shared phase/anatomy viewers.
+Preserve distance measurement, existing walking guide, stable ID and History,
+forearms/traps Primary and abs/glutes Secondary. Exact 887-square RGB WebP92/
+method6 half-sheet crops, shared contain; no retouch, resampling, padding or
+independent transforms. Record actual three-generation input/output chain and
+prompt provenance. User-selected-provisional: exact gait, grip anatomy and
+physical-device/accessibility QA remain open. No new source review or muscle-role
+change. Oracle upload pending/unverified. Next: Standing Cable Anti-rotation Press
+(Pallof press). Coverage after integration: 65 Male pairs / 130 frames across
+70 catalog records; Female fallbacks remain separate.
+
 ## Dumbbell Shrug selected Male pair — 2026-11-02
 
 User approved r1 `exec-429be543-1509-4f10-b426-8834135b47c0.png` after requesting
