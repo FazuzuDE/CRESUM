@@ -94,4 +94,3 @@ export default {
   'dumbbell-floor-glute-bridge': 'dumbbell-floor-glute-bridge',
   'lying-barbell-triceps-extension': 'lying-barbell-triceps-extension',
 } as const;
-
