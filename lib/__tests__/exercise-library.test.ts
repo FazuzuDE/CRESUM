@@ -28,6 +28,7 @@ describe('canonical exercise metadata', () => {
               'dumbbell-floor-glute-bridge',
               'lying-barbell-triceps-extension',
               'kettlebell-goblet-squat',
+              'captains-chair-knee-raise',
             ].includes(id),
         )
         .map(({ id }) => id),
