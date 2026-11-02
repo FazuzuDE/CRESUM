@@ -1,0 +1,68 @@
+{
+  "variantId": "dumbbell-shrug",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "06456d424b6c56f820e583c98fde48b45b2407fd11a9e1e63b9d5fec83cf9a35",
+      "bytes": 29646,
+      "sourceFile": "exec-429be543-1509-4f10-b426-8834135b47c0.png",
+      "sourceSha256": "8a41f057827fe5b9c88f141bf61dd23eda9e917f88b02192c30381b9621f10e3",
+      "sourceBytes": 1296039,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "406bd4576ac73a186354f76a84f70f1c1997ea1fcbb019bfe77393392bb57e1d",
+      "bytes": 29688,
+      "sourceFile": "exec-429be543-1509-4f10-b426-8834135b47c0.png",
+      "sourceSha256": "8a41f057827fe5b9c88f141bf61dd23eda9e917f88b02192c30381b9621f10e3",
+      "sourceBytes": 1296039,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "F5360EDE-B9CD-41D7-A490-6C4A439C7FA4.png",
+        "sha256": "e992b3a12ff3ca1a665854e1ff634d218889f8f0fa33bf349930bb4177326a80",
+        "bytes": 148816
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      }
+    ],
+    "output": {
+      "file": "exec-429be543-1509-4f10-b426-8834135b47c0.png",
+      "sha256": "8a41f057827fe5b9c88f141bf61dd23eda9e917f88b02192c30381b9621f10e3",
+      "bytes": 1296039,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User selected LEFT shoulders-lowered START / RIGHT distinctly elevated shoulders FINISH. Visible shoulder elevation requested for clear user comprehension; no color overlay.",
+  "presentation": "Exact square half-sheet crops, shared contain; no retouch, resampling, padding or independent phase transforms.",
+  "reviewScope": "Broad elevation phase difference, common character/materials and full-frame fit reviewed. Exact shoulder/scapular range, head/pelvis registration, elbow/wrist/grip anatomy and physical-device/accessibility acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original and both actual inputs retained in ChatGPT files. Oracle upload deferred and unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "left/top inclusive, right/bottom exclusive"
+  }
+}

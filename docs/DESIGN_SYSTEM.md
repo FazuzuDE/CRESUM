@@ -1,5 +1,22 @@
 # CRESUM Design System v1.0
 
+## Dumbbell Shrug selected Male pair — 2026-11-02
+
+User approved r1 `exec-429be543-1509-4f10-b426-8834135b47c0.png` after requesting
+an unmistakable FINISH so users understand that the shoulders perform the motion.
+LEFT lowered shoulders START / RIGHT distinctly elevated shoulders FINISH.
+Use pose contrast with long arms and stable trunk/head intent, not colored overlays;
+this selection does not authorize exaggerated range in unrelated exercises.
+Bind only existing `dumbbell-shrug` / Male through shared phase/anatomy viewers.
+Preserve the existing shoulder-elevation guide, traps Primary, forearms Secondary,
+stable ID and History. Exact 887-square RGB WebP92/method6 half-sheet crops,
+shared contain; no retouch, resampling, padding or independent transforms.
+Original, verbatim prompt and actual supplied movement/Male Master hashes retained.
+User-selected-provisional: exact shoulder/scapular range, head/pelvis registration,
+elbow/wrist/grip anatomy and physical-device/accessibility QA remain open.
+No new source review or muscle-role change. Oracle upload remains pending/unverified.
+Next exercise: two-dumbbell Farmer's Carry.
+
 ## Back Extension selected Male pair and reversed phases — 2026-11-02
 
 User approved r1 `exec-6ccbda2b-067a-459f-b2fa-ad1a574e94d8.png` with the

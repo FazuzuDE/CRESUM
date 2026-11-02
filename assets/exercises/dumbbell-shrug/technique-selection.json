@@ -1,0 +1,35 @@
+{
+  "exerciseId": "dumbbell-shrug",
+  "model": "male",
+  "selectedRevision": 1,
+  "selectionDate": "2026-11-02",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "06456d424b6c56f820e583c98fde48b45b2407fd11a9e1e63b9d5fec83cf9a35",
+      "bytes": 29646,
+      "sourceFile": "exec-429be543-1509-4f10-b426-8834135b47c0.png",
+      "sourceSha256": "8a41f057827fe5b9c88f141bf61dd23eda9e917f88b02192c30381b9621f10e3",
+      "sourceBytes": 1296039,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "406bd4576ac73a186354f76a84f70f1c1997ea1fcbb019bfe77393392bb57e1d",
+      "bytes": 29688,
+      "sourceFile": "exec-429be543-1509-4f10-b426-8834135b47c0.png",
+      "sourceSha256": "8a41f057827fe5b9c88f141bf61dd23eda9e917f88b02192c30381b9621f10e3",
+      "sourceBytes": 1296039,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
