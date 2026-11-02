@@ -878,9 +878,7 @@ it('resolves only exact Male lying triceps phases without borrowing bench or ext
         'male',
       ),
     ).toBe(phase === 'start' ? 2801 : 2802);
-    expect(
-      resolveExerciseArtwork('leg-extension', phase, 'male'),
-    ).toBeNull();
+    expect(resolveExerciseArtwork('leg-extension', phase, 'male')).toBeNull();
     expect(resolveExerciseArtwork('bodyweight-dip', phase, 'male')).toBeNull();
   }
   expect(
@@ -928,9 +926,7 @@ it('keeps Back Squat Female, attachment and unsupported variant fallbacks', () =
     expect(
       resolveExerciseArtwork('barbell-back-squat', phase, 'female'),
     ).toBeNull();
-    expect(
-      resolveExerciseArtwork('leg-extension', phase, 'male'),
-    ).toBeNull();
+    expect(resolveExerciseArtwork('leg-extension', phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('barbell-back-squat')).toBeNull();
 });
