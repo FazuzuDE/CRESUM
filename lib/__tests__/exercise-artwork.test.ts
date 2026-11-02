@@ -5,6 +5,8 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock('../../assets/exercises/hanging-knee-raise/start.webp', () => 6101);
+jest.mock('../../assets/exercises/hanging-knee-raise/finish.webp', () => 6102);
 jest.mock(
   '../../assets/exercises/hanging-straight-leg-raise/start.webp',
   () => 6001,
@@ -513,7 +515,7 @@ it('binds the selected high-row pair without narrowing the generic exercise scop
     for (const other of [
       'lat-pulldown',
       'seated-cable-row',
-      'hanging-knee-raise',
+      'cable-crunch',
       'unknown',
     ])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
@@ -571,7 +573,7 @@ it('binds selected deadlift phases without narrowing conventional identity or bo
     for (const other of [
       'deadlift',
       'romanian-deadlift',
-      'hanging-knee-raise',
+      'cable-crunch',
       'unknown',
     ])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
@@ -645,7 +647,7 @@ it('binds selected machine press without narrowing generic grip or borrowing fre
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
     expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
-    for (const other of ['press', 'hanging-knee-raise', 'unknown'])
+    for (const other of ['press', 'cable-crunch', 'unknown'])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
     for (const other of ['dumbbell-shoulder-press', 'barbell-overhead-press'])
       expect(resolveExerciseArtwork(other, phase, 'male')).not.toBe(
@@ -779,7 +781,7 @@ it('binds Male high cable pushdown without narrowing generic attachment or borro
     expect(resolveExerciseArtwork('cable-biceps-curl', phase, 'male')).toBe(
       phase === 'start' ? 2501 : 2502,
     );
-    for (const id of ['bodyweight-dip', 'hanging-knee-raise', 'unknown'])
+    for (const id of ['bodyweight-dip', 'cable-crunch', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('cable-triceps-pushdown')).toBeNull();
@@ -818,7 +820,7 @@ it('binds only Male overhead cable extension while retaining generic guide and t
     expect(resolveExerciseArtwork('cable-biceps-curl', phase, 'male')).toBe(
       phase === 'start' ? 2501 : 2502,
     );
-    for (const id of ['bodyweight-dip', 'hanging-knee-raise', 'unknown'])
+    for (const id of ['bodyweight-dip', 'cable-crunch', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(
@@ -863,7 +865,7 @@ it('binds only Male two-hand overhead dumbbell extension and preserves guide and
     expect(
       resolveExerciseArtwork('cable-triceps-pushdown', phase, 'male'),
     ).toBe(phase === 'start' ? 2601 : 2602);
-    for (const id of ['hanging-knee-raise', 'bodyweight-dip', 'unknown'])
+    for (const id of ['cable-crunch', 'bodyweight-dip', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(
@@ -900,7 +902,7 @@ it('binds only Male close grip bench press and preserves shoulder-width guide an
     expect(
       resolveExerciseArtwork('overhead-cable-triceps-extension', phase, 'male'),
     ).toBe(phase === 'start' ? 2701 : 2702);
-    for (const id of ['hanging-knee-raise', 'bodyweight-dip', 'unknown'])
+    for (const id of ['cable-crunch', 'bodyweight-dip', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('close-grip-bench-press')).toBeNull();
@@ -939,9 +941,7 @@ it('resolves only exact Male lying triceps phases without borrowing bench or ext
         'male',
       ),
     ).toBe(phase === 'start' ? 2801 : 2802);
-    expect(
-      resolveExerciseArtwork('hanging-knee-raise', phase, 'male'),
-    ).toBeNull();
+    expect(resolveExerciseArtwork('cable-crunch', phase, 'male')).toBeNull();
     expect(resolveExerciseArtwork('bodyweight-dip', phase, 'male')).toBeNull();
   }
   expect(
@@ -978,7 +978,7 @@ it('binds only Male assisted dip machine and preserves shoulder-width guide and 
     expect(
       resolveExerciseArtwork('overhead-cable-triceps-extension', phase, 'male'),
     ).toBe(phase === 'start' ? 2701 : 2702);
-    for (const id of ['hanging-knee-raise', 'bodyweight-dip', 'unknown'])
+    for (const id of ['cable-crunch', 'bodyweight-dip', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('assisted-dip-machine')).toBeNull();
@@ -989,9 +989,7 @@ it('keeps Back Squat Female, attachment and unsupported variant fallbacks', () =
     expect(
       resolveExerciseArtwork('barbell-back-squat', phase, 'female'),
     ).toBeNull();
-    expect(
-      resolveExerciseArtwork('hanging-knee-raise', phase, 'male'),
-    ).toBeNull();
+    expect(resolveExerciseArtwork('cable-crunch', phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('barbell-back-squat')).toBeNull();
 });
@@ -1033,6 +1031,7 @@ it.each([
   'plank',
   'captains-chair-knee-raise',
   'hanging-straight-leg-raise',
+  'hanging-knee-raise',
   'seated-leg-curl',
   'barbell-romanian-deadlift',
 ])('keeps %s Female and attachment fallbacks', (id) => {
@@ -1062,9 +1061,9 @@ it('resolves supported knee raise separately from hanging', () => {
   expect(
     resolveExerciseArtwork('captains-chair-knee-raise', 'finish', 'male'),
   ).toBe(5902);
-  expect(
-    resolveExerciseArtwork('hanging-knee-raise', 'start', 'male'),
-  ).toBeNull();
+  expect(resolveExerciseArtwork('hanging-knee-raise', 'start', 'male')).toBe(
+    6101,
+  );
 });
 
 it('keeps straight-leg artwork separate from bent-knee and supported raises', () => {
@@ -1080,13 +1079,37 @@ it('keeps straight-leg artwork separate from bent-knee and supported raises', ()
   expect(
     resolveExerciseArtwork('hanging-straight-leg-raise', 'finish', 'male'),
   ).toBe(6002);
-  expect(
-    resolveExerciseArtwork('hanging-knee-raise', 'start', 'male'),
-  ).toBeNull();
+  expect(resolveExerciseArtwork('hanging-knee-raise', 'start', 'male')).toBe(
+    6101,
+  );
   expect(
     resolveExerciseArtwork('captains-chair-knee-raise', 'start', 'male'),
   ).toBe(5901);
   expect(
     findTechnique('hanging-straight-leg-raise')?.movement.join(' '),
   ).toContain('straight legs');
+});
+
+it('resolves bent-knee phases without borrowing straight-leg or supported artwork', () => {
+  for (const phase of ['start', 'finish'] as const) {
+    const selected = resolveExerciseArtwork(
+      'hanging-knee-raise',
+      phase,
+      'male',
+    );
+    expect(selected).toBe(phase === 'start' ? 6101 : 6102);
+    expect(selected).not.toBe(
+      resolveExerciseArtwork('hanging-straight-leg-raise', phase, 'male'),
+    );
+    expect(selected).not.toBe(
+      resolveExerciseArtwork('captains-chair-knee-raise', phase, 'male'),
+    );
+  }
+  expect(findTechnique('hanging-knee-raise')?.scope).toBe(
+    'Hanging bent-knee raise.',
+  );
+  expect(findExercise('hanging-knee-raise')).toMatchObject({
+    primaryMuscles: ['abs'],
+    secondaryMuscles: ['forearms'],
+  });
 });
