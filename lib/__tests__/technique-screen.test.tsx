@@ -5,6 +5,14 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock(
+  '../../assets/exercises/barbell-romanian-deadlift/start.webp',
+  () => 5001,
+);
+jest.mock(
+  '../../assets/exercises/barbell-romanian-deadlift/finish.webp',
+  () => 5002,
+);
 jest.mock('../../assets/exercises/seated-leg-curl/start.webp', () => 4901);
 jest.mock('../../assets/exercises/seated-leg-curl/finish.webp', () => 4902);
 jest.mock('../../assets/exercises/lying-leg-curl/start.webp', () => 4801);
@@ -368,6 +376,7 @@ it.each([
   ['Leg Extension', 4701, 4702],
   ['Lying Leg Curl', 4801, 4802],
   ['Seated Leg Curl', 4901, 4902],
+  ['Barbell Romanian Deadlift', 5001, 5002],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
@@ -1397,6 +1406,12 @@ it.each([
   ['Leg Extension', 4702, ['quadriceps'], []],
   ['Lying Leg Curl', 4802, ['hamstrings'], ['calves']],
   ['Seated Leg Curl', 4902, ['hamstrings'], ['calves']],
+  [
+    'Barbell Romanian Deadlift',
+    5002,
+    ['glutes', 'hamstrings'],
+    ['forearms', 'lower-back'],
+  ],
 ] as const)(
   'keeps %s muscle roles and FINISH while expanding anatomy',
   (name, finishAsset, primary, secondary) => {

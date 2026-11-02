@@ -1,5 +1,23 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Barbell Romanian Deadlift selected Male pair — 2026-11-02
+
+User approved r2 `exec-ec379290-d25f-42a9-80ce-5ce9be06a5fe.png` and
+explicitly corrected the labels: RIGHT lowered hip-hinge START / LEFT upright
+FINISH. Export exact 887-square halves as RGB WebP92/method6, without retouch,
+resampling, padding or phase-specific transforms. Bind only
+`barbell-romanian-deadlift`/Male through shared phase/anatomy viewers.
+The endpoint display order does not change the existing top-down technique guide.
+Preserve stable identity/history, hamstrings/glutes Primary and lower-back/
+forearms Secondary. Conventional deadlift and dumbbell variants stay separate;
+Female, attachment and unsupported-variant fallbacks remain. Actual movement
+reference and Male Master, original and exact prompt retained; provenance records
+the user's phase-order override of the generation prompt. No per-exercise ZIP;
+archive pending-upload and PC/Oracle backup unverified. Keep
+user-selected-provisional: exact grip contacts, hinge/knee angles, bar clearance,
+proportion matching and device/accessibility QA are not independently certified.
+No new guide/source review.
+
 ## Seated Leg Curl selected Male pair — 2026-11-02
 
 User approved r1 `exec-a247562e-6850-448a-b37d-976331ca8c61.png`.

@@ -5,6 +5,14 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock(
+  '../../assets/exercises/barbell-romanian-deadlift/start.webp',
+  () => 5001,
+);
+jest.mock(
+  '../../assets/exercises/barbell-romanian-deadlift/finish.webp',
+  () => 5002,
+);
 jest.mock('../../assets/exercises/seated-leg-curl/start.webp', () => 4901);
 jest.mock('../../assets/exercises/seated-leg-curl/finish.webp', () => 4902);
 jest.mock('../../assets/exercises/lying-leg-curl/start.webp', () => 4801);
@@ -458,7 +466,7 @@ it('binds the selected high-row pair without narrowing the generic exercise scop
     for (const other of [
       'lat-pulldown',
       'seated-cable-row',
-      'barbell-romanian-deadlift',
+      'dumbbell-romanian-deadlift',
       'unknown',
     ])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
@@ -516,7 +524,7 @@ it('binds selected deadlift phases without narrowing conventional identity or bo
     for (const other of [
       'deadlift',
       'romanian-deadlift',
-      'barbell-romanian-deadlift',
+      'dumbbell-romanian-deadlift',
       'unknown',
     ])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
@@ -590,7 +598,7 @@ it('binds selected machine press without narrowing generic grip or borrowing fre
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
     expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
-    for (const other of ['press', 'barbell-romanian-deadlift', 'unknown'])
+    for (const other of ['press', 'dumbbell-romanian-deadlift', 'unknown'])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
     for (const other of ['dumbbell-shoulder-press', 'barbell-overhead-press'])
       expect(resolveExerciseArtwork(other, phase, 'male')).not.toBe(
@@ -724,7 +732,11 @@ it('binds Male high cable pushdown without narrowing generic attachment or borro
     expect(resolveExerciseArtwork('cable-biceps-curl', phase, 'male')).toBe(
       phase === 'start' ? 2501 : 2502,
     );
-    for (const id of ['bodyweight-dip', 'barbell-romanian-deadlift', 'unknown'])
+    for (const id of [
+      'bodyweight-dip',
+      'dumbbell-romanian-deadlift',
+      'unknown',
+    ])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('cable-triceps-pushdown')).toBeNull();
@@ -763,7 +775,11 @@ it('binds only Male overhead cable extension while retaining generic guide and t
     expect(resolveExerciseArtwork('cable-biceps-curl', phase, 'male')).toBe(
       phase === 'start' ? 2501 : 2502,
     );
-    for (const id of ['bodyweight-dip', 'barbell-romanian-deadlift', 'unknown'])
+    for (const id of [
+      'bodyweight-dip',
+      'dumbbell-romanian-deadlift',
+      'unknown',
+    ])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(
@@ -808,7 +824,11 @@ it('binds only Male two-hand overhead dumbbell extension and preserves guide and
     expect(
       resolveExerciseArtwork('cable-triceps-pushdown', phase, 'male'),
     ).toBe(phase === 'start' ? 2601 : 2602);
-    for (const id of ['barbell-romanian-deadlift', 'bodyweight-dip', 'unknown'])
+    for (const id of [
+      'dumbbell-romanian-deadlift',
+      'bodyweight-dip',
+      'unknown',
+    ])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(
@@ -845,7 +865,11 @@ it('binds only Male close grip bench press and preserves shoulder-width guide an
     expect(
       resolveExerciseArtwork('overhead-cable-triceps-extension', phase, 'male'),
     ).toBe(phase === 'start' ? 2701 : 2702);
-    for (const id of ['barbell-romanian-deadlift', 'bodyweight-dip', 'unknown'])
+    for (const id of [
+      'dumbbell-romanian-deadlift',
+      'bodyweight-dip',
+      'unknown',
+    ])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('close-grip-bench-press')).toBeNull();
@@ -885,7 +909,7 @@ it('resolves only exact Male lying triceps phases without borrowing bench or ext
       ),
     ).toBe(phase === 'start' ? 2801 : 2802);
     expect(
-      resolveExerciseArtwork('barbell-romanian-deadlift', phase, 'male'),
+      resolveExerciseArtwork('dumbbell-romanian-deadlift', phase, 'male'),
     ).toBeNull();
     expect(resolveExerciseArtwork('bodyweight-dip', phase, 'male')).toBeNull();
   }
@@ -923,7 +947,11 @@ it('binds only Male assisted dip machine and preserves shoulder-width guide and 
     expect(
       resolveExerciseArtwork('overhead-cable-triceps-extension', phase, 'male'),
     ).toBe(phase === 'start' ? 2701 : 2702);
-    for (const id of ['barbell-romanian-deadlift', 'bodyweight-dip', 'unknown'])
+    for (const id of [
+      'dumbbell-romanian-deadlift',
+      'bodyweight-dip',
+      'unknown',
+    ])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('assisted-dip-machine')).toBeNull();
@@ -935,7 +963,7 @@ it('keeps Back Squat Female, attachment and unsupported variant fallbacks', () =
       resolveExerciseArtwork('barbell-back-squat', phase, 'female'),
     ).toBeNull();
     expect(
-      resolveExerciseArtwork('barbell-romanian-deadlift', phase, 'male'),
+      resolveExerciseArtwork('dumbbell-romanian-deadlift', phase, 'male'),
     ).toBeNull();
   }
   expect(resolveAttachmentArtwork('barbell-back-squat')).toBeNull();
@@ -969,6 +997,7 @@ it.each([
   'leg-extension',
   'lying-leg-curl',
   'seated-leg-curl',
+  'barbell-romanian-deadlift',
 ])('keeps %s Female and attachment fallbacks', (id) => {
   for (const phase of ['start', 'finish'] as const)
     expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
