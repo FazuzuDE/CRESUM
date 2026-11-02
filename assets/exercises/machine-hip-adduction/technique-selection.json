@@ -1,0 +1,35 @@
+{
+  "exerciseId": "machine-hip-adduction",
+  "model": "male",
+  "selectedRevision": 1,
+  "selectionDate": "2026-11-02",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "92ec4bc026fc99428fd822215eb785448e543c2a82e366e315a4666d19d0ffc2",
+      "bytes": 52088,
+      "sourceFile": "exec-737811b0-abe5-49b1-a7b8-3aefe50704f6.png",
+      "sourceSha256": "afeb1adc6b475cf6e6e25446bf156c3bce14517412b7cdbf511f9e43e82f48b3",
+      "sourceBytes": 1667637,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "204093992ee7087cd9af55eaecc191ad59f5b4c264126c4cd1937f67b4b1ead0",
+      "bytes": 49826,
+      "sourceFile": "exec-737811b0-abe5-49b1-a7b8-3aefe50704f6.png",
+      "sourceSha256": "afeb1adc6b475cf6e6e25446bf156c3bce14517412b7cdbf511f9e43e82f48b3",
+      "sourceBytes": 1667637,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

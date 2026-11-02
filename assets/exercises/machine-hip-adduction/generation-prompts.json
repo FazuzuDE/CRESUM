@@ -1,0 +1,28 @@
+{
+  "exerciseId": "machine-hip-adduction",
+  "records": [
+    {
+      "revision": 1,
+      "prompt": "Create ONE original CRESUM paired fitness exercise illustration, wide 2:1, TWO equal square panels LEFT START / RIGHT FINISH for SEATED MACHINE HIP ADDUCTION (squeezing thighs inward).\nImage1 is movement/machine reference only; Image2 is LOCKED character master. Use that exact young adult brown-haired male, natural athletic proportions, blue-gray T-shirt, charcoal shorts, white socks and light-gray trainers. Clean premium realistic 3D render with consistent skin, clothes and equipment surfaces, no anatomical skin or colored muscle overlays.\nFront three-quarter camera like image1, athlete facing slightly toward RIGHT, both thighs/knees/feet clearly visible. Same light-silver/white machine frame, black seat/backrest, dark pads, side handgrips and rear weight tower. Pelvis and back firmly supported, torso upright, hands naturally grasp side handles, knees bent around90 degrees, feet on small machine foot supports.\nCrucial hip ADDUCTION geometry: exactly TWO padded vertical thigh contact pads, one against MEDIAL/INNER surface of each distal thigh just ABOVE knee. Each pad is BETWEEN the thighs, never outside lateral knees. Their padded faces point outward against respective inner thighs; man squeezes pads INWARD against resistance. Rigid lever arms beneath seat carry pads and foot supports symmetrically.\nLEFT START: thighs comfortably spread, knees separated, each inner thigh contacts its own medial pad. Pads/foot supports also spread, no extreme split. Selected weight group rests down.\nRIGHT FINISH: thighs and knees move inward toward midline, medial pads approach one another between knees with small safe gap; bent knees and feet follow symmetric lever motion. Keep pads individually distinct, no merged central cushion or pad through skin, never move pads outside thighs. Torso/pelvis/seat/backrest and camera unchanged.\nWeight tower behind seat visible to one side with same two rods, total plate count and selector setting: RIGHT selected TOP group rises leaving gap above remaining lower resting plates. Tower and remaining stack stay stationary. LEFT top group down. Coherent fixed frame/seat and cable linkage; no extra stacks or floating equipment.\nSame camera distance, body size, machine registration and materials across both square panels. Full head, feet, both hands, whole tower and machine base fit in EACH square with safe small margins; fill frame efficiently, avoid scaling one pose independently. Pure white background, subtle floor shadows. No labels, arrows, text, logos, watermark, UI or borders. Original CRESUM adaptation, not a copy of anatomical reference character.",
+      "references": [
+        {
+          "file": "D15180D2-205F-437D-93D2-CC5F7B8365EC.png",
+          "sha256": "2acaa4510f0c52cccd2c55811e23ccb2e4203b7f2bdc64e365d3a3bff0535043",
+          "bytes": 343194
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-737811b0-abe5-49b1-a7b8-3aefe50704f6.png",
+        "sha256": "afeb1adc6b475cf6e6e25446bf156c3bce14517412b7cdbf511f9e43e82f48b3",
+        "bytes": 1667637,
+        "size": [1774, 887]
+      },
+      "tool": "built-in image_gen"
+    }
+  ]
+}

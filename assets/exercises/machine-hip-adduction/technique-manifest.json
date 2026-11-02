@@ -1,0 +1,68 @@
+{
+  "variantId": "machine-hip-adduction",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "92ec4bc026fc99428fd822215eb785448e543c2a82e366e315a4666d19d0ffc2",
+      "bytes": 52088,
+      "sourceFile": "exec-737811b0-abe5-49b1-a7b8-3aefe50704f6.png",
+      "sourceSha256": "afeb1adc6b475cf6e6e25446bf156c3bce14517412b7cdbf511f9e43e82f48b3",
+      "sourceBytes": 1667637,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "204093992ee7087cd9af55eaecc191ad59f5b4c264126c4cd1937f67b4b1ead0",
+      "bytes": 49826,
+      "sourceFile": "exec-737811b0-abe5-49b1-a7b8-3aefe50704f6.png",
+      "sourceSha256": "afeb1adc6b475cf6e6e25446bf156c3bce14517412b7cdbf511f9e43e82f48b3",
+      "sourceBytes": 1667637,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "D15180D2-205F-437D-93D2-CC5F7B8365EC.png",
+        "sha256": "2acaa4510f0c52cccd2c55811e23ccb2e4203b7f2bdc64e365d3a3bff0535043",
+        "bytes": 343194
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      }
+    ],
+    "output": {
+      "file": "exec-737811b0-abe5-49b1-a7b8-3aefe50704f6.png",
+      "sha256": "afeb1adc6b475cf6e6e25446bf156c3bce14517412b7cdbf511f9e43e82f48b3",
+      "bytes": 1667637,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User approved original r1: LEFT thighs spread START / RIGHT thighs together FINISH.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, resampling, padding or phase-specific transforms.",
+  "reviewScope": "Broad adduction phase order, seated support and selected load lift reviewed. Exact medial pad/thigh and grip contacts, hip/knee range, plate counts, linkage and rigid registration not independently certified. Device/accessibility QA pending. Guide and muscle roles unchanged; no new source review.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original, exact prompt and actual input files retained for visual-block checkpoint. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

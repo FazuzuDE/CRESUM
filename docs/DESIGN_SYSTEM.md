@@ -1,5 +1,19 @@
 # CRESUM Design System v1.0
 
+## Machine Hip Adduction selected Male pair — 2026-11-02
+
+User approved r1 `exec-737811b0-abe5-49b1-a7b8-3aefe50704f6.png`.
+LEFT thighs-spread START / RIGHT thighs-together FINISH. Exact 887-square
+RGB WebP92/method6 halves; no retouch, resampling, padding or phase transforms.
+Bind only `machine-hip-adduction`/Male through shared phase/anatomy viewers.
+Preserve guide, stable identity/history, adductors Primary and no Secondary.
+Other variants, Female and attachment fallbacks remain. Original, exact prompt
+and actual references retained. User-selected-provisional: exact medial pad/thigh,
+grip contacts, hip/knee range, linkage/plate counts, rigid registration and
+device/accessibility QA pending. Selected load visibly rises; this is not
+mechanical certification. No new source review. Archive pending-upload;
+no per-exercise ZIP or verified PC/Oracle backup claim.
+
 ## Seated Calf Raise selected Male pair — 2026-11-02
 
 User approved r1 `exec-32a3c0e2-38ae-4863-a196-6437dc58c510.png`.
