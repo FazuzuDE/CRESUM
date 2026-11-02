@@ -1,0 +1,70 @@
+{
+  "variantId": "bulgarian-split-squat",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-0164cd81-4e39-4079-b621-c3bce9dc17ff.png",
+      "sourceSha256": "5ab8c37d3e0c02db7e40144a46fb8aa0a242fcdc6a06b001953eb533a078d29a",
+      "sourceBytes": 1668331,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "2ce1ceb5cbfc3d0de08d7491b7a6800a1eeb69671982b2297dafbe9c4a01cbf5",
+      "bytes": 36004,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-0164cd81-4e39-4079-b621-c3bce9dc17ff.png",
+      "sourceSha256": "5ab8c37d3e0c02db7e40144a46fb8aa0a242fcdc6a06b001953eb533a078d29a",
+      "sourceBytes": 1668331,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "b0433155d0a2c5e7eaf77e13f6f572bc46eaff8baa285174b951e53d3182a473",
+      "bytes": 37614,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "3F696B2C-A46F-44D9-B552-F726575B7B24.jpeg",
+        "sha256": "175403712384b53b5599bfce2ef275d12272167897d7276f2a37748c33c63867",
+        "bytes": 181755,
+        "role": "User-supplied pose example only"
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046,
+        "role": "CRESUM Male Master identity, proportions and blue-gray outfit"
+      }
+    ],
+    "output": {
+      "file": "exec-0164cd81-4e39-4079-b621-c3bce9dc17ff.png",
+      "sha256": "5ab8c37d3e0c02db7e40144a46fb8aa0a242fcdc6a06b001953eb533a078d29a",
+      "bytes": 1668331,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User approved original r1. LEFT upper START / RIGHT lowered FINISH; rear foot elevated on bench and one dumbbell in each hand.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, resampling, padding or phase-specific transforms.",
+  "reviewScope": "Broad phase, outfit/material continuity, full-body framing and bench support reviewed. Exact bench registration, grip/finger contact, rear-foot contact, stance and knee/depth geometry not independently certified. Physical-device/accessibility QA pending. Existing guide, stable identity and muscle mapping unchanged; no new live source review.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original, exact generation prompt and actual inputs retained for final visual-block checkpoint. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

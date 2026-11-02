@@ -1,0 +1,33 @@
+{
+  "exerciseId": "bulgarian-split-squat",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "prompt": "Use case: identity-preserve / exercise illustration adaptation. Create ONE clean paired CRESUM fitness illustration of a DUMBBELL BULGARIAN SPLIT SQUAT, two equally sized square panels arranged side by side in a wide 2:1 composition. Image 1 (phone screenshot) is a POSE AND EXERCISE reference ONLY: adapt its upper and lowered rear-foot-elevated split squat positions. Image 2 (male turnaround sheet) is the LOCKED CHARACTER identity, body proportions, wardrobe, color and material reference. Use exactly that adult male character, face, short brown hair, natural athletic proportions, muted blue crew-neck t-shirt, charcoal gray shorts, white socks and light gray sneakers. Do not make him more muscular, taller, or differently proportioned. Clean polished realistic 3D illustration matching this male reference, smooth consistent skin and fabric colors, crisp details, soft studio lighting, white background and faint grounded shadows. Each panel shows the same man facing right in a matching near-side/slightly three-quarter view, one black dumbbell gripped in each hand, arms hanging at his sides with neutral wrists. Rear foot rests on top of the same flat black padded bench behind him to the LEFT, white/light silver frame, believable stable bench geometry. LEFT panel START: upper split stance, front foot flat on ground and front leg nearly straight with soft knee, rear knee softly bent and rear instep supported on bench. RIGHT panel FINISH: lower under control into split squat, front knee bent about 90 degrees, front thigh approximately horizontal, front heel firmly planted, rear knee descends near floor without touching, rear instep stays on bench; trunk neutral with modest natural forward inclination. Both are the SAME stance and SAME lead leg; front planted shoe location, bench position/size and ground plane remain registered across phases. Only the athlete's joints and dumbbells change position with the movement. Bench height below knee level/about 40cm, rear knee bends naturally; no foot floating or intersecting bench. Show both dumbbells with anatomically correct hands, one each side, far one may be partially occluded. Keep enough separation to read body and bench. Use identical camera, focal length, character scale, bench geometry, lighting and floor baseline in both square panels. Fill each square efficiently with full character and complete bench: small safe margins around head, shoes and all bench feet, no clipping. Maintain natural full-body proportions from image 2 in both phases. NO text, labels, logos, watermark pattern, UI, screenshot borders, anatomical muscle coloring, extra people, extra limbs, duplicated equipment or arrows. This is a new clean illustration, not an edited screenshot.",
+      "references": [
+        {
+          "file": "3F696B2C-A46F-44D9-B552-F726575B7B24.jpeg",
+          "sha256": "175403712384b53b5599bfce2ef275d12272167897d7276f2a37748c33c63867",
+          "bytes": 181755,
+          "role": "User-supplied pose example only"
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "role": "CRESUM Male Master identity, proportions and blue-gray outfit"
+        }
+      ],
+      "output": {
+        "file": "exec-0164cd81-4e39-4079-b621-c3bce9dc17ff.png",
+        "sha256": "5ab8c37d3e0c02db7e40144a46fb8aa0a242fcdc6a06b001953eb533a078d29a",
+        "bytes": 1668331,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}

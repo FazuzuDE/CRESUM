@@ -1,0 +1,35 @@
+{
+  "exerciseId": "bulgarian-split-squat",
+  "model": "male",
+  "selectionDate": "2026-11-01",
+  "decision": "Утверждаю",
+  "selectedRevision": 1,
+  "status": "user-selected-pair",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-0164cd81-4e39-4079-b621-c3bce9dc17ff.png",
+      "sourceSha256": "5ab8c37d3e0c02db7e40144a46fb8aa0a242fcdc6a06b001953eb533a078d29a",
+      "sourceBytes": 1668331,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "2ce1ceb5cbfc3d0de08d7491b7a6800a1eeb69671982b2297dafbe9c4a01cbf5",
+      "bytes": 36004,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-0164cd81-4e39-4079-b621-c3bce9dc17ff.png",
+      "sourceSha256": "5ab8c37d3e0c02db7e40144a46fb8aa0a242fcdc6a06b001953eb533a078d29a",
+      "sourceBytes": 1668331,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "b0433155d0a2c5e7eaf77e13f6f572bc46eaff8baa285174b951e53d3182a473",
+      "bytes": 37614,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

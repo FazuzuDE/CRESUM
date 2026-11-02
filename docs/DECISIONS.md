@@ -1,5 +1,20 @@
 # CRESUM Decision Log
 
+## Bulgarian Split Squat selected Male pair — 2026-11-01
+
+User approved r1 `exec-0164cd81-4e39-4079-b621-c3bce9dc17ff.png`.
+Use exact 887-square LEFT upper START / RIGHT lowered FINISH halves,
+RGB WebP92/method6, without retouch, resampling, padding or phase-specific
+transforms. Bind only `bulgarian-split-squat`/Male through shared phase and
+anatomy viewers. Preserve stable identity/history, existing guide,
+quadriceps/glutes Primary and hamstrings/adductors Secondary. Female,
+attachment and unsupported-variant fallbacks remain. Actual user pose example
+and Male Master, original and exact prompt retained for the visual-block
+checkpoint. No per-exercise ZIP; archive pending-upload and PC/Oracle backup
+unverified. Keep user-selected-provisional: fine grip/finger and rear-foot
+contacts, stance/knee/depth geometry, exact bench registration and device/
+accessibility QA are not independently certified. No new guide/source review.
+
 ## Dumbbell Reverse Lunge selected Male pair — 2026-11-01
 
 User reselected original r1 `exec-2899adcb-cda5-483c-84b2-49837e87d32c.png`
