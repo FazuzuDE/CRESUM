@@ -1,5 +1,17 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Plank selected Male static views — 2026-11-02
+
+User approved r1 `exec-7e769c85-08bc-40fa-b999-1c0f561109af.png`.
+LEFT side view / RIGHT three-quarter view show the SAME forearm plank hold.
+Existing start/finish asset slots contain alternate views, not movement phases.
+Exact 887-square RGB WebP92/method6 halves, no retouch or resampling.
+Bind only `plank`/Male through shared phase/anatomy viewers. Preserve duration
+measurement, stable identity/history, guide, abs Primary and glutes Secondary.
+Female/attachment fallbacks remain. Actual source, prompt and references retained.
+User-selected-provisional: exact support contacts, alignment, proportions and
+device/accessibility QA pending. No new source review. Archive pending-upload.
+
 ## Kettlebell Swing selected Male pair — 2026-11-02
 
 User approved r1 `exec-fdabb5b4-95fa-4594-a609-eeaf5d9ca2ce.png`.
