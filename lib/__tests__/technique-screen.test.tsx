@@ -5,6 +5,14 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock(
+  '../../assets/exercises/captains-chair-knee-raise/start.webp',
+  () => 5901,
+);
+jest.mock(
+  '../../assets/exercises/captains-chair-knee-raise/finish.webp',
+  () => 5902,
+);
 jest.mock('../../assets/exercises/plank/start.webp', () => 5801);
 jest.mock('../../assets/exercises/plank/finish.webp', () => 5802);
 jest.mock('../../assets/exercises/kettlebell-swing/start.webp', () => 5701);
@@ -414,6 +422,7 @@ it.each([
   ['Machine Hip Adduction', 5601, 5602],
   ['Kettlebell Swing', 5701, 5702],
   ['Plank', 5801, 5802],
+  ['Captain’s Chair Knee Raise', 5901, 5902],
   ['Seated Leg Curl', 4901, 4902],
   ['Barbell Romanian Deadlift', 5001, 5002],
 ] as const)(
@@ -1454,6 +1463,7 @@ it.each([
   ['Seated Calf Raise', 5502, ['calves'], []],
   ['Machine Hip Adduction', 5602, ['adductors'], []],
   ['Plank', 5802, ['abs'], ['glutes']],
+  ['Captain’s Chair Knee Raise', 5902, ['abs'], []],
   [
     'Kettlebell Swing',
     5702,

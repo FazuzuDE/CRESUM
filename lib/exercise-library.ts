@@ -484,6 +484,14 @@ export const exerciseLibrary = [
     movementPattern: 'core',
   }),
   exercise({
+    id: 'captains-chair-knee-raise',
+    name: 'Captain’s Chair Knee Raise',
+    primaryMuscles: ['abs'],
+    secondaryMuscles: [],
+    equipment: ['machine'],
+    movementPattern: 'core',
+  }),
+  exercise({
     id: 'hanging-knee-raise',
     name: 'Hanging Knee Raise',
     primaryMuscles: ['abs'],

@@ -95,7 +95,7 @@ describe('canonical exercise metadata', () => {
 
   it('contains a curated catalog with unique stable ids', () => {
     expect(exerciseLibrary.length).toBeGreaterThanOrEqual(45);
-    expect(exerciseLibrary.length).toBeLessThanOrEqual(68);
+    expect(exerciseLibrary.length).toBeLessThanOrEqual(69);
     expect(new Set(exerciseLibrary.map((item) => item.id)).size).toBe(
       exerciseLibrary.length,
     );

@@ -1,4 +1,6 @@
 export default {
+  'catalog.exercise.captains-chair-knee-raise':
+    'Relevé des genoux à la chaise romaine',
   'catalog.exercise.kettlebell-goblet-squat': 'Goblet squat',
   'catalog.exercise.seated-cable-row-close-neutral-v-handle':
     'Tirage horizontal avec poignée en V en prise neutre serrée',

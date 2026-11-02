@@ -1,5 +1,19 @@
 import { flattenTechniqueText } from '../../technique-text';
 export default flattenTechniqueText({
+  'captains-chair-knee-raise': {
+    scope: 'Knieheben mit Unterarm- und Rückenstütze am Captain’s Chair.',
+    setup: [
+      'Unterarme auf die Polster legen, Griffe umfassen und Rücken am Polster abstützen; Beine frei über dem Boden hängen lassen.',
+    ],
+    movement: [
+      'Gebeugte Knie kontrolliert zur Brust heben und langsam in die Ausgangsposition senken.',
+    ],
+    checks: ['Oberkörper während der Bewegung stabil an den Stützen halten.'],
+    mistakes: [
+      'Schwingen: pausieren und Kontrolle wiederherstellen.',
+      'Beine fallen lassen: langsamer absenken.',
+    ],
+  },
   'kettlebell-goblet-squat': {
     scope: 'Eine Kettlebell mit beiden Händen auf Brusthöhe.',
     setup: [

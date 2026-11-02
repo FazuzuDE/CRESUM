@@ -1,4 +1,6 @@
 export default {
+  'catalog.exercise.captains-chair-knee-raise':
+    'Подъём коленей в упоре на предплечья',
   'catalog.exercise.kettlebell-goblet-squat': 'Гоблет-приседание',
   'catalog.exercise.seated-cable-row-close-neutral-v-handle':
     'Тяга нижнего блока с V-рукоятью узким нейтральным хватом',

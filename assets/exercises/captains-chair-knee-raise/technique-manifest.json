@@ -1,0 +1,68 @@
+{
+  "variantId": "captains-chair-knee-raise",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "b711b00c57a03237713a04755a93fdc0289f9287ca2dbbde5ac5da7cd777fbf1",
+      "bytes": 33826,
+      "sourceFile": "exec-341c9532-d508-4da4-a00a-10f9c1cc3530.png",
+      "sourceSha256": "618dbae7563c3e3ac5ced7951ffc388ae55ea01b3fd3a3c824ee09befd65430f",
+      "sourceBytes": 1315712,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "eaf72735af1d4624ad2b9f603c5109174d6ae94d38e10af183a7b5c70b4d5bd9",
+      "bytes": 33390,
+      "sourceFile": "exec-341c9532-d508-4da4-a00a-10f9c1cc3530.png",
+      "sourceSha256": "618dbae7563c3e3ac5ced7951ffc388ae55ea01b3fd3a3c824ee09befd65430f",
+      "sourceBytes": 1315712,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "0A1ECCCD-5D4B-42FB-ADA9-BC7713E20A1D.png",
+        "sha256": "b2605c4f227178290b47e3149758c533be302188786fbd32ace706a344f05e19",
+        "bytes": 52351
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      }
+    ],
+    "output": {
+      "file": "exec-341c9532-d508-4da4-a00a-10f9c1cc3530.png",
+      "sha256": "618dbae7563c3e3ac5ced7951ffc388ae55ea01b3fd3a3c824ee09befd65430f",
+      "bytes": 1315712,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User approved r1: LEFT lowered START / RIGHT bent knees raised FINISH. Separate supported captain chair identity.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, resampling, padding or phase-specific transforms.",
+  "reviewScope": "Broad supported phase order reviewed. Exact forearm/grip/back contact, pelvic curl, frame clearance and rigid registration not independently certified. Device/accessibility QA pending. ACE guide checked separately; visual acceptance is provisional.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original, exact prompt and actual input files retained for visual-block checkpoint. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

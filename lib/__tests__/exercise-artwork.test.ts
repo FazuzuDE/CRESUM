@@ -5,6 +5,14 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock(
+  '../../assets/exercises/captains-chair-knee-raise/start.webp',
+  () => 5901,
+);
+jest.mock(
+  '../../assets/exercises/captains-chair-knee-raise/finish.webp',
+  () => 5902,
+);
 jest.mock('../../assets/exercises/plank/start.webp', () => 5801);
 jest.mock('../../assets/exercises/plank/finish.webp', () => 5802);
 jest.mock('../../assets/exercises/kettlebell-swing/start.webp', () => 5701);
@@ -1015,6 +1023,7 @@ it.each([
   'machine-hip-adduction',
   'kettlebell-swing',
   'plank',
+  'captains-chair-knee-raise',
   'seated-leg-curl',
   'barbell-romanian-deadlift',
 ])('keeps %s Female and attachment fallbacks', (id) => {
@@ -1035,4 +1044,16 @@ it('resolves the selected Kettlebell Swing pair only for Male', () => {
 it('resolves both selected static Plank views for Male', () => {
   expect(resolveExerciseArtwork('plank', 'start', 'male')).toBe(5801);
   expect(resolveExerciseArtwork('plank', 'finish', 'male')).toBe(5802);
+});
+
+it('resolves supported knee raise separately from hanging', () => {
+  expect(
+    resolveExerciseArtwork('captains-chair-knee-raise', 'start', 'male'),
+  ).toBe(5901);
+  expect(
+    resolveExerciseArtwork('captains-chair-knee-raise', 'finish', 'male'),
+  ).toBe(5902);
+  expect(
+    resolveExerciseArtwork('hanging-knee-raise', 'start', 'male'),
+  ).toBeNull();
 });
