@@ -1,5 +1,22 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Cable Crunch selected Male pair — 2026-11-02
+
+User approved r1 `exec-88568fb4-2038-4f4d-bcc1-c29e832e66c6.png`.
+Bind LEFT upright START / RIGHT trunk-flexed FINISH only to existing
+`cable-crunch` / Male through shared phase and anatomy viewers.
+Standing rope setup is an illustration example; preserve the generic posture and
+attachment scope, existing ACE331 guide, abs Primary/no Secondary, stable ID
+and History. No kneeling variant or data migration is introduced.
+Use exact 887-square RGB WebP92/method6 crops, shared contain, without retouch,
+resampling, padding or independent placement. Retain original, exact prompt,
+actual supplied pose reference and Male Master hashes. Selected load visibly
+rises on FINISH; exact plate counts, selector continuity and hidden reeving are
+not certified. User-selected-provisional: detailed grips/rope clearance,
+spinal/pelvic motion, rigid registration and device/accessibility QA remain open.
+No new source review or muscle-role change. Oracle source upload remains pending;
+no verified backup claim. Next exercise: back extension.
+
 ## Hanging Knee Raise selected Male pair — 2026-11-02
 
 User approved r1 `exec-b477fa44-2256-4c17-b63e-37fa4040685c.png`.

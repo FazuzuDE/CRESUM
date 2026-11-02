@@ -1,0 +1,68 @@
+{
+  "variantId": "cable-crunch",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "d00921e3df63d1e3e57b36947a9f84a5871fcf99c4f531e5f82ec5428eab0358",
+      "bytes": 40856,
+      "sourceFile": "exec-88568fb4-2038-4f4d-bcc1-c29e832e66c6.png",
+      "sourceSha256": "da716b68bedc4c7fdec465f18bd71a36cbac8ad0125d160cbad0f74b3c95e709",
+      "sourceBytes": 1342910,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "6803a9707a02e7f52ab9628e33cfea51f506cd5e4e28276fcb1831a629bb61dc",
+      "bytes": 43040,
+      "sourceFile": "exec-88568fb4-2038-4f4d-bcc1-c29e832e66c6.png",
+      "sourceSha256": "da716b68bedc4c7fdec465f18bd71a36cbac8ad0125d160cbad0f74b3c95e709",
+      "sourceBytes": 1342910,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "CC20A862-DA7E-4A32-A85E-19EEA5776498.png",
+        "sha256": "6d09648aadde78591af12c10b1dc4de7ad2d80abe4c6601bc3758ab175d82fa8",
+        "bytes": 309681
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      }
+    ],
+    "output": {
+      "file": "exec-88568fb4-2038-4f4d-bcc1-c29e832e66c6.png",
+      "sha256": "da716b68bedc4c7fdec465f18bd71a36cbac8ad0125d160cbad0f74b3c95e709",
+      "bytes": 1342910,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User selected LEFT upright START / RIGHT flexed-trunk FINISH. Standing rope setup is an illustration example, not a narrowing of the generic cable-crunch identity.",
+  "presentation": "Exact square half-sheet crops, shared contain; no retouch, resampling, padding or independent phase transforms.",
+  "reviewScope": "Broad phase order, common identity/materials and full-frame fit reviewed. Selected load visibly rises. Exact plate counts, selector continuity, hidden reeving, detailed grips/rope clearance, spinal/pelvic motion, rigid registration and device/accessibility review are not certified.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original and both actual inputs retained in ChatGPT files. Oracle upload deferred and unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "left/top inclusive, right/bottom exclusive"
+  }
+}
