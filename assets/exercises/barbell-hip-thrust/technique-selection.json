@@ -1,0 +1,35 @@
+{
+  "exerciseId": "barbell-hip-thrust",
+  "model": "male",
+  "selectedRevision": 2,
+  "selectionDate": "2026-11-02",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "48bb7d28226892a5e5682d61931e5999d502250fa652f838e260fba66e213719",
+      "bytes": 44240,
+      "sourceFile": "exec-d87e64f6-007a-40b3-a5c5-0e2a6134c9f9.png",
+      "sourceSha256": "34145282a971bc63d8fdefb6ea451a796150127977ce48c17febe955fa4cd1d1",
+      "sourceBytes": 1705639,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "27ee6e762b268b7d2e2c58bb3824520e711a136688bbef08fd1a34d3ec739a03",
+      "bytes": 44874,
+      "sourceFile": "exec-d87e64f6-007a-40b3-a5c5-0e2a6134c9f9.png",
+      "sourceSha256": "34145282a971bc63d8fdefb6ea451a796150127977ce48c17febe955fa4cd1d1",
+      "sourceBytes": 1705639,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

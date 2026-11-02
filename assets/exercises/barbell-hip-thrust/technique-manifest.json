@@ -1,0 +1,63 @@
+{
+  "variantId": "barbell-hip-thrust",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 2,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "48bb7d28226892a5e5682d61931e5999d502250fa652f838e260fba66e213719",
+      "bytes": 44240,
+      "sourceFile": "exec-d87e64f6-007a-40b3-a5c5-0e2a6134c9f9.png",
+      "sourceSha256": "34145282a971bc63d8fdefb6ea451a796150127977ce48c17febe955fa4cd1d1",
+      "sourceBytes": 1705639,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "27ee6e762b268b7d2e2c58bb3824520e711a136688bbef08fd1a34d3ec739a03",
+      "bytes": 44874,
+      "sourceFile": "exec-d87e64f6-007a-40b3-a5c5-0e2a6134c9f9.png",
+      "sourceSha256": "34145282a971bc63d8fdefb6ea451a796150127977ce48c17febe955fa4cd1d1",
+      "sourceBytes": 1705639,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "exec-df933537-09c7-4e51-a38a-568071ab79b0.png",
+        "sha256": "73c80b84cbe65d0cccdba81be79bec8fe25906bc3ad91724d054d1a5052e5645",
+        "bytes": 1464275
+      }
+    ],
+    "output": {
+      "file": "exec-d87e64f6-007a-40b3-a5c5-0e2a6134c9f9.png",
+      "sha256": "34145282a971bc63d8fdefb6ea451a796150127977ce48c17febe955fa4cd1d1",
+      "bytes": 1705639,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User approved r2: LEFT lowered START / RIGHT raised FINISH after requesting a straighter finish.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, resampling, padding or phase-specific transforms.",
+  "reviewScope": "Broad phase order and increased hip extension reviewed. Exact shoulder/bench contacts, hip/knee angles, grip, bar clearance and rigid registration not independently certified. Device/accessibility QA pending. Existing guide and muscle roles unchanged; no new source review.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original, exact prompt and actual input files retained for visual-block checkpoint. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

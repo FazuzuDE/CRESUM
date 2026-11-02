@@ -1,6 +1,10 @@
 import type { ImageSourcePropType, ImageStyle } from 'react-native';
 
 // Explicit exact-variant bindings; technique pairs and equipment have separate approval.
+const hipThrustPair = {
+  start: require('../assets/exercises/barbell-hip-thrust/start.webp'),
+  finish: require('../assets/exercises/barbell-hip-thrust/finish.webp'),
+};
 const dumbbellRomanianDeadliftPair = {
   start: require('../assets/exercises/dumbbell-romanian-deadlift/start.webp'),
   finish: require('../assets/exercises/dumbbell-romanian-deadlift/finish.webp'),
@@ -216,6 +220,7 @@ export function resolveExerciseArtwork(
   model: 'male' | 'female',
 ): ImageSourcePropType | null {
   if (model !== 'male') return null;
+  if (variantId === 'barbell-hip-thrust') return hipThrustPair[phase];
   if (variantId === 'dumbbell-romanian-deadlift')
     return dumbbellRomanianDeadliftPair[phase];
   if (variantId === 'barbell-romanian-deadlift')

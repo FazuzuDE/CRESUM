@@ -1,0 +1,46 @@
+{
+  "exerciseId": "barbell-hip-thrust",
+  "records": [
+    {
+      "revision": 1,
+      "prompt": "Create ONE wide 2:1 CRESUM fitness exercise illustration with TWO equal square panels, LEFT START / RIGHT FINISH of BARBELL HIP THRUST WITH UPPER BACK ON BENCH. Image 1 is a movement/equipment reference ONLY; adapt to the exact male from Image 2. Image 2 is LOCKED character identity, face, brown hair, natural athletic build, muted blue-gray T-shirt, charcoal shorts, white socks and light-gray trainers. Match the master's clean realistic 3D render, uniform skin/fabric/material colors. No anatomical cutaways or muscle overlays.\nSame silver/light-gray bench with black padded top in both panels. Same steel barbell, black circular weight plates and thick black cylindrical hip pad centered across pelvis/hip crease. Both hands hold shaft outside hip pad to stabilize it. Upper back/scapular area supported against bench edge, bench behind shoulders; feet flat hip-width on floor well in front of bench. Show both shoes and arms clearly. Camera front-side three-quarter similar to movement reference, head toward back-left, feet toward front-right.\nLEFT START: hips lowered toward floor but not resting on floor, trunk oblique leaning back toward fixed bench, hips flexed, knees bent, padded bar stays in hip crease and lowers with pelvis. Upper back stays supported on same bench edge.\nRIGHT FINISH: hips elevated, shoulder-hip-knee roughly straight horizontal line, knees approximately 90 degrees, shins approximately vertical, whole soles planted in same locations as START. Ribs down, neutral pelvis/spine without lumbar arch; chin gently tucked, neck follows torso, head not thrown backward. Upper-back support remains on same bench edge. Padded bar rises with pelvis and remains in hip crease, not abdomen. Hands maintain identical grip relative to shaft. Bench stays rigid and stationary.\nSame camera distance, athlete scale, bench position and planted foot positions within each panel; paired matching framing. Full body, whole bench including feet and whole bar including both ends fit inside EACH square with small safe margins. Efficient large use of frame, no clipping. Pure white background, subtle floor shadows, no gym clutter, no text, labels, arrows, borders, logos or watermark. Two poses in one coherent generation; no extra limbs, floating bar or unsupported back.",
+      "references": [
+        {
+          "file": "DA4A37CB-2CD7-4ACA-9212-79529F689480.png",
+          "sha256": "23c48c6e764a09e10bff115f6f7c513a9b534f859fd02c9b9c961c9028d9a887",
+          "bytes": 127643
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-df933537-09c7-4e51-a38a-568071ab79b0.png",
+        "sha256": "73c80b84cbe65d0cccdba81be79bec8fe25906bc3ad91724d054d1a5052e5645",
+        "bytes": 1464275,
+        "size": [1774, 887]
+      },
+      "tool": "built-in image_gen"
+    },
+    {
+      "revision": 2,
+      "prompt": "Targeted edit of this paired CRESUM barbell hip thrust illustration. Preserve LEFT START panel exactly. Correct ONLY RIGHT FINISH body posture and barbell height to show a CLEAR FULL HIP EXTENSION, substantially straighter than current bent-hip pose.\nRIGHT FINISH: Raise pelvis and padded barbell markedly higher until the SHOULDER JOINT, HIP JOINT and KNEE JOINT lie along ONE STRAIGHT approximately horizontal line in 3D, with trunk and thighs continuous like a flat tabletop. Eliminate the sagging hip / folded-waist shape. The upper thighs run horizontally from high pelvis to knees; torso lies nearly horizontal on the same line. Rotate torso back about fixed upper-back contact at bench edge as hips lift. Bench supports upper back/scapular area, not lumbar spine or pelvis. Keep ribs down, abdomen gently braced, pelvis neutral/slightly posteriorly tilted, no lumbar hyperextension or arch. Head follows trunk, chin gently tucked. Keep knees bent around 90 degrees and shins vertical, feet flat and fixed at their present floor locations. Both hands stabilize shaft outside black hip pad; entire padded bar moves UP with pelvis and stays across hip crease. Same steel bar, plates, pad, grip, bench, clothing, shoes and natural athletic proportions. Adapt lower arms only to keep hands on lifted shaft.\nKeep camera, scale, framing, white background, shadows, character identity, face, brown hair and blue-gray T-shirt/charcoal shorts/white socks/light-gray trainers unchanged. Retain full bar and bench within right square, no cropping. LEFT START must remain unchanged. No text, arrows, logos or extra elements.",
+      "references": [
+        {
+          "file": "exec-df933537-09c7-4e51-a38a-568071ab79b0.png",
+          "sha256": "73c80b84cbe65d0cccdba81be79bec8fe25906bc3ad91724d054d1a5052e5645",
+          "bytes": 1464275
+        }
+      ],
+      "output": {
+        "file": "exec-d87e64f6-007a-40b3-a5c5-0e2a6134c9f9.png",
+        "sha256": "34145282a971bc63d8fdefb6ea451a796150127977ce48c17febe955fa4cd1d1",
+        "bytes": 1705639,
+        "size": [1774, 887]
+      },
+      "tool": "built-in image_gen"
+    }
+  ]
+}
