@@ -1,5 +1,20 @@
 # CRESUM Design System v1.0
 
+## Cable Glute Kickback selected Male pair — 2026-11-02
+
+User approved r6 `exec-a698ceac-cf30-4646-9b86-af9622ae0938.png` after
+requesting START cuff on left/foreground ankle. LEFT START / RIGHT FINISH.
+Exact 887-square RGB WebP92/method6 halves; no retouch, resampling, padding
+or phase transforms. Bind only `cable-glute-kickback`/Male via shared viewers.
+Preserve guide, stable identity/history, glutes Primary and hamstrings Secondary.
+Other variants, Female and attachment fallbacks remain. New-reference lineage
+r4–r6 and exact prompts retained; earlier rejected setup is not selected.
+Keep user-selected-provisional: exact same-leg/laterality continuity after cuff
+relocation, hip/knee angles, cable/ankle contacts, plate counts, machine registration
+and device/accessibility QA remain unverified. Selected plates visibly rise;
+this is not mechanical certification. No new source review. Archive pending-upload;
+no per-exercise ZIP or verified PC/Oracle backup claim.
+
 ## Barbell Hip Thrust selected Male pair — 2026-11-02
 
 User approved r2 `exec-d87e64f6-007a-40b3-a5c5-0e2a6134c9f9.png` after

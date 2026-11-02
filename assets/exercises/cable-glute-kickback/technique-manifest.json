@@ -1,0 +1,63 @@
+{
+  "variantId": "cable-glute-kickback",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 6,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "c87908d7ff901ec65f26b75bdd6f24361aded40c04e614b77ea0f65e696cfa26",
+      "bytes": 41290,
+      "sourceFile": "exec-a698ceac-cf30-4646-9b86-af9622ae0938.png",
+      "sourceSha256": "0028ee1583d093ca68f5ae0fa46f3239328b1e3469f61f2b62f6b51929ff14d6",
+      "sourceBytes": 1640003,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "5807c9c01b6e55f0f8c4475e73c1b8aecd9609d37b6dbe679284cccedd03738c",
+      "bytes": 42880,
+      "sourceFile": "exec-a698ceac-cf30-4646-9b86-af9622ae0938.png",
+      "sourceSha256": "0028ee1583d093ca68f5ae0fa46f3239328b1e3469f61f2b62f6b51929ff14d6",
+      "sourceBytes": 1640003,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "exec-cf692caa-cded-4a94-97d1-0f94c8ed0b95.png",
+        "sha256": "0f6d26f40913f54c30a3af940d08c20286f486519cfc27a6969bf7718a2ae53b",
+        "bytes": 1640555
+      }
+    ],
+    "output": {
+      "file": "exec-a698ceac-cf30-4646-9b86-af9622ae0938.png",
+      "sha256": "0028ee1583d093ca68f5ae0fa46f3239328b1e3469f61f2b62f6b51929ff14d6",
+      "bytes": 1640003,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User approved r6 after requesting START cuff on left/foreground ankle. LEFT START / RIGHT FINISH. Supersedes rejected earlier setup.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, resampling, padding or phase-specific transforms.",
+  "reviewScope": "User-selected visual pair only. START cuff relocation is recorded without claiming independently verified same-leg continuity. Exact laterality, hip/knee angles, cable/ankle contacts, plate counts and rigid machine registration remain unverified. Device/accessibility QA pending. Guide and muscle roles unchanged; no new source review.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original, exact prompt and actual input files retained for visual-block checkpoint. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

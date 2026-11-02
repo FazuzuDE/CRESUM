@@ -5,6 +5,11 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/cable-glute-kickback/start.webp', () => 5301);
+jest.mock(
+  '../../assets/exercises/cable-glute-kickback/finish.webp',
+  () => 5302,
+);
 jest.mock('../../assets/exercises/barbell-hip-thrust/start.webp', () => 5201);
 jest.mock('../../assets/exercises/barbell-hip-thrust/finish.webp', () => 5202);
 jest.mock(
@@ -387,6 +392,7 @@ it.each([
   ['Lying Leg Curl', 4801, 4802],
   ['Dumbbell Romanian Deadlift', 5101, 5102],
   ['Barbell Hip Thrust', 5201, 5202],
+  ['Cable Glute Kickback', 5301, 5302],
   ['Seated Leg Curl', 4901, 4902],
   ['Barbell Romanian Deadlift', 5001, 5002],
 ] as const)(
@@ -425,7 +431,7 @@ it.each([
 it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Cable Glute Kickback')!.props.onPress());
+    act(() => button(v, 'Technique for Seated Calf Raise')!.props.onPress());
     expect(text(v)).toContain('Image coming soon');
     act(() => button(v, 'Show FINISH')!.props.onPress());
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
@@ -1422,6 +1428,7 @@ it.each([
     ['forearms', 'lower-back'],
   ],
   ['Barbell Hip Thrust', 5202, ['glutes'], ['hamstrings', 'quadriceps']],
+  ['Cable Glute Kickback', 5302, ['glutes'], ['hamstrings']],
   ['Seated Leg Curl', 4902, ['hamstrings'], ['calves']],
   [
     'Barbell Romanian Deadlift',

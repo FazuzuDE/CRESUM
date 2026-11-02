@@ -1,0 +1,64 @@
+{
+  "exerciseId": "cable-glute-kickback",
+  "records": [
+    {
+      "revision": 4,
+      "prompt": "Create an original CRESUM fitness app illustration adapting IMAGE 1's cable glute kickback example to the exact MAN from IMAGE 2. ONE wide 2:1 white image, two equal square panels LEFT START / RIGHT FINISH, generated together.\nFollow IMAGE 1 composition and machine arrangement closely: compact silver/white cable crossover frame on LEFT of each panel, athlete on RIGHT outside frame, facing LEFT toward the NEAREST RIGHT-HAND tower. Rear-side three-quarter view, not frontal or direct rear; see leg movement in profile. The tower immediately in FRONT of the athlete is the ACTIVE tower. Cable originates from THAT SAME tower's low ankle-height pulley and runs directly to black ankle cuff on working leg. Do NOT run a long cable from the distant opposite tower across the whole machine.\nMan is the exact CRESUM male master of IMAGE 2: brown hair, natural athletic proportions, blue-gray T-shirt, charcoal shorts, white ankle socks, light-gray trainers. Smooth consistent skin, fabric and equipment surfaces; premium realistic 3D style. No anatomical muscles overlay.\nBoth hands hold the active tower upright, elbows comfortably bent. Torso leans forward with flat neutral spine as in example. Support foot flat, support knee softly bent. LEFT START: cuffed working leg beneath hip/slightly forward, foot close to floor, knee slightly bent. RIGHT FINISH: same cuffed leg extends backward in hip extension, heel raised behind, knee softly bent. Torso, pelvis direction, hand support and support-foot location remain stable, no spine arch or twisting.\nExactly TWO original machine weight stacks, one per tower, matching design/count in both panels. LEFT START both stacks down. RIGHT FINISH the ACTIVE tower's selected TOP plates rise on its existing two guide rods, leaving gap over remaining bottom plates. Unused distant tower stack remains down. No third floating stack. Cable continuous with D-ring/carabiner on cuff, same working leg both panels.\nSame machine position, camera angle/distance, body size, framing and support-foot baseline in each square. Whole frame, top crossbar, machine feet, entire athlete, raised shoe and cable fit with small safe margins. Fill space generously but no clipping. Light silver frame, black plates and grips, pure WHITE background (not gray reference backdrop), soft shadows. No logos, watermarks, text, UI, arrows or dividers. Image 1 controls movement/setup only; image 2 controls male identity/outfit/proportions.",
+      "references": [
+        {
+          "file": "52E50990-E5AB-4C74-B62D-5487460B61A0.png",
+          "sha256": "bdccd6a41ad630b64d6cab070b34777ae9fb2c4213d3482ca08dbe4cc5a0a45a",
+          "bytes": 111873
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-d62bd325-4a5c-4f42-9ef0-3ac19bc406cf.png",
+        "sha256": "fa4667889e54a153130d1a9e3a58f6a21839bed1f25e84fd9bb32f04b5d8b1cc",
+        "bytes": 1403831,
+        "size": [1774, 887]
+      },
+      "tool": "built-in image_gen"
+    },
+    {
+      "revision": 5,
+      "prompt": "Targeted repair of image. Keep RIGHT FINISH entirely unchanged. Keep LEFT machine, man, both leg poses, framing and colors unchanged except ankle accessories.\nLEFT START currently has black cuffs on BOTH ankles. There must be ONLY ONE ankle cuff: on the FARTHER leg whose shoe is at the RIGHTMOST position of the LEFT panel (the same leg that lifts backward in RIGHT FINISH). Keep the existing black cuff and D-ring on this farther/rightmost ankle.\nREMOVE the black cuff from NEARER leg (leftmost/foreground shoe in left panel, the leg that supports the body in right panel). Reveal normal white sock and natural ankle there matching outfit. Redirect the single taut low-pulley cable to the D-ring of the retained FARTHER/rightmost ankle cuff. Cable must end there, not at the nearer bare ankle. No second strap, no second cable.\nDo not alter leg anatomy or swap poses. LEFT remains both feet down START, RIGHT remains leg raised FINISH. All other pixels unchanged. No text.",
+      "references": [
+        {
+          "file": "exec-d62bd325-4a5c-4f42-9ef0-3ac19bc406cf.png",
+          "sha256": "fa4667889e54a153130d1a9e3a58f6a21839bed1f25e84fd9bb32f04b5d8b1cc",
+          "bytes": 1403831
+        }
+      ],
+      "output": {
+        "file": "exec-cf692caa-cded-4a94-97d1-0f94c8ed0b95.png",
+        "sha256": "0f6d26f40913f54c30a3af940d08c20286f486519cfc27a6969bf7718a2ae53b",
+        "bytes": 1640555,
+        "size": [1774, 887]
+      },
+      "tool": "built-in image_gen"
+    },
+    {
+      "revision": 6,
+      "prompt": "Precise targeted edit of this paired cable glute kickback image. Change ONLY the ankle cuff and cable endpoint in the LEFT START panel.\nUser wants cuff on the LEFT leg in the START image: the NEARER/FOREGROUND leg whose ankle and shoe are farther LEFT on screen (white sock currently bare, around x610 y710 in the 1774x887 image). MOVE the single black padded ankle cuff FROM the farther/rightmost ankle (currently around x647 y680) ONTO this nearer/leftmost ankle, just above the foreground shoe. Fit cuff naturally around LEFT foreground ankle above shoe, with metal D-ring and carabiner facing the low pulley.\nRemove original cuff completely from the other/farther ankle and restore that ankle's white sock, no duplicate cuff or strap. Connect ONE taut cable continuously from the same active tower low pulley to D-ring of the newly cuffed foreground LEFT ankle. Cable must visibly terminate at new left cuff rather than disappear at other leg. Preserve both feet positions and all leg anatomy; no foot swap.\nKeep ENTIRE RIGHT FINISH panel unchanged. Keep LEFT man torso, head, clothing, hands, legs, shoes, machine, stacks, frame, camera, scale, background and lighting unchanged except cuff/short cable endpoint edit. No other changes. No labels or text.",
+      "references": [
+        {
+          "file": "exec-cf692caa-cded-4a94-97d1-0f94c8ed0b95.png",
+          "sha256": "0f6d26f40913f54c30a3af940d08c20286f486519cfc27a6969bf7718a2ae53b",
+          "bytes": 1640555
+        }
+      ],
+      "output": {
+        "file": "exec-a698ceac-cf30-4646-9b86-af9622ae0938.png",
+        "sha256": "0028ee1583d093ca68f5ae0fa46f3239328b1e3469f61f2b62f6b51929ff14d6",
+        "bytes": 1640003,
+        "size": [1774, 887]
+      },
+      "tool": "built-in image_gen"
+    }
+  ]
+}
