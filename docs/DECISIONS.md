@@ -1,5 +1,21 @@
 # CRESUM Decision Log
 
+## Leg Extension selected Male pair — 2026-11-02
+
+User approved r1 `exec-9fe7942e-82b7-4714-bbcb-e2e7107d909b.png`.
+Use exact 887-square LEFT bent-knee START / RIGHT extended-knee FINISH halves,
+RGB WebP92/method6, without retouch, resampling, padding or phase-specific
+transforms. Bind only `leg-extension`/Male through shared phase/anatomy viewers.
+Selected top load group rises in FINISH. Preserve stable identity/history,
+existing seated knee-extension guide, quadriceps Primary and no Secondary.
+Female, attachment and unsupported-variant fallbacks remain. Actual user
+pose/machine example and Male Master, original and exact prompt retained for
+visual-block checkpoint. No per-exercise ZIP; archive pending-upload and
+PC/Oracle backup unverified. Keep user-selected-provisional: exact pivot/lever
+mechanics, roller/shin and grip contacts, knee range, plate/pin counts, rigid
+machine registration and device/accessibility QA are not independently
+certified. No new guide/source review claimed.
+
 ## Bulgarian Split Squat selected Male pair — 2026-11-01
 
 User approved r1 `exec-0164cd81-4e39-4079-b621-c3bce9dc17ff.png`.
