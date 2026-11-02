@@ -1,5 +1,19 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Barbell Hip Thrust selected Male pair — 2026-11-02
+
+User approved r2 `exec-d87e64f6-007a-40b3-a5c5-0e2a6134c9f9.png` after
+requesting a straighter FINISH. LEFT lowered START / RIGHT raised FINISH.
+Exact 887-square RGB WebP92/method6 halves; no retouch, resampling, padding
+or phase transforms. Bind only `barbell-hip-thrust`/Male through shared
+phase/anatomy viewers. Preserve guide, stable identity/history, glutes Primary
+and hamstrings/quadriceps Secondary. Other variants, Female and attachment
+fallbacks remain. Original r1/r2, exact prompts and actual input lineage retained.
+Keep user-selected-provisional: exact shoulder/bench contact, hip/knee angles,
+grip/bar clearance, rigid registration and device/accessibility QA pending.
+No new source review. Archive pending-upload; no per-exercise ZIP or verified
+PC/Oracle backup claim.
+
 ## Dumbbell Romanian Deadlift selected Male pair — 2026-11-02
 
 User approved r5 `exec-4a206252-4dc8-4c52-a471-9cb65c275cec.png`,
