@@ -2,7 +2,7 @@
   "expo": {
     "name": "CRESUM",
     "slug": "cresum",
-    "version": "0.1.56",
+    "version": "0.1.57",
     "orientation": "portrait",
     "scheme": ["cresum", "fitflow"],
     "userInterfaceStyle": "light",

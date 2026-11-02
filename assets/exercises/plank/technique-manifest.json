@@ -1,0 +1,68 @@
+{
+  "variantId": "plank",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "12f9776e377eb2eb6c69246db2b7e92eb975fafe4a47c7989ea64d0a98717a40",
+      "bytes": 23624,
+      "sourceFile": "exec-7e769c85-08bc-40fa-b999-1c0f561109af.png",
+      "sourceSha256": "61aab2892f5a0236bc990db26f013f9fb16aaea1f15e7c6e4eb74f928f21e970",
+      "sourceBytes": 1219629,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "c2603df9d330d35c4891e234b7a417ae558c96783916323e5932004f5e500c3b",
+      "bytes": 29112,
+      "sourceFile": "exec-7e769c85-08bc-40fa-b999-1c0f561109af.png",
+      "sourceSha256": "61aab2892f5a0236bc990db26f013f9fb16aaea1f15e7c6e4eb74f928f21e970",
+      "sourceBytes": 1219629,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "215D3CB1-3218-4299-9B12-16C00BE6EB38.png",
+        "sha256": "3375541f297025ad3533dee486d79b0e8ccf4f5c74faded86d71f15a8645d4d3",
+        "bytes": 203055
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      }
+    ],
+    "output": {
+      "file": "exec-7e769c85-08bc-40fa-b999-1c0f561109af.png",
+      "sha256": "61aab2892f5a0236bc990db26f013f9fb16aaea1f15e7c6e4eb74f928f21e970",
+      "bytes": 1219629,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User approved r1: LEFT side view / RIGHT three-quarter view of the SAME static forearm plank hold. start/finish are existing viewer slots, not different movement phases.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, resampling, padding or phase-specific transforms.",
+  "reviewScope": "Static hold in both slots. Exact elbow/forearm/toe contacts, alignment and proportions not independently certified. Device/accessibility QA pending. Duration measurement, guide, IDs and muscle roles unchanged; no new source review.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original, exact prompt and actual input files retained for visual-block checkpoint. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

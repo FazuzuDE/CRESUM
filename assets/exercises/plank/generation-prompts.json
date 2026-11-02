@@ -1,0 +1,16 @@
+{
+  "exerciseId": "plank",
+  "revision": 1,
+  "status": "candidate-pending-user-approval",
+  "sourcePath": "/workspace/scratch/0f41b04655bb/generated_images/exec-7e769c85-08bc-40fa-b999-1c0f561109af.png",
+  "prompt": "Create an original CRESUM exercise illustration sheet: FOREARM PLANK static hold, TWO depictions of the same male on white, side by side in equal square halves on a wide 2:1 canvas. Input1 is pose reference ONLY: forearm plank, not original identity, not text/anatomy overlays. Input2 is locked male character identity and render style: brown hair, natural athletic build, blue-gray T-shirt, charcoal shorts, white socks, light-gray trainers. Preserve his exact proportions, face, clothing and smooth consistent materials. LEFT: full body strict side view, head at left feet at right. RIGHT: same correct static hold in a subtle front three-quarter side view, still head at left and feet at right. This is an isometric exercise, both depictions show the SAME held plank, no fabricated lowering or movement phase. Forearms resting flat on floor, elbows directly under shoulders bent approximately90 degrees, hands relaxed close together, shoulder-width elbows. Support on BOTH forearms and shoe toes only, knees off floor; head neck spine pelvis and legs form a straight aligned long line, no sagging hips or raised buttocks. Neutral head looking down. Heels pushed back, knees extended. Show full head, hands, elbows, both shoes with safe margins; equal body scale in both halves, use width of each square efficiently. Premium realistic softly shaded 3D studio illustration matching character reference. Pure white background, subtle contact shadow only; no mat/equipment, no labels, no arrows, no text, no watermark, no red muscle overlay, no screenshot interface. Exactly two full-body depictions.",
+  "referencedImagePaths": [
+    "/workspace/scratch/0f41b04655bb/upload/215D3CB1-3218-4299-9B12-16C00BE6EB38.png",
+    "/workspace/scratch/0f41b04655bb/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg"
+  ],
+  "views": {
+    "left": "side static hold",
+    "right": "three-quarter static hold"
+  },
+  "tool": "image_gen.imagegen"
+}

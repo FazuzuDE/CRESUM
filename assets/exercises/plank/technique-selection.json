@@ -1,0 +1,35 @@
+{
+  "exerciseId": "plank",
+  "model": "male",
+  "selectedRevision": 1,
+  "selectionDate": "2026-11-02",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "12f9776e377eb2eb6c69246db2b7e92eb975fafe4a47c7989ea64d0a98717a40",
+      "bytes": 23624,
+      "sourceFile": "exec-7e769c85-08bc-40fa-b999-1c0f561109af.png",
+      "sourceSha256": "61aab2892f5a0236bc990db26f013f9fb16aaea1f15e7c6e4eb74f928f21e970",
+      "sourceBytes": 1219629,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "c2603df9d330d35c4891e234b7a417ae558c96783916323e5932004f5e500c3b",
+      "bytes": 29112,
+      "sourceFile": "exec-7e769c85-08bc-40fa-b999-1c0f561109af.png",
+      "sourceSha256": "61aab2892f5a0236bc990db26f013f9fb16aaea1f15e7c6e4eb74f928f21e970",
+      "sourceBytes": 1219629,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
