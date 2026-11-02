@@ -5,6 +5,8 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/seated-calf-raise/start.webp', () => 5501);
+jest.mock('../../assets/exercises/seated-calf-raise/finish.webp', () => 5502);
 jest.mock('../../assets/exercises/standing-calf-raise/start.webp', () => 5401);
 jest.mock('../../assets/exercises/standing-calf-raise/finish.webp', () => 5402);
 jest.mock('../../assets/exercises/cable-glute-kickback/start.webp', () => 5301);
@@ -396,6 +398,7 @@ it.each([
   ['Barbell Hip Thrust', 5201, 5202],
   ['Cable Glute Kickback', 5301, 5302],
   ['Standing Calf Raise', 5401, 5402],
+  ['Seated Calf Raise', 5501, 5502],
   ['Seated Leg Curl', 4901, 4902],
   ['Barbell Romanian Deadlift', 5001, 5002],
 ] as const)(
@@ -434,7 +437,9 @@ it.each([
 it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Seated Calf Raise')!.props.onPress());
+    act(() =>
+      button(v, 'Technique for Machine Hip Adduction')!.props.onPress(),
+    );
     expect(text(v)).toContain('Image coming soon');
     act(() => button(v, 'Show FINISH')!.props.onPress());
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
@@ -1433,6 +1438,7 @@ it.each([
   ['Barbell Hip Thrust', 5202, ['glutes'], ['hamstrings', 'quadriceps']],
   ['Cable Glute Kickback', 5302, ['glutes'], ['hamstrings']],
   ['Standing Calf Raise', 5402, ['calves'], []],
+  ['Seated Calf Raise', 5502, ['calves'], []],
   ['Seated Leg Curl', 4902, ['hamstrings'], ['calves']],
   [
     'Barbell Romanian Deadlift',

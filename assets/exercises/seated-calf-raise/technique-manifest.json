@@ -1,0 +1,68 @@
+{
+  "variantId": "seated-calf-raise",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "2bd836d1e28f4490a11768eb60b24d7fa4c6164314060b09ea77575176e7e9f3",
+      "bytes": 39834,
+      "sourceFile": "exec-32a3c0e2-38ae-4863-a196-6437dc58c510.png",
+      "sourceSha256": "7aab2228518d038cf9508f1971e059f86d602d824c703007adf0beb0fa7a45fe",
+      "sourceBytes": 1389762,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "8d643d486d6ae1ed70af5ee15dd55bac2080c6b15bdc41a5d12cfa1926204ff6",
+      "bytes": 39838,
+      "sourceFile": "exec-32a3c0e2-38ae-4863-a196-6437dc58c510.png",
+      "sourceSha256": "7aab2228518d038cf9508f1971e059f86d602d824c703007adf0beb0fa7a45fe",
+      "sourceBytes": 1389762,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "87CAC7BA-DDF3-4343-AC4E-B5B13130E2A4.png",
+        "sha256": "64ba90a1423461f1dc8a2ae8ec6da41b955d7498c52e02a0afe0170b329a4b29",
+        "bytes": 113735
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      }
+    ],
+    "output": {
+      "file": "exec-32a3c0e2-38ae-4863-a196-6437dc58c510.png",
+      "sha256": "7aab2228518d038cf9508f1971e059f86d602d824c703007adf0beb0fa7a45fe",
+      "bytes": 1389762,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User approved original r1: LEFT lowered heels START / RIGHT raised heels FINISH on plate-loaded seated machine.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, resampling, padding or phase-specific transforms.",
+  "reviewScope": "Broad phase order, seated support and heel/lever motion reviewed. Exact forefoot/step and thigh/hand contacts, ankle/knee range, pivot/linkage and rigid registration not independently certified. Device/accessibility QA pending. Existing guide and muscle roles unchanged; no new source review.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original, exact prompt and actual input files retained for visual-block checkpoint. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}
