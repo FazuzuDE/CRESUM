@@ -2,9 +2,12 @@
   "expo": {
     "name": "CRESUM",
     "slug": "cresum",
-    "version": "0.1.58",
+    "version": "0.1.59",
     "orientation": "portrait",
-    "scheme": ["cresum", "fitflow"],
+    "scheme": [
+      "cresum",
+      "fitflow"
+    ],
     "userInterfaceStyle": "light",
     "plugins": [
       "expo-router",
