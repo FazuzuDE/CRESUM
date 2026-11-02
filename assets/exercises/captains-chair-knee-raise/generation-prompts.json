@@ -1,0 +1,17 @@
+{
+  "exerciseCandidate": "captains-chair-knee-raise",
+  "revision": 1,
+  "status": "candidate-pending-user-approval",
+  "sourcePath": "/workspace/scratch/0f41b04655bb/generated_images/exec-341c9532-d508-4da4-a00a-10f9c1cc3530.png",
+  "prompt": "Create original CRESUM exercise illustration: CAPTAIN'S CHAIR supported bent-knee raise, two phases side by side on pure white wide 2:1 canvas, equal square halves. Input1 is movement/equipment reference: vertical knee raise station with BACK PAD, two FOREARM pads and upright handles; use its pose relationship, NOT anatomical rendering or original man's identity. Input2 is LOCKED character identity/style: natural athletic male, brown hair, blue-gray T-shirt, charcoal shorts, white socks, light-gray trainers. Same face, natural proportions, clothes and uniform materials in BOTH phases. LEFT START: man supported on his forearms, elbows around90 degrees, both hands gripping upright handles, back resting against vertical dark back pad, shoulders stable; legs extended down together, feet suspended clear of step/floor. RIGHT FINISH: identical upper body and grip, both thighs raised forward to about horizontal, knees bent90 degrees and together, gentle pelvic curl, lower legs pointing down, feet off ground. No overhead hanging bar grip. Silver/light-gray station with dark charcoal pads, full rigid frame and base visible, reference-like compact captain chair, no cables or weight stack. Both equipment depictions identical scale, geometry, camera and floor baseline, man facing right in three-quarter side view. Full head, feet and entire station each fit their half with safe margins, use space efficiently. Clean premium realistic softly shaded 3D render matching male master, white studio background and subtle shadows. No anatomy colors, red overlays, arrows, text, labels, logos, watermarks or screenshot UI. Exactly two phases, clear contact between both forearms and pads and both hands and grips.",
+  "referencedImagePaths": [
+    "/workspace/scratch/0f41b04655bb/upload/0A1ECCCD-5D4B-42FB-ADA9-BC7713E20A1D.png",
+    "/workspace/scratch/0f41b04655bb/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg"
+  ],
+  "phaseOrder": {
+    "left": "start",
+    "right": "finish"
+  },
+  "identityNote": "Supported captain chair variant; do not silently bind to hanging-knee-raise whose existing guide specifies overhead bar grip.",
+  "tool": "image_gen.imagegen"
+}

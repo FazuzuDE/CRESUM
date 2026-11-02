@@ -1,0 +1,35 @@
+{
+  "exerciseId": "captains-chair-knee-raise",
+  "model": "male",
+  "selectedRevision": 1,
+  "selectionDate": "2026-11-02",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "b711b00c57a03237713a04755a93fdc0289f9287ca2dbbde5ac5da7cd777fbf1",
+      "bytes": 33826,
+      "sourceFile": "exec-341c9532-d508-4da4-a00a-10f9c1cc3530.png",
+      "sourceSha256": "618dbae7563c3e3ac5ced7951ffc388ae55ea01b3fd3a3c824ee09befd65430f",
+      "sourceBytes": 1315712,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "eaf72735af1d4624ad2b9f603c5109174d6ae94d38e10af183a7b5c70b4d5bd9",
+      "bytes": 33390,
+      "sourceFile": "exec-341c9532-d508-4da4-a00a-10f9c1cc3530.png",
+      "sourceSha256": "618dbae7563c3e3ac5ced7951ffc388ae55ea01b3fd3a3c824ee09befd65430f",
+      "sourceBytes": 1315712,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

@@ -84,6 +84,7 @@ export default {
   'seated-calf-raise': 'seated-calf-raise',
   'machine-hip-adduction': 'machine-hip-adduction',
   'kettlebell-swing': 'kettlebell-swing',
+  'captains-chair-knee-raise': 'captains-chair-knee-raise',
   'hanging-knee-raise': 'hanging-knee-raise',
   'cable-crunch': 'cable-crunch',
   'back-extension': 'back-extension',

@@ -59,6 +59,7 @@ export default {
   "catalog.exercise.machine-hip-adduction": "Machine Hip Adduction",
   "catalog.exercise.kettlebell-swing": "Kettlebell Swing",
   "catalog.exercise.plank": "Plank",
+  "catalog.exercise.captains-chair-knee-raise": "Captain’s Chair Knee Raise",
   "catalog.exercise.hanging-knee-raise": "Hanging Knee Raise",
   "catalog.exercise.cable-crunch": "Cable Crunch",
   "catalog.exercise.back-extension": "Back Extension",

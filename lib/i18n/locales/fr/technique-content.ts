@@ -1,5 +1,22 @@
 import { flattenTechniqueText } from '../../technique-text';
 export default flattenTechniqueText({
+  'captains-chair-knee-raise': {
+    scope:
+      'Relevé des genoux avec appui des avant-bras et du dos sur une chaise romaine.',
+    setup: [
+      'Posez les avant-bras sur les coussins, saisissez les poignées et appuyez le dos contre le dossier ; laissez les jambes suspendues au-dessus du sol.',
+    ],
+    movement: [
+      'Montez les genoux fléchis vers la poitrine sans élan, puis redescendez lentement à la position initiale.',
+    ],
+    checks: [
+      'Gardez le haut du corps stable sur les appuis pendant le mouvement.',
+    ],
+    mistakes: [
+      'Balancement : marquez une pause et reprenez le contrôle.',
+      'Chute des jambes : ralentissez la descente.',
+    ],
+  },
   'kettlebell-goblet-squat': {
     scope: 'Une kettlebell tenue à deux mains à hauteur de poitrine.',
     setup: [

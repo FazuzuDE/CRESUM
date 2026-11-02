@@ -1,5 +1,22 @@
 # Exercise Library contracts
 
+## Captain’s Chair Knee Raise — 2026-11-02
+
+User approved r1 `exec-341c9532-d508-4da4-a00a-10f9c1cc3530.png`.
+Add separate stable `captains-chair-knee-raise` identity: forearm/back support,
+machine equipment, abs Primary; no Secondary mapped. Hip flexors also participate,
+but current taxonomy has no dedicated hip-flexor region; no guessed mask added.
+Do not reinterpret `hanging-knee-raise` history, overhead-bar guide or forearm role.
+Independent authored guide and EN/RU/DE/FR labels/text; ACE Captain’s Chair
+instructions (2001, p. 11) checked 2026-11-02:
+https://www.acefitness.org/getfit/studies/bestworstabexercises.pdf
+This source supports setup and controlled knee raise/lowering, not certification
+of generated joint angles or an exercise ranking claim.
+LEFT lowered START / RIGHT raised FINISH, exact 887-square RGB WebP92/method6
+halves. Male only via shared viewers. Original, exact prompt and input hashes
+retained. User-selected-provisional: exact contacts, pelvic curl, frame clearance,
+registration and device/accessibility QA pending. Archive pending-upload.
+
 ## Goblet Squat equipment choice — implementation, 2026-10-31
 
 User selected one visible exercise, Goblet Squat, with dumbbell/kettlebell as

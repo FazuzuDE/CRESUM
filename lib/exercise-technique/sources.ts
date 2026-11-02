@@ -1,4 +1,11 @@
 export const techniqueSources = {
+  'ace-captains-chair': {
+    publisher: 'American Council on Exercise',
+    title:
+      'How to do the Top Ab Exercises Correctly — Captain’s Chair (2001, p. 11)',
+    url: 'https://www.acefitness.org/getfit/studies/bestworstabexercises.pdf',
+    checkedOn: '2026-11-02',
+  },
   'ace-kettlebells': {
     publisher: 'American Council on Exercise',
     title: 'How to Get Started With Kettlebells — Goblet Squat',

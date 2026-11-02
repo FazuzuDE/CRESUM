@@ -1,6 +1,25 @@
 import type { ExerciseId } from '../exercise-library';
 import type { ExerciseTechnique } from './types';
 export const techniqueCatalog = {
+  'captains-chair-knee-raise': {
+    revision: 1,
+    scope:
+      'Bent-knee raise with forearm and back support on a captain’s chair.',
+    setup: [
+      'Rest forearms on the pads, grip the handles and support your back against the pad; let legs hang clear of the floor.',
+    ],
+    movement: [
+      'Lift bent knees toward your chest under control, then lower slowly to the starting position.',
+    ],
+    checks: [
+      'Keep the upper body steady against the supports throughout the movement.',
+    ],
+    mistakes: [
+      'Swinging: pause and regain control.',
+      'Dropping legs: slow the lowering.',
+    ],
+    sources: ['ace-captains-chair'],
+  },
   'barbell-bench-press': {
     revision: 1,
     scope: 'Flat bench; barbell.',

@@ -162,7 +162,7 @@ it('counts the visible family once in the profile library summary', () => {
       />,
     );
   });
-  expect(JSON.stringify(view.toJSON())).toContain('67 exercises');
+  expect(JSON.stringify(view.toJSON())).toContain('68 exercises');
   act(() => view.unmount());
 });
 
