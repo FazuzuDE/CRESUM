@@ -5,6 +5,8 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/lying-leg-curl/start.webp', () => 4801);
+jest.mock('../../assets/exercises/lying-leg-curl/finish.webp', () => 4802);
 jest.mock('../../assets/exercises/leg-extension/start.webp', () => 4701);
 jest.mock('../../assets/exercises/leg-extension/finish.webp', () => 4702);
 jest.mock(
@@ -362,6 +364,7 @@ it.each([
   ['Dumbbell Reverse Lunge', 4501, 4502],
   ['Bulgarian Split Squat', 4601, 4602],
   ['Leg Extension', 4701, 4702],
+  ['Lying Leg Curl', 4801, 4802],
 ] as const)(
   'shows %s phases inline and retains FINISH when expanded',
   (name, startAsset, finishAsset) => {
@@ -398,7 +401,7 @@ it.each([
 it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Lying Leg Curl')!.props.onPress());
+    act(() => button(v, 'Technique for Seated Leg Curl')!.props.onPress());
     expect(text(v)).toContain('Image coming soon');
     act(() => button(v, 'Show FINISH')!.props.onPress());
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
@@ -1387,6 +1390,7 @@ it.each([
     ['adductors', 'hamstrings'],
   ],
   ['Leg Extension', 4702, ['quadriceps'], []],
+  ['Lying Leg Curl', 4802, ['hamstrings'], ['calves']],
 ] as const)(
   'keeps %s muscle roles and FINISH while expanding anatomy',
   (name, finishAsset, primary, secondary) => {
