@@ -1,0 +1,21 @@
+{
+  "exerciseCandidate": "back-extension",
+  "revision": 1,
+  "status": "user-selected-pair",
+  "tool": "image_gen.imagegen",
+  "prompt": "Create original CRESUM 45-DEGREE ROMAN CHAIR BACK EXTENSION exercise illustration preview. Exactly TWO phases in equal square halves of one wide 2:1 white canvas. LEFT START is lowered torso; RIGHT FINISH is raised torso in straight line with legs. Input1 is pose/support equipment reference only, showing these same phases in reverse ordering; do NOT copy its anatomy illustration or red muscle colors. Input2 is LOCKED Male Master character: natural athletic brown-haired clean-shaven man with realistic proportions, muted blue-gray T-shirt, dark charcoal shorts, white visible training socks, light-gray trainers. Same face, body, outfit and uniform clean skin/fabric in both halves. Premium softly shaded semi-realistic 3D app illustration matching master. Equipment: identical satin silver/light-gray45-degree Roman chair in both panels, dark charcoal two-piece thigh/hip pads on inclined support, rear ankle rollers, anti-slip angled footplate and complete stable base. Pads contact upper thighs just BELOW hip crease to allow free hip hinging; abdomen not trapped atop a tall pad. Both feet planted on footplate with ankles securely under padded rear rollers. Legs extended along45-degree bench axis with natural slight knee softness, no floating shins/feet. LEFT START: hinge at hips and lower chest comfortably toward floor, torso lowered below leg line, spine long and neutral, head follows torso, eyes toward floor; no rounded hump or extreme neck flexion. RIGHT FINISH: extend at hips until shoulders, hips and ankles align in one straight diagonal line following legs; no lumbar overextension, no leaning above the straight body line. Arms crossed gently over chest in BOTH phases, hands resting on opposite upper chest, no hands pulling neck; this is the only adaptation from reference arm position for clear uncluttered demonstration. No additional weights. Man faces right in matching three-quarter side view; clear side profile of hip hinge, pad position, both shoes/ankle restraints and full frame. Same exact machine design, pad/roller/footplate locations, full-frame scale, camera, lighting, baseline and body proportions in both halves, only torso/arms move with phase. Use square space efficiently with narrow safe margins around head, shoes, frame and base; no crops or independent zoom. White studio backdrop with soft subtle contact shadows, matte upholstery and clean consistent satin frame. No anatomy overlays, red regions, writing, labels, arrows, logos, watermark, panel borders or extra figures. Exactly LEFT lowered START and RIGHT straight-body FINISH.",
+  "sourcePath": "/workspace/scratch/7cdbe9c15f7c/generated_images/exec-6ccbda2b-067a-459f-b2fa-ad1a574e94d8.png",
+  "referencedImagePaths": [
+    "/workspace/scratch/7cdbe9c15f7c/upload/77E0F889-7E63-4033-95EC-5C2CEDABAA5D.png",
+    "/workspace/scratch/7cdbe9c15f7c/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg"
+  ],
+  "generatedPhaseOrder": {
+    "left": "start",
+    "right": "finish"
+  },
+  "userSelectedPhaseOrder": {
+    "right": "start",
+    "left": "finish"
+  },
+  "selectionNote": "Generation prompt remains verbatim; subsequent user instruction reverses exported phase assignments."
+}
