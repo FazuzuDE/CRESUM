@@ -1,0 +1,35 @@
+{
+  "exerciseId": "barbell-romanian-deadlift",
+  "model": "male",
+  "selectionDate": "2026-11-02",
+  "decision": "Утверждаю; слева финиш",
+  "selectedRevision": 2,
+  "status": "user-selected-pair",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "5d264f3c957991d6c259aa64061241444c251314dd82a5e4891e78985dc40884",
+      "bytes": 37862,
+      "sourceFile": "exec-ec379290-d25f-42a9-80ce-5ce9be06a5fe.png",
+      "sourceSha256": "8a6aca1ee7c21ff9a66a41f77a80f5a6ba2b9db8e76d444148bfe266feff92b2",
+      "sourceBytes": 1365077,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "39d837866d2ad0ab7e78978af99b54145b2320f8e835660180f4efbbb671175a",
+      "bytes": 34720,
+      "sourceFile": "exec-ec379290-d25f-42a9-80ce-5ce9be06a5fe.png",
+      "sourceSha256": "8a6aca1ee7c21ff9a66a41f77a80f5a6ba2b9db8e76d444148bfe266feff92b2",
+      "sourceBytes": 1365077,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

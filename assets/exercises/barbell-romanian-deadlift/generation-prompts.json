@@ -1,0 +1,38 @@
+{
+  "exerciseId": "barbell-romanian-deadlift",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "model": "male",
+      "phase": "pair",
+      "revision": 2,
+      "prompt": "Create a polished realistic 3D fitness app illustration for CRESUM: BARBELL ROMANIAN DEADLIFT. Exactly two full-body phases side by side in a wide 2:1 white image, two equal square panels, no border, labels or text. Image 1 is the movement reference ONLY: preserve its hip-hinge mechanics but replace its dumbbells with ONE straight barbell held in BOTH hands in each pose. Image 2 is the canonical male character identity and style: match face, brown hair, natural athletic proportions (not bodybuilder), muted blue-gray T-shirt, charcoal shorts, white ankle socks, light-gray trainers. Keep consistent skin and fabric colors throughout.\nLEFT panel START: standing upright, feet hip width, knees softly unlocked, barbell close to upper thighs, arms straight, double overhand grip just outside legs, shoulders natural, no leaning backward.\nRIGHT panel FINISH of lowering: hips clearly pushed BACK, knees slightly bent (maintain small bend, do not squat), shins near vertical, long neutral spine, torso angled forward nearly horizontal within a controlled hinge, neck aligned with torso and eyes down-forward. Barbell very close to shins just below knees / upper-mid shin, suspended ABOVE ground, not a floor pull. Arms hang straight beneath shoulders; shoulders approximately over bar. Grip identical to upright pose.\nUse same barbell in both panels: straight steel shaft, matching moderate black circular plates at both ends, realistic collars and sleeves. Hands securely wrap around bar, correct fingers, shaft straight and physically continuous. Show enough three-quarter side view facing LEFT to see both hands, barbell ends and backward hip travel. Same camera, body scale and shoe baseline in both panels, full character and whole barbell within each square, generous use of frame and small safe margins. No cropped plates, head or feet. Pure white background with minimal soft contact shadows. Match character master clean realistic render. No anatomical cutaways, colored muscles, arrows, logos, watermarks, extra weights, gym or other people. This is Romanian hip hinge from standing, never conventional deadlift from floor.",
+      "references": [
+        {
+          "file": "CB7F5633-9AD1-47D5-8326-AB287A67EC5B.png",
+          "sha256": "9e310f44e894ec31b9fca3300da6514a8555c9629cac0da8b269084a6172afbc",
+          "bytes": 135572,
+          "role": "User-supplied hip-hinge movement reference; dumbbells adapted to barbell"
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "role": "CRESUM Male Master identity, proportions and blue-gray outfit"
+        }
+      ],
+      "output": {
+        "file": "exec-ec379290-d25f-42a9-80ce-5ce9be06a5fe.png",
+        "sha256": "8a6aca1ee7c21ff9a66a41f77a80f5a6ba2b9db8e76d444148bfe266feff92b2",
+        "bytes": 1365077,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false,
+      "selectedPhaseOrder": {
+        "start": "right-lowered",
+        "finish": "left-upright"
+      },
+      "phaseOrderCorrection": "Generated prompt requested opposite endpoint labels; user explicitly overrode them before approval. Original pixels unchanged."
+    }
+  ]
+}

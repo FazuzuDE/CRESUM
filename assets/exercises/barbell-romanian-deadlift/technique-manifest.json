@@ -1,0 +1,70 @@
+{
+  "variantId": "barbell-romanian-deadlift",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 2,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "5d264f3c957991d6c259aa64061241444c251314dd82a5e4891e78985dc40884",
+      "bytes": 37862,
+      "sourceFile": "exec-ec379290-d25f-42a9-80ce-5ce9be06a5fe.png",
+      "sourceSha256": "8a6aca1ee7c21ff9a66a41f77a80f5a6ba2b9db8e76d444148bfe266feff92b2",
+      "sourceBytes": 1365077,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "39d837866d2ad0ab7e78978af99b54145b2320f8e835660180f4efbbb671175a",
+      "bytes": 34720,
+      "sourceFile": "exec-ec379290-d25f-42a9-80ce-5ce9be06a5fe.png",
+      "sourceSha256": "8a6aca1ee7c21ff9a66a41f77a80f5a6ba2b9db8e76d444148bfe266feff92b2",
+      "sourceBytes": 1365077,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "CB7F5633-9AD1-47D5-8326-AB287A67EC5B.png",
+        "sha256": "9e310f44e894ec31b9fca3300da6514a8555c9629cac0da8b269084a6172afbc",
+        "bytes": 135572,
+        "role": "User-supplied hip-hinge movement reference; dumbbells adapted to barbell"
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046,
+        "role": "CRESUM Male Master identity, proportions and blue-gray outfit"
+      }
+    ],
+    "output": {
+      "file": "exec-ec379290-d25f-42a9-80ce-5ce9be06a5fe.png",
+      "sha256": "8a6aca1ee7c21ff9a66a41f77a80f5a6ba2b9db8e76d444148bfe266feff92b2",
+      "bytes": 1365077,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User approved r2 after explicitly correcting phase labels: RIGHT lowered hip-hinge START / LEFT upright FINISH. This endpoint display order does not change the existing top-down technique guide or exercise identity.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, resampling, padding or phase-specific transforms.",
+  "reviewScope": "Broad endpoints, suspended barbell, full framing and outfit continuity reviewed. Exact grip/finger contact, hip/knee angles, bar clearance and Male Master proportion matching not independently certified. Physical-device/accessibility QA pending; no new source review.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original, exact prompt and actual input files retained for visual-block checkpoint. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}
