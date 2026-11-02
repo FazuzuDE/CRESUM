@@ -6,6 +6,8 @@ import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
 import backExtensionManifest from '../../assets/exercises/back-extension/technique-manifest.json';
+jest.mock('../../assets/exercises/farmers-carry/start.webp', () => 6501);
+jest.mock('../../assets/exercises/farmers-carry/finish.webp', () => 6502);
 jest.mock('../../assets/exercises/dumbbell-shrug/start.webp', () => 6401);
 jest.mock('../../assets/exercises/dumbbell-shrug/finish.webp', () => 6402);
 jest.mock('../../assets/exercises/back-extension/start.webp', () => 6301);
@@ -522,7 +524,7 @@ it('binds the selected high-row pair without narrowing the generic exercise scop
     for (const other of [
       'lat-pulldown',
       'seated-cable-row',
-      'farmers-carry',
+      'bodyweight-step-up',
       'unknown',
     ])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
@@ -580,7 +582,7 @@ it('binds selected deadlift phases without narrowing conventional identity or bo
     for (const other of [
       'deadlift',
       'romanian-deadlift',
-      'farmers-carry',
+      'bodyweight-step-up',
       'unknown',
     ])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
@@ -654,7 +656,7 @@ it('binds selected machine press without narrowing generic grip or borrowing fre
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
     expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
-    for (const other of ['press', 'farmers-carry', 'unknown'])
+    for (const other of ['press', 'bodyweight-step-up', 'unknown'])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
     for (const other of ['dumbbell-shoulder-press', 'barbell-overhead-press'])
       expect(resolveExerciseArtwork(other, phase, 'male')).not.toBe(
@@ -788,7 +790,7 @@ it('binds Male high cable pushdown without narrowing generic attachment or borro
     expect(resolveExerciseArtwork('cable-biceps-curl', phase, 'male')).toBe(
       phase === 'start' ? 2501 : 2502,
     );
-    for (const id of ['bodyweight-dip', 'farmers-carry', 'unknown'])
+    for (const id of ['bodyweight-dip', 'bodyweight-step-up', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('cable-triceps-pushdown')).toBeNull();
@@ -827,7 +829,7 @@ it('binds only Male overhead cable extension while retaining generic guide and t
     expect(resolveExerciseArtwork('cable-biceps-curl', phase, 'male')).toBe(
       phase === 'start' ? 2501 : 2502,
     );
-    for (const id of ['bodyweight-dip', 'farmers-carry', 'unknown'])
+    for (const id of ['bodyweight-dip', 'bodyweight-step-up', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(
@@ -872,7 +874,7 @@ it('binds only Male two-hand overhead dumbbell extension and preserves guide and
     expect(
       resolveExerciseArtwork('cable-triceps-pushdown', phase, 'male'),
     ).toBe(phase === 'start' ? 2601 : 2602);
-    for (const id of ['farmers-carry', 'bodyweight-dip', 'unknown'])
+    for (const id of ['bodyweight-step-up', 'bodyweight-dip', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(
@@ -909,7 +911,7 @@ it('binds only Male close grip bench press and preserves shoulder-width guide an
     expect(
       resolveExerciseArtwork('overhead-cable-triceps-extension', phase, 'male'),
     ).toBe(phase === 'start' ? 2701 : 2702);
-    for (const id of ['farmers-carry', 'bodyweight-dip', 'unknown'])
+    for (const id of ['bodyweight-step-up', 'bodyweight-dip', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('close-grip-bench-press')).toBeNull();
@@ -948,7 +950,9 @@ it('resolves only exact Male lying triceps phases without borrowing bench or ext
         'male',
       ),
     ).toBe(phase === 'start' ? 2801 : 2802);
-    expect(resolveExerciseArtwork('farmers-carry', phase, 'male')).toBeNull();
+    expect(
+      resolveExerciseArtwork('bodyweight-step-up', phase, 'male'),
+    ).toBeNull();
     expect(resolveExerciseArtwork('bodyweight-dip', phase, 'male')).toBeNull();
   }
   expect(
@@ -985,7 +989,7 @@ it('binds only Male assisted dip machine and preserves shoulder-width guide and 
     expect(
       resolveExerciseArtwork('overhead-cable-triceps-extension', phase, 'male'),
     ).toBe(phase === 'start' ? 2701 : 2702);
-    for (const id of ['farmers-carry', 'bodyweight-dip', 'unknown'])
+    for (const id of ['bodyweight-step-up', 'bodyweight-dip', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('assisted-dip-machine')).toBeNull();
@@ -996,7 +1000,9 @@ it('keeps Back Squat Female, attachment and unsupported variant fallbacks', () =
     expect(
       resolveExerciseArtwork('barbell-back-squat', phase, 'female'),
     ).toBeNull();
-    expect(resolveExerciseArtwork('farmers-carry', phase, 'male')).toBeNull();
+    expect(
+      resolveExerciseArtwork('bodyweight-step-up', phase, 'male'),
+    ).toBeNull();
   }
   expect(resolveAttachmentArtwork('barbell-back-squat')).toBeNull();
 });
@@ -1042,6 +1048,7 @@ it.each([
   'cable-crunch',
   'back-extension',
   'dumbbell-shrug',
+  'farmers-carry',
   'seated-leg-curl',
   'barbell-romanian-deadlift',
 ])('keeps %s Female and attachment fallbacks', (id) => {
@@ -1137,7 +1144,9 @@ it('binds selected standing cable-crunch phases without narrowing generic postur
   expect(resolveExerciseArtwork('hanging-knee-raise', 'start', 'male')).toBe(
     6101,
   );
-  expect(resolveExerciseArtwork('farmers-carry', 'start', 'male')).toBeNull();
+  expect(
+    resolveExerciseArtwork('bodyweight-step-up', 'start', 'male'),
+  ).toBeNull();
 });
 
 it('uses the user-selected upper START and lowered FINISH for Back Extension', () => {
@@ -1171,5 +1180,29 @@ it('binds selected Male shrug phases and preserves shoulder-elevation guidance',
     secondaryMuscles: ['forearms'],
   });
   expect(resolveExerciseArtwork('back-extension', 'start', 'male')).toBe(6301);
-  expect(resolveExerciseArtwork('farmers-carry', 'start', 'male')).toBeNull();
+  expect(
+    resolveExerciseArtwork('bodyweight-step-up', 'start', 'male'),
+  ).toBeNull();
+});
+
+it('binds selected Male carry phases and preserves distance-based walking guidance', () => {
+  expect(resolveExerciseArtwork('farmers-carry', 'start', 'male')).toBe(6501);
+  expect(resolveExerciseArtwork('farmers-carry', 'finish', 'male')).toBe(6502);
+  expect(findExercise('farmers-carry')).toMatchObject({
+    measurement: 'distance',
+    primaryMuscles: ['forearms', 'traps'],
+    secondaryMuscles: ['abs', 'glutes'],
+    equipment: ['dumbbell'],
+    movementPattern: 'carry',
+  });
+  expect(findTechnique('farmers-carry')?.scope).toBe(
+    'Two-dumbbell carry; distance-based.',
+  );
+  expect(findTechnique('farmers-carry')?.movement).toEqual([
+    'Walk steadily with short controlled steps; turn carefully and set weights down under control.',
+  ]);
+  expect(resolveExerciseArtwork('dumbbell-shrug', 'start', 'male')).toBe(6401);
+  expect(
+    resolveExerciseArtwork('bodyweight-step-up', 'start', 'male'),
+  ).toBeNull();
 });

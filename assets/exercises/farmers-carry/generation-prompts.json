@@ -1,0 +1,84 @@
+{
+  "exerciseCandidate": "farmers-carry",
+  "revision": 3,
+  "status": "user-selected-pair",
+  "tool": "image_gen.imagegen",
+  "prompts": [
+    {
+      "revision": 1,
+      "prompt": "Create original CRESUM FARMER'S CARRY WITH TWO DUMBBELLS illustration preview. Exactly TWO full-body depictions side by side in equal square halves of one wide2:1 pure white canvas. Input1 is walking-phase reference ONLY: choose its FIRST and THIRD poses (counting left to right), showing opposite support legs, never copy its anatomy artwork or muscle-color overlays. Input2 is LOCKED Male Master identity/proportions/face/clothing/material reference: natural athletic brown-haired clean-shaven man, muted blue-gray T-shirt, charcoal shorts, white visible training socks and light-gray trainers. Same exact character, proportions and outfit in BOTH halves. Clean softly shaded realistic3D fitness-app render. Rearrange only the walking leg phase while keeping camera and full-body scale identical. Camera front three-quarter from athlete's left, athlete walking toward the right of picture with face readable, body mostly frontal three-quarter. Both hands hold identical black round-head dumbbells with silver straight central grips, one hanging on each side of body at thigh level, palms toward thighs, secure wrapped grip, straight wrists. Both arms long with elbows straight, minimal arm swing, dumbbells clear of legs. Shoulders level and relaxed in a strong stable carry, NOT elevated like a shrug. Tall steady torso, neutral neck and forward gaze, level hips with no side lean, no exaggerated twist or running posture. LEFT START slot: a controlled short step with LEFT foot forward planted on ground and RIGHT leg trailing with heel raised, right toe completing push-off. RIGHT FINISH slot: next walking step with RIGHT foot forward planted and LEFT leg trailing with heel raised; reverse leg roles CLEARLY, do not repeat same step. Feet remain on their own natural hip-width tracks, not crossed, no lunging, no deep knee flexion, no long split stance. This is continuous walking: both images are successive gait phases, NOT a weight pickup/set-down, squat, curl or shrug. Dumbbells remain supported beside body at almost same height in both phases, naturally aligned to hands and long arms. Hands, both dumbbells, knees and foot contacts must be readable, no missing fingers, no extra limbs. Identical dumbbell size and design, lighting, materials, character height, camera, framing and floor baseline across halves. Full head, shoes, hands and weights fit each square with narrow safe margins; fill available space efficiently. Pure white studio background, subtle soft foot shadows, no environment, labels, text, arrows, anatomy colors, logos, watermark, panel borders or extra phases. Exactly two successive clearly opposite walking steps, LEFT then RIGHT support, with stable shoulders and carried dumbbells.",
+      "promptProvenance": "Conversation record retained verbatim through continuity summary; not re-extracted from provider logs.",
+      "referencedImages": [
+        {
+          "file": "275EAAC6-E1C8-4FEE-A9C8-8C7E2B068B64.png",
+          "sha256": "013cbb51ab0c8853580f7993d212e1743a06c3621da242e67c7c1b35a95acfca",
+          "bytes": 529873
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-d695cc45-38e1-4538-9823-bad37b22a8bb.png",
+        "sha256": "3bb015baa756a4aac33bc0ff8084b047b5d784632ce895348a66943dda4417a3",
+        "bytes": 1325177
+      }
+    },
+    {
+      "revision": 2,
+      "prompt": "Targeted correction of image1 ONLY: the two farmer-carry figures currently repeat the exact same walking step. KEEP THE ENTIRE LEFT HALF UNCHANGED. Keep right figure's face, head, neck, shoulders, chest, arms, hands, dumbbells, upright posture, identity, clothing materials, camera scale, framing, light and white background unchanged. Change ONLY RIGHT FIGURE'S LEGS below the pelvis, with natural connected shorts folds, to the OPPOSITE WALKING STEP. In image1 right panel the near-camera leg is currently forward with its shoe at bottom-right, and far leg trails with shoe at bottom-left. REVERSE THIS: RIGHT PANEL NEAR-CAMERA LEG MUST NOW TRAIL BACK toward image-left, with the near knee visible on left and near shoe behind body on toe with heel raised. RIGHT PANEL FAR LEG MUST STEP FORWARD toward image-right with far shoe flat in front, clear longer straight stance support leg. Do NOT simply move same two feet or duplicate their current knee arrangement. Swap which anatomical thigh connects to forward versus rear shoe: it is the NEXT step on opposite support leg. The near knee should visibly bend gently behind body while far leg extends forward. Natural short controlled walk, hip-width tracks with no crossed knees or extreme lunge, no extra limbs. The difference between left and right walking phases must be immediately clear from knee/thigh arrangement. Image3 first and THIRD figures illustrate the intended opposite-leg phase relationship. Image2 confirms character/material continuity. Preserve image1 left half exactly, keep right upper body, dumbbells and head steady; no torso mirroring, no arm curl, no shrug, no new text or annotations. Exactly two depictions on same2:1canvas. Right step must have near leg trailing and far leg leading, opposite to unchanged left.",
+      "promptProvenance": "Conversation record retained verbatim through continuity summary; not re-extracted from provider logs.",
+      "referencedImages": [
+        {
+          "file": "exec-d695cc45-38e1-4538-9823-bad37b22a8bb.png",
+          "sha256": "3bb015baa756a4aac33bc0ff8084b047b5d784632ce895348a66943dda4417a3",
+          "bytes": 1325177
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        },
+        {
+          "file": "275EAAC6-E1C8-4FEE-A9C8-8C7E2B068B64.png",
+          "sha256": "013cbb51ab0c8853580f7993d212e1743a06c3621da242e67c7c1b35a95acfca",
+          "bytes": 529873
+        }
+      ],
+      "output": {
+        "file": "exec-bf77271f-810c-4689-b83e-72cdd931b223.png",
+        "sha256": "7588e13d1ba32d853650d7353078dc519075764a6549d53d1ea208e679c9d68b",
+        "bytes": 1668705
+      }
+    },
+    {
+      "revision": 3,
+      "prompt": "Precisely edit image1 into a clearly readable two-position FARMER'S CARRY instructional pair. KEEP ENTIRE RIGHT HALF EXACTLY AS IT IS: walking step forward with two hanging dumbbells. Change ONLY LEFT FIGURE'S LEGS to a stationary READY STANCE: BOTH feet flat on ground, side by side HIP-WIDTH apart directly below hips, toes facing same forward direction, no foot ahead/behind, no raised heels, no bent trailing knee and no walking step. Both knees softly straight, pelvis level at same original height, torso remains upright. Preserve LEFT figure's head, face, hairstyle, neck, shoulders, blue-gray T-shirt, hands and arms, both dumbbells, natural proportions, clean material quality, camera and lighting exactly. This is a stable standing carry-ready position with dumbbells already held, not picking up weights. Left and right keep identical character scale, head height and floor baseline, white background, full-frame fit and soft shadows. Image2 is locked character identity/outfit reference. Right half must remain the accepted walking posture; left must now be unmistakably stationary with two flat hip-width shoes aligned below hips. Arms long, shoulders level not shrugged, dumbbells hanging beside thighs in both. No labels, arrows, text, borders or overlays. Final LEFT READY STANDING START versus RIGHT WALKING STEP FINISH: visibly different stances, no duplicate walking steps.",
+      "promptProvenance": "Conversation record retained verbatim through continuity summary; not re-extracted from provider logs.",
+      "referencedImages": [
+        {
+          "file": "exec-bf77271f-810c-4689-b83e-72cdd931b223.png",
+          "sha256": "7588e13d1ba32d853650d7353078dc519075764a6549d53d1ea208e679c9d68b",
+          "bytes": 1668705
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-094435fd-5939-482e-9ba7-7acff2e63a92.png",
+        "sha256": "7bf5813097f3357f56d5cac52721ae82f10aff2afc1faf24746cef68113ede6f",
+        "bytes": 1318775
+      }
+    }
+  ],
+  "phaseOrder": {
+    "left": "start: stationary ready stance",
+    "right": "finish: walking step"
+  },
+  "selection": "User approved r3. Earlier repeated walking steps superseded."
+}
