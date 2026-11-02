@@ -1,5 +1,17 @@
 # CRESUM Decision Log
 
+## Kettlebell Swing selected Male pair — 2026-11-02
+
+User approved r1 `exec-fdabb5b4-95fa-4594-a609-eeaf5d9ca2ce.png`.
+LEFT backswing START / RIGHT shoulder-height FINISH. Exact 887-square
+RGB WebP92/method6 halves without retouch, padding or resampling.
+Bind only `kettlebell-swing`/Male through shared phase/anatomy viewers.
+Preserve stable identity/history, existing guide, glutes/hamstrings Primary
+and lower-back/forearms Secondary. Female and attachment fallbacks remain.
+Original, exact prompt and actual references retained. User-selected-provisional:
+exact grip, bell clearance, joint angles, registration and device/accessibility
+QA pending. No new source review. Archive pending-upload.
+
 ## Machine Hip Adduction selected Male pair — 2026-11-02
 
 User approved r1 `exec-737811b0-abe5-49b1-a7b8-3aefe50704f6.png`.

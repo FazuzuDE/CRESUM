@@ -1,0 +1,16 @@
+{
+  "exerciseId": "kettlebell-swing",
+  "revision": 1,
+  "status": "candidate-pending-user-approval",
+  "sourcePath": "/workspace/scratch/0f41b04655bb/generated_images/exec-fdabb5b4-95fa-4594-a609-eeaf5d9ca2ce.png",
+  "prompt": "Use case: scientific-educational. Create a polished CRESUM exercise illustration sheet of a TWO-HAND KETTLEBELL SWING, two full-body phases side by side on pure white, wide 2:1 canvas with equal square halves, no labels or text. Input image 1 is movement reference ONLY: borrow the two poses and right-facing three-quarter side camera, ignore screenshot UI and original man's identity/clothing. Input image 2 is the LOCKED character identity, proportions, clothing, materials and render style: natural athletic adult male with brown hair, blue-gray short sleeve T-shirt, charcoal shorts, white ankle socks, light-gray trainers. Reproduce this same man in BOTH poses, not a bodybuilder. LEFT START: hip hinge with hips pushed back, knees moderately bent, neutral straight back, torso inclined forward, both arms long reaching down/back between thighs, both hands securely wrapped side by side around ONE black kettlebell handle; bell swung behind/between upper legs, visibly clear of knees. RIGHT FINISH: upright tall posture, hips and knees extended, no backward lean; both arms nearly straight reaching forward at shoulder height, both hands gripping same single black kettlebell handle, bell floating forward at chest/shoulder level, not overhead. Match reference movement and grip. Feet planted at same shoulder-width stance in both phases, identical body scale/camera/floor baseline; full head, shoes and entire kettlebell visible within each half with safe white margins. Realistic clean softly shaded 3D studio illustration matching the second input. Consistent smooth skin, fabric colors and lighting. No anatomy overlays, no arrows, no motion trails, no watermarks, no UI, no extra equipment or limbs. Exactly two depictions of the same man and one bell per depiction.",
+  "referencedImagePaths": [
+    "/workspace/scratch/0f41b04655bb/upload/IMG_8412(1).jpeg",
+    "/workspace/scratch/0f41b04655bb/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg"
+  ],
+  "phaseOrder": {
+    "left": "start",
+    "right": "finish"
+  },
+  "tool": "image_gen.imagegen"
+}
