@@ -621,7 +621,7 @@ it('shows exact curl roles and opens/closes larger anatomy without changing FINI
 
 it('shows bound partial adductor regions without claiming missing coverage', () => {
   const v = render();
-  act(() => button(v, 'Technique for Kettlebell Swing')!.props.onPress());
+  act(() => button(v, 'Technique for Machine Hip Adduction')!.props.onPress());
   expect(text(v)).not.toContain('Not highlighted on this map:');
   expect(text(v)).toContain('selected visible medial-thigh patches');
   expect(text(v)).toContain('Adductors');
