@@ -1,5 +1,19 @@
 # CRESUM Decision Log
 
+## Dumbbell Romanian Deadlift selected Male pair — 2026-11-02
+
+User approved r5 `exec-4a206252-4dc8-4c52-a471-9cb65c275cec.png`,
+confirmed with attached JPEG. LEFT lowered START / RIGHT upright FINISH.
+Exact 887-square RGB WebP92/method6 halves; no retouch, resampling, padding
+or phase transforms. Bind only `dumbbell-romanian-deadlift`/Male through
+shared phase/anatomy viewers. Preserve existing top-down guide, identity/history,
+hamstrings/glutes Primary and lower-back/forearms Secondary. Barbell/conventional
+variants remain separate. Female/attachment fallbacks remain. Prompt lineage r2–r5
+and actual input hashes retained. Status user-selected-provisional: fine grip,
+angles, perspective/proportions and device/accessibility QA pending. No new source
+review. Source archive pending-upload; no per-exercise ZIP or verified PC/Oracle
+backup claim.
+
 ## Barbell Romanian Deadlift selected Male pair — 2026-11-02
 
 User approved r2 `exec-ec379290-d25f-42a9-80ce-5ce9be06a5fe.png` and

@@ -6,6 +6,14 @@ import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
 jest.mock(
+  '../../assets/exercises/dumbbell-romanian-deadlift/start.webp',
+  () => 5101,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-romanian-deadlift/finish.webp',
+  () => 5102,
+);
+jest.mock(
   '../../assets/exercises/barbell-romanian-deadlift/start.webp',
   () => 5001,
 );
@@ -375,6 +383,7 @@ it.each([
   ['Bulgarian Split Squat', 4601, 4602],
   ['Leg Extension', 4701, 4702],
   ['Lying Leg Curl', 4801, 4802],
+  ['Dumbbell Romanian Deadlift', 5101, 5102],
   ['Seated Leg Curl', 4901, 4902],
   ['Barbell Romanian Deadlift', 5001, 5002],
 ] as const)(
@@ -413,9 +422,7 @@ it.each([
 it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
   const v = render();
   try {
-    act(() =>
-      button(v, 'Technique for Dumbbell Romanian Deadlift')!.props.onPress(),
-    );
+    act(() => button(v, 'Technique for Barbell Hip Thrust')!.props.onPress());
     expect(text(v)).toContain('Image coming soon');
     act(() => button(v, 'Show FINISH')!.props.onPress());
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
@@ -1405,6 +1412,12 @@ it.each([
   ],
   ['Leg Extension', 4702, ['quadriceps'], []],
   ['Lying Leg Curl', 4802, ['hamstrings'], ['calves']],
+  [
+    'Dumbbell Romanian Deadlift',
+    5102,
+    ['glutes', 'hamstrings'],
+    ['forearms', 'lower-back'],
+  ],
   ['Seated Leg Curl', 4902, ['hamstrings'], ['calves']],
   [
     'Barbell Romanian Deadlift',

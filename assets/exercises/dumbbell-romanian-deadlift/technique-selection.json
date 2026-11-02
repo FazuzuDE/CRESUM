@@ -1,0 +1,40 @@
+{
+  "exerciseId": "dumbbell-romanian-deadlift",
+  "model": "male",
+  "selectedRevision": 5,
+  "selectionDate": "2026-11-02",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "confirmation": {
+    "file": "A7E61BA2-4C5F-4688-B3F2-76FAD651044A.jpeg",
+    "sha256": "79ec1c84aa9a14c26ea8033d2d8aa47b1e6ad0d892620e242e2342d168a2c913",
+    "bytes": 145393
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "59b2030389dca90a9fdc2ae534748fbcbe1feffbe2d308088140257d6dee2a11",
+      "bytes": 30172,
+      "sourceFile": "exec-4a206252-4dc8-4c52-a471-9cb65c275cec.png",
+      "sourceSha256": "929f41f3159ee5cad41a88ad969e712e6587eb4799079f57a2041f62d4705539",
+      "sourceBytes": 1597463,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "32fd40d2819b9b954cce4e0a2829db4a58db2779fa788866ef6e039958cc23a2",
+      "bytes": 26966,
+      "sourceFile": "exec-4a206252-4dc8-4c52-a471-9cb65c275cec.png",
+      "sourceSha256": "929f41f3159ee5cad41a88ad969e712e6587eb4799079f57a2041f62d4705539",
+      "sourceBytes": 1597463,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
