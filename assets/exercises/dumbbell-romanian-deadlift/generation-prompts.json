@@ -1,0 +1,97 @@
+{
+  "exerciseId": "dumbbell-romanian-deadlift",
+  "records": [
+    {
+      "revision": 2,
+      "prompt": "Create one wide 2:1 CRESUM exercise illustration containing exactly TWO equal square panels of DUMBBELL ROMANIAN DEADLIFT, white background, no panel borders or labels.\nImage 1: user movement reference, use its two poses and right-facing side-three-quarter camera orientation. Image 2: LOCKED CRESUM male master identity, face, brown hair, natural athletic proportions (not bodybuilder), blue-gray T-shirt, charcoal shorts, white socks and light-gray trainers, realistic clean 3D render. Keep exact same identity/outfit/materials in both panels.\nLEFT START endpoint: man hinged forward at hips as in movement example, hips pushed backward, knees softly slightly bent, shins approximately vertical, spine neutral and long. Torso about 35 degrees above horizontal, neck follows spine, gaze slightly down-forward. One black hex dumbbell securely held in each hand, both arms hanging straight beneath shoulders. Dumbbells close to legs just below knees, above floor, held with neutral grip. Clearly hip hinge, not deep squat. Two separate matching dumbbells, physically realistic metal handles and fingers.\nRIGHT FINISH endpoint: same man fully upright, hips extended, knees softly straight, shoulders natural, no backward lean. Feet hip-width, weights near front/outer thighs, straight hanging arms and same neutral grip. Hands fully grip handles with plausible anatomy.\nMatch reference composition but use master clothing and character, not shirtless reference person. Both poses face RIGHT. Same camera distance, body scale, lighting and shoe ground baseline in both squares. Efficient large framing with whole head/shoes/weights visible and small safe margins; do not enlarge bent pose independently. Soft contact shadows on pure white. Uniform skin, fabric and shoe textures, no muscle overlays or anatomical cutaways. No text, arrows, logos, watermark, extra people or gym equipment. Both phases must be generated together.",
+      "references": [
+        {
+          "file": "20FD7742-2D55-47C3-B789-AE1E031184F2.png",
+          "sha256": "a5ad0f6bfe1b81551c9702db7c06b49020c01114411c8cd976fa9ee190254a09",
+          "bytes": 116218
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-b38c20b6-7793-40d8-8525-38e947191bc4.png",
+        "sha256": "bb305940121ee7da02bf4ef7888e597d3c3da8a97a63dd1aacf2a0f9b43528ea",
+        "bytes": 1273057,
+        "size": [1774, 887]
+      },
+      "tool": "built-in image_gen"
+    },
+    {
+      "revision": 3,
+      "prompt": "Targeted edit of the provided paired CRESUM dumbbell Romanian deadlift illustration. Preserve the ENTIRE LEFT PANEL (bent START pose) exactly unchanged. Change ONLY the RIGHT PANEL's dumbbells and the minimal necessary wrist/hand/arm position.\nUser correction: in upright FINISH the dumbbells must remain in the SAME ORIENTATION and relative front-of-body arrangement as in the LEFT START pose. Do not turn the wrists or move the weights to the outer sides of hips during the lift. Both dumbbells stay IN FRONT of upper thighs at upright FINISH, with identical handle axes and palm orientation to the left START, parallel to one another. Think of lifting the exact two weights in the left pose vertically to thigh height as hips extend, without rotating either dumbbell. Copy the hex head shape, handle direction and hand grip from the LEFT weights to RIGHT weights. Both straight arms hang just in front of thighs, hands securely gripping their own dumbbell handles, correct plausible fingers. Make the weight placement continuity obvious.\nKeep RIGHT man upright facing right with same face, natural proportions, blue-gray shirt, charcoal shorts, white socks, gray shoes, feet, posture and framing. Keep the whole two-panel composition, equal square panels, camera, scale, baseline, white background, soft shadows and colors unchanged. No text or annotations, no extra weights or limbs. Do not alter left image, do not redesign character.",
+      "references": [
+        {
+          "file": "exec-b38c20b6-7793-40d8-8525-38e947191bc4.png",
+          "sha256": "bb305940121ee7da02bf4ef7888e597d3c3da8a97a63dd1aacf2a0f9b43528ea",
+          "bytes": 1273057
+        }
+      ],
+      "output": {
+        "file": "exec-b1765f81-53d3-403b-8b8c-32be62788076.png",
+        "sha256": "7ecb7626f6939f77272a97c78babda51bcd6d9cff89a0ee77a8c15e214fcb743",
+        "bytes": 1592724,
+        "size": [1774, 887]
+      },
+      "tool": "built-in image_gen"
+    },
+    {
+      "revision": 4,
+      "prompt": "Precise targeted repair of image 1, a two-panel CRESUM exercise illustration. Image 2 is the user's movement reference and the ABSOLUTE source of truth for the STANDING man's dumbbell placement and grip. Image 3 is the CRESUM character master for continuity.\nKeep the entire LEFT bent-pose panel of image 1 unchanged. In the RIGHT standing FINISH panel, REDRAW BOTH HANDS AND DUMBBELLS to match the STANDING figure on the RIGHT of image 2. This needs a real correction, not a cosmetic movement of the existing dumbbells.\nThe reference holds two dumbbells ACROSS THE FRONT OF HIS THIGHS in a PRONATED / OVERHAND grip, palms facing BACK toward his thighs, knuckles facing FORWARD away from thighs. Each dumbbell's short metal handle axis points LEFT-RIGHT across the man's body (parallel to a barbell shaft), NOT front-to-back alongside the hips. Rotate the dumbbells and hands approximately 90 degrees from suitcase/neutral orientation. The two separate dumbbells are arranged end-to-end along the same transverse horizontal line across the FRONT of the upper thighs. Their inner hex heads are close together but distinct, and their outer heads point outward toward the man's left and right sides. One dumbbell per hand, correct closed fingers and thumb around the handle. Perspective must agree with the man's existing three-quarter-right-facing view, with foreshortened transverse handles and visible separated hex heads. Do not leave a dumbbell hanging along the lateral side of either hip. Do not create a continuous bar, merged central weight, or overlapping hands.\nUse the exact dumbbell arrangement of image 2's standing figure, adapted to the character and scale of image 1. Both arms straight, hands in front of thighs, relaxed upright shoulders. Change only the right hands/weights and minimal lower-arm rotation required. Preserve man identity, face, hair, shirt, shorts, shoes, upright body posture, feet, panel framing, camera, scale, white background, contact shadows and smooth consistent materials. Same two black hex dumbbells with metal handles. Preserve full left START panel exactly. No text, labels, arrows or watermark.",
+      "references": [
+        {
+          "file": "exec-b1765f81-53d3-403b-8b8c-32be62788076.png",
+          "sha256": "7ecb7626f6939f77272a97c78babda51bcd6d9cff89a0ee77a8c15e214fcb743",
+          "bytes": 1592724
+        },
+        {
+          "file": "20FD7742-2D55-47C3-B789-AE1E031184F2.png",
+          "sha256": "a5ad0f6bfe1b81551c9702db7c06b49020c01114411c8cd976fa9ee190254a09",
+          "bytes": 116218
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-f02016a0-2601-4823-a493-47490f20edf8.png",
+        "sha256": "5add5ed2aab61ddb37c40335a8268177b12a19e6a388bc86ce0d222aeaae84fd",
+        "bytes": 1586211,
+        "size": [1774, 887]
+      },
+      "tool": "built-in image_gen"
+    },
+    {
+      "revision": 5,
+      "prompt": "EDIT image 1. Fix ONLY the RIGHT standing figure's two dumbbells and gripping hands. Preserve all other content, particularly the LEFT bent figure.\nImage 2 is the exact user reference. Closely inspect the standing figure's weights in image 2: their shafts run obliquely upward-right in the picture, across the FRONT of thighs, with foreshortening. Reproduce THAT arrangement. The current image 1 incorrectly displays the two weights sideways on a nearly horizontal screen line; CHANGE THIS CLEARLY.\n\nRIGHT PANEL SPECIFIC VISUAL GEOMETRY: Rotate BOTH black hex dumbbells in perspective so their handle axes project diagonally from LOWER LEFT to UPPER RIGHT, approximately 30 degrees above the screen horizontal, matching the axes of the weights in the LEFT panel. Keep metal shafts physically horizontal in world space, across the left-right width of the body, with this screen slope caused by perspective. The nearer weight's outer hex end must be lower-left in the picture and its inner end upper-right; the farther weight has the SAME projected angle. The end faces should be more prominent and the handles more foreshortened, like the small silver reference weights. Position both weights in FRONT of thighs with palms toward thighs, wrists naturally pronated. Nearer hand in front of nearer thigh, farther hand in front of farther thigh. Preserve TWO independent dumbbells each with TWO hex ends, keep a visible small gap between inner heads, no shared central block, no merged barbell, no giant overlapping cluster. Match the user reference grip and perspective rather than merely shifting the existing horizontal weights.\nKeep same head, right-facing torso, hair, face, blue-gray shirt, charcoal shorts, white socks, gray trainers, natural athletic body proportions, lighting, white background, ground shadows, equal panels and full-body framing. Arms hang straight; only adjust hands/lower-arm rotation and weight positions as required to match reference. No text or labels. This is a targeted dumbbell perspective repair, not a new composition.",
+      "references": [
+        {
+          "file": "exec-b1765f81-53d3-403b-8b8c-32be62788076.png",
+          "sha256": "7ecb7626f6939f77272a97c78babda51bcd6d9cff89a0ee77a8c15e214fcb743",
+          "bytes": 1592724
+        },
+        {
+          "file": "20FD7742-2D55-47C3-B789-AE1E031184F2.png",
+          "sha256": "a5ad0f6bfe1b81551c9702db7c06b49020c01114411c8cd976fa9ee190254a09",
+          "bytes": 116218
+        }
+      ],
+      "output": {
+        "file": "exec-4a206252-4dc8-4c52-a471-9cb65c275cec.png",
+        "sha256": "929f41f3159ee5cad41a88ad969e712e6587eb4799079f57a2041f62d4705539",
+        "bytes": 1597463,
+        "size": [1774, 887]
+      },
+      "tool": "built-in image_gen"
+    }
+  ]
+}
