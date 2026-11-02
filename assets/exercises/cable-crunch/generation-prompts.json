@@ -1,0 +1,16 @@
+{
+  "exerciseCandidate": "cable-crunch",
+  "revision": 1,
+  "status": "user-selected-pair",
+  "tool": "image_gen.imagegen",
+  "prompt": "Create original premium CRESUM STANDING HIGH-CABLE ROPE CRUNCH illustration. Exactly two phases on a white 2:1 wide canvas, equal square halves: LEFT upright START, RIGHT trunk-curled FINISH. Input1 is only pose/equipment configuration reference, not art to copy: athlete STANDING facing away from overhead cable tower, hands holding two ends of rope beside temples, flexing trunk forward. Input2 is LOCKED character identity and material reference: same naturally athletic brown-haired young adult man, muted blue-gray T-shirt, charcoal shorts, white visible training socks, light-gray trainers, same face/body/proportions and uniform fabrics/skin in both phases. Softly shaded clean realistic 3D fitness-app render. LEFT: man standing feet flat shoulder-width on floor, knees slightly soft, hips stable, trunk upright, both elbows bent, hands grasp two black rope ends beside temples, rope split passes outside head without touching neck. RIGHT: feet and knees remain registered, pelvis approximately same place, curl ribs toward pelvis with visibly rounded upper/mid back, head follows naturally, elbows move down with torso, hands remain beside head. This is controlled SPINAL FLEXION, not a straight-backed hip hinge, squat or triceps pull. No kneeling. Keep rope clear of face/neck and real closed grips on both rope ends. Standing man faces left in matching three-quarter side view with tower behind him to right in each half; both hands and rope ends readable. Tower full height with satin silver/light-gray rigid frame, dark graphite details, overhead pulley in front top edge, one taut cable running from pulley to centered metal connector and black double rope; credible cable route through top pulleys into weight stack. Mechanically coherent single visible weight stack of exactly20 horizontal plates per tower: selected bottom plate is plate8 counted from TOP, yellow selector pin at its side. START all20 resting together. FINISH top8 plates rise as rigid block with yellow pin in bottom raised plate, clear air gap below them; bottom12 remain stationary at same baseline. Equal plate dimensions, same count, guide rods extend through raised and lower blocks. No second selector pin, no floating plates. Draw clear raised load difference on FINISH. Same exact machine geometry, full tower, camera, character scale, feet baseline, lighting, outfit and material continuity across both halves; no camera zoom or independent framing. Full head, feet, hands and machine fit each square with narrow safe margins and efficient use of space. Clean white background and subtle soft floor shadows. No anatomy coloring, arrows, labels, writing, logos, watermark, panel borders or extra figures. Exactly two phases LEFT upright START / RIGHT rounded spinal-flexion FINISH with raised selected load.",
+  "sourcePath": "/workspace/scratch/7cdbe9c15f7c/generated_images/exec-88568fb4-2038-4f4d-bcc1-c29e832e66c6.png",
+  "referencedImagePaths": [
+    "/workspace/scratch/7cdbe9c15f7c/upload/CC20A862-DA7E-4A32-A85E-19EEA5776498.png",
+    "/workspace/scratch/7cdbe9c15f7c/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg"
+  ],
+  "phaseOrder": {
+    "left": "start",
+    "right": "finish"
+  }
+}

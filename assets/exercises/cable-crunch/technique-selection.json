@@ -1,0 +1,35 @@
+{
+  "exerciseId": "cable-crunch",
+  "model": "male",
+  "selectedRevision": 1,
+  "selectionDate": "2026-11-02",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "d00921e3df63d1e3e57b36947a9f84a5871fcf99c4f531e5f82ec5428eab0358",
+      "bytes": 40856,
+      "sourceFile": "exec-88568fb4-2038-4f4d-bcc1-c29e832e66c6.png",
+      "sourceSha256": "da716b68bedc4c7fdec465f18bd71a36cbac8ad0125d160cbad0f74b3c95e709",
+      "sourceBytes": 1342910,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "6803a9707a02e7f52ab9628e33cfea51f506cd5e4e28276fcb1831a629bb61dc",
+      "bytes": 43040,
+      "sourceFile": "exec-88568fb4-2038-4f4d-bcc1-c29e832e66c6.png",
+      "sourceSha256": "da716b68bedc4c7fdec465f18bd71a36cbac8ad0125d160cbad0f74b3c95e709",
+      "sourceBytes": 1342910,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

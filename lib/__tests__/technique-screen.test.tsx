@@ -5,6 +5,8 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock('../../assets/exercises/cable-crunch/start.webp', () => 6201);
+jest.mock('../../assets/exercises/cable-crunch/finish.webp', () => 6202);
 jest.mock('../../assets/exercises/hanging-knee-raise/start.webp', () => 6101);
 jest.mock('../../assets/exercises/hanging-knee-raise/finish.webp', () => 6102);
 jest.mock(
@@ -435,6 +437,7 @@ it.each([
   ['Captain’s Chair Knee Raise', 5901, 5902],
   ['Hanging Straight Leg Raise', 6001, 6002],
   ['Hanging Knee Raise', 6101, 6102],
+  ['Cable Crunch', 6201, 6202],
   ['Seated Leg Curl', 4901, 4902],
   ['Barbell Romanian Deadlift', 5001, 5002],
 ] as const)(
@@ -473,7 +476,7 @@ it.each([
 it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Cable Crunch')!.props.onPress());
+    act(() => button(v, 'Technique for Back Extension')!.props.onPress());
     expect(text(v)).toContain('Image coming soon');
     act(() => button(v, 'Show FINISH')!.props.onPress());
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
@@ -1478,6 +1481,7 @@ it.each([
   ['Captain’s Chair Knee Raise', 5902, ['abs'], []],
   ['Hanging Straight Leg Raise', 6002, ['abs'], ['forearms']],
   ['Hanging Knee Raise', 6102, ['abs'], ['forearms']],
+  ['Cable Crunch', 6202, ['abs'], []],
   [
     'Kettlebell Swing',
     5702,
