@@ -1,4 +1,6 @@
 export default {
+  'catalog.exercise.hanging-straight-leg-raise':
+    'Beinheben im Hang mit gestreckten Beinen',
   'catalog.exercise.captains-chair-knee-raise': 'Knieheben im Unterarmstütz',
   'catalog.exercise.kettlebell-goblet-squat': 'Goblet-Kniebeuge',
   'catalog.exercise.seated-cable-row-close-neutral-v-handle':

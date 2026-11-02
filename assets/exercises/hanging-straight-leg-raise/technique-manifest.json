@@ -1,0 +1,68 @@
+{
+  "variantId": "hanging-straight-leg-raise",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "6a09ae3c8a6775f955632c4b778f609e2a66d8485673a570b786af134a193a95",
+      "bytes": 32594,
+      "sourceFile": "exec-63750832-c16f-4f80-a513-a3a91d7018ff.png",
+      "sourceSha256": "4f9a6cabe0078b20baa88fc508835f9b249b9e00aa1306dc4da5182b5631b0b5",
+      "sourceBytes": 1307317,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "a8fe0b33a96780532a0b3b664a2efc4a347b39bf67613b5f88eb0ec15180f964",
+      "bytes": 31942,
+      "sourceFile": "exec-63750832-c16f-4f80-a513-a3a91d7018ff.png",
+      "sourceSha256": "4f9a6cabe0078b20baa88fc508835f9b249b9e00aa1306dc4da5182b5631b0b5",
+      "sourceBytes": 1307317,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "5B629D51-6191-434B-8DD6-AD15C8EEFF7E.png",
+        "sha256": "9ff66b2d91d1f52a03441fe32470131cdb51422e82bd2223e0c8049ac92ed36e",
+        "bytes": 364508
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      }
+    ],
+    "output": {
+      "file": "exec-63750832-c16f-4f80-a513-a3a91d7018ff.png",
+      "sha256": "4f9a6cabe0078b20baa88fc508835f9b249b9e00aa1306dc4da5182b5631b0b5",
+      "bytes": 1307317,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User approved r1: LEFT straight legs down START / RIGHT straight legs near horizontal FINISH. Separate from bent-knee and supported raises.",
+  "presentation": "Exact square half-sheet crops; shared contain, no retouch/resampling/padding or phase transforms.",
+  "reviewScope": "Phase order, straight versus bent knees, common character, materials and full station reviewed. Exact hand contact, pelvic motion, rigid registration and physical-device/accessibility acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original generated PNG and two actual input files remain available in ChatGPT files; Oracle backup not verified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "left/top inclusive, right/bottom exclusive"
+  }
+}

@@ -1,5 +1,19 @@
 import { flattenTechniqueText } from '../../technique-text';
 export default flattenTechniqueText({
+  'hanging-straight-leg-raise': {
+    scope: 'Heben gestreckter Beine im Hang an einer Stange.',
+    setup: [
+      'Stange schulterbreit im Obergriff greifen; Arme und Beine gestreckt halten.',
+    ],
+    movement: [
+      'Gestreckte Beine gemeinsam bis zur Waagerechten anheben, kurz halten und langsam absenken.',
+    ],
+    checks: ['Rumpf anspannen und Becken kontrollieren.'],
+    mistakes: [
+      'Schwingen: stoppen und neu ansetzen.',
+      'Knie beugen: stattdessen die Kniehebevariante wählen.',
+    ],
+  },
   'captains-chair-knee-raise': {
     scope: 'Knieheben mit Unterarm- und Rückenstütze am Captain’s Chair.',
     setup: [

@@ -492,6 +492,14 @@ export const exerciseLibrary = [
     movementPattern: 'core',
   }),
   exercise({
+    id: 'hanging-straight-leg-raise',
+    name: 'Hanging Straight Leg Raise',
+    primaryMuscles: ['abs'],
+    secondaryMuscles: ['forearms'],
+    equipment: ['bodyweight'],
+    movementPattern: 'core',
+  }),
+  exercise({
     id: 'hanging-knee-raise',
     name: 'Hanging Knee Raise',
     primaryMuscles: ['abs'],

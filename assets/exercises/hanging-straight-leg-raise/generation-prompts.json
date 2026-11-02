@@ -1,0 +1,16 @@
+{
+  "exerciseCandidate": "hanging-straight-leg-raise",
+  "revision": 1,
+  "status": "user-selected-pair",
+  "tool": "image_gen.imagegen",
+  "prompt": "Create original CRESUM exercise illustration preview: HANGING STRAIGHT LEG RAISE, START and FINISH as two equal square panels side by side on one wide 2:1 pure white canvas. Image 1 is ONLY movement and overhead pull-up station reference. Image 2 is LOCKED character identity, proportions, clothing and realistic softly rendered 3D style: naturally athletic man, brown hair, blue-gray T-shirt, charcoal shorts, white ankle socks and light gray athletic shoes. Reproduce SAME male in BOTH panels with consistent smooth skin and uniform fabric colors. Do not copy the anatomical figure, labels or muscle colors. LEFT START: overhand shoulder-width grip on straight central section of a black pullup bar, thumbs wrapped, both arms extended overhead, legs straight together vertically down, shoes suspended above floor, no foot contact. RIGHT FINISH: same exact grip, extended arms and steady near-vertical upper torso, raise BOTH legs together forward with knees straight (small natural softness only) until thighs, knees and ankles form one near-horizontal line around hip height; controlled slight posterior pelvic tilt, not a bent-knee raise. Show both legs, both arms, correct hands and thumbs. Same simple light silver freestanding pull-up station in each half, two uprights, overhead horizontal black bar, stable base behind/outside movement clearance. No forearm pads, backrest, seat, cables, stack or weights. Character faces right in matching three-quarter side camera angle; full figure and entire station visible per half. Matching character and equipment scale, overhead bar height, frame registration, camera, lighting and floor baseline across halves; no perspective/zoom shift between phases. Fill each square efficiently with narrow safe margins without cutting off hands, shoes or station. Clean premium softly shaded realistic 3D fitness-app render. White studio backdrop, subtle floor shadow. Absolutely no text, labels, arrows, anatomy overlay, logos, watermark, divider line or extra phases. Exactly two depictions, LEFT START legs down and RIGHT FINISH straight legs horizontal.",
+  "sourcePath": "/workspace/scratch/7cdbe9c15f7c/generated_images/exec-63750832-c16f-4f80-a513-a3a91d7018ff.png",
+  "referencedImagePaths": [
+    "/workspace/scratch/7cdbe9c15f7c/upload/5B629D51-6191-434B-8DD6-AD15C8EEFF7E.png",
+    "/workspace/scratch/7cdbe9c15f7c/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg"
+  ],
+  "phaseOrder": {
+    "left": "start",
+    "right": "finish"
+  }
+}

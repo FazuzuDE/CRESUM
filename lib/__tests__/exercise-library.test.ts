@@ -29,6 +29,7 @@ describe('canonical exercise metadata', () => {
               'lying-barbell-triceps-extension',
               'kettlebell-goblet-squat',
               'captains-chair-knee-raise',
+              'hanging-straight-leg-raise',
             ].includes(id),
         )
         .map(({ id }) => id),
@@ -96,7 +97,7 @@ describe('canonical exercise metadata', () => {
 
   it('contains a curated catalog with unique stable ids', () => {
     expect(exerciseLibrary.length).toBeGreaterThanOrEqual(45);
-    expect(exerciseLibrary.length).toBeLessThanOrEqual(69);
+    expect(exerciseLibrary.length).toBeLessThanOrEqual(70);
     expect(new Set(exerciseLibrary.map((item) => item.id)).size).toBe(
       exerciseLibrary.length,
     );

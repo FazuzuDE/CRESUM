@@ -15376,5 +15376,65 @@
     "line": 5,
     "text": "How to do the Top Ab Exercises Correctly — Captain’s Chair (2001, p. 11)",
     "context": "StringLiteral/PropertyAssignment:title/ObjectLiteralExpression/PropertyAssignment:'ace-captains-chair'/ObjectLiteralExpression"
+  },
+  {
+    "file": "lib/exercise-library.ts",
+    "line": 496,
+    "text": "Hanging Straight Leg Raise",
+    "context": "StringLiteral/PropertyAssignment:name/ObjectLiteralExpression/CallExpression/ArrayLiteralExpression"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 6,
+    "text": "Straight-leg raise while hanging from an overhead bar.",
+    "context": "StringLiteral/PropertyAssignment:scope/ObjectLiteralExpression/PropertyAssignment:'hanging-straight-leg-raise'/ObjectLiteralExpression"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 8,
+    "text": "Grip the bar overhand at shoulder width; hang with straight arms and legs.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:setup/ObjectLiteralExpression/PropertyAssignment:'hanging-straight-leg-raise'"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 11,
+    "text": "Raise straight legs together toward horizontal, pause, then lower slowly.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:movement/ObjectLiteralExpression/PropertyAssignment:'hanging-straight-leg-raise'"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 13,
+    "text": "Brace the trunk and keep the pelvis controlled.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:checks/ObjectLiteralExpression/PropertyAssignment:'hanging-straight-leg-raise'"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 15,
+    "text": "Swinging: stop and reset.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:mistakes/ObjectLiteralExpression/PropertyAssignment:'hanging-straight-leg-raise'"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 16,
+    "text": "Bending knees: choose the knee-raise variant instead.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:mistakes/ObjectLiteralExpression/PropertyAssignment:'hanging-straight-leg-raise'"
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 18,
+    "text": "puregym-hanging-leg-raise",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:sources/ObjectLiteralExpression/PropertyAssignment:'hanging-straight-leg-raise'"
+  },
+  {
+    "file": "lib/exercise-technique/sources.ts",
+    "line": 3,
+    "text": "PureGym",
+    "context": "StringLiteral/PropertyAssignment:publisher/ObjectLiteralExpression/PropertyAssignment:'puregym-hanging-leg-raise'/ObjectLiteralExpression"
+  },
+  {
+    "file": "lib/exercise-technique/sources.ts",
+    "line": 4,
+    "text": "How To Do Hanging Leg Raises",
+    "context": "StringLiteral/PropertyAssignment:title/ObjectLiteralExpression/PropertyAssignment:'puregym-hanging-leg-raise'/ObjectLiteralExpression"
   }
 ]
