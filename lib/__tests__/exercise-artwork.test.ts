@@ -1061,7 +1061,9 @@ it('resolves supported knee raise separately from hanging', () => {
   expect(
     resolveExerciseArtwork('captains-chair-knee-raise', 'finish', 'male'),
   ).toBe(5902);
-  expect(resolveExerciseArtwork('cable-crunch', 'start', 'male')).toBeNull();
+  expect(resolveExerciseArtwork('hanging-knee-raise', 'start', 'male')).toBe(
+    6101,
+  );
 });
 
 it('keeps straight-leg artwork separate from bent-knee and supported raises', () => {
@@ -1077,7 +1079,9 @@ it('keeps straight-leg artwork separate from bent-knee and supported raises', ()
   expect(
     resolveExerciseArtwork('hanging-straight-leg-raise', 'finish', 'male'),
   ).toBe(6002);
-  expect(resolveExerciseArtwork('cable-crunch', 'start', 'male')).toBeNull();
+  expect(resolveExerciseArtwork('hanging-knee-raise', 'start', 'male')).toBe(
+    6101,
+  );
   expect(
     resolveExerciseArtwork('captains-chair-knee-raise', 'start', 'male'),
   ).toBe(5901);
