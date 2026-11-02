@@ -1,0 +1,70 @@
+{
+  "variantId": "seated-leg-curl",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-a247562e-6850-448a-b37d-976331ca8c61.png",
+      "sourceSha256": "ede9e096b831e2f299fb496cb7c48a12120bc00d131b3c68d563b1c2d77e1f65",
+      "sourceBytes": 1656456,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "6879e27d0c16bb9497a57fb435430167e8af1b035d8860bafbe481b743975c7a",
+      "bytes": 64324,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-a247562e-6850-448a-b37d-976331ca8c61.png",
+      "sourceSha256": "ede9e096b831e2f299fb496cb7c48a12120bc00d131b3c68d563b1c2d77e1f65",
+      "sourceBytes": 1656456,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "87eefa362ce2d38140fcc1be7c4b696d980713f38d5184bf84151ac0425c82cb",
+      "bytes": 62876,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "FDA75CFC-3636-49C3-A13C-7752D5CEAFAA.png",
+        "sha256": "5bf618ff8110049c2500298ea5631f9fc9e9d01b3823c231981851d03905d9e3",
+        "bytes": 82207,
+        "role": "User-supplied pose, machine and phase example only"
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046,
+        "role": "CRESUM Male Master identity, proportions and blue-gray outfit"
+      }
+    ],
+    "output": {
+      "file": "exec-a247562e-6850-448a-b37d-976331ca8c61.png",
+      "sha256": "ede9e096b831e2f299fb496cb7c48a12120bc00d131b3c68d563b1c2d77e1f65",
+      "bytes": 1656456,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User approved original r1. LEFT nearly extended START / RIGHT flexed FINISH. Thigh restraint remains above thighs; selected top weight group rises in FINISH.",
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, resampling, padding or phase-specific transforms.",
+  "reviewScope": "Broad phase order, seated support/thigh restraint, full-machine framing and outfit/material continuity reviewed. Exact pivot/lever, roller/ankle and grip contacts, knee range, plate/pin counts and rigid machine registration not independently certified. Physical-device/accessibility QA pending. Stable identity, guide and muscle roles unchanged; no new live source review.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original, exact generation prompt and actual input files retained for visual-block checkpoint. No per-exercise ZIP; PC/Oracle backup unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  }
+}

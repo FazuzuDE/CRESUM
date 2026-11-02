@@ -1,5 +1,21 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Seated Leg Curl selected Male pair — 2026-11-02
+
+User approved r1 `exec-a247562e-6850-448a-b37d-976331ca8c61.png`.
+Use exact 887-square LEFT near-extended START / RIGHT flexed FINISH halves,
+RGB WebP92/method6, without retouch, resampling, padding or phase-specific
+transforms. Bind only `seated-leg-curl`/Male through shared phase/anatomy viewers.
+Thigh restraint remains above the thighs; selected top weight group rises in
+FINISH. Preserve stable identity/history, existing seated knee-flexion guide,
+hamstrings Primary and calves Secondary. Female, attachment and unsupported
+variant fallbacks remain. Actual user pose/machine example and Male Master,
+original and exact prompt retained for visual-block checkpoint. No per-exercise
+ZIP; archive pending-upload and PC/Oracle backup unverified. Keep
+user-selected-provisional: exact pivot/lever mechanics, roller/ankle and grip
+contacts, knee range, plate/pin counts, rigid machine registration and device/
+accessibility QA are not independently certified. No new guide/source review.
+
 ## Lying Leg Curl selected Male pair — 2026-11-02
 
 User approved r1 `exec-a692121d-5692-4a9e-bbf0-6aa9d79db052.png`.

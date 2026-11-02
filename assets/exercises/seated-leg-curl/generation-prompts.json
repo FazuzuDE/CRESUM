@@ -1,0 +1,33 @@
+{
+  "exerciseId": "seated-leg-curl",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "prompt": "Use case: identity-preserve / original CRESUM fitness illustration. Create ONE wide 2:1 paired image consisting of TWO equal square panels showing a SEATED LEG CURL machine, LEFT START and RIGHT FINISH, in one coherent generation. Image 1 is the user-supplied exercise/machine/phase reference ONLY: seated with upper thighs stabilized, initially almost straight legs, then curling lower legs down and back. Image 2 is the LOCKED CRESUM Male Master character: preserve that exact adult male face, short brown hair, natural athletic proportions and outfit: muted blue-gray t-shirt, dark charcoal shorts, visible white socks and light gray trainers. Clean premium semi-realistic 3D illustration matching the master, not anatomical skin. White studio background, subtle contact shadows, smooth consistent skin and fabric; satin light silver/white machine frame and dark matte padded seat, slightly reclined backrest and rollers. Camera is a left-facing side-three-quarter view as in image 1, clearly showing the athlete's two legs, the thigh restraint, lower-leg roller, fixed knee pivot/rotating lever and weight tower. Same camera, athlete size, fixed frame/tower/seat position, body proportions, materials and lighting in both squares. Athlete remains seated supported against the backrest, hips and thighs on seat, torso upright with slight seat-defined recline, neck neutral, both hands gripping the front/side handles. A fixed broad padded THIGH RESTRAINT presses gently across the TOP of both lower thighs, just ABOVE the knees, stabilizing thighs in BOTH phases. A separate SINGLE MOVING transverse roller contacts the BACK of both LOWER legs, just above ankles/heels; this roller is BELOW the extended calves at START, and follows posterior lower legs as they curl downward/back at FINISH. Crucial: this is knee FLEXION against resistance, NOT a leg extension machine. No moving roller across the front shins. Feet are not on any footplate. LEFT START: knees almost straight but softly unlocked, lower legs extend forward almost horizontal with roller under the posterior lower shins just above heels. RIGHT FINISH: bend knees to around 90 degrees or a comfortable slightly deeper curl, lower legs move DOWN and BACK beneath seat toward the machine, shoes approach underneath knees/seat without hitting frame; thighs stay fixed against restraint, pelvis/back remain supported. A coherent rigid lever rotates about a pivot aligned with knee axis and carries lower roller. Keep all fixed seat/thigh-restraint/hip/knee positions and frame geometry identical between panels. Weight tower visible beside/behind athlete, with two guide rods and identical plate count and pin setting: START selected top plates rest on stack; FINISH selected top group rises clearly, leaving a gap above the remaining resting plates. Fixed tower and lower stack stay stationary. Full body, shoes, hands, rollers, lever, tower and all machine feet fit fully in EACH square with small safe margins. Fill both squares efficiently and equally without clipping or changing relative scale. Natural anatomically correct grip, two hands and two feet; no floating pads, no duplicate rollers or limbs, no fused shoes/frame, no dramatic torso changes. No text, labels, logos, watermarks, UI, arrows or colored muscle overlays. Render an original clean CRESUM matched START/FINISH pair.",
+      "references": [
+        {
+          "file": "FDA75CFC-3636-49C3-A13C-7752D5CEAFAA.png",
+          "sha256": "5bf618ff8110049c2500298ea5631f9fc9e9d01b3823c231981851d03905d9e3",
+          "bytes": 82207,
+          "role": "User-supplied pose, machine and phase example only"
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "role": "CRESUM Male Master identity, proportions and blue-gray outfit"
+        }
+      ],
+      "output": {
+        "file": "exec-a247562e-6850-448a-b37d-976331ca8c61.png",
+        "sha256": "ede9e096b831e2f299fb496cb7c48a12120bc00d131b3c68d563b1c2d77e1f65",
+        "bytes": 1656456,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}
