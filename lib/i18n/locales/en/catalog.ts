@@ -110,4 +110,3 @@ export default {
   "catalog.program.gym-general_fitness-some": "General fitness",
   "catalog.program.gym-general_fitness-experienced": "General fitness"
 } as const;
-
