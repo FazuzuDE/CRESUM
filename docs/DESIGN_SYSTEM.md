@@ -1,5 +1,19 @@
 # CRESUM Design System v1.0
 
+## Seated Calf Raise selected Male pair — 2026-11-02
+
+User approved r1 `exec-32a3c0e2-38ae-4863-a196-6437dc58c510.png`.
+LEFT lowered-heels START / RIGHT raised-heels FINISH on plate-loaded machine.
+Exact 887-square RGB WebP92/method6 halves; no retouch, resampling, padding
+or phase transforms. Bind only `seated-calf-raise`/Male through shared viewers.
+Preserve guide, stable identity/history, calves Primary and no Secondary.
+Standing/other variants, Female and attachment fallbacks remain. Original,
+exact prompt and actual references retained. User-selected-provisional: exact
+forefoot/step, thigh/hand contacts, ankle/knee range, pivot/linkage, rigid
+registration and device/accessibility QA pending. Lever and plate visibly rise;
+this is not mechanical certification. No new source review. Archive pending-upload;
+no per-exercise ZIP or verified PC/Oracle backup claim.
+
 ## Standing Calf Raise selected Male pair — 2026-11-02
 
 User approved r1 `exec-3d8dba75-5da8-448f-b42d-d1d869a7d24c.png`.

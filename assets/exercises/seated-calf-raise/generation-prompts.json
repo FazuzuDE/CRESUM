@@ -1,0 +1,28 @@
+{
+  "exerciseId": "seated-calf-raise",
+  "records": [
+    {
+      "revision": 1,
+      "prompt": "Create ONE original CRESUM fitness app illustration, wide 2:1 paired sheet with TWO equal square panels: SEATED CALF RAISE ON PLATE-LOADED MACHINE. LEFT START heels down / RIGHT FINISH heels raised.\nImage1 is exercise/machine/movement reference only. Image2 is LOCKED CRESUM male identity, brown hair, natural athletic body proportions, blue-gray T-shirt, charcoal shorts, white ankle socks, light-gray trainers. Match character master's realistic premium 3D style, smooth consistent skin and fabrics, not anatomical cutaway. Pure white backdrop, soft shadows.\nUse the reference's simple plate-loaded machine: satin light silver/white metal frame, fixed black padded seat with no backrest, a rotating lever carrying black thigh pads above distal thighs just behind knees, two small handles atop lever, a horizontal plate horn with one black circular weight plate, small fixed raised nonslip forefoot step below. No cable or selectorized tower. Show whole machine from rear-side three-quarter view facing RIGHT like image1, sufficient side view to clearly show shoe/heel motion, both feet and knee pads.\nAthlete remains seated upright, pelvis and seat stationary, both hands securely grip machine handles to stabilize, knees bent approximately90 degrees throughout, pads contact TOPS of thighs just above knees. BOTH forefeet/balls of shoes rest securely on narrow step edge, heel ends unsupported beyond edge.\nLEFT START: heels lowered comfortably below forefoot support level, shoes slightly toes-up, lever/thigh pads and weight plate at lower position.\nRIGHT FINISH: both heels clearly elevated by ankle plantarflexion, shoes visibly slope down toward toes with forefeet still contacting same fixed step; knees stay bent and rise only with heels, thigh pads lift with knees, connected lever rotates upward about SAME rear pivot and plate horn/black plate rise visibly with it as in reference. Don't simulate action by standing up, moving seat, straightening knees, lifting toes or floating whole feet. Same one weight plate and horn geometry in both phases.\nSame exact frame/seat/step positions, proportions, camera angle/distance, athlete scale and materials in both squares; only ankle/heel motion and connected lever/thigh-pad/plate motion. Full head, hands, shoes, whole frame and load plate within EACH square, generous efficient framing with small safe margins. Realistic grip and contacts, no fused limbs or floating pads. No text, arrows, logos, watermarks, UI, panel borders or muscle coloring. Generate both distinct phases together.",
+      "references": [
+        {
+          "file": "87CAC7BA-DDF3-4343-AC4E-B5B13130E2A4.png",
+          "sha256": "64ba90a1423461f1dc8a2ae8ec6da41b955d7498c52e02a0afe0170b329a4b29",
+          "bytes": 113735
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-32a3c0e2-38ae-4863-a196-6437dc58c510.png",
+        "sha256": "7aab2228518d038cf9508f1971e059f86d602d824c703007adf0beb0fa7a45fe",
+        "bytes": 1389762,
+        "size": [1774, 887]
+      },
+      "tool": "built-in image_gen"
+    }
+  ]
+}

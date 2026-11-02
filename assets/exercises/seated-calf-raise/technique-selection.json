@@ -1,0 +1,35 @@
+{
+  "exerciseId": "seated-calf-raise",
+  "model": "male",
+  "selectedRevision": 1,
+  "selectionDate": "2026-11-02",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "2bd836d1e28f4490a11768eb60b24d7fa4c6164314060b09ea77575176e7e9f3",
+      "bytes": 39834,
+      "sourceFile": "exec-32a3c0e2-38ae-4863-a196-6437dc58c510.png",
+      "sourceSha256": "7aab2228518d038cf9508f1971e059f86d602d824c703007adf0beb0fa7a45fe",
+      "sourceBytes": 1389762,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "8d643d486d6ae1ed70af5ee15dd55bac2080c6b15bdc41a5d12cfa1926204ff6",
+      "bytes": 39838,
+      "sourceFile": "exec-32a3c0e2-38ae-4863-a196-6437dc58c510.png",
+      "sourceSha256": "7aab2228518d038cf9508f1971e059f86d602d824c703007adf0beb0fa7a45fe",
+      "sourceBytes": 1389762,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
