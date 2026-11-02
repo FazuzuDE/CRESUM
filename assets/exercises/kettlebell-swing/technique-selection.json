@@ -1,0 +1,35 @@
+{
+  "exerciseId": "kettlebell-swing",
+  "model": "male",
+  "selectedRevision": 1,
+  "selectionDate": "2026-11-02",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "2d34a265ea0cb4747c81e60e457798b8c90ccb771a837fd3c8d8ae86a5ea1397",
+      "bytes": 30200,
+      "sourceFile": "exec-fdabb5b4-95fa-4594-a609-eeaf5d9ca2ce.png",
+      "sourceSha256": "076ae00698a592ec5178cbbaf7f3e88f81126b21c326da0b925b6f52e908407e",
+      "sourceBytes": 1277282,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "eee799429ad92c5680eeda205d87ff9804fb1d5379ac81f4e6cc7688fef2558f",
+      "bytes": 30100,
+      "sourceFile": "exec-fdabb5b4-95fa-4594-a609-eeaf5d9ca2ce.png",
+      "sourceSha256": "076ae00698a592ec5178cbbaf7f3e88f81126b21c326da0b925b6f52e908407e",
+      "sourceBytes": 1277282,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
