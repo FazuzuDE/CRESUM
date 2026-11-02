@@ -1,0 +1,17 @@
+{
+  "exerciseCandidate": "hanging-knee-raise",
+  "revision": 1,
+  "status": "user-selected-pair",
+  "tool": "image_gen.imagegen",
+  "prompt": "Create a new original CRESUM exercise illustration preview: HANGING BENT-KNEE RAISE on overhead pull-up bar. Exactly TWO equal square panels side by side on a wide 2:1 white canvas: LEFT START, RIGHT FINISH. Image 1 is only a movement-reference poster: extract hanging leg-down start and bent-knee-up finish, never copy poster artwork, labels or anatomical overlay. Image 2 is the LOCKED male character identity/proportions/outfit/material master: natural athletic brown-haired clean-shaven man in muted blue-gray T-shirt, charcoal athletic shorts, visible white socks, light-gray trainers. Image 3 is an accepted CRESUM straight-leg exercise image: reuse its precise simple light-silver freestanding pull-up station design, black bar, camera, smooth premium 3D style and character scale, BUT the new right-hand movement must clearly bend BOTH knees, never straight-leg L-sit. LEFT START: man hangs from shoulder-width overhand grip with wrapped thumbs, both arms extended overhead, torso upright, both legs lowered together nearly straight, both shoes visibly suspended clear of ground. RIGHT FINISH: same grip and arm extension, steady upper body, both hips flexed, thighs raised to around horizontal or slightly higher, knees deeply bent roughly90 degrees, knees together pointing forward, both shins hanging downward with shoes together under knees; small controlled pelvic curl. Distinct thigh/shin bend of BOTH legs plainly readable. No backward swing, no pull-up elbow bend. Same exact character, face, natural body proportions, outfit colors/textures, camera angle facing right in three-quarter side view, perspective, light, overhead bar position and equipment dimensions in both panels. Frame is two satin light silver uprights and bases, black overhead bar; no backrest, forearm supports, seat, weights, stacks or cables. Keep frame rigidly registered between halves. Full station, hands, head and feet fit in each square with slim safe margins, use full available space efficiently, equal scale. Clean white studio background with subtle soft floor shadow. Premium semi-realistic softly shaded 3D matching master, uniform clean skin and fabric surfaces. No text, logos, watermarks, muscle coloring, arrows, panel borders or extra figures. LEFT legs down, RIGHT BENT knees raised: not two starts, not straight legs in finish.",
+  "sourcePath": "/workspace/scratch/7cdbe9c15f7c/generated_images/exec-b477fa44-2256-4c17-b63e-37fa4040685c.png",
+  "referencedImagePaths": [
+    "/workspace/scratch/7cdbe9c15f7c/upload/35D3D73A-7535-4936-A51E-927ABE1700DC.png",
+    "/workspace/scratch/7cdbe9c15f7c/project_sources/09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+    "/workspace/scratch/7cdbe9c15f7c/generated_images/exec-63750832-c16f-4f80-a513-a3a91d7018ff.png"
+  ],
+  "phaseOrder": {
+    "left": "start",
+    "right": "finish"
+  }
+}

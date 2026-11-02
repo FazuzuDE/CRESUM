@@ -1,0 +1,35 @@
+{
+  "exerciseId": "hanging-knee-raise",
+  "model": "male",
+  "selectedRevision": 1,
+  "selectionDate": "2026-11-02",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "cb2290c92ef032255a3effee0bb9dee9686a19d6dbc9a8c8cc7fb9ae0e0c4620",
+      "bytes": 33686,
+      "sourceFile": "exec-b477fa44-2256-4c17-b63e-37fa4040685c.png",
+      "sourceSha256": "006329c44be509584ba6df4a683270807d3e63d4e5f4bacda62892a43aaf8e91",
+      "sourceBytes": 1262941,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "d44ab19f23a727e577212fa80b4916ab97dcf1033d487f09f7ea619f2007ef3f",
+      "bytes": 32590,
+      "sourceFile": "exec-b477fa44-2256-4c17-b63e-37fa4040685c.png",
+      "sourceSha256": "006329c44be509584ba6df4a683270807d3e63d4e5f4bacda62892a43aaf8e91",
+      "sourceBytes": 1262941,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

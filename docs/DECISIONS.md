@@ -1,5 +1,21 @@
 # CRESUM Decision Log
 
+## Hanging Knee Raise selected Male pair — 2026-11-02
+
+User approved r1 `exec-b477fa44-2256-4c17-b63e-37fa4040685c.png`.
+Bind LEFT lowered START / RIGHT bent-knees-raised FINISH only to existing
+`hanging-knee-raise` / Male through the shared phase and anatomy viewers.
+Exact 887-square RGB WebP92/method6 halves, no retouch, resampling, padding
+or phase-specific transforms. Preserve the existing bent-knee guide, abs Primary,
+forearms Secondary, stable ID and saved History. Straight-leg and supported
+Captain’s Chair variants retain independent images and identities.
+Actual inputs: supplied movement poster, Male Master and selected straight-leg
+pair as station/style reference. Record original, exact prompt and all hashes.
+User-selected-provisional: detailed grip/contact, pelvic motion, exact frame
+registration and physical-device/accessibility review remain open.
+No new source review or muscle-role change. Oracle archive remains pending-upload;
+no verified backup claim. Next exercise: cable crunch with a rope attachment.
+
 ## Hanging Straight Leg Raise — 2026-11-02
 
 User approved r1 `exec-63750832-c16f-4f80-a513-a3a91d7018ff.png`.

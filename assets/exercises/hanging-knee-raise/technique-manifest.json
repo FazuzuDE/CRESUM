@@ -1,0 +1,73 @@
+{
+  "variantId": "hanging-knee-raise",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "cb2290c92ef032255a3effee0bb9dee9686a19d6dbc9a8c8cc7fb9ae0e0c4620",
+      "bytes": 33686,
+      "sourceFile": "exec-b477fa44-2256-4c17-b63e-37fa4040685c.png",
+      "sourceSha256": "006329c44be509584ba6df4a683270807d3e63d4e5f4bacda62892a43aaf8e91",
+      "sourceBytes": 1262941,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "d44ab19f23a727e577212fa80b4916ab97dcf1033d487f09f7ea619f2007ef3f",
+      "bytes": 32590,
+      "sourceFile": "exec-b477fa44-2256-4c17-b63e-37fa4040685c.png",
+      "sourceSha256": "006329c44be509584ba6df4a683270807d3e63d4e5f4bacda62892a43aaf8e91",
+      "sourceBytes": 1262941,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "35D3D73A-7535-4936-A51E-927ABE1700DC.png",
+        "sha256": "5e9e88e0b4a40377c326ee7f3111a1c08fc16c9110f1cf92365ed430bd4fee58",
+        "bytes": 105188
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      },
+      {
+        "file": "exec-63750832-c16f-4f80-a513-a3a91d7018ff.png",
+        "sha256": "4f9a6cabe0078b20baa88fc508835f9b249b9e00aa1306dc4da5182b5631b0b5",
+        "bytes": 1307317
+      }
+    ],
+    "output": {
+      "file": "exec-b477fa44-2256-4c17-b63e-37fa4040685c.png",
+      "sha256": "006329c44be509584ba6df4a683270807d3e63d4e5f4bacda62892a43aaf8e91",
+      "bytes": 1262941,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "LEFT legs-down START / RIGHT bent-knees-raised FINISH. User approved r1. Existing hanging-knee-raise identity only.",
+  "presentation": "Exact square half-sheet crops, shared contain; no retouch, resampling, padding or independent phase transforms.",
+  "reviewScope": "Broad phase order, bent-knee configuration, common identity/materials and full-frame fit reviewed. Detailed hand contact, pelvic motion, exact rigid registration and physical-device/accessibility review remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original and actual inputs retained in ChatGPT files. Oracle upload deferred and not verified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "left/top inclusive, right/bottom exclusive"
+  }
+}
