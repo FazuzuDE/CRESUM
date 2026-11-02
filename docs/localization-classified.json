@@ -10446,5 +10446,85 @@
         "context": "StringLiteral/PropertyAssignment:title/ObjectLiteralExpression/PropertyAssignment:'ace-kettlebells'/ObjectLiteralExpression"
       }
     ]
+  },
+  {
+    "file": "lib/exercise-library.ts",
+    "line": 488,
+    "text": "Captain’s Chair Knee Raise",
+    "context": "StringLiteral/PropertyAssignment:name/ObjectLiteralExpression/CallExpression/ArrayLiteralExpression",
+    "kind": "canonical",
+    "reason": "New supported knee raise canonical content; displayed through EN/RU/DE/FR catalog and technique messages. Source metadata remains bibliography."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 7,
+    "text": "Bent-knee raise with forearm and back support on a captain’s chair.",
+    "context": "StringLiteral/PropertyAssignment:scope/ObjectLiteralExpression/PropertyAssignment:'captains-chair-knee-raise'/ObjectLiteralExpression",
+    "kind": "canonical",
+    "reason": "New supported knee raise canonical content; displayed through EN/RU/DE/FR catalog and technique messages. Source metadata remains bibliography."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 9,
+    "text": "Rest forearms on the pads, grip the handles and support your back against the pad; let legs hang clear of the floor.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:setup/ObjectLiteralExpression/PropertyAssignment:'captains-chair-knee-raise'",
+    "kind": "canonical",
+    "reason": "New supported knee raise canonical content; displayed through EN/RU/DE/FR catalog and technique messages. Source metadata remains bibliography."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 12,
+    "text": "Lift bent knees toward your chest under control, then lower slowly to the starting position.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:movement/ObjectLiteralExpression/PropertyAssignment:'captains-chair-knee-raise'",
+    "kind": "canonical",
+    "reason": "New supported knee raise canonical content; displayed through EN/RU/DE/FR catalog and technique messages. Source metadata remains bibliography."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 15,
+    "text": "Keep the upper body steady against the supports throughout the movement.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:checks/ObjectLiteralExpression/PropertyAssignment:'captains-chair-knee-raise'",
+    "kind": "canonical",
+    "reason": "New supported knee raise canonical content; displayed through EN/RU/DE/FR catalog and technique messages. Source metadata remains bibliography."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 18,
+    "text": "Swinging: pause and regain control.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:mistakes/ObjectLiteralExpression/PropertyAssignment:'captains-chair-knee-raise'",
+    "kind": "canonical",
+    "reason": "New supported knee raise canonical content; displayed through EN/RU/DE/FR catalog and technique messages. Source metadata remains bibliography."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 19,
+    "text": "Dropping legs: slow the lowering.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:mistakes/ObjectLiteralExpression/PropertyAssignment:'captains-chair-knee-raise'",
+    "kind": "canonical",
+    "reason": "New supported knee raise canonical content; displayed through EN/RU/DE/FR catalog and technique messages. Source metadata remains bibliography."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 21,
+    "text": "ace-captains-chair",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:sources/ObjectLiteralExpression/PropertyAssignment:'captains-chair-knee-raise'",
+    "kind": "canonical",
+    "reason": "New supported knee raise canonical content; displayed through EN/RU/DE/FR catalog and technique messages. Source metadata remains bibliography."
+  },
+  {
+    "file": "lib/exercise-technique/sources.ts",
+    "line": 3,
+    "text": "American Council on Exercise",
+    "context": "StringLiteral/PropertyAssignment:publisher/ObjectLiteralExpression/PropertyAssignment:'ace-captains-chair'/ObjectLiteralExpression",
+    "kind": "bibliography",
+    "reason": "New supported knee raise canonical content; displayed through EN/RU/DE/FR catalog and technique messages. Source metadata remains bibliography."
+  },
+  {
+    "file": "lib/exercise-technique/sources.ts",
+    "line": 5,
+    "text": "How to do the Top Ab Exercises Correctly — Captain’s Chair (2001, p. 11)",
+    "context": "StringLiteral/PropertyAssignment:title/ObjectLiteralExpression/PropertyAssignment:'ace-captains-chair'/ObjectLiteralExpression",
+    "kind": "bibliography",
+    "reason": "New supported knee raise canonical content; displayed through EN/RU/DE/FR catalog and technique messages. Source metadata remains bibliography."
   }
 ]
