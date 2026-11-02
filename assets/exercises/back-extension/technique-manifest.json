@@ -1,0 +1,69 @@
+{
+  "variantId": "back-extension",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "4d14366548e02579336539c8bbba4b461512268a600fe0372d545c7d515266e4",
+      "bytes": 38242,
+      "sourceFile": "exec-6ccbda2b-067a-459f-b2fa-ad1a574e94d8.png",
+      "sourceSha256": "338410b06fc9aea09c015b2540f75b2c36475b0ec1b2f91c5a5e5da45d874967",
+      "sourceBytes": 1389508,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "06175199327904197dc0880ebcc52843eb99af5293b2fd3a575c621579514fc6",
+      "bytes": 37902,
+      "sourceFile": "exec-6ccbda2b-067a-459f-b2fa-ad1a574e94d8.png",
+      "sourceSha256": "338410b06fc9aea09c015b2540f75b2c36475b0ec1b2f91c5a5e5da45d874967",
+      "sourceBytes": 1389508,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "77E0F889-7E63-4033-95EC-5C2CEDABAA5D.png",
+        "sha256": "186ac5f0b946ed6978fda59304880d5496654dc185cb0437f638ad27bf48374b",
+        "bytes": 129816
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      }
+    ],
+    "output": {
+      "file": "exec-6ccbda2b-067a-459f-b2fa-ad1a574e94d8.png",
+      "sha256": "338410b06fc9aea09c015b2540f75b2c36475b0ec1b2f91c5a5e5da45d874967",
+      "bytes": 1389508,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User explicitly swapped the generated phases: RIGHT upper straight-body position is START; LEFT lowered torso is FINISH. No source raster alteration.",
+  "presentation": "Exact square half-sheet crops in swapped asset slots; shared contain, no retouch, resampling, padding or independent phase transforms.",
+  "identityScope": "45-degree hip-extension bench with arms crossed is an illustration example. Generic back-extension identity and geometry-unspecified guide remain unchanged.",
+  "reviewScope": "Broad phase identity, character/material continuity and full-frame fit reviewed. Detailed hip/pad/ankle contact, spinal/hip alignment, exact rigid registration and physical-device/accessibility acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original and both actual inputs retained in ChatGPT files. Oracle upload deferred and unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "left/top inclusive, right/bottom exclusive"
+  }
+}

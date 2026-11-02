@@ -1,5 +1,23 @@
 # CRESUM Decision Log
 
+## Back Extension selected Male pair and reversed phases — 2026-11-02
+
+User approved r1 `exec-6ccbda2b-067a-459f-b2fa-ad1a574e94d8.png` with the
+explicit correction: "Поменяй местами старт и финиш, и утверждаю".
+START is the upper straight-body position, cropped from the source RIGHT half;
+FINISH is the lowered torso position, cropped from the source LEFT half.
+Use exact 887-square RGB WebP92/method6 crops without retouch, resampling,
+padding or independent transforms. Preserve the original and verbatim prompt;
+record generated order separately from the subsequently selected export order.
+The 45-degree bench with arms crossed is an illustration example, not a
+narrowing of generic `back-extension` geometry. Preserve the existing guide,
+lower-back Primary, glutes/hamstrings Secondary, stable ID and saved History.
+Bind Male only through shared phase/anatomy viewers; other fallbacks remain.
+Actual pose reference and Male Master hashes retained. User-selected-provisional:
+detailed hip/pad/ankle contact, spinal/hip alignment, registration and device/
+accessibility QA remain open. No new source review or muscle-role change.
+Oracle upload remains pending/unverified. Next exercise: dumbbell shrug.
+
 ## Cable Crunch selected Male pair — 2026-11-02
 
 User approved r1 `exec-88568fb4-2038-4f4d-bcc1-c29e832e66c6.png`.
