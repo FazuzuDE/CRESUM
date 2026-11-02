@@ -1,0 +1,33 @@
+{
+  "exerciseId": "lying-leg-curl",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "model": "male",
+      "phase": "pair",
+      "revision": 1,
+      "prompt": "Use case: identity-preserve / original CRESUM fitness illustration. Generate ONE wide paired image in 2:1 aspect ratio containing TWO equal square panels, prone LYING LEG CURL machine exercise: LEFT START with lowered extended legs and RIGHT FINISH with knees flexed. Image 1 is the user-supplied POSE/MACHINE/PHASE example only. Image 2 is the LOCKED CRESUM Male Master: exact same face, short brown hair, realistic natural athletic body proportions, muted blue-gray fitted t-shirt, dark charcoal athletic shorts, visible white socks and light gray sneakers. Create a clean original premium semi-realistic 3D render matching the character sheet, not an anatomical diagram. No colored muscle overlays or exposed anatomy. White studio background, soft natural contact shadows, smooth consistent skin/fabric colors, satin light silver-gray frame and matte charcoal upholstery/roller. Use a left-facing SIDE THREE-QUARTER view close to image 1 that clearly shows both legs, padded bench and weight stack. SAME character scale, camera, machine geometry, hip/knee placement, floor baseline, frame and tower positions in both panels. Athlete lies FACE DOWN with chest, abdomen, pelvis and thighs supported on an ergonomically angled padded prone leg-curl bench, head to LEFT and feet to RIGHT. Neutral neck, head follows spine, face partly visible from three-quarter side, hands securely grasp two front handles, elbows naturally bent; no excessive lumbar arch or pelvis lifting. Knees just beyond the leg pad edge, aligned with the leg-curl lever pivot. ONE padded transverse roller rests against the BACKS of lower legs just above the heels/ankles, NOT behind knees or against soles. Both lower legs contact the same roller naturally. Lower legs remain free of bench/frame to move. LEFT START: legs nearly straight with soft unlocked knees, lower legs extending down/away from the pad following the pictured bench angle; roller lowered behind lower ankles. RIGHT FINISH: flex both knees together, curl the roller upward toward buttocks with lower legs rising to about 90-110 degrees of knee flexion; preserve thigh/hip support, body and grip positions. The padded roller stays against posterior lower shins above heels and travels with its rigid lever around a consistent knee-aligned pivot. Shoes and feet follow calves naturally without bizarre ankle bends. The visible selectorized tower is fixed behind the bench in the same location: in START selected top plates rest on stack; in FINISH selected top group of plates rises on vertical guide rods, visibly separated by a gap from remaining resting plates. Identical plate count and selector pin selection in both phases, coherent cable/lever mechanism without invented extra dangling parts. Entire body, head, shoes, all machine feet, lever and tower fit each square with small safe margins. Fill both squares efficiently and equally, never make one phase a miniature. No cropping, no duplicated rollers, no extra or missing limbs, no fused shoes, no hands floating outside handles, no UI, text, labels, arrows, logos or watermark. Render only the two exercise phases of our fully clothed male character on a light-frame machine, as a harmonious matched pair.",
+      "references": [
+        {
+          "file": "BA4293AC-0F21-46F7-993C-42D49F754646.png",
+          "sha256": "0ef41b7a9c12d4242d6c3628d5c50cd4b11a06245641baefd17bb3bd337c1506",
+          "bytes": 301280,
+          "role": "User-supplied pose, machine and phase example only"
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046,
+          "role": "CRESUM Male Master identity, proportions and blue-gray outfit"
+        }
+      ],
+      "output": {
+        "file": "exec-a692121d-5692-4a9e-bbf0-6aa9d79db052.png",
+        "sha256": "6f3237d0a23696e953cbcd585bb0aff772312432e8f29b92ac908c89219d4c8b",
+        "bytes": 1457088,
+        "size": [1774, 887]
+      },
+      "transparentBackground": false
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "exerciseId": "lying-leg-curl",
+  "model": "male",
+  "selectionDate": "2026-11-02",
+  "decision": "Утверждаю",
+  "selectedRevision": 1,
+  "status": "user-selected-pair",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-a692121d-5692-4a9e-bbf0-6aa9d79db052.png",
+      "sourceSha256": "6f3237d0a23696e953cbcd585bb0aff772312432e8f29b92ac908c89219d4c8b",
+      "sourceBytes": 1457088,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "9193f4a2a87038cbe02bc05ada93fe8751e408f206f31349471f8af7982ad2a4",
+      "bytes": 42892,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-a692121d-5692-4a9e-bbf0-6aa9d79db052.png",
+      "sourceSha256": "6f3237d0a23696e953cbcd585bb0aff772312432e8f29b92ac908c89219d4c8b",
+      "sourceBytes": 1457088,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "1da29c61236f974b42b04626a882a80564145d2724537049ccb7dda95adc73d4",
+      "bytes": 46374,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
