@@ -1,0 +1,28 @@
+{
+  "exerciseId": "standing-calf-raise",
+  "records": [
+    {
+      "revision": 1,
+      "prompt": "Create ONE original CRESUM paired exercise illustration, wide 2:1 format with TWO equal square panels LEFT START / RIGHT FINISH for STANDING CALF RAISE ON SELECTORIZED SHOULDER-PAD MACHINE.\nImage1 is movement/machine reference only. Image2 is LOCKED male identity/proportions/outfit: exact brown-haired natural athletic CRESUM male, blue-gray T-shirt, charcoal shorts, white ankle socks, light-gray trainers. Premium realistic 3D render, consistent skin/fabric/materials, no anatomical overlays.\nUse rear three-quarter camera similar to image1, clearly see BOTH feet/heels and shoulders. Silver/light-gray rigid machine frame, black shoulder pads and hand grips, black selectorized weight stack on guide rods. Small raised stationary nonslip foot step under BOTH forefeet, with heel ends unsupported beyond rear edge, not whole feet resting on wide platform. Man upright under two shoulder pads, each contacting shoulder rather than neck, both hands securely wrap handles. Feet hip-width and parallel, knees near straight but not locked, hips/trunk remain aligned without squatting.\nLEFT START: balls of both feet firmly on step, heels lowered below forefoot level in controlled dorsiflexion, visible shoe heels hang freely behind step edge. Shoulder carriage in lower position, selected weight group at resting height.\nRIGHT FINISH: push through balls of feet, BOTH heels clearly raised high, shoe soles tilt down toward toes on step, no floating forefeet. Ankle plantarflexion raises straight body and shoulder-pad carriage visibly upward; knees/hips remain steady and not bent to simulate movement. Handles/pads/carriage move together physically. Selected TOP GROUP of plates rises on same guide rods leaving clear gap above stationary remaining lower plates, same total count/pin setting. Do not move entire tower or step. Show credible linkage/cable to carriage without extra floating stacks.\nSame body size, machine frame position, step position, camera distance/angle and materials across both panels. Entire machine, both shoes, head, hands and frame feet inside EACH square with small safe margins, efficient generous framing. Body height changes only due to calf raise, no rescaling. Pure white backdrop, soft floor shadows, satin silver frame. No text, arrows, labels, logos, watermark, UI, borders or color-highlighted muscles. No extra limbs, fused grips, misplaced pads or cropped feet.",
+      "references": [
+        {
+          "file": "ABAD3C6C-0EF3-4AA3-B024-95675DD550A0.png",
+          "sha256": "91d51b2c8d23ba942bc206e2746b589f3715b739e0975d3e07744576926678de",
+          "bytes": 609846
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-3d8dba75-5da8-448f-b42d-d1d869a7d24c.png",
+        "sha256": "ccc5e4824595f8369dd51b28e4dd53ba42827f88c6fbb2a784f80a172d38e2e5",
+        "bytes": 1382799,
+        "size": [1774, 887]
+      },
+      "tool": "built-in image_gen"
+    }
+  ]
+}

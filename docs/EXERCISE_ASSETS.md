@@ -1,5 +1,19 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Standing Calf Raise selected Male pair — 2026-11-02
+
+User approved r1 `exec-3d8dba75-5da8-448f-b42d-d1d869a7d24c.png`.
+LEFT lowered-heels START / RIGHT raised-heels FINISH. Exact 887-square
+RGB WebP92/method6 halves; no retouch, resampling, padding or phase transforms.
+Bind only `standing-calf-raise`/Male through shared phase/anatomy viewers.
+Preserve guide, stable identity/history, calves Primary and no Secondary.
+Other variants, Female and attachment fallbacks remain. Original, exact prompt
+and actual references retained. User-selected-provisional: exact forefoot/step,
+shoulder/hand contacts, ankle range, linkage/plate counts, rigid registration
+and device/accessibility QA pending. Selected plates and shoulder carriage
+visibly rise; this is not mechanical certification. No new source review.
+Archive pending-upload; no per-exercise ZIP or verified PC/Oracle backup claim.
+
 ## Cable Glute Kickback selected Male pair — 2026-11-02
 
 User approved r6 `exec-a698ceac-cf30-4646-9b86-af9622ae0938.png` after

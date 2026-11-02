@@ -5,6 +5,8 @@ import {
 import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
+jest.mock('../../assets/exercises/standing-calf-raise/start.webp', () => 5401);
+jest.mock('../../assets/exercises/standing-calf-raise/finish.webp', () => 5402);
 jest.mock('../../assets/exercises/cable-glute-kickback/start.webp', () => 5301);
 jest.mock(
   '../../assets/exercises/cable-glute-kickback/finish.webp',
@@ -994,6 +996,7 @@ it.each([
   'dumbbell-romanian-deadlift',
   'barbell-hip-thrust',
   'cable-glute-kickback',
+  'standing-calf-raise',
   'seated-leg-curl',
   'barbell-romanian-deadlift',
 ])('keeps %s Female and attachment fallbacks', (id) => {
