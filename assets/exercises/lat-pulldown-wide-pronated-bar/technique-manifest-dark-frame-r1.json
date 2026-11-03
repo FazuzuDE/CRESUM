@@ -1,0 +1,45 @@
+{
+  "variantId": "lat-pulldown-wide-pronated-bar",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected",
+  "integrationApprovalDate": "2026-10-27",
+  "userDecision": "Утверждаю.",
+  "reviewScope": "User-approved visual pair and runtime integration. Assistant visual review checked wide pronated contact, seated support, central cable connection and eight raised/twelve stationary plates; this is not independent biomechanical certification.",
+  "openReview": [
+    "Physical-device readability remains unverified.",
+    "Final anatomical and front-of-body bar-clearance review remains separate from user visual acceptance."
+  ],
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptRetention": "Exact generation and repair prompts retained in the conversation.",
+    "repairChain": [
+      "exec-5d9ed12a-e23d-41a4-aa9f-f34cb847ab43.png",
+      "exec-6a6f0187-6463-4d4b-81f7-f4054c7c90bc.png",
+      "exec-e4df2d81-57bf-4df3-ae1c-ebb07f8414a4.png",
+      "exec-466fbc70-de80-4f1e-9005-fdb8d2b464ff.png"
+    ],
+    "sourceRetention": "Original PNGs retained in the conversation; exact source filenames and SHA-256 identify the selected files. Repository stores optimized WebP exports."
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-eed33f9d-3dea-440b-8edc-7c725cd73d63.png",
+      "sourceSha256": "d8586b71a83c261a0caebac29be12cebf25f052117f111cfa62478daf03296b5",
+      "sha256": "24b9c18141adb17a0ace9c86d3e94d694acaca57d09c99c656aff8d530fd29aa",
+      "width": 1120,
+      "height": 1280,
+      "quality": 92
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-466fbc70-de80-4f1e-9005-fdb8d2b464ff.png",
+      "sourceSha256": "d1f83908152d6e0001c855aacc88f9d5039ae9c1ff08867efabebb59998b62e6",
+      "sha256": "13600c3756aa68000974a180aa073566925dbf04d99e431b34d70380d862b61c",
+      "width": 1120,
+      "height": 1280,
+      "quality": 92
+    }
+  }
+}

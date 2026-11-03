@@ -1,0 +1,77 @@
+{
+  "exerciseCandidate": "lat-pulldown-wide-pronated-bar",
+  "revision": 2,
+  "tool": "image_gen.imagegen",
+  "history": [
+    {
+      "step": "silver-frame-r1",
+      "prompt": "Create a CRESUM WIDE PRONATED LAT PULLDOWN silver-frame exercise preview in one wide 2:1 sheet with TWO equal square halves, LEFT raised-arm START and RIGHT bar-to-upper-chest FINISH, no labels. Reference1 is the existing exact wide-pronated START exercise target; reference2 is its FINISH target; reference3 is the authoritative actual CRESUM Male Master for face/hair, natural athletic proportions and blue-gray shirt, charcoal shorts, visible white socks and light gray trainers. Reference4 is the approved light equipment materials reference only. Reference5 is the newly approved silver V-handle pair for silver machine style, scale, full-frame presentation and camera continuity only: DO NOT copy its narrow V-handle or narrow hands. Keep the wide chrome lat bar from references1/2, symmetric outward bends, broad overhand grip on its outer sections, wrapped fingers/thumbs and neutral wrists. Preserve original machine archetype, exposed weight stack, pulleys, seated hip position, thighs under fixation rollers, fixed feet and same character. Change original dark structural frame, upper beam, seat support and base to satin light silver-gray with restrained highlights matching reference4/5; padding, rubber feet, pulleys, grips and plates remain matte graphite. Both halves must have identical machine registration, camera, body scale, seat/base placement and clothing/material continuity. START shoulders naturally raised with arms overhead almost straight and comfortable broad overhand grip. FINISH pulls the SAME wide bar DOWN IN FRONT OF THE FACE toward upper chest/clavicles, never behind neck; elbows travel down and out, chest gently lifted with modest stable torso lean, no extreme recline, neck neutral. Keep head and face clear of the central bar/cable and depict proper occlusion of a bar that stays ANTERIOR to the neck and shoulders; avoid behind-neck appearance of the old rear-camera image. Keep three-quarter rear/side viewpoint but enough side visibility to read front-of-chest bar placement. Cable remains taut from top pulley to one central carabiner connected at bar center. Same plate count and selected pin level: at FINISH selected upper plates and pin rise together with visible gap above stationary lower plates; START group rests down. Full machine, full body, both hands, full bar and both shoes fit each square with narrow safe margins; fill equal square space efficiently, consistent scale. Premium original semi-realistic 3D, clean smooth natural skin, consistent matte fabric, pure white studio background, soft contact shadows, neutral light. No text, labels, pill backgrounds, arrows, muscle overlays, watermark, branding, inset, borders, extra limbs or altered attachment.",
+      "references": [
+        {
+          "file": "start.webp",
+          "sha256": "24b9c18141adb17a0ace9c86d3e94d694acaca57d09c99c656aff8d530fd29aa",
+          "bytes": 89842,
+          "repositoryPath": "assets/exercises/lat-pulldown-wide-pronated-bar/start.webp",
+          "repositoryCommit": "27532fc962694194081c46587aaf39234a2ed0c5"
+        },
+        {
+          "file": "finish.webp",
+          "sha256": "13600c3756aa68000974a180aa073566925dbf04d99e431b34d70380d862b61c",
+          "bytes": 92510,
+          "repositoryPath": "assets/exercises/lat-pulldown-wide-pronated-bar/finish.webp",
+          "repositoryCommit": "27532fc962694194081c46587aaf39234a2ed0c5"
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        },
+        {
+          "file": "pulldown-ref-2.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "repositoryPath": "assets/visual-references/equipment-style-v1/reference.webp",
+          "repositoryCommit": "27532fc962694194081c46587aaf39234a2ed0c5"
+        },
+        {
+          "file": "exec-b5aa94a7-091e-4d63-ae0c-30f4474b7858.png",
+          "sha256": "7070b94cc6a2a302ce6aa90e95f77015ed0a96e348649b75219932f5cfa8df4b",
+          "bytes": 1459197
+        }
+      ],
+      "output": {
+        "file": "exec-556cf74b-41c3-449d-a68e-e6766bcd73a7.png",
+        "sha256": "fd539b300d072b63b459d03ce21286023a6238f91581e1337c65339162c838df",
+        "bytes": 1555945
+      },
+      "disposition": "superseded: behind-neck appearance prompted front-camera repair"
+    },
+    {
+      "step": "front-camera-r2",
+      "prompt": "Repair the supplied CRESUM wide overhand lat pulldown pair: the RIGHT finish in reference1 currently looks like a behind-the-neck pulldown. It MUST clearly be a FRONT pulldown with bar at upper chest IN FRONT OF the neck. Change camera in BOTH panels together to a lateral FRONT three-quarter view that shows the athlete's face, chest/front of blue shirt and both broad overhand grips. The camera must NOT show a back-dominant view. Reference2 is actual Male Master identity and outfit. Keep the same male face/hair/build/clothing and same light-silver pulldown machine archetype, dark seat and thigh pads, feet on floor, same wide chrome lat bar. Exactly two equal square panels in one wide 2:1 sheet on white, LEFT overhead START, RIGHT bar-to-upper-sternum FINISH. In RIGHT the entire central chrome bar MUST be visibly in front of the blue shirt upper chest just below clavicles, with the throat/head above and BEHIND it. Hands hold wide angled outer sections with pronated palms away from face. Cable from high pulley forward of athlete to bar center taut and entirely clear of face. Elbows down and out, not pulled far backward, neutral head and small stable torso lean. Pelvis firmly seated, knees under rollers and feet identical across panels. LEFT uses identical camera/machine/body scale, both arms almost straight overhead with bar above and anterior to head. Match rigid machine frame/camera registration across equal panels, full athlete and full machine large with narrow margins. Keep correct mechanical stack continuity: EXACTLY 16 dark plates total, each one clear horizontal slab of equal height and thickness, no fake selector-hole row multiplication. LEFT contiguous full stack with selector pin in eighth plate counting from top. RIGHT same TOP EIGHT plates and pin lift together, with a large visible gap separating eight moving plates from exactly EIGHT stationary plates below. Same guide rods, smooth silver frame, matte dark upholstery and pulleys, soft neutral studio light, smooth consistent natural skin and fabric. The only intended changes are camera angle to clarify front-of-chest movement and coherent stack counts. No text, labels, logos, arrows, insets, muscle overlays or watermarks. Do not reproduce the rear-neck bar position from reference1. Make chest/bar/neck depth order unmistakable.",
+      "references": [
+        {
+          "file": "exec-556cf74b-41c3-449d-a68e-e6766bcd73a7.png",
+          "sha256": "fd539b300d072b63b459d03ce21286023a6238f91581e1337c65339162c838df",
+          "bytes": 1555945
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-9800178c-486d-49d5-afdd-8679e0b3421f.png",
+        "sha256": "68762234ed498fd83d44fb85a561efd71f66b98fb4eee3c812172f6d214debd6",
+        "bytes": 1576947
+      },
+      "disposition": "user-approved selected pair"
+    }
+  ],
+  "phaseOrder": {
+    "left": "start",
+    "right": "finish"
+  },
+  "promptConstraintBoundary": "Requested plate counts are generation instructions, not proof that generated counts/kinematics are correct."
+}
