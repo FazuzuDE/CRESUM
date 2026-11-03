@@ -1,0 +1,51 @@
+{
+  "exerciseCandidate": "standing-cable-anti-rotation-press",
+  "revision": 2,
+  "status": "user-selected-pair",
+  "tool": "image_gen.imagegen",
+  "generations": [
+    {
+      "revision": 1,
+      "prompt": "Create an original premium CRESUM standing cable Pallof press exercise illustration preview, exactly TWO full-body phases side by side in equal square halves on one wide 2:1 pure-white canvas. Image1 is ONLY the user-supplied movement/equipment reference; image2 is the LOCKED Male Master identity, natural athletic body proportions, face, hair, clothes and material reference. Use the same brown-haired clean-shaven man wearing a muted blue-gray T-shirt, charcoal shorts, visible white training socks and light-gray trainers in both halves. Clean softly shaded realistic 3D fitness-app render, consistent natural skin and uniform matte fabric. LEFT START: standing side-on to the cable station, both hands securely holding one cable D-handle together at the center of the chest, elbows bent down beside ribs. RIGHT FINISH: both arms extended forward directly away from the sternum at mid-chest height, elbows nearly straight, handle centered in front of chest. This is ANTI-ROTATION: head, shoulders, chest, pelvis, knees and feet maintain exactly the same orientation and position across phases, no trunk turn toward cable, no leaning, no squat or overhead raise. Stable hip-to-shoulder width parallel flat-foot stance and softly unlocked knees. The cable pulls LATERALLY from the athlete's LEFT SIDE, perpendicular to the forward press direction, not from behind the spine and not from directly in front. Show a compact light-silver single cable tower to image-left of the man in each panel, outside his side, with adjustable outlet pulley set at mid-chest height, black weight stack, plausible visible taut black cable from pulley to a small central carabiner and single D-handle held with both hands. Clear cable routing, no cable passing through torso or wrists. Hands overlap naturally around the handle's same grip with believable fingers and neutral wrists, not separate handles or doubled grips. Camera front three-quarter from front-right so face, chest, elbows, hand path and lateral cable pull are readable, athlete facing a little toward image-right, cable tower to image-left; keep same camera and entire machine geometry in BOTH halves. Place the tower slightly behind the left-side body plane for visibility without moving its anchor away from the lateral pulling axis. At START handle near sternum; at FINISH handle directly forward from sternum, clearly farther from body, same chest height. Cable length from outlet to hand is longer at FINISH, so the SAME selected top group of weight plates rises visibly off the resting stack in the right panel, leaving a clear gap below selected plates, while the lower unselected plates stay down. Preserve identical stack plate count, selector level, tower height, pulleys and base geometry across phases. No fake second cable or free-floating connector. Preserve identical character scale and placement, head and floor baseline; full man, shoes, hands, extended arms and compact entire tower fit inside each square with narrow safe margins. Use available frame efficiently without oversized dead space. White studio background with subtle soft contact shadows; no gym environment, anatomical muscle coloring, labels, arrows, text, logos, watermark, borders or extra people. Exactly two coherent phases: LEFT handle held at chest START, RIGHT forward arm extension FINISH, torso and stance steady.",
+      "referencedImages": [
+        {
+          "file": "image(20261102-220028).png",
+          "sha256": "9af5007751e29f911aa6c8e8178b0e48e110e9ce80ea36e56aa2a59b05714eb1",
+          "bytes": 159996
+        },
+        {
+          "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+          "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+          "bytes": 325046
+        }
+      ],
+      "output": {
+        "file": "exec-2cba0781-78d5-405a-845b-cf4aadcbafee.png",
+        "sha256": "97dc370a1ce1b4d7612e312f7f9f737b4e83527e35ee8a02c12f3537aafd287c",
+        "bytes": 1390640
+      },
+      "status": "superseded: user rejected strange machine"
+    },
+    {
+      "revision": 2,
+      "prompt": "Edit image1, the existing two-phase CRESUM cable Pallof press preview. Correct ONLY the cable machines in both halves. Preserve both men, identities, faces, hair, clothing, skin/material quality, body proportions, START hands at chest and FINISH hands extended, hand-held handles, feet, posture, lighting, white background, equal square halves and full-body framing. Replace the strange curved single-sided frame and overhead bent pull-up arms with a clean plausible standalone adjustable single cable column: straight light-silver rectangular upright frame, short flush horizontal top crossmember fully supported at both ends, stable compact floor base with rubber caps, NO overhead projecting handles or pull-up bar. A narrow central perforated vertical rail carries one chest-height pulley trolley, with visible small adjustment pin and enclosed pulley wheel, cable exiting horizontally toward man's hands as before. Behind this rail place a consistent black selectorized weight stack guided by TWO parallel polished rods attached to the top and base. Keep frame, guide rods, plate count, selector setting, chest-height outlet and cable path identical in both panels. LEFT START stack: selected TOP FOUR plates resting directly on remaining lower plates. RIGHT FINISH stack: SAME TOP FOUR plates lifted modestly about 8 centimeters along same rods, clearly visible small gap above unchanged remaining lower plates. Do not lift half the stack high in air, do not multiply plates or change stack design between panels. Frame and rail enclose stack coherently, not two unrelated frames. Cable routing concealed inside column except one taut horizontal side-pull cable between chest-height outlet and existing carabiner. No exposed floating pulley on top of stack, no dangling wires, no impossible crossing. Keep man and handle positions unchanged, especially right torso resisting rotation and right elbows extended. Maintain original clean realistic 3D render and uniform light metallic finish. Exactly two phases LEFT START RIGHT FINISH, no labels, arrows, color overlays or text. Machine should read as a simple professional cable tower, not a hybrid lat-pulldown frame.",
+      "referencedImages": [
+        {
+          "file": "exec-2cba0781-78d5-405a-845b-cf4aadcbafee.png",
+          "sha256": "97dc370a1ce1b4d7612e312f7f9f737b4e83527e35ee8a02c12f3537aafd287c",
+          "bytes": 1390640
+        }
+      ],
+      "output": {
+        "file": "exec-bb64b703-43a5-46b7-aafd-2b4b0b2e0f35.png",
+        "sha256": "7d95a29b09a9d7cef60e388a04ce15b9f7bebb0cb1212326dcfc0533c45830b3",
+        "bytes": 1447720
+      },
+      "status": "user-selected-pair"
+    }
+  ],
+  "phaseOrder": {
+    "left": "start",
+    "right": "finish"
+  }
+}

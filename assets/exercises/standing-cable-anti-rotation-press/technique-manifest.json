@@ -1,0 +1,68 @@
+{
+  "variantId": "standing-cable-anti-rotation-press",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 2,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "4f656eed7f82977541082f0b496c563c005a8377c110bd13869ba025b8bce992",
+      "bytes": 40404,
+      "sourceFile": "exec-bb64b703-43a5-46b7-aafd-2b4b0b2e0f35.png",
+      "sourceSha256": "7d95a29b09a9d7cef60e388a04ce15b9f7bebb0cb1212326dcfc0533c45830b3",
+      "sourceBytes": 1447720,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "fdf16402ca0428733d218a3bd170ad0791ae11b982356356f58c7815d8803b73",
+      "bytes": 42140,
+      "sourceFile": "exec-bb64b703-43a5-46b7-aafd-2b4b0b2e0f35.png",
+      "sourceSha256": "7d95a29b09a9d7cef60e388a04ce15b9f7bebb0cb1212326dcfc0533c45830b3",
+      "sourceBytes": 1447720,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "image(20261102-220028).png",
+        "sha256": "9af5007751e29f911aa6c8e8178b0e48e110e9ce80ea36e56aa2a59b05714eb1",
+        "bytes": 159996
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      }
+    ],
+    "output": {
+      "file": "exec-bb64b703-43a5-46b7-aafd-2b4b0b2e0f35.png",
+      "sha256": "7d95a29b09a9d7cef60e388a04ce15b9f7bebb0cb1212326dcfc0533c45830b3",
+      "bytes": 1447720,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User approved revised straight single cable tower, LEFT handle-at-chest START / RIGHT arms-forward FINISH. Existing both-sides guide retained; pair illustrates one side.",
+  "presentation": "Exact square half-sheet crops, shared contain; no retouch, resampling, padding or independent phase transforms.",
+  "reviewScope": "Broad anti-rotation phase distinction, revised frame and raised FINISH stack visible. Exact plate counts, selected group continuity, hidden cable routing, grips, cable/body clearance and physical-device/accessibility QA are not certified and remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Actual reference and generated input/output files identified by hash in generation-prompts.json; original PNGs retained. Oracle upload deferred/unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "left/top inclusive, right/bottom exclusive"
+  }
+}

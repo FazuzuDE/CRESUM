@@ -6,6 +6,14 @@ import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
 import backExtensionManifest from '../../assets/exercises/back-extension/technique-manifest.json';
+jest.mock(
+  '../../assets/exercises/standing-cable-anti-rotation-press/start.webp',
+  () => 6601,
+);
+jest.mock(
+  '../../assets/exercises/standing-cable-anti-rotation-press/finish.webp',
+  () => 6602,
+);
 jest.mock('../../assets/exercises/farmers-carry/start.webp', () => 6501);
 jest.mock('../../assets/exercises/farmers-carry/finish.webp', () => 6502);
 jest.mock('../../assets/exercises/dumbbell-shrug/start.webp', () => 6401);
@@ -1049,6 +1057,7 @@ it.each([
   'back-extension',
   'dumbbell-shrug',
   'farmers-carry',
+  'standing-cable-anti-rotation-press',
   'seated-leg-curl',
   'barbell-romanian-deadlift',
 ])('keeps %s Female and attachment fallbacks', (id) => {
@@ -1202,6 +1211,42 @@ it('binds selected Male carry phases and preserves distance-based walking guidan
     'Walk steadily with short controlled steps; turn carefully and set weights down under control.',
   ]);
   expect(resolveExerciseArtwork('dumbbell-shrug', 'start', 'male')).toBe(6401);
+  expect(
+    resolveExerciseArtwork('bodyweight-step-up', 'start', 'male'),
+  ).toBeNull();
+});
+
+it('binds selected Male Pallof phases and preserves bilateral anti-rotation guidance', () => {
+  expect(
+    resolveExerciseArtwork(
+      'standing-cable-anti-rotation-press',
+      'start',
+      'male',
+    ),
+  ).toBe(6601);
+  expect(
+    resolveExerciseArtwork(
+      'standing-cable-anti-rotation-press',
+      'finish',
+      'male',
+    ),
+  ).toBe(6602);
+  expect(findExercise('standing-cable-anti-rotation-press')).toMatchObject({
+    perSide: true,
+    primaryMuscles: ['abs'],
+    secondaryMuscles: [],
+    equipment: ['cable'],
+    movementPattern: 'core',
+  });
+  expect(findTechnique('standing-cable-anti-rotation-press')?.scope).toBe(
+    'Standing two-hand anti-rotation press; both sides.',
+  );
+  expect(findTechnique('standing-cable-anti-rotation-press')?.movement).toEqual(
+    [
+      'Press hands forward resisting rotation, then return; repeat facing the opposite side.',
+    ],
+  );
+  expect(resolveExerciseArtwork('farmers-carry', 'start', 'male')).toBe(6501);
   expect(
     resolveExerciseArtwork('bodyweight-step-up', 'start', 'male'),
   ).toBeNull();
