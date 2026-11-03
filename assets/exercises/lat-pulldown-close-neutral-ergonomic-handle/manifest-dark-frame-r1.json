@@ -1,0 +1,36 @@
+{
+  "variantId": "lat-pulldown-close-neutral-ergonomic-handle",
+  "model": "male",
+  "reviewDate": "2026-10-25",
+  "reviewScope": "User-selected reference imagery for the approved integration. Assistant visual pair consistency review; no claim of measured CAD or clinician certification.",
+  "pairChecks": [
+    "same model, outfit, framing and machine",
+    "same compact attachment and neutral contact",
+    "stable seated/thigh support and set-back far foot",
+    "coherent taut high-pulley cable",
+    "eight raised plates with selector at group bottom in finish, eleven stationary plates"
+  ],
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceSha256": "6e45e7bd5bb46cdb9bd255ed1a3f7af20650f4501294685e77ad03519493e9b8",
+      "sha256": "af15a23117f1e34925a2fd5a23ff7ddeeb7adf4e06f91857dda957cab32008a1",
+      "width": 1000,
+      "quality": 90
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceSha256": "928ed313dcb62f9ee244440044849138ae69729e4dba39c9ec2f1be266e30780",
+      "sha256": "0e82dbee09919e63e6ac6a435f7b9858f11728e1e49b9a79116fe5cdc3d7e481",
+      "width": 1000,
+      "quality": 90
+    },
+    "attachment": {
+      "file": "attachment.webp",
+      "sourceSha256": "e31478e5b6912d60cd9ce76bea6849554fee870743f75a169ad30b64e40e5e73",
+      "sha256": "2dd63c6f1ac142d5a781e0cb4a0679e3639ae247158dc8725196cbb8376d3064",
+      "width": 512,
+      "quality": 90
+    }
+  }
+}

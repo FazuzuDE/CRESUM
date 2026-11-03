@@ -1,0 +1,53 @@
+{
+  "tool": "image_gen.imagegen",
+  "actualReferenceCommit": "d3c0010898ad0f09fb86125ca4aec352fd379737",
+  "history": [
+    {
+      "step": "silver-frame-preview",
+      "prompt": "Create a CRESUM preview of the existing close neutral ergonomic handle lat pulldown exercise in the approved LIGHT equipment material style. Use case: precise-object-edit / exercise illustration. Input 1 is the approved START edit target; input 2 is the approved FINISH edit target; input 3 is ONLY a silver-frame equipment material/rendering reference, NOT a geometry or exercise reference. Produce ONE landscape sheet with TWO equal square panels side by side: left START, right FINISH, on seamless clean white studio background. In each panel show the full original apparatus and full original seated male athlete as large as possible without cropping, same scale and identical registered camera and fixed apparatus. Preserve athlete identity, face, hair, moderately athletic proportions, blue T-shirt, charcoal shorts, white socks and pale gray shoes from input 1/2. Preserve the exact original narrow black ergonomic attachment and neutral hand orientation, original seated thigh fixation, feet placement, support, exercise poses, cable and all equipment geometry. ONLY change the dark structural frame, base, vertical columns and upper beam to satin LIGHT SILVER-GRAY metal matching reference 3, with restrained realistic highlights; keep upholstery, grips, pulleys and weight plates dark graphite. Keep the stack exposed as in the original pulldown rather than transplanting the gravitron enclosure. In START arms are raised, nearly extended; in FINISH elbows are pulled down with attachment at upper chest, selected weight stack visibly lifted with same selected group/count and selector position relative to moving plates. Cable stays taut and connected at the attachment's center. No invented mechanisms, no extra handles, no V-shaped handle substitution, no body overlays. Smooth uniform skin, consistent clean fabric and metal materials, premium semi-realistic 3D. Small neutral labels START and FINISH above their panels; no logos or other text. This is a visual style recolor preview, preserve original movement/attachment/character faithfully.",
+      "references": [
+        {
+          "file": "pulldown-ref-0.webp",
+          "sha256": "af15a23117f1e34925a2fd5a23ff7ddeeb7adf4e06f91857dda957cab32008a1",
+          "bytes": 63988,
+          "repositoryPath": "assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/start.webp"
+        },
+        {
+          "file": "pulldown-ref-1.webp",
+          "sha256": "0e82dbee09919e63e6ac6a435f7b9858f11728e1e49b9a79116fe5cdc3d7e481",
+          "bytes": 65306,
+          "repositoryPath": "assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/finish.webp"
+        },
+        {
+          "file": "pulldown-ref-2.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "repositoryPath": "assets/visual-references/equipment-style-v1/reference.webp"
+        }
+      ],
+      "output": {
+        "file": "exec-827c6975-287e-47e1-bb47-ed1c93caa7c7.png",
+        "sha256": "9d7ee19f40696fb7a7a8a1065426cb0adb85ebc64272fc46729bfb287d874ae9",
+        "bytes": 1483894
+      }
+    },
+    {
+      "step": "remove-phase-labels",
+      "prompt": "Precise minimal edit of the supplied approved two-panel exercise illustration. Remove ONLY the two top labels: the word START and its light gray rounded rectangular background above the left panel; the word FINISH and its light gray rounded rectangular background above the right panel. Fill their former areas with the matching clean white background. Preserve every other detail of the entire image exactly: same dimensions, panel arrangement, character identities, poses, hands, faces, clothes, ergonomic grips, cables, silver machine structures, weight stack positions, lighting, colors, shadows and framing. Do not redraw, redesign, reposition, crop or scale any scene content. No new text or symbols. Output the same approved image without these two labels.",
+      "references": [
+        {
+          "file": "exec-827c6975-287e-47e1-bb47-ed1c93caa7c7.png",
+          "sha256": "9d7ee19f40696fb7a7a8a1065426cb0adb85ebc64272fc46729bfb287d874ae9",
+          "bytes": 1483894
+        }
+      ],
+      "output": {
+        "file": "exec-6a64b539-ba4f-443b-b68a-20d0c0eb0d70.png",
+        "sha256": "4d0280a7ffc14c81bf4407951a16daeb2b45c79c5dd08bebdde2f54971546cb4",
+        "bytes": 1679068,
+        "libraryFileId": "libfile_538d98699d38819182b4d81186757fab"
+      }
+    }
+  ],
+  "maleMasterInputDisclosure": "The actual Male Master was not supplied to either generation call. Character identity came from the existing approved phase targets. This differs from the current production reference rule and remains disclosed for review; no invented Master input or certification."
+}
