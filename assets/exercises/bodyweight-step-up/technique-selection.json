@@ -1,0 +1,40 @@
+{
+  "exerciseId": "bodyweight-step-up",
+  "model": "male",
+  "selectedRevision": 1,
+  "selectionDate": "2026-11-03",
+  "status": "user-selected-pair",
+  "decision": "Утверждаю",
+  "referencePhaseChoice": {
+    "start": 2,
+    "finish": 3,
+    "counting": "left to right"
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "3adc950127fd2ab20465c87263fb2d26d36c3d02bb2da40e1434a914e916cc94",
+      "bytes": 27920,
+      "sourceFile": "exec-e5a982bc-3fa5-4932-96a9-d6d7e3b31270.png",
+      "sourceSha256": "1401b94afb9f5fb5ecb1679f150c72477dcfea6f5b9b901c4111c83a56fff5db",
+      "sourceBytes": 1241536,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "11e893f402ca47dba02e8e101803de329bb6c443a3821dc8702f19b2b131cec7",
+      "bytes": 25934,
+      "sourceFile": "exec-e5a982bc-3fa5-4932-96a9-d6d7e3b31270.png",
+      "sourceSha256": "1401b94afb9f5fb5ecb1679f150c72477dcfea6f5b9b901c4111c83a56fff5db",
+      "sourceBytes": 1241536,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

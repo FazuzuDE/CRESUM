@@ -1,5 +1,23 @@
 # CRESUM Decision Log
 
+## Bodyweight Step-up selected Male pair — 2026-11-03
+
+User selected reference pose 2 as START and pose 3 as FINISH (left-to-right)
+and approved r1 `exec-e5a982bc-3fa5-4932-96a9-d6d7e3b31270.png`.
+LEFT one whole foot on step/trailing foot on floor START; RIGHT tall standing
+with both feet on platform FINISH. Preserve natural head rise, common scale
+and platform framing; do not independently resize/translate phases to align heads.
+Bind only `bodyweight-step-up` / Male via shared phase/anatomy viewers.
+Preserve unloaded equipment, each-lead-side guide/perSide contract, stable ID
+and History, quadriceps/glutes Primary and hamstrings Secondary. Exact 887-square
+RGB WebP92/method6 half-sheet crops, shared contain; no retouch, resampling,
+padding or independent transforms. Retain original, exact prompt and actual
+movement/Male Master hashes. User-selected-provisional: exact platform height,
+foot contact, knee alignment, camera registration and device/accessibility QA
+remain open. No new source review or muscle-role change. Oracle archive remains
+pending/unverified. Coverage after integration: 67 Male pairs / 134 frames across
+70 catalog records. Next: Dumbbell Floor Glute Bridge.
+
 ## Standing Cable Anti-rotation Press selected Male pair — 2026-11-03
 
 User approved r2 `exec-bb64b703-43a5-46b7-aafd-2b4b0b2e0f35.png` after
