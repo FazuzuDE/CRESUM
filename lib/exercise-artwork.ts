@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'leg-press': {
+    start: require('../assets/exercises/leg-press/female/start.webp'),
+    finish: require('../assets/exercises/leg-press/female/finish.webp'),
+  },
   'goblet-squat': {
     start: require('../assets/exercises/goblet-squat/female/start.webp'),
     finish: require('../assets/exercises/goblet-squat/female/finish.webp'),

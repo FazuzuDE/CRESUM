@@ -2,9 +2,10 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-First deliver the shared character preference in welcome/Profile and integrate
-Female dumbbell Goblet Squat. Then generate, review and immediately integrate
-Female pairs exercise by exercise, beginning with Leg Press. Keep exact variant,
+Shared character preference in welcome/Profile and Female dumbbell Goblet Squat
+were merged in #176. Female Leg Press is now selected for integration; next is
+Female Leg Extension. Generate, review and immediately integrate each accepted
+pair. Keep exact variant,
 model and phase bindings and both existing Male files. Missing Female assets stay
 localized placeholders; do not wait for a complete set to integrate accepted pairs.
 No Oracle dependency or new cloud work is required for this rollout.

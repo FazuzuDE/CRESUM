@@ -15,6 +15,10 @@ jest.mock('../../assets/exercises/goblet-squat/female/start.webp', () => 201, {
 jest.mock('../../assets/exercises/goblet-squat/female/finish.webp', () => 202, {
   virtual: true,
 });
+jest.mock('../../assets/exercises/leg-press/start.webp', () => 301);
+jest.mock('../../assets/exercises/leg-press/finish.webp', () => 302);
+jest.mock('../../assets/exercises/leg-press/female/start.webp', () => 401);
+jest.mock('../../assets/exercises/leg-press/female/finish.webp', () => 402);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -22,44 +26,54 @@ jest.mock('react-native-safe-area-context', () => ({
   SafeAreaView: jest.requireActual('react-native').View,
 }));
 
-it('resolves female phases only for the approved dumbbell variant', () => {
+it('resolves female phases only for the approved exact variants', () => {
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'female')).toBe(201);
   expect(resolveExerciseArtwork('goblet-squat', 'finish', 'female')).toBe(202);
-  for (const id of ['kettlebell-goblet-squat', 'leg-press', 'unknown'])
+  expect(resolveExerciseArtwork('leg-press', 'start', 'female')).toBe(401);
+  expect(resolveExerciseArtwork('leg-press', 'finish', 'female')).toBe(402);
+  expect(resolveExerciseArtwork('leg-press', 'start', 'male')).toBe(301);
+  expect(resolveExerciseArtwork('leg-press', 'finish', 'male')).toBe(302);
+  for (const id of ['kettlebell-goblet-squat', 'leg-extension', 'unknown'])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
 });
 
-it('switches thumbnail, inline phase and fullscreen phase from the shared choice', async () => {
-  const render = (model: AssetModel) => (
-    <ExerciseCharacterProvider
-      value={{ model, saving: false, error: false, disabled: false }}
-    >
-      <ExerciseArtwork imageKey="goblet-squat" />
-      <TechniqueArtwork imageKey="goblet-squat" phase="FINISH" />
-      <TechniqueViewer
-        name="Goblet Squat"
-        imageKey="goblet-squat"
-        phase="START"
-        onPhase={() => {}}
-        onClose={() => {}}
-      />
-    </ExerciseCharacterProvider>
-  );
-  let view!: ReturnType<typeof create>;
-  await act(async () => {
-    view = create(render('male'));
-  });
-  const sources = () =>
-    view.root.findAllByType(Image).map((node: any) => node.props.source);
-  expect(sources()).toEqual([101, 102, 101]);
-  await act(async () => view.update(render('female')));
-  expect(sources()).toEqual([201, 202, 201]);
-  await act(async () => view.update(render('male')));
-  expect(sources()).toEqual([101, 102, 101]);
-  await act(async () => view.unmount());
-});
+it.each([
+  ['goblet-squat', [101, 102, 101], [201, 202, 201]],
+  ['leg-press', [301, 302, 301], [401, 402, 401]],
+] as const)(
+  'switches %s thumbnail, inline and fullscreen phases from the shared choice',
+  async (imageKey, maleSources, femaleSources) => {
+    const render = (model: AssetModel) => (
+      <ExerciseCharacterProvider
+        value={{ model, saving: false, error: false, disabled: false }}
+      >
+        <ExerciseArtwork imageKey={imageKey} />
+        <TechniqueArtwork imageKey={imageKey} phase="FINISH" />
+        <TechniqueViewer
+          name={imageKey}
+          imageKey={imageKey}
+          phase="START"
+          onPhase={() => {}}
+          onClose={() => {}}
+        />
+      </ExerciseCharacterProvider>
+    );
+    let view!: ReturnType<typeof create>;
+    await act(async () => {
+      view = create(render('male'));
+    });
+    const sources = () =>
+      view.root.findAllByType(Image).map((node: any) => node.props.source);
+    expect(sources()).toEqual(maleSources);
+    await act(async () => view.update(render('female')));
+    expect(sources()).toEqual(femaleSources);
+    await act(async () => view.update(render('male')));
+    expect(sources()).toEqual(maleSources);
+    await act(async () => view.unmount());
+  },
+);
 
 it('shows a female pending placeholder instead of a male image', async () => {
   let view!: ReturnType<typeof create>;
@@ -73,8 +87,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="leg-press" />
-        <TechniqueArtwork imageKey="leg-press" phase="START" />
+        <ExerciseArtwork imageKey="leg-extension" />
+        <TechniqueArtwork imageKey="leg-extension" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });

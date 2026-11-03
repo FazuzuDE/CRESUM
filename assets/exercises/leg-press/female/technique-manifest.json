@@ -1,0 +1,47 @@
+{
+  "variantId": "leg-press",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "b13cd81280587470e6710fea8ee1c0fb40206cb91222a034a418c0ff7c5b6807",
+      "bytes": 85284,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "8d16d9bc243c56969c58cfcc1b28f10c1c775f0679a1fd4bba72a9e32580a091",
+      "bytes": 77756,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "Жим ногами: старт и финиш.png",
+    "sourceLibraryFileId": "libfile_cfd637d96434819195196a52391d1531",
+    "sourceSha256": "1ac3e86fc457f5287fae73c9f845c0e4bfe97f741d94af90e604828b58e4f6db",
+    "sourceBytes": 1827280,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "provenanceStatus": "Original selected PNG recovered; exact generation call and actual reference inputs unavailable in this resumed session. Do not reconstruct an original prompt or assert references were supplied."
+  },
+  "productionChoice": "LEFT extended START / RIGHT bent FINISH, matching existing Male phase semantics. Inclined plate-loaded example does not narrow the generic leg-press identity. Keep quadriceps/glutes Primary and hamstrings/adductors Secondary.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, resampling, padding or independent phase transforms.",
+  "reviewScope": "User approved selected pair. Broad identity, outfit, materials and phase distinction reviewed. Fixed-frame and rail registration visibly differs across panels; exact rigid registration is not achieved. Precise foot/handle/back/pelvis contacts, knee extension/depth, machine mechanics and physical-device/accessibility acceptance are not independently certified. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Selected original remains in native persistent source and local references for cumulative end-of-block checkpoint. Exact prompt and actual generation references missing; no verified PC/Oracle backup."
+}

@@ -1,5 +1,24 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Leg Press selected pair — 2026-11-03
+
+User approved `Жим ногами: старт и финиш.png`, native source
+`libfile_cfd637d96434819195196a52391d1531`. Integrate only `leg-press`/Female:
+LEFT extended START / RIGHT bent FINISH, matching existing Male phase semantics.
+Exact 887-square RGB WebP92/method6 halves with shared contain; no labels,
+resampling, padding, retouch or independent phase transforms. Preserve both Male
+files, existing generic identity, guide, muscles and History. The inclined
+plate-loaded illustration does not narrow the generic ID's meaning.
+
+Status is user-selected-provisional: fixed-frame/rail registration visibly differs
+between panels; exact contacts, knee extension/depth, machine mechanics and
+physical-device/accessibility QA remain open. Source/export hashes are recorded
+in `assets/exercises/leg-press/female/technique-manifest.json`. Exact historical
+imagegen prompt and actual input references were not recovered; record them as
+missing rather than reconstructing provenance. Original remains in its native
+persistent source; cumulative checkpoint pending and Oracle deferred/unverified.
+Runtime coverage: 68 Male pairs and two Female pairs. Next: Female Leg Extension.
+
 ## Female pilot and model-aware display — 2026-11-03
 
 User approved Female dumbbell Goblet Squat from paired original
@@ -27,8 +46,8 @@ first-slice prompt-builder production profile to other models or Anatomy mode.
 A shared preference now selects thumbnails, inline phases and fullscreen images.
 Female bindings contain complete exact-variant START/FINISH pairs. Absent Female
 pairs return null and show localized pending placeholders, never Male fallback.
-Current runtime coverage: 68 Male pairs plus one Female pair. Continue integrating
-each newly approved Female pair immediately; next exercise is Leg Press.
+Coverage at that integration: 68 Male pairs plus one Female pair. Continue
+integrating each newly approved Female pair immediately; next exercise was Leg Press.
 
 ## Pull-up silver-rack replacement — 2026-11-03
 

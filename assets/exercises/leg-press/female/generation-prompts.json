@@ -1,0 +1,9 @@
+{
+  "provider": "image_gen",
+  "status": "historical-call-unavailable",
+  "sourceLibraryFileId": "libfile_cfd637d96434819195196a52391d1531",
+  "prompt": null,
+  "referenced_image_paths": null,
+  "num_last_images_to_include": null,
+  "note": "The selected original was recovered from the previous chat. Exact original call and actual reference inputs were not recovered. These null fields mean unknown, not an assertion that no references were used. Do not label a reconstruction as the original prompt."
+}

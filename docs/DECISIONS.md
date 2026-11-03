@@ -1,5 +1,24 @@
 # CRESUM Decision Log
 
+## Female Leg Press selected pair — 2026-11-03
+
+User approved `Жим ногами: старт и финиш.png`, native source
+`libfile_cfd637d96434819195196a52391d1531`. Integrate only `leg-press`/Female:
+LEFT extended START / RIGHT bent FINISH, matching existing Male phase semantics.
+Exact 887-square RGB WebP92/method6 halves with shared contain; no labels,
+resampling, padding, retouch or independent phase transforms. Preserve both Male
+files, existing generic identity, guide, muscles and History. The inclined
+plate-loaded illustration does not narrow the generic ID's meaning.
+
+Status is user-selected-provisional: fixed-frame/rail registration visibly differs
+between panels; exact contacts, knee extension/depth, machine mechanics and
+physical-device/accessibility QA remain open. Source/export hashes are recorded
+in `assets/exercises/leg-press/female/technique-manifest.json`. Exact historical
+imagegen prompt and actual input references were not recovered; record them as
+missing rather than reconstructing provenance. Original remains in its native
+persistent source; cumulative checkpoint pending and Oracle deferred/unverified.
+Runtime coverage: 68 Male pairs and two Female pairs. Next: Female Leg Extension.
+
 ## 2026-11-03 — Exercise illustration character
 
 Approved by Ihor: choose Male/Female in one first-run welcome window and change it
