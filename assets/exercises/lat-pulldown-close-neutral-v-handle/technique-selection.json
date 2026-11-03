@@ -1,0 +1,39 @@
+{
+  "exerciseId": "lat-pulldown-close-neutral-v-handle",
+  "model": "male",
+  "selectedRevision": 2,
+  "selectionDate": "2026-11-03",
+  "status": "user-selected-pair",
+  "decision": "Merged. Утверждаю",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "e8fc1e00948623d3bb1c1153fda8f0c43559e92511b946b76ef2001d6f2281b8",
+      "bytes": 52652,
+      "sourceFile": "exec-b5aa94a7-091e-4d63-ae0c-30f4474b7858.png",
+      "sourceSha256": "7070b94cc6a2a302ce6aa90e95f77015ed0a96e348649b75219932f5cfa8df4b",
+      "sourceBytes": 1459197,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887,
+      "quality": 92,
+      "alpha": false
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "a1780e6be728783ddea824c0d8655cc1f6ff8d9425dfbb52b87184fb94dc2028",
+      "bytes": 51888,
+      "sourceFile": "exec-b5aa94a7-091e-4d63-ae0c-30f4474b7858.png",
+      "sourceSha256": "7070b94cc6a2a302ce6aa90e95f77015ed0a96e348649b75219932f5cfa8df4b",
+      "sourceBytes": 1459197,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887,
+      "quality": 92,
+      "alpha": false
+    }
+  },
+  "archiveStatus": "pending-upload"
+}
