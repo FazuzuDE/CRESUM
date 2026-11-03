@@ -1,5 +1,23 @@
 # CRESUM Design System v1.0
 
+## Reverse-grip Pulldown silver-frame replacement — 2026-11-03
+
+User approved `exec-cab5b068-bbf5-4e28-b881-d4203cada00e.png` after merging #170.
+Replace only existing Male reverse-grip phase files: LEFT overhead START / RIGHT
+bar-to-upper-chest FINISH, front three-quarter view. Exact 887-square RGB WebP92/
+method6 halves, shared contain, no labels/resampling/independent transforms.
+Preserve stable ID, guide, muscles, History and unrelated attachment thumbnails.
+The pictured inner-section supinated grip is a visual example, not a new canonical
+width/attachment qualifier. Retain dark-frame revision2 manifest, historical
+occlusion-repair exports, prior prompts and actual five-input provenance including
+Male Master. User-selected-provisional: detailed hand/wrist/grip, plate-count/
+selector continuity, registration and device/accessibility QA remain open.
+Review observed about 15 START plates versus 8 raised + 11 stationary FINISH
+plates, a selector-row shift and disappearing white holes. Retain selected bytes
+with this known limitation; prompted counts are not output certification. Oracle remains deferred;
+cumulative source checkpoint pending. Coverage remains 68 pairs / 136 frames.
+Next: close-neutral seated cable row with V-handle in silver equipment style.
+
 ## Wide-pronated Pulldown silver-frame replacement — 2026-11-03
 
 User approved repaired `exec-9800178c-486d-49d5-afdd-8679e0b3421f.png` after
