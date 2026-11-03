@@ -1,0 +1,37 @@
+{
+  "provider": "image_gen",
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/lying-leg-curl/start.webp",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/lying-leg-curl/finish.webp"
+  ],
+  "prompt": "Use case: original CRESUM instructional exercise illustration, identity-preserve. Make ONE wide 2:1 landscape sheet with exactly TWO equal square views side by side, seamless white background, no dividing line. Exercise: female PRONE LYING LEG CURL. Input 1 is the exact adult CRESUM Female Master, identity/outfit reference: same face, brown ponytail, natural athletic proportions, muted slate-blue short-sleeved T-shirt, charcoal full-length leggings, white socks and light gray sneakers. Inputs 2 and 3 define the existing machine, body support and two phases ONLY; use their silver frame, dark pads and correct motion, replace the man with that woman. Head to image LEFT, feet to RIGHT, same side three-quarter camera. She lies face down with chest, abdomen, pelvis and thighs supported on angled black padded prone leg-curl bench; neutral neck, no lifting hips, both hands securely wrap the two front handles. Knees slightly beyond bench edge aligned with lever pivot. One transverse padded roller rests across BACKS of lower shins just above heels/ankles, never soles or backs of knees. LEFT START: both knees nearly straight, lower legs extend down and away following bench angle, roller lowered. RIGHT FINISH: curl both knees to approximately 90-110 degrees, heels toward buttocks, roller rises with lower legs around a coherent fixed knee-aligned lever pivot; thighs/pelvis stay on pad, torso and grip stay fixed. Exactly two anatomically correct legs, feet, hands; clear paired shin/roller contact and consistent footwear. Visible selectorized tower behind bench has same fixed outline and plate count both phases: START load rests, FINISH selected upper load group visibly rises on guide rods with gap above stationary lower plates. Keep selector in same plate, never move entire stack/tower or change total plates. Machine must remain mechanically coherent, same fixed bench/frame/pivot/tower coordinates in each square; only lower legs, moving lever/roller and selected plates move. Same orthographic camera, character scale, generous balanced framing and floor baseline; entire head, shoes and machine fit with small safe margins in BOTH equal squares, same size equipment. Clean premium realistic 3D CRESUM style, consistent skin/fabric/material colors, satin light-silver frame, matte charcoal upholstery and roller, soft studio lighting and contact shadows. No text, labels, letters, START/FINISH captions, arrows, logos, watermarks, muscle highlights, frames or panel dividers. Generate START and FINISH together.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514,
+      "role": "Female Master identity, proportions and outfit"
+    },
+    {
+      "file": "assets/exercises/lying-leg-curl/start.webp",
+      "sha256": "9193f4a2a87038cbe02bc05ada93fe8751e408f206f31349471f8af7982ad2a4",
+      "bytes": 42892,
+      "role": "Existing Male Lying Leg Curl machine/setup and START only"
+    },
+    {
+      "file": "assets/exercises/lying-leg-curl/finish.webp",
+      "sha256": "1da29c61236f974b42b04626a882a80564145d2724537049ccb7dda95adc73d4",
+      "bytes": 46374,
+      "role": "Existing Male Lying Leg Curl machine/setup and FINISH only"
+    }
+  ],
+  "output": {
+    "file": "exec-2da36cbf-5b42-43c4-954c-422cb1f72504.png",
+    "sha256": "8fc4776bd4aff998b4e72ac9f19455e71a20e3d0b939a98ece8245508f2c89b4",
+    "bytes": 1452458,
+    "libraryFileId": "libfile_99d34828d8248191be94784f0fb4f0c6",
+    "size": [1774, 887]
+  }
+}

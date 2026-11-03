@@ -1048,7 +1048,6 @@ it('keeps Smith Squat Female and attachment fallbacks', () => {
 it.each([
   'dumbbell-reverse-lunge',
   'bulgarian-split-squat',
-  'lying-leg-curl',
   'dumbbell-romanian-deadlift',
   'barbell-hip-thrust',
   'cable-glute-kickback',
@@ -1325,4 +1324,8 @@ it('binds selected Male floor bridge phases and preserves floor-supported guidan
 
 it('keeps Leg Extension attachment fallback', () => {
   expect(resolveAttachmentArtwork('leg-extension')).toBeNull();
+});
+
+it('keeps Lying Leg Curl attachment fallback', () => {
+  expect(resolveAttachmentArtwork('lying-leg-curl')).toBeNull();
 });
