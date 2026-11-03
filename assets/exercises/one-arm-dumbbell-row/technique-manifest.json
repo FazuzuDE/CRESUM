@@ -2,58 +2,67 @@
   "variantId": "one-arm-dumbbell-row",
   "model": "male",
   "visualMode": "technique",
-  "revision": 1,
-  "selectionDate": "2026-10-27",
+  "revision": 2,
+  "selectionDate": "2026-11-03",
   "status": "user-selected-provisional",
   "archiveStatus": "pending-upload",
   "assets": {
     "start": {
       "file": "start.webp",
-      "sourceFile": "exec-95a68ba8-a079-464f-880f-7e9c18095bb8.png",
-      "sourceSha256": "84a0cbdf5bd6c285098f1c2af9b1a6a9a34cfa236548b98e17f5b811d3c1170b",
-      "sourceSize": [1536, 1024],
-      "sourceBytes": 1420454,
-      "sha256": "7072425b2d1ade0f475de6041f8ace634b7f5276ad956be5f4578f5822ab3410",
-      "width": 1280,
-      "height": 853,
-      "bytes": 53884,
+      "sha256": "fc344c65ee6e74d7abb804e85331d26f5bfdd7613d42d8d325f379929f21582f",
+      "bytes": 57544,
+      "sourceFile": "exec-28d9d392-a3e0-44b9-b3c3-98390e4802b5.png",
+      "sourceSha256": "0d490b7a4141c81d53eef48d63a39209ff5a30f07df5c80a852775a985e68f7c",
+      "sourceBytes": 1575391,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887,
       "quality": 92,
       "method": 6
     },
     "finish": {
       "file": "finish.webp",
-      "sourceFile": "exec-e6e3ec40-e3c7-4c97-9958-b653749d6eda.png",
-      "sourceSha256": "e0946f3d9dd3071ebaf46a7146edf4e5e96d82eb799ba0529ad5296fb368f541",
-      "sourceSize": [1536, 1024],
-      "sourceBytes": 1662287,
-      "sha256": "6d053474d21e368397e3b33e6808a391cdd95d9c3834a039551adc31d8858f85",
-      "width": 1280,
-      "height": 853,
-      "bytes": 53482,
+      "sha256": "d2741f6fa0492e65cb8ba051039e3e917ae6f0be2e5c1fdc3284da70485d837b",
+      "bytes": 53118,
+      "sourceFile": "exec-28d9d392-a3e0-44b9-b3c3-98390e4802b5.png",
+      "sourceSha256": "0d490b7a4141c81d53eef48d63a39209ff5a30f07df5c80a852775a985e68f7c",
+      "sourceBytes": 1575391,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887,
       "quality": 92,
       "method": 6
     }
   },
   "generation": {
-    "tool": "built-in image_gen",
-    "promptFiles": ["start-prompt.json", "finish-prompt.json"],
-    "sourceRetention": "Original generated PNGs remain in the conversation. Repository retains selected WebP exports and exact prompts/reference provenance. Oracle archive upload remains deferred."
+    "tool": "image_gen.imagegen",
+    "promptFile": "generation-prompts-light-r2.json",
+    "actualReferenceCommit": "46707e9969948c464b15a60442ffa5a2158acc05",
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "output": {
+      "file": "exec-28d9d392-a3e0-44b9-b3c3-98390e4802b5.png",
+      "sha256": "0d490b7a4141c81d53eef48d63a39209ff5a30f07df5c80a852775a985e68f7c",
+      "bytes": 1575391
+    }
   },
-  "productionChoice": "Bench-supported right-arm row: left hand and knee on one flat bench, right foot on floor, closed neutral grip; existing catalog identity, technique, muscle mapping and History are unchanged. No new equipment-thumbnail binding.",
-  "reviewScope": "User selected both phases. Assistant compared the exact full frames and 350px-wide previews for support contacts, pose/load path, identity and materials. This visual review is not independent biomechanics/anatomy QA, automated tracker approval or native-device acceptance. Original PNGs and prompts remain in the conversation; selected WebPs and provenance are retained in Git.",
+  "productionChoice": "Bench-supported row using the near-side arm; far-side palm and knee support the body, near-side foot on floor. Prompt intended right-arm working/left support, but anatomical laterality is not visually verified; preserve selected pose, existing guide and stable identity without mirroring or data changes.",
+  "reviewScope": "User approved the silver-bench pair. Broad near-arm row phase difference, far-side palm/knee support, planted near-side foot, Master/material continuity and full-frame/phone-size fit reviewed. Prompted right/left assignment is not verified and the view may read oppositely. Detailed support/grip anatomy, rigid registration and native-device/accessibility acceptance remain provisional; not automated tracker certification.",
   "openReview": [
-    "Independent detailed hand/anatomy and biomechanical review remains open.",
-    "Physical-phone readability and native-device acceptance remain unverified."
+    "Anatomical laterality is unresolved: prompt says right working arm/left support; visible pose shows near arm working and far palm/knee support and may read oppositely. No verified right/left claim or source mirroring.",
+    "Detailed hand/wrist and left-palm/knee contact anatomy remain provisional.",
+    "Exact rigid bench/body registration and native-device/accessibility readability remain unverified."
   ],
   "export": {
     "format": "WebP",
     "mode": "RGB",
-    "resize": "Pillow thumbnail",
-    "maxWidth": 1280,
-    "maxHeight": 1280,
-    "resampling": "LANCZOS",
     "quality": 92,
     "method": 6,
-    "pillowVersion": "12.3.0"
-  }
+    "resampling": "none"
+  },
+  "userDecision": "Merged. Утверждаю",
+  "supersedes": "technique-manifest-dark-frame-r1.json",
+  "presentation": "Exact 887-square LEFT START / RIGHT FINISH half-sheet crops, RGB WebP92/method6; shared contain, no resampling, padding or independent phase transforms.",
+  "sourceRetention": "Selected Library-backed original, actual four-input hashes and exact prompt retained for cumulative source checkpoint. Previous manifest/prompts and Git history preserved. Oracle/PC backup unverified."
 }

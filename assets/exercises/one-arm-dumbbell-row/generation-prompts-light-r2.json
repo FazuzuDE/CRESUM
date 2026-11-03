@@ -1,0 +1,44 @@
+{
+  "exerciseCandidate": "one-arm-dumbbell-row",
+  "revision": 2,
+  "tool": "image_gen.imagegen",
+  "prompt": "Create CRESUM ONE-ARM DUMBBELL ROW with flat-bench support, silver-frame style, as ONE wide 2:1 white image with exactly TWO equal square halves: LEFT START right arm down, RIGHT FINISH right elbow drawn back with dumbbell near right hip/lower ribs. Input1 and input2 are the exact existing approved START and FINISH targets: preserve their movement, the same man, flat bench geometry, support contact and right-arm working side. Input3 is authoritative actual Male Master for face/hair, natural athletic proportions, muted blue-gray fitted T-shirt, charcoal shorts, visible white socks and light-gray trainers. Input4 is the accepted silver-frame seated-row sheet ONLY for satin light silver metal and clean rendering/style, not machine geometry. Recolor ONLY the flat bench's structural metal legs, crossmembers, underside supports and base rails from black to satin LIGHT SILVER-GRAY; keep bench cushion dark graphite matte, rubber floor feet dark and dumbbell heads black with short chrome handle. No cable towers, handles, footplates, extra dumbbells or other gym apparatus. Exactly same scale, camera side-three-quarter on working RIGHT side, bench position, seated support envelope and body proportions across two panels. Head points image-left and hips image-right, head/torso angle stays fixed, eyes naturally toward floor. LEFT palm flat on bench under left shoulder, LEFT knee and shin on bench under left hip, RIGHT foot planted firmly on floor beside bench; keep all these supports the same in both phases. Torso braced near horizontal with neutral spine and square level hips/shoulders, no rotation, exaggerated hunch or torso rise. START right arm extended down under shoulder, right hand closed around dumbbell grip, wrist straight, dumbbell suspended clear of floor. FINISH drive right elbow back close beside torso, dumbbell up toward right hip/lower ribs, same neutral grip, elbow naturally bent; no shrug or lifting torso to fake motion. Both hands anatomically plausible with natural thumb opposition and five digits. Entire athlete including head, both hands, both knees/shoes, whole flat bench and dumbbell fit each square at equal large scale with narrow white margins. Frame has identical rigid geometry, pad height, rubber feet and metal finish in both halves. Use available square area efficiently; no tiny strip in excessive whitespace. Same face identity/outfit proportions as Master, clean uniform natural skin and matte fabric, smooth continuous satin silver metal, restrained highlights, soft neutral studio illumination and natural contact shadows. Pure uninterrupted white background, NO divider lines, page border, text, labels, gray pills, arrows, logos, watermarks, muscle overlays or insets. Do not copy any cable machine from style reference. Exactly two distinct phases of one right-arm row, same setup and body geometry.",
+  "references": [
+    {
+      "file": "start.webp",
+      "sha256": "7072425b2d1ade0f475de6041f8ace634b7f5276ad956be5f4578f5822ab3410",
+      "bytes": 53884,
+      "repositoryPath": "assets/exercises/one-arm-dumbbell-row/start.webp",
+      "repositoryCommit": "46707e9969948c464b15a60442ffa5a2158acc05"
+    },
+    {
+      "file": "finish.webp",
+      "sha256": "6d053474d21e368397e3b33e6808a391cdd95d9c3834a039551adc31d8858f85",
+      "bytes": 53482,
+      "repositoryPath": "assets/exercises/one-arm-dumbbell-row/finish.webp",
+      "repositoryCommit": "46707e9969948c464b15a60442ffa5a2158acc05"
+    },
+    {
+      "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+      "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+      "bytes": 325046
+    },
+    {
+      "file": "exec-730a8d8a-3b7f-4c10-a8d0-f95d4377f57e.png",
+      "sha256": "36c4577286db20a8a6c78486f325f188034c38edc3f38155ed19357ac9e2a3a8",
+      "bytes": 1386355
+    }
+  ],
+  "output": {
+    "file": "exec-28d9d392-a3e0-44b9-b3c3-98390e4802b5.png",
+    "sha256": "0d490b7a4141c81d53eef48d63a39209ff5a30f07df5c80a852775a985e68f7c",
+    "bytes": 1575391,
+    "libraryFileId": "libfile_78ca3a2ab3d08191a2659dbf68b7bfa3",
+    "size": [1774, 887]
+  },
+  "phaseOrder": {
+    "left": "start",
+    "right": "finish"
+  },
+  "promptConstraintBoundary": "Exact prompt retained including intended right-arm/left-support wording. Visible near/far supports were reviewed separately; anatomical right/left is not certified."
+}
