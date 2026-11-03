@@ -1,29 +1,37 @@
 {
   "variantId": "seated-cable-row-close-neutral-v-handle",
   "model": "male",
-  "selectionDate": "2026-10-27",
+  "selectedRevision": 2,
+  "selectionDate": "2026-11-03",
   "status": "user-selected-pair",
-  "userDecision": "Да утверждаю",
+  "userDecision": "Merged, утверждаю",
   "archiveStatus": "pending-upload",
   "assets": {
     "start": {
       "file": "start.webp",
-      "sourceFile": "exec-a9d48407-5090-4a34-834a-5b46cf89c338.png",
-      "sourceSha256": "5f32853aeea7d7d347d70415e991bd4209485de3c2ba223ae22e643fc8aea4d9",
-      "sha256": "7f08081f16091d36bd03d3d359f51ce88f202980983d99912e7c0039c4ac4cd2",
-      "width": 1280,
-      "height": 853,
+      "sha256": "c96753d53312479926c7e4837ae11734db26ed7e93d0bd8bb279f477d8e16ee8",
+      "bytes": 42146,
+      "sourceFile": "exec-730a8d8a-3b7f-4c10-a8d0-f95d4377f57e.png",
+      "sourceSha256": "36c4577286db20a8a6c78486f325f188034c38edc3f38155ed19357ac9e2a3a8",
+      "sourceBytes": 1386355,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887,
       "quality": 92
     },
     "finish": {
       "file": "finish.webp",
-      "sourceFile": "exec-3967f155-7f60-4164-b6be-28dab000ded7.png",
-      "sourceSha256": "3305da3a6ea7cee5e4a6da35afc0eb1ab8730878e593005dd9a46587f1fafa99",
-      "sha256": "aef7b67d3002d89f5b9d18e80c510dedfd0da22a1073ba3da534a6596097a486",
-      "width": 1280,
-      "height": 853,
+      "sha256": "59aeb79ce96c81d3fe0bd3ed29430f63cdbe70753c9aba48c41573a56394b347",
+      "bytes": 41778,
+      "sourceFile": "exec-730a8d8a-3b7f-4c10-a8d0-f95d4377f57e.png",
+      "sourceSha256": "36c4577286db20a8a6c78486f325f188034c38edc3f38155ed19357ac9e2a3a8",
+      "sourceBytes": 1386355,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887,
       "quality": 92
     }
-  },
-  "reviewScope": "User accepted the corrected START/FINISH pair after the extra unheld central post was removed in both frames. Assistant compared support, cable continuity, identity and materials at full-frame size. This is visual selection, not independent anatomy or automated tracker certification."
+  }
 }

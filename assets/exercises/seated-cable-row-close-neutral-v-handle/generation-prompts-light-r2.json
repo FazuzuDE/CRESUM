@@ -1,0 +1,50 @@
+{
+  "exerciseCandidate": "seated-cable-row-close-neutral-v-handle",
+  "revision": 2,
+  "tool": "image_gen.imagegen",
+  "prompt": "Create CRESUM SEATED LOW CABLE ROW WITH CLOSE NEUTRAL V-HANDLE, Male, light-silver equipment style, as one 2:1 wide image containing exactly TWO equal square panels: LEFT START arms extended toward low pulley, RIGHT FINISH V-handle pulled to lower ribs/upper abdomen. Reference1 and reference2 are the exact EXISTING SEATED ROW exercise START/FINISH edit targets: preserve THIS low cable row machine, long flat bench, foot supports, same scale and movement, NOT a lat-pulldown machine. Reference3 is actual Male Master for face/hair, athletic natural body proportions, muted blue-gray shirt, charcoal shorts, white socks, light gray trainers and consistent clean materials. Reference4 is only satin silver-gray equipment material/style reference. Reference5 is approved silver reverse-pulldown character/material style ONLY, do not transfer its overhead beam/bar/pulleys or movement. Recolor existing machine's structural frame, bench legs, floor base and footplate supports to satin LIGHT SILVER-GRAY; retain deep graphite weight tower enclosure, dark matte bench cushion, rubber feet/grips, chrome V-handle and taut dark cable. Match premium smooth restrained metal highlights. Retain the original low side pulley and correct straight cable route to center eye/carabiner of the SAME chrome V-handle in both phases. This is a low horizontal row, NO overhead beam, overhead pulley, thigh rollers or lat bar. Full bench, tower, footplates, entire athlete and both shoes fit each equal square panel as large as possible with safe narrow margins. Fixed camera side-three-quarter view that clearly shows elbow bend and closed neutral hand contact. Exactly same torso/body SCALE, seated hip location, machine/base/bench position, both planted feet and camera between phases. Slight comfortable knee bend remains constant, both feet supported on inclined plates, pelvis stays seated. START torso tall with small natural forward reach from shoulders and nearly straight arms, no rounded exaggerated lumbar flexion. FINISH elbows travel back close to sides and V-handle reaches upper abdomen/lower ribs, shoulders naturally back/down; torso remains stable with only slight natural lean, no extreme recline, shrugging, or elbow hyperextension. Both palms FACE EACH OTHER on the two separate parallel cylindrical grips of a rigid compact V-handle, full finger/thumb closure, neutral wrists, plausible five digits. Keep one central cable attachment BETWEEN hands, no extra unheld protruding handle or center post. Do not shorten bench or move feet to fake the pull. Same tower enclosures and fixed guide geometry across panels; conceal stack behind its existing opaque shroud, do not invent a transparent opening or imply that hidden plate motion is visually certified. Consistent Male Master face/outfit/skin and clean matte fabric, no blotches or deformed joints. White studio background, soft neutral light, natural contact shadows, premium semi-realistic 3D original exercise illustration. No words, START/FINISH labels, gray pills, arrows, anatomical overlays, logo, branding, watermark, border, inset, duplicate limbs or extra phases.",
+  "references": [
+    {
+      "file": "start.webp",
+      "sha256": "7f08081f16091d36bd03d3d359f51ce88f202980983d99912e7c0039c4ac4cd2",
+      "bytes": 59346,
+      "repositoryPath": "assets/exercises/seated-cable-row-close-neutral-v-handle/start.webp",
+      "repositoryCommit": "1acf2ffaa1a55d613ee89e5133ec82f91a5a62d2"
+    },
+    {
+      "file": "finish.webp",
+      "sha256": "aef7b67d3002d89f5b9d18e80c510dedfd0da22a1073ba3da534a6596097a486",
+      "bytes": 56620,
+      "repositoryPath": "assets/exercises/seated-cable-row-close-neutral-v-handle/finish.webp",
+      "repositoryCommit": "1acf2ffaa1a55d613ee89e5133ec82f91a5a62d2"
+    },
+    {
+      "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+      "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+      "bytes": 325046
+    },
+    {
+      "file": "pulldown-ref-2.webp",
+      "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+      "bytes": 42162,
+      "repositoryPath": "assets/visual-references/equipment-style-v1/reference.webp",
+      "repositoryCommit": "1acf2ffaa1a55d613ee89e5133ec82f91a5a62d2"
+    },
+    {
+      "file": "exec-cab5b068-bbf5-4e28-b881-d4203cada00e.png",
+      "sha256": "35e13f643dac9e82349e2fa01d536ac1e318a87d4dca3b509c87a19c897d7f65",
+      "bytes": 1540006
+    }
+  ],
+  "output": {
+    "file": "exec-730a8d8a-3b7f-4c10-a8d0-f95d4377f57e.png",
+    "sha256": "36c4577286db20a8a6c78486f325f188034c38edc3f38155ed19357ac9e2a3a8",
+    "bytes": 1386355,
+    "libraryFileId": "libfile_c1abfe1426cc8191be7a3776e281b049",
+    "size": [1774, 887]
+  },
+  "phaseOrder": {
+    "left": "start",
+    "right": "finish"
+  }
+}
