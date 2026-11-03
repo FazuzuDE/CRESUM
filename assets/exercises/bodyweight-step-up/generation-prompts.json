@@ -1,0 +1,32 @@
+{
+  "exerciseCandidate": "bodyweight-step-up",
+  "revision": 1,
+  "status": "user-selected-pair",
+  "tool": "image_gen.imagegen",
+  "prompt": "Create original CRESUM BODYWEIGHT STEP-UP paired exercise illustration. Exactly TWO full-body phases side by side in equal square halves of one wide 2:1 pure-white canvas. Input1 is movement reference ONLY: user specifically chooses its SECOND pose as START and THIRD pose as FINISH, counting left to right. Do NOT use pose1 or pose4. Input2 is LOCKED Male Master identity, proportions, face/hair, clothing and materials: natural athletic brown-haired clean-shaven man, muted blue-gray T-shirt, charcoal shorts, white visible training socks, light-gray trainers. Same exact man and clothing in both halves, softly shaded clean realistic 3D fitness-app render, uniform matte fabric and natural skin, no anatomical coloring. Camera clear SIDE THREE-QUARTER, facing image-right so both feet, lead knee and step contact are readable. LEFT START matching reference pose2: lead foot fully planted on top of a stable low step platform, whole sole including heel supported; lead knee bent naturally over foot, trailing foot still on floor behind platform, torso mostly upright with slight natural forward inclination from hips, arms relaxed down beside body, no weights. RIGHT FINISH matching reference pose3: man has stepped fully up and stands tall with BOTH feet flat on top of the SAME platform side by side, both hips and knees extended naturally without hyperextension, pelvis level, arms relaxed down. No knee drive, no dangling trailing leg, no heel raise, no jump, no external weights. Platform compact professional aerobic step bench about 20 centimeters high, textured charcoal non-slip rectangular top and light-gray end supports with black stable riser bases. Top is broad/deep enough for both full shoes, no overhanging heels or toes, no collapsed or deformed platform. Identical platform geometry, height, top dimensions, color, ground position and perspective in both panels. Important registration: same ground-plane baseline for both platforms, same camera and man body SCALE, same lens and distance. At FINISH head and hips are naturally HIGHER by the step height than at START; do not shrink or vertically reposition man to align the two heads. Frame BOTH using a common camera window tall enough for FINISH head and floor-start trailing shoe. Full head, arms, all shoes and entire platform fit inside each square with narrow safe margins; fill space efficiently while keeping same scale. Natural contact shadows under shoes and platform. Hands and knee contours clearly visible, no extra limbs. White studio only, no black background from reference, text, arrows, labels, logos, watermark, borders or additional poses. LEFT start with one shoe up and other shoe on floor; RIGHT tall standing with both shoes flat on platform. Respect these exact selected movement phases and full-body differences.",
+  "referencedImages": [
+    {
+      "file": "01B78BD2-8A6E-4346-8852-02CA4799EF63.png",
+      "sha256": "0bcb1f796961238c85bd94e4a254a750550205cc3f352a934ae6e1306693aa07",
+      "bytes": 416987
+    },
+    {
+      "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+      "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+      "bytes": 325046
+    }
+  ],
+  "output": {
+    "file": "exec-e5a982bc-3fa5-4932-96a9-d6d7e3b31270.png",
+    "sha256": "1401b94afb9f5fb5ecb1679f150c72477dcfea6f5b9b901c4111c83a56fff5db",
+    "bytes": 1241536
+  },
+  "referencePhaseChoice": {
+    "start": 2,
+    "finish": 3
+  },
+  "phaseOrder": {
+    "left": "start",
+    "right": "finish"
+  }
+}

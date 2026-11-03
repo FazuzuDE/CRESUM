@@ -1,0 +1,68 @@
+{
+  "variantId": "bodyweight-step-up",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "3adc950127fd2ab20465c87263fb2d26d36c3d02bb2da40e1434a914e916cc94",
+      "bytes": 27920,
+      "sourceFile": "exec-e5a982bc-3fa5-4932-96a9-d6d7e3b31270.png",
+      "sourceSha256": "1401b94afb9f5fb5ecb1679f150c72477dcfea6f5b9b901c4111c83a56fff5db",
+      "sourceBytes": 1241536,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "11e893f402ca47dba02e8e101803de329bb6c443a3821dc8702f19b2b131cec7",
+      "bytes": 25934,
+      "sourceFile": "exec-e5a982bc-3fa5-4932-96a9-d6d7e3b31270.png",
+      "sourceSha256": "1401b94afb9f5fb5ecb1679f150c72477dcfea6f5b9b901c4111c83a56fff5db",
+      "sourceBytes": 1241536,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "01B78BD2-8A6E-4346-8852-02CA4799EF63.png",
+        "sha256": "0bcb1f796961238c85bd94e4a254a750550205cc3f352a934ae6e1306693aa07",
+        "bytes": 416987
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      }
+    ],
+    "output": {
+      "file": "exec-e5a982bc-3fa5-4932-96a9-d6d7e3b31270.png",
+      "sha256": "1401b94afb9f5fb5ecb1679f150c72477dcfea6f5b9b901c4111c83a56fff5db",
+      "bytes": 1241536,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User chose reference pose2 START: one whole foot on platform, trailing foot on floor; pose3 FINISH: tall standing with both feet on platform. Pair approved. Existing unloaded each-lead-side guide retained.",
+  "presentation": "Exact square half-sheet crops, shared contain; no retouch, resampling, padding or independent phase transforms. Natural head rise at FINISH is retained, not corrected by independent scaling or translation.",
+  "reviewScope": "Broad selected phase difference, common character/materials, platform and full-frame fit reviewed. Exact step height, foot contact, knee alignment, camera registration and physical-device/accessibility QA remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Actual inputs and generated output identified by hash; original PNG retained. Oracle upload deferred/unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "left/top inclusive, right/bottom exclusive"
+  }
+}
