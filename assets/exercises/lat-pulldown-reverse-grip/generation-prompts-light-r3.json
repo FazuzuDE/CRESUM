@@ -1,0 +1,51 @@
+{
+  "exerciseCandidate": "lat-pulldown-reverse-grip",
+  "revision": 3,
+  "tool": "image_gen.imagegen",
+  "prompt": "Create the next CRESUM silver-machine exercise preview: REVERSE-GRIP (SUPINATED) LAT PULLDOWN, Male. ONE wide 2:1 sheet with TWO equal square halves LEFT overhead START / RIGHT bar-at-upper-chest FINISH, no labels. Reference1 and reference2 are the existing exact reverse-grip START and FINISH and define the underhand grip mechanics, close-to-shoulder-width hand spacing on the straight middle bar section. Reference3 is actual CRESUM Male Master, authoritative face, short brown hair, clean-shaven appearance, natural athletic proportions, blue-gray fitted shirt, charcoal shorts, white socks and light-gray trainers. Reference4 is the approved front-three-quarter WIDE-grip silver pair used ONLY for silver machine, framing, camera/material continuity, not its wide overhand grip. Reference5 is equipment satin-silver material reference only. Show both phases with matching FRONT/SIDE THREE-QUARTER camera, enough side perspective to read palms and bar in FRONT OF upper chest, see face and chest rather than back. Use the same chrome lat bar as original reverse-grip targets, hands on straight inner sections approximately shoulder width, wrapped fingers beneath bar, thumbs opposed, palms turned TOWARD the athlete's face (true SUPINATION). Do not copy the outer-section wide pronated grip from reference4. Elbows point forward/up when overhead and down close beside ribs at finish; neutral wrists and natural elbow flexion with no impossible twisting. START arms raised nearly straight with a slight natural elbow bend; FINISH same bar down IN FRONT OF throat to upper sternum, no behind-neck route, no contact through chin/neck, upper chest gently lifted with small stable backward lean, head neutral, hips remain seated. Machine frame/base/upper beam satin light silver-gray, padding/pulleys/rubber feet/plates matte graphite; exposed stack, original machine type, thighs supported under rollers, both feet solid on floor. Cable taut from forward high pulley to one central carabiner at bar center, clear of face. Perfectly consistent machine registration, character proportions/scale, fixed camera, seat and feet across panels. Full apparatus, full body, hands, bar ends and shoes contained at equally large scale with narrow safe margins. Weight-stack continuity: START one intact 16-plate column, selector pin on 8th plate from top; FINISH same TOP EIGHT plates and pin visibly raised, exactly EIGHT stationary plates below, same plate slab thickness. Clean uniform natural skin, fine matte fabric, smooth metal, no blotchy patches. Premium semi-realistic 3D fitness-app illustration on pure white studio background, soft neutral light and contact shadows. No words, phase labels, gray pills, logos, arrows, muscle overlays, inset, borders or watermarks. No V-handle, no overhand grip, no behind-neck pulldown, no extra fingers/limbs. Exactly TWO distinct phases with consistent character and equipment.",
+  "references": [
+    {
+      "file": "start.webp",
+      "sha256": "eb51e0652fd55416e8cc17c8f5b0e0ee7e57aac841a8ffa3bac71a0081ab578c",
+      "bytes": 87578,
+      "repositoryPath": "assets/exercises/lat-pulldown-reverse-grip/start.webp",
+      "repositoryCommit": "df232599f207b67a625f24bb79b287c047700143"
+    },
+    {
+      "file": "finish.webp",
+      "sha256": "41f20b2ccbc0c6a176770f94b86b0bb3736de10560ef872d79c6908a53fd1020",
+      "bytes": 90524,
+      "repositoryPath": "assets/exercises/lat-pulldown-reverse-grip/finish.webp",
+      "repositoryCommit": "df232599f207b67a625f24bb79b287c047700143"
+    },
+    {
+      "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+      "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+      "bytes": 325046
+    },
+    {
+      "file": "exec-9800178c-486d-49d5-afdd-8679e0b3421f.png",
+      "sha256": "68762234ed498fd83d44fb85a561efd71f66b98fb4eee3c812172f6d214debd6",
+      "bytes": 1576947
+    },
+    {
+      "file": "pulldown-ref-2.webp",
+      "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+      "bytes": 42162,
+      "repositoryPath": "assets/visual-references/equipment-style-v1/reference.webp",
+      "repositoryCommit": "df232599f207b67a625f24bb79b287c047700143"
+    }
+  ],
+  "output": {
+    "file": "exec-cab5b068-bbf5-4e28-b881-d4203cada00e.png",
+    "sha256": "35e13f643dac9e82349e2fa01d536ac1e318a87d4dca3b509c87a19c897d7f65",
+    "bytes": 1540006,
+    "libraryFileId": "libfile_ac2bab650c8c819185ed4f1f86227c88",
+    "size": [1774, 887]
+  },
+  "phaseOrder": {
+    "left": "start",
+    "right": "finish"
+  },
+  "promptConstraintBoundary": "Requested counts/geometry are generation instructions, not proof of exact generated kinematics."
+}
