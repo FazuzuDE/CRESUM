@@ -1,0 +1,37 @@
+{
+  "provider": "image_gen",
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/seated-leg-curl/start.webp",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/seated-leg-curl/finish.webp"
+  ],
+  "prompt": "Original CRESUM exercise instruction illustration, locked identity. Create ONE wide 2:1 landscape sheet with TWO equal square views side by side, white studio background, no dividing line. Female SEATED LEG CURL, START LEFT / FINISH RIGHT, no text. Input 1 is the exact adult Female Master: preserve face, brown ponytail, natural athletic proportions, muted slate-blue fitted short-sleeved T-shirt, charcoal full-length leggings, white socks and light gray sneakers. Inputs 2 and 3 are approved existing machine/setup/phase references ONLY. Use the same light silver selectorized seated leg-curl archetype, matte black upholstery, thigh hold-down pad, front handles and single transverse roller. Replace the man with the exact woman, seat adjusted naturally for her. Torso reclined against backrest, pelvis and thighs supported, knee joint aligned with fixed machine lever pivot, thigh pad above knees restrains thighs, both hands securely wrap front handles. LEFT START: both knees nearly extended, lower legs forward near horizontal with slight soft bend; one roller supports backs of lower shins just above ankles. RIGHT FINISH: flex both knees together and pull lower legs down/back underneath seat to about ninety degrees or comfortable bend, roller follows posterior lower shins with coherent rigid lever rotating around knee-aligned pivot; feet remain free and clear of base. Torso, hips, thighs, thigh restraint and grips stay fixed. Same camera front-side three-quarter as machine reference, woman facing image LEFT-front. Keep machine frame, tower, seat, pivot, backrest and fixed thigh restraint exactly registered relative to each equal square, same camera scale and floor baseline. Visible tower behind/left of seat: START plates rest together; FINISH selected upper plate group clearly raised along guide rods with visible gap over stationary lower plates. Identical total plate count, selector choice and thickness across phases, no moving whole tower/stack. Only lower legs, attached moving roller/lever and selected load group move. Exactly two anatomically correct legs/feet/hands, no merged shoes, no duplicated rollers, no impossible frame intersections. Full woman and machine fit efficiently in BOTH squares with small safe margins; same equipment size, no cropping. Clean premium realistic 3D CRESUM rendering, consistent natural skin, matte fabric, restrained satin silver reflections, charcoal pads, soft studio lighting and contact shadows. No labels, text, letters, START/FINISH captions, arrows, logos, watermarks, frames, divider or muscle highlighting. Both phases generated together.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514,
+      "role": "Female Master identity, proportions and outfit"
+    },
+    {
+      "file": "assets/exercises/seated-leg-curl/start.webp",
+      "sha256": "6879e27d0c16bb9497a57fb435430167e8af1b035d8860bafbe481b743975c7a",
+      "bytes": 64324,
+      "role": "Existing Male Seated Leg Curl machine/setup and START only"
+    },
+    {
+      "file": "assets/exercises/seated-leg-curl/finish.webp",
+      "sha256": "87eefa362ce2d38140fcc1be7c4b696d980713f38d5184bf84151ac0425c82cb",
+      "bytes": 62876,
+      "role": "Existing Male Seated Leg Curl machine/setup and FINISH only"
+    }
+  ],
+  "output": {
+    "file": "exec-6d170ace-fc9e-4deb-bc5f-c3b4967aa2de.png",
+    "sha256": "9d00e9bf3c17a9861da59d9d4c031b3e00be646ceefc76e406621a71b6208b33",
+    "bytes": 1629486,
+    "libraryFileId": "libfile_19cd12453e6c8191b6dfe540789cc8a5",
+    "size": [1774, 887]
+  }
+}

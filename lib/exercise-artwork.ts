@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'seated-leg-curl': {
+    start: require('../assets/exercises/seated-leg-curl/female/start.webp'),
+    finish: require('../assets/exercises/seated-leg-curl/female/finish.webp'),
+  },
   'lying-leg-curl': {
     start: require('../assets/exercises/lying-leg-curl/female/start.webp'),
     finish: require('../assets/exercises/lying-leg-curl/female/finish.webp'),

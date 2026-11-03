@@ -1,5 +1,22 @@
 # CRESUM Decision Log
 
+## Female Seated Leg Curl selected pair — 2026-11-03
+
+User approved `exec-6d170ace-fc9e-4deb-bc5f-c3b4967aa2de.png`, native source
+`libfile_19cd12453e6c8191b6dfe540789cc8a5`. Integrate only `seated-leg-curl`/Female:
+LEFT near-extended START / RIGHT flexed FINISH with selected load raised.
+Exact 887-square RGB WebP92/method6 halves, shared contain; no labels, retouch,
+resampling, padding or independent phase transforms. Preserve Male and prone-curl
+files, seated guide, hamstrings Primary mapping, stable identity and History.
+
+Exact prompt and actual Female Master/Male machine-phase input hashes, original
+and exports are recorded in the Female manifest/prompt file. User-selected-
+provisional: detailed contacts, thigh restraint, roller/pivot path, knee range,
+rigid registration, plate/selector continuity and physical-device/accessibility QA
+remain open. Cumulative checkpoint pending, Oracle deferred/unverified. Coverage:
+68 Male pairs plus five Female pairs. Next: Female Dumbbell Romanian Deadlift,
+with its own pair approval before registration.
+
 ## Female Lying Leg Curl selected pair — 2026-11-03
 
 User approved `exec-2da36cbf-5b42-43c4-954c-422cb1f72504.png`, native source

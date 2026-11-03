@@ -30,6 +30,16 @@ jest.mock(
   '../../assets/exercises/lying-leg-curl/female/finish.webp',
   () => 802,
 );
+jest.mock('../../assets/exercises/seated-leg-curl/start.webp', () => 901);
+jest.mock('../../assets/exercises/seated-leg-curl/finish.webp', () => 902);
+jest.mock(
+  '../../assets/exercises/seated-leg-curl/female/start.webp',
+  () => 1001,
+);
+jest.mock(
+  '../../assets/exercises/seated-leg-curl/female/finish.webp',
+  () => 1002,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -54,7 +64,19 @@ it('resolves female phases only for the approved exact variants', () => {
   );
   expect(resolveExerciseArtwork('lying-leg-curl', 'start', 'male')).toBe(701);
   expect(resolveExerciseArtwork('lying-leg-curl', 'finish', 'male')).toBe(702);
-  for (const id of ['kettlebell-goblet-squat', 'seated-leg-curl', 'unknown'])
+  expect(resolveExerciseArtwork('seated-leg-curl', 'start', 'female')).toBe(
+    1001,
+  );
+  expect(resolveExerciseArtwork('seated-leg-curl', 'finish', 'female')).toBe(
+    1002,
+  );
+  expect(resolveExerciseArtwork('seated-leg-curl', 'start', 'male')).toBe(901);
+  expect(resolveExerciseArtwork('seated-leg-curl', 'finish', 'male')).toBe(902);
+  for (const id of [
+    'kettlebell-goblet-squat',
+    'dumbbell-romanian-deadlift',
+    'unknown',
+  ])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -65,6 +87,7 @@ it.each([
   ['leg-press', [301, 302, 301], [401, 402, 401]],
   ['leg-extension', [501, 502, 501], [601, 602, 601]],
   ['lying-leg-curl', [701, 702, 701], [801, 802, 801]],
+  ['seated-leg-curl', [901, 902, 901], [1001, 1002, 1001]],
 ] as const)(
   'switches %s thumbnail, inline and fullscreen phases from the shared choice',
   async (imageKey, maleSources, femaleSources) => {
@@ -110,8 +133,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="seated-leg-curl" />
-        <TechniqueArtwork imageKey="seated-leg-curl" phase="START" />
+        <ExerciseArtwork imageKey="dumbbell-romanian-deadlift" />
+        <TechniqueArtwork imageKey="dumbbell-romanian-deadlift" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });
