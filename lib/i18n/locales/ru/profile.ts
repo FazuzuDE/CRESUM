@@ -1,4 +1,16 @@
 export default {
+  'character.pendingShort': 'Готовится',
+  'character.title': 'Персонаж упражнений',
+  'character.description':
+    'Выберите персонажа для иллюстраций упражнений. Его можно изменить в профиле в любое время.',
+  'character.male': 'Мужской',
+  'character.female': 'Женский',
+  'character.saving': 'Сохраняем персонажа…',
+  'character.saveError':
+    'Не удалось сохранить персонажа. Предыдущий выбор сохранён. Повторите попытку.',
+  'character.retry': 'Повторить выбор персонажа',
+  'character.femalePending': 'Женская иллюстрация готовится',
+
   'error.resetIncomplete':
     'Не удалось сбросить локальные данные, восстановление не завершено. Оставьте приложение открытым и повторите попытку.',
   'error.resetRecovered':

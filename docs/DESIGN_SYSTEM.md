@@ -1,5 +1,17 @@
 # CRESUM Design System v1.0
 
+## Exercise character selector — approved 2026-11-03
+
+Use a two-choice Male / Female selector in Profile and a welcome step after name
+entry, before optional body details. Welcome shows both characters using the exact
+Goblet Squat START images. Explain that this selects exercise illustrations and
+can be changed in Profile. Require an explicit choice for the new welcome step;
+show selected and disabled/saving/error/retry states with accessible native buttons.
+Reuse existing typography, spacing, surfaces and touch targets. Apply the choice
+consistently to compact, inline and fullscreen exercise artwork; never stretch
+images or substitute the opposite model. Existing anatomical muscle maps remain
+a separate visualization; this feature selects exercise technique artwork.
+
 ## Pull-up silver-rack replacement — 2026-11-03
 
 User approved `exec-5225ada9-1b5a-41b6-8fef-084f5f8020e5.png` after merging #174.

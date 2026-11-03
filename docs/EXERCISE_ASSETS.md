@@ -1,5 +1,35 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female pilot and model-aware display — 2026-11-03
+
+User approved Female dumbbell Goblet Squat from paired original
+`exec-3f9ed3d6-ecc0-4ea1-9d8e-57ac2a8bf2b9.png` (1536 × 1024), native source
+`libfile_783825b865a88191b948a87c7a436866`. Export exact LEFT START / RIGHT bottom
+FINISH 768 × 1024 halves as RGB WebP92/method6, without resampling, padding,
+retouch or independent phase transforms. Register only `goblet-squat`/Female;
+never reuse for `kettlebell-goblet-squat`. Keep Male files and guide/muscles/IDs.
+Source, export and reference hashes and the exact original prompt are recorded in
+`assets/exercises/goblet-squat/female/technique-manifest.json` and its prompt file.
+Original/reference remain in their native persistent files; cumulative source ZIP
+is pending and Oracle deferred, not verified.
+
+The actual Female turnaround `Поворотный лист атлетки CRESUM.png`, native reference
+`libfile_cb3c34a9e5b88191b033d996d6f689de`, grounds this pilot's identity, brown
+ponytail, muted slate-blue T-shirt, charcoal leggings, white socks and gray shoes.
+Its exact original is retained at `assets/exercise-models/female-master-r1/reference.png`
+with generation provenance in the adjacent manifest. Preserve this reference and
+paired material/proportion continuity for subsequent
+Female illustrations. Status remains user-selected-provisional: detailed palm
+contact, exact squat depth/registration and physical-device/accessibility acceptance
+are not independently certified. This integration does not extend the legacy
+first-slice prompt-builder production profile to other models or Anatomy mode.
+
+A shared preference now selects thumbnails, inline phases and fullscreen images.
+Female bindings contain complete exact-variant START/FINISH pairs. Absent Female
+pairs return null and show localized pending placeholders, never Male fallback.
+Current runtime coverage: 68 Male pairs plus one Female pair. Continue integrating
+each newly approved Female pair immediately; next exercise is Leg Press.
+
 ## Pull-up silver-rack replacement — 2026-11-03
 
 User approved `exec-5225ada9-1b5a-41b6-8fef-084f5f8020e5.png` after merging #174.

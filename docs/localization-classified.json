@@ -10606,5 +10606,117 @@
     "context": "StringLiteral/PropertyAssignment:title/ObjectLiteralExpression/PropertyAssignment:'puregym-hanging-leg-raise'/ObjectLiteralExpression",
     "kind": "bibliography",
     "reason": "New straight-leg raise uses authored EN/RU/DE/FR catalog and guide text; source metadata is bibliography."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 651,
+    "text": "male",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression",
+    "kind": "internal",
+    "reason": "Internal artwork model or persisted onboarding step discriminant, never displayed as raw copy."
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 651,
+    "text": "female",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression",
+    "kind": "internal",
+    "reason": "Internal artwork model or persisted onboarding step discriminant, never displayed as raw copy."
+  },
+  {
+    "file": "components/ExerciseArtwork.tsx",
+    "line": 36,
+    "text": "`${name}. ${t('character.femalePending')}`",
+    "context": "TemplateExpression/ConditionalExpression/JsxExpression/JsxAttribute:accessibilityLabel/JsxAttributes",
+    "kind": "internal",
+    "reason": "Accessible phrase composed from localized exercise name and translated female-pending copy; no fixed user-facing English."
+  },
+  {
+    "file": "components/ExerciseCharacterPicker.tsx",
+    "line": 29,
+    "text": "male",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression",
+    "kind": "internal",
+    "reason": "Internal artwork model or persisted onboarding step discriminant, never displayed as raw copy."
+  },
+  {
+    "file": "components/ExerciseCharacterPicker.tsx",
+    "line": 29,
+    "text": "female",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression",
+    "kind": "internal",
+    "reason": "Internal artwork model or persisted onboarding step discriminant, never displayed as raw copy."
+  },
+  {
+    "file": "components/ExerciseCharacterPicker.tsx",
+    "line": 45,
+    "text": "character.male",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title",
+    "kind": "internal",
+    "reason": "Localized message key selected by model; values are translated in EN/RU/DE/FR."
+  },
+  {
+    "file": "components/ExerciseCharacterPicker.tsx",
+    "line": 45,
+    "text": "character.female",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title",
+    "kind": "internal",
+    "reason": "Localized message key selected by model; values are translated in EN/RU/DE/FR."
+  },
+  {
+    "file": "lib/onboarding.ts",
+    "line": 64,
+    "text": "character",
+    "context": "StringLiteral/ArrayLiteralExpression/CallExpression/PrefixUnaryExpression/IfStatement",
+    "kind": "internal",
+    "reason": "Internal artwork model or persisted onboarding step discriminant, never displayed as raw copy."
+  },
+  {
+    "file": "lib/onboarding.ts",
+    "line": 77,
+    "text": "male",
+    "context": "StringLiteral/ArrayLiteralExpression/CallExpression/PrefixUnaryExpression/BinaryExpression",
+    "kind": "internal",
+    "reason": "Internal artwork model or persisted onboarding step discriminant, never displayed as raw copy."
+  },
+  {
+    "file": "lib/onboarding.ts",
+    "line": 77,
+    "text": "female",
+    "context": "StringLiteral/ArrayLiteralExpression/CallExpression/PrefixUnaryExpression/BinaryExpression",
+    "kind": "internal",
+    "reason": "Internal artwork model or persisted onboarding step discriminant, never displayed as raw copy."
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 209,
+    "text": "welcome",
+    "context": "StringLiteral/ConditionalExpression/PropertyAssignment:profile/ObjectLiteralExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Persisted onboarding navigation discriminants; existing-user personalization skips the first-run-only character step."
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 209,
+    "text": "character",
+    "context": "StringLiteral/ConditionalExpression/PropertyAssignment:profile/ObjectLiteralExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Persisted onboarding navigation discriminants; existing-user personalization skips the first-run-only character step."
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 325,
+    "text": "profile",
+    "context": "StringLiteral/ConditionalExpression/PropertyAssignment:step/ObjectLiteralExpression/CallExpression",
+    "kind": "internal",
+    "reason": "Persisted onboarding navigation discriminants; existing-user personalization skips the first-run-only character step."
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 325,
+    "text": "character",
+    "context": "StringLiteral/ConditionalExpression/PropertyAssignment:step/ObjectLiteralExpression/CallExpression",
+    "kind": "internal",
+    "reason": "Persisted onboarding navigation discriminants; existing-user personalization skips the first-run-only character step."
   }
 ]

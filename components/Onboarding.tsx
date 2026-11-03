@@ -1,5 +1,6 @@
 import { BrandHeader } from './BrandHeader';
 import { LanguageSettings } from './LanguageSettings';
+import { ExerciseCharacterPicker } from './ExerciseCharacterPicker';
 import { programEligibilityIssue } from '@/lib/training-programs/eligibility';
 import { normalizeBirthDate } from '@/lib/personal-profile';
 import { DatePickerSheet } from './DatePickerSheet';
@@ -66,7 +67,7 @@ export function Onboarding({
   const dateLabel = (date: string) =>
     formatDate(locale, new Date(`${date}T00:00:00`).getTime());
   const [state, setState] = useState(() =>
-    initial.step === 'environment'
+    initial.step === 'environment' || (editing && initial.step === 'character')
       ? { ...initial, step: 'profile' as const }
       : initial,
   );
@@ -205,7 +206,8 @@ export function Onboarding({
     goal: 'profile',
     experience: 'goal',
     environment: 'experience',
-    profile: 'welcome',
+    profile: editing ? 'welcome' : 'character',
+    character: 'welcome',
     complete: 'experience',
     self_setup: 'welcome',
   };
@@ -320,9 +322,31 @@ export function Onboarding({
                     }
                     change({
                       ...state,
-                      step: 'profile',
+                      step: editing ? 'profile' : 'character',
                       answers: { ...state.answers, displayName },
                     });
+                  }}
+                />
+              </>
+            ) : null}
+            {step === 'character' ? (
+              <>
+                <ExerciseCharacterPicker
+                  value={state.answers.artworkModel}
+                  disabled={busy || saving}
+                  previews
+                  onChange={(artworkModel) =>
+                    change({
+                      ...state,
+                      answers: { ...state.answers, artworkModel },
+                    })
+                  }
+                />
+                <AppButton
+                  title={t('onboarding.continue')}
+                  disabled={busy || saving || !state.answers.artworkModel}
+                  onPress={() => {
+                    if (state.answers.artworkModel) go('profile');
                   }}
                 />
               </>

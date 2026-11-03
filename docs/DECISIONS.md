@@ -1,5 +1,16 @@
 # CRESUM Decision Log
 
+## 2026-11-03 — Exercise illustration character
+
+Approved by Ihor: choose Male/Female in one first-run welcome window and change it
+through a Profile selector. One persisted preference drives all exercise artwork;
+presentation must not create another exercise or alter history. The generated
+Female dumbbell Goblet Squat pair is accepted for integration. After the technical
+foundation, continue all remaining Female exercises and add each approved pair to
+code immediately, as with Male production. Pending Female pairs use a localized
+placeholder without opposite-model substitution. Implementation uses existing
+onboarding/backup persistence and a shared React context; no data schema bump.
+
 ## Pull-up silver-rack replacement — 2026-11-03
 
 User approved `exec-5225ada9-1b5a-41b6-8fef-084f5f8020e5.png` after merging #174.

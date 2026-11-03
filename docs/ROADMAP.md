@@ -1,5 +1,14 @@
 # CRESUM — Development Roadmap
 
+## Female artwork rollout — approved 2026-11-03
+
+First deliver the shared character preference in welcome/Profile and integrate
+Female dumbbell Goblet Squat. Then generate, review and immediately integrate
+Female pairs exercise by exercise, beginning with Leg Press. Keep exact variant,
+model and phase bindings and both existing Male files. Missing Female assets stay
+localized placeholders; do not wait for a complete set to integrate accepted pairs.
+No Oracle dependency or new cloud work is required for this rollout.
+
 ## Pull-up silver-rack replacement — 2026-11-03
 
 User approved `exec-5225ada9-1b5a-41b6-8fef-084f5f8020e5.png` after merging #174.

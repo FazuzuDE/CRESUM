@@ -1,5 +1,22 @@
 # CRESUM — Product Definition
 
+## Exercise illustration character — approved 2026-11-03
+
+The first-run welcome flow asks which character to show after the name and before
+body details. Profile contains a Male / Female selector for changing this display
+preference anytime. Both use one persisted `answers.artworkModel` in the existing
+onboarding document. Existing installations/backups without it retain Male;
+workout identities, history, statistics and body details are independent.
+
+All exercise thumbnails, inline phases and fullscreen views use the shared choice.
+Missing Female pairs show localized pending artwork, never an opposite-model or
+related-equipment substitute. Complete reviewed pairs are registered by exact
+variant/model/phase. The approved Female dumbbell Goblet Squat is the first pair;
+Kettlebell Goblet Squat remains separate. Continue reviewed Female exercises one
+at a time, integrating each approved pair immediately. Core display stays offline.
+Profile changes commit only after successful storage and retain the old choice
+with retry on failure; existing backup/restore/reset handle the same document.
+
 ## Goblet Squat combined statistics — user addition, 2026-10-31
 
 The single Goblet Squat statistics screen offers All / Dumbbell / Kettlebell.

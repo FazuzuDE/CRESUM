@@ -90,7 +90,7 @@ it('roundtrips whitelisted data without exporting unrelated keys or rewriting sn
       version: 1,
       status: 'in_progress',
       step: 'welcome',
-      answers: {},
+      answers: { artworkModel: 'female' },
     }),
   );
   const text = await createLocalBackup(source, now);
@@ -106,6 +106,9 @@ it('roundtrips whitelisted data without exporting unrelated keys or rewriting sn
   expect(target.values.get('cresum_body_weight_v1')).toBe(
     source.values.get('cresum_body_weight_v1'),
   );
+  expect(
+    JSON.parse(target.values.get('cresum_onboarding_v1')!).answers.artworkModel,
+  ).toBe('female');
   expect(target.values.get('other')).toBe('keep');
   expect(target.values.has('fitflow_history')).toBe(false);
   expect(target.values.has(RESTORE_JOURNAL_KEY)).toBe(false);

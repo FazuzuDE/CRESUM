@@ -18,6 +18,29 @@ const storage = () => {
   };
 };
 
+it('persists the illustration model through onboarding saves and reloads', async () => {
+  const repository = new OnboardingRepository(storage());
+  const progress = {
+    ...initialOnboardingState,
+    step: 'character' as const,
+    answers: { artworkModel: 'female' as const },
+  };
+  await repository.save(progress);
+  expect(await repository.load()).toEqual(progress);
+});
+
+it('rejects an unsupported illustration model without accepting a silent fallback', () => {
+  expect(() =>
+    parseOnboardingState({
+      ...initialOnboardingState,
+      answers: { artworkModel: 'unknown' },
+    }),
+  ).toThrow('unavailable');
+  expect(parseOnboardingState(initialOnboardingState)).toEqual(
+    initialOnboardingState,
+  );
+});
+
 it('gates first launch and ignores built-in templates as legacy activity', () => {
   expect(hasMeaningfulWorkoutData(emptyWorkoutState())).toBe(false);
   expect(

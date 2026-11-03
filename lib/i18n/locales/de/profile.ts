@@ -1,4 +1,16 @@
 export default {
+  'character.pendingShort': 'In Arbeit',
+  'character.title': 'Übungsfigur',
+  'character.description':
+    'Wähle die Figur für Übungsbilder. Du kannst sie jederzeit im Profil ändern.',
+  'character.male': 'Männlich',
+  'character.female': 'Weiblich',
+  'character.saving': 'Figur wird gespeichert…',
+  'character.saveError':
+    'Die Figur konnte nicht gespeichert werden. Deine bisherige Auswahl bleibt erhalten. Versuche es erneut.',
+  'character.retry': 'Figurenauswahl wiederholen',
+  'character.femalePending': 'Die weibliche Illustration wird vorbereitet',
+
   'error.resetIncomplete':
     'Lokale Daten konnten nicht zurückgesetzt werden, und die Wiederherstellung war unvollständig. Lass die App geöffnet und versuche es erneut.',
   'error.resetRecovered':

@@ -57,6 +57,8 @@ const enterBody = async (view: ReturnType<typeof create>) => {
     );
   await act(async () => input?.props.onChangeText('Ihor'));
   await act(async () => button(view, 'Continue')?.props.onPress());
+  await act(async () => button(view, 'Male')?.props.onPress());
+  await act(async () => button(view, 'Continue')?.props.onPress());
 };
 const enterGoal = async (view: ReturnType<typeof create>) => {
   await enterBody(view);

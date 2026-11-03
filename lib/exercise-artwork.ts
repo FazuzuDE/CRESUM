@@ -101,6 +101,21 @@ const dumbbellGobletPair = {
   start: require('../assets/exercises/goblet-squat/start.webp'),
   finish: require('../assets/exercises/goblet-squat/finish.webp'),
 };
+// Add reviewed female pairs by exact variant; register START and FINISH together.
+const femalePairs: Readonly<
+  Record<
+    string,
+    {
+      start: ImageSourcePropType;
+      finish: ImageSourcePropType;
+    }
+  >
+> = {
+  'goblet-squat': {
+    start: require('../assets/exercises/goblet-squat/female/start.webp'),
+    finish: require('../assets/exercises/goblet-squat/female/finish.webp'),
+  },
+};
 const kettlebellGobletPair = {
   start: require('../assets/exercises/kettlebell-goblet-squat/start.webp'),
   finish: require('../assets/exercises/kettlebell-goblet-squat/finish.webp'),
@@ -283,6 +298,7 @@ export function resolveExerciseArtwork(
   phase: 'start' | 'finish',
   model: 'male' | 'female',
 ): ImageSourcePropType | null {
+  if (model === 'female') return femalePairs[variantId]?.[phase] ?? null;
   if (model !== 'male') return null;
   if (variantId === 'dumbbell-floor-glute-bridge')
     return floorBridgePair[phase];

@@ -1,8 +1,10 @@
 import type { WorkoutState } from './workout-model';
+import type { AssetModel } from './exercise-variant-model';
 import { isBuiltInTemplate } from './workout-templates';
 
 export type OnboardingStep =
   | 'welcome'
+  | 'character'
   | 'goal'
   | 'experience'
   | 'environment'
@@ -13,6 +15,7 @@ export type TrainingGoal = 'build_muscle' | 'get_stronger' | 'general_fitness';
 export type TrainingExperience = 'beginner' | 'some' | 'experienced';
 export type TrainingEnvironment = 'gym' | 'home' | 'both';
 export type OnboardingAnswers = {
+  artworkModel?: AssetModel;
   displayName?: string;
   dateOfBirth?: string;
   goal?: TrainingGoal;
@@ -58,6 +61,7 @@ export function parseOnboardingState(value: unknown): OnboardingState {
   if (
     !oneOf(value.step, [
       'welcome',
+      'character',
       'goal',
       'experience',
       'environment',
@@ -69,6 +73,8 @@ export function parseOnboardingState(value: unknown): OnboardingState {
     throw invalid();
   const answers = value.answers;
   if (
+    (answers.artworkModel !== undefined &&
+      !oneOf(answers.artworkModel, ['male', 'female'])) ||
     (answers.goal !== undefined &&
       !oneOf(answers.goal, [
         'build_muscle',
@@ -95,6 +101,9 @@ export function parseOnboardingState(value: unknown): OnboardingState {
     status: value.status,
     step: value.step,
     answers: {
+      ...(answers.artworkModel === undefined
+        ? {}
+        : { artworkModel: answers.artworkModel }),
       ...(answers.displayName === undefined
         ? {}
         : { displayName: (answers.displayName as string).trim() }),

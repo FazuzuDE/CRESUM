@@ -1,3 +1,5 @@
+import { ExerciseCharacterProvider } from '@/components/ExerciseCharacterProvider';
+import type { AssetModel } from '@/lib/exercise-variant-model';
 import { AppScrollView } from '@/components/AppScrollView';
 import { useLocalSearchParams } from 'expo-router';
 import * as Linking from 'expo-linking';
@@ -497,6 +499,10 @@ function AppContent({
     initialOnboardingState,
   );
   const [onboardingReady, setOnboardingReady] = useState(false);
+  const [characterSaving, setCharacterSaving] = useState(false);
+  const [characterError, setCharacterError] = useState(false);
+  const [characterAttempt, setCharacterAttempt] = useState<AssetModel>();
+  const characterOperation = useRef(false);
   const onboardingErrorRef = useRef('');
   const [onboardingError, updateOnboardingError] = useState('');
   const [onboardingErrorKey, setOnboardingErrorKey] = useState<
@@ -614,13 +620,17 @@ function AppContent({
     setHiddenError,
     setOnboardingError,
   ]);
-  const queueOnboardingSave = (next: OnboardingState): Promise<void> => {
+  const queueOnboardingSave = (
+    next: OnboardingState,
+    recordBodyDetails = true,
+  ): Promise<void> => {
     if (resetInProgress.current)
       return Promise.reject(new Error('Reset in progress.'));
     const write = onboardingWrites.current
       .catch(() => undefined)
       .then(async () => {
         if (
+          recordBodyDetails &&
           next.status === 'completed' &&
           next.step === 'complete' &&
           next.answers.bodyWeightKg?.trim()
@@ -636,6 +646,42 @@ function AppContent({
       });
     onboardingWrites.current = write.catch(() => undefined);
     return write;
+  };
+  const selectArtworkModel = async (model: AssetModel) => {
+    if (
+      !['male', 'female'].includes(model) ||
+      characterOperation.current ||
+      !onboardingReady ||
+      !programReady ||
+      Boolean(programError) ||
+      onboardingLoadFailed ||
+      onboardingError ||
+      resetInProgress.current ||
+      backupInProgress.current ||
+      !localDataAccess.isReady() ||
+      busy ||
+      editingPersonalization ||
+      acceptingProgram
+    )
+      return;
+    const epoch = onboardingEpoch.current;
+    characterOperation.current = true;
+    setCharacterAttempt(model);
+    setCharacterSaving(true);
+    setCharacterError(false);
+    const next = {
+      ...onboardingState,
+      answers: { ...onboardingState.answers, artworkModel: model },
+    };
+    try {
+      await queueOnboardingSave(next, false);
+      if (onboardingEpoch.current === epoch) setOnboardingState(next);
+    } catch {
+      if (onboardingEpoch.current === epoch) setCharacterError(true);
+    } finally {
+      characterOperation.current = false;
+      setCharacterSaving(false);
+    }
   };
   /* eslint-disable react-hooks/refs -- Stored saver runs only during awaited acceptance, never during render. */
   const [programAcceptance] = useState(
@@ -956,7 +1002,13 @@ function AppContent({
     acceptingProgram,
   ]);
   const reset = async () => {
-    if (resetInProgress.current || backupInProgress.current || busy) return;
+    if (
+      resetInProgress.current ||
+      backupInProgress.current ||
+      busy ||
+      characterOperation.current
+    )
+      return;
     resetInProgress.current = true;
     ++onboardingEpoch.current;
     programAcceptance.invalidate();
@@ -979,6 +1031,8 @@ function AppContent({
       await localization.store?.load();
       await localBackups.refresh();
       setOnboardingState(initialOnboardingState);
+      setCharacterError(false);
+      setCharacterAttempt(undefined);
       setBodyWeights([]);
       setBodyWeightError('');
       setAcceptingProgram(false);
@@ -1014,7 +1068,7 @@ function AppContent({
       setResetBusy(false);
     }
   };
-  return (
+  const content = (
     <SafeAreaView style={s.root}>
       <StatusBar style="dark" />
       {sharingOpen && ready && localDataAccess.ready ? (
@@ -1399,7 +1453,7 @@ function AppContent({
               }}
               history={data.history}
               templates={visibleTemplates}
-              busy={busy || hiddenBusy}
+              busy={busy || hiddenBusy || characterSaving}
               version={Constants.expoConfig?.version}
               createTemplate={(draft) => store.createTemplate(draft)}
               updateTemplate={(templateId, draft) =>
@@ -1454,8 +1508,12 @@ function AppContent({
                 onExport: () => backupOperation(undefined, 'export'),
                 onRestore: (backup) => backupOperation(backup, 'restore'),
               }}
-              onPersonalize={() => setEditingPersonalization(true)}
+              onPersonalize={() => {
+                if (!characterOperation.current)
+                  setEditingPersonalization(true);
+              }}
               onResetLocalData={() => {
+                if (characterOperation.current) return;
                 setResetError(undefined);
                 setConfirmReset(true);
               }}
@@ -1465,6 +1523,32 @@ function AppContent({
         </>
       )}
     </SafeAreaView>
+  );
+  return (
+    <ExerciseCharacterProvider
+      value={{
+        model: onboardingState.answers.artworkModel ?? 'male',
+        saving: characterSaving,
+        error: characterError,
+        disabled:
+          !programReady ||
+          Boolean(programError) ||
+          !onboardingReady ||
+          onboardingLoadFailed ||
+          Boolean(onboardingError) ||
+          !localDataAccess.ready ||
+          busy ||
+          resetBusy ||
+          editingPersonalization ||
+          acceptingProgram,
+        select: selectArtworkModel,
+        retry: characterAttempt
+          ? () => selectArtworkModel(characterAttempt)
+          : undefined,
+      }}
+    >
+      {content}
+    </ExerciseCharacterProvider>
   );
 }
 const s = StyleSheet.create({

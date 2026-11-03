@@ -8,6 +8,7 @@ import { catalogLabel } from '@/lib/i18n/catalog';
 import type { TechniquePhase } from '@/lib/exercise-technique';
 import { colors, radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
+import { useExerciseCharacter } from './ExerciseCharacterProvider';
 
 /** Future reviewed asset pairs attach here. Never render an unrelated or unapproved image. */
 export function TechniqueArtwork({
@@ -20,17 +21,18 @@ export function TechniqueArtwork({
   expanded?: boolean;
 }) {
   const { t, locale } = useLocalization();
+  const { model } = useExerciseCharacter();
   const phaseLabel =
     phase === 'START' ? t('technique.start') : t('technique.finish');
   const source = resolveExerciseArtwork(
     imageKey,
     phase === 'START' ? 'start' : 'finish',
-    'male',
+    model,
   );
   const placement = resolveExerciseArtworkPlacement(
     imageKey,
     phase === 'START' ? 'start' : 'finish',
-    'male',
+    model,
   );
   if (source)
     return (
@@ -48,15 +50,23 @@ export function TechniqueArtwork({
     );
   return (
     <View
-      accessibilityLabel={t('technique.placeholder', {
-        phase: phaseLabel,
-        imageKey,
-      })}
+      accessibilityLabel={
+        model === 'female'
+          ? t('character.femalePending')
+          : t('technique.placeholder', {
+              phase: phaseLabel,
+              imageKey,
+            })
+      }
       style={[s.frame, expanded && s.expanded]}
     >
       <Ionicons name="image-outline" size={56} color={colors.primary} />
       <Text style={s.label}>
-        {expanded ? t('technique.imageUnavailable') : t('technique.imageSoon')}
+        {model === 'female'
+          ? t('character.femalePending')
+          : expanded
+            ? t('technique.imageUnavailable')
+            : t('technique.imageSoon')}
       </Text>
       <Text style={s.phase}>{phaseLabel}</Text>
     </View>

@@ -1,0 +1,45 @@
+{
+  "variantId": "goblet-squat",
+  "model": "female",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 768, 1024],
+      "sha256": "09846a5077881202edfc62cd7b8792160fab4bca79d38d9e54741f06abe55c03",
+      "bytes": 29342,
+      "width": 768,
+      "height": 1024
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [768, 0, 1536, 1024],
+      "sha256": "9251e8c23cf285b6331fa77a64784dccd1066a7361c3e4e6b7def011238d65b3",
+      "bytes": 27200,
+      "width": 768,
+      "height": 1024
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-3f9ed3d6-ecc0-4ea1-9d8e-57ac2a8bf2b9.png",
+    "sourceLibraryFileId": "libfile_783825b865a88191b948a87c7a436866",
+    "sourceSha256": "9e7defca02e9544b5616560c1f97a4358bf8d88ab542930572cfd0821e7121be",
+    "sourceSize": [1536, 1024],
+    "promptFile": "generation-prompts.json",
+    "reference": {
+      "file": "Поворотный лист атлетки CRESUM.png",
+      "libraryFileId": "libfile_cb3c34a9e5b88191b033d996d6f689de",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c"
+    }
+  },
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none"
+  },
+  "reviewScope": "User approved female character and dumbbell goblet squat pair. Exact half-sheet crops retain identity, clothing and phase semantics. Detailed palm/dumbbell contact, depth, rigid registration and physical-device/accessibility acceptance are not independently certified. Not a kettlebell variant.",
+  "archiveStatus": "pending-upload"
+}
