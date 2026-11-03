@@ -5,6 +5,14 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TextInput, Linking, Image, StyleSheet, Modal } from 'react-native';
 import { resolveExerciseArtwork } from '../exercise-artwork';
 import { isPressable } from './pressable';
+jest.mock(
+  '../../assets/exercises/standing-cable-anti-rotation-press/start.webp',
+  () => 6601,
+);
+jest.mock(
+  '../../assets/exercises/standing-cable-anti-rotation-press/finish.webp',
+  () => 6602,
+);
 jest.mock('../../assets/exercises/farmers-carry/start.webp', () => 6501);
 jest.mock('../../assets/exercises/farmers-carry/finish.webp', () => 6502);
 jest.mock('../../assets/exercises/dumbbell-shrug/start.webp', () => 6401);
@@ -447,6 +455,7 @@ it.each([
   ['Back Extension', 6301, 6302],
   ['Dumbbell Shrug', 6401, 6402],
   ["Farmer's Carry", 6501, 6502],
+  ['Standing Cable Anti-rotation Press', 6601, 6602],
   ['Seated Leg Curl', 4901, 4902],
   ['Barbell Romanian Deadlift', 5001, 5002],
 ] as const)(
@@ -1494,6 +1503,7 @@ it.each([
   ['Back Extension', 6302, ['lower-back'], ['glutes', 'hamstrings']],
   ['Dumbbell Shrug', 6402, ['traps'], ['forearms']],
   ["Farmer's Carry", 6502, ['forearms', 'traps'], ['abs', 'glutes']],
+  ['Standing Cable Anti-rotation Press', 6602, ['abs'], []],
   [
     'Kettlebell Swing',
     5702,

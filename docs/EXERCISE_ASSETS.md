@@ -1,5 +1,23 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Standing Cable Anti-rotation Press selected Male pair — 2026-11-03
+
+User approved r2 `exec-bb64b703-43a5-46b7-aafd-2b4b0b2e0f35.png` after
+rejecting the strange hybrid frame in r1. Use the revised straight single
+cable tower; LEFT handle-at-chest START / RIGHT arms-forward FINISH, steady
+trunk and feet. The raised FINISH stack is visible; exact plate count/selected
+group continuity, hidden routing and cable/body clearance are not certified.
+Bind only `standing-cable-anti-rotation-press` / Male through shared phase and
+anatomy viewers. Preserve the existing anti-rotation/both-sides guide, perSide
+contract, abs Primary/no Secondary, stable identity and History; pair shows one
+side. Exact 887-square RGB WebP92/method6 half-sheet crops, shared contain;
+no retouch, resampling, padding or independent transforms. Retain both actual
+prompts and input/output hashes, including rejected r1. User-selected-provisional:
+detailed equipment/grip/biomechanics and device/accessibility QA remain open.
+Oracle archive pending/unverified; no new source review or muscle-role change.
+Coverage after integration: 66 Male pairs / 132 frames across 70 catalog records.
+Next: unloaded Bodyweight Step-up.
+
 ## Farmer's Carry selected Male pair — 2026-11-02
 
 User approved r3 `exec-094435fd-5939-482e-9ba7-7acff2e63a92.png`.
