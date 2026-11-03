@@ -1,5 +1,11 @@
 # Male artwork equipment-style audit — 2026-11-03
 
+## Follow-up: chest-supported row prepared — 2026-11-03
+
+The user selected the silver-incline-bench pair; this change prepares its
+replacement. The original audit inventory remains a pinned historical snapshot.
+After integration, the remaining dark structural frame is the pull-up rack.
+
 ## Follow-up: one-arm row prepared — 2026-11-03
 
 The user selected the silver-bench one-arm row pair; this change prepares its

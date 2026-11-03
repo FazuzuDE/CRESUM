@@ -1,0 +1,43 @@
+{
+  "exerciseCandidate": "chest-supported-dumbbell-row",
+  "revision": 2,
+  "tool": "image_gen.imagegen",
+  "prompt": "Create CRESUM CHEST-SUPPORTED TWO-DUMBBELL ROW on an incline bench, Male, silver-frame style. One wide 2:1 sheet, exactly TWO equal square halves: LEFT START both arms hanging down, RIGHT FINISH both elbows pulled back with dumbbells near lower ribs. Input1/2 are existing exact START/FINISH targets: preserve this two-arm chest-supported incline row and bench geometry/body support. Input3 actual Male Master is authoritative for face/hair, clean-shaven young adult, natural athletic proportions and blue-gray fitted shirt, charcoal shorts, visible white socks and light-gray trainers. Input4 approved silver-bench ONE-ARM row is ONLY equipment material/rendering reference; do NOT copy its one-arm/knee-supported exercise or flat bench. Recolor only existing INCLINE bench structural legs, central support, adjustment ladder/brace, base rails and crossmembers to smooth satin LIGHT SILVER-GRAY, keeping inclined chest pad and small seat cushion matte dark graphite, rubber feet dark. Same incline angle approximately30-40degrees, same original support geometry, same camera side-three-quarter on visible right side, head toward image-left and hips/feet toward image-right. BOTH feet stay planted on floor, knees naturally slightly bent; chest and abdomen supported by inclined pad, neck neutral looking down naturally, torso/pelvis stay resting on bench in BOTH phases. Do not place either knee on bench or use hand support; both hands each hold one identical dumbbell. LEFT START both arms hang beneath shoulders with elbows nearly straight and dumbbells clear of floor/frame. RIGHT FINISH row both elbows back beside torso, elbows naturally flexed, same two dumbbells beside lower ribs without touching or intersecting bench/frame. Do not lift chest off pad or arch/rotate body to fake motion. Closed neutral palms-facing grip in both hands, straight wrists, natural opposing thumbs and five digits; far hand may be partly occluded but must grip its dumbbell. Exactly two matching black round-head dumbbells with short chrome grips, one per hand, consistent head diameter and weight shape across phases. Same athlete scale, bench placement, camera, feet, chest support and stable frame geometry in both equal square panels; whole head, hands, two dumbbells, bench base and both shoes fit large with narrow white margins. Improve square fit without stretching any body or machine part. Consistent uniform natural skin, fine matte fabric and clean silver metal with restrained highlights, soft neutral studio lighting and contact shadows on white. No text, labels, dividers, borders, gray pills, arrows, anatomical overlays, logos, watermarks or insets. No cable machine, no unilateral row, no unsupported chest, no extra dumbbells or limbs. Exactly two distinct phases and same silver inclined bench.",
+  "references": [
+    {
+      "file": "start.webp",
+      "sha256": "fbc69a80d8c2406dcf78dc44b456b2f6b990460acd7e65e67fab86e7a25e57ea",
+      "bytes": 54818,
+      "repositoryPath": "assets/exercises/chest-supported-dumbbell-row/start.webp",
+      "repositoryCommit": "46707e9969948c464b15a60442ffa5a2158acc05"
+    },
+    {
+      "file": "finish.webp",
+      "sha256": "788b071059bd293f1793557b57e874df5a09f85ad3fc9634543d45e954e98d6c",
+      "bytes": 52270,
+      "repositoryPath": "assets/exercises/chest-supported-dumbbell-row/finish.webp",
+      "repositoryCommit": "46707e9969948c464b15a60442ffa5a2158acc05"
+    },
+    {
+      "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+      "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+      "bytes": 325046
+    },
+    {
+      "file": "exec-28d9d392-a3e0-44b9-b3c3-98390e4802b5.png",
+      "sha256": "0d490b7a4141c81d53eef48d63a39209ff5a30f07df5c80a852775a985e68f7c",
+      "bytes": 1575391
+    }
+  ],
+  "output": {
+    "file": "exec-051a0a30-f4ba-4bbb-99e7-a8d4f9c9cb2e.png",
+    "sha256": "4fdf424dc84a3c9d54d126e6bd6c13bc8c60fcf09effab206039b1eeacaaf5e2",
+    "bytes": 1622723,
+    "libraryFileId": "libfile_9f6709be349c819193d66116fa52c8bd",
+    "size": [1774, 887]
+  },
+  "phaseOrder": {
+    "left": "start",
+    "right": "finish"
+  }
+}
