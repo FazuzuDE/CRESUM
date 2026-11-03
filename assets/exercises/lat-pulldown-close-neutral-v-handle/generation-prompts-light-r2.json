@@ -1,0 +1,50 @@
+{
+  "exerciseCandidate": "lat-pulldown-close-neutral-v-handle",
+  "revision": 2,
+  "tool": "image_gen.imagegen",
+  "prompt": "Create the next CRESUM exercise illustration preview: close neutral V-HANDLE LAT PULLDOWN, Male, silver-frame style. Use case precise-object-edit. Reference1 is this exact exercise START target, Reference2 its exact FINISH target. Reference3 is the actual CRESUM Male Master, authoritative for the same face, brown hair, natural athletic proportions, muted blue-gray shirt, charcoal shorts, white socks and light gray trainers. Reference4 is ONLY the approved silver equipment materials style. Reference5 is the recently approved silver ergonomic pulldown pair, used ONLY for matching framing, scale and consistent light equipment presentation; do NOT copy its different black ergonomic attachment. Produce ONE wide 2:1 image, TWO equal square halves: LEFT START with arms raised nearly extended and RIGHT FINISH with elbows down and the V-handle at upper chest. Retain the narrow chrome V-HANDLE shown in references1/2: two distinct cylindrical parallel grip surfaces, closed neutral hands holding real grips, central upper eye with correctly connected carabiner/cable. Preserve its exact exercise configuration and original machine geometry, thigh rollers securing seated athlete, stable feet, identical body/equipment scale, fixed camera and apparatus registration across both panels. Change the dark frame/base/upper beam to smooth satin light silver-gray matching references4/5. Weight plates, rollers, seat, grips and feet remain dark graphite matte. Keep the exposed weight stack of the original tower; no gravitron geometry or extra frame. In START the selected plates sit on the lower stack. In FINISH the same selected group and selector pin rise together, a visible gap appears beneath that group, the stationary remainder stays below. Taut high cable from top pulley to centered V-handle connection. Do not substitute wide bar or black ergonomic handle. Full machine and athlete fit in each square with narrow safe margins, filling available space equally. Consistent smooth skin, clean matte clothing, soft neutral studio illumination, restrained metallic highlights and natural contact shadows on pure white background. No text, START/FINISH labels, gray label pills, numbers, arrows, branding, watermarks, borders or muscle overlays. No added fingers, hands, limbs or unheld handles. Original polished semi-realistic 3D CRESUM illustration with clear phase difference.",
+  "references": [
+    {
+      "file": "start.webp",
+      "sha256": "6adf29c8050fd452019d0732707b863577be1f7c68ee02fc3a5eb0a61e077feb",
+      "bytes": 85788,
+      "repositoryPath": "assets/exercises/lat-pulldown-close-neutral-v-handle/start.webp",
+      "repositoryCommit": "5ff214c1ec1d7bfee64292889037fd1b40a8275e"
+    },
+    {
+      "file": "finish.webp",
+      "sha256": "b8cedf8869deee7c69001c72a88008a54b8984d8e4944a31a690743ae4112370",
+      "bytes": 87468,
+      "repositoryPath": "assets/exercises/lat-pulldown-close-neutral-v-handle/finish.webp",
+      "repositoryCommit": "5ff214c1ec1d7bfee64292889037fd1b40a8275e"
+    },
+    {
+      "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+      "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+      "bytes": 325046
+    },
+    {
+      "file": "reference.webp",
+      "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+      "bytes": 42162,
+      "repositoryPath": "assets/visual-references/equipment-style-v1/reference.webp",
+      "repositoryCommit": "5ff214c1ec1d7bfee64292889037fd1b40a8275e"
+    },
+    {
+      "file": "exec-6a64b539-ba4f-443b-b68a-20d0c0eb0d70.png",
+      "sha256": "4d0280a7ffc14c81bf4407951a16daeb2b45c79c5dd08bebdde2f54971546cb4",
+      "bytes": 1679068
+    }
+  ],
+  "output": {
+    "file": "exec-b5aa94a7-091e-4d63-ae0c-30f4474b7858.png",
+    "sha256": "7070b94cc6a2a302ce6aa90e95f77015ed0a96e348649b75219932f5cfa8df4b",
+    "bytes": 1459197,
+    "libraryFileId": "libfile_ed62d3cfa08c8191b4a9db4487adb33c",
+    "size": [1774, 887]
+  },
+  "phaseOrder": {
+    "left": "start",
+    "right": "finish"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "variantId": "lat-pulldown-close-neutral-v-handle",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "selectionDate": "2026-10-27",
+  "status": "user-selected-provisional",
+  "userDecision": "Пока берем их , позже если что изменим.",
+  "reviewScope": "User explicitly selected this exact pair for current use, with later replacement allowed. Provisional illustration selection only; not a completed biomechanics QA or approved automated tracker entry.",
+  "openReview": [
+    "Hand orientation and finger contact need further refinement.",
+    "Exact handle geometry and pair consistency require final visual review.",
+    "Physical-device readability remains unverified."
+  ],
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "technique-prompts.json",
+    "sourceRetention": "Original generated PNG candidates retained in the conversation; source filenames and SHA-256 identify the exact selected originals."
+  },
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sourceFile": "exec-3e046d01-d7c1-40e0-8b91-c8a0f7861000.png",
+      "sourceSha256": "aa327c22c2ce1b9d8ef58179a7d0e19200d75457f7619c4742dac517da23e733",
+      "sha256": "6adf29c8050fd452019d0732707b863577be1f7c68ee02fc3a5eb0a61e077feb",
+      "width": 1120,
+      "height": 1280,
+      "quality": 92,
+      "alpha": false
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sourceFile": "exec-25262683-9da3-4584-b06a-5f3209f0015b.png",
+      "sourceSha256": "da59757a33647aa9a76c81196a99e4b27967c8d6dee9a417da771a026a4efad4",
+      "sha256": "b8cedf8869deee7c69001c72a88008a54b8984d8e4944a31a690743ae4112370",
+      "width": 1120,
+      "height": 1280,
+      "quality": 92,
+      "alpha": false
+    }
+  }
+}

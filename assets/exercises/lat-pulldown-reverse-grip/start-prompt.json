@@ -17,5 +17,14 @@
     "sha256": "ad1ba897312dd511f10fc051af9321d5047d5eee4329ec27a678bd9b5c17d77c",
     "size": [1173, 1341]
   },
-  "productionChoice": "Existing chrome bar, underhand grip on straight inner portions at comfortable near-shoulder spacing; draft presentation only, no canonical catalog attachment/width change."
+  "productionChoice": "Existing chrome bar, underhand grip on straight inner portions at comfortable near-shoulder spacing; draft presentation only, no canonical catalog attachment/width change.",
+  "historicalReferenceVersions": [
+    {
+      "reference": "/workspace/cresum-equipment/assets/exercises/lat-pulldown-close-neutral-v-handle/start.webp",
+      "repositoryPath": "assets/exercises/lat-pulldown-close-neutral-v-handle/start.webp",
+      "repositoryCommit": "5ff214c1ec1d7bfee64292889037fd1b40a8275e",
+      "sha256": "6adf29c8050fd452019d0732707b863577be1f7c68ee02fc3a5eb0a61e077feb",
+      "note": "Original dark-frame input before silver-frame replacement; historical prompt/reference strings unchanged."
+    }
+  ]
 }

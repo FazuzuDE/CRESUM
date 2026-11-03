@@ -1,5 +1,22 @@
 # CRESUM Exercise Assets — approved production rules
 
+## V-handle Pulldown silver-frame replacement — 2026-11-03
+
+User approved `exec-b5aa94a7-091e-4d63-ae0c-30f4474b7858.png` after merging #168.
+Replace only Male `lat-pulldown-close-neutral-v-handle` phase files: LEFT raised-arm
+START / RIGHT handle-to-upper-chest FINISH, exact 887-square RGB WebP92/method6
+halves, shared contain, no labels/resampling/padding/independent transforms.
+Preserve attachment thumbnail, guide, muscles, identity and History. Actual inputs
+were the old exact pair, Male Master, equipment style and approved silver ergonomic
+sheet; the latter is a style reference, not an attachment substitution. Retain
+verbatim prompt, hashes, superseded manifest and pinned historical references.
+User-selected-provisional: detailed hand/handle geometry, rigid registration,
+plate/selector continuity and device/accessibility QA remain open. Review observed
+different selector-hole counts between phases; preserve selected bytes and record
+this known visual discrepancy in the manifest. Oracle deferred;
+no verified PC backup. Coverage remains 68 pairs / 136 frames across 70 records.
+Next: wide-pronated pulldown silver-frame preview, then reverse grip and seated row.
+
 ## Ergonomic Pulldown silver-frame replacement — 2026-11-03
 
 User approved the silver-frame preview, requested removal of START/FINISH labels,
