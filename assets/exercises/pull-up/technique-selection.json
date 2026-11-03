@@ -1,36 +1,4 @@
 {
-  "exerciseId": "pull-up",
-  "model": "male",
-  "status": "user-selected-pair",
-  "selectionDate": "2026-10-28",
-  "archiveStatus": "pending-upload",
-  "assets": {
-    "start": {
-      "file": "start.webp",
-      "sourceFile": "exec-3036b9bf-1abd-4121-a040-096630fc9453.png",
-      "sourceSha256": "410671429fc7976fe5ec9ee9066a9d62c4cd00c89e8fcac692be64168b68e7cb",
-      "sourceSize": [1536, 1024],
-      "sourceBytes": 1603949,
-      "sourceMime": "image/png",
-      "sha256": "ba46363333b06bdcc9b5fae5724205a6019001ea33de55debec4adf73b134049",
-      "width": 1280,
-      "height": 853,
-      "bytes": 40022
-    },
-    "finish": {
-      "file": "finish.webp",
-      "sourceFile": "279376DA-7BB1-4D73-94DA-53ED51C62E86.jpeg",
-      "sourceSha256": "ea44b5b12c530c51511d1496c3aa233cb31f9edddf22f9189202133a091931c3",
-      "sourceSize": [1536, 1024],
-      "sourceBytes": 174080,
-      "sourceMime": "image/jpeg",
-      "sha256": "fc9b1c82011da245423cf0595e37eaf4a2568f101dccfc0d5ba89a833bea9c89",
-      "width": 1280,
-      "height": 853,
-      "bytes": 37096,
-      "sourceLibraryFileId": "libfile_241752108d9c819185c50be9f053e909"
-    }
-  },
   "selectionHistory": [
     {
       "phase": "initial-start",
@@ -47,5 +15,42 @@
       "sourceFile": "exec-3036b9bf-1abd-4121-a040-096630fc9453.png",
       "decision": "Утверждаю"
     }
-  ]
+  ],
+  "exerciseId": "pull-up",
+  "model": "male",
+  "selectedRevision": 2,
+  "selectionDate": "2026-11-03",
+  "status": "user-selected-pair",
+  "userDecision": "Merged. Утверждаю",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "12969aff87d015faeb6b80fb9729fb5fc7bc6a19df709f6922895ae1da5812a4",
+      "bytes": 41088,
+      "sourceFile": "exec-5225ada9-1b5a-41b6-8fef-084f5f8020e5.png",
+      "sourceSha256": "5d228d1cdb82994355371a94603fadf9d0a93e5643bf238d91358a63956424e3",
+      "sourceBytes": 1345169,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887,
+      "quality": 92,
+      "method": 6
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "7d05218f3121c2344875dae22fd6a7acbe774136c83d68f1ed40742a8270f313",
+      "bytes": 39426,
+      "sourceFile": "exec-5225ada9-1b5a-41b6-8fef-084f5f8020e5.png",
+      "sourceSha256": "5d228d1cdb82994355371a94603fadf9d0a93e5643bf238d91358a63956424e3",
+      "sourceBytes": 1345169,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887,
+      "quality": 92,
+      "method": 6
+    }
+  },
+  "archiveStatus": "pending-upload"
 }

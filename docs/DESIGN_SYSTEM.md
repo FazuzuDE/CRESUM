@@ -1,5 +1,20 @@
 # CRESUM Design System v1.0
 
+## Pull-up silver-rack replacement — 2026-11-03
+
+User approved `exec-5225ada9-1b5a-41b6-8fef-084f5f8020e5.png` after merging #174.
+Replace only Male `pull-up` phases: LEFT nearly straight-arm hang START / RIGHT
+chin above bar FINISH. Preserve overhand bodyweight pull-up, crossed airborne
+feet, straight bar, guide, muscles, stable ID and History. Exact 887-square RGB
+WebP92/method6 halves, shared contain; no labels, resampling, padding or independent
+transforms. Retain dark manifest/original prompts and selection history, exact new
+prompt and actual four-input provenance with Male Master. User-selected-provisional:
+bar/rack placement differs between panels; fixed registration, detailed grip,
+biomechanics and device/accessibility QA remain open. Oracle deferred; cumulative
+source checkpoint pending. Coverage remains 68 pairs / 136 frames. This closes the
+identified dark structural palette queue after integration, not all visual QA.
+Next: Female Master review, then 3–5 pilots before full Female production.
+
 ## Chest-supported Dumbbell Row silver-bench replacement — 2026-11-03
 
 User approved `exec-051a0a30-f4ba-4bbb-99e7-a8d4f9c9cb2e.png` after merging #173.

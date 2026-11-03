@@ -1,0 +1,43 @@
+{
+  "exerciseCandidate": "pull-up",
+  "revision": 2,
+  "tool": "image_gen.imagegen",
+  "prompt": "Use case: precise-object-edit. Create CRESUM bodyweight OVERHAND PULL-UP Male silver-rack exercise illustration. One wide 2:1 sheet with exactly TWO equal square panels side by side: LEFT START full controlled hang with elbows nearly straight; RIGHT FINISH chin clearly above the horizontal bar with elbows flexed down beside ribcage. Input1 existing START and input2 existing FINISH are edit targets defining this exact unassisted straight-bar pull-up, rack construction and pronated grip. Input3 actual Male Master is authoritative for face/hair, natural athletic proportions, blue-gray fitted shirt, charcoal shorts, white socks and light-gray trainers. Input4 silver incline-bench row is ONLY silver material and rendering reference: do not copy its exercise or bench. Replace dark structural rack with smooth satin LIGHT SILVER-GRAY upright posts, long floor rails, triangular braces and mounting brackets. Preserve dark graphite horizontal gripping bar and dark rubber foot caps, visible adjustment holes and bolts. Exactly one simple stable freestanding two-upright pull-up rack per panel, SAME fixed bar height and width, upright/base geometry, camera/front-three-quarter perspective, crop and scale across both panels. Same closed moderate-width overhand grip, palms away from athlete, thumbs wrapped around bar, hands at exactly fixed locations in both phases, anatomically natural wrists/five digits. LEFT nearly straight arms hanging beneath bar, feet airborne; RIGHT chin fully above bar without neck craning, head/shoulders and torso visibly raised, elbows flexed, feet also raised, bar stationary. Both phases legs slightly bent with ankles crossed consistently, feet never touch floor, no kip, no exaggerated arch or leg swing. Keep full rack, full head including top FINISH head clearance, both hands and all shoes within each square at consistent large scale, narrow white margins; use square space efficiently without stretching rack or athlete. Uniform natural skin, fine matte clothing, smooth consistent silver finish, soft neutral studio lighting, white background and restrained contact shadows. No text, no START/FINISH labels, dividers, borders, pills, arrows, logos, watermarks, insets or anatomical overlays. No assist platform, counterweight, stack, cables, pads, extra bars, benches, extra hands/limbs or duplicate athlete within a panel. Two clearly different phases, same rack and Master identity.",
+  "references": [
+    {
+      "file": "start.webp",
+      "sha256": "ba46363333b06bdcc9b5fae5724205a6019001ea33de55debec4adf73b134049",
+      "bytes": 40022,
+      "repositoryPath": "assets/exercises/pull-up/start.webp",
+      "repositoryCommit": "ea9cb78d4dca77621de9f87d1100558e67a9121b"
+    },
+    {
+      "file": "finish.webp",
+      "sha256": "fc9b1c82011da245423cf0595e37eaf4a2568f101dccfc0d5ba89a833bea9c89",
+      "bytes": 37096,
+      "repositoryPath": "assets/exercises/pull-up/finish.webp",
+      "repositoryCommit": "ea9cb78d4dca77621de9f87d1100558e67a9121b"
+    },
+    {
+      "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+      "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+      "bytes": 325046
+    },
+    {
+      "file": "exec-051a0a30-f4ba-4bbb-99e7-a8d4f9c9cb2e.png",
+      "sha256": "4fdf424dc84a3c9d54d126e6bd6c13bc8c60fcf09effab206039b1eeacaaf5e2",
+      "bytes": 1622723
+    }
+  ],
+  "output": {
+    "file": "exec-5225ada9-1b5a-41b6-8fef-084f5f8020e5.png",
+    "sha256": "5d228d1cdb82994355371a94603fadf9d0a93e5643bf238d91358a63956424e3",
+    "bytes": 1345169,
+    "libraryFileId": "libfile_10825cb4b0e88191a3ebb34f6d89a8a6",
+    "size": [1774, 887]
+  },
+  "phaseOrder": {
+    "left": "start",
+    "right": "finish"
+  }
+}
