@@ -80,6 +80,8 @@ it('retains onboarding answers, proposal identity and retry state across languag
     expect(input('Dein Name').props.value).toBe('  Ihor  ');
     expect(change).toHaveBeenCalledTimes(writes);
     await press('Weiter');
+    await press('Weiblich');
+    await press('Weiter');
     await act(async () => {
       input('Körpergewicht (kg)').props.onChangeText('82,');
     });

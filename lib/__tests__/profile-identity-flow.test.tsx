@@ -47,6 +47,8 @@ it('collects name, then body details, then goal; preserves the name through relo
   expect(name).toBeDefined();
   await act(async () => name.props.onChangeText('Ігор'));
   await act(async () => button(v, 'Continue').props.onPress());
+  await act(async () => button(v, 'Male').props.onPress());
+  await act(async () => button(v, 'Continue').props.onPress());
   expect(JSON.stringify(v.toJSON())).toContain('Body details');
   expect(
     v.root

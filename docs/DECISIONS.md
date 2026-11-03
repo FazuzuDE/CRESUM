@@ -1,14 +1,15 @@
 # CRESUM Decision Log
 
-## Female character production and user choice — 2026-11-03
+## 2026-11-03 — Exercise illustration character
 
-After merge #175, user clarified that the displayed exercise character must be
-user-selectable and asked to start Female production. Record that product
-requirement and retain the shown five-view Female Master for pilots, with exact
-PNG/prompt/reference provenance. Character selection must not alter exercise
-identity or training/history data. Runtime remains Male until approved Female
-pairs and selector behavior are implemented. Next: goblet squat Female preview,
-then a diverse 3–5-pilot review before full production. No unseen pair approval.
+Approved by Ihor: choose Male/Female in one first-run welcome window and change it
+through a Profile selector. One persisted preference drives all exercise artwork;
+presentation must not create another exercise or alter history. The generated
+Female dumbbell Goblet Squat pair is accepted for integration. After the technical
+foundation, continue all remaining Female exercises and add each approved pair to
+code immediately, as with Male production. Pending Female pairs use a localized
+placeholder without opposite-model substitution. Implementation uses existing
+onboarding/backup persistence and a shared React context; no data schema bump.
 
 ## Pull-up silver-rack replacement — 2026-11-03
 

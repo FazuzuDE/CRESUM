@@ -1,4 +1,16 @@
 export default {
+  'character.pendingShort': 'À venir',
+  'character.title': 'Personnage des exercices',
+  'character.description':
+    'Choisissez le personnage des illustrations. Vous pouvez le modifier à tout moment dans le profil.',
+  'character.male': 'Masculin',
+  'character.female': 'Féminin',
+  'character.saving': 'Enregistrement du personnage…',
+  'character.saveError':
+    'Impossible d’enregistrer le personnage. Votre choix précédent est conservé. Réessayez.',
+  'character.retry': 'Réessayer le choix du personnage',
+  'character.femalePending': 'L’illustration féminine est en préparation',
+
   'error.resetIncomplete':
     'Impossible de réinitialiser les données locales et leur récupération est incomplète. Gardez l’application ouverte et réessayez.',
   'error.resetRecovered':

@@ -8,6 +8,7 @@ import { BackupPage, type BackupPageOptions } from './BackupPage';
 import { useState } from 'react';
 import { BrandHeader } from './BrandHeader';
 import { LanguageSettings } from './LanguageSettings';
+import { ExerciseCharacterSettings } from './ExerciseCharacterPicker';
 import { AppScrollView } from './AppScrollView';
 import { StyleSheet, Text, View } from 'react-native';
 import { GlassCard } from './GlassCard';
@@ -307,6 +308,9 @@ export function ProfileSettings({
       ) : null}
       <GlassCard style={s.card}>
         <LanguageSettings />
+      </GlassCard>
+      <GlassCard style={s.card}>
+        <ExerciseCharacterSettings />
       </GlassCard>
       <GlassCard style={s.card}>
         <Text style={s.sectionTitle} accessibilityRole="header">

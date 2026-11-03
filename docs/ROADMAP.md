@@ -1,18 +1,13 @@
 # CRESUM — Development Roadmap
 
-## Female production and character selection — 2026-11-03
+## Female artwork rollout — approved 2026-11-03
 
-PR #175 merged; the identified Male dark structural palette queue is closed.
-Detailed mechanics, rigid registration and device QA remain provisional.
-User confirmed the need to choose the displayed character and asked to begin
-Female production. Retain the shown Female Master for pilot generation, then
-review 3–5 diverse pairs before the full collection. Proposed pilot sequence:
-dumbbell goblet squat, chest-supported dumbbell row, close-neutral ergonomic
-pulldown, dumbbell shoulder press and cable glute kickback. This samples standing,
-deep flexion, bench support, seated machine and unilateral cable contacts.
-Start with goblet squat. Connect the persisted display preference after agreeing
-settings placement and missing-pair behavior with reviewed Female coverage.
-Do not treat master selection as approval of unseen exercise pairs.
+First deliver the shared character preference in welcome/Profile and integrate
+Female dumbbell Goblet Squat. Then generate, review and immediately integrate
+Female pairs exercise by exercise, beginning with Leg Press. Keep exact variant,
+model and phase bindings and both existing Male files. Missing Female assets stay
+localized placeholders; do not wait for a complete set to integrate accepted pairs.
+No Oracle dependency or new cloud work is required for this rollout.
 
 ## Pull-up silver-rack replacement — 2026-11-03
 

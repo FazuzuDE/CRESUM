@@ -1,16 +1,16 @@
 # CRESUM Design System v1.0
 
-## Female Master and character choice — 2026-11-03
+## Exercise character selector — approved 2026-11-03
 
-The user requires a choice of displayed Male/Female exercise character and asked
-to begin Female production. Use `assets/exercise-models/female-master-r1/reference.png`
-as the Female pilot reference: natural athletic build, brown ponytail, blue-gray
-T-shirt, charcoal leggings, white socks and light-gray trainers. Exact source and
-prompt/reference provenance are in its manifest. Existing Male art remains the
-pose/equipment reference. Generate both phases together, equal square frames,
-consistent scale/materials, silver equipment structures and no baked-in labels.
-Each pilot is reviewed before runtime integration. Character choice must apply
-consistently to exercise imagery; the selector itself is not implemented here.
+Use a two-choice Male / Female selector in Profile and a welcome step after name
+entry, before optional body details. Welcome shows both characters using the exact
+Goblet Squat START images. Explain that this selects exercise illustrations and
+can be changed in Profile. Require an explicit choice for the new welcome step;
+show selected and disabled/saving/error/retry states with accessible native buttons.
+Reuse existing typography, spacing, surfaces and touch targets. Apply the choice
+consistently to compact, inline and fullscreen exercise artwork; never stretch
+images or substitute the opposite model. Existing anatomical muscle maps remain
+a separate visualization; this feature selects exercise technique artwork.
 
 ## Pull-up silver-rack replacement — 2026-11-03
 

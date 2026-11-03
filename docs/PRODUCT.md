@@ -1,16 +1,21 @@
 # CRESUM — Product Definition
 
-## Exercise illustration character choice — required 2026-11-03
+## Exercise illustration character — approved 2026-11-03
 
-Users must be able to choose which exercise character is displayed: Male or
-Female. This choice changes illustration presentation, while exercise identity,
-technique, muscles, training calculations and saved workouts/History stay the
-same. It is a display preference; it does not require inferring the user's sex.
-Current UI still requests Male, and Female artwork is not yet wired. Build the
-Female collection from the selected Master through reviewed pilots, then connect
-the choice consistently across library, technique and expanded exercise imagery.
-Settings location, persistence and incomplete-coverage behavior must be specified
-before UI implementation; this requirement does not claim a working selector.
+The first-run welcome flow asks which character to show after the name and before
+body details. Profile contains a Male / Female selector for changing this display
+preference anytime. Both use one persisted `answers.artworkModel` in the existing
+onboarding document. Existing installations/backups without it retain Male;
+workout identities, history, statistics and body details are independent.
+
+All exercise thumbnails, inline phases and fullscreen views use the shared choice.
+Missing Female pairs show localized pending artwork, never an opposite-model or
+related-equipment substitute. Complete reviewed pairs are registered by exact
+variant/model/phase. The approved Female dumbbell Goblet Squat is the first pair;
+Kettlebell Goblet Squat remains separate. Continue reviewed Female exercises one
+at a time, integrating each approved pair immediately. Core display stays offline.
+Profile changes commit only after successful storage and retain the old choice
+with retry on failure; existing backup/restore/reset handle the same document.
 
 ## Goblet Squat combined statistics — user addition, 2026-10-31
 

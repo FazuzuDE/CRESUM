@@ -1,4 +1,16 @@
 export default {
+  'character.pendingShort': 'Preparing',
+  'character.title': 'Exercise character',
+  'character.description':
+    'Choose who appears in exercise illustrations. You can change this anytime in Profile.',
+  'character.male': 'Male',
+  'character.female': 'Female',
+  'character.saving': 'Saving character…',
+  'character.saveError':
+    'Could not save your character. Your previous choice is kept. Try again.',
+  'character.retry': 'Retry character selection',
+  'character.femalePending': 'Female illustration is being prepared',
+
   'error.resetIncomplete':
     'Local data could not be reset, and recovery was incomplete. Keep the app open and try again.',
   'error.resetRecovered':
