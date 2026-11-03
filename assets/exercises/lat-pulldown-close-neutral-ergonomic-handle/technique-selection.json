@@ -1,0 +1,37 @@
+{
+  "exerciseId": "lat-pulldown-close-neutral-ergonomic-handle",
+  "model": "male",
+  "selectedRevision": 2,
+  "selectionDate": "2026-11-03",
+  "status": "user-selected-pair",
+  "decision": "Approved silver frame; remove START/FINISH labels; replace old pair.",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "0490cf44f16f5b5784a23c3cee41be487eda8dd3b7bdf4e91fa5fcf5446a4ca3",
+      "bytes": 48772,
+      "sourceFile": "exec-6a64b539-ba4f-443b-b68a-20d0c0eb0d70.png",
+      "sourceSha256": "4d0280a7ffc14c81bf4407951a16daeb2b45c79c5dd08bebdde2f54971546cb4",
+      "sourceBytes": 1679068,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887,
+      "quality": 92
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "3dca59d469020c5004cda77cd7cc75aaca737217069a73a7aaf940714b50bee9",
+      "bytes": 47182,
+      "sourceFile": "exec-6a64b539-ba4f-443b-b68a-20d0c0eb0d70.png",
+      "sourceSha256": "4d0280a7ffc14c81bf4407951a16daeb2b45c79c5dd08bebdde2f54971546cb4",
+      "sourceBytes": 1679068,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887,
+      "quality": 92
+    }
+  },
+  "archiveStatus": "pending-upload"
+}

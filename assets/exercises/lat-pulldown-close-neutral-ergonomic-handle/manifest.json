@@ -1,29 +1,46 @@
 {
   "variantId": "lat-pulldown-close-neutral-ergonomic-handle",
   "model": "male",
-  "reviewDate": "2026-10-25",
-  "reviewScope": "User-selected reference imagery for the approved integration. Assistant visual pair consistency review; no claim of measured CAD or clinician certification.",
+  "visualMode": "technique",
+  "revision": 2,
+  "selectionDate": "2026-11-03",
+  "status": "user-selected-provisional",
+  "supersedes": "manifest-dark-frame-r1.json",
+  "userDecision": "Да, утверждаю. Только удали надписи старт и финиш; Утверждаю, замени старое изображение на новое и продолжим со следующим тренажером.",
+  "reviewScope": "User selected the silver-frame pair and subsequent no-label edit. Full-frame and square half-sheet fit reviewed; existing exact variant, attachment, guide and muscle semantics preserved. Detailed hand/contact, machine registration, selected plate count/selector continuity and physical-device/accessibility acceptance remain open. Generative label removal may alter pixels beyond the label area; this is not a lossless masked edit.",
   "pairChecks": [
-    "same model, outfit, framing and machine",
-    "same compact attachment and neutral contact",
-    "stable seated/thigh support and set-back far foot",
-    "coherent taut high-pulley cable",
-    "eight raised plates with selector at group bottom in finish, eleven stationary plates"
+    "LEFT raised-arm START / RIGHT handle-to-upper-chest FINISH",
+    "silver structural frame, dark padding and ergonomic attachment in both phases",
+    "full machine and athlete visible in equal square crops",
+    "taut high cable and visibly raised selected load at FINISH",
+    "no baked-in phase labels"
   ],
   "assets": {
     "start": {
       "file": "start.webp",
-      "sourceSha256": "6e45e7bd5bb46cdb9bd255ed1a3f7af20650f4501294685e77ad03519493e9b8",
-      "sha256": "af15a23117f1e34925a2fd5a23ff7ddeeb7adf4e06f91857dda957cab32008a1",
-      "width": 1000,
-      "quality": 90
+      "sha256": "0490cf44f16f5b5784a23c3cee41be487eda8dd3b7bdf4e91fa5fcf5446a4ca3",
+      "bytes": 48772,
+      "sourceFile": "exec-6a64b539-ba4f-443b-b68a-20d0c0eb0d70.png",
+      "sourceSha256": "4d0280a7ffc14c81bf4407951a16daeb2b45c79c5dd08bebdde2f54971546cb4",
+      "sourceBytes": 1679068,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887,
+      "quality": 92
     },
     "finish": {
       "file": "finish.webp",
-      "sourceSha256": "928ed313dcb62f9ee244440044849138ae69729e4dba39c9ec2f1be266e30780",
-      "sha256": "0e82dbee09919e63e6ac6a435f7b9858f11728e1e49b9a79116fe5cdc3d7e481",
-      "width": 1000,
-      "quality": 90
+      "sha256": "3dca59d469020c5004cda77cd7cc75aaca737217069a73a7aaf940714b50bee9",
+      "bytes": 47182,
+      "sourceFile": "exec-6a64b539-ba4f-443b-b68a-20d0c0eb0d70.png",
+      "sourceSha256": "4d0280a7ffc14c81bf4407951a16daeb2b45c79c5dd08bebdde2f54971546cb4",
+      "sourceBytes": 1679068,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887,
+      "quality": 92
     },
     "attachment": {
       "file": "attachment.webp",
@@ -32,5 +49,23 @@
       "width": 512,
       "quality": 90
     }
+  },
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "promptFile": "generation-prompts-light-r2.json",
+    "sourceFile": "exec-6a64b539-ba4f-443b-b68a-20d0c0eb0d70.png",
+    "sourceSha256": "4d0280a7ffc14c81bf4407951a16daeb2b45c79c5dd08bebdde2f54971546cb4",
+    "maleMasterInput": "not-supplied; existing phase targets used"
+  },
+  "presentation": "Exact 887-square halves with shared contain, no resampling, padding or independent transforms.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Generated originals are Library-backed and retained locally for the cumulative visual-block checkpoint. Historical dark-frame metadata remains in manifest-dark-frame-r1.json and Git history; no verified PC/Oracle backup claim.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "left/top inclusive, right/bottom exclusive"
   }
 }

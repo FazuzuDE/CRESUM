@@ -1,5 +1,24 @@
 # CRESUM Design System v1.0
 
+## Ergonomic Pulldown silver-frame replacement — 2026-11-03
+
+User approved the silver-frame preview, requested removal of START/FINISH labels,
+then explicitly approved replacing the old pair. Select
+`exec-6a64b539-ba4f-443b-b68a-20d0c0eb0d70.png`: LEFT START / RIGHT FINISH,
+exact 887-square RGB WebP92/method6 crops with shared contain and no independent
+transforms. Replace only existing Male ergonomic-handle phase files; preserve
+attachment thumbnail, stable identity, guides, muscles, History and fallbacks.
+Retain superseded dark-frame metadata, exact two-call prompts and actual hashes.
+The first call used existing phase images and the equipment-style reference;
+the second used that silver preview. The actual Male Master was not supplied.
+Disclose that reference-rule deviation rather than inventing an input. Generative
+label removal is not a lossless pixel-preserving edit. User-selected-provisional:
+detailed hand/contact anatomy, rigid registration, plate/selector continuity and
+physical-device/accessibility acceptance remain open. No verified Oracle/PC backup.
+Coverage remains 68 pairs / 136 frames across 70 records; this replaces a pair.
+Next: V-handle pulldown silver-frame preview, followed by wide/reverse pulldowns
+and close-neutral seated row. Show future exercise sheets without baked-in labels.
+
 ## Dumbbell Floor Glute Bridge selected Male pair — 2026-11-03
 
 User approved r1 `exec-1a741a4e-250d-4169-98df-17ff2dcc6991.png`.

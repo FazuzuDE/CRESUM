@@ -1,5 +1,15 @@
 # CRESUM — Development Roadmap
 
+## Visual consistency block — approved 2026-11-03
+
+Audit the existing Male illustrations and replace early dark frames with the
+approved silver equipment style, beginning with ergonomic pulldown, then V-handle,
+wide and reverse pulldowns and close-neutral seated row. Preserve exact variants
+and review each pair before integration. Follow with Female Master review, 3–5
+pilot exercises and the full Female set. Prepare the cumulative source archive at
+the visual-block checkpoint; Oracle remains deferred. This is the approved work
+sequence, not a claim that the full audit or Female production is complete.
+
 ## Assisted Dip Machine selected Male pair — 2026-10-31
 
 User approved r2 `exec-bda3c995-8e76-4188-b34e-46184674283b.png`.
