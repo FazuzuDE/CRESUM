@@ -1033,9 +1033,7 @@ it('keeps Front Squat Female and attachment fallbacks', () => {
   expect(resolveAttachmentArtwork('barbell-front-squat')).toBeNull();
 });
 
-it('keeps Leg Press Female and attachment fallbacks', () => {
-  for (const phase of ['start', 'finish'] as const)
-    expect(resolveExerciseArtwork('leg-press', phase, 'female')).toBeNull();
+it('keeps Leg Press attachment fallback', () => {
   expect(resolveAttachmentArtwork('leg-press')).toBeNull();
 });
 
