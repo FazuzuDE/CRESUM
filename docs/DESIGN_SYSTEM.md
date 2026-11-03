@@ -1,5 +1,22 @@
 # CRESUM Design System v1.0
 
+## Dumbbell Floor Glute Bridge selected Male pair — 2026-11-03
+
+User approved r1 `exec-1a741a4e-250d-4169-98df-17ff2dcc6991.png`.
+LEFT lowered-pelvis START / RIGHT raised-pelvis FINISH, one dumbbell stabilized
+across hips. Preserve the existing floor-supported guide, glutes Primary and
+hamstrings Secondary, stable identity and History; no bench hip-thrust substitution.
+Bind only `dumbbell-floor-glute-bridge` / Male via shared phase/anatomy viewers.
+Exact 887-square RGB WebP92/method6 half-sheet crops, shared contain; no retouch,
+resampling, padding or independent transforms. Retain original, exact prompt and
+actual movement/Male Master hashes. User-selected-provisional: exact head/neck
+contact, lumbar/pelvic alignment, foot registration, dumbbell/grip support and
+device/accessibility QA remain open. No new source review or muscle-role change.
+Oracle archive pending/unverified. Coverage after integration: 68 Male pairs /
+136 frames across 70 catalog records. Generic `seated-cable-row` and `lat-pulldown`
+remain unspecified placeholders; their specific illustrated variants stay separate.
+Next: catalogue/visual QA review and cumulative source-archive checkpoint.
+
 ## Bodyweight Step-up selected Male pair — 2026-11-03
 
 User selected reference pose 2 as START and pose 3 as FINISH (left-to-right)

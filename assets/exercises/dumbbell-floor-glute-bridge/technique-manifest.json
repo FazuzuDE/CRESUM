@@ -1,0 +1,68 @@
+{
+  "variantId": "dumbbell-floor-glute-bridge",
+  "model": "male",
+  "visualMode": "technique",
+  "revision": 1,
+  "status": "user-selected-provisional",
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "115f19c3fb18c5c128e9704e82ff0857fc0f3b07da5fea2e7e56dec3ff508e0f",
+      "bytes": 33322,
+      "sourceFile": "exec-1a741a4e-250d-4169-98df-17ff2dcc6991.png",
+      "sourceSha256": "ea63a581101e19e4d493bb9172567043faa1a2e289c5e932f79e0f3edc619cc9",
+      "sourceBytes": 1309223,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "1a4873a1400079be6d6cd7751e7d7f7a2e4a116df9bb5a2b3de70695cb6d636b",
+      "bytes": 33136,
+      "sourceFile": "exec-1a741a4e-250d-4169-98df-17ff2dcc6991.png",
+      "sourceSha256": "ea63a581101e19e4d493bb9172567043faa1a2e289c5e932f79e0f3edc619cc9",
+      "sourceBytes": 1309223,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "IMG_8414.jpeg",
+        "sha256": "e9d602394f4451f3aec28ce7b0defc0d2d76c36ff725b49e17fb60671366045f",
+        "bytes": 125891
+      },
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046
+      }
+    ],
+    "output": {
+      "file": "exec-1a741a4e-250d-4169-98df-17ff2dcc6991.png",
+      "sha256": "ea63a581101e19e4d493bb9172567043faa1a2e289c5e932f79e0f3edc619cc9",
+      "bytes": 1309223,
+      "size": [1774, 887]
+    }
+  },
+  "productionChoice": "User approved LEFT lowered-pelvis START / RIGHT raised-pelvis FINISH, one dumbbell stabilized across hips. Existing floor-supported guide and identity retained, no bench-supported hip-thrust substitution.",
+  "presentation": "Exact square half-sheet crops, shared contain; no retouch, resampling, padding or independent phase transforms.",
+  "reviewScope": "Broad floor-bridge phase difference, shared character/materials and full-frame fit reviewed. Exact head/neck contact, lumbar/pelvic alignment, foot registration and dumbbell/grip support plus physical-device/accessibility QA remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Actual inputs and generated output identified by hash; original PNG retained. Oracle upload deferred/unverified.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "left/top inclusive, right/bottom exclusive"
+  }
+}

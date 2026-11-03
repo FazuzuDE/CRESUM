@@ -1,0 +1,28 @@
+{
+  "exerciseCandidate": "dumbbell-floor-glute-bridge",
+  "revision": 1,
+  "status": "user-selected-pair",
+  "tool": "image_gen.imagegen",
+  "prompt": "Create an ORIGINAL premium CRESUM DUMBBELL FLOOR GLUTE BRIDGE exercise illustration preview. Exactly TWO full-body phases side by side in equal square halves of one wide 2:1 pure white canvas, no text. Input1 is a user-supplied reference ONLY for the general movement: supine floor bridge with a single dumbbell across pelvis. Do not reproduce its illustration, watermark, anatomy shading or screenshot interface. Input2 is LOCKED Male Master identity, natural athletic proportions, face/hair, outfit and materials: brown-haired clean-shaven man wearing muted blue-gray T-shirt, charcoal shorts, visible white training socks and light-gray trainers. Same man, identical proportions, clothing and realistic clean softly shaded 3D fitness-app rendering in BOTH halves. Camera low side three-quarter, head at image-left and feet at image-right, face profile and hand/dumbbell contact readable. LEFT START: lying supine on floor, head and shoulders resting on floor, pelvis lowered to floor, knees bent, both full feet flat hip-width apart. RIGHT FINISH: lift pelvis into controlled glute bridge, shoulder blades/upper back and head remain supported on floor, both full feet stay planted at identical positions, knees stay hip-width, shins approximately vertical and shoulder-hip-knee form a natural nearly straight diagonal line without overarched lumbar spine. Neck neutral, no weight through head, no exaggerated chest flare, no tiptoe heels. One identical medium black round-head dumbbell with short silver grip lies HORIZONTALLY CROSSWISE ACROSS THE FRONT OF THE PELVIS/hip crease in BOTH phases, lateral axis from one hip to other, not upright and not lengthwise along torso. A thin unobtrusive dark pad can cushion contact. BOTH hands securely stabilize the two dumbbell heads/ends from above at hips, wrists neutral; dumbbell rests on supported hip crease and rises together with pelvis at FINISH, never floating above belly, pressing toward ceiling or resting high on stomach/chest. Show a single dumbbell only, same dimensions/design in each half, believable overlap/contact of hands, weight, shorts. No bench, no machine, no barbell, no extra exercise gear. Same character SCALE, camera, head and foot ground contact registration and horizontal framing between halves; do not change body length or shoe size. Full head, both elbows/hands, dumbbell, both knees and both shoes fit in each square with narrow safe margins. Use image width efficiently; vertically center the shared action envelope so floor exercise is not a tiny strip at bottom of excessive blank space. Keep same floor baseline across panels, subtle soft contact shadows under head/shoulders, pelvis at START and feet, clear visible air under raised pelvis at FINISH. Uniform natural skin and matte clothing without blotchy color. White studio background only, no background scene, labels, arrows, muscle-color overlays, logo, watermark, UI, border, duplicate limbs or extra phases. Exactly LEFT lowered pelvis START and RIGHT raised pelvis FINISH.",
+  "referencedImages": [
+    {
+      "file": "IMG_8414.jpeg",
+      "sha256": "e9d602394f4451f3aec28ce7b0defc0d2d76c36ff725b49e17fb60671366045f",
+      "bytes": 125891
+    },
+    {
+      "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+      "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+      "bytes": 325046
+    }
+  ],
+  "output": {
+    "file": "exec-1a741a4e-250d-4169-98df-17ff2dcc6991.png",
+    "sha256": "ea63a581101e19e4d493bb9172567043faa1a2e289c5e932f79e0f3edc619cc9",
+    "bytes": 1309223
+  },
+  "phaseOrder": {
+    "left": "start",
+    "right": "finish"
+  }
+}

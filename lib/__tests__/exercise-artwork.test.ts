@@ -6,6 +6,14 @@ import { findExercise } from '../exercise-library';
 import { getCatalogVariant } from '../exercise-catalog-adapter';
 import { findTechnique } from '../exercise-technique';
 import backExtensionManifest from '../../assets/exercises/back-extension/technique-manifest.json';
+jest.mock(
+  '../../assets/exercises/dumbbell-floor-glute-bridge/start.webp',
+  () => 6801,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-floor-glute-bridge/finish.webp',
+  () => 6802,
+);
 jest.mock('../../assets/exercises/bodyweight-step-up/start.webp', () => 6701);
 jest.mock('../../assets/exercises/bodyweight-step-up/finish.webp', () => 6702);
 jest.mock(
@@ -534,7 +542,7 @@ it('binds the selected high-row pair without narrowing the generic exercise scop
     for (const other of [
       'lat-pulldown',
       'seated-cable-row',
-      'dumbbell-floor-glute-bridge',
+      'unillustrated-variant',
       'unknown',
     ])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
@@ -592,7 +600,7 @@ it('binds selected deadlift phases without narrowing conventional identity or bo
     for (const other of [
       'deadlift',
       'romanian-deadlift',
-      'dumbbell-floor-glute-bridge',
+      'unillustrated-variant',
       'unknown',
     ])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
@@ -666,7 +674,7 @@ it('binds selected machine press without narrowing generic grip or borrowing fre
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
     expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
-    for (const other of ['press', 'dumbbell-floor-glute-bridge', 'unknown'])
+    for (const other of ['press', 'unillustrated-variant', 'unknown'])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
     for (const other of ['dumbbell-shoulder-press', 'barbell-overhead-press'])
       expect(resolveExerciseArtwork(other, phase, 'male')).not.toBe(
@@ -800,11 +808,7 @@ it('binds Male high cable pushdown without narrowing generic attachment or borro
     expect(resolveExerciseArtwork('cable-biceps-curl', phase, 'male')).toBe(
       phase === 'start' ? 2501 : 2502,
     );
-    for (const id of [
-      'bodyweight-dip',
-      'dumbbell-floor-glute-bridge',
-      'unknown',
-    ])
+    for (const id of ['bodyweight-dip', 'unillustrated-variant', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('cable-triceps-pushdown')).toBeNull();
@@ -843,11 +847,7 @@ it('binds only Male overhead cable extension while retaining generic guide and t
     expect(resolveExerciseArtwork('cable-biceps-curl', phase, 'male')).toBe(
       phase === 'start' ? 2501 : 2502,
     );
-    for (const id of [
-      'bodyweight-dip',
-      'dumbbell-floor-glute-bridge',
-      'unknown',
-    ])
+    for (const id of ['bodyweight-dip', 'unillustrated-variant', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(
@@ -892,11 +892,7 @@ it('binds only Male two-hand overhead dumbbell extension and preserves guide and
     expect(
       resolveExerciseArtwork('cable-triceps-pushdown', phase, 'male'),
     ).toBe(phase === 'start' ? 2601 : 2602);
-    for (const id of [
-      'dumbbell-floor-glute-bridge',
-      'bodyweight-dip',
-      'unknown',
-    ])
+    for (const id of ['unillustrated-variant', 'bodyweight-dip', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(
@@ -933,11 +929,7 @@ it('binds only Male close grip bench press and preserves shoulder-width guide an
     expect(
       resolveExerciseArtwork('overhead-cable-triceps-extension', phase, 'male'),
     ).toBe(phase === 'start' ? 2701 : 2702);
-    for (const id of [
-      'dumbbell-floor-glute-bridge',
-      'bodyweight-dip',
-      'unknown',
-    ])
+    for (const id of ['unillustrated-variant', 'bodyweight-dip', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('close-grip-bench-press')).toBeNull();
@@ -977,7 +969,7 @@ it('resolves only exact Male lying triceps phases without borrowing bench or ext
       ),
     ).toBe(phase === 'start' ? 2801 : 2802);
     expect(
-      resolveExerciseArtwork('dumbbell-floor-glute-bridge', phase, 'male'),
+      resolveExerciseArtwork('unillustrated-variant', phase, 'male'),
     ).toBeNull();
     expect(resolveExerciseArtwork('bodyweight-dip', phase, 'male')).toBeNull();
   }
@@ -1015,11 +1007,7 @@ it('binds only Male assisted dip machine and preserves shoulder-width guide and 
     expect(
       resolveExerciseArtwork('overhead-cable-triceps-extension', phase, 'male'),
     ).toBe(phase === 'start' ? 2701 : 2702);
-    for (const id of [
-      'dumbbell-floor-glute-bridge',
-      'bodyweight-dip',
-      'unknown',
-    ])
+    for (const id of ['unillustrated-variant', 'bodyweight-dip', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }
   expect(resolveAttachmentArtwork('assisted-dip-machine')).toBeNull();
@@ -1031,7 +1019,7 @@ it('keeps Back Squat Female, attachment and unsupported variant fallbacks', () =
       resolveExerciseArtwork('barbell-back-squat', phase, 'female'),
     ).toBeNull();
     expect(
-      resolveExerciseArtwork('dumbbell-floor-glute-bridge', phase, 'male'),
+      resolveExerciseArtwork('unillustrated-variant', phase, 'male'),
     ).toBeNull();
   }
   expect(resolveAttachmentArtwork('barbell-back-squat')).toBeNull();
@@ -1081,6 +1069,7 @@ it.each([
   'farmers-carry',
   'standing-cable-anti-rotation-press',
   'bodyweight-step-up',
+  'dumbbell-floor-glute-bridge',
   'seated-leg-curl',
   'barbell-romanian-deadlift',
 ])('keeps %s Female and attachment fallbacks', (id) => {
@@ -1177,7 +1166,7 @@ it('binds selected standing cable-crunch phases without narrowing generic postur
     6101,
   );
   expect(
-    resolveExerciseArtwork('dumbbell-floor-glute-bridge', 'start', 'male'),
+    resolveExerciseArtwork('unillustrated-variant', 'start', 'male'),
   ).toBeNull();
 });
 
@@ -1213,7 +1202,7 @@ it('binds selected Male shrug phases and preserves shoulder-elevation guidance',
   });
   expect(resolveExerciseArtwork('back-extension', 'start', 'male')).toBe(6301);
   expect(
-    resolveExerciseArtwork('dumbbell-floor-glute-bridge', 'start', 'male'),
+    resolveExerciseArtwork('unillustrated-variant', 'start', 'male'),
   ).toBeNull();
 });
 
@@ -1235,7 +1224,7 @@ it('binds selected Male carry phases and preserves distance-based walking guidan
   ]);
   expect(resolveExerciseArtwork('dumbbell-shrug', 'start', 'male')).toBe(6401);
   expect(
-    resolveExerciseArtwork('dumbbell-floor-glute-bridge', 'start', 'male'),
+    resolveExerciseArtwork('unillustrated-variant', 'start', 'male'),
   ).toBeNull();
 });
 
@@ -1271,7 +1260,7 @@ it('binds selected Male Pallof phases and preserves bilateral anti-rotation guid
   );
   expect(resolveExerciseArtwork('farmers-carry', 'start', 'male')).toBe(6501);
   expect(
-    resolveExerciseArtwork('dumbbell-floor-glute-bridge', 'start', 'male'),
+    resolveExerciseArtwork('unillustrated-variant', 'start', 'male'),
   ).toBeNull();
 });
 
@@ -1303,6 +1292,36 @@ it('binds selected Male step-up phases and preserves unloaded each-side guidance
     ),
   ).toBe(6601);
   expect(
+    resolveExerciseArtwork('unillustrated-variant', 'start', 'male'),
+  ).toBeNull();
+});
+
+it('binds selected Male floor bridge phases and preserves floor-supported guidance', () => {
+  expect(
     resolveExerciseArtwork('dumbbell-floor-glute-bridge', 'start', 'male'),
+  ).toBe(6801);
+  expect(
+    resolveExerciseArtwork('dumbbell-floor-glute-bridge', 'finish', 'male'),
+  ).toBe(6802);
+  expect(findExercise('dumbbell-floor-glute-bridge')).toMatchObject({
+    primaryMuscles: ['glutes'],
+    secondaryMuscles: ['hamstrings'],
+    equipment: ['dumbbell'],
+    movementPattern: 'hinge',
+  });
+  expect(findTechnique('dumbbell-floor-glute-bridge')?.scope).toBe(
+    'Floor-supported dumbbell hip extension.',
+  );
+  expect(findTechnique('dumbbell-floor-glute-bridge')?.movement).toEqual([
+    'Press feet down and raise hips, then lower slowly.',
+  ]);
+  expect(findTechnique('dumbbell-floor-glute-bridge')?.checks).toEqual([
+    'Keep upper back on floor and ribs controlled.',
+  ]);
+  expect(resolveExerciseArtwork('bodyweight-step-up', 'start', 'male')).toBe(
+    6701,
+  );
+  expect(
+    resolveExerciseArtwork('seated-cable-row', 'start', 'male'),
   ).toBeNull();
 });
