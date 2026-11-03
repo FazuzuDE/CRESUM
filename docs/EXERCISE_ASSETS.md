@@ -1,5 +1,16 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Master r1 — pilot production, 2026-11-03
+
+Source: `assets/exercise-models/female-master-r1/reference.png` with exact generated
+bytes and `manifest.json` provenance. User asked to begin Female artwork and
+clarified a required user choice of displayed character. Master is a generation
+reference, not a runtime exercise phase. Keep Male pairs unchanged; derive each
+Female pair from its exact concrete exercise and this Master. Review START/FINISH
+together before binding. Current coverage remains 68 Male pairs / 136 frames and
+zero bound Female pairs. First preview: dumbbell goblet squat. Original palette
+audit remains a pinned historical snapshot; no old hashes rewritten.
+
 ## Pull-up silver-rack replacement — 2026-11-03
 
 User approved `exec-5225ada9-1b5a-41b6-8fef-084f5f8020e5.png` after merging #174.

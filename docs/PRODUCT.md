@@ -1,5 +1,17 @@
 # CRESUM — Product Definition
 
+## Exercise illustration character choice — required 2026-11-03
+
+Users must be able to choose which exercise character is displayed: Male or
+Female. This choice changes illustration presentation, while exercise identity,
+technique, muscles, training calculations and saved workouts/History stay the
+same. It is a display preference; it does not require inferring the user's sex.
+Current UI still requests Male, and Female artwork is not yet wired. Build the
+Female collection from the selected Master through reviewed pilots, then connect
+the choice consistently across library, technique and expanded exercise imagery.
+Settings location, persistence and incomplete-coverage behavior must be specified
+before UI implementation; this requirement does not claim a working selector.
+
 ## Goblet Squat combined statistics — user addition, 2026-10-31
 
 The single Goblet Squat statistics screen offers All / Dumbbell / Kettlebell.

@@ -1,5 +1,15 @@
 # CRESUM Decision Log
 
+## Female character production and user choice — 2026-11-03
+
+After merge #175, user clarified that the displayed exercise character must be
+user-selectable and asked to start Female production. Record that product
+requirement and retain the shown five-view Female Master for pilots, with exact
+PNG/prompt/reference provenance. Character selection must not alter exercise
+identity or training/history data. Runtime remains Male until approved Female
+pairs and selector behavior are implemented. Next: goblet squat Female preview,
+then a diverse 3–5-pilot review before full production. No unseen pair approval.
+
 ## Pull-up silver-rack replacement — 2026-11-03
 
 User approved `exec-5225ada9-1b5a-41b6-8fef-084f5f8020e5.png` after merging #174.

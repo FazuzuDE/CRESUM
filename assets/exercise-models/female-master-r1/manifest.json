@@ -1,0 +1,52 @@
+{
+  "id": "cresum-female-master",
+  "revision": 1,
+  "role": "exercise-artwork-generation-reference",
+  "status": "selected-for-pilot-production",
+  "selectionDate": "2026-11-03",
+  "userDecision": "Merged. Для понимания, хочу чтобы была возможность у пользователя выбирать какого персонажа показывать. Исходя из этого начнем делать с женским персонажем",
+  "approvalScope": "Proceed with the shown Female Master for pilot production. Each exercise pair still requires user review before runtime integration. Not approval of unseen full Female set.",
+  "source": {
+    "file": "exec-85cb4198-5d8c-420d-839f-137c6d4f7a8b.png",
+    "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+    "bytes": 1874514,
+    "size": [1536, 1024],
+    "libraryFileId": "libfile_cb3c34a9e5b88191b033d996d6f689de"
+  },
+  "repositoryFile": "reference.png",
+  "repositoryFileSha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "prompt": "Use case: stylized-concept. Asset type: CRESUM Female Master character reference turnaround sheet, first review candidate. Input1 is the approved MALE Master used only as the authoritative CRESUM rendering/material/outfit-palette reference; create a distinct adult female athlete in the SAME realistic clean studio 3D illustration family. One single wide landscape sheet showing exactly FIVE full-body views of THE SAME woman: front, front-three-quarter, true side profile, rear-three-quarter, back, evenly spaced at identical height, all feet on same baseline. Natural moderately athletic adult woman about late twenties to thirties, healthy realistic proportions, lightly defined musculature, not a bodybuilder, not exaggeratedly slim, neither hypersexualized nor fashion posed. Friendly neutral face, natural brown eyes, consistent chestnut-brown hair in a practical tidy mid-height ponytail with no face-obscuring strands. Same identical facial identity, body proportions, skin tone, ponytail, clothing and shoes in every view. Blue-gray fitted short-sleeve crew-neck training T-shirt fully covering torso, matte dark charcoal full-length athletic leggings, visible white crew socks and light-gray low-profile training shoes matching CRESUM male footwear materials. No logos or jewelry. Relaxed neutral upright stance, arms slightly away from sides so hands and waist readable, elbows straight relaxed, natural five-finger hands, feet hip-width apart; no exercise equipment or weights. Uniform clean natural skin texture, restrained realistic fabric seams and folds, smooth matte materials, soft neutral studio lighting, restrained shadows, clean white/light-neutral backdrop. Keep whole heads, hands and shoes in frame at large consistent scale with generous separation and narrow outer margins. No text, view labels, numbering, borders, dividers, arrows, anatomical muscle colors, insets, male figures or extra characters. Exactly five rotations of one coherent woman, professional reference sheet for producing exercise START/FINISH illustrations.",
+    "references": [
+      {
+        "file": "09-0AB6F93A-ED92-4F34-949C-C8AFA32D44CD-2-.jpeg",
+        "sha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+        "bytes": 325046,
+        "size": [1536, 1024],
+        "role": "Male Master rendering/material/outfit-palette reference; not Female identity"
+      }
+    ]
+  },
+  "views": [
+    "front",
+    "front-three-quarter",
+    "side",
+    "rear-three-quarter",
+    "back"
+  ],
+  "appearance": {
+    "build": "natural moderately athletic adult woman",
+    "hair": "chestnut brown ponytail",
+    "top": "blue-gray fitted short-sleeve crew-neck T-shirt",
+    "bottom": "dark charcoal full-length leggings",
+    "socks": "white crew socks",
+    "shoes": "light-gray trainers"
+  },
+  "runtimeBinding": "none; generation reference only",
+  "openReview": [
+    "Five-view visual continuity is illustrative, not a measured anatomical turnaround.",
+    "Per-exercise contacts, grip, equipment continuity and device readability require separate review."
+  ],
+  "sourceRetention": "Exact generated PNG retained in Git; prompt and actual reference hash recorded. Cumulative source archive and Oracle remain deferred."
+}
