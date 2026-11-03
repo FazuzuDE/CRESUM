@@ -1509,7 +1509,7 @@ it.each([
   ['Dumbbell Shrug', 6402, ['traps'], ['forearms']],
   ["Farmer's Carry", 6502, ['forearms', 'traps'], ['abs', 'glutes']],
   ['Standing Cable Anti-rotation Press', 6602, ['abs'], []],
-  ['Bodyweight Step-up', 6702, ['quadriceps', 'glutes'], ['hamstrings']],
+  ['Bodyweight Step-up', 6702, ['glutes', 'quadriceps'], ['hamstrings']],
   [
     'Kettlebell Swing',
     5702,
