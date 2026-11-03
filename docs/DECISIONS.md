@@ -1,5 +1,21 @@
 # CRESUM Decision Log
 
+## One-arm Dumbbell Row silver-bench replacement — 2026-11-03
+
+User approved `exec-28d9d392-a3e0-44b9-b3c3-98390e4802b5.png` after merging #172.
+Replace only existing Male `one-arm-dumbbell-row` phases: LEFT lowered dumbbell
+START / RIGHT dumbbell-at-hip FINISH. Preserve selected near-arm movement, far-side
+palm/knee bench support, planted near-side foot, guide, muscles, ID and History.
+Prompt intended right working arm/left support; visible laterality is unverified
+and may read oppositely. Do not mirror or claim anatomical side verification. Exact
+887-square RGB WebP92/method6 halves, shared contain; no labels, resampling,
+padding or independent transforms. Retain prior dark manifest/prompts and actual
+four-input provenance including Male Master; pin chest-supported-row's historical
+style input. User-selected-provisional: detailed hand/support contact, rigid
+registration and device/accessibility QA remain open. Oracle deferred; cumulative
+source checkpoint pending. Coverage remains 68 pairs / 136 frames. After this
+replacement, dark structural follow-ups are chest-supported row and pull-up rack.
+
 ## Male palette audit follow-up — 2026-11-03
 
 The 68-pair palette/integrity review found three remaining dark structural frames:

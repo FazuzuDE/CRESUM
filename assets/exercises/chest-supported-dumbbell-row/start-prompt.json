@@ -32,5 +32,13 @@
   },
   "reviewScope": "User visually selected START. Pair status is recorded separately in technique-selection.json and technique-manifest.json; this is not independent anatomy/biomechanics QA or native-device acceptance.",
   "userDecision": "Отлично, далее",
-  "selectionDate": "2026-10-27"
+  "selectionDate": "2026-10-27",
+  "historicalReferenceVersions": [
+    {
+      "repositoryPath": "assets/exercises/one-arm-dumbbell-row/start.webp",
+      "repositoryCommit": "46707e9969948c464b15a60442ffa5a2158acc05",
+      "sha256": "7072425b2d1ade0f475de6041f8ace634b7f5276ad956be5f4578f5822ab3410",
+      "note": "Historical dark-frame rendering reference, prior to silver-bench replacement."
+    }
+  ]
 }

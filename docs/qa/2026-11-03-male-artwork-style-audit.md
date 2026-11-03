@@ -1,5 +1,12 @@
 # Male artwork equipment-style audit — 2026-11-03
 
+## Follow-up: one-arm row prepared — 2026-11-03
+
+The user selected the silver-bench one-arm row pair; this change prepares its
+replacement. The original audit inventory below remains a pinned historical
+snapshot, not a rolling hash manifest. After integration, remaining dark structural
+frames are the chest-supported row bench and the pull-up rack.
+
 ## Scope and evidence
 
 Reviewed both phases of all 68 resolver-bound Male pairs using six labeled contact
