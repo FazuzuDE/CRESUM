@@ -1,0 +1,66 @@
+{
+  "variantId": "leg-extension",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "79265f2bebdf3b2fc21473ca5a8a08a9abd36ef24d4b4ad3ecae5f8fa0b1e443",
+      "bytes": 54122,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "dda157a8eff46b99276444d12e0464ee579af5ec6a50135b3acb0d0e04589aa1",
+      "bytes": 58666,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-058d92a7-edc4-4194-8295-503119b47c96.png",
+    "sourceLibraryFileId": "libfile_3213e0159f388191ac87c9d2ba0b424d",
+    "sourceSha256": "1f2ca76b04fbe0aad7e84f04a98dd6f6bf027d85dcf0e5100fc566bc0c948ce1",
+    "sourceBytes": 1576166,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514,
+        "role": "Female Master identity, proportions and outfit"
+      },
+      {
+        "file": "assets/exercises/leg-extension/start.webp",
+        "sha256": "ec6d647a3b6c9220a96e087a7e7ed083c62889326ee6dd2f8c141c303100f0a1",
+        "bytes": 53978,
+        "role": "Existing Male Leg Extension machine/setup and START only"
+      },
+      {
+        "file": "assets/exercises/leg-extension/finish.webp",
+        "sha256": "d5b8a800fb3bdbe8bd51c39a4a9c4b697fec0b6369c77778c8d3361f5621a9d7",
+        "bytes": 55320,
+        "role": "Existing Male Leg Extension machine/setup and FINISH only"
+      }
+    ]
+  },
+  "productionChoice": "LEFT bent-knee START / RIGHT near-extended-knee FINISH. Supported seated bilateral knee extension; roller contacts front of lower shins. Selected load group is raised in FINISH. Preserve existing ID, guide and quadriceps Primary mapping.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User selected pair. Broad character/outfit/material continuity, seated support and phase distinction reviewed. Exact hand/roller/shin/pivot contacts, knee range, fixed-machine registration, plate counts and selector continuity are not independently certified. Prompted twelve total/four raised plates are instructions, not certified output counts. Physical-device/accessibility acceptance pending. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and current workspace for cumulative visual-block checkpoint. Exact generation prompt and actual input hashes recorded. Oracle deferred; no verified PC backup claim."
+}
