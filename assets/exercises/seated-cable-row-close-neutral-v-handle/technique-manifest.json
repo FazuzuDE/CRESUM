@@ -3,54 +3,70 @@
   "familyId": "seated-cable-row",
   "model": "male",
   "visualMode": "technique",
-  "revision": 1,
-  "selectionDate": "2026-10-27",
+  "revision": 2,
+  "selectionDate": "2026-11-03",
   "status": "user-selected-provisional",
   "archiveStatus": "pending-upload",
   "assets": {
     "start": {
       "file": "start.webp",
-      "sourceFile": "exec-a9d48407-5090-4a34-834a-5b46cf89c338.png",
-      "sourceSha256": "5f32853aeea7d7d347d70415e991bd4209485de3c2ba223ae22e643fc8aea4d9",
-      "sha256": "7f08081f16091d36bd03d3d359f51ce88f202980983d99912e7c0039c4ac4cd2",
-      "width": 1280,
-      "height": 853,
+      "sha256": "c96753d53312479926c7e4837ae11734db26ed7e93d0bd8bb279f477d8e16ee8",
+      "bytes": 42146,
+      "sourceFile": "exec-730a8d8a-3b7f-4c10-a8d0-f95d4377f57e.png",
+      "sourceSha256": "36c4577286db20a8a6c78486f325f188034c38edc3f38155ed19357ac9e2a3a8",
+      "sourceBytes": 1386355,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887,
       "quality": 92
     },
     "finish": {
       "file": "finish.webp",
-      "sourceFile": "exec-3967f155-7f60-4164-b6be-28dab000ded7.png",
-      "sourceSha256": "3305da3a6ea7cee5e4a6da35afc0eb1ab8730878e593005dd9a46587f1fafa99",
-      "sha256": "aef7b67d3002d89f5b9d18e80c510dedfd0da22a1073ba3da534a6596097a486",
-      "width": 1280,
-      "height": 853,
+      "sha256": "59aeb79ce96c81d3fe0bd3ed29430f63cdbe70753c9aba48c41573a56394b347",
+      "bytes": 41778,
+      "sourceFile": "exec-730a8d8a-3b7f-4c10-a8d0-f95d4377f57e.png",
+      "sourceSha256": "36c4577286db20a8a6c78486f325f188034c38edc3f38155ed19357ac9e2a3a8",
+      "sourceBytes": 1386355,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887,
       "quality": 92
     }
   },
   "generation": {
-    "tool": "built-in image_gen",
-    "promptFile": "technique-prompts.json",
-    "sourceRetention": "Original generated PNGs remain in the conversation. Repository contains selected WebP exports and exact generation/repair prompts. Oracle archive upload remains deferred."
+    "tool": "image_gen.imagegen",
+    "promptFile": "generation-prompts-light-r2.json",
+    "actualReferenceCommit": "1acf2ffaa1a55d613ee89e5133ec82f91a5a62d2",
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "output": {
+      "file": "exec-730a8d8a-3b7f-4c10-a8d0-f95d4377f57e.png",
+      "sha256": "36c4577286db20a8a6c78486f325f188034c38edc3f38155ed19357ac9e2a3a8",
+      "bytes": 1386355
+    }
   },
   "sharedAttachment": {
     "file": "../lat-pulldown-close-neutral-v-handle/attachment.webp",
     "sha256": "9b9a3f385291382fe4e768cd5e229ee635ff936ec197d431cf0958cdd5ef1fe7",
     "scope": "Same two-grip V-handle thumbnail; explicit equipment-only reuse, not borrowed exercise phases."
   },
-  "reviewScope": "User accepted the corrected START/FINISH pair after the extra unheld central post was removed in both frames. Assistant compared support, cable continuity, identity and materials at full-frame size. This is visual selection, not independent anatomy or automated tracker certification.",
+  "reviewScope": "User approved the silver-frame no-label pair. Broad phase distinction, low-cable/V-handle presentation, stable seated/foot supports and full-frame/phone-size fit reviewed. Exact far-hand contact, fixed-frame registration and biomechanics/device acceptance remain provisional. Opaque shroud prevents verification of internal stack motion.",
   "openReview": [
-    "Far-hand/grip contact is partly occluded and requires independent anatomical review.",
-    "The weight stack is shrouded; internal stack motion and load continuity cannot be verified from this pair.",
-    "Physical-phone readability remains unverified."
+    "Far-hand grip is partly occluded; detailed contact/wrist mechanics remain provisional.",
+    "Opaque weight-stack enclosure prevents verification of internal plate count or motion.",
+    "Exact rigid registration and physical-device/accessibility acceptance remain unverified.",
+    "The generated sheet includes faint edge/center divider lines; exact half-sheet crops retain source edge pixels without retouch."
   ],
   "export": {
     "format": "WebP",
     "mode": "RGB",
-    "resize": "Pillow thumbnail",
-    "maxWidth": 1280,
-    "maxHeight": 1280,
-    "resampling": "LANCZOS",
     "quality": 92,
-    "method": 6
-  }
+    "method": 6,
+    "resampling": "none"
+  },
+  "userDecision": "Merged, утверждаю",
+  "supersedes": "technique-manifest-dark-frame-r1.json",
+  "presentation": "Exact 887-square LEFT START / RIGHT FINISH half-sheet crops, shared contain, no resampling, padding or independent transforms. Fine source edge/divider pixels are retained.",
+  "sourceRetention": "Selected Library-backed original, actual input hashes and exact prompt retained for cumulative visual-block checkpoint. Historical prompts/manifest and Git history preserved. Oracle/PC backup unverified."
 }

@@ -1,0 +1,1264 @@
+{
+  "date": "2026-11-03",
+  "scope": "Resolver-bound Male start/finish images, current working tree",
+  "pairs": 68,
+  "frames": 136,
+  "integrityErrors": [],
+  "records": [
+    {
+      "id": "assisted-dip-machine",
+      "manifest": "assets/exercises/assisted-dip-machine/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/assisted-dip-machine/start.webp",
+          "sha256": "256c93a24c4b3e450e680f0469c1050743e51591a53752e3d08bcde9bdd9a05c",
+          "bytes": 46978,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/assisted-dip-machine/finish.webp",
+          "sha256": "b036a34e3ad2b6bf15a6655ab2a1c7b28fd33dc24c643690589fb20c888474bb",
+          "bytes": 49000,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "assisted-pull-up",
+      "manifest": "assets/exercises/assisted-pull-up/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/assisted-pull-up/start.webp",
+          "sha256": "546b92eab10d851bdf47fa5d64c63f3b143ab834624e3583094e2c16f6fcb44e",
+          "bytes": 41238,
+          "size": [1280, 853]
+        },
+        "finish": {
+          "path": "assets/exercises/assisted-pull-up/finish.webp",
+          "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+          "bytes": 42162,
+          "size": [1280, 853]
+        }
+      }
+    },
+    {
+      "id": "back-extension",
+      "manifest": "assets/exercises/back-extension/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/back-extension/start.webp",
+          "sha256": "4d14366548e02579336539c8bbba4b461512268a600fe0372d545c7d515266e4",
+          "bytes": 38242,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/back-extension/finish.webp",
+          "sha256": "06175199327904197dc0880ebcc52843eb99af5293b2fd3a575c621579514fc6",
+          "bytes": 37902,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "barbell-back-squat",
+      "manifest": "assets/exercises/barbell-back-squat/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/barbell-back-squat/start.webp",
+          "sha256": "fb048f1678eeb9031ac24d648d8d716fc8596a9e2ff068a76cb02992d3382015",
+          "bytes": 37550,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/barbell-back-squat/finish.webp",
+          "sha256": "b4a8f85337f04a0c8d7e4a2ea70be977eefa00ff1821b6270f8fb79a464e0c34",
+          "bytes": 37996,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "barbell-bench-press",
+      "manifest": "assets/exercises/barbell-bench-press/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/barbell-bench-press/start.webp",
+          "sha256": "a2690c7324a4ff892d3334272c33b83b4cc0df0de83964c2eccc1e88911ffe53",
+          "bytes": 57330,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/barbell-bench-press/finish.webp",
+          "sha256": "649f360d980ef764662d1a14a20aa07603acabc64611cc576a655448789593ef",
+          "bytes": 58702,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "barbell-bent-over-row",
+      "manifest": "assets/exercises/barbell-bent-over-row/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/barbell-bent-over-row/start.webp",
+          "sha256": "706a40834ba8927231560889ad9f9aee6697869ddacfc9a533784c4eb458cd59",
+          "bytes": 57490,
+          "size": [1280, 853]
+        },
+        "finish": {
+          "path": "assets/exercises/barbell-bent-over-row/finish.webp",
+          "sha256": "33cbc694e2e0b6bc54a7e09c915f83cf9bfcc7f2c5c8f7b95cce3bb0c0dbaae4",
+          "bytes": 54690,
+          "size": [1280, 853]
+        }
+      }
+    },
+    {
+      "id": "barbell-curl",
+      "manifest": "assets/exercises/barbell-curl/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/barbell-curl/start.webp",
+          "sha256": "220be8cca1dce4154e08e34be44a21a7f2b8d9618c0a06b072abc3c69fc3ec4c",
+          "bytes": 37756,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/barbell-curl/finish.webp",
+          "sha256": "2e10fe91f56285e6f8cb2478d7b55688443d85275bb2051f99e15d3ea62a4036",
+          "bytes": 36116,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "barbell-deadlift",
+      "manifest": "assets/exercises/barbell-deadlift/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/barbell-deadlift/start.webp",
+          "sha256": "84a3d2909857d71ea42982ca82c3ac258d061b501aabe22a22de0c200657be0d",
+          "bytes": 32590,
+          "size": [1280, 853]
+        },
+        "finish": {
+          "path": "assets/exercises/barbell-deadlift/finish.webp",
+          "sha256": "fcd56f694106e4a2cb70c611e4d4279bc68c43aa40983bea638fe3bf22ee9735",
+          "bytes": 34300,
+          "size": [1280, 853]
+        }
+      }
+    },
+    {
+      "id": "barbell-front-squat",
+      "manifest": "assets/exercises/barbell-front-squat/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/barbell-front-squat/start.webp",
+          "sha256": "8e16d22b6ccade5180c6b1b12741880aa72374c9c8bd84031a4ea32026997237",
+          "bytes": 33994,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/barbell-front-squat/finish.webp",
+          "sha256": "9fe1ee07d0570c1b137d1291533afb0648c85e25027e2268fd7f0fae6a9f128d",
+          "bytes": 34766,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "barbell-hip-thrust",
+      "manifest": "assets/exercises/barbell-hip-thrust/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/barbell-hip-thrust/start.webp",
+          "sha256": "48bb7d28226892a5e5682d61931e5999d502250fa652f838e260fba66e213719",
+          "bytes": 44240,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/barbell-hip-thrust/finish.webp",
+          "sha256": "27ee6e762b268b7d2e2c58bb3824520e711a136688bbef08fd1a34d3ec739a03",
+          "bytes": 44874,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "barbell-overhead-press",
+      "manifest": "assets/exercises/barbell-overhead-press/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/barbell-overhead-press/start.webp",
+          "sha256": "f5e44d3cf31ac0a3d460489648855b4f2aa9e18c172479eaa8f3cade1e9aa50b",
+          "bytes": 30484,
+          "size": [951, 951]
+        },
+        "finish": {
+          "path": "assets/exercises/barbell-overhead-press/finish.webp",
+          "sha256": "16b5d6b7d5e8e76b9c1e1b5ea02c2deebed5f79d2ce5bd27a5193361e3b99f07",
+          "bytes": 30948,
+          "size": [951, 951]
+        }
+      }
+    },
+    {
+      "id": "barbell-romanian-deadlift",
+      "manifest": "assets/exercises/barbell-romanian-deadlift/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/barbell-romanian-deadlift/start.webp",
+          "sha256": "5d264f3c957991d6c259aa64061241444c251314dd82a5e4891e78985dc40884",
+          "bytes": 37862,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/barbell-romanian-deadlift/finish.webp",
+          "sha256": "39d837866d2ad0ab7e78978af99b54145b2320f8e835660180f4efbbb671175a",
+          "bytes": 34720,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "bodyweight-step-up",
+      "manifest": "assets/exercises/bodyweight-step-up/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/bodyweight-step-up/start.webp",
+          "sha256": "3adc950127fd2ab20465c87263fb2d26d36c3d02bb2da40e1434a914e916cc94",
+          "bytes": 27920,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/bodyweight-step-up/finish.webp",
+          "sha256": "11e893f402ca47dba02e8e101803de329bb6c443a3821dc8702f19b2b131cec7",
+          "bytes": 25934,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "bulgarian-split-squat",
+      "manifest": "assets/exercises/bulgarian-split-squat/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/bulgarian-split-squat/start.webp",
+          "sha256": "2ce1ceb5cbfc3d0de08d7491b7a6800a1eeb69671982b2297dafbe9c4a01cbf5",
+          "bytes": 36004,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/bulgarian-split-squat/finish.webp",
+          "sha256": "b0433155d0a2c5e7eaf77e13f6f572bc46eaff8baa285174b951e53d3182a473",
+          "bytes": 37614,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "cable-biceps-curl",
+      "manifest": "assets/exercises/cable-biceps-curl/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/cable-biceps-curl/start.webp",
+          "sha256": "d936e92f20f7c92414eab1b056d333ff5a93df885da80a4d14606fb8c342353d",
+          "bytes": 45920,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/cable-biceps-curl/finish.webp",
+          "sha256": "2e4bc3000126a80cb9c3c292081acc136336b113c29c35d66a86896356e3b57c",
+          "bytes": 46264,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "cable-chest-fly",
+      "manifest": "assets/exercises/cable-chest-fly/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/cable-chest-fly/start.webp",
+          "sha256": "724ad00d6cbeac0ca38a16fb1ca0cacb3170463c97eabf34b68afc8f91621117",
+          "bytes": 49710,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/cable-chest-fly/finish.webp",
+          "sha256": "fefdac36c339bc4a8e4a9e0ad45004e7ac0679af0401257a892f0fcb3cc49124",
+          "bytes": 54608,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "cable-crunch",
+      "manifest": "assets/exercises/cable-crunch/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/cable-crunch/start.webp",
+          "sha256": "d00921e3df63d1e3e57b36947a9f84a5871fcf99c4f531e5f82ec5428eab0358",
+          "bytes": 40856,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/cable-crunch/finish.webp",
+          "sha256": "6803a9707a02e7f52ab9628e33cfea51f506cd5e4e28276fcb1831a629bb61dc",
+          "bytes": 43040,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "cable-glute-kickback",
+      "manifest": "assets/exercises/cable-glute-kickback/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/cable-glute-kickback/start.webp",
+          "sha256": "c87908d7ff901ec65f26b75bdd6f24361aded40c04e614b77ea0f65e696cfa26",
+          "bytes": 41290,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/cable-glute-kickback/finish.webp",
+          "sha256": "5807c9c01b6e55f0f8c4475e73c1b8aecd9609d37b6dbe679284cccedd03738c",
+          "bytes": 42880,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "cable-lateral-raise",
+      "manifest": "assets/exercises/cable-lateral-raise/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/cable-lateral-raise/start.webp",
+          "sha256": "e98c1f62fa0322d6083edcbbad97b243508e228d53e2a17cadf31b01837d057f",
+          "bytes": 52826,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/cable-lateral-raise/finish.webp",
+          "sha256": "af641fe5f9893cb9d64288d813808b199c0cb4e18cb8c4b3559280439467688b",
+          "bytes": 53188,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "cable-straight-arm-pulldown",
+      "manifest": "assets/exercises/cable-straight-arm-pulldown/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/cable-straight-arm-pulldown/start.webp",
+          "sha256": "1fb6885ee7badb6f45f8ea7d1b584b71891f0ecfdc7cb498e0d686ab23231ed9",
+          "bytes": 55628,
+          "size": [1280, 853]
+        },
+        "finish": {
+          "path": "assets/exercises/cable-straight-arm-pulldown/finish.webp",
+          "sha256": "5159720294314423492fbcfb5ef021c7e94e96aaa616e2b5c79fd95d79c34865",
+          "bytes": 54140,
+          "size": [1280, 853]
+        }
+      }
+    },
+    {
+      "id": "cable-triceps-pushdown",
+      "manifest": "assets/exercises/cable-triceps-pushdown/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/cable-triceps-pushdown/start.webp",
+          "sha256": "0a185ffc0cdaa03f101b5c78ab6dd7380838b3a961e69e0a1bd3a389303158c6",
+          "bytes": 48712,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/cable-triceps-pushdown/finish.webp",
+          "sha256": "5a8362bec3240d45ebc0fa07c49d68e6be8bb65605a4a6c472cd0c812c3a1ae6",
+          "bytes": 52778,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "captains-chair-knee-raise",
+      "manifest": "assets/exercises/captains-chair-knee-raise/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/captains-chair-knee-raise/start.webp",
+          "sha256": "b711b00c57a03237713a04755a93fdc0289f9287ca2dbbde5ac5da7cd777fbf1",
+          "bytes": 33826,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/captains-chair-knee-raise/finish.webp",
+          "sha256": "eaf72735af1d4624ad2b9f603c5109174d6ae94d38e10af183a7b5c70b4d5bd9",
+          "bytes": 33390,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "chest-supported-dumbbell-row",
+      "manifest": "assets/exercises/chest-supported-dumbbell-row/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/chest-supported-dumbbell-row/start.webp",
+          "sha256": "fbc69a80d8c2406dcf78dc44b456b2f6b990460acd7e65e67fab86e7a25e57ea",
+          "bytes": 54818,
+          "size": [1280, 853]
+        },
+        "finish": {
+          "path": "assets/exercises/chest-supported-dumbbell-row/finish.webp",
+          "sha256": "788b071059bd293f1793557b57e874df5a09f85ad3fc9634543d45e954e98d6c",
+          "bytes": 52270,
+          "size": [1280, 853]
+        }
+      }
+    },
+    {
+      "id": "close-grip-bench-press",
+      "manifest": "assets/exercises/close-grip-bench-press/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/close-grip-bench-press/start.webp",
+          "sha256": "f075bfaef000af15f775c9edf1ac82a3392a9ce2c950b099cc6fe82f3386c997",
+          "bytes": 48776,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/close-grip-bench-press/finish.webp",
+          "sha256": "f3f8b97f9fe43a7d8c0ea25b80e94410d65faa994835929629fa4705c1256065",
+          "bytes": 52532,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "dumbbell-bench-press",
+      "manifest": "assets/exercises/dumbbell-bench-press/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/dumbbell-bench-press/start.webp",
+          "sha256": "bf495efb5cb096a75d354f73b42dfa19d11531dc17f94d791338064c89d67b03",
+          "bytes": 54476,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/dumbbell-bench-press/finish.webp",
+          "sha256": "9300cbc647767f635991a581528ebba78b385d58d9224ce8c7fadca3c2ffa48c",
+          "bytes": 55854,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "dumbbell-biceps-curl",
+      "manifest": "assets/exercises/dumbbell-biceps-curl/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/dumbbell-biceps-curl/start.webp",
+          "sha256": "e3a7f955c935aaa0fdfc9ce43d75f851fc144e13d1600d7f5dac9b0456a02df5",
+          "bytes": 34074,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/dumbbell-biceps-curl/finish.webp",
+          "sha256": "b06ec9e46d5b75b96dbf79cd73d55ce1aa5aca311bb2a14ac2d1b908d0397bc5",
+          "bytes": 32704,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "dumbbell-floor-glute-bridge",
+      "manifest": "assets/exercises/dumbbell-floor-glute-bridge/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/dumbbell-floor-glute-bridge/start.webp",
+          "sha256": "115f19c3fb18c5c128e9704e82ff0857fc0f3b07da5fea2e7e56dec3ff508e0f",
+          "bytes": 33322,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/dumbbell-floor-glute-bridge/finish.webp",
+          "sha256": "1a4873a1400079be6d6cd7751e7d7f7a2e4a116df9bb5a2b3de70695cb6d636b",
+          "bytes": 33136,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "dumbbell-lateral-raise",
+      "manifest": "assets/exercises/dumbbell-lateral-raise/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/dumbbell-lateral-raise/start.webp",
+          "sha256": "e7db133ff05954da9275071d92f4edf853964f592a1dcac23db0ac6caa3eda8f",
+          "bytes": 30966,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/dumbbell-lateral-raise/finish.webp",
+          "sha256": "0a3aa371f70ebd44ab53e8ed5101b2bf4e5940af5caae7dc5706a933ec252a45",
+          "bytes": 32974,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "dumbbell-overhead-triceps-extension",
+      "manifest": "assets/exercises/dumbbell-overhead-triceps-extension/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/dumbbell-overhead-triceps-extension/start.webp",
+          "sha256": "50be15788f67a3175b7dbebe4547d6f904d1ff9747212e9cbb30fd08d082c438",
+          "bytes": 28412,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/dumbbell-overhead-triceps-extension/finish.webp",
+          "sha256": "ab8bee2aea4b967ed46c6ec40a1cb717abf36bab6177f5bc30243e4eb24a2d70",
+          "bytes": 27206,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "dumbbell-reverse-lunge",
+      "manifest": "assets/exercises/dumbbell-reverse-lunge/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/dumbbell-reverse-lunge/start.webp",
+          "sha256": "f0632adac8b6b33b7a4ab8cedda889f18599a2a61f7f8abea6f7238c6949fd23",
+          "bytes": 28506,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/dumbbell-reverse-lunge/finish.webp",
+          "sha256": "f2908e19f0e93f9bfcaedfec8cee35e3f55ad15a41c55e8535bd3f3c6ed0ed6d",
+          "bytes": 29184,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "dumbbell-romanian-deadlift",
+      "manifest": "assets/exercises/dumbbell-romanian-deadlift/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/dumbbell-romanian-deadlift/start.webp",
+          "sha256": "59b2030389dca90a9fdc2ae534748fbcbe1feffbe2d308088140257d6dee2a11",
+          "bytes": 30172,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/dumbbell-romanian-deadlift/finish.webp",
+          "sha256": "32fd40d2819b9b954cce4e0a2829db4a58db2779fa788866ef6e039958cc23a2",
+          "bytes": 26966,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "dumbbell-shoulder-press",
+      "manifest": "assets/exercises/dumbbell-shoulder-press/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/dumbbell-shoulder-press/start.webp",
+          "sha256": "6f2d4271ced155af4ee47896ca050cbddb0550e43f8de5d9a87b8f1138b52801",
+          "bytes": 30010,
+          "size": [1280, 853]
+        },
+        "finish": {
+          "path": "assets/exercises/dumbbell-shoulder-press/finish.webp",
+          "sha256": "655d345eb571bc275191d649d08c89f4f89a56e516f853ead9c71f77db681a38",
+          "bytes": 33334,
+          "size": [1280, 853]
+        }
+      }
+    },
+    {
+      "id": "dumbbell-shrug",
+      "manifest": "assets/exercises/dumbbell-shrug/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/dumbbell-shrug/start.webp",
+          "sha256": "06456d424b6c56f820e583c98fde48b45b2407fd11a9e1e63b9d5fec83cf9a35",
+          "bytes": 29646,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/dumbbell-shrug/finish.webp",
+          "sha256": "406bd4576ac73a186354f76a84f70f1c1997ea1fcbb019bfe77393392bb57e1d",
+          "bytes": 29688,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "ez-bar-curl",
+      "manifest": "assets/exercises/ez-bar-curl/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/ez-bar-curl/start.webp",
+          "sha256": "58012a6e13d86d693e61dc30e34d23ab38090d4d73e890ca0376bcd1c3990142",
+          "bytes": 40094,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/ez-bar-curl/finish.webp",
+          "sha256": "afa113937fb22bb66e92e922d1aeac4116c164e2ed5517d971b25010e0c98848",
+          "bytes": 38958,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "farmers-carry",
+      "manifest": "assets/exercises/farmers-carry/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/farmers-carry/start.webp",
+          "sha256": "9b28b57b8db887dc51ca4b78c9b8d1a00c529fdcdd1662b5dd060a0db5b7dee4",
+          "bytes": 32750,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/farmers-carry/finish.webp",
+          "sha256": "ed2d4b392e41fcf164e754f5cd7bbf4c75a2d0e909a33dc577f826a4d22977a9",
+          "bytes": 35578,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "goblet-squat",
+      "manifest": "assets/exercises/goblet-squat/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/goblet-squat/start.webp",
+          "sha256": "b77c126c4ab5510dabd50755123cda769bda5493954c5062543d21b79f9687c7",
+          "bytes": 35532,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/goblet-squat/finish.webp",
+          "sha256": "423a869cc5b1c52c9ba5af535af1726a00b1867a052127389282c4488f9ca713",
+          "bytes": 37216,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "hammer-curl",
+      "manifest": "assets/exercises/hammer-curl/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/hammer-curl/start.webp",
+          "sha256": "0dfe6d7247e2b100a85641287e584f7ab15676cd5793fb392cc2bf6a4c659d66",
+          "bytes": 34314,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/hammer-curl/finish.webp",
+          "sha256": "87a918b14d51070020a5663ad400567fcf918c7bd04ccc9733cb39b33909bec7",
+          "bytes": 36096,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "hanging-knee-raise",
+      "manifest": "assets/exercises/hanging-knee-raise/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/hanging-knee-raise/start.webp",
+          "sha256": "cb2290c92ef032255a3effee0bb9dee9686a19d6dbc9a8c8cc7fb9ae0e0c4620",
+          "bytes": 33686,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/hanging-knee-raise/finish.webp",
+          "sha256": "d44ab19f23a727e577212fa80b4916ab97dcf1033d487f09f7ea619f2007ef3f",
+          "bytes": 32590,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "hanging-straight-leg-raise",
+      "manifest": "assets/exercises/hanging-straight-leg-raise/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/hanging-straight-leg-raise/start.webp",
+          "sha256": "6a09ae3c8a6775f955632c4b778f609e2a66d8485673a570b786af134a193a95",
+          "bytes": 32594,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/hanging-straight-leg-raise/finish.webp",
+          "sha256": "a8fe0b33a96780532a0b3b664a2efc4a347b39bf67613b5f88eb0ec15180f964",
+          "bytes": 31942,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "incline-dumbbell-press",
+      "manifest": "assets/exercises/incline-dumbbell-press/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/incline-dumbbell-press/start.webp",
+          "sha256": "33d043f1a8c2e841f133ef8fdb8a11fae619fb16ae6ee8f555512333221566ae",
+          "bytes": 53706,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/incline-dumbbell-press/finish.webp",
+          "sha256": "35141fe3ef0d1859c57b8d17873759043d3f1296bc969dcfb6340833ccb12402",
+          "bytes": 52442,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "kettlebell-goblet-squat",
+      "manifest": "assets/exercises/kettlebell-goblet-squat/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/kettlebell-goblet-squat/start.webp",
+          "sha256": "214e16d0561ce37749a6576105b1ebccfc3dbb13bcdc967243c5367b05eecc4b",
+          "bytes": 30870,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/kettlebell-goblet-squat/finish.webp",
+          "sha256": "965e23258777b8202005b64c4cbb88f111faa468ba357eb251b5c418438cce96",
+          "bytes": 31012,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "kettlebell-swing",
+      "manifest": "assets/exercises/kettlebell-swing/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/kettlebell-swing/start.webp",
+          "sha256": "2d34a265ea0cb4747c81e60e457798b8c90ccb771a837fd3c8d8ae86a5ea1397",
+          "bytes": 30200,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/kettlebell-swing/finish.webp",
+          "sha256": "eee799429ad92c5680eeda205d87ff9804fb1d5379ac81f4e6cc7688fef2558f",
+          "bytes": 30100,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "lat-pulldown-close-neutral-ergonomic-handle",
+      "manifest": "assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/start.webp",
+          "sha256": "0490cf44f16f5b5784a23c3cee41be487eda8dd3b7bdf4e91fa5fcf5446a4ca3",
+          "bytes": 48772,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/finish.webp",
+          "sha256": "3dca59d469020c5004cda77cd7cc75aaca737217069a73a7aaf940714b50bee9",
+          "bytes": 47182,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "lat-pulldown-close-neutral-v-handle",
+      "manifest": "assets/exercises/lat-pulldown-close-neutral-v-handle/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/lat-pulldown-close-neutral-v-handle/start.webp",
+          "sha256": "e8fc1e00948623d3bb1c1153fda8f0c43559e92511b946b76ef2001d6f2281b8",
+          "bytes": 52652,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/lat-pulldown-close-neutral-v-handle/finish.webp",
+          "sha256": "a1780e6be728783ddea824c0d8655cc1f6ff8d9425dfbb52b87184fb94dc2028",
+          "bytes": 51888,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "lat-pulldown-reverse-grip",
+      "manifest": "assets/exercises/lat-pulldown-reverse-grip/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/lat-pulldown-reverse-grip/start.webp",
+          "sha256": "0472da4223d8808fcda9aa8381a5f084960e8084991f9d729afd35137779c893",
+          "bytes": 62610,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/lat-pulldown-reverse-grip/finish.webp",
+          "sha256": "3a45fa6a37b5d2b774696bbaa42715f0e2dd0e39e9c90dc183de1a6267fe0ef1",
+          "bytes": 60546,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "lat-pulldown-wide-pronated-bar",
+      "manifest": "assets/exercises/lat-pulldown-wide-pronated-bar/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/lat-pulldown-wide-pronated-bar/start.webp",
+          "sha256": "90c1b2c37cbb14ec55e0dd4136e78206bfb62385290fddfe2edaf9a036e3224b",
+          "bytes": 64102,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/lat-pulldown-wide-pronated-bar/finish.webp",
+          "sha256": "2a8b18791d2ae526423325f83b3b0e75f897f138ca853d92cfe8d35345707e08",
+          "bytes": 63126,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "leg-extension",
+      "manifest": "assets/exercises/leg-extension/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/leg-extension/start.webp",
+          "sha256": "ec6d647a3b6c9220a96e087a7e7ed083c62889326ee6dd2f8c141c303100f0a1",
+          "bytes": 53978,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/leg-extension/finish.webp",
+          "sha256": "d5b8a800fb3bdbe8bd51c39a4a9c4b697fec0b6369c77778c8d3361f5621a9d7",
+          "bytes": 55320,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "leg-press",
+      "manifest": "assets/exercises/leg-press/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/leg-press/start.webp",
+          "sha256": "575312e23f6ab58d2833ae4980fa75763be3808807318b88f003a89e92886360",
+          "bytes": 90450,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/leg-press/finish.webp",
+          "sha256": "a44842a7d9b7abf2e620396ab11641eea22fff470a810755f726bf38e1d70ecb",
+          "bytes": 83524,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "lying-barbell-triceps-extension",
+      "manifest": "assets/exercises/lying-barbell-triceps-extension/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/lying-barbell-triceps-extension/start.webp",
+          "sha256": "6da5be298183ad1928ea268b4023d50a41050a8d4e313584cb94e09349496cb0",
+          "bytes": 40214,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/lying-barbell-triceps-extension/finish.webp",
+          "sha256": "1d612a385ad16fff74b30646ff031ff342351e90826e9bf5c66630ffa39230ab",
+          "bytes": 40606,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "lying-leg-curl",
+      "manifest": "assets/exercises/lying-leg-curl/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/lying-leg-curl/start.webp",
+          "sha256": "9193f4a2a87038cbe02bc05ada93fe8751e408f206f31349471f8af7982ad2a4",
+          "bytes": 42892,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/lying-leg-curl/finish.webp",
+          "sha256": "1da29c61236f974b42b04626a882a80564145d2724537049ccb7dda95adc73d4",
+          "bytes": 46374,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "machine-chest-press",
+      "manifest": "assets/exercises/machine-chest-press/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/machine-chest-press/start.webp",
+          "sha256": "ce71562613b33221aaab6c3a492267a8b787809be6d4480683d6e17a7694557d",
+          "bytes": 54402,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/machine-chest-press/finish.webp",
+          "sha256": "c48e5186c4a5b04989293c4fc1cf90287a42ff74c23dc1699893a01713dddf25",
+          "bytes": 52076,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "machine-high-row",
+      "manifest": "assets/exercises/machine-high-row/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/machine-high-row/start.webp",
+          "sha256": "d1fdff96ac5701f15dd283516a439a50b07bc60ceb51f637a99618f1fcdc7363",
+          "bytes": 66232,
+          "size": [1280, 853]
+        },
+        "finish": {
+          "path": "assets/exercises/machine-high-row/finish.webp",
+          "sha256": "69229e7da3d9de91ad1ea86a07df7e381108ffe0b41d20c718ac8cf9b098365b",
+          "bytes": 64194,
+          "size": [1280, 853]
+        }
+      }
+    },
+    {
+      "id": "machine-hip-adduction",
+      "manifest": "assets/exercises/machine-hip-adduction/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/machine-hip-adduction/start.webp",
+          "sha256": "92ec4bc026fc99428fd822215eb785448e543c2a82e366e315a4666d19d0ffc2",
+          "bytes": 52088,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/machine-hip-adduction/finish.webp",
+          "sha256": "204093992ee7087cd9af55eaecc191ad59f5b4c264126c4cd1937f67b4b1ead0",
+          "bytes": 49826,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "machine-shoulder-press",
+      "manifest": "assets/exercises/machine-shoulder-press/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/machine-shoulder-press/start.webp",
+          "sha256": "2f787db2880238be9a9177cecfbbc79f37f1b05da57a13e5d1db5f41595ec08c",
+          "bytes": 56740,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/machine-shoulder-press/finish.webp",
+          "sha256": "66ea469bf1c3b7a02b7756d6c5fb56d85ca11a65ddefcc92331e35b4032920d2",
+          "bytes": 60136,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "one-arm-dumbbell-row",
+      "manifest": "assets/exercises/one-arm-dumbbell-row/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/one-arm-dumbbell-row/start.webp",
+          "sha256": "7072425b2d1ade0f475de6041f8ace634b7f5276ad956be5f4578f5822ab3410",
+          "bytes": 53884,
+          "size": [1280, 853]
+        },
+        "finish": {
+          "path": "assets/exercises/one-arm-dumbbell-row/finish.webp",
+          "sha256": "6d053474d21e368397e3b33e6808a391cdd95d9c3834a039551adc31d8858f85",
+          "bytes": 53482,
+          "size": [1280, 853]
+        }
+      }
+    },
+    {
+      "id": "overhead-cable-triceps-extension",
+      "manifest": "assets/exercises/overhead-cable-triceps-extension/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/overhead-cable-triceps-extension/start.webp",
+          "sha256": "172e71eb41ef80c432588e4ad2f5dbce4dcfd42276f77f683745e9a5b463dee6",
+          "bytes": 48438,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/overhead-cable-triceps-extension/finish.webp",
+          "sha256": "de64175b88aa5aec86d0a1c8258c0b76b493977c15bf3498dee199200af746e8",
+          "bytes": 49386,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "pec-deck-fly",
+      "manifest": "assets/exercises/pec-deck-fly/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/pec-deck-fly/start.webp",
+          "sha256": "4659d78e55bc151cfdb58de6c2de7d8fb5a7071eba83318a6bfd3b8d6c240470",
+          "bytes": 53574,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/pec-deck-fly/finish.webp",
+          "sha256": "957fba96e1d072e71a53649d8575f4294752b624d10626c7549d4cd3961b21a5",
+          "bytes": 50716,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "plank",
+      "manifest": "assets/exercises/plank/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/plank/start.webp",
+          "sha256": "12f9776e377eb2eb6c69246db2b7e92eb975fafe4a47c7989ea64d0a98717a40",
+          "bytes": 23624,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/plank/finish.webp",
+          "sha256": "c2603df9d330d35c4891e234b7a417ae558c96783916323e5932004f5e500c3b",
+          "bytes": 29112,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "pull-up",
+      "manifest": "assets/exercises/pull-up/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/pull-up/start.webp",
+          "sha256": "ba46363333b06bdcc9b5fae5724205a6019001ea33de55debec4adf73b134049",
+          "bytes": 40022,
+          "size": [1280, 853]
+        },
+        "finish": {
+          "path": "assets/exercises/pull-up/finish.webp",
+          "sha256": "fc9b1c82011da245423cf0595e37eaf4a2568f101dccfc0d5ba89a833bea9c89",
+          "bytes": 37096,
+          "size": [1280, 853]
+        }
+      }
+    },
+    {
+      "id": "push-up",
+      "manifest": "assets/exercises/push-up/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/push-up/start.webp",
+          "sha256": "d11a71570401460b71c7d8f7823a5bb12b0964bc17c2df703a3d1368f796052f",
+          "bytes": 34046,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/push-up/finish.webp",
+          "sha256": "efbac32c56a45d6afd19460f8c2ee0402f2b5392001dd848e5ec22b50b1960f0",
+          "bytes": 37020,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "resistance-band-pull-apart",
+      "manifest": "assets/exercises/resistance-band-pull-apart/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/resistance-band-pull-apart/start.webp",
+          "sha256": "f7aa0219b662bd5de82df0aa9809276ed339d14c7010325e522a3619b48f991f",
+          "bytes": 25822,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/resistance-band-pull-apart/finish.webp",
+          "sha256": "cd14ccf58ea1d51f6a9c08591b382b94110f76ae47613db5bd330d19ac36da66",
+          "bytes": 28508,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "reverse-pec-deck",
+      "manifest": "assets/exercises/reverse-pec-deck/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/reverse-pec-deck/start.webp",
+          "sha256": "74ac33498bcb99589bfc097f88fa6b41e5c7fcdf1143d09e4a5d56ded6e95135",
+          "bytes": 54878,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/reverse-pec-deck/finish.webp",
+          "sha256": "061e4425af57cbe990dd433d8f8ee573df8058413181e8bfae1a4ca0db9d702f",
+          "bytes": 59666,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "seated-cable-row-close-neutral-v-handle",
+      "manifest": "assets/exercises/seated-cable-row-close-neutral-v-handle/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/seated-cable-row-close-neutral-v-handle/start.webp",
+          "sha256": "c96753d53312479926c7e4837ae11734db26ed7e93d0bd8bb279f477d8e16ee8",
+          "bytes": 42146,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/seated-cable-row-close-neutral-v-handle/finish.webp",
+          "sha256": "59aeb79ce96c81d3fe0bd3ed29430f63cdbe70753c9aba48c41573a56394b347",
+          "bytes": 41778,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "seated-calf-raise",
+      "manifest": "assets/exercises/seated-calf-raise/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/seated-calf-raise/start.webp",
+          "sha256": "2bd836d1e28f4490a11768eb60b24d7fa4c6164314060b09ea77575176e7e9f3",
+          "bytes": 39834,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/seated-calf-raise/finish.webp",
+          "sha256": "8d643d486d6ae1ed70af5ee15dd55bac2080c6b15bdc41a5d12cfa1926204ff6",
+          "bytes": 39838,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "seated-leg-curl",
+      "manifest": "assets/exercises/seated-leg-curl/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/seated-leg-curl/start.webp",
+          "sha256": "6879e27d0c16bb9497a57fb435430167e8af1b035d8860bafbe481b743975c7a",
+          "bytes": 64324,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/seated-leg-curl/finish.webp",
+          "sha256": "87eefa362ce2d38140fcc1be7c4b696d980713f38d5184bf84151ac0425c82cb",
+          "bytes": 62876,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "smith-machine-squat",
+      "manifest": "assets/exercises/smith-machine-squat/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/smith-machine-squat/start.webp",
+          "sha256": "96edcc179fa4fabcd1362ee889227cc7708f65b9d603da3c074d0c3ede6df1c4",
+          "bytes": 55654,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/smith-machine-squat/finish.webp",
+          "sha256": "a77947f509fa4e1c2b123d4bfbd9442deb462584896931f5553526d56313c8ec",
+          "bytes": 52524,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "standing-cable-anti-rotation-press",
+      "manifest": "assets/exercises/standing-cable-anti-rotation-press/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/standing-cable-anti-rotation-press/start.webp",
+          "sha256": "4f656eed7f82977541082f0b496c563c005a8377c110bd13869ba025b8bce992",
+          "bytes": 40404,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/standing-cable-anti-rotation-press/finish.webp",
+          "sha256": "fdf16402ca0428733d218a3bd170ad0791ae11b982356356f58c7815d8803b73",
+          "bytes": 42140,
+          "size": [887, 887]
+        }
+      }
+    },
+    {
+      "id": "standing-calf-raise",
+      "manifest": "assets/exercises/standing-calf-raise/technique-manifest.json",
+      "phases": {
+        "start": {
+          "path": "assets/exercises/standing-calf-raise/start.webp",
+          "sha256": "15800a49efa3ceaeb3c86e699ede993feae5c20ed05da68b6a807c91da013711",
+          "bytes": 43942,
+          "size": [887, 887]
+        },
+        "finish": {
+          "path": "assets/exercises/standing-calf-raise/finish.webp",
+          "sha256": "d87e2da3d77c7b6e1dfb6070e9672e729a0a675bd76410885ff3794d64e3b232",
+          "bytes": 46498,
+          "size": [887, 887]
+        }
+      }
+    }
+  ],
+  "baseCommit": "1acf2ffaa1a55d613ee89e5133ec82f91a5a62d2",
+  "workingTreeChange": "Approved seated cable row silver-frame replacement only",
+  "reviewMethod": "Six labeled contact sheets, 12 pairs per sheet, both phases in square contain projections; metadata/hash/decode audit of all resolver-bound phases. Palette/framing triage only, no biomechanics/device certification.",
+  "paletteFollowup": [
+    {
+      "id": "one-arm-dumbbell-row",
+      "finding": "Black bench support frame remains; recolor frame to silver preserving padding/pose."
+    },
+    {
+      "id": "chest-supported-dumbbell-row",
+      "finding": "Black inclined bench frame remains; recolor structural metal to silver."
+    },
+    {
+      "id": "pull-up",
+      "finding": "Dark pull-up rack uprights/base remain; review silver-frame pair."
+    }
+  ],
+  "framingFollowup": [
+    "assisted-pull-up",
+    "barbell-deadlift",
+    "barbell-bent-over-row",
+    "dumbbell-shoulder-press",
+    "machine-high-row",
+    "pull-up"
+  ],
+  "limitations": [
+    "Detailed anatomy/grip/cable/plate-count QA and native-device acceptance are not completed by this palette audit.",
+    "Dark upholstery, rubber grips/feet, plates and permitted tower enclosures are intentional and are not automatic recolor targets.",
+    "The two unspecified generic catalog records remain placeholders, not copied from exact variants.",
+    "Female assets are not integrated; Master and pilot review follow remaining Male frame work."
+  ]
+}

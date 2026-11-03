@@ -1,5 +1,14 @@
 # CRESUM — Development Roadmap
 
+## Male palette audit follow-up — 2026-11-03
+
+The 68-pair palette/integrity review found three remaining dark structural frames:
+one-arm dumbbell row bench, chest-supported dumbbell row bench and pull-up rack.
+Continue the approved silver-style work in that order before Female Master/pilots.
+See `qa/2026-11-03-male-artwork-style-audit.md` and its pinned hash inventory.
+This is triage, not final biomechanics or device acceptance; no new image is
+approved merely by inclusion in the queue. Existing dark pads/plates/shrouds stay.
+
 ## Visual consistency block — approved 2026-11-03
 
 Audit the existing Male illustrations and replace early dark frames with the

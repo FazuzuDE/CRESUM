@@ -1,5 +1,29 @@
 # CRESUM Decision Log
 
+## Male palette audit follow-up — 2026-11-03
+
+The 68-pair palette/integrity review found three remaining dark structural frames:
+one-arm dumbbell row bench, chest-supported dumbbell row bench and pull-up rack.
+Continue the approved silver-style work in that order before Female Master/pilots.
+See `qa/2026-11-03-male-artwork-style-audit.md` and its pinned hash inventory.
+This is triage, not final biomechanics or device acceptance; no new image is
+approved merely by inclusion in the queue. Existing dark pads/plates/shrouds stay.
+
+## Close-neutral Seated Row silver-frame replacement — 2026-11-03
+
+User approved `exec-730a8d8a-3b7f-4c10-a8d0-f95d4377f57e.png` after merging #171.
+Replace only Male `seated-cable-row-close-neutral-v-handle` phases: LEFT extended
+START / RIGHT handle-to-abdomen FINISH. Exact 887-square RGB WebP92/method6 halves,
+shared contain, no labels or independent transforms. Fine source edge/divider
+pixels are retained. Preserve guide, muscles, stable ID, generic row placeholders,
+History and shared V-handle thumbnail. Retain old manifest/prompts, actual five
+input hashes including Male Master, and pin the one-arm-row historical style input.
+User-selected-provisional: detailed far-hand contact, rigid registration and
+physical-device/accessibility QA remain open. Opaque shroud conceals stack motion;
+no mechanical count/continuity certification. Oracle deferred; source checkpoint
+pending. Coverage remains 68 pairs / 136 frames. First five dark-frame replacements
+are prepared; review the remaining Male set before Female Master production.
+
 ## Reverse-grip Pulldown silver-frame replacement — 2026-11-03
 
 User approved `exec-cab5b068-bbf5-4e28-b881-d4203cada00e.png` after merging #170.
