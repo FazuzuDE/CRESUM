@@ -15,12 +15,12 @@ remains pending; actual generation inputs must not be embellished.
 
 ## Task 1: Replace and verify the selected pair
 
-- [ ] Export exact LEFT START / RIGHT FINISH RGB WebP92/method6 crops.
-- [ ] Update the existing manifest and retain prior metadata as superseded.
-- [ ] Record exact prompts, input/output hashes, selection and open visual QA.
-- [ ] Synchronize the approved appearance and remaining visual-block sequence.
-- [ ] Verify exports, existing resolver/viewer tests, typecheck, lint and formatting.
-- [ ] Open a draft PR, stamp its actual version with `version:pr`, run CI/export
+- [x] Export exact LEFT START / RIGHT FINISH RGB WebP92/method6 crops.
+- [x] Update the existing manifest and retain prior metadata as superseded.
+- [x] Record exact prompts, input/output hashes, selection and open visual QA.
+- [x] Synchronize the approved appearance and remaining visual-block sequence.
+- [x] Verify exports, existing resolver/viewer tests, typecheck, lint and formatting.
+- [x] Open a draft PR, stamp its actual version with `version:pr`, run CI/export
       checks and mark ready when checks pass. Leave merge to the user.
 
 ## Review focus
@@ -34,3 +34,13 @@ or implementation-mirroring tests are needed for this asset replacement.
 
 Generate the next V-handle pair using its own existing phases, the actual Male
 Master and approved silver equipment reference; show without labels for review.
+
+## Validation record
+
+Local full check: 146 suites / 1355 tests passed, typecheck, lint, formatting,
+anatomy, localization, configuration and dependency checks passed. Both native
+platform exports passed. Exact crop reproduction/hash/byte counts and unchanged
+attachment/old manifest verified. Independent asset review found no Critical or
+Important issues; inaccurate direct-input wording and a historical input version
+pin were corrected. PR #168 version is 0.1.68; GitHub CI tracked separately.
+No physical-device acceptance or verified source backup is claimed.
