@@ -1,0 +1,37 @@
+{
+  "provider": "image_gen",
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/leg-extension/start.webp",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/leg-extension/finish.webp"
+  ],
+  "prompt": "Use case: identity-preserve, original CRESUM exercise illustration. Create ONE wide 2:1 sheet containing TWO equal square views side by side, without dividing line. Exercise: SEATED LEG EXTENSION, female version. Input 1 is the locked adult CRESUM Female Master: preserve her exact face, brown ponytail, natural athletic proportions, muted slate-blue short-sleeved T-shirt, charcoal full-length leggings, visible white socks and light gray sneakers. Inputs 2 and 3 are machine/setup and START/FINISH references ONLY, not character identity. Replace the man with that exact woman; adapt seat adjustment to her proportions, preserve same coherent seated selectorized knee-extension machine, light satin silver frame, charcoal upholstery and transverse shin roller. LEFT START: hips, back and thighs supported, both knees bent about 90 degrees, shins down, roller against front of lower shins just above ankles. RIGHT FINISH: same supported torso/pelvis/thighs and hand positions, both knees extended nearly straight without forceful lockout, lower legs near horizontal; roller/lever follows lower shins. Both hands wrap side handles beside hips, correct anatomy. Weight stack tower remains visible to left of seat: twelve total plates in BOTH views. START all twelve stacked; FINISH selected top four raised together leaving a clear gap above eight resting plates. No changing total number, plate thickness or selector location. Only lower legs, attached moving lever/roller and selected load plates move. Register fixed seat, backrest, tower, knee pivot and base at identical positions relative to each square frame, same camera, scale and floor baseline. Machine must have plausible rigid pivot and lever geometry. Original premium realistic 3D instructional style with consistent skin, clean matte clothes, silver metal and dark padding, soft studio shadows, white background. Front-side three-quarter view matching equipment examples, woman faces toward image left-front. Entire woman and machine fit generously in each square, comparable size START and FINISH, small safe margins without cropping. No muscle highlights, no text, no START/FINISH labels, no arrows, no logos, no watermark, no frames or dividing line. Exactly two poses, generated together.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514,
+      "role": "Female Master identity, proportions and outfit"
+    },
+    {
+      "file": "assets/exercises/leg-extension/start.webp",
+      "sha256": "ec6d647a3b6c9220a96e087a7e7ed083c62889326ee6dd2f8c141c303100f0a1",
+      "bytes": 53978,
+      "role": "Existing Male Leg Extension machine/setup and START only"
+    },
+    {
+      "file": "assets/exercises/leg-extension/finish.webp",
+      "sha256": "d5b8a800fb3bdbe8bd51c39a4a9c4b697fec0b6369c77778c8d3361f5621a9d7",
+      "bytes": 55320,
+      "role": "Existing Male Leg Extension machine/setup and FINISH only"
+    }
+  ],
+  "output": {
+    "file": "exec-058d92a7-edc4-4194-8295-503119b47c96.png",
+    "libraryFileId": "libfile_3213e0159f388191ac87c9d2ba0b424d",
+    "sha256": "1f2ca76b04fbe0aad7e84f04a98dd6f6bf027d85dcf0e5100fc566bc0c948ce1",
+    "bytes": 1576166,
+    "size": [1774, 887]
+  }
+}

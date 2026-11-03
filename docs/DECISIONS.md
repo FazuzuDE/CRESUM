@@ -1,5 +1,23 @@
 # CRESUM Decision Log
 
+## Female Leg Extension selected pair — 2026-11-03
+
+User approved `exec-058d92a7-edc4-4194-8295-503119b47c96.png`, native source
+`libfile_3213e0159f388191ac87c9d2ba0b424d`. Integrate only `leg-extension`/Female:
+LEFT bent-knee START / RIGHT near-extended-knee FINISH with selected load raised.
+Exact 887-square RGB WebP92/method6 halves, shared contain; no labels, retouch,
+resampling, padding or independent phase transforms. Preserve Male files, guide,
+quadriceps Primary mapping, stable identity and History.
+
+Actual Female Master plus existing Male machine/phase references and exact prompt
+are recorded with source/export hashes in the Female manifest and prompt file.
+User-selected-provisional: detailed contacts, pivot/roller path, knee range,
+fixed-frame registration, plate/selector counts and device/accessibility QA remain
+open. Prompted counts are not output certification. Original remains in its native
+persistent source; cumulative checkpoint pending, Oracle deferred/unverified.
+Coverage after integration: 68 Male pairs and three Female pairs. Next: Female
+Lying Leg Curl, with its own pair approval before runtime registration.
+
 ## Female Leg Press selected pair — 2026-11-03
 
 User approved `Жим ногами: старт и финиш.png`, native source

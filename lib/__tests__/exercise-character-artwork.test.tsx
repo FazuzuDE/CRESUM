@@ -19,6 +19,10 @@ jest.mock('../../assets/exercises/leg-press/start.webp', () => 301);
 jest.mock('../../assets/exercises/leg-press/finish.webp', () => 302);
 jest.mock('../../assets/exercises/leg-press/female/start.webp', () => 401);
 jest.mock('../../assets/exercises/leg-press/female/finish.webp', () => 402);
+jest.mock('../../assets/exercises/leg-extension/start.webp', () => 501);
+jest.mock('../../assets/exercises/leg-extension/finish.webp', () => 502);
+jest.mock('../../assets/exercises/leg-extension/female/start.webp', () => 601);
+jest.mock('../../assets/exercises/leg-extension/female/finish.webp', () => 602);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -33,7 +37,11 @@ it('resolves female phases only for the approved exact variants', () => {
   expect(resolveExerciseArtwork('leg-press', 'finish', 'female')).toBe(402);
   expect(resolveExerciseArtwork('leg-press', 'start', 'male')).toBe(301);
   expect(resolveExerciseArtwork('leg-press', 'finish', 'male')).toBe(302);
-  for (const id of ['kettlebell-goblet-squat', 'leg-extension', 'unknown'])
+  expect(resolveExerciseArtwork('leg-extension', 'start', 'female')).toBe(601);
+  expect(resolveExerciseArtwork('leg-extension', 'finish', 'female')).toBe(602);
+  expect(resolveExerciseArtwork('leg-extension', 'start', 'male')).toBe(501);
+  expect(resolveExerciseArtwork('leg-extension', 'finish', 'male')).toBe(502);
+  for (const id of ['kettlebell-goblet-squat', 'lying-leg-curl', 'unknown'])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -42,6 +50,7 @@ it('resolves female phases only for the approved exact variants', () => {
 it.each([
   ['goblet-squat', [101, 102, 101], [201, 202, 201]],
   ['leg-press', [301, 302, 301], [401, 402, 401]],
+  ['leg-extension', [501, 502, 501], [601, 602, 601]],
 ] as const)(
   'switches %s thumbnail, inline and fullscreen phases from the shared choice',
   async (imageKey, maleSources, femaleSources) => {
@@ -87,8 +96,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="leg-extension" />
-        <TechniqueArtwork imageKey="leg-extension" phase="START" />
+        <ExerciseArtwork imageKey="lying-leg-curl" />
+        <TechniqueArtwork imageKey="lying-leg-curl" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });
