@@ -1,5 +1,19 @@
 # CRESUM Decision Log
 
+## Chest-supported Dumbbell Row silver-bench replacement — 2026-11-03
+
+User approved `exec-051a0a30-f4ba-4bbb-99e7-a8d4f9c9cb2e.png` after merging #173.
+Replace only Male `chest-supported-dumbbell-row` phases: LEFT arms hanging START /
+RIGHT elbows back, dumbbells near lower ribs FINISH. Preserve bilateral neutral
+grip, incline chest support, floor-planted feet, guide, muscles, stable ID and
+History. Exact 887-square RGB WebP92/method6 halves, shared contain; no labels,
+resampling, padding or independent transforms. Retain dark manifest and original
+prompts, plus exact new prompt and actual four-input provenance with Male Master.
+User-selected-provisional: far-hand contact, dumbbell/bench clearance, rigid
+registration and device/accessibility QA remain open. Oracle deferred; cumulative
+source checkpoint pending. Coverage remains 68 pairs / 136 frames. After this
+replacement, the remaining dark structural follow-up is the pull-up rack.
+
 ## One-arm Dumbbell Row silver-bench replacement — 2026-11-03
 
 User approved `exec-28d9d392-a3e0-44b9-b3c3-98390e4802b5.png` after merging #172.

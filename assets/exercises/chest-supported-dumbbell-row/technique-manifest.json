@@ -2,58 +2,66 @@
   "variantId": "chest-supported-dumbbell-row",
   "model": "male",
   "visualMode": "technique",
-  "revision": 1,
-  "selectionDate": "2026-10-27",
+  "revision": 2,
+  "selectionDate": "2026-11-03",
   "status": "user-selected-provisional",
   "archiveStatus": "pending-upload",
   "assets": {
     "start": {
       "file": "start.webp",
-      "sourceFile": "exec-057c86bc-9c3c-4b34-b255-301f6fa8241f.png",
-      "sourceSha256": "616fe128f3d254d869c2e422b86c36bde1366bfc108101fc6116bf6eb67bf1c3",
-      "sourceSize": [1536, 1024],
-      "sourceBytes": 1421723,
-      "sha256": "fbc69a80d8c2406dcf78dc44b456b2f6b990460acd7e65e67fab86e7a25e57ea",
-      "width": 1280,
-      "height": 853,
-      "bytes": 54818,
+      "sha256": "bf973c4c06a5635139bd8b94f8cc713ec1122b726fc6b005eb3317c85780cb51",
+      "bytes": 62986,
+      "sourceFile": "exec-051a0a30-f4ba-4bbb-99e7-a8d4f9c9cb2e.png",
+      "sourceSha256": "4fdf424dc84a3c9d54d126e6bd6c13bc8c60fcf09effab206039b1eeacaaf5e2",
+      "sourceBytes": 1622723,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887,
       "quality": 92,
       "method": 6
     },
     "finish": {
       "file": "finish.webp",
-      "sourceFile": "exec-f961d75e-ca11-4c87-9f75-334702c7dd05.png",
-      "sourceSha256": "61cbda5891e0786ba61c277d7a13cc4c84d5a0158d5edb144efce9f4150313ab",
-      "sourceSize": [1536, 1024],
-      "sourceBytes": 1654381,
-      "sha256": "788b071059bd293f1793557b57e874df5a09f85ad3fc9634543d45e954e98d6c",
-      "width": 1280,
-      "height": 853,
-      "bytes": 52270,
+      "sha256": "b2cda3c58a3ee177c5a751c44d126f4077c472149df9b98a7ea9485b1907ce55",
+      "bytes": 54858,
+      "sourceFile": "exec-051a0a30-f4ba-4bbb-99e7-a8d4f9c9cb2e.png",
+      "sourceSha256": "4fdf424dc84a3c9d54d126e6bd6c13bc8c60fcf09effab206039b1eeacaaf5e2",
+      "sourceBytes": 1622723,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887,
       "quality": 92,
       "method": 6
     }
   },
   "generation": {
-    "tool": "built-in image_gen",
-    "promptFiles": ["start-prompt.json", "finish-prompt.json"],
-    "sourceRetention": "Original generated PNGs remain in the conversation. Repository retains exact selected WebPs and generation prompts/reference provenance. Oracle archive upload remains deferred."
+    "tool": "image_gen.imagegen",
+    "promptFile": "generation-prompts-light-r2.json",
+    "actualReferenceCommit": "46707e9969948c464b15a60442ffa5a2158acc05",
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "output": {
+      "file": "exec-051a0a30-f4ba-4bbb-99e7-a8d4f9c9cb2e.png",
+      "sha256": "4fdf424dc84a3c9d54d126e6bd6c13bc8c60fcf09effab206039b1eeacaaf5e2",
+      "bytes": 1622723
+    }
   },
   "productionChoice": "Two-arm chest-supported row on an incline bench with separate neutral-grip dumbbells. Depicted bench angle and grip are visual choices within the existing guide, not new canonical qualifiers. Existing catalog identity, guide, muscle mapping, saved workouts and History remain unchanged. No equipment-thumbnail binding.",
-  "reviewScope": "User selected both phases. Assistant compared full frames and 350px-wide previews for phase separation, chest/pad and foot support, bench geometry, identity, outfit and materials. This visual review is not independent anatomy/biomechanics QA, automated tracker approval or native-device acceptance. Original PNGs remain in the conversation; exact selected WebPs and prompt/reference provenance are retained in Git.",
+  "reviewScope": "User approved the silver-incline-bench pair. Broad bilateral row phase separation, supported chest, floor-planted feet, Master/material continuity and full-frame fit reviewed. Detailed far-hand contact and bench/dumbbell clearance, exact rigid registration and native-device/accessibility acceptance remain provisional; not automated biomechanical certification.",
   "openReview": [
-    "Far-arm/hand contact is partly occluded; independent detailed hand/anatomy and biomechanical review remains open.",
-    "Physical-phone readability and native-device acceptance remain unverified."
+    "Far-hand grip/contact is partly occluded; detailed digit anatomy and dumbbell/bench clearance remain provisional.",
+    "Exact rigid bench/body registration and native-device/accessibility readability remain unverified."
   ],
   "export": {
     "format": "WebP",
     "mode": "RGB",
-    "resize": "Pillow thumbnail",
-    "maxWidth": 1280,
-    "maxHeight": 1280,
-    "resampling": "LANCZOS",
     "quality": 92,
     "method": 6,
-    "pillowVersion": "12.3.0"
-  }
+    "resampling": "none"
+  },
+  "userDecision": "Merged. Утверждаю",
+  "supersedes": "technique-manifest-dark-frame-r1.json",
+  "presentation": "Exact 887-square LEFT START / RIGHT FINISH half-sheet crops, RGB WebP92/method6; shared contain, no resampling, padding or independent phase transforms.",
+  "sourceRetention": "Selected Library-backed original, actual four-input hashes and exact prompt retained for cumulative source checkpoint. Previous manifest/prompts and Git history preserved. Oracle/PC backup unverified."
 }
