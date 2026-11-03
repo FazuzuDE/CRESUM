@@ -1,5 +1,22 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Wide-pronated Pulldown silver-frame replacement — 2026-11-03
+
+User approved repaired `exec-9800178c-486d-49d5-afdd-8679e0b3421f.png` after
+front-camera correction of the first silver candidate's behind-neck appearance.
+LEFT raised-arm START / RIGHT bar-to-upper-chest FINISH, front three-quarter view.
+Replace only existing Male wide-pronated phase files with exact 887-square RGB
+WebP92/method6 halves; shared contain, no labels or independent transforms.
+Preserve wide-bar thumbnail, guide, muscles, stable ID and History. Retain the
+superseded dark manifest, both exact prompts and actual input/output hashes.
+Actual Male Master supplied to both calls; equipment references remain separate.
+User-selected-provisional: exact grip/contact, machine registration, plate-count/
+selector continuity and device/accessibility QA remain open. Prompted plate counts
+are not certified output counts. Review observed about 15 START plates versus
+8 raised + 11 stationary FINISH plates and a selector-row difference; the selected
+bytes are retained with this known visual limitation. Oracle deferred; cumulative source checkpoint
+pending. Coverage remains 68 pairs / 136 frames. Next: reverse-grip pulldown.
+
 ## V-handle Pulldown silver-frame replacement — 2026-11-03
 
 User approved `exec-b5aa94a7-091e-4d63-ae0c-30f4474b7858.png` after merging #168.
