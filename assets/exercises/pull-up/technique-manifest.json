@@ -2,56 +2,66 @@
   "variantId": "pull-up",
   "model": "male",
   "visualMode": "technique",
-  "revision": 1,
-  "selectionDate": "2026-10-28",
+  "revision": 2,
+  "selectionDate": "2026-11-03",
   "status": "user-selected-provisional",
   "archiveStatus": "pending-upload",
   "assets": {
     "start": {
       "file": "start.webp",
-      "sourceFile": "exec-3036b9bf-1abd-4121-a040-096630fc9453.png",
-      "sourceSha256": "410671429fc7976fe5ec9ee9066a9d62c4cd00c89e8fcac692be64168b68e7cb",
-      "sourceSize": [1536, 1024],
-      "sourceBytes": 1603949,
-      "sourceMime": "image/png",
-      "sha256": "ba46363333b06bdcc9b5fae5724205a6019001ea33de55debec4adf73b134049",
-      "width": 1280,
-      "height": 853,
-      "bytes": 40022
+      "sha256": "12969aff87d015faeb6b80fb9729fb5fc7bc6a19df709f6922895ae1da5812a4",
+      "bytes": 41088,
+      "sourceFile": "exec-5225ada9-1b5a-41b6-8fef-084f5f8020e5.png",
+      "sourceSha256": "5d228d1cdb82994355371a94603fadf9d0a93e5643bf238d91358a63956424e3",
+      "sourceBytes": 1345169,
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 887, 887],
+      "width": 887,
+      "height": 887,
+      "quality": 92,
+      "method": 6
     },
     "finish": {
       "file": "finish.webp",
-      "sourceFile": "279376DA-7BB1-4D73-94DA-53ED51C62E86.jpeg",
-      "sourceSha256": "ea44b5b12c530c51511d1496c3aa233cb31f9edddf22f9189202133a091931c3",
-      "sourceSize": [1536, 1024],
-      "sourceBytes": 174080,
-      "sourceMime": "image/jpeg",
-      "sha256": "fc9b1c82011da245423cf0595e37eaf4a2568f101dccfc0d5ba89a833bea9c89",
-      "width": 1280,
-      "height": 853,
-      "bytes": 37096,
-      "sourceLibraryFileId": "libfile_241752108d9c819185c50be9f053e909"
+      "sha256": "7d05218f3121c2344875dae22fd6a7acbe774136c83d68f1ed40742a8270f313",
+      "bytes": 39426,
+      "sourceFile": "exec-5225ada9-1b5a-41b6-8fef-084f5f8020e5.png",
+      "sourceSha256": "5d228d1cdb82994355371a94603fadf9d0a93e5643bf238d91358a63956424e3",
+      "sourceBytes": 1345169,
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1774, 887],
+      "width": 887,
+      "height": 887,
+      "quality": 92,
+      "method": 6
     }
   },
   "export": {
     "format": "WebP",
     "mode": "RGB",
-    "resize": "Pillow thumbnail",
-    "maxWidth": 1280,
-    "maxHeight": 1280,
-    "resampling": "LANCZOS",
     "quality": 92,
-    "method": 6
+    "method": 6,
+    "resampling": "none"
   },
   "generation": {
-    "tool": "built-in image_gen",
-    "promptFile": "generation-prompts.json"
+    "tool": "image_gen.imagegen",
+    "promptFile": "generation-prompts-light-r2.json",
+    "actualReferenceCommit": "ea9cb78d4dca77621de9f87d1100558e67a9121b",
+    "actualMaleMasterSha256": "0d793f4f88d87898a790146ea7ccbcac9f28114f2c54b9b50046ac38974f4182",
+    "output": {
+      "file": "exec-5225ada9-1b5a-41b6-8fef-084f5f8020e5.png",
+      "sha256": "5d228d1cdb82994355371a94603fadf9d0a93e5643bf238d91358a63956424e3",
+      "bytes": 1345169
+    }
   },
   "productionChoice": "Straight-bar freestanding frame and moderate overhand width illustrate the existing overhand bodyweight pull-up. No catalog, technique, muscle mapping, History, assisted configuration or attachment changes.",
-  "reviewScope": "User selected corrected FINISH and aligned START. Assistant inspected full frames and 350px pair preview for hang/top-phase separation, fixed grip, airborne crossed legs, head clearance, identity/outfit/materials and coherent frame. Not independent biomechanics or native-device acceptance.",
+  "reviewScope": "User approved the silver-rack pair. Broad hang/top phase separation, overhand straight-bar grip, airborne crossed feet, Master/material continuity and full-frame fit reviewed. Rack/bar position and registration differ between generated panels; no rigid-equipment alignment certification. Detailed grip anatomy, biomechanics and native-device/accessibility acceptance remain provisional.",
   "openReview": [
-    "Frame/bar vertical placement differs slightly between the generated phases; pixel-identical equipment alignment is not claimed.",
-    "Detailed independent grip/anatomy/biomechanics and physical-device readability remain unverified."
+    "Rack/bar vertical placement differs between panels; exact rigid registration and fixed hand coordinates are unverified.",
+    "Detailed grip/digit anatomy, biomechanics and physical-device/accessibility readability remain provisional."
   ],
-  "sourceRetention": "Exact selected START PNG and uploaded FINISH JPEG remain in visual workspace; generated FINISH PNG and rejected/earlier candidates retained separately. PC archive ZIP checkpoint pending; Oracle uploads deferred, no verified upload receipt."
+  "sourceRetention": "Selected Library-backed original, actual four-input hashes and exact prompt retained for cumulative source checkpoint. Previous manifest/prompts and Git history preserved. Oracle/PC backup unverified.",
+  "userDecision": "Merged. Утверждаю",
+  "supersedes": "technique-manifest-dark-frame-r1.json",
+  "presentation": "Exact 887-square LEFT START / RIGHT FINISH half-sheet crops, RGB WebP92/method6; shared contain, no resampling, padding or independent phase transforms."
 }

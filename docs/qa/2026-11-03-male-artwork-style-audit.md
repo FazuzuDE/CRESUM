@@ -1,5 +1,13 @@
 # Male artwork equipment-style audit — 2026-11-03
 
+## Follow-up: pull-up prepared — 2026-11-03
+
+The user selected the silver-rack pull-up pair; this change prepares the final
+identified dark structural replacement. After integration, no items remain in
+this palette queue. Historical audit inventory and hashes remain pinned. Detailed
+technique/registration/device QA is still provisional. Next: Female Master and
+3–5 pilots before full Female production.
+
 ## Follow-up: chest-supported row prepared — 2026-11-03
 
 The user selected the silver-incline-bench pair; this change prepares its
