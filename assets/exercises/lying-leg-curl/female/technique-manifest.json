@@ -1,0 +1,66 @@
+{
+  "variantId": "lying-leg-curl",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "cd6eee6bffab8f7d1d3a053cdb7a61bdb865b4ec6626bb48aa1ed044c2a02a50",
+      "bytes": 42806,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "d7ec052a415ebdf62c07c9b1988e4546e25b7bc2edf6eb275895055dd4525fff",
+      "bytes": 43920,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-2da36cbf-5b42-43c4-954c-422cb1f72504.png",
+    "sourceLibraryFileId": "libfile_99d34828d8248191be94784f0fb4f0c6",
+    "sourceSha256": "8fc4776bd4aff998b4e72ac9f19455e71a20e3d0b939a98ece8245508f2c89b4",
+    "sourceBytes": 1452458,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514,
+        "role": "Female Master identity, proportions and outfit"
+      },
+      {
+        "file": "assets/exercises/lying-leg-curl/start.webp",
+        "sha256": "9193f4a2a87038cbe02bc05ada93fe8751e408f206f31349471f8af7982ad2a4",
+        "bytes": 42892,
+        "role": "Existing Male Lying Leg Curl machine/setup and START only"
+      },
+      {
+        "file": "assets/exercises/lying-leg-curl/finish.webp",
+        "sha256": "1da29c61236f974b42b04626a882a80564145d2724537049ccb7dda95adc73d4",
+        "bytes": 46374,
+        "role": "Existing Male Lying Leg Curl machine/setup and FINISH only"
+      }
+    ]
+  },
+  "productionChoice": "LEFT near-extended START / RIGHT flexed-knee FINISH with selected load raised. Prone supported bilateral knee flexion; transverse roller at posterior lower shins above heels. Preserve existing lying-leg-curl identity, guide and hamstrings Primary mapping. Not the seated variant.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User selected pair. Broad character/outfit/material continuity, prone support and phase distinction reviewed. Far-leg detail is substantially occluded. Exact hands/roller/ankle/pivot contacts, knee range, fixed-frame registration, plate counts and selector continuity are not independently certified. Physical-device/accessibility acceptance pending. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and current workspace for cumulative visual-block checkpoint. Exact generation prompt and actual input hashes recorded. Oracle deferred; no verified PC backup claim."
+}

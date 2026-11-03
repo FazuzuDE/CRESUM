@@ -1,5 +1,23 @@
 # CRESUM Decision Log
 
+## Female Lying Leg Curl selected pair — 2026-11-03
+
+User approved `exec-2da36cbf-5b42-43c4-954c-422cb1f72504.png`, native source
+`libfile_99d34828d8248191be94784f0fb4f0c6`. Integrate only `lying-leg-curl`/Female:
+LEFT near-extended START / RIGHT flexed FINISH, selected load visibly raised.
+Exact 887-square RGB WebP92/method6 halves with shared contain; no labels,
+retouch, resampling, padding or independent phase transforms. Preserve Male files,
+prone guide, hamstrings Primary mapping, stable identity and History. Do not reuse
+for `seated-leg-curl`.
+
+Exact prompt, actual Female Master and Male machine/phase input hashes, original
+and export hashes are retained in the Female manifest/prompt file. Status remains
+user-selected-provisional: far-leg detail is largely occluded; detailed contacts,
+knee range, lever/pivot path, fixed registration, plate/selector continuity and
+physical-device/accessibility QA remain open. Cumulative source checkpoint pending;
+Oracle deferred/unverified. Coverage: 68 Male pairs plus four Female pairs.
+Next: Female Seated Leg Curl preview, with separate approval before registration.
+
 ## Female Leg Extension selected pair — 2026-11-03
 
 User approved `exec-058d92a7-edc4-4194-8295-503119b47c96.png`, native source

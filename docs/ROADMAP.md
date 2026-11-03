@@ -3,10 +3,11 @@
 ## Female artwork rollout — approved 2026-11-03
 
 Shared character preference and Female Goblet Squat were merged in #176; Female
-Leg Press was merged in #177. Female Leg Extension is selected for integration.
-Next: Female Lying Leg Curl. Generate, review and immediately integrate each
-accepted pair. Keep exact variant/model/phase bindings and existing Male files.
-Missing Female assets stay localized placeholders; do not wait for the full set.
+Leg Press in #177 and Female Leg Extension in #178. Female Lying Leg Curl is
+selected for integration. Next: Female Seated Leg Curl. Generate, review and
+immediately integrate each accepted pair. Keep exact variant/model/phase bindings
+and existing Male files. Missing Female assets stay localized placeholders; do
+not wait for the full set.
 No Oracle dependency or new cloud work is required for this rollout.
 
 ## Pull-up silver-rack replacement — 2026-11-03
