@@ -1,5 +1,22 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Captain’s Chair Knee Raise — 2026-11-04
+
+User approved `exec-9f2d88de-4664-45f9-8636-f823a669ec35.png`, native source
+`libfile_838e30eed9a881919ca221b8b41a5020`. Bind only
+`captains-chair-knee-raise`/Female: LEFT lowered legs START / RIGHT raised bent
+knees FINISH, supported forearms/back and vertical handles, feet airborne.
+Exact 887-square RGB WebP92/method6 halves, shared contain, no retouch/resampling
+or independent transforms. Preserve Male, guide, abs Primary, no Secondary mapped,
+stable identity and History. Keep hanging variants separate. Hip-flexor coverage
+remains partial in the current taxonomy; no guessed mask or coefficient added.
+
+Exact original/prompt/input hashes retained. User-selected-provisional: detailed
+hand/forearm/back contacts, shoulder position, hip/knee range, pelvic curl, fixed
+frame registration and device/accessibility acceptance remain open. Cumulative
+checkpoint pending; Oracle deferred/unverified. Coverage: 68 Male plus fifteen
+Female pairs. Next: Female Hanging Straight Leg Raise preview, separate approval.
+
 ## Female Plank — 2026-11-04
 
 User approved `exec-9eb29b3c-6802-4817-b88e-6b261523b4f6.png`, native source
