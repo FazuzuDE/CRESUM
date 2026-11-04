@@ -1048,7 +1048,6 @@ it('keeps Smith Squat Female and attachment fallbacks', () => {
 it.each([
   'dumbbell-reverse-lunge',
   'bulgarian-split-squat',
-  'cable-glute-kickback',
   'standing-calf-raise',
   'seated-calf-raise',
   'machine-hip-adduction',
@@ -1340,4 +1339,8 @@ it('keeps Barbell Romanian Deadlift attachment fallback', () => {
 
 it('keeps Barbell Hip Thrust attachment fallback', () => {
   expect(resolveAttachmentArtwork('barbell-hip-thrust')).toBeNull();
+});
+
+it('keeps Cable Glute Kickback attachment fallback', () => {
+  expect(resolveAttachmentArtwork('cable-glute-kickback')).toBeNull();
 });
