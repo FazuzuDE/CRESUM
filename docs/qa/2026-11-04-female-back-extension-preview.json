@@ -1,0 +1,34 @@
+{
+  "status": "preview-awaiting-user-approval",
+  "transparent_background": false,
+  "prompt": "Original CRESUM FEMALE BACK EXTENSION instruction pair. ONE wide 2:1 sheet, TWO equal square views with white studio background, no text or divider. Input1 locks exact adult Female Master face/body proportions, brown ponytail, slate-blue short sleeve T-shirt, charcoal full leggings, white socks/light gray shoes. Inputs2/3 are male exercise/equipment references ONLY. Same woman both phases. Match existing reference phase convention: LEFT START upper straight-body position, RIGHT FINISH lowered torso, not reversed. Same satin silver 45-degree Roman chair bench with dark paired thigh/hip pads ending below hip crease, black slanted footplate and dark ankle rollers behind lower legs. Same side three-quarter camera facing right, fixed identical equipment positions/scale and ground baseline in both panels. Both feet firmly on footplate, ankles retained under rollers, legs nearly straight, arms crossed at chest. LEFT: body straight from ankles through hips to head, neutral spine, no back hyperextension. RIGHT: hinge forward through hips in controlled moderate range, torso lowered, neck follows neutral spine, pelvis rotates over pad, legs/feet stay fixed. Match the range shown by input3. Full head/ponytail, crossed hands, shoes and entire bench inside both equal square panels with small margins; same camera zoom and generous scale. Premium realistic clean 3D CRESUM rendering, uniform natural skin/matte fabric/satin silver/black upholstery, soft contact shadows. Exactly two anatomically correct arms/hands and legs/feet, no dumbbells, cables or extra equipment. No text, start/finish labels, arrows, logos, watermarks or muscle colors. Generate START and FINISH together.",
+  "referenced_image_paths": [
+    "/workspace/scratch/0105ef15b4db/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/0105ef15b4db/CRESUM/assets/exercises/back-extension/start.webp",
+    "/workspace/scratch/0105ef15b4db/CRESUM/assets/exercises/back-extension/finish.webp"
+  ],
+  "outputFile": "exec-838bba23-3977-4bbd-a4d3-3a0069e8fb71.png",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/back-extension/start.webp",
+      "sha256": "4d14366548e02579336539c8bbba4b461512268a600fe0372d545c7d515266e4",
+      "bytes": 38242
+    },
+    {
+      "file": "assets/exercises/back-extension/finish.webp",
+      "sha256": "06175199327904197dc0880ebcc52843eb99af5293b2fd3a575c621579514fc6",
+      "bytes": 37902
+    }
+  ],
+  "output": {
+    "file": "exec-838bba23-3977-4bbd-a4d3-3a0069e8fb71.png",
+    "sha256": "cc66a6bb90415d35b855b466e505a3860532ce28e9da28a325c7f96968c09bc8",
+    "bytes": 1395980
+  },
+  "runtimeBinding": "none; preview only, requires separate user approval"
+}

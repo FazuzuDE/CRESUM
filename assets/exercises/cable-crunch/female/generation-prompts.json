@@ -1,0 +1,19 @@
+{
+  "status": "historical-provenance-incomplete",
+  "prompt": null,
+  "references": null,
+  "missing": [
+    "exact original generation prompt",
+    "actual generation input paths and hashes"
+  ],
+  "note": "Selected existing image from previous chat. Do not reconstruct a prompt or infer actual inputs from style.",
+  "output": {
+    "sourceFile": "Женщина выполняет скручивания на верхнем блоке.png",
+    "sourceLibraryFileId": "libfile_435ebfecb8808191afafb38530d20ec8",
+    "sourceSha256": "f9b5f044f3c6fa65a0fbc5cdc23436248b9673cba457991e27dfe8cd8ed4b437",
+    "sourceBytes": 1336013,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "provenanceStatus": "Original prompt and actual generation inputs unavailable in this resumed session; not reconstructed."
+  }
+}

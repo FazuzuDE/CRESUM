@@ -187,6 +187,10 @@ jest.mock(
   '../../assets/exercises/hanging-knee-raise/female/finish.webp',
   () => 3402,
 );
+jest.mock('../../assets/exercises/cable-crunch/start.webp', () => 3501);
+jest.mock('../../assets/exercises/cable-crunch/finish.webp', () => 3502);
+jest.mock('../../assets/exercises/cable-crunch/female/start.webp', () => 3601);
+jest.mock('../../assets/exercises/cable-crunch/female/finish.webp', () => 3602);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -305,7 +309,9 @@ it('resolves female phases only for the approved exact variants', () => {
   expect(resolveExerciseArtwork('hanging-knee-raise', 'finish', 'female')).toBe(
     3402,
   );
-  for (const id of ['kettlebell-goblet-squat', 'cable-crunch', 'unknown'])
+  expect(resolveExerciseArtwork('cable-crunch', 'start', 'female')).toBe(3601);
+  expect(resolveExerciseArtwork('cable-crunch', 'finish', 'female')).toBe(3602);
+  for (const id of ['kettlebell-goblet-squat', 'back-extension', 'unknown'])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -329,6 +335,7 @@ it.each([
   ['captains-chair-knee-raise', [2901, 2902, 2901], [3001, 3002, 3001]],
   ['hanging-straight-leg-raise', [3101, 3102, 3101], [3201, 3202, 3201]],
   ['hanging-knee-raise', [3301, 3302, 3301], [3401, 3402, 3401]],
+  ['cable-crunch', [3501, 3502, 3501], [3601, 3602, 3601]],
 ] as const)(
   'switches %s thumbnail, inline and fullscreen phases from the shared choice',
   async (imageKey, maleSources, femaleSources) => {
@@ -374,8 +381,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="cable-crunch" />
-        <TechniqueArtwork imageKey="cable-crunch" phase="START" />
+        <ExerciseArtwork imageKey="back-extension" />
+        <TechniqueArtwork imageKey="back-extension" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });

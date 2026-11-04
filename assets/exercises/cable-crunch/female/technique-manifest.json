@@ -1,0 +1,47 @@
+{
+  "variantId": "cable-crunch",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "ec29b6bba74b9a2f42e260c1de7827bc0c4a1cd716ed509eb5ebd5a9e51f4b4b",
+      "bytes": 38704,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "8000b704a33d8566b8ddad75c64b788f8764af825ae93beadf5753deb1924294",
+      "bytes": 40122,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "Женщина выполняет скручивания на верхнем блоке.png",
+    "sourceLibraryFileId": "libfile_435ebfecb8808191afafb38530d20ec8",
+    "sourceSha256": "f9b5f044f3c6fa65a0fbc5cdc23436248b9673cba457991e27dfe8cd8ed4b437",
+    "sourceBytes": 1336013,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "provenanceStatus": "Original prompt and actual generation inputs unavailable in this resumed session; not reconstructed."
+  },
+  "productionChoice": "LEFT upright START / RIGHT flexed-trunk FINISH, standing rope example with raised selected load at FINISH. Preserve generic posture/attachment-unspecified guide, abs Primary, no Secondary, stable identity and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User-selected-provisional. Broad phase order, female identity, material continuity and full-frame fit reviewed. Selected load visibly rises. Exact plate count/selector continuity, hidden reeving, rope/hand contact, spinal/pelvic motion, rigid registration and physical-device/accessibility acceptance remain unverified. Standing rope example does not narrow generic exercise posture or attachment. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in persistent native source and current workspace; cumulative checkpoint pending. Original generation prompt and inputs missing; Oracle deferred, no verified PC backup claim."
+}
