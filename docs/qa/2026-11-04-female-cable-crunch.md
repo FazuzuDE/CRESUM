@@ -34,8 +34,9 @@ not a claim that the original full run was green. No unrelated code was changed.
 Configuration and dependency checks passed separately after the full command
 stopped at its test failure. Physical-device/accessibility acceptance remains open.
 
-Publication is blocked: automatic approval review rejected git push because
-explicit authorization for sending source and generated assets to
-FazuzuDE/CRESUM was not established. No PR is created and no PR number/version
-is predicted. Current 0.1.92 remains until an actual draft PR is opened;
-stamp its real number and verify the synchronized metadata before ready.
+Publication authorization was confirmed by the user after automatic review
+blocked earlier push attempts. Git CLI lacked credentials; the connected GitHub
+API published the same verified tree and opened draft PR #193 against develop.
+Actual PR #193 stamped to 0.1.93; version/configuration and changed metadata
+formatting checked afterward. Tests and native exports preceded this metadata-only
+stamp. The original full run is not green; CI must assess the final commit.
