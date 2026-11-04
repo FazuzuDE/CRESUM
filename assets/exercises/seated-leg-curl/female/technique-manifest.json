@@ -1,0 +1,66 @@
+{
+  "variantId": "seated-leg-curl",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "5c1fa0ddd13c2d18f643524ecdd1421aa4c83bd12f7470aa1afc55c2010fb062",
+      "bytes": 62198,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "5d1383f0d6c15c79f87f4bc9dc2317a4a6980c2c0f06c2ff71e0fe9ef59e34a1",
+      "bytes": 60714,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-6d170ace-fc9e-4deb-bc5f-c3b4967aa2de.png",
+    "sourceLibraryFileId": "libfile_19cd12453e6c8191b6dfe540789cc8a5",
+    "sourceSha256": "9d00e9bf3c17a9861da59d9d4c031b3e00be646ceefc76e406621a71b6208b33",
+    "sourceBytes": 1629486,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514,
+        "role": "Female Master identity, proportions and outfit"
+      },
+      {
+        "file": "assets/exercises/seated-leg-curl/start.webp",
+        "sha256": "6879e27d0c16bb9497a57fb435430167e8af1b035d8860bafbe481b743975c7a",
+        "bytes": 64324,
+        "role": "Existing Male Seated Leg Curl machine/setup and START only"
+      },
+      {
+        "file": "assets/exercises/seated-leg-curl/finish.webp",
+        "sha256": "87eefa362ce2d38140fcc1be7c4b696d980713f38d5184bf84151ac0425c82cb",
+        "bytes": 62876,
+        "role": "Existing Male Seated Leg Curl machine/setup and FINISH only"
+      }
+    ]
+  },
+  "productionChoice": "LEFT near-extended START / RIGHT flexed-knee FINISH with selected load raised. Seated supported bilateral knee flexion with thigh restraint and transverse roller at posterior lower shins. Preserve seated-leg-curl identity, guide and hamstrings Primary mapping. Not the prone variant.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User selected pair. Broad character/outfit/material continuity, seated support and phase distinction reviewed. Exact hand/thigh-pad/roller/ankle/pivot contacts, knee range, rigid registration, plate counts and selector continuity are not independently certified. Physical-device/accessibility acceptance pending. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and current workspace for cumulative visual-block checkpoint. Exact prompt and actual input hashes recorded. Oracle deferred; no verified PC backup claim."
+}

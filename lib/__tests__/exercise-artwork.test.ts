@@ -1066,7 +1066,6 @@ it.each([
   'standing-cable-anti-rotation-press',
   'bodyweight-step-up',
   'dumbbell-floor-glute-bridge',
-  'seated-leg-curl',
   'barbell-romanian-deadlift',
 ])('keeps %s Female and attachment fallbacks', (id) => {
   for (const phase of ['start', 'finish'] as const)
@@ -1328,4 +1327,8 @@ it('keeps Leg Extension attachment fallback', () => {
 
 it('keeps Lying Leg Curl attachment fallback', () => {
   expect(resolveAttachmentArtwork('lying-leg-curl')).toBeNull();
+});
+
+it('keeps Seated Leg Curl attachment fallback', () => {
+  expect(resolveAttachmentArtwork('seated-leg-curl')).toBeNull();
 });
