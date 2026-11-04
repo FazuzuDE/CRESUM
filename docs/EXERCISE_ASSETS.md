@@ -1,5 +1,22 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Hanging Knee Raise — 2026-11-04
+
+User approved `exec-a33b95d1-a2ec-4f67-aa10-b638d77037f6.png`, native source
+`libfile_1c71415d2e888191b768740af6414eda`. Bind only `hanging-knee-raise`/Female:
+LEFT lowered legs START / RIGHT bent knees raised FINISH, extended arms and
+overhead overhand grip. Exact 887-square RGB WebP92/method6 halves, shared contain,
+no retouch/resampling or independent transforms. Preserve Male, guide, abs Primary,
+forearms Secondary, stable identity and History. Keep straight-leg hanging and
+supported captain chair variants separate. Hip-flexor taxonomy coverage remains
+partial; no guessed masks or coefficients added.
+
+Exact original/prompt/input hashes retained. User-selected-provisional: exact grip,
+thumb/bar contacts, shoulder/elbow alignment, hip/knee range, pelvic curl, fixed
+frame/body registration and device/accessibility acceptance remain open. Cumulative
+checkpoint pending; Oracle deferred/unverified. Coverage: 68 Male plus seventeen
+Female pairs. Next: Female Cable Crunch preview, separate approval.
+
 ## Female Hanging Straight Leg Raise — 2026-11-04
 
 User approved `exec-976e14aa-6241-47ae-afc9-47b4c205fe0e.png`, native source

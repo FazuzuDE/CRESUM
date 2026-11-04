@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'hanging-knee-raise': {
+    start: require('../assets/exercises/hanging-knee-raise/female/start.webp'),
+    finish: require('../assets/exercises/hanging-knee-raise/female/finish.webp'),
+  },
   'hanging-straight-leg-raise': {
     start: require('../assets/exercises/hanging-straight-leg-raise/female/start.webp'),
     finish: require('../assets/exercises/hanging-straight-leg-raise/female/finish.webp'),

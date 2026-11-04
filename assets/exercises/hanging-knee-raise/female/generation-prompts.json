@@ -1,0 +1,33 @@
+{
+  "status": "user-selected-provisional",
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/hanging-knee-raise/start.webp",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/hanging-knee-raise/finish.webp"
+  ],
+  "prompt": "Original CRESUM FEMALE HANGING KNEE RAISE instruction pair. ONE wide 2:1 sheet, TWO equal square views, white studio background no text/divider. Input1 locks exact adult Female Master face/proportions, brown ponytail, slate-blue short sleeve T-shirt, charcoal full leggings, white socks/light gray shoes. Inputs2/3 are male movement/equipment references ONLY. Same woman in both. Identical satin silver freestanding pull-up rack with dark overhead bar and straight central grip section, same front-side three-quarter camera facing right, matching frame/bar/hand coordinates, body scale/floor baseline. Both hands closed shoulder-width overhand grip on straight bar, thumbs encircle, wrists aligned, arms extended overhead in BOTH phases. LEFT START: controlled airborne hang, legs nearly straight together down, feet clear floor and rack. RIGHT FINISH: knees bent together about90degrees and raised toward chest, thighs near horizontal, small controlled posterior pelvic curl, no wild backward lean or swing. This is bent-knee hanging raise, not straight-leg raise and not captain chair support. No forearm pads/backrest/straps. Hands and upper arms remain in same positions at same bar. Entire head/ponytail, hands, legs/shoes and full rack fit both equal square panels with small margins, use space generously. Premium realistic3D CRESUM style, consistent natural skin/matte fabric/satin silver/black bar, soft studio/contact shadows. Two anatomically correct hands/arms and legs/feet. No extra equipment, text/labels/arrows/logos/watermark/muscle highlights. Generate START and FINISH together.",
+  "output": {
+    "file": "exec-a33b95d1-a2ec-4f67-aa10-b638d77037f6.png",
+    "sha256": "e5bc3cab2c6d3a9e470dd7b3222c61d26e7a6e71443f86e77cb5d51fcf35aebb",
+    "bytes": 1275807,
+    "libraryFileId": "libfile_1c71415d2e888191b768740af6414eda"
+  },
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/hanging-knee-raise/start.webp",
+      "sha256": "cb2290c92ef032255a3effee0bb9dee9686a19d6dbc9a8c8cc7fb9ae0e0c4620",
+      "bytes": 33686
+    },
+    {
+      "file": "assets/exercises/hanging-knee-raise/finish.webp",
+      "sha256": "d44ab19f23a727e577212fa80b4916ab97dcf1033d487f09f7ea619f2007ef3f",
+      "bytes": 32590
+    }
+  ]
+}
