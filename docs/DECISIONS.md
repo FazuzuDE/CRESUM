@@ -1,5 +1,21 @@
 # CRESUM Decision Log
 
+## Female Plank — 2026-11-04
+
+User approved `exec-9eb29b3c-6802-4817-b88e-6b261523b4f6.png`, native source
+`libfile_94f526f1414081919f097dfb162fcac7`. Bind only `plank`/Female: LEFT side
+START / RIGHT three-quarter FINISH view of one static forearm hold, not up/down
+repetitions. Exact 887-square RGB WebP92/method6 halves, shared contain, no retouch,
+resampling or independent transforms. Preserve Male, duration measurement, guide,
+abs Primary, glutes Secondary, stable identity and History.
+
+Exact original/prompt/input hashes retained. User-selected-provisional: detailed
+forearm/hand/toe contacts, shoulder/elbow alignment, hip height, neutral spine,
+body-scale/camera registration and device/accessibility acceptance remain open.
+Two views do not certify hold duration or dynamic control. Cumulative checkpoint
+pending; Oracle deferred/unverified. Coverage: 68 Male plus fourteen Female pairs.
+Next: Female Captain’s Chair Knee Raise preview, separate approval before binding.
+
 ## Female Kettlebell Swing — 2026-11-04
 
 User approved `exec-5c9b08c7-f768-40c1-929a-ae4bd8509ec8.png`, native source

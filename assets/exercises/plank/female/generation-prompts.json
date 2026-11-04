@@ -1,0 +1,33 @@
+{
+  "status": "user-selected-provisional",
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/plank/start.webp",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/plank/finish.webp"
+  ],
+  "prompt": "Original CRESUM FEMALE FOREARM PLANK technique pair. ONE wide 2:1 sheet of TWO equal square views, white studio floor/background, no text/divider. Image1 locks exact adult Female Master face, brown ponytail, natural athletic proportions, slate-blue short sleeve T-shirt, charcoal full leggings, white socks/light gray shoes. Images2/3 are male movement and framing references ONLY. Replace man with that woman. LEFT pure side view facing left; RIGHT front-side three-quarter view facing left, same static forearm plank hold in both, not up/down repetitions. Elbows directly below shoulders, both forearms and hands resting firmly on floor, two forearms separated naturally parallel; legs extended, toes supporting both feet, heels back, hips aligned with shoulders/ankles, neutral straight spine and neck, eyes toward floor. No sagging lumbar back or elevated hips, no knee support, no push-up hands-only stance. Same identity/materials and body proportions both squares, entire head, ponytail, both arms/hands/shoes fit with small margins. Fill available square width generously without cropping, same natural body scale. Premium realistic3D CRESUM style, consistent natural skin, matte fabric, soft studio/contact shadows. Anatomically correct two arms/two legs, no props or added exercise equipment. No text, labels, arrows, logos, watermark, muscle highlights. Generate both views together.",
+  "output": {
+    "file": "exec-9eb29b3c-6802-4817-b88e-6b261523b4f6.png",
+    "sha256": "df62ae3d1a52a0544be889c9f978475b586a4c946d19f1d53c0a282f1f7a1e0c",
+    "bytes": 1462429,
+    "libraryFileId": "libfile_94f526f1414081919f097dfb162fcac7"
+  },
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/plank/start.webp",
+      "sha256": "12f9776e377eb2eb6c69246db2b7e92eb975fafe4a47c7989ea64d0a98717a40",
+      "bytes": 23624
+    },
+    {
+      "file": "assets/exercises/plank/finish.webp",
+      "sha256": "c2603df9d330d35c4891e234b7a417ae558c96783916323e5932004f5e500c3b",
+      "bytes": 29112
+    }
+  ]
+}

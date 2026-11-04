@@ -141,6 +141,10 @@ jest.mock(
   '../../assets/exercises/kettlebell-swing/female/finish.webp',
   () => 2602,
 );
+jest.mock('../../assets/exercises/plank/start.webp', () => 2701);
+jest.mock('../../assets/exercises/plank/finish.webp', () => 2702);
+jest.mock('../../assets/exercises/plank/female/start.webp', () => 2801);
+jest.mock('../../assets/exercises/plank/female/finish.webp', () => 2802);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -239,7 +243,13 @@ it('resolves female phases only for the approved exact variants', () => {
   expect(resolveExerciseArtwork('kettlebell-swing', 'finish', 'female')).toBe(
     2602,
   );
-  for (const id of ['kettlebell-goblet-squat', 'plank', 'unknown'])
+  expect(resolveExerciseArtwork('plank', 'start', 'female')).toBe(2801);
+  expect(resolveExerciseArtwork('plank', 'finish', 'female')).toBe(2802);
+  for (const id of [
+    'kettlebell-goblet-squat',
+    'captains-chair-knee-raise',
+    'unknown',
+  ])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -259,6 +269,7 @@ it.each([
   ['seated-calf-raise', [2101, 2102, 2101], [2201, 2202, 2201]],
   ['machine-hip-adduction', [2301, 2302, 2301], [2401, 2402, 2401]],
   ['kettlebell-swing', [2501, 2502, 2501], [2601, 2602, 2601]],
+  ['plank', [2701, 2702, 2701], [2801, 2802, 2801]],
 ] as const)(
   'switches %s thumbnail, inline and fullscreen phases from the shared choice',
   async (imageKey, maleSources, femaleSources) => {
@@ -304,8 +315,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="plank" />
-        <TechniqueArtwork imageKey="plank" phase="START" />
+        <ExerciseArtwork imageKey="captains-chair-knee-raise" />
+        <TechniqueArtwork imageKey="captains-chair-knee-raise" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });
