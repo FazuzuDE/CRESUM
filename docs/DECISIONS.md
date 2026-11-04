@@ -1,5 +1,23 @@
 # CRESUM Decision Log
 
+## Female Barbell Hip Thrust selected pair — 2026-11-04
+
+User approved `exec-c327a863-46d6-4d07-a648-00ae79527b55.png`, native source
+`libfile_78c7540fecb88191b708203aef16bd69`. Bind only `barbell-hip-thrust`/Female:
+LEFT lowered pelvis START / RIGHT raised pelvis FINISH, padded barbell and bench
+support. Exact 887-square RGB WebP92/method6 halves, shared contain; no labels,
+retouch, resampling, padding or independent phase transforms. Preserve Male files,
+bench-supported guide, glutes Primary, hamstrings/quadriceps Secondary, stable
+identity and History. Do not reuse for floor-supported bridge variants.
+
+Exact prompt, actual Female Master/Male bench-phase references and original/export
+hashes are recorded in the Female manifest/prompt file. User-selected-provisional:
+detailed support/grip/pad contacts, neck/lumbar alignment, joint angles, bar/plate
+consistency, bench/foot registration and device/accessibility QA remain open.
+Cumulative checkpoint pending; Oracle deferred/unverified. Coverage: 68 Male
+pairs plus eight Female pairs. Next: Female Cable Glute Kickback preview with
+separate approval before registration.
+
 ## Female Barbell Romanian Deadlift selected pair — 2026-11-04
 
 User approved `exec-127a799e-767b-47e0-a1f4-2027e5ae0bdc.png`, native source

@@ -1,0 +1,37 @@
+{
+  "provider": "image_gen",
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/barbell-hip-thrust/start.webp",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/barbell-hip-thrust/finish.webp"
+  ],
+  "prompt": "Create an original premium CRESUM female BARBELL HIP THRUST exercise pair, one wide 2:1 landscape sheet with TWO equal square views side by side on seamless pure white studio background. No divider/borders/text. Input 1 is the exact locked adult CRESUM Female Master identity/outfit reference: preserve face, brown ponytail, natural athletic proportions, muted slate-blue fitted short-sleeved T-shirt, charcoal full-length leggings, visible white socks and light gray sneakers. Inputs 2 and 3 are existing Male bench-supported barbell hip-thrust equipment/movement/endpoint references ONLY. Replace the man with that exact woman, same front-side three-quarter camera. Fixed stable flat bench behind her, satin silver frame and matte charcoal padding; lower shoulder-blade/upper-back contact on front bench edge, never head/neck support. Both feet planted hip-width on floor, knees track toes, hands securely stabilize a straight silver barbell across the hip crease with a thick black cylindrical pad centered between hands. Same bar length/thickness, identical black circular plate and collar on each end in BOTH views, coherent perspective, plates off floor. LEFT START: hips lowered toward floor with knees bent and upper back supported, trunk sloping down from bench to pelvis, chin gently tucked and neck aligned. RIGHT FINISH: extend hips until shoulders/hips/knees form a clear nearly straight horizontal line, shins approximately vertical, whole feet stay planted, ribs stay down, no lumbar overextension or excessive neck arch. Bar and centered pad travel upward with pelvis and remain supported across hips; both hands stay on bar beside pad, no floating bar. SAME woman, bench position and dimensions, camera, orthographic scale, foot placement and baseline across the two square views. Only hip extension phase, pelvis height and resulting torso/bar angle change; don't translate bench or feet, don't enlarge individual phase. Entire head, ponytail, shoes, bench feet, bar sleeves and plates fit generously in each square with small safe margins. Exactly two anatomically correct hands/legs/feet, plausible grips and contacts. Premium realistic 3D instructional style matching Female Master, consistent natural skin and matte cloth, restrained silver reflections, charcoal pad, soft studio lighting/contact shadows. No muscle highlights, exposed anatomy, text/START/FINISH labels, letters, arrows, logos, watermark, divider, extra equipment or floor-bridge substitution. Generate both phases together.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514,
+      "role": "Female Master identity, proportions and outfit"
+    },
+    {
+      "file": "assets/exercises/barbell-hip-thrust/start.webp",
+      "sha256": "48bb7d28226892a5e5682d61931e5999d502250fa652f838e260fba66e213719",
+      "bytes": 44240,
+      "role": "Existing Male Barbell Hip Thrust bench/equipment and START only"
+    },
+    {
+      "file": "assets/exercises/barbell-hip-thrust/finish.webp",
+      "sha256": "27ee6e762b268b7d2e2c58bb3824520e711a136688bbef08fd1a34d3ec739a03",
+      "bytes": 44874,
+      "role": "Existing Male Barbell Hip Thrust bench/equipment and FINISH only"
+    }
+  ],
+  "output": {
+    "file": "exec-c327a863-46d6-4d07-a648-00ae79527b55.png",
+    "sha256": "261303b4c5fb6584b75ea5e6ef822e5284f3336e918cef46ebd378cc6b802c2a",
+    "bytes": 1485106,
+    "libraryFileId": "libfile_78c7540fecb88191b708203aef16bd69",
+    "size": [1774, 887]
+  }
+}

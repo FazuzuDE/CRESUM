@@ -72,6 +72,16 @@ jest.mock(
   '../../assets/exercises/barbell-romanian-deadlift/female/finish.webp',
   () => 1402,
 );
+jest.mock('../../assets/exercises/barbell-hip-thrust/start.webp', () => 1501);
+jest.mock('../../assets/exercises/barbell-hip-thrust/finish.webp', () => 1502);
+jest.mock(
+  '../../assets/exercises/barbell-hip-thrust/female/start.webp',
+  () => 1601,
+);
+jest.mock(
+  '../../assets/exercises/barbell-hip-thrust/female/finish.webp',
+  () => 1602,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -128,7 +138,23 @@ it('resolves female phases only for the approved exact variants', () => {
   expect(
     resolveExerciseArtwork('barbell-romanian-deadlift', 'finish', 'male'),
   ).toBe(1302);
-  for (const id of ['kettlebell-goblet-squat', 'barbell-hip-thrust', 'unknown'])
+  expect(resolveExerciseArtwork('barbell-hip-thrust', 'start', 'female')).toBe(
+    1601,
+  );
+  expect(resolveExerciseArtwork('barbell-hip-thrust', 'finish', 'female')).toBe(
+    1602,
+  );
+  expect(resolveExerciseArtwork('barbell-hip-thrust', 'start', 'male')).toBe(
+    1501,
+  );
+  expect(resolveExerciseArtwork('barbell-hip-thrust', 'finish', 'male')).toBe(
+    1502,
+  );
+  for (const id of [
+    'kettlebell-goblet-squat',
+    'cable-glute-kickback',
+    'unknown',
+  ])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -142,6 +168,7 @@ it.each([
   ['seated-leg-curl', [901, 902, 901], [1001, 1002, 1001]],
   ['dumbbell-romanian-deadlift', [1101, 1102, 1101], [1201, 1202, 1201]],
   ['barbell-romanian-deadlift', [1301, 1302, 1301], [1401, 1402, 1401]],
+  ['barbell-hip-thrust', [1501, 1502, 1501], [1601, 1602, 1601]],
 ] as const)(
   'switches %s thumbnail, inline and fullscreen phases from the shared choice',
   async (imageKey, maleSources, femaleSources) => {
@@ -187,8 +214,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="barbell-hip-thrust" />
-        <TechniqueArtwork imageKey="barbell-hip-thrust" phase="START" />
+        <ExerciseArtwork imageKey="cable-glute-kickback" />
+        <TechniqueArtwork imageKey="cable-glute-kickback" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });

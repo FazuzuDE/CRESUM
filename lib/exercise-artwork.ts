@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'barbell-hip-thrust': {
+    start: require('../assets/exercises/barbell-hip-thrust/female/start.webp'),
+    finish: require('../assets/exercises/barbell-hip-thrust/female/finish.webp'),
+  },
   'barbell-romanian-deadlift': {
     start: require('../assets/exercises/barbell-romanian-deadlift/female/start.webp'),
     finish: require('../assets/exercises/barbell-romanian-deadlift/female/finish.webp'),

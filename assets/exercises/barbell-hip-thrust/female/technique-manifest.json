@@ -1,0 +1,66 @@
+{
+  "variantId": "barbell-hip-thrust",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "9003383586b69a14513685b7bee9204a8ce74e3915f8b55c3db637fcb752b737",
+      "bytes": 44904,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "5a3c8be5f9135e2f7db8f76252cf62d030daf55b34e33cee6f43372e6c4874c2",
+      "bytes": 43776,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-c327a863-46d6-4d07-a648-00ae79527b55.png",
+    "sourceLibraryFileId": "libfile_78c7540fecb88191b708203aef16bd69",
+    "sourceSha256": "261303b4c5fb6584b75ea5e6ef822e5284f3336e918cef46ebd378cc6b802c2a",
+    "sourceBytes": 1485106,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514,
+        "role": "Female Master identity, proportions and outfit"
+      },
+      {
+        "file": "assets/exercises/barbell-hip-thrust/start.webp",
+        "sha256": "48bb7d28226892a5e5682d61931e5999d502250fa652f838e260fba66e213719",
+        "bytes": 44240,
+        "role": "Existing Male Barbell Hip Thrust bench/equipment and START only"
+      },
+      {
+        "file": "assets/exercises/barbell-hip-thrust/finish.webp",
+        "sha256": "27ee6e762b268b7d2e2c58bb3824520e711a136688bbef08fd1a34d3ec739a03",
+        "bytes": 44874,
+        "role": "Existing Male Barbell Hip Thrust bench/equipment and FINISH only"
+      }
+    ]
+  },
+  "productionChoice": "LEFT lowered pelvis START / RIGHT raised pelvis FINISH. Bench-supported hip extension with padded barbell across hips and planted feet. Preserve barbell-hip-thrust ID, guide, glutes Primary and hamstrings/quadriceps Secondary. Not the floor-supported bridge variant.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User selected pair. Broad character/outfit/material continuity, bench-supported setup and lowered/raised phase distinction reviewed. Exact upper-back/bench, bar/pad/hip, hand and foot contacts, neck/lumbar alignment, hip/knee angles, bar/plate consistency and rigid bench/foot registration are not independently certified. Physical-device/accessibility acceptance pending. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and current workspace for cumulative visual-block checkpoint. Exact prompt and actual input hashes recorded. Oracle deferred; no verified PC backup claim."
+}
