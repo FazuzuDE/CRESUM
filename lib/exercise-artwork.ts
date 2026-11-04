@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'captains-chair-knee-raise': {
+    start: require('../assets/exercises/captains-chair-knee-raise/female/start.webp'),
+    finish: require('../assets/exercises/captains-chair-knee-raise/female/finish.webp'),
+  },
   plank: {
     start: require('../assets/exercises/plank/female/start.webp'),
     finish: require('../assets/exercises/plank/female/finish.webp'),

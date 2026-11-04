@@ -1,0 +1,33 @@
+{
+  "status": "user-selected-provisional",
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/captains-chair-knee-raise/start.webp",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/captains-chair-knee-raise/finish.webp"
+  ],
+  "prompt": "Original CRESUM FEMALE CAPTAIN'S CHAIR KNEE RAISE instruction pair, ONE wide 2:1 sheet with TWO equal square views, white studio background no text or divider. Input1 locks exact adult Female Master face/proportions, brown ponytail, slate-blue short-sleeve T-shirt, charcoal full leggings, white socks/light gray shoes. Inputs2/3 show male equipment and phase references ONLY, replace male with same woman. Identical silver captain's chair station with dark backrest and two horizontal forearm pads, upright vertical grip handles, stable silver uprights/base. Supported knee raise, NOT hanging from overhead bar. Woman faces right front-side three-quarter, back against pad, elbows and forearms resting on their pads, both hands securely grip vertical handles, shoulders controlled without shrugging. LEFT START: legs hanging down, feet airborne above base, pelvis steady. RIGHT FINISH: both knees bent together and raised toward chest to approximately hip height with small controlled posterior pelvic curl, no swinging or excessive back arch. Feet remain airborne, frame/pads/handles stay fixed exactly same coordinates and size across both views, same woman's upper body and forearm contacts. Entire head/ponytail, feet, hands and full station fit both square views with small balanced margins, use available frame generously. Premium realistic 3D CRESUM style, uniform natural skin, matte clothing, satin silver frame, dark pads, consistent light/contact shadows. Anatomically correct two arms/hands and two legs/feet, plausible real grips/support, no extra handles or limbs, no weights/load tower. No text/labels/arrows/logos/watermarks/muscle highlights. Generate START and FINISH together.",
+  "output": {
+    "file": "exec-9f2d88de-4664-45f9-8636-f823a669ec35.png",
+    "sha256": "997a62153cbea31366e3bfb02097bcf86589f51f96876b406c5d42750413e1b2",
+    "bytes": 1335368,
+    "libraryFileId": "libfile_838e30eed9a881919ca221b8b41a5020"
+  },
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/captains-chair-knee-raise/start.webp",
+      "sha256": "b711b00c57a03237713a04755a93fdc0289f9287ca2dbbde5ac5da7cd777fbf1",
+      "bytes": 33826
+    },
+    {
+      "file": "assets/exercises/captains-chair-knee-raise/finish.webp",
+      "sha256": "eaf72735af1d4624ad2b9f603c5109174d6ae94d38e10af183a7b5c70b4d5bd9",
+      "bytes": 33390
+    }
+  ]
+}
