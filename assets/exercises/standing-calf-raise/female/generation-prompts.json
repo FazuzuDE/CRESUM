@@ -1,0 +1,33 @@
+{
+  "status": "user-selected-provisional",
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/standing-calf-raise/start.webp",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/standing-calf-raise/finish.webp"
+  ],
+  "prompt": "Original CRESUM female STANDING MACHINE CALF RAISE instruction pair. ONE wide 2:1 image, two equal square views side by side on white studio background, no divider or text. Input 1 locks exact adult Female Master identity, brown ponytail, natural athletic proportions, muted slate-blue short-sleeved T-shirt, charcoal full-length leggings, white socks and light gray shoes. Inputs 2/3 are Male equipment and movement references only: replace man with that woman. Same rear three-quarter camera, satin silver standing calf machine, black shoulder pads supported on shoulders not neck, hands fully grip handles, torso upright and knees long softly unlocked. Forefeet securely on fixed elevated platform edge, heels free beyond edge, same foot locations. LEFT START: lower heels below platform edge with controlled ankle dorsiflexion. RIGHT FINISH: rise high on forefeet through ankle plantarflexion, heels clearly lifted, body and shoulder carriage rise together without knee bend or torso swing. Active selected upper load group rests START and lifts FINISH with visible gap over lower resting plates; identical total plates and selector position. Coherent lever/pulley mechanics. Same fixed frame/platform/tower coordinates, camera and scale in both squares; only ankles/body/carriage/selected load group move. Ponytail must not intersect shoulder pads. Full woman, shoes, machine and base fit efficiently both squares with small margins; do not crop head or independently resize phases. Clean premium realistic 3D CRESUM render matching Master, consistent skin/fabric/materials, matte black padding, restrained silver reflections and soft shadows. Exactly two hands/feet/legs, plausible contacts, no text, arrows, logos, watermark, muscle highlights, divider or extra equipment. Generate START and FINISH together.",
+  "output": {
+    "file": "exec-d2d7eb7c-3383-4bae-b875-f1dd850ca5c6.png",
+    "sha256": "02bced71725de36098c72556dc1c086825912bdd622fbac82a5dc83c6ed1de62",
+    "bytes": 1400458,
+    "libraryFileId": "libfile_c0c1121bc7c08191a0298427e621bc70"
+  },
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/standing-calf-raise/start.webp",
+      "sha256": "15800a49efa3ceaeb3c86e699ede993feae5c20ed05da68b6a807c91da013711",
+      "bytes": 43942
+    },
+    {
+      "file": "assets/exercises/standing-calf-raise/finish.webp",
+      "sha256": "d87e2da3d77c7b6e1dfb6070e9672e729a0a675bd76410885ff3794d64e3b232",
+      "bytes": 46498
+    }
+  ]
+}
