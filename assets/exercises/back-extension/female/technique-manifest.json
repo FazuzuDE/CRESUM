@@ -1,0 +1,53 @@
+{
+  "variantId": "back-extension",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 2,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "050c385531e760118afbab06ff39246ae15de4609c387ce6d508ee4e790e3df6",
+      "bytes": 34708,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "4dc20fc241c8f6eaeb97deb7f8cd628d99a416c7701bbeaa3ea92fed8667e227",
+      "bytes": 37852,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-1073df8c-6b4c-4223-bb6a-8d7f5ee5bf11.png",
+    "sourceSha256": "7013c2007bfc43ea0e0be457666fa72d923fc2e03b20148fd14d75ff277ece7e",
+    "sourceBytes": 1690665,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "female-back-extension.png",
+        "sourceLibraryFileId": "libfile_001e455068588191b7d8cc389f127776",
+        "sha256": "cc66a6bb90415d35b855b466e505a3860532ce28e9da28a325c7f96968c09bc8",
+        "bytes": 1395980
+      }
+    ]
+  },
+  "productionChoice": "RIGHT deep hip-flexion START / LEFT aligned-body FINISH. Preserve generic back-extension guide and identity, lower-back Primary, glutes/hamstrings Secondary, Male and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User-selected-provisional. Deepened hip hinge and phase order reviewed; exact spinal/pelvic motion, pad/ankle/foot contacts, handle geometry, fixed frame registration and device/accessibility acceptance unverified. No claim that the edit preserved the other panel pixel-for-pixel. Existing generic guide unchanged; no new source review.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Edited original retained in current workspace and automatic generated-image retention. Prior reference native identity recorded. Exact edit prompt/input hash retained; prior original generation prompt unavailable. Cumulative checkpoint pending; Oracle deferred."
+}

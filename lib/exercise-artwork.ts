@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'back-extension': {
+    start: require('../assets/exercises/back-extension/female/start.webp'),
+    finish: require('../assets/exercises/back-extension/female/finish.webp'),
+  },
   'cable-crunch': {
     start: require('../assets/exercises/cable-crunch/female/start.webp'),
     finish: require('../assets/exercises/cable-crunch/female/finish.webp'),
