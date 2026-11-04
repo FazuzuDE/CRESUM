@@ -177,6 +177,16 @@ jest.mock(
   '../../assets/exercises/hanging-straight-leg-raise/female/finish.webp',
   () => 3202,
 );
+jest.mock('../../assets/exercises/hanging-knee-raise/start.webp', () => 3301);
+jest.mock('../../assets/exercises/hanging-knee-raise/finish.webp', () => 3302);
+jest.mock(
+  '../../assets/exercises/hanging-knee-raise/female/start.webp',
+  () => 3401,
+);
+jest.mock(
+  '../../assets/exercises/hanging-knee-raise/female/finish.webp',
+  () => 3402,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -289,7 +299,13 @@ it('resolves female phases only for the approved exact variants', () => {
   expect(
     resolveExerciseArtwork('hanging-straight-leg-raise', 'finish', 'female'),
   ).toBe(3202);
-  for (const id of ['kettlebell-goblet-squat', 'hanging-knee-raise', 'unknown'])
+  expect(resolveExerciseArtwork('hanging-knee-raise', 'start', 'female')).toBe(
+    3401,
+  );
+  expect(resolveExerciseArtwork('hanging-knee-raise', 'finish', 'female')).toBe(
+    3402,
+  );
+  for (const id of ['kettlebell-goblet-squat', 'cable-crunch', 'unknown'])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -312,6 +328,7 @@ it.each([
   ['plank', [2701, 2702, 2701], [2801, 2802, 2801]],
   ['captains-chair-knee-raise', [2901, 2902, 2901], [3001, 3002, 3001]],
   ['hanging-straight-leg-raise', [3101, 3102, 3101], [3201, 3202, 3201]],
+  ['hanging-knee-raise', [3301, 3302, 3301], [3401, 3402, 3401]],
 ] as const)(
   'switches %s thumbnail, inline and fullscreen phases from the shared choice',
   async (imageKey, maleSources, femaleSources) => {
@@ -357,8 +374,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="hanging-knee-raise" />
-        <TechniqueArtwork imageKey="hanging-knee-raise" phase="START" />
+        <ExerciseArtwork imageKey="cable-crunch" />
+        <TechniqueArtwork imageKey="cable-crunch" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });

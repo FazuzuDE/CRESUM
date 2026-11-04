@@ -2,8 +2,8 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Captain’s Chair Knee Raise were merged in #176–190. Female
-Hanging Straight Leg Raise is selected for integration. Next: Female Hanging Knee Raise. Review
+Female pairs through Hanging Straight Leg Raise were merged in #176–191. Female
+Hanging Knee Raise is selected for integration. Next: Female Cable Crunch. Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.
