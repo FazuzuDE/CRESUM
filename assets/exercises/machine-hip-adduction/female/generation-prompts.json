@@ -1,0 +1,33 @@
+{
+  "status": "user-selected-provisional",
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/machine-hip-adduction/start.webp",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/machine-hip-adduction/finish.webp"
+  ],
+  "prompt": "Original CRESUM FEMALE MACHINE HIP ADDUCTION instruction pair. ONE wide 2:1 sheet, TWO equal square views side by side on white studio background, no divider/text. Input1 locks exact adult Female Master face, brown ponytail, natural athletic proportions, slate-blue short-sleeved T-shirt, charcoal full leggings, white socks/light gray shoes. Inputs2/3 are male equipment/phase references ONLY; replace man with that woman. Same front three-quarter camera, coherent satin silver seated hip-adduction machine with black seat/backrest, two thigh pads against INSIDE of thighs above knees, feet fully supported on respective moving footrests, hands securely grip handles beside hips. Pelvis/back/torso remain supported and upright. LEFT START: legs comfortably apart, inner thighs contact pads, knees follow leg orientation, no forced extreme split. RIGHT FINISH: bring thighs/knees inward against pads until pads nearly meet, feet follow the linked supports, no knee twisting, torso swing or pelvis lifting. This is inward adduction, never pads outside thighs or outward abduction. Active top load group rests START and raises FINISH with visible gap above remaining resting plates, identical total count/selector choice, consistent coherent lever/cable mechanism. Same fixed frame/seat/backrest/tower coordinates, camera, scale, body proportions and floor baseline in both squares; only thighs/linked pad-footrest arms and selected plates move. Entire head, ponytail, hands, shoes, machine/footrests and frame fit both equal squares with small safe margins. Premium realistic3D CRESUM style matching Female Master, consistent natural skin/matte fabric/silver frame/dark pads, soft studio shadows. Anatomically correct two legs/feet/hands, plausible pad and foot contacts. No text, labels, arrows, logos, watermark, muscle highlights or divider. Generate both phases together.",
+  "output": {
+    "file": "exec-608cd848-0d8b-4388-9b36-b7ce7aaf3aa4.png",
+    "sha256": "e4761fbad974a05f1692b04eca0ac727c50e662caf878d223bd46fbb63f94b08",
+    "bytes": 1526924,
+    "libraryFileId": "libfile_b7de0051108c8191ab1719fbc185aea7"
+  },
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/machine-hip-adduction/start.webp",
+      "sha256": "92ec4bc026fc99428fd822215eb785448e543c2a82e366e315a4666d19d0ffc2",
+      "bytes": 52088
+    },
+    {
+      "file": "assets/exercises/machine-hip-adduction/finish.webp",
+      "sha256": "204093992ee7087cd9af55eaecc191ad59f5b4c264126c4cd1937f67b4b1ead0",
+      "bytes": 49826
+    }
+  ]
+}

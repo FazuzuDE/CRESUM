@@ -1,5 +1,21 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Machine Hip Adduction — 2026-11-04
+
+User approved `exec-608cd848-0d8b-4388-9b36-b7ce7aaf3aa4.png`, native source
+`libfile_b7de0051108c8191ab1719fbc185aea7`. Bind only `machine-hip-adduction`/Female:
+LEFT apart START / RIGHT inward FINISH with raised selected load. Exact 887-square
+RGB WebP92/method6 halves, shared contain, no retouch/resampling or independent
+transforms. Preserve Male, guide, adductors Primary, no Secondary mapped, stable
+identity and History. Do not substitute outward abduction.
+
+Exact original/prompt/input hashes retained. User-selected-provisional: detailed
+pad/contact, hip/knee range, linked arms/footrests, rigid registration and plate/
+selector continuity remain unverified, as does device/accessibility acceptance.
+Raised load is not plate-count certification. Cumulative checkpoint pending;
+Oracle deferred/unverified. Coverage: 68 Male plus twelve Female pairs.
+Next: Female Kettlebell Swing preview, separate approval before registration.
+
 ## Female Seated Calf Raise — 2026-11-04
 
 User approved `exec-85f15a9b-3e52-4982-9827-24b92b406a5b.png`, native source
