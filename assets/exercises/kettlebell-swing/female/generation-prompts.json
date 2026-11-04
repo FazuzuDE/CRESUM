@@ -1,0 +1,33 @@
+{
+  "status": "user-selected-provisional",
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/kettlebell-swing/start.webp",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/kettlebell-swing/finish.webp"
+  ],
+  "prompt": "Original CRESUM FEMALE TWO-HANDED KETTLEBELL SWING instruction pair. ONE wide2:1 sheet, TWO equal square views on white studio background, no divider/text. Input1 locks exact adult Female Master identity/proportions, brown ponytail, slate-blue short-sleeved T-shirt, charcoal full leggings, white socks/light gray shoes. Inputs2/3 are male movement/equipment references ONLY. Same front-side three-quarter camera facing right, natural athletic woman holding ONE identical matte dark kettlebell by handle with BOTH hands in closed overhand grip. LEFT START backswing: hips pushed back in clear hip hinge, knees softly bent, steady neutral spine/neck, bell passes backward high between thighs, straight relaxed arms, no deep squat. RIGHT FINISH: powerful hip extension to tall aligned body, feet stay planted in SAME stance, shoulders relaxed, arms extended forward near chest/shoulder height, bell floats from hip drive, no overhead lift or backward lean. Same kettlebell size/shape, anatomically correct hands and grip/wrists, two legs/feet. Same woman scale, foot placement/floor baseline and camera both squares; natural shorter hinged pose not independently enlarged. Entire head, ponytail, feet, arms and bell fit each square with small balanced margins. Realistic premium3D CRESUM style matching Master, consistent natural skin, matte cloth/bell, soft studio lighting/contact shadows. No text, labels, arrows, logos, watermark, highlights, divider or extra equipment. Generate both phases together.",
+  "output": {
+    "file": "exec-5c9b08c7-f768-40c1-929a-ae4bd8509ec8.png",
+    "sha256": "b036fc7989387f9cc6ca9a465a6debf1c5890923b1020a228d99a04e53da50ad",
+    "bytes": 1250610,
+    "libraryFileId": "libfile_6712d4f8816c8191810528fa2023eb48"
+  },
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/kettlebell-swing/start.webp",
+      "sha256": "2d34a265ea0cb4747c81e60e457798b8c90ccb771a837fd3c8d8ae86a5ea1397",
+      "bytes": 30200
+    },
+    {
+      "file": "assets/exercises/kettlebell-swing/finish.webp",
+      "sha256": "eee799429ad92c5680eeda205d87ff9804fb1d5379ac81f4e6cc7688fef2558f",
+      "bytes": 30100
+    }
+  ]
+}

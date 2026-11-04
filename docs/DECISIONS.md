@@ -1,5 +1,22 @@
 # CRESUM Decision Log
 
+## Female Kettlebell Swing — 2026-11-04
+
+User approved `exec-5c9b08c7-f768-40c1-929a-ae4bd8509ec8.png`, native source
+`libfile_6712d4f8816c8191810528fa2023eb48`. Bind only `kettlebell-swing`/Female:
+LEFT backswing START / RIGHT upright shoulder-height FINISH. One bell, two hands,
+hip-hinge configuration. Exact 887-square RGB WebP92/method6 halves, shared contain,
+no retouch/resampling or independent transforms. Preserve Male, guide, glutes/
+hamstrings Primary, lower-back/forearms Secondary, stable identity and History.
+
+Exact original/prompt/input hashes retained. User-selected-provisional: detailed
+grip/wrist contacts, hip/knee range, neutral spine, foot/camera registration and
+bell continuity remain unverified. Two stills do not certify dynamic hip drive.
+Device/accessibility acceptance remains pending; cumulative checkpoint pending,
+Oracle deferred/unverified. Coverage: 68 Male plus thirteen Female pairs.
+Next: Female Plank preview, separate approval before registration; static hold,
+not up/down repetitions.
+
 ## Female Machine Hip Adduction — 2026-11-04
 
 User approved `exec-608cd848-0d8b-4388-9b36-b7ce7aaf3aa4.png`, native source

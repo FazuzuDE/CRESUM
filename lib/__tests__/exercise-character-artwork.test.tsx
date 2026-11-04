@@ -131,6 +131,16 @@ jest.mock(
   '../../assets/exercises/machine-hip-adduction/female/finish.webp',
   () => 2402,
 );
+jest.mock('../../assets/exercises/kettlebell-swing/start.webp', () => 2501);
+jest.mock('../../assets/exercises/kettlebell-swing/finish.webp', () => 2502);
+jest.mock(
+  '../../assets/exercises/kettlebell-swing/female/start.webp',
+  () => 2601,
+);
+jest.mock(
+  '../../assets/exercises/kettlebell-swing/female/finish.webp',
+  () => 2602,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -223,7 +233,13 @@ it('resolves female phases only for the approved exact variants', () => {
   expect(
     resolveExerciseArtwork('machine-hip-adduction', 'finish', 'female'),
   ).toBe(2402);
-  for (const id of ['kettlebell-goblet-squat', 'kettlebell-swing', 'unknown'])
+  expect(resolveExerciseArtwork('kettlebell-swing', 'start', 'female')).toBe(
+    2601,
+  );
+  expect(resolveExerciseArtwork('kettlebell-swing', 'finish', 'female')).toBe(
+    2602,
+  );
+  for (const id of ['kettlebell-goblet-squat', 'plank', 'unknown'])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -242,6 +258,7 @@ it.each([
   ['standing-calf-raise', [1901, 1902, 1901], [2001, 2002, 2001]],
   ['seated-calf-raise', [2101, 2102, 2101], [2201, 2202, 2201]],
   ['machine-hip-adduction', [2301, 2302, 2301], [2401, 2402, 2401]],
+  ['kettlebell-swing', [2501, 2502, 2501], [2601, 2602, 2601]],
 ] as const)(
   'switches %s thumbnail, inline and fullscreen phases from the shared choice',
   async (imageKey, maleSources, femaleSources) => {
@@ -287,8 +304,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="kettlebell-swing" />
-        <TechniqueArtwork imageKey="kettlebell-swing" phase="START" />
+        <ExerciseArtwork imageKey="plank" />
+        <TechniqueArtwork imageKey="plank" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });
