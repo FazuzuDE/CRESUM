@@ -1,0 +1,33 @@
+{
+  "status": "user-selected-provisional",
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/seated-calf-raise/start.webp",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/seated-calf-raise/finish.webp"
+  ],
+  "prompt": "Original CRESUM FEMALE SEATED CALF RAISE instructional pair. ONE 2:1 landscape sheet with TWO equal square views on seamless white background, no divider/text. Input1 is exact adult Female Master: same face, brown ponytail, natural athletic proportions, slate-blue short-sleeved T-shirt, charcoal full leggings, white socks/light gray shoes. Inputs2/3 are male machine/setup/phase references ONLY. Replace man with same woman. Same rear three-quarter camera facing right, light silver plate-loaded seated calf machine, black seat/thigh pads, hands grip handles. Upright seated torso and pelvis fixed on seat; knees bent about90 degrees, pads secure across lower thighs above knees. Both forefeet planted on fixed platform edge, heels hang freely beyond edge. LEFT START: lower both heels below platform under control. RIGHT FINISH: raise heels high by ankle plantarflexion, keep forefeet in identical platform positions, knees remain bent; moving thigh pad and rigid weight lever with same black plates rise with heels. Same plate size/count/placement, machine geometry, seat/base/platform coordinates, camera/scale and body proportions in both equal squares. Only ankles, thigh-pad/lever and load move; no standing up or torso swing. Entire woman, shoes, lever/plates and machine feet fit efficiently both squares, no clipping. Clear lowered versus elevated heels, natural foot anatomy, no shoes through platform. Premium realistic3D CRESUM style matching Female Master, clean skin/matte fabric, satin silver/charcoal materials, soft studio contact shadows. No logos, labels, arrows, watermark, muscle highlights, extra equipment or dividing line. Generate both phases together.",
+  "output": {
+    "file": "exec-85f15a9b-3e52-4982-9827-24b92b406a5b.png",
+    "sha256": "506d4e6cccfb592158b87fe8363557cc17421957f8bec30a3b639538e90082fd",
+    "bytes": 1422101,
+    "libraryFileId": "libfile_5a5366b4d4dc819181e6c5b1a4c15018"
+  },
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/seated-calf-raise/start.webp",
+      "sha256": "2bd836d1e28f4490a11768eb60b24d7fa4c6164314060b09ea77575176e7e9f3",
+      "bytes": 39834
+    },
+    {
+      "file": "assets/exercises/seated-calf-raise/finish.webp",
+      "sha256": "8d643d486d6ae1ed70af5ee15dd55bac2080c6b15bdc41a5d12cfa1926204ff6",
+      "bytes": 39838
+    }
+  ]
+}

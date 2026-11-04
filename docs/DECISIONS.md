@@ -1,5 +1,20 @@
 # CRESUM Decision Log
 
+## Female Seated Calf Raise — 2026-11-04
+
+User approved `exec-85f15a9b-3e52-4982-9827-24b92b406a5b.png`, native source
+`libfile_5a5366b4d4dc819181e6c5b1a4c15018`. Bind only `seated-calf-raise`/Female:
+LEFT lowered heels START / RIGHT raised heels FINISH with thigh-pad/load lever.
+Exact 887-square RGB WebP92/method6 halves, shared contain, no retouch/resampling
+or independent transforms. Preserve Male/standing variants, guide, calves Primary,
+stable identity and History.
+
+Exact original/prompt/input hashes retained. User-selected-provisional: detailed
+contacts, ankle/knee range, lever/load mechanics, frame/foot registration and
+physical-device/accessibility QA remain open. Cumulative checkpoint pending;
+Oracle deferred/unverified. Coverage: 68 Male pairs plus eleven Female pairs.
+Next: Female Machine Hip Adduction preview, separate approval before registration.
+
 ## Female Standing Calf Raise — 2026-11-04
 
 User approved `exec-d2d7eb7c-3383-4bae-b875-f1dd850ca5c6.png`, native source

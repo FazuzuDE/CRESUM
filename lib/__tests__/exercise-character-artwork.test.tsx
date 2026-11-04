@@ -105,6 +105,16 @@ jest.mock(
   '../../assets/exercises/standing-calf-raise/female/finish.webp',
   () => 2002,
 );
+jest.mock('../../assets/exercises/seated-calf-raise/start.webp', () => 2101);
+jest.mock('../../assets/exercises/seated-calf-raise/finish.webp', () => 2102);
+jest.mock(
+  '../../assets/exercises/seated-calf-raise/female/start.webp',
+  () => 2201,
+);
+jest.mock(
+  '../../assets/exercises/seated-calf-raise/female/finish.webp',
+  () => 2202,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -185,7 +195,17 @@ it('resolves female phases only for the approved exact variants', () => {
   expect(
     resolveExerciseArtwork('standing-calf-raise', 'finish', 'female'),
   ).toBe(2002);
-  for (const id of ['kettlebell-goblet-squat', 'seated-calf-raise', 'unknown'])
+  expect(resolveExerciseArtwork('seated-calf-raise', 'start', 'female')).toBe(
+    2201,
+  );
+  expect(resolveExerciseArtwork('seated-calf-raise', 'finish', 'female')).toBe(
+    2202,
+  );
+  for (const id of [
+    'kettlebell-goblet-squat',
+    'machine-hip-adduction',
+    'unknown',
+  ])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -202,6 +222,7 @@ it.each([
   ['barbell-hip-thrust', [1501, 1502, 1501], [1601, 1602, 1601]],
   ['cable-glute-kickback', [1701, 1702, 1701], [1801, 1802, 1801]],
   ['standing-calf-raise', [1901, 1902, 1901], [2001, 2002, 2001]],
+  ['seated-calf-raise', [2101, 2102, 2101], [2201, 2202, 2201]],
 ] as const)(
   'switches %s thumbnail, inline and fullscreen phases from the shared choice',
   async (imageKey, maleSources, femaleSources) => {
@@ -247,8 +268,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="seated-calf-raise" />
-        <TechniqueArtwork imageKey="seated-calf-raise" phase="START" />
+        <ExerciseArtwork imageKey="machine-hip-adduction" />
+        <TechniqueArtwork imageKey="machine-hip-adduction" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });

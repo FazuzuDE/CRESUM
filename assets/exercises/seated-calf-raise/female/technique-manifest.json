@@ -1,0 +1,63 @@
+{
+  "variantId": "seated-calf-raise",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "09bf83058b751f1672931996b3149fc98dbc0a33af89aaf4c048517ea9937ef2",
+      "bytes": 42174,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "1d737fcbffcc8544fccb169d29840f074260d7b6f9a24cda4c19198dcd7e200d",
+      "bytes": 41150,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-85f15a9b-3e52-4982-9827-24b92b406a5b.png",
+    "sourceLibraryFileId": "libfile_5a5366b4d4dc819181e6c5b1a4c15018",
+    "sourceSha256": "506d4e6cccfb592158b87fe8363557cc17421957f8bec30a3b639538e90082fd",
+    "sourceBytes": 1422101,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/seated-calf-raise/start.webp",
+        "sha256": "2bd836d1e28f4490a11768eb60b24d7fa4c6164314060b09ea77575176e7e9f3",
+        "bytes": 39834
+      },
+      {
+        "file": "assets/exercises/seated-calf-raise/finish.webp",
+        "sha256": "8d643d486d6ae1ed70af5ee15dd55bac2080c6b15bdc41a5d12cfa1926204ff6",
+        "bytes": 39838
+      }
+    ]
+  },
+  "productionChoice": "LEFT lowered heels START / RIGHT raised heels FINISH, bent knees with thigh pads and plate-loaded lever. Preserve seated-calf-raise guide and calves Primary; not standing variant.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User-selected-provisional. Broad identity/material/phase continuity reviewed. Exact forefoot/platform, thigh-pad and hand contacts, ankle/knee range, rigid lever/load mechanics and frame/foot registration are not independently certified. Physical-device/accessibility acceptance pending. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and current workspace for cumulative visual-block checkpoint. Exact prompt and actual input hashes recorded. Oracle deferred; no verified PC backup claim."
+}
