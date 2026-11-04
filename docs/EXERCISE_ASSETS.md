@@ -1,5 +1,24 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Cable Crunch — 2026-11-04
+
+User approved native source `libfile_435ebfecb8808191afafb38530d20ec8`,
+`Женщина выполняет скручивания на верхнем блоке.png`. Bind only
+`cable-crunch`/Female: LEFT upright START / RIGHT flexed-trunk FINISH;
+selected load visibly rises. Exact 887-square RGB WebP92/method6 halves,
+shared contain without retouch/resampling/padding or independent transforms.
+Preserve Male, generic posture/attachment-unspecified guide, abs Primary,
+no Secondary, stable identity and History. Standing rope setup remains an
+illustration example, not a narrowing of the generic exercise.
+
+User-selected-provisional: exact plate/selector continuity, hidden reeving,
+rope/grip contacts, spinal/pelvic motion, rigid registration and device/
+accessibility acceptance remain open. Exact original/hash retained; original
+prompt and actual generation inputs could not be recovered in this resumed
+session and are explicitly missing, not reconstructed. Cumulative checkpoint
+pending; Oracle deferred. Coverage: 68 Male plus eighteen Female pairs.
+Next: Female Back Extension preview, separate approval before registration.
+
 ## Female Hanging Knee Raise — 2026-11-04
 
 User approved `exec-a33b95d1-a2ec-4f67-aa10-b638d77037f6.png`, native source

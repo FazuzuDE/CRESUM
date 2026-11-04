@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'cable-crunch': {
+    start: require('../assets/exercises/cable-crunch/female/start.webp'),
+    finish: require('../assets/exercises/cable-crunch/female/finish.webp'),
+  },
   'hanging-knee-raise': {
     start: require('../assets/exercises/hanging-knee-raise/female/start.webp'),
     finish: require('../assets/exercises/hanging-knee-raise/female/finish.webp'),
