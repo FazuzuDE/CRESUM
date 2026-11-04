@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'dumbbell-romanian-deadlift': {
+    start: require('../assets/exercises/dumbbell-romanian-deadlift/female/start.webp'),
+    finish: require('../assets/exercises/dumbbell-romanian-deadlift/female/finish.webp'),
+  },
   'seated-leg-curl': {
     start: require('../assets/exercises/seated-leg-curl/female/start.webp'),
     finish: require('../assets/exercises/seated-leg-curl/female/finish.webp'),

@@ -1,0 +1,37 @@
+{
+  "provider": "image_gen",
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/dumbbell-romanian-deadlift/start.webp",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/dumbbell-romanian-deadlift/finish.webp"
+  ],
+  "prompt": "Create an original premium CRESUM exercise illustration pair. One wide 2:1 landscape image, TWO equal square views side by side with seamless white studio background, no border or dividing line. Exercise FEMALE DUMBBELL ROMANIAN DEADLIFT. Input 1 is exact locked adult CRESUM Female Master: preserve her face, brown ponytail, natural athletic build and proportions, muted slate-blue fitted short-sleeved T-shirt, charcoal full-length leggings, white socks and light gray sneakers. Inputs 2 and 3 are existing Male movement/equipment/phase references ONLY; do not copy male identity. Render the exact woman using the same front-side three-quarter camera facing toward image RIGHT. LEFT: LOWERED HIP-HINGE phase matching input 2, hips pushed back, torso inclined forward as a rigid neutral unit, knees softly bent without deep squat, both feet entirely planted hip-width apart. Hold one identical dark gray hex dumbbell in EACH hand, arms straight hanging vertically close in front of legs, dumbbells around upper/mid-shin level within controlled hamstring range; no reaching for the floor, no rounding back. RIGHT: TALL UPRIGHT phase matching input 3, stand by extending hips, ribs over pelvis, shoulders relaxed and arms straight holding same dumbbells in front of upper thighs; no exaggerated backward lean or lumbar arch. Both hands fully grip handles, neutral wrists, exactly two hands/two legs/two feet and two separate dumbbells per pose. Maintain identical dumbbell dimensions/weight appearance and natural grip across phases. Same woman identity, body proportions, camera angle, orthographic scale, foot placement and floor baseline across both square views. Entire head, shoes and dumbbells fit with small safe margins; standing body generously fills height, lowered torso is naturally shorter in frame without independently enlarging the body. Consistent smooth realistic skin and matte fabrics, premium realistic 3D instructional rendering matching Female Master, soft studio lighting/contact shadows. No machines or extra equipment, no arrows, no logos, no watermarks, no text, no START/FINISH labels, no muscle highlighting, no dividing line. Generate both phases together.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514,
+      "role": "Female Master identity, proportions and outfit"
+    },
+    {
+      "file": "assets/exercises/dumbbell-romanian-deadlift/start.webp",
+      "sha256": "59b2030389dca90a9fdc2ae534748fbcbe1feffbe2d308088140257d6dee2a11",
+      "bytes": 30172,
+      "role": "Existing Male Dumbbell Romanian Deadlift movement/equipment and START only"
+    },
+    {
+      "file": "assets/exercises/dumbbell-romanian-deadlift/finish.webp",
+      "sha256": "32fd40d2819b9b954cce4e0a2829db4a58db2779fa788866ef6e039958cc23a2",
+      "bytes": 26966,
+      "role": "Existing Male Dumbbell Romanian Deadlift movement/equipment and FINISH only"
+    }
+  ],
+  "output": {
+    "file": "exec-c191b8ef-5f5d-4292-ace1-4905256e1632.png",
+    "sha256": "0b4c89c5bae42492ef32aff8e15c80e610ce885e64659476f799affb68b3e90b",
+    "bytes": 1266446,
+    "libraryFileId": "libfile_616a916f40408191817e859da5c24e93",
+    "size": [1774, 887]
+  }
+}

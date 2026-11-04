@@ -40,6 +40,22 @@ jest.mock(
   '../../assets/exercises/seated-leg-curl/female/finish.webp',
   () => 1002,
 );
+jest.mock(
+  '../../assets/exercises/dumbbell-romanian-deadlift/start.webp',
+  () => 1101,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-romanian-deadlift/finish.webp',
+  () => 1102,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-romanian-deadlift/female/start.webp',
+  () => 1201,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-romanian-deadlift/female/finish.webp',
+  () => 1202,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -72,9 +88,21 @@ it('resolves female phases only for the approved exact variants', () => {
   );
   expect(resolveExerciseArtwork('seated-leg-curl', 'start', 'male')).toBe(901);
   expect(resolveExerciseArtwork('seated-leg-curl', 'finish', 'male')).toBe(902);
+  expect(
+    resolveExerciseArtwork('dumbbell-romanian-deadlift', 'start', 'female'),
+  ).toBe(1201);
+  expect(
+    resolveExerciseArtwork('dumbbell-romanian-deadlift', 'finish', 'female'),
+  ).toBe(1202);
+  expect(
+    resolveExerciseArtwork('dumbbell-romanian-deadlift', 'start', 'male'),
+  ).toBe(1101);
+  expect(
+    resolveExerciseArtwork('dumbbell-romanian-deadlift', 'finish', 'male'),
+  ).toBe(1102);
   for (const id of [
     'kettlebell-goblet-squat',
-    'dumbbell-romanian-deadlift',
+    'barbell-romanian-deadlift',
     'unknown',
   ])
     for (const phase of ['start', 'finish'] as const)
@@ -88,6 +116,7 @@ it.each([
   ['leg-extension', [501, 502, 501], [601, 602, 601]],
   ['lying-leg-curl', [701, 702, 701], [801, 802, 801]],
   ['seated-leg-curl', [901, 902, 901], [1001, 1002, 1001]],
+  ['dumbbell-romanian-deadlift', [1101, 1102, 1101], [1201, 1202, 1201]],
 ] as const)(
   'switches %s thumbnail, inline and fullscreen phases from the shared choice',
   async (imageKey, maleSources, femaleSources) => {
@@ -133,8 +162,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="dumbbell-romanian-deadlift" />
-        <TechniqueArtwork imageKey="dumbbell-romanian-deadlift" phase="START" />
+        <ExerciseArtwork imageKey="barbell-romanian-deadlift" />
+        <TechniqueArtwork imageKey="barbell-romanian-deadlift" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });

@@ -1,0 +1,66 @@
+{
+  "variantId": "dumbbell-romanian-deadlift",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "b2ed0f82a8b09aad8cefa65853d3303669113332385279e21ee56be72c28904c",
+      "bytes": 28304,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "2cd8e3ce43811068726ff0e4f1420e4a37192cf354527414d1c658fb96610efb",
+      "bytes": 26576,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-c191b8ef-5f5d-4292-ace1-4905256e1632.png",
+    "sourceLibraryFileId": "libfile_616a916f40408191817e859da5c24e93",
+    "sourceSha256": "0b4c89c5bae42492ef32aff8e15c80e610ce885e64659476f799affb68b3e90b",
+    "sourceBytes": 1266446,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514,
+        "role": "Female Master identity, proportions and outfit"
+      },
+      {
+        "file": "assets/exercises/dumbbell-romanian-deadlift/start.webp",
+        "sha256": "59b2030389dca90a9fdc2ae534748fbcbe1feffbe2d308088140257d6dee2a11",
+        "bytes": 30172,
+        "role": "Existing Male Dumbbell Romanian Deadlift movement/equipment and START only"
+      },
+      {
+        "file": "assets/exercises/dumbbell-romanian-deadlift/finish.webp",
+        "sha256": "32fd40d2819b9b954cce4e0a2829db4a58db2779fa788866ef6e039958cc23a2",
+        "bytes": 26966,
+        "role": "Existing Male Dumbbell Romanian Deadlift movement/equipment and FINISH only"
+      }
+    ]
+  },
+  "productionChoice": "LEFT lowered hip-hinge START / RIGHT upright FINISH, matching existing Male pair endpoint order. Two dumbbells, bilateral supported stance and hip extension. Preserve dumbbell-romanian-deadlift ID and top-down guide; hamstrings/glutes Primary, lower-back/forearms Secondary. Not the barbell variant.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User selected pair. Broad character/outfit/material continuity, hip-hinge/upright distinction and full-body framing reviewed. Exact hand/dumbbell separation/contact, knee/hip/spine angles, depth and rigid foot/camera registration are not independently certified. Physical-device/accessibility acceptance pending. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and current workspace for cumulative visual-block checkpoint. Exact prompt and actual input hashes recorded. Oracle deferred; no verified PC backup claim."
+}
