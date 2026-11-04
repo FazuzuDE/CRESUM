@@ -4,10 +4,10 @@
 
 Shared character preference and Female Goblet Squat were merged in #176; Female
 Leg Press in #177, Leg Extension in #178, Lying Leg Curl in #179, Seated Leg Curl
-in #180 and Dumbbell Romanian Deadlift in #181. Female Barbell Romanian Deadlift
-is selected for integration. Next: Female Barbell Hip Thrust with bench support.
-Generate, review and immediately integrate each accepted pair. Keep exact variant,
-model and phase bindings and existing Male files. Missing Female assets stay
+in #180, Dumbbell Romanian Deadlift in #181 and Barbell Romanian Deadlift in #182.
+Female Barbell Hip Thrust is selected for integration. Next: Female Cable Glute
+Kickback. Generate, review and immediately integrate each accepted pair. Keep exact
+variant/model/phase bindings and existing Male files. Missing Female assets stay
 localized placeholders; do not wait for the complete set.
 No Oracle dependency or new cloud work is required for this rollout.
 
