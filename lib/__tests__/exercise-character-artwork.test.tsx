@@ -115,6 +115,22 @@ jest.mock(
   '../../assets/exercises/seated-calf-raise/female/finish.webp',
   () => 2202,
 );
+jest.mock(
+  '../../assets/exercises/machine-hip-adduction/start.webp',
+  () => 2301,
+);
+jest.mock(
+  '../../assets/exercises/machine-hip-adduction/finish.webp',
+  () => 2302,
+);
+jest.mock(
+  '../../assets/exercises/machine-hip-adduction/female/start.webp',
+  () => 2401,
+);
+jest.mock(
+  '../../assets/exercises/machine-hip-adduction/female/finish.webp',
+  () => 2402,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -201,11 +217,13 @@ it('resolves female phases only for the approved exact variants', () => {
   expect(resolveExerciseArtwork('seated-calf-raise', 'finish', 'female')).toBe(
     2202,
   );
-  for (const id of [
-    'kettlebell-goblet-squat',
-    'machine-hip-adduction',
-    'unknown',
-  ])
+  expect(
+    resolveExerciseArtwork('machine-hip-adduction', 'start', 'female'),
+  ).toBe(2401);
+  expect(
+    resolveExerciseArtwork('machine-hip-adduction', 'finish', 'female'),
+  ).toBe(2402);
+  for (const id of ['kettlebell-goblet-squat', 'kettlebell-swing', 'unknown'])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -223,6 +241,7 @@ it.each([
   ['cable-glute-kickback', [1701, 1702, 1701], [1801, 1802, 1801]],
   ['standing-calf-raise', [1901, 1902, 1901], [2001, 2002, 2001]],
   ['seated-calf-raise', [2101, 2102, 2101], [2201, 2202, 2201]],
+  ['machine-hip-adduction', [2301, 2302, 2301], [2401, 2402, 2401]],
 ] as const)(
   'switches %s thumbnail, inline and fullscreen phases from the shared choice',
   async (imageKey, maleSources, femaleSources) => {
@@ -268,8 +287,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="machine-hip-adduction" />
-        <TechniqueArtwork imageKey="machine-hip-adduction" phase="START" />
+        <ExerciseArtwork imageKey="kettlebell-swing" />
+        <TechniqueArtwork imageKey="kettlebell-swing" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });

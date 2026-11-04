@@ -1,0 +1,63 @@
+{
+  "variantId": "machine-hip-adduction",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "2dd4a98ddc9e6e2fe1af2d323c2b7566c6cc5ce6ea4552c572c307c18b22dc7b",
+      "bytes": 51124,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "025c1c579dd7efc9bf3e5e545202de83dd565429e6a500d751d9857cabc54813",
+      "bytes": 50266,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-608cd848-0d8b-4388-9b36-b7ce7aaf3aa4.png",
+    "sourceLibraryFileId": "libfile_b7de0051108c8191ab1719fbc185aea7",
+    "sourceSha256": "e4761fbad974a05f1692b04eca0ac727c50e662caf878d223bd46fbb63f94b08",
+    "sourceBytes": 1526924,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/machine-hip-adduction/start.webp",
+        "sha256": "92ec4bc026fc99428fd822215eb785448e543c2a82e366e315a4666d19d0ffc2",
+        "bytes": 52088
+      },
+      {
+        "file": "assets/exercises/machine-hip-adduction/finish.webp",
+        "sha256": "204093992ee7087cd9af55eaecc191ad59f5b4c264126c4cd1937f67b4b1ead0",
+        "bytes": 49826
+      }
+    ]
+  },
+  "productionChoice": "LEFT thighs apart START / RIGHT inward adduction FINISH with raised selected load. Pads contact inner thighs, supported seated posture. Preserve machine-hip-adduction guide and adductors Primary, no Secondary mapped. Not outward abduction.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User-selected-provisional. Broad identity/material/phase continuity reviewed. Exact inner-thigh/pad, hand/foot contacts, hip/knee range, linked footrest/pad mechanics, fixed-frame registration and plate/selector continuity are not independently certified. Raised load is visible, not certification of total plate counts. Physical-device/accessibility acceptance pending. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and current workspace for cumulative visual-block checkpoint. Exact prompt and actual input hashes recorded. Oracle deferred; no verified PC backup claim."
+}

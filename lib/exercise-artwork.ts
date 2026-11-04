@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'machine-hip-adduction': {
+    start: require('../assets/exercises/machine-hip-adduction/female/start.webp'),
+    finish: require('../assets/exercises/machine-hip-adduction/female/finish.webp'),
+  },
   'seated-calf-raise': {
     start: require('../assets/exercises/seated-calf-raise/female/start.webp'),
     finish: require('../assets/exercises/seated-calf-raise/female/finish.webp'),
