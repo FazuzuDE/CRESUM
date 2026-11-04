@@ -95,6 +95,16 @@ jest.mock(
   '../../assets/exercises/cable-glute-kickback/female/finish.webp',
   () => 1802,
 );
+jest.mock('../../assets/exercises/standing-calf-raise/start.webp', () => 1901);
+jest.mock('../../assets/exercises/standing-calf-raise/finish.webp', () => 1902);
+jest.mock(
+  '../../assets/exercises/standing-calf-raise/female/start.webp',
+  () => 2001,
+);
+jest.mock(
+  '../../assets/exercises/standing-calf-raise/female/finish.webp',
+  () => 2002,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -169,11 +179,13 @@ it('resolves female phases only for the approved exact variants', () => {
   expect(
     resolveExerciseArtwork('cable-glute-kickback', 'finish', 'female'),
   ).toBe(1802);
-  for (const id of [
-    'kettlebell-goblet-squat',
-    'standing-calf-raise',
-    'unknown',
-  ])
+  expect(resolveExerciseArtwork('standing-calf-raise', 'start', 'female')).toBe(
+    2001,
+  );
+  expect(
+    resolveExerciseArtwork('standing-calf-raise', 'finish', 'female'),
+  ).toBe(2002);
+  for (const id of ['kettlebell-goblet-squat', 'seated-calf-raise', 'unknown'])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -189,6 +201,7 @@ it.each([
   ['barbell-romanian-deadlift', [1301, 1302, 1301], [1401, 1402, 1401]],
   ['barbell-hip-thrust', [1501, 1502, 1501], [1601, 1602, 1601]],
   ['cable-glute-kickback', [1701, 1702, 1701], [1801, 1802, 1801]],
+  ['standing-calf-raise', [1901, 1902, 1901], [2001, 2002, 2001]],
 ] as const)(
   'switches %s thumbnail, inline and fullscreen phases from the shared choice',
   async (imageKey, maleSources, femaleSources) => {
@@ -234,8 +247,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="standing-calf-raise" />
-        <TechniqueArtwork imageKey="standing-calf-raise" phase="START" />
+        <ExerciseArtwork imageKey="seated-calf-raise" />
+        <TechniqueArtwork imageKey="seated-calf-raise" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });

@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'standing-calf-raise': {
+    start: require('../assets/exercises/standing-calf-raise/female/start.webp'),
+    finish: require('../assets/exercises/standing-calf-raise/female/finish.webp'),
+  },
   'cable-glute-kickback': {
     start: require('../assets/exercises/cable-glute-kickback/female/start.webp'),
     finish: require('../assets/exercises/cable-glute-kickback/female/finish.webp'),

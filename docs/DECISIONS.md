@@ -1,5 +1,21 @@
 # CRESUM Decision Log
 
+## Female Standing Calf Raise — 2026-11-04
+
+User approved `exec-d2d7eb7c-3383-4bae-b875-f1dd850ca5c6.png`, native source
+`libfile_c0c1121bc7c08191a0298427e621bc70`. Bind only `standing-calf-raise`/Female:
+LEFT lowered heels START / RIGHT raised heels FINISH with raised selected load.
+Exact 887-square RGB WebP92/method6 halves, shared contain, no retouch/resampling
+or independent transforms. Preserve Male, guide, calves Primary, identity and
+History. Keep seated calf raise separate.
+
+Exact original/prompt/input hashes retained in Female manifests. Status remains
+user-selected-provisional: forefoot/platform/shoulder/hand contacts, ankle/knee
+range, mechanics, registration, plate/selector continuity and device/accessibility
+acceptance remain unverified. Raised load does not certify total plate counts.
+Cumulative checkpoint pending; Oracle deferred/unverified. Coverage: 68 Male pairs
+plus ten Female pairs. Next: Female Seated Calf Raise preview.
+
 ## Female Cable Glute Kickback — 2026-11-04
 
 User approved `exec-92068298-d2f4-4bed-881e-52c310afd065.png`, native source

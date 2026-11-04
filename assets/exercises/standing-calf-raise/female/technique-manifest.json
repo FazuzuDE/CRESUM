@@ -1,0 +1,63 @@
+{
+  "variantId": "standing-calf-raise",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "92dc97d2015169b7e89dbd34146a75707461e771f912fd2d3b1a92a3b39856d5",
+      "bytes": 43168,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "6ee264d255a3b6299a1452076bedb8643e18f5f9efa78db19c16046e3bfa4ea5",
+      "bytes": 43862,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-d2d7eb7c-3383-4bae-b875-f1dd850ca5c6.png",
+    "sourceLibraryFileId": "libfile_c0c1121bc7c08191a0298427e621bc70",
+    "sourceSha256": "02bced71725de36098c72556dc1c086825912bdd622fbac82a5dc83c6ed1de62",
+    "sourceBytes": 1400458,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/standing-calf-raise/start.webp",
+        "sha256": "15800a49efa3ceaeb3c86e699ede993feae5c20ed05da68b6a807c91da013711",
+        "bytes": 43942
+      },
+      {
+        "file": "assets/exercises/standing-calf-raise/finish.webp",
+        "sha256": "d87e2da3d77c7b6e1dfb6070e9672e729a0a675bd76410885ff3794d64e3b232",
+        "bytes": 46498
+      }
+    ]
+  },
+  "productionChoice": "LEFT lowered heels START / RIGHT raised heels FINISH with visibly raised selected load. Standing shoulder-pad machine calf raise. Preserve standing-calf-raise guide and calves Primary; not seated calf raise.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User-selected-provisional. Broad identity/material/phase continuity reviewed. Exact forefoot/platform, shoulder-pad and hand contacts, ankle/knee range, lever/cable mechanics, rigid registration, plate/selector continuity and device/accessibility acceptance remain unverified. Raised selected load is visible; total plate continuity is not certified. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and current workspace for cumulative visual-block checkpoint. Exact prompt and actual input hashes recorded. Oracle deferred; no verified PC backup claim."
+}
