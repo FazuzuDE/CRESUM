@@ -1,0 +1,63 @@
+{
+  "variantId": "plank",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "0396c382eb5c945353ba1e3f34fe59f4eb4c0afee10cd941a5dca079a55ef758",
+      "bytes": 23360,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "2f5cb4aca92bc3793163f7b370cb12e939ddfdb5da270ac75e25e8a72a85b4b8",
+      "bytes": 28156,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-9eb29b3c-6802-4817-b88e-6b261523b4f6.png",
+    "sourceLibraryFileId": "libfile_94f526f1414081919f097dfb162fcac7",
+    "sourceSha256": "df62ae3d1a52a0544be889c9f978475b586a4c946d19f1d53c0a282f1f7a1e0c",
+    "sourceBytes": 1462429,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/plank/start.webp",
+        "sha256": "12f9776e377eb2eb6c69246db2b7e92eb975fafe4a47c7989ea64d0a98717a40",
+        "bytes": 23624
+      },
+      {
+        "file": "assets/exercises/plank/finish.webp",
+        "sha256": "c2603df9d330d35c4891e234b7a417ae558c96783916323e5932004f5e500c3b",
+        "bytes": 29112
+      }
+    ]
+  },
+  "productionChoice": "LEFT side view START / RIGHT three-quarter view FINISH of the same static forearm plank hold, not up/down repetitions. Preserve duration measurement, guide, abs Primary and glutes Secondary, identity and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User-selected-provisional. Broad identity/material/static-hold continuity reviewed. Detailed forearm/hand/toe contacts, shoulder/elbow alignment, hip height, neutral spine, camera/body-scale registration and device/accessibility acceptance are not independently certified. Two views do not certify hold duration or dynamic control. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and current workspace for cumulative visual-block checkpoint. Exact prompt and actual input hashes recorded. Oracle deferred; no verified PC backup claim."
+}

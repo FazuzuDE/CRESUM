@@ -2,8 +2,8 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Machine Hip Adduction were merged in #176–187. Female
-Kettlebell Swing is selected for integration. Next: Female Plank (static hold). Review
+Female pairs through Kettlebell Swing were merged in #176–188. Female Plank
+(static hold) is selected for integration. Next: Female Captain’s Chair Knee Raise. Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.
