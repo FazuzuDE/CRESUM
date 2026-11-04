@@ -1,0 +1,63 @@
+{
+  "variantId": "hanging-straight-leg-raise",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "03bf22b8f989360ee1df397cc6b9b16f1aaf2460644ee333f8c8ec594f386c3e",
+      "bytes": 31656,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "29d29811ef9af2a67df2445e506a24ed5fc71afac0b7c690baa7f28d48092303",
+      "bytes": 32208,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-976e14aa-6241-47ae-afc9-47b4c205fe0e.png",
+    "sourceLibraryFileId": "libfile_5c65967c5b3c81918fc62022fefe3bdf",
+    "sourceSha256": "ec9ca8463aaef82db9c1c8ae2c96faa1157c5ec2a9bcb35d77075ddd3c7a0162",
+    "sourceBytes": 1293465,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/hanging-straight-leg-raise/start.webp",
+        "sha256": "6a09ae3c8a6775f955632c4b778f609e2a66d8485673a570b786af134a193a95",
+        "bytes": 32594
+      },
+      {
+        "file": "assets/exercises/hanging-straight-leg-raise/finish.webp",
+        "sha256": "a8fe0b33a96780532a0b3b664a2efc4a347b39bf67613b5f88eb0ec15180f964",
+        "bytes": 31942
+      }
+    ]
+  },
+  "productionChoice": "LEFT lowered straight-leg hang START / RIGHT near-horizontal straight legs FINISH, both arms extended with overhead overhand grip. Preserve guide, abs Primary and forearms Secondary, stable identity and History; bent-knee hanging and captain chair variants remain separate.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User-selected-provisional. Broad identity/material/phase continuity reviewed. Exact hand/thumb/bar contacts, shoulder/elbow alignment, knee extension, pelvic curl, frame/body registration and device/accessibility acceptance remain unverified. Hip flexors participate but lack a dedicated taxonomy region; existing mapping remains partial, no guessed coefficients or masks added. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and current workspace for cumulative visual-block checkpoint. Exact prompt and actual input hashes recorded. Oracle deferred; no verified PC backup claim."
+}
