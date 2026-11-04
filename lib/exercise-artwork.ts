@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'kettlebell-swing': {
+    start: require('../assets/exercises/kettlebell-swing/female/start.webp'),
+    finish: require('../assets/exercises/kettlebell-swing/female/finish.webp'),
+  },
   'machine-hip-adduction': {
     start: require('../assets/exercises/machine-hip-adduction/female/start.webp'),
     finish: require('../assets/exercises/machine-hip-adduction/female/finish.webp'),

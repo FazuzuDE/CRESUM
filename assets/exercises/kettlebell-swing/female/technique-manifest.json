@@ -1,0 +1,63 @@
+{
+  "variantId": "kettlebell-swing",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "25cfc8a22500dba64ebc9557aac332977727f197448e207998e7a9ab138c0cb2",
+      "bytes": 27884,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "5bc5c5572771caf228681c976a57b216ea8ff8680b7e689c62a3f7598e1b5336",
+      "bytes": 25990,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-5c9b08c7-f768-40c1-929a-ae4bd8509ec8.png",
+    "sourceLibraryFileId": "libfile_6712d4f8816c8191810528fa2023eb48",
+    "sourceSha256": "b036fc7989387f9cc6ca9a465a6debf1c5890923b1020a228d99a04e53da50ad",
+    "sourceBytes": 1250610,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/kettlebell-swing/start.webp",
+        "sha256": "2d34a265ea0cb4747c81e60e457798b8c90ccb771a837fd3c8d8ae86a5ea1397",
+        "bytes": 30200
+      },
+      {
+        "file": "assets/exercises/kettlebell-swing/finish.webp",
+        "sha256": "eee799429ad92c5680eeda205d87ff9804fb1d5379ac81f4e6cc7688fef2558f",
+        "bytes": 30100
+      }
+    ]
+  },
+  "productionChoice": "LEFT hip-hinge backswing START / RIGHT upright hip-extension swing FINISH, one kettlebell held with both hands near shoulder height. Preserve hinge guide, glutes/hamstrings Primary and lower-back/forearms Secondary, identity and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User-selected-provisional. Broad identity/material/phase continuity reviewed. Detailed bilateral grip, wrist contacts, hip/knee range, neutral spine, fixed foot placement, camera registration and bell continuity are not independently certified. Dynamic hip-drive cannot be certified from two stills. Physical-device/accessibility acceptance pending. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and current workspace for cumulative visual-block checkpoint. Exact prompt and actual input hashes recorded. Oracle deferred; no verified PC backup claim."
+}
