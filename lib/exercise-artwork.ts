@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'seated-calf-raise': {
+    start: require('../assets/exercises/seated-calf-raise/female/start.webp'),
+    finish: require('../assets/exercises/seated-calf-raise/female/finish.webp'),
+  },
   'standing-calf-raise': {
     start: require('../assets/exercises/standing-calf-raise/female/start.webp'),
     finish: require('../assets/exercises/standing-calf-raise/female/finish.webp'),

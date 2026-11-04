@@ -2,10 +2,10 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Cable Glute Kickback were merged in #176–184. Female Standing
-Calf Raise is selected for integration. Next: Female Seated Calf Raise. Review and
-immediately integrate each accepted exact-variant pair; preserve Male assets and
-localized placeholders for unavailable Female variants.
+Female pairs through Standing Calf Raise were merged in #176–185. Female Seated
+Calf Raise is selected for integration. Next: Female Machine Hip Adduction.
+Review and immediately integrate each accepted exact-variant pair; preserve Male
+assets and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.
 
 ## Pull-up silver-rack replacement — 2026-11-03
