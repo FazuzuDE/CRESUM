@@ -161,6 +161,22 @@ jest.mock(
   '../../assets/exercises/captains-chair-knee-raise/female/finish.webp',
   () => 3002,
 );
+jest.mock(
+  '../../assets/exercises/hanging-straight-leg-raise/start.webp',
+  () => 3101,
+);
+jest.mock(
+  '../../assets/exercises/hanging-straight-leg-raise/finish.webp',
+  () => 3102,
+);
+jest.mock(
+  '../../assets/exercises/hanging-straight-leg-raise/female/start.webp',
+  () => 3201,
+);
+jest.mock(
+  '../../assets/exercises/hanging-straight-leg-raise/female/finish.webp',
+  () => 3202,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -267,11 +283,13 @@ it('resolves female phases only for the approved exact variants', () => {
   expect(
     resolveExerciseArtwork('captains-chair-knee-raise', 'finish', 'female'),
   ).toBe(3002);
-  for (const id of [
-    'kettlebell-goblet-squat',
-    'hanging-straight-leg-raise',
-    'unknown',
-  ])
+  expect(
+    resolveExerciseArtwork('hanging-straight-leg-raise', 'start', 'female'),
+  ).toBe(3201);
+  expect(
+    resolveExerciseArtwork('hanging-straight-leg-raise', 'finish', 'female'),
+  ).toBe(3202);
+  for (const id of ['kettlebell-goblet-squat', 'hanging-knee-raise', 'unknown'])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -293,6 +311,7 @@ it.each([
   ['kettlebell-swing', [2501, 2502, 2501], [2601, 2602, 2601]],
   ['plank', [2701, 2702, 2701], [2801, 2802, 2801]],
   ['captains-chair-knee-raise', [2901, 2902, 2901], [3001, 3002, 3001]],
+  ['hanging-straight-leg-raise', [3101, 3102, 3101], [3201, 3202, 3201]],
 ] as const)(
   'switches %s thumbnail, inline and fullscreen phases from the shared choice',
   async (imageKey, maleSources, femaleSources) => {
@@ -338,8 +357,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="hanging-straight-leg-raise" />
-        <TechniqueArtwork imageKey="hanging-straight-leg-raise" phase="START" />
+        <ExerciseArtwork imageKey="hanging-knee-raise" />
+        <TechniqueArtwork imageKey="hanging-knee-raise" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });

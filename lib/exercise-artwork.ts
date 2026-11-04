@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'hanging-straight-leg-raise': {
+    start: require('../assets/exercises/hanging-straight-leg-raise/female/start.webp'),
+    finish: require('../assets/exercises/hanging-straight-leg-raise/female/finish.webp'),
+  },
   'captains-chair-knee-raise': {
     start: require('../assets/exercises/captains-chair-knee-raise/female/start.webp'),
     finish: require('../assets/exercises/captains-chair-knee-raise/female/finish.webp'),

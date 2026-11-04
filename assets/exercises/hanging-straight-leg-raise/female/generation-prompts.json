@@ -1,0 +1,33 @@
+{
+  "status": "user-selected-provisional",
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/hanging-straight-leg-raise/start.webp",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/hanging-straight-leg-raise/finish.webp"
+  ],
+  "prompt": "Original CRESUM FEMALE HANGING STRAIGHT LEG RAISE instruction pair. ONE wide 2:1 sheet, TWO equal square views, white studio background no text/divider. Input1 locks exact adult Female Master face/proportions, brown ponytail, slate-blue short-sleeve T-shirt, charcoal full leggings, white socks/light gray shoes. Inputs2/3 are male exact movement/equipment references ONLY, replace man with same woman. Identical satin silver freestanding pull-up rack with dark overhead straight central bar, same front three-quarter camera facing right, identical frame/bar/hand coordinates, scale and floor baseline both squares. BOTH hands closed overhand shoulder-width grip on central straight bar, thumbs encircle, wrists aligned; arms extended overhead in both. LEFT START: controlled airborne hang with legs straight together downward, feet clear floor and frame. RIGHT FINISH: both straight legs together raised forward approximately horizontal, knees nearly extended, controlled small posterior pelvic curl, no exaggerated backward lean, no knee tuck or captain chair pads. Upper body remains under bar, shoulders controlled, hands stay attached at same bar positions. Entire head/ponytail, hands/bar, shoes including forward-raised feet and full rack fit each square with small margins, use available frame generously, no clipping. Premium realistic3D CRESUM style, consistent natural skin, matte fabric, satin silver/dark bar, soft studio/contact shadows. Two anatomically correct hands/arms and legs/feet. No extra equipment, straps, text, labels, arrows, logos, watermark or muscle highlights. Generate both phases together.",
+  "output": {
+    "file": "exec-976e14aa-6241-47ae-afc9-47b4c205fe0e.png",
+    "sha256": "ec9ca8463aaef82db9c1c8ae2c96faa1157c5ec2a9bcb35d77075ddd3c7a0162",
+    "bytes": 1293465,
+    "libraryFileId": "libfile_5c65967c5b3c81918fc62022fefe3bdf"
+  },
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/hanging-straight-leg-raise/start.webp",
+      "sha256": "6a09ae3c8a6775f955632c4b778f609e2a66d8485673a570b786af134a193a95",
+      "bytes": 32594
+    },
+    {
+      "file": "assets/exercises/hanging-straight-leg-raise/finish.webp",
+      "sha256": "a8fe0b33a96780532a0b3b664a2efc4a347b39bf67613b5f88eb0ec15180f964",
+      "bytes": 31942
+    }
+  ]
+}
