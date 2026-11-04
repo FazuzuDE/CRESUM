@@ -1,0 +1,37 @@
+{
+  "provider": "image_gen",
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/barbell-romanian-deadlift/start.webp",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/barbell-romanian-deadlift/finish.webp"
+  ],
+  "prompt": "Create one original CRESUM exercise illustration sheet: wide landscape 2:1, exactly TWO equal square views side by side on seamless pure white studio background, no divider or borders. Female BARBELL ROMANIAN DEADLIFT. Input 1 is the exact locked adult Female Master for identity/proportions/outfit: same face, brown ponytail, natural athletic build, fitted muted slate-blue short-sleeved T-shirt, charcoal full-length leggings, white socks, light gray sneakers. Inputs 2 and 3 are existing barbell movement/equipment/endpoint references ONLY; replace the man with that exact woman. Use same front-side three-quarter camera facing toward image LEFT. LEFT LOWERED HIP-HINGE endpoint: hips push backward, soft slightly bent knees, torso inclined forward with steady neutral spine and neck, arms straight hanging near vertically, silver straight bar close in front of upper/mid shins at controlled hamstring depth, plates stay off floor. Both feet fully planted hip-width, no deep squat or rounded back. RIGHT UPRIGHT endpoint: stand tall by extending hips, shoulders relaxed, ribs over pelvis, no backward lean, arms straight with same bar close in front of upper thighs. Closed overhand grip with both hands just outside legs, complete plausible fingers/thumbs wrapping bar, neutral wrists. Bar is straight and rigid, same width and diameter, identical single black round weight plate and collar on each end in both views, consistent plate size, realistic sleeves. No changing equipment, no dumbbells. Same woman, anatomical proportions, camera angle/scale, stance and floor baseline in both equal squares; only hip-hinge phase and resulting bar position change. Entire head/shoes/bar/plates fit each square efficiently with small safe margins, no clipping. Upright fills frame height generously; do not independently enlarge shorter lowered pose. Clean premium realistic 3D CRESUM instructional style matching Female Master, consistent natural skin, matte fabric and dark plates, restrained metal reflections, soft studio contact shadows. Exactly two legs/feet/hands, no merged limbs or broken wrists. No text, START/FINISH labels, letters, logos, arrows, watermarks, muscle highlights, machines, panel dividers or borders. Generate both endpoints together.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514,
+      "role": "Female Master identity, proportions and outfit"
+    },
+    {
+      "file": "assets/exercises/barbell-romanian-deadlift/start.webp",
+      "sha256": "5d264f3c957991d6c259aa64061241444c251314dd82a5e4891e78985dc40884",
+      "bytes": 37862,
+      "role": "Existing Male Barbell Romanian Deadlift movement/equipment and START only"
+    },
+    {
+      "file": "assets/exercises/barbell-romanian-deadlift/finish.webp",
+      "sha256": "39d837866d2ad0ab7e78978af99b54145b2320f8e835660180f4efbbb671175a",
+      "bytes": 34720,
+      "role": "Existing Male Barbell Romanian Deadlift movement/equipment and FINISH only"
+    }
+  ],
+  "output": {
+    "file": "exec-127a799e-767b-47e0-a1f4-2027e5ae0bdc.png",
+    "sha256": "a4b9b89a67d583d49275a753ccc13832c06288745cab9125aebb332e1003f023",
+    "bytes": 1365456,
+    "libraryFileId": "libfile_e5c496fa2c588191bba44f6188dba66e",
+    "size": [1774, 887]
+  }
+}

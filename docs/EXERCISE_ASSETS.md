@@ -1,5 +1,23 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Barbell Romanian Deadlift selected pair — 2026-11-04
+
+User approved `exec-127a799e-767b-47e0-a1f4-2027e5ae0bdc.png`, native source
+`libfile_e5c496fa2c588191bba44f6188dba66e`. Bind only
+`barbell-romanian-deadlift`/Female: LEFT lowered hip-hinge START / RIGHT upright
+FINISH, matching existing Male endpoints. Exact 887-square RGB WebP92/method6
+halves, shared contain; no labels, retouch, resampling, padding or independent
+phase transforms. Preserve Male/dumbbell files, top-down guide, hamstrings/glutes
+Primary, lower-back/forearms Secondary, stable identity and History.
+
+Exact prompt, actual Female Master/Male movement references and original/export
+hashes are recorded in the Female manifest/prompt file. User-selected-provisional:
+detailed grip/contact, knee/hip/spine angles, depth, bar/plate consistency,
+foot/camera registration and device/accessibility QA remain open. Cumulative
+checkpoint pending; Oracle deferred/unverified. Coverage: 68 Male pairs plus
+seven Female pairs. Next: Female Barbell Hip Thrust with bench support, with
+separate approval before registration.
+
 ## Female Dumbbell Romanian Deadlift selected pair — 2026-11-04
 
 User approved `exec-c191b8ef-5f5d-4292-ace1-4905256e1632.png`, native source

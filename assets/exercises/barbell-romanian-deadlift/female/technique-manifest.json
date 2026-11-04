@@ -1,0 +1,66 @@
+{
+  "variantId": "barbell-romanian-deadlift",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "7a7aca73c7870154866471812947c91e16b59038dfe2a38e4fd7311fd0ee8b79",
+      "bytes": 35940,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "153eaf7351fa5b89ece989dad79e5d1dada0a41d98a28760f26d4a07258342eb",
+      "bytes": 33256,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-127a799e-767b-47e0-a1f4-2027e5ae0bdc.png",
+    "sourceLibraryFileId": "libfile_e5c496fa2c588191bba44f6188dba66e",
+    "sourceSha256": "a4b9b89a67d583d49275a753ccc13832c06288745cab9125aebb332e1003f023",
+    "sourceBytes": 1365456,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514,
+        "role": "Female Master identity, proportions and outfit"
+      },
+      {
+        "file": "assets/exercises/barbell-romanian-deadlift/start.webp",
+        "sha256": "5d264f3c957991d6c259aa64061241444c251314dd82a5e4891e78985dc40884",
+        "bytes": 37862,
+        "role": "Existing Male Barbell Romanian Deadlift movement/equipment and START only"
+      },
+      {
+        "file": "assets/exercises/barbell-romanian-deadlift/finish.webp",
+        "sha256": "39d837866d2ad0ab7e78978af99b54145b2320f8e835660180f4efbbb671175a",
+        "bytes": 34720,
+        "role": "Existing Male Barbell Romanian Deadlift movement/equipment and FINISH only"
+      }
+    ]
+  },
+  "productionChoice": "LEFT lowered hip-hinge START / RIGHT upright FINISH, matching existing Male endpoints. One straight plate-loaded barbell, bilateral stance and hip extension. Preserve barbell-romanian-deadlift ID and top-down guide; hamstrings/glutes Primary, lower-back/forearms Secondary. Not the dumbbell variant.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User selected pair. Broad character/outfit/material continuity, hip-hinge/upright distinction and full-body framing reviewed. Exact overhand grip/bar contact, knee/hip/spine angles, depth, plate/bar consistency and foot/camera registration are not independently certified. Physical-device/accessibility acceptance pending. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and current workspace for cumulative visual-block checkpoint. Exact prompt and actual input hashes recorded. Oracle deferred; no verified PC backup claim."
+}
