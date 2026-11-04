@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'cable-glute-kickback': {
+    start: require('../assets/exercises/cable-glute-kickback/female/start.webp'),
+    finish: require('../assets/exercises/cable-glute-kickback/female/finish.webp'),
+  },
   'barbell-hip-thrust': {
     start: require('../assets/exercises/barbell-hip-thrust/female/start.webp'),
     finish: require('../assets/exercises/barbell-hip-thrust/female/finish.webp'),

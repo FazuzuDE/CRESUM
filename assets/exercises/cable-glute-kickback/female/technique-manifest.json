@@ -1,0 +1,63 @@
+{
+  "variantId": "cable-glute-kickback",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "e35247a7016ff92cebc12dbdc4929fd506ce3bc8d62355fedcb1ee52bd3b3a7d",
+      "bytes": 44648,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "52426227ba69d2f4f7717fe56f8aa08e7ad5eb74b8e99a0dcd0f65e3b7ccb7b6",
+      "bytes": 50656,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-92068298-d2f4-4bed-881e-52c310afd065.png",
+    "sourceLibraryFileId": "libfile_6c091e065df08191a6eca0847a93588a",
+    "sourceSha256": "0301b6d8791183cbbbbd01625198b9e88ab611dc5af03f3dc36f7dc1d051fe0f",
+    "sourceBytes": 1453382,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/cable-glute-kickback/start.webp",
+        "sha256": "c87908d7ff901ec65f26b75bdd6f24361aded40c04e614b77ea0f65e696cfa26",
+        "bytes": 41290
+      },
+      {
+        "file": "assets/exercises/cable-glute-kickback/finish.webp",
+        "sha256": "5807c9c01b6e55f0f8c4475e73c1b8aecd9609d37b6dbe679284cccedd03738c",
+        "bytes": 42880
+      }
+    ]
+  },
+  "productionChoice": "LEFT neutral START / RIGHT backward hip-extension FINISH, same cuffed working leg with raised selected load. Preserve standing cable hip-extension guide, glutes Primary and hamstrings Secondary; repeat both sides. No anatomical-side certification.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User-selected-provisional. Broad phase, identity and material continuity reviewed. Detailed cuff/ankle/carabiner contacts, cable routing, joint angles, pelvis stability, frame registration, total plate/selector continuity and device/accessibility acceptance remain unverified. Raised group is visible; total plate continuity is not certified. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and current workspace for cumulative visual-block checkpoint. Exact prompt and actual input hashes recorded. Oracle deferred; no verified PC backup claim."
+}

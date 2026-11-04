@@ -82,6 +82,19 @@ jest.mock(
   '../../assets/exercises/barbell-hip-thrust/female/finish.webp',
   () => 1602,
 );
+jest.mock('../../assets/exercises/cable-glute-kickback/start.webp', () => 1701);
+jest.mock(
+  '../../assets/exercises/cable-glute-kickback/finish.webp',
+  () => 1702,
+);
+jest.mock(
+  '../../assets/exercises/cable-glute-kickback/female/start.webp',
+  () => 1801,
+);
+jest.mock(
+  '../../assets/exercises/cable-glute-kickback/female/finish.webp',
+  () => 1802,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -150,9 +163,15 @@ it('resolves female phases only for the approved exact variants', () => {
   expect(resolveExerciseArtwork('barbell-hip-thrust', 'finish', 'male')).toBe(
     1502,
   );
+  expect(
+    resolveExerciseArtwork('cable-glute-kickback', 'start', 'female'),
+  ).toBe(1801);
+  expect(
+    resolveExerciseArtwork('cable-glute-kickback', 'finish', 'female'),
+  ).toBe(1802);
   for (const id of [
     'kettlebell-goblet-squat',
-    'cable-glute-kickback',
+    'standing-calf-raise',
     'unknown',
   ])
     for (const phase of ['start', 'finish'] as const)
@@ -169,6 +188,7 @@ it.each([
   ['dumbbell-romanian-deadlift', [1101, 1102, 1101], [1201, 1202, 1201]],
   ['barbell-romanian-deadlift', [1301, 1302, 1301], [1401, 1402, 1401]],
   ['barbell-hip-thrust', [1501, 1502, 1501], [1601, 1602, 1601]],
+  ['cable-glute-kickback', [1701, 1702, 1701], [1801, 1802, 1801]],
 ] as const)(
   'switches %s thumbnail, inline and fullscreen phases from the shared choice',
   async (imageKey, maleSources, femaleSources) => {
@@ -214,8 +234,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="cable-glute-kickback" />
-        <TechniqueArtwork imageKey="cable-glute-kickback" phase="START" />
+        <ExerciseArtwork imageKey="standing-calf-raise" />
+        <TechniqueArtwork imageKey="standing-calf-raise" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });

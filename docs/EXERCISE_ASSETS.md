@@ -1,5 +1,21 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Cable Glute Kickback — 2026-11-04
+
+User approved `exec-92068298-d2f4-4bed-881e-52c310afd065.png`, native source
+`libfile_6c091e065df08191a6eca0847a93588a`. Bind only `cable-glute-kickback`/Female:
+LEFT neutral START / RIGHT backward-extension FINISH with raised load. Exact
+887-square RGB WebP92/method6 halves, shared contain, no retouch/resampling or
+independent transforms. Preserve Male, guide, glutes Primary, hamstrings Secondary,
+stable identity and History. Repeat sides; no anatomical-side certification.
+
+Original, exact prompt and actual input hashes retained in Female manifests.
+User-selected-provisional: cuff/contact/cable routing, joint angles, pelvis,
+registration and plate/selector continuity remain unverified, as does device/
+accessibility acceptance. Visible raised load does not certify total plate counts.
+Cumulative checkpoint pending; Oracle deferred/unverified. Coverage: 68 Male pairs
+plus nine Female pairs. Next: Female Standing Calf Raise preview.
+
 ## Female Barbell Hip Thrust selected pair — 2026-11-04
 
 User approved `exec-c327a863-46d6-4d07-a648-00ae79527b55.png`, native source

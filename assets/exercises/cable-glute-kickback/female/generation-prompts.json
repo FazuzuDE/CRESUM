@@ -1,0 +1,33 @@
+{
+  "status": "user-selected-provisional",
+  "transparent_background": false,
+  "referenced_image_paths": [
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercise-models/female-master-r1/reference.png",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/cable-glute-kickback/start.webp",
+    "/workspace/scratch/ce0d4715d421/CRESUM/assets/exercises/cable-glute-kickback/finish.webp"
+  ],
+  "prompt": "Create an original CRESUM female CABLE GLUTE KICKBACK instructional pair. ONE wide 2:1 landscape sheet with TWO equal square views side by side on seamless white studio background, no borders/divider/text. Input 1 is exact locked adult Female Master for face, brown ponytail, natural athletic proportions, muted slate-blue short-sleeved T-shirt, charcoal full-length leggings, white socks and light gray sneakers. Inputs 2 and 3 are existing Male machine/setup/phase references ONLY. Replace the man with the exact woman. Same rear-side three-quarter camera, woman on RIGHT facing cable station at LEFT, body and machine fully visible. Light satin silver dual-tower cable station, graphite weight plates, coherent low pulley at ankle height on near tower. Both hands securely hold stable vertical support at chest height; torso leans slightly forward with steady neutral spine and square pelvis. One black padded cuff securely wraps ONLY the working near-side ankle directly above shoe; attach cable by a plausible small D-ring and carabiner to machine-facing side of cuff, one taut cable running unobstructed from low pulley to cuff. Same cuff, same working leg and single connection BOTH phases; no cuff on planted support ankle, no cable through legs or body. LEFT START: working cuffed leg close beside support leg, foot lightly hovering or toes near floor, both knees soft. RIGHT FINISH: extend SAME cuffed leg backward through hip, heel moves behind body, foot visibly lifted, maintain a modest soft knee bend; support foot remains fully planted, pelvis stays square and torso steady, no lumbar arch/rotation. Keep hip extension controlled, do not lift thigh excessively or turn into a big knee curl. Cable length visible to cuff increases and its angle follows cuff movement. Selected upper load group on active near tower rests on stack at START, clearly raised on vertical guide rods at FINISH with gap above remaining resting plates. Keep identical total plate count, selector setting and tower geometry; far tower stays unchanged. Same fixed machine coordinates in each square, camera/scale, body proportions, support-foot location and floor baseline. Only working leg/cuff/cable angle and selected load group move. Entire head, ponytail, both shoes, lifted foot and full station fit efficiently in each equal square with small safe margins, no clipping or independent zoom. Premium realistic 3D CRESUM rendering matching Female Master, consistent natural skin, clean matte cloth, silver frame and graphite stack, soft studio contact shadows. Exactly two hands/legs/feet with plausible fingers and cuff closure; no duplicate shoes, floating cuff, dangling straps, extra cables, logos, labels/START/FINISH captions, arrows, watermarks or muscle highlighting. Generate both phases together.",
+  "output": {
+    "file": "exec-92068298-d2f4-4bed-881e-52c310afd065.png",
+    "sha256": "0301b6d8791183cbbbbd01625198b9e88ab611dc5af03f3dc36f7dc1d051fe0f",
+    "bytes": 1453382,
+    "libraryFileId": "libfile_6c091e065df08191a6eca0847a93588a"
+  },
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/cable-glute-kickback/start.webp",
+      "sha256": "c87908d7ff901ec65f26b75bdd6f24361aded40c04e614b77ea0f65e696cfa26",
+      "bytes": 41290
+    },
+    {
+      "file": "assets/exercises/cable-glute-kickback/finish.webp",
+      "sha256": "5807c9c01b6e55f0f8c4475e73c1b8aecd9609d37b6dbe679284cccedd03738c",
+      "bytes": 42880
+    }
+  ]
+}
