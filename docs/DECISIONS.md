@@ -1,5 +1,22 @@
 # CRESUM Decision Log
 
+## Female Standing Cable Anti-rotation Press — 2026-11-05
+
+User approved `exec-bcd5029d-64cb-4b86-88e2-7f8248143319.png`, native source
+`libfile_3388ab0e079081918ca0085bd34c1eb0`. LEFT handle at sternum START / RIGHT
+extended arms FINISH with raised load. Bind only
+`standing-cable-anti-rotation-press`/Female. Exact 887-square RGB WebP92/method6
+halves, shared contain, no retouch/resampling/padding or phase transforms.
+Preserve Male, guide, abs Primary, no Secondary mapped, identity and History.
+Repeat opposite orientation; no side-specific anatomical certification.
+
+Coverage: 68 Male plus twenty-two Female pairs. User-selected-provisional: exact
+grip/handle/cable contacts, torso/pelvis/stance, rigid registration, selector/plate
+continuity and device/accessibility acceptance remain open. Raised load does not
+certify plate counts. Exact source/prompt/input hashes retained; cumulative
+checkpoint pending; Oracle deferred. Next: Female Bodyweight Step-up preview,
+separate approval.
+
 ## Female Farmer’s Carry — 2026-11-05
 
 User approved `exec-e3615fe7-64cf-4ab8-92ec-7499c3996a60.png`, native source

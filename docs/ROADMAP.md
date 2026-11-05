@@ -2,8 +2,8 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Dumbbell Shrug were merged in #176–195. Female Farmer’s
-Carry is selected for integration. Next: Female Standing Cable Anti-rotation Press. Review
+Female pairs through Farmer’s Carry were merged in #176–196. Female Standing Cable
+Anti-rotation Press is selected. Next: Female Bodyweight Step-up. Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.

@@ -1,0 +1,63 @@
+{
+  "variantId": "standing-cable-anti-rotation-press",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "d95c29892b66375e1b8ad84fb853dc1de24db7d1e1920e29cc3aad92141ac923",
+      "bytes": 39612,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "0120310b7c274c7654f9ef3b67b7d49b2be64ab1f79556e6f2106260f9b5c0ca",
+      "bytes": 41804,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-bcd5029d-64cb-4b86-88e2-7f8248143319.png",
+    "sourceLibraryFileId": "libfile_3388ab0e079081918ca0085bd34c1eb0",
+    "sourceSha256": "647db9bb6c055426b8d169b8b5f8a8bceab7961fdf53ff6d73acfeb19cd47ba0",
+    "sourceBytes": 1381032,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/standing-cable-anti-rotation-press/start.webp",
+        "sha256": "4f656eed7f82977541082f0b496c563c005a8377c110bd13869ba025b8bce992",
+        "bytes": 40404
+      },
+      {
+        "file": "assets/exercises/standing-cable-anti-rotation-press/finish.webp",
+        "sha256": "fdf16402ca0428733d218a3bd170ad0791ae11b982356356f58c7815d8803b73",
+        "bytes": 42140
+      }
+    ]
+  },
+  "productionChoice": "LEFT handle at sternum START / RIGHT arms extended FINISH with raised load. Standing cable anti-rotation, not trunk rotation. Repeat opposite orientation. Preserve guide, abs Primary and no Secondary mapped, identity and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User-selected-provisional. Broad identity/material/phase continuity reviewed. Exact grip/handle/cable contacts, torso/pelvic alignment, stance, rigid registration, selector/plate continuity and device/accessibility acceptance remain unverified. Visible raised load is not plate-count certification. No side-specific anatomy certification; repeat opposite orientation. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and workspace. Exact prompt and actual reference hashes recorded; cumulative checkpoint pending. Oracle deferred, no verified PC backup claim."
+}

@@ -218,6 +218,22 @@ jest.mock(
   '../../assets/exercises/farmers-carry/female/finish.webp',
   () => 4202,
 );
+jest.mock(
+  '../../assets/exercises/standing-cable-anti-rotation-press/start.webp',
+  () => 4301,
+);
+jest.mock(
+  '../../assets/exercises/standing-cable-anti-rotation-press/finish.webp',
+  () => 4302,
+);
+jest.mock(
+  '../../assets/exercises/standing-cable-anti-rotation-press/female/start.webp',
+  () => 4401,
+);
+jest.mock(
+  '../../assets/exercises/standing-cable-anti-rotation-press/female/finish.webp',
+  () => 4402,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -338,11 +354,7 @@ it('resolves female phases only for the approved exact variants', () => {
   );
   expect(resolveExerciseArtwork('cable-crunch', 'start', 'female')).toBe(3601);
   expect(resolveExerciseArtwork('cable-crunch', 'finish', 'female')).toBe(3602);
-  for (const id of [
-    'kettlebell-goblet-squat',
-    'standing-cable-anti-rotation-press',
-    'unknown',
-  ])
+  for (const id of ['kettlebell-goblet-squat', 'bodyweight-step-up', 'unknown'])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -370,6 +382,11 @@ it.each([
   ['back-extension', [3701, 3702, 3701], [3801, 3802, 3801]],
   ['dumbbell-shrug', [3901, 3902, 3901], [4001, 4002, 4001]],
   ['farmers-carry', [4101, 4102, 4101], [4201, 4202, 4201]],
+  [
+    'standing-cable-anti-rotation-press',
+    [4301, 4302, 4301],
+    [4401, 4402, 4401],
+  ],
 ] as const)(
   'switches %s thumbnail, inline and fullscreen phases from the shared choice',
   async (imageKey, maleSources, femaleSources) => {
@@ -415,11 +432,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="standing-cable-anti-rotation-press" />
-        <TechniqueArtwork
-          imageKey="standing-cable-anti-rotation-press"
-          phase="START"
-        />
+        <ExerciseArtwork imageKey="bodyweight-step-up" />
+        <TechniqueArtwork imageKey="bodyweight-step-up" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });
