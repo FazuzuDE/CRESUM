@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'standing-cable-anti-rotation-press': {
+    start: require('../assets/exercises/standing-cable-anti-rotation-press/female/start.webp'),
+    finish: require('../assets/exercises/standing-cable-anti-rotation-press/female/finish.webp'),
+  },
   'farmers-carry': {
     start: require('../assets/exercises/farmers-carry/female/start.webp'),
     finish: require('../assets/exercises/farmers-carry/female/finish.webp'),

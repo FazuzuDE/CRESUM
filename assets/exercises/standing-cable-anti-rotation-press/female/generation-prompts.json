@@ -1,0 +1,28 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "CRESUM female standing cable anti-rotation Pallof press START/FINISH instruction pair in ONE wide2:1 white studio sheet, two equal square panels no divider/text/borders. Ref1 locks exact adult Female Master face/proportions brownponytail slateblueTshirt charcoalleggings whitesocks grayshoes. Refs2/3 male setup/equipment examples only. Same woman and silver adjustable cable tower to viewer left, cable at chest height from lateral side. Woman faces forward-right three-quarter perpendicular to cable pull, stable shoulder-width feet, soft knees, torso/pelvis square and upright without rotation. Both hands together securely grip ONE dark Dhandle centered in front of sternum. LEFT START handle close to chest elbows bent. RIGHT FINISH press arms straight forward to chest height while resisting lateral pull, no torso rotation or stepping. Cable taut, connects pulley via snap hook to handle not through skin, same tower/feet/body/camera coordinates and scale both panels. Selected upper load group rises FINISH, same total plates and selector position, clear gap above remaining resting plates. Full head/ponytail shoes hands handle tower fit both squares with small margins; realistic premium3D matching Master, consistent natural skin/matte cloth/silverframe/darkpads. Anatomically correct twohands/arms/legs. No text/labels/arrows/logos/watermarks/highlights. Generate both phases together.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/standing-cable-anti-rotation-press/start.webp",
+      "sha256": "4f656eed7f82977541082f0b496c563c005a8377c110bd13869ba025b8bce992",
+      "bytes": 40404
+    },
+    {
+      "file": "assets/exercises/standing-cable-anti-rotation-press/finish.webp",
+      "sha256": "fdf16402ca0428733d218a3bd170ad0791ae11b982356356f58c7815d8803b73",
+      "bytes": 42140
+    }
+  ],
+  "output": {
+    "file": "exec-bcd5029d-64cb-4b86-88e2-7f8248143319.png",
+    "libraryFileId": "libfile_3388ab0e079081918ca0085bd34c1eb0",
+    "sha256": "647db9bb6c055426b8d169b8b5f8a8bceab7961fdf53ff6d73acfeb19cd47ba0",
+    "bytes": 1381032
+  }
+}
