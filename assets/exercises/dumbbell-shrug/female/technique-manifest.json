@@ -1,0 +1,63 @@
+{
+  "variantId": "dumbbell-shrug",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "d5ba7092dc0ad559a8b5410ad445256847bfb6c68a844f7c3732875017cfc3c4",
+      "bytes": 28868,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "daf1e013c4fc0f3df74687653dc9225f16325bd4c6a7a7949eb260fc8b29f830",
+      "bytes": 28522,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-69de3f14-026b-45e3-bdd3-c313ef19ac88.png",
+    "sourceLibraryFileId": "libfile_887a08161a0c8191a1ff9fd697d0acf3",
+    "sourceSha256": "9855ee80f24cd150c5a192f1daa181404be7ee04ce3ae4a7c9c4d3ed1facf9fa",
+    "sourceBytes": 1250498,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/dumbbell-shrug/start.webp",
+        "sha256": "06456d424b6c56f820e583c98fde48b45b2407fd11a9e1e63b9d5fec83cf9a35",
+        "bytes": 29646
+      },
+      {
+        "file": "assets/exercises/dumbbell-shrug/finish.webp",
+        "sha256": "406bd4576ac73a186354f76a84f70f1c1997ea1fcbb019bfe77393392bb57e1d",
+        "bytes": 29688
+      }
+    ]
+  },
+  "productionChoice": "LEFT lowered shoulders START / RIGHT elevated shoulders FINISH, arms extended with two dumbbells. Preserve guide, traps Primary, forearms Secondary, stable identity and History; not a curl or carry.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User-selected-provisional. Broad identity/material/phase continuity reviewed. Exact grip/wrist contacts, scapular excursion, elbow extension, neck posture, dumbbell continuity and foot/body registration remain unverified, as does device/accessibility acceptance. Source includes a fine panel-edge line; exact halves retained without retouch. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and workspace. Exact prompt and actual reference hashes recorded; cumulative checkpoint pending. Oracle deferred, no verified PC backup claim."
+}

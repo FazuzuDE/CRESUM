@@ -1,5 +1,20 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Dumbbell Shrug — 2026-11-05
+
+User approved `exec-69de3f14-026b-45e3-bdd3-c313ef19ac88.png`, native source
+`libfile_887a08161a0c8191a1ff9fd697d0acf3`. LEFT lowered shoulders START /
+RIGHT elevated shoulders FINISH, extended arms with two dumbbells. Bind only
+`dumbbell-shrug`/Female. Exact 887-square RGB WebP92/method6 halves; shared contain,
+no retouch/resampling/padding or independent transforms. Preserve Male, guide,
+traps Primary, forearms Secondary, identity and History. Not a curl or carry.
+
+Coverage: 68 Male plus twenty Female pairs. User-selected-provisional: exact grip,
+wrist/scapular/elbow/neck mechanics, dumbbell continuity, fixed foot/body registration
+and device/accessibility acceptance remain open. Fine source panel-edge line retained.
+Exact source/prompt/input hashes recorded; cumulative checkpoint pending, Oracle
+deferred. Next: Female Farmer’s Carry preview, separate approval before binding.
+
 ## Female Back Extension — 2026-11-04
 
 User approved edited original `exec-1073df8c-6b4c-4223-bb6a-8d7f5ee5bf11.png`:
