@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'farmers-carry': {
+    start: require('../assets/exercises/farmers-carry/female/start.webp'),
+    finish: require('../assets/exercises/farmers-carry/female/finish.webp'),
+  },
   'dumbbell-shrug': {
     start: require('../assets/exercises/dumbbell-shrug/female/start.webp'),
     finish: require('../assets/exercises/dumbbell-shrug/female/finish.webp'),

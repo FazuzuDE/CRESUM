@@ -1,0 +1,28 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "CRESUM FEMALE FARMER'S CARRY instruction pair, one wide2:1 sheet two equal square views WHITE studio background without borders/divider/text. Ref1 locks exact adult Female Master identity natural proportions brown ponytail slateblueTshirt charcoalleggings whitesocks grayshoes. Refs2/3 male movement/equipment references only. Same front three-quarter camera facing right and fullbody scale both panels. Two identical black dumbbells hang beside thighs held securely with neutral closed grips, elbows straight, wrists neutral, torso tall and braced, level shoulders with no shrug. LEFT START standing feet under hips. RIGHT walking phase: one controlled natural step forward, opposite foot rolling off toes behind, no crossing legs, same upright head/torso and weights carried close without swinging. This is loaded walk not lunge, no exaggerated knee flexion or stride. Preserve woman's identity/materials and dumbbell geometry both panels. Entire head/ponytail feet/dumbbells fit each square with small margins, same body scale. Premium realistic3D CRESUM, uniform natural skin/matte fabric/darkbells soft studio shadows. Anatomically correct two hands/arms/legs/feet. No labels/arrows/logos/watermark/highlights, no panel divider or outline. Generate both together.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/farmers-carry/start.webp",
+      "sha256": "9b28b57b8db887dc51ca4b78c9b8d1a00c529fdcdd1662b5dd060a0db5b7dee4",
+      "bytes": 32750
+    },
+    {
+      "file": "assets/exercises/farmers-carry/finish.webp",
+      "sha256": "ed2d4b392e41fcf164e754f5cd7bbf4c75a2d0e909a33dc577f826a4d22977a9",
+      "bytes": 35578
+    }
+  ],
+  "output": {
+    "file": "exec-e3615fe7-64cf-4ab8-92ec-7499c3996a60.png",
+    "libraryFileId": "libfile_fbe077bd8d7c8191a4051f25e69ae979",
+    "sha256": "302c359a14afef3955b49fbfe0525e0bf546d56045b78b5fc2285d949c5574df",
+    "bytes": 1307377
+  }
+}

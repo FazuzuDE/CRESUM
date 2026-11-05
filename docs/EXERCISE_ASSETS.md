@@ -1,5 +1,21 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Farmer’s Carry — 2026-11-05
+
+User approved `exec-e3615fe7-64cf-4ab8-92ec-7499c3996a60.png`, native source
+`libfile_fbe077bd8d7c8191a4051f25e69ae979`. LEFT standing START / RIGHT walking
+phase FINISH with two dumbbells. Bind only `farmers-carry`/Female. Exact 887-square
+RGB WebP92/method6 halves, shared contain, no retouch/resampling/padding or phase
+transforms. Preserve Male, distance measurement, guide, forearms/traps Primary,
+abs/glutes Secondary, identity and History. Not a shrug or lunge.
+
+Coverage: 68 Male plus twenty-one Female pairs. User-selected-provisional: grip,
+wrist/gait/foot contacts, dumbbell continuity, torso control and camera registration
+remain unverified, as does device/accessibility acceptance. Stills cannot certify
+walking distance or dynamic control. Exact source/prompt/input hashes retained;
+cumulative checkpoint pending; Oracle deferred. Next: Female Standing Cable
+Anti-rotation Press preview, separate approval.
+
 ## Female Dumbbell Shrug — 2026-11-05
 
 User approved `exec-69de3f14-026b-45e3-bdd3-c313ef19ac88.png`, native source

@@ -1,0 +1,63 @@
+{
+  "variantId": "farmers-carry",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "cf3d27c71ea685913737de7ef6fdc319d5e3995fb35c35441b69d5a30cab1008",
+      "bytes": 30414,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "0efc13985bdac9faad20715dbe7ca66b939af408896115caacd50ed57deccd93",
+      "bytes": 31876,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-e3615fe7-64cf-4ab8-92ec-7499c3996a60.png",
+    "sourceLibraryFileId": "libfile_fbe077bd8d7c8191a4051f25e69ae979",
+    "sourceSha256": "302c359a14afef3955b49fbfe0525e0bf546d56045b78b5fc2285d949c5574df",
+    "sourceBytes": 1307377,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/farmers-carry/start.webp",
+        "sha256": "9b28b57b8db887dc51ca4b78c9b8d1a00c529fdcdd1662b5dd060a0db5b7dee4",
+        "bytes": 32750
+      },
+      {
+        "file": "assets/exercises/farmers-carry/finish.webp",
+        "sha256": "ed2d4b392e41fcf164e754f5cd7bbf4c75a2d0e909a33dc577f826a4d22977a9",
+        "bytes": 35578
+      }
+    ]
+  },
+  "productionChoice": "LEFT standing START / RIGHT walking phase FINISH, two dumbbells at sides. Preserve distance measurement, guide, forearms/traps Primary, abs/glutes Secondary, identity and History; not shrug or lunge.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User-selected-provisional. Broad identity/material/phase continuity reviewed. Exact grip/wrist/gait/foot contacts, dumbbell continuity, torso control and camera registration unverified; device/accessibility acceptance pending. Stills cannot certify walking distance or dynamic control. Existing guide unchanged; no new live source review claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original retained in native persistent source and workspace. Exact prompt and actual reference hashes recorded; cumulative checkpoint pending. Oracle deferred, no verified PC backup claim."
+}
