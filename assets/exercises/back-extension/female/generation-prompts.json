@@ -1,0 +1,15 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Edit this exact CRESUM two-panel female back-extension exercise illustration. Preserve the LEFT panel completely unchanged. In the RIGHT panel only, lower the woman's upper torso substantially farther by flexing at the hips: chest approaches floor, torso angled diagonally downward beyond horizontal, head naturally aligned with neutral spine, arms still crossed over chest. Maintain neutral back, no exaggerated spinal rounding; hip crease bends freely just above the upper thigh pad. Keep pelvis/upper thighs supported and both feet firmly fixed in exactly the existing foot platform and ankle rollers. Preserve exact woman's identity, ponytail, face, clothing, proportions, same silver back-extension bench geometry and placement, lighting, white background, image size and equal panel split. Do not change any equipment, legs or foot contacts, do not add text. Only deepen the forward/downward torso bend in RIGHT panel. Left extended-body pose stays pixel-composition-identical.",
+  "transparent_background": false,
+  "reference": {
+    "file": "female-back-extension.png",
+    "sha256": "cc66a6bb90415d35b855b466e505a3860532ce28e9da28a325c7f96968c09bc8",
+    "bytes": 1395980
+  },
+  "output": {
+    "file": "exec-1073df8c-6b4c-4223-bb6a-8d7f5ee5bf11.png",
+    "sha256": "7013c2007bfc43ea0e0be457666fa72d923fc2e03b20148fd14d75ff277ece7e",
+    "bytes": 1690665
+  }
+}

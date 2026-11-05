@@ -2,8 +2,8 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Hanging Knee Raise were merged in #176–192. Female
-Cable Crunch is selected for integration. Next: Female Back Extension. Review
+Female pairs through Cable Crunch were merged in #176–193. Female Back Extension
+is selected with deeper hip flexion. Next: Female Dumbbell Shrug. Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.

@@ -1,5 +1,20 @@
 # CRESUM Decision Log
 
+## Female Back Extension — 2026-11-04
+
+User approved edited original `exec-1073df8c-6b4c-4223-bb6a-8d7f5ee5bf11.png`:
+RIGHT deeper hip-flexion START / LEFT aligned-body FINISH. Bind only
+`back-extension`/Female. Exact 887-square RGB WebP92/method6 halves, shared contain,
+no resampling/padding or independent transforms. Preserve Male, generic guide,
+lower-back Primary, glutes/hamstrings Secondary, stable identity and History.
+
+Nineteen Female pairs alongside 68 Male pairs. User-selected-provisional: exact
+spinal/pelvic motion, support contacts, handle/frame registration and device/
+accessibility acceptance remain open. Exact edit prompt/input/source hashes retained;
+prior generation prompt unavailable. Reference native source is
+`libfile_001e455068588191b7d8cc389f127776`. Cumulative checkpoint pending; Oracle
+deferred. Next: Female Dumbbell Shrug preview, separate approval.
+
 ## Female Cable Crunch — 2026-11-04
 
 User approved native source `libfile_435ebfecb8808191afafb38530d20ec8`,
