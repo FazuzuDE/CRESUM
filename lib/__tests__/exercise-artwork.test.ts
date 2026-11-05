@@ -1048,7 +1048,6 @@ it('keeps Smith Squat Female and attachment fallbacks', () => {
 it.each([
   'dumbbell-reverse-lunge',
   'bulgarian-split-squat',
-  'farmers-carry',
   'standing-cable-anti-rotation-press',
   'bodyweight-step-up',
   'dumbbell-floor-glute-bridge',
@@ -1376,4 +1375,8 @@ it('keeps Back Extension attachment fallback', () => {
 
 it('keeps Dumbbell Shrug attachment fallback', () => {
   expect(resolveAttachmentArtwork('dumbbell-shrug')).toBeNull();
+});
+
+it('keeps Farmer’s Carry attachment fallback', () => {
+  expect(resolveAttachmentArtwork('farmers-carry')).toBeNull();
 });
