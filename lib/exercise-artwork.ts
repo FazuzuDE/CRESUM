@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'dumbbell-shrug': {
+    start: require('../assets/exercises/dumbbell-shrug/female/start.webp'),
+    finish: require('../assets/exercises/dumbbell-shrug/female/finish.webp'),
+  },
   'back-extension': {
     start: require('../assets/exercises/back-extension/female/start.webp'),
     finish: require('../assets/exercises/back-extension/female/finish.webp'),

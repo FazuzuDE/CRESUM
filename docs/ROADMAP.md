@@ -2,8 +2,8 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Cable Crunch were merged in #176–193. Female Back Extension
-is selected with deeper hip flexion. Next: Female Dumbbell Shrug. Review
+Female pairs through Back Extension were merged in #176–194. Female Dumbbell
+Shrug is selected for integration. Next: Female Farmer’s Carry. Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.

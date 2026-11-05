@@ -1,0 +1,28 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "CRESUM female dumbbell shrug START/FINISH in one wide2:1 white studio sheet, two equal square panels no text. Reference1 locks adult Female Master identity brown ponytail slate blueTshirt charcoalleggings white socks gray shoes. Refs2/3 male movement examples only. Same rear three-quarter camera facing left, identical fullbody scale/feet placement both panels. Woman holds two identical black dumbbells with closed neutral grips beside thighs, elbows straight relaxed throughout. LEFT START shoulders lowered neutral. RIGHT FINISH shoulders clearly elevated toward ears, visibly shortened neck-to-shoulder gap, dumbbells rise slightly only with scapular elevation, no elbow curl, shoulder rolling or neck lean. Tall stable body planted feet, neutral neck. Same face/body proportions/clothes/dumbbells and soft premium3D materials. Entire head ponytail feet dumbbells fit square panels with small margins. Anatomically correct hands/limbs. No labels/arrows/logos/watermark/muscle highlights. Generate both phases together.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/dumbbell-shrug/start.webp",
+      "sha256": "06456d424b6c56f820e583c98fde48b45b2407fd11a9e1e63b9d5fec83cf9a35",
+      "bytes": 29646
+    },
+    {
+      "file": "assets/exercises/dumbbell-shrug/finish.webp",
+      "sha256": "406bd4576ac73a186354f76a84f70f1c1997ea1fcbb019bfe77393392bb57e1d",
+      "bytes": 29688
+    }
+  ],
+  "output": {
+    "file": "exec-69de3f14-026b-45e3-bdd3-c313ef19ac88.png",
+    "libraryFileId": "libfile_887a08161a0c8191a1ff9fd697d0acf3",
+    "sha256": "9855ee80f24cd150c5a192f1daa181404be7ee04ce3ae4a7c9c4d3ed1facf9fa",
+    "bytes": 1250498
+  }
+}
