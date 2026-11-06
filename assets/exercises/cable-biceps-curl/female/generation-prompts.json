@@ -1,0 +1,28 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Create ONE CRESUM premium realistic 3D instruction sheet: FEMALE STANDING LOW-CABLE BICEPS CURL, START and FINISH together, wide 2:1 sheet two equal square white studio panels. No text, labels, arrows, border, divider, logos or muscle colors. Reference1 locks adult Female Master identity, natural athletic proportions, brown ponytail, slate-blue Tshirt, charcoal full-length leggings, white socks and lightgray sneakers. References2/3 establish movement and same light SILVER cable tower with black weight stack, low floor pulley, short straight silver bar with black grip ends and central swivel/carabiner. Replace male with woman. Reproduce same tower/camera/body positions and sizes in BOTH panels. Tower on viewer RIGHT, full upright machine and woman visible. Woman stands facing low pulley in front/right of her; feet planted hip-width. Both hands shoulder-width underhand supinated grip, thumbs securely wrapped, wrists neutral, elbows close to ribs. LEFT START: arms almost straight lowered in front of thighs, short bar at upper thighs, shoulders relaxed. RIGHT FINISH: both elbows flexed, short bar toward lower chest, upper arms stay mostly vertical near torso, no lean/swing/shrug. Cable must be taut continuous diagonal line from central bar carabiner to LOW pulley in both phases, no loose loops or cable through body. FINISH selected upper weight stack plates lifted with clear gap underneath versus START resting stack, physically consistent cable action. Weight stack lifting is only machine motion; fixed frame/pulley/tower/feet registration identical. Same character head/torso/feet/scale/camera across phases; only forearms/bar/cable/selected plates move. Three-quarter front view, full ponytail/hands/shoes and machine fit in each square with consistent small margins and harmonious large use of frame. Exactly two anatomical hands/arms, no extra fingers or floating attachments. Uniform premium materials/skin/matte clothes/light silver frame/black stack, soft white studio light and floor shadow. Generate both phases in one image.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/cable-biceps-curl/start.webp",
+      "sha256": "d936e92f20f7c92414eab1b056d333ff5a93df885da80a4d14606fb8c342353d",
+      "bytes": 45920
+    },
+    {
+      "file": "assets/exercises/cable-biceps-curl/finish.webp",
+      "sha256": "2e4bc3000126a80cb9c3c292081acc136336b113c29c35d66a86896356e3b57c",
+      "bytes": 46264
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-6e88e677-26ca-49de-b138-56d0f01e6502.png",
+    "sourceSha256": "5326c6d40bf2a7949e04deca223fd04b4ff21c9899c747b653a6d6f1984df0e3",
+    "sourceBytes": 1658385,
+    "sourceSize": [1774, 887]
+  }
+}

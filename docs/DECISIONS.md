@@ -1,5 +1,21 @@
 # CRESUM Decision Log
 
+## Female Cable Biceps Curl — 2026-11-06
+
+After #210 merged to develop, user approved the shown pair
+`exec-6e88e677-26ca-49de-b138-56d0f01e6502.png`.
+LEFT lowered START / RIGHT curled FINISH. Bind only cable-biceps-curl/Female.
+Exact 887-square RGB WebP92/method6 halves; shared contain, no retouch,
+resampling, padding or independent phase placement. Thirty-six Female pairs
+alongside 68 Male pairs. Preserve attachment-unspecified low-cable guide,
+biceps Primary/forearms Secondary, stable IDs and workout History.
+Short straight bar is an illustration choice, not a new attachment restriction.
+Broad phase/material/frame review completed; detailed grip, wrist/elbow/shoulder,
+body/machine registration, stack/hidden reeving and device/accessibility QA remain
+provisional. Original source, exact prompt and actual reference hashes retained;
+cumulative checkpoint pending; Oracle deferred. Next Female Cable Triceps
+Pushdown is preview-only and requires separate approval.
+
 ## Female Hammer Curl and EZ integration recovery — 2026-11-06
 
 User approved `exec-8a6fcf17-b901-4851-b1cc-2bc6fd09f520.png`, native source

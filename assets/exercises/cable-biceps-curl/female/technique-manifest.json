@@ -1,0 +1,62 @@
+{
+  "variantId": "cable-biceps-curl",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "9734bcd3f4f93ee1b837f3e2490b0ca2feeda78d2ec0b1282876abad0d739600",
+      "bytes": 42686,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "e824dae091b28789fe35e8b597cc69dc2164b0a8b0d510e84f97d042a20cc54d",
+      "bytes": 43294,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-6e88e677-26ca-49de-b138-56d0f01e6502.png",
+    "sourceSha256": "5326c6d40bf2a7949e04deca223fd04b4ff21c9899c747b653a6d6f1984df0e3",
+    "sourceBytes": 1658385,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/cable-biceps-curl/start.webp",
+        "sha256": "d936e92f20f7c92414eab1b056d333ff5a93df885da80a4d14606fb8c342353d",
+        "bytes": 45920
+      },
+      {
+        "file": "assets/exercises/cable-biceps-curl/finish.webp",
+        "sha256": "2e4bc3000126a80cb9c3c292081acc136336b113c29c35d66a86896356e3b57c",
+        "bytes": 46264
+      }
+    ]
+  },
+  "productionChoice": "LEFT lowered START / RIGHT curled FINISH; supinated low-cable curl with short bar and raised selected load at FINISH. Illustration attachment does not narrow attachment-unspecified guide. Preserve biceps Primary, forearms Secondary, stable identity and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad identity/outfit, lowered-to-curled phases, low pulley, taut cable, central swivel, raised FINISH load and full-frame fit reviewed. Detailed finger/thumb grip, wrist/elbow/shoulder positions, fixed body/machine registration, plate-count/hidden reeving and native device/accessibility acceptance remain open. No new biomechanics/source certification.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in workspace for the cumulative source checkpoint. Original prompt and actual reference hashes retained. Cumulative archive pending; Oracle deferred; no verified backup claim."
+}

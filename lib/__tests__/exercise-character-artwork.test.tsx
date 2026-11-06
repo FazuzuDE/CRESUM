@@ -361,6 +361,16 @@ jest.mock(
   '../../assets/exercises/dumbbell-biceps-curl/female/finish.webp',
   () => 6402,
 );
+jest.mock('../../assets/exercises/cable-biceps-curl/start.webp', () => 7101);
+jest.mock('../../assets/exercises/cable-biceps-curl/finish.webp', () => 7102);
+jest.mock(
+  '../../assets/exercises/cable-biceps-curl/female/start.webp',
+  () => 7201,
+);
+jest.mock(
+  '../../assets/exercises/cable-biceps-curl/female/finish.webp',
+  () => 7202,
+);
 jest.mock('../../assets/exercises/hammer-curl/start.webp', () => 6901);
 jest.mock('../../assets/exercises/hammer-curl/finish.webp', () => 6902);
 jest.mock('../../assets/exercises/hammer-curl/female/start.webp', () => 7001);
@@ -522,6 +532,7 @@ it.each([
   ['dumbbell-shrug', [3901, 3902, 3901], [4001, 4002, 4001]],
   ['farmers-carry', [4101, 4102, 4101], [4201, 4202, 4201]],
   ['bodyweight-step-up', [4501, 4502, 4501], [4601, 4602, 4601]],
+  ['cable-biceps-curl', [7101, 7102, 7101], [7201, 7202, 7201]],
   ['hammer-curl', [6901, 6902, 6901], [7001, 7002, 7001]],
   ['ez-bar-curl', [6701, 6702, 6701], [6801, 6802, 6801]],
   ['barbell-curl', [6501, 6502, 6501], [6601, 6602, 6601]],
