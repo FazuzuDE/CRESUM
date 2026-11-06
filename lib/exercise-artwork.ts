@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'dumbbell-floor-glute-bridge': {
+    start: require('../assets/exercises/dumbbell-floor-glute-bridge/female/start.webp'),
+    finish: require('../assets/exercises/dumbbell-floor-glute-bridge/female/finish.webp'),
+  },
   'bodyweight-step-up': {
     start: require('../assets/exercises/bodyweight-step-up/female/start.webp'),
     finish: require('../assets/exercises/bodyweight-step-up/female/finish.webp'),

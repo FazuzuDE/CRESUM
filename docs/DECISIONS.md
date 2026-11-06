@@ -1,5 +1,24 @@
 # CRESUM Decision Log
 
+## Female Dumbbell Floor Glute Bridge — 2026-11-06
+
+After merging #198, user approved final edited pair
+`exec-2dfdd5a6-7477-4c6b-a8d6-2d0e772c8af6.png`: LEFT pelvis lowered START /
+RIGHT pelvis raised FINISH, single dumbbell stabilized across hips. Bind only
+`dumbbell-floor-glute-bridge`/Female. Exact 887-square RGB WebP92/method6 halves,
+shared contain, no retouch/resampling/padding or independent phase transforms.
+Preserve Male, floor-supported guide, glutes Primary/hamstrings Secondary, IDs
+and History. Not bench-supported hip thrust.
+
+Coverage: 68 Male plus twenty-four Female pairs. User-selected-provisional:
+broad movement/identity/outfit continuity and framing reviewed; exact head/neck/
+ponytail support, lumbar/pelvic alignment, dumbbell/grip contact, registration
+and device/accessibility acceptance remain open. The targeted edit requested
+floor-supported head/neutral neck; prompt intent is not certification of contact.
+Both generation prompts, actual input hashes and original PNG hashes retained.
+Cumulative source checkpoint pending; Oracle deferred. Next: Female Dumbbell
+Reverse Lunge preview, separate approval.
+
 ## Female Bodyweight Step-up — 2026-11-06
 
 User reattached and approved `0258ADA8-E4ED-4D35-ACCE-DCABFF935A6E.jpeg`,

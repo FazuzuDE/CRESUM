@@ -2,8 +2,8 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Standing Cable Anti-rotation Press were merged in #176–197.
-Female Bodyweight Step-up is selected. Next: Female Dumbbell Floor Glute Bridge. Review
+Female pairs through Bodyweight Step-up were merged in #176–198.
+Female Dumbbell Floor Glute Bridge is selected. Next: Female Dumbbell Reverse Lunge. Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.

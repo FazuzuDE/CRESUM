@@ -1,0 +1,45 @@
+{
+  "variantId": "dumbbell-floor-glute-bridge",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "9a73eea9d17383d0216d07da50ca4256a2625c1b0a692f0502253aefe1597793",
+      "bytes": 30794,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "dda4360eb26df5b603810a1d89bc27faa0d42c6feb1a85c4ccebb81720ed4cb9",
+      "bytes": 30784,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-2dfdd5a6-7477-4c6b-a8d6-2d0e772c8af6.png",
+    "sourceSha256": "e3e93af832ad5df9a2ef48a2123070831c851f1d6d036c67273f629405705939",
+    "sourceBytes": 1278021,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json"
+  },
+  "productionChoice": "LEFT pelvis lowered START / RIGHT pelvis raised FINISH, one dumbbell stabilized across hips. Floor-supported bridge, not bench-supported hip thrust.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User-selected-provisional. Broad movement difference, character/material continuity, floor-supported shoulders, bent knees, feet and single dumbbell reviewed. Exact head/neck/ponytail support, lumbar/pelvic alignment, grip/load contact, registration and device/accessibility acceptance remain open. No new source/biomechanics certification.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Both generated PNGs and exact prompts retained in conversation/workspace; generated images persist natively. Original input hashes recorded. Cumulative source checkpoint pending; Oracle deferred."
+}

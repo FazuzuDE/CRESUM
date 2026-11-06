@@ -1045,15 +1045,14 @@ it('keeps Smith Squat Female and attachment fallbacks', () => {
   expect(resolveAttachmentArtwork('smith-machine-squat')).toBeNull();
 });
 
-it.each([
-  'dumbbell-reverse-lunge',
-  'bulgarian-split-squat',
-  'dumbbell-floor-glute-bridge',
-])('keeps %s Female and attachment fallbacks', (id) => {
-  for (const phase of ['start', 'finish'] as const)
-    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
-  expect(resolveAttachmentArtwork(id)).toBeNull();
-});
+it.each(['dumbbell-reverse-lunge', 'bulgarian-split-squat'])(
+  'keeps %s Female and attachment fallbacks',
+  (id) => {
+    for (const phase of ['start', 'finish'] as const)
+      expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
+    expect(resolveAttachmentArtwork(id)).toBeNull();
+  },
+);
 
 it('resolves the selected Kettlebell Swing pair only for Male', () => {
   expect(resolveExerciseArtwork('kettlebell-swing', 'start', 'male')).toBe(
@@ -1387,4 +1386,8 @@ it('keeps Pallof Press attachment fallback', () => {
 
 it('keeps Step-up attachment fallback', () => {
   expect(resolveAttachmentArtwork('bodyweight-step-up')).toBeNull();
+});
+
+it('keeps Floor Glute Bridge attachment fallback', () => {
+  expect(resolveAttachmentArtwork('dumbbell-floor-glute-bridge')).toBeNull();
 });

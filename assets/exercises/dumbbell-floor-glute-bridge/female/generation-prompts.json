@@ -1,0 +1,47 @@
+{
+  "status": "user-selected-provisional",
+  "initial": {
+    "prompt": "Create ONE CRESUM exercise illustration sheet, wide 2:1 aspect ratio, two equal square panels side by side on clean white studio background. NO divider, borders, labels, arrows, text or logos. Exercise: Female dumbbell FLOOR glute bridge. Reference 1 locks the exact approved adult woman's identity, athletic natural proportions, brown ponytail, slate blue short sleeve T-shirt, charcoal full-length leggings, white socks and light gray shoes. References 2 and 3 show MALE movement/equipment only, convert to the woman, preserve correct floor-supported movement and matching dumbbell geometry. LEFT START: woman supine on floor, head and shoulders resting comfortably on ground, pelvis low just above/touching floor, knees bent, feet hip-width and both whole soles planted. RIGHT FINISH: shoulders and head remain on floor in same place, pelvis lifted until shoulders/hips/knees form an approximately straight line, neutral spine without exaggerated arch, feet still in same location; lower legs approximately vertical. ONE same compact black dumbbell centered securely across the FRONT HIP CREASE, both hands gently stabilizing dumbbell plates on either side, fingers anatomically correct and wrists natural; no weight on abdomen. No bench, barbell, machines or extra weights. Side three-quarter view facing her visible face, head to left and feet to right in each panel, use nearly all square panel width while showing entire head/ponytail/hands/dumbbell/both feet. Same camera, ground baseline, head/feet registration and character scale across phases, natural pelvis lift only. Premium realistic 3D exercise illustration, clean consistent skin and matte cloth, uniform light, subtle floor shadow matching reference woman. Exactly one woman per panel. Make START versus FINISH unmistakable while retaining natural proportions. Generate the two movement phases together.",
+    "transparent_background": false,
+    "references": [
+      {
+        "file": "0258ADA8-E4ED-4D35-ACCE-DCABFF935A6E.jpeg",
+        "sha256": "9215f4f463ef11d8453cc8a5fad98fdaada2a3fa05fdc0620deff8a423781988",
+        "bytes": 143332,
+        "libraryFileId": "libfile_00abb08fb7cc8191959666110022d3d5"
+      },
+      {
+        "file": "assets/exercises/dumbbell-floor-glute-bridge/start.webp",
+        "sha256": "115f19c3fb18c5c128e9704e82ff0857fc0f3b07da5fea2e7e56dec3ff508e0f",
+        "bytes": 33322
+      },
+      {
+        "file": "assets/exercises/dumbbell-floor-glute-bridge/finish.webp",
+        "sha256": "1a4873a1400079be6d6cd7751e7d7f7a2e4a116df9bb5a2b3de70695cb6d636b",
+        "bytes": 33136
+      }
+    ],
+    "output": {
+      "file": "exec-518696ab-2698-42a8-a79f-8396e7fd28ff.png",
+      "sha256": "a2441a84250400cf69e4bf2a567b0c3057c0416b6d4fd3e2ad43df32a23f690f",
+      "bytes": 1301726
+    }
+  },
+  "edit": {
+    "prompt": "Edit this exact CRESUM Female Dumbbell FLOOR Glute Bridge two-panel sheet. Preserve the exact character identity, face features, outfit, body proportions, dumbbell, hands, feet, pelvis positions, white background, equal-square side-by-side layout, camera and scale. One targeted correction in BOTH panels: lower the back of her HEAD onto the FLOOR so her skull is visibly resting on the same floor plane as her supporting shoulder blades. Relax the neck in a natural neutral supine alignment; gaze gently upward, no forward abdominal-crunch head lift. Ponytail spreads softly beside the resting head, never props up the skull. Shoulders stay on the floor in both panels. Keep LEFT hips down START and RIGHT hips raised FINISH aligned approximately shoulders-hips-knees. Do not change leg/hand/weight positions. No labels, arrows, lines, borders, logos or text. Both phases in one image.",
+    "transparent_background": false,
+    "references": [
+      {
+        "file": "exec-518696ab-2698-42a8-a79f-8396e7fd28ff.png",
+        "sha256": "a2441a84250400cf69e4bf2a567b0c3057c0416b6d4fd3e2ad43df32a23f690f",
+        "bytes": 1301726
+      }
+    ],
+    "output": {
+      "file": "exec-2dfdd5a6-7477-4c6b-a8d6-2d0e772c8af6.png",
+      "sha256": "e3e93af832ad5df9a2ef48a2123070831c851f1d6d036c67273f629405705939",
+      "bytes": 1278021
+    }
+  },
+  "note": "Exact prompts and actual reference hashes retained. Prompt asks for supported head/neutral neck; generated contact still needs detailed review, not certified by intent."
+}
