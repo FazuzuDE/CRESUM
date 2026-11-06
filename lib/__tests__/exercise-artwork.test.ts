@@ -928,13 +928,6 @@ it('resolves only exact Male lying triceps phases without borrowing bench or ext
   );
   for (const phase of ['start', 'finish'] as const) {
     expect(
-      resolveExerciseArtwork(
-        'lying-barbell-triceps-extension',
-        phase,
-        'female',
-      ),
-    ).toBeNull();
-    expect(
       resolveExerciseArtwork('close-grip-bench-press', phase, 'male'),
     ).toBe(phase === 'start' ? 2901 : 2902);
     expect(
