@@ -1048,7 +1048,6 @@ it('keeps Smith Squat Female and attachment fallbacks', () => {
 it.each([
   'dumbbell-reverse-lunge',
   'bulgarian-split-squat',
-  'bodyweight-step-up',
   'dumbbell-floor-glute-bridge',
 ])('keeps %s Female and attachment fallbacks', (id) => {
   for (const phase of ['start', 'finish'] as const)
@@ -1384,4 +1383,8 @@ it('keeps Pallof Press attachment fallback', () => {
   expect(
     resolveAttachmentArtwork('standing-cable-anti-rotation-press'),
   ).toBeNull();
+});
+
+it('keeps Step-up attachment fallback', () => {
+  expect(resolveAttachmentArtwork('bodyweight-step-up')).toBeNull();
 });
