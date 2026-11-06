@@ -13,3 +13,6 @@ lint, formatting, anatomy/i18n, config and online dependencies passed.
 Detailed hand/joint mechanics, neck/trunk/pelvis alignment, registration and native
 device acceptance provisional. Archive pending, Oracle deferred.
 Next Dumbbell Shoulder Press preview requires approval.
+
+PR #224 version 0.2.24 stamped after tests/exports; version/configuration and
+metadata formatting rechecked. CI pending.
