@@ -1,0 +1,63 @@
+{
+  "variantId": "dumbbell-bench-press",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "83298dde084cb395b2075baf50d9fe9a04540a81d169cd06187f0798de94e93d",
+      "bytes": 62054,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "9996c5ce2a375616d60c2ba0c8deb9ee749cc832a51024fdb6093d2d69af1d76",
+      "bytes": 64520,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-d576c286-39a0-41d1-acd5-1b3785a5b7de.png",
+    "sourceLibraryFileId": "libfile_df2d4c0aff8081919f8557304152025d",
+    "sourceSha256": "464f678fb988cbf2baf16d100f0bc5a25989483593d72ac5e5e5996f6cdce80e",
+    "sourceBytes": 1756928,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/dumbbell-bench-press/start.webp",
+        "sha256": "bf495efb5cb096a75d354f73b42dfa19d11531dc17f94d791338064c89d67b03",
+        "bytes": 54476
+      },
+      {
+        "file": "assets/exercises/dumbbell-bench-press/finish.webp",
+        "sha256": "9300cbc647767f635991a581528ebba78b385d58d9224ce8c7fadca3c2ffa48c",
+        "bytes": 55854
+      }
+    ]
+  },
+  "productionChoice": "LEFT lowered START / RIGHT pressed FINISH, two dumbbells and flat bench. Preserve chest Primary/triceps and front-delts Secondary, guide, identity and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases, identity/outfit, two dumbbells and full frame reviewed; detailed grip/wrist/elbow/shoulder, support/feet, dumbbell dimensions/phase registration and native device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}

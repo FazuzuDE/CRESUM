@@ -1,0 +1,28 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Create ONE premium realistic CRESUM 3D instruction sheet FEMALE FLAT DUMBBELL BENCH PRESS, both phases in two equal square panels wide2:1. LEFT START lowered dumbbells beside chest elbows bent, RIGHT FINISH dumbbells pressed above shoulders arms nearly straight. No text/labels/arrows/border/divider/logos/muscle colors. Image1 exact adult Female Master natural athletic proportions, brown ponytail, slate-blue fitted Tshirt, charcoal leggings, white socks/lightgray sneakers. Images2/3 same silver flat bench/dumbbells and movement only, replace man with woman. Supine woman with head/back/hips supported on dark pad, knees bent and both feet flat on floor, modest natural arch. TWO identical compact black round-ended dumbbells with short silver handles; each hand securely grips handle thumbs wrapped, palms toward feet in pronated press grip. START weights beside midchest, elbows comfortably45\u201360deg from torso, wrists stacked above elbows. FINISH extend elbows pressing up above shoulders, parallel dumbbells slightly apart without touching, no fly motion. Exactly two arms/hands, two weights, natural fingers and neutral wrists. Same identity/body/head/feet, bench and dumbbell dimensions/camera/scale in both phases; only pressing arms/weights move. Three-quarter HEAD-END elevated view as refs, full ponytail/weights/shoes/silver bench legs visible with consistent small margins, equal large harmonious frame. Uniform premium natural skin/matte fabric, satin silver frame and dark pad/weights, white studio subtle floor shadow. Generate both phases together.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/dumbbell-bench-press/start.webp",
+      "sha256": "bf495efb5cb096a75d354f73b42dfa19d11531dc17f94d791338064c89d67b03",
+      "bytes": 54476
+    },
+    {
+      "file": "assets/exercises/dumbbell-bench-press/finish.webp",
+      "sha256": "9300cbc647767f635991a581528ebba78b385d58d9224ce8c7fadca3c2ffa48c",
+      "bytes": 55854
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-d576c286-39a0-41d1-acd5-1b3785a5b7de.png",
+    "sourceLibraryFileId": "libfile_df2d4c0aff8081919f8557304152025d",
+    "sourceSha256": "464f678fb988cbf2baf16d100f0bc5a25989483593d72ac5e5e5996f6cdce80e",
+    "sourceBytes": 1756928,
+    "sourceSize": [1774, 887]
+  }
+}
