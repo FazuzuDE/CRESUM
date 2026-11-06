@@ -292,6 +292,16 @@ jest.mock(
   '../../assets/exercises/bulgarian-split-squat/female/finish.webp',
   () => 5202,
 );
+jest.mock('../../assets/exercises/smith-machine-squat/start.webp', () => 5301);
+jest.mock('../../assets/exercises/smith-machine-squat/finish.webp', () => 5302);
+jest.mock(
+  '../../assets/exercises/smith-machine-squat/female/start.webp',
+  () => 5401,
+);
+jest.mock(
+  '../../assets/exercises/smith-machine-squat/female/finish.webp',
+  () => 5402,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -412,11 +422,7 @@ it('resolves female phases only for the approved exact variants', () => {
   );
   expect(resolveExerciseArtwork('cable-crunch', 'start', 'female')).toBe(3601);
   expect(resolveExerciseArtwork('cable-crunch', 'finish', 'female')).toBe(3602);
-  for (const id of [
-    'kettlebell-goblet-squat',
-    'smith-machine-squat',
-    'unknown',
-  ])
+  for (const id of ['kettlebell-goblet-squat', 'barbell-back-squat', 'unknown'])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -445,6 +451,7 @@ it.each([
   ['dumbbell-shrug', [3901, 3902, 3901], [4001, 4002, 4001]],
   ['farmers-carry', [4101, 4102, 4101], [4201, 4202, 4201]],
   ['bodyweight-step-up', [4501, 4502, 4501], [4601, 4602, 4601]],
+  ['smith-machine-squat', [5301, 5302, 5301], [5401, 5402, 5401]],
   ['bulgarian-split-squat', [5101, 5102, 5101], [5201, 5202, 5201]],
   ['dumbbell-reverse-lunge', [4901, 4902, 4901], [5001, 5002, 5001]],
   ['dumbbell-floor-glute-bridge', [4701, 4702, 4701], [4801, 4802, 4801]],
@@ -498,8 +505,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="smith-machine-squat" />
-        <TechniqueArtwork imageKey="smith-machine-squat" phase="START" />
+        <ExerciseArtwork imageKey="barbell-back-squat" />
+        <TechniqueArtwork imageKey="barbell-back-squat" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });

@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'smith-machine-squat': {
+    start: require('../assets/exercises/smith-machine-squat/female/start.webp'),
+    finish: require('../assets/exercises/smith-machine-squat/female/finish.webp'),
+  },
   'bulgarian-split-squat': {
     start: require('../assets/exercises/bulgarian-split-squat/female/start.webp'),
     finish: require('../assets/exercises/bulgarian-split-squat/female/finish.webp'),

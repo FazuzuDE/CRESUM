@@ -1037,11 +1037,7 @@ it('keeps Leg Press attachment fallback', () => {
   expect(resolveAttachmentArtwork('leg-press')).toBeNull();
 });
 
-it('keeps Smith Squat Female and attachment fallbacks', () => {
-  for (const phase of ['start', 'finish'] as const)
-    expect(
-      resolveExerciseArtwork('smith-machine-squat', phase, 'female'),
-    ).toBeNull();
+it('keeps Smith Squat attachment fallback', () => {
   expect(resolveAttachmentArtwork('smith-machine-squat')).toBeNull();
 });
 

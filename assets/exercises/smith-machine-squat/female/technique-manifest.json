@@ -1,0 +1,63 @@
+{
+  "variantId": "smith-machine-squat",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "f5e9115254af0a11eec310725cfa9c3e1a6ab1d15b7ca02f927f0772c6f13299",
+      "bytes": 53204,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "1da4e8099fef753bb4dbf45acb073bea1bbe8e07f5b8c11c18e2a7d6434b1bc7",
+      "bytes": 51418,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-c346dff0-825c-4474-90c5-a07118371362.png",
+    "sourceLibraryFileId": "libfile_4b28f38801b48191a14ac21198680df5",
+    "sourceSha256": "30371185c4c5205fe0241c4ec97bc305f5b0f1309054f5c1b21c87fd93d23e06",
+    "sourceBytes": 1506114,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/smith-machine-squat/start.webp",
+        "sha256": "96edcc179fa4fabcd1362ee889227cc7708f65b9d603da3c074d0c3ede6df1c4",
+        "bytes": 55654
+      },
+      {
+        "file": "assets/exercises/smith-machine-squat/finish.webp",
+        "sha256": "a77947f509fa4e1c2b123d4bfbd9442deb462584896931f5553526d56313c8ec",
+        "bytes": 52524
+      }
+    ]
+  },
+  "productionChoice": "LEFT upright START / RIGHT lowered squat FINISH in silver Smith machine. Preserve guide, quadriceps/glutes Primary, hamstrings/adductors Secondary, identity and History. Not free-bar back squat.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Natural head descent retained.",
+  "reviewScope": "User-selected-provisional. Broad identity/outfit, phase difference, silver guided machine and full-frame fit reviewed. Exact grip/wrist/bar-to-upper-back contact, knee tracking, pelvis/torso alignment, carriage/rail/plate continuity, rigid registration and device/accessibility acceptance remain open. No new biomechanics/source certification.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Exact prompt and actual input hashes recorded; cumulative checkpoint pending; Oracle deferred."
+}
