@@ -11,8 +11,8 @@ Keep straight bar distinct from EZ bar and dumbbells.
 
 - [x] Extend existing switching case and observe missing binding fail.
 - [x] Add exact assets, binding, original prompt and actual input provenance.
-- [ ] Run tests/typecheck/lint/format/native exports; independent review.
-- [ ] Publish draft PR; stamp actual PR version, verify metadata, mark ready.
+- [x] Run tests/typecheck/lint/format/native exports; independent review.
+- [x] Publish draft PR; stamp actual PR version, verify metadata, mark ready.
 
 Review focus: exact variant/phase, shared character switching, preservation of
 other curls, unavailable Female placeholders, crop/provenance integrity.

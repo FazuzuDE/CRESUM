@@ -22,3 +22,7 @@ User-selected-provisional: detailed hand/grip/wrist/elbow/shoulder/torso and
 body/equipment registration QA remain open; no biomechanics certification.
 Fine source panel boundary retained. Cumulative archive pending; Oracle deferred.
 Next Female EZ-Bar Curl is preview-only and not registered.
+
+Actual PR #208 stamped display 0.2.08 (package/Expo 0.2.8) after tests/exports;
+version/configuration and metadata formatting passed afterward. Initial published
+tree matches local 7b3003d3f3a3ade3e3b4390a6fe397950fb213c5.
