@@ -1,0 +1,63 @@
+{
+  "variantId": "bulgarian-split-squat",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "73ba571e94b384c75d04e9f7e7da54b8381db46f83dfe7eaefac5ac87ea86d4a",
+      "bytes": 38930,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "ec74ec0ba0393c551cf73c7f2ca08d54afbf9418f8288f7d6d31ff4bd6132240",
+      "bytes": 36778,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-92bd9190-40fa-40f4-8798-2fae1e91780d.png",
+    "sourceLibraryFileId": "libfile_03a32c2251248191abea4f80b64ea507",
+    "sourceSha256": "4cbabd02015e18f81b7d0ccddee11e5029e468d9a978ca05705a6065af90ea2e",
+    "sourceBytes": 1672481,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/bulgarian-split-squat/start.webp",
+        "sha256": "2ce1ceb5cbfc3d0de08d7491b7a6800a1eeb69671982b2297dafbe9c4a01cbf5",
+        "bytes": 36004
+      },
+      {
+        "file": "assets/exercises/bulgarian-split-squat/finish.webp",
+        "sha256": "b0433155d0a2c5e7eaf77e13f6f572bc46eaff8baa285174b951e53d3182a473",
+        "bytes": 37614
+      }
+    ]
+  },
+  "productionChoice": "LEFT upper split stance START / RIGHT lowered FINISH. Rear foot supported on bench, two dumbbells hanging at sides. Preserve guide, quadriceps/glutes Primary, hamstrings/adductors Secondary, identity and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Natural head descent retained.",
+  "reviewScope": "User-selected-provisional. Broad identity/outfit, phase difference, rear-foot bench support, two dumbbells and full-body fit reviewed. Exact grip/wrist, shoe/pad contact, knee tracking, pelvis/torso alignment, bench/body registration and device/accessibility acceptance remain open. No new biomechanics/source certification.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Exact prompt and actual input hashes recorded; cumulative checkpoint pending; Oracle deferred."
+}

@@ -1,0 +1,29 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "CRESUM premium realistic 3D fitness instruction pair, FEMALE BULGARIAN SPLIT SQUAT with TWO DUMBBELLS. ONE wide 2:1 white studio sheet, two equal square panels side by side, no divider, borders, text, labels, arrows, logos or muscle highlighting. Reference1 locks exact Female Master face, brown ponytail, natural athletic body proportions, slate-blue short sleeve Tshirt, charcoal full-length leggings, white socks, light-gray shoes. References2/3 only establish male movement and equipment: recreate with the woman. Same low flat bench with SILVER frame and dark charcoal pad behind woman to viewer left, face/body three-quarter side view facing viewer right. One black HEX dumbbell in each hand, arms hanging straight beside hips, neutral wrists, natural closed grips. SAME woman, bench, weights, camera, character scale, front-foot position, and rear-foot contact across panels. LEFT START: upright split stance at top, front whole foot planted on floor and lead knee nearly extended without locking, REAR FOOT top/instep resting securely on bench pad behind her, rear knee bent. RIGHT FINISH: controlled descent, front knee bent tracking with toes, front thigh approximately horizontal, pelvis lowers, rear knee approaches floor without touching; rear shoe TOP/INSTEP remains supported on exact same bench-pad spot, rear heel points up, no standing on rear toes. Modest natural forward torso inclination, neutral spine, comfortable gaze forward, balanced pelvis. Show full head/ponytail, all hands/weights/shoes, whole bench and legs in each square with small consistent margins, use available frame area. Do not move the bench or independently rescale finish; natural head descent is correct. No impossible limb twisting or extra fingers. Consistent clean skin and matte clothing, silver frame/dark bench pad/black hex dumbbells, soft white studio light and floor shadows. Generate START and FINISH together.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/bulgarian-split-squat/start.webp",
+      "sha256": "2ce1ceb5cbfc3d0de08d7491b7a6800a1eeb69671982b2297dafbe9c4a01cbf5",
+      "bytes": 36004
+    },
+    {
+      "file": "assets/exercises/bulgarian-split-squat/finish.webp",
+      "sha256": "b0433155d0a2c5e7eaf77e13f6f572bc46eaff8baa285174b951e53d3182a473",
+      "bytes": 37614
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-92bd9190-40fa-40f4-8798-2fae1e91780d.png",
+    "sourceLibraryFileId": "libfile_03a32c2251248191abea4f80b64ea507",
+    "sourceSha256": "4cbabd02015e18f81b7d0ccddee11e5029e468d9a978ca05705a6065af90ea2e",
+    "sourceBytes": 1672481,
+    "sourceSize": [1774, 887]
+  }
+}

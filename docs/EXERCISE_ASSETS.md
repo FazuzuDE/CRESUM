@@ -1,5 +1,23 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Bulgarian Split Squat — 2026-11-06
+
+After merging #200, user approved `exec-92bd9190-40fa-40f4-8798-2fae1e91780d.png`,
+native source `libfile_03a32c2251248191abea4f80b64ea507`. LEFT upper split stance
+START / RIGHT lowered FINISH, rear foot supported on bench, two dumbbells at sides.
+Bind only `bulgarian-split-squat`/Female. Exact 887-square RGB WebP92/method6
+halves, shared contain, no retouch/resampling/padding or independent phase transforms.
+Preserve Male, guide, quadriceps/glutes Primary, hamstrings/adductors Secondary,
+stable IDs and History. Retain natural head descent; no side-specific anatomy claim.
+
+Coverage: 68 Male plus twenty-six Female pairs. User-selected-provisional:
+broad phase difference, identity/outfit, rear-foot bench support, two dumbbells
+and full-body fit reviewed; exact grip/wrist, shoe/pad contacts, knee tracking,
+pelvis/torso alignment, bench/body registration and device/accessibility acceptance
+remain open. Original, exact prompt and actual reference hashes retained.
+Cumulative source checkpoint pending; Oracle deferred. Next: Female Smith Machine
+Squat preview, separate approval.
+
 ## Female Dumbbell Reverse Lunge — 2026-11-06
 
 After merging #199, user approved `exec-fa5e2f97-34e0-4b28-a071-754be70858a5.png`,

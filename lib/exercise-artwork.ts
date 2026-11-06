@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'bulgarian-split-squat': {
+    start: require('../assets/exercises/bulgarian-split-squat/female/start.webp'),
+    finish: require('../assets/exercises/bulgarian-split-squat/female/finish.webp'),
+  },
   'dumbbell-reverse-lunge': {
     start: require('../assets/exercises/dumbbell-reverse-lunge/female/start.webp'),
     finish: require('../assets/exercises/dumbbell-reverse-lunge/female/finish.webp'),
