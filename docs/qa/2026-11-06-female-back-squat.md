@@ -1,4 +1,4 @@
-# Female Barbell Back Squat — validation
+# Female Barbell Back Squat — PR #203
 
 User approved `exec-620779f5-b23a-4fba-aa15-91285038d01e.png`, native source
 `libfile_aeb6432c45cc8191827d13dc698cd83d`, after merging #202. LEFT upright
@@ -13,10 +13,16 @@ Node 22.16.0: 4 relevant suites / 110 tests, typecheck, lint, formatting,
 version/configuration and iOS/Android Hermes exports passed. New switch case
 failed on missing binding before implementation. Independent review found no
 actionable findings and verified source/reference/output hashes and exact crops.
-Full suite running; authoritative CI pending.
+Full suite passed: 148 suites / 1393 tests (87.766 seconds). Anatomy/localization
+checks passed; offline dependencies report up to date with their normal reliability
+warning. Authoritative CI/online compatibility pending.
 
 User-selected-provisional: exact grip/wrist/bar-to-upper-back contacts, knee
 tracking, pelvis/torso alignment, foot/bar/plate registration and device/accessibility
 acceptance remain open. No new biomechanics/source certification. Cumulative
 source checkpoint pending; Oracle deferred. Next Female Barbell Front Squat pair
 is preview-only, not registered.
+
+Actual PR #203 stamped display 0.2.03 (package/Expo 0.2.3) after tests/exports;
+version/configuration and metadata formatting passed afterward. Initial published
+tree matched local 4d4dc2ece8dc9dc5ea520d59589a372e456ef352.
