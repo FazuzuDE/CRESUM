@@ -1,5 +1,41 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Hammer Curl and EZ integration recovery — 2026-11-06
+
+User approved `exec-8a6fcf17-b901-4851-b1cc-2bc6fd09f520.png`, native source
+`libfile_ba9aac18e004819197667a7a2cfe0c53`. LEFT lowered START / RIGHT curled
+FINISH with neutral-grip dumbbells. Bind only `hammer-curl`/Female. Exact
+887-square RGB WebP92/method6 halves, shared contain, no retouch/resampling,
+padding or independent transforms. Preserve Male, neutral-grip guide, biceps
+and forearms Primary, no Secondary, stable IDs and History; no supinated curl substitute.
+
+#208 merged to develop, but #209 merged into assets/female-barbell-curl rather
+than develop. Carry the approved EZ pair unchanged into this develop-targeted PR
+alongside Hammer Curl; do not treat #209's closure as develop integration.
+Coverage after integration: 68 Male plus thirty-five Female pairs.
+User-selected-provisional: detailed fingers/thumb/neutral grip, wrist/elbow/
+shoulder/torso, dumbbell/body registration and device/accessibility QA remain open.
+Fine white source panel boundary retained. Original, exact prompt and actual
+reference hashes retained. Cumulative archive pending; Oracle deferred.
+Next: Female Cable Biceps Curl preview, separate approval.
+
+## Female EZ-Bar Biceps Curl — 2026-11-06
+
+User approved `exec-cde40da4-b5eb-43d5-b15b-e23a5fe2c906.png`, native source
+`libfile_c5316095cfa48191a808659c686e324f`, while reporting #208 merged
+(repository confirmation pending at selection). LEFT lowered START / RIGHT curled
+FINISH. Bind only `ez-bar-curl`/Female. Exact 887-square RGB WebP92/method6
+halves, shared contain, no retouch/resampling/padding or independent transforms.
+Preserve Male, standing angled EZ-bar guide, biceps Primary, forearms Secondary,
+stable IDs and History. Keep distinct from straight-bar and dumbbell curls.
+
+Coverage: 68 Male plus thirty-four Female pairs. User-selected-provisional:
+broad phases, identity/outfit, EZ bar and full-frame fit reviewed; detailed
+fingers/thumb/angled grip, wrist/elbow/shoulder/torso and equipment/body
+registration, native device/accessibility QA remain open. Original, exact prompt
+and actual input hashes retained. Cumulative checkpoint pending; Oracle deferred.
+Next: Female Hammer Curl preview, separate approval.
+
 ## Female Straight-Bar Biceps Curl — 2026-11-06
 
 After merging #207, user approved `exec-6c24c4de-3704-4150-8fb8-380a8dde3347.png`,

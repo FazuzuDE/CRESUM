@@ -1,0 +1,63 @@
+{
+  "variantId": "ez-bar-curl",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "ffaa9cab43d21eac32afa927141c41de63108bd1839253adf6f77d4fd67d3549",
+      "bytes": 32870,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "46fd0706975e92341eaa2f1d8d5ce76ceae9b3dd6345b4b9c11b466202adf1eb",
+      "bytes": 31348,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-cde40da4-b5eb-43d5-b15b-e23a5fe2c906.png",
+    "sourceLibraryFileId": "libfile_c5316095cfa48191a808659c686e324f",
+    "sourceSha256": "a4787773ae3361b3b98fbcaed4f618e920710170b97f6fddc69222315be15b83",
+    "sourceBytes": 1668333,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/ez-bar-curl/start.webp",
+        "sha256": "58012a6e13d86d693e61dc30e34d23ab38090d4d73e890ca0376bcd1c3990142",
+        "bytes": 40094
+      },
+      {
+        "file": "assets/exercises/ez-bar-curl/finish.webp",
+        "sha256": "afa113937fb22bb66e92e922d1aeac4116c164e2ed5517d971b25010e0c98848",
+        "bytes": 38958
+      }
+    ]
+  },
+  "productionChoice": "LEFT lowered START / RIGHT elbows flexed FINISH; standing angled EZ-bar curl. Preserve angled grip guide, biceps Primary, forearms Secondary, identity and History. Not straight bar or dumbbells.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User-selected-provisional. Broad identity/outfit, lowered-to-curled phases, EZ bar and full-frame fit reviewed. Exact fingers/thumb/grip on angled shaft, wrist/elbow/shoulder positions, torso control, equipment/body registration and device/accessibility acceptance remain open. No new biomechanics/source certification.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Exact prompt and actual input hashes recorded; cumulative checkpoint pending; Oracle deferred."
+}

@@ -2,8 +2,9 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Dumbbell Biceps Curl were merged in #176–207.
-Female Straight-Bar Biceps Curl is selected. Next: Female EZ-Bar Biceps Curl. Review
+Female pairs through Straight-Bar Biceps Curl merged in #176–208.
+#209 merged to a feature branch; carry its approved Female EZ pair into develop
+with the selected Female Hammer Curl. Next: Female Cable Biceps Curl. Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.

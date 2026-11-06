@@ -1,0 +1,29 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Create ONE CRESUM premium realistic 3D instruction sheet: FEMALE STANDING DUMBBELL HAMMER CURL, START and FINISH together in a wide 2:1 composition with two equal square white studio panels. No text, labels, arrows, border, divider, logos or muscle overlays. Reference 1 locks adult Female Master face, brown ponytail, natural athletic proportions, slate-blue Tshirt, charcoal full leggings, white socks, lightgray sneakers. References 2 and 3 define movement and equipment only; recreate woman. SAME pair of compact black round-ended dumbbells with short silver handles, identical sizes and symmetrical ends in both panels. NEUTRAL HAMMER GRIP throughout, palms facing each other, thumbs uppermost, wrists straight; no supination, no palms-up curl. LEFT START: stand tall feet hip-width flat, arms lowered beside thighs, elbows almost extended but unlocked, dumbbell shafts oriented fore-aft. RIGHT FINISH: simultaneously flex both elbows bringing dumbbells toward front of shoulders, shafts now approximately vertical, upper black ends above hands, lower black ends below; upper arms stay near ribs mostly vertical, shoulders relaxed, torso upright without leaning or swinging. Exactly two dumbbells and two securely closed anatomical hands with thumbs wrapped, no floating equipment. Same head, torso, legs and feet coordinates, scale, camera, equipment dimensions and character identity across phases; only forearms/dumbbells move. Three-quarter FRONT view facing slightly viewer-right, both hands and dumbbells unobscured. Full head/ponytail, legs/shoes, arms and all weights fit in each square with small consistent margins, body fills available height harmoniously. Clean uniform skin, matte cloth, silver metal and black weights, white studio, soft shadows. Generate both phases in one image.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/hammer-curl/start.webp",
+      "sha256": "0dfe6d7247e2b100a85641287e584f7ab15676cd5793fb392cc2bf6a4c659d66",
+      "bytes": 34314
+    },
+    {
+      "file": "assets/exercises/hammer-curl/finish.webp",
+      "sha256": "87a918b14d51070020a5663ad400567fcf918c7bd04ccc9733cb39b33909bec7",
+      "bytes": 36096
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-8a6fcf17-b901-4851-b1cc-2bc6fd09f520.png",
+    "sourceLibraryFileId": "libfile_ba9aac18e004819197667a7a2cfe0c53",
+    "sourceSha256": "fb2bd7df7d906cd8967ea62ef7fe909de5eb00c428ef23f9d508a77f78d77145",
+    "sourceBytes": 1612166,
+    "sourceSize": [1774, 887]
+  }
+}
