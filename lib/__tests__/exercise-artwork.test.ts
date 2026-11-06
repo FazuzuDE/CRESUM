@@ -694,7 +694,6 @@ it('binds only the selected straight-bar Male curl and preserves its roles', () 
     'Straight-bar standing curl.',
   );
   for (const phase of ['start', 'finish'] as const) {
-    expect(resolveExerciseArtwork('barbell-curl', phase, 'female')).toBeNull();
     for (const id of ['preacher-curl', 'bodyweight-dip', 'unknown'])
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
   }

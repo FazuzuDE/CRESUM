@@ -361,6 +361,10 @@ jest.mock(
   '../../assets/exercises/dumbbell-biceps-curl/female/finish.webp',
   () => 6402,
 );
+jest.mock('../../assets/exercises/barbell-curl/start.webp', () => 6501);
+jest.mock('../../assets/exercises/barbell-curl/finish.webp', () => 6502);
+jest.mock('../../assets/exercises/barbell-curl/female/start.webp', () => 6601);
+jest.mock('../../assets/exercises/barbell-curl/female/finish.webp', () => 6602);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -481,7 +485,7 @@ it('resolves female phases only for the approved exact variants', () => {
   );
   expect(resolveExerciseArtwork('cable-crunch', 'start', 'female')).toBe(3601);
   expect(resolveExerciseArtwork('cable-crunch', 'finish', 'female')).toBe(3602);
-  for (const id of ['barbell-curl', 'ez-bar-curl', 'unknown'])
+  for (const id of ['hammer-curl', 'ez-bar-curl', 'unknown'])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -510,6 +514,7 @@ it.each([
   ['dumbbell-shrug', [3901, 3902, 3901], [4001, 4002, 4001]],
   ['farmers-carry', [4101, 4102, 4101], [4201, 4202, 4201]],
   ['bodyweight-step-up', [4501, 4502, 4501], [4601, 4602, 4601]],
+  ['barbell-curl', [6501, 6502, 6501], [6601, 6602, 6601]],
   ['dumbbell-biceps-curl', [6301, 6302, 6301], [6401, 6402, 6401]],
   ['kettlebell-goblet-squat', [6101, 6102, 6101], [6201, 6202, 6201]],
   ['barbell-deadlift', [5901, 5902, 5901], [6001, 6002, 6001]],
@@ -569,8 +574,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="barbell-curl" />
-        <TechniqueArtwork imageKey="barbell-curl" phase="START" />
+        <ExerciseArtwork imageKey="ez-bar-curl" />
+        <TechniqueArtwork imageKey="ez-bar-curl" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });

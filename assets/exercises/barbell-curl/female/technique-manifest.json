@@ -1,0 +1,63 @@
+{
+  "variantId": "barbell-curl",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "7219bb4f11c135c286464c38eb06b3dc74650f629474a2483fb587f0fedb6491",
+      "bytes": 33492,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "4e84d3e4c7e1b111cbd2d2b39eee65f88593ac6351893aae46b44bca52b194d8",
+      "bytes": 31198,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-6c24c4de-3704-4150-8fb8-380a8dde3347.png",
+    "sourceLibraryFileId": "libfile_918a600f93d08191b2a4ea27020fbfcc",
+    "sourceSha256": "ad525f5db8d2d9eb4f479e8526ae1d93172f6835b415987aea71bf8df1e0c40d",
+    "sourceBytes": 1632394,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/barbell-curl/start.webp",
+        "sha256": "220be8cca1dce4154e08e34be44a21a7f2b8d9618c0a06b072abc3c69fc3ec4c",
+        "bytes": 37756
+      },
+      {
+        "file": "assets/exercises/barbell-curl/finish.webp",
+        "sha256": "2e10fe91f56285e6f8cb2478d7b55688443d85275bb2051f99e15d3ea62a4036",
+        "bytes": 36116
+      }
+    ]
+  },
+  "productionChoice": "LEFT bar at thighs arms lowered START / RIGHT elbows flexed bar raised FINISH, straight-bar standing supinated curl. Preserve guide, biceps Primary, forearms Secondary, identity and History. Not EZ bar or dumbbell curl.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad identity/outfit, lowered-to-curled phases, straight bar and full-frame fit reviewed. Exact fingers/thumb/grip, wrist/elbow/shoulder positions, torso control, bar/plate/body registration and device/accessibility acceptance remain open. No new biomechanics/source certification.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Exact prompt and actual input hashes recorded; cumulative checkpoint pending; Oracle deferred."
+}
