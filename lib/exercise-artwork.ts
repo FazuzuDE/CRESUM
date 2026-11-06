@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'barbell-bench-press': {
+    start: require('../assets/exercises/barbell-bench-press/female/start.webp'),
+    finish: require('../assets/exercises/barbell-bench-press/female/finish.webp'),
+  },
   'assisted-dip-machine': {
     start: require('../assets/exercises/assisted-dip-machine/female/start.webp'),
     finish: require('../assets/exercises/assisted-dip-machine/female/finish.webp'),

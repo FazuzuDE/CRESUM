@@ -1,0 +1,28 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Create ONE premium realistic CRESUM 3D instruction sheet FEMALE FLAT BARBELL BENCH PRESS, both phases in two equal square panels wide2:1. LEFT START lowered bar over mid/lower sternum, RIGHT FINISH pressed bar above shoulders arms nearly straight. No text/labels/arrows/border/divider/logos/muscle overlays. Image1 exact adult Female Master, natural athletic proportions, brown ponytail, slate-blue fitted Tshirt, charcoal leggings, white socks/lightgray sneakers. Images2/3 same silver rack/flat bench/bar and movement only, replace man with woman. Comfortable STANDARD overhand grip moderately wider than shoulders, visibly wider than close-grip press. Secure thumbs wrapped, wrists over forearms. START elbows bend with upper arms about45\u201360 degrees from torso, forearms vertical; bar over chest with clear safe separation from neck. FINISH extends elbows, bar above shoulder line. Head/upper back/hips supported, modest natural arch, feet flat. Same straight silver bar, symmetric black plates/collars, satin SILVER rack and bench legs, dark matte pad, coherent safety setup. Same camera three-quarter FOOT-END view as refs, body/feet/head/bench/rack scale and registration in both phases; only pressing arms/bar move. Full bar sleeves/plates, ponytail, shoes and rack fit inside both squares with equal large harmonious scale and small margins. Exactly two anatomical hands/arms and one rigid bar, correct fingers/contacts, no extra handles. Uniform premium skin and matte clothes/metal, white studio soft floor shadows. Both phases generated together.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/barbell-bench-press/start.webp",
+      "sha256": "a2690c7324a4ff892d3334272c33b83b4cc0df0de83964c2eccc1e88911ffe53",
+      "bytes": 57330
+    },
+    {
+      "file": "assets/exercises/barbell-bench-press/finish.webp",
+      "sha256": "649f360d980ef764662d1a14a20aa07603acabc64611cc576a655448789593ef",
+      "bytes": 58702
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-f622d59f-fb23-4553-88dc-eec48cb6ca3d.png",
+    "sourceLibraryFileId": "libfile_97df2dbf033481918ebb1b6820105b8d",
+    "sourceSha256": "88489914fa0984a2aadeef20351f01cac6e993ce72c1502bfb7deacbad8f3c8a",
+    "sourceBytes": 1615165,
+    "sourceSize": [1774, 887]
+  }
+}
