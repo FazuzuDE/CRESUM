@@ -322,6 +322,16 @@ jest.mock(
   '../../assets/exercises/barbell-front-squat/female/finish.webp',
   () => 5802,
 );
+jest.mock('../../assets/exercises/barbell-deadlift/start.webp', () => 5901);
+jest.mock('../../assets/exercises/barbell-deadlift/finish.webp', () => 5902);
+jest.mock(
+  '../../assets/exercises/barbell-deadlift/female/start.webp',
+  () => 6001,
+);
+jest.mock(
+  '../../assets/exercises/barbell-deadlift/female/finish.webp',
+  () => 6002,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -442,7 +452,11 @@ it('resolves female phases only for the approved exact variants', () => {
   );
   expect(resolveExerciseArtwork('cable-crunch', 'start', 'female')).toBe(3601);
   expect(resolveExerciseArtwork('cable-crunch', 'finish', 'female')).toBe(3602);
-  for (const id of ['kettlebell-goblet-squat', 'barbell-deadlift', 'unknown'])
+  for (const id of [
+    'kettlebell-goblet-squat',
+    'dumbbell-biceps-curl',
+    'unknown',
+  ])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -471,6 +485,7 @@ it.each([
   ['dumbbell-shrug', [3901, 3902, 3901], [4001, 4002, 4001]],
   ['farmers-carry', [4101, 4102, 4101], [4201, 4202, 4201]],
   ['bodyweight-step-up', [4501, 4502, 4501], [4601, 4602, 4601]],
+  ['barbell-deadlift', [5901, 5902, 5901], [6001, 6002, 6001]],
   ['barbell-front-squat', [5701, 5702, 5701], [5801, 5802, 5801]],
   ['barbell-back-squat', [5501, 5502, 5501], [5601, 5602, 5601]],
   ['smith-machine-squat', [5301, 5302, 5301], [5401, 5402, 5401]],
@@ -527,8 +542,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="barbell-deadlift" />
-        <TechniqueArtwork imageKey="barbell-deadlift" phase="START" />
+        <ExerciseArtwork imageKey="dumbbell-biceps-curl" />
+        <TechniqueArtwork imageKey="dumbbell-biceps-curl" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });
