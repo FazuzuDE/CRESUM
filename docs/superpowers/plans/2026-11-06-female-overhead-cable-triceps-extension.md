@@ -13,7 +13,9 @@ preview, requiring separate approval.
 - [x] Extend shared switching case; verify missing-binding failure.
 - [x] Exact crops, only overhead-cable-triceps-extension/Female, provenance.
 - [x] Relevant/full checks, native exports and independent review.
-- [ ] Publish develop PR, stamp actual version and verify final tree.
+- [x] Publish develop PR, stamp actual version and verify final tree.
 
 Original source/prompt/reference hashes retained for cumulative checkpoint;
 Oracle deferred. Detailed biomechanics/device acceptance remains provisional.
+
+PR #213 targets develop directly; display/native/package version 0.2.13.

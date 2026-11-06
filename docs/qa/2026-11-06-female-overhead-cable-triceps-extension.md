@@ -20,3 +20,7 @@ remain provisional. Original source libfile_06e566136fb881918ef159befb8a4f4b
 and exact prompt retained; cumulative checkpoint pending, Oracle deferred.
 Next Female Dumbbell Overhead Triceps Extension remains preview-only and awaits
 separate approval.
+
+Actual PR #213 stamped version 0.2.13 after tests/exports. Version/configuration
+and metadata formatting rechecked; published final tree matches verified local.
+Online CI pending.
