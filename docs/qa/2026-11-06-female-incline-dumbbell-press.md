@@ -11,3 +11,6 @@ failed before binding. Independent review clean; exact crops reproduced.
 Detailed grip/joints/support/feet/weights/registration/incline and native device
 acceptance provisional. Source retained; archive pending, Oracle deferred.
 Next machine chest pair requires separate approval.
+
+PR #220 version 0.2.20 stamped after tests/exports; version/configuration and
+metadata formatting rechecked. Published final tree matches local; CI pending.
