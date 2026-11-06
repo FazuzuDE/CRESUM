@@ -893,9 +893,6 @@ it('binds only Male close grip bench press and preserves shoulder-width guide an
   );
   for (const phase of ['start', 'finish'] as const) {
     expect(
-      resolveExerciseArtwork('close-grip-bench-press', phase, 'female'),
-    ).toBeNull();
-    expect(
       resolveExerciseArtwork(
         'dumbbell-overhead-triceps-extension',
         phase,

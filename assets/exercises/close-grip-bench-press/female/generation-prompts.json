@@ -1,0 +1,43 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Edit this CRESUM FEMALE CLOSE-GRIP BENCH PRESS two-panel image. Targeted correction: move the BARBELL visibly closer toward her HEAD in BOTH panels, about one palm width toward viewer LEFT relative to shoulders/torso, correcting it from too far toward abdomen. LEFT lowered START bar above upper-to-mid sternum, safely BELOW clavicles, never over neck or face; hands/wrists/elbows adapt naturally with forearms supporting the bar vertically. RIGHT pressed FINISH bar vertically above shoulder joints instead of forward over lower chest, arms nearly straight, not angled toward abdomen. Keep it a CLOSE-GRIP BENCH PRESS, never a lying triceps extension. Secure overhand approximately shoulder-width grip, hands separated, wrapped thumbs, aligned wrists. Move bar and arms coherently; preserve bar dimensions/plates and same grip. Keep EXACT same Female Master identity, face/ponytail/proportions, blue-gray Tshirt/charcoal leggings/white socks/lightgray shoes, fixed silver rack/bench, dark pad, head/back/hips/feet support, camera/scale/framing/background and premium clean uniform materials. Exactly LEFT START and RIGHT FINISH together, same two equal square panels, no text, labels, arrows or divider. Full equipment/shoes visible. Only repair bar trajectory and corresponding arms, do not redraw design.",
+  "references": [
+    {
+      "file": "/workspace/scratch/d7097cf97315/generated_images/exec-9d634956-45d7-4e21-ac7c-4fba2b0f07e0.png",
+      "sha256": "14653b2e58c97c114aa827fc7cbe8403a7c7583760be21c7b62973cfcbce27c2",
+      "bytes": 1509394
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-8b02ba38-ffc7-45e9-80be-ccc957d481cc.png",
+    "sourceLibraryFileId": "libfile_6100cad746c48191abeb0e4b3a349a6f",
+    "sourceSha256": "1d33cc721b303a2988b98aea64e45911c42e033724b590d3ef7c2b83b68b737a",
+    "sourceBytes": 1703723,
+    "sourceSize": [1774, 887]
+  },
+  "originalGeneration": {
+    "variantId": "close-grip-bench-press",
+    "status": "preview-awaiting-user-approval",
+    "prompt": "Create ONE premium realistic CRESUM 3D instruction sheet: FEMALE CLOSE-GRIP BARBELL BENCH PRESS, wide 2:1 with two equal square white studio panels. LEFT START lowered bar near lower sternum, RIGHT FINISH bar pressed above shoulders with elbows nearly straight. No labels/text/arrows/borders/divider/logos/muscle overlays. Image1 exact adult Female Master identity, brown ponytail, natural athletic proportions, slate-blue fitted Tshirt, charcoal leggings, white socks and lightgray shoes. Images2/3 movement and SAME equipment references only; replace man with woman. Same full satin SILVER rack and horizontal silver bench with black pad, straight silver bar with identical small black round plates and collars. Woman supine with head/upper back/hips supported, natural modest back arch, knees bent and both feet flat. Secure closed overhand grip approximately shoulder width, visibly separated hands, never touching and never ultra narrow; neutral aligned wrists, thumbs wrapped. LEFT lower bar toward lower chest, forearms nearly vertical, elbows comfortably tucked near sides rather than flared; bar clear of chest and face. RIGHT extend elbows lifting bar over shoulder line, do not turn into skullcrusher. Exactly two anatomical hands/arms; secure consistent grip and SAME rigid bar, plates and dimensions through phases. Whole rack/bench/bar sleeves/plates/ponytail/shoes fit in each square with consistent small margins; equal large harmonious scale, identical camera/feet/body and fixed equipment registration, only pressing arms/bar move. Three-quarter side view as references. Uniform premium natural skin/matte clothing/satin silver/black pad and plates, white studio soft contact shadows. Include sensible safety support rails on rack below lowered bar path. Both phases in ONE image.",
+    "inputProvenance": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/close-grip-bench-press/start.webp",
+        "sha256": "f075bfaef000af15f775c9edf1ac82a3392a9ce2c950b099cc6fe82f3386c997",
+        "bytes": 48776
+      },
+      {
+        "file": "assets/exercises/close-grip-bench-press/finish.webp",
+        "sha256": "f3f8b97f9fe43a7d8c0ea25b80e94410d65faa994835929629fa4705c1256065",
+        "bytes": 52532
+      }
+    ],
+    "output": "/workspace/scratch/d7097cf97315/generated_images/exec-9d634956-45d7-4e21-ac7c-4fba2b0f07e0.png",
+    "outputSha256": "14653b2e58c97c114aa827fc7cbe8403a7c7583760be21c7b62973cfcbce27c2",
+    "outputBytes": 1509394
+  }
+}

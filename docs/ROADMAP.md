@@ -2,9 +2,9 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Dumbbell Overhead Triceps Extension merged in #176–214.
-Female Lying Barbell Triceps Extension selected. Next: Female Close-Grip Bench
-Press preview. Review
+Female pairs through Lying Barbell Triceps Extension merged in #176–215.
+Female Close-Grip Bench Press repaired pair selected. Next: Female Assisted Dip
+Machine preview. Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.

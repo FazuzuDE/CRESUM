@@ -1,0 +1,53 @@
+{
+  "variantId": "close-grip-bench-press",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "ce6696c64fb114cdfab516ebde8ea915a30e12a0af1950c5c603b13f1c637fc8",
+      "bytes": 45582,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "237789e67827690099de8e3cd3a77f0f6fa1bb60a3bcd8c098a708cce4e3a7cd",
+      "bytes": 49390,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-8b02ba38-ffc7-45e9-80be-ccc957d481cc.png",
+    "sourceLibraryFileId": "libfile_6100cad746c48191abeb0e4b3a349a6f",
+    "sourceSha256": "1d33cc721b303a2988b98aea64e45911c42e033724b590d3ef7c2b83b68b737a",
+    "sourceBytes": 1703723,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "/workspace/scratch/d7097cf97315/generated_images/exec-9d634956-45d7-4e21-ac7c-4fba2b0f07e0.png",
+        "sha256": "14653b2e58c97c114aa827fc7cbe8403a7c7583760be21c7b62973cfcbce27c2",
+        "bytes": 1509394
+      }
+    ]
+  },
+  "productionChoice": "Selected repaired pair: LEFT lowered START / RIGHT pressed FINISH; bar moved toward head, FINISH above shoulders. Preserve close-grip bench press, triceps Primary/chest and front-delts Secondary, identity and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases/trajectory, identity/outfit and full frame reviewed; detailed grip/wrist/elbow/shoulder, chest clearance, safety support, registration and native device/accessibility acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}
