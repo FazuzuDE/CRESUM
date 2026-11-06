@@ -1,5 +1,18 @@
 # CRESUM Decision Log
 
+## Female Machine Chest Press — 2026-11-06
+
+Approved original LEFT START and separately regenerated FINISH based on START.
+Sources libfile_daea24facd808191beb0591a203ff427 and
+libfile_da74514bf9608191aa2b4260db6ff9ec; phase-specific source/crop hashes and
+exact prompts retained. Original RIGHT and two mechanism repairs rejected.
+Exact 887-square START and 1254-square FINISH RGB WebP92/method6, no resampling,
+shared contain. Only machine-chest-press/Female binding; 46 Female pairs,
+22 pairs / 44 frames remain. Male, guide, chest Primary/triceps and front-delts
+Secondary, stable IDs and History preserved. Detailed linkage geometry,
+registration, grip/joints and device acceptance provisional. Archive pending,
+Oracle deferred. Next Female Pec Deck Fly preview requires approval.
+
 ## Female Incline Dumbbell Press — 2026-11-06
 
 Approved exec-6ba688d1-993f-4261-b9fe-731486585e05.png,
