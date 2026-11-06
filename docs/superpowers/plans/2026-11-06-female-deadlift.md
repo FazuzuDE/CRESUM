@@ -12,8 +12,11 @@ fetch is unavailable; publish with canonical remote parent and matching local tr
 
 - [x] Extend switch/fallback cases and observe missing binding fail.
 - [x] Add exact assets, binding, original prompt and actual input provenance.
-- [ ] Run tests/typecheck/lint/format/native exports; independent review.
-- [ ] Publish draft PR; stamp actual PR version, verify metadata, mark ready.
+- [x] Run tests/typecheck/lint/format/native exports; independent review.
+- [x] Publish draft PR; stamp actual PR version, verify metadata, mark ready.
 
 Review focus: phase order, exact-variant scope, shared character switching,
 unavailable Female placeholders, crop/provenance reproduction, Male-only offset.
+
+PR #205, display 0.2.05/package 0.2.5. Full 148 suites / 1395 tests passed.
+Checks, native exports and independent review passed; CI/device QA pending.
