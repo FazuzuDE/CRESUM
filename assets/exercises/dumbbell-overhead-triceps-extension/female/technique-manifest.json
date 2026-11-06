@@ -1,0 +1,63 @@
+{
+  "variantId": "dumbbell-overhead-triceps-extension",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "0fc3c54fe9566e16e6b6a90345286e21e53ee407e5cb07755fcf0e1360892c47",
+      "bytes": 24084,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "d3e23feac7193dffd9c182ceab9f8d52edffa71468136840f1a02045f84fd0ce",
+      "bytes": 23434,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-89a659af-1e53-4a60-bb7b-473f53a48b2c.png",
+    "sourceLibraryFileId": "libfile_098eb20711808191a98f38cbe68aba7c",
+    "sourceSha256": "92df25f976ae251183d0504ccdf2dcc4c20dd38e826e8f4202be97baa95ec47e",
+    "sourceBytes": 1597687,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/dumbbell-overhead-triceps-extension/start.webp",
+        "sha256": "50be15788f67a3175b7dbebe4547d6f904d1ff9747212e9cbb30fd08d082c438",
+        "bytes": 28412
+      },
+      {
+        "file": "assets/exercises/dumbbell-overhead-triceps-extension/finish.webp",
+        "sha256": "ab8bee2aea4b967ed46c6ec40a1cb717abf36bab6177f5bc30243e4eb24a2d70",
+        "bytes": 27206
+      }
+    ]
+  },
+  "productionChoice": "LEFT bent START / RIGHT overhead extended FINISH, one vertical dumbbell supported by both hands under upper head. Preserve triceps Primary/no Secondary, guide, identity and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases, identity/outfit, one dumbbell and full frame reviewed; detailed hand contact/wrist/elbow/shoulder, torso control, phase registration, upper margin and device/accessibility acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}

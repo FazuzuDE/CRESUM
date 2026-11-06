@@ -2,9 +2,9 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Cable Triceps Pushdown merged in #176–212.
-Female Overhead Cable Triceps Extension selected for integration. Next: Female
-Dumbbell Overhead Triceps Extension preview. Review
+Female pairs through Overhead Cable Triceps Extension merged in #176–213.
+Female Dumbbell Overhead Triceps Extension selected. Next: Female Lying Barbell
+Triceps Extension preview. Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.

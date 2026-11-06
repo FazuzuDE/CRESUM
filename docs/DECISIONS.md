@@ -1,5 +1,17 @@
 # CRESUM Decision Log
 
+## Female Dumbbell Overhead Triceps Extension — 2026-11-06
+
+Approved after #213 merged. Source exec-89a659af-1e53-4a60-bb7b-473f53a48b2c.png,
+native libfile_098eb20711808191a98f38cbe68aba7c. LEFT bent START / RIGHT extended
+FINISH, one dumbbell with two-hand support. Exact 887-square RGB WebP92/method6
+halves; only dumbbell-overhead-triceps-extension/Female. 39 Female pairs.
+Preserve Male, guide, triceps Primary/no Secondary, IDs and History. Detailed
+hand contacts, joint/torso alignment, registration and device/accessibility QA
+remain provisional. Original/prompt/reference hashes retained; cumulative archive
+pending, Oracle deferred. Next: Female Lying Barbell Triceps Extension preview,
+requiring separate approval.
+
 ## Female Overhead Cable Triceps Extension — 2026-11-06
 
 After #212 merged to develop, user approved the shown pair
