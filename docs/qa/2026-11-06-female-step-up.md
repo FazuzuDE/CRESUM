@@ -1,4 +1,4 @@
-# Female Bodyweight Step-up — validation
+# Female Bodyweight Step-up — PR #198
 
 Approved user JPEG `0258ADA8-E4ED-4D35-ACCE-DCABFF935A6E.jpeg`, native source
 `libfile_00abb08fb7cc8191959666110022d3d5`, retained as `female/source.jpeg`.
@@ -30,3 +30,7 @@ deferred. Next Female Dumbbell Floor Glute Bridge is a preview, not registered.
 Publication: user explicitly approved uploading the supplied image/source, derived
 WebPs and provenance to FazuzuDE/CRESUM and creating the PR on 2026-11-06.
 Command-line Git has no credentials; publish via the connected GitHub service.
+
+PR #198 targets develop. Version stamped 0.1.98 after tests/exports; metadata
+version/configuration checks pass. Published content tree matched the verified
+local tree before stamping. CI and physical-device acceptance remain pending.
