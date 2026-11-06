@@ -1,5 +1,17 @@
 # CRESUM Decision Log
 
+## Female Lying Barbell Triceps Extension — 2026-11-06
+
+Approved after #214 merged. Source exec-12ff5375-9f60-41e4-9e75-cd3f523c8817.png,
+native libfile_5d178717944c81918364525bd260ee4d. LEFT bent START / RIGHT extended
+FINISH, straight bar and silver bench. Exact 887-square RGB WebP92/method6
+halves; only lying-barbell-triceps-extension/Female. 40 Female pairs.
+Preserve Male, guide, triceps Primary/no Secondary, IDs and History. Detailed
+grip/joint alignment, forehead clearance, support/feet, registration and native
+device/accessibility QA remain provisional. Original/prompt/reference hashes
+retained; cumulative archive pending, Oracle deferred. Next: Female Close-Grip
+Bench Press preview, requiring separate approval.
+
 ## Female Dumbbell Overhead Triceps Extension — 2026-11-06
 
 Approved after #213 merged. Source exec-89a659af-1e53-4a60-bb7b-473f53a48b2c.png,

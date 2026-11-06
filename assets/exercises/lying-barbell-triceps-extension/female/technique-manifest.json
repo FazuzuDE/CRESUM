@@ -1,0 +1,63 @@
+{
+  "variantId": "lying-barbell-triceps-extension",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "94347693dc92f5fefacdefcf9c23e65d21a18e1955d8dbfba6386529342cb663",
+      "bytes": 48488,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "08cfbc6ab1e505d7b63802e8b220022b7ae3f47f0f54ff5414618b439c5b9ebd",
+      "bytes": 50918,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-12ff5375-9f60-41e4-9e75-cd3f523c8817.png",
+    "sourceLibraryFileId": "libfile_5d178717944c81918364525bd260ee4d",
+    "sourceSha256": "1183cce13a92ae9d9005fc065913292a14ee1613a0cea2cc1d29fb9a629ac6e7",
+    "sourceBytes": 1815528,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/lying-barbell-triceps-extension/start.webp",
+        "sha256": "6da5be298183ad1928ea268b4023d50a41050a8d4e313584cb94e09349496cb0",
+        "bytes": 40214
+      },
+      {
+        "file": "assets/exercises/lying-barbell-triceps-extension/finish.webp",
+        "sha256": "1d612a385ad16fff74b30646ff031ff342351e90826e9bf5c66630ffa39230ab",
+        "bytes": 40606
+      }
+    ]
+  },
+  "productionChoice": "LEFT bent START / RIGHT extended FINISH, supine straight-bar triceps extension on silver bench. Preserve triceps Primary/no Secondary, guide, identity and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases, identity/outfit, straight bar and full frame reviewed; detailed hand grip/wrist/elbow/shoulder, forehead clearance, support/feet, phase registration and device/accessibility acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}

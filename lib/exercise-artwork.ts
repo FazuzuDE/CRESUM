@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'lying-barbell-triceps-extension': {
+    start: require('../assets/exercises/lying-barbell-triceps-extension/female/start.webp'),
+    finish: require('../assets/exercises/lying-barbell-triceps-extension/female/finish.webp'),
+  },
   'dumbbell-overhead-triceps-extension': {
     start: require('../assets/exercises/dumbbell-overhead-triceps-extension/female/start.webp'),
     finish: require('../assets/exercises/dumbbell-overhead-triceps-extension/female/finish.webp'),

@@ -431,6 +431,22 @@ jest.mock(
   '../../assets/exercises/dumbbell-overhead-triceps-extension/female/finish.webp',
   () => 7802,
 );
+jest.mock(
+  '../../assets/exercises/lying-barbell-triceps-extension/start.webp',
+  () => 7901,
+);
+jest.mock(
+  '../../assets/exercises/lying-barbell-triceps-extension/finish.webp',
+  () => 7902,
+);
+jest.mock(
+  '../../assets/exercises/lying-barbell-triceps-extension/female/start.webp',
+  () => 8001,
+);
+jest.mock(
+  '../../assets/exercises/lying-barbell-triceps-extension/female/finish.webp',
+  () => 8002,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -558,6 +574,7 @@ it('resolves female phases only for the approved exact variants', () => {
 });
 
 it.each([
+  ['lying-barbell-triceps-extension', [7901, 7902, 7901], [8001, 8002, 8001]],
   [
     'dumbbell-overhead-triceps-extension',
     [7701, 7702, 7701],

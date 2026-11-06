@@ -1,0 +1,29 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Create ONE premium realistic CRESUM 3D instruction sheet, FEMALE LYING BARBELL TRICEPS EXTENSION, two equal square panels in a wide 2:1 image, LEFT START elbows bent bar above forehead, RIGHT FINISH elbows extended bar above shoulders. No text/arrows/border/divider/logo/muscle color. Reference1 exact adult Female Master identity, natural athletic proportions, brown ponytail, slate-blue fitted Tshirt, charcoal leggings, white socks, lightgray shoes. References2/3 movement and equipment only: replace man with same woman. Same horizontal bench with satin SILVER legs and matte dark pad; same straight silver bar with one identical small black round plate per side and collars. Supine woman, head/back/hips supported, knees bent, both feet flat. Secure overhand roughly shoulder-width grip, thumbs wrapped, neutral wrists. START upper arms remain raised, elbows bend to lower bar just above forehead with clear safe separation. FINISH extend elbows almost straight lifting bar above shoulder line, do not move upper arms into bench press. Exactly two anatomical hands/arms and one rigid symmetric bar, correct fingers and secure shaft contact. Same fixed bench, body scale/head/torso/feet, camera and frame across phases; only forearms/bar move. Three-quarter side view matching refs, full bar sleeves/plates, ponytail, bench legs and shoes visible; equal large harmonious framing with small consistent margins. Uniform premium natural skin, matte blue-gray/charcoal cloth, silver frame, black pad/plates, white studio soft floor shadows. Generate both phases together.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/lying-barbell-triceps-extension/start.webp",
+      "sha256": "6da5be298183ad1928ea268b4023d50a41050a8d4e313584cb94e09349496cb0",
+      "bytes": 40214
+    },
+    {
+      "file": "assets/exercises/lying-barbell-triceps-extension/finish.webp",
+      "sha256": "1d612a385ad16fff74b30646ff031ff342351e90826e9bf5c66630ffa39230ab",
+      "bytes": 40606
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-12ff5375-9f60-41e4-9e75-cd3f523c8817.png",
+    "sourceLibraryFileId": "libfile_5d178717944c81918364525bd260ee4d",
+    "sourceSha256": "1183cce13a92ae9d9005fc065913292a14ee1613a0cea2cc1d29fb9a629ac6e7",
+    "sourceBytes": 1815528,
+    "sourceSize": [1774, 887]
+  }
+}
