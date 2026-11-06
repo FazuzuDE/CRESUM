@@ -1,5 +1,24 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Barbell Front Squat — 2026-11-06
+
+After merging #203, user approved `exec-f661d634-6d85-458f-9802-99289dec0170.png`,
+native source `libfile_5ce04a9185908191ac57b0fff922c0aa`. LEFT upright START /
+RIGHT lowered front squat FINISH with crossed-arm front rack. Bind only
+`barbell-front-squat`/Female. Exact 887-square RGB WebP92/method6 halves,
+shared contain, no retouch/resampling/padding or independent phase transforms.
+Preserve Male, generic guide, quadriceps/glutes Primary, abs/upper-back Secondary,
+stable IDs and History. Crossed-arm appearance does not redefine generic catalog
+grip. Retain natural head descent.
+
+Coverage: 68 Male plus twenty-nine Female pairs. User-selected-provisional:
+broad phase difference, identity/outfit, front rack and full-frame fit reviewed;
+exact hand/bar/anterior-shoulder contacts, elbow/neck position, knee tracking,
+pelvis/torso alignment, foot/bar/plate registration and device/accessibility
+acceptance remain open. Original, exact prompt and actual reference hashes retained.
+Cumulative source checkpoint pending; Oracle deferred. Next: Female Barbell Deadlift
+preview, separate approval.
+
 ## Female Barbell Back Squat — 2026-11-06
 
 After merging #202, user approved `exec-620779f5-b23a-4fba-aa15-91285038d01e.png`,

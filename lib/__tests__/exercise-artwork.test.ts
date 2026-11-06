@@ -1022,11 +1022,7 @@ it('keeps Back Squat attachment and unsupported variant fallbacks', () => {
   expect(resolveAttachmentArtwork('barbell-back-squat')).toBeNull();
 });
 
-it('keeps Front Squat Female and attachment fallbacks', () => {
-  for (const phase of ['start', 'finish'] as const)
-    expect(
-      resolveExerciseArtwork('barbell-front-squat', phase, 'female'),
-    ).toBeNull();
+it('keeps Front Squat attachment fallback', () => {
   expect(resolveAttachmentArtwork('barbell-front-squat')).toBeNull();
 });
 

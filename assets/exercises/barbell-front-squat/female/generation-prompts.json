@@ -1,0 +1,29 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Create ONE CRESUM premium realistic 3D fitness instruction sheet: FEMALE BARBELL FRONT SQUAT with CROSS-ARM FRONT RACK. Wide 2:1 sheet, two equal square panels, white studio backdrop. No borders/divider/text/labels/arrows/logos/muscle highlighting. Reference1 locks exact adult Female Master face, brown ponytail, natural athletic body proportions, slate-blue Tshirt, charcoal full-length leggings, white socks and light-gray sneakers. Refs2/3 establish male movement/equipment only; recreate with woman. SAME straight silver barbell, ONE identical black round plate per sleeve, symmetric loading and sleeves in both panels. Bar is IN FRONT of body, supported by fronts of shoulders/anterior deltoids near collarbone, never behind neck and never floating or bearing on throat. Arms CROSS in front of upper chest, each hand rests OVER bar near opposite shoulder to secure it, elbows lifted forward approximately horizontal throughout. Two anatomically correct arms/hands with intelligible crossing, wrists not sharply bent; do not use clean grip or back squat grip. LEFT START: upright standing, feet around shoulder-width and toes slightly out, whole soles flat, knees softly extended, elbows high. RIGHT FINISH: controlled front squat to roughly thigh-parallel depth, hips/knees flexed, knee tracking with toes, heels planted, chest upright with natural slight forward incline and neutral spine/pelvis, elbows still high to retain shoulder shelf. SAME feet position, camera, body scale, bar length/plates/hand contact and identity between panels; natural head/bar descent, no independent finish enlargement. Three-quarter FRONT view facing slightly viewer right shows face, crossed forearms, bar support, both knees/feet, full bar and plates, entire head/ponytail/shoes within each equal square with small margins. Maximize useful frame size harmoniously, no equipment other than barbell. Consistent clean skin, matte cloth, silver metal/black plates, soft white studio lighting and floor shadows. Generate BOTH phases in one image.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/barbell-front-squat/start.webp",
+      "sha256": "8e16d22b6ccade5180c6b1b12741880aa72374c9c8bd84031a4ea32026997237",
+      "bytes": 33994
+    },
+    {
+      "file": "assets/exercises/barbell-front-squat/finish.webp",
+      "sha256": "9fe1ee07d0570c1b137d1291533afb0648c85e25027e2268fd7f0fae6a9f128d",
+      "bytes": 34766
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-f661d634-6d85-458f-9802-99289dec0170.png",
+    "sourceLibraryFileId": "libfile_5ce04a9185908191ac57b0fff922c0aa",
+    "sourceSha256": "6b663a3a7962dfbd2a64f0956f388587cd19035ea524b98990fce9b6308d1230",
+    "sourceBytes": 1307920,
+    "sourceSize": [1774, 887]
+  }
+}
