@@ -1,4 +1,4 @@
-# Female Bulgarian Split Squat — validation
+# Female Bulgarian Split Squat — PR #201
 
 User approved `exec-92bd9190-40fa-40f4-8798-2fae1e91780d.png`, native source
 `libfile_03a32c2251248191abea4f80b64ea507`, after merging #200. LEFT upper split
@@ -20,3 +20,9 @@ pelvis/torso alignment, bench/body registration and device/accessibility accepta
 remain open. No side-specific anatomy claim or new biomechanics/source certification.
 Cumulative source checkpoint pending; Oracle deferred. Next Female Smith Machine
 Squat pair is preview-only, not registered.
+
+Actual PR #201 stamped display 0.2.01 (package/Expo 0.2.1) after tests/exports;
+version/configuration and metadata formatting passed afterward. Anatomy/localization
+checks passed. Offline dependencies report up to date with the normal reliability
+warning; final online compatibility remains with CI. Initial published tree matched
+local 080347dd111f06a4079b8cd601b574e9c2e2a861.
