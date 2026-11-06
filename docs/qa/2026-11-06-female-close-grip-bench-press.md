@@ -11,3 +11,6 @@ failed before binding. Independent review clean; exact crops reproduced.
 Detailed grip/joint alignment, chest clearance, safety support, registration and
 native device acceptance provisional; cumulative archive pending, Oracle deferred.
 Next assisted dip preview requires separate approval.
+
+PR #216 version 0.2.16 stamped after tests/exports; version/configuration and
+metadata formatting rechecked. Published final tree matches local; CI pending.
