@@ -795,9 +795,6 @@ it('binds Male high cable pushdown without narrowing generic attachment or borro
     'High-cable elbow extension; attachment unspecified.',
   );
   for (const phase of ['start', 'finish'] as const) {
-    expect(
-      resolveExerciseArtwork('cable-triceps-pushdown', phase, 'female'),
-    ).toBeNull();
     expect(resolveExerciseArtwork('cable-biceps-curl', phase, 'male')).toBe(
       phase === 'start' ? 2501 : 2502,
     );

@@ -2,9 +2,9 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Hammer Curl and EZ integration merged in #176–210.
-Female Cable Biceps Curl selected for integration. Next: Female Cable Triceps
-Pushdown preview. Review
+Female pairs through Cable Biceps Curl merged in #176–211.
+Female Cable Triceps Pushdown selected for integration. Next: Female Overhead
+Cable Triceps Extension preview. Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.

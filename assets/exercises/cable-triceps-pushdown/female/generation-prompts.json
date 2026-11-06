@@ -1,0 +1,29 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Use case: stylized-concept. Create ONE premium realistic CRESUM 3D exercise instruction sheet: FEMALE CABLE TRICEPS PUSHDOWN WITH ROPE, both START and FINISH together, wide 2:1 image with two equal square white studio panels. No text, arrows, labels, lines, divider, border, logo or muscle colors. Image1 is the exact approved Female Master identity/outfit/proportions reference; images2/3 are movement/equipment references only: replace man with same adult natural athletic woman, brown ponytail, fitted muted slate-blue Tshirt, charcoal full-length leggings, white socks and lightgray sneakers. Preserve her natural adult proportions, uniform skin and matte clothes, no exaggerated muscles. In BOTH panels the SAME full light satin-SILVER cable tower on viewer RIGHT, black weight stack, high pulley above head, rope attached by ONE central carabiner with a continuous taut cable to HIGH pulley. Woman on viewer LEFT, same three-quarter front angle facing tower slightly to right, feet hip width planted, knees soft, torso near upright stable. LEFT START: elbows bent about 90 degrees, upper arms close and vertical beside ribs, forearms forward, two hands hold separate rope branches in neutral grip with thumbs wrapped, rubber end stops just below fists, hands at upper waist. RIGHT FINISH: both elbows extend downward until nearly straight, upper arms stay close to ribs; hands and rope ends lower to upper thighs, rope tips separate slightly naturally. Wrists straight, no shoulder extension/swing or shrug. Exactly two arms/hands and two rope branches/rubber stops; rope/carabiner/cable contiguous, no extra handle or loose loops. FINISH selected upper weight plates raised with clear gap underneath; START selected plates resting; same selected plate count and pin, no second selector pin. Camera, fixed tower frame/pulley, body scale, head/torso/hips/feet and equipment dimensions stay registered across phases; only forearms/rope/cable/selected load move. Fit entire ponytail, full shoes, hands, all rope stops and whole tower in each square at equal large scale and consistent small margins. Soft white studio light, white floor subtle contact shadows, uniform premium skin/cloth/satin silver/black stack materials. Generate both phases in this ONE image.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/cable-triceps-pushdown/start.webp",
+      "sha256": "0a185ffc0cdaa03f101b5c78ab6dd7380838b3a961e69e0a1bd3a389303158c6",
+      "bytes": 48712
+    },
+    {
+      "file": "assets/exercises/cable-triceps-pushdown/finish.webp",
+      "sha256": "5a8362bec3240d45ebc0fa07c49d68e6be8bb65605a4a6c472cd0c812c3a1ae6",
+      "bytes": 52778
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-c378f264-c80a-4ca3-ae05-ad60fccb8753.png",
+    "sourceLibraryFileId": "libfile_1a510d0256608191a7c88e49347ed9a1",
+    "sourceSha256": "364e7f4975faca2803b6a5bde5a6166fd25afb759680bcabbb8a1edac9f4c933",
+    "sourceBytes": 1707247,
+    "sourceSize": [1774, 887]
+  }
+}
