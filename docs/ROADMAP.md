@@ -2,8 +2,8 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Barbell Deadlift were merged in #176–205.
-Female Kettlebell Goblet Squat is selected. Next: Female Dumbbell Biceps Curl. Review
+Female pairs through Kettlebell Goblet Squat were merged in #176–206.
+Female Dumbbell Biceps Curl is selected. Next: Female Straight-Bar Biceps Curl. Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.

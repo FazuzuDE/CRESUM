@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'dumbbell-biceps-curl': {
+    start: require('../assets/exercises/dumbbell-biceps-curl/female/start.webp'),
+    finish: require('../assets/exercises/dumbbell-biceps-curl/female/finish.webp'),
+  },
   'kettlebell-goblet-squat': {
     start: require('../assets/exercises/kettlebell-goblet-squat/female/start.webp'),
     finish: require('../assets/exercises/kettlebell-goblet-squat/female/finish.webp'),

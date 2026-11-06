@@ -1,0 +1,63 @@
+{
+  "variantId": "dumbbell-biceps-curl",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "704c7099340211d47b2cb0a7305e69e13d6f7b3c8020beae9ea78e2c0e829b44",
+      "bytes": 31382,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "652378b156a79998a313255022e79bac264f3c761023e0f3dd84f990e5cdf2db",
+      "bytes": 29274,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-20aba379-f057-4a0c-91a3-21c37014855f.png",
+    "sourceLibraryFileId": "libfile_4151f57740948191a84457a2300be88d",
+    "sourceSha256": "2c5aa8d3580ae8f5b858085c34c9a3e63f2a78aace8d0001071aea242feab42b",
+    "sourceBytes": 1633939,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/dumbbell-biceps-curl/start.webp",
+        "sha256": "e3a7f955c935aaa0fdfc9ce43d75f851fc144e13d1600d7f5dac9b0456a02df5",
+        "bytes": 34074
+      },
+      {
+        "file": "assets/exercises/dumbbell-biceps-curl/finish.webp",
+        "sha256": "b06ec9e46d5b75b96dbf79cd73d55ce1aa5aca311bb2a14ac2d1b908d0397bc5",
+        "bytes": 32704
+      }
+    ]
+  },
+  "productionChoice": "LEFT arms lowered START / RIGHT both elbows flexed FINISH, supinated dumbbell curl. Preserve guide, biceps Primary, forearms Secondary, identity and History. Standing bilateral visual example does not redefine generic catalog scope.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms.",
+  "reviewScope": "User-selected-provisional. Broad identity/outfit, lowered-to-curled phases, two dumbbells and full-frame fit reviewed. Exact fingers/thumb/grip, supination/wrist/elbow/shoulder positions, torso control, dumbbell/body registration and device/accessibility acceptance remain open. No new biomechanics/source certification.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Exact prompt and actual input hashes recorded; cumulative checkpoint pending; Oracle deferred."
+}

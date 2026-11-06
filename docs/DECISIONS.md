@@ -1,5 +1,23 @@
 # CRESUM Decision Log
 
+## Female Dumbbell Biceps Curl — 2026-11-06
+
+After merging #206, user approved `exec-20aba379-f057-4a0c-91a3-21c37014855f.png`,
+native source `libfile_4151f57740948191a84457a2300be88d`. LEFT arms lowered START /
+RIGHT both elbows flexed FINISH, supinated dumbbell curl. Bind only
+`dumbbell-biceps-curl`/Female. Exact 887-square RGB WebP92/method6 halves,
+shared contain, no retouch/resampling/padding or independent phase transforms.
+Preserve Male, guide, biceps Primary, forearms Secondary, stable IDs and History.
+Standing bilateral appearance does not redefine generic catalog scope.
+
+Coverage: 68 Male plus thirty-two Female pairs. User-selected-provisional:
+broad phase difference, identity/outfit, two dumbbells and full-frame fit reviewed;
+exact fingers/thumb/grip, supination/wrist/elbow/shoulder positions, torso control,
+dumbbell/body registration and device/accessibility acceptance remain open.
+Original, exact prompt and actual reference hashes retained. Cumulative checkpoint
+pending; Oracle deferred. Next: Female Straight-Bar Biceps Curl preview,
+separate approval.
+
 ## Female Kettlebell Goblet Squat — 2026-11-06
 
 After merging #205, user approved `exec-b5fc902d-b2e0-4ec1-80a7-449585d04611.png`,
