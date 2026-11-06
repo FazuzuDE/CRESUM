@@ -1,5 +1,17 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Assisted Dip Machine — 2026-11-06
+
+Approved exec-dae28656-7784-4662-8750-9605099f9df0.png,
+source libfile_9158bfe6b4a0819187ee5b450a5688a1. LEFT upper START / RIGHT lower
+FINISH, knee platform lowers with athlete and selected counterweight rises.
+Exact 887-square RGB WebP92/method6 halves; only assisted-dip-machine/Female.
+42 Female pairs including #216. Preserve Male, guide, triceps Primary/chest and
+front-delts Secondary, IDs and History. Detailed grip/joints/knee contact,
+stack/hidden reeving/registration/device acceptance provisional. Original and
+prompt/input chain retained; archive pending, Oracle deferred. Next Female
+Barbell Bench Press preview requires separate approval.
+
 ## Female Close-Grip Bench Press — 2026-11-06
 
 User approved repaired exec-8b02ba38-ffc7-45e9-80be-ccc957d481cc.png,
