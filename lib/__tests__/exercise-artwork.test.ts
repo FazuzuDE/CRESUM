@@ -1045,7 +1045,7 @@ it('keeps Smith Squat Female and attachment fallbacks', () => {
   expect(resolveAttachmentArtwork('smith-machine-squat')).toBeNull();
 });
 
-it.each(['dumbbell-reverse-lunge', 'bulgarian-split-squat'])(
+it.each(['bulgarian-split-squat'])(
   'keeps %s Female and attachment fallbacks',
   (id) => {
     for (const phase of ['start', 'finish'] as const)
@@ -1390,4 +1390,8 @@ it('keeps Step-up attachment fallback', () => {
 
 it('keeps Floor Glute Bridge attachment fallback', () => {
   expect(resolveAttachmentArtwork('dumbbell-floor-glute-bridge')).toBeNull();
+});
+
+it('keeps Reverse Lunge attachment fallback', () => {
+  expect(resolveAttachmentArtwork('dumbbell-reverse-lunge')).toBeNull();
 });

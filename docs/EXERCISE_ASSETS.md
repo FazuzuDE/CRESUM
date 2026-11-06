@@ -1,5 +1,22 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Dumbbell Reverse Lunge — 2026-11-06
+
+After merging #199, user approved `exec-fa5e2f97-34e0-4b28-a071-754be70858a5.png`,
+native source `libfile_a30cc02391388191ba0ac48bf3853599`. LEFT standing START /
+RIGHT lowered reverse lunge FINISH, two dumbbells hanging at sides. Bind only
+`dumbbell-reverse-lunge`/Female. Exact 887-square RGB WebP92/method6 halves,
+shared contain, no retouch/resampling/padding or independent phase transforms.
+Preserve Male, guide, quadriceps/glutes Primary, hamstrings/adductors Secondary,
+stable IDs and History. Retain natural head descent; no side-specific anatomy claim.
+
+Coverage: 68 Male plus twenty-five Female pairs. User-selected-provisional:
+broad phase difference, identity/outfit, two dumbbells and full-body fit reviewed;
+exact grip/wrist, front/rear foot contacts, knee tracking, pelvis/torso alignment,
+rigid registration and device/accessibility acceptance remain open. Original,
+exact prompt and actual reference hashes retained. Cumulative source checkpoint
+pending; Oracle deferred. Next: Female Bulgarian Split Squat preview, separate approval.
+
 ## Female Dumbbell Floor Glute Bridge — 2026-11-06
 
 After merging #198, user approved final edited pair
