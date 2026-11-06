@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'barbell-back-squat': {
+    start: require('../assets/exercises/barbell-back-squat/female/start.webp'),
+    finish: require('../assets/exercises/barbell-back-squat/female/finish.webp'),
+  },
   'smith-machine-squat': {
     start: require('../assets/exercises/smith-machine-squat/female/start.webp'),
     finish: require('../assets/exercises/smith-machine-squat/female/finish.webp'),

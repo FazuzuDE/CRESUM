@@ -1,0 +1,29 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Create ONE CRESUM premium realistic 3D exercise instruction sheet: FEMALE BARBELL BACK SQUAT, START and FINISH together, wide 2:1 composition with two equal square white studio panels. No border/divider/text/labels/arrows/logos or muscle highlighting. Reference1 locks the exact adult Female Master face, natural athletic proportions, brown ponytail, slate-blue short sleeve Tshirt, charcoal full-length leggings, white socks, light-gray sneakers. References2/3 show movement/equipment ONLY; use woman, not male anatomy. This is a FREE BARBELL high-bar back squat, no Smith machine or machine rails, no bench. SAME straight silver Olympic bar with ONE matching black round plate per sleeve on both sides, equal sleeves/collars and symmetric loading in each panel. Bar clearly rests on upper trapezius shelf behind shoulders BELOW neck, never on cervical spine and not in front of throat; hands wrap bar securely with thumbs and natural symmetric pronated grip a little outside shoulders, wrists close to neutral, elbows angled down/back. LEFT START: upright standing, feet about shoulder-width toes mildly out, whole feet flat, knees softly extended, neutral trunk. RIGHT FINISH: hips and knees flexed into controlled squat, thighs approximately parallel to ground, knees follow toes, heels planted, neutral pelvis/spine and appropriate torso inclination, balanced over midfoot. Bar remains across upper back throughout and plates move with bar. Same fixed foot positions, body scale, view, frame, bar length, plate count, clothing and character identity across panels; natural head/bar descent only, don't independently enlarge FINISH. Three-quarter FRONT view showing face and both knees/hands/feet plus full bar and plates clearly within each square with small consistent margins. Keep maximum practical scale and harmonious white space, no cropped plates or hair/shoes. Anatomically correct two arms/hands/legs, no extra fingers, no mottled materials. Clean consistent skin/matte cloth/metal/black weights, soft white studio lighting and floor shadow. Generate both phases in one image.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/barbell-back-squat/start.webp",
+      "sha256": "fb048f1678eeb9031ac24d648d8d716fc8596a9e2ff068a76cb02992d3382015",
+      "bytes": 37550
+    },
+    {
+      "file": "assets/exercises/barbell-back-squat/finish.webp",
+      "sha256": "b4a8f85337f04a0c8d7e4a2ea70be977eefa00ff1821b6270f8fb79a464e0c34",
+      "bytes": 37996
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-620779f5-b23a-4fba-aa15-91285038d01e.png",
+    "sourceLibraryFileId": "libfile_aeb6432c45cc8191827d13dc698cd83d",
+    "sourceSha256": "c8ee10dc9f8aa8ed0dd108344571b5d7ffb0bdd03e25613339a4223b1ade2852",
+    "sourceBytes": 1334881,
+    "sourceSize": [1774, 887]
+  }
+}

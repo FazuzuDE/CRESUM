@@ -1013,11 +1013,8 @@ it('binds only Male assisted dip machine and preserves shoulder-width guide and 
   expect(resolveAttachmentArtwork('assisted-dip-machine')).toBeNull();
 });
 
-it('keeps Back Squat Female, attachment and unsupported variant fallbacks', () => {
+it('keeps Back Squat attachment and unsupported variant fallbacks', () => {
   for (const phase of ['start', 'finish'] as const) {
-    expect(
-      resolveExerciseArtwork('barbell-back-squat', phase, 'female'),
-    ).toBeNull();
     expect(
       resolveExerciseArtwork('unillustrated-variant', phase, 'male'),
     ).toBeNull();

@@ -2,8 +2,8 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Bulgarian Split Squat were merged in #176–201.
-Female Smith Machine Squat is selected. Next: Female Barbell Back Squat. Review
+Female pairs through Smith Machine Squat were merged in #176–202.
+Female Barbell Back Squat is selected. Next: Female Barbell Front Squat. Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.
