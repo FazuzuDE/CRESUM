@@ -7,6 +7,8 @@ triceps roles, IDs and History. Next lying barbell pair requires separate approv
 - [x] Observe switching regression fail before binding.
 - [x] Export exact halves, binding and actual provenance.
 - [x] Full checks, exports and independent review.
-- [ ] Publish develop PR and stamp actual version.
+- [x] Publish develop PR and stamp actual version.
 
 Detailed biomechanics/device acceptance provisional; cumulative archive pending.
+
+PR #214 targets develop, version 0.2.14.

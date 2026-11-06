@@ -12,3 +12,6 @@ found no actionable findings and reproduced both crops byte-for-byte.
 Detailed hands/contacts/joint alignment, registration, upper margin and native
 device/accessibility acceptance remain provisional. Source retained; cumulative
 archive pending, Oracle deferred. Next lying-barbell pair is preview-only.
+
+PR #214 version 0.2.14 stamped after tests/exports; version/configuration and
+metadata formatting rechecked. Published final tree matches local; CI pending.
