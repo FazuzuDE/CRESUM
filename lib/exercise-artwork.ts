@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'kettlebell-goblet-squat': {
+    start: require('../assets/exercises/kettlebell-goblet-squat/female/start.webp'),
+    finish: require('../assets/exercises/kettlebell-goblet-squat/female/finish.webp'),
+  },
   'barbell-deadlift': {
     start: require('../assets/exercises/barbell-deadlift/female/start.webp'),
     finish: require('../assets/exercises/barbell-deadlift/female/finish.webp'),

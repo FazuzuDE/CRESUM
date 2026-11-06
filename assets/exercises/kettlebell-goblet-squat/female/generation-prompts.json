@@ -1,0 +1,29 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Create ONE CRESUM premium realistic3D exercise instruction sheet: FEMALE KETTLEBELL GOBLET SQUAT, START and FINISH together. Wide2:1 composition with two equal square white studio panels. No text/labels/arrows/borders/divider/logos/muscle highlights. Reference1 locks exact adult Female Master face, brown ponytail, natural athletic proportions, slate-blue short sleeve Tshirt, charcoal full-length leggings, white socks, light-gray sneakers. References2/3 show male movement and equipment only; recreate with woman. SAME ONE matte black round kettlebell with curved handle, held close to sternum by BOTH hands gripping the two sides/horns of handle, palms facing each other, thumbs/fingers naturally wrapped, neutral wrists. The ball hangs BELOW handle, secure goblet hold, elbows down near ribs. Do not substitute a dumbbell or two kettlebells. LEFT START: woman upright, feet about shoulder-width toes mildly out, whole feet planted, knees softly extended, chest naturally lifted, bell close to chest. RIGHT FINISH: controlled goblet squat with hips/knees flexed to comfortable approximately thigh-parallel depth, knees following toes, heels and whole soles flat, natural torso incline with neutral spine/pelvis; elbows between/inside knees without excessive bracing, same secure kettlebell chest hold. Same woman, clothing, equipment geometry/size, fixed feet position, body scale, camera, three-quarter FRONT view slightly toward viewer right in both panels; natural head/bell descent, do not enlarge FINISH. Full head/ponytail, hands, bell, knees and shoes inside each square with small consistent margins, maximize useful frame area. Two anatomically correct hands/arms/legs; no detached fingers or floating bell. Uniform clean skin/matte cloth/black metal, soft white studio lighting and subtle floor shadows. Generate both phases in one image.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/kettlebell-goblet-squat/start.webp",
+      "sha256": "214e16d0561ce37749a6576105b1ebccfc3dbb13bcdc967243c5367b05eecc4b",
+      "bytes": 30870
+    },
+    {
+      "file": "assets/exercises/kettlebell-goblet-squat/finish.webp",
+      "sha256": "965e23258777b8202005b64c4cbb88f111faa468ba357eb251b5c418438cce96",
+      "bytes": 31012
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-b5fc902d-b2e0-4ec1-80a7-449585d04611.png",
+    "sourceLibraryFileId": "libfile_7800f2c707688191a654c3017e114dbc",
+    "sourceSha256": "f95d9bf423c9cf8e42c3cb9651610e3894d85ce2fdfb3917921b83d900e88215",
+    "sourceBytes": 1627347,
+    "sourceSize": [1774, 887]
+  }
+}
