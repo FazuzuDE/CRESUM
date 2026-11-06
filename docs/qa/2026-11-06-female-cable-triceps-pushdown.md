@@ -19,3 +19,7 @@ reeving and native device/accessibility acceptance remain provisional.
 Original source libfile_1a510d0256608191a7c88e49347ed9a1 and exact prompt retained;
 cumulative checkpoint pending, Oracle deferred. Next Female Overhead Cable
 Triceps Extension remains preview-only and awaits separate approval.
+
+Actual PR #212 stamped version 0.2.12 after tests/exports. Version/configuration
+and metadata formatting rechecked; published final tree matches verified local.
+Online CI pending.

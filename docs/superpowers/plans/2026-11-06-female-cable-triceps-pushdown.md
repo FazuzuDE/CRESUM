@@ -13,7 +13,9 @@ Next preview: Female Overhead Cable Triceps Extension; separate approval require
 - [x] Extend shared switching case; verify missing-binding failure.
 - [x] Export exact halves; add only cable-triceps-pushdown/Female and provenance.
 - [x] Relevant/full checks, native export and independent review.
-- [ ] Publish develop PR, stamp actual version and verify final tree.
+- [x] Publish develop PR, stamp actual version and verify final tree.
 
 Original source and exact prompt/reference hashes retained; cumulative checkpoint
 pending, Oracle deferred. Detailed biomechanics/device acceptance provisional.
+
+PR #212 targets develop directly; display/native/package version 0.2.12.
