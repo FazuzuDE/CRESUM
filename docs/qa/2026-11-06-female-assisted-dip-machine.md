@@ -13,3 +13,6 @@ targets develop directly, carrying its unchanged approved pair if still needed.
 Detailed grip/joints/knee contact/stack/registration and native acceptance remain
 provisional. Source retained; archive pending, Oracle deferred. Next bench pair
 is preview-only and awaits separate approval.
+
+PR #217 version 0.2.17 stamped after tests/exports; version/configuration and
+metadata formatting rechecked. Published final tree matches local; CI pending.
