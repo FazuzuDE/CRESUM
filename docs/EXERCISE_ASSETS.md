@@ -1,5 +1,23 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Smith Machine Squat — 2026-11-06
+
+After merging #201, user approved `exec-c346dff0-825c-4474-90c5-a07118371362.png`,
+native source `libfile_4b28f38801b48191a14ac21198680df5`. LEFT upright START /
+RIGHT lowered squat FINISH in silver Smith machine. Bind only
+`smith-machine-squat`/Female. Exact 887-square RGB WebP92/method6 halves,
+shared contain, no retouch/resampling/padding or independent phase transforms.
+Preserve Male, guide, quadriceps/glutes Primary, hamstrings/adductors Secondary,
+stable IDs and History. Not free-bar back squat; retain natural head descent.
+
+Coverage: 68 Male plus twenty-seven Female pairs. User-selected-provisional:
+broad phase difference, identity/outfit, silver guided machine and full-frame fit
+reviewed; exact grip/wrist/bar-to-upper-back contacts, knee tracking, pelvis/torso
+alignment, carriage/rail/plate continuity, rigid registration and device/accessibility
+acceptance remain open. Original, exact prompt and actual reference hashes retained.
+Cumulative source checkpoint pending; Oracle deferred. Next: Female Barbell Back
+Squat preview, separate approval.
+
 ## Female Bulgarian Split Squat — 2026-11-06
 
 After merging #200, user approved `exec-92bd9190-40fa-40f4-8798-2fae1e91780d.png`,

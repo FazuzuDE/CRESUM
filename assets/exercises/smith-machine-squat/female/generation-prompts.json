@@ -1,0 +1,29 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Create ONE CRESUM premium realistic 3D exercise illustration sheet, wide 2:1, two equal square panels on white studio backdrop. FEMALE SMITH MACHINE SQUAT, two phases together. No text/labels/arrows/dividers/borders/logos. Ref1 locks exact adult Female Master identity/proportions/outfit: brown ponytail, slate blue short-sleeve Tshirt, charcoal full-length leggings, white socks, lightgray sneakers. Refs2/3 lock the existing SILVER SMITH MACHINE concept and movement: SAME light silver rack with vertical guide rails, sliding bar carriages physically engaged around both rails, straight bar across upper trapezius shelf BEHIND neck (not resting on cervical spine), equal black plates on both sleeves. No free barbell rack substitution. Same machine geometry, bench-free floor, plate counts, bar length, camera, perspective, body scale, lighting, stance and feet position in both panels. LEFT START: woman upright at top under bar, hip/shoulder-width feet flat slightly forward of rails, knees softly extended, hands in symmetric secure closed pronated grip just outside shoulders, wrists comfortable, elbows angled down/back. RIGHT FINISH: woman lowered into controlled squat around thigh parallel, knees track with toes, heels and whole feet remain planted, neutral spine/controlled pelvis, natural torso inclination, bar/carriages lower vertically on SAME rails and stay on upper back. Bar and plates move down as one rigid assembly, guide rods and rack remain fixed. Show full woman head/ponytail/hands/feet and whole machine including top crossbar and floor feet inside each square with small consistent margins, fill frame harmoniously. Same subject scale and foot coordinates; don't independently enlarge finish. Natural head descent retained. Uniform clean skin/matte clothing/silver metal/black plates, soft studio shadow. Anatomically correct hands, two arms and legs; don't alter Female Master toward male musculature. Both phases generated together.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/smith-machine-squat/start.webp",
+      "sha256": "96edcc179fa4fabcd1362ee889227cc7708f65b9d603da3c074d0c3ede6df1c4",
+      "bytes": 55654
+    },
+    {
+      "file": "assets/exercises/smith-machine-squat/finish.webp",
+      "sha256": "a77947f509fa4e1c2b123d4bfbd9442deb462584896931f5553526d56313c8ec",
+      "bytes": 52524
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-c346dff0-825c-4474-90c5-a07118371362.png",
+    "sourceLibraryFileId": "libfile_4b28f38801b48191a14ac21198680df5",
+    "sourceSha256": "30371185c4c5205fe0241c4ec97bc305f5b0f1309054f5c1b21c87fd93d23e06",
+    "sourceBytes": 1506114,
+    "sourceSize": [1774, 887]
+  }
+}
