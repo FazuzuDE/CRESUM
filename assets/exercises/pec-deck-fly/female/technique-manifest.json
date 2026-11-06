@@ -1,0 +1,63 @@
+{
+  "variantId": "pec-deck-fly",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "79578176e8c827702dc024c0477f25d5f105ccc168c1cf20793053da6cbf4d45",
+      "bytes": 58344,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "12339b3fd0f5640e6869838f10583a7734be99932bc3887554be5c1102c18b40",
+      "bytes": 55936,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-155c73cd-d80b-413d-8991-24847c43428c.png",
+    "sourceLibraryFileId": "libfile_9bbe9374fa9c8191a460a2a91a0c0ade",
+    "sourceSha256": "dd8b020799257a161993f83fdf2b0d2ac8f050778886b5c565c6a7971a93551f",
+    "sourceBytes": 1568449,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/pec-deck-fly/start.webp",
+        "sha256": "4659d78e55bc151cfdb58de6c2de7d8fb5a7071eba83318a6bfd3b8d6c240470",
+        "bytes": 53574
+      },
+      {
+        "file": "assets/exercises/pec-deck-fly/finish.webp",
+        "sha256": "957fba96e1d072e71a53649d8575f4294752b624d10626c7549d4cd3961b21a5",
+        "bytes": 50716
+      }
+    ]
+  },
+  "productionChoice": "LEFT open-arm START / RIGHT converged FINISH; selectorized pec deck. Generic machine fly identity and guide unchanged.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases, supported posture, hand contact, raised selected stack, identity and full frame reviewed. Detailed grip/joints, shoulder motion, rigid lever dimensions, registration, stack plate-count continuity and native device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}

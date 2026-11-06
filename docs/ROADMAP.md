@@ -2,9 +2,9 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Dumbbell Bench Press merged via #219.
-Female Incline Dumbbell Press and Machine Chest Press selected: 46 pairs.
-Next: Female Pec Deck Fly preview; 22 pairs / 44 frames remain.
+Female pairs through Machine Chest Press merged via #221.
+Female Pec Deck Fly selected: 47 pairs.
+Next: Female Cable Chest Fly preview; 21 pairs / 42 frames remain.
 Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.

@@ -525,6 +525,10 @@ jest.mock(
   '../../assets/exercises/machine-chest-press/female/finish.webp',
   () => 9202,
 );
+jest.mock('../../assets/exercises/pec-deck-fly/start.webp', () => 9301);
+jest.mock('../../assets/exercises/pec-deck-fly/finish.webp', () => 9302);
+jest.mock('../../assets/exercises/pec-deck-fly/female/start.webp', () => 9401);
+jest.mock('../../assets/exercises/pec-deck-fly/female/finish.webp', () => 9402);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -652,6 +656,7 @@ it('resolves female phases only for the approved exact variants', () => {
 });
 
 it.each([
+  ['pec-deck-fly', [9301, 9302, 9301], [9401, 9402, 9401]],
   ['machine-chest-press', [9101, 9102, 9101], [9201, 9202, 9201]],
   ['incline-dumbbell-press', [8901, 8902, 8901], [9001, 9002, 9001]],
   ['dumbbell-bench-press', [8701, 8702, 8701], [8801, 8802, 8801]],
