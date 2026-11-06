@@ -1,0 +1,63 @@
+{
+  "variantId": "push-up",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "836a064cee3f3762238f7d91ab6cf85691feff33edfbb2c3dec2f4f5b3f24f28",
+      "bytes": 35192,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "9f79a3edb509ca7961a701a611defb364d47251dfb68293552b7db53d8268500",
+      "bytes": 38322,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-c2abdb4b-d9b7-4691-8e79-b9d9c90d537e.png",
+    "sourceLibraryFileId": "libfile_8281d56e729881919bc12edde5353140",
+    "sourceSha256": "8a1c0b3a19ba40b8d4253569d7a09738717224a20bba82130b858c0acfd8e1f2",
+    "sourceBytes": 1519831,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/push-up/start.webp",
+        "sha256": "d11a71570401460b71c7d8f7823a5bb12b0964bc17c2df703a3d1368f796052f",
+        "bytes": 34046
+      },
+      {
+        "file": "assets/exercises/push-up/finish.webp",
+        "sha256": "efbac32c56a45d6afd19460f8c2ee0402f2b5392001dd848e5ec22b50b1960f0",
+        "bytes": 37020
+      }
+    ]
+  },
+  "productionChoice": "LEFT lowered START / RIGHT extended-arm FINISH. Standard bodyweight floor push-up on palms and toes; generic push-up identity and guide unchanged.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases, palms/toes support, identity and full frame reviewed. Detailed finger/wrist/elbow/shoulder mechanics, neutral neck, trunk/pelvis alignment, phase registration and native device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}
