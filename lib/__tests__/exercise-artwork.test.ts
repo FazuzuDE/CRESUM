@@ -712,7 +712,6 @@ it('binds selected Male EZ curl only and preserves angled grip guide and roles',
     'Standing angled EZ-bar curl.',
   );
   for (const phase of ['start', 'finish'] as const) {
-    expect(resolveExerciseArtwork('ez-bar-curl', phase, 'female')).toBeNull();
     expect(resolveExerciseArtwork('barbell-curl', phase, 'male')).toBe(
       phase === 'start' ? 2201 : 2202,
     );

@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'ez-bar-curl': {
+    start: require('../assets/exercises/ez-bar-curl/female/start.webp'),
+    finish: require('../assets/exercises/ez-bar-curl/female/finish.webp'),
+  },
   'barbell-curl': {
     start: require('../assets/exercises/barbell-curl/female/start.webp'),
     finish: require('../assets/exercises/barbell-curl/female/finish.webp'),

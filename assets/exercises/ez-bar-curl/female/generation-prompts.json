@@ -1,0 +1,29 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Create ONE CRESUM premium realistic 3D instruction sheet: FEMALE STANDING EZ-BAR BICEPS CURL, START and FINISH together. Wide 2:1 image, two equal square white studio panels. No text, labels, arrows, borders, divider, logos or muscle colors. Reference 1 locks exact adult Female Master face, brown ponytail, natural athletic proportions, slate-blue Tshirt, charcoal full-length leggings, white socks, lightgray sneakers. References 2/3 define movement and EZ equipment only; recreate woman. SAME silver EZ curl bar with symmetrical bends and ONE matching small black round plate per sleeve, identical collars, proportions and dimensions in both panels. Hands wrap the corresponding angled grip segments securely with thumbs wrapped; palms semi-supinated upward/inward, wrists naturally aligned with forearms and angled shaft, no sharply bent wrists, no hands gripping straight sections. LEFT START: upright feet hip-width flat, arms lowered almost extended without locking, bar in front of thighs, shoulders relaxed. RIGHT FINISH: flex BOTH elbows, bar raised toward lower chest with forearms upward; upper arms remain close to ribs mostly vertical, no shrug, no torso lean or swing. Same hand positions on shaft in both phases; rigid horizontal symmetric EZ bar, not straight bar, not dumbbells. Same head, torso, feet positions, scale, camera and character identity in both panels; only forearms and bar move. Three-quarter FRONT view slightly facing viewer right. Entire head, ponytail, hands, shoes, bar sleeves and plates visible, small consistent margins, large harmonious full-body framing. Exactly two anatomical arms/hands/legs, correct natural fingers, no floating bar. Consistent skin, matte clothes, silver metal, black plates, soft studio light, subtle floor shadow. Generate both phases in one image.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/ez-bar-curl/start.webp",
+      "sha256": "58012a6e13d86d693e61dc30e34d23ab38090d4d73e890ca0376bcd1c3990142",
+      "bytes": 40094
+    },
+    {
+      "file": "assets/exercises/ez-bar-curl/finish.webp",
+      "sha256": "afa113937fb22bb66e92e922d1aeac4116c164e2ed5517d971b25010e0c98848",
+      "bytes": 38958
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-cde40da4-b5eb-43d5-b15b-e23a5fe2c906.png",
+    "sourceLibraryFileId": "libfile_c5316095cfa48191a808659c686e324f",
+    "sourceSha256": "a4787773ae3361b3b98fbcaed4f618e920710170b97f6fddc69222315be15b83",
+    "sourceBytes": 1668333,
+    "sourceSize": [1774, 887]
+  }
+}
