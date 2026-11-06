@@ -2,8 +2,8 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Barbell Back Squat were merged in #176–203.
-Female Barbell Front Squat is selected. Next: Female Barbell Deadlift. Review
+Female pairs through Barbell Front Squat were merged in #176–204.
+Female Barbell Deadlift is selected. Next: Female Kettlebell Goblet Squat. Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.

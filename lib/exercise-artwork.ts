@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'barbell-deadlift': {
+    start: require('../assets/exercises/barbell-deadlift/female/start.webp'),
+    finish: require('../assets/exercises/barbell-deadlift/female/finish.webp'),
+  },
   'barbell-front-squat': {
     start: require('../assets/exercises/barbell-front-squat/female/start.webp'),
     finish: require('../assets/exercises/barbell-front-squat/female/finish.webp'),

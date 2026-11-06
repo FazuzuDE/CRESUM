@@ -1,5 +1,24 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Barbell Deadlift — 2026-11-06
+
+After merging #204, user approved `exec-b61ac022-b849-4992-98ac-43124fc75e91.png`,
+native source `libfile_90e59db0bab88191822d49bb588f4d8c`. LEFT conventional setup
+with bar on floor START / RIGHT upright bar at thighs FINISH, double-overhand grip.
+Bind only `barbell-deadlift`/Female. Exact 887-square RGB WebP92/method6 halves,
+shared contain, no retouch/resampling/padding or independent phase transforms.
+Preserve Male, generic guide, glutes/hamstrings/lower-back Primary,
+traps/forearms/quadriceps Secondary, stable IDs and History. Not Romanian or sumo.
+Existing Male-only finish translation remains Male-only; Female has no transform.
+
+Coverage: 68 Male plus thirty Female pairs. User-selected-provisional: broad
+floor-to-standing phases, identity/outfit, free barbell and full-frame fit reviewed;
+exact grip/wrist, bar-to-shin/thigh path, knee tracking, lumbar/pelvic alignment,
+foot/bar/plate registration and device/accessibility acceptance remain open.
+Original, exact prompt and actual reference hashes retained. Cumulative source
+checkpoint pending; Oracle deferred. Next: Female Kettlebell Goblet Squat preview,
+separate approval.
+
 ## Female Barbell Front Squat — 2026-11-06
 
 After merging #203, user approved `exec-f661d634-6d85-458f-9802-99289dec0170.png`,

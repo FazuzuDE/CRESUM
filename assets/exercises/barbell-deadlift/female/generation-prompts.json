@@ -1,0 +1,29 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Create ONE CRESUM premium realistic3D instruction sheet: FEMALE CONVENTIONAL BARBELL DEADLIFT, START and FINISH together. Wide2:1 with two equal square white studio panels. No text/labels/arrows/borders/divider/logos/muscle colors. Ref1 locks exact adult Female Master face, brown ponytail, natural athletic proportions, slate-blue short sleeve Tshirt, charcoal full-length leggings, white socks and light-gray sneakers. Refs2/3 show male movement and equipment only; recreate woman, same conventional floor deadlift not Romanian and not sumo. SAME straight silver Olympic bar with ONE full-size matching black round plate per side, symmetric load/collars/sleeves. LEFT START: bar ON FLOOR centered over midfoot close to shins, feet about hip-width with whole soles flat; hips hinged back and knees bent, shoulders slightly ahead of bar, hips above knees and below shoulders, neutral back and long neck, gaze on floor ahead. Two hands secure closed symmetric DOUBLE OVERHAND grip just outside legs, thumbs wrapped, straight arms outside knees and neutral wrists. RIGHT FINISH: woman stands naturally tall with knees/hips extended, bar held close against upper thighs, arms straight down, shoulders neutral, no shrug or backward lean, same overhand grip and flat feet. Same bar/plate size and number, woman scale, camera and fixed feet coordinates across both squares; bar naturally rises from floor to thighs, do not independently resize finish. Three-quarter FRONT view facing slightly viewer right showing both hand grips, both feet and bar; full head/ponytail, shoes, sleeves and plates within square panels with small margins. Use nearly all usable frame with harmonious white space, not tiny character. Anatomically correct two arms/hands/legs; no crossed arms, no extra fingers, no bar passing through shins. Neutral pelvis/spine through hinge, bar straight and rigid. Uniform clean skin, matte clothes, silver/black equipment, soft white studio light and subtle floor shadow. Generate both phases in one image.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/barbell-deadlift/start.webp",
+      "sha256": "84a3d2909857d71ea42982ca82c3ac258d061b501aabe22a22de0c200657be0d",
+      "bytes": 32590
+    },
+    {
+      "file": "assets/exercises/barbell-deadlift/finish.webp",
+      "sha256": "fcd56f694106e4a2cb70c611e4d4279bc68c43aa40983bea638fe3bf22ee9735",
+      "bytes": 34300
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-b61ac022-b849-4992-98ac-43124fc75e91.png",
+    "sourceLibraryFileId": "libfile_90e59db0bab88191822d49bb588f4d8c",
+    "sourceSha256": "0ea3a0666614903c887204e8a5d2cf7c0cc03ba8ea6491d9fbd317ed84df8b9e",
+    "sourceBytes": 1406337,
+    "sourceSize": [1774, 887]
+  }
+}

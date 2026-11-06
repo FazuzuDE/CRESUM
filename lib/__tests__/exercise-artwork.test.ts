@@ -596,7 +596,6 @@ it('binds selected deadlift phases without narrowing conventional identity or bo
   expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(1302);
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
-    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
     for (const other of [
       'deadlift',
       'romanian-deadlift',

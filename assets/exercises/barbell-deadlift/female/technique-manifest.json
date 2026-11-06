@@ -1,0 +1,63 @@
+{
+  "variantId": "barbell-deadlift",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "e66a1ab42ea0dacadf7a94ed4582d8588409fe7a13ab1e835c028ed7c096f7de",
+      "bytes": 40822,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "fa625f24af2626dbfd4ca518440be49d8a907023732382d7a705220349a9ccb2",
+      "bytes": 37466,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-b61ac022-b849-4992-98ac-43124fc75e91.png",
+    "sourceLibraryFileId": "libfile_90e59db0bab88191822d49bb588f4d8c",
+    "sourceSha256": "0ea3a0666614903c887204e8a5d2cf7c0cc03ba8ea6491d9fbd317ed84df8b9e",
+    "sourceBytes": 1406337,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/barbell-deadlift/start.webp",
+        "sha256": "84a3d2909857d71ea42982ca82c3ac258d061b501aabe22a22de0c200657be0d",
+        "bytes": 32590
+      },
+      {
+        "file": "assets/exercises/barbell-deadlift/finish.webp",
+        "sha256": "fcd56f694106e4a2cb70c611e4d4279bc68c43aa40983bea638fe3bf22ee9735",
+        "bytes": 34300
+      }
+    ]
+  },
+  "productionChoice": "LEFT conventional setup with bar on floor START / RIGHT upright bar at thighs FINISH, double-overhand grip. Preserve generic guide, glutes/hamstrings/lower-back Primary, traps/forearms/quadriceps Secondary, identity and History. Not Romanian or sumo.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Existing Male-only finish translation does not apply to Female.",
+  "reviewScope": "User-selected-provisional. Broad identity/outfit, floor-to-standing phase difference, free barbell and full-frame fit reviewed. Exact grip/wrist, bar-to-shin/thigh path, knee tracking, lumbar/pelvic alignment, foot/bar/plate registration and device/accessibility acceptance remain open. No new biomechanics/source certification.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Exact prompt and actual input hashes recorded; cumulative checkpoint pending; Oracle deferred."
+}
