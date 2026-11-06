@@ -1,0 +1,63 @@
+{
+  "variantId": "kettlebell-goblet-squat",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "859c4a0fb1b12e74dc8b24dfc29cbc2f5844f48ff9e429841a5eb0c4d56a160d",
+      "bytes": 27988,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "2f6c19c7628b9dbd59b58f7beeaeb0c93722c7c6defbd02242b044ae1cd0102d",
+      "bytes": 29052,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-b5fc902d-b2e0-4ec1-80a7-449585d04611.png",
+    "sourceLibraryFileId": "libfile_7800f2c707688191a654c3017e114dbc",
+    "sourceSha256": "f95d9bf423c9cf8e42c3cb9651610e3894d85ce2fdfb3917921b83d900e88215",
+    "sourceBytes": 1627347,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/kettlebell-goblet-squat/start.webp",
+        "sha256": "214e16d0561ce37749a6576105b1ebccfc3dbb13bcdc967243c5367b05eecc4b",
+        "bytes": 30870
+      },
+      {
+        "file": "assets/exercises/kettlebell-goblet-squat/finish.webp",
+        "sha256": "965e23258777b8202005b64c4cbb88f111faa468ba357eb251b5c418438cce96",
+        "bytes": 31012
+      }
+    ]
+  },
+  "productionChoice": "LEFT upright START / RIGHT lowered goblet squat FINISH, one kettlebell held at chest by handle horns. Preserve guide, quadriceps/glutes Primary, hamstrings/adductors/abs Secondary, concrete equipment identity and History. Do not replace existing dumbbell goblet pair.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine panel boundary retained in source crop.",
+  "reviewScope": "User-selected-provisional. Broad identity/outfit, phase difference, one chest-held kettlebell and full-frame fit reviewed. Exact fingers/thumbs/horn contact, wrists/elbows, knee tracking, lumbar/pelvic alignment, foot/bell registration and device/accessibility acceptance remain open. No new biomechanics/source certification.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Exact prompt and actual input hashes recorded; cumulative checkpoint pending; Oracle deferred."
+}

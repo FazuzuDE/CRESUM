@@ -1,5 +1,23 @@
 # CRESUM Decision Log
 
+## Female Kettlebell Goblet Squat — 2026-11-06
+
+After merging #205, user approved `exec-b5fc902d-b2e0-4ec1-80a7-449585d04611.png`,
+native source `libfile_7800f2c707688191a654c3017e114dbc`. LEFT upright START /
+RIGHT lowered goblet squat FINISH, one kettlebell held at chest by handle horns.
+Bind only `kettlebell-goblet-squat`/Female. Exact 887-square RGB WebP92/method6
+halves, shared contain, no retouch/resampling/padding or independent phase transforms.
+Preserve existing dumbbell Female pair, both Male pairs, guide, quadriceps/glutes
+Primary, hamstrings/adductors/abs Secondary, concrete equipment IDs and History.
+
+Coverage: 68 Male plus thirty-one Female pairs. User-selected-provisional:
+broad phase difference, identity/outfit, single kettlebell and full-frame fit
+reviewed; exact fingers/thumbs/horn contacts, wrists/elbows, knee tracking,
+lumbar/pelvic alignment, foot/bell registration and device/accessibility acceptance
+remain open. Fine panel boundary retained in exact source crop. Original, exact
+prompt and actual reference hashes retained. Cumulative source checkpoint pending;
+Oracle deferred. Next: Female Dumbbell Biceps Curl preview, separate approval.
+
 ## Female Barbell Deadlift — 2026-11-06
 
 After merging #204, user approved `exec-b61ac022-b849-4992-98ac-43124fc75e91.png`,
