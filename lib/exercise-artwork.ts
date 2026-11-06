@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'cable-biceps-curl': {
+    start: require('../assets/exercises/cable-biceps-curl/female/start.webp'),
+    finish: require('../assets/exercises/cable-biceps-curl/female/finish.webp'),
+  },
   'hammer-curl': {
     start: require('../assets/exercises/hammer-curl/female/start.webp'),
     finish: require('../assets/exercises/hammer-curl/female/finish.webp'),

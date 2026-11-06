@@ -764,9 +764,6 @@ it('binds selected Male low cable curl without narrowing guide or borrowing othe
     'Standing low-cable curl; attachment unspecified.',
   );
   for (const phase of ['start', 'finish'] as const) {
-    expect(
-      resolveExerciseArtwork('cable-biceps-curl', phase, 'female'),
-    ).toBeNull();
     for (const [id, start, finish] of [
       ['barbell-curl', 2201, 2202],
       ['ez-bar-curl', 2301, 2302],
