@@ -1,5 +1,18 @@
 # CRESUM Decision Log
 
+## Female Cable Chest Fly — 2026-11-06
+
+Approved repaired exec-e65aa34e-f37d-4833-97c6-42b5add862ea.png.
+LEFT open-arm START / RIGHT converged FINISH, high-pulley crossover and split
+stance. Exact 887-square RGB WebP92/method6 halves, shared contain, no resizing.
+Initial exec-65da44f4-bbae-46a0-a79c-2909f6a37b9c.png retained as repair input;
+exact generation/repair prompts and input hashes recorded. Only cable-chest-fly
+Female binding; 48 Female pairs, 20 pairs / 40 frames remain. Preserve Male,
+guide, chest Primary/front-delts Secondary, IDs and History. Detailed joints,
+cable/pulley path, plate counts/motion ratio, registration and device acceptance
+provisional. Source retained; archive pending, Oracle deferred.
+Next Female Push-up preview requires separate approval.
+
 ## Female Pec Deck Fly — 2026-11-06
 
 Approved exec-155c73cd-d80b-413d-8991-24847c43428c.png,

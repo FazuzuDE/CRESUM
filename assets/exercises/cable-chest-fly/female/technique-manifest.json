@@ -1,0 +1,70 @@
+{
+  "variantId": "cable-chest-fly",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "661e3252b38d7258de98a56ed87bc4e599f1ed713058f6aa533a9cb38fb81428",
+      "bytes": 53382,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "4f26dc86d1bcca7a579d8fdb8aaf0035ed55c018c948beae93048665e9217481",
+      "bytes": 56818,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-e65aa34e-f37d-4833-97c6-42b5add862ea.png",
+    "sourceSha256": "5cd09dd999f2ee2aa1cf11ec6fcb52cb2a46c3840055188bbb67f06eca33e909",
+    "sourceBytes": 1780047,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "/workspace/scratch/d7097cf97315/generated_images/exec-65da44f4-bbae-46a0-a79c-2909f6a37b9c.png",
+        "sha256": "a1ed4f04ef0c21794a20b478acbeeb1666434b0b3716ebc9749cab73d3bb9012",
+        "bytes": 1765670
+      }
+    ],
+    "originalReferences": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/cable-chest-fly/start.webp",
+        "sha256": "724ad00d6cbeac0ca38a16fb1ca0cacb3170463c97eabf34b68afc8f91621117",
+        "bytes": 49710
+      },
+      {
+        "file": "assets/exercises/cable-chest-fly/finish.webp",
+        "sha256": "fefdac36c339bc4a8e4a9e0ad45004e7ac0679af0401257a892f0fcb3cc49124",
+        "bytes": 54608
+      }
+    ],
+    "sourceLibraryAssociation": "Generated original retained automatically; native file ID not independently matched."
+  },
+  "productionChoice": "LEFT open-arm START / RIGHT converged FINISH, high-pulley cable fly in split stance. Repaired sheet selected; generic cable-chest-fly guide and identity unchanged.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases, split stance, cable/hand contact and identity reviewed. Detailed joints, cable/pulley path, stack plate counts and mechanical motion ratio, pair registration and native device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}
