@@ -13,3 +13,6 @@ lookup hit HTTP proxy timeout; EXPO_OFFLINE=1 compatibility check passed.
 Detailed joints, linkage geometry, registration, stack plate counts and native
 device acceptance provisional. Archive pending, Oracle deferred.
 Next Cable Chest Fly preview requires approval.
+
+PR #222 version 0.2.22 stamped after tests/exports; version/configuration and
+metadata formatting rechecked. CI pending.
