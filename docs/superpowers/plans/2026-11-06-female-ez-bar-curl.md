@@ -8,5 +8,7 @@ Preserve Male, angled grip guide, muscles, stable IDs and History.
 
 - [x] Extend switching case and observe missing-binding failure.
 - [x] Add exact crops, binding, prompt and actual reference provenance.
-- [ ] Run relevant/full tests, typecheck, lint, formatting, native exports and review.
-- [ ] Resolve canonical base, publish draft, stamp actual PR version, mark ready.
+- [x] Run relevant/full tests, typecheck, lint, formatting, native exports and review.
+- [x] Resolve canonical base, publish draft, stamp actual PR version, mark ready.
+
+PR #209 published against #208 branch pending its merge; published tree matches local.

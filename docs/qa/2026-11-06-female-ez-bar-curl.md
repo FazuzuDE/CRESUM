@@ -23,3 +23,7 @@ User-selected-provisional: exact fingers/thumb/angled grip, wrist/elbow/shoulder
 torso control and body/equipment registration QA, native device/accessibility
 acceptance remain open. No biomechanics certification. Cumulative archive
 pending; Oracle deferred. Next Female Hammer Curl preview is not registered.
+
+Actual PR #209 stamped display 0.2.09 (package/Expo 0.2.9) after tests/exports;
+version/configuration and metadata formatting passed afterward. Initial published
+tree matches local 680da91edc72caedb31914d0cea8ecd76d2c28a9.
