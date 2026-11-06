@@ -14,3 +14,6 @@ online dependency compatibility checks passed.
 Detailed joints, cable/pulley path, stack plate counts/motion ratio, registration
 and native device acceptance provisional. Archive pending, Oracle deferred.
 Next Push-up preview requires approval.
+
+PR #223 version 0.2.23 stamped after tests/exports; version/configuration and
+metadata formatting rechecked. CI pending.

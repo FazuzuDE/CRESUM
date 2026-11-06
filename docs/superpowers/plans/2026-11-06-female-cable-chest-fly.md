@@ -6,6 +6,8 @@ Preserve Male, guide, muscles, IDs and History.
 - [x] Switching regression failed before binding.
 - [x] Exact exports and generation/repair provenance.
 - [x] Full checks, exports and independent review.
-- [ ] Publish develop PR and stamp actual version.
+- [x] Publish develop PR and stamp actual version.
 
 Next Push-up preview requires approval. Detailed QA/archive provisional.
+
+PR #223 targets develop, version 0.2.23.
