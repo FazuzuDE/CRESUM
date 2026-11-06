@@ -1,0 +1,46 @@
+{
+  "status": "user-selected-provisional",
+  "initialGeneration": {
+    "prompt": "Use case: stylized-concept. Create ONE premium realistic CRESUM 3D instruction sheet FEMALE CABLE CHEST FLY using both high pulleys, same exercise and equipment as reference2/3. Wide 2:1, two equal square panels. LEFT START arms open to sides with softly bent elbows; RIGHT FINISH hands brought together low in front of lower chest/upper abdomen. No text, labels, arrows, borders, logos or muscle colors. Reference1 exact Female Master face, adult brown ponytail, natural athletic proportions, slate-blue fitted T-shirt, charcoal leggings, white socks and lightgray shoes. References2/3 equipment and movement only, replace man with woman. Same silver dual-cable crossover frame, top crossbar and high pulley on each tower, one black D-handle in each hand, carabiner and continuous taut black cable from EACH handle to its corresponding high pulley. Exactly two handles/two cables, no floating attachment or cable through body, visible secured natural fingers/thumbs and straight wrists. Stable split stance and modest forward torso lean; feet/head/torso remain registered across phases. START arms out at chest height, elbows slightly bent and behind hand line; FINISH sweep upper arms forward/down to converge hands with SAME elbow bend, a chest fly rather than pressing or bending elbows. Preserve machine rigid geometry, fixed pulleys, frame, floor position and scale. Same plates/count and weight stack shape in both phases; selected upper plates rise visibly in FINISH creating gap above fixed lower plates in BOTH stacks where visible. No invented extra plates. Same three-quarter front camera as references, full body and ENTIRE machine top/base/shoes/handles fit each panel equally large with small equal margins. White studio with soft floor shadows, uniform skin/matte clothing/silver frame/black plates. Generate START and FINISH together.",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/cable-chest-fly/start.webp",
+        "sha256": "724ad00d6cbeac0ca38a16fb1ca0cacb3170463c97eabf34b68afc8f91621117",
+        "bytes": 49710
+      },
+      {
+        "file": "assets/exercises/cable-chest-fly/finish.webp",
+        "sha256": "fefdac36c339bc4a8e4a9e0ad45004e7ac0679af0401257a892f0fcb3cc49124",
+        "bytes": 54608
+      }
+    ],
+    "output": {
+      "sourceFile": "exec-65da44f4-bbae-46a0-a79c-2909f6a37b9c.png",
+      "sha256": "a1ed4f04ef0c21794a20b478acbeeb1666434b0b3716ebc9749cab73d3bb9012",
+      "bytes": 1765670,
+      "sourceSize": [1774, 887]
+    }
+  },
+  "selectedRepair": {
+    "prompt": "Targeted repair of this paired CRESUM cable chest fly sheet. Keep female face/body/hair/clothes, limb poses, handgrips/cables, machine frame/pulleys/base, camera, crops, scale, background, lighting and all other pixels as unchanged as possible. Repair ONLY both weight stacks' plate counts and load movement. In BOTH LEFT START and RIGHT FINISH render EXACTLY TWELVE identical narrow black horizontal weight plates per tower TOTAL. In LEFT START each tower's twelve plates form one continuous stack on bottom support. In RIGHT FINISH the SAME twelve plates must split into EIGHT selected upper plates lifted modestly and FOUR unselected bottom plates remaining at same base height; visible short gap between groups, same plate thickness/width and total number12. Two towers same construction and selected count, even where one partly occluded behind woman's body. Do NOT draw twelve raised plus twelve lower: that duplicates weights. Preserve top selector plate and small pulley assembly attached to upper selected block. The only difference in finish load is vertical separation of existing plates, no added plates, no stretched stack. No other edits. No labels or text.",
+    "references": [
+      {
+        "file": "/workspace/scratch/d7097cf97315/generated_images/exec-65da44f4-bbae-46a0-a79c-2909f6a37b9c.png",
+        "sha256": "a1ed4f04ef0c21794a20b478acbeeb1666434b0b3716ebc9749cab73d3bb9012",
+        "bytes": 1765670
+      }
+    ],
+    "output": {
+      "sourceFile": "exec-e65aa34e-f37d-4833-97c6-42b5add862ea.png",
+      "sha256": "5cd09dd999f2ee2aa1cf11ec6fcb52cb2a46c3840055188bbb67f06eca33e909",
+      "bytes": 1780047,
+      "sourceSize": [1774, 887]
+    }
+  },
+  "selection": "Repaired paired sheet approved after initial duplicated-stack candidate; exact plate counts and motion ratio remain provisional."
+}
