@@ -1,5 +1,23 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Straight-Bar Biceps Curl — 2026-11-06
+
+After merging #207, user approved `exec-6c24c4de-3704-4150-8fb8-380a8dde3347.png`,
+native source `libfile_918a600f93d08191b2a4ea27020fbfcc`. LEFT bar at thighs
+START / RIGHT elbows flexed bar raised FINISH, straight-bar standing supinated curl.
+Bind only `barbell-curl`/Female. Exact 887-square RGB WebP92/method6 halves,
+shared contain, no retouch/resampling/padding or independent phase transforms.
+Preserve Male, guide, biceps Primary, forearms Secondary, stable IDs and History.
+Do not substitute EZ bar or dumbbell curl artwork.
+
+Coverage: 68 Male plus thirty-three Female pairs. User-selected-provisional:
+broad phase difference, identity/outfit, straight bar and full-frame fit reviewed;
+exact fingers/thumb/grip, wrist/elbow/shoulder positions, torso control,
+bar/plate/body registration and device/accessibility acceptance remain open.
+Fine source panel boundary retained. Original, exact prompt and actual reference
+hashes retained. Cumulative checkpoint pending; Oracle deferred. Next: Female
+EZ-Bar Biceps Curl preview, separate approval.
+
 ## Female Dumbbell Biceps Curl — 2026-11-06
 
 After merging #206, user approved `exec-20aba379-f057-4a0c-91a3-21c37014855f.png`,
