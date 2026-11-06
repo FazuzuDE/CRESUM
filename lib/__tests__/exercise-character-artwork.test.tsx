@@ -399,6 +399,22 @@ jest.mock('../../assets/exercises/barbell-curl/start.webp', () => 6501);
 jest.mock('../../assets/exercises/barbell-curl/finish.webp', () => 6502);
 jest.mock('../../assets/exercises/barbell-curl/female/start.webp', () => 6601);
 jest.mock('../../assets/exercises/barbell-curl/female/finish.webp', () => 6602);
+jest.mock(
+  '../../assets/exercises/overhead-cable-triceps-extension/start.webp',
+  () => 7501,
+);
+jest.mock(
+  '../../assets/exercises/overhead-cable-triceps-extension/finish.webp',
+  () => 7502,
+);
+jest.mock(
+  '../../assets/exercises/overhead-cable-triceps-extension/female/start.webp',
+  () => 7601,
+);
+jest.mock(
+  '../../assets/exercises/overhead-cable-triceps-extension/female/finish.webp',
+  () => 7602,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -548,6 +564,7 @@ it.each([
   ['dumbbell-shrug', [3901, 3902, 3901], [4001, 4002, 4001]],
   ['farmers-carry', [4101, 4102, 4101], [4201, 4202, 4201]],
   ['bodyweight-step-up', [4501, 4502, 4501], [4601, 4602, 4601]],
+  ['overhead-cable-triceps-extension', [7501, 7502, 7501], [7601, 7602, 7601]],
   ['cable-triceps-pushdown', [7301, 7302, 7301], [7401, 7402, 7401]],
   ['cable-biceps-curl', [7101, 7102, 7101], [7201, 7202, 7201]],
   ['hammer-curl', [6901, 6902, 6901], [7001, 7002, 7001]],

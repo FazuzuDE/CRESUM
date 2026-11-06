@@ -1,0 +1,29 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Use case: stylized-concept. Create ONE CRESUM premium realistic 3D exercise sheet: FEMALE OVERHEAD CABLE TRICEPS EXTENSION with rope, START and FINISH together, wide 2:1 composition two equal square white studio panels. No text, labels, arrows, border, divider, logo or muscle colors. Image1 locks exact adult Female Master face, brown ponytail, natural athletic proportions, muted slate-blue fitted Tshirt, charcoal full-length leggings, white socks, lightgray sneakers. Images2/3 supply only movement/cable station: replace man with same woman. The SAME full light satin SILVER narrow cable tower is on viewer LEFT behind woman in BOTH panels, black weight stack and adjustable outlet pulley approximately shoulder/head height. Woman stands on viewer RIGHT facing away from tower toward viewer-right in three-quarter front view. Stable staggered stance, both feet flat, soft knees, pelvis/ribs controlled, torso nearly upright without lumbar arch. Upper arms elevated beside head and remain stable across phases. LEFT START: both elbows bent, forearms folded behind head, each hand securely holds one branch of black rope behind upper head, separate rubber end stops visible. RIGHT FINISH: extend BOTH elbows until almost straight so hands/rope rise above head and slightly forward, upper arms remain beside ears; no shoulder shrug or torso swing. Neutral wrists and thumbs wrapped, exactly two anatomical hands/arms, each holds one separate rope branch. Cable runs visibly taut and continuous from outlet pulley behind woman to ONE central swivel/carabiner, then bifurcated rope to hands; never through body, hair or tower frame. Keep rope, rubber stops and continuous physical attachment coherent. FINISH selected load plates rise with clear gap under selected group; START selected group rests. Same selected plate count and pin, no duplicate pin. Frame, pulley location, feet/hips/torso/head, camera, character scale and equipment geometry remain registered across phases; only forearms, rope/cable and selected plates move. Entire woman including ponytail, all raised hands/rope ends, shoes and whole tower fit inside each square with enough clear overhead margin; equal large harmonious scale, no cropping. Premium uniform natural skin, matte clothing, restrained silver reflections and black stack, white studio background with soft floor contact shadows. Generate BOTH phases in this ONE image.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/overhead-cable-triceps-extension/start.webp",
+      "sha256": "172e71eb41ef80c432588e4ad2f5dbce4dcfd42276f77f683745e9a5b463dee6",
+      "bytes": 48438
+    },
+    {
+      "file": "assets/exercises/overhead-cable-triceps-extension/finish.webp",
+      "sha256": "de64175b88aa5aec86d0a1c8258c0b76b493977c15bf3498dee199200af746e8",
+      "bytes": 49386
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-3cf59c3f-0a50-4e4f-8861-70792ed541c5.png",
+    "sourceLibraryFileId": "libfile_06e566136fb881918ef159befb8a4f4b",
+    "sourceSha256": "ce005184a5f1d29eb7d3f5259ffdc8f6e685d08ba7a2615ccf86ef01e1db6cc1",
+    "sourceBytes": 1694042,
+    "sourceSize": [1774, 887]
+  }
+}

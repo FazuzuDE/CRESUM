@@ -1,0 +1,63 @@
+{
+  "variantId": "overhead-cable-triceps-extension",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "7b173e1c41251860b357cc24caf1079d4ebc71e5f211110aca6b598a7a4aa9fc",
+      "bytes": 43364,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "014f2c0da320db9a6724da798dc81894fd0f8cf77fe783df39c7b16fd7dd60ac",
+      "bytes": 45306,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-3cf59c3f-0a50-4e4f-8861-70792ed541c5.png",
+    "sourceLibraryFileId": "libfile_06e566136fb881918ef159befb8a4f4b",
+    "sourceSha256": "ce005184a5f1d29eb7d3f5259ffdc8f6e685d08ba7a2615ccf86ef01e1db6cc1",
+    "sourceBytes": 1694042,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/overhead-cable-triceps-extension/start.webp",
+        "sha256": "172e71eb41ef80c432588e4ad2f5dbce4dcfd42276f77f683745e9a5b463dee6",
+        "bytes": 48438
+      },
+      {
+        "file": "assets/exercises/overhead-cable-triceps-extension/finish.webp",
+        "sha256": "de64175b88aa5aec86d0a1c8258c0b76b493977c15bf3498dee199200af746e8",
+        "bytes": 49386
+      }
+    ]
+  },
+  "productionChoice": "LEFT bent-elbow START / RIGHT overhead extended FINISH; rope cable extension with raised selected load at FINISH. Head-height outlet is an illustration choice, preserving pulley-setup-varies guide. Preserve triceps Primary, no Secondary, identity and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad identity/outfit, bent-to-overhead-extended phases, rope/central attachment, raised FINISH load and full-frame fit reviewed. Detailed finger/thumb grip, wrist/elbow/shoulder positions, body/machine registration, plate count/hidden reeving, tight upper FINISH margin and native device/accessibility acceptance remain open. No new biomechanics/source certification.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}
