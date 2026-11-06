@@ -13,7 +13,9 @@ Next preview: Female Cable Triceps Pushdown; requires separate user approval.
 - [x] Extend shared switching case and verify missing-binding failure.
 - [x] Export exact halves and bind only cable-biceps-curl/Female; record provenance.
 - [x] Relevant/full tests, typecheck, lint, formatting, native export and review.
-- [ ] Publish develop-targeted PR, stamp actual PR version and verify final tree.
+- [x] Publish develop-targeted PR, stamp actual PR version and verify final tree.
 
 Original source, prompt and input hashes retained. Cumulative checkpoint pending;
 Oracle deferred. Detailed biomechanics/device acceptance stays provisional.
+
+PR #211 targets develop directly; display/native/package version 0.2.11.

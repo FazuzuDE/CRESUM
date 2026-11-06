@@ -18,3 +18,7 @@ counts/hidden reeving and native device/accessibility acceptance remain
 provisional. Original PNG/exact prompt retained for cumulative checkpoint;
 archive pending-upload, Oracle deferred. Next Female Cable Triceps Pushdown
 preview is not registered and awaits separate approval.
+
+Full suite: 148 suites / 1401 tests. Actual PR #211 stamped version 0.2.11
+after tests/exports. Version/configuration and metadata formatting rechecked.
+Published final tree verified against local; online CI pending.
