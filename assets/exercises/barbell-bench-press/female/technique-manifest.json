@@ -1,0 +1,63 @@
+{
+  "variantId": "barbell-bench-press",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "5c15dd565d9a3233b9f2ba16dc5f7309c923d8ff36072d0ad0eca13c4423f0f9",
+      "bytes": 54504,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "ff65880885352866ba5be2f5d56de9ad275bb2c7d190694e2de0fb8a84d411f7",
+      "bytes": 56162,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-f622d59f-fb23-4553-88dc-eec48cb6ca3d.png",
+    "sourceLibraryFileId": "libfile_97df2dbf033481918ebb1b6820105b8d",
+    "sourceSha256": "88489914fa0984a2aadeef20351f01cac6e993ce72c1502bfb7deacbad8f3c8a",
+    "sourceBytes": 1615165,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/barbell-bench-press/start.webp",
+        "sha256": "a2690c7324a4ff892d3334272c33b83b4cc0df0de83964c2eccc1e88911ffe53",
+        "bytes": 57330
+      },
+      {
+        "file": "assets/exercises/barbell-bench-press/finish.webp",
+        "sha256": "649f360d980ef764662d1a14a20aa07603acabc64611cc576a655448789593ef",
+        "bytes": 58702
+      }
+    ]
+  },
+  "productionChoice": "LEFT lowered START / RIGHT pressed FINISH, standard grip flat barbell bench press. Preserve chest Primary/triceps and front-delts Secondary, guide, identity and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases, identity/outfit, standard grip and full frame reviewed; detailed grip/wrist/elbow/shoulder, chest clearance/support/feet, registration, safety setup and device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}

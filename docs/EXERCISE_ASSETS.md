@@ -1,5 +1,16 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Barbell Bench Press — 2026-11-06
+
+Approved exec-f622d59f-fb23-4553-88dc-eec48cb6ca3d.png,
+source libfile_97df2dbf033481918ebb1b6820105b8d. LEFT lowered START / RIGHT pressed
+FINISH, standard grip flat bench. Exact 887-square RGB WebP92/method6 halves.
+Only barbell-bench-press/Female; 43 Female pairs. Preserve Male/guide/chest Primary,
+triceps and front-delts Secondary/IDs/History. Detailed grip/joints/clearance,
+support/safety setup/registration/device acceptance provisional. Original and
+prompt/input chain retained; archive pending, Oracle deferred. Next Female
+Dumbbell Bench Press preview requires separate approval.
+
 ## Female Assisted Dip Machine — 2026-11-06
 
 Approved exec-dae28656-7784-4662-8750-9605099f9df0.png,

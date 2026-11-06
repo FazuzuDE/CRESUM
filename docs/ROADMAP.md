@@ -2,9 +2,9 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through #215 merged. #216 user-reported merged, API confirmation
-pending. Approved Assisted Dip follows its verified tree; target develop directly.
-Next: Female Barbell Bench Press preview. Review
+Female pairs through Assisted Dip Machine merged into develop via #217.
+Female Barbell Bench Press selected. Next: Female Dumbbell Bench Press preview.
+Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.
