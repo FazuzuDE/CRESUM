@@ -447,6 +447,22 @@ jest.mock(
   '../../assets/exercises/lying-barbell-triceps-extension/female/finish.webp',
   () => 8002,
 );
+jest.mock(
+  '../../assets/exercises/close-grip-bench-press/start.webp',
+  () => 8101,
+);
+jest.mock(
+  '../../assets/exercises/close-grip-bench-press/finish.webp',
+  () => 8102,
+);
+jest.mock(
+  '../../assets/exercises/close-grip-bench-press/female/start.webp',
+  () => 8201,
+);
+jest.mock(
+  '../../assets/exercises/close-grip-bench-press/female/finish.webp',
+  () => 8202,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -574,6 +590,7 @@ it('resolves female phases only for the approved exact variants', () => {
 });
 
 it.each([
+  ['close-grip-bench-press', [8101, 8102, 8101], [8201, 8202, 8201]],
   ['lying-barbell-triceps-extension', [7901, 7902, 7901], [8001, 8002, 8001]],
   [
     'dumbbell-overhead-triceps-extension',

@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'close-grip-bench-press': {
+    start: require('../assets/exercises/close-grip-bench-press/female/start.webp'),
+    finish: require('../assets/exercises/close-grip-bench-press/female/finish.webp'),
+  },
   'lying-barbell-triceps-extension': {
     start: require('../assets/exercises/lying-barbell-triceps-extension/female/start.webp'),
     finish: require('../assets/exercises/lying-barbell-triceps-extension/female/finish.webp'),

@@ -1,5 +1,17 @@
 # CRESUM Decision Log
 
+## Female Close-Grip Bench Press — 2026-11-06
+
+User approved repaired exec-8b02ba38-ffc7-45e9-80be-ccc957d481cc.png,
+source libfile_6100cad746c48191abeb0e4b3a349a6f. LEFT lowered START / RIGHT pressed
+FINISH; corrected bar path toward head/above shoulders. Exact 887-square RGB
+WebP92/method6 halves. Only close-grip-bench-press/Female; 41 Female pairs.
+Preserve Male, shoulder-width guide, triceps Primary/chest and front-delts
+Secondary, stable IDs and History. Detailed grip/joints/clearance/safety setup,
+registration and device acceptance remain provisional. Both originals and exact
+prompt/input chains retained; archive pending, Oracle deferred. Next Female
+Assisted Dip Machine preview requires separate approval.
+
 ## Female Lying Barbell Triceps Extension — 2026-11-06
 
 Approved after #214 merged. Source exec-12ff5375-9f60-41e4-9e75-cd3f523c8817.png,
