@@ -1,0 +1,63 @@
+{
+  "variantId": "hammer-curl",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "1e8e6c11a52c235f0f11a16d0de851eab796450d5a350ea3059b43eb8e48c441",
+      "bytes": 26464,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "38989b134862baf7d1ff4121310d2b8bd539cc232e6755528d7358ba46946303",
+      "bytes": 25944,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-8a6fcf17-b901-4851-b1cc-2bc6fd09f520.png",
+    "sourceLibraryFileId": "libfile_ba9aac18e004819197667a7a2cfe0c53",
+    "sourceSha256": "fb2bd7df7d906cd8967ea62ef7fe909de5eb00c428ef23f9d508a77f78d77145",
+    "sourceBytes": 1612166,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/hammer-curl/start.webp",
+        "sha256": "0dfe6d7247e2b100a85641287e584f7ab15676cd5793fb392cc2bf6a4c659d66",
+        "bytes": 34314
+      },
+      {
+        "file": "assets/exercises/hammer-curl/finish.webp",
+        "sha256": "87a918b14d51070020a5663ad400567fcf918c7bd04ccc9733cb39b33909bec7",
+        "bytes": 36096
+      }
+    ]
+  },
+  "productionChoice": "LEFT lowered START / RIGHT elbows flexed FINISH, neutral-grip dumbbell hammer curl. Preserve guide, biceps and forearms Primary, no Secondary, identity and History. Not supinated curl or barbell.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad identity/outfit, lowered-to-curled phases, neutral grip and full-frame fit reviewed. Exact fingers/thumb/grip, wrist/elbow/shoulder positions, torso control, dumbbell/body registration and device/accessibility acceptance remain open. No new biomechanics/source certification.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Exact prompt and actual input hashes recorded; cumulative checkpoint pending; Oracle deferred."
+}
