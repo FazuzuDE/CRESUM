@@ -1,5 +1,18 @@
 # CRESUM Decision Log
 
+## Female Pec Deck Fly — 2026-11-06
+
+Approved exec-155c73cd-d80b-413d-8991-24847c43428c.png,
+source libfile_9bbe9374fa9c8191a460a2a91a0c0ade. LEFT open-arm START / RIGHT
+converged FINISH, silver selectorized machine with selected stack raised.
+Exact 887-square RGB WebP92/method6 halves, shared contain, no resampling.
+Only pec-deck-fly/Female; 47 Female pairs, 21 pairs / 42 frames remain.
+Preserve Male, guide, chest Primary/front-delts Secondary, stable IDs and History.
+Detailed grip/joints, rigid lever dimensions, registration, plate-count continuity
+and device acceptance provisional. Exact source/prompt/input chain retained;
+archive pending, Oracle deferred. Next Female Cable Chest Fly preview requires
+separate approval.
+
 ## Female Machine Chest Press — 2026-11-06
 
 Approved original LEFT START and separately regenerated FINISH based on START.

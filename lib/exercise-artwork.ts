@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'pec-deck-fly': {
+    start: require('../assets/exercises/pec-deck-fly/female/start.webp'),
+    finish: require('../assets/exercises/pec-deck-fly/female/finish.webp'),
+  },
   'machine-chest-press': {
     start: require('../assets/exercises/machine-chest-press/female/start.webp'),
     finish: require('../assets/exercises/machine-chest-press/female/finish.webp'),

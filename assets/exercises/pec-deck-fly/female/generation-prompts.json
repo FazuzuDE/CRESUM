@@ -1,0 +1,46 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Create ONE premium realistic CRESUM 3D instruction sheet FEMALE PEC DECK CHEST FLY. Two equal square panels in wide 2:1 image: LEFT START arms open sideways at chest height, RIGHT FINISH both hands brought together in front of chest. No text, labels, arrows, borders, logos or muscle highlighting. Reference1 exact adult Female Master identity, brown ponytail, slate-blue T-shirt, charcoal leggings, white socks, lightgray shoes and natural athletic proportions. References2/3 define SAME satin SILVER selectorized pec deck machine, black seat/backrest, TWO overhead vertical pivot shafts and long rigid straight silver swing arms with vertical black handgrips at ends, weight stack behind on viewer left. Replace man with woman. Preserve rigid machine construction, same beam lengths and attached grips. Only rotate swing arms horizontally about existing vertical pivots: wide open START to forward converged FINISH, no changing arm lengths, no detached handles. Seated head/back/hips supported, feet flat, secure neutral palms-facing grip, wrists straight, elbows softly bent and FIXED bend through chest fly, no chest press. FINISH grips close but not crossing, hands maintain contact. Stack selected upper plates raised visibly in FINISH with a gap from lower unselected plates; fixed frame unchanged. Same camera three-quarter front, identical machine dimensions, seat, body, scale and viewpoint in both panels. Exactly two hands/arms, anatomically natural fingers. Whole machine top/base, ponytail, shoes and stack visible equally large with small matching margins. Uniform skin, matte clothes, silver frame and black pads, white studio background with soft shadows. Generate both phases together.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/pec-deck-fly/start.webp",
+      "sha256": "4659d78e55bc151cfdb58de6c2de7d8fb5a7071eba83318a6bfd3b8d6c240470",
+      "bytes": 53574
+    },
+    {
+      "file": "assets/exercises/pec-deck-fly/finish.webp",
+      "sha256": "957fba96e1d072e71a53649d8575f4294752b624d10626c7549d4cd3961b21a5",
+      "bytes": 50716
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-155c73cd-d80b-413d-8991-24847c43428c.png",
+    "sourceLibraryFileId": "libfile_9bbe9374fa9c8191a460a2a91a0c0ade",
+    "sourceSha256": "dd8b020799257a161993f83fdf2b0d2ac8f050778886b5c565c6a7971a93551f",
+    "sourceBytes": 1568449,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/pec-deck-fly/start.webp",
+        "sha256": "4659d78e55bc151cfdb58de6c2de7d8fb5a7071eba83318a6bfd3b8d6c240470",
+        "bytes": 53574
+      },
+      {
+        "file": "assets/exercises/pec-deck-fly/finish.webp",
+        "sha256": "957fba96e1d072e71a53649d8575f4294752b624d10626c7549d4cd3961b21a5",
+        "bytes": 50716
+      }
+    ]
+  }
+}
