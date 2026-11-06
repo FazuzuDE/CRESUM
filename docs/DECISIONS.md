@@ -1,5 +1,16 @@
 # CRESUM Decision Log
 
+## Female Incline Dumbbell Press — 2026-11-06
+
+Approved exec-6ba688d1-993f-4261-b9fe-731486585e05.png,
+source libfile_c8f69928dd388191a6c9899d4a7df049. LEFT lowered START / RIGHT pressed
+FINISH, two dumbbells on inclined bench. Exact 887-square RGB WebP92/method6
+halves. Only incline-dumbbell-press/Female; 45 Female pairs. Preserve Male/guide,
+chest Primary/triceps and front-delts Secondary/IDs/History. Detailed grip/joints,
+support/feet/weight dimensions/registration/incline/device acceptance provisional.
+Original and prompt/input chain retained; archive pending, Oracle deferred.
+Next Female Machine Chest Press preview requires separate approval.
+
 ## Female Dumbbell Bench Press — 2026-11-06
 
 Approved exec-d576c286-39a0-41d1-acd5-1b3785a5b7de.png,

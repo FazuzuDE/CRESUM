@@ -1,0 +1,28 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Create ONE premium realistic CRESUM 3D instruction sheet FEMALE INCLINE DUMBBELL CHEST PRESS, two equal square panels wide2:1, LEFT START lowered dumbbells beside upper chest elbows bent, RIGHT FINISH pressed above upper chest/shoulders elbows nearly straight. No text/labels/arrows/borders/divider/logos/muscle colors. Image1 exact adult Female Master brown ponytail/natural athletic proportions/slate-blue Tshirt/charcoal leggings/white socks/lightgray shoes. Images2/3 SAME adjustable satin SILVER bench with dark pads, backrest moderate incline about30\u201340 degrees, same pair compact black round dumbbells/silver handles; movement/equipment only, replace man with woman. Head/back/hips supported, seated on inclined bench, knees bent feet flat. Secure pronated press grip palms toward feet, thumbs wrapped, neutral wrists. START elbows comfortably below wrists at about45deg to torso, weights beside upper chest. FINISH press upward over shoulders with two separate dumbbells parallel and small gap, no touching, no fly, no overhead shoulder press. Exactly two anatomical hands/arms/two weights, natural fingers/secure grip. Same camera three-quarter front view, bench angle/equipment dimensions/head/torso/feet/camera/scale registered across phases; only arms/weights move. All ponytail/weights/shoes and whole bench fit equally large with small consistent margins. Clean uniform skin/matte clothes/black pad/satin silver frame, white studio subtle floor shadows. Generate both phases together.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/incline-dumbbell-press/start.webp",
+      "sha256": "33d043f1a8c2e841f133ef8fdb8a11fae619fb16ae6ee8f555512333221566ae",
+      "bytes": 53706
+    },
+    {
+      "file": "assets/exercises/incline-dumbbell-press/finish.webp",
+      "sha256": "35141fe3ef0d1859c57b8d17873759043d3f1296bc969dcfb6340833ccb12402",
+      "bytes": 52442
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-6ba688d1-993f-4261-b9fe-731486585e05.png",
+    "sourceLibraryFileId": "libfile_c8f69928dd388191a6c9899d4a7df049",
+    "sourceSha256": "a878cb73039962d94aeea0e23ba09af9960c6696351b957614d315efa239191d",
+    "sourceBytes": 1590200,
+    "sourceSize": [1774, 887]
+  }
+}

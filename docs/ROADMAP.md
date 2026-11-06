@@ -2,8 +2,8 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Barbell Bench Press merged via #218.
-Female Dumbbell Bench Press selected. Next: Female Incline Dumbbell Press preview.
+Female pairs through Dumbbell Bench Press merged via #219.
+Female Incline Dumbbell Press selected. Next: Female Machine Chest Press preview.
 Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.

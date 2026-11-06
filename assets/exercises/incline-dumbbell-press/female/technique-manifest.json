@@ -1,0 +1,63 @@
+{
+  "variantId": "incline-dumbbell-press",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "7678378a9262edaf732d5494d4b8e9fdc9c19d1b64e091c65955bf6263415fa1",
+      "bytes": 52354,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "ad56f0eebbd3c6c02d4adda1197f0ccecee2d312ab5414ff53764c412eedc933",
+      "bytes": 53070,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-6ba688d1-993f-4261-b9fe-731486585e05.png",
+    "sourceLibraryFileId": "libfile_c8f69928dd388191a6c9899d4a7df049",
+    "sourceSha256": "a878cb73039962d94aeea0e23ba09af9960c6696351b957614d315efa239191d",
+    "sourceBytes": 1590200,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/incline-dumbbell-press/start.webp",
+        "sha256": "33d043f1a8c2e841f133ef8fdb8a11fae619fb16ae6ee8f555512333221566ae",
+        "bytes": 53706
+      },
+      {
+        "file": "assets/exercises/incline-dumbbell-press/finish.webp",
+        "sha256": "35141fe3ef0d1859c57b8d17873759043d3f1296bc969dcfb6340833ccb12402",
+        "bytes": 52442
+      }
+    ]
+  },
+  "productionChoice": "LEFT lowered START / RIGHT pressed FINISH, two dumbbells on inclined bench. Preserve chest Primary/triceps and front-delts Secondary, guide, identity and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases, identity/outfit, inclined bench and full frame reviewed; detailed grip/wrist/elbow/shoulder, support/feet, dumbbell dimensions/registration, incline angle and native device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}
