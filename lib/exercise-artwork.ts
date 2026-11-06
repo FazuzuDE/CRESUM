@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'machine-chest-press': {
+    start: require('../assets/exercises/machine-chest-press/female/start.webp'),
+    finish: require('../assets/exercises/machine-chest-press/female/finish.webp'),
+  },
   'incline-dumbbell-press': {
     start: require('../assets/exercises/incline-dumbbell-press/female/start.webp'),
     finish: require('../assets/exercises/incline-dumbbell-press/female/finish.webp'),

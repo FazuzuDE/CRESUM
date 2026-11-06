@@ -515,6 +515,16 @@ jest.mock(
   '../../assets/exercises/incline-dumbbell-press/female/finish.webp',
   () => 9002,
 );
+jest.mock('../../assets/exercises/machine-chest-press/start.webp', () => 9101);
+jest.mock('../../assets/exercises/machine-chest-press/finish.webp', () => 9102);
+jest.mock(
+  '../../assets/exercises/machine-chest-press/female/start.webp',
+  () => 9201,
+);
+jest.mock(
+  '../../assets/exercises/machine-chest-press/female/finish.webp',
+  () => 9202,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -642,6 +652,7 @@ it('resolves female phases only for the approved exact variants', () => {
 });
 
 it.each([
+  ['machine-chest-press', [9101, 9102, 9101], [9201, 9202, 9201]],
   ['incline-dumbbell-press', [8901, 8902, 8901], [9001, 9002, 9001]],
   ['dumbbell-bench-press', [8701, 8702, 8701], [8801, 8802, 8801]],
   ['barbell-bench-press', [8501, 8502, 8501], [8601, 8602, 8601]],

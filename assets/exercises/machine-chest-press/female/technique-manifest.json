@@ -1,0 +1,52 @@
+{
+  "variantId": "machine-chest-press",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "789fd9e585427a3d8b6654730010a46eaea8da62eb1616b2fb7c40536ca8ad38",
+      "bytes": 56224,
+      "width": 887,
+      "height": 887,
+      "sourceFile": "exec-82a47a94-2946-4c07-98fd-3336cf6ba6e8.png",
+      "sourceLibraryFileId": "libfile_daea24facd808191beb0591a203ff427",
+      "sourceSha256": "45ce89d53cc8934df17fc754857de68028e25db393304a8340b25634cb9940b1",
+      "sourceBytes": 1595605,
+      "sourceSize": [1774, 887]
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [0, 0, 1254, 1254],
+      "sha256": "ff5e879797aab2a30cb99e3f22bc28a7ee79eb0a8b6452f681d366292eb0f390",
+      "bytes": 89754,
+      "width": 1254,
+      "height": 1254,
+      "sourceFile": "exec-47ebc282-146f-42e9-8526-c7cf9c8747b5.png",
+      "sourceLibraryFileId": "libfile_da74514bf9608191aa2b4260db6ff9ec",
+      "sourceSha256": "fac8e83b09f304a9881597c61b1f32684e90e7a14af9b5af5bd473338fa8d37a",
+      "sourceBytes": 1507556,
+      "sourceSize": [1254, 1254]
+    }
+  },
+  "generation": {
+    "promptFile": "generation-prompts.json",
+    "phaseSpecificSources": true
+  },
+  "productionChoice": "Original LEFT START and separately approved square FINISH. Generic machine-chest-press remains unchanged; image shows plate-loaded equipment.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact source crops, no independent transforms or resampling.",
+  "reviewScope": "User approved finish reconstructed from start after rejecting mechanism repairs. Detailed rigid linkage geometry, perspective registration, grip/joints and native device acceptance remain provisional.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Original PNGs retained in native persistent sources and workspace. Exact prompts and input hashes retained. Cumulative archive pending; Oracle deferred."
+}

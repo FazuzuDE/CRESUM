@@ -1,0 +1,65 @@
+{
+  "status": "user-selected-provisional",
+  "generations": [
+    {
+      "phase": "start",
+      "prompt": "Create ONE premium realistic CRESUM 3D instruction sheet FEMALE MACHINE CHEST PRESS, two equal square panels wide2:1. LEFT START elbows bent handles beside chest, RIGHT FINISH arms pressed forward elbows nearly straight. No text/labels/arrows/borders/divider/logos/muscle colors. Image1 exact adult Female Master brown ponytail/natural athletic proportions/slate-blue Tshirt/charcoal leggings/white socks/lightgray shoes. Images2/3 SAME satin SILVER plate-loaded chest press machine with black seat/back pad, two articulated lever arms pivoting at top, one identical black weight plate on each side, black horizontal grips. Movement/equipment only: replace man with woman. Seat adjusted so grips align midchest, back/head/hips supported, knees bent feet flat. Secure pronated grip thumbs wrapped neutral wrists; START elbows comfortably45\u201360deg to torso, handles at chest, FINISH press handles forward extending elbows while back remains supported. Machine LEVER ARMS and attached WEIGHT PLATES rotate/lift consistently with handles in FINISH; frame/seat/pivots stay fixed. No cable stack or substitute machine. Exactly two anatomical arms/hands, secure hand/grip contact, no extra handles, coherent rigid lever geometry and pivots. Same female head/torso/feet, fixed frame, camera three-quarter FRONT view and full-body/equipment scale across phases; only pressing arms and lever mechanism move. Full ponytail/shoes/weights/all machine frame/base fit in each square with equal large harmonious scale and small consistent margins. Uniform natural skin/matte clothes/silver frame/dark pads/black plates, white studio soft floor shadows. Generate both phases together.",
+      "references": [
+        {
+          "file": "assets/exercise-models/female-master-r1/reference.png",
+          "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+          "bytes": 1874514
+        },
+        {
+          "file": "assets/exercises/machine-chest-press/start.webp",
+          "sha256": "ce71562613b33221aaab6c3a492267a8b787809be6d4480683d6e17a7694557d",
+          "bytes": 54402
+        },
+        {
+          "file": "assets/exercises/machine-chest-press/finish.webp",
+          "sha256": "c48e5186c4a5b04989293c4fc1cf90287a42ff74c23dc1699893a01713dddf25",
+          "bytes": 52076
+        }
+      ],
+      "output": {
+        "file": "start.webp",
+        "cropBox": [0, 0, 887, 887],
+        "sha256": "789fd9e585427a3d8b6654730010a46eaea8da62eb1616b2fb7c40536ca8ad38",
+        "bytes": 56224,
+        "width": 887,
+        "height": 887,
+        "sourceFile": "exec-82a47a94-2946-4c07-98fd-3336cf6ba6e8.png",
+        "sourceLibraryFileId": "libfile_daea24facd808191beb0591a203ff427",
+        "sourceSha256": "45ce89d53cc8934df17fc754857de68028e25db393304a8340b25634cb9940b1",
+        "sourceBytes": 1595605,
+        "sourceSize": [1774, 887]
+      }
+    },
+    {
+      "phase": "finish",
+      "prompt": "Generate ONE SQUARE FINISH FRAME derived strictly from the LEFT START HALF of the supplied image. The RIGHT HALF is rejected and must be ignored completely. Do not reproduce a pair: output only one square FINISH image.\n\nFirst reconstruct the LEFT START machine as one consistent 3D object, then articulate it. Fixed structure: satin silver rectangular base with four black feet, two upright columns behind athlete, upper horizontal crossmember with TWO round pivot hubs, same black seat/backrest. Preserve camera, perspective, framing, dimensions, all fixed joints, head/torso/hips/feet and female identity exactly from LEFT START. Adult brown ponytail, slate-blue shirt, charcoal leggings, white socks, lightgray shoes.\n\nMechanical structure to preserve from START: TWO LONG STRAIGHT rectangular silver press arms descending from the TWO top pivots to the TWO grips. Each long arm has a SHORT RIGID OBLIQUE weight-sleeve bracket welded at its middle; silver loading sleeve carrying ONE black plate. The sleeve bracket is NOT a hinge. Each black handgrip is attached directly to the LOWER END of its corresponding long straight press arm via a short silver stub. The long arm, welded plate bracket, loading sleeve and plate are ONE rigid assembly on each side. Preserve their precise relative angles, distances, lengths, and dimensions. No bent tubing, no added curves/elbows, no detached grips, no replacement topology.\n\nMake FINISH by rotating BOTH entire rigid press-arm assemblies FORWARD BY THE SAME MODEST ANGLE about the EXISTING fixed top pivot axes. Rotate each mounted plate AND its sleeve/bracket together with its arm, not independently. Their perspective must follow the camera, no asymmetric elevation or arbitrary translation. Both long straight arms must remain plainly visible and connected continuously from their top pivot to their black handgrip. Prioritize mechanically consistent geometry over matching the rejected finish pose. Let the woman's arms naturally follow the resulting handle endpoints, elbows comfortably almost extended, wrists straight, shoulders remain against pad. Hands stay securely wrapped on the same grips, feet/head/trunk unmoved. A moderate finish extension is preferable to changing lever geometry just to force full lockout. Keep entire frame/plates/shoes in view, same large scale and white studio background/material/lighting as LEFT START. No text or arrows.",
+      "references": [
+        {
+          "file": "/workspace/scratch/d7097cf97315/generated_images/exec-82a47a94-2946-4c07-98fd-3336cf6ba6e8.png",
+          "role": "left START half only; rejected right half excluded by prompt",
+          "sha256": "45ce89d53cc8934df17fc754857de68028e25db393304a8340b25634cb9940b1",
+          "bytes": 1595605
+        }
+      ],
+      "output": {
+        "file": "finish.webp",
+        "cropBox": [0, 0, 1254, 1254],
+        "sha256": "ff5e879797aab2a30cb99e3f22bc28a7ee79eb0a8b6452f681d366292eb0f390",
+        "bytes": 89754,
+        "width": 1254,
+        "height": 1254,
+        "sourceFile": "exec-47ebc282-146f-42e9-8526-c7cf9c8747b5.png",
+        "sourceLibraryFileId": "libfile_da74514bf9608191aa2b4260db6ff9ec",
+        "sourceSha256": "fac8e83b09f304a9881597c61b1f32684e90e7a14af9b5af5bd473338fa8d37a",
+        "sourceBytes": 1507556,
+        "sourceSize": [1254, 1254]
+      }
+    }
+  ],
+  "selection": "Original LEFT START only; original RIGHT and two repair attempts rejected. FINISH separately reconstructed from START and explicitly approved."
+}
