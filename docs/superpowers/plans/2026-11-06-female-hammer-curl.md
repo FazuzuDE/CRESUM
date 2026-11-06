@@ -8,5 +8,7 @@ Preserve Male, guides, muscle mappings, stable IDs and History.
 
 - [x] Extend switching case; observe missing-binding failure.
 - [x] Exact crops/binding/provenance; document EZ integration recovery.
-- [ ] Tests, types, lint, format, native exports, independent review.
-- [ ] Publish to develop, stamp actual PR version, verify and mark ready.
+- [x] Tests, types, lint, format, native exports, independent review.
+- [x] Publish to develop, stamp actual PR version, verify and mark ready.
+
+PR #210 targets develop directly, including unchanged approved EZ pair.

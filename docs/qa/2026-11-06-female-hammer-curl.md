@@ -25,3 +25,7 @@ User-selected-provisional: detailed hand/grip/wrist/elbow/shoulder/torso and
 dumbbell/body registration QA, device/accessibility acceptance remain open.
 No biomechanics certification. Cumulative archive pending; Oracle deferred.
 Next Female Cable Biceps Curl is preview-only and not registered.
+
+Actual PR #210 stamped display 0.2.10 (package/Expo 0.2.10) after tests/exports;
+version/configuration and metadata formatting passed afterward. Published initial
+tree matches local 4d7d6e5733e6eaff233ec3fabc7a3bb662d9048f.
