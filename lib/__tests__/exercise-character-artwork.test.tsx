@@ -312,6 +312,16 @@ jest.mock(
   '../../assets/exercises/barbell-back-squat/female/finish.webp',
   () => 5602,
 );
+jest.mock('../../assets/exercises/barbell-front-squat/start.webp', () => 5701);
+jest.mock('../../assets/exercises/barbell-front-squat/finish.webp', () => 5702);
+jest.mock(
+  '../../assets/exercises/barbell-front-squat/female/start.webp',
+  () => 5801,
+);
+jest.mock(
+  '../../assets/exercises/barbell-front-squat/female/finish.webp',
+  () => 5802,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -432,11 +442,7 @@ it('resolves female phases only for the approved exact variants', () => {
   );
   expect(resolveExerciseArtwork('cable-crunch', 'start', 'female')).toBe(3601);
   expect(resolveExerciseArtwork('cable-crunch', 'finish', 'female')).toBe(3602);
-  for (const id of [
-    'kettlebell-goblet-squat',
-    'barbell-front-squat',
-    'unknown',
-  ])
+  for (const id of ['kettlebell-goblet-squat', 'barbell-deadlift', 'unknown'])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -465,6 +471,7 @@ it.each([
   ['dumbbell-shrug', [3901, 3902, 3901], [4001, 4002, 4001]],
   ['farmers-carry', [4101, 4102, 4101], [4201, 4202, 4201]],
   ['bodyweight-step-up', [4501, 4502, 4501], [4601, 4602, 4601]],
+  ['barbell-front-squat', [5701, 5702, 5701], [5801, 5802, 5801]],
   ['barbell-back-squat', [5501, 5502, 5501], [5601, 5602, 5601]],
   ['smith-machine-squat', [5301, 5302, 5301], [5401, 5402, 5401]],
   ['bulgarian-split-squat', [5101, 5102, 5101], [5201, 5202, 5201]],
@@ -520,8 +527,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="barbell-front-squat" />
-        <TechniqueArtwork imageKey="barbell-front-squat" phase="START" />
+        <ExerciseArtwork imageKey="barbell-deadlift" />
+        <TechniqueArtwork imageKey="barbell-deadlift" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });

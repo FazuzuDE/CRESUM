@@ -1,0 +1,63 @@
+{
+  "variantId": "barbell-front-squat",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "1952ce218cf255799702dda5114b90b379e52fee6ab17fb41233619c34b705d3",
+      "bytes": 29990,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "6277964cb8b57fbee9e986f7fe510bc814ad7517ba1a574f4a04412b479321d5",
+      "bytes": 30156,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-f661d634-6d85-458f-9802-99289dec0170.png",
+    "sourceLibraryFileId": "libfile_5ce04a9185908191ac57b0fff922c0aa",
+    "sourceSha256": "6b663a3a7962dfbd2a64f0956f388587cd19035ea524b98990fce9b6308d1230",
+    "sourceBytes": 1307920,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/barbell-front-squat/start.webp",
+        "sha256": "8e16d22b6ccade5180c6b1b12741880aa72374c9c8bd84031a4ea32026997237",
+        "bytes": 33994
+      },
+      {
+        "file": "assets/exercises/barbell-front-squat/finish.webp",
+        "sha256": "9fe1ee07d0570c1b137d1291533afb0648c85e25027e2268fd7f0fae6a9f128d",
+        "bytes": 34766
+      }
+    ]
+  },
+  "productionChoice": "LEFT upright START / RIGHT lowered front squat FINISH, crossed-arm front rack. Preserve existing generic guide, quadriceps/glutes Primary, abs/upper-back Secondary, identity and History. Cross-arm image does not redefine generic catalog grip.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Natural head descent retained.",
+  "reviewScope": "User-selected-provisional. Broad identity/outfit, phase difference, crossed-arm front rack and full-frame fit reviewed. Exact hand/bar/anterior-shoulder contacts, elbow/neck position, knee tracking, pelvis/torso alignment, foot/bar/plate registration and device/accessibility acceptance remain open. No new biomechanics/source certification.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Exact prompt and actual input hashes recorded; cumulative checkpoint pending; Oracle deferred."
+}
