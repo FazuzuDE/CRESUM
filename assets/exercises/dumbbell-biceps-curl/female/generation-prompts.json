@@ -1,0 +1,29 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Create ONE CRESUM premium realistic3D exercise instruction sheet: FEMALE STANDING DUMBBELL BICEPS CURL, START and FINISH together in wide2:1, two equal square white studio panels. No text/labels/arrows/dividers/borders/logos/muscle highlighting. Reference1 locks exact adult Female Master face, brown ponytail, natural athletic proportions, slate-blue short sleeve Tshirt, charcoal full-length leggings, white socks and light-gray sneakers. Refs2/3 are male movement/equipment references ONLY, recreate same movement with woman. SAME two compact black round-plate dumbbells, one firmly held in each hand, symmetric dumbbell geometry and weights across phases. LEFT START: stand upright feet hip-width flat, arms near fully extended down by sides without hyperextension, SUPINATED palms facing forward, neutral wrists, closed secure grips thumbs wrapped. RIGHT FINISH: BOTH forearms curl upward toward shoulders by elbow flexion, palms remain supinated/upward, wrists straight, upper arms stay beside torso with elbows near ribs, no shoulder shrug or upper-arm lifting, no torso lean or hip swing. Same head/torso/legs/feet coordinates, camera, body scale, clothing and identity across panels; only forearms/dumbbells move. Show full head/ponytail, arms/hands/dumbbells and both shoes inside each equal square with small margins, use full frame height harmoniously. Three-quarter FRONT view facing slightly viewer right shows both grips and elbow paths clearly. Not hammer curl, not alternating curl, no barbell. Anatomically correct two hands/arms/legs; no extra fingers, no hand piercing weight. Clean consistent skin/matte cloth/metal/black plates, soft white studio lighting and subtle floor shadow. Generate both movement phases in one image.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/dumbbell-biceps-curl/start.webp",
+      "sha256": "e3a7f955c935aaa0fdfc9ce43d75f851fc144e13d1600d7f5dac9b0456a02df5",
+      "bytes": 34074
+    },
+    {
+      "file": "assets/exercises/dumbbell-biceps-curl/finish.webp",
+      "sha256": "b06ec9e46d5b75b96dbf79cd73d55ce1aa5aca311bb2a14ac2d1b908d0397bc5",
+      "bytes": 32704
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-20aba379-f057-4a0c-91a3-21c37014855f.png",
+    "sourceLibraryFileId": "libfile_4151f57740948191a84457a2300be88d",
+    "sourceSha256": "2c5aa8d3580ae8f5b858085c34c9a3e63f2a78aace8d0001071aea242feab42b",
+    "sourceBytes": 1633939,
+    "sourceSize": [1774, 887]
+  }
+}
