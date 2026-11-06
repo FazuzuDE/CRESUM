@@ -2,8 +2,8 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Assisted Dip Machine merged into develop via #217.
-Female Barbell Bench Press selected. Next: Female Dumbbell Bench Press preview.
+Female pairs through Barbell Bench Press merged via #218.
+Female Dumbbell Bench Press selected. Next: Female Incline Dumbbell Press preview.
 Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.

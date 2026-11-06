@@ -1,5 +1,16 @@
 # CRESUM Decision Log
 
+## Female Dumbbell Bench Press — 2026-11-06
+
+Approved exec-d576c286-39a0-41d1-acd5-1b3785a5b7de.png,
+source libfile_df2d4c0aff8081919f8557304152025d. LEFT lowered START / RIGHT pressed
+FINISH, two dumbbells and flat bench. Exact 887-square RGB WebP92/method6 halves.
+Only dumbbell-bench-press/Female; 44 Female pairs. Preserve Male/guide/chest Primary,
+triceps and front-delts Secondary/IDs/History. Detailed grip/joints/support/feet,
+weight dimensions/registration/device acceptance provisional. Original and prompt/
+input chain retained; archive pending, Oracle deferred. Next Female Incline
+Dumbbell Press preview requires separate approval.
+
 ## Female Barbell Bench Press — 2026-11-06
 
 Approved exec-f622d59f-fb23-4553-88dc-eec48cb6ca3d.png,

@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'dumbbell-bench-press': {
+    start: require('../assets/exercises/dumbbell-bench-press/female/start.webp'),
+    finish: require('../assets/exercises/dumbbell-bench-press/female/finish.webp'),
+  },
   'barbell-bench-press': {
     start: require('../assets/exercises/barbell-bench-press/female/start.webp'),
     finish: require('../assets/exercises/barbell-bench-press/female/finish.webp'),
