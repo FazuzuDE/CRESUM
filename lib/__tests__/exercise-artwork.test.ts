@@ -863,13 +863,6 @@ it('binds only Male two-hand overhead dumbbell extension and preserves guide and
   );
   for (const phase of ['start', 'finish'] as const) {
     expect(
-      resolveExerciseArtwork(
-        'dumbbell-overhead-triceps-extension',
-        phase,
-        'female',
-      ),
-    ).toBeNull();
-    expect(
       resolveExerciseArtwork('overhead-cable-triceps-extension', phase, 'male'),
     ).toBe(phase === 'start' ? 2701 : 2702);
     expect(

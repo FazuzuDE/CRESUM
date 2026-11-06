@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'dumbbell-overhead-triceps-extension': {
+    start: require('../assets/exercises/dumbbell-overhead-triceps-extension/female/start.webp'),
+    finish: require('../assets/exercises/dumbbell-overhead-triceps-extension/female/finish.webp'),
+  },
   'overhead-cable-triceps-extension': {
     start: require('../assets/exercises/overhead-cable-triceps-extension/female/start.webp'),
     finish: require('../assets/exercises/overhead-cable-triceps-extension/female/finish.webp'),
