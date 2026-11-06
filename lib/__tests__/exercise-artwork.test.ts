@@ -825,13 +825,6 @@ it('binds only Male overhead cable extension while retaining generic guide and t
   );
   for (const phase of ['start', 'finish'] as const) {
     expect(
-      resolveExerciseArtwork(
-        'overhead-cable-triceps-extension',
-        phase,
-        'female',
-      ),
-    ).toBeNull();
-    expect(
       resolveExerciseArtwork('cable-triceps-pushdown', phase, 'male'),
     ).toBe(phase === 'start' ? 2601 : 2602);
     expect(resolveExerciseArtwork('cable-biceps-curl', phase, 'male')).toBe(

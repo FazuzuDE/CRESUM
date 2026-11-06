@@ -1,5 +1,22 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Overhead Cable Triceps Extension — 2026-11-06
+
+After #212 merged to develop, user approved the shown pair
+`exec-3cf59c3f-0a50-4e4f-8861-70792ed541c5.png`, native source
+`libfile_06e566136fb881918ef159befb8a4f4b`. LEFT bent-elbow START / RIGHT
+extended overhead FINISH, rope and head-height cable outlet. Bind only
+overhead-cable-triceps-extension/Female. Exact 887-square RGB WebP92/method6
+halves, shared contain; no retouch, resampling, padding or independent placement.
+Thirty-eight Female pairs alongside 68 Male pairs. Preserve pulley-setup-varies
+guide, triceps Primary/no Secondary, stable IDs and workout History.
+Broad phase/material/framing review completed; detailed grip/wrist/elbow/shoulder,
+body/machine registration, stack/hidden reeving, tight upper FINISH margin and
+native device/accessibility acceptance remain provisional. Original source,
+exact prompt and actual reference hashes retained; cumulative checkpoint pending,
+Oracle deferred. Next Female Dumbbell Overhead Triceps Extension is preview-only
+and requires separate approval.
+
 ## Female Cable Triceps Pushdown — 2026-11-06
 
 After #211 merged to develop, user approved the shown pair
