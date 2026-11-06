@@ -6,6 +6,8 @@ Exact crops/shared binding; preserve Male/guide/muscles/IDs/History.
 - [x] Switching regression failed before binding.
 - [x] Exact exports and provenance.
 - [x] Full checks, exports and independent review.
-- [ ] Publish develop PR and stamp actual version.
+- [x] Publish develop PR and stamp actual version.
 
 Next incline dumbbell preview requires approval. Detailed QA/archive provisional.
+
+PR #219 targets develop, version 0.2.19.

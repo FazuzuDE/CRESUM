@@ -11,3 +11,6 @@ failed before binding. Independent review clean; exact crops reproduced.
 Detailed grip/joints/support/feet/weight dimensions/registration and native device
 acceptance provisional. Source retained; archive pending, Oracle deferred.
 Next incline dumbbell pair requires separate approval.
+
+PR #219 version 0.2.19 stamped after tests/exports; version/configuration and
+metadata formatting rechecked. Published final tree matches local; CI pending.
