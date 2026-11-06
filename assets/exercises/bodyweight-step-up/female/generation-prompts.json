@@ -1,0 +1,15 @@
+{
+  "status": "historical-prompt-unavailable",
+  "prompt": null,
+  "references": null,
+  "note": "User reattached and approved this exact JPEG on 2026-11-06. Historical generation prompt, exact inputs and original PNG are unavailable. This record is not a reconstructed prompt.",
+  "output": {
+    "sourceFile": "source.jpeg",
+    "sourceOriginalName": "0258ADA8-E4ED-4D35-ACCE-DCABFF935A6E.jpeg",
+    "sourceLibraryFileId": "libfile_00abb08fb7cc8191959666110022d3d5",
+    "sourceSha256": "9215f4f463ef11d8453cc8a5fad98fdaada2a3fa05fdc0620deff8a423781988",
+    "sourceBytes": 143332,
+    "sourceSize": [1536, 768],
+    "promptFile": "generation-prompts.json"
+  }
+}

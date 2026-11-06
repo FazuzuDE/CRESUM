@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'bodyweight-step-up': {
+    start: require('../assets/exercises/bodyweight-step-up/female/start.webp'),
+    finish: require('../assets/exercises/bodyweight-step-up/female/finish.webp'),
+  },
   'standing-cable-anti-rotation-press': {
     start: require('../assets/exercises/standing-cable-anti-rotation-press/female/start.webp'),
     finish: require('../assets/exercises/standing-cable-anti-rotation-press/female/finish.webp'),

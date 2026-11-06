@@ -1,5 +1,23 @@
 # CRESUM Decision Log
 
+## Female Bodyweight Step-up — 2026-11-06
+
+User reattached and approved `0258ADA8-E4ED-4D35-ACCE-DCABFF935A6E.jpeg`,
+native source `libfile_00abb08fb7cc8191959666110022d3d5`. LEFT one whole foot on
+platform, trailing foot on floor START / RIGHT standing tall with both feet on
+platform FINISH. Bind only `bodyweight-step-up`/Female. Exact 768-square RGB
+WebP92/method6 halves, shared contain; no retouch/resampling/padding or independent
+phase transforms. Preserve natural head rise, Male pair, unloaded each-lead-side
+guide, quadriceps/glutes Primary, hamstrings Secondary, stable identity and History.
+
+Coverage: 68 Male plus twenty-three Female pairs. User-selected-provisional:
+broad setup, phases, identity/outfit and full-frame fit reviewed; exact foot
+contacts, knee tracking, step height, registration, dynamic control and device/
+accessibility acceptance remain open. Retain the supplied JPEG in Git; historical
+generation PNG, prompt and exact inputs unavailable, not reconstructed. Cumulative
+source checkpoint pending; Oracle deferred. Next: Female Dumbbell Floor Glute
+Bridge preview, separate approval.
+
 ## Female Standing Cable Anti-rotation Press — 2026-11-05
 
 User approved `exec-bcd5029d-64cb-4b86-88e2-7f8248143319.png`, native source

@@ -234,6 +234,16 @@ jest.mock(
   '../../assets/exercises/standing-cable-anti-rotation-press/female/finish.webp',
   () => 4402,
 );
+jest.mock('../../assets/exercises/bodyweight-step-up/start.webp', () => 4501);
+jest.mock('../../assets/exercises/bodyweight-step-up/finish.webp', () => 4502);
+jest.mock(
+  '../../assets/exercises/bodyweight-step-up/female/start.webp',
+  () => 4601,
+);
+jest.mock(
+  '../../assets/exercises/bodyweight-step-up/female/finish.webp',
+  () => 4602,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -354,7 +364,11 @@ it('resolves female phases only for the approved exact variants', () => {
   );
   expect(resolveExerciseArtwork('cable-crunch', 'start', 'female')).toBe(3601);
   expect(resolveExerciseArtwork('cable-crunch', 'finish', 'female')).toBe(3602);
-  for (const id of ['kettlebell-goblet-squat', 'bodyweight-step-up', 'unknown'])
+  for (const id of [
+    'kettlebell-goblet-squat',
+    'dumbbell-floor-glute-bridge',
+    'unknown',
+  ])
     for (const phase of ['start', 'finish'] as const)
       expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
   expect(resolveExerciseArtwork('goblet-squat', 'start', 'male')).toBe(101);
@@ -382,6 +396,7 @@ it.each([
   ['back-extension', [3701, 3702, 3701], [3801, 3802, 3801]],
   ['dumbbell-shrug', [3901, 3902, 3901], [4001, 4002, 4001]],
   ['farmers-carry', [4101, 4102, 4101], [4201, 4202, 4201]],
+  ['bodyweight-step-up', [4501, 4502, 4501], [4601, 4602, 4601]],
   [
     'standing-cable-anti-rotation-press',
     [4301, 4302, 4301],
@@ -432,8 +447,11 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="bodyweight-step-up" />
-        <TechniqueArtwork imageKey="bodyweight-step-up" phase="START" />
+        <ExerciseArtwork imageKey="dumbbell-floor-glute-bridge" />
+        <TechniqueArtwork
+          imageKey="dumbbell-floor-glute-bridge"
+          phase="START"
+        />
       </ExerciseCharacterProvider>,
     );
   });

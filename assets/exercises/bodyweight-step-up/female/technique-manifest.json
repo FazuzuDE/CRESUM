@@ -1,0 +1,47 @@
+{
+  "variantId": "bodyweight-step-up",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 768, 768],
+      "sha256": "c990e815f6d12350971079915a93b6a1cb05e234b5491ae03f67943642d3899d",
+      "bytes": 20828,
+      "width": 768,
+      "height": 768
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [768, 0, 1536, 768],
+      "sha256": "97afdda20ae38e263a251d1bd546fae7306442c20f030dd277b9cbf2c41f6f1f",
+      "bytes": 20244,
+      "width": 768,
+      "height": 768
+    }
+  },
+  "generation": {
+    "sourceFile": "source.jpeg",
+    "sourceOriginalName": "0258ADA8-E4ED-4D35-ACCE-DCABFF935A6E.jpeg",
+    "sourceLibraryFileId": "libfile_00abb08fb7cc8191959666110022d3d5",
+    "sourceSha256": "9215f4f463ef11d8453cc8a5fad98fdaada2a3fa05fdc0620deff8a423781988",
+    "sourceBytes": 143332,
+    "sourceSize": [1536, 768],
+    "promptFile": "generation-prompts.json"
+  },
+  "productionChoice": "LEFT one whole foot on platform and trailing foot on floor START / RIGHT tall standing with both feet on platform FINISH. Unloaded; repeat each lead side. Preserve guide, muscle roles, identity and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Exact square half-sheet crops, shared contain; no retouch, padding, resampling or independent phase transforms. Preserve natural head rise.",
+  "reviewScope": "User-selected-provisional. Broad phase, identity, outfit, whole-body fit and unloaded setup reviewed. Exact foot contact, knee tracking, platform height/registration, dynamic control and device/accessibility acceptance remain open. No new biomechanics/source validation claimed.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact user-uploaded JPEG retained in this directory and native source. Original generation PNG, historical prompt and exact generation inputs unavailable; do not reconstruct them. Cumulative source checkpoint pending; Oracle deferred."
+}
