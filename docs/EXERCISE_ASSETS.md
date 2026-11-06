@@ -1,5 +1,22 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Cable Triceps Pushdown — 2026-11-06
+
+After #211 merged to develop, user approved the shown pair
+`exec-c378f264-c80a-4ca3-ae05-ad60fccb8753.png`, native source
+`libfile_1a510d0256608191a7c88e49347ed9a1`. LEFT bent-elbow START / RIGHT
+extended FINISH with rope. Bind only cable-triceps-pushdown/Female. Exact
+887-square RGB WebP92/method6 halves, shared contain; no retouch, resampling,
+padding or independent phase placement. Thirty-seven Female pairs alongside
+68 Male pairs. Preserve attachment-unspecified high-cable guide, triceps
+Primary/no Secondary, stable IDs and workout History. Rope is an illustrative
+attachment choice and does not narrow catalog semantics.
+Broad phase/material/framing review completed; detailed grip/wrist/elbow/shoulder,
+body/machine registration, plate counts/hidden reeving and device/accessibility QA
+remain provisional. Original source, exact prompt and actual reference hashes
+retained; cumulative checkpoint pending, Oracle deferred. Next Female Overhead
+Cable Triceps Extension is preview-only and requires separate approval.
+
 ## Female Cable Biceps Curl — 2026-11-06
 
 After #210 merged to develop, user approved the shown pair

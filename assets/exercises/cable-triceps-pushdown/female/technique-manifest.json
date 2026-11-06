@@ -1,0 +1,63 @@
+{
+  "variantId": "cable-triceps-pushdown",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "a82dddfc27abcd525a0d1d3de7cf65dcdb9415985f088d091a17811f3377785f",
+      "bytes": 46064,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "fce62365651e438536286e84e04520e33b94558e54cd1c25f335f2638c594f7e",
+      "bytes": 48714,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-c378f264-c80a-4ca3-ae05-ad60fccb8753.png",
+    "sourceLibraryFileId": "libfile_1a510d0256608191a7c88e49347ed9a1",
+    "sourceSha256": "364e7f4975faca2803b6a5bde5a6166fd25afb759680bcabbb8a1edac9f4c933",
+    "sourceBytes": 1707247,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/cable-triceps-pushdown/start.webp",
+        "sha256": "0a185ffc0cdaa03f101b5c78ab6dd7380838b3a961e69e0a1bd3a389303158c6",
+        "bytes": 48712
+      },
+      {
+        "file": "assets/exercises/cable-triceps-pushdown/finish.webp",
+        "sha256": "5a8362bec3240d45ebc0fa07c49d68e6be8bb65605a4a6c472cd0c812c3a1ae6",
+        "bytes": 52778
+      }
+    ]
+  },
+  "productionChoice": "LEFT bent-elbow START / RIGHT downward extended FINISH; rope high-cable pushdown, selected load raised at FINISH. Rope is an illustration choice, preserving attachment-unspecified guide. Preserve triceps Primary, no Secondary, stable identity and History.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad identity/outfit, bent-to-extended phases, high pulley, rope branches/central attachment, raised FINISH load and full-frame fit reviewed. Detailed finger/thumb grip, wrist/elbow/shoulder positions, body/machine registration, plate count/hidden reeving and native device/accessibility acceptance remain open. No new biomechanics/source certification.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}

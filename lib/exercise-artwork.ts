@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'cable-triceps-pushdown': {
+    start: require('../assets/exercises/cable-triceps-pushdown/female/start.webp'),
+    finish: require('../assets/exercises/cable-triceps-pushdown/female/finish.webp'),
+  },
   'cable-biceps-curl': {
     start: require('../assets/exercises/cable-biceps-curl/female/start.webp'),
     finish: require('../assets/exercises/cable-biceps-curl/female/finish.webp'),
