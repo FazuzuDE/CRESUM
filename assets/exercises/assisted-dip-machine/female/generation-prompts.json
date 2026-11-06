@@ -1,0 +1,28 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Create ONE premium realistic CRESUM 3D exercise sheet: FEMALE ASSISTED DIP MACHINE, two equal square panels in wide 2:1. LEFT START high supported position elbows nearly straight, RIGHT FINISH lowered body elbows bent near90 degrees. No text/labels/arrows/border/divider/logos/muscle colors. Image1 exact adult Female Master brown ponytail, natural athletic proportions, slate-blue Tshirt, charcoal full leggings, white socks and lightgray shoes. Images2/3 SAME light satin SILVER counterweighted assisted dip machine and movement only; replace man with woman. Three-quarter REAR view, hands secure neutral grip on fixed parallel dip handles, shoulder-width comfortable spacing, thumbs wrapped and wrists aligned. Both knees rest on dark knee-assist platform, shins supported, feet behind and off floor. START upper body supported with elbows almost straight, shoulders relaxed. FINISH lower body and platform together, elbows bend backwards, upper arms approximately horizontal, no extreme shoulder depth. FIXED frame/handles/camera/scale identical across phases. Knee platform lowers WITH athlete in FINISH; selected black counterweight plates rise on opposite side with clear gap below lifted group. Same machine proportions, selected plate count/pin, coherent cable/pulley architecture. Only athlete pose/platform/counterweight move. Exactly two anatomical hands/arms/legs, secure knee contact, no merged extra grips. Full ponytail, shoes, frame/base and entire machine fit in both panels with equal large scale and consistent margins. Matte dark pads, restrained silver metal, uniform natural skin and blue-gray/charcoal clothing, white studio soft shadows. Generate both phases together.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/assisted-dip-machine/start.webp",
+      "sha256": "256c93a24c4b3e450e680f0469c1050743e51591a53752e3d08bcde9bdd9a05c",
+      "bytes": 46978
+    },
+    {
+      "file": "assets/exercises/assisted-dip-machine/finish.webp",
+      "sha256": "b036a34e3ad2b6bf15a6655ab2a1c7b28fd33dc24c643690589fb20c888474bb",
+      "bytes": 49000
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-dae28656-7784-4662-8750-9605099f9df0.png",
+    "sourceLibraryFileId": "libfile_9158bfe6b4a0819187ee5b450a5688a1",
+    "sourceSha256": "a5eb3f2ef560caadda6ade540639205a3918d193af7ea16bf726a1454a7d30fa",
+    "sourceBytes": 1505848,
+    "sourceSize": [1774, 887]
+  }
+}

@@ -961,9 +961,6 @@ it('binds only Male assisted dip machine and preserves shoulder-width guide and 
   );
   for (const phase of ['start', 'finish'] as const) {
     expect(
-      resolveExerciseArtwork('assisted-dip-machine', phase, 'female'),
-    ).toBeNull();
-    expect(
       resolveExerciseArtwork(
         'dumbbell-overhead-triceps-extension',
         phase,

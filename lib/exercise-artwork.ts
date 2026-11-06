@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'assisted-dip-machine': {
+    start: require('../assets/exercises/assisted-dip-machine/female/start.webp'),
+    finish: require('../assets/exercises/assisted-dip-machine/female/finish.webp'),
+  },
   'close-grip-bench-press': {
     start: require('../assets/exercises/close-grip-bench-press/female/start.webp'),
     finish: require('../assets/exercises/close-grip-bench-press/female/finish.webp'),
