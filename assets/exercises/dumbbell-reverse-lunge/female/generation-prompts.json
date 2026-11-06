@@ -1,0 +1,29 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "CRESUM premium realistic 3D exercise illustration: FEMALE DUMBBELL REVERSE LUNGE, START and FINISH together in ONE wide2:1 sheet, two equal square panels, clean white studio backdrop with subtle floor shadows. No borders, divider, labels, text, arrows, logos or muscle colors. Ref1 is the locked Female Master identity and outfit: exact adult woman face, brown ponytail, natural athletic proportions, slateblue Tshirt, charcoal full-length leggings, white socks and lightgray sneakers. Refs2/3 are movement/equipment references only; do not copy male anatomy. LEFT START: same woman upright standing hip-width, both feet on floor, one identical black dumbbell held securely in each hand at sides, arms extended and wrists neutral. RIGHT FINISH: one leg stepped backward into a controlled reverse lunge; front whole foot stays planted, front knee tracks over same foot, front thigh near horizontal, rear heel raised and rear toes/forefoot support, rear knee lowered close to floor without contact. Hips and torso controlled, torso mostly upright, natural gaze forward. Arms hang straight with both same dumbbells alongside hips, both hands closed naturally around handles, no curled elbows. Full head/ponytail, fingers, dumbbells and feet visible, correct two legs/two arms/two hands. Same three-quarter side view facing to viewer right, same scale and planted FRONT foot coordinate in both panels; body naturally descends into lunge. Maximize full-body size within each square without clipping, don't independently enlarge finish. Repeat other lead leg implied, no written labels. Uniform skin, consistent cloth and dumbbell materials, clean natural proportions matching Female Master, no texture mottling. Generate both phases together.",
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/dumbbell-reverse-lunge/start.webp",
+      "sha256": "f0632adac8b6b33b7a4ab8cedda889f18599a2a61f7f8abea6f7238c6949fd23",
+      "bytes": 28506
+    },
+    {
+      "file": "assets/exercises/dumbbell-reverse-lunge/finish.webp",
+      "sha256": "f2908e19f0e93f9bfcaedfec8cee35e3f55ad15a41c55e8535bd3f3c6ed0ed6d",
+      "bytes": 29184
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-fa5e2f97-34e0-4b28-a071-754be70858a5.png",
+    "sourceLibraryFileId": "libfile_a30cc02391388191ba0ac48bf3853599",
+    "sourceSha256": "5806ffadb4d6504b4ad5f00d3353993d92527f30c8dee25b3c86197a7d008745",
+    "sourceBytes": 1281975,
+    "sourceSize": [1774, 887]
+  }
+}

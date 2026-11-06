@@ -2,8 +2,8 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Bodyweight Step-up were merged in #176–198.
-Female Dumbbell Floor Glute Bridge is selected. Next: Female Dumbbell Reverse Lunge. Review
+Female pairs through Dumbbell Floor Glute Bridge were merged in #176–199.
+Female Dumbbell Reverse Lunge is selected. Next: Female Bulgarian Split Squat. Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
 No Oracle dependency or new cloud work is required for this rollout.

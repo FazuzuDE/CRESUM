@@ -260,6 +260,22 @@ jest.mock(
   '../../assets/exercises/dumbbell-floor-glute-bridge/female/finish.webp',
   () => 4802,
 );
+jest.mock(
+  '../../assets/exercises/dumbbell-reverse-lunge/start.webp',
+  () => 4901,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-reverse-lunge/finish.webp',
+  () => 4902,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-reverse-lunge/female/start.webp',
+  () => 5001,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-reverse-lunge/female/finish.webp',
+  () => 5002,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -382,7 +398,7 @@ it('resolves female phases only for the approved exact variants', () => {
   expect(resolveExerciseArtwork('cable-crunch', 'finish', 'female')).toBe(3602);
   for (const id of [
     'kettlebell-goblet-squat',
-    'dumbbell-reverse-lunge',
+    'bulgarian-split-squat',
     'unknown',
   ])
     for (const phase of ['start', 'finish'] as const)
@@ -413,6 +429,7 @@ it.each([
   ['dumbbell-shrug', [3901, 3902, 3901], [4001, 4002, 4001]],
   ['farmers-carry', [4101, 4102, 4101], [4201, 4202, 4201]],
   ['bodyweight-step-up', [4501, 4502, 4501], [4601, 4602, 4601]],
+  ['dumbbell-reverse-lunge', [4901, 4902, 4901], [5001, 5002, 5001]],
   ['dumbbell-floor-glute-bridge', [4701, 4702, 4701], [4801, 4802, 4801]],
   [
     'standing-cable-anti-rotation-press',
@@ -464,8 +481,8 @@ it('shows a female pending placeholder instead of a male image', async () => {
           disabled: false,
         }}
       >
-        <ExerciseArtwork imageKey="dumbbell-reverse-lunge" />
-        <TechniqueArtwork imageKey="dumbbell-reverse-lunge" phase="START" />
+        <ExerciseArtwork imageKey="bulgarian-split-squat" />
+        <TechniqueArtwork imageKey="bulgarian-split-squat" phase="START" />
       </ExerciseCharacterProvider>,
     );
   });

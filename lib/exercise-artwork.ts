@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'dumbbell-reverse-lunge': {
+    start: require('../assets/exercises/dumbbell-reverse-lunge/female/start.webp'),
+    finish: require('../assets/exercises/dumbbell-reverse-lunge/female/finish.webp'),
+  },
   'dumbbell-floor-glute-bridge': {
     start: require('../assets/exercises/dumbbell-floor-glute-bridge/female/start.webp'),
     finish: require('../assets/exercises/dumbbell-floor-glute-bridge/female/finish.webp'),
