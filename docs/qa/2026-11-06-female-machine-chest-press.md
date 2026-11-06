@@ -13,3 +13,6 @@ before binding; independent review clean and exact exports reproduced.
 Detailed mechanism geometry, registration, grip/joints and native device
 acceptance provisional. Archive pending, Oracle deferred. Next Pec Deck Fly
 preview requires separate approval. Pending #220 carried unchanged.
+
+PR #221 version 0.2.21 stamped after tests/exports; version/configuration and
+metadata formatting rechecked. CI pending.
