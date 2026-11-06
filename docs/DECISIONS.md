@@ -1,5 +1,23 @@
 # CRESUM Decision Log
 
+## Female Barbell Back Squat — 2026-11-06
+
+After merging #202, user approved `exec-620779f5-b23a-4fba-aa15-91285038d01e.png`,
+native source `libfile_aeb6432c45cc8191827d13dc698cd83d`. LEFT upright START /
+RIGHT lowered squat FINISH with free barbell across upper back. Bind only
+`barbell-back-squat`/Female. Exact 887-square RGB WebP92/method6 halves,
+shared contain, no retouch/resampling/padding or independent phase transforms.
+Preserve Male, guide, quadriceps/glutes Primary, hamstrings/adductors/lower-back
+Secondary, stable IDs and History. Not Smith or front squat; retain natural head descent.
+
+Coverage: 68 Male plus twenty-eight Female pairs. User-selected-provisional:
+broad phase difference, identity/outfit, free barbell and full-frame fit reviewed;
+exact grip/wrist/bar-to-upper-back contacts, knee tracking, pelvis/torso alignment,
+foot/bar/plate registration and device/accessibility acceptance remain open.
+Original, exact prompt and actual reference hashes retained. Cumulative source
+checkpoint pending; Oracle deferred. Next: Female Barbell Front Squat preview,
+separate approval.
+
 ## Female Smith Machine Squat — 2026-11-06
 
 After merging #201, user approved `exec-c346dff0-825c-4474-90c5-a07118371362.png`,

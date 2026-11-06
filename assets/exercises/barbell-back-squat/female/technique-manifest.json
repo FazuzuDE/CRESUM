@@ -1,0 +1,63 @@
+{
+  "variantId": "barbell-back-squat",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "51a14ee2a1ed7aee724744e8d5318b06221a4ce16c0b0de4584a8324b63eaaf7",
+      "bytes": 31616,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "59ce91de4738e895b01b97e78f731b530b6bb2342fe2a318066cf3fcf3b2f1bc",
+      "bytes": 31848,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-620779f5-b23a-4fba-aa15-91285038d01e.png",
+    "sourceLibraryFileId": "libfile_aeb6432c45cc8191827d13dc698cd83d",
+    "sourceSha256": "c8ee10dc9f8aa8ed0dd108344571b5d7ffb0bdd03e25613339a4223b1ade2852",
+    "sourceBytes": 1334881,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/barbell-back-squat/start.webp",
+        "sha256": "fb048f1678eeb9031ac24d648d8d716fc8596a9e2ff068a76cb02992d3382015",
+        "bytes": 37550
+      },
+      {
+        "file": "assets/exercises/barbell-back-squat/finish.webp",
+        "sha256": "b4a8f85337f04a0c8d7e4a2ea70be977eefa00ff1821b6270f8fb79a464e0c34",
+        "bytes": 37996
+      }
+    ]
+  },
+  "productionChoice": "LEFT upright START / RIGHT lowered squat FINISH with free barbell across upper back. Preserve guide, quadriceps/glutes Primary, hamstrings/adductors/lower-back Secondary, identity and History. Not Smith or front squat.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Natural head descent retained.",
+  "reviewScope": "User-selected-provisional. Broad identity/outfit, phase difference, free barbell and full-frame fit reviewed. Exact grip/wrist/bar-to-upper-back contact, knee tracking, pelvis/torso alignment, foot/bar/plate registration and device/accessibility acceptance remain open. No new biomechanics/source certification.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Exact prompt and actual input hashes recorded; cumulative checkpoint pending; Oracle deferred."
+}
