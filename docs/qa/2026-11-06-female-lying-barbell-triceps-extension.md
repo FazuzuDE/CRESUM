@@ -13,3 +13,6 @@ exact crops reproduced byte-for-byte; targeted switching test passed.
 Detailed grip/joints/forehead clearance/support/registration and native device
 acceptance remain provisional. Original retained; cumulative archive pending,
 Oracle deferred. Next close-grip bench pair is preview-only.
+
+PR #215 version 0.2.15 stamped after tests/exports; version/configuration and
+metadata formatting rechecked. Published final tree matches local; CI pending.
