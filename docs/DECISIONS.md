@@ -1,5 +1,18 @@
 # CRESUM Decision Log
 
+## Female Cable Lateral Raise — 2026-11-07
+
+Approved exec-17528a13-578b-49de-8d0d-ead7a7c0f185.png,
+source libfile_1285a354fbd48191acaea47aaacc9f6c. LEFT arms-down START / RIGHT
+shoulder-height FINISH, standing single-arm cable raise.
+Exact 887-square RGB WebP92/method6 halves, shared contain, no resampling.
+Only cable-lateral-raise/Female; 54 Female pairs, 14 pairs / 28 frames remain.
+Preserve Male, guide, exercise muscle roles,
+stable IDs and History. Detailed hand/joint mechanics, wrist and elbow alignment,
+registration and device acceptance provisional. Source/prompt/input chain retained;
+archive pending, Oracle deferred. Next Female Reverse Pec Deck preview
+requires separate approval.
+
 ## Female Dumbbell Lateral Raise — 2026-11-07
 
 Approved exec-0818bed1-d707-46fe-8f61-ddd8d2efba4f.png,

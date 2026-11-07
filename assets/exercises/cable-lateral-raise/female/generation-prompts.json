@@ -1,0 +1,46 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "CRESUM premium realistic 3D exercise sheet two equal square panels wide 2:1. Standing one-arm cable lateral raise. Ref 1 exact Female Master identity brown ponytail slate-blue shirt charcoal leggings white socks gray shoes. Refs 2/3 equipment and movement. Same silver dual pulley station to viewer left with dark enclosed stacks, unchanged frame and active pulley fixed at hip height on right upright. Woman stands to right of station, right side nearest machine, far hand (her left, viewer right) holds single black D-handle. One taut continuous cable runs from that fixed pulley diagonally across front of body to silver carabiner and handle in both frames. LEFT START working hand beside outer thigh, RIGHT FINISH working arm raised sideways to shoulder height with soft elbow, neutral wrist and relaxed shoulder. Other arm relaxed at side. Same stance, body, camera, floor, fixed machine position and equal large scale. Keep all feet, head, handle and machine visible with small margins. White studio subtle contact shadows. No labels, arrows or borders.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/cable-lateral-raise/start.webp",
+      "sha256": "e98c1f62fa0322d6083edcbbad97b243508e228d53e2a17cadf31b01837d057f",
+      "bytes": 52826
+    },
+    {
+      "file": "assets/exercises/cable-lateral-raise/finish.webp",
+      "sha256": "af641fe5f9893cb9d64288d813808b199c0cb4e18cb8c4b3559280439467688b",
+      "bytes": 53188
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-17528a13-578b-49de-8d0d-ead7a7c0f185.png",
+    "sourceLibraryFileId": "libfile_1285a354fbd48191acaea47aaacc9f6c",
+    "sourceSha256": "c7021d955f11422c4f29ac64b5a447fdf44bae2dcfe19da0f21e910068e2f7a0",
+    "sourceBytes": 1498251,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/cable-lateral-raise/start.webp",
+        "sha256": "e98c1f62fa0322d6083edcbbad97b243508e228d53e2a17cadf31b01837d057f",
+        "bytes": 52826
+      },
+      {
+        "file": "assets/exercises/cable-lateral-raise/finish.webp",
+        "sha256": "af641fe5f9893cb9d64288d813808b199c0cb4e18cb8c4b3559280439467688b",
+        "bytes": 53188
+      }
+    ]
+  }
+}
