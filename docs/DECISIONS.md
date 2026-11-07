@@ -1,5 +1,12 @@
 # CRESUM Decision Log
 
+## Female Pull-Up — 2026-11-07
+
+User selected the first three-quarter preview, with an extended hang at START
+and chin above the bar at FINISH. Female coverage reaches 67 of 68 pairs.
+Bar registration differs between phases. Device QA and source archive upload
+remain pending.
+
 ## Female Assisted Pull-Up — 2026-11-07
 
 User approved the assisted pair (libfile_32a6fd03e0d88191b114ad324d7cfc24).

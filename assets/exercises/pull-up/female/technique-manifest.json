@@ -1,0 +1,50 @@
+{
+  "variantId": "pull-up",
+  "model": "female",
+  "status": "user-selected-provisional",
+  "source": {
+    "file": "exec-6daff65f-8da6-4bb0-a5c5-563400ba93f9.png",
+    "sha256": "562be39dba5754cafd234f2957cbf9fb1900b7a61046d97b1423ba64b3304dc4",
+    "bytes": 1343158,
+    "size": [1774, 887]
+  },
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/pull-up/start.webp",
+      "sha256": "12969aff87d015faeb6b80fb9729fb5fc7bc6a19df709f6922895ae1da5812a4",
+      "bytes": 41088
+    },
+    {
+      "file": "assets/exercises/pull-up/finish.webp",
+      "sha256": "7d05218f3121c2344875dae22fd6a7acbe774136c83d68f1ed40742a8270f313",
+      "bytes": 39426
+    }
+  ],
+  "frames": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "d924faadf546b2a4d33d19f7c4f87889b395b2c9c58dfac804220ef8bbc1a68f",
+      "bytes": 38368,
+      "crop": [0, 0, 887, 887]
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "34e8e78cb9c3bbc1830686ea4121a401a2a285277b29e8ebda4f276d2f4d17b3",
+      "bytes": 36536,
+      "crop": [887, 0, 1774, 887]
+    }
+  },
+  "export": {
+    "format": "WebP",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none"
+  },
+  "reviewScope": "User selected the first three-quarter preview. Bar registration differs between phases. Device QA pending.",
+  "archiveStatus": "pending-upload"
+}

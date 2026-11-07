@@ -263,6 +263,8 @@ jest.mock(
 );
 jest.mock('../../assets/exercises/assisted-pull-up/start.webp', () => 1001);
 jest.mock('../../assets/exercises/assisted-pull-up/finish.webp', () => 1002);
+jest.mock('../../assets/exercises/pull-up/female/start.webp', () => 13401);
+jest.mock('../../assets/exercises/pull-up/female/finish.webp', () => 13402);
 jest.mock('../../assets/exercises/pull-up/start.webp', () => 901);
 jest.mock('../../assets/exercises/pull-up/finish.webp', () => 902);
 jest.mock('../../assets/exercises/barbell-bent-over-row/start.webp', () => 801);
@@ -550,7 +552,9 @@ it('binds the selected overhand bodyweight pull-up without borrowing its pair fo
   expect(resolveExerciseArtwork('pull-up', 'finish', 'male')).toBe(902);
   expect(resolveAttachmentArtwork('pull-up')).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
-    expect(resolveExerciseArtwork('pull-up', phase, 'female')).toBeNull();
+    expect(resolveExerciseArtwork('pull-up', phase, 'female')).toBe(
+      phase === 'start' ? 13401 : 13402,
+    );
     for (const id of ['lat-pulldown', 'pulldown', 'unknown']) {
       expect(resolveExerciseArtwork(id, phase, 'male')).toBeNull();
     }
