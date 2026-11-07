@@ -1,0 +1,35 @@
+{
+  "variantId": "lat-pulldown-wide-pronated-bar",
+  "model": "female",
+  "status": "user-selected-provisional",
+  "source": {
+    "file": "exec-11eb4162-160b-4527-9412-57048e16bf20.png",
+    "sha256": "70f58a253a208d814161ef4788f545c95625c553000b6360d01f8e2aa9fae007",
+    "bytes": 1559169,
+    "libraryFileId": "libfile_799d1098bb788191b94851e295a0c8dd",
+    "size": [1774, 887]
+  },
+  "promptFile": "generation-prompts.json",
+  "frames": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "824521ba6ccde55a3470e31d77bfdc7f6105b03bf4b6d0c41e8b9e590711e43c",
+      "bytes": 59018,
+      "crop": [0, 0, 887, 887]
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "4524606f2a4fdff3615e8442264dae68d534968112dde6113b4cfb4408d85009",
+      "bytes": 57644,
+      "crop": [887, 0, 1774, 887]
+    }
+  },
+  "export": {
+    "format": "WebP",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none"
+  },
+  "reviewScope": "User selected the pair. Wide overhand grip, front bar path, continuous cable, lifted weight stack, thigh and foot contact reviewed. Detailed joint mechanics and native device QA remain provisional.",
+  "archiveStatus": "pending-upload"
+}

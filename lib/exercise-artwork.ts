@@ -147,6 +147,10 @@ const femalePairs: Readonly<
     start: require('../assets/exercises/chest-supported-dumbbell-row/female/start.webp'),
     finish: require('../assets/exercises/chest-supported-dumbbell-row/female/finish.webp'),
   },
+  'lat-pulldown-wide-pronated-bar': {
+    start: require('../assets/exercises/lat-pulldown-wide-pronated-bar/female/start.webp'),
+    finish: require('../assets/exercises/lat-pulldown-wide-pronated-bar/female/finish.webp'),
+  },
   'seated-cable-row-close-neutral-v-handle': {
     start: require('../assets/exercises/seated-cable-row-close-neutral-v-handle/female/start.webp'),
     finish: require('../assets/exercises/seated-cable-row-close-neutral-v-handle/female/finish.webp'),

@@ -1,0 +1,20 @@
+{
+  "prompt": "CRESUM female wide-grip overhand lat pulldown, two equal square panels in one 2:1 sheet. Exact female character from reference 1, navy short sleeve shirt charcoal leggings gray shoes and brown ponytail. Copy machine design and exercise staging from male reference 2 for left START and reference 3 for right FINISH. Same full pale silver selectorized machine, fixed pulley and black thigh pads, feet on floor, identical camera and machine scale and crop in each panel. Bar is one continuous wide chrome lat bar with shallow downward angled ends, same exact bar and same exact grip width in both phases. Hands securely grip the angled outer ends overhand symmetrically. Single vertical taut cable from same pulley, with centered stopper, carabiner and physically connected bar eye. START bar above head and arms almost straight. FINISH bar lowered to upper chest in front of body, elbows down and slightly out, forearms aligned beneath grips, small fixed torso lean, pelvis stays seated and foot placement unchanged. On FINISH the selected upper block of weights lifts as a unit with visible gap above the remaining plates, guide rails and frame unchanged. Clear white studio, matched margins, entire machine and person in frame, no labels, no divider, no logo.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/lat-pulldown-wide-pronated-bar/start.webp",
+      "sha256": "90c1b2c37cbb14ec55e0dd4136e78206bfb62385290fddfe2edaf9a036e3224b",
+      "bytes": 64102
+    },
+    {
+      "file": "assets/exercises/lat-pulldown-wide-pronated-bar/finish.webp",
+      "sha256": "2a8b18791d2ae526423325f83b3b0e75f897f138ca853d92cfe8d35345707e08",
+      "bytes": 63126
+    }
+  ]
+}
