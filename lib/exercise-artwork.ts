@@ -135,6 +135,10 @@ const femalePairs: Readonly<
     start: require('../assets/exercises/reverse-pec-deck/female/start.webp'),
     finish: require('../assets/exercises/reverse-pec-deck/female/finish.webp'),
   },
+  'barbell-bent-over-row': {
+    start: require('../assets/exercises/barbell-bent-over-row/female/start.webp'),
+    finish: require('../assets/exercises/barbell-bent-over-row/female/finish.webp'),
+  },
   'push-up': {
     start: require('../assets/exercises/push-up/female/start.webp'),
     finish: require('../assets/exercises/push-up/female/finish.webp'),

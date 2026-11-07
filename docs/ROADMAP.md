@@ -2,9 +2,9 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Cable Lateral Raise merged via #229.
-Female Reverse Pec Deck selected: 55 pairs.
-Next: Female Barbell Bent-over Row preview; 13 pairs / 26 frames remain.
+Female pairs through Reverse Pec Deck merged via #230.
+Female Barbell Bent-over Row selected: 56 pairs.
+Next: Female One-arm Dumbbell Row preview; 12 pairs / 24 frames remain.
 Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.

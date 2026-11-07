@@ -473,7 +473,6 @@ it('shows selected barbell row phases without redefining its unspecified grip or
   expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(802);
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
-    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
     for (const other of ['row', 'seated-cable-row', 'unknown']) {
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
     }
