@@ -1,0 +1,63 @@
+{
+  "variantId": "cable-lateral-raise",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "6cf6957b96ae184663e70399bf507c0b258600763e838b360bf33a5eca6dcfdf",
+      "bytes": 52236,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "9735dd8e541a1e0ad74db5ebe39b1aaaa291dc9fe40841a271ff0fe86ccfac88",
+      "bytes": 51738,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-17528a13-578b-49de-8d0d-ead7a7c0f185.png",
+    "sourceLibraryFileId": "libfile_1285a354fbd48191acaea47aaacc9f6c",
+    "sourceSha256": "c7021d955f11422c4f29ac64b5a447fdf44bae2dcfe19da0f21e910068e2f7a0",
+    "sourceBytes": 1498251,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/cable-lateral-raise/start.webp",
+        "sha256": "e98c1f62fa0322d6083edcbbad97b243508e228d53e2a17cadf31b01837d057f",
+        "bytes": 52826
+      },
+      {
+        "file": "assets/exercises/cable-lateral-raise/finish.webp",
+        "sha256": "af641fe5f9893cb9d64288d813808b199c0cb4e18cb8c4b3559280439467688b",
+        "bytes": 53188
+      }
+    ]
+  },
+  "productionChoice": "LEFT arms-down START / RIGHT shoulder-height FINISH. Standing single-arm cable lateral raise.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases, standing foot support, identity and full frame reviewed. Detailed finger/wrist/elbow/shoulder mechanics, wrist and elbow alignment, phase registration and native device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}
