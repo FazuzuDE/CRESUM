@@ -2,10 +2,10 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Straight-Arm Cable Pulldown merged via #240.
-Female Assisted Pull-Up selected: 66 pairs.
-Next: Female Pull-Up preview.
-2 pairs / 4 frames remain.
+Female pairs through Assisted Pull-Up merged via #241.
+Female Pull-Up selected: 67 pairs.
+Next: Female Resistance Band Pull-Apart preview.
+1 pair / 2 frames remains.
 Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
