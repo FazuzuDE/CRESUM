@@ -1,0 +1,46 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "CRESUM female one-arm dumbbell row, one wide 2:1 sheet with two square panels. Ref 1 exact female identity and outfit; refs 2/3 exercise and silver flat bench. Same side camera and scale, whole figure and bench visible. Far palm and far knee firmly planted on bench pad, near foot flat on floor, near hand holds exactly one black dumbbell in neutral grip. Torso stable nearly horizontal and spine neutral. Left START near arm hanging straight beneath shoulder, dumbbell clears bench and floor. Right FINISH draw near elbow backward beside torso, dumbbell close to lower ribs, no trunk rotation. Same bench, hands, knee and foot positions across phases; clear contacts and accurate anatomy. White studio soft shadows, no labels, arrows or border.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/one-arm-dumbbell-row/start.webp",
+      "sha256": "fc344c65ee6e74d7abb804e85331d26f5bfdd7613d42d8d325f379929f21582f",
+      "bytes": 57544
+    },
+    {
+      "file": "assets/exercises/one-arm-dumbbell-row/finish.webp",
+      "sha256": "d2741f6fa0492e65cb8ba051039e3e917ae6f0be2e5c1fdc3284da70485d837b",
+      "bytes": 53118
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-dea781f1-8d17-4ccc-9bc0-1d8964861680.png",
+    "sourceLibraryFileId": "libfile_ccb65136af508191a94e36a88f1634f3",
+    "sourceSha256": "fc506430c756550e3af2871259a0f8241f44cb466655655a42fceac61794ce20",
+    "sourceBytes": 1503992,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/one-arm-dumbbell-row/start.webp",
+        "sha256": "fc344c65ee6e74d7abb804e85331d26f5bfdd7613d42d8d325f379929f21582f",
+        "bytes": 57544
+      },
+      {
+        "file": "assets/exercises/one-arm-dumbbell-row/finish.webp",
+        "sha256": "d2741f6fa0492e65cb8ba051039e3e917ae6f0be2e5c1fdc3284da70485d837b",
+        "bytes": 53118
+      }
+    ]
+  }
+}

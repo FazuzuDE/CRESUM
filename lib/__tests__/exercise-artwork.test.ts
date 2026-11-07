@@ -435,7 +435,6 @@ it('binds the bench-supported one-arm pair without changing identity or borrowin
   expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(602);
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
-    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
     for (const other of ['row', 'seated-cable-row', 'unknown']) {
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
     }

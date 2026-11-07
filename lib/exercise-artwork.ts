@@ -139,6 +139,10 @@ const femalePairs: Readonly<
     start: require('../assets/exercises/barbell-bent-over-row/female/start.webp'),
     finish: require('../assets/exercises/barbell-bent-over-row/female/finish.webp'),
   },
+  'one-arm-dumbbell-row': {
+    start: require('../assets/exercises/one-arm-dumbbell-row/female/start.webp'),
+    finish: require('../assets/exercises/one-arm-dumbbell-row/female/finish.webp'),
+  },
   'push-up': {
     start: require('../assets/exercises/push-up/female/start.webp'),
     finish: require('../assets/exercises/push-up/female/finish.webp'),
