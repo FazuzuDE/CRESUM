@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## Female Seated Cable Row with close neutral V-handle — 2026-11-07
+
+User approved the screenshot restoration, with START on the left and FINISH on
+the right. The restoration is retained as source libfile_82cbd90337608191b0517549ae9dad10.
+Two 887-square WebP exports use the exact variant ID and shared contain layout.
+Female coverage reaches 60 of 68 pairs, with 8 pairs / 16 frames remaining.
+Detailed joint mechanics and device acceptance remain provisional. Source archive
+upload remains pending.
+
 ## Female Machine High Row — 2026-11-07
 
 Approved exec-15a80aee-f3ca-4abb-8d1b-8841dd6145f9.png,

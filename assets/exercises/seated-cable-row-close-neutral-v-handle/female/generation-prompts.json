@@ -1,0 +1,12 @@
+{
+  "prompt": "Restore the existing exercise illustration embedded in the screenshot. Output only the wide 2:1 image, two equal square panels: START on left, FINISH on right. Faithfully reproduce the artwork between approximately pixel coordinates x=49 to 1241 and y=653 to 1250 of the screenshot. Remove all app UI and black background, repair rounded corners with white studio background. Specifically remove the gray circular iOS share overlay in lower right; reconstruct the small occluded bench edge and pale studio floor by matching the stationary bench and background at the exact corresponding position in the left panel. Keep ALL other visible composition and pose details as close as possible to the original: exact side view, woman faces left, same ponytail, clothing, body scale and pose, same left-side silver and charcoal weight tower, centered narrow chromed V attachment, cable, seated bench, footplates and feet. Arms extended in left panel and elbows pulled back with handle at waist in right panel. No equipment redesign, no changes to cable line or grip, no panel labels, no added objects. A clean restoration of the original illustrated diptych only, at maximum fidelity.",
+  "references": [
+    {
+      "file": "C5256A59-ACB2-473F-9BF8-0645CC21274E.png",
+      "sha256": "e951efc65caed811cb95054df21643f6e22702f9fa513912e8277e8da8121314",
+      "bytes": 1030456,
+      "libraryFileId": "libfile_e79c1290f8ac819193e1482408f8d36d",
+      "role": "Screenshot of the previously approved pair"
+    }
+  ]
+}

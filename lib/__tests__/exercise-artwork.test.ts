@@ -310,6 +310,15 @@ jest.mock(
   () => 502,
 );
 
+jest.mock(
+  '../../assets/exercises/seated-cable-row-close-neutral-v-handle/female/start.webp',
+  () => 12001,
+);
+jest.mock(
+  '../../assets/exercises/seated-cable-row-close-neutral-v-handle/female/finish.webp',
+  () => 12002,
+);
+
 jest.mock('../../assets/exercises/one-arm-dumbbell-row/start.webp', () => 601);
 jest.mock('../../assets/exercises/one-arm-dumbbell-row/finish.webp', () => 602);
 jest.mock(
@@ -342,10 +351,12 @@ it('binds the selected row pair only to its exact close neutral configuration', 
   expect(resolveExerciseArtwork(id, 'start', 'male')).toBe(501);
   expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(502);
   expect(resolveAttachmentArtwork(id)).toBe(203);
+  expect(resolveExerciseArtwork(id, 'start', 'female')).toBe(12001);
+  expect(resolveExerciseArtwork(id, 'finish', 'female')).toBe(12002);
   for (const phase of ['start', 'finish'] as const) {
-    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
     for (const generic of ['row', 'seated-cable-row']) {
       expect(resolveExerciseArtwork(generic, phase, 'male')).toBeNull();
+      expect(resolveExerciseArtwork(generic, phase, 'female')).toBeNull();
       expect(resolveAttachmentArtwork(generic)).toBeNull();
     }
   }

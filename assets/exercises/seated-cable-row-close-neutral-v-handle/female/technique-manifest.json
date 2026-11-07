@@ -1,0 +1,36 @@
+{
+  "variantId": "seated-cable-row-close-neutral-v-handle",
+  "model": "female",
+  "status": "user-selected-provisional",
+  "source": {
+    "file": "exec-83df467e-3fa0-44c9-b61b-6a18aef37c21.png",
+    "sha256": "98f7157f7577d495bf421d32f7caff3266288ada97c9052ce46c91a74078acf8",
+    "bytes": 1383115,
+    "libraryFileId": "libfile_82cbd90337608191b0517549ae9dad10",
+    "size": [1774, 887],
+    "kind": "Screenshot restoration"
+  },
+  "promptFile": "generation-prompts.json",
+  "frames": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "36c9c37a0651fbe726a1e4c542b80107074b8970716bde7d07c80cf75efe6a88",
+      "bytes": 41484,
+      "crop": [0, 0, 887, 887]
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "dba57e3e9b4e8a10ddb51171693e33e2aee7b649726311f683a7bb72adbcad12",
+      "bytes": 39724,
+      "crop": [887, 0, 1774, 887]
+    }
+  },
+  "export": {
+    "format": "WebP",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none"
+  },
+  "reviewScope": "User selected the restored pair. Phase direction, narrow neutral attachment, continuous cable, foot and seat contact reviewed. Detailed joint mechanics and native device QA remain provisional.",
+  "archiveStatus": "pending-upload"
+}
