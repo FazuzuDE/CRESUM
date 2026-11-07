@@ -736,6 +736,22 @@ jest.mock(
   '../../assets/exercises/lat-pulldown-close-neutral-v-handle/female/finish.webp',
   () => 12402,
 );
+jest.mock(
+  '../../assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/start.webp',
+  () => 12501,
+);
+jest.mock(
+  '../../assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/finish.webp',
+  () => 12502,
+);
+jest.mock(
+  '../../assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/female/start.webp',
+  () => 12601,
+);
+jest.mock(
+  '../../assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/female/finish.webp',
+  () => 12602,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -863,6 +879,11 @@ it('resolves female phases only for the approved exact variants', () => {
 });
 
 it.each([
+  [
+    'lat-pulldown-close-neutral-ergonomic-handle',
+    [12501, 12502, 12501],
+    [12601, 12602, 12601],
+  ],
   [
     'lat-pulldown-close-neutral-v-handle',
     [12301, 12302, 12301],

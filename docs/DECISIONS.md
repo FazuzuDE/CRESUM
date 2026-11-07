@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## Female Close Neutral Ergonomic-Handle Lat Pulldown — 2026-11-07
+
+User approved the corrected grip in source libfile_e46d8b4c43e8819196f46ca7537c0b34.
+Left overhead START and right upper-chest FINISH, with each hand on a separate
+rounded side of the ergonomic handle. The exact 887-square WebP crops bind only
+to the ergonomic-handle variant. Female coverage reaches 63 of 68 pairs, with
+5 pairs / 10 frames remaining. Detailed joint mechanics and device acceptance
+remain provisional. Source archive upload remains pending.
+
 ## Female Close Neutral V-Handle Lat Pulldown — 2026-11-07
 
 User approved `exec-af210f0f-afb2-496a-9e94-b0085769991b.png`: overhead START on

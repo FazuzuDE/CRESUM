@@ -1,0 +1,25 @@
+{
+  "prompt": "Surgical edit of first reference only, preserving the 2:1 start/finish diptych and every pixel outside both hand/attachment areas as closely as possible. Replace the mistaken horizontal stubby handle and wrong grasp in BOTH panels with the compact NARROW neutral-grip ergonomic black attachment from the BOTTOM LEFT of the supplied product collages. Only use the narrow version. The rigid matte black attachment has a central raised tab with one reinforced eye and two short lateral wings, each terminating in its own outward upright paddle with a thick rounded top edge oriented roughly front-to-back. Each hand cups its own end paddle from the outer side, with the fleshy palm seated on its shaped contact face and fingers curling OVER the rounded top lip, like the detailed hand reference. Palms face each other, knuckles mirror one another, wrists continue the line of the respective forearms, thumbs naturally opposed, five fingers per hand, accurate occlusion. Show both raised end paddles, and leave the central tab and connection unobstructed. Do not show a horizontal tube passing through both fists. No logos, no labels. Keep the identical handle shape and hand placement in both phases. Existing single carabiner passes through central eye, taut original cable. Left arms overhead, right handle at upper chest. Preserve female identity, original pose, elbows, outfit, camera angle, perspective, crop, framing, machine frame, thigh pads, seat, feet, weight stack position for each phase, and studio light. Output corrected complete diptych only.",
+  "references": [
+    {
+      "file": "exec-f03a2ae6-bdd2-41b5-9f41-589cf9775fc6.png",
+      "sha256": "3f37cb278d689b31d06b529bd89d8bc96dab02b4f44cfd441870fb61a9d03729",
+      "bytes": 1448264
+    },
+    {
+      "file": "IMG_8300(3).jpeg",
+      "sha256": "5b66131dea3648ba3e08909fc918b4809138ed10396c017a9f156dcb0b9f8a43",
+      "bytes": 89219
+    },
+    {
+      "file": "IMG_8301(3).jpeg",
+      "sha256": "0974864a6d707d7c055d682ac4d2f2d30af4e49ba13583afd6af34e28e7746b4",
+      "bytes": 142040
+    },
+    {
+      "file": "IMG_8299(3).jpeg",
+      "sha256": "08d47eb87abe1b1befd40e0f8e5c6448b4bc1b883f6bc95dc9bb8556f8431d1f",
+      "bytes": 85848
+    }
+  ]
+}
