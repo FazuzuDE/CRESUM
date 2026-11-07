@@ -10718,5 +10718,213 @@
     "context": "StringLiteral/ConditionalExpression/PropertyAssignment:step/ObjectLiteralExpression/CallExpression",
     "kind": "internal",
     "reason": "Persisted onboarding navigation discriminants; existing-user personalization skips the first-run-only character step."
+  },
+  {
+    "file": "components/ExerciseEquipmentCatalog.tsx",
+    "line": 26,
+    "text": "`cresum:exercise-equipment:${canonicalExerciseId(exerciseId) ?? exerciseId}`",
+    "context": "TemplateExpression/VariableDeclaration/VariableDeclarationList/FirstStatement/Block",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "components/ExerciseEquipmentCatalog.tsx",
+    "line": 100,
+    "text": "bottom",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "components/ExerciseEquipmentCatalog.tsx",
+    "line": 100,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "components/ExerciseEquipmentCatalog.tsx",
+    "line": 100,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "components/ExerciseEquipmentCatalog.tsx",
+    "line": 155,
+    "text": "checkbox",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "components/ExerciseEquipmentCatalog.tsx",
+    "line": 155,
+    "text": "square-outline",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 42,
+    "text": "cable-straight-arm-pulldown",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 42,
+    "text": "short-straight-bar",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 43,
+    "text": "cable-biceps-curl",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 43,
+    "text": "short-straight-bar",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 44,
+    "text": "lat-pulldown-reverse-grip",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 44,
+    "text": "wide-bar",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 45,
+    "text": "cable-triceps-pushdown",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 45,
+    "text": "rope",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 46,
+    "text": "overhead-cable-triceps-extension",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 46,
+    "text": "rope",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 47,
+    "text": "cable-lateral-raise",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 47,
+    "text": "single-handle",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 48,
+    "text": "cable-chest-fly",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 48,
+    "text": "single-handle",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 49,
+    "text": "standing-cable-anti-rotation-press",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 49,
+    "text": "single-handle",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 50,
+    "text": "cable-crunch",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 50,
+    "text": "rope",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 51,
+    "text": "cable-glute-kickback",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "lib/exercise-equipment-catalog.ts",
+    "line": 51,
+    "text": "ankle-strap",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
   }
 ]

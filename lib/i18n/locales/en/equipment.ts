@@ -1,4 +1,12 @@
 export default {
+  'equipment.save': 'Save',
+  'equipment.shortStraightBar': 'Short straight bar',
+  'equipment.rope': 'Rope attachment',
+  'equipment.singleHandle': 'Single handle',
+  'equipment.ankleStrap': 'Ankle strap',
+  'equipment.catalog': 'Equipment catalog',
+  'equipment.illustratedDefault': 'Equipment shown in the illustrations',
+  'equipment.personalSelection': 'Your equipment selection',
   'equipment.stationName': 'Lat Pulldown',
   'equipment.configureSets': 'Sets',
   'equipment.plannedReps': 'Planned repetitions',

@@ -1,4 +1,12 @@
 export default {
+  'equipment.save': 'Enregistrer',
+  'equipment.shortStraightBar': 'Barre droite courte',
+  'equipment.rope': 'Corde de tirage',
+  'equipment.singleHandle': 'Poignée simple',
+  'equipment.ankleStrap': 'Sangle de cheville',
+  'equipment.catalog': 'Catalogue du matériel',
+  'equipment.illustratedDefault': 'Matériel illustré',
+  'equipment.personalSelection': 'Votre sélection de matériel',
   'equipment.stationName': 'Tirage vertical',
   'equipment.configureSets': 'Séries',
   'equipment.plannedReps': 'Répétitions prévues',

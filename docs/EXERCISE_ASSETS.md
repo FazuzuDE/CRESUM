@@ -1,5 +1,20 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Equipment catalog and exercise artwork
+
+The equipment catalog is shared by exercise cards and workout entries. Use the
+illustrated setup as the default. Personal equipment selections are editable
+independently of catalog exercise identity, technique artwork and logged sets.
+The approved short straight bar artwork is shared by straight-arm cable
+pulldowns and low-cable curls. Source PNG: libfile_2c1593d748a08191b6008d0189753df5.
+Photo reference: libfile_abec8bbbce7c8191bf60728b68a22303.
+
+For every new exercise or equipment-specific technique variant, prepare four
+matched images before adding it to the catalog: Male START and FINISH, Female
+START and FINISH. Use the approved CRESUM characters and equipment style, with
+consistent framing and machine geometry. Review the four frames against the
+specific setup before publishing the variant.
+
 ## Female Resistance Band Pull-Apart — 2026-11-07
 
 User approved the rear three-quarter pair (libfile_a09956fc772481918c38a1e481e71cfb).

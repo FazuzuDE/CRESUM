@@ -1,4 +1,12 @@
 export default {
+  'equipment.save': 'Speichern',
+  'equipment.shortStraightBar': 'Kurze gerade Griffstange',
+  'equipment.rope': 'Trizepsseil',
+  'equipment.singleHandle': 'Einhandgriff',
+  'equipment.ankleStrap': 'Fußmanschette',
+  'equipment.catalog': 'Ausrüstungskatalog',
+  'equipment.illustratedDefault': 'Ausrüstung auf den Abbildungen',
+  'equipment.personalSelection': 'Deine Ausrüstungsauswahl',
   'equipment.stationName': 'Latzug',
   'equipment.configureSets': 'Sätze',
   'equipment.plannedReps': 'Geplante Wiederholungen',
