@@ -1,4 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useState } from 'react';
 import { Image, Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -35,6 +34,8 @@ export function ExerciseEquipmentCatalog({
     setError(false);
     setOpening(true);
     try {
+      const { default: AsyncStorage } =
+        await import('@react-native-async-storage/async-storage');
       setDraft(
         parseExerciseEquipment(await AsyncStorage.getItem(key)) ?? defaults,
       );
@@ -50,6 +51,8 @@ export function ExerciseEquipmentCatalog({
     setError(false);
     setSaving(true);
     try {
+      const { default: AsyncStorage } =
+        await import('@react-native-async-storage/async-storage');
       if (
         draft.length === defaults.length &&
         defaults.every((id) => draft.includes(id))
