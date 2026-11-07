@@ -2,9 +2,10 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Seated Cable Row merged via #235.
-Female Wide-Grip Lat Pulldown selected: 61 pairs.
-7 pairs / 14 frames remain.
+Female pairs through Wide-Grip Lat Pulldown merged via #236.
+Female Close Neutral V-Handle Lat Pulldown selected: 62 pairs.
+Next: Female Close Neutral Ergonomic-Handle Lat Pulldown preview.
+6 pairs / 12 frames remain.
 Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.

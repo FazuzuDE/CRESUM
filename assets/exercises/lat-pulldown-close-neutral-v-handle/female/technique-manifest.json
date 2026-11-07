@@ -1,0 +1,34 @@
+{
+  "variantId": "lat-pulldown-close-neutral-v-handle",
+  "model": "female",
+  "status": "user-selected-provisional",
+  "source": {
+    "file": "exec-af210f0f-afb2-496a-9e94-b0085769991b.png",
+    "sha256": "24b59110f24396b916799a54aacf834007ed589962020daf31baf3d2af9ba85c",
+    "bytes": 1470297,
+    "size": [1774, 887]
+  },
+  "promptFile": "generation-prompts.json",
+  "frames": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "14f53991a3edb30bf73866d8bfd6d91dda95422f12376dbc7fa18d21dfb85b6a",
+      "bytes": 53286,
+      "crop": [0, 0, 887, 887]
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "429219ec0638b4840de91cfdb5c25902921e9f4d93a9cc51b0ac038cef18dfc2",
+      "bytes": 53450,
+      "crop": [887, 0, 1774, 887]
+    }
+  },
+  "export": {
+    "format": "WebP",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none"
+  },
+  "reviewScope": "User approved the pair. Overhead start, upper-chest finish and lifted selected plates. Detailed joint mechanics and native device QA remain provisional. Exact crops retain the fine source border.",
+  "archiveStatus": "pending-upload"
+}
