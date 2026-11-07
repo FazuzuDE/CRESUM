@@ -1,5 +1,18 @@
 # CRESUM Decision Log
 
+## Female Reverse Pec Deck — 2026-11-07
+
+Approved exec-f3d7bfdb-6a7e-4af8-b7e0-848c74124480.png,
+source libfile_9dd4fc4c9a1481919ec8a1db1216922a. LEFT arms-forward START / RIGHT
+arms-open FINISH, seated reverse fly with chest support.
+Exact 887-square RGB WebP92/method6 halves, shared contain, no resampling.
+Only reverse-pec-deck/Female; 55 Female pairs, 13 pairs / 26 frames remain.
+Preserve Male, guide, exercise muscle roles,
+stable IDs and History. Detailed hand/joint mechanics, wrist and elbow alignment,
+registration and device acceptance provisional. Source/prompt/input chain retained;
+archive pending, Oracle deferred. Next Female Barbell Bent-over Row preview
+requires separate approval.
+
 ## Female Cable Lateral Raise — 2026-11-07
 
 Approved exec-17528a13-578b-49de-8d0d-ead7a7c0f185.png,

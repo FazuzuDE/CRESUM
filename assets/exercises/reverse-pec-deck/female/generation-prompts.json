@@ -1,0 +1,46 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Wide CRESUM 2:1 exercise sheet, two equal square panels, seated female reverse pec deck. Ref 1 exact Female Master brown ponytail muted blue shirt charcoal leggings white socks grey shoes. Refs 2/3 establish exact seated rear-delt movement and equipment. Rear three-quarter camera. Same satin silver frame, seat, black chest pad and two fixed overhead vertical pivots. Chest supported, feet flat. LEFT START both hands securely grasp the attached horizontal black grips in front, arms at shoulder height and slightly bent. RIGHT FINISH arms open out at shoulder height with same gentle elbow bend. Both rigid overhead levers rotate horizontally about their fixed pivots with same shape and length, each grip visibly attached to its own lever and firmly held. Selected upper weight plates rise together on guide rods leaving a gap above remaining plates; total plate count stays constant. Same frame, camera, stance and character scale, full machine and body within each square, small margins. White seamless studio, soft floor shadows. No text, lines or arrows.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/reverse-pec-deck/start.webp",
+      "sha256": "74ac33498bcb99589bfc097f88fa6b41e5c7fcdf1143d09e4a5d56ded6e95135",
+      "bytes": 54878
+    },
+    {
+      "file": "assets/exercises/reverse-pec-deck/finish.webp",
+      "sha256": "061e4425af57cbe990dd433d8f8ee573df8058413181e8bfae1a4ca0db9d702f",
+      "bytes": 59666
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-f3d7bfdb-6a7e-4af8-b7e0-848c74124480.png",
+    "sourceLibraryFileId": "libfile_9dd4fc4c9a1481919ec8a1db1216922a",
+    "sourceSha256": "5ff73cb0801c024bbb09eb5149341d331d0a9f956d160748315be97f514967f4",
+    "sourceBytes": 1643685,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/reverse-pec-deck/start.webp",
+        "sha256": "74ac33498bcb99589bfc097f88fa6b41e5c7fcdf1143d09e4a5d56ded6e95135",
+        "bytes": 54878
+      },
+      {
+        "file": "assets/exercises/reverse-pec-deck/finish.webp",
+        "sha256": "061e4425af57cbe990dd433d8f8ee573df8058413181e8bfae1a4ca0db9d702f",
+        "bytes": 59666
+      }
+    ]
+  }
+}

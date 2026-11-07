@@ -131,6 +131,10 @@ const femalePairs: Readonly<
     start: require('../assets/exercises/cable-lateral-raise/female/start.webp'),
     finish: require('../assets/exercises/cable-lateral-raise/female/finish.webp'),
   },
+  'reverse-pec-deck': {
+    start: require('../assets/exercises/reverse-pec-deck/female/start.webp'),
+    finish: require('../assets/exercises/reverse-pec-deck/female/finish.webp'),
+  },
   'push-up': {
     start: require('../assets/exercises/push-up/female/start.webp'),
     finish: require('../assets/exercises/push-up/female/finish.webp'),
