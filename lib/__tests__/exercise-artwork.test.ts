@@ -253,6 +253,14 @@ jest.mock(
 );
 jest.mock('../../assets/exercises/machine-high-row/start.webp', () => 1101);
 jest.mock('../../assets/exercises/machine-high-row/finish.webp', () => 1102);
+jest.mock(
+  '../../assets/exercises/assisted-pull-up/female/start.webp',
+  () => 13201,
+);
+jest.mock(
+  '../../assets/exercises/assisted-pull-up/female/finish.webp',
+  () => 13202,
+);
 jest.mock('../../assets/exercises/assisted-pull-up/start.webp', () => 1001);
 jest.mock('../../assets/exercises/assisted-pull-up/finish.webp', () => 1002);
 jest.mock('../../assets/exercises/pull-up/start.webp', () => 901);
@@ -563,7 +571,9 @@ it('keeps selected assisted pull-up phases distinct from the free bodyweight pai
   expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(1002);
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
-    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
+    expect(resolveExerciseArtwork(id, phase, 'female')).toBe(
+      phase === 'start' ? 13201 : 13202,
+    );
     expect(resolveExerciseArtwork('pull-up', phase, 'male')).not.toBe(
       resolveExerciseArtwork(id, phase, 'male'),
     );
