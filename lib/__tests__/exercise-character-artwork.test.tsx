@@ -704,6 +704,22 @@ jest.mock(
   '../../assets/exercises/seated-cable-row-close-neutral-v-handle/female/finish.webp',
   () => 12002,
 );
+jest.mock(
+  '../../assets/exercises/lat-pulldown-wide-pronated-bar/start.webp',
+  () => 12101,
+);
+jest.mock(
+  '../../assets/exercises/lat-pulldown-wide-pronated-bar/finish.webp',
+  () => 12102,
+);
+jest.mock(
+  '../../assets/exercises/lat-pulldown-wide-pronated-bar/female/start.webp',
+  () => 12201,
+);
+jest.mock(
+  '../../assets/exercises/lat-pulldown-wide-pronated-bar/female/finish.webp',
+  () => 12202,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -831,6 +847,11 @@ it('resolves female phases only for the approved exact variants', () => {
 });
 
 it.each([
+  [
+    'lat-pulldown-wide-pronated-bar',
+    [12101, 12102, 12101],
+    [12201, 12202, 12201],
+  ],
   [
     'seated-cable-row-close-neutral-v-handle',
     [11901, 11902, 11901],

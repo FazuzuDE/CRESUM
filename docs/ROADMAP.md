@@ -2,9 +2,9 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Machine High Row merged via #234.
-Female Seated Cable Row with close neutral V-handle selected: 60 pairs.
-8 pairs / 16 frames remain.
+Female pairs through Seated Cable Row merged via #235.
+Female Wide-Grip Lat Pulldown selected: 61 pairs.
+7 pairs / 14 frames remain.
 Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.

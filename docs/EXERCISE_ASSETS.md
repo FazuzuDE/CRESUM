@@ -1,5 +1,15 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Wide-Grip Lat Pulldown — 2026-11-07
+
+User approved the wide overhand pair, LEFT overhead START and RIGHT upper-chest
+FINISH with the selected weight stack lifted. Source retained as
+libfile_799d1098bb788191b94851e295a0c8dd. Exact 887-square WebP crops use the
+shared contain layout and bind only to the wide pronated bar variant.
+Female coverage reaches 61 of 68 pairs, with 7 pairs / 14 frames remaining.
+Detailed joint mechanics and native device QA remain provisional. Source archive
+upload remains pending.
+
 ## Female Seated Cable Row with close neutral V-handle — 2026-11-07
 
 User approved the screenshot restoration, with START on the left and FINISH on
