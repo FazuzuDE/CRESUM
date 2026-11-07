@@ -1,5 +1,18 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Dumbbell Lateral Raise — 2026-11-07
+
+Approved exec-0818bed1-d707-46fe-8f61-ddd8d2efba4f.png,
+source libfile_30df80f3ff4c8191873c58c673354159. LEFT arms-down START / RIGHT
+shoulder-height FINISH, standing bilateral raise.
+Exact 887-square RGB WebP92/method6 halves, shared contain, no resampling.
+Only dumbbell-lateral-raise/Female; 53 Female pairs, 15 pairs / 30 frames remain.
+Preserve Male, guide, exercise muscle roles,
+stable IDs and History. Detailed hand/joint mechanics, wrist and elbow alignment,
+registration and device acceptance provisional. Source/prompt/input chain retained;
+archive pending, Oracle deferred. Next Female Cable Lateral Raise preview
+requires separate approval.
+
 ## Female Machine Shoulder Press — 2026-11-07
 
 Approved exec-348f643d-fd26-4180-bb3b-5ea7468f78d3.png,
