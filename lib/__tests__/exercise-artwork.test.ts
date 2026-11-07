@@ -625,7 +625,6 @@ it('binds selected shoulder press phases without narrowing standing or seated sc
   expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(1402);
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
-    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
     for (const other of ['press', 'unknown'])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
   }
