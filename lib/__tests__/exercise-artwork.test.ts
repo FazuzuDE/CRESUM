@@ -236,6 +236,14 @@ jest.mock(
 jest.mock('../../assets/exercises/barbell-deadlift/start.webp', () => 1301);
 jest.mock('../../assets/exercises/barbell-deadlift/finish.webp', () => 1302);
 jest.mock(
+  '../../assets/exercises/cable-straight-arm-pulldown/female/start.webp',
+  () => 13001,
+);
+jest.mock(
+  '../../assets/exercises/cable-straight-arm-pulldown/female/finish.webp',
+  () => 13002,
+);
+jest.mock(
   '../../assets/exercises/cable-straight-arm-pulldown/start.webp',
   () => 1201,
 );
@@ -592,7 +600,7 @@ it('binds the selected high-row pair without narrowing the generic exercise scop
   }
 });
 
-it('binds selected straight-arm phases only to the existing Male exercise', () => {
+it('binds selected straight-arm phases to the existing exercise for each character', () => {
   const id = 'cable-straight-arm-pulldown';
   expect(findTechnique(id)?.scope).toBe(
     'Standing shoulder-extension pulldown.',
@@ -607,7 +615,9 @@ it('binds selected straight-arm phases only to the existing Male exercise', () =
   expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(1202);
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
-    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
+    expect(resolveExerciseArtwork(id, phase, 'female')).toBe(
+      phase === 'start' ? 13001 : 13002,
+    );
     for (const other of [
       'lat-pulldown',
       'seated-cable-row',

@@ -1,0 +1,47 @@
+{
+  "variantId": "cable-straight-arm-pulldown",
+  "model": "female",
+  "status": "user-selected-provisional",
+  "source": {
+    "file": "exec-38f24cb7-ee35-4192-bcad-a0d946617d7d.png",
+    "sha256": "2d9170f110ee2de4f3aa6fcb34faa634873f422f11dda8415a93e80a3dd119f6",
+    "bytes": 1260538,
+    "libraryFileId": "libfile_bb4e0850f4408191879de5d9e7a800f4",
+    "size": [1774, 887]
+  },
+  "references": [
+    {
+      "file": "IMG_8440(1).jpeg",
+      "sha256": "0b0d468f1f7d48736d50ae6d1d9c7f4b35989e54d27d16b0718a2f624daf14f1",
+      "bytes": 104098,
+      "libraryFileId": "libfile_0c4d6b964f208191b5b23c89e1acf8a3"
+    },
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    }
+  ],
+  "frames": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "0a3192fa206ec9904b3896e9e6265f2fc2fde4b2ed8799302dee23ed7cf084d5",
+      "bytes": 33028,
+      "crop": [18, 18, 869, 869]
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "896fd8fe7cdd8861c2420ea1996ac5f0b6225e6687e7d6ee3c8072fceaa53599",
+      "bytes": 35718,
+      "crop": [905, 18, 1756, 869]
+    }
+  },
+  "export": {
+    "format": "WebP",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none"
+  },
+  "reviewScope": "User approved the single-tower pair. Equal inset crops remove the decorative borders. Native device QA pending.",
+  "archiveStatus": "pending-upload"
+}

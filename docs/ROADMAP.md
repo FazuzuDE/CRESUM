@@ -2,10 +2,10 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Close Neutral Ergonomic-Handle Lat Pulldown merged via #238.
-Female Reverse-Grip Lat Pulldown selected: 64 pairs.
-Next: Female Straight-Arm Cable Pulldown preview.
-4 pairs / 8 frames remain.
+Female pairs through Reverse-Grip Lat Pulldown merged via #239.
+Female Straight-Arm Cable Pulldown selected: 65 pairs.
+Next: Female Assisted Pull-Up preview.
+3 pairs / 6 frames remain.
 Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
