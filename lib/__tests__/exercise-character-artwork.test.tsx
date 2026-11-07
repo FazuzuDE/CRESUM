@@ -620,6 +620,16 @@ jest.mock(
   '../../assets/exercises/cable-lateral-raise/female/finish.webp',
   () => 10802,
 );
+jest.mock('../../assets/exercises/reverse-pec-deck/start.webp', () => 10901);
+jest.mock('../../assets/exercises/reverse-pec-deck/finish.webp', () => 10902);
+jest.mock(
+  '../../assets/exercises/reverse-pec-deck/female/start.webp',
+  () => 11001,
+);
+jest.mock(
+  '../../assets/exercises/reverse-pec-deck/female/finish.webp',
+  () => 11002,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -747,6 +757,7 @@ it('resolves female phases only for the approved exact variants', () => {
 });
 
 it.each([
+  ['reverse-pec-deck', [10901, 10902, 10901], [11001, 11002, 11001]],
   ['cable-lateral-raise', [10701, 10702, 10701], [10801, 10802, 10801]],
   ['dumbbell-lateral-raise', [10501, 10502, 10501], [10601, 10602, 10601]],
   ['machine-shoulder-press', [10301, 10302, 10301], [10401, 10402, 10401]],
