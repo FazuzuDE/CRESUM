@@ -265,6 +265,14 @@ jest.mock(
   () => 102,
 );
 jest.mock(
+  '../../assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/female/start.webp',
+  () => 12601,
+);
+jest.mock(
+  '../../assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/female/finish.webp',
+  () => 12602,
+);
+jest.mock(
   '../../assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/attachment.webp',
   () => 103,
 );
@@ -427,7 +435,8 @@ it('resolves each exact phase without borrowing another setup or model', () => {
     expect(resolveExerciseArtwork(id, 'start', 'male')).toBeNull();
     expect(resolveAttachmentArtwork(id)).toBeNull();
   }
-  expect(resolveExerciseArtwork(ergonomic, 'start', 'female')).toBeNull();
+  expect(resolveExerciseArtwork(ergonomic, 'start', 'female')).toBe(12601);
+  expect(resolveExerciseArtwork(ergonomic, 'finish', 'female')).toBe(12602);
   for (const phase of ['start', 'finish'] as const) {
     expect(
       resolveExerciseArtwork('lat-pulldown-wide-pronated-bar', phase, 'female'),

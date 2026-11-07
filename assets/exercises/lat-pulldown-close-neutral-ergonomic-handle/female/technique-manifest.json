@@ -1,0 +1,35 @@
+{
+  "variantId": "lat-pulldown-close-neutral-ergonomic-handle",
+  "model": "female",
+  "status": "user-selected-provisional",
+  "source": {
+    "file": "exec-7bc0edd8-74ee-4e16-88e0-ed3cceee39ed.png",
+    "sha256": "fcf920d6fdd010957d2f0dd874e963a27b9aae371d44b7a40cc401c96e459704",
+    "bytes": 1686809,
+    "libraryFileId": "libfile_e46d8b4c43e8819196f46ca7537c0b34",
+    "size": [1774, 887]
+  },
+  "promptFile": "generation-prompts.json",
+  "frames": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "e0fcce2059379d056095397fec927b1b4be1af959d78a8f01e40faccc96de8df",
+      "bytes": 47900,
+      "crop": [0, 0, 887, 887]
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "963a233acd366315d49c8417f7969aec26e22d1669a1e79194fc4b2b5ba0db4d",
+      "bytes": 45432,
+      "crop": [887, 0, 1774, 887]
+    }
+  },
+  "export": {
+    "format": "WebP",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none"
+  },
+  "reviewScope": "User approved the corrected grip. Left overhead START; right upper-chest FINISH. Device QA and detailed joint review remain provisional.",
+  "archiveStatus": "pending-upload"
+}
