@@ -1,5 +1,14 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Close Neutral V-Handle Lat Pulldown — 2026-11-07
+
+User approved `exec-af210f0f-afb2-496a-9e94-b0085769991b.png`: overhead START on
+the left and upper-chest FINISH on the right, with the selected weight stack
+lifted. The two exact 887-square WebP crops bind to the V-handle variant.
+Female coverage reaches 62 of 68 pairs, with 6 pairs / 12 frames remaining.
+Detailed joint mechanics and native device QA remain provisional. Source archive
+upload remains pending.
+
 ## Female Wide-Grip Lat Pulldown — 2026-11-07
 
 User approved the wide overhand pair, LEFT overhead START and RIGHT upper-chest

@@ -1,0 +1,20 @@
+{
+  "prompt": "CRESUM exercise artwork. Generate one 2:1 diptych of two equal square panels, female close neutral V-handle lat pulldown. Reference 1 exact woman with brown ponytail navy short sleeve shirt charcoal leggings and light gray shoes. References 2 and 3 exact light silver machine and exact compact chrome triangular V-handle, two distinct parallel short cylindrical grips, centered eye and carabiner. Copy equipment geometry, seated position and rear-side three-quarter view. Same silver frame, pulley location, seat, thigh rollers, identical camera, framing, scale, body identity and feet placement. Left START nearly extended arms reach overhead in front of head, plates lowered. Right FINISH elbows bent and down close to ribs, same handle pulled toward upper chest, selected plates rise as one block leaving gap above stationary plates. Both palms face one another in true neutral grip; one hand securely on each of two distinct grips; no shared crossbar grasp. Both grips visibly attached to the same rigid V frame, which stays identical in both panels. Single taut cable visibly connects to carabiner and central eye of handle in both panels. Thighs under pads, both feet grounded, neutral spine and steady slight lean. Full machine and athlete fit each square with small matched margins, white studio background, no text or labels.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/lat-pulldown-close-neutral-v-handle/start.webp",
+      "sha256": "e8fc1e00948623d3bb1c1153fda8f0c43559e92511b946b76ef2001d6f2281b8",
+      "bytes": 52652
+    },
+    {
+      "file": "assets/exercises/lat-pulldown-close-neutral-v-handle/finish.webp",
+      "sha256": "a1780e6be728783ddea824c0d8655cc1f6ff8d9425dfbb52b87184fb94dc2028",
+      "bytes": 51888
+    }
+  ]
+}

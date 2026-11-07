@@ -277,6 +277,14 @@ jest.mock(
   () => 202,
 );
 jest.mock(
+  '../../assets/exercises/lat-pulldown-close-neutral-v-handle/female/start.webp',
+  () => 12401,
+);
+jest.mock(
+  '../../assets/exercises/lat-pulldown-close-neutral-v-handle/female/finish.webp',
+  () => 12402,
+);
+jest.mock(
   '../../assets/exercises/lat-pulldown-close-neutral-v-handle/attachment.webp',
   () => 203,
 );
@@ -430,7 +438,7 @@ it('resolves each exact phase without borrowing another setup or model', () => {
         phase,
         'female',
       ),
-    ).toBeNull();
+    ).toBe(phase === 'start' ? 12401 : 12402);
     expect(
       resolveExerciseArtwork('lat-pulldown-reverse-grip', phase, 'male'),
     ).toBe(phase === 'start' ? 401 : 402);
