@@ -1,0 +1,46 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "One CRESUM 2:1 sheet of two equal square panels showing female barbell bent-over row. First reference exact Female Master face and brown ponytail, slate blue shirt charcoal leggings white socks gray shoes. Second and third references define exercise, equipment and three-quarter camera. Same hip hinge, torso inclined about 40 degrees above horizontal, neutral back and neck, soft knees, feet planted in both frames. LEFT START arms extended down, bar hangs close below knees. RIGHT FINISH elbows drawn back, same overhand grip width, bar close to lower ribs/upper abdomen, no rising torso. One straight steel bar with two identical black plates, same plate and sleeve dimensions in both frames. Equal large scale, whole body and bar ends visible in both panels, small margins, realistic studio render on white with soft contact shadows, no labels or borders.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/barbell-bent-over-row/start.webp",
+      "sha256": "706a40834ba8927231560889ad9f9aee6697869ddacfc9a533784c4eb458cd59",
+      "bytes": 57490
+    },
+    {
+      "file": "assets/exercises/barbell-bent-over-row/finish.webp",
+      "sha256": "33cbc694e2e0b6bc54a7e09c915f83cf9bfcc7f2c5c8f7b95cce3bb0c0dbaae4",
+      "bytes": 54690
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-a084529d-7a07-4310-b75a-a8495435f1ec.png",
+    "sourceLibraryFileId": "libfile_3c4d0dfa79cc8191961cc9a95778475f",
+    "sourceSha256": "ab57f2db96e6a8e99d4782bb67de19c3f0994a548a1a9670a68eff583016f1e9",
+    "sourceBytes": 1754652,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/barbell-bent-over-row/start.webp",
+        "sha256": "706a40834ba8927231560889ad9f9aee6697869ddacfc9a533784c4eb458cd59",
+        "bytes": 57490
+      },
+      {
+        "file": "assets/exercises/barbell-bent-over-row/finish.webp",
+        "sha256": "33cbc694e2e0b6bc54a7e09c915f83cf9bfcc7f2c5c8f7b95cce3bb0c0dbaae4",
+        "bytes": 54690
+      }
+    ]
+  }
+}

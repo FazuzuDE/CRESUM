@@ -1,5 +1,18 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Barbell Bent-over Row — 2026-11-07
+
+Approved exec-a084529d-7a07-4310-b75a-a8495435f1ec.png,
+source libfile_3c4d0dfa79cc8191961cc9a95778475f. LEFT bar-lowered START / RIGHT
+bar-raised FINISH, standing bent-over row.
+Exact 887-square RGB WebP92/method6 halves, shared contain, no resampling.
+Only barbell-bent-over-row/Female; 56 Female pairs, 12 pairs / 24 frames remain.
+Preserve Male, guide, exercise muscle roles,
+stable IDs and History. Detailed hand/joint mechanics, wrist and elbow alignment,
+registration and device acceptance provisional. Source/prompt/input chain retained;
+archive pending, Oracle deferred. Next Female One-arm Dumbbell Row preview
+requires separate approval.
+
 ## Female Reverse Pec Deck — 2026-11-07
 
 Approved exec-f3d7bfdb-6a7e-4af8-b7e0-848c74124480.png,
