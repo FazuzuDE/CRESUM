@@ -1,5 +1,18 @@
 # CRESUM Decision Log
 
+## Female Chest-supported Dumbbell Row — 2026-11-07
+
+Approved exec-f0600c30-6410-4115-b0f0-1f775eb7a277.png,
+source libfile_b48c9a4332108191b86c1cc2d35d362b. LEFT dumbbell-lowered START / RIGHT
+dumbbell-raised FINISH, incline bench chest-supported row.
+Exact 887-square RGB WebP92/method6 halves, shared contain, no resampling.
+Only chest-supported-dumbbell-row/Female; 58 Female pairs, 10 pairs / 20 frames remain.
+Preserve Male, guide, exercise muscle roles,
+stable IDs and History. Detailed hand/joint mechanics, wrist and elbow alignment,
+registration and device acceptance provisional. Source/prompt/input chain retained;
+archive pending, Oracle deferred. Next Female Machine High Row preview
+requires separate approval.
+
 ## Female One-arm Dumbbell Row — 2026-11-07
 
 Approved exec-dea781f1-8d17-4ccc-9bc0-1d8964861680.png,

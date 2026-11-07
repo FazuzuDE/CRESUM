@@ -1,0 +1,46 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "CRESUM female chest-supported dumbbell row. One 2:1 sheet of equal square panels, left START and right FINISH. Ref 1 exact Female Master identity/outfit; refs 2/3 exercise and bench geometry. Chest rests on SAME inclined black bench pad with satin silver frame. Feet flat on floor on either side of bench, exact same position, spine neutral. LEFT both arms hang under shoulders with two identical black dumbbells held neutrally, clearly separate from bench. RIGHT both elbows bend and draw backward, two dumbbells at lower ribs on either side of pad, chest still supported. Keep exact bench angle, camera, head, stance and scale. Three-quarter side view matching references, show all shoes, entire bench, hands and weights. Equal large scale, white studio soft shadows, no text or borders.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/chest-supported-dumbbell-row/start.webp",
+      "sha256": "bf973c4c06a5635139bd8b94f8cc713ec1122b726fc6b005eb3317c85780cb51",
+      "bytes": 62986
+    },
+    {
+      "file": "assets/exercises/chest-supported-dumbbell-row/finish.webp",
+      "sha256": "b2cda3c58a3ee177c5a751c44d126f4077c472149df9b98a7ea9485b1907ce55",
+      "bytes": 54858
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-f0600c30-6410-4115-b0f0-1f775eb7a277.png",
+    "sourceLibraryFileId": "libfile_b48c9a4332108191b86c1cc2d35d362b",
+    "sourceSha256": "3439ef733c4506020cd4b71a7335791643c564214006186124100661dc2da77e",
+    "sourceBytes": 1612095,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/chest-supported-dumbbell-row/start.webp",
+        "sha256": "bf973c4c06a5635139bd8b94f8cc713ec1122b726fc6b005eb3317c85780cb51",
+        "bytes": 62986
+      },
+      {
+        "file": "assets/exercises/chest-supported-dumbbell-row/finish.webp",
+        "sha256": "b2cda3c58a3ee177c5a751c44d126f4077c472149df9b98a7ea9485b1907ce55",
+        "bytes": 54858
+      }
+    ]
+  }
+}

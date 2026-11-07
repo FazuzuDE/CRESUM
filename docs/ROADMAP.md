@@ -2,9 +2,9 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Barbell Bent-over Row merged via #231.
-Female One-arm Dumbbell Row selected: 57 pairs.
-Next: Female Chest-supported Dumbbell Row preview; 11 pairs / 22 frames remain.
+Female pairs through One-arm Dumbbell Row merged via #232.
+Female Chest-supported Dumbbell Row selected: 58 pairs.
+Next: Female Machine High Row preview; 10 pairs / 20 frames remain.
 Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
