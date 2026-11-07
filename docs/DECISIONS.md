@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## Female Reverse-Grip Lat Pulldown — 2026-11-07
+
+User approved source libfile_5833ae98787c81918a1bc35bf3125d37. LEFT overhead
+START and RIGHT upper-chest FINISH with the selected weight stack lifted.
+Exact 887-square WebP crops bind only to the reverse-grip variant.
+Female coverage reaches 64 of 68 pairs, with 4 pairs / 8 frames remaining.
+Detailed joint mechanics and device acceptance remain provisional. Source
+archive upload remains pending.
+
 ## Female Close Neutral Ergonomic-Handle Lat Pulldown — 2026-11-07
 
 User approved the corrected grip in source libfile_e46d8b4c43e8819196f46ca7537c0b34.

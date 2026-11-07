@@ -1,0 +1,20 @@
+{
+  "prompt": "CRESUM exact female model of reference 1 performing REVERSE GRIP LAT PULLDOWN, one 2:1 diptych, equal square panels, full light silver machine and model at identical scale. Copy machine and camera from refs 2/3. Both hands wrap the straight inner section of the same long chrome bar in a clearly SUPINATED underhand grip, palms toward her face, backs of hands toward viewer, thumbs outward from midpoint, wrists neutral and hands about shoulder width. Do not hold the angled ends; do not use pronated or neutral grip. LEFT start bar high in front of head, elbows nearly extended, weight stack lowered. RIGHT finish bar in front at upper chest, elbows down close to ribs, selected plates lifted as one block with visible gap above stationary stack. Same seat, feet flat, thigh pads, cable and centered carabiner attached. Same face, brown ponytail, navy tee, charcoal leggings and grey shoes. White background, even margins, no border or labels.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/lat-pulldown-reverse-grip/start.webp",
+      "sha256": "0472da4223d8808fcda9aa8381a5f084960e8084991f9d729afd35137779c893",
+      "bytes": 62610
+    },
+    {
+      "file": "assets/exercises/lat-pulldown-reverse-grip/finish.webp",
+      "sha256": "3a45fa6a37b5d2b774696bbaa42715f0e2dd0e39e9c90dc183de1a6267fe0ef1",
+      "bytes": 60546
+    }
+  ]
+}

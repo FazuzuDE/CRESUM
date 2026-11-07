@@ -752,6 +752,22 @@ jest.mock(
   '../../assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/female/finish.webp',
   () => 12602,
 );
+jest.mock(
+  '../../assets/exercises/lat-pulldown-reverse-grip/start.webp',
+  () => 12701,
+);
+jest.mock(
+  '../../assets/exercises/lat-pulldown-reverse-grip/finish.webp',
+  () => 12702,
+);
+jest.mock(
+  '../../assets/exercises/lat-pulldown-reverse-grip/female/start.webp',
+  () => 12801,
+);
+jest.mock(
+  '../../assets/exercises/lat-pulldown-reverse-grip/female/finish.webp',
+  () => 12802,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -879,6 +895,7 @@ it('resolves female phases only for the approved exact variants', () => {
 });
 
 it.each([
+  ['lat-pulldown-reverse-grip', [12701, 12702, 12701], [12801, 12802, 12801]],
   [
     'lat-pulldown-close-neutral-ergonomic-handle',
     [12501, 12502, 12501],

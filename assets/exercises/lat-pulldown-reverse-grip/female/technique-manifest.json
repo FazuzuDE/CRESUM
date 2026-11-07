@@ -1,0 +1,35 @@
+{
+  "variantId": "lat-pulldown-reverse-grip",
+  "model": "female",
+  "status": "user-selected-provisional",
+  "source": {
+    "file": "exec-527047d6-1210-4769-b46c-fe30b84a21a0.png",
+    "sha256": "4ad2c75119e71036ed74fbcc4f3fe8017bb3285c7a9bc96b771fc7526eede6db",
+    "bytes": 1522833,
+    "libraryFileId": "libfile_5833ae98787c81918a1bc35bf3125d37",
+    "size": [1774, 887]
+  },
+  "promptFile": "generation-prompts.json",
+  "frames": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "06547f2aa413200cebf7c70de9c848a1b0b874a99bf5c4c59f0632b649a576e4",
+      "bytes": 58426,
+      "crop": [0, 0, 887, 887]
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "87aa4795169725576d88ffc40a4c12160670d9392fdcef8b40a384903af3eda5",
+      "bytes": 59978,
+      "crop": [887, 0, 1774, 887]
+    }
+  },
+  "export": {
+    "format": "WebP",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none"
+  },
+  "reviewScope": "User approved the pair. Overhead START and upper-chest FINISH with the selected plates lifted. Detailed joint mechanics and native device QA remain provisional.",
+  "archiveStatus": "pending-upload"
+}
