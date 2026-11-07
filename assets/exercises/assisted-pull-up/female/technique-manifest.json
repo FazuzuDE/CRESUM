@@ -1,0 +1,51 @@
+{
+  "variantId": "assisted-pull-up",
+  "model": "female",
+  "status": "user-selected-provisional",
+  "source": {
+    "file": "exec-64033f78-1cf5-45cf-8d43-f790b1bab885.png",
+    "sha256": "103788e4f05c6c1e1941c63e9e1b01b44188484ac8dc52b53f428ea6b78a575e",
+    "bytes": 1443064,
+    "libraryFileId": "libfile_32a6fd03e0d88191b114ad324d7cfc24",
+    "size": [1774, 887]
+  },
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/assisted-pull-up/start.webp",
+      "sha256": "546b92eab10d851bdf47fa5d64c63f3b143ab834624e3583094e2c16f6fcb44e",
+      "bytes": 41238
+    },
+    {
+      "file": "assets/exercises/assisted-pull-up/finish.webp",
+      "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+      "bytes": 42162
+    }
+  ],
+  "frames": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "3e0ff9fd12239f22fe10074254dd15323daf8fb98e4a70dbf0001df6354ebdf1",
+      "bytes": 50988,
+      "crop": [0, 0, 887, 887]
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "d3ddf17d009e96a89d37728ae3896a2915de613d8d54c9f8c4d0762847de8765",
+      "bytes": 48988,
+      "crop": [887, 0, 1774, 887]
+    }
+  },
+  "export": {
+    "format": "WebP",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none"
+  },
+  "reviewScope": "User approved the assisted pull-up pair. Native device QA remains pending.",
+  "archiveStatus": "pending-upload"
+}

@@ -1,5 +1,13 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Assisted Pull-Up — 2026-11-07
+
+User approved the assisted pair (libfile_32a6fd03e0d88191b114ad324d7cfc24).
+Left START shows the lowered knee platform and right FINISH shows it raised.
+Exact 887-square WebP crops bind only to the assisted variant.
+Female coverage reaches 66 of 68 pairs. Device QA and source archive upload
+remain pending.
+
 ## Female Straight-Arm Cable Pulldown — 2026-11-07
 
 User approved the single-tower pair (libfile_bb4e0850f4408191879de5d9e7a800f4).
