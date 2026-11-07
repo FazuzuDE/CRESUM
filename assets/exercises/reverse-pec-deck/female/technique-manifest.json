@@ -1,0 +1,63 @@
+{
+  "variantId": "reverse-pec-deck",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "da6aa9649794676137d1c754a9c05185d123fb438176e4e2beb21f9b1879537d",
+      "bytes": 54622,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "10eda3a378968ace5118519084d922c499fb9f42987065d8bf8afcfabd7ae364",
+      "bytes": 58738,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-f3d7bfdb-6a7e-4af8-b7e0-848c74124480.png",
+    "sourceLibraryFileId": "libfile_9dd4fc4c9a1481919ec8a1db1216922a",
+    "sourceSha256": "5ff73cb0801c024bbb09eb5149341d331d0a9f956d160748315be97f514967f4",
+    "sourceBytes": 1643685,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/reverse-pec-deck/start.webp",
+        "sha256": "74ac33498bcb99589bfc097f88fa6b41e5c7fcdf1143d09e4a5d56ded6e95135",
+        "bytes": 54878
+      },
+      {
+        "file": "assets/exercises/reverse-pec-deck/finish.webp",
+        "sha256": "061e4425af57cbe990dd433d8f8ee573df8058413181e8bfae1a4ca0db9d702f",
+        "bytes": 59666
+      }
+    ]
+  },
+  "productionChoice": "LEFT arms-forward START / RIGHT arms-open FINISH. Seated reverse fly with chest support.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases, chest and foot support, identity and full frame reviewed. Detailed finger/wrist/elbow/shoulder mechanics, wrist and elbow alignment, phase registration and native device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}
