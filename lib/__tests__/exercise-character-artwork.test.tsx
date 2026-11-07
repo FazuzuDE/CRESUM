@@ -768,6 +768,22 @@ jest.mock(
   '../../assets/exercises/lat-pulldown-reverse-grip/female/finish.webp',
   () => 12802,
 );
+jest.mock(
+  '../../assets/exercises/cable-straight-arm-pulldown/start.webp',
+  () => 12901,
+);
+jest.mock(
+  '../../assets/exercises/cable-straight-arm-pulldown/finish.webp',
+  () => 12902,
+);
+jest.mock(
+  '../../assets/exercises/cable-straight-arm-pulldown/female/start.webp',
+  () => 13001,
+);
+jest.mock(
+  '../../assets/exercises/cable-straight-arm-pulldown/female/finish.webp',
+  () => 13002,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -895,6 +911,7 @@ it('resolves female phases only for the approved exact variants', () => {
 });
 
 it.each([
+  ['cable-straight-arm-pulldown', [12901, 12902, 12901], [13001, 13002, 13001]],
   ['lat-pulldown-reverse-grip', [12701, 12702, 12701], [12801, 12802, 12801]],
   [
     'lat-pulldown-close-neutral-ergonomic-handle',

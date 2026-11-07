@@ -1,5 +1,13 @@
 # CRESUM Decision Log
 
+## Female Straight-Arm Cable Pulldown — 2026-11-07
+
+User approved the single-tower pair (libfile_bb4e0850f4408191879de5d9e7a800f4).
+Left START reaches toward the pulley and right FINISH lowers the bar near the
+knees. Matching inset crops remove the decorative borders without resampling.
+Female coverage reaches 65 of 68 pairs. Device QA and source archive upload
+remain pending.
+
 ## Female Reverse-Grip Lat Pulldown — 2026-11-07
 
 User approved source libfile_5833ae98787c81918a1bc35bf3125d37. LEFT overhead

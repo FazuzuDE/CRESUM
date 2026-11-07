@@ -147,6 +147,10 @@ const femalePairs: Readonly<
     start: require('../assets/exercises/chest-supported-dumbbell-row/female/start.webp'),
     finish: require('../assets/exercises/chest-supported-dumbbell-row/female/finish.webp'),
   },
+  'cable-straight-arm-pulldown': {
+    start: require('../assets/exercises/cable-straight-arm-pulldown/female/start.webp'),
+    finish: require('../assets/exercises/cable-straight-arm-pulldown/female/finish.webp'),
+  },
   'lat-pulldown-reverse-grip': {
     start: require('../assets/exercises/lat-pulldown-reverse-grip/female/start.webp'),
     finish: require('../assets/exercises/lat-pulldown-reverse-grip/female/finish.webp'),
