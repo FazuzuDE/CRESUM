@@ -1,5 +1,18 @@
 # CRESUM Decision Log
 
+## Female One-arm Dumbbell Row — 2026-11-07
+
+Approved exec-dea781f1-8d17-4ccc-9bc0-1d8964861680.png,
+source libfile_ccb65136af508191a94e36a88f1634f3. LEFT dumbbell-lowered START / RIGHT
+dumbbell-raised FINISH, bench-supported one-arm row.
+Exact 887-square RGB WebP92/method6 halves, shared contain, no resampling.
+Only one-arm-dumbbell-row/Female; 57 Female pairs, 11 pairs / 22 frames remain.
+Preserve Male, guide, exercise muscle roles,
+stable IDs and History. Detailed hand/joint mechanics, wrist and elbow alignment,
+registration and device acceptance provisional. Source/prompt/input chain retained;
+archive pending, Oracle deferred. Next Female Chest-supported Dumbbell Row preview
+requires separate approval.
+
 ## Female Barbell Bent-over Row — 2026-11-07
 
 Approved exec-a084529d-7a07-4310-b75a-a8495435f1ec.png,

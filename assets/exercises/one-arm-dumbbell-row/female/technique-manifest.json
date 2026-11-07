@@ -1,0 +1,63 @@
+{
+  "variantId": "one-arm-dumbbell-row",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "9885a6f53ff3f62ca61da9df4f7fc0d62992647e4e320082e0e1dce93b9ad8f8",
+      "bytes": 48320,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "6a429316f34a2e9dcc0d76a92f982e5055b4dcc671671d8a0ee6e4f124982c7c",
+      "bytes": 45442,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-dea781f1-8d17-4ccc-9bc0-1d8964861680.png",
+    "sourceLibraryFileId": "libfile_ccb65136af508191a94e36a88f1634f3",
+    "sourceSha256": "fc506430c756550e3af2871259a0f8241f44cb466655655a42fceac61794ce20",
+    "sourceBytes": 1503992,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/one-arm-dumbbell-row/start.webp",
+        "sha256": "fc344c65ee6e74d7abb804e85331d26f5bfdd7613d42d8d325f379929f21582f",
+        "bytes": 57544
+      },
+      {
+        "file": "assets/exercises/one-arm-dumbbell-row/finish.webp",
+        "sha256": "d2741f6fa0492e65cb8ba051039e3e917ae6f0be2e5c1fdc3284da70485d837b",
+        "bytes": 53118
+      }
+    ]
+  },
+  "productionChoice": "LEFT dumbbell-lowered START / RIGHT dumbbell-raised FINISH. One-arm dumbbell row with hand and knee supported on a flat bench.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases, bench and foot support, identity and full frame reviewed. Detailed finger/wrist/elbow/shoulder mechanics, wrist and elbow alignment, phase registration and native device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}

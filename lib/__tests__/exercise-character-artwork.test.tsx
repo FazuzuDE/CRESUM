@@ -646,6 +646,22 @@ jest.mock(
   '../../assets/exercises/barbell-bent-over-row/female/finish.webp',
   () => 11202,
 );
+jest.mock(
+  '../../assets/exercises/one-arm-dumbbell-row/start.webp',
+  () => 11301,
+);
+jest.mock(
+  '../../assets/exercises/one-arm-dumbbell-row/finish.webp',
+  () => 11302,
+);
+jest.mock(
+  '../../assets/exercises/one-arm-dumbbell-row/female/start.webp',
+  () => 11401,
+);
+jest.mock(
+  '../../assets/exercises/one-arm-dumbbell-row/female/finish.webp',
+  () => 11402,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -773,6 +789,7 @@ it('resolves female phases only for the approved exact variants', () => {
 });
 
 it.each([
+  ['one-arm-dumbbell-row', [11301, 11302, 11301], [11401, 11402, 11401]],
   ['barbell-bent-over-row', [11101, 11102, 11101], [11201, 11202, 11201]],
   ['reverse-pec-deck', [10901, 10902, 10901], [11001, 11002, 11001]],
   ['cable-lateral-raise', [10701, 10702, 10701], [10801, 10802, 10801]],
