@@ -2,9 +2,9 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Chest-supported Dumbbell Row merged via #233.
-Female Machine High Row selected: 59 pairs.
-Next: Female Seated Cable Row preview; 9 pairs / 18 frames remain.
+Female pairs through Machine High Row merged via #234.
+Female Seated Cable Row with close neutral V-handle selected: 60 pairs.
+8 pairs / 16 frames remain.
 Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.

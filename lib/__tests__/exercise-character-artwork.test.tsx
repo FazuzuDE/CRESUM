@@ -688,6 +688,22 @@ jest.mock(
   '../../assets/exercises/machine-high-row/female/finish.webp',
   () => 11802,
 );
+jest.mock(
+  '../../assets/exercises/seated-cable-row-close-neutral-v-handle/start.webp',
+  () => 11901,
+);
+jest.mock(
+  '../../assets/exercises/seated-cable-row-close-neutral-v-handle/finish.webp',
+  () => 11902,
+);
+jest.mock(
+  '../../assets/exercises/seated-cable-row-close-neutral-v-handle/female/start.webp',
+  () => 12001,
+);
+jest.mock(
+  '../../assets/exercises/seated-cable-row-close-neutral-v-handle/female/finish.webp',
+  () => 12002,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -815,6 +831,11 @@ it('resolves female phases only for the approved exact variants', () => {
 });
 
 it.each([
+  [
+    'seated-cable-row-close-neutral-v-handle',
+    [11901, 11902, 11901],
+    [12001, 12002, 12001],
+  ],
   ['machine-high-row', [11701, 11702, 11701], [11801, 11802, 11801]],
   [
     'chest-supported-dumbbell-row',
