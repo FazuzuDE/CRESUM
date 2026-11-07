@@ -1,5 +1,18 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Machine High Row — 2026-11-07
+
+Approved exec-15a80aee-f3ca-4abb-8d1b-8841dd6145f9.png,
+source libfile_9ed5db4bf8908191b01ac03d6c2809bd. LEFT handles-extended START / RIGHT
+handles-pulled FINISH, plate-loaded high row.
+Exact 887-square RGB WebP92/method6 halves, shared contain, no resampling.
+Only machine-high-row/Female; 59 Female pairs, 9 pairs / 18 frames remain.
+Preserve Male, guide, exercise muscle roles,
+stable IDs and History. Detailed hand/joint mechanics, wrist and elbow alignment,
+registration and device acceptance provisional. Source/prompt/input chain retained;
+archive pending, Oracle deferred. Next Female Seated Cable Row preview
+requires separate approval.
+
 ## Female Chest-supported Dumbbell Row — 2026-11-07
 
 Approved exec-f0600c30-6410-4115-b0f0-1f775eb7a277.png,

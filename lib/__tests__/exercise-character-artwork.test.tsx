@@ -678,6 +678,16 @@ jest.mock(
   '../../assets/exercises/chest-supported-dumbbell-row/female/finish.webp',
   () => 11602,
 );
+jest.mock('../../assets/exercises/machine-high-row/start.webp', () => 11701);
+jest.mock('../../assets/exercises/machine-high-row/finish.webp', () => 11702);
+jest.mock(
+  '../../assets/exercises/machine-high-row/female/start.webp',
+  () => 11801,
+);
+jest.mock(
+  '../../assets/exercises/machine-high-row/female/finish.webp',
+  () => 11802,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -805,6 +815,7 @@ it('resolves female phases only for the approved exact variants', () => {
 });
 
 it.each([
+  ['machine-high-row', [11701, 11702, 11701], [11801, 11802, 11801]],
   [
     'chest-supported-dumbbell-row',
     [11501, 11502, 11501],

@@ -1,0 +1,63 @@
+{
+  "variantId": "machine-high-row",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "be3c1a0c566047c2da938c6271c86df4c6b75ed70fbfce34e2da7e9151d84ec9",
+      "bytes": 71566,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "902e42f96d1c6a75e22760fd7094b3fb0fdf9cdbb9fa21d90d7dc14ecc1978d0",
+      "bytes": 67318,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-15a80aee-f3ca-4abb-8d1b-8841dd6145f9.png",
+    "sourceLibraryFileId": "libfile_9ed5db4bf8908191b01ac03d6c2809bd",
+    "sourceSha256": "29b0e93addae2d0c2525f35fc17c84ac3c89811be7a709e93e3082c75a153d01",
+    "sourceBytes": 1639881,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/machine-high-row/start.webp",
+        "sha256": "d1fdff96ac5701f15dd283516a439a50b07bc60ceb51f637a99618f1fcdc7363",
+        "bytes": 66232
+      },
+      {
+        "file": "assets/exercises/machine-high-row/finish.webp",
+        "sha256": "69229e7da3d9de91ad1ea86a07df7e381108ffe0b41d20c718ac8cf9b098365b",
+        "bytes": 64194
+      }
+    ]
+  },
+  "productionChoice": "LEFT handles-extended START / RIGHT handles-pulled FINISH. Two-arm plate-loaded high row with chest support.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases, chest and foot support, identity and full frame reviewed. Detailed finger/wrist/elbow/shoulder mechanics, wrist and elbow alignment, phase registration and native device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}
