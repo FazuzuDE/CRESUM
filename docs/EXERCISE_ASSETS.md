@@ -1,5 +1,13 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Resistance Band Pull-Apart — 2026-11-07
+
+User approved the rear three-quarter pair (libfile_a09956fc772481918c38a1e481e71cfb).
+Left START reaches forward and right FINISH spreads the arms at shoulder height.
+The band passes in front of the chest. Exact 887-square WebP crops complete
+the female artwork rollout at 68 of 68 pairs. Device QA and source archive
+upload remain pending.
+
 ## Female Pull-Up — 2026-11-07
 
 User selected the first three-quarter preview, with an extended hang at START

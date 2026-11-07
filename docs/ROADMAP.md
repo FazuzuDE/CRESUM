@@ -2,13 +2,9 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Assisted Pull-Up merged via #241.
-Female Pull-Up selected: 67 pairs.
-Next: Female Resistance Band Pull-Apart preview.
-1 pair / 2 frames remains.
-Review
-and immediately integrate each accepted exact-variant pair; preserve Male assets
-and localized placeholders for unavailable Female variants.
+Female pairs through Pull-Up merged via #242.
+Female Resistance Band Pull-Apart selected, completing 68 of 68 pairs.
+Device QA and source archive upload remain pending.
 No Oracle dependency or new cloud work is required for this rollout.
 
 ## Pull-up silver-rack replacement — 2026-11-03

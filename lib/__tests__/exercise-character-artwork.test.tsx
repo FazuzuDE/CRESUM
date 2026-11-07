@@ -798,6 +798,22 @@ jest.mock('../../assets/exercises/pull-up/start.webp', () => 13301);
 jest.mock('../../assets/exercises/pull-up/finish.webp', () => 13302);
 jest.mock('../../assets/exercises/pull-up/female/start.webp', () => 13401);
 jest.mock('../../assets/exercises/pull-up/female/finish.webp', () => 13402);
+jest.mock(
+  '../../assets/exercises/resistance-band-pull-apart/start.webp',
+  () => 13501,
+);
+jest.mock(
+  '../../assets/exercises/resistance-band-pull-apart/finish.webp',
+  () => 13502,
+);
+jest.mock(
+  '../../assets/exercises/resistance-band-pull-apart/female/start.webp',
+  () => 13601,
+);
+jest.mock(
+  '../../assets/exercises/resistance-band-pull-apart/female/finish.webp',
+  () => 13602,
+);
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
@@ -925,6 +941,7 @@ it('resolves female phases only for the approved exact variants', () => {
 });
 
 it.each([
+  ['resistance-band-pull-apart', [13501, 13502, 13501], [13601, 13602, 13601]],
   ['pull-up', [13301, 13302, 13301], [13401, 13402, 13401]],
   ['assisted-pull-up', [13101, 13102, 13101], [13201, 13202, 13201]],
   ['cable-straight-arm-pulldown', [12901, 12902, 12901], [13001, 13002, 13001]],
