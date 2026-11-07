@@ -123,6 +123,10 @@ const femalePairs: Readonly<
     start: require('../assets/exercises/machine-shoulder-press/female/start.webp'),
     finish: require('../assets/exercises/machine-shoulder-press/female/finish.webp'),
   },
+  'dumbbell-lateral-raise': {
+    start: require('../assets/exercises/dumbbell-lateral-raise/female/start.webp'),
+    finish: require('../assets/exercises/dumbbell-lateral-raise/female/finish.webp'),
+  },
   'push-up': {
     start: require('../assets/exercises/push-up/female/start.webp'),
     finish: require('../assets/exercises/push-up/female/finish.webp'),

@@ -1,0 +1,46 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "CRESUM paired exercise sheet, wide 2:1 two square panels. Female standing bilateral dumbbell lateral raise. First reference establishes exact female character, brown ponytail, muted blue shirt, charcoal leggings, white socks and gray shoes. Second and third establish poses and two identical compact black round dumbbells. LEFT START arms hanging beside outer thighs, neutral grip, elbows soft. RIGHT FINISH arms raised symmetrically out to the sides slightly forward of the torso to shoulder height, elbows softly bent, wrists neutral, hands level with or slightly below elbows. Upright torso, relaxed shoulders, stable feet, no shrug or swing. Same camera directly in front, same feet, same body scale and dumbbells, full head and shoes and weights within both frames with small margins. Realistic premium 3D, white studio, soft floor shadows. No text, borders, logos or arrows.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/dumbbell-lateral-raise/start.webp",
+      "sha256": "e7db133ff05954da9275071d92f4edf853964f592a1dcac23db0ac6caa3eda8f",
+      "bytes": 30966
+    },
+    {
+      "file": "assets/exercises/dumbbell-lateral-raise/finish.webp",
+      "sha256": "0a3aa371f70ebd44ab53e8ed5101b2bf4e5940af5caae7dc5706a933ec252a45",
+      "bytes": 32974
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-0818bed1-d707-46fe-8f61-ddd8d2efba4f.png",
+    "sourceLibraryFileId": "libfile_30df80f3ff4c8191873c58c673354159",
+    "sourceSha256": "f90f35103cf8770d9bfa969e5901ff566e2fb5a720371a236e14a57b84fec016",
+    "sourceBytes": 1289135,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/dumbbell-lateral-raise/start.webp",
+        "sha256": "e7db133ff05954da9275071d92f4edf853964f592a1dcac23db0ac6caa3eda8f",
+        "bytes": 30966
+      },
+      {
+        "file": "assets/exercises/dumbbell-lateral-raise/finish.webp",
+        "sha256": "0a3aa371f70ebd44ab53e8ed5101b2bf4e5940af5caae7dc5706a933ec252a45",
+        "bytes": 32974
+      }
+    ]
+  }
+}
