@@ -1,0 +1,46 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Use case: stylized-concept. Create ONE premium realistic CRESUM 3D exercise instruction sheet FEMALE STANDARD FLOOR PUSH-UP. Wide 2:1 with TWO equal square panels. LEFT START bottom lowered position, RIGHT FINISH top straight-arm support, matching reference2 and3 phase order. No text, labels, arrows, logos, borders or muscle colors. Reference1 defines exact adult Female Master face/ponytail and natural athletic proportions, slate-blue fitted T-shirt, charcoal leggings, white socks and lightgray shoes. Reference2/3 movement and camera only: replace man with woman. Bodyweight standard push-up on hands and toes, knees remain off floor, NO equipment. Palms flat slightly wider than shoulders, fingers spread naturally forward, thumbs anatomically correct, wrists under shoulder line. LEFT chest lowered close to floor, elbows bent roughly90 degrees angled comfortably30-45deg from torso; shoulders and hips lower together. RIGHT elbows extended without forced hyperextension, shoulders above wrists, body rises as one rigid unit. Neutral neck looking slightly ahead/down. Maintain head/shoulders/pelvis/knees/ankles in one straight line, no hip sag/pike or raised buttocks. Feet close, toes flexed supported at same spots. Exactly two arms, two hands with five correct fingers each, two feet. Same fixed camera three-quarter front-side low angle, head at right and feet at left as references, same hand/foot floor coordinates, subject dimensions and centered scale in both panels. Full ponytail/head/hands/shoes visible in each square; make figure equally large with small side margins and harmonious vertical placement, avoid excessive empty upper canvas. Uniform natural skin and matte clothes, white seamless studio floor/background, soft realistic contact shadows. Generate both phases together.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/push-up/start.webp",
+      "sha256": "d11a71570401460b71c7d8f7823a5bb12b0964bc17c2df703a3d1368f796052f",
+      "bytes": 34046
+    },
+    {
+      "file": "assets/exercises/push-up/finish.webp",
+      "sha256": "efbac32c56a45d6afd19460f8c2ee0402f2b5392001dd848e5ec22b50b1960f0",
+      "bytes": 37020
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-c2abdb4b-d9b7-4691-8e79-b9d9c90d537e.png",
+    "sourceLibraryFileId": "libfile_8281d56e729881919bc12edde5353140",
+    "sourceSha256": "8a1c0b3a19ba40b8d4253569d7a09738717224a20bba82130b858c0acfd8e1f2",
+    "sourceBytes": 1519831,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/push-up/start.webp",
+        "sha256": "d11a71570401460b71c7d8f7823a5bb12b0964bc17c2df703a3d1368f796052f",
+        "bytes": 34046
+      },
+      {
+        "file": "assets/exercises/push-up/finish.webp",
+        "sha256": "efbac32c56a45d6afd19460f8c2ee0402f2b5392001dd848e5ec22b50b1960f0",
+        "bytes": 37020
+      }
+    ]
+  }
+}

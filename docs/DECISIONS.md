@@ -1,5 +1,18 @@
 # CRESUM Decision Log
 
+## Female Push-up — 2026-11-06
+
+Approved exec-c2abdb4b-d9b7-4691-8e79-b9d9c90d537e.png,
+source libfile_8281d56e729881919bc12edde5353140. LEFT lowered START / RIGHT
+extended-arm FINISH, standard floor push-up on palms and toes.
+Exact 887-square RGB WebP92/method6 halves, shared contain, no resampling.
+Only push-up/Female; 49 Female pairs, 19 pairs / 38 frames remain.
+Preserve Male, guide, chest Primary/triceps, front-delts and abs Secondary,
+stable IDs and History. Detailed hand/joint mechanics, neck/trunk/pelvis alignment,
+registration and device acceptance provisional. Source/prompt/input chain retained;
+archive pending, Oracle deferred. Next Female Dumbbell Shoulder Press preview
+requires separate approval.
+
 ## Female Cable Chest Fly — 2026-11-06
 
 Approved repaired exec-e65aa34e-f37d-4833-97c6-42b5add862ea.png.

@@ -111,6 +111,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'push-up': {
+    start: require('../assets/exercises/push-up/female/start.webp'),
+    finish: require('../assets/exercises/push-up/female/finish.webp'),
+  },
   'cable-chest-fly': {
     start: require('../assets/exercises/cable-chest-fly/female/start.webp'),
     finish: require('../assets/exercises/cable-chest-fly/female/finish.webp'),

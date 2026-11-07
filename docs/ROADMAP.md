@@ -2,9 +2,9 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Pec Deck Fly merged via #222.
-Female Cable Chest Fly selected: 48 pairs.
-Next: Female Push-up preview; 20 pairs / 40 frames remain.
+Female pairs through Cable Chest Fly merged via #223.
+Female Push-up selected: 49 pairs.
+Next: Female Dumbbell Shoulder Press preview; 19 pairs / 38 frames remain.
 Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.
