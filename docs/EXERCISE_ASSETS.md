@@ -1,5 +1,18 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Barbell Overhead Press — 2026-11-07
+
+Approved exec-12488cc4-d17d-4a24-9b1a-1c103441d7c7.png,
+source libfile_e249df6690188191870143145fc36c2f. LEFT upper-chest START / RIGHT
+overhead FINISH, standing strict barbell press.
+Exact 887-square RGB WebP92/method6 halves, shared contain, no resampling.
+Only barbell-overhead-press/Female; 51 Female pairs, 17 pairs / 34 frames remain.
+Preserve Male, guide, front-delts and side-delts Primary/triceps and abs Secondary,
+stable IDs and History. Detailed hand/joint mechanics, grip width and bar alignment,
+registration and device acceptance provisional. Source/prompt/input chain retained;
+archive pending, Oracle deferred. Next Female Machine Shoulder Press preview
+requires separate approval.
+
 ## Female Dumbbell Shoulder Press — 2026-11-07
 
 Approved exec-676c8366-0058-43a9-8f0c-c3a894065d20.png,

@@ -2,9 +2,9 @@
 
 ## Female artwork rollout — approved 2026-11-03
 
-Female pairs through Push-up merged via #224.
-Female Dumbbell Shoulder Press selected: 50 pairs.
-Next: Female Barbell Overhead Press preview; 18 pairs / 36 frames remain.
+Female pairs through Dumbbell Shoulder Press merged via #225.
+Female Barbell Overhead Press selected: 51 pairs.
+Next: Female Machine Shoulder Press preview; 17 pairs / 34 frames remain.
 Review
 and immediately integrate each accepted exact-variant pair; preserve Male assets
 and localized placeholders for unavailable Female variants.

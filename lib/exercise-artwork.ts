@@ -115,6 +115,10 @@ const femalePairs: Readonly<
     start: require('../assets/exercises/dumbbell-shoulder-press/female/start.webp'),
     finish: require('../assets/exercises/dumbbell-shoulder-press/female/finish.webp'),
   },
+  'barbell-overhead-press': {
+    start: require('../assets/exercises/barbell-overhead-press/female/start.webp'),
+    finish: require('../assets/exercises/barbell-overhead-press/female/finish.webp'),
+  },
   'push-up': {
     start: require('../assets/exercises/push-up/female/start.webp'),
     finish: require('../assets/exercises/push-up/female/finish.webp'),
