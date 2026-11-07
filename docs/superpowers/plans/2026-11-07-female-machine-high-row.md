@@ -5,7 +5,7 @@ Preserve Male, guide, muscles, IDs and History.
 
 - [x] Add exact variant to shared switching regression.
 - [x] Exact exports and provenance.
-- [ ] Full checks, exports and independent review.
-- [ ] Publish develop PR and stamp actual version.
+- [x] Tests, exports and independent review. Online dependency check timed out. Offline check passed.
+- [x] Publish develop PR and stamp actual version.
 
 Next Seated Cable Row preview requires approval. Detailed QA/archive provisional.
