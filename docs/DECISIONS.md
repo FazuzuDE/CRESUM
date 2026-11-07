@@ -1,5 +1,18 @@
 # CRESUM Decision Log
 
+## Female Dumbbell Shoulder Press — 2026-11-07
+
+Approved exec-676c8366-0058-43a9-8f0c-c3a894065d20.png,
+source libfile_f56163ea2fb88191b9c66e9c634cf955. LEFT shoulder-level START / RIGHT
+overhead FINISH, two dumbbells and upright bench.
+Exact 887-square RGB WebP92/method6 halves, shared contain, no resampling.
+Only dumbbell-shoulder-press/Female; 50 Female pairs, 18 pairs / 36 frames remain.
+Preserve Male, guide, front-delts and side-delts Primary/triceps Secondary,
+stable IDs and History. Detailed hand/joint mechanics, bench angle and dumbbell alignment,
+registration and device acceptance provisional. Source/prompt/input chain retained;
+archive pending, Oracle deferred. Next Female Barbell Overhead Press preview
+requires separate approval.
+
 ## Female Push-up — 2026-11-06
 
 Approved exec-c2abdb4b-d9b7-4691-8e79-b9d9c90d537e.png,

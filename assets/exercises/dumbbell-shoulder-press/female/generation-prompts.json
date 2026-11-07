@@ -1,0 +1,46 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "Use case: stylized-concept. ONE premium realistic CRESUM 3D exercise instruction sheet FEMALE SEATED DUMBBELL SHOULDER PRESS, two equal square panels wide2:1. LEFT START dumbbells beside shoulders, elbows bent about90deg; RIGHT FINISH dumbbells overhead, arms extended. Reference1 exact adult Female Master face/brown ponytail/natural athletic proportions/slate-blue fitted T-shirt/charcoal leggings/white socks/lightgray shoes. Reference2/3 only equipment and movement, replace man with woman. SAME adjustable satin silver bench, backrest nearly upright (about80-85deg) with black back and seat pads, two identical compact round black dumbbells with silver handles. Seated hips/back supported, feet flat and planted wider than hipwidth, neutral spine without excessive arch, head upright. Secure pronated pressing grip palms forward, thumbs wrapped, straight wrists, elbow beneath wrist in START and comfortably forward of shoulder plane rather than forced behind. Press both weights upward above shoulder line, elbows extended but not hyperextended, weights separate with a small clear gap, no clashing, not incline chest press or Arnold rotation. Exactly two dumbbells/two arms/two anatomically correct hands, grips continuous through palms, no extra fingers. SAME face/body/seat/bench/frame dimensions/camera/floor/feet/head position and equally LARGE scale in both panels; only arms and weights change pose. Three-quarter front camera matching refs. Entire bench base/backrest, full ponytail, both weights and shoes fully visible in EACH square with small consistent margins; enlarge reference composition to use available space, no large wasted margins. Natural uniform skin, matte clothes, silver metal and black pads, white studio background soft floor shadows. No text, labels, arrows, divider, borders, logos or muscle color. Generate both phases together.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/dumbbell-shoulder-press/start.webp",
+      "sha256": "6f2d4271ced155af4ee47896ca050cbddb0550e43f8de5d9a87b8f1138b52801",
+      "bytes": 30010
+    },
+    {
+      "file": "assets/exercises/dumbbell-shoulder-press/finish.webp",
+      "sha256": "655d345eb571bc275191d649d08c89f4f89a56e516f853ead9c71f77db681a38",
+      "bytes": 33334
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-676c8366-0058-43a9-8f0c-c3a894065d20.png",
+    "sourceLibraryFileId": "libfile_f56163ea2fb88191b9c66e9c634cf955",
+    "sourceSha256": "2db003af9f6223c61c948a8ea3ec5671d05b27261a0f4c846a63c299adfc176a",
+    "sourceBytes": 1427845,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/dumbbell-shoulder-press/start.webp",
+        "sha256": "6f2d4271ced155af4ee47896ca050cbddb0550e43f8de5d9a87b8f1138b52801",
+        "bytes": 30010
+      },
+      {
+        "file": "assets/exercises/dumbbell-shoulder-press/finish.webp",
+        "sha256": "655d345eb571bc275191d649d08c89f4f89a56e516f853ead9c71f77db681a38",
+        "bytes": 33334
+      }
+    ]
+  }
+}

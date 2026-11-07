@@ -1,0 +1,63 @@
+{
+  "variantId": "dumbbell-shoulder-press",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "bdccb158abe4ef6f1d8ffae4422ea425e2cea326930cd11ce16505a786a52d01",
+      "bytes": 41664,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "9a3e6c722645d29ef5500b096630c5485a168b97d782eff082d640aa575baddb",
+      "bytes": 41964,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-676c8366-0058-43a9-8f0c-c3a894065d20.png",
+    "sourceLibraryFileId": "libfile_f56163ea2fb88191b9c66e9c634cf955",
+    "sourceSha256": "2db003af9f6223c61c948a8ea3ec5671d05b27261a0f4c846a63c299adfc176a",
+    "sourceBytes": 1427845,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/dumbbell-shoulder-press/start.webp",
+        "sha256": "6f2d4271ced155af4ee47896ca050cbddb0550e43f8de5d9a87b8f1138b52801",
+        "bytes": 30010
+      },
+      {
+        "file": "assets/exercises/dumbbell-shoulder-press/finish.webp",
+        "sha256": "655d345eb571bc275191d649d08c89f4f89a56e516f853ead9c71f77db681a38",
+        "bytes": 33334
+      }
+    ]
+  },
+  "productionChoice": "LEFT shoulder-level START / RIGHT overhead FINISH. Seated press with two dumbbells and upright bench.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases, bench and foot support, identity and full frame reviewed. Detailed finger/wrist/elbow/shoulder mechanics, bench angle and dumbbell alignment, phase registration and native device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}
