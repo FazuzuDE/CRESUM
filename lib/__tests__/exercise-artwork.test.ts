@@ -670,7 +670,6 @@ it('binds selected machine press without narrowing generic grip or borrowing fre
   expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(1602);
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
-    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
     for (const other of ['press', 'unillustrated-variant', 'unknown'])
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
     for (const other of ['dumbbell-shoulder-press', 'barbell-overhead-press'])

@@ -1,0 +1,63 @@
+{
+  "variantId": "machine-shoulder-press",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "bbad9ce2db2bd87548f12e0a0ee46b276f8021256ec61840f492a66379fed356",
+      "bytes": 54414,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "751669c78fd49c260cff9bfa463f0c50bd083671dcba7d222902801f4c7d6a10",
+      "bytes": 56080,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-348f643d-fd26-4180-bb3b-5ea7468f78d3.png",
+    "sourceLibraryFileId": "libfile_5d5ecadfc32081919a3b3f8c4cd244c6",
+    "sourceSha256": "43d25b4b8f48bed1a70709f35090d998a2d3319a9b6dd27bc8a343ad92b61abe",
+    "sourceBytes": 1674350,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/machine-shoulder-press/start.webp",
+        "sha256": "2f787db2880238be9a9177cecfbbc79f37f1b05da57a13e5d1db5f41595ec08c",
+        "bytes": 56740
+      },
+      {
+        "file": "assets/exercises/machine-shoulder-press/finish.webp",
+        "sha256": "66ea469bf1c3b7a02b7756d6c5fb56d85ca11a65ddefcc92331e35b4032920d2",
+        "bytes": 60136
+      }
+    ]
+  },
+  "productionChoice": "LEFT shoulder-level START / RIGHT overhead FINISH. Seated shoulder press with a selectorized machine.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases, seat and foot support, identity and full frame reviewed. Detailed finger/wrist/elbow/shoulder mechanics, grip and lever geometry, phase registration and native device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}
