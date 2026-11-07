@@ -1,0 +1,51 @@
+{
+  "variantId": "resistance-band-pull-apart",
+  "model": "female",
+  "status": "user-selected-provisional",
+  "source": {
+    "file": "exec-a70f78ee-d3ec-4623-9964-cc98a6cc0901.png",
+    "sha256": "b17c61488da51e773954754fc28204bf805b02b524c4b99e753189be4f1519e1",
+    "bytes": 1258618,
+    "libraryFileId": "libfile_a09956fc772481918c38a1e481e71cfb",
+    "size": [1774, 887]
+  },
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/resistance-band-pull-apart/start.webp",
+      "sha256": "f7aa0219b662bd5de82df0aa9809276ed339d14c7010325e522a3619b48f991f",
+      "bytes": 25822
+    },
+    {
+      "file": "assets/exercises/resistance-band-pull-apart/finish.webp",
+      "sha256": "cd14ccf58ea1d51f6a9c08591b382b94110f76ae47613db5bd330d19ac36da66",
+      "bytes": 28508
+    }
+  ],
+  "frames": {
+    "start": {
+      "file": "start.webp",
+      "sha256": "fbc8c48591d327106dce326319bb9e4f9832512ad83bdfee23afdf7e37a13364",
+      "bytes": 25120,
+      "crop": [0, 0, 887, 887]
+    },
+    "finish": {
+      "file": "finish.webp",
+      "sha256": "24a06be8390aaeb337a475efd5f926e484a32f6799abf2b97319ceacd6d63a15",
+      "bytes": 26938,
+      "crop": [887, 0, 1774, 887]
+    }
+  },
+  "export": {
+    "format": "WebP",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none"
+  },
+  "reviewScope": "User selected the rear three-quarter pair. Device QA pending.",
+  "archiveStatus": "pending-upload"
+}
