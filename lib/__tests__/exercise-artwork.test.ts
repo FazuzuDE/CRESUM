@@ -326,6 +326,14 @@ jest.mock(
   () => 402,
 );
 jest.mock(
+  '../../assets/exercises/lat-pulldown-reverse-grip/female/start.webp',
+  () => 12801,
+);
+jest.mock(
+  '../../assets/exercises/lat-pulldown-reverse-grip/female/finish.webp',
+  () => 12802,
+);
+jest.mock(
   '../../assets/exercises/seated-cable-row-close-neutral-v-handle/start.webp',
   () => 501,
 );
@@ -453,7 +461,7 @@ it('resolves each exact phase without borrowing another setup or model', () => {
     ).toBe(phase === 'start' ? 401 : 402);
     expect(
       resolveExerciseArtwork('lat-pulldown-reverse-grip', phase, 'female'),
-    ).toBeNull();
+    ).toBe(phase === 'start' ? 12801 : 12802);
   }
 });
 
