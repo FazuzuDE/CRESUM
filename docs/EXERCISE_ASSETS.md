@@ -1,5 +1,18 @@
 # CRESUM Exercise Assets — approved production rules
 
+## Female Machine Shoulder Press — 2026-11-07
+
+Approved exec-348f643d-fd26-4180-bb3b-5ea7468f78d3.png,
+source libfile_5d5ecadfc32081919a3b3f8c4cd244c6. LEFT shoulder-level START / RIGHT
+overhead FINISH, seated machine press.
+Exact 887-square RGB WebP92/method6 halves, shared contain, no resampling.
+Only machine-shoulder-press/Female; 52 Female pairs, 16 pairs / 32 frames remain.
+Preserve Male, guide, front-delts and side-delts Primary/triceps Secondary,
+stable IDs and History. Detailed hand/joint mechanics, grip and lever geometry,
+registration and device acceptance provisional. Source/prompt/input chain retained;
+archive pending, Oracle deferred. Next Female Dumbbell Lateral Raise preview
+requires separate approval.
+
 ## Female Barbell Overhead Press — 2026-11-07
 
 Approved exec-12488cc4-d17d-4a24-9b1a-1c103441d7c7.png,

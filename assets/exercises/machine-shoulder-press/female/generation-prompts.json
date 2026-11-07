@@ -1,0 +1,46 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "One 2:1 CRESUM sheet with two square panels, female seated selectorized shoulder press. Reference 1 is the exact Female Master, brown ponytail, muted blue tee, charcoal leggings, white socks and gray shoes. References 2 and 3 establish the exercise and machine. Keep the same fixed silver frame, enclosed weight-stack tower on viewer left, black seat and tall black backrest, and the same two rear pivot axles at exactly the same locations in both panels. Each handle is firmly attached to the end of its rigid silver lever by a visible continuous bracket; no floating grips. START left: neutral body position with supported back, feet flat, elbows bent and grips at shoulder level. FINISH right: both levers rotate upward around the same rear axles, both hands wrap their respective black handles overhead, arms near extension. Preserve the length, bends and cross section of each lever from START to FINISH and keep grip spacing coherent. Keep tower and frame geometry, seat, body proportions, camera, stance, composition and scale registered; only arms and linked press levers move. Full machine and shoes visible, compact white studio with soft shadows and small margins. Realistic anatomy, no text, logos, borders or arrows.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/machine-shoulder-press/start.webp",
+      "sha256": "2f787db2880238be9a9177cecfbbc79f37f1b05da57a13e5d1db5f41595ec08c",
+      "bytes": 56740
+    },
+    {
+      "file": "assets/exercises/machine-shoulder-press/finish.webp",
+      "sha256": "66ea469bf1c3b7a02b7756d6c5fb56d85ca11a65ddefcc92331e35b4032920d2",
+      "bytes": 60136
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-348f643d-fd26-4180-bb3b-5ea7468f78d3.png",
+    "sourceLibraryFileId": "libfile_5d5ecadfc32081919a3b3f8c4cd244c6",
+    "sourceSha256": "43d25b4b8f48bed1a70709f35090d998a2d3319a9b6dd27bc8a343ad92b61abe",
+    "sourceBytes": 1674350,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/machine-shoulder-press/start.webp",
+        "sha256": "2f787db2880238be9a9177cecfbbc79f37f1b05da57a13e5d1db5f41595ec08c",
+        "bytes": 56740
+      },
+      {
+        "file": "assets/exercises/machine-shoulder-press/finish.webp",
+        "sha256": "66ea469bf1c3b7a02b7756d6c5fb56d85ca11a65ddefcc92331e35b4032920d2",
+        "bytes": 60136
+      }
+    ]
+  }
+}
