@@ -455,7 +455,6 @@ it('binds both chest-supported phases only to the existing two-arm incline-bench
   expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(702);
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
-    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
     for (const other of ['row', 'seated-cable-row', 'unknown']) {
       expect(resolveExerciseArtwork(other, phase, 'male')).toBeNull();
     }

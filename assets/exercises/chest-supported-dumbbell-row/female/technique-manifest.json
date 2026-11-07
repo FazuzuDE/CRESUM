@@ -1,0 +1,63 @@
+{
+  "variantId": "chest-supported-dumbbell-row",
+  "model": "female",
+  "visualMode": "technique",
+  "status": "user-selected-provisional",
+  "revision": 1,
+  "assets": {
+    "start": {
+      "file": "start.webp",
+      "cropBox": [0, 0, 887, 887],
+      "sha256": "43e12885311fde1194193dc5667c2a828b6e8be03dff7e85deab9f0c3644bdbb",
+      "bytes": 60486,
+      "width": 887,
+      "height": 887
+    },
+    "finish": {
+      "file": "finish.webp",
+      "cropBox": [887, 0, 1774, 887],
+      "sha256": "6b2430b3dc44bbfa39ac9b236bda6fb2fe9372c699d1ea945e8c9883f9697afa",
+      "bytes": 52680,
+      "width": 887,
+      "height": 887
+    }
+  },
+  "generation": {
+    "sourceFile": "exec-f0600c30-6410-4115-b0f0-1f775eb7a277.png",
+    "sourceLibraryFileId": "libfile_b48c9a4332108191b86c1cc2d35d362b",
+    "sourceSha256": "3439ef733c4506020cd4b71a7335791643c564214006186124100661dc2da77e",
+    "sourceBytes": 1612095,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/chest-supported-dumbbell-row/start.webp",
+        "sha256": "bf973c4c06a5635139bd8b94f8cc713ec1122b726fc6b005eb3317c85780cb51",
+        "bytes": 62986
+      },
+      {
+        "file": "assets/exercises/chest-supported-dumbbell-row/finish.webp",
+        "sha256": "b2cda3c58a3ee177c5a751c44d126f4077c472149df9b98a7ea9485b1907ce55",
+        "bytes": 54858
+      }
+    ]
+  },
+  "productionChoice": "LEFT dumbbell-lowered START / RIGHT dumbbell-raised FINISH. Two-arm dumbbell row with chest supported on an incline bench.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "quality": 92,
+    "method": 6,
+    "resampling": "none",
+    "cropCoordinates": "Pillow left/top inclusive, right/bottom exclusive"
+  },
+  "presentation": "Shared square contain; exact half-sheet crops without retouch, padding, resampling or independent phase transforms. Fine white source panel boundary retained.",
+  "reviewScope": "User-selected-provisional. Broad phases, bench and foot support, identity and full frame reviewed. Detailed finger/wrist/elbow/shoulder mechanics, wrist and elbow alignment, phase registration and native device acceptance remain open.",
+  "archiveStatus": "pending-upload",
+  "sourceRetention": "Exact original PNG retained in native persistent source and workspace. Original prompt and actual reference hashes retained for cumulative checkpoint. Archive pending-upload; Oracle deferred; no verified backup claim."
+}
