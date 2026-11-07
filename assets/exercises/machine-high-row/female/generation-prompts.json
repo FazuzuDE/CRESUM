@@ -1,0 +1,46 @@
+{
+  "status": "user-selected-provisional",
+  "prompt": "CRESUM female plate-loaded machine high row, wide 2:1 two square panels. Ref1 exact female character and outfit; refs2/3 exact silver high-row apparatus and rear three-quarter view. Same rigid silver base frame, chest pad, seat and thigh support, two fixed pivot axles. Two rigid lever assemblies each carry their own identical black plate and attached handle. LEFT start seated with chest supported and arms reaching forward and upward to hold both handles. RIGHT finish elbows move down and back as handles travel toward upper chest. Rotate each complete rigid assembly around its existing axle, lifting its plate as handle descends; preserve lever lengths and visible connections. Same seat position, body scale, feet and camera. Full frame and plates fit with small equal margins, white studio with soft shadows. No text, labels or borders.",
+  "references": [
+    {
+      "file": "assets/exercise-models/female-master-r1/reference.png",
+      "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+      "bytes": 1874514
+    },
+    {
+      "file": "assets/exercises/machine-high-row/start.webp",
+      "sha256": "d1fdff96ac5701f15dd283516a439a50b07bc60ceb51f637a99618f1fcdc7363",
+      "bytes": 66232
+    },
+    {
+      "file": "assets/exercises/machine-high-row/finish.webp",
+      "sha256": "69229e7da3d9de91ad1ea86a07df7e381108ffe0b41d20c718ac8cf9b098365b",
+      "bytes": 64194
+    }
+  ],
+  "output": {
+    "sourceFile": "exec-15a80aee-f3ca-4abb-8d1b-8841dd6145f9.png",
+    "sourceLibraryFileId": "libfile_9ed5db4bf8908191b01ac03d6c2809bd",
+    "sourceSha256": "29b0e93addae2d0c2525f35fc17c84ac3c89811be7a709e93e3082c75a153d01",
+    "sourceBytes": 1639881,
+    "sourceSize": [1774, 887],
+    "promptFile": "generation-prompts.json",
+    "references": [
+      {
+        "file": "assets/exercise-models/female-master-r1/reference.png",
+        "sha256": "0e922365ae7f47400c290be9e08bb5a9acc6a8c402b3768e1c0eefdd6937ab7c",
+        "bytes": 1874514
+      },
+      {
+        "file": "assets/exercises/machine-high-row/start.webp",
+        "sha256": "d1fdff96ac5701f15dd283516a439a50b07bc60ceb51f637a99618f1fcdc7363",
+        "bytes": 66232
+      },
+      {
+        "file": "assets/exercises/machine-high-row/finish.webp",
+        "sha256": "69229e7da3d9de91ad1ea86a07df7e381108ffe0b41d20c718ac8cf9b098365b",
+        "bytes": 64194
+      }
+    ]
+  }
+}

@@ -147,6 +147,10 @@ const femalePairs: Readonly<
     start: require('../assets/exercises/chest-supported-dumbbell-row/female/start.webp'),
     finish: require('../assets/exercises/chest-supported-dumbbell-row/female/finish.webp'),
   },
+  'machine-high-row': {
+    start: require('../assets/exercises/machine-high-row/female/start.webp'),
+    finish: require('../assets/exercises/machine-high-row/female/finish.webp'),
+  },
   'push-up': {
     start: require('../assets/exercises/push-up/female/start.webp'),
     finish: require('../assets/exercises/push-up/female/finish.webp'),

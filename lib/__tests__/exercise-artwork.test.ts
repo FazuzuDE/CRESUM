@@ -535,7 +535,6 @@ it('binds the selected high-row pair without narrowing the generic exercise scop
   expect(resolveExerciseArtwork(id, 'finish', 'male')).toBe(1102);
   expect(resolveAttachmentArtwork(id)).toBeNull();
   for (const phase of ['start', 'finish'] as const) {
-    expect(resolveExerciseArtwork(id, phase, 'female')).toBeNull();
     for (const other of [
       'lat-pulldown',
       'seated-cable-row',
