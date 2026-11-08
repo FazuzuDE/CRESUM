@@ -18,6 +18,7 @@ import { useLocalization } from './LocalizationProvider';
 const catalogArtwork: Record<string, ImageSourcePropType | undefined> = {
   'short-straight-bar': require('../assets/equipment/short-straight-bar.webp'),
   rope: require('../assets/equipment/triceps-rope.webp'),
+  'single-handle': require('../assets/equipment/single-d-handle.webp'),
 };
 
 export function ExerciseEquipmentCatalog({
