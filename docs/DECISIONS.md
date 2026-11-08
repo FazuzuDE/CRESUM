@@ -4453,3 +4453,11 @@ Require explicit server capability for grouped cloud writes/publication and
 continue other workout uploads when a group is unsupported. Prepared migration
 and Edge changes remain undeployed. See EQUIPMENT_GROUPS.md for evidence and
 activation/device gates. No merge or language release activation is implied.
+
+### 2026-11-08 — Checkbox-based branding administration
+
+Approved an editable logo layer with catalog, group and item selection, explicit
+exclusions, optional enrollment of future group members, preview and versioned
+publication with disable and rollback. Pilot the workflow on the kettlebell
+thumbnail before expanding to reviewed START/FINISH placements.
+See [branding administration](superpowers/specs/2026-11-08-branding-admin-design.md).

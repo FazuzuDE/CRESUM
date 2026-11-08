@@ -450,6 +450,15 @@ Deployment, permissions, publication/versioning and client delivery remain desig
 questions; no production administrative access or remote configuration is enabled
 by this decision record.
 
+### Branding administration — approved 2026-11-08
+
+Allow an authorized editor to upload or reuse a logo, select individual
+placements or whole exercise/equipment groups, exclude items, preview, publish,
+disable and roll back. Exercise and equipment catalogs have independent bulk
+controls. Published branding is delivered without rebuilding compatible clients,
+with offline fallback. The kettlebell thumbnail is the first supported placement.
+See [branding administration](superpowers/specs/2026-11-08-branding-admin-design.md).
+
 CRESUM is modular, replaceable, and feature-driven across the app, not only on Home. Product areas should be independently evolvable where that improves safety and delivery, while stable domain rules stay separate from screen placement and experimental presentation. This is a boundary for future work, not permission for a broad rewrite or premature abstraction.
 
 Feature flags control experiments, staged rollout, and operational enablement. Capabilities/entitlements control whether a user may access a product capability. They are different concerns and must not be used interchangeably.
