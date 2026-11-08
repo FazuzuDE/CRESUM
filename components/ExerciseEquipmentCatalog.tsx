@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Image, Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import type { ImageSourcePropType } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { canonicalExerciseId } from '@/lib/exercise-library';
@@ -14,7 +15,10 @@ import { colors, radius, spacing, typography } from '@/lib/theme';
 import { AppScrollView } from './AppScrollView';
 import { useLocalization } from './LocalizationProvider';
 
-const straightBar = require('../assets/equipment/short-straight-bar.webp');
+const catalogArtwork: Record<string, ImageSourcePropType | undefined> = {
+  'short-straight-bar': require('../assets/equipment/short-straight-bar.webp'),
+  rope: require('../assets/equipment/triceps-rope.webp'),
+};
 
 export function ExerciseEquipmentCatalog({
   exerciseId,
@@ -113,11 +117,8 @@ export function ExerciseEquipmentCatalog({
                   const attachment =
                     'artworkVariant' in item ? item.artworkVariant : undefined;
                   const source =
-                    item.id === 'short-straight-bar'
-                      ? straightBar
-                      : attachment
-                        ? resolveAttachmentArtwork(attachment)
-                        : null;
+                    catalogArtwork[item.id] ??
+                    (attachment ? resolveAttachmentArtwork(attachment) : null);
                   const name =
                     'messageKey' in item
                       ? t(item.messageKey)
