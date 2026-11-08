@@ -23,6 +23,7 @@ const catalogArtwork: Record<string, ImageSourcePropType | undefined> = {
   'ankle-strap': require('../assets/equipment/ankle-strap.webp'),
   dumbbell: require('../assets/equipment/dumbbells.webp'),
   barbell: require('../assets/equipment/barbell.webp'),
+  'ez-bar': require('../assets/equipment/ez-bar.webp'),
 };
 
 export function ExerciseEquipmentCatalog({
