@@ -17,9 +17,11 @@ selection belong to the private publication integration.
 
 ### 1. Establish the first placement
 
-- [ ] Verify the existing kettlebell catalog key and confirm the base image
+- [x] Verify the existing kettlebell catalog key and confirm the base image
       matches the approved source. Add the optimized base to `assets/equipment/`.
-- [ ] Add failing tests in `lib/__tests__/equipment-branding.test.ts` for missing
+- [x] Wire the separate built-in CRESUM wordmark layer to the kettlebell row.
+- [x] Verify base and logo render as separate layers in the artwork component.
+- [ ] Add failing tests in `lib/__tests__/equipment-branding.test.tsx` for missing
       slots, individual exclusion, specific override, and equal-specificity conflicts.
 - [ ] Run the focused test and confirm the resolver is missing.
 - [ ] Implement the placement registry, release parser and selection resolver in

@@ -13,6 +13,7 @@ import { resolveAttachmentArtwork } from '@/lib/exercise-artwork';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { colors, radius, spacing, typography } from '@/lib/theme';
 import { AppScrollView } from './AppScrollView';
+import { KettlebellCatalogArtwork } from './KettlebellCatalogArtwork';
 import { useLocalization } from './LocalizationProvider';
 
 const catalogArtwork: Record<string, ImageSourcePropType | undefined> = {
@@ -143,7 +144,9 @@ export function ExerciseEquipmentCatalog({
                         )
                       }
                     >
-                      {source ? (
+                      {item.id === 'kettlebell' ? (
+                        <KettlebellCatalogArtwork size={s.image.width} />
+                      ) : source ? (
                         <Image
                           source={source}
                           resizeMode="contain"
