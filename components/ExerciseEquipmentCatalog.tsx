@@ -19,6 +19,7 @@ const catalogArtwork: Record<string, ImageSourcePropType | undefined> = {
   'short-straight-bar': require('../assets/equipment/short-straight-bar.webp'),
   rope: require('../assets/equipment/triceps-rope.webp'),
   'single-handle': require('../assets/equipment/single-d-handle.webp'),
+  'ankle-strap': require('../assets/equipment/ankle-strap.webp'),
 };
 
 export function ExerciseEquipmentCatalog({
