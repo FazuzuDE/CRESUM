@@ -24,6 +24,7 @@ const catalogArtwork: Record<string, ImageSourcePropType | undefined> = {
   dumbbell: require('../assets/equipment/dumbbells.webp'),
   barbell: require('../assets/equipment/barbell.webp'),
   'ez-bar': require('../assets/equipment/ez-bar.webp'),
+  bench: require('../assets/equipment/bench.webp'),
 };
 
 export function ExerciseEquipmentCatalog({
