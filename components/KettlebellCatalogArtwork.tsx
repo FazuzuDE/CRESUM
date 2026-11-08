@@ -14,18 +14,15 @@ export function KettlebellCatalogArtwork({ size }: { size: number }) {
       />
       <View
         pointerEvents="none"
+        accessibilityElementsHidden
+        importantForAccessibility="no-hide-descendants"
         style={{
           position: 'absolute',
           left: (size - markWidth) / 2,
           top: size * 0.66 - markHeight / 2,
         }}
       >
-        <BrandWordmark
-          width={markWidth}
-          height={markHeight}
-          color="#D0D2D4"
-          decorative
-        />
+        <BrandWordmark width={markWidth} height={markHeight} color="#D0D2D4" />
       </View>
     </View>
   );

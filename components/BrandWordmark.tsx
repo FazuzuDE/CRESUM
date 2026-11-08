@@ -7,21 +7,19 @@ export function BrandWordmark({
   width = brand.wordmarkWidth,
   height = brand.wordmarkHeight,
   color = colors.textPrimary,
-  decorative = false,
 }: {
   width?: number;
   height?: number;
   color?: string;
-  decorative?: boolean;
 } = {}) {
   return (
     <Svg
       width={width}
       height={height}
       viewBox="0 0 182 24"
-      accessible={!decorative}
-      accessibilityRole={decorative ? undefined : 'image'}
-      accessibilityLabel={decorative ? undefined : 'CRESUM'}
+      accessible
+      accessibilityRole="image"
+      accessibilityLabel="CRESUM"
     >
       <Path
         d="M22 5H9Q5 5 5 9V15Q5 19 9 19H22 M35 19V5H49Q54 5 54 8.5Q54 12 49 12H35 M46 12L55 19 M84 5H65V19H84 M65 12H81 M114 5H99Q95 5 95 8.5Q95 12 99 12H110Q114 12 114 15.5Q114 19 110 19H95 M125 5V15Q125 19 129 19H140Q144 19 144 15V5 M155 19V5L166 14L177 5V19"
