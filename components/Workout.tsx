@@ -1,3 +1,4 @@
+import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
 import { workoutStyles as s } from './workout-styles';
 import { ExerciseAttachmentBlock } from './ExerciseAttachmentBlock';
 import { ExerciseGroupComposer } from './ExerciseGroupComposer';
@@ -326,6 +327,10 @@ export function Workout({
                     </Pressable>
                   ) : null}
                 </View>
+                <ExerciseEquipmentCatalog
+                  key={exercise.libraryId}
+                  exerciseId={exercise.libraryId}
+                />
                 <Text style={s.previous}>
                   {previous?.length
                     ? t('workout.last', {

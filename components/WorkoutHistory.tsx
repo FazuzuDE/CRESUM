@@ -1,3 +1,4 @@
+import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
 import { ExerciseEquipmentRow } from './ExerciseEquipmentRow';
 import { setNumberInGroup } from '@/lib/exercise-groups';
 import { useMemo, useState } from 'react';
@@ -94,7 +95,9 @@ export function WorkoutHistory({
                 <Text style={s.exerciseName}>{exercise.name}</Text>
                 {exercise.exerciseGroup ? (
                   <ExerciseEquipmentRow exerciseId={exercise.libraryId} />
-                ) : null}
+                ) : (
+                  <ExerciseEquipmentCatalog exerciseId={exercise.libraryId} />
+                )}
                 {completedSets.length ? (
                   completedSets.map((set, index) => (
                     <Text key={set.id} style={s.setValue}>

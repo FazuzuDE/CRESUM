@@ -1,3 +1,4 @@
+import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { equipmentPolicyFor } from '@/lib/exercise-equipment';
@@ -8,7 +9,21 @@ import { colors, radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import type { Ref } from 'react';
 
-export function ExerciseEquipmentRow({
+export function ExerciseEquipmentRow(
+  props: Parameters<typeof ExerciseVariantEquipmentRow>[0],
+) {
+  return (
+    <>
+      <ExerciseVariantEquipmentRow {...props} />
+      <ExerciseEquipmentCatalog
+        key={props.exerciseId}
+        exerciseId={props.exerciseId}
+      />
+    </>
+  );
+}
+
+function ExerciseVariantEquipmentRow({
   exerciseId,
   onPress,
   focusRef,

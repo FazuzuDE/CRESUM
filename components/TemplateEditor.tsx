@@ -1,3 +1,4 @@
+import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
 import {
   ExerciseGroupComposer,
   type EquipmentCompositionDraft,
@@ -566,7 +567,9 @@ export function TemplateEditor({
                     ) : null}
                     {planned?.exerciseGroup ? (
                       <ExerciseEquipmentRow exerciseId={id} />
-                    ) : null}
+                    ) : (
+                      <ExerciseEquipmentCatalog exerciseId={id} />
+                    )}
                     <Text style={s.exerciseName}>
                       {exercise ? label : t('editor.unavailable')}
                     </Text>

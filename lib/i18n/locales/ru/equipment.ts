@@ -1,4 +1,12 @@
 export default {
+  'equipment.save': 'Сохранить',
+  'equipment.shortStraightBar': 'Короткая прямая рукоятка',
+  'equipment.rope': 'Канат',
+  'equipment.singleHandle': 'Одиночная рукоятка',
+  'equipment.ankleStrap': 'Манжета на голень',
+  'equipment.catalog': 'Каталог оборудования',
+  'equipment.illustratedDefault': 'Оборудование на иллюстрациях',
+  'equipment.personalSelection': 'Ваш выбор оборудования',
   'equipment.stationName': 'Тяга верхнего блока',
   'equipment.configureSets': 'Подходы',
   'equipment.plannedReps': 'Запланированные повторы',
