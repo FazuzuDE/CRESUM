@@ -1040,6 +1040,14 @@ remain unchanged. Release acceptance must include 320/390px wrapping, destructiv
 and retry actions, safe areas, Dynamic Type and screen-reader use; renderer tests
 and native bundle exports are separate evidence and do not certify those checks.
 
+### Branding on catalog artwork — approved 2026-11-08
+
+Place the exact CRESUM wordmark in light gray at the center of the kettlebell
+body. Preserve the base image and use a separate logo layer constrained to the
+reviewed placement. Show checked, unchecked and partially selected group states.
+Preview at full size and catalog scale and label missing character/frame
+placements explicitly.
+
 ### Selected CRESUM wordmark — approved 2026-10-21
 
 Use the compact, wide geometric uppercase CRESUM lettering from the phone

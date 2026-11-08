@@ -386,6 +386,12 @@ History. Admin implementation and regional evidence/scoring remain separate.
 The first proposed scope is exercises, technique, illustration references and
 reviewed muscle mappings. This entry records the user's direction; it does not
 approve a technology stack, remote code changes, access policy or load formulas.
+
+The approved branding pilot begins with the kettlebell thumbnail and validates
+upload, catalog selection, preview, remote publication and rollback before adding
+more placements. See the
+[kettlebell branding plan](superpowers/plans/2026-11-08-branding-admin-kettlebell.md).
+
 Continue the regional configuration/evidence work after this branding/admin
 checkpoint; it remains a separate research/implementation track.
 
