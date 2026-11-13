@@ -19,12 +19,12 @@ in-app readiness from the existence of translation files.
 
 ## Independent phases and exit gates
 
-| Phase | Scope | Proposed directional target | Gate to advance |
-| --- | --- | --- | --- |
-| G0 — preparation, before public release | Brand handles, landing page + beta opt-in, content templates, attribution conventions, privacy review and beta recruitment | 50–100 **active** beta testers | Core onboarding → logged sets → Finish → saved History/Progress is reliable on supported devices |
-| G1 — first 1–3 months after release | Localized store pages/ASO, recurring short videos, creator outreach, feedback and onboarding improvements | 1,000–3,000 cumulative installs | Stable first-workout completion and healthy D7 cohorts |
-| G2 — 3–6 months after release | Multiply winning formats, educational exercise pages, trainer pilots, small paid-channel experiments | 10,000 cumulative installs **aspiration** | D30 retention, acquisition quality and measurable landing/store conversion justify spend |
-| G3 — 6–18 months and beyond | Expand high-performing markets/channels, partnerships and localized catalog content | 100,000+ cumulative installs **ambition**, not forecast | Repeatable sustainable growth, privacy compliance and reliable operations |
+| Phase                                   | Scope                                                                                                                      | Proposed directional target                             | Gate to advance                                                                                  |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| G0 — preparation, before public release | Brand handles, landing page + beta opt-in, content templates, attribution conventions, privacy review and beta recruitment | 50–100 **active** beta testers                          | Core onboarding → logged sets → Finish → saved History/Progress is reliable on supported devices |
+| G1 — first 1–3 months after release     | Localized store pages/ASO, recurring short videos, creator outreach, feedback and onboarding improvements                  | 1,000–3,000 cumulative installs                         | Stable first-workout completion and healthy D7 cohorts                                           |
+| G2 — 3–6 months after release           | Multiply winning formats, educational exercise pages, trainer pilots, small paid-channel experiments                       | 10,000 cumulative installs **aspiration**               | D30 retention, acquisition quality and measurable landing/store conversion justify spend         |
+| G3 — 6–18 months and beyond             | Expand high-performing markets/channels, partnerships and localized catalog content                                        | 100,000+ cumulative installs **ambition**, not forecast | Repeatable sustainable growth, privacy compliance and reliable operations                        |
 
 Targets are planning hypotheses, not promises or industry benchmarks. Adjust after measured cohorts.
 Do not promise calendar launch dates while native/device and store readiness remain open.
@@ -50,16 +50,18 @@ Do not promise calendar launch dates while native/device and store readiness rem
 
 ## Budget and measurement
 
-Proposed *optional* monthly exploration envelope after beta:
+Proposed _optional_ monthly exploration envelope after beta:
+
 - Content produced in-house: €0 marginal cash outlay (time still has a cost).
 - Video/design tools: €0–30.
 - Micro-creator trials: €0–150.
 - Paid acquisition experiments: €100–300 **only after retention evidence**.
 - Illustrative combined cash spend: €100–480/month if a paid test is authorized.
-No amount is a budget commitment; do not create subscriptions, ad campaigns or purchases
-without separate approval. CRESUM's **initial release remains free, without ads or paid plans**.
+  No amount is a budget commitment; do not create subscriptions, ad campaigns or purchases
+  without separate approval. CRESUM's **initial release remains free, without ads or paid plans**.
 
 Proposed internal hypothesis metrics (not market benchmarks):
+
 - First-workout completion: >=60% of new installers who reached onboarding.
 - D7 retention: >=30% and D30 retention: >=20% of defined install cohorts.
 - Typical weekly workouts per active user: 2–4 as a research hypothesis.
@@ -80,7 +82,7 @@ are candidates, not authorized integrations.
 - [ ] `GROW-04` Prepare truthful localized ASO metadata and screenshots, conditional on release readiness.
 - [ ] `GROW-05` Set up opt-in beta recruitment, feedback intake, issue triage and small-phone QA loop.
 - [ ] `GROW-06` Specify minimal aggregated funnel/retention metrics, data governance and admin dashboard;
-  implementation is a separate technical PR and needs privacy review.
+      implementation is a separate technical PR and needs privacy review.
 - [ ] `GROW-07` Run organic distribution experiments, record results and review them monthly.
 - [ ] `GROW-08` Test creator outreach and paid channels only with explicit campaign/budget approval.
 - [ ] `GROW-09` Design share-card and referrals as proposals, then obtain separate product approval before implementation.
