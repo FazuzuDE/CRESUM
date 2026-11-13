@@ -1,5 +1,19 @@
 # CRESUM Decision Log
 
+## CRESUM Growth Foundation — approved 2026-11-09
+
+User approved the marketing strategy as an independent roadmap workstream.
+Priority is organic short-form content, localized store discovery, trainer/
+micro-creator partnerships, educational exercise search pages, and later
+voluntary results sharing/referral proposals. First market focus is Germany,
+then tested multilingual expansion. Initial release remains free, with no
+ads/subscriptions. Proposed success metrics, optional budget and milestone
+install counts are planning hypotheses, not verified results or commitments.
+The approved next action is to record the strategy in `docs/ROADMAP.md` and
+`docs/GROWTH.md`, separate from active equipment/illustration PRs.
+No campaign spend, app feature delivery, analytics SDK or launch is authorized
+or completed merely by this decision.
+
 ## Female Resistance Band Pull-Apart — 2026-11-07
 
 User approved the rear three-quarter pair (libfile_a09956fc772481918c38a1e481e71cfb).

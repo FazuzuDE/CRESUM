@@ -1,5 +1,17 @@
 # CRESUM — Development Roadmap
 
+## Growth Foundation — approved 2026-11-09 (parallel, planning only)
+
+The user approved a separate CRESUM marketing workstream: brand/landing page,
+beta recruitment, localized ASO, short-form educational content, creator pilots,
+privacy-safe measurement and, later, opt-in sharing/referral proposals.
+The full phased plan, criteria, exploratory budget and non-guaranteed targets
+are documented in [Growth Foundation](GROWTH.md). Initial release remains free
+without ads/subscriptions. Growth planning must not interrupt current Exercise
+Library/equipment asset PRs or any P0, offline/device or store-release gate.
+Paid campaigns, tracking SDKs, product features and third-party services
+require separate review/approval; nothing here claims they have shipped.
+
 ## Female artwork rollout — approved 2026-11-03
 
 Female pairs through Pull-Up merged via #242.
