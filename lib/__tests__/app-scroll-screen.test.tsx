@@ -17,7 +17,7 @@ jest.mock('@react-native-async-storage/async-storage', () =>
 
 it('preserves the workout native ref, scrolling callbacks and layout coordinates', () => {
   let view!: ReturnType<typeof create>;
-  let native: ScrollView | null = null;
+  let native: import('react').ComponentRef<typeof ScrollView> | null = null;
   const offsets: number[] = [];
   const layouts: number[] = [];
   let drags = 0;

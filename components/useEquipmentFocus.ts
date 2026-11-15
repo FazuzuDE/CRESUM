@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, type ComponentRef } from 'react';
 import {
   AccessibilityInfo,
   findNodeHandle,
@@ -8,7 +8,7 @@ import {
 
 /** Restore the initiating row after the native modal has finished dismissing. */
 export function useEquipmentFocus(open: boolean) {
-  const ref = useRef<View>(null);
+  const ref = useRef<ComponentRef<typeof View>>(null);
   const previous = useRef(false);
   useEffect(() => {
     const dismissed = previous.current && !open;
@@ -18,7 +18,8 @@ export function useEquipmentFocus(open: boolean) {
       ref.current?.focus();
       if (Platform.OS !== 'web' && ref.current) {
         const node = findNodeHandle(ref.current);
-        if (node !== null) AccessibilityInfo.setAccessibilityFocus(node);
+        if (typeof node === 'number')
+          AccessibilityInfo.setAccessibilityFocus(node);
       }
     }, 350);
     return () => clearTimeout(timer);

@@ -8,7 +8,7 @@ import {
 // Owns only the outer viewport during an active drag. Native scrolling remains
 // available before the hold activates; the list has no nested scroll container.
 export function useProgramScroll() {
-  const ref = useRef<ScrollView>(null);
+  const ref = useRef<import('react').ComponentRef<typeof ScrollView>>(null);
   const metrics = useRef({
     offset: 0,
     height: 0,
@@ -25,9 +25,12 @@ export function useProgramScroll() {
     timer: ReturnType<typeof setInterval>;
   } | null>(null);
   const [dragging, setDragging] = useState(false);
-  const attachRef = useCallback((instance: ScrollView | null) => {
-    ref.current = instance;
-  }, []);
+  const attachRef = useCallback(
+    (instance: import('react').ComponentRef<typeof ScrollView> | null) => {
+      ref.current = instance;
+    },
+    [],
+  );
   const control = useMemo(() => {
     const stop = () => {
       if (active.current) clearInterval(active.current.timer);

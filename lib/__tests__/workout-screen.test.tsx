@@ -525,7 +525,11 @@ it('keeps Progress chart heights finite for very large finite volumes', async ()
       Array.isArray(node.props.style),
     )
     .map((node: { props: { style?: unknown } }) =>
-      StyleSheet.flatten(node.props.style),
+      StyleSheet.flatten(
+        node.props.style as import('react-native').StyleProp<
+          import('react-native').ViewStyle
+        >,
+      ),
     )
     .map((style: { height?: unknown } | undefined) => style?.height)
     .filter((height: unknown): height is number => typeof height === 'number');

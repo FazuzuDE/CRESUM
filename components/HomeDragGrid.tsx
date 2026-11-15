@@ -151,7 +151,7 @@ export function HomeDragGrid({
         !alive.current ||
         current.disabled ||
         held.current ||
-        ['inactive', 'background'].includes(AppState.currentState)
+        ['inactive', 'background'].includes(AppState.currentState ?? '')
       )
         return;
       if (!current.onBegin()) return;

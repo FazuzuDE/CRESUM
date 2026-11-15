@@ -22,7 +22,7 @@ it('edge scrolling moves the viewport and reports its displacement, then stops o
         callback(0, 100, 280, 500),
     }),
     scrollTo: ({ y }: { y: number }) => positions.push(y),
-  } as unknown as ScrollView;
+  } as unknown as import('react').ComponentRef<typeof ScrollView>;
   try {
     act(() => program.attachRef(viewport));
     act(() => program.onContentSizeChange(280, 1000));
@@ -73,7 +73,7 @@ it('does not scroll past the content bottom and releases the timer on layout can
         callback(0, 100, 280, 500),
     }),
     scrollTo: ({ y }: { y: number }) => positions.push(y),
-  } as unknown as ScrollView;
+  } as unknown as import('react').ComponentRef<typeof ScrollView>;
   try {
     act(() => program.attachRef(viewport));
     act(() => program.onContentSizeChange(280, 515));

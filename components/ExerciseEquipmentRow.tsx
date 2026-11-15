@@ -7,7 +7,7 @@ import { findExercise } from '@/lib/exercise-library';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { colors, radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
-import type { Ref } from 'react';
+import type { ComponentRef, Ref } from 'react';
 
 export function ExerciseEquipmentRow(
   props: Parameters<typeof ExerciseVariantEquipmentRow>[0],
@@ -30,7 +30,7 @@ function ExerciseVariantEquipmentRow({
 }: {
   exerciseId: string;
   onPress?: () => void;
-  focusRef?: Ref<View>;
+  focusRef?: Ref<ComponentRef<typeof Pressable>>;
 }) {
   const { t, locale } = useLocalization();
   const policy = equipmentPolicyFor(exerciseId);
