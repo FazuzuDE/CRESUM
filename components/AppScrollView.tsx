@@ -6,6 +6,7 @@ import {
   useImperativeHandle,
   useEffect,
   useRef,
+  type ComponentRef,
   type ReactElement,
 } from 'react';
 import {
@@ -22,7 +23,7 @@ import { ScrollReturnButton } from './ScrollReturnButton';
 
 // Keep the native ref and event callbacks usable by workout drag/edge scrolling.
 export const AppScrollView = forwardRef<
-  ScrollView,
+  ComponentRef<typeof ScrollView>,
   ScrollViewProps & { sectionPositions?: ProgressSectionPosition[] }
 >(function AppScrollView(
   {
@@ -36,7 +37,7 @@ export const AppScrollView = forwardRef<
   },
   forwardedRef,
 ) {
-  const ref = useRef<ScrollView>(null);
+  const ref = useRef<ComponentRef<typeof ScrollView>>(null);
   useImperativeHandle(forwardedRef, () => ref.current!, []);
   const control = useScrollReturn((y, animated) =>
     ref.current?.scrollTo({ y, animated }),

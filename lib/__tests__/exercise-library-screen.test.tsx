@@ -115,7 +115,7 @@ describe('ExerciseLibrary', () => {
     expect(
       horizontal.every(
         (node: ScrollNode) =>
-          StyleSheet.flatten(node.props.style).flexGrow === 0,
+          StyleSheet.flatten(node.props.style)?.flexGrow === 0,
       ),
     ).toBe(true);
     expect(StyleSheet.flatten(results?.props.style).flex).toBe(1);
