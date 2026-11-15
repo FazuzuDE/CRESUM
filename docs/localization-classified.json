@@ -10103,6 +10103,14 @@
       {
         "text": "`url(#${prefix}role-occlusion)`",
         "context": "TemplateExpression/ConditionalExpression/JsxExpression/JsxAttribute:mask/JsxAttributes"
+      },
+      {
+        "text": "`${prefix}source-clip`",
+        "context": "TemplateExpression/VariableDeclaration/VariableDeclarationList/FirstStatement/Block"
+      },
+      {
+        "text": "`url(#${sourceClipId})`",
+        "context": "TemplateExpression/JsxExpression/JsxAttribute:clipPath/JsxAttributes/JsxSelfClosingElement"
       }
     ]
   },
