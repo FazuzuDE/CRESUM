@@ -3,6 +3,7 @@
 // exercised separately; physical gesture acceptance stays a device check.
 jest.mock('react-native-gesture-handler', () => ({
   ...jest.requireActual('react-native-gesture-handler'),
+  GestureDetector: jest.requireActual('react-native').View,
   GestureHandlerRootView: jest.requireActual('react-native').View,
 }));
 // Native crypto is unavailable in Jest. Use Node's real secure UUID generator
