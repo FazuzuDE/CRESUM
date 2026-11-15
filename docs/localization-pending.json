@@ -1345,6 +1345,12 @@
   },
   {
     "file": "components/MuscleMap.tsx",
+    "line": 68,
+    "text": "`${prefix}source-clip`",
+    "context": "TemplateExpression/VariableDeclaration/VariableDeclarationList/FirstStatement/Block"
+  },
+  {
+    "file": "components/MuscleMap.tsx",
     "line": 80,
     "text": "`${prefix}role-occlusion`",
     "context": "TemplateExpression/JsxExpression/JsxAttribute:id/JsxAttributes/JsxOpeningElement"
@@ -1360,6 +1366,12 @@
     "line": 127,
     "text": "`${prefix}${r.id}`",
     "context": "TemplateExpression/JsxExpression/JsxAttribute:id/JsxAttributes/JsxOpeningElement"
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "line": 140,
+    "text": "`url(#${sourceClipId})`",
+    "context": "TemplateExpression/JsxExpression/JsxAttribute:clipPath/JsxAttributes/JsxSelfClosingElement"
   },
   {
     "file": "components/MuscleMap.tsx",
