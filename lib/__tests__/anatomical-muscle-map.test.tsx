@@ -1,5 +1,12 @@
 import { Text } from 'react-native';
-import { Image as SvgImage, Path, G, Mask, ClipPath } from 'react-native-svg';
+import {
+  Image as SvgImage,
+  Path,
+  G,
+  Mask,
+  ClipPath,
+  Rect,
+} from 'react-native-svg';
 import { MuscleMap } from '../../components/MuscleMap';
 import { projectMuscleParticipation } from '../muscle-participation';
 import { colors } from '../theme';
@@ -98,6 +105,28 @@ it('renders the selected original character in both views, with a neutral no-set
       (n: { props: { fill: string } }) => n.props.fill === 'transparent',
     ),
   ).toBe(true);
+  act(() => view.unmount());
+});
+
+it('clips the shared source image to each anatomical view box', () => {
+  let view!: ReturnType<typeof create>;
+  act(() => {
+    view = create(<MuscleMap muscles={neutral} />);
+  });
+  const images = view.root
+    .findAllByType(SvgImage)
+    .filter((n: { props: { href: unknown } }) => n.props.href === source);
+
+  for (const [index, side] of (['front', 'back'] as const).entries()) {
+    const [x, y, width, height] = anatomicalAtlas.views[side].viewBox;
+    const clips = view.root.findAllByType(ClipPath);
+    const clip = clips.find(
+      (n: { props: { id: string } }) =>
+        images[index].props.clipPath === `url(#${n.props.id})`,
+    );
+    expect(clip?.findByType(Rect).props).toMatchObject({ x, y, width, height });
+  }
+
   act(() => view.unmount());
 });
 

@@ -63,6 +63,9 @@ export function MuscleMap({
     <View style={s.row}>
       {(['front', 'back'] as const).map((view) => {
         const prefix = `anatomy${instance}${view}`;
+        const viewBox = anatomicalAtlas.views[view].viewBox;
+        const [x, y, width, viewHeight] = viewBox;
+        const sourceClipId = `${prefix}source-clip`;
         const regions = anatomicalRegions.filter(
           (r) => r.view === view && r.groupId !== null,
         );
@@ -71,10 +74,13 @@ export function MuscleMap({
             <Svg
               width="100%"
               height={height}
-              viewBox={anatomicalAtlas.views[view].viewBox.join(' ')}
+              viewBox={viewBox.join(' ')}
               accessible={false}
             >
               <Defs>
+                <ClipPath id={sourceClipId}>
+                  <Rect x={x} y={y} width={width} height={viewHeight} />
+                </ClipPath>
                 {view === 'back' && cutout ? (
                   <Mask
                     id={`${prefix}role-occlusion`}
@@ -131,6 +137,7 @@ export function MuscleMap({
               </Defs>
               <Image
                 href={source}
+                clipPath={`url(#${sourceClipId})`}
                 x={0}
                 y={0}
                 width={1312}
