@@ -85,11 +85,16 @@ export function Onboarding({
 }: Props) {
   const { t, locale } = useLocalization();
   const { width, height } = useWindowDimensions();
-  const welcomeArtworkWidth = Math.min(
-    width,
-    maxContentWidth,
-    height * 0.39 * welcomeArtworkRatio,
+  const welcomeArtworkWidth = Math.min(width, maxContentWidth);
+  const welcomeArtworkNaturalHeight = welcomeArtworkWidth / welcomeArtworkRatio;
+  const welcomeArtworkHeight = Math.min(
+    welcomeArtworkNaturalHeight,
+    Math.max(welcomeArtworkNaturalHeight * 0.82, height * 0.39),
   );
+  const artworkHeights = {
+    start_path: Math.min(330, height * 0.4),
+    goal: Math.min(265, height * 0.29),
+  };
   const dateLabel = (date: string) =>
     formatDate(locale, new Date(`${date}T00:00:00`).getTime());
   const [state, setState] = useState(() =>
@@ -344,7 +349,7 @@ export function Onboarding({
   const artwork = (key: keyof typeof onboardingArtwork) => (
     <Image
       source={onboardingArtwork[key]}
-      resizeMode="contain"
+      resizeMode={key === 'welcome' ? 'cover' : 'contain'}
       accessible={false}
       style={
         key === 'welcome'
@@ -352,10 +357,15 @@ export function Onboarding({
               s.welcomeArtwork,
               {
                 width: welcomeArtworkWidth,
-                height: welcomeArtworkWidth / welcomeArtworkRatio,
+                height: welcomeArtworkHeight,
               },
             ]
-          : s.artwork
+          : [
+              s.artwork,
+              key === 'start_path' || key === 'goal'
+                ? { height: artworkHeights[key] }
+                : undefined,
+            ]
       }
     />
   );
@@ -535,24 +545,26 @@ export function Onboarding({
                   {t('onboarding.startPath')}
                 </Text>
                 {artwork('start_path')}
-                <AppButton
-                  presentation="choice"
-                  highlighted
-                  title={t('onboarding.findProgram')}
-                  detail={t('onboarding.findProgramHelp')}
-                  disabled={saving || busy}
-                  onPress={() => {
-                    setError('');
-                    go('goal');
-                  }}
-                />
-                <AppButton
-                  presentation="choice"
-                  title={t('onboarding.startOwn')}
-                  detail={t('onboarding.startOwnHelp')}
-                  disabled={saving || busy}
-                  onPress={() => void complete(true)}
-                />
+                <View style={[s.footer, s.startChoices]}>
+                  <AppButton
+                    presentation="choice"
+                    highlighted
+                    title={t('onboarding.findProgram')}
+                    detail={t('onboarding.findProgramHelp')}
+                    disabled={saving || busy}
+                    onPress={() => {
+                      setError('');
+                      go('goal');
+                    }}
+                  />
+                  <AppButton
+                    presentation="choice"
+                    title={t('onboarding.startOwn')}
+                    detail={t('onboarding.startOwnHelp')}
+                    disabled={saving || busy}
+                    onPress={() => void complete(true)}
+                  />
+                </View>
               </>
             ) : null}
             {step === 'goal' ? (
@@ -1123,6 +1135,7 @@ const s = StyleSheet.create({
   polishedContent: { flexGrow: 1, paddingBottom: spacing.md },
   polishedFrame: { flexGrow: 1, gap: spacing.md },
   footer: { marginTop: 'auto', paddingTop: spacing.sm },
+  startChoices: { gap: spacing.md },
   center: { textAlign: 'center' },
   artwork: { width: '100%', height: 190, alignSelf: 'center' },
   welcomeArtworkFrame: { marginHorizontal: -spacing.md },

@@ -126,16 +126,17 @@ it('renders welcome artwork with explicit bounds inside the viewport', async () 
   const frame = StyleSheet.flatten(artwork.props.style);
   expect(frame.width).toEqual(expect.any(Number));
   expect(frame.height).toEqual(expect.any(Number));
-  expect(frame.width).toBeCloseTo(
-    Math.min(width, 600, height * 0.39 * (852 / 822)),
-  );
+  expect(frame.width).toBeCloseTo(Math.min(width, 600));
   const frameContainer = artwork.parent;
   expect(
     StyleSheet.flatten(frameContainer?.props.style).marginHorizontal,
   ).toBeLessThan(0);
   expect(frame.maxWidth).toBe('100%');
-  expect(frame.width / frame.height).toBeCloseTo(852 / 822);
-  expect(artwork.props.resizeMode).toBe('contain');
+  const naturalHeight = frame.width / (852 / 822);
+  expect(frame.height).toBeCloseTo(
+    Math.min(naturalHeight, Math.max(naturalHeight * 0.82, height * 0.39)),
+  );
+  expect(artwork.props.resizeMode).toBe('cover');
   await act(async () => view.unmount());
 });
 
