@@ -215,7 +215,7 @@ const s = StyleSheet.create({
     gap: spacing.sm,
   },
   material: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     borderRadius: radius.xxl,
     overflow: 'hidden',
   },
