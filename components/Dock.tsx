@@ -43,8 +43,10 @@ export function Dock({
   onHeightChange?: (height: number) => void;
 }) {
   const { t } = useLocalization();
-  const reduced = useReducedTransparency();
-  const translucent = Platform.OS === 'ios' && !reduced;
+  const reduceTransparency = useReducedTransparency();
+  const isIOS = Platform.OS === 'ios';
+  const reduced = isIOS && reduceTransparency;
+  const translucent = isIOS && !reduced;
   const nativeGlass =
     translucent && isGlassEffectAPIAvailable() && isLiquidGlassAvailable();
   const selectedIndex = tabs.findIndex(([id]) => id === active);
