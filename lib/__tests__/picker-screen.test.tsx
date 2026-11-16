@@ -1,5 +1,9 @@
 import { useState } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
+import {
+  DEFAULT_GLASS_TRANSPARENCY,
+  GlassMaterial,
+} from '../../components/GlassMaterial';
 import { AppPicker } from '../../components/AppPicker';
 import { AppDatePicker } from '../../components/AppDatePicker';
 import { DatePickerSheet } from '../../components/DatePickerSheet';
@@ -248,5 +252,33 @@ it('silently recenters after Dynamic Type changes the row geometry', () => {
   } finally {
     act(() => view.unmount());
     dimensions.mockRestore();
+  }
+});
+
+it('frames the selected date across all columns and lowers the dialog transparency', () => {
+  let view!: ReturnType<typeof create>;
+  act(() => {
+    view = create(
+      <DatePickerSheet
+        title="Date of birth"
+        value={new Date(1989, 8, 27).getTime()}
+        onCancel={() => {}}
+        onConfirm={() => {}}
+      />,
+    );
+  });
+  try {
+    expect(view.root.findByType(GlassMaterial).props.transparency).toBe(
+      Math.round(DEFAULT_GLASS_TRANSPARENCY * 0.8),
+    );
+    const frame = view.root.findAllByProps({
+      testID: 'wheel-selection-lines',
+    })[0];
+    expect(StyleSheet.flatten(frame?.props.style)).toMatchObject({
+      borderTopWidth: StyleSheet.hairlineWidth,
+      borderBottomWidth: StyleSheet.hairlineWidth,
+    });
+  } finally {
+    act(() => view.unmount());
   }
 });

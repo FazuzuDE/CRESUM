@@ -17,7 +17,9 @@ and icons opaque and keep the solid appearance when Reduce Transparency is enabl
 Use the centered light glass dialog for language selection, short confirmations,
 history filters and date or measurement wheels. Use the same clear glass
 material as the floating dock, with light blur on older iOS versions. Keep the surrounding dimming
-light and respect reduced transparency. Reserve larger sheets for workflows
+light and respect reduced transparency. Compact dialog transparency is 20% below
+the default dock setting. The center row on wheels has two thin, continuous
+rules. Neighboring values follow the curve of the wheel and fade at its edges. Reserve larger sheets for workflows
 that need the space, such as editing workout sets or browsing equipment. Keep
 primary actions fully reachable inside the safe area. Enable page scrolling
 when content exceeds the viewport, including with the keyboard or larger text.
@@ -1725,7 +1727,7 @@ Home displays the stored name in **Welcome back, {name}!**. The body-weight card
 
 ### Apple wheel and calendar presentation — 2026-10-11
 
-Every existing/future wheel uses AppPicker: native UIPickerView on supported iOS builds, shared accessible snapping fallback elsewhere. Date columns are always day, localized full month, year; the center row is selected, with native perspective/fading and a quiet selection band. Keep system typography and readable dark selected values. Selection feedback occurs for changed user-selected rows, never on mount, prop synchronization or unchanged boundary selections. Audio belongs to the native wheel and honors system settings; no synthetic/private sound API. Respect platform feedback availability and Reduce Motion. Date entry opens an opaque page sheet with dark heading, Done, Cancel and optional Clear date; scrolling details use shared upward navigation, wheel columns do not. Native font scaling, audio, haptics and actual device feel remain acceptance checks.
+Every existing/future wheel uses AppPicker: native UIPickerView on supported iOS builds, shared accessible snapping fallback elsewhere. Date columns are always day, localized full month, year; the center row is selected, with perspective and fading around a pair of thin selection rules. Keep system typography and readable dark selected values. Selection feedback occurs for changed user-selected rows, never on mount, prop synchronization or unchanged boundary selections. Audio belongs to the native wheel and honors system settings; no synthetic/private sound API. Respect platform feedback availability and Reduce Motion. Date entry opens an opaque page sheet with dark heading, Done, Cancel and optional Clear date; scrolling details use shared upward navigation, wheel columns do not. Native font scaling, audio, haptics and actual device feel remain acceptance checks.
 
 EXERCISE LIBRARY matches WORKOUTS' compact white card and dark bold spaced wordmark, immediately below it. The separate browse page retains native search, muscle/equipment filters, readable names and shared up-arrow, with Back to Profile and no inert Add buttons.
 
