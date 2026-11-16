@@ -58,7 +58,7 @@ export function MuscleProgress({
   }
   return (
     <>
-      <AppScrollView contentContainerStyle={s.content}>
+      <AppScrollView dockAware contentContainerStyle={s.content}>
         <BrandHeader />
         <Text style={s.title} accessibilityRole="header">
           {t('progress.title')}

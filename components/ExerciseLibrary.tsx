@@ -104,7 +104,10 @@ export function ExerciseLibrary({
   const CopyContainer = browsing ? Pressable : View;
 
   const content = (
-    <SafeAreaView style={s.sheet}>
+    <SafeAreaView
+      edges={presentation === 'page' ? [] : undefined}
+      style={s.sheet}
+    >
       <BrandHeader />
       <View style={s.header}>
         <View style={s.headerCopy}>
@@ -188,6 +191,7 @@ export function ExerciseLibrary({
       </ScrollView>
 
       <AppScrollView
+        dockAware={presentation === 'page'}
         keyboardShouldPersistTaps="handled"
         style={s.resultList}
         contentContainerStyle={s.results}

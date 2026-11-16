@@ -1,12 +1,5 @@
-import { useEffect, useState, type ReactNode } from 'react';
-import {
-  AccessibilityInfo,
-  Modal,
-  Platform,
-  Pressable,
-  StyleSheet,
-  View,
-} from 'react-native';
+import type { ReactNode } from 'react';
+import { Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BlurView } from 'expo-blur';
 import {
@@ -15,6 +8,7 @@ import {
   isLiquidGlassAvailable,
 } from 'expo-glass-effect';
 import { cardShadow, colors, radius, spacing } from '@/lib/theme';
+import { useReducedTransparency } from './useReducedTransparency';
 
 export function GlassDialog({
   children,
@@ -25,25 +19,7 @@ export function GlassDialog({
   onClose: () => void;
   visible?: boolean;
 }) {
-  const [reduceTransparency, setReduceTransparency] = useState(true);
-  useEffect(() => {
-    if (!visible || Platform.OS !== 'ios') return;
-    let active = true;
-    void AccessibilityInfo.isReduceTransparencyEnabled()
-      .then((reduced) => {
-        if (active) setReduceTransparency(reduced);
-      })
-      .catch(() => {});
-    const subscription = AccessibilityInfo.addEventListener(
-      'reduceTransparencyChanged',
-      setReduceTransparency,
-    );
-    return () => {
-      active = false;
-      subscription.remove();
-    };
-  }, [visible]);
-
+  const reduceTransparency = useReducedTransparency(visible);
   const translucent = Platform.OS === 'ios' && !reduceTransparency;
   return (
     <Modal

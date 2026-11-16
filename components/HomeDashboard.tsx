@@ -538,6 +538,7 @@ export function HomeDashboard({
   return (
     <View style={{ flex: 1 }}>
       <AppScrollView
+        dockAware
         ref={attachRef}
         scrollEnabled={!dragging}
         onScroll={onHomeScroll}
