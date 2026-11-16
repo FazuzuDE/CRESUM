@@ -15,6 +15,14 @@
           "cameraPermission": "Allow CRESUM to scan workout plan QR codes.",
           "recordAudioAndroid": false
         }
+      ],
+      [
+        "expo-audio",
+        {
+          "microphonePermission": false,
+          "recordAudioAndroid": false,
+          "enableBackgroundPlayback": false
+        }
       ]
     ],
     "ios": {
