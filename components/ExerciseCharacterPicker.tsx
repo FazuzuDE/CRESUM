@@ -1,6 +1,5 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import type { AssetModel } from '@/lib/exercise-variant-model';
-import { resolveExerciseArtwork } from '@/lib/exercise-artwork';
 import { colors, spacing, typography } from '@/lib/theme';
 import { AppButton } from './AppButton';
 import { useLocalization } from './LocalizationProvider';
@@ -19,42 +18,40 @@ export function ExerciseCharacterPicker({
 }) {
   const { t } = useLocalization();
   return (
-    <View style={s.root}>
-      <Text accessibilityRole="header" style={s.title}>
+    <View style={[s.root, previews && s.welcome]}>
+      <Text
+        accessibilityRole="header"
+        style={previews ? s.welcomeTitle : s.title}
+      >
         {t('character.title')}
       </Text>
-      <Text style={s.copy}>{t('character.description')}</Text>
+      <Text style={[s.copy, previews && s.welcomeCopy]}>
+        {t('character.description')}
+      </Text>
+      {previews ? (
+        <View style={s.previewFrame}>
+          <Image
+            source={require('../assets/onboarding/exercise-characters.webp')}
+            resizeMode="contain"
+            accessible={false}
+            style={s.preview}
+          />
+        </View>
+      ) : null}
       <View style={s.options}>
-        {(['male', 'female'] as const).map((model) => {
-          const source = previews
-            ? resolveExerciseArtwork('goblet-squat', 'start', model)
-            : null;
-          return (
-            <View key={model} style={s.option}>
-              {previews ? (
-                <View style={s.previewFrame}>
-                  {source ? (
-                    <Image
-                      source={source}
-                      resizeMode="contain"
-                      accessible={false}
-                      style={s.preview}
-                    />
-                  ) : null}
-                </View>
-              ) : null}
-              <AppButton
-                title={t(
-                  model === 'male' ? 'character.male' : 'character.female',
-                )}
-                selected={value === model}
-                secondary={value !== model}
-                disabled={disabled}
-                onPress={() => onChange(model)}
-              />
-            </View>
-          );
-        })}
+        {(['male', 'female'] as const).map((model) => (
+          <View key={model} style={s.option}>
+            <AppButton
+              title={t(
+                model === 'male' ? 'character.male' : 'character.female',
+              )}
+              selected={value === model}
+              secondary={value !== model}
+              disabled={disabled}
+              onPress={() => onChange(model)}
+            />
+          </View>
+        ))}
       </View>
     </View>
   );
@@ -98,7 +95,13 @@ const s = StyleSheet.create({
   error: { ...typography.footnote, color: colors.danger },
   options: { flexDirection: 'row', gap: spacing.xs },
   option: { flex: 1, gap: spacing.xs },
-  // Keep both choices aligned independently of the source dimensions.
-  previewFrame: { height: 176 },
-  preview: { width: '100%', height: '100%' },
+  welcome: { flexGrow: 1 },
+  welcomeTitle: {
+    ...typography.title1,
+    color: colors.textPrimary,
+    textAlign: 'center',
+  },
+  welcomeCopy: { textAlign: 'center' },
+  previewFrame: { flexGrow: 1, minHeight: 260 },
+  preview: { ...StyleSheet.absoluteFill, width: '100%', height: '100%' },
 });
