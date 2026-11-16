@@ -11,7 +11,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { completeOnboardingForTest } from './onboarding-fixture';
 import { ONBOARDING_KEY } from '../onboarding-repository';
 import { STATE_KEY } from '../workout-repository';
-import { TextInput } from 'react-native';
+import { Image, StyleSheet, TextInput } from 'react-native';
+import { ExerciseCharacterPicker } from '../../components/ExerciseCharacterPicker';
 const { act, create } = jest.requireActual('react-test-renderer');
 
 jest.mock('@react-native-async-storage/async-storage', () =>
@@ -52,6 +53,18 @@ it('chooses female during welcome, keeps it through back and relaunch', async ()
     view.root.findByType(TextInput).props.onChangeText('Ihor'),
   );
   await act(async () => button(view, 'Continue').props.onPress());
+  const previews = view.root
+    .findByType(ExerciseCharacterPicker)
+    .findAllByType(Image);
+  expect(previews).toHaveLength(2);
+  for (const preview of previews) {
+    expect(preview.props.resizeMode).toBe('contain');
+    expect(StyleSheet.flatten(preview.props.style)).toMatchObject({
+      width: '100%',
+      height: '100%',
+    });
+    expect(StyleSheet.flatten(preview.parent?.props.style)?.height).toBe(176);
+  }
   expect(button(view, 'Female')).toBeDefined();
   expect(button(view, 'Continue').props.disabled).toBe(true);
   await act(async () => button(view, 'Female').props.onPress());
