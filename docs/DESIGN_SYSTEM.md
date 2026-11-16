@@ -1,5 +1,13 @@
 # CRESUM Design System v1.0
 
+## Floating tab navigation
+
+The main tabs scroll behind a floating glass dock. Place the dock above the
+system bottom safe area and measure its occupied height after layout. Add that
+space to scroll content so the final action can scroll above the dock. Lift the
+scroll-to-top control by the same amount. Standalone sheets use their own safe
+areas. Respect the system setting for reduced transparency on iOS.
+
 ## Compact dialogs and scrolling
 
 Use the centered light glass dialog for language selection, short confirmations,

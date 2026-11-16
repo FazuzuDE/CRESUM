@@ -58,6 +58,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 import { GlassCard } from '@/components/GlassCard';
 import { Dock } from '@/components/Dock';
+import { DockSpace } from '@/components/DockSpace';
 import { AppButton } from '@/components/AppButton';
 import { HomeDashboard } from '@/components/HomeDashboard';
 import { ProfileSettings } from '@/components/ProfileSettings';
@@ -423,6 +424,7 @@ function AppContent({
   const programRecovered = useRef(false);
   const [programReady, setProgramReady] = useState(false);
   const [tab, setTab] = useState(initialTab);
+  const [dockSpace, setDockSpace] = useState(78);
   const [sharingEditing, setSharingEditing] = useState(false);
   const [managePlans, setManagePlans] = useState<(() => void) | undefined>();
   const [sharingOpen, setSharingOpen] = useState(!!incomingSharingToken);
@@ -1068,8 +1070,16 @@ function AppContent({
       setResetBusy(false);
     }
   };
+  const showDock =
+    ready &&
+    onboardingReady &&
+    hiddenReady &&
+    !showOnboarding &&
+    !editingPersonalization &&
+    !acceptingProgram;
   const content = (
     <SafeAreaView
+      edges={showDock ? ['top', 'left', 'right'] : undefined}
       style={[s.root, (showOnboarding || acceptingProgram) && s.onboardingRoot]}
     >
       <StatusBar style="dark" />
@@ -1316,7 +1326,7 @@ function AppContent({
           }}
         />
       ) : (
-        <>
+        <DockSpace.Provider value={dockSpace}>
           {onboardingError ? (
             <View style={s.notice} accessibilityRole="alert">
               <Text style={s.sub}>{t(onboardingErrorKey)}</Text>
@@ -1521,8 +1531,8 @@ function AppContent({
               }}
             />
           </View>
-          <Dock active={tab} onChange={setTab} />
-        </>
+          <Dock active={tab} onChange={setTab} onHeightChange={setDockSpace} />
+        </DockSpace.Provider>
       )}
     </SafeAreaView>
   );

@@ -76,7 +76,7 @@ export function BackupPage({
     : undefined;
   if (fullRestore)
     return (
-      <AppScrollView contentContainerStyle={s.content}>
+      <AppScrollView dockAware contentContainerStyle={s.content}>
         <BrandHeader />
         <AppButton
           title={t('backup.back')}
@@ -89,7 +89,7 @@ export function BackupPage({
     );
   if (importing && file && preview)
     return (
-      <AppScrollView contentContainerStyle={s.content}>
+      <AppScrollView dockAware contentContainerStyle={s.content}>
         <BrandHeader />
         <AppButton
           title={t('backup.back')}
@@ -163,7 +163,7 @@ export function BackupPage({
       </AppScrollView>
     );
   return (
-    <AppScrollView contentContainerStyle={s.content}>
+    <AppScrollView dockAware contentContainerStyle={s.content}>
       <BrandHeader />
       <AppButton
         title={t('profile.back')}

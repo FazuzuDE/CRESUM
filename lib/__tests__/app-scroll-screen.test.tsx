@@ -1,8 +1,10 @@
 import { HomeDashboard } from '../../components/HomeDashboard';
 import { DashboardGrid } from '../../components/DashboardGrid';
+import { DockSpace } from '../../components/DockSpace';
+import { spacing } from '../theme';
 import { AppScrollView } from '../../components/AppScrollView';
 import { AppFlatList } from '../../components/AppFlatList';
-import { ScrollView, FlatList, Text, View } from 'react-native';
+import { ScrollView, FlatList, StyleSheet, Text, View } from 'react-native';
 import { isPressable } from './pressable';
 const { act, create } = jest.requireActual('react-test-renderer');
 jest.mock('@expo/vector-icons', () => ({
@@ -140,4 +142,34 @@ it('returns to the current Home widget before going to page top', async () => {
   } finally {
     act(() => view.unmount());
   }
+});
+
+it('reserves the measured dock height only within the tab scroll content', () => {
+  let view!: ReturnType<typeof create>;
+  const screen = (height: number) => (
+    <DockSpace.Provider value={height}>
+      <AppScrollView dockAware>
+        <Text>Tab screen</Text>
+      </AppScrollView>
+      <AppScrollView>
+        <Text>Independent sheet</Text>
+      </AppScrollView>
+    </DockSpace.Provider>
+  );
+  const bottomPadding = () =>
+    view.root.findAllByType(ScrollView).map(
+      (node: {
+        props: {
+          contentContainerStyle: import('react-native').ScrollViewProps['contentContainerStyle'];
+        };
+      }) => StyleSheet.flatten(node.props.contentContainerStyle)?.paddingBottom,
+    );
+  const clearance = spacing.xxxl + spacing.lg;
+  act(() => {
+    view = create(screen(96));
+  });
+  expect(bottomPadding()).toEqual([clearance + 96, clearance]);
+  act(() => view.update(screen(120)));
+  expect(bottomPadding()).toEqual([clearance + 120, clearance]);
+  act(() => view.unmount());
 });

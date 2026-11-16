@@ -1,6 +1,42 @@
 [
   {
     "file": "app/index.tsx",
+    "line": 1082,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/JsxExpression/JsxAttribute:edges"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 1082,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/JsxExpression/JsxAttribute:edges"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 1082,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/JsxExpression/JsxAttribute:edges"
+  },
+  {
+    "file": "components/Dock.tsx",
+    "line": 37,
+    "text": "bottom",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/Dock.tsx",
+    "line": 135,
+    "text": "rgba(255, 255, 255, 0.34)",
+    "context": "StringLiteral/PropertyAssignment:backgroundColor/ObjectLiteralExpression/PropertyAssignment:glassTint/ObjectLiteralExpression"
+  },
+  {
+    "file": "components/Dock.tsx",
+    "line": 136,
+    "text": "rgba(255, 255, 255, 0.88)",
+    "context": "StringLiteral/PropertyAssignment:backgroundColor/ObjectLiteralExpression/PropertyAssignment:platformTint/ObjectLiteralExpression"
+  },
+  {
+    "file": "app/index.tsx",
     "line": 376,
     "text": "profile",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:initialTab/JsxAttributes"

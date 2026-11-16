@@ -3,6 +3,7 @@ import {
   cloneElement,
   forwardRef,
   isValidElement,
+  useContext,
   useImperativeHandle,
   useEffect,
   useRef,
@@ -18,6 +19,7 @@ import {
 import type { ProgressSectionPosition } from '@/lib/progress-scroll';
 import { spacing } from '@/lib/theme';
 import { ContentScrollView } from './ContentScrollView';
+import { DockSpace } from './DockSpace';
 import { GlassCard } from './GlassCard';
 import { useScrollReturn } from './useScrollReturn';
 import { ScrollReturnButton } from './ScrollReturnButton';
@@ -25,10 +27,14 @@ import { ScrollReturnButton } from './ScrollReturnButton';
 // Keep the native ref and event callbacks usable by workout drag/edge scrolling.
 export const AppScrollView = forwardRef<
   ComponentRef<typeof ScrollView>,
-  ScrollViewProps & { sectionPositions?: ProgressSectionPosition[] }
+  ScrollViewProps & {
+    sectionPositions?: ProgressSectionPosition[];
+    dockAware?: boolean;
+  }
 >(function AppScrollView(
   {
     children,
+    dockAware = false,
     style,
     contentContainerStyle,
     onScroll,
@@ -38,6 +44,8 @@ export const AppScrollView = forwardRef<
   },
   forwardedRef,
 ) {
+  const dockSpace = useContext(DockSpace);
+  const bottomOverlay = dockAware ? dockSpace : 0;
   const ref = useRef<ComponentRef<typeof ScrollView>>(null);
   useImperativeHandle(forwardedRef, () => ref.current!, []);
   const control = useScrollReturn((y, animated) =>
@@ -63,7 +71,7 @@ export const AppScrollView = forwardRef<
         style={{ flex: 1 }}
         contentContainerStyle={[
           contentContainerStyle,
-          { paddingBottom: spacing.xxxl + spacing.lg },
+          { paddingBottom: spacing.xxxl + spacing.lg + bottomOverlay },
         ]}
         scrollEventThrottle={props.scrollEventThrottle ?? 16}
         onScroll={(event) => {
@@ -95,6 +103,7 @@ export const AppScrollView = forwardRef<
       </ContentScrollView>
       <ScrollReturnButton
         control={control}
+        bottomOverlay={bottomOverlay}
         disabled={props.scrollEnabled === false}
       />
     </View>

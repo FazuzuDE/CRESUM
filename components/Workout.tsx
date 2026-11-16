@@ -215,6 +215,7 @@ export function Workout({
         }}
       />
       <AppScrollView
+        dockAware
         ref={attachRef}
         scrollEnabled={!dragging}
         onScroll={onScroll}

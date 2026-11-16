@@ -7,9 +7,11 @@ import { useLocalization } from './LocalizationProvider';
 export function ScrollReturnButton({
   control,
   disabled = false,
+  bottomOverlay = 0,
 }: {
   control: ScrollReturn;
   disabled?: boolean;
+  bottomOverlay?: number;
 }) {
   const { t } = useLocalization();
   if (!control.visible || disabled) return null;
@@ -18,7 +20,11 @@ export function ScrollReturnButton({
       accessibilityRole="button"
       accessibilityLabel={control.toTop ? t('scroll.top') : t('scroll.section')}
       accessibilityHint={t('scroll.hint')}
-      style={({ pressed }) => [s.up, pressed && s.pressed]}
+      style={({ pressed }) => [
+        s.up,
+        { bottom: spacing.sm + bottomOverlay },
+        pressed && s.pressed,
+      ]}
       onPress={control.jump}
     >
       <Ionicons
@@ -34,7 +40,6 @@ const s = StyleSheet.create({
   up: {
     position: 'absolute',
     right: spacing.md,
-    bottom: spacing.sm,
     width: 48,
     height: 48,
     borderRadius: radius.pill,

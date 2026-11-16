@@ -1,6 +1,44 @@
 [
   {
     "file": "app/index.tsx",
+    "kind": "internal",
+    "reason": "Safe-area edges and tint values control native layout and appearance.",
+    "entries": [
+      {
+        "text": "top",
+        "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/JsxExpression/JsxAttribute:edges"
+      },
+      {
+        "text": "left",
+        "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/JsxExpression/JsxAttribute:edges"
+      },
+      {
+        "text": "right",
+        "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/JsxExpression/JsxAttribute:edges"
+      }
+    ]
+  },
+  {
+    "file": "components/Dock.tsx",
+    "kind": "internal",
+    "reason": "Safe-area edges and tint values control native layout and appearance.",
+    "entries": [
+      {
+        "text": "bottom",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "rgba(255, 255, 255, 0.34)",
+        "context": "StringLiteral/PropertyAssignment:backgroundColor/ObjectLiteralExpression/PropertyAssignment:glassTint/ObjectLiteralExpression"
+      },
+      {
+        "text": "rgba(255, 255, 255, 0.88)",
+        "context": "StringLiteral/PropertyAssignment:backgroundColor/ObjectLiteralExpression/PropertyAssignment:platformTint/ObjectLiteralExpression"
+      }
+    ]
+  },
+  {
+    "file": "app/index.tsx",
     "kind": "diagnostic",
     "reason": "Domain diagnostics and legacy operation return strings stay compatible. Screens present semantic keys/coded errors; app backup notices use the localized callback. Other exact entries are state discriminants/formatting. Raw errors are not displayed.",
     "entries": [

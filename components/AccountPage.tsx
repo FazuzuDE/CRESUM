@@ -42,7 +42,7 @@ function AccountPageContent({
   const [reviewOwner, setReviewOwner] = useState<string | null>(null);
   const reviewing = !!owner && reviewOwner === owner && !!account.sync?.review;
   return (
-    <AppScrollView contentContainerStyle={s.content}>
+    <AppScrollView dockAware contentContainerStyle={s.content}>
       <BrandHeader />
       <AppButton
         title={reviewing ? t('account.back') : t('profile.back')}

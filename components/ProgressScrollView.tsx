@@ -10,7 +10,7 @@ export function ProgressScrollView({
   contentContainerStyle?: StyleProp<ViewStyle>;
 }) {
   return (
-    <AppScrollView contentContainerStyle={contentContainerStyle}>
+    <AppScrollView dockAware contentContainerStyle={contentContainerStyle}>
       {sections.map((section) => (
         <View key={section.id}>{section.content}</View>
       ))}

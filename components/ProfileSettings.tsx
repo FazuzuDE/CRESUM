@@ -97,7 +97,7 @@ export function ProfileSettings({
     );
   if (workoutsOpen)
     return (
-      <AppScrollView contentContainerStyle={s.content}>
+      <AppScrollView dockAware contentContainerStyle={s.content}>
         <BrandHeader />
         <AppButton
           title={t('profile.back')}
@@ -173,7 +173,7 @@ export function ProfileSettings({
       </AppScrollView>
     );
   return (
-    <AppScrollView contentContainerStyle={s.content}>
+    <AppScrollView dockAware contentContainerStyle={s.content}>
       <View style={s.header}>
         <BrandHeader />
         <View style={s.heading}>
