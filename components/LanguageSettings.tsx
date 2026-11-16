@@ -120,6 +120,7 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
                 <GlassView
                   pointerEvents="none"
                   glassEffectStyle="regular"
+                  colorScheme="light"
                   style={s.material}
                 />
               ) : Platform.OS === 'ios' && !reduceTransparency ? (
@@ -132,6 +133,9 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
               ) : (
                 <View pointerEvents="none" style={[s.material, s.solid]} />
               )}
+              {Platform.OS === 'ios' && !reduceTransparency ? (
+                <View pointerEvents="none" style={[s.material, s.glassVeil]} />
+              ) : null}
               <Text accessibilityRole="header" style={s.title}>
                 {t('language.title')}
               </Text>
@@ -153,21 +157,25 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
                 }}
               >
                 <Text style={s.copy}>{t('language.description')}</Text>
-                {options.map((value) => (
-                  <AppButton
-                    key={value}
-                    selected={preference === value}
-                    title={
-                      (value === 'system'
-                        ? t('language.system')
-                        : localeRegistry[value].nativeName) +
-                      (preference === value ? ' ✓' : '')
-                    }
-                    secondary
-                    disabled={saving || !select}
-                    onPress={() => void choose(value)}
-                  />
-                ))}
+                {options.map((value) => {
+                  const name =
+                    value === 'system'
+                      ? t('language.system')
+                      : localeRegistry[value].nativeName;
+                  const marker = value === 'system' ? '🌐' : flags[value];
+                  const selected = preference === value;
+                  return (
+                    <AppButton
+                      key={value}
+                      selected={selected}
+                      accessibilityLabel={name}
+                      title={`${marker}  ${name}${selected ? ' ✓' : ''}`}
+                      secondary
+                      disabled={saving || !select}
+                      onPress={() => void choose(value)}
+                    />
+                  );
+                })}
                 {error === 'save' ? (
                   <>
                     <Text accessibilityRole="alert" style={s.error}>
@@ -203,7 +211,7 @@ const s = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: spacing.lg,
-    backgroundColor: colors.scrim,
+    backgroundColor: 'rgba(0, 0, 0, 0.14)',
   },
   panel: {
     ...cardShadow,
@@ -219,9 +227,14 @@ const s = StyleSheet.create({
     borderRadius: radius.xxl,
     overflow: 'hidden',
   },
+  glassVeil: {
+    backgroundColor: 'rgba(255, 255, 255, 0.62)',
+    borderColor: 'rgba(255, 255, 255, 0.84)',
+    borderWidth: StyleSheet.hairlineWidth,
+  },
   solid: { backgroundColor: colors.surface },
   title: { ...typography.title2, color: colors.textPrimary },
   options: { gap: spacing.xs },
-  copy: { ...typography.footnote, color: colors.textSecondary },
+  copy: { ...typography.footnote, color: colors.textPrimary },
   error: { ...typography.footnote, color: colors.danger },
 });

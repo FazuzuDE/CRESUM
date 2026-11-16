@@ -11194,5 +11194,28 @@
         "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
       }
     ]
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "kind": "internal",
+    "reason": "Locale names are localized before combining with flags and a selection mark. RGBA values define the glass surface.",
+    "entries": [
+      {
+        "text": "`${marker} ${name}${selected ? ' ✓' : ''}`",
+        "context": "TemplateExpression/JsxExpression/JsxAttribute:title/JsxAttributes/JsxSelfClosingElement"
+      },
+      {
+        "text": "rgba(0, 0, 0, 0.14)",
+        "context": "StringLiteral/PropertyAssignment:backgroundColor/ObjectLiteralExpression/PropertyAssignment:overlay/ObjectLiteralExpression"
+      },
+      {
+        "text": "rgba(255, 255, 255, 0.62)",
+        "context": "StringLiteral/PropertyAssignment:backgroundColor/ObjectLiteralExpression/PropertyAssignment:glassVeil/ObjectLiteralExpression"
+      },
+      {
+        "text": "rgba(255, 255, 255, 0.84)",
+        "context": "StringLiteral/PropertyAssignment:borderColor/ObjectLiteralExpression/PropertyAssignment:glassVeil/ObjectLiteralExpression"
+      }
+    ]
   }
 ]
