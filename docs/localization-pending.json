@@ -15940,5 +15940,17 @@
     "line": 120,
     "text": "rgba(255, 255, 255, 0.84)",
     "context": "StringLiteral/PropertyAssignment:borderColor/ObjectLiteralExpression/PropertyAssignment:glassVeil/ObjectLiteralExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 352,
+    "text": "cover",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:resizeMode/JsxAttributes"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 352,
+    "text": "contain",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:resizeMode/JsxAttributes"
   }
 ]

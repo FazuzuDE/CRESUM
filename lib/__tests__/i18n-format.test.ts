@@ -39,3 +39,22 @@ it('formats presentation with explicit locale without altering values or epochs'
   ).toBe('22.10.2026');
   expect(epoch).toBe(Date.UTC(2026, 9, 22));
 });
+
+it('preserves localized entry precision when the runtime lacks formatToParts', () => {
+  const proto = Intl.NumberFormat.prototype;
+  const descriptor = Object.getOwnPropertyDescriptor(proto, 'formatToParts')!;
+  Object.defineProperty(proto, 'formatToParts', {
+    ...descriptor,
+    value: undefined,
+  });
+  try {
+    jest.isolateModules(() => {
+      const { formatEntryNumber } = jest.requireActual('../i18n/format');
+      expect(formatEntryNumber('ru', '82.12550')).toBe('82,12550');
+      expect(formatEntryNumber('uk', '010.0400')).toBe('010,0400');
+      expect(formatEntryNumber('en', '82,12550')).toBe('82.12550');
+    });
+  } finally {
+    Object.defineProperty(proto, 'formatToParts', descriptor);
+  }
+});

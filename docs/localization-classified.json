@@ -11236,5 +11236,20 @@
         "context": "StringLiteral/PropertyAssignment:borderColor/ObjectLiteralExpression/PropertyAssignment:glassVeil/ObjectLiteralExpression"
       }
     ]
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "kind": "internal",
+    "reason": "React Native image resize modes control artwork layout.",
+    "entries": [
+      {
+        "text": "cover",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:resizeMode/JsxAttributes"
+      },
+      {
+        "text": "contain",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:resizeMode/JsxAttributes"
+      }
+    ]
   }
 ]
