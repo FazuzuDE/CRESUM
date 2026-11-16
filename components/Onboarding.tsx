@@ -86,8 +86,9 @@ export function Onboarding({
   const { t, locale } = useLocalization();
   const { width, height } = useWindowDimensions();
   const welcomeArtworkWidth = Math.min(
-    Math.max(0, Math.min(width, maxContentWidth) - 2 * spacing.md),
-    height * 0.42 * welcomeArtworkRatio,
+    width,
+    maxContentWidth,
+    height * 0.46 * welcomeArtworkRatio,
   );
   const dateLabel = (date: string) =>
     formatDate(locale, new Date(`${date}T00:00:00`).getTime());
@@ -457,7 +458,11 @@ export function Onboarding({
           <Frame style={polished ? s.polishedFrame : s.card}>
             {step === 'welcome' ? (
               <>
-                {polished ? artwork('welcome') : null}
+                {polished ? (
+                  <View style={s.welcomeArtworkFrame}>
+                    {artwork('welcome')}
+                  </View>
+                ) : null}
                 <Text
                   style={[s.title, polished && s.center]}
                   accessibilityRole="header"
@@ -1109,6 +1114,7 @@ const s = StyleSheet.create({
   footer: { marginTop: 'auto', paddingTop: spacing.sm },
   center: { textAlign: 'center' },
   artwork: { width: '100%', height: 190, alignSelf: 'center' },
+  welcomeArtworkFrame: { marginHorizontal: -spacing.md },
   welcomeArtwork: { maxWidth: '100%', alignSelf: 'center' },
   bodyGroup: {
     borderColor: colors.separator,
