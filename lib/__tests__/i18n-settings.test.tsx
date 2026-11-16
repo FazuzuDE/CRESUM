@@ -28,14 +28,15 @@ it('puts System first and allows a manual choice from every available language',
       .slice(0, -1)
       .map((b: { props: { title: string } }) => b.props.title),
   ).toEqual([
-    'System language ✓',
-    'English',
-    'Русский',
-    'Deutsch',
-    'Français',
-    'Українська',
+    '🌐  System language ✓',
+    '🇬🇧  English',
+    '🇷🇺  Русский',
+    '🇩🇪  Deutsch',
+    '🇫🇷  Français',
+    '🇺🇦  Українська',
   ]);
   expect(buttons[0].props.selected).toBe(true);
+  expect(buttons[5].props.accessibilityLabel).toBe('Українська');
   await act(async () => {
     buttons[5].props.onPress();
   });
