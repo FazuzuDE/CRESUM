@@ -1191,19 +1191,24 @@ Active tab uses `primary`, inactive tabs `textSecondary`. A translucent/floating
 
 ### Onboarding
 
-Welcome uses a dark CRESUM wordmark, **Welcome to CRESUM**, a short greeting, **What should we call you?** and one labeled name input. Continue requires a nonempty trimmed name. Then show optional **Body details**: date of birth (day/month/year wheels, stored YYYY-MM-DD), height and initial body weight. Goal and Experience follow, with manual setup available from Goal. Use one focused keyboard-aware scrollable step at a time. Back retains answers; Gym is implicit and the obsolete Environment question is skipped compatibly. Profile personalization can edit the same fields without gating legacy users.
+The approved first-run sequence is Welcome (name and language), Exercise
+character, optional Body details, and a choice of how to start. Use a white
+background, the centered CRESUM wordmark, a blue Back chevron on subsequent
+screens, and the approved equipment still lifes. Exercise character uses a
+white-backed illustration of both characters. The form can scroll with a
+keyboard, on small screens and when accessibility text sizes are enabled.
 
-Approved completion uses **You're ready to start** and a primary **START!**
-button in the existing PrimaryButton style, leading to Home after durable
-acceptance. Show a compact factual program summary and access to the proposed
-week/schedule before acceptance. This is an authored starter program, not an AI
-or inferred-weight claim. Until the complete program is executable, show honest
-availability copy rather than declaring it ready; keep manual setup available.
-Loading, save failure and Retry preserve the proposed program. Separate target
-rep ranges, rest guidance and per-side instructions from actual numeric inputs;
-never present a target as a completed result. Home shows planned activity
-separately from its actual-completion calendar. These rules are approved for
-implementation; this documentation update does not change screens yet.
+**Find a program** opens the training goal with four single-select options:
+Build muscle, Get stronger, Lose weight, and General fitness. Continue opens
+the review directly using a beginner starter plan for new users. Existing
+saved experience continues to inform the recommendation. Lose weight reuses the
+General fitness plan in this iteration. **Start on my own** completes onboarding
+and opens Home without creating a program or workout.
+
+The review shows frequency, **Weekly schedule**, and the actual workout focus
+and movements. **Begin** opens Home after durable acceptance. Unavailable plans
+show the existing recovery path. Back retains answers, and save failure and Retry
+preserve the proposal. See PRODUCT.md for the data and completion contract.
 
 Profile → Data includes a destructive **Reset local data** action using the existing `danger` token. Require confirmation that explicitly names local workouts, history, templates, active workout, personalization, and onboarding data and states the deletion is irreversible on this device. Cancel changes nothing. Show an error rather than a success or Welcome state if deletion fails. Do not label this action **Delete Account**.
 

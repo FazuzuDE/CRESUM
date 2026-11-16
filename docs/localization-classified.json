@@ -10934,5 +10934,199 @@
     "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration",
     "kind": "internal",
     "reason": "Reviewed equipment catalog storage keys, catalog IDs, and native icon or edge identifiers. Visible copy is localized."
+  },
+  {
+    "file": "app/index.tsx",
+    "kind": "diagnostic",
+    "reason": "Fallback for a failed program acceptance; displayed copy uses the error catalog.",
+    "entries": [
+      {
+        "text": "Program saving is pending. Try again.",
+        "context": "StringLiteral/BinaryExpression/CallExpression/ThrowStatement/IfStatement"
+      }
+    ]
+  },
+  {
+    "file": "components/AppButton.tsx",
+    "kind": "internal",
+    "reason": "Onboarding route and goal identifiers, translation keys, display variants, and icon names.",
+    "entries": [
+      {
+        "text": "radio-button-on",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes"
+      },
+      {
+        "text": "radio-button-off",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "kind": "internal",
+    "reason": "Onboarding route and goal identifiers, translation keys, display variants, and icon names.",
+    "entries": [
+      {
+        "text": "text",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:presentation/JsxAttributes"
+      },
+      {
+        "text": "row",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:presentation/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "kind": "internal",
+    "reason": "Onboarding route and goal identifiers, translation keys, display variants, and icon names.",
+    "entries": [
+      {
+        "text": "onboarding.heightLabel",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+      },
+      {
+        "text": "onboarding.weightLabel",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+      },
+      {
+        "text": "onboarding.cm",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+      },
+      {
+        "text": "onboarding.kg",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+      },
+      {
+        "text": "complete",
+        "context": "StringLiteral/ConditionalExpression/ConditionalExpression/PropertyAssignment:step/ObjectLiteralExpression"
+      },
+      {
+        "text": "goal",
+        "context": "StringLiteral/ConditionalExpression/ConditionalExpression/PropertyAssignment:step/ObjectLiteralExpression"
+      },
+      {
+        "text": "start_path",
+        "context": "StringLiteral/ConditionalExpression/PropertyAssignment:step/ObjectLiteralExpression/CallExpression"
+      },
+      {
+        "text": "profile",
+        "context": "StringLiteral/ConditionalExpression/VariableDeclaration/VariableDeclarationList/FirstStatement"
+      },
+      {
+        "text": "onboarding.movementPerSide",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/ArrowFunction/VariableDeclaration"
+      },
+      {
+        "text": "onboarding.movement",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/ArrowFunction/VariableDeclaration"
+      },
+      {
+        "text": "onboarding.welcomeTagline",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+      },
+      {
+        "text": "onboarding.intro",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+      },
+      {
+        "text": "build_muscle",
+        "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+      },
+      {
+        "text": "onboarding.muscle",
+        "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+      },
+      {
+        "text": "get_stronger",
+        "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+      },
+      {
+        "text": "onboarding.strength",
+        "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+      },
+      {
+        "text": "lose_weight",
+        "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+      },
+      {
+        "text": "onboarding.loseWeight",
+        "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+      },
+      {
+        "text": "general_fitness",
+        "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+      },
+      {
+        "text": "onboarding.fitness",
+        "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+      },
+      {
+        "text": "onboarding.bodyOptionalHelp",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+      },
+      {
+        "text": "onboarding.bodyHelp",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+      },
+      {
+        "text": "onboarding.select",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+      },
+      {
+        "text": "onboarding.chooseDate",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+      },
+      {
+        "text": "text",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:presentation/JsxAttributes"
+      },
+      {
+        "text": "button",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:presentation/JsxAttributes"
+      },
+      {
+        "text": "onboarding.skipForNow",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+      },
+      {
+        "text": "onboarding.skipBody",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+      },
+      {
+        "text": "onboarding.strengthPlan",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+      },
+      {
+        "text": "onboarding.trainingPlan",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+      }
+    ]
+  },
+  {
+    "file": "lib/onboarding.ts",
+    "kind": "internal",
+    "reason": "Onboarding route and goal identifiers, translation keys, display variants, and icon names.",
+    "entries": [
+      {
+        "text": "start_path",
+        "context": "StringLiteral/ArrayLiteralExpression/CallExpression/PrefixUnaryExpression/IfStatement"
+      },
+      {
+        "text": "lose_weight",
+        "context": "StringLiteral/ArrayLiteralExpression/CallExpression/PrefixUnaryExpression/BinaryExpression"
+      }
+    ]
+  },
+  {
+    "file": "lib/training-programs/selectors.ts",
+    "kind": "internal",
+    "reason": "Onboarding route and goal identifiers, translation keys, display variants, and icon names.",
+    "entries": [
+      {
+        "text": "general_fitness",
+        "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/BinaryExpression"
+      }
+    ]
   }
 ]

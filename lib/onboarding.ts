@@ -5,13 +5,15 @@ import { isBuiltInTemplate } from './workout-templates';
 export type OnboardingStep =
   | 'welcome'
   | 'character'
+  | 'start_path'
   | 'goal'
   | 'experience'
   | 'environment'
   | 'profile'
   | 'complete'
   | 'self_setup';
-export type TrainingGoal = 'build_muscle' | 'get_stronger' | 'general_fitness';
+export type TrainingGoal =
+  'build_muscle' | 'get_stronger' | 'lose_weight' | 'general_fitness';
 export type TrainingExperience = 'beginner' | 'some' | 'experienced';
 export type TrainingEnvironment = 'gym' | 'home' | 'both';
 export type OnboardingAnswers = {
@@ -62,6 +64,7 @@ export function parseOnboardingState(value: unknown): OnboardingState {
     !oneOf(value.step, [
       'welcome',
       'character',
+      'start_path',
       'goal',
       'experience',
       'environment',
@@ -79,6 +82,7 @@ export function parseOnboardingState(value: unknown): OnboardingState {
       !oneOf(answers.goal, [
         'build_muscle',
         'get_stronger',
+        'lose_weight',
         'general_fitness',
       ])) ||
     (answers.experience !== undefined &&

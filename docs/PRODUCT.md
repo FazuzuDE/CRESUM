@@ -1,5 +1,16 @@
 # CRESUM — Product Definition
 
+## First-run onboarding — approved 2026-11-16
+
+Welcome → Exercise character → optional Body details → how to start.
+Start on my own completes onboarding and opens Home without creating a
+program or workout. Find a program → training goal → program review → Begin
+→ Home. A new proposal uses the beginner starter program unless an existing
+experience answer was saved. Preserve the selected goal independently of the
+plan, so Lose weight can reuse the General fitness starter plan. Preview the
+real planned exercises and their muscle focus. Acceptance is durable before
+Home opens and does not create completed sets or start an active workout.
+
 ## Exercise illustration character — approved 2026-11-03
 
 The first-run welcome flow asks which character to show after the name and before

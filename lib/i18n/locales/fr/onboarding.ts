@@ -1,4 +1,31 @@
 export default {
+  'onboarding.welcomeTagline': 'Tous tes entraînements au même endroit.',
+  'onboarding.bodyOptionalHelp':
+    'Ajoute les informations de ton choix. Tu peux les modifier dans ton profil.',
+  'onboarding.skipForNow': 'Passer pour le moment',
+  'onboarding.heightLabel': 'Taille',
+  'onboarding.weightLabel': 'Poids',
+  'onboarding.select': 'Choisir',
+  'onboarding.cm': 'cm',
+  'onboarding.kg': 'kg',
+  'onboarding.startPath': 'Comment veux-tu commencer ?',
+  'onboarding.findProgram': 'Trouver un programme',
+  'onboarding.findProgramHelp':
+    'Choisis un objectif pour obtenir un programme de départ.',
+  'onboarding.startOwn': 'Commencer à mon rythme',
+  'onboarding.startOwnHelp': 'Accéder directement à l’accueil.',
+  'onboarding.goalQuestion': 'Quel est ton objectif ?',
+  'onboarding.loseWeight': 'Perdre du poids',
+  'onboarding.strengthPlan': 'Ton programme de musculation',
+  'onboarding.trainingPlan': 'Ton programme d’entraînement',
+  'onboarding.weeklySchedule': 'Planning de la semaine',
+  'onboarding.workoutIndex': 'Séance {{index, number}}',
+  'onboarding.begin': 'Commencer',
+  'onboarding.weeklyCount': {
+    many: '{{count, number}} séances par semaine',
+    one: '{{count, number}} séance par semaine',
+    other: '{{count, number}} séances par semaine',
+  },
   'onboarding.workoutSaved':
     'Ton entraînement a été enregistré. Le statut de la configuration n’a pas pu être enregistré.',
   'onboarding.firstWorkout': 'Ton premier entraînement',

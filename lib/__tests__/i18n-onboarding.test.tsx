@@ -100,13 +100,15 @@ it('retains onboarding answers, proposal identity and retry state across languag
       input('Poids (kg)').props.onChangeText('82,5');
     });
     await press('Continuer');
+    await press('Trouver un programme');
     await press('Développer les muscles');
-    await press('Débutant');
+    await press('Continuer');
+    await press('Séance 1');
     await press('Voir le programme complet');
     expect(JSON.stringify(view!.toJSON())).toContain(
       'Développé couché aux haltères',
     );
-    await press('COMMENCER !');
+    await press('Commencer');
     expect(complete).toHaveBeenCalledTimes(1);
     expect(JSON.stringify(view!.toJSON())).not.toContain(
       'SECRET_BACKEND_DIAGNOSTIC',
@@ -176,6 +178,7 @@ it('preserves custom schedule, start-date picker and frequency error across lang
     });
   };
   try {
+    await press('Training 1');
     await press('Zeitplanoptionen');
     const start = view!.root
       .findAllByType(AppButton)
@@ -218,7 +221,7 @@ it('preserves custom schedule, start-date picker and frequency error across lang
     await act(async () => {
       await locale.select('en');
     });
-    await press('START!');
+    await press('Begin');
     expect(complete).toHaveBeenCalledTimes(1);
     const proposal = complete.mock.calls[0][1];
     expect(proposal!.startDate).toBe('2026-11-02');

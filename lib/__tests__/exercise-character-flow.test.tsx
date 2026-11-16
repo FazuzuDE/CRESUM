@@ -70,7 +70,18 @@ it('chooses female during welcome, keeps it through back and relaunch', async ()
   ).toBe('female');
   await act(async () => button(view, 'Continue').props.onPress());
   expect(view.root.findByType(Onboarding).props.state.step).toBe('profile');
-  await act(async () => button(view, 'Back').props.onPress());
+  await act(async () =>
+    view.root
+      .findAll(
+        (item: { props: { onPress?: unknown } }) =>
+          typeof item.props.onPress === 'function',
+      )
+      .find(
+        (item: { props: { accessibilityLabel?: string } }) =>
+          item.props.accessibilityLabel === 'Back',
+      )
+      .props.onPress(),
+  );
   expect(button(view, 'Female').props.selected).toBe(true);
   await act(async () => view.unmount());
   const reopened = await mount();

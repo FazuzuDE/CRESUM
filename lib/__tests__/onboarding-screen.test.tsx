@@ -62,13 +62,38 @@ const enterBody = async (view: ReturnType<typeof create>) => {
 };
 const enterGoal = async (view: ReturnType<typeof create>) => {
   await enterBody(view);
-  await act(async () =>
-    button(view, 'Continue without body details')?.props.onPress(),
+  await act(async () => button(view, 'Skip for now')?.props.onPress());
+  await act(async () => button(view, 'Find a program')?.props.onPress());
+};
+const mountLegacyBuilder = async () => {
+  await AsyncStorage.setItem(
+    ONBOARDING_KEY,
+    JSON.stringify({
+      ...initialOnboardingState,
+      step: 'self_setup',
+    }),
   );
+  return mount();
 };
 
 beforeEach(async () => {
   await AsyncStorage.clear();
+});
+
+it('lets a new user go straight to Home without generating a program', async () => {
+  const view = await mount();
+  await enterBody(view);
+  await act(async () => button(view, 'Skip for now').props.onPress());
+  expect(button(view, 'Find a program')).toBeDefined();
+  await act(async () => button(view, 'Start on my own').props.onPress());
+  expect(view.root.findByType(Dock).props.active).toBe('home');
+  const saved = JSON.parse((await AsyncStorage.getItem(ONBOARDING_KEY))!);
+  expect(saved).toMatchObject({
+    status: 'completed',
+    answers: { displayName: 'Ihor', artworkModel: 'male' },
+  });
+  expect(saved.answers.goal).toBeUndefined();
+  await act(async () => view.unmount());
 });
 
 it('collects a name on the welcome screen before showing the normal dock', async () => {
@@ -77,37 +102,60 @@ it('collects a name on the welcome screen before showing the normal dock', async
   expect(button(view, 'Continue')?.props.disabled).toBe(true);
   expect(view.root.findAllByType(Dock)).toHaveLength(0);
   await enterBody(view);
-  expect(button(view, 'Continue without body details')).toBeDefined();
+  expect(button(view, 'Skip for now')).toBeDefined();
   await act(async () => view.unmount());
 });
 
-it('persists Name → Body details → Goal → Experience with Back and reload', async () => {
+it('persists a goal selection through Back and reload and opens the review directly', async () => {
   const view = await mount();
   await enterGoal(view);
-  await act(async () => button(view, 'Build muscle')?.props.onPress());
-  await act(async () => button(view, 'Beginner')?.props.onPress());
-  expect(button(view, 'START!')).toBeDefined();
-  expect(button(view, 'Gym')).toBeUndefined();
-  await act(async () => button(view, 'Back')?.props.onPress());
-  expect(button(view, 'Beginner')?.props.selected).toBe(true);
+  expect(button(view, 'Continue').props.disabled).toBe(true);
+  await act(async () => button(view, 'Build muscle').props.onPress());
+  await act(async () => button(view, 'Continue').props.onPress());
+  expect(button(view, 'Begin')).toBeDefined();
+  expect(button(view, 'Beginner')).toBeUndefined();
+  const back = view.root
+    .findAll(
+      (item: { props: { onPress?: unknown } }) =>
+        typeof item.props.onPress === 'function',
+    )
+    .find(
+      (item: { props: { accessibilityLabel?: string } }) =>
+        item.props.accessibilityLabel === 'Back',
+    );
+  await act(async () => back.props.onPress());
+  expect(button(view, 'Build muscle').props.selected).toBe(true);
   await act(async () => view.unmount());
   const restored = await mount();
-  expect(button(restored, 'Beginner')?.props.selected).toBe(true);
-  await act(async () => button(restored, 'Next')?.props.onPress());
-  await act(async () => button(restored, 'START!')?.props.onPress());
-  expect(restored.root.findByType(Dock)).toBeDefined();
+  expect(button(restored, 'Build muscle').props.selected).toBe(true);
+  await act(async () => button(restored, 'Continue').props.onPress());
+  await act(async () => button(restored, 'Begin').props.onPress());
+  expect(restored.root.findByType(Dock).props.active).toBe('home');
   await act(async () => restored.unmount());
   const completed = await mount();
   expect(completed.root.findAllByType(Onboarding)).toHaveLength(0);
   await act(async () => completed.unmount());
 });
 
-it('uses the existing Guided Workout Builder and cancel does not complete onboarding', async () => {
+it('preserves the Lose weight selection and reviews the fitness starter plan', async () => {
   const view = await mount();
   await enterGoal(view);
-  await act(async () =>
-    button(view, 'Set up workouts myself')?.props.onPress(),
-  );
+  await act(async () => button(view, 'Lose weight').props.onPress());
+  await act(async () => button(view, 'Continue').props.onPress());
+  expect(button(view, 'Workout 1')).toBeDefined();
+  expect(button(view, 'Workout 2')).toBeDefined();
+  expect(button(view, 'Workout 3')).toBeUndefined();
+  await act(async () => button(view, 'Workout 1').props.onPress());
+  expect(JSON.stringify(view.toJSON())).toContain('Dumbbell Bench Press');
+  await act(async () => button(view, 'Begin').props.onPress());
+  const saved = JSON.parse((await AsyncStorage.getItem(ONBOARDING_KEY))!);
+  expect(saved.answers.goal).toBe('lose_weight');
+  expect(view.root.findByType(Dock).props.active).toBe('home');
+  await act(async () => view.unmount());
+});
+
+it('uses the existing Guided Workout Builder and cancel does not complete onboarding', async () => {
+  const view = await mountLegacyBuilder();
   expect(view.root.findByType(TemplateEditor).props.mode).toBe('create');
   await act(async () => button(view, 'Cancel')?.props.onPress());
   expect(button(view, 'Continue')).toBeDefined();
@@ -118,11 +166,7 @@ it('uses the existing Guided Workout Builder and cancel does not complete onboar
 });
 
 it('completes self-setup only after the existing builder durably saves a custom workout', async () => {
-  const view = await mount();
-  await enterGoal(view);
-  await act(async () =>
-    button(view, 'Set up workouts myself')?.props.onPress(),
-  );
+  const view = await mountLegacyBuilder();
   const name = view.root
     .findAllByType(TextInput)
     .find(
@@ -154,11 +198,7 @@ it('completes self-setup only after the existing builder durably saves a custom 
 });
 
 it('keeps self-setup incomplete when the builder cannot save a workout', async () => {
-  const view = await mount();
-  await enterGoal(view);
-  await act(async () =>
-    button(view, 'Set up workouts myself')?.props.onPress(),
-  );
+  const view = await mountLegacyBuilder();
   const name = view.root
     .findAllByType(TextInput)
     .find(
@@ -301,9 +341,10 @@ it('does not turn body details into workout history', async () => {
       .props.onConfirm(new Date(1989, 8, 27).getTime()),
   );
   await act(async () => button(view, 'Continue')?.props.onPress());
+  await act(async () => button(view, 'Find a program')?.props.onPress());
   await act(async () => button(view, 'Build muscle')?.props.onPress());
-  await act(async () => button(view, 'Beginner')?.props.onPress());
-  await act(async () => button(view, 'START!')?.props.onPress());
+  await act(async () => button(view, 'Continue')?.props.onPress());
+  await act(async () => button(view, 'Begin')?.props.onPress());
   expect(JSON.parse((await AsyncStorage.getItem(STATE_KEY))!).history).toEqual(
     [],
   );
@@ -326,7 +367,7 @@ it('does not apply a date of birth draft after cancelling its wheels', async () 
         .props.onChange(new Date(2000, 1, 29).getTime()),
     );
     await act(async () => button(view, 'Cancel').props.onPress());
-    expect(button(view, 'Continue without body details')).toBeDefined();
+    expect(button(view, 'Skip for now')).toBeDefined();
     expect(
       JSON.parse((await AsyncStorage.getItem(ONBOARDING_KEY))!).answers
         .dateOfBirth,

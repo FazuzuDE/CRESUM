@@ -1,4 +1,30 @@
 export default {
+  'onboarding.welcomeTagline': 'Alle deine Workouts an einem Ort.',
+  'onboarding.bodyOptionalHelp':
+    'Ergänze, was du möchtest. Du kannst deine Angaben im Profil ändern.',
+  'onboarding.skipForNow': 'Jetzt überspringen',
+  'onboarding.heightLabel': 'Größe',
+  'onboarding.weightLabel': 'Gewicht',
+  'onboarding.select': 'Auswählen',
+  'onboarding.cm': 'cm',
+  'onboarding.kg': 'kg',
+  'onboarding.startPath': 'Wie möchtest du starten?',
+  'onboarding.findProgram': 'Programm finden',
+  'onboarding.findProgramHelp':
+    'Wähle ein Ziel und erhalte einen Einstiegsplan.',
+  'onboarding.startOwn': 'Selbst starten',
+  'onboarding.startOwnHelp': 'Direkt zur Startseite.',
+  'onboarding.goalQuestion': 'Was ist dein Trainingsziel?',
+  'onboarding.loseWeight': 'Abnehmen',
+  'onboarding.strengthPlan': 'Dein Krafttrainingsplan',
+  'onboarding.trainingPlan': 'Dein Trainingsplan',
+  'onboarding.weeklySchedule': 'Wochenplan',
+  'onboarding.workoutIndex': 'Training {{index, number}}',
+  'onboarding.begin': 'Beginnen',
+  'onboarding.weeklyCount': {
+    one: '{{count, number}} Training pro Woche',
+    other: '{{count, number}} Trainings pro Woche',
+  },
   'onboarding.workoutSaved':
     'Dein Training wurde gespeichert. Der Einrichtungsstatus konnte nicht gespeichert werden.',
   'onboarding.firstWorkout': 'Dein erstes Training',

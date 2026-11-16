@@ -15682,5 +15682,203 @@
     "line": 51,
     "text": "ankle-strap",
     "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/NewExpression/VariableDeclaration"
+  },
+  {
+    "file": "app/index.tsx",
+    "line": 748,
+    "text": "Program saving is pending. Try again.",
+    "context": "StringLiteral/BinaryExpression/CallExpression/ThrowStatement/IfStatement"
+  },
+  {
+    "file": "components/AppButton.tsx",
+    "line": 84,
+    "text": "radio-button-on",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes"
+  },
+  {
+    "file": "components/AppButton.tsx",
+    "line": 84,
+    "text": "radio-button-off",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes"
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 33,
+    "text": "text",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:presentation/JsxAttributes"
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 33,
+    "text": "row",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:presentation/JsxAttributes"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 218,
+    "text": "onboarding.heightLabel",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 219,
+    "text": "onboarding.weightLabel",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 241,
+    "text": "onboarding.cm",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 241,
+    "text": "onboarding.kg",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 293,
+    "text": "start_path",
+    "context": "StringLiteral/ConditionalExpression/PropertyAssignment:step/ObjectLiteralExpression/CallExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 423,
+    "text": "onboarding.welcomeTagline",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 423,
+    "text": "onboarding.intro",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 509,
+    "text": "build_muscle",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 509,
+    "text": "onboarding.muscle",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 510,
+    "text": "get_stronger",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 510,
+    "text": "onboarding.strength",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 511,
+    "text": "lose_weight",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 511,
+    "text": "onboarding.loseWeight",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 512,
+    "text": "general_fitness",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 512,
+    "text": "onboarding.fitness",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 587,
+    "text": "onboarding.bodyOptionalHelp",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 588,
+    "text": "onboarding.bodyHelp",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 611,
+    "text": "onboarding.select",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 612,
+    "text": "onboarding.chooseDate",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 617,
+    "text": "text",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:presentation/JsxAttributes"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 617,
+    "text": "button",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:presentation/JsxAttributes"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 658,
+    "text": "onboarding.skipForNow",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 659,
+    "text": "onboarding.skipBody",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 675,
+    "text": "onboarding.strengthPlan",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 676,
+    "text": "onboarding.trainingPlan",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression"
+  },
+  {
+    "file": "lib/onboarding.ts",
+    "line": 67,
+    "text": "start_path",
+    "context": "StringLiteral/ArrayLiteralExpression/CallExpression/PrefixUnaryExpression/IfStatement"
+  },
+  {
+    "file": "lib/onboarding.ts",
+    "line": 85,
+    "text": "lose_weight",
+    "context": "StringLiteral/ArrayLiteralExpression/CallExpression/PrefixUnaryExpression/BinaryExpression"
+  },
+  {
+    "file": "lib/training-programs/selectors.ts",
+    "line": 9,
+    "text": "general_fitness",
+    "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/BinaryExpression"
   }
 ]
