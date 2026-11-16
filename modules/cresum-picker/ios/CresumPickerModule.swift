@@ -13,6 +13,9 @@ public class CresumPickerModule: Module {
         view.selection = selected
       }
       Prop("selectionRevision") { (_: CresumPickerView, _: Int) in }
+      Prop("wheelRowHeight") { (view: CresumPickerView, height: Double) in
+        view.wheelRowHeight = CGFloat(height)
+      }
       Prop("labels") { (view: CresumPickerView, labels: [String]) in
         view.picker.accessibilityLabel = labels.joined(separator: ", ")
       }
@@ -27,6 +30,11 @@ final class CresumPickerView: ExpoView, UIPickerViewDataSource, UIPickerViewDele
   let picker = UIPickerView()
   let onSelect = EventDispatcher()
   let onInteraction = EventDispatcher()
+  var wheelRowHeight: CGFloat = 44 {
+    didSet {
+      if oldValue != wheelRowHeight { renderedColumns = [] }
+    }
+  }
   private var interacting = false
   var columns: [[String]] = []
   var selection: [Int] = []
@@ -66,6 +74,7 @@ final class CresumPickerView: ExpoView, UIPickerViewDataSource, UIPickerViewDele
     }
     reportedSelection = selection
   }
+  func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat { wheelRowHeight }
   func numberOfComponents(in pickerView: UIPickerView) -> Int { columns.count }
   func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { columns[component].count }
   func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? { columns[component][row] }

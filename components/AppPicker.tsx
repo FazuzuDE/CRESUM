@@ -1,18 +1,19 @@
 import { useEffect, useRef, useReducer, useState } from 'react';
 import type { ComponentType } from 'react';
 import {
+  Animated,
   FlatList,
   Platform,
   Pressable,
   StyleSheet,
-  Text,
   View,
+  useAnimatedValue,
   useWindowDimensions,
   type ViewProps,
 } from 'react-native';
 import { requireNativeView, requireOptionalNativeModule } from 'expo';
 import * as Haptics from 'expo-haptics';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { colors, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 
 type Props = {
@@ -26,6 +27,7 @@ type Props = {
 type NativeProps = Omit<Props, 'onChange' | 'onInteractionChange'> &
   ViewProps & {
     selectionRevision: number;
+    wheelRowHeight: number;
     onInteraction: (event: { nativeEvent: { active: boolean } }) => void;
     onSelect: (event: {
       nativeEvent: { component: number; row: number };
@@ -63,41 +65,47 @@ export function AppPicker({
   const geometry = flexible
     ? { flex: 1, minHeight: height, maxHeight: height * 5 }
     : { height: height * 5 };
-  if (NativePicker)
-    return (
-      <NativePicker
-        columns={columns}
-        selected={selected}
-        labels={labels}
-        selectionRevision={revision}
-        onInteraction={({ nativeEvent }) =>
-          onInteractionChange?.(nativeEvent.active)
-        }
-        style={[{ width: '100%' }, geometry]}
-        onSelect={({ nativeEvent }) =>
-          changed(nativeEvent.component, nativeEvent.row)
-        }
-      />
-    );
   return (
     <View
       testID="picker-viewport"
       style={[s.columns, geometry]}
       onLayout={({ nativeEvent }) => setAvailable(nativeEvent.layout.height)}
     >
-      {columns.map((options, component) => (
-        <WheelColumn
-          key={component}
-          options={options}
-          selected={selected[component] ?? 0}
-          label={labels[component]}
-          height={height}
-          viewport={viewport}
-          revision={revision}
-          onInteractionChange={onInteractionChange}
-          onChange={(row) => changed(component, row)}
+      {NativePicker ? (
+        <NativePicker
+          columns={columns}
+          selected={selected}
+          labels={labels}
+          selectionRevision={revision}
+          wheelRowHeight={height}
+          onInteraction={({ nativeEvent }) =>
+            onInteractionChange?.(nativeEvent.active)
+          }
+          style={s.nativePicker}
+          onSelect={({ nativeEvent }) =>
+            changed(nativeEvent.component, nativeEvent.row)
+          }
         />
-      ))}
+      ) : (
+        columns.map((options, component) => (
+          <WheelColumn
+            key={component}
+            options={options}
+            selected={selected[component] ?? 0}
+            label={labels[component]}
+            height={height}
+            viewport={viewport}
+            revision={revision}
+            onInteractionChange={onInteractionChange}
+            onChange={(row) => changed(component, row)}
+          />
+        ))
+      )}
+      <View
+        testID="wheel-selection-lines"
+        pointerEvents="none"
+        style={[s.selectionLines, { height, marginTop: -height / 2 }]}
+      />
     </View>
   );
 }
@@ -122,6 +130,7 @@ function WheelColumn({
 }) {
   const { t } = useLocalization();
   const list = useRef<FlatList<string>>(null);
+  const scrollOffset = useAnimatedValue(selected * height);
   const last = useRef(selected);
   const dragging = useRef(false);
   const momentum = useRef(false);
@@ -136,12 +145,13 @@ function WheelColumn({
       momentum.current = false;
       last.current = selected;
       dragging.current = false;
+      scrollOffset.setValue(selected * height);
       list.current?.scrollToOffset({
         offset: selected * height,
         animated: false,
       });
     }
-  }, [selected, height, viewport, revision]);
+  }, [selected, height, viewport, revision, scrollOffset]);
   const choose = (row: number) => {
     const next = Math.max(0, Math.min(options.length - 1, row));
     if (next === last.current) return;
@@ -152,7 +162,6 @@ function WheelColumn({
   };
   return (
     <View style={{ flex: 1, height: viewport }}>
-      <View pointerEvents="none" style={[s.band, { top: padding, height }]} />
       <FlatList
         ref={list}
         data={options}
@@ -171,6 +180,7 @@ function WheelColumn({
           dragging.current = false;
           momentum.current = false;
           choose(selected + (nativeEvent.actionName === 'increment' ? 1 : -1));
+          scrollOffset.setValue(last.current * height);
           list.current?.scrollToOffset({
             offset: last.current * height,
             animated: false,
@@ -193,6 +203,7 @@ function WheelColumn({
           momentum.current = true;
         }}
         onScroll={({ nativeEvent }) => {
+          scrollOffset.setValue(nativeEvent.contentOffset.y);
           if (dragging.current)
             choose(Math.round(nativeEvent.contentOffset.y / height));
         }}
@@ -214,41 +225,65 @@ function WheelColumn({
           onInteractionChange?.(false);
         }}
         keyExtractor={(_, i) => String(i)}
-        renderItem={({ item, index }) => (
-          <Pressable
-            accessible={false}
-            style={[s.row, { height }]}
-            onPress={() => {
-              dragging.current = false;
-              momentum.current = false;
-              choose(index);
-              list.current?.scrollToOffset({
-                offset: index * height,
-                animated: true,
-              });
-            }}
-          >
-            <Text
-              numberOfLines={1}
-              adjustsFontSizeToFit
-              style={[s.text, index !== selected && s.quiet]}
+        renderItem={({ item, index }) => {
+          const inputRange = [-2.5, -1, 0, 1, 2.5].map(
+            (distance) => (index + distance) * height,
+          );
+          const tilt = scrollOffset.interpolate({
+            inputRange,
+            outputRange: [58, 22, 0, -22, -58].map((angle) => `${angle}deg`),
+            extrapolate: 'clamp',
+          });
+          const opacity = scrollOffset.interpolate({
+            inputRange,
+            outputRange: [0.14, 0.58, 1, 0.58, 0.14],
+            extrapolate: 'clamp',
+          });
+          return (
+            <Pressable
+              accessible={false}
+              style={[s.row, { height }]}
+              onPress={() => {
+                dragging.current = false;
+                momentum.current = false;
+                choose(index);
+                list.current?.scrollToOffset({
+                  offset: index * height,
+                  animated: true,
+                });
+              }}
             >
-              {item}
-            </Text>
-          </Pressable>
-        )}
+              <Animated.Text
+                numberOfLines={1}
+                adjustsFontSizeToFit
+                style={[
+                  s.text,
+                  {
+                    opacity,
+                    transform: [{ perspective: 480 }, { rotateX: tilt }],
+                  },
+                ]}
+              >
+                {item}
+              </Animated.Text>
+            </Pressable>
+          );
+        }}
       />
     </View>
   );
 }
 const s = StyleSheet.create({
-  columns: { flexDirection: 'row' },
-  band: {
+  columns: { flexDirection: 'row', alignItems: 'center', overflow: 'hidden' },
+  nativePicker: { flex: 1, alignSelf: 'stretch' },
+  selectionLines: {
     position: 'absolute',
     left: 0,
     right: 0,
-    backgroundColor: colors.surfaceSubtle,
-    borderRadius: radius.sm,
+    top: '50%',
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.separator,
   },
   row: {
     justifyContent: 'center',
@@ -261,5 +296,4 @@ const s = StyleSheet.create({
     color: colors.textPrimary,
     fontVariant: ['tabular-nums'],
   },
-  quiet: { color: colors.textSecondary },
 });
