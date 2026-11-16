@@ -18,9 +18,10 @@ import {
 } from '@/lib/training-programs/schedule';
 import { exerciseLibrary, findExercise } from '@/lib/exercise-library';
 import { AppScrollView } from './AppScrollView';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import {
+  Image,
   KeyboardAvoidingView,
   Platform,
   Pressable,
@@ -43,6 +44,14 @@ import { formatDate } from '@/lib/i18n/format';
 import { presentAppError } from '@/lib/i18n/errors';
 import { AppError } from '@/lib/app-error';
 import { programDayLabel } from '@/lib/i18n/program';
+
+const onboardingArtwork = {
+  welcome: require('../assets/onboarding/welcome.webp'),
+  profile: require('../assets/onboarding/body-details.webp'),
+  start_path: require('../assets/onboarding/start-path.webp'),
+  goal: require('../assets/onboarding/training-goal.webp'),
+  complete: require('../assets/onboarding/plan-review.webp'),
+};
 
 type Props = {
   state: OnboardingState;
@@ -83,6 +92,8 @@ export function Onboarding({
   const [frequency, setFrequency] = useState<number>();
   const [reduced, setReduced] = useState(false);
   const [preview, setPreview] = useState(false);
+  const [openWorkout, setOpenWorkout] = useState<number>();
+  const completing = useRef(false);
   const [scheduleOpen, setScheduleOpen] = useState(false);
   const [dateOpen, setDateOpen] = useState(false);
   const [birthPicker, setBirthPicker] = useState<{
@@ -136,24 +147,34 @@ export function Onboarding({
     proposal = lockedProposal;
     proposalError = '';
   }
-  const complete = async () => {
+  const complete = async (manual = false) => {
+    if (completing.current || busy) return;
+    completing.current = true;
     setSaving(true);
     setError('');
     try {
-      if (!proposal) throw proposalError;
-      setLockedProposal(proposal);
+      if (!manual && !proposal) throw proposalError;
+      if (!manual) setLockedProposal(proposal);
+      const answers = { ...state.answers };
+      if (manual) {
+        delete answers.goal;
+        delete answers.experience;
+      } else {
+        answers.environment = 'gym';
+      }
       await onComplete(
         {
           ...state,
           status: 'completed',
           step: 'complete',
-          answers: { ...state.answers, environment: 'gym' },
+          answers,
         },
-        proposal,
+        manual ? undefined : proposal,
       );
     } catch (problem) {
       setError(problem || true);
     } finally {
+      completing.current = false;
       setSaving(false);
     }
   };
@@ -184,9 +205,21 @@ export function Onboarding({
       }}
     />
   );
-  const field = (label: string, name: 'heightCm' | 'bodyWeightKg') => (
-    <View style={s.field} key={name}>
-      <Text style={s.label}>{t('onboarding.optional', { label })}</Text>
+  const field = (
+    label: string,
+    name: 'heightCm' | 'bodyWeightKg',
+    row: boolean,
+  ) => (
+    <View style={row ? [s.bodyRow, s.bodyDivider] : s.field} key={name}>
+      <Text style={s.label}>
+        {row
+          ? t(
+              name === 'heightCm'
+                ? 'onboarding.heightLabel'
+                : 'onboarding.weightLabel',
+            )
+          : t('onboarding.optional', { label })}
+      </Text>
       <TextInput
         accessibilityLabel={label}
         value={state.answers[name] ?? ''}
@@ -198,20 +231,26 @@ export function Onboarding({
           });
         }}
         keyboardType="decimal-pad"
-        placeholder={t('onboarding.notProvided')}
+        placeholder={row ? '—' : t('onboarding.notProvided')}
         placeholderTextColor={colors.textTertiary}
-        style={s.input}
+        style={row ? s.bodyInput : s.input}
         maxLength={32}
       />
+      {row ? (
+        <Text style={s.bodyUnit}>
+          {t(name === 'heightCm' ? 'onboarding.cm' : 'onboarding.kg')}
+        </Text>
+      ) : null}
     </View>
   );
   const back: Partial<Record<OnboardingStep, OnboardingStep>> = {
-    goal: 'profile',
+    start_path: 'profile',
+    goal: 'start_path',
     experience: 'goal',
     environment: 'experience',
     profile: editing ? 'welcome' : 'character',
     character: 'welcome',
-    complete: 'experience',
+    complete: 'goal',
     self_setup: 'welcome',
   };
   const continueFromProfile = () => {
@@ -247,8 +286,11 @@ export function Onboarding({
     setError('');
     change({
       ...state,
-      step:
-        state.answers.goal && state.answers.experience ? 'complete' : 'goal',
+      step: editing
+        ? state.answers.goal && state.answers.experience
+          ? 'complete'
+          : 'goal'
+        : 'start_path',
       answers: {
         ...state.answers,
         dateOfBirth: dateOfBirth?.trim() ? normalizeBirthDate(dateOfBirth) : '',
@@ -257,22 +299,63 @@ export function Onboarding({
     });
   };
   const step = state.step;
+  const polished = !editing && step in onboardingArtwork;
+  const FlowScroll = polished ? ScrollView : AppScrollView;
+  const Frame = polished ? View : GlassCard;
+  const backTarget = editing && step === 'goal' ? 'profile' : back[step];
+  const navigationDisabled = saving || busy || Boolean(lockedProposal);
+  const artwork = (key: keyof typeof onboardingArtwork) => (
+    <Image
+      source={onboardingArtwork[key]}
+      resizeMode="contain"
+      accessible={false}
+      style={[s.artwork, key === 'welcome' && s.welcomeArtwork]}
+    />
+  );
+  const header = (previous?: OnboardingStep) => (
+    <View style={s.characterHeader}>
+      <BrandHeader tagline={false} />
+      {previous ? (
+        <Pressable
+          testID="onboarding-back"
+          accessibilityRole="button"
+          accessibilityLabel={t('onboarding.back')}
+          accessibilityState={{ disabled: navigationDisabled }}
+          disabled={navigationDisabled}
+          onPress={() => {
+            setError('');
+            go(previous);
+          }}
+          style={s.characterBack}
+        >
+          <Ionicons name="chevron-back" size={26} color={colors.primary} />
+        </Pressable>
+      ) : null}
+    </View>
+  );
+  const movementLabel = (
+    m: ProgramAssignment['program']['days'][number]['movements'][number],
+  ) =>
+    t(m.perSide ? 'onboarding.movementPerSide' : 'onboarding.movement', {
+      name: catalogLabel(
+        locale,
+        'exercise',
+        m.exerciseId,
+        findExercise(m.exerciseId)?.name ?? m.exerciseId,
+      ),
+      sets: m.sets,
+      min: m.repMin,
+      max: m.repMax,
+      restMin: m.restMin,
+      restMax: m.restMax,
+    });
   if (step === 'character') {
     return (
-      <ScrollView contentContainerStyle={[s.content, s.characterContent]}>
-        <View style={s.characterHeader}>
-          <BrandHeader tagline={false} />
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel={t('onboarding.back')}
-            accessibilityState={{ disabled: saving || busy }}
-            disabled={saving || busy}
-            onPress={() => go('welcome')}
-            style={s.characterBack}
-          >
-            <Ionicons name="chevron-back" size={26} color={colors.primary} />
-          </Pressable>
-        </View>
+      <ScrollView
+        style={s.white}
+        contentContainerStyle={[s.content, s.characterContent]}
+      >
+        {header('welcome')}
         <ExerciseCharacterPicker
           value={state.answers.artworkModel}
           disabled={busy || saving}
@@ -302,14 +385,15 @@ export function Onboarding({
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      style={s.root}
+      style={[s.root, polished && s.white]}
     >
-      <AppScrollView
+      <FlowScroll
+        key={step}
         keyboardShouldPersistTaps="handled"
-        contentContainerStyle={s.content}
+        contentContainerStyle={[s.content, polished && s.polishedContent]}
       >
-        <BrandHeader tagline={false} />
-        {state.step === 'welcome' ? <LanguageSettings /> : null}
+        {polished ? header(backTarget) : <BrandHeader tagline={false} />}
+        {step === 'welcome' ? <LanguageSettings compact={polished} /> : null}
         {step === 'self_setup' ? (
           <>
             <Text style={s.title} accessibilityRole="header">
@@ -324,13 +408,21 @@ export function Onboarding({
             />
           </>
         ) : (
-          <GlassCard style={s.card}>
+          <Frame style={polished ? s.polishedFrame : s.card}>
             {step === 'welcome' ? (
               <>
-                <Text style={s.title} accessibilityRole="header">
+                {polished ? artwork('welcome') : null}
+                <Text
+                  style={[s.title, polished && s.center]}
+                  accessibilityRole="header"
+                >
                   {t('onboarding.welcome')}
                 </Text>
-                <Text style={s.sub}>{t('onboarding.intro')}</Text>
+                <Text style={[s.sub, polished && s.center]}>
+                  {t(
+                    polished ? 'onboarding.welcomeTagline' : 'onboarding.intro',
+                  )}
+                </Text>
                 <View style={s.field}>
                   <Text style={s.label}>{t('onboarding.nameQuestion')}</Text>
                   <TextInput
@@ -374,40 +466,83 @@ export function Onboarding({
                 />
               </>
             ) : null}
+            {step === 'start_path' ? (
+              <>
+                <Text style={[s.title, s.center]} accessibilityRole="header">
+                  {t('onboarding.startPath')}
+                </Text>
+                {artwork('start_path')}
+                <AppButton
+                  presentation="choice"
+                  highlighted
+                  title={t('onboarding.findProgram')}
+                  detail={t('onboarding.findProgramHelp')}
+                  disabled={saving || busy}
+                  onPress={() => {
+                    setError('');
+                    go('goal');
+                  }}
+                />
+                <AppButton
+                  presentation="choice"
+                  title={t('onboarding.startOwn')}
+                  detail={t('onboarding.startOwnHelp')}
+                  disabled={saving || busy}
+                  onPress={() => void complete(true)}
+                />
+              </>
+            ) : null}
             {step === 'goal' ? (
               <>
-                <Text style={s.title} accessibilityRole="header">
-                  {t('onboarding.goal')}
+                <Text
+                  style={[s.title, polished && s.center]}
+                  accessibilityRole="header"
+                >
+                  {t('onboarding.goalQuestion')}
                 </Text>
-                <Text style={s.sub}>{t('onboarding.goalHelp')}</Text>
-                {option(
-                  t('onboarding.muscle'),
-                  'goal',
-                  'build_muscle',
-                  'experience',
-                )}
-                {option(
-                  t('onboarding.strength'),
-                  'goal',
-                  'get_stronger',
-                  'experience',
-                )}
-                {option(
-                  t('onboarding.fitness'),
-                  'goal',
-                  'general_fitness',
-                  'experience',
-                )}
-                {state.answers.goal ? (
+                <Text style={[s.sub, polished && s.center]}>
+                  {t('onboarding.goalHelp')}
+                </Text>
+                {polished ? artwork('goal') : null}
+                {(
+                  [
+                    ['build_muscle', 'onboarding.muscle'],
+                    ['get_stronger', 'onboarding.strength'],
+                    ['lose_weight', 'onboarding.loseWeight'],
+                    ['general_fitness', 'onboarding.fitness'],
+                  ] as const
+                ).map(([goal, label]) => (
                   <AppButton
-                    title={t('onboarding.next')}
-                    onPress={() => go('experience')}
+                    key={goal}
+                    presentation="choice"
+                    title={t(label)}
+                    selected={state.answers.goal === goal}
+                    disabled={navigationDisabled}
+                    onPress={() => {
+                      setError('');
+                      setOffsets(undefined);
+                      setFrequency(undefined);
+                      setReduced(false);
+                      setPreview(false);
+                      setScheduleOpen(false);
+                      setOpenWorkout(undefined);
+                      change({ ...state, answers: { ...state.answers, goal } });
+                    }}
                   />
-                ) : null}
+                ))}
                 <AppButton
-                  title={t('onboarding.manual')}
-                  secondary
-                  onPress={() => go('self_setup')}
+                  title={t('onboarding.continue')}
+                  disabled={!state.answers.goal || navigationDisabled}
+                  onPress={() =>
+                    change({
+                      ...state,
+                      step: 'complete',
+                      answers: {
+                        ...state.answers,
+                        experience: state.answers.experience ?? 'beginner',
+                      },
+                    })
+                  }
                 />
               </>
             ) : null}
@@ -440,60 +575,89 @@ export function Onboarding({
             ) : null}
             {step === 'profile' ? (
               <>
-                <Text style={s.title} accessibilityRole="header">
+                <Text
+                  style={[s.title, polished && s.center]}
+                  accessibilityRole="header"
+                >
                   {t('onboarding.body')}
                 </Text>
-                <Text style={s.sub}>{t('onboarding.bodyHelp')}</Text>
-                <View style={s.field}>
-                  <Text style={s.label}>
-                    {t('onboarding.optional', { label: t('onboarding.birth') })}
-                  </Text>
-                  <AppButton
-                    title={
-                      normalizeBirthDate(state.answers.dateOfBirth ?? '')
-                        ? formatDate(
-                            locale,
-                            new Date(
-                              `${normalizeBirthDate(state.answers.dateOfBirth ?? '')}T00:00:00`,
-                            ).getTime(),
-                          )
-                        : t('onboarding.chooseDate')
-                    }
-                    accessibilityLabel={t('onboarding.birth')}
-                    secondary
-                    onPress={() => {
-                      const today = new Date();
-                      const maximum = calendarTime(
-                        today.getFullYear(),
-                        today.getMonth(),
-                        today.getDate(),
-                      );
-                      const stored = normalizeBirthDate(
-                        state.answers.dateOfBirth ?? '',
-                      );
-                      setBirthPicker({
-                        maximum,
-                        minimum: calendarTime(today.getFullYear() - 120, 0, 1),
-                        value: stored
-                          ? new Date(`${stored}T00:00:00`).getTime()
-                          : calendarTime(
-                              today.getFullYear() - 18,
-                              today.getMonth(),
-                              today.getDate(),
-                            ),
-                      });
-                    }}
-                  />
+                <Text style={[s.sub, polished && s.center]}>
+                  {t(
+                    polished
+                      ? 'onboarding.bodyOptionalHelp'
+                      : 'onboarding.bodyHelp',
+                  )}
+                </Text>
+                <View style={polished ? s.bodyGroup : s.field}>
+                  <View style={polished ? s.bodyRow : s.field}>
+                    <Text style={s.label}>
+                      {polished
+                        ? t('onboarding.birth')
+                        : t('onboarding.optional', {
+                            label: t('onboarding.birth'),
+                          })}
+                    </Text>
+                    <AppButton
+                      title={
+                        normalizeBirthDate(state.answers.dateOfBirth ?? '')
+                          ? formatDate(
+                              locale,
+                              new Date(
+                                `${normalizeBirthDate(state.answers.dateOfBirth ?? '')}T00:00:00`,
+                              ).getTime(),
+                            )
+                          : t(
+                              polished
+                                ? 'onboarding.select'
+                                : 'onboarding.chooseDate',
+                            )
+                      }
+                      accessibilityLabel={t('onboarding.birth')}
+                      secondary
+                      presentation={polished ? 'text' : 'button'}
+                      onPress={() => {
+                        const today = new Date();
+                        const maximum = calendarTime(
+                          today.getFullYear(),
+                          today.getMonth(),
+                          today.getDate(),
+                        );
+                        const stored = normalizeBirthDate(
+                          state.answers.dateOfBirth ?? '',
+                        );
+                        setBirthPicker({
+                          maximum,
+                          minimum: calendarTime(
+                            today.getFullYear() - 120,
+                            0,
+                            1,
+                          ),
+                          value: stored
+                            ? new Date(`${stored}T00:00:00`).getTime()
+                            : calendarTime(
+                                today.getFullYear() - 18,
+                                today.getMonth(),
+                                today.getDate(),
+                              ),
+                        });
+                      }}
+                    />
+                  </View>
+                  {field(t('onboarding.height'), 'heightCm', polished)}
+                  {field(t('onboarding.weight'), 'bodyWeightKg', polished)}
                 </View>
-                {field(t('onboarding.height'), 'heightCm')}
-                {field(t('onboarding.weight'), 'bodyWeightKg')}
+                {polished ? artwork('profile') : null}
                 <AppButton
                   title={
                     state.answers.dateOfBirth ||
                     state.answers.heightCm ||
                     state.answers.bodyWeightKg
                       ? t('onboarding.continue')
-                      : t('onboarding.skipBody')
+                      : t(
+                          polished
+                            ? 'onboarding.skipForNow'
+                            : 'onboarding.skipBody',
+                        )
                   }
                   onPress={continueFromProfile}
                 />
@@ -501,36 +665,98 @@ export function Onboarding({
             ) : null}
             {step === 'complete' ? (
               <>
-                <Text style={s.title} accessibilityRole="header">
-                  {proposal ? t('onboarding.ready') : t('onboarding.review')}
+                <Text
+                  style={[s.title, polished && s.center]}
+                  accessibilityRole="header"
+                >
+                  {proposal
+                    ? t(
+                        state.answers.goal === 'get_stronger'
+                          ? 'onboarding.strengthPlan'
+                          : 'onboarding.trainingPlan',
+                      )
+                    : t('onboarding.review')}
                 </Text>
                 {proposal ? (
                   <>
-                    <Text style={s.label}>
-                      {catalogLabel(
-                        locale,
-                        'program',
-                        proposal.program.id,
-                        proposal.program.name,
-                      )}
-                    </Text>
-                    <Text style={s.sub}>
-                      {t('onboarding.summary', {
+                    <Text style={[s.sub, polished && s.center]}>
+                      {t('onboarding.weeklyCount', {
                         count: proposal.program.schedule[0].length,
-                        date: dateLabel(proposal.startDate),
                       })}
                     </Text>
-                    <Text style={s.support}>{t('onboarding.attribution')}</Text>
-                    <AppButton
-                      title={
-                        preview
-                          ? t('onboarding.hideProgram')
-                          : t('onboarding.viewProgram')
-                      }
-                      secondary
-                      onPress={() => setPreview(!preview)}
-                    />
-                    {preview ? (
+                    {polished ? artwork('complete') : null}
+                    <Text style={s.scheduleTitle} accessibilityRole="header">
+                      {t('onboarding.weeklySchedule')}
+                    </Text>
+                    <View style={s.bodyGroup}>
+                      {proposal.program.schedule[0].map((slot, index) => {
+                        const day = proposal?.program.days.find(
+                          (entry) => entry.key === slot.dayKey,
+                        );
+                        if (!day) return null;
+                        const focus = [
+                          ...new Set(
+                            day.movements.flatMap(
+                              (m) =>
+                                findExercise(m.exerciseId)?.primaryMuscles ??
+                                [],
+                            ),
+                          ),
+                        ].slice(0, 3);
+                        return (
+                          <View
+                            key={slot.offset}
+                            style={index > 0 ? s.bodyDivider : undefined}
+                          >
+                            <AppButton
+                              title={t('onboarding.workoutIndex', {
+                                index: index + 1,
+                              })}
+                              detail={
+                                focus.length
+                                  ? focus
+                                      .map((id) =>
+                                        catalogLabel(locale, 'muscle', id, id),
+                                      )
+                                      .join(' · ')
+                                  : programDayLabel(t, day.key, day.name)
+                              }
+                              presentation="row"
+                              secondary
+                              onPress={() =>
+                                setOpenWorkout(
+                                  openWorkout === index ? undefined : index,
+                                )
+                              }
+                            />
+                            {openWorkout === index ? (
+                              <View style={s.workoutDetails}>
+                                <Text style={s.label}>
+                                  {programDayLabel(t, day.key, day.name)}
+                                </Text>
+                                {day.movements.map((m) => (
+                                  <Text key={m.exerciseId} style={s.support}>
+                                    {movementLabel(m)}
+                                  </Text>
+                                ))}
+                              </View>
+                            ) : null}
+                          </View>
+                        );
+                      })}
+                    </View>
+                    {openWorkout !== undefined || editing ? (
+                      <AppButton
+                        title={
+                          preview
+                            ? t('onboarding.hideProgram')
+                            : t('onboarding.viewProgram')
+                        }
+                        secondary
+                        onPress={() => setPreview(!preview)}
+                      />
+                    ) : null}
+                    {preview && (openWorkout !== undefined || editing) ? (
                       <View style={s.field}>
                         {proposal.program.schedule.map((week, i) => (
                           <Text key={i} style={s.label}>
@@ -562,25 +788,7 @@ export function Onboarding({
                             </Text>
                             {day.movements.map((m) => (
                               <Text key={m.exerciseId} style={s.support}>
-                                {t(
-                                  m.perSide
-                                    ? 'onboarding.movementPerSide'
-                                    : 'onboarding.movement',
-                                  {
-                                    name: catalogLabel(
-                                      locale,
-                                      'exercise',
-                                      m.exerciseId,
-                                      findExercise(m.exerciseId)?.name ??
-                                        m.exerciseId,
-                                    ),
-                                    sets: m.sets,
-                                    min: m.repMin,
-                                    max: m.repMax,
-                                    restMin: m.restMin,
-                                    restMax: m.restMax,
-                                  },
-                                )}
+                                {movementLabel(m)}
                               </Text>
                             ))}
                           </View>
@@ -616,17 +824,21 @@ export function Onboarding({
                         )}
                   </Text>
                 )}
-                <AppButton
-                  title={
-                    scheduleOpen
-                      ? t('onboarding.hideSchedule')
-                      : t('onboarding.schedule')
-                  }
-                  secondary
-                  disabled={saving || Boolean(lockedProposal)}
-                  onPress={() => setScheduleOpen(!scheduleOpen)}
-                />
-                {scheduleOpen && base ? (
+                {openWorkout !== undefined || editing ? (
+                  <AppButton
+                    title={
+                      scheduleOpen
+                        ? t('onboarding.hideSchedule')
+                        : t('onboarding.schedule')
+                    }
+                    secondary
+                    disabled={saving || Boolean(lockedProposal)}
+                    onPress={() => setScheduleOpen(!scheduleOpen)}
+                  />
+                ) : null}
+                {scheduleOpen &&
+                base &&
+                (openWorkout !== undefined || editing) ? (
                   <View style={s.field}>
                     <AppButton
                       title={t('onboarding.startDateValue', {
@@ -691,7 +903,8 @@ export function Onboarding({
                     ))}
                   </View>
                 ) : null}
-                {base?.firstSessionSetCap ? (
+                {base?.firstSessionSetCap &&
+                (openWorkout !== undefined || editing) ? (
                   <AppButton
                     title={
                       reduced ? t('onboarding.reduced') : t('onboarding.reduce')
@@ -708,12 +921,12 @@ export function Onboarding({
                       ? t('onboarding.retryStart')
                       : saving
                         ? t('onboarding.saving')
-                        : t('onboarding.start')
+                        : t('onboarding.begin')
                   }
                   disabled={!proposal || saving || busy}
                   onPress={() => void complete()}
                 />
-                {!lockedProposal ? (
+                {!lockedProposal && (!proposal || editing) ? (
                   <AppButton
                     title={t('onboarding.manual')}
                     secondary
@@ -736,12 +949,12 @@ export function Onboarding({
                 {presentAppError(t, error, 'error.programSave')}
               </Text>
             ) : null}
-            {back[step] ? (
+            {!polished && backTarget ? (
               <AppButton
                 title={t('onboarding.back')}
                 disabled={saving || busy || Boolean(lockedProposal)}
                 secondary
-                onPress={() => go(back[step]!)}
+                onPress={() => go(backTarget)}
               />
             ) : null}
             {editing && onExit ? (
@@ -752,9 +965,9 @@ export function Onboarding({
                 onPress={onExit}
               />
             ) : null}
-          </GlassCard>
+          </Frame>
         )}
-      </AppScrollView>
+      </FlowScroll>
       {birthPicker ? (
         <DatePickerSheet
           title={t('onboarding.birth')}
@@ -789,6 +1002,37 @@ export function Onboarding({
 
 const s = StyleSheet.create({
   root: { flex: 1 },
+  white: { backgroundColor: colors.surface },
+  polishedContent: { flexGrow: 1, paddingBottom: spacing.md },
+  polishedFrame: { flexGrow: 1, justifyContent: 'center', gap: spacing.md },
+  center: { textAlign: 'center' },
+  artwork: { width: '100%', height: 190, alignSelf: 'center' },
+  welcomeArtwork: { height: 250 },
+  bodyGroup: {
+    borderColor: colors.separator,
+    borderWidth: 1,
+    borderRadius: radius.md,
+    overflow: 'hidden',
+  },
+  bodyRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.xs,
+    minHeight: 52,
+    paddingHorizontal: spacing.md,
+  },
+  bodyDivider: { borderTopColor: colors.separator, borderTopWidth: 1 },
+  bodyInput: {
+    ...typography.body,
+    flex: 1,
+    minHeight: 44,
+    color: colors.textPrimary,
+    textAlign: 'right',
+  },
+  bodyUnit: { ...typography.body, color: colors.textSecondary },
+  scheduleTitle: { ...typography.title3, color: colors.textPrimary },
+  workoutDetails: { gap: spacing.xs, padding: spacing.md },
   content: {
     width: '100%',
     maxWidth: 600,

@@ -1,10 +1,12 @@
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { colors, spacing, typography } from '@/lib/theme';
 
 export function AppButton({
   title,
   accessibilityLabel,
+  detail,
+  highlighted = false,
   onPress,
   secondary = false,
   disabled = false,
@@ -15,14 +17,18 @@ export function AppButton({
 }: {
   title: string;
   accessibilityLabel?: string;
+  detail?: string;
+  highlighted?: boolean;
   onPress: () => void;
   secondary?: boolean;
   disabled?: boolean;
   selected?: boolean;
   destructive?: boolean;
-  presentation?: 'button' | 'row' | 'text';
+  presentation?: 'button' | 'row' | 'text' | 'choice';
   wordmark?: boolean;
 }) {
+  const schedule = presentation === 'row' && !!detail;
+  const choice = presentation === 'choice';
   return (
     <Pressable
       accessibilityRole="button"
@@ -37,25 +43,52 @@ export function AppButton({
         s.button,
         secondary && s.secondary,
         destructive && s.destructive,
-        presentation === 'row' && s.row,
+        (presentation === 'row' || choice) && s.row,
+        schedule && s.schedule,
+        choice && s.choice,
+        choice && (selected || highlighted) && s.highlighted,
         presentation === 'text' && s.textAction,
         (pressed || disabled) && s.dim,
       ]}
     >
-      <Text
-        style={[
-          s.text,
-          secondary && s.secondaryText,
-          destructive && s.destructiveText,
-          presentation === 'row' && s.rowText,
-          presentation === 'text' && s.actionText,
-          presentation === 'text' && !destructive && s.linkText,
-          wordmark && s.wordmark,
-        ]}
+      <View
+        style={
+          choice
+            ? s.choiceContent
+            : presentation === 'row'
+              ? s.rowContent
+              : undefined
+        }
       >
-        {title}
-      </Text>
-      {presentation === 'row' ? (
+        <Text
+          style={[
+            s.text,
+            secondary && s.secondaryText,
+            destructive && s.destructiveText,
+            presentation === 'row' && s.rowText,
+            schedule && s.detail,
+            choice && s.choiceTitle,
+            presentation === 'text' && s.actionText,
+            presentation === 'text' && !destructive && s.linkText,
+            wordmark && s.wordmark,
+          ]}
+        >
+          {title}
+        </Text>
+        {detail ? (
+          <Text style={schedule ? s.scheduleFocus : s.detail}>{detail}</Text>
+        ) : null}
+      </View>
+      {choice && selected !== undefined ? (
+        <Ionicons
+          name={selected ? 'radio-button-on' : 'radio-button-off'}
+          size={24}
+          color={selected ? colors.primary : colors.textSecondary}
+          accessible={false}
+        />
+      ) : null}
+      {presentation === 'row' ||
+      (choice && selected === undefined && detail) ? (
         <Ionicons
           name="chevron-forward"
           size={20}
@@ -91,7 +124,23 @@ const s = StyleSheet.create({
     justifyContent: 'space-between',
     gap: spacing.sm,
   },
-  rowText: { ...typography.body, flex: 1, minWidth: 0, textAlign: 'left' },
+  schedule: { backgroundColor: colors.surface, borderRadius: 0 },
+  rowContent: { flex: 1, minWidth: 0 },
+  rowText: { ...typography.body, textAlign: 'left' },
+  choice: {
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.separator,
+    minHeight: 52,
+  },
+  highlighted: {
+    borderColor: colors.primary,
+    backgroundColor: colors.primaryTint,
+  },
+  choiceContent: { flex: 1, minWidth: 0, gap: spacing.xxs },
+  choiceTitle: { color: colors.textPrimary, textAlign: 'left' },
+  detail: { ...typography.footnote, color: colors.textSecondary },
+  scheduleFocus: { ...typography.headline, color: colors.textPrimary },
   textAction: {
     minHeight: 44,
     paddingHorizontal: 0,

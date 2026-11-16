@@ -63,8 +63,8 @@ it.each(variants)(
   async (goal, experience) => {
     const view = await seed(goal, experience);
     try {
-      expect(button(view, 'START!')).toBeDefined();
-      await act(async () => button(view, 'START!').props.onPress());
+      expect(button(view, 'Begin')).toBeDefined();
+      await act(async () => button(view, 'Begin').props.onPress());
       expect(view.root.findByType(Dock).props.active).toBe('home');
       const document = JSON.parse((await AsyncStorage.getItem(PROGRAM_KEY))!);
       const state = JSON.parse((await AsyncStorage.getItem(STATE_KEY))!);
@@ -103,9 +103,20 @@ it.each(variants)(
 it('resumes legacy environment at Body details and preserves Home until explicit acceptance', async () => {
   const view = await seed('build_muscle', 'beginner', 'environment');
   try {
-    expect(button(view, 'Continue without body details')).toBeDefined();
+    expect(button(view, 'Skip for now')).toBeDefined();
     expect(button(view, 'Gym')).toBeUndefined();
-    await act(async () => button(view, 'Back').props.onPress());
+    await act(async () =>
+      view.root
+        .findAll(
+          (item: { props: { onPress?: unknown } }) =>
+            typeof item.props.onPress === 'function',
+        )
+        .find(
+          (item: { props: { accessibilityLabel?: string } }) =>
+            item.props.accessibilityLabel === 'Back',
+        )
+        .props.onPress(),
+    );
     expect(button(view, 'Continue')).toBeDefined();
     expect(
       JSON.parse((await AsyncStorage.getItem(ONBOARDING_KEY))!).answers
@@ -129,7 +140,7 @@ it('keeps the proposal and Retry after a late write failure without generating d
       return original(k, v);
     });
   try {
-    await act(async () => button(view, 'START!').props.onPress());
+    await act(async () => button(view, 'Begin').props.onPress());
     expect(view.root.findAllByType(Onboarding)).toHaveLength(1);
     expect(button(view, 'Retry START!')).toBeDefined();
     await act(async () => button(view, 'Retry START!').props.onPress());
@@ -150,13 +161,14 @@ it('keeps the proposal and Retry after a late write failure without generating d
 it('shows the complete proposal and makes unchecked frequencies unavailable without dropping workouts', async () => {
   const view = await seed();
   try {
+    await act(async () => button(view, 'Workout 1').props.onPress());
     await act(async () => button(view, 'View full program').props.onPress());
     expect(JSON.stringify(view.toJSON())).toContain(
       'Standing Cable Anti-rotation Press',
     );
     await act(async () => button(view, 'Schedule options').props.onPress());
     await act(async () => button(view, '4 workouts').props.onPress());
-    expect(button(view, 'START!').props.disabled).toBe(true);
+    expect(button(view, 'Begin').props.disabled).toBe(true);
     expect(JSON.stringify(view.toJSON())).toContain(
       'No checked program for this frequency',
     );
@@ -184,7 +196,9 @@ it('retains manual setup and blocks an adult automatic proposal when the supplie
         ),
     );
     await act(async () => button(view, 'Continue').props.onPress());
-    expect(button(view, 'START!').props.disabled).toBe(true);
+    await act(async () => button(view, 'Find a program').props.onPress());
+    await act(async () => button(view, 'Continue').props.onPress());
+    expect(button(view, 'Begin').props.disabled).toBe(true);
     expect(JSON.stringify(view.toJSON())).toContain('Adult starter programs');
     expect(await AsyncStorage.getItem(PROGRAM_KEY)).toBeNull();
     await act(async () =>

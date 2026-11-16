@@ -745,7 +745,7 @@ function AppContent({
       setAcceptingProgram(true);
       const result = await programAcceptance.accept(proposal, next);
       if (result.status !== 'accepted')
-        throw Error(result.error ?? 'Program saving is pending. Retry START!');
+        throw Error(result.error ?? 'Program saving is pending. Try again.');
       if (resetInProgress.current || onboardingEpoch.current !== epoch) return;
       setAssignment(result.assignment!);
       setProgramError('');
@@ -1069,7 +1069,9 @@ function AppContent({
     }
   };
   const content = (
-    <SafeAreaView style={s.root}>
+    <SafeAreaView
+      style={[s.root, (showOnboarding || acceptingProgram) && s.onboardingRoot]}
+    >
       <StatusBar style="dark" />
       {sharingOpen && ready && localDataAccess.ready ? (
         <Modal
@@ -1553,6 +1555,7 @@ function AppContent({
 }
 const s = StyleSheet.create({
   root: { flex: 1, backgroundColor: colors.background },
+  onboardingRoot: { backgroundColor: colors.surface },
   profileVisible: { flex: 1 },
   profileHidden: { display: 'none' },
   content: {

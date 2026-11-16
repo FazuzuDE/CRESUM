@@ -63,9 +63,10 @@ it('collects name, then body details, then goal; preserves the name through relo
     );
   await act(async () => weight.props.onChangeText('85,5'));
   await act(async () => button(v, 'Continue').props.onPress());
+  await act(async () => button(v, 'Find a program').props.onPress());
   await act(async () => button(v, 'Build muscle').props.onPress());
-  await act(async () => button(v, 'Beginner').props.onPress());
-  await act(async () => button(v, 'START!').props.onPress());
+  await act(async () => button(v, 'Continue').props.onPress());
+  await act(async () => button(v, 'Begin').props.onPress());
   expect(JSON.stringify(v.toJSON())).toContain('Welcome back, Ігор!');
   expect(
     JSON.parse((await AsyncStorage.getItem(ONBOARDING_KEY))!).answers

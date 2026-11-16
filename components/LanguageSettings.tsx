@@ -8,9 +8,9 @@ import {
   type LanguagePreference,
 } from '@/lib/i18n/registry';
 import { colors, spacing, typography } from '@/lib/theme';
-export function LanguageSettings() {
+export function LanguageSettings({ compact = false }: { compact?: boolean }) {
   const [open, setOpen] = useState(false);
-  const { t, preference, saving, error, select } = useLocalization();
+  const { t, locale, preference, saving, error, select } = useLocalization();
   const [attempted, setAttempted] = useState<LanguagePreference>();
   const choose = (value: LanguagePreference) => {
     setAttempted(value);
@@ -23,11 +23,14 @@ export function LanguageSettings() {
     ),
   ];
   return (
-    <View style={s.root}>
+    <View style={[s.root, compact && s.compact]}>
       <AppButton
-        title={t('language.title')}
+        title={
+          compact ? localeRegistry[locale].nativeName : t('language.title')
+        }
+        accessibilityLabel={t('language.title')}
         secondary
-        presentation="row"
+        presentation={compact ? 'text' : 'row'}
         onPress={() => setOpen((value) => !value)}
       />
       {open ? (
@@ -67,6 +70,7 @@ export function LanguageSettings() {
 }
 const s = StyleSheet.create({
   root: { gap: spacing.sm },
+  compact: { alignItems: 'flex-end' },
   copy: { ...typography.footnote, color: colors.textSecondary },
   error: { ...typography.footnote, color: colors.danger },
 });

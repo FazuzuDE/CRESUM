@@ -4481,3 +4481,10 @@ See [branding administration](superpowers/specs/2026-11-08-branding-admin-design
 Approved the welcome mockup with the male character on the left and the female
 character on the right, posed back to back with folded arms. Use dedicated
 onboarding artwork, a top-left back control and an explicit choice before Continue.
+
+### 2026-11-16 — Six-screen first-run onboarding
+
+Approved the white CRESUM onboarding set, with the paired character image on
+white, optional body details, and distinct self-directed and guided routes.
+Keep Build muscle and Get stronger separate, include Lose weight, and load
+the program review directly after goal selection. Begin accepts the plan.
