@@ -29,10 +29,10 @@ it('puts System first and allows a manual choice from every available language',
       .map((b: { props: { title: string } }) => b.props.title),
   ).toEqual([
     '🌐  System language ✓',
-    '🇬🇧  English',
-    '🇷🇺  Русский',
     '🇩🇪  Deutsch',
+    '🇬🇧  English',
     '🇫🇷  Français',
+    '🇷🇺  Русский',
     '🇺🇦  Українська',
   ]);
   expect(buttons[0].props.selected).toBe(true);

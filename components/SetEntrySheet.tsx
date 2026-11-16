@@ -337,17 +337,17 @@ export function SetEntrySheet({
                   : t('entry.errorNumbers')}
               </Text>
             ) : null}
-            <AppButton
-              accessibilityLabel={t('entry.saveValues')}
-              title={
-                valid ? t('entry.saveSummary', { summary }) : t('entry.saveSet')
-              }
-              disabled={locked || !valid}
-              onPress={() => {
-                if (!locked && valid) onSave(values);
-              }}
-            />
           </ScrollView>
+          <AppButton
+            accessibilityLabel={t('entry.saveValues')}
+            title={
+              valid ? t('entry.saveSummary', { summary }) : t('entry.saveSet')
+            }
+            disabled={locked || !valid}
+            onPress={() => {
+              if (!locked && valid) onSave(values);
+            }}
+          />
         </KeyboardAvoidingView>
       </SafeAreaView>
     </Modal>
@@ -418,7 +418,7 @@ const s = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
   },
-  footer: { flexGrow: 0, flexShrink: 1, minHeight: 56 },
+  footer: { flexGrow: 0, flexShrink: 1 },
   footerContent: { gap: spacing.md },
   adjusters: { flexDirection: 'row', gap: spacing.sm },
   adjuster: { flex: 1, gap: spacing.xs },

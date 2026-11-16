@@ -17,6 +17,7 @@ import {
 } from 'react-native';
 import type { ProgressSectionPosition } from '@/lib/progress-scroll';
 import { spacing } from '@/lib/theme';
+import { ContentScrollView } from './ContentScrollView';
 import { GlassCard } from './GlassCard';
 import { useScrollReturn } from './useScrollReturn';
 import { ScrollReturnButton } from './ScrollReturnButton';
@@ -56,7 +57,7 @@ export const AppScrollView = forwardRef<
   ]);
   return (
     <View style={[{ flex: 1 }, style]}>
-      <ScrollView
+      <ContentScrollView
         {...props}
         ref={ref}
         style={{ flex: 1 }}
@@ -91,7 +92,7 @@ export const AppScrollView = forwardRef<
             },
           });
         })}
-      </ScrollView>
+      </ContentScrollView>
       <ScrollReturnButton
         control={control}
         disabled={props.scrollEnabled === false}
