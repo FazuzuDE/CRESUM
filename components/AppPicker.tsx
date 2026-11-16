@@ -231,7 +231,7 @@ function WheelColumn({
           );
           const tilt = scrollOffset.interpolate({
             inputRange,
-            outputRange: ['58deg', '22deg', '0deg', '-22deg', '-58deg'],
+            outputRange: [58, 22, 0, -22, -58].map((angle) => `${angle}deg`),
             extrapolate: 'clamp',
           });
           const opacity = scrollOffset.interpolate({
