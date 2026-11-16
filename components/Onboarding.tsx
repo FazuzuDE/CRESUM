@@ -19,9 +19,12 @@ import {
 import { exerciseLibrary, findExercise } from '@/lib/exercise-library';
 import { AppScrollView } from './AppScrollView';
 import { useState } from 'react';
+import { Ionicons } from '@expo/vector-icons';
 import {
   KeyboardAvoidingView,
   Platform,
+  Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -254,6 +257,48 @@ export function Onboarding({
     });
   };
   const step = state.step;
+  if (step === 'character') {
+    return (
+      <ScrollView contentContainerStyle={[s.content, s.characterContent]}>
+        <View style={s.characterHeader}>
+          <BrandHeader tagline={false} />
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={t('onboarding.back')}
+            accessibilityState={{ disabled: saving || busy }}
+            disabled={saving || busy}
+            onPress={() => go('welcome')}
+            style={s.characterBack}
+          >
+            <Ionicons name="chevron-back" size={26} color={colors.primary} />
+          </Pressable>
+        </View>
+        <ExerciseCharacterPicker
+          value={state.answers.artworkModel}
+          disabled={busy || saving}
+          previews
+          onChange={(artworkModel) =>
+            change({
+              ...state,
+              answers: { ...state.answers, artworkModel },
+            })
+          }
+        />
+        <AppButton
+          title={t('onboarding.continue')}
+          disabled={busy || saving || !state.answers.artworkModel}
+          onPress={() => {
+            if (state.answers.artworkModel) go('profile');
+          }}
+        />
+        {error ? (
+          <Text style={s.error} accessibilityRole="alert">
+            {presentAppError(t, error, 'error.programSave')}
+          </Text>
+        ) : null}
+      </ScrollView>
+    );
+  }
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -325,28 +370,6 @@ export function Onboarding({
                       step: editing ? 'profile' : 'character',
                       answers: { ...state.answers, displayName },
                     });
-                  }}
-                />
-              </>
-            ) : null}
-            {step === 'character' ? (
-              <>
-                <ExerciseCharacterPicker
-                  value={state.answers.artworkModel}
-                  disabled={busy || saving}
-                  previews
-                  onChange={(artworkModel) =>
-                    change({
-                      ...state,
-                      answers: { ...state.answers, artworkModel },
-                    })
-                  }
-                />
-                <AppButton
-                  title={t('onboarding.continue')}
-                  disabled={busy || saving || !state.answers.artworkModel}
-                  onPress={() => {
-                    if (state.answers.artworkModel) go('profile');
                   }}
                 />
               </>
@@ -773,6 +796,15 @@ const s = StyleSheet.create({
     padding: spacing.md,
     paddingBottom: spacing.xxxl,
     gap: spacing.md,
+  },
+  characterContent: { flexGrow: 1, paddingBottom: spacing.md },
+  characterHeader: { justifyContent: 'center', minHeight: 44 },
+  characterBack: {
+    position: 'absolute',
+    left: 0,
+    minWidth: 44,
+    minHeight: 44,
+    justifyContent: 'center',
   },
   card: { gap: spacing.md },
   title: { ...typography.title1, color: colors.textPrimary },

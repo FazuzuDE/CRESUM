@@ -4475,3 +4475,9 @@ exclusions, optional enrollment of future group members, preview and versioned
 publication with disable and rollback. Pilot the workflow on the kettlebell
 thumbnail before expanding to reviewed START/FINISH placements.
 See [branding administration](superpowers/specs/2026-11-08-branding-admin-design.md).
+
+### 2026-11-16 — Full-page exercise character selection
+
+Approved the welcome mockup with the male character on the left and the female
+character on the right, posed back to back with folded arms. Use dedicated
+onboarding artwork, a top-left back control and an explicit choice before Continue.

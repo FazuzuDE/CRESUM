@@ -1,10 +1,13 @@
 # CRESUM Design System v1.0
 
-## Exercise character selector — approved 2026-11-03
+## Exercise character selector — updated 2026-11-16
 
 Use a two-choice Male / Female selector in Profile and a welcome step after name
-entry, before optional body details. Welcome shows both characters using the exact
-Goblet Squat START images. Explain that this selects exercise illustrations and
+entry, before optional body details. Welcome uses a dedicated full-page layout
+with one illustration: the male character on the left and the female character
+on the right, standing back to back with folded arms. Keep the back chevron
+at top left, the wordmark centered and the choices and Continue below the art.
+Allow scrolling on short screens and with large text. Explain that this selects exercise illustrations and
 can be changed in Profile. Require an explicit choice for the new welcome step;
 show selected and disabled/saving/error/retry states with accessible native buttons.
 Reuse existing typography, spacing, surfaces and touch targets. Apply the choice
