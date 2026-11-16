@@ -6,9 +6,7 @@ export function formatEntryNumber(locale: AppLocale, raw: string): string {
   let separator = decimalSeparators.get(locale);
   if (!separator) {
     separator =
-      new Intl.NumberFormat(locale)
-        .formatToParts(1.1)
-        .find((part) => part.type === 'decimal')?.value ?? '.';
+      new Intl.NumberFormat(locale).format(1.1).match(/[.,]/)?.[0] ?? '.';
     decimalSeparators.set(locale, separator);
   }
   return normalized.replace('.', separator);
