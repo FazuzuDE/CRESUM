@@ -31,13 +31,17 @@ export function ExerciseCharacterPicker({
             : null;
           return (
             <View key={model} style={s.option}>
-              {source ? (
-                <Image
-                  source={source}
-                  resizeMode="contain"
-                  accessible={false}
-                  style={s.preview}
-                />
+              {previews ? (
+                <View style={s.previewFrame}>
+                  {source ? (
+                    <Image
+                      source={source}
+                      resizeMode="contain"
+                      accessible={false}
+                      style={s.preview}
+                    />
+                  ) : null}
+                </View>
               ) : null}
               <AppButton
                 title={t(
@@ -94,5 +98,7 @@ const s = StyleSheet.create({
   error: { ...typography.footnote, color: colors.danger },
   options: { flexDirection: 'row', gap: spacing.xs },
   option: { flex: 1, gap: spacing.xs },
-  preview: { width: '100%', aspectRatio: 0.75 },
+  // Keep both choices aligned independently of the source dimensions.
+  previewFrame: { height: 176 },
+  preview: { width: '100%', height: '100%' },
 });
