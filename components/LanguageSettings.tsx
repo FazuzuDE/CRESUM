@@ -8,6 +8,8 @@ import {
   type LanguagePreference,
 } from '@/lib/i18n/registry';
 import { colors, spacing, typography } from '@/lib/theme';
+const flags = { en: '🇬🇧', ru: '🇷🇺', de: '🇩🇪', fr: '🇫🇷' };
+
 export function LanguageSettings({ compact = false }: { compact?: boolean }) {
   const [open, setOpen] = useState(false);
   const { t, locale, preference, saving, error, select } = useLocalization();
@@ -25,9 +27,7 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
   return (
     <View style={[s.root, compact && s.compact]}>
       <AppButton
-        title={
-          compact ? localeRegistry[locale].nativeName : t('language.title')
-        }
+        title={compact ? flags[locale] : t('language.title')}
         accessibilityLabel={t('language.title')}
         secondary
         presentation={compact ? 'text' : 'row'}

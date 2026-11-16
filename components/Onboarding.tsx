@@ -1,3 +1,5 @@
+import { AppPicker } from './AppPicker';
+import { WheelPickerSheet } from './WheelPickerSheet';
 import { BrandHeader } from './BrandHeader';
 import { LanguageSettings } from './LanguageSettings';
 import { ExerciseCharacterPicker } from './ExerciseCharacterPicker';
@@ -44,6 +46,8 @@ import { formatDate } from '@/lib/i18n/format';
 import { presentAppError } from '@/lib/i18n/errors';
 import { AppError } from '@/lib/app-error';
 import { programDayLabel } from '@/lib/i18n/program';
+
+const decimalDigits = Array.from({ length: 10 }, (_, i) => String(i));
 
 const onboardingArtwork = {
   welcome: require('../assets/onboarding/welcome.webp'),
@@ -101,6 +105,11 @@ export function Onboarding({
     maximum: number;
     minimum: number;
   } | null>(null);
+  const [measurement, setMeasurement] = useState<{
+    field: 'heightCm' | 'bodyWeightKg';
+    tenths: number;
+    whole: string[];
+  }>();
   const [lockedProposal, setLockedProposal] = useState<ProgramAssignment>();
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<unknown>('');
@@ -209,40 +218,58 @@ export function Onboarding({
     label: string,
     name: 'heightCm' | 'bodyWeightKg',
     row: boolean,
-  ) => (
-    <View style={row ? [s.bodyRow, s.bodyDivider] : s.field} key={name}>
-      <Text style={s.label}>
-        {row
-          ? t(
-              name === 'heightCm'
-                ? 'onboarding.heightLabel'
-                : 'onboarding.weightLabel',
-            )
-          : t('onboarding.optional', { label })}
-      </Text>
-      <TextInput
-        accessibilityLabel={label}
-        value={state.answers[name] ?? ''}
-        onChangeText={(value) => {
-          setError('');
-          change({
-            ...state,
-            answers: { ...state.answers, [name]: value },
-          });
-        }}
-        keyboardType="decimal-pad"
-        placeholder={row ? '—' : t('onboarding.notProvided')}
-        placeholderTextColor={colors.textTertiary}
-        style={row ? s.bodyInput : s.input}
-        maxLength={32}
-      />
-      {row ? (
-        <Text style={s.bodyUnit}>
-          {t(name === 'heightCm' ? 'onboarding.cm' : 'onboarding.kg')}
-        </Text>
-      ) : null}
-    </View>
-  );
+  ) => {
+    const height = name === 'heightCm';
+    const value = state.answers[name] ?? '';
+    const unit = t(height ? 'onboarding.cm' : 'onboarding.kg');
+    if (row) {
+      return (
+        <View style={[s.bodyRow, s.bodyDivider]}>
+          <Text style={s.label}>
+            {t(height ? 'onboarding.heightLabel' : 'onboarding.weightLabel')}
+          </Text>
+          <AppButton
+            title={`${value || '—'} ${unit}`}
+            accessibilityLabel={label}
+            presentation="text"
+            secondary
+            onPress={() => {
+              const max = height ? 300 : 1000;
+              const number = Number(value.replace(',', '.'));
+              setMeasurement({
+                field: name,
+                tenths:
+                  number > 0
+                    ? Math.min(max * 10, Math.round(number * 10))
+                    : height
+                      ? 1700
+                      : 700,
+                whole: Array.from({ length: max + 1 }, (_, i) => String(i)),
+              });
+            }}
+          />
+        </View>
+      );
+    }
+    return (
+      <View style={s.field}>
+        <Text style={s.label}>{t('onboarding.optional', { label })}</Text>
+        <TextInput
+          accessibilityLabel={label}
+          value={value}
+          onChangeText={(next) => {
+            setError('');
+            change({ ...state, answers: { ...state.answers, [name]: next } });
+          }}
+          keyboardType="decimal-pad"
+          placeholder={t('onboarding.notProvided')}
+          placeholderTextColor={colors.textTertiary}
+          style={s.input}
+          maxLength={32}
+        />
+      </View>
+    );
+  };
   const back: Partial<Record<OnboardingStep, OnboardingStep>> = {
     start_path: 'profile',
     goal: 'start_path',
@@ -309,7 +336,7 @@ export function Onboarding({
       source={onboardingArtwork[key]}
       resizeMode="contain"
       accessible={false}
-      style={[s.artwork, key === 'welcome' && s.welcomeArtwork]}
+      style={key === 'welcome' ? s.welcomeArtwork : s.artwork}
     />
   );
   const header = (previous?: OnboardingStep) => (
@@ -443,27 +470,29 @@ export function Onboarding({
                     }}
                   />
                 </View>
-                <AppButton
-                  title={t('onboarding.continue')}
-                  disabled={busy || !state.answers.displayName?.trim()}
-                  onPress={() => {
-                    const displayName = state.answers.displayName?.trim();
-                    if (!displayName) {
-                      setError(
-                        new AppError(
-                          'name_required',
-                          'Enter your name to continue.',
-                        ),
-                      );
-                      return;
-                    }
-                    change({
-                      ...state,
-                      step: editing ? 'profile' : 'character',
-                      answers: { ...state.answers, displayName },
-                    });
-                  }}
-                />
+                <View style={polished && s.footer}>
+                  <AppButton
+                    title={t('onboarding.continue')}
+                    disabled={busy || !state.answers.displayName?.trim()}
+                    onPress={() => {
+                      const displayName = state.answers.displayName?.trim();
+                      if (!displayName) {
+                        setError(
+                          new AppError(
+                            'name_required',
+                            'Enter your name to continue.',
+                          ),
+                        );
+                        return;
+                      }
+                      change({
+                        ...state,
+                        step: editing ? 'profile' : 'character',
+                        answers: { ...state.answers, displayName },
+                      });
+                    }}
+                  />
+                </View>
               </>
             ) : null}
             {step === 'start_path' ? (
@@ -530,20 +559,22 @@ export function Onboarding({
                     }}
                   />
                 ))}
-                <AppButton
-                  title={t('onboarding.continue')}
-                  disabled={!state.answers.goal || navigationDisabled}
-                  onPress={() =>
-                    change({
-                      ...state,
-                      step: 'complete',
-                      answers: {
-                        ...state.answers,
-                        experience: state.answers.experience ?? 'beginner',
-                      },
-                    })
-                  }
-                />
+                <View style={polished && s.footer}>
+                  <AppButton
+                    title={t('onboarding.continue')}
+                    disabled={!state.answers.goal || navigationDisabled}
+                    onPress={() =>
+                      change({
+                        ...state,
+                        step: 'complete',
+                        answers: {
+                          ...state.answers,
+                          experience: state.answers.experience ?? 'beginner',
+                        },
+                      })
+                    }
+                  />
+                </View>
               </>
             ) : null}
             {step === 'experience' ? (
@@ -647,20 +678,22 @@ export function Onboarding({
                   {field(t('onboarding.weight'), 'bodyWeightKg', polished)}
                 </View>
                 {polished ? artwork('profile') : null}
-                <AppButton
-                  title={
-                    state.answers.dateOfBirth ||
-                    state.answers.heightCm ||
-                    state.answers.bodyWeightKg
-                      ? t('onboarding.continue')
-                      : t(
-                          polished
-                            ? 'onboarding.skipForNow'
-                            : 'onboarding.skipBody',
-                        )
-                  }
-                  onPress={continueFromProfile}
-                />
+                <View style={polished && s.footer}>
+                  <AppButton
+                    title={
+                      state.answers.dateOfBirth ||
+                      state.answers.heightCm ||
+                      state.answers.bodyWeightKg
+                        ? t('onboarding.continue')
+                        : t(
+                            polished
+                              ? 'onboarding.skipForNow'
+                              : 'onboarding.skipBody',
+                          )
+                    }
+                    onPress={continueFromProfile}
+                  />
+                </View>
               </>
             ) : null}
             {step === 'complete' ? (
@@ -915,17 +948,19 @@ export function Onboarding({
                     onPress={() => setReduced(!reduced)}
                   />
                 ) : null}
-                <AppButton
-                  title={
-                    error && lockedProposal
-                      ? t('onboarding.retryStart')
-                      : saving
-                        ? t('onboarding.saving')
-                        : t('onboarding.begin')
-                  }
-                  disabled={!proposal || saving || busy}
-                  onPress={() => void complete()}
-                />
+                <View style={polished && s.footer}>
+                  <AppButton
+                    title={
+                      error && lockedProposal
+                        ? t('onboarding.retryStart')
+                        : saving
+                          ? t('onboarding.saving')
+                          : t('onboarding.begin')
+                    }
+                    disabled={!proposal || saving || busy}
+                    onPress={() => void complete()}
+                  />
+                </View>
                 {!lockedProposal && (!proposal || editing) ? (
                   <AppButton
                     title={t('onboarding.manual')}
@@ -987,14 +1022,61 @@ export function Onboarding({
             });
             setBirthPicker(null);
           }}
-          onClear={() => {
+        />
+      ) : null}
+      {measurement ? (
+        <WheelPickerSheet
+          title={t(
+            measurement.field === 'heightCm'
+              ? 'onboarding.height'
+              : 'onboarding.weight',
+          )}
+          onCancel={() => setMeasurement(undefined)}
+          disabled={measurement.tenths === 0}
+          onConfirm={() => {
+            setError('');
             change({
               ...state,
-              answers: { ...state.answers, dateOfBirth: '' },
+              answers: {
+                ...state.answers,
+                [measurement.field]: String(measurement.tenths / 10),
+              },
             });
-            setBirthPicker(null);
+            setMeasurement(undefined);
           }}
-        />
+        >
+          <AppPicker
+            columns={[
+              measurement.whole,
+              Math.floor(measurement.tenths / 10) ===
+              measurement.whole.length - 1
+                ? ['0']
+                : decimalDigits,
+            ]}
+            selected={[
+              Math.floor(measurement.tenths / 10),
+              measurement.tenths % 10,
+            ]}
+            labels={[
+              t(
+                measurement.field === 'heightCm'
+                  ? 'onboarding.cm'
+                  : 'onboarding.kg',
+              ),
+              t('onboarding.decimalPart'),
+            ]}
+            onChange={(column, row) => {
+              const next =
+                column === 0
+                  ? row * 10 + (measurement.tenths % 10)
+                  : measurement.tenths - (measurement.tenths % 10) + row;
+              setMeasurement({
+                ...measurement,
+                tenths: Math.min(next, (measurement.whole.length - 1) * 10),
+              });
+            }}
+          />
+        </WheelPickerSheet>
       ) : null}
     </KeyboardAvoidingView>
   );
@@ -1004,10 +1086,11 @@ const s = StyleSheet.create({
   root: { flex: 1 },
   white: { backgroundColor: colors.surface },
   polishedContent: { flexGrow: 1, paddingBottom: spacing.md },
-  polishedFrame: { flexGrow: 1, justifyContent: 'center', gap: spacing.md },
+  polishedFrame: { flexGrow: 1, gap: spacing.md },
+  footer: { marginTop: 'auto', paddingTop: spacing.sm },
   center: { textAlign: 'center' },
   artwork: { width: '100%', height: 190, alignSelf: 'center' },
-  welcomeArtwork: { height: 250 },
+  welcomeArtwork: { width: '100%', aspectRatio: 852 / 822 },
   bodyGroup: {
     borderColor: colors.separator,
     borderWidth: 1,

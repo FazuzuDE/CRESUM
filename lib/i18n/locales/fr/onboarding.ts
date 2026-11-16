@@ -1,4 +1,5 @@
 export default {
+  'onboarding.decimalPart': 'Décimales',
   'onboarding.welcomeTagline': 'Tous tes entraînements au même endroit.',
   'onboarding.bodyOptionalHelp':
     'Ajoute les informations de ton choix. Tu peux les modifier dans ton profil.',

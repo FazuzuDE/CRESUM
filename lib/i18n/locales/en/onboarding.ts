@@ -1,4 +1,5 @@
 export default {
+  'onboarding.decimalPart': 'Decimal part',
   'onboarding.welcomeTagline': 'Your workouts, all in one place.',
   'onboarding.bodyOptionalHelp':
     'Add any details you’d like. You can edit them in Profile.',

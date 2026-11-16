@@ -1,3 +1,4 @@
+import { AppPicker } from '../../components/AppPicker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Modal, TextInput } from 'react-native';
 import { SharingHub } from '../../components/workout-sharing/SharingHub';
@@ -55,13 +56,25 @@ it('collects name, then body details, then goal; preserves the name through relo
       .findAllByType(AppButton)
       .some((n: any) => n.props.accessibilityLabel === 'Date of birth'),
   ).toBe(true);
-  const weight = v.root
-    .findAllByType(TextInput)
-    .find(
-      (n: { props: { accessibilityLabel: string } }) =>
-        n.props.accessibilityLabel === 'Body weight (kg)',
-    );
-  await act(async () => weight.props.onChangeText('85,5'));
+  const measurement = (label: string) =>
+    v.root
+      .findAllByType(AppButton)
+      .find(
+        (n: { props: { accessibilityLabel: string } }) =>
+          n.props.accessibilityLabel === label,
+      );
+  const picker = () => v.root.findByType(AppPicker);
+  await act(async () => measurement('Date of birth').props.onPress());
+  expect(button(v, 'Clear date')).toBeUndefined();
+  await act(async () => button(v, 'Cancel').props.onPress());
+  await act(async () => measurement('Height (cm)').props.onPress());
+  await act(async () => picker().props.onChange(0, 180));
+  await act(async () => button(v, 'Cancel').props.onPress());
+  expect(measurement('Height (cm)').props.title).toBe('— cm');
+  await act(async () => measurement('Body weight (kg)').props.onPress());
+  await act(async () => picker().props.onChange(0, 85));
+  await act(async () => picker().props.onChange(1, 5));
+  await act(async () => button(v, 'Done').props.onPress());
   await act(async () => button(v, 'Continue').props.onPress());
   await act(async () => button(v, 'Find a program').props.onPress());
   await act(async () => button(v, 'Build muscle').props.onPress());
