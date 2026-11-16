@@ -1,3 +1,17 @@
+import ukEquipment from './locales/uk/equipment';
+import ukSharing from './locales/uk/sharing';
+import ukProfile from './locales/uk/profile';
+import ukProgress from './locales/uk/progress';
+import ukCommon from './locales/uk/common';
+import ukCatalog from './locales/uk/catalog';
+import ukLibrary from './locales/uk/library';
+import ukWorkout from './locales/uk/workout';
+import ukHome from './locales/uk/home';
+import ukHistory from './locales/uk/history';
+import ukOnboarding from './locales/uk/onboarding';
+import ukEditor from './locales/uk/editor';
+import ukProgramTechnique from './locales/uk/program-technique';
+import ukTechniqueContent from './locales/uk/technique-content';
 import frEquipment from './locales/fr/equipment';
 import deEquipment from './locales/de/equipment';
 import ruEquipment from './locales/ru/equipment';
@@ -118,10 +132,26 @@ const fr = {
   ...frProgramTechnique,
   ...frTechniqueContent,
 } as const;
+const uk = {
+  ...ukEquipment,
+  ...ukSharing,
+  ...ukProfile,
+  ...ukProgress,
+  ...ukCommon,
+  ...ukCatalog,
+  ...ukLibrary,
+  ...ukWorkout,
+  ...ukHome,
+  ...ukHistory,
+  ...ukOnboarding,
+  ...ukEditor,
+  ...ukProgramTechnique,
+  ...ukTechniqueContent,
+} as const;
 export type MessageValue =
   string | Readonly<Partial<Record<Intl.LDMLPluralRule, string>>>;
 export type MessageCatalog = Readonly<Record<string, MessageValue>>;
-export const catalogs = { en, ru, de, fr } satisfies Record<
+export const catalogs = { en, ru, de, fr, uk } satisfies Record<
   string,
   MessageCatalog
 >;

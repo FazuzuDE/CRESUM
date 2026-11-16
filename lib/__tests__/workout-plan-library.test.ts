@@ -51,3 +51,19 @@ test('does not accept incomplete, unknown filter or duplicate library entries', 
   ).toThrow();
   expect(() => parseLibrary([entry, entry])).toThrow();
 });
+
+test('searches translated Ukrainian publications and preserves legacy English metadata', () => {
+  const [legacy] = parseLibrary([entry]);
+  expect(filterPlans([legacy], 'upper', 'uk')).toEqual([legacy]);
+  const [localized] = parseLibrary([
+    {
+      ...entry,
+      metadata: {
+        ...entry.metadata,
+        title: { ...entry.metadata.title, uk: 'Верхня частина тіла' },
+      },
+    },
+  ]);
+  expect(filterPlans([localized], 'верхня', 'uk')).toEqual([localized]);
+  expect(filterPlans([localized], 'gym', 'uk')).toEqual([localized]);
+});

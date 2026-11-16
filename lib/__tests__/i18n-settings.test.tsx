@@ -27,12 +27,19 @@ it('puts System first and allows a manual choice from every available language',
     buttons
       .slice(0, -1)
       .map((b: { props: { title: string } }) => b.props.title),
-  ).toEqual(['System language ✓', 'English', 'Русский', 'Deutsch', 'Français']);
+  ).toEqual([
+    'System language ✓',
+    'English',
+    'Русский',
+    'Deutsch',
+    'Français',
+    'Українська',
+  ]);
   expect(buttons[0].props.selected).toBe(true);
   await act(async () => {
-    buttons[2].props.onPress();
+    buttons[5].props.onPress();
   });
-  expect(store.getSnapshot()).toMatchObject({ preference: 'ru', locale: 'ru' });
+  expect(store.getSnapshot()).toMatchObject({ preference: 'uk', locale: 'uk' });
   expect(view!.root.findAllByType(Modal)).toHaveLength(0);
   act(() => view!.unmount());
 });

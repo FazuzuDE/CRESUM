@@ -28,7 +28,7 @@ it('finds localized and canonical names/aliases without changing the catalog or 
   expect(searchLocalizedExercises({}, 'de')[0]).toBe(exerciseLibrary[0]);
 });
 it('covers every current exercise, muscle and equipment in all four languages', () => {
-  for (const locale of ['en', 'ru', 'de', 'fr'] as const) {
+  for (const locale of ['en', 'ru', 'de', 'fr', 'uk'] as const) {
     for (const record of exerciseLibrary)
       expect(
         catalogLabel(locale, 'exercise', record.id, '__missing__'),

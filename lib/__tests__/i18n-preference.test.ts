@@ -91,19 +91,30 @@ function setup(initial: string | null = null) {
     },
   };
 }
+it('defaults to Ukrainian for a device configured with uk-UA', async () => {
+  const store = new LocaleStore(
+    { getItem: async () => null, setItem: async () => {} },
+    () => ['uk-UA', 'en-US'],
+  );
+  await store.load();
+  expect(store.getSnapshot()).toMatchObject({
+    preference: 'system',
+    locale: 'uk',
+  });
+});
 it('uses device order, persists explicit choices and re-resolves System only', async () => {
   const { store, storage, device } = setup();
   await store.load();
   expect(store.getSnapshot().locale).toBe('ru');
   await store.select('de');
-  device(['fr-CH']);
+  device(['uk-UA']);
   expect(store.getSnapshot().locale).toBe('de');
   expect(storage.setItem).toHaveBeenLastCalledWith(
     LANGUAGE_PREFERENCE_KEY,
     JSON.stringify({ version: 1, preference: 'de' }),
   );
   await store.select('system');
-  expect(store.getSnapshot().locale).toBe('fr');
+  expect(store.getSnapshot().locale).toBe('uk');
 });
 it('does not acknowledge failed writes and serializes rapid choices', async () => {
   const { store, storage } = setup();
