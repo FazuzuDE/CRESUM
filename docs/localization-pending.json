@@ -1,6 +1,12 @@
 [
   {
     "file": "app/index.tsx",
+    "line": 338,
+    "text": "cresum.dockTransparency",
+    "context": "StringLiteral/VariableDeclaration/VariableDeclarationList/FirstStatement"
+  },
+  {
+    "file": "app/index.tsx",
     "line": 1082,
     "text": "top",
     "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/JsxExpression/JsxAttribute:edges"

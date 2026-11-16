@@ -2,6 +2,17 @@
   {
     "file": "app/index.tsx",
     "kind": "internal",
+    "reason": "Local storage key for the bottom menu preference.",
+    "entries": [
+      {
+        "text": "cresum.dockTransparency",
+        "context": "StringLiteral/VariableDeclaration/VariableDeclarationList/FirstStatement"
+      }
+    ]
+  },
+  {
+    "file": "app/index.tsx",
+    "kind": "internal",
     "reason": "Safe-area edges and tint values control native layout and appearance.",
     "entries": [
       {

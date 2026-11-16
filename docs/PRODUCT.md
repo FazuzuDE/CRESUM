@@ -478,6 +478,9 @@ Feature flags control experiments, staged rollout, and operational enablement. C
 
 Home · Workout · Progress · Profile
 
+Profile offers a live bottom-menu transparency control for trying the glass
+appearance. Save the preference locally on the device.
+
 ## Core v1
 
 ### Onboarding

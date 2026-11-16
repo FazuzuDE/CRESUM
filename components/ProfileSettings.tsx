@@ -1,3 +1,5 @@
+import Slider from '@react-native-community/slider';
+import { formatNumber } from '@/lib/i18n/format';
 import { useLocalization } from './LocalizationProvider';
 import { displayAppVersion } from '@/lib/app-version';
 import { AccountPage } from './AccountPage';
@@ -23,6 +25,9 @@ import { colors, radius, spacing, typography } from '@/lib/theme';
 import { catalogLabel, searchLocalizedExercises } from '@/lib/i18n/catalog';
 
 export type ProfileSettingsProps = {
+  dockTransparency?: number;
+  onDockTransparencyChange?: (value: number) => void;
+  onDockTransparencyCommit?: (value: number) => void;
   templates: WorkoutTemplate[];
   history?: readonly WorkoutSession[];
   busy: boolean;
@@ -48,6 +53,9 @@ export type ProfileSettingsProps = {
 };
 
 export function ProfileSettings({
+  dockTransparency,
+  onDockTransparencyChange,
+  onDockTransparencyCommit,
   templates,
   history = [],
   busy,
@@ -69,6 +77,9 @@ export function ProfileSettings({
   account,
 }: ProfileSettingsProps) {
   const { t, locale } = useLocalization();
+  const [transparencyAtGestureStart, setTransparencyAtGestureStart] = useState<
+    number | null
+  >(null);
   const [accountOpen, setAccountOpen] = useState(false);
   const [backupOpen, setBackupOpen] = useState(false);
   const [libraryOpen, setLibraryOpen] = useState(false);
@@ -183,6 +194,42 @@ export function ProfileSettings({
           <Text style={s.subtitle}>{t('profile.subtitle')}</Text>
         </View>
       </View>
+
+      {dockTransparency !== undefined ? (
+        <GlassCard style={s.card}>
+          <Text style={s.sectionTitle} accessibilityRole="header">
+            {t('profile.dockTransparency')}
+          </Text>
+          <Text style={s.sub}>
+            {formatNumber(locale, dockTransparency / 100, { style: 'percent' })}
+          </Text>
+          <Slider
+            accessibilityLabel={t('profile.dockTransparency')}
+            accessibilityRole="adjustable"
+            accessibilityValue={{ min: 0, max: 100, now: dockTransparency }}
+            style={s.transparencySlider}
+            minimumValue={0}
+            maximumValue={100}
+            step={1}
+            value={transparencyAtGestureStart ?? dockTransparency}
+            minimumTrackTintColor={colors.primary}
+            onSlidingStart={() => {
+              setTransparencyAtGestureStart(dockTransparency);
+            }}
+            onValueChange={(value) => {
+              if (transparencyAtGestureStart === null) {
+                onDockTransparencyCommit?.(value);
+              } else {
+                onDockTransparencyChange?.(value);
+              }
+            }}
+            onSlidingComplete={(value) => {
+              setTransparencyAtGestureStart(null);
+              onDockTransparencyCommit?.(value);
+            }}
+          />
+        </GlassCard>
+      ) : null}
 
       <GlassCard style={s.card}>
         <View style={s.menuRow}>
@@ -342,6 +389,7 @@ export function ProfileSettings({
 }
 
 const s = StyleSheet.create({
+  transparencySlider: { minHeight: 44 },
   menuRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
   menuCopy: { flex: 1 },
   menuIcon: {

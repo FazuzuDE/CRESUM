@@ -260,3 +260,22 @@ it('blocks character changes while initial program recovery is still outstanding
     await act(async () => view.unmount());
   }
 });
+
+it('previews dock transparency immediately and restores the committed value on restart', async () => {
+  await completeOnboardingForTest();
+  const view = await mount();
+  const dock = () => view.root.findByType(Dock);
+  act(() => dock().props.onChange('profile'));
+  const slider = view.root.findAllByProps({
+    accessibilityLabel: 'Bottom menu transparency',
+  })[0];
+  act(() => slider.props.onSlidingStart(66));
+  act(() => slider.props.onValueChange(85));
+  expect(dock().props.transparency).toBe(85);
+  await act(async () => slider.props.onSlidingComplete(85));
+  await act(async () => view.unmount());
+
+  const reopened = await mount();
+  expect(reopened.root.findByType(Dock).props.transparency).toBe(85);
+  await act(async () => reopened.unmount());
+});

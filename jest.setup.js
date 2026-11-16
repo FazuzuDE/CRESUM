@@ -44,3 +44,9 @@ jest.mock('expo-glass-effect', () => ({
   isGlassEffectAPIAvailable: () => false,
   isLiquidGlassAvailable: () => false,
 }));
+
+// Native slider gestures are exercised on-device. Screen tests call its callbacks.
+jest.mock('@react-native-community/slider', () => ({
+  __esModule: true,
+  default: jest.requireActual('react-native').View,
+}));

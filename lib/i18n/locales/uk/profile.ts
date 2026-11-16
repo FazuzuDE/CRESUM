@@ -1,4 +1,5 @@
 export default {
+  'profile.dockTransparency': 'Прозорість нижнього меню',
   'character.pendingShort': 'Готується',
   'character.title': 'Персонаж на ілюстраціях',
   'character.description':
