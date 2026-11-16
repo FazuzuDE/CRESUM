@@ -1,8 +1,9 @@
 # Localization coverage and contribution rules
 
-English is the only release-enabled locale. Russian, German and French are
-connected across the existing application flows; final web/native acceptance is
-pending, so they are not yet offered as production language choices.
+The app offers English, Russian, German and French. System language appears first
+and is selected by default. An explicit choice is saved on the device. Final
+web and native acceptance for Russian, German and French remains pending in the
+release eligibility ledger.
 
 ## Current status
 
@@ -23,7 +24,7 @@ pending, so they are not yet offered as production language choices.
 | Profile, account, backup and recovery              | Connected            | Connected and tested            |
 | Device rendering/accessibility acceptance          | Existing limitations | Pending                         |
 
-`npm run i18n:report` emits catalog counts, enabled locales, release eligibility,
+`npm run i18n:report` emits catalog counts, locale release flags, release eligibility,
 source candidates and unclassified candidates grouped by file.
 `docs/localization-pending.json` retains its compatibility filename and stores the
 full inventory with file, line, text and syntax-parent context.
