@@ -235,6 +235,6 @@ const s = StyleSheet.create({
   solid: { backgroundColor: colors.surface },
   title: { ...typography.title2, color: colors.textPrimary },
   options: { gap: spacing.xs },
-  copy: { ...typography.footnote, color: colors.textSecondary },
+  copy: { ...typography.footnote, color: colors.textPrimary },
   error: { ...typography.footnote, color: colors.danger },
 });
