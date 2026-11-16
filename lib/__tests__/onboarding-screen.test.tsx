@@ -439,3 +439,27 @@ it('offers only birthdate years accepted by the existing profile validator', asy
     await act(async () => view.unmount());
   }
 });
+
+it('centers each onboarding element in the remaining space below its preceding content', async () => {
+  const view = await mount();
+  const expectCentered = (testID: string) => {
+    const slot = view.root.findAllByProps({ testID })[0];
+    expect(StyleSheet.flatten(slot?.props.style)).toMatchObject({
+      flexGrow: 1,
+      justifyContent: 'center',
+    });
+    return slot;
+  };
+  expect(
+    expectCentered('onboarding-name-slot').findByType(TextInput),
+  ).toBeDefined();
+
+  await enterBody(view);
+  const image = expectCentered('onboarding-scale-slot').findByType(Image);
+  expect(StyleSheet.flatten(image.props.style).height).toBeGreaterThan(190);
+
+  await act(async () => button(view, 'Skip for now')?.props.onPress());
+  const choices = expectCentered('onboarding-start-choices');
+  expect(choices.findAllByType(AppButton)).toHaveLength(2);
+  await act(async () => view.unmount());
+});

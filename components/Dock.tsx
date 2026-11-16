@@ -1,9 +1,3 @@
-import { BlurView } from 'expo-blur';
-import {
-  GlassView,
-  isGlassEffectAPIAvailable,
-  isLiquidGlassAvailable,
-} from 'expo-glass-effect';
 import { Ionicons } from '@expo/vector-icons';
 import { useEffect, useMemo, useState } from 'react';
 import {
@@ -19,6 +13,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { cardShadow, colors, radius, spacing, typography } from '@/lib/theme';
+import { DEFAULT_GLASS_TRANSPARENCY, GlassMaterial } from './GlassMaterial';
 import { useLocalization } from './LocalizationProvider';
 import { useReducedTransparency } from './useReducedTransparency';
 
@@ -29,7 +24,7 @@ const tabs = [
   ['profile', 'nav.profile', 'person-outline'],
 ] as const;
 
-export const DEFAULT_DOCK_TRANSPARENCY = 66;
+export const DEFAULT_DOCK_TRANSPARENCY = DEFAULT_GLASS_TRANSPARENCY;
 
 export function Dock({
   active,
@@ -44,11 +39,7 @@ export function Dock({
 }) {
   const { t } = useLocalization();
   const reduceTransparency = useReducedTransparency();
-  const isIOS = Platform.OS === 'ios';
-  const reduced = isIOS && reduceTransparency;
-  const translucent = isIOS && !reduced;
-  const nativeGlass =
-    translucent && isGlassEffectAPIAvailable() && isLiquidGlassAvailable();
+  const reduced = Platform.OS === 'ios' && reduceTransparency;
   const selectedIndex = tabs.findIndex(([id]) => id === active);
   const position = useAnimatedValue(Math.max(0, selectedIndex));
   const [tabWidth, setTabWidth] = useState(0);
@@ -95,7 +86,6 @@ export function Dock({
   }, [position, reduceMotion, selectedIndex, tabWidth]);
 
   const clarity = transparency / 100;
-  const tintOpacity = reduced ? 1 : 1 - clarity * (translucent ? 1 : 0.92);
   return (
     <SafeAreaView
       edges={['bottom']}
@@ -107,26 +97,11 @@ export function Dock({
     >
       <View style={s.shadow}>
         <View style={s.dock} accessibilityRole="tablist">
-          {nativeGlass ? (
-            <GlassView
-              pointerEvents="none"
-              glassEffectStyle="clear"
-              colorScheme="light"
-              style={s.material}
-            />
-          ) : translucent ? (
-            <BlurView
-              pointerEvents="none"
-              intensity={Math.round(84 - clarity * 48)}
-              tint="light"
-              style={s.material}
-            />
-          ) : null}
-          <View
-            pointerEvents="none"
-            style={[s.material, s.solid, { opacity: tintOpacity }]}
+          <GlassMaterial
+            borderRadius={radius.pill}
+            solid={reduced}
+            transparency={transparency}
           />
-          <View pointerEvents="none" style={[s.material, s.edge]} />
           <View
             style={s.row}
             onLayout={({ nativeEvent }) =>
@@ -199,13 +174,7 @@ const s = StyleSheet.create({
     overflow: 'hidden',
     padding: spacing.xxs,
   },
-  material: { ...StyleSheet.absoluteFill, borderRadius: radius.pill },
-  edge: {
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: colors.separator,
-  },
   row: { flexDirection: 'row' },
-  solid: { backgroundColor: colors.surface },
   item: {
     flex: 1,
     minHeight: 54,
