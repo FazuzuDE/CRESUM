@@ -5,17 +5,28 @@ import { LocalizationProvider } from '../../components/LocalizationProvider';
 import { LocaleStore } from '../i18n/preference-store';
 import { catalogs } from '../i18n/messages';
 import { localeRegistry } from '../i18n/registry';
+import enCommon from '../i18n/locales/en/common';
+import enOnboarding from '../i18n/locales/en/onboarding';
+import ukCommon from '../i18n/locales/uk/common';
+import ukOnboarding from '../i18n/locales/uk/onboarding';
 import { conflictFixture } from './helpers/history-resolution-fixture';
 import { HistoryConflictReview } from '../../components/HistoryConflictReview';
 import { createTranslator } from '../i18n/engine';
 import { AppButton } from '../../components/AppButton';
 const { act, create } = jest.requireActual('react-test-renderer');
-const { releaseEligibility, classifyInventory } = jest.requireActual(
-  '../../scripts/check-localization.cjs',
-);
+const { releaseEligibility, classifyInventory, validateCatalogs } =
+  jest.requireActual('../../scripts/check-localization.cjs');
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
+it('validates the Ukrainian common and onboarding translation packs', () => {
+  expect(
+    validateCatalogs({
+      en: { ...enCommon, ...enOnboarding },
+      uk: { ...ukCommon, ...ukOnboarding },
+    }),
+  ).toEqual([]);
+});
 it('blocks release for missing messages, parameters, plural forms and catalog labels', () => {
   const approved = {
     sourceCandidates: [],
