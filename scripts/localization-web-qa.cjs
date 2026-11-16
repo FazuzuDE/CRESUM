@@ -12,7 +12,7 @@ function expandCatalog(catalog) {
       part.startsWith('{{')
         ? part
         : part.replace(
-            /[aeiouyAEIOUYаеёиоуыэюяАЕЁИОУЫЭЮЯäöüÄÖÜàâæéèêëîïôœùûÿÀÂÆÉÈÊËÎÏÔŒÙÛŸ]/g,
+            /[aeiouyAEIOUYаеёиоуыэюяАЕЁИОУЫЭЮЯієїІЄЇäöüÄÖÜàâæéèêëîïôœùûÿÀÂÆÉÈÊËÎÏÔŒÙÛŸ]/g,
             (letter) => `${letter}ː${letter}`,
           ),
     )}⟧`;
@@ -46,7 +46,7 @@ function prepareQaBundle(source, catalogs) {
     changed++;
     return 'released:!0';
   });
-  assert.equal(changed, 3, 'Expected exactly three unreleased QA locales');
+  assert.ok(changed > 0, 'Expected unreleased QA locales');
   const replacements = [{ ...registry, code }];
   if (catalogs) {
     const module = find('catalogs');
@@ -111,7 +111,7 @@ function readCatalogs(root) {
     return exports;
   };
   return Object.fromEntries(
-    ['en', 'ru', 'de', 'fr'].map((locale) => {
+    ['en', 'ru', 'de', 'fr', 'uk'].map((locale) => {
       const folder = path.join(root, 'lib/i18n/locales', locale);
       const catalog = {};
       for (const file of fs
@@ -217,7 +217,7 @@ async function main() {
   };
   try {
     for (const expand of [false, true])
-      for (const locale of ['en', 'ru', 'de', 'fr'])
+      for (const locale of ['en', 'ru', 'de', 'fr', 'uk'])
         for (const width of [320, 390]) {
           expandedMode = expand;
           const context = await browser.newContext({

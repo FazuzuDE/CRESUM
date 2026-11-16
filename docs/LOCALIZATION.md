@@ -1,9 +1,13 @@
 # Localization coverage and contribution rules
 
-The app offers English, Russian, German and French. System language appears first
-and is selected by default. An explicit choice is saved on the device. Final
-web and native acceptance for Russian, German and French remains pending in the
-release eligibility ledger.
+The app offers English, Russian, German, French and Ukrainian. System language
+appears first and is selected by default. An explicit choice is saved on the
+device. Final web and native acceptance for Russian, German, French and
+Ukrainian remains pending in the release eligibility ledger.
+
+Ukrainian covers the bundled messages and catalogs, including exercise technique
+and equipment. Shared plan titles and descriptions use the Ukrainian text when
+the publication supplies it; older publications use their English metadata.
 
 ## Current status
 

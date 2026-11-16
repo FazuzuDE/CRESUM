@@ -21,7 +21,7 @@ import { useLocalization } from './LocalizationProvider';
 import { AppButton } from './AppButton';
 import { localeRegistry, type LanguagePreference } from '@/lib/i18n/registry';
 import { cardShadow, colors, radius, spacing, typography } from '@/lib/theme';
-const flags = { en: '🇬🇧', ru: '🇷🇺', de: '🇩🇪', fr: '🇫🇷' };
+const flags = { en: '🇬🇧', ru: '🇷🇺', de: '🇩🇪', fr: '🇫🇷', uk: '🇺🇦' };
 
 export function LanguageSettings({ compact = false }: { compact?: boolean }) {
   const [open, setOpen] = useState(false);

@@ -11171,5 +11171,28 @@
         "context": "StringLiteral/ConditionalExpression/CallExpression/ArrayLiteralExpression/JsxExpression"
       }
     ]
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "kind": "internal",
+    "reason": "Locale codes required by the shared publication metadata contract; the UI localizes labels separately.",
+    "entries": [
+      {
+        "text": "en",
+        "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+      },
+      {
+        "text": "ru",
+        "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+      },
+      {
+        "text": "de",
+        "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+      },
+      {
+        "text": "fr",
+        "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+      }
+    ]
   }
 ]

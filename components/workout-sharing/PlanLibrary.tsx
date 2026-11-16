@@ -6,6 +6,7 @@ import { useLocalization } from '../LocalizationProvider';
 import {
   filterPlans,
   parseLibrary,
+  publishedText,
   PlanLibraryCache,
   type LibraryPlan,
 } from '@/lib/workout-sharing/library';
@@ -144,8 +145,10 @@ export function PlanLibrary({
       ) : null}
       {filtered.map((p) => (
         <View key={p.origin.publicationId} style={s.card}>
-          <Text style={s.name}>{p.metadata.title[locale]}</Text>
-          <Text style={s.copy}>{p.metadata.description[locale]}</Text>
+          <Text style={s.name}>{publishedText(p.metadata.title, locale)}</Text>
+          <Text style={s.copy}>
+            {publishedText(p.metadata.description, locale)}
+          </Text>
           <AppButton
             title={t('sharing.open')}
             disabled={loading || cached || !client}

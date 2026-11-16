@@ -2,11 +2,23 @@ import type { PlanOrigin } from '../workout-model';
 import type { AppLocale } from '../i18n/registry';
 import { validPlanOrigin } from './import';
 import { equipmentTaxonomy } from '../exercise-taxonomy';
+
+const requiredPublicationLocales = ['en', 'ru', 'de', 'fr'] as const;
+type PublishedText = Record<
+  (typeof requiredPublicationLocales)[number],
+  string
+> &
+  Partial<Record<AppLocale, string>>;
+
+export function publishedText(labels: PublishedText, locale: AppLocale) {
+  return labels[locale] || labels.en;
+}
+
 export type LibraryPlan = {
   origin: PlanOrigin;
   metadata: {
-    title: Record<AppLocale, string>;
-    description: Record<AppLocale, string>;
+    title: PublishedText;
+    description: PublishedText;
     goal: 'build_muscle' | 'get_stronger' | 'general_fitness';
     experience: 'beginner' | 'some' | 'experienced';
     equipment: string[];
@@ -32,12 +44,16 @@ export function parseLibrary(input: unknown): LibraryPlan[] {
       const pack = m[field];
       if (
         !object(pack) ||
-        !['en', 'ru', 'de', 'fr'].every(
+        !requiredPublicationLocales.every(
           (locale) =>
             typeof pack[locale] === 'string' &&
             (pack[locale] as string).trim().length > 0 &&
             (pack[locale] as string).length < 1000,
-        )
+        ) ||
+        ('uk' in pack &&
+          (typeof pack.uk !== 'string' ||
+            !pack.uk.trim() ||
+            pack.uk.length >= 1000))
       )
         throw Error('Incomplete library metadata');
     }
@@ -69,7 +85,10 @@ export function filterPlans(
       (!filters.experience || p.metadata.experience === filters.experience) &&
       (!filters.equipment ||
         p.metadata.equipment.includes(filters.equipment)) &&
-      [p.metadata.title[locale], p.metadata.description[locale]]
+      [
+        publishedText(p.metadata.title, locale),
+        publishedText(p.metadata.description, locale),
+      ]
         .join(' ')
         .toLocaleLowerCase(locale)
         .includes(text),
