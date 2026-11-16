@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text, TextInput } from 'react-native';
+import { Modal, Text, TextInput } from 'react-native';
 import {
   LocalizationProvider,
   useLocalization,
@@ -22,15 +22,18 @@ it('puts System first and allows a manual choice from every available language',
     );
   });
   act(() => view!.root.findByType(AppButton).props.onPress());
-  const buttons = view!.root.findAllByType(AppButton);
+  const buttons = view!.root.findByType(Modal).findAllByType(AppButton);
   expect(
-    buttons.slice(1).map((b: { props: { title: string } }) => b.props.title),
+    buttons
+      .slice(0, -1)
+      .map((b: { props: { title: string } }) => b.props.title),
   ).toEqual(['System language ✓', 'English', 'Русский', 'Deutsch', 'Français']);
-  expect(buttons[1].props.selected).toBe(true);
+  expect(buttons[0].props.selected).toBe(true);
   await act(async () => {
-    buttons[3].props.onPress();
+    buttons[2].props.onPress();
   });
   expect(store.getSnapshot()).toMatchObject({ preference: 'ru', locale: 'ru' });
+  expect(view!.root.findAllByType(Modal)).toHaveLength(0);
   act(() => view!.unmount());
 });
 it('switches live content without remounting a draft or resetting its value', async () => {

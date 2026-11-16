@@ -31,3 +31,9 @@ jest.mock('./lib/automatic-backup-files', () => ({
 jest.mock('./lib/supabase-auth', () => ({
   createSupabaseAuthRepository: jest.fn(() => null),
 }));
+
+// Renderer tests use inert platform feedback. Device playback requires iOS.
+jest.mock('expo-audio', () => ({
+  setAudioModeAsync: jest.fn(async () => {}),
+  useAudioPlayer: jest.fn(() => ({ isLoaded: false, playing: false })),
+}));
