@@ -31,6 +31,7 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  useWindowDimensions,
   View,
 } from 'react-native';
 import { AppButton } from './AppButton';
@@ -48,6 +49,9 @@ import { AppError } from '@/lib/app-error';
 import { programDayLabel } from '@/lib/i18n/program';
 
 const decimalDigits = Array.from({ length: 10 }, (_, i) => String(i));
+
+const maxContentWidth = 600;
+const welcomeArtworkRatio = 852 / 822;
 
 const onboardingArtwork = {
   welcome: require('../assets/onboarding/welcome.webp'),
@@ -80,6 +84,11 @@ export function Onboarding({
   onExit,
 }: Props) {
   const { t, locale } = useLocalization();
+  const { width, height } = useWindowDimensions();
+  const welcomeArtworkWidth = Math.min(
+    Math.max(0, Math.min(width, maxContentWidth) - 2 * spacing.md),
+    height * 0.42 * welcomeArtworkRatio,
+  );
   const dateLabel = (date: string) =>
     formatDate(locale, new Date(`${date}T00:00:00`).getTime());
   const [state, setState] = useState(() =>
@@ -336,7 +345,17 @@ export function Onboarding({
       source={onboardingArtwork[key]}
       resizeMode="contain"
       accessible={false}
-      style={key === 'welcome' ? s.welcomeArtwork : s.artwork}
+      style={
+        key === 'welcome'
+          ? [
+              s.welcomeArtwork,
+              {
+                width: welcomeArtworkWidth,
+                height: welcomeArtworkWidth / welcomeArtworkRatio,
+              },
+            ]
+          : s.artwork
+      }
     />
   );
   const header = (previous?: OnboardingStep) => (
@@ -1090,7 +1109,7 @@ const s = StyleSheet.create({
   footer: { marginTop: 'auto', paddingTop: spacing.sm },
   center: { textAlign: 'center' },
   artwork: { width: '100%', height: 190, alignSelf: 'center' },
-  welcomeArtwork: { width: '100%', aspectRatio: 852 / 822 },
+  welcomeArtwork: { maxWidth: '100%', alignSelf: 'center' },
   bodyGroup: {
     borderColor: colors.separator,
     borderWidth: 1,
@@ -1118,7 +1137,7 @@ const s = StyleSheet.create({
   workoutDetails: { gap: spacing.xs, padding: spacing.md },
   content: {
     width: '100%',
-    maxWidth: 600,
+    maxWidth: maxContentWidth,
     alignSelf: 'center',
     padding: spacing.md,
     paddingBottom: spacing.xxxl,

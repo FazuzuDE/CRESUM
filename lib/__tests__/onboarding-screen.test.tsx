@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { TextInput } from 'react-native';
+import { Dimensions, Image, StyleSheet, TextInput } from 'react-native';
 import App from '../../app/index';
 import { AppButton } from '../../components/AppButton';
 import { DatePickerSheet } from '../../components/DatePickerSheet';
@@ -93,6 +93,21 @@ it('lets a new user go straight to Home without generating a program', async () 
     answers: { displayName: 'Ihor', artworkModel: 'male' },
   });
   expect(saved.answers.goal).toBeUndefined();
+  await act(async () => view.unmount());
+});
+
+it('renders welcome artwork with explicit bounds inside the viewport', async () => {
+  const view = await mount();
+  const artwork = view.root.findByType(Image);
+  const { width, height } = Dimensions.get('window');
+  const frame = StyleSheet.flatten(artwork.props.style);
+  expect(frame.width).toEqual(expect.any(Number));
+  expect(frame.height).toEqual(expect.any(Number));
+  expect(frame.width).toBeLessThan(width);
+  expect(frame.height).toBeLessThanOrEqual(height * 0.42 + 0.01);
+  expect(frame.maxWidth).toBe('100%');
+  expect(frame.width / frame.height).toBeCloseTo(852 / 822);
+  expect(artwork.props.resizeMode).toBe('contain');
   await act(async () => view.unmount());
 });
 
