@@ -37,3 +37,10 @@ jest.mock('expo-audio', () => ({
   setAudioModeAsync: jest.fn(async () => {}),
   useAudioPlayer: jest.fn(() => ({ isLoaded: false, playing: false })),
 }));
+
+// Native visual effects are verified on a device, not by the renderer.
+jest.mock('expo-glass-effect', () => ({
+  GlassView: jest.requireActual('react-native').View,
+  isGlassEffectAPIAvailable: () => false,
+  isLiquidGlassAvailable: () => false,
+}));
