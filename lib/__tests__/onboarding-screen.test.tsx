@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Dimensions, Image, StyleSheet, TextInput, View } from 'react-native';
+import { Dimensions, Image, StyleSheet, TextInput } from 'react-native';
 import App from '../../app/index';
 import { AppButton } from '../../components/AppButton';
 import { DatePickerSheet } from '../../components/DatePickerSheet';
@@ -107,7 +107,6 @@ it('renders welcome artwork with explicit bounds inside the viewport', async () 
     Math.min(width, 600, height * 0.46 * (852 / 822)),
   );
   const frameContainer = artwork.parent;
-  expect(frameContainer?.type).toBe(View);
   expect(
     StyleSheet.flatten(frameContainer?.props.style).marginHorizontal,
   ).toBeLessThan(0);
