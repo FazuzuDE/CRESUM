@@ -15,11 +15,16 @@ and icons opaque and keep the solid appearance when Reduce Transparency is enabl
 ## Compact dialogs and scrolling
 
 Use the centered light glass dialog for language selection, short confirmations,
-history filters and date or measurement wheels. Keep the surrounding dimming
+history filters and date or measurement wheels. Use the same clear glass
+material as the floating dock, with light blur on older iOS versions. Keep the surrounding dimming
 light and respect reduced transparency. Reserve larger sheets for workflows
 that need the space, such as editing workout sets or browsing equipment. Keep
 primary actions fully reachable inside the safe area. Enable page scrolling
 when content exceeds the viewport, including with the keyboard or larger text.
+
+Center the Welcome name field between the tagline and Continue. Center the
+larger scales illustration between the body fields and the footer action.
+Center the two start choices as a group in the space below the notebook.
 
 ## Exercise character selector — updated 2026-11-16
 

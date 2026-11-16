@@ -1,13 +1,8 @@
 import type { ReactNode } from 'react';
 import { Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { BlurView } from 'expo-blur';
-import {
-  GlassView,
-  isGlassEffectAPIAvailable,
-  isLiquidGlassAvailable,
-} from 'expo-glass-effect';
-import { cardShadow, colors, radius, spacing } from '@/lib/theme';
+import { GlassMaterial } from './GlassMaterial';
+import { cardShadow, radius, spacing } from '@/lib/theme';
 import { useReducedTransparency } from './useReducedTransparency';
 
 export function GlassDialog({
@@ -20,7 +15,6 @@ export function GlassDialog({
   visible?: boolean;
 }) {
   const reduceTransparency = useReducedTransparency(visible);
-  const translucent = Platform.OS === 'ios' && !reduceTransparency;
   return (
     <Modal
       transparent
@@ -36,28 +30,10 @@ export function GlassDialog({
             onPress={onClose}
           />
           <View style={s.panel} accessibilityViewIsModal>
-            {translucent ? (
-              <>
-                {isGlassEffectAPIAvailable() && isLiquidGlassAvailable() ? (
-                  <GlassView
-                    pointerEvents="none"
-                    glassEffectStyle="regular"
-                    colorScheme="light"
-                    style={s.material}
-                  />
-                ) : (
-                  <BlurView
-                    pointerEvents="none"
-                    intensity={85}
-                    tint="light"
-                    style={s.material}
-                  />
-                )}
-                <View pointerEvents="none" style={[s.material, s.glassVeil]} />
-              </>
-            ) : (
-              <View pointerEvents="none" style={[s.material, s.solid]} />
-            )}
+            <GlassMaterial
+              borderRadius={radius.xxl}
+              solid={Platform.OS === 'ios' && reduceTransparency}
+            />
             {children}
           </View>
         </View>
@@ -86,15 +62,4 @@ const s = StyleSheet.create({
     padding: spacing.md,
     gap: spacing.sm,
   },
-  material: {
-    ...StyleSheet.absoluteFill,
-    borderRadius: radius.xxl,
-    overflow: 'hidden',
-  },
-  glassVeil: {
-    backgroundColor: 'rgba(255, 255, 255, 0.62)',
-    borderColor: 'rgba(255, 255, 255, 0.84)',
-    borderWidth: StyleSheet.hairlineWidth,
-  },
-  solid: { backgroundColor: colors.surface },
 });

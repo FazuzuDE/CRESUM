@@ -92,6 +92,7 @@ export function Onboarding({
     Math.max(welcomeArtworkNaturalHeight * 0.82, height * 0.39),
   );
   const artworkHeights = {
+    profile: Math.min(290, width * 0.66),
     start_path: Math.min(330, height * 0.4),
     goal: Math.min(265, height * 0.29),
   };
@@ -362,7 +363,7 @@ export function Onboarding({
             ]
           : [
               s.artwork,
-              key === 'start_path' || key === 'goal'
+              key === 'profile' || key === 'start_path' || key === 'goal'
                 ? { height: artworkHeights[key] }
                 : undefined,
             ]
@@ -494,7 +495,10 @@ export function Onboarding({
                     polished ? 'onboarding.welcomeTagline' : 'onboarding.intro',
                   )}
                 </Text>
-                <View style={s.field}>
+                <View
+                  testID="onboarding-name-slot"
+                  style={[s.field, polished && s.centeredSlot]}
+                >
                   <Text style={s.label}>{t('onboarding.nameQuestion')}</Text>
                   <TextInput
                     accessibilityLabel={t('onboarding.name')}
@@ -514,7 +518,7 @@ export function Onboarding({
                     }}
                   />
                 </View>
-                <View style={polished && s.footer}>
+                <View style={polished && s.footerSpacing}>
                   <AppButton
                     title={t('onboarding.continue')}
                     disabled={busy || !state.answers.displayName?.trim()}
@@ -545,7 +549,10 @@ export function Onboarding({
                   {t('onboarding.startPath')}
                 </Text>
                 {artwork('start_path')}
-                <View style={[s.footer, s.startChoices]}>
+                <View
+                  testID="onboarding-start-choices"
+                  style={[s.centeredSlot, s.startChoices]}
+                >
                   <AppButton
                     presentation="choice"
                     highlighted
@@ -723,8 +730,12 @@ export function Onboarding({
                   {field(t('onboarding.height'), 'heightCm', polished)}
                   {field(t('onboarding.weight'), 'bodyWeightKg', polished)}
                 </View>
-                {polished ? artwork('profile') : null}
-                <View style={polished && s.footer}>
+                {polished ? (
+                  <View testID="onboarding-scale-slot" style={s.centeredSlot}>
+                    {artwork('profile')}
+                  </View>
+                ) : null}
+                <View style={polished && s.footerSpacing}>
                   <AppButton
                     title={
                       state.answers.dateOfBirth ||
@@ -1135,6 +1146,8 @@ const s = StyleSheet.create({
   polishedContent: { flexGrow: 1, paddingBottom: spacing.md },
   polishedFrame: { flexGrow: 1, gap: spacing.md },
   footer: { marginTop: 'auto', paddingTop: spacing.sm },
+  footerSpacing: { paddingTop: spacing.sm },
+  centeredSlot: { flexGrow: 1, justifyContent: 'center' },
   startChoices: { gap: spacing.md },
   center: { textAlign: 'center' },
   artwork: { width: '100%', height: 190, alignSelf: 'center' },
