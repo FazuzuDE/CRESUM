@@ -1,26 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import {
-  AccessibilityInfo,
-  Modal,
-  Platform,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import { BlurView } from 'expo-blur';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 import { setAudioModeAsync, useAudioPlayer } from 'expo-audio';
-import {
-  GlassView,
-  isGlassEffectAPIAvailable,
-  isLiquidGlassAvailable,
-} from 'expo-glass-effect';
+import { ContentScrollView } from './ContentScrollView';
+import { GlassDialog } from './GlassDialog';
 import * as Haptics from 'expo-haptics';
 import { useLocalization } from './LocalizationProvider';
 import { AppButton } from './AppButton';
 import { localeRegistry, type LanguagePreference } from '@/lib/i18n/registry';
-import { cardShadow, colors, radius, spacing, typography } from '@/lib/theme';
+import { colors, spacing, typography } from '@/lib/theme';
 const flags = { en: '🇬🇧', ru: '🇷🇺', de: '🇩🇪', fr: '🇫🇷', uk: '🇺🇦' };
 
 export function LanguageSettings({ compact = false }: { compact?: boolean }) {
@@ -28,7 +15,6 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
   const { t, locale, preference, saving, error, select, store } =
     useLocalization();
   const [attempted, setAttempted] = useState<LanguagePreference>();
-  const [reduceTransparency, setReduceTransparency] = useState(true);
   const audioReady = useRef(false);
   const scrollStep = useRef(0);
   const player = useAudioPlayer(require('../assets/audio/language-tick.wav'));
@@ -36,15 +22,6 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
   useEffect(() => {
     if (!open || Platform.OS !== 'ios') return;
     let active = true;
-    void AccessibilityInfo.isReduceTransparencyEnabled()
-      .then((reduced) => {
-        if (active) setReduceTransparency(reduced);
-      })
-      .catch(() => {});
-    const subscription = AccessibilityInfo.addEventListener(
-      'reduceTransparencyChanged',
-      setReduceTransparency,
-    );
     void setAudioModeAsync({
       playsInSilentMode: false,
       interruptionMode: 'mixWithOthers',
@@ -56,7 +33,6 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
     return () => {
       active = false;
       audioReady.current = false;
-      subscription.remove();
     };
   }, [open]);
 
@@ -80,16 +56,31 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
   const dismiss = () => {
     if (!saving) setOpen(false);
   };
-  const glass =
-    open &&
-    Platform.OS === 'ios' &&
-    !reduceTransparency &&
-    isGlassEffectAPIAvailable() &&
-    isLiquidGlassAvailable();
-  const options: LanguagePreference[] = [
-    'system',
-    ...(store?.enabledLocales ?? []),
-  ];
+  const options = [...(store?.enabledLocales ?? [])].sort((a, b) =>
+    localeRegistry[a].nativeName.localeCompare(
+      localeRegistry[b].nativeName,
+      'en',
+    ),
+  );
+  const option = (value: LanguagePreference) => {
+    const name =
+      value === 'system'
+        ? t('language.system')
+        : localeRegistry[value].nativeName;
+    const marker = value === 'system' ? '🌐' : flags[value];
+    const selected = preference === value;
+    return (
+      <AppButton
+        key={value}
+        selected={selected}
+        accessibilityLabel={name}
+        title={`${marker}  ${name}${selected ? ' ✓' : ''}`}
+        secondary
+        disabled={saving || !select}
+        onPress={() => void choose(value)}
+      />
+    );
+  };
   return (
     <View style={[s.root, compact && s.compact]}>
       <AppButton
@@ -103,102 +94,52 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
         }}
       />
       {open ? (
-        <Modal
-          transparent
-          visible
-          onRequestClose={dismiss}
-          statusBarTranslucent
-        >
-          <View style={s.overlay}>
-            <Pressable
-              accessible={false}
-              style={StyleSheet.absoluteFill}
-              onPress={dismiss}
-            />
-            <View style={s.panel} accessibilityViewIsModal>
-              {glass ? (
-                <GlassView
-                  pointerEvents="none"
-                  glassEffectStyle="regular"
-                  colorScheme="light"
-                  style={s.material}
+        <GlassDialog onClose={dismiss}>
+          <Text accessibilityRole="header" style={s.title}>
+            {t('language.title')}
+          </Text>
+          <Text style={s.copy}>{t('language.description')}</Text>
+          {option('system')}
+          <ContentScrollView
+            style={s.list}
+            contentContainerStyle={s.options}
+            scrollEventThrottle={16}
+            onScroll={({ nativeEvent }) => {
+              const { contentOffset, contentSize, layoutMeasurement } =
+                nativeEvent;
+              const offset = Math.min(
+                Math.max(0, contentOffset.y),
+                Math.max(0, contentSize.height - layoutMeasurement.height),
+              );
+              const step = Math.floor(offset / spacing.lg);
+              if (step !== scrollStep.current) {
+                scrollStep.current = step;
+                tick();
+              }
+            }}
+          >
+            {options.map(option)}
+            {error === 'save' ? (
+              <>
+                <Text accessibilityRole="alert" style={s.error}>
+                  {t('language.saveError')}
+                </Text>
+                <AppButton
+                  title={t('common.retry')}
+                  disabled={saving || !attempted}
+                  onPress={() => attempted && void choose(attempted)}
                 />
-              ) : Platform.OS === 'ios' && !reduceTransparency ? (
-                <BlurView
-                  pointerEvents="none"
-                  intensity={85}
-                  tint="light"
-                  style={s.material}
-                />
-              ) : (
-                <View pointerEvents="none" style={[s.material, s.solid]} />
-              )}
-              {Platform.OS === 'ios' && !reduceTransparency ? (
-                <View pointerEvents="none" style={[s.material, s.glassVeil]} />
-              ) : null}
-              <Text accessibilityRole="header" style={s.title}>
-                {t('language.title')}
-              </Text>
-              <ScrollView
-                contentContainerStyle={s.options}
-                scrollEventThrottle={16}
-                onScroll={({ nativeEvent }) => {
-                  const { contentOffset, contentSize, layoutMeasurement } =
-                    nativeEvent;
-                  const offset = Math.min(
-                    Math.max(0, contentOffset.y),
-                    Math.max(0, contentSize.height - layoutMeasurement.height),
-                  );
-                  const step = Math.floor(offset / spacing.lg);
-                  if (step !== scrollStep.current) {
-                    scrollStep.current = step;
-                    tick();
-                  }
-                }}
-              >
-                <Text style={s.copy}>{t('language.description')}</Text>
-                {options.map((value) => {
-                  const name =
-                    value === 'system'
-                      ? t('language.system')
-                      : localeRegistry[value].nativeName;
-                  const marker = value === 'system' ? '🌐' : flags[value];
-                  const selected = preference === value;
-                  return (
-                    <AppButton
-                      key={value}
-                      selected={selected}
-                      accessibilityLabel={name}
-                      title={`${marker}  ${name}${selected ? ' ✓' : ''}`}
-                      secondary
-                      disabled={saving || !select}
-                      onPress={() => void choose(value)}
-                    />
-                  );
-                })}
-                {error === 'save' ? (
-                  <>
-                    <Text accessibilityRole="alert" style={s.error}>
-                      {t('language.saveError')}
-                    </Text>
-                    <AppButton
-                      title={t('common.retry')}
-                      disabled={saving || !attempted}
-                      onPress={() => attempted && void choose(attempted)}
-                    />
-                  </>
-                ) : null}
-              </ScrollView>
-              <AppButton
-                title={t('common.cancel')}
-                presentation="text"
-                secondary
-                disabled={saving}
-                onPress={dismiss}
-              />
-            </View>
-          </View>
-        </Modal>
+              </>
+            ) : null}
+          </ContentScrollView>
+          <AppButton
+            title={t('common.cancel')}
+            presentation="text"
+            secondary
+            disabled={saving}
+            onPress={dismiss}
+          />
+        </GlassDialog>
       ) : null}
     </View>
   );
@@ -206,33 +147,7 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
 const s = StyleSheet.create({
   root: { gap: spacing.sm },
   compact: { alignItems: 'flex-end' },
-  overlay: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: spacing.lg,
-    backgroundColor: 'rgba(0, 0, 0, 0.14)',
-  },
-  panel: {
-    ...cardShadow,
-    width: '100%',
-    maxWidth: 380,
-    maxHeight: '88%',
-    borderRadius: radius.xxl,
-    padding: spacing.md,
-    gap: spacing.sm,
-  },
-  material: {
-    ...StyleSheet.absoluteFill,
-    borderRadius: radius.xxl,
-    overflow: 'hidden',
-  },
-  glassVeil: {
-    backgroundColor: 'rgba(255, 255, 255, 0.62)',
-    borderColor: 'rgba(255, 255, 255, 0.84)',
-    borderWidth: StyleSheet.hairlineWidth,
-  },
-  solid: { backgroundColor: colors.surface },
+  list: { flexGrow: 0, flexShrink: 1 },
   title: { ...typography.title2, color: colors.textPrimary },
   options: { gap: spacing.xs },
   copy: { ...typography.footnote, color: colors.textPrimary },

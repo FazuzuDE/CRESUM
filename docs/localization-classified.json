@@ -11217,5 +11217,24 @@
         "context": "StringLiteral/PropertyAssignment:borderColor/ObjectLiteralExpression/PropertyAssignment:glassVeil/ObjectLiteralExpression"
       }
     ]
+  },
+  {
+    "file": "components/GlassDialog.tsx",
+    "kind": "internal",
+    "reason": "RGBA values define the modal scrim, glass tint and edge highlight.",
+    "entries": [
+      {
+        "text": "rgba(0, 0, 0, 0.14)",
+        "context": "StringLiteral/PropertyAssignment:backgroundColor/ObjectLiteralExpression/PropertyAssignment:safeArea/ObjectLiteralExpression"
+      },
+      {
+        "text": "rgba(255, 255, 255, 0.62)",
+        "context": "StringLiteral/PropertyAssignment:backgroundColor/ObjectLiteralExpression/PropertyAssignment:glassVeil/ObjectLiteralExpression"
+      },
+      {
+        "text": "rgba(255, 255, 255, 0.84)",
+        "context": "StringLiteral/PropertyAssignment:borderColor/ObjectLiteralExpression/PropertyAssignment:glassVeil/ObjectLiteralExpression"
+      }
+    ]
   }
 ]

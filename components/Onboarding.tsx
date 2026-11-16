@@ -20,6 +20,7 @@ import {
 } from '@/lib/training-programs/schedule';
 import { exerciseLibrary, findExercise } from '@/lib/exercise-library';
 import { AppScrollView } from './AppScrollView';
+import { ContentScrollView } from './ContentScrollView';
 import { useRef, useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import {
@@ -27,7 +28,6 @@ import {
   KeyboardAvoidingView,
   Platform,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -88,7 +88,7 @@ export function Onboarding({
   const welcomeArtworkWidth = Math.min(
     width,
     maxContentWidth,
-    height * 0.46 * welcomeArtworkRatio,
+    height * 0.39 * welcomeArtworkRatio,
   );
   const dateLabel = (date: string) =>
     formatDate(locale, new Date(`${date}T00:00:00`).getTime());
@@ -337,7 +337,7 @@ export function Onboarding({
   };
   const step = state.step;
   const polished = !editing && step in onboardingArtwork;
-  const FlowScroll = polished ? ScrollView : AppScrollView;
+  const FlowScroll = polished ? ContentScrollView : AppScrollView;
   const Frame = polished ? View : GlassCard;
   const backTarget = editing && step === 'goal' ? 'profile' : back[step];
   const navigationDisabled = saving || busy || Boolean(lockedProposal);
@@ -359,7 +359,7 @@ export function Onboarding({
       }
     />
   );
-  const header = (previous?: OnboardingStep) => (
+  const header = (previous?: OnboardingStep, showLanguage = false) => (
     <View style={s.characterHeader}>
       <BrandHeader tagline={false} />
       {previous ? (
@@ -377,6 +377,11 @@ export function Onboarding({
         >
           <Ionicons name="chevron-back" size={26} color={colors.primary} />
         </Pressable>
+      ) : null}
+      {showLanguage ? (
+        <View style={s.headerLanguage}>
+          <LanguageSettings compact />
+        </View>
       ) : null}
     </View>
   );
@@ -398,8 +403,8 @@ export function Onboarding({
     });
   if (step === 'character') {
     return (
-      <ScrollView
-        style={s.white}
+      <ContentScrollView
+        style={[s.root, s.white]}
         contentContainerStyle={[s.content, s.characterContent]}
       >
         {header('welcome')}
@@ -426,7 +431,7 @@ export function Onboarding({
             {presentAppError(t, error, 'error.programSave')}
           </Text>
         ) : null}
-      </ScrollView>
+      </ContentScrollView>
     );
   }
   return (
@@ -436,11 +441,16 @@ export function Onboarding({
     >
       <FlowScroll
         key={step}
+        style={s.root}
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={[s.content, polished && s.polishedContent]}
       >
-        {polished ? header(backTarget) : <BrandHeader tagline={false} />}
-        {step === 'welcome' ? <LanguageSettings compact={polished} /> : null}
+        {polished ? (
+          header(backTarget, step === 'welcome')
+        ) : (
+          <BrandHeader tagline={false} />
+        )}
+        {step === 'welcome' && !polished ? <LanguageSettings /> : null}
         {step === 'self_setup' ? (
           <>
             <Text style={s.title} accessibilityRole="header">
@@ -1070,6 +1080,7 @@ export function Onboarding({
           }}
         >
           <AppPicker
+            flexible
             columns={[
               measurement.whole,
               Math.floor(measurement.tenths / 10) ===
@@ -1151,6 +1162,7 @@ const s = StyleSheet.create({
   },
   characterContent: { flexGrow: 1, paddingBottom: spacing.md },
   characterHeader: { justifyContent: 'center', minHeight: 44 },
+  headerLanguage: { position: 'absolute', right: 0 },
   characterBack: {
     position: 'absolute',
     left: 0,

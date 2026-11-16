@@ -1,9 +1,8 @@
-import { AppScrollView } from './AppScrollView';
-import { Modal, StyleSheet, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet, Text } from 'react-native';
+import { ContentScrollView } from './ContentScrollView';
+import { GlassDialog } from './GlassDialog';
 import { colors, spacing, typography } from '@/lib/theme';
 import { AppButton } from './AppButton';
-import { GlassCard } from './GlassCard';
 import { useLocalization } from './LocalizationProvider';
 
 export function Confirmation({
@@ -33,44 +32,39 @@ export function Confirmation({
 }) {
   const { t } = useLocalization();
   return (
-    <Modal
+    <GlassDialog
       visible={visible}
-      presentationStyle="pageSheet"
-      onRequestClose={() => {
+      onClose={() => {
         if (!busy) onCancel();
       }}
     >
-      <SafeAreaView style={s.root}>
-        <AppScrollView contentContainerStyle={s.content}>
-          <Text style={s.title}>{title}</Text>
-          <GlassCard>
-            <Text style={s.body}>{message}</Text>
-          </GlassCard>
-          {error ? (
-            <Text accessibilityRole="alert" style={s.body}>
-              {error}
-            </Text>
-          ) : null}
-          <AppButton
-            title={busy ? (busyLabel ?? t('workout.saving')) : confirmLabel}
-            disabled={busy}
-            destructive={destructive}
-            onPress={onConfirm}
-          />
-          <AppButton
-            title={cancelLabel}
-            disabled={busy}
-            secondary
-            onPress={onCancel}
-          />
-        </AppScrollView>
-      </SafeAreaView>
-    </Modal>
+      <ContentScrollView style={s.scroll} contentContainerStyle={s.content}>
+        <Text style={s.title}>{title}</Text>
+        <Text style={s.body}>{message}</Text>
+        {error ? (
+          <Text accessibilityRole="alert" style={s.body}>
+            {error}
+          </Text>
+        ) : null}
+        <AppButton
+          title={busy ? (busyLabel ?? t('workout.saving')) : confirmLabel}
+          disabled={busy}
+          destructive={destructive}
+          onPress={onConfirm}
+        />
+        <AppButton
+          title={cancelLabel}
+          disabled={busy}
+          secondary
+          onPress={onCancel}
+        />
+      </ContentScrollView>
+    </GlassDialog>
   );
 }
 const s = StyleSheet.create({
-  root: { flex: 1, backgroundColor: colors.background },
-  content: { padding: spacing.md, gap: spacing.lg },
+  scroll: { flexGrow: 0, flexShrink: 1 },
+  content: { gap: spacing.sm },
   title: { ...typography.title1, color: colors.textPrimary },
   body: { ...typography.body, color: colors.textPrimary },
 });

@@ -29,6 +29,7 @@ export function DatePickerSheet({
       onClear={onClear}
     >
       <AppDatePicker
+        flexible
         value={draft}
         minimum={minimum}
         maximum={maximum}

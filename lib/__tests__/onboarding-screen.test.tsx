@@ -1,5 +1,12 @@
+import { ContentScrollView } from '../../components/ContentScrollView';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Dimensions, Image, StyleSheet, TextInput } from 'react-native';
+import {
+  Dimensions,
+  Image,
+  ScrollView,
+  StyleSheet,
+  TextInput,
+} from 'react-native';
 import App from '../../app/index';
 import { AppButton } from '../../components/AppButton';
 import { DatePickerSheet } from '../../components/DatePickerSheet';
@@ -96,6 +103,22 @@ it('lets a new user go straight to Home without generating a program', async () 
   await act(async () => view.unmount());
 });
 
+it('enables page scrolling only when the content exceeds the available height', async () => {
+  const view = await mount();
+  const page = () =>
+    view.root.findByType(ContentScrollView).findByType(ScrollView);
+  await act(async () => {
+    page().props.onLayout({
+      nativeEvent: { layout: { width: 390, height: 730 } },
+    });
+    page().props.onContentSizeChange(390, 730);
+  });
+  expect(page().props.scrollEnabled).toBe(false);
+  await act(async () => page().props.onContentSizeChange(390, 790));
+  expect(page().props.scrollEnabled).toBe(true);
+  await act(async () => view.unmount());
+});
+
 it('renders welcome artwork with explicit bounds inside the viewport', async () => {
   const view = await mount();
   const artwork = view.root.findByType(Image);
@@ -104,7 +127,7 @@ it('renders welcome artwork with explicit bounds inside the viewport', async () 
   expect(frame.width).toEqual(expect.any(Number));
   expect(frame.height).toEqual(expect.any(Number));
   expect(frame.width).toBeCloseTo(
-    Math.min(width, 600, height * 0.46 * (852 / 822)),
+    Math.min(width, 600, height * 0.39 * (852 / 822)),
   );
   const frameContainer = artwork.parent;
   expect(
