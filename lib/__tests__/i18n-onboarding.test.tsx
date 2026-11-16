@@ -1,3 +1,4 @@
+import { AppPicker } from '../../components/AppPicker';
 import { TextInput } from 'react-native';
 import { Onboarding } from '../../components/Onboarding';
 import { AppButton } from '../../components/AppButton';
@@ -82,23 +83,21 @@ it('retains onboarding answers, proposal identity and retry state across languag
     await press('Weiter');
     await press('Weiblich');
     await press('Weiter');
-    await act(async () => {
-      input('Körpergewicht (kg)').props.onChangeText('82,');
-    });
-    await press('Weiter');
-    expect(JSON.stringify(view!.toJSON())).toContain(
-      'Gib ein gültiges Körpergewicht ein oder lasse das Feld leer.',
-    );
+    const weight = view!.root
+      .findAllByType(AppButton)
+      .find(
+        (node: { props: { accessibilityLabel: string } }) =>
+          node.props.accessibilityLabel === 'Körpergewicht (kg)',
+      );
+    await act(async () => weight.props.onPress());
+    const picker = () => view!.root.findByType(AppPicker);
+    await act(async () => picker().props.onChange(0, 82));
+    await act(async () => picker().props.onChange(1, 5));
     await act(async () => {
       await locale.select('fr');
     });
-    expect(input('Poids (kg)').props.value).toBe('82,');
-    expect(JSON.stringify(view!.toJSON())).toContain(
-      'Saisis un poids valide ou laisse le champ vide.',
-    );
-    await act(async () => {
-      input('Poids (kg)').props.onChangeText('82,5');
-    });
+    expect(picker().props.selected).toEqual([82, 5]);
+    await press('Terminé');
     await press('Continuer');
     await press('Trouver un programme');
     await press('Développer les muscles');
@@ -125,7 +124,7 @@ it('retains onboarding answers, proposal identity and retry state across languag
     expect(complete.mock.calls[1]).toEqual(complete.mock.calls[0]);
     const [state, proposal] = complete.mock.calls[1];
     expect(state.answers.displayName).toBe('Ihor');
-    expect(state.answers.bodyWeightKg).toBe('82,5');
+    expect(state.answers.bodyWeightKg).toBe('82.5');
     expect(proposal.program.name).toBe('Build muscle');
   } finally {
     await act(async () => {

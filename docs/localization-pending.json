@@ -15880,5 +15880,23 @@
     "line": 9,
     "text": "general_fitness",
     "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/BinaryExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 232,
+    "text": "`${value || '—'} ${unit}`",
+    "context": "TemplateExpression/JsxExpression/JsxAttribute:title/JsxAttributes/JsxSelfClosingElement"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 1031,
+    "text": "onboarding.height",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 1032,
+    "text": "onboarding.weight",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
   }
 ]

@@ -1,10 +1,6 @@
 import { useState } from 'react';
-import { Modal, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppDatePicker } from './AppDatePicker';
-import { AppButton } from './AppButton';
-import { colors, spacing, typography } from '@/lib/theme';
-import { useLocalization } from './LocalizationProvider';
+import { WheelPickerSheet } from './WheelPickerSheet';
 
 /** Mount on open so Cancel/dismiss discards the entire local date draft. */
 export function DatePickerSheet({
@@ -24,58 +20,20 @@ export function DatePickerSheet({
   onConfirm: (time: number) => void;
   onClear?: () => void;
 }) {
-  const { t } = useLocalization();
   const [draft, setDraft] = useState(value);
   return (
-    <Modal
-      visible
-      animationType="slide"
-      presentationStyle="pageSheet"
-      onRequestClose={onCancel}
+    <WheelPickerSheet
+      title={title}
+      onCancel={onCancel}
+      onConfirm={() => onConfirm(draft)}
+      onClear={onClear}
     >
-      <SafeAreaView style={s.root}>
-        <View style={s.content}>
-          <ScrollView style={s.header}>
-            <Text accessibilityRole="header" style={s.title}>
-              {title}
-            </Text>
-          </ScrollView>
-          <AppDatePicker
-            flexible
-            value={draft}
-            minimum={minimum}
-            maximum={maximum}
-            onChange={setDraft}
-          />
-          <ScrollView style={s.footer} contentContainerStyle={s.actions}>
-            <AppButton
-              title={t('common.done')}
-              onPress={() => onConfirm(draft)}
-            />
-            <AppButton
-              title={t('common.cancel')}
-              secondary
-              onPress={onCancel}
-            />
-            {onClear ? (
-              <AppButton
-                title={t('date.clear')}
-                presentation="text"
-                secondary
-                onPress={onClear}
-              />
-            ) : null}
-          </ScrollView>
-        </View>
-      </SafeAreaView>
-    </Modal>
+      <AppDatePicker
+        value={draft}
+        minimum={minimum}
+        maximum={maximum}
+        onChange={setDraft}
+      />
+    </WheelPickerSheet>
   );
 }
-const s = StyleSheet.create({
-  root: { flex: 1, backgroundColor: colors.background },
-  content: { flex: 1, padding: spacing.md, gap: spacing.sm },
-  header: { flexGrow: 0, flexShrink: 1, minHeight: 44 },
-  footer: { flexGrow: 0, flexShrink: 1, minHeight: 44 },
-  title: { ...typography.title2, color: colors.textPrimary },
-  actions: { gap: spacing.sm },
-});

@@ -1,4 +1,5 @@
 export default {
+  'onboarding.decimalPart': 'Десятая доля',
   'onboarding.welcomeTagline': 'Все твои тренировки в одном месте.',
   'onboarding.bodyOptionalHelp':
     'Добавь любые данные. Их можно изменить в профиле.',

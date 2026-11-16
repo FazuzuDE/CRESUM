@@ -1,4 +1,5 @@
 export default {
+  'onboarding.decimalPart': 'Nachkommastelle',
   'onboarding.welcomeTagline': 'Alle deine Workouts an einem Ort.',
   'onboarding.bodyOptionalHelp':
     'Ergänze, was du möchtest. Du kannst deine Angaben im Profil ändern.',

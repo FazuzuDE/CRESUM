@@ -11128,5 +11128,48 @@
         "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/BinaryExpression"
       }
     ]
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "kind": "internal",
+    "reason": "Onboarding uses translated labels and interpolation of a measurement and its translated unit.",
+    "entries": [
+      {
+        "text": "onboarding.cm",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/VariableDeclaration/VariableDeclarationList"
+      },
+      {
+        "text": "onboarding.kg",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/VariableDeclaration/VariableDeclarationList"
+      },
+      {
+        "text": "onboarding.heightLabel",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+      },
+      {
+        "text": "onboarding.weightLabel",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+      },
+      {
+        "text": "`${value || '—'} ${unit}`",
+        "context": "TemplateExpression/JsxExpression/JsxAttribute:title/JsxAttributes/JsxSelfClosingElement"
+      },
+      {
+        "text": "onboarding.height",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+      },
+      {
+        "text": "onboarding.weight",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+      },
+      {
+        "text": "onboarding.cm",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/ArrayLiteralExpression/JsxExpression"
+      },
+      {
+        "text": "onboarding.kg",
+        "context": "StringLiteral/ConditionalExpression/CallExpression/ArrayLiteralExpression/JsxExpression"
+      }
+    ]
   }
 ]
