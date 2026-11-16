@@ -1,5 +1,10 @@
 # CRESUM Decision Log
 
+## Bottom dock motion and transparency — 2026-11-16
+
+The user approved the floating dock and requested a sliding selection pill
+and a Profile transparency control for testing the glass appearance.
+
 ## CRESUM Growth Foundation — approved 2026-11-09
 
 User approved the marketing strategy as an independent roadmap workstream.

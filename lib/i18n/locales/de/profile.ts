@@ -1,4 +1,5 @@
 export default {
+  'profile.dockTransparency': 'Transparenz der unteren Navigation',
   'character.pendingShort': 'In Arbeit',
   'character.title': 'Übungsfigur',
   'character.description':

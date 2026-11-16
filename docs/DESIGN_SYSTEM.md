@@ -8,6 +8,10 @@ space to scroll content so the final action can scroll above the dock. Lift the
 scroll-to-top control by the same amount. Standalone sheets use their own safe
 areas. Respect the system setting for reduced transparency on iOS.
 
+Animate a single selection pill between tabs and snap when Reduce Motion is enabled.
+Profile previews dock and pill transparency live on a 0–100% scale. Keep labels
+and icons opaque and keep the solid appearance when Reduce Transparency is enabled.
+
 ## Compact dialogs and scrolling
 
 Use the centered light glass dialog for language selection, short confirmations,

@@ -57,7 +57,7 @@ import { StatusBar } from 'expo-status-bar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 import { GlassCard } from '@/components/GlassCard';
-import { Dock } from '@/components/Dock';
+import { DEFAULT_DOCK_TRANSPARENCY, Dock } from '@/components/Dock';
 import { DockSpace } from '@/components/DockSpace';
 import { AppButton } from '@/components/AppButton';
 import { HomeDashboard } from '@/components/HomeDashboard';
@@ -335,6 +335,8 @@ function Stats({
     />
   );
 }
+const DOCK_TRANSPARENCY_KEY = 'cresum.dockTransparency';
+
 export default function App() {
   const account = useAccount();
   const { sharedToken } = useLocalSearchParams<{ sharedToken?: string }>();
@@ -425,6 +427,35 @@ function AppContent({
   const [programReady, setProgramReady] = useState(false);
   const [tab, setTab] = useState(initialTab);
   const [dockSpace, setDockSpace] = useState(78);
+  const [dockTransparency, setDockTransparency] = useState(
+    DEFAULT_DOCK_TRANSPARENCY,
+  );
+  const dockTransparencyEdited = useRef(false);
+  useEffect(() => {
+    let mounted = true;
+    void AsyncStorage.getItem(DOCK_TRANSPARENCY_KEY)
+      .then((stored) => {
+        if (!mounted || dockTransparencyEdited.current || stored === null)
+          return;
+        const value = Number(stored);
+        if (Number.isInteger(value) && value >= 0 && value <= 100)
+          setDockTransparency(value);
+      })
+      .catch(() => {});
+    return () => {
+      mounted = false;
+    };
+  }, []);
+  function previewDockTransparency(value: number) {
+    dockTransparencyEdited.current = true;
+    setDockTransparency(value);
+  }
+  function saveDockTransparency(value: number) {
+    previewDockTransparency(value);
+    void AsyncStorage.setItem(DOCK_TRANSPARENCY_KEY, String(value)).catch(
+      () => {},
+    );
+  }
   const [sharingEditing, setSharingEditing] = useState(false);
   const [managePlans, setManagePlans] = useState<(() => void) | undefined>();
   const [sharingOpen, setSharingOpen] = useState(!!incomingSharingToken);
@@ -1449,6 +1480,9 @@ function AppContent({
             }
           >
             <ProfileSettings
+              dockTransparency={dockTransparency}
+              onDockTransparencyChange={previewDockTransparency}
+              onDockTransparencyCommit={saveDockTransparency}
               account={{
                 ...account,
                 sync: account.historyRpc ? cloud.controls : undefined,
@@ -1531,7 +1565,12 @@ function AppContent({
               }}
             />
           </View>
-          <Dock active={tab} onChange={setTab} onHeightChange={setDockSpace} />
+          <Dock
+            active={tab}
+            onChange={setTab}
+            onHeightChange={setDockSpace}
+            transparency={dockTransparency}
+          />
         </DockSpace.Provider>
       )}
     </SafeAreaView>

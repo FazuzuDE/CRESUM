@@ -1,4 +1,5 @@
 export default {
+  'profile.dockTransparency': 'Bottom menu transparency',
   'character.pendingShort': 'Preparing',
   'character.title': 'Exercise character',
   'character.description':
