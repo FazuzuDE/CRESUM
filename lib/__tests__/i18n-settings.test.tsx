@@ -8,7 +8,7 @@ import { LocaleStore } from '../i18n/preference-store';
 import { LanguageSettings } from '../../components/LanguageSettings';
 import { AppButton } from '../../components/AppButton';
 const { act, create } = jest.requireActual('react-test-renderer');
-it('exposes the current choice to accessibility and hides unfinished locales', async () => {
+it('puts System first and allows a manual choice from every available language', async () => {
   const store = new LocaleStore(
     { getItem: async () => null, setItem: async () => {} },
     () => ['en'],
@@ -24,15 +24,13 @@ it('exposes the current choice to accessibility and hides unfinished locales', a
   act(() => view!.root.findByType(AppButton).props.onPress());
   const buttons = view!.root.findAllByType(AppButton);
   expect(
-    buttons.find((b: { props: { title: string } }) =>
-      b.props.title.startsWith('System language'),
-    )?.props.selected,
-  ).toBe(true);
-  expect(
-    buttons.some((b: { props: { title: string } }) =>
-      b.props.title.includes('Русский'),
-    ),
-  ).toBe(false);
+    buttons.slice(1).map((b: { props: { title: string } }) => b.props.title),
+  ).toEqual(['System language ✓', 'English', 'Русский', 'Deutsch', 'Français']);
+  expect(buttons[1].props.selected).toBe(true);
+  await act(async () => {
+    buttons[3].props.onPress();
+  });
+  expect(store.getSnapshot()).toMatchObject({ preference: 'ru', locale: 'ru' });
   act(() => view!.unmount());
 });
 it('switches live content without remounting a draft or resetting its value', async () => {

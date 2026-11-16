@@ -2,17 +2,14 @@ import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useLocalization } from './LocalizationProvider';
 import { AppButton } from './AppButton';
-import {
-  localeRegistry,
-  type AppLocale,
-  type LanguagePreference,
-} from '@/lib/i18n/registry';
+import { localeRegistry, type LanguagePreference } from '@/lib/i18n/registry';
 import { colors, spacing, typography } from '@/lib/theme';
 const flags = { en: '🇬🇧', ru: '🇷🇺', de: '🇩🇪', fr: '🇫🇷' };
 
 export function LanguageSettings({ compact = false }: { compact?: boolean }) {
   const [open, setOpen] = useState(false);
-  const { t, locale, preference, saving, error, select } = useLocalization();
+  const { t, locale, preference, saving, error, select, store } =
+    useLocalization();
   const [attempted, setAttempted] = useState<LanguagePreference>();
   const choose = (value: LanguagePreference) => {
     setAttempted(value);
@@ -20,9 +17,7 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
   };
   const options: LanguagePreference[] = [
     'system',
-    ...(Object.keys(localeRegistry) as AppLocale[]).filter(
-      (locale) => localeRegistry[locale].released,
-    ),
+    ...(store?.enabledLocales ?? []),
   ];
   return (
     <View style={[s.root, compact && s.compact]}>

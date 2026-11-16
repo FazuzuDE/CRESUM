@@ -1,5 +1,6 @@
 import {
   isAppLocale,
+  localeRegistry,
   resolveLocale,
   type AppLocale,
   type LanguagePreference,
@@ -32,7 +33,9 @@ export class LocaleStore {
   constructor(
     private storage: Storage,
     private deviceTags: () => readonly string[],
-    private enabled: readonly AppLocale[] = ['en', 'ru', 'de', 'fr'],
+    readonly enabledLocales: readonly AppLocale[] = Object.keys(
+      localeRegistry,
+    ) as AppLocale[],
   ) {}
   getSnapshot = () => this.snapshot;
   subscribe = (listener: () => void) => {
@@ -53,10 +56,10 @@ export class LocaleStore {
       /* Device boundary failure uses English. */
     }
     const usable = tags.filter((tag) =>
-      this.enabled.includes(resolveLocale('system', [tag])),
+      this.enabledLocales.includes(resolveLocale('system', [tag])),
     );
     const resolved = resolveLocale(preference, usable);
-    return this.enabled.includes(resolved) ? resolved : 'en';
+    return this.enabledLocales.includes(resolved) ? resolved : 'en';
   }
   load = async () => {
     const revision = this.revision;
@@ -77,7 +80,10 @@ export class LocaleStore {
         )
           throw Error('Invalid locale preference');
         preference = value.preference;
-        if (preference !== 'system' && !this.enabled.includes(preference))
+        if (
+          preference !== 'system' &&
+          !this.enabledLocales.includes(preference)
+        )
           throw Error('Locale is not enabled');
       }
       if (current())
@@ -99,7 +105,7 @@ export class LocaleStore {
   select = (preference: LanguagePreference): Promise<boolean> => {
     if (
       preference !== 'system' &&
-      (!isAppLocale(preference) || !this.enabled.includes(preference))
+      (!isAppLocale(preference) || !this.enabledLocales.includes(preference))
     )
       return Promise.resolve(false);
     ++this.revision;
