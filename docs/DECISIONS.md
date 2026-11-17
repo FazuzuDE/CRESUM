@@ -4524,3 +4524,10 @@ Replace the language button list with the shared wheel. Open at the first
 alphabetical language, keep System above it, and confirm drafts with Done.
 Use the shared glass dialog at 30% transparency for this window. Physical Expo Go
 and accessibility acceptance remain pending until device review.
+
+## 2026-11-17 — Language wheel follows the current preference
+
+User correction: when System language is selected, center the wheel on the
+resolved device language. Manual preferences open on their saved language.
+Keep alphabetical ordering, glass at 30%, and draft confirmation/cancellation.
+This supersedes the first-alphabetical opening rule from PR #286.

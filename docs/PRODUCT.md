@@ -1152,8 +1152,12 @@ remains gated independently.
 
 ## Language selection draft — approved 2026-11-17
 
-Open the language wheel at the first alphabetically sorted native language name,
-independently of the saved app language. Include every currently enabled locale.
+Open the language wheel at the saved manual language, or the resolved device
+language when System is selected. Preserve System as a preference on unchanged
+confirmation; selecting its row must not silently convert it to a fixed language.
+Selecting System from a manual draft also centers the resolved device language.
+Keep native names alphabetically sorted and include every currently enabled locale.
+This supersedes the earlier rule to open at the first alphabetical language.
 Keep System language separate above the wheel. Selection changes apply only on
 Done; Cancel or dismissal preserves the stored language. A failed save retains
 the draft and offers Retry. Onboarding and Profile use the same behavior.

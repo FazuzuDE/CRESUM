@@ -10,7 +10,7 @@ import { AppPicker } from '../../components/AppPicker';
 import { GlassMaterial } from '../../components/GlassMaterial';
 import { AppButton } from '../../components/AppButton';
 const { act, create } = jest.requireActual('react-test-renderer');
-it('starts alphabetically, stages wheel choices, and saves only with Done', async () => {
+it('opens at the effective language, stages wheel choices, and saves only with Done', async () => {
   const store = new LocaleStore(
     { getItem: async () => null, setItem: async () => {} },
     () => ['en'],
@@ -41,13 +41,13 @@ it('starts alphabetically, stages wheel choices, and saves only with Done', asyn
     '🇺🇦  Українська',
     '🇨🇳  简体中文',
   ]);
-  expect(view!.root.findByType(AppPicker).props.selected).toEqual([0]);
-  expect(buttons()[0].props.title).toBe('🌐  System language');
+  expect(view!.root.findByType(AppPicker).props.selected).toEqual([1]);
+  expect(buttons()[0].props.title).toBe('🌐  System language ✓');
   act(() => view!.root.findByType(AppPicker).props.onChange(0, 10));
   expect(store.getSnapshot().preference).toBe('system');
   act(() => buttons()[1].props.onPress());
   open();
-  expect(view!.root.findByType(AppPicker).props.selected).toEqual([0]);
+  expect(view!.root.findByType(AppPicker).props.selected).toEqual([1]);
   act(() => view!.root.findByType(AppPicker).props.onChange(0, 10));
   await act(async () => buttons()[2].props.onPress());
   expect(store.getSnapshot()).toMatchObject({
@@ -56,13 +56,43 @@ it('starts alphabetically, stages wheel choices, and saves only with Done', asyn
   });
   expect(view!.root.findAllByType(Modal)).toHaveLength(0);
   open();
-  expect(view!.root.findByType(AppPicker).props.selected).toEqual([0]);
+  expect(view!.root.findByType(AppPicker).props.selected).toEqual([10]);
   act(() => buttons()[0].props.onPress());
   expect(buttons()[0].props.selected).toBe(true);
+  expect(view!.root.findByType(AppPicker).props.selected).toEqual([1]);
+  expect(store.getSnapshot().preference).toBe('zh-Hans');
   await act(async () => buttons()[2].props.onPress());
   expect(store.getSnapshot().preference).toBe('system');
   act(() => view!.unmount());
 });
+it.each(['de-DE', 'ja-JP'])(
+  'centers the resolved device language for %s without saving',
+  async (tag) => {
+    const write = jest.fn(async () => {});
+    const store = new LocaleStore(
+      { getItem: async () => null, setItem: write },
+      () => [tag],
+    );
+    let view: ReturnType<typeof create>;
+    await act(async () => {
+      view = create(
+        <LocalizationProvider store={store}>
+          <LanguageSettings compact />
+        </LocalizationProvider>,
+      );
+    });
+    act(() => view!.root.findByType(AppButton).props.onPress());
+    const picker = view!.root.findByType(AppPicker);
+    expect(picker.props.columns[0][picker.props.selected[0]]).toBe(
+      tag === 'de-DE' ? '🇩🇪  Deutsch' : '🇬🇧  English',
+    );
+    expect(
+      view!.root.findByType(Modal).findAllByType(AppButton)[0].props.selected,
+    ).toBe(true);
+    expect(write).not.toHaveBeenCalled();
+    act(() => view!.unmount());
+  },
+);
 it('keeps a failed language draft available for retry', async () => {
   let fail = true;
   const store = new LocaleStore(
