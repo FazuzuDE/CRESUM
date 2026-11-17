@@ -5,6 +5,7 @@ import { spacing } from '../theme';
 import { AppScrollView } from '../../components/AppScrollView';
 import { AppFlatList } from '../../components/AppFlatList';
 import { ScrollView, FlatList, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { isPressable } from './pressable';
 const { act, create } = jest.requireActual('react-test-renderer');
 jest.mock('@expo/vector-icons', () => ({
@@ -156,18 +157,29 @@ it('reserves the measured dock height only within the tab scroll content', () =>
       </AppScrollView>
     </DockSpace.Provider>
   );
+  const scrolls = () => view.root.findAllByType(ScrollView);
+  const insets = () =>
+    scrolls().map((scroll: ReturnType<typeof create>['root']) =>
+      scroll.findByType(SafeAreaView),
+    );
   const bottomPadding = () =>
-    view.root.findAllByType(ScrollView).map(
-      (node: {
-        props: {
-          contentContainerStyle: import('react-native').ScrollViewProps['contentContainerStyle'];
-        };
-      }) => StyleSheet.flatten(node.props.contentContainerStyle)?.paddingBottom,
+    insets().map(
+      (node: ReturnType<typeof create>['root']) =>
+        StyleSheet.flatten(node.props.style)?.paddingBottom,
     );
   const clearance = spacing.xxxl + spacing.lg;
   act(() => {
     view = create(screen(96));
   });
+  expect(
+    scrolls().map(
+      (scroll: ReturnType<typeof create>['root']) =>
+        scroll.props.contentInsetAdjustmentBehavior,
+    ),
+  ).toEqual(['never', 'never']);
+  expect(
+    insets().map((node: ReturnType<typeof create>['root']) => node.props.edges),
+  ).toEqual([['top'], ['top', 'bottom']]);
   expect(bottomPadding()).toEqual([clearance + 96, clearance]);
   act(() => view.update(screen(120)));
   expect(bottomPadding()).toEqual([clearance + 120, clearance]);

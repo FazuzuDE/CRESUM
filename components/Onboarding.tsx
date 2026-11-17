@@ -416,6 +416,7 @@ export function Onboarding({
     return (
       <ContentScrollView
         style={[s.root, s.white]}
+        safeAreaEdges={['top', 'bottom']}
         contentContainerStyle={[s.content, s.characterContent]}
       >
         {header('welcome')}
@@ -453,6 +454,7 @@ export function Onboarding({
       <FlowScroll
         key={step}
         style={s.root}
+        safeAreaEdges={['top', 'bottom']}
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={[s.content, polished && s.polishedContent]}
       >

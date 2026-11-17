@@ -33,7 +33,7 @@ export function ExerciseEquipmentSheet({
           onPress={onClose}
         />
         <SafeAreaView
-          edges={['bottom', 'left', 'right']}
+          edges={['left', 'right']}
           style={s.sheet}
           accessibilityViewIsModal
         >
@@ -51,7 +51,10 @@ export function ExerciseEquipmentSheet({
               <Ionicons name="close" size={22} color={colors.textPrimary} />
             </Pressable>
           </View>
-          <AppScrollView contentContainerStyle={s.list}>
+          <AppScrollView
+            safeAreaEdges={['bottom']}
+            contentContainerStyle={s.list}
+          >
             {policy.choices.map((choice) => {
               const exercise = findExercise(choice.variantId)!;
               const name =

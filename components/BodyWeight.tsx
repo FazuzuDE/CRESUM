@@ -1,7 +1,7 @@
+import { ScreenModal } from './ScreenModal';
 import { useState } from 'react';
 import {
   KeyboardAvoidingView,
-  Modal,
   Platform,
   StyleSheet,
   Text,
@@ -175,13 +175,13 @@ export function BodyWeight({
           {t('body.noPeriod', { period: periodLabel(t, period) })}
         </Text>
       ) : null}
-      <Modal
+      <ScreenModal
         visible={adding}
         animationType="slide"
         presentationStyle="pageSheet"
         onRequestClose={close}
       >
-        <SafeAreaView style={s.screen}>
+        <SafeAreaView edges={['left', 'right']} style={s.screen}>
           <KeyboardAvoidingView
             style={s.screen}
             behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -229,7 +229,7 @@ export function BodyWeight({
             </AppScrollView>
           </KeyboardAvoidingView>
         </SafeAreaView>
-      </Modal>
+      </ScreenModal>
     </GlassCard>
   );
 }

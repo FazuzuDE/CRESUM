@@ -121,7 +121,7 @@ export function ExerciseEquipmentCatalog({
                 {title}
               </Text>
               <Text style={s.detail}>{t('equipment.personalSelection')}</Text>
-              <AppScrollView>
+              <AppScrollView safeAreaEdges={[]}>
                 {exerciseEquipmentCatalog.map((item) => {
                   const attachment =
                     'artworkVariant' in item ? item.artworkVariant : undefined;

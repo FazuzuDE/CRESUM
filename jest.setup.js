@@ -50,3 +50,8 @@ jest.mock('@react-native-community/slider', () => ({
   __esModule: true,
   default: jest.requireActual('react-native').View,
 }));
+
+// Modal safe areas come from the presented native window on device.
+jest.mock('./components/ScreenModal', () => ({
+  ScreenModal: jest.requireActual('react-native').Modal,
+}));

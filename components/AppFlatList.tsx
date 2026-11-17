@@ -1,5 +1,11 @@
-import { useRef } from 'react';
+import {
+  createElement,
+  isValidElement,
+  useRef,
+  type ComponentType,
+} from 'react';
 import { FlatList, View, type FlatListProps } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { spacing } from '@/lib/theme';
 import { useScrollReturn } from './useScrollReturn';
 import { ScrollReturnButton } from './ScrollReturnButton';
@@ -9,6 +15,7 @@ export function AppFlatList<T>({
   contentContainerStyle,
   onScroll,
   onScrollBeginDrag,
+  ListFooterComponent,
   ...props
 }: FlatListProps<T>) {
   const ref = useRef<FlatList<T>>(null);
@@ -20,6 +27,19 @@ export function AppFlatList<T>({
       <FlatList
         {...props}
         ref={ref}
+        contentInsetAdjustmentBehavior={
+          props.contentInsetAdjustmentBehavior ?? 'never'
+        }
+        automaticallyAdjustContentInsets={
+          props.automaticallyAdjustContentInsets ?? false
+        }
+        ListFooterComponent={
+          <SafeAreaView edges={['bottom']}>
+            {ListFooterComponent && !isValidElement(ListFooterComponent)
+              ? createElement(ListFooterComponent as ComponentType)
+              : ListFooterComponent}
+          </SafeAreaView>
+        }
         style={{ flex: 1 }}
         contentContainerStyle={[
           contentContainerStyle,
@@ -37,6 +57,7 @@ export function AppFlatList<T>({
       />
       <ScrollReturnButton
         control={control}
+        safeAreaBottom
         disabled={props.scrollEnabled === false}
       />
     </View>

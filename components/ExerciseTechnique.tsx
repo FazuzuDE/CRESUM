@@ -1,16 +1,10 @@
+import { ScreenModal } from './ScreenModal';
 import { useState } from 'react';
 import { BrandHeader } from './BrandHeader';
 import { ExerciseMuscles } from './ExerciseMuscles';
 import { ExerciseStatistics } from './ExerciseStatistics';
 import { ExerciseArtwork } from './ExerciseArtwork';
-import {
-  Linking,
-  Modal,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { AppScrollView } from './AppScrollView';
@@ -69,14 +63,14 @@ export function ExerciseTechnique({
     [sources, setSources] = useState(false),
     [linkError, setLinkError] = useState(false);
   return (
-    <Modal
+    <ScreenModal
       visible
       animationType="slide"
       presentationStyle="pageSheet"
       allowSwipeDismissal
       onRequestClose={onClose}
     >
-      <SafeAreaView style={s.root}>
+      <SafeAreaView edges={['top', 'left', 'right']} style={s.root}>
         <View style={s.grabber} />
         <BrandHeader tagline={false} />
         <View style={s.header}>
@@ -98,7 +92,10 @@ export function ExerciseTechnique({
             <Ionicons name="close" size={22} color={colors.textPrimary} />
           </Pressable>
         </View>
-        <AppScrollView contentContainerStyle={s.content}>
+        <AppScrollView
+          safeAreaEdges={['bottom']}
+          contentContainerStyle={s.content}
+        >
           <View style={s.detailHeading}>
             <View style={s.headingCopy}>
               <Text accessibilityRole="header" style={s.title}>
@@ -301,7 +298,7 @@ export function ExerciseTechnique({
           />
         ) : null}
       </SafeAreaView>
-    </Modal>
+    </ScreenModal>
   );
 }
 function Section({

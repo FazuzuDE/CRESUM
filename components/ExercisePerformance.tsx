@@ -1,13 +1,7 @@
+import { ScreenModal } from './ScreenModal';
 import { AppScrollView } from './AppScrollView';
 import { useMemo, useState } from 'react';
-import {
-  Modal,
-  Pressable,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { GlassCard } from './GlassCard';
@@ -142,13 +136,13 @@ export function ExercisePerformance({ history, period, now }: Props) {
           ) : null}
         </>
       )}
-      <Modal
+      <ScreenModal
         visible={setsOpen}
         animationType="slide"
         presentationStyle="pageSheet"
         onRequestClose={() => setSetsOpen(false)}
       >
-        <SafeAreaView style={s.sheet}>
+        <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
           <View style={s.header}>
             <Text
               style={s.sheetTitle}
@@ -168,7 +162,10 @@ export function ExercisePerformance({ history, period, now }: Props) {
               <Text style={s.closeText}>{t('progress.close')}</Text>
             </Pressable>
           </View>
-          <AppScrollView contentContainerStyle={s.results}>
+          <AppScrollView
+            safeAreaEdges={['bottom']}
+            contentContainerStyle={s.results}
+          >
             <View style={s.entries}>
               {entries.map((entry) => (
                 <View
@@ -205,14 +202,14 @@ export function ExercisePerformance({ history, period, now }: Props) {
             </View>
           </AppScrollView>
         </SafeAreaView>
-      </Modal>
-      <Modal
+      </ScreenModal>
+      <ScreenModal
         visible={selectorOpen}
         animationType="slide"
         presentationStyle="pageSheet"
         onRequestClose={close}
       >
-        <SafeAreaView style={s.sheet}>
+        <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
           <View style={s.header}>
             <Text style={s.sheetTitle}>{t('performance.selectorTitle')}</Text>
             <Pressable
@@ -234,6 +231,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
             style={s.search}
           />
           <AppScrollView
+            safeAreaEdges={['bottom']}
             keyboardShouldPersistTaps="handled"
             contentContainerStyle={s.results}
           >
@@ -263,7 +261,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
             )}
           </AppScrollView>
         </SafeAreaView>
-      </Modal>
+      </ScreenModal>
     </GlassCard>
   );
 }

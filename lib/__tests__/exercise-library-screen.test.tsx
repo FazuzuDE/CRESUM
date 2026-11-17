@@ -114,7 +114,7 @@ describe('ExerciseLibrary', () => {
     expect(resultLabels(view, 'Add Barbell Bench Press')).toHaveLength(0);
   });
 
-  it('keeps two wheel filters compact so the result list owns remaining height', () => {
+  it('scrolls both compact wheel filters and results in one edge-to-edge viewport', () => {
     const view = renderLibrary(
       <ExerciseLibrary visible onClose={jest.fn()} onAdd={jest.fn()} />,
     );
@@ -129,6 +129,15 @@ describe('ExerciseLibrary', () => {
     expect(horizontal).toHaveLength(0);
     expect(resultLabels(view, 'Filter ')).toHaveLength(2);
     expect(StyleSheet.flatten(results?.props.style).flex).toBe(1);
+    expect(results.props.contentInsetAdjustmentBehavior).toBe('never');
+    expect(results.findByType(TextInput)).toBeDefined();
+    expect(
+      results
+        .findAll(isPressable)
+        .filter((node: { props: { accessibilityLabel?: string } }) =>
+          node.props.accessibilityLabel?.startsWith('Filter '),
+        ),
+    ).toHaveLength(2);
   });
 
   it('adds an exercise and exposes controlled selection state', () => {

@@ -18,7 +18,10 @@ import {
 } from 'react-native';
 import type { ProgressSectionPosition } from '@/lib/progress-scroll';
 import { spacing } from '@/lib/theme';
-import { ContentScrollView } from './ContentScrollView';
+import {
+  ContentScrollView,
+  type SafeAreaScrollProps,
+} from './ContentScrollView';
 import { DockSpace } from './DockSpace';
 import { GlassCard } from './GlassCard';
 import { useScrollReturn } from './useScrollReturn';
@@ -27,14 +30,16 @@ import { ScrollReturnButton } from './ScrollReturnButton';
 // Keep the native ref and event callbacks usable by workout drag/edge scrolling.
 export const AppScrollView = forwardRef<
   ComponentRef<typeof ScrollView>,
-  ScrollViewProps & {
-    sectionPositions?: ProgressSectionPosition[];
-    dockAware?: boolean;
-  }
+  ScrollViewProps &
+    SafeAreaScrollProps & {
+      sectionPositions?: ProgressSectionPosition[];
+      dockAware?: boolean;
+    }
 >(function AppScrollView(
   {
     children,
     dockAware = false,
+    safeAreaEdges = dockAware ? ['top'] : ['top', 'bottom'],
     style,
     contentContainerStyle,
     onScroll,
@@ -68,6 +73,7 @@ export const AppScrollView = forwardRef<
       <ContentScrollView
         {...props}
         ref={ref}
+        safeAreaEdges={safeAreaEdges}
         style={{ flex: 1 }}
         contentContainerStyle={[
           contentContainerStyle,
@@ -104,6 +110,7 @@ export const AppScrollView = forwardRef<
       <ScrollReturnButton
         control={control}
         bottomOverlay={bottomOverlay}
+        safeAreaBottom={safeAreaEdges.includes('bottom')}
         disabled={props.scrollEnabled === false}
       />
     </View>

@@ -1,6 +1,6 @@
+import { ScreenModal } from './ScreenModal';
 import { useState } from 'react';
 import {
-  Modal,
   Pressable,
   StyleSheet,
   Text,
@@ -128,7 +128,7 @@ export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
       </View>
       {coverage()}
       {open ? (
-        <Modal
+        <ScreenModal
           testID="exercise-muscle-details"
           visible
           animationType="slide"
@@ -136,7 +136,11 @@ export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
           allowSwipeDismissal
           onRequestClose={() => setOpen(false)}
         >
-          <SafeAreaView style={s.modal} accessibilityViewIsModal>
+          <SafeAreaView
+            edges={['top', 'left', 'right']}
+            style={s.modal}
+            accessibilityViewIsModal
+          >
             <View style={s.heading}>
               <Text accessibilityRole="header" style={s.modalTitle}>
                 {t('exerciseMuscles.title')}
@@ -150,7 +154,10 @@ export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
                 <Ionicons name="close" size={22} color={colors.textPrimary} />
               </Pressable>
             </View>
-            <AppScrollView contentContainerStyle={s.details}>
+            <AppScrollView
+              safeAreaEdges={['bottom']}
+              contentContainerStyle={s.details}
+            >
               <Text style={s.title}>{name}</Text>
               <View
                 pointerEvents="none"
@@ -167,7 +174,7 @@ export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
               {coverage()}
             </AppScrollView>
           </SafeAreaView>
-        </Modal>
+        </ScreenModal>
       ) : null}
     </View>
   );
