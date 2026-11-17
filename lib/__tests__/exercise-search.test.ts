@@ -7,6 +7,7 @@ import { localeRegistry, type AppLocale } from '../i18n/registry';
 import { searchAliases } from '../i18n/search/aliases';
 import {
   exerciseSearchScore,
+  normalizeSearch,
   prepareExerciseQuery,
 } from '../i18n/search/engine';
 
@@ -20,6 +21,30 @@ const records = {
   equipment: exerciseEquipmentCatalog,
   muscle: muscleTaxonomy,
 };
+
+it('preserves meaningful Devanagari marks across all interface languages', () => {
+  expect(normalizeSearch('पैलॉफ')).toBe(
+    normalizeSearch('पैलॉफ'.normalize('NFD')),
+  );
+  expect(normalizeSearch('की')).not.toBe(normalizeSearch('क'));
+  expect(normalizeSearch('क़')).not.toBe(normalizeSearch('क'));
+  expect(ids('बटरफ्लाई मशीन', 'en')).toContain('pec-deck-fly');
+  expect(ids('पैलॉफ प्रेस'.normalize('NFD'), 'de')).toContain(
+    'standing-cable-anti-rotation-press',
+  );
+});
+
+it('treats Cyrillic е and ё as equivalent in search and transliteration', () => {
+  expect(normalizeSearch('сгибания лёжа')).toBe(
+    normalizeSearch('сгибания лежа'),
+  );
+  const exerciseId = 'hanging-straight-leg-raise';
+  const score = (query: string) =>
+    exerciseSearchScore(exerciseId, prepareExerciseQuery(query), 'en');
+  expect(score('подъём ног на турнике')).toBeGreaterThan(0);
+  expect(score('подъем ног на турнике')).toBe(score('подъём ног на турнике'));
+  expect(score('podem nog na turnike')).toBe(score('подъём ног на турнике'));
+});
 
 it('covers every current identity and every selectable language; omissions block checks', () => {
   expect(
@@ -168,4 +193,22 @@ it('searches saved performance choices by exact canonical or legacy identity whi
       'de',
     ),
   ).toBeGreaterThan(0);
+});
+
+it('preserves Bengali vowel signs, virama and nukta in searches across interface languages', () => {
+  expect(normalizeSearch('কি')).not.toBe(normalizeSearch('ক'));
+  expect(normalizeSearch('ক্')).not.toBe(normalizeSearch('ক'));
+  expect(normalizeSearch('ড়')).not.toBe(normalizeSearch('ড'));
+  expect(normalizeSearch('ড়')).toBe(normalizeSearch('ড়'.normalize('NFD')));
+  expect(ids('বাটারফ্লাই', 'de')[0]).toBe('pec-deck-fly');
+  expect(ids('bukdon', 'fr')[0]).toBe('push-up');
+  expect(ids('ডাম্বেল আরডিএল', 'en')).not.toContain('barbell-deadlift');
+  expect(
+    searchLocalizedExercises(
+      { query: 'বাটারফ্লাই', equipment: 'barbell' },
+      'bn',
+    ),
+  ).toEqual([]);
+  expect(ids('কেটলবেল গবলেট', 'ru')).toContain('goblet-squat');
+  expect(ids('কেটলবেল গবলেট', 'ru')).not.toContain('kettlebell-goblet-squat');
 });

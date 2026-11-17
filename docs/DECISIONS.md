@@ -4531,3 +4531,12 @@ User correction: when System language is selected, center the wheel on the
 resolved device language. Manual preferences open on their saved language.
 Keep alphabetical ordering, glass at 30%, and draft confirmation/cancellation.
 This supersedes the first-alphabetical opening rule from PR #286.
+
+## Bengali localization — approved 2026-11-17
+
+Add বাংলা (`bn`) with complete bundled messages, catalog and technique content,
+plus Bengali exercise/equipment/attachment/muscle aliases and Roman Bangla gym
+names. Follow the current shared language-wheel behavior from #289. Preserve
+search identities, filters, offline availability and historical snapshots.
+Native shaping, accessibility and independent linguistic acceptance remain open;
+automated coverage is not physical-device approval. See LOCALIZATION.md.

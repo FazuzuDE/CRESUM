@@ -1161,3 +1161,13 @@ This supersedes the earlier rule to open at the first alphabetical language.
 Keep System language separate above the wheel. Selection changes apply only on
 Done; Cancel or dismissal preserves the stored language. A failed save retains
 the draft and offers Retry. Onboarding and Profile use the same behavior.
+
+## Bengali locale — approved 2026-11-17
+
+Offer বাংলা (`bn`) in the shared language selector and resolve Bengali device
+locales. Supply complete UI, accessibility, errors, catalog and exercise-technique
+messages offline. All searchable catalog identities require Bengali alternatives
+and established gym names, including Roman Bangla where useful, searchable from
+any interface language. Optional published-plan metadata accepts Bengali with
+legacy English fallback. Stored workout identities and historical names remain
+unchanged. Physical-device and native-speaker acceptance remain pending.

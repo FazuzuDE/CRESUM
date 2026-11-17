@@ -39,6 +39,8 @@ it('opens at the effective language, stages wheel choices, and saves only with D
     '🇹🇷  Türkçe',
     '🇷🇺  Русский',
     '🇺🇦  Українська',
+    '🇮🇳  हिन्दी',
+    '🇧🇩  বাংলা',
     '🇨🇳  简体中文',
   ]);
   expect(view!.root.findByType(AppPicker).props.selected).toEqual([1]);
@@ -51,8 +53,8 @@ it('opens at the effective language, stages wheel choices, and saves only with D
   act(() => view!.root.findByType(AppPicker).props.onChange(0, 10));
   await act(async () => buttons()[2].props.onPress());
   expect(store.getSnapshot()).toMatchObject({
-    preference: 'zh-Hans',
-    locale: 'zh-Hans',
+    preference: 'hi',
+    locale: 'hi',
   });
   expect(view!.root.findAllByType(Modal)).toHaveLength(0);
   open();
@@ -60,7 +62,7 @@ it('opens at the effective language, stages wheel choices, and saves only with D
   act(() => buttons()[0].props.onPress());
   expect(buttons()[0].props.selected).toBe(true);
   expect(view!.root.findByType(AppPicker).props.selected).toEqual([1]);
-  expect(store.getSnapshot().preference).toBe('zh-Hans');
+  expect(store.getSnapshot().preference).toBe('hi');
   await act(async () => buttons()[2].props.onPress());
   expect(store.getSnapshot().preference).toBe('system');
   act(() => view!.unmount());
@@ -167,6 +169,15 @@ it('switches live content without remounting a draft or resetting its value', as
     await store.select('zh-Hans');
   });
   expect(view!.root.findByType(Text).props.children).toBe('重试');
+  await act(async () => {
+    await store.select('hi');
+  });
+  expect(view!.root.findByType(Text).props.children).toBe('फिर प्रयास करें');
+  expect(view!.root.findByType(TextInput).props.value).toBe('12,');
+  await act(async () => {
+    await store.select('bn');
+  });
+  expect(view!.root.findByType(Text).props.children).toBe('আবার চেষ্টা করুন');
   expect(view!.root.findByType(TextInput).props.value).toBe('12,');
   expect(mounts).toBe(1);
   act(() => view!.unmount());

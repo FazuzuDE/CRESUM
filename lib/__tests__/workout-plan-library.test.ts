@@ -94,3 +94,50 @@ test('searches Chinese publication metadata and falls back for older plans', () 
     ]),
   ).toThrow();
 });
+
+test('searches Hindi publication metadata and preserves older English publications', () => {
+  const [legacy] = parseLibrary([entry]);
+  expect(filterPlans([legacy], 'upper', 'hi')).toEqual([legacy]);
+  const localized = {
+    ...entry,
+    metadata: {
+      ...entry.metadata,
+      title: { ...entry.metadata.title, hi: 'ऊपरी शरीर' },
+      description: { ...entry.metadata.description, hi: 'डंबल का प्लान' },
+    },
+  };
+  const [plan] = parseLibrary([localized]);
+  expect(filterPlans([plan], 'ऊपरी', 'hi')).toEqual([plan]);
+  expect(filterPlans([plan], 'डंबल', 'hi')).toEqual([plan]);
+  expect(() =>
+    parseLibrary([
+      {
+        ...localized,
+        metadata: {
+          ...localized.metadata,
+          title: { ...localized.metadata.title, hi: '' },
+        },
+      },
+    ]),
+  ).toThrow();
+});
+
+test('accepts Bengali publication metadata with legacy English fallback', () => {
+  const [legacy] = parseLibrary([entry]);
+  expect(filterPlans([legacy], 'upper', 'bn')).toEqual([legacy]);
+  const [localized] = parseLibrary([
+    {
+      ...entry,
+      metadata: {
+        ...entry.metadata,
+        title: { ...entry.metadata.title, bn: 'শরীরের ওপরের অংশ' },
+        description: {
+          ...entry.metadata.description,
+          bn: 'ডাম্বেল দিয়ে ট্রেনিং',
+        },
+      },
+    },
+  ]);
+  expect(filterPlans([localized], 'শরীরের', 'bn')).toEqual([localized]);
+  expect(filterPlans([localized], 'ডাম্বেল', 'bn')).toEqual([localized]);
+});

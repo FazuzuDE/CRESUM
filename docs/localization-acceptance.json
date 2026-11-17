@@ -42,5 +42,13 @@
   "zh-Hans": {
     "web": false,
     "native": false
+  },
+  "hi": {
+    "web": false,
+    "native": false
+  },
+  "bn": {
+    "web": false,
+    "native": false
   }
 }

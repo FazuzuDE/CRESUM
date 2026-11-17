@@ -16362,6 +16362,12 @@
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
   },
   {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 13,
+    "text": "hi",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+  },
+  {
     "file": "components/LanguageSettings.tsx",
     "line": 62,
     "text": "`🌐 ${t('language.system')}${draft === 'system' ? ' ✓' : ''}`",
@@ -16408,5 +16414,11 @@
     "line": 111,
     "text": "common.done",
     "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 15,
+    "text": "bn",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
   }
 ]

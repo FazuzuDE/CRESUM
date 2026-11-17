@@ -123,6 +123,8 @@ function readCatalogs(root) {
       'pl',
       'tr',
       'zh-Hans',
+      'hi',
+      'bn',
     ].map((locale) => {
       const folder = path.join(root, 'lib/i18n/locales', locale);
       const catalog = {};
@@ -241,6 +243,8 @@ async function main() {
         'pl',
         'tr',
         'zh-Hans',
+        'hi',
+        'bn',
       ])
         for (const width of [320, 390]) {
           expandedMode = expand;
@@ -998,7 +1002,13 @@ async function main() {
             await button('history.back').waitFor();
             const expectedSet = text('history.set', {
               index: 1,
-              weight: locale === 'en' || locale === 'zh-Hans' ? '12.5' : '12,5',
+              weight:
+                locale === 'en' ||
+                locale === 'zh-Hans' ||
+                locale === 'hi' ||
+                locale === 'bn'
+                  ? '12.5'
+                  : '12,5',
               reps: '8',
             });
             await page.getByText(expectedSet, { exact: true }).waitFor();
@@ -1244,7 +1254,12 @@ async function main() {
                 text('history.set', {
                   index: 1,
                   weight:
-                    locale === 'en' || locale === 'zh-Hans' ? '12.5' : '12,5',
+                    locale === 'en' ||
+                    locale === 'zh-Hans' ||
+                    locale === 'hi' ||
+                    locale === 'bn'
+                      ? '12.5'
+                      : '12,5',
                   reps: '10',
                 }),
                 { exact: true },
@@ -1256,7 +1271,12 @@ async function main() {
                 text('history.bilateralSet', {
                   index: 1,
                   weight:
-                    locale === 'en' || locale === 'zh-Hans' ? '12.5' : '12,5',
+                    locale === 'en' ||
+                    locale === 'zh-Hans' ||
+                    locale === 'hi' ||
+                    locale === 'bn'
+                      ? '12.5'
+                      : '12,5',
                   reps: '10',
                   other: '10',
                 }),

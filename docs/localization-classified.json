@@ -31,6 +31,10 @@
       {
         "text": "zh-Hans",
         "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+      },
+      {
+        "text": "hi",
+        "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
       }
     ]
   },
@@ -11777,5 +11781,13 @@
     "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title",
     "kind": "internal",
     "reason": "Internal React Native interaction/accessibility enum, preference identity or catalog message key; not displayed as untranslated copy."
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 15,
+    "text": "bn",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList",
+    "kind": "internal",
+    "reason": "Bengali locale identity for optional publication metadata; user-visible text is supplied by the translated catalogs."
   }
 ]

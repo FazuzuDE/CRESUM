@@ -26,6 +26,12 @@ it('supports Russian plurals when the runtime has no native Intl.PluralRules', (
           create('zh-Hans')('common.setCount', { count }),
         ),
       ).toEqual(['0 组', '1 组', '2 组', '1.5 组']);
+      expect(create('hi')('history.completedSets', { count: 1 })).toBe(
+        '1 पूरा किया सेट',
+      );
+      expect(create('hi')('history.completedSets', { count: 2 })).toBe(
+        '2 पूरे किए सेट',
+      );
       const t = create('ru');
       expect(
         [0, 1, 2, 5, 11, 21, 22, 25, 1.5].map((count) =>
@@ -155,4 +161,24 @@ it('uses the Chinese other form for zero, whole and fractional counts', () => {
     t('workout.summary', { completed: 1, count: 3, volume: '125.5' }),
   ).toBe('1/3 组 · 125.5 千克');
   expect(t('common.named', { name: '小林' })).toBe('小林');
+});
+
+it('uses Hindi count forms and preserves names and interpolated set values', () => {
+  const t = createTranslator('hi');
+  expect(
+    [0, 1, 2, 1.5].map((count) => t('common.setCount', { count })),
+  ).toEqual(['0 सेट', '1 सेट', '2 सेट', '1.5 सेट']);
+  expect(t('history.completedSets', { count: 1 })).toBe('1 पूरा किया सेट');
+  expect(t('history.completedSets', { count: 2 })).toBe('2 पूरे किए सेट');
+  expect(
+    t('workout.summary', { completed: 1, count: 3, volume: '125.5' }),
+  ).toBe('1/3 सेट · 125.5 किग्रा');
+  expect(t('common.named', { name: 'आदित्य' })).toBe('आदित्य');
+});
+
+it('renders Bengali count forms with native presentation digits', () => {
+  const t = createTranslator('bn');
+  expect(t('history.completedSets', { count: 0 })).toBe('০ সম্পন্ন সেট');
+  expect(t('history.completedSets', { count: 1 })).toBe('১ সম্পন্ন সেট');
+  expect(t('history.completedSets', { count: 2 })).toBe('২ সম্পন্ন সেট');
 });

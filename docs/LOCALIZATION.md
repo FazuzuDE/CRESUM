@@ -1,14 +1,55 @@
 # Localization coverage and contribution rules
 
-The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish and Simplified Chinese. System language
+The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi and Bengali. System language
 appears first and is selected by default. An explicit choice is saved on the
 device. Final web and native acceptance for Russian, German, French,
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish and Simplified Chinese remain pending in the release eligibility ledger.
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi and Bengali remain pending in the release eligibility ledger.
 
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish and Simplified Chinese cover the bundled messages and catalogs, including
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi and Bengali cover the bundled messages and catalogs, including
 exercise technique, equipment and built-in plans. Shared plan titles and
 descriptions use the selected locale when the publication supplies it. Older
 publications use their English metadata.
+
+## Bengali — approved 2026-11-17
+
+`bn` provides all 1651 bundled semantic messages, 110 catalog labels and 70
+complete technique guides (530 guide messages). বাংলা is available in the shared
+language wheel and resolves device locales such as `bn-BD`, `bn-IN` and
+`bn-Beng-IN`. Bengali count forms, number grouping, native presentation digits,
+dates and exact decimal entry display follow the locale. Existing ASCII decimal
+entry remains exact and does not rewrite saved numbers or historical names.
+
+All exercise, equipment, attachment and muscle alias entries have Bengali
+alternatives. Common Bengali gym spellings and Roman Bangla names work in every
+interface language through the shared offline search. Bengali vowel signs,
+virama and nukta are preserved with canonical Unicode equivalence. Exercise
+variants, filters and the grouped Goblet presentation retain their identities.
+
+Optional published-plan metadata accepts `bn`; older publications keep their
+English fallback. Final Bengali content is authored against the English source;
+no translation model or network translation dependency is bundled. Independent
+native-speaker review and physical Expo Go shaping, layout and accessibility
+acceptance remain pending. Automated coverage does not certify those gates.
+
+## Hindi — approved 2026-11-17
+
+`hi` adds all 1651 bundled messages, 110 catalog labels and 70 complete technique
+guides (530 guide messages). It is selectable as हिन्दी and follows device tags
+such as `hi-IN` and `hi-Deva-IN`. Counts include Hindi's `one` and `other` forms;
+dates and exact decimal-point numbers use the selected locale.
+
+Every current exercise has Hindi search aliases, including alternative spellings
+and Roman Hindi where useful. Hindi also covers every equipment, attachment and
+muscle alias entry in the shared search contract. Queries work across all bundled
+interface languages. Matching preserves Devanagari vowel marks and
+nukta, normalizes Unicode canonical equivalents and keeps existing filters and
+English canonical-name search. Stable exercise IDs and saved workout names are
+unchanged. Aliases expand search only and do not equate distinct variants.
+
+Optional published metadata supports `hi` with the existing English fallback
+for publications without it. All final messages and aliases are bundled offline
+and authored against the source. Independent native-speaker review and physical
+Expo Go text-shaping, layout and accessibility acceptance remain pending.
 
 ## Simplified Chinese — approved 2026-11-17
 

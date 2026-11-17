@@ -21,9 +21,14 @@ it('localizes exact entry display without rounding manual precision or reparsing
     'pl',
     'tr',
     'zh-Hans',
+    'hi',
+    'bn',
   ] as const) {
     expect(formatEntryNumber(locale, '12.1234567890123456789')).toBe(
-      locale === 'en' || locale === 'zh-Hans'
+      locale === 'en' ||
+        locale === 'zh-Hans' ||
+        locale === 'hi' ||
+        locale === 'bn'
         ? '12.1234567890123456789'
         : '12,1234567890123456789',
     );
@@ -83,4 +88,32 @@ it('formats Chinese dates and numbers without changing stored entry precision', 
       timeZone: 'UTC',
     }),
   ).toBe('2026年11月17日');
+});
+
+it('formats Hindi dates and Indian number grouping without changing entry precision', () => {
+  expect(formatNumber('hi', 123456.75)).toBe('1,23,456.75');
+  expect(
+    formatDate('hi', Date.UTC(2026, 10, 17), {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    }),
+  ).toBe('17 नवंबर 2026');
+});
+
+it('formats Bengali digits, grouping and calendar dates while retaining exact entry text', () => {
+  expect(formatNumber('bn', 123456.75)).toBe('১,২৩,৪৫৬.৭৫');
+  expect(formatEntryNumber('bn', '12.1234567890123456789')).toBe(
+    '12.1234567890123456789',
+  );
+  expect(formatEntryNumber('bn', '12,')).toBe('12,');
+  expect(
+    formatDate('bn', Date.UTC(2026, 10, 17), {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    }),
+  ).toBe('১৭ নভেম্বর, ২০২৬');
 });
