@@ -1193,6 +1193,7 @@ function AppContent({
       ) : null}
       <Confirmation
         visible={confirmReset}
+        opaque
         title={t('reset.title')}
         message={t('reset.warning')}
         confirmLabel={t('profile.reset')}

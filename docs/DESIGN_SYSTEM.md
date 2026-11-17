@@ -17,10 +17,11 @@ and icons opaque and keep the solid appearance when Reduce Transparency is enabl
 Use the centered light glass dialog for language selection, short confirmations,
 history filters and date or measurement wheels. Use the same clear glass
 material as the floating dock, with light blur on older iOS versions. Keep the surrounding dimming
-light and respect reduced transparency. Compact dialog transparency is 20% below
-the default dock setting. The center row on wheels has two thin, continuous
-rules. Neighboring values follow the curve of the wheel and fade at its edges. Reserve larger sheets for workflows
-that need the space, such as editing workout sets or browsing equipment. Keep
+light and respect reduced transparency. Compact dialogs use 26.5%
+transparency. The local data reset confirmation uses a fully opaque surface.
+The center row on wheels has two thin, continuous rules. Neighboring values
+follow the curve of the wheel and fade at its edges. Reserve larger sheets for
+workflows such as editing workout sets or browsing equipment. Keep
 primary actions fully reachable inside the safe area. Enable page scrolling
 when content exceeds the viewport, including with the keyboard or larger text.
 
