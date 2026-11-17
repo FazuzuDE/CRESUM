@@ -133,10 +133,16 @@ export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
           visible
           animationType="slide"
           presentationStyle="pageSheet"
+          statusBarTranslucent
+          navigationBarTranslucent
           allowSwipeDismissal
           onRequestClose={() => setOpen(false)}
         >
-          <SafeAreaView style={s.modal} accessibilityViewIsModal>
+          <SafeAreaView
+            edges={['top', 'left', 'right']}
+            style={s.modal}
+            accessibilityViewIsModal
+          >
             <View style={s.heading}>
               <Text accessibilityRole="header" style={s.modalTitle}>
                 {t('exerciseMuscles.title')}
@@ -150,7 +156,10 @@ export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
                 <Ionicons name="close" size={22} color={colors.textPrimary} />
               </Pressable>
             </View>
-            <AppScrollView contentContainerStyle={s.details}>
+            <AppScrollView
+              safeAreaEdges={['bottom']}
+              contentContainerStyle={s.details}
+            >
               <Text style={s.title}>{name}</Text>
               <View
                 pointerEvents="none"

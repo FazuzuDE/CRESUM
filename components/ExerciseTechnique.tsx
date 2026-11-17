@@ -73,10 +73,12 @@ export function ExerciseTechnique({
       visible
       animationType="slide"
       presentationStyle="pageSheet"
+      statusBarTranslucent
+      navigationBarTranslucent
       allowSwipeDismissal
       onRequestClose={onClose}
     >
-      <SafeAreaView style={s.root}>
+      <SafeAreaView edges={['top', 'left', 'right']} style={s.root}>
         <View style={s.grabber} />
         <BrandHeader tagline={false} />
         <View style={s.header}>
@@ -98,7 +100,10 @@ export function ExerciseTechnique({
             <Ionicons name="close" size={22} color={colors.textPrimary} />
           </Pressable>
         </View>
-        <AppScrollView contentContainerStyle={s.content}>
+        <AppScrollView
+          safeAreaEdges={['bottom']}
+          contentContainerStyle={s.content}
+        >
           <View style={s.detailHeading}>
             <View style={s.headingCopy}>
               <Text accessibilityRole="header" style={s.title}>

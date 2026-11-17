@@ -12,6 +12,7 @@ import { useProgramScroll } from './useProgramScroll';
 import { TrainingProgramWeek } from './TrainingProgramWeek';
 import type { ProgramAssignment } from '@/lib/training-programs/assignment';
 import type { ProjectedProgramSlot } from '@/lib/training-programs/schedule';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppScrollView } from './AppScrollView';
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -658,7 +659,7 @@ export function HomeDashboard({
         ) : null}
       </AppScrollView>
       {draft ? (
-        <View style={s.editBar}>
+        <SafeAreaView edges={['top']} style={s.editBar}>
           <Text style={s.sub}>{t('home.editHint')}</Text>
           <View
             style={{ flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm }}
@@ -692,7 +693,7 @@ export function HomeDashboard({
               {t('home.saveDraftError')}
             </Text>
           ) : null}
-        </View>
+        </SafeAreaView>
       ) : null}
     </View>
   );

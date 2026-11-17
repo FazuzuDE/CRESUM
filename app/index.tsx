@@ -1108,17 +1108,15 @@ function AppContent({
     !showOnboarding &&
     !editingPersonalization &&
     !acceptingProgram;
-  const activeWorkoutViewport =
-    showDock && tab === 'workout' && Boolean(data.activeWorkout);
+  const showOnboardingPage =
+    ready &&
+    onboardingReady &&
+    hiddenReady &&
+    !(onboardingError && showOnboarding) &&
+    (showOnboarding || editingPersonalization || acceptingProgram);
   const content = (
     <SafeAreaView
-      edges={
-        activeWorkoutViewport
-          ? ['left', 'right']
-          : showDock
-            ? ['top', 'left', 'right']
-            : undefined
-      }
+      edges={showDock || showOnboardingPage ? ['left', 'right'] : undefined}
       style={[s.root, (showOnboarding || acceptingProgram) && s.onboardingRoot]}
     >
       <StatusBar style="dark" />
@@ -1126,11 +1124,13 @@ function AppContent({
         <Modal
           visible
           animationType="slide"
+          statusBarTranslucent
+          navigationBarTranslucent
           onRequestClose={() => {
             if (!busy && !sharingEditing) setSharingOpen(false);
           }}
         >
-          <SafeAreaView style={s.root}>
+          <SafeAreaView edges={['left', 'right']} style={s.root}>
             <AppScrollView contentContainerStyle={{ padding: 16 }}>
               <SharingHub
                 key={
@@ -1195,9 +1195,9 @@ function AppContent({
         </Modal>
       ) : null}
       {notice ? (
-        <Text accessibilityRole="alert" style={s.notice}>
-          {notice}
-        </Text>
+        <SafeAreaView edges={['top']} style={s.notice}>
+          <Text accessibilityRole="alert">{notice}</Text>
+        </SafeAreaView>
       ) : null}
       <Confirmation
         visible={confirmReset}
@@ -1264,7 +1264,11 @@ function AppContent({
         }}
       />
       {programError ? (
-        <View style={s.notice} accessibilityRole="alert">
+        <SafeAreaView
+          edges={['top']}
+          style={s.notice}
+          accessibilityRole="alert"
+        >
           <Text style={s.sub}>{t('plan.recoveryError')}</Text>
           <AppButton
             title={t('plan.retry')}
@@ -1272,10 +1276,14 @@ function AppContent({
             disabled={busy || resetBusy}
             onPress={() => void recoverProgram()}
           />
-        </View>
+        </SafeAreaView>
       ) : null}
       {error ? (
-        <View style={s.notice} accessibilityRole="alert">
+        <SafeAreaView
+          edges={['top']}
+          style={s.notice}
+          accessibilityRole="alert"
+        >
           <Text style={s.sub}>{workoutError}</Text>
           <AppButton
             title={t('workout.retrySaveLoad')}
@@ -1285,7 +1293,7 @@ function AppContent({
               void store.retry();
             }}
           />
-        </View>
+        </SafeAreaView>
       ) : null}
       {!ready || !onboardingReady || !hiddenReady ? (
         <View style={s.empty}>
@@ -1340,7 +1348,7 @@ function AppContent({
             onPress={() => setOnboardingBypass(true)}
           />
         </View>
-      ) : showOnboarding || editingPersonalization || acceptingProgram ? (
+      ) : showOnboardingPage ? (
         <Onboarding
           key={editingPersonalization ? 'edit' : 'first-run'}
           state={
@@ -1368,9 +1376,13 @@ function AppContent({
       ) : (
         <DockSpace.Provider value={dockSpace}>
           {onboardingError ? (
-            <View style={s.notice} accessibilityRole="alert">
+            <SafeAreaView
+              edges={['top']}
+              style={s.notice}
+              accessibilityRole="alert"
+            >
               <Text style={s.sub}>{t(onboardingErrorKey)}</Text>
-            </View>
+            </SafeAreaView>
           ) : null}
           {tab === 'home' ? (
             <HomeDashboard
@@ -1406,7 +1418,7 @@ function AppContent({
           ) : tab === 'progress' ? (
             <>
               {summary && (
-                <View style={s.notice}>
+                <SafeAreaView edges={['top']} style={s.notice}>
                   <Text style={s.h3}>{t('workout.saved')}</Text>
                   <Text style={s.sub}>
                     {t('workout.savedSummary', {
@@ -1423,7 +1435,7 @@ function AppContent({
                     secondary
                     onPress={() => setSummary(null)}
                   />
-                </View>
+                </SafeAreaView>
               )}
               <Stats
                 history={data.history}

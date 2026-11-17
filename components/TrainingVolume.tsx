@@ -363,9 +363,11 @@ export function TrainingVolume({
         visible={allOpen}
         animationType="slide"
         presentationStyle="pageSheet"
+        statusBarTranslucent
+        navigationBarTranslucent
         onRequestClose={() => setAllOpen(false)}
       >
-        <SafeAreaView style={s.sheet}>
+        <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
           <View style={s.header}>
             <View style={s.headerCopy}>
               <Text style={s.title}>{t('volume.listTitle')}</Text>

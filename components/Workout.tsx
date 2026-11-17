@@ -8,6 +8,7 @@ import { BrandHeader } from './BrandHeader';
 import { useLocalization } from './LocalizationProvider';
 import { formatEntryNumber, formatNumber } from '@/lib/i18n/format';
 import { presentAppError } from '@/lib/i18n/errors';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppScrollView } from './AppScrollView';
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -19,7 +20,6 @@ import {
   Text,
   View,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import * as Haptics from 'expo-haptics';
 import { GlassCard } from './GlassCard';
 import { AppButton } from './AppButton';
@@ -146,10 +146,10 @@ export function Workout({
   }, [deadline, now]);
   if (!session)
     return (
-      <View style={s.empty}>
+      <SafeAreaView edges={['top']} style={s.empty}>
         <Text style={s.title}>{t('workout.noActive')}</Text>
         <Text style={s.sub}>{t('workout.chooseTemplate')}</Text>
-      </View>
+      </SafeAreaView>
     );
   const index = session.currentExerciseIndex;
   const exercise = session.exercises[index];
@@ -217,7 +217,6 @@ export function Workout({
       />
       <AppScrollView
         dockAware
-        contentInsetAdjustmentBehavior="never"
         ref={attachRef}
         scrollEnabled={!dragging}
         onScroll={onScroll}
@@ -228,7 +227,7 @@ export function Workout({
         contentContainerStyle={s.content}
       >
         <View>
-          <SafeAreaView edges={['top']} style={s.header}>
+          <View style={s.header}>
             <BrandHeader />
             <View style={s.titleRow}>
               <Text style={s.title} accessibilityRole="header">
@@ -252,7 +251,7 @@ export function Workout({
                 volume: formatNumber(locale, volume(session)),
               })}
             </Text>
-          </SafeAreaView>
+          </View>
         </View>
         {inputError ? (
           <Text accessibilityRole="alert" style={s.error}>
@@ -638,6 +637,8 @@ export function Workout({
           visible
           animationType="slide"
           presentationStyle="pageSheet"
+          statusBarTranslucent
+          navigationBarTranslucent
           onRequestClose={() => setComposition(null)}
         >
           <AppScrollView contentContainerStyle={s.content}>

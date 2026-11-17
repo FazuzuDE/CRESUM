@@ -179,9 +179,11 @@ export function BodyWeight({
         visible={adding}
         animationType="slide"
         presentationStyle="pageSheet"
+        statusBarTranslucent
+        navigationBarTranslucent
         onRequestClose={close}
       >
-        <SafeAreaView style={s.screen}>
+        <SafeAreaView edges={['left', 'right']} style={s.screen}>
           <KeyboardAvoidingView
             style={s.screen}
             behavior={Platform.OS === 'ios' ? 'padding' : undefined}

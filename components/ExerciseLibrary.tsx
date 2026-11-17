@@ -142,195 +142,205 @@ export function ExerciseLibrary({
 
   const content = (
     <SafeAreaView
-      edges={presentation === 'page' ? [] : undefined}
+      edges={presentation === 'page' ? [] : ['left', 'right']}
       style={s.sheet}
     >
-      <BrandHeader />
-      <View style={s.header}>
-        <View style={s.headerCopy}>
-          <Text style={s.title}>{t('library.title')}</Text>
-          <Text style={s.subtitle}>
-            {t('library.count', { count: results.length })}
-          </Text>
-        </View>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel={
-            presentation === 'page'
-              ? t('library.backProfile')
-              : t('library.closeLibrary')
-          }
-          onPress={close}
-          style={s.close}
-        >
-          <Text style={s.closeText}>
-            {t(presentation === 'page' ? 'library.back' : 'library.close')}
-          </Text>
-        </Pressable>
-      </View>
-
-      <TextInput
-        accessibilityLabel={t('library.searchLabel')}
-        value={query}
-        onChangeText={setQuery}
-        placeholder={t('library.searchPlaceholder')}
-        placeholderTextColor={colors.textTertiary}
-        returnKeyType="search"
-        style={s.search}
-      />
-
-      <View style={s.filterBar}>
-        <GlassMaterial
-          borderRadius={radius.pill}
-          solid={Platform.OS === 'ios' && reduceTransparency}
-        />
-        {(['muscle', 'equipment'] as const).map((group) => (
-          <FilterButton
-            key={group}
-            group={group}
-            title={filterTitles[group]}
-            value={filters[group][selectedRows[group]]}
-            filtered={selectedRows[group] > 0}
-            onPress={() => {
-              Keyboard.dismiss();
-              setFilterDraft({ group, row: selectedRows[group] });
-            }}
-          />
-        ))}
-      </View>
-
       <AppScrollView
         dockAware={presentation === 'page'}
         keyboardShouldPersistTaps="handled"
-        style={s.resultList}
-        contentContainerStyle={s.results}
+        contentContainerStyle={s.content}
       >
-        {results.length === 0 ? (
-          <View style={s.empty}>
-            <Text style={s.emptyTitle}>{t('library.empty')}</Text>
-            <Text style={s.subtitle}>{t('library.emptyHint')}</Text>
+        <BrandHeader />
+        <View style={s.header}>
+          <View style={s.headerCopy}>
+            <Text style={s.title}>{t('library.title')}</Text>
+            <Text style={s.subtitle}>
+              {t('library.count', { count: results.length })}
+            </Text>
           </View>
-        ) : (
-          results.map((listedExercise) => {
-            const exercise =
-              listedExercise.id === 'goblet-squat'
-                ? findExercise(
-                    gobletId ??
-                      selectedIds.find(
-                        (id) =>
-                          id === 'goblet-squat' ||
-                          id === 'kettlebell-goblet-squat',
-                      ) ??
-                      (equipment === 'kettlebell'
-                        ? 'kettlebell-goblet-squat'
-                        : 'goblet-squat'),
-                  )!
-                : listedExercise;
-            const name = catalogLabel(
-              locale,
-              'exercise',
-              exercise.id,
-              exercise.name,
-            );
-            const selected = selectedIds.includes(exercise.id);
-            return (
-              <View
-                key={exercise.id}
-                style={[s.row, selected && s.selectedRow]}
-              >
-                <View style={s.copy}>
-                  <CopyContainer
-                    accessibilityRole={browsing ? 'button' : undefined}
-                    accessibilityLabel={
-                      browsing ? t('library.view', { name }) : undefined
-                    }
-                    onPress={browsing ? () => openGuide(exercise) : undefined}
-                    style={s.nameCopy}
-                  >
-                    <Text style={s.name}>{name}</Text>
-                    <Text style={s.metadata}>
-                      {exercise.primaryMuscles
-                        .map((id) => catalogLabel(locale, 'muscle', id, id))
-                        .join(' · ')}
-                    </Text>
-                    <Text style={s.metadata}>
-                      {exercise.equipment
-                        .map((id) => catalogLabel(locale, 'equipment', id, id))
-                        .join(' · ')}
-                    </Text>
-                  </CopyContainer>
-                  {history !== undefined ? (
-                    <Pressable
-                      accessibilityRole="button"
-                      accessibilityLabel={t('library.statisticsFor', { name })}
-                      accessibilityHint={t('library.statisticsHint')}
-                      onPress={() => openGuide(exercise, 'Statistics')}
-                      style={s.statisticsAction}
-                    >
-                      <Text style={s.techniqueLabel}>
-                        {t('library.statistics')}
-                      </Text>
-                    </Pressable>
-                  ) : null}
-                  {listedExercise.id === 'goblet-squat' ? (
-                    <ExerciseEquipmentRow
-                      exerciseId={exercise.id}
-                      onPress={() => setGobletEquipmentOpen(true)}
-                    />
-                  ) : null}
-                  {selectionMode ? (
-                    <Pressable
-                      accessibilityRole="checkbox"
-                      accessibilityLabel={t('library.selectName', { name })}
-                      accessibilityState={{ checked: selected }}
-                      onPress={() => onToggle?.(exercise.id)}
-                      style={[s.action, selected && s.selectedAction]}
-                    >
-                      <Text
-                        style={[s.actionText, selected && s.selectedActionText]}
-                      >
-                        {t(selected ? 'library.selected' : 'library.select')}
-                      </Text>
-                    </Pressable>
-                  ) : onAdd ? (
-                    <Pressable
-                      accessibilityRole="button"
-                      accessibilityLabel={t(
-                        selected
-                          ? 'library.alreadyAddedName'
-                          : 'library.addName',
-                        { name },
-                      )}
-                      accessibilityState={{ disabled: selected }}
-                      disabled={selected}
-                      onPress={() => onAdd?.(exercise)}
-                      style={[s.addAction, selected && s.disabledAction]}
-                    >
-                      <Text
-                        style={[
-                          s.addActionText,
-                          selected && s.disabledActionText,
-                        ]}
-                      >
-                        {t(selected ? 'library.added' : 'library.add')}
-                      </Text>
-                    </Pressable>
-                  ) : null}
-                </View>
-                <Pressable
-                  accessibilityRole="button"
-                  accessibilityLabel={t('library.techniqueFor', { name })}
-                  accessibilityHint={t('library.techniqueHint')}
-                  onPress={() => openGuide(exercise)}
-                  style={s.techniqueAction}
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={
+              presentation === 'page'
+                ? t('library.backProfile')
+                : t('library.closeLibrary')
+            }
+            onPress={close}
+            style={s.close}
+          >
+            <Text style={s.closeText}>
+              {t(presentation === 'page' ? 'library.back' : 'library.close')}
+            </Text>
+          </Pressable>
+        </View>
+
+        <TextInput
+          accessibilityLabel={t('library.searchLabel')}
+          value={query}
+          onChangeText={setQuery}
+          placeholder={t('library.searchPlaceholder')}
+          placeholderTextColor={colors.textTertiary}
+          returnKeyType="search"
+          style={s.search}
+        />
+
+        <View style={s.filterBar}>
+          <GlassMaterial
+            borderRadius={radius.pill}
+            solid={Platform.OS === 'ios' && reduceTransparency}
+          />
+          {(['muscle', 'equipment'] as const).map((group) => (
+            <FilterButton
+              key={group}
+              group={group}
+              title={filterTitles[group]}
+              value={filters[group][selectedRows[group]]}
+              filtered={selectedRows[group] > 0}
+              onPress={() => {
+                Keyboard.dismiss();
+                setFilterDraft({ group, row: selectedRows[group] });
+              }}
+            />
+          ))}
+        </View>
+
+        <View style={s.results}>
+          {results.length === 0 ? (
+            <View style={s.empty}>
+              <Text style={s.emptyTitle}>{t('library.empty')}</Text>
+              <Text style={s.subtitle}>{t('library.emptyHint')}</Text>
+            </View>
+          ) : (
+            results.map((listedExercise) => {
+              const exercise =
+                listedExercise.id === 'goblet-squat'
+                  ? findExercise(
+                      gobletId ??
+                        selectedIds.find(
+                          (id) =>
+                            id === 'goblet-squat' ||
+                            id === 'kettlebell-goblet-squat',
+                        ) ??
+                        (equipment === 'kettlebell'
+                          ? 'kettlebell-goblet-squat'
+                          : 'goblet-squat'),
+                    )!
+                  : listedExercise;
+              const name = catalogLabel(
+                locale,
+                'exercise',
+                exercise.id,
+                exercise.name,
+              );
+              const selected = selectedIds.includes(exercise.id);
+              return (
+                <View
+                  key={exercise.id}
+                  style={[s.row, selected && s.selectedRow]}
                 >
-                  <ExerciseArtwork imageKey={exercise.imageKey} size={76} />
-                  <Text style={s.techniqueLabel}>{t('library.technique')}</Text>
-                </Pressable>
-              </View>
-            );
-          })
-        )}
+                  <View style={s.copy}>
+                    <CopyContainer
+                      accessibilityRole={browsing ? 'button' : undefined}
+                      accessibilityLabel={
+                        browsing ? t('library.view', { name }) : undefined
+                      }
+                      onPress={browsing ? () => openGuide(exercise) : undefined}
+                      style={s.nameCopy}
+                    >
+                      <Text style={s.name}>{name}</Text>
+                      <Text style={s.metadata}>
+                        {exercise.primaryMuscles
+                          .map((id) => catalogLabel(locale, 'muscle', id, id))
+                          .join(' · ')}
+                      </Text>
+                      <Text style={s.metadata}>
+                        {exercise.equipment
+                          .map((id) =>
+                            catalogLabel(locale, 'equipment', id, id),
+                          )
+                          .join(' · ')}
+                      </Text>
+                    </CopyContainer>
+                    {history !== undefined ? (
+                      <Pressable
+                        accessibilityRole="button"
+                        accessibilityLabel={t('library.statisticsFor', {
+                          name,
+                        })}
+                        accessibilityHint={t('library.statisticsHint')}
+                        onPress={() => openGuide(exercise, 'Statistics')}
+                        style={s.statisticsAction}
+                      >
+                        <Text style={s.techniqueLabel}>
+                          {t('library.statistics')}
+                        </Text>
+                      </Pressable>
+                    ) : null}
+                    {listedExercise.id === 'goblet-squat' ? (
+                      <ExerciseEquipmentRow
+                        exerciseId={exercise.id}
+                        onPress={() => setGobletEquipmentOpen(true)}
+                      />
+                    ) : null}
+                    {selectionMode ? (
+                      <Pressable
+                        accessibilityRole="checkbox"
+                        accessibilityLabel={t('library.selectName', { name })}
+                        accessibilityState={{ checked: selected }}
+                        onPress={() => onToggle?.(exercise.id)}
+                        style={[s.action, selected && s.selectedAction]}
+                      >
+                        <Text
+                          style={[
+                            s.actionText,
+                            selected && s.selectedActionText,
+                          ]}
+                        >
+                          {t(selected ? 'library.selected' : 'library.select')}
+                        </Text>
+                      </Pressable>
+                    ) : onAdd ? (
+                      <Pressable
+                        accessibilityRole="button"
+                        accessibilityLabel={t(
+                          selected
+                            ? 'library.alreadyAddedName'
+                            : 'library.addName',
+                          { name },
+                        )}
+                        accessibilityState={{ disabled: selected }}
+                        disabled={selected}
+                        onPress={() => onAdd?.(exercise)}
+                        style={[s.addAction, selected && s.disabledAction]}
+                      >
+                        <Text
+                          style={[
+                            s.addActionText,
+                            selected && s.disabledActionText,
+                          ]}
+                        >
+                          {t(selected ? 'library.added' : 'library.add')}
+                        </Text>
+                      </Pressable>
+                    ) : null}
+                  </View>
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={t('library.techniqueFor', { name })}
+                    accessibilityHint={t('library.techniqueHint')}
+                    onPress={() => openGuide(exercise)}
+                    style={s.techniqueAction}
+                  >
+                    <ExerciseArtwork imageKey={exercise.imageKey} size={76} />
+                    <Text style={s.techniqueLabel}>
+                      {t('library.technique')}
+                    </Text>
+                  </Pressable>
+                </View>
+              );
+            })
+          )}
+        </View>
       </AppScrollView>
       {visible && filterDraft ? (
         <WheelPickerSheet
@@ -400,6 +410,8 @@ export function ExerciseLibrary({
       visible={visible}
       animationType="slide"
       presentationStyle="pageSheet"
+      statusBarTranslucent
+      navigationBarTranslucent
       onRequestClose={close}
     >
       {content}
@@ -450,9 +462,9 @@ const s = StyleSheet.create({
   sheet: {
     flex: 1,
     paddingHorizontal: spacing.md,
-    paddingTop: spacing.sm,
     backgroundColor: colors.background,
   },
+  content: { paddingTop: spacing.sm },
   header: {
     minHeight: 56,
     flexDirection: 'row',
@@ -505,10 +517,8 @@ const s = StyleSheet.create({
   pressedFilter: { opacity: 0.65 },
   results: {
     paddingVertical: spacing.sm,
-    paddingBottom: spacing.xxl,
     gap: spacing.sm,
   },
-  resultList: { flex: 1 },
   row: {
     minWidth: 0,
     flexDirection: 'row',

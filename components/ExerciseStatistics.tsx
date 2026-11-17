@@ -341,10 +341,12 @@ function LoggedExerciseSets({
       visible
       animationType="slide"
       presentationStyle="pageSheet"
+      statusBarTranslucent
+      navigationBarTranslucent
       allowSwipeDismissal
       onRequestClose={onClose}
     >
-      <SafeAreaView style={s.sheet}>
+      <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
         <BrandHeader tagline={false} />
         <Pressable
           accessibilityRole="button"
@@ -354,7 +356,10 @@ function LoggedExerciseSets({
         >
           <Text style={s.link}>{t('stats.back')}</Text>
         </Pressable>
-        <AppScrollView contentContainerStyle={s.content}>
+        <AppScrollView
+          safeAreaEdges={['bottom']}
+          contentContainerStyle={s.content}
+        >
           <Text style={s.pageTitle} accessibilityRole="header">
             {t('stats.logged')}
           </Text>

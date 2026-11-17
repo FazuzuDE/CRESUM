@@ -50,9 +50,11 @@ export function HomeCalendar({
       visible
       animationType="slide"
       presentationStyle="pageSheet"
+      statusBarTranslucent
+      navigationBarTranslucent
       onRequestClose={onClose}
     >
-      <SafeAreaView style={s.root}>
+      <SafeAreaView edges={['left', 'right']} style={s.root}>
         <AppScrollView contentContainerStyle={s.content}>
           <Text accessibilityRole="header" style={s.title}>
             {t('calendar.title')}

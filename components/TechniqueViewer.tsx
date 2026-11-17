@@ -26,9 +26,11 @@ export function TechniqueViewer({
       visible
       animationType="slide"
       presentationStyle="fullScreen"
+      statusBarTranslucent
+      navigationBarTranslucent
       onRequestClose={onClose}
     >
-      <SafeAreaView style={s.root}>
+      <SafeAreaView edges={['top', 'left', 'right']} style={s.root}>
         <View style={s.header}>
           <Pressable
             accessibilityRole="button"
@@ -43,7 +45,10 @@ export function TechniqueViewer({
           </Text>
           <Text style={s.context}>{phase === 'START' ? '1 / 2' : '2 / 2'}</Text>
         </View>
-        <AppScrollView contentContainerStyle={s.content}>
+        <AppScrollView
+          safeAreaEdges={['bottom']}
+          contentContainerStyle={s.content}
+        >
           <TechniqueArtwork imageKey={imageKey} phase={phase} expanded />
           <TechniquePhaseControl phase={phase} onChange={onPhase} />
           <Text style={s.context}>{t('technique.viewerNote')}</Text>

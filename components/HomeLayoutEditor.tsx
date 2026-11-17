@@ -40,9 +40,11 @@ export function HomeLayoutEditor({
       visible
       animationType="slide"
       presentationStyle="pageSheet"
+      statusBarTranslucent
+      navigationBarTranslucent
       onRequestClose={close}
     >
-      <SafeAreaView style={s.screen}>
+      <SafeAreaView edges={['left', 'right']} style={s.screen}>
         <AppScrollView contentContainerStyle={s.content}>
           <AppButton
             title={t('home.cancel')}

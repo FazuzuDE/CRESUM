@@ -187,9 +187,11 @@ export function WorkoutTemplates({
       <Modal
         visible={Boolean(menuTemplate)}
         presentationStyle="pageSheet"
+        statusBarTranslucent
+        navigationBarTranslucent
         onRequestClose={() => setMenuTemplateId(undefined)}
       >
-        <SafeAreaView style={s.menuRoot}>
+        <SafeAreaView edges={['left', 'right']} style={s.menuRoot}>
           <AppScrollView contentContainerStyle={s.menuContent}>
             <Text style={s.menuTitle} accessibilityRole="header">
               {menuTemplate ? displayName(menuTemplate) : ''}

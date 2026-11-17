@@ -146,9 +146,11 @@ export function ExercisePerformance({ history, period, now }: Props) {
         visible={setsOpen}
         animationType="slide"
         presentationStyle="pageSheet"
+        statusBarTranslucent
+        navigationBarTranslucent
         onRequestClose={() => setSetsOpen(false)}
       >
-        <SafeAreaView style={s.sheet}>
+        <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
           <View style={s.header}>
             <Text
               style={s.sheetTitle}
@@ -168,7 +170,10 @@ export function ExercisePerformance({ history, period, now }: Props) {
               <Text style={s.closeText}>{t('progress.close')}</Text>
             </Pressable>
           </View>
-          <AppScrollView contentContainerStyle={s.results}>
+          <AppScrollView
+            safeAreaEdges={['bottom']}
+            contentContainerStyle={s.results}
+          >
             <View style={s.entries}>
               {entries.map((entry) => (
                 <View
@@ -210,9 +215,11 @@ export function ExercisePerformance({ history, period, now }: Props) {
         visible={selectorOpen}
         animationType="slide"
         presentationStyle="pageSheet"
+        statusBarTranslucent
+        navigationBarTranslucent
         onRequestClose={close}
       >
-        <SafeAreaView style={s.sheet}>
+        <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
           <View style={s.header}>
             <Text style={s.sheetTitle}>{t('performance.selectorTitle')}</Text>
             <Pressable
@@ -234,6 +241,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
             style={s.search}
           />
           <AppScrollView
+            safeAreaEdges={['bottom']}
             keyboardShouldPersistTaps="handled"
             contentContainerStyle={s.results}
           >

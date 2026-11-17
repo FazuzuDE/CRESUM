@@ -138,9 +138,11 @@ export function EstimatedOneRepMaxSeries({ points, period, now }: Props) {
         visible={allOpen}
         animationType="slide"
         presentationStyle="pageSheet"
+        statusBarTranslucent
+        navigationBarTranslucent
         onRequestClose={() => setAllOpen(false)}
       >
-        <SafeAreaView style={s.sheet}>
+        <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
           <View style={s.header}>
             <Text style={s.sheetTitle}>
               {t('series.modalTitle', { period: periodText })}
