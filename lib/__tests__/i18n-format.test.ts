@@ -21,9 +21,10 @@ it('localizes exact entry display without rounding manual precision or reparsing
     'pl',
     'tr',
     'zh-Hans',
+    'hi',
   ] as const) {
     expect(formatEntryNumber(locale, '12.1234567890123456789')).toBe(
-      locale === 'en' || locale === 'zh-Hans'
+      locale === 'en' || locale === 'zh-Hans' || locale === 'hi'
         ? '12.1234567890123456789'
         : '12,1234567890123456789',
     );
@@ -83,4 +84,16 @@ it('formats Chinese dates and numbers without changing stored entry precision', 
       timeZone: 'UTC',
     }),
   ).toBe('2026年11月17日');
+});
+
+it('formats Hindi dates and Indian number grouping without changing entry precision', () => {
+  expect(formatNumber('hi', 123456.75)).toBe('1,23,456.75');
+  expect(
+    formatDate('hi', Date.UTC(2026, 10, 17), {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    }),
+  ).toBe('17 नवंबर 2026');
 });

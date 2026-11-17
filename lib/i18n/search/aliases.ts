@@ -11,8 +11,10 @@ import it from './it';
 import pl from './pl';
 import tr from './tr';
 import zhHans from './zh-Hans';
+import hi from './hi';
 
 export const searchAliases: Record<AppLocale, SearchAliasCatalog> = {
+  hi,
   en,
   ru,
   de,

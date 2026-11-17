@@ -17,6 +17,7 @@ const flags = {
   it: '🇮🇹',
   pl: '🇵🇱',
   tr: '🇹🇷',
+  hi: '🇮🇳',
   'zh-Hans': '🇨🇳',
 };
 

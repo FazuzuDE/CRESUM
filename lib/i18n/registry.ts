@@ -8,6 +8,7 @@ export const localeRegistry = {
   it: { nativeName: 'Italiano', direction: 'ltr', released: false },
   pl: { nativeName: 'Polski', direction: 'ltr', released: false },
   tr: { nativeName: 'Türkçe', direction: 'ltr', released: false },
+  hi: { nativeName: 'हिन्दी', direction: 'ltr', released: false },
   'zh-Hans': { nativeName: '简体中文', direction: 'ltr', released: false },
   'pt-BR': {
     nativeName: 'Português (Brasil)',
