@@ -1,9 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-import { setAudioModeAsync, useAudioPlayer } from 'expo-audio';
-import { ContentScrollView } from './ContentScrollView';
+import { useState } from 'react';
+import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { GlassDialog } from './GlassDialog';
-import * as Haptics from 'expo-haptics';
+import { AppPicker } from './AppPicker';
 import { useLocalization } from './LocalizationProvider';
 import { AppButton } from './AppButton';
 import { localeRegistry, type LanguagePreference } from '@/lib/i18n/registry';
@@ -24,74 +22,22 @@ const flags = {
 
 export function LanguageSettings({ compact = false }: { compact?: boolean }) {
   const [open, setOpen] = useState(false);
-  const { t, locale, preference, saving, error, select, store } =
-    useLocalization();
-  const [attempted, setAttempted] = useState<LanguagePreference>();
-  const audioReady = useRef(false);
-  const scrollStep = useRef(0);
-  const player = useAudioPlayer(require('../assets/audio/language-tick.wav'));
-
-  useEffect(() => {
-    if (!open || Platform.OS !== 'ios') return;
-    let active = true;
-    void setAudioModeAsync({
-      playsInSilentMode: false,
-      interruptionMode: 'mixWithOthers',
-    })
-      .then(() => {
-        if (active) audioReady.current = true;
-      })
-      .catch(() => {});
-    return () => {
-      active = false;
-      audioReady.current = false;
-    };
-  }, [open]);
-
-  const tick = () => {
-    if (Platform.OS !== 'ios') return;
-    void Haptics.selectionAsync?.().catch(() => {});
-    if (audioReady.current && player.isLoaded && !player.playing) {
-      void player
-        .seekTo(0)
-        .then(() => {
-          if (audioReady.current) player.play();
-        })
-        .catch(() => {});
-    }
-  };
-  const choose = async (value: LanguagePreference) => {
-    setAttempted(value);
-    if (value !== preference) tick();
-    if (await select?.(value)) setOpen(false);
-  };
-  const dismiss = () => {
-    if (!saving) setOpen(false);
-  };
+  const [draft, setDraft] = useState<LanguagePreference>('system');
+  const [interacting, setInteracting] = useState(false);
+  const { t, locale, saving, error, select, store } = useLocalization();
+  const { height } = useWindowDimensions();
   const options = [...(store?.enabledLocales ?? [])].sort((a, b) =>
     localeRegistry[a].nativeName.localeCompare(
       localeRegistry[b].nativeName,
       'en',
     ),
   );
-  const option = (value: LanguagePreference) => {
-    const name =
-      value === 'system'
-        ? t('language.system')
-        : localeRegistry[value].nativeName;
-    const marker = value === 'system' ? '🌐' : flags[value];
-    const selected = preference === value;
-    return (
-      <AppButton
-        key={value}
-        selected={selected}
-        accessibilityLabel={name}
-        title={`${marker}  ${name}${selected ? ' ✓' : ''}`}
-        secondary
-        disabled={saving || !select}
-        onPress={() => void choose(value)}
-      />
-    );
+  const choose = async () => {
+    if (saving || interacting || !select) return;
+    if (await select(draft)) setOpen(false);
+  };
+  const dismiss = () => {
+    if (!saving) setOpen(false);
   };
   return (
     <View style={[s.root, compact && s.compact]}>
@@ -101,56 +47,73 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
         secondary
         presentation={compact ? 'text' : 'row'}
         onPress={() => {
-          scrollStep.current = 0;
+          setDraft(options[0] ?? 'system');
+          setInteracting(false);
           setOpen(true);
         }}
       />
       {open ? (
-        <GlassDialog onClose={dismiss}>
+        <GlassDialog onClose={dismiss} transparency={30}>
           <Text accessibilityRole="header" style={s.title}>
             {t('language.title')}
           </Text>
           <Text style={s.copy}>{t('language.description')}</Text>
-          {option('system')}
-          <ContentScrollView
-            style={s.list}
-            contentContainerStyle={s.options}
-            scrollEventThrottle={16}
-            onScroll={({ nativeEvent }) => {
-              const { contentOffset, contentSize, layoutMeasurement } =
-                nativeEvent;
-              const offset = Math.min(
-                Math.max(0, contentOffset.y),
-                Math.max(0, contentSize.height - layoutMeasurement.height),
-              );
-              const step = Math.floor(offset / spacing.lg);
-              if (step !== scrollStep.current) {
-                scrollStep.current = step;
-                tick();
-              }
-            }}
-          >
-            {options.map(option)}
-            {error === 'save' ? (
-              <>
-                <Text accessibilityRole="alert" style={s.error}>
-                  {t('language.saveError')}
-                </Text>
-                <AppButton
-                  title={t('common.retry')}
-                  disabled={saving || !attempted}
-                  onPress={() => attempted && void choose(attempted)}
-                />
-              </>
-            ) : null}
-          </ContentScrollView>
           <AppButton
-            title={t('common.cancel')}
-            presentation="text"
+            title={`🌐  ${t('language.system')}${draft === 'system' ? ' ✓' : ''}`}
+            selected={draft === 'system'}
             secondary
-            disabled={saving}
-            onPress={dismiss}
+            disabled={saving || interacting || !select}
+            onPress={() =>
+              setDraft(draft === 'system' ? (options[0] ?? 'system') : 'system')
+            }
           />
+          <View
+            style={{ height: Math.min(220, height * 0.32), flexShrink: 1 }}
+            pointerEvents={saving ? 'none' : 'auto'}
+            accessibilityElementsHidden={saving}
+            importantForAccessibility={saving ? 'no-hide-descendants' : 'auto'}
+          >
+            <AppPicker
+              flexible
+              columns={[
+                options.map(
+                  (value) =>
+                    `${flags[value]}  ${localeRegistry[value].nativeName}`,
+                ),
+              ]}
+              labels={[t('language.title')]}
+              selected={[
+                Math.max(
+                  0,
+                  options.indexOf(draft === 'system' ? options[0] : draft),
+                ),
+              ]}
+              onChange={(_, row) => {
+                if (!saving && options[row]) setDraft(options[row]);
+              }}
+              onInteractionChange={setInteracting}
+            />
+          </View>
+          {error === 'save' ? (
+            <Text accessibilityRole="alert" style={s.error}>
+              {t('language.saveError')}
+            </Text>
+          ) : null}
+          <View style={s.actions}>
+            <AppButton
+              title={t('common.cancel')}
+              presentation="text"
+              secondary
+              disabled={saving}
+              onPress={dismiss}
+            />
+            <AppButton
+              title={t(error === 'save' ? 'common.retry' : 'common.done')}
+              presentation="text"
+              disabled={saving || interacting || !select || !options.length}
+              onPress={() => void choose()}
+            />
+          </View>
         </GlassDialog>
       ) : null}
     </View>
@@ -159,9 +122,12 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
 const s = StyleSheet.create({
   root: { gap: spacing.sm },
   compact: { alignItems: 'flex-end' },
-  list: { flexGrow: 0, flexShrink: 1 },
   title: { ...typography.title2, color: colors.textPrimary },
-  options: { gap: spacing.xs },
   copy: { ...typography.footnote, color: colors.textPrimary },
   error: { ...typography.footnote, color: colors.danger },
+  actions: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+  },
 });

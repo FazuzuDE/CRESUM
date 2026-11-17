@@ -6,9 +6,11 @@ import {
 } from '../../components/LocalizationProvider';
 import { LocaleStore } from '../i18n/preference-store';
 import { LanguageSettings } from '../../components/LanguageSettings';
+import { AppPicker } from '../../components/AppPicker';
+import { GlassMaterial } from '../../components/GlassMaterial';
 import { AppButton } from '../../components/AppButton';
 const { act, create } = jest.requireActual('react-test-renderer');
-it('puts System first and allows a manual choice from every available language', async () => {
+it('starts alphabetically, stages wheel choices, and saves only with Done', async () => {
   const store = new LocaleStore(
     { getItem: async () => null, setItem: async () => {} },
     () => ['en'],
@@ -21,14 +23,12 @@ it('puts System first and allows a manual choice from every available language',
       </LocalizationProvider>,
     );
   });
-  act(() => view!.root.findByType(AppButton).props.onPress());
-  const buttons = view!.root.findByType(Modal).findAllByType(AppButton);
-  expect(
-    buttons
-      .slice(0, -1)
-      .map((b: { props: { title: string } }) => b.props.title),
-  ).toEqual([
-    '🌐  System language ✓',
+  const open = () =>
+    act(() => view!.root.findAllByType(AppButton)[0].props.onPress());
+  const buttons = () => view!.root.findByType(Modal).findAllByType(AppButton);
+  open();
+  expect(view!.root.findByType(GlassMaterial).props.transparency).toBe(30);
+  expect(view!.root.findByType(AppPicker).props.columns[0]).toEqual([
     '🇩🇪  Deutsch',
     '🇬🇧  English',
     '🇪🇸  Español',
@@ -41,15 +41,58 @@ it('puts System first and allows a manual choice from every available language',
     '🇺🇦  Українська',
     '🇨🇳  简体中文',
   ]);
-  expect(buttons[0].props.selected).toBe(true);
-  expect(buttons[11].props.accessibilityLabel).toBe('简体中文');
-  await act(async () => {
-    buttons[11].props.onPress();
-  });
+  expect(view!.root.findByType(AppPicker).props.selected).toEqual([0]);
+  expect(buttons()[0].props.title).toBe('🌐  System language');
+  act(() => view!.root.findByType(AppPicker).props.onChange(0, 10));
+  expect(store.getSnapshot().preference).toBe('system');
+  act(() => buttons()[1].props.onPress());
+  open();
+  expect(view!.root.findByType(AppPicker).props.selected).toEqual([0]);
+  act(() => view!.root.findByType(AppPicker).props.onChange(0, 10));
+  await act(async () => buttons()[2].props.onPress());
   expect(store.getSnapshot()).toMatchObject({
     preference: 'zh-Hans',
     locale: 'zh-Hans',
   });
+  expect(view!.root.findAllByType(Modal)).toHaveLength(0);
+  open();
+  expect(view!.root.findByType(AppPicker).props.selected).toEqual([0]);
+  act(() => buttons()[0].props.onPress());
+  expect(buttons()[0].props.selected).toBe(true);
+  await act(async () => buttons()[2].props.onPress());
+  expect(store.getSnapshot().preference).toBe('system');
+  act(() => view!.unmount());
+});
+it('keeps a failed language draft available for retry', async () => {
+  let fail = true;
+  const store = new LocaleStore(
+    {
+      getItem: async () => null,
+      setItem: async () => {
+        if (fail) throw Error('storage');
+      },
+    },
+    () => ['en'],
+  );
+  let view: ReturnType<typeof create>;
+  await act(async () => {
+    view = create(
+      <LocalizationProvider store={store}>
+        <LanguageSettings />
+      </LocalizationProvider>,
+    );
+  });
+  act(() => view!.root.findByType(AppButton).props.onPress());
+  act(() => view!.root.findByType(AppPicker).props.onChange(0, 8));
+  const confirm = () =>
+    view!.root.findByType(Modal).findAllByType(AppButton)[2];
+  await act(async () => confirm().props.onPress());
+  expect(store.getSnapshot().preference).toBe('system');
+  expect(view!.root.findByType(AppPicker).props.selected).toEqual([8]);
+  expect(confirm().props.title).toBe('Retry');
+  fail = false;
+  await act(async () => confirm().props.onPress());
+  expect(store.getSnapshot().preference).toBe('ru');
   expect(view!.root.findAllByType(Modal)).toHaveLength(0);
   act(() => view!.unmount());
 });

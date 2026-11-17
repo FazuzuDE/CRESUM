@@ -4505,3 +4505,10 @@ Approved the white CRESUM onboarding set, with the paired character image on
 white, optional body details, and distinct self-directed and guided routes.
 Keep Build muscle and Get stronger separate, include Lose weight, and load
 the program review directly after goal selection. Begin accepts the plan.
+
+## 2026-11-17 — Approved language wheel
+
+Replace the language button list with the shared wheel. Open at the first
+alphabetical language, keep System above it, and confirm drafts with Done.
+Use the shared glass dialog at 30% transparency for this window. Physical Expo Go
+and accessibility acceptance remain pending until device review.

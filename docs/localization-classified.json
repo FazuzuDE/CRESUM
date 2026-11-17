@@ -11705,5 +11705,77 @@
         "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:resizeMode/JsxAttributes"
       }
     ]
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 62,
+    "text": "`🌐 ${t('language.system')}${draft === 'system' ? ' ✓' : ''}`",
+    "context": "TemplateExpression/JsxExpression/JsxAttribute:title/JsxAttributes/JsxSelfClosingElement",
+    "kind": "internal",
+    "reason": "Localized System language message with a globe and selection mark."
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 67,
+    "text": "system",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ArrowFunction/JsxExpression",
+    "kind": "internal",
+    "reason": "Internal React Native interaction/accessibility enum, preference identity or catalog message key; not displayed as untranslated copy."
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 72,
+    "text": "none",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes",
+    "kind": "internal",
+    "reason": "Internal React Native interaction/accessibility enum, preference identity or catalog message key; not displayed as untranslated copy."
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 72,
+    "text": "auto",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes",
+    "kind": "internal",
+    "reason": "Internal React Native interaction/accessibility enum, preference identity or catalog message key; not displayed as untranslated copy."
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 74,
+    "text": "no-hide-descendants",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes",
+    "kind": "internal",
+    "reason": "Internal React Native interaction/accessibility enum, preference identity or catalog message key; not displayed as untranslated copy."
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 74,
+    "text": "auto",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes",
+    "kind": "internal",
+    "reason": "Internal React Native interaction/accessibility enum, preference identity or catalog message key; not displayed as untranslated copy."
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 81,
+    "text": "`${flags[value]} ${localeRegistry[value].nativeName}`",
+    "context": "TemplateExpression/ArrowFunction/CallExpression/ArrayLiteralExpression/JsxExpression",
+    "kind": "canonical",
+    "reason": "Native language names and flags from the live locale registry; intentionally not translated."
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 111,
+    "text": "common.retry",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title",
+    "kind": "internal",
+    "reason": "Internal React Native interaction/accessibility enum, preference identity or catalog message key; not displayed as untranslated copy."
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 111,
+    "text": "common.done",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title",
+    "kind": "internal",
+    "reason": "Internal React Native interaction/accessibility enum, preference identity or catalog message key; not displayed as untranslated copy."
   }
 ]
