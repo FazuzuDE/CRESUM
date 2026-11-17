@@ -45,7 +45,8 @@ it('supports Russian plurals when the runtime has no native Intl.PluralRules', (
 
 it('resolves ordered device locales safely and respects manual choice', () => {
   expect(resolveLocale('system', ['es-ES', 'de-AT'])).toBe('es');
-  expect(resolveLocale('system', ['it-IT', 'de-AT'])).toBe('de');
+  expect(resolveLocale('system', ['it-IT', 'de-AT'])).toBe('it');
+  expect(resolveLocale('system', ['nl-NL', 'de-AT'])).toBe('de');
   expect(resolveLocale('system', ['???', 'zh-CN'])).toBe('en');
   expect(resolveLocale('fr', ['ru-RU'])).toBe('fr');
 });
@@ -57,6 +58,12 @@ it('uses Brazilian Portuguese for zero, singular and plural workout sets', () =>
     '1 série',
     '2 séries',
   ]);
+});
+
+it('uses Italian singular and plural forms for completed sets', () => {
+  const t = createTranslator('it');
+  expect(t('history.completedSets', { count: 1 })).toBe('1 serie completata');
+  expect(t('history.completedSets', { count: 2 })).toBe('2 serie completate');
 });
 
 it('uses Russian plural categories and preserves literal interpolation', () => {

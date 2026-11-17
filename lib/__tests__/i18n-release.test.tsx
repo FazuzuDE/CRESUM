@@ -102,6 +102,7 @@ it('rejects unregistered and pseudo languages without persisting them', async ()
     'uk',
     'es',
     'pt-BR',
+    'it',
   ]);
 });
 it('marks only a missing conflict name for translation, preserving a saved English title', async () => {

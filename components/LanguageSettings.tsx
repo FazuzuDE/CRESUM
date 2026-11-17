@@ -16,6 +16,7 @@ const flags = {
   uk: '🇺🇦',
   es: '🇪🇸',
   'pt-BR': '🇧🇷',
+  it: '🇮🇹',
 };
 
 export function LanguageSettings({ compact = false }: { compact?: boolean }) {

@@ -1,0 +1,48 @@
+export default {
+  'exerciseMuscles.title': 'Muscoli coinvolti',
+  'exerciseMuscles.more': 'Maggiori dettagli',
+  'exerciseMuscles.open': 'Dettagli muscolari per {{name}}',
+  'exerciseMuscles.close': 'Chiudere i dettagli muscolari',
+  'exerciseMuscles.meaning':
+    'Ruoli muscolari qualitativi per questo esercizio, non attivazione misurata, percentuali di carico o recupero.',
+  'exerciseMuscles.coverage':
+    'Non evidenziato su questa mappa: {{muscles}}. Questi muscoli sono ancora elencati sopra.',
+  'exerciseMuscles.lowerBack':
+    'I punti salienti della parte bassa sono proiezioni schematiche sotto fascia.',
+  'exerciseMuscles.none': 'Nessuna lista',
+  'library.title': 'Libreria esercizi',
+  'library.count': {
+    one: '{{count, number}} esercizio',
+    many: '{{count, number}} esercizi',
+    other: '{{count, number}} esercizi',
+  },
+  'library.backProfile': 'Torna al profilo',
+  'library.closeLibrary': 'Chiudi libreria esercizi',
+  'library.back': 'Indietro',
+  'library.close': 'Chiudi',
+  'library.searchLabel': 'Cerca nella libreria esercizi',
+  'library.searchPlaceholder': 'Cerca esercizi',
+  'library.muscle': 'Muscolo',
+  'library.equipment': 'Apparecchiature',
+  'library.all': 'Tutti',
+  'library.empty': 'Nessun esercizio trovato',
+  'library.emptyHint': "Prova un'altra ricerca o filtro.",
+  'library.view': 'Vista {{name}}',
+  'library.statisticsFor': 'Statistiche per {{name}}',
+  'library.statisticsHint':
+    'Apre i risultati salvati senza selezionare questo esercizio',
+  'library.statistics': 'Statistiche',
+  'library.selectName': 'Seleziona {{name}}',
+  'library.select': 'Seleziona',
+  'library.selected': 'Selezionato',
+  'library.addName': 'Aggiungi {{name}}',
+  'library.alreadyAddedName': 'Già aggiunto {{name}}',
+  'library.add': 'Aggiungi',
+  'library.added': 'Aggiunto',
+  'library.techniqueFor': 'Tecnica per {{name}}',
+  'library.techniqueHint':
+    'Apre le istruzioni senza selezionare questo esercizio',
+  'library.technique': 'Tecnica',
+  'library.filterMuscle': 'Filtra per muscolo: {{label}}',
+  'library.filterEquipment': 'Filtra per attrezzatura: {{label}}',
+} as const;
