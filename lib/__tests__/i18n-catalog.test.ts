@@ -48,6 +48,18 @@ it('finds localized and canonical names/aliases without changing the catalog or 
   expect(
     searchLocalizedExercises({ query: 'gogus itisi' }, 'tr').map((x) => x.id),
   ).toContain('machine-chest-press');
+  expect(
+    searchLocalizedExercises(
+      { query: '卧推', equipment: 'barbell' },
+      'zh-Hans',
+    ).map((x) => x.id),
+  ).toContain('barbell-bench-press');
+  expect(
+    searchLocalizedExercises(
+      { query: 'Bench Press', muscle: 'chest' },
+      'zh-Hans',
+    ).map((x) => x.id),
+  ).toContain('barbell-bench-press');
   expect(catalogLabel('ru', 'exercise', 'bench', 'fallback')).toBe(
     'Жим штанги лёжа',
   );
@@ -69,6 +81,7 @@ it('covers every current exercise, muscle and equipment in every supported langu
     'it',
     'pl',
     'tr',
+    'zh-Hans',
   ] as const) {
     for (const record of exerciseLibrary)
       expect(

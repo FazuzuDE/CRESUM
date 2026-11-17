@@ -1,0 +1,23 @@
+export default {
+  'brand.tagline': '训练。记录。进步。',
+  'artwork.placeholder': '暂无插图：{{name}}',
+  'artwork.generic': '暂无动作示范图',
+  'backup.shareTitle': '保存 CRESUM 备份',
+  'workout.retrySaveLoad': '重试保存或加载',
+  'scroll.top': '返回页面顶部',
+  'scroll.section': '返回当前区域顶部',
+  'scroll.hint': '首次轻点返回当前区域顶部，再次轻点返回页面顶部',
+  'common.retry': '重试',
+  'common.cancel': '取消',
+  'common.done': '完成',
+  'common.loading': '正在加载…',
+  'common.named': '{{name}}',
+  'common.setCount': {
+    other: '{{count, number}} 组',
+  },
+  'language.title': '语言',
+  'language.system': '系统语言',
+  'language.readError': '无法加载语言设置。训练仍可使用，请重试。',
+  'language.saveError': '无法保存语言设置。之前的选择保持不变，请重试。',
+  'language.description': '选择此设备上使用的语言。',
+} as const;

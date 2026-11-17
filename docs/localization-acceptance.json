@@ -1,12 +1,46 @@
 {
-  "en": { "web": false, "native": false },
-  "ru": { "web": false, "native": false },
-  "de": { "web": false, "native": false },
-  "fr": { "web": false, "native": false },
-  "uk": { "web": false, "native": false },
-  "es": { "web": false, "native": false },
-  "pt-BR": { "web": false, "native": false },
-  "it": { "web": false, "native": false },
-  "pl": { "web": false, "native": false },
-  "tr": { "web": false, "native": false }
+  "en": {
+    "web": false,
+    "native": false
+  },
+  "ru": {
+    "web": false,
+    "native": false
+  },
+  "de": {
+    "web": false,
+    "native": false
+  },
+  "fr": {
+    "web": false,
+    "native": false
+  },
+  "uk": {
+    "web": false,
+    "native": false
+  },
+  "es": {
+    "web": false,
+    "native": false
+  },
+  "pt-BR": {
+    "web": false,
+    "native": false
+  },
+  "it": {
+    "web": false,
+    "native": false
+  },
+  "pl": {
+    "web": false,
+    "native": false
+  },
+  "tr": {
+    "web": false,
+    "native": false
+  },
+  "zh-Hans": {
+    "web": false,
+    "native": false
+  }
 }

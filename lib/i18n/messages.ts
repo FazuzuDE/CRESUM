@@ -1,3 +1,17 @@
+import zhHansEquipment from './locales/zh-Hans/equipment';
+import zhHansSharing from './locales/zh-Hans/sharing';
+import zhHansProfile from './locales/zh-Hans/profile';
+import zhHansCommon from './locales/zh-Hans/common';
+import zhHansProgress from './locales/zh-Hans/progress';
+import zhHansCatalog from './locales/zh-Hans/catalog';
+import zhHansLibrary from './locales/zh-Hans/library';
+import zhHansWorkout from './locales/zh-Hans/workout';
+import zhHansHome from './locales/zh-Hans/home';
+import zhHansHistory from './locales/zh-Hans/history';
+import zhHansOnboarding from './locales/zh-Hans/onboarding';
+import zhHansEditor from './locales/zh-Hans/editor';
+import zhHansProgramTechnique from './locales/zh-Hans/program-technique';
+import zhHansTechniqueContent from './locales/zh-Hans/technique-content';
 import trEquipment from './locales/tr/equipment';
 import trSharing from './locales/tr/sharing';
 import trProfile from './locales/tr/profile';
@@ -298,6 +312,22 @@ const tr = {
   ...trProgramTechnique,
   ...trTechniqueContent,
 } as const;
+const zhHans = {
+  ...zhHansEquipment,
+  ...zhHansSharing,
+  ...zhHansProfile,
+  ...zhHansCommon,
+  ...zhHansProgress,
+  ...zhHansCatalog,
+  ...zhHansLibrary,
+  ...zhHansWorkout,
+  ...zhHansHome,
+  ...zhHansHistory,
+  ...zhHansOnboarding,
+  ...zhHansEditor,
+  ...zhHansProgramTechnique,
+  ...zhHansTechniqueContent,
+} as const;
 export type MessageValue =
   string | Readonly<Partial<Record<Intl.LDMLPluralRule, string>>>;
 export type MessageCatalog = Readonly<Record<string, MessageValue>>;
@@ -312,6 +342,7 @@ export const catalogs = {
   it,
   pl,
   tr,
+  'zh-Hans': zhHans,
 } satisfies Record<string, MessageCatalog>;
 export type MessageKey = keyof typeof en;
 type TrimFormat<S extends string> = S extends `${infer Name},${string}`

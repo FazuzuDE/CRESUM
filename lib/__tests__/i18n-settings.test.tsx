@@ -39,15 +39,16 @@ it('puts System first and allows a manual choice from every available language',
     '🇹🇷  Türkçe',
     '🇷🇺  Русский',
     '🇺🇦  Українська',
+    '🇨🇳  简体中文',
   ]);
   expect(buttons[0].props.selected).toBe(true);
-  expect(buttons[8].props.accessibilityLabel).toBe('Türkçe');
+  expect(buttons[11].props.accessibilityLabel).toBe('简体中文');
   await act(async () => {
-    buttons[8].props.onPress();
+    buttons[11].props.onPress();
   });
   expect(store.getSnapshot()).toMatchObject({
-    preference: 'tr',
-    locale: 'tr',
+    preference: 'zh-Hans',
+    locale: 'zh-Hans',
   });
   expect(view!.root.findAllByType(Modal)).toHaveLength(0);
   act(() => view!.unmount());
@@ -89,6 +90,11 @@ it('switches live content without remounting a draft or resetting its value', as
     await store.select('fr');
   });
   expect(view!.root.findByType(Text).props.children).toBe('Réessayer');
+  await act(async () => {
+    await store.select('zh-Hans');
+  });
+  expect(view!.root.findByType(Text).props.children).toBe('重试');
+  expect(view!.root.findByType(TextInput).props.value).toBe('12,');
   expect(mounts).toBe(1);
   act(() => view!.unmount());
 });

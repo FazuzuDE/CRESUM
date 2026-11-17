@@ -101,6 +101,11 @@ it.each([
   ['it-CH', 'it'],
   ['pl-PL', 'pl'],
   ['tr-TR', 'tr'],
+  ['zh', 'zh-Hans'],
+  ['zh-CN', 'zh-Hans'],
+  ['zh-SG', 'zh-Hans'],
+  ['zh-Hans', 'zh-Hans'],
+  ['zh-Hans-HK', 'zh-Hans'],
 ])('selects the system language for %s', async (tag, locale) => {
   const store = new LocaleStore(
     { getItem: async () => null, setItem: async () => {} },

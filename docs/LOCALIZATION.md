@@ -1,14 +1,31 @@
 # Localization coverage and contribution rules
 
-The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish and Turkish. System language
+The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish and Simplified Chinese. System language
 appears first and is selected by default. An explicit choice is saved on the
 device. Final web and native acceptance for Russian, German, French,
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish and Turkish remain pending in the release eligibility ledger.
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish and Simplified Chinese remain pending in the release eligibility ledger.
 
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish and Turkish cover the bundled messages and catalogs, including
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish and Simplified Chinese cover the bundled messages and catalogs, including
 exercise technique, equipment and built-in plans. Shared plan titles and
 descriptions use the selected locale when the publication supplies it. Older
 publications use their English metadata.
+
+## Simplified Chinese — approved 2026-11-17
+
+`zh-Hans` adds all 1651 bundled messages, 110 catalog labels and 70 technique
+guides (530 guide messages). It is selectable as 简体中文 and follows `zh`,
+`zh-CN`, `zh-SG` and explicit `zh-Hans` device tags. Explicit `zh-Hant` and
+traditional-region tags (`TW`, `HK`, `MO`) retain ordered fallback rather than
+silently selecting another script. An explicit `zh-Hans` tag takes precedence
+over its region. This does not provide Traditional Chinese.
+
+Counts use Chinese's single `other` form. Dates and decimal-point numbers use
+the selected locale. Exercise search accepts Chinese names and canonical
+English aliases. Optional published metadata supports `zh-Hans`; publications
+without it keep the existing English fallback. User-authored names are unchanged.
+All translations are bundled for offline use. All final Chinese messages were authored and reviewed
+against their English source, including UI and exercise terminology; independent native-speaker review and physical
+Expo Go layout/accessibility acceptance remain pending in the ledger.
 
 ## Current status
 

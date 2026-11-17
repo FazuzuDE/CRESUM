@@ -20,9 +20,12 @@ it('localizes exact entry display without rounding manual precision or reparsing
     'it',
     'pl',
     'tr',
+    'zh-Hans',
   ] as const) {
     expect(formatEntryNumber(locale, '12.1234567890123456789')).toBe(
-      locale === 'en' ? '12.1234567890123456789' : '12,1234567890123456789',
+      locale === 'en' || locale === 'zh-Hans'
+        ? '12.1234567890123456789'
+        : '12,1234567890123456789',
     );
   }
 });
@@ -68,4 +71,16 @@ it('preserves localized entry precision when the runtime lacks formatToParts', (
   } finally {
     Object.defineProperty(proto, 'formatToParts', descriptor);
   }
+});
+
+it('formats Chinese dates and numbers without changing stored entry precision', () => {
+  expect(formatNumber('zh-Hans', 12.5)).toBe('12.5');
+  expect(
+    formatDate('zh-Hans', Date.UTC(2026, 10, 17), {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    }),
+  ).toBe('2026年11月17日');
 });
