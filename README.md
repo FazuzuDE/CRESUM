@@ -1,12 +1,15 @@
-# CRESUM v0.3 — Exercise Library & Progress
+# CRESUM — Exercise Library & Progress
+
+New chat, account or contributor? Start with [project context and continuation](docs/START_HERE.md).
+The Mobile integration branch is `develop`; PR and deployment status must be checked live.
 
 CRESUM is the current product name. See [rebranding and compatibility
 notes](./docs/REBRANDING.md) for the retained storage/application identifiers
 and the separate GitHub repository rename.
 
-## New in v0.3
+## Core capabilities
 
-- Exercise library with 65 exercises and search
+- Exercise library with 70 catalog records and multilingual search
 - Add exercises while a workout is active
 - Three built-in workout templates: Upper Body, Push Day, Leg Day
 - Create and persist custom workout templates
@@ -32,7 +35,7 @@ npm ci
 npx expo start
 ```
 
-Use a development client or Expo Go compatible with SDK 57. Availability of a
+Use a development client or Expo Go compatible with the pinned Expo SDK (currently 58). Availability of a
 compatible Expo Go build depends on the platform; the latest store app may not
 support this SDK.
 
