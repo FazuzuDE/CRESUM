@@ -27,6 +27,8 @@ export function searchLocalizedExercises(
 ): LibraryExercise[] {
   const normalize = (value: string) => {
     const lower = value.toLocaleLowerCase(locale);
+    if (locale === 'pl')
+      return lower.normalize('NFD').replace(/\p{M}/gu, '').replace(/ł/g, 'l');
     if (locale === 'pt-BR' || locale === 'it')
       return lower.normalize('NFD').replace(/\p{M}/gu, '');
     return locale === 'es'

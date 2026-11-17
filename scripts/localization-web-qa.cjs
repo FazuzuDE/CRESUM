@@ -111,7 +111,7 @@ function readCatalogs(root) {
     return exports;
   };
   return Object.fromEntries(
-    ['en', 'ru', 'de', 'fr', 'uk', 'es', 'pt-BR', 'it'].map((locale) => {
+    ['en', 'ru', 'de', 'fr', 'uk', 'es', 'pt-BR', 'it', 'pl'].map((locale) => {
       const folder = path.join(root, 'lib/i18n/locales', locale);
       const catalog = {};
       for (const file of fs
@@ -217,7 +217,17 @@ async function main() {
   };
   try {
     for (const expand of [false, true])
-      for (const locale of ['en', 'ru', 'de', 'fr', 'uk', 'es', 'pt-BR', 'it'])
+      for (const locale of [
+        'en',
+        'ru',
+        'de',
+        'fr',
+        'uk',
+        'es',
+        'pt-BR',
+        'it',
+        'pl',
+      ])
         for (const width of [320, 390]) {
           expandedMode = expand;
           const context = await browser.newContext({

@@ -1,11 +1,11 @@
 # Localization coverage and contribution rules
 
-The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese and Italian. System language
+The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian and Polish. System language
 appears first and is selected by default. An explicit choice is saved on the
 device. Final web and native acceptance for Russian, German, French,
-Ukrainian, Spanish, Brazilian Portuguese and Italian remain pending in the release eligibility ledger.
+Ukrainian, Spanish, Brazilian Portuguese, Italian and Polish remain pending in the release eligibility ledger.
 
-Ukrainian, Spanish, Brazilian Portuguese and Italian cover the bundled messages and catalogs, including
+Ukrainian, Spanish, Brazilian Portuguese, Italian and Polish cover the bundled messages and catalogs, including
 exercise technique, equipment and built-in plans. Shared plan titles and
 descriptions use the selected locale when the publication supplies it. Older
 publications use their English metadata.

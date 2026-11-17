@@ -12,6 +12,7 @@ it('translates all authored guides while preserving revision, source IDs and can
       'es',
       'pt-BR',
       'it',
+      'pl',
     ] as const) {
       const translated = localizedTechnique(locale, id)!;
       expect(translated.revision).toBe(source.revision);

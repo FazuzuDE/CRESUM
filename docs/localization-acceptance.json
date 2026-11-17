@@ -6,5 +6,6 @@
   "uk": { "web": false, "native": false },
   "es": { "web": false, "native": false },
   "pt-BR": { "web": false, "native": false },
-  "it": { "web": false, "native": false }
+  "it": { "web": false, "native": false },
+  "pl": { "web": false, "native": false }
 }
