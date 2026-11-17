@@ -16318,5 +16318,17 @@
     "line": 194,
     "text": "right",
     "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 6,
+    "text": "uk",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 6,
+    "text": "es",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
   }
 ]

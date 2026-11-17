@@ -91,15 +91,19 @@ function setup(initial: string | null = null) {
     },
   };
 }
-it('defaults to Ukrainian for a device configured with uk-UA', async () => {
+it.each([
+  ['uk-UA', 'uk'],
+  ['es-MX', 'es'],
+  ['es-ES', 'es'],
+])('selects the system language for %s', async (tag, locale) => {
   const store = new LocaleStore(
     { getItem: async () => null, setItem: async () => {} },
-    () => ['uk-UA', 'en-US'],
+    () => [tag, 'en-US'],
   );
   await store.load();
   expect(store.getSnapshot()).toMatchObject({
     preference: 'system',
-    locale: 'uk',
+    locale,
   });
 });
 it('uses device order, persists explicit choices and re-resolves System only', async () => {

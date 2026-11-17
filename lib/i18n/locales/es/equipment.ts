@@ -1,0 +1,47 @@
+export default {
+  'equipment.save': 'Guardar',
+  'equipment.shortStraightBar': 'Barra recta corta',
+  'equipment.rope': 'Cuerda para polea',
+  'equipment.singleHandle': 'Agarre individual',
+  'equipment.ankleStrap': 'Correa de tobillo',
+  'equipment.catalog': 'Catálogo de equipamiento',
+  'equipment.illustratedDefault': 'Equipamiento de las ilustraciones',
+  'equipment.personalSelection': 'Tu selección de equipamiento',
+  'equipment.stationName': 'Jalón al pecho',
+  'equipment.configureSets': 'Series',
+  'equipment.plannedReps': 'Repeticiones previstas',
+  'equipment.addSets': 'Añadir series',
+  'equipment.valuesError':
+    'Elige un agarre e introduce entre 1 y 20 series con pesos y repeticiones válidos.',
+  'equipment.duplicate':
+    'Esta variante ya está fuera de este grupo. Abra ese ejercicio para editarlo.',
+  'equipment.saveError':
+    'No se pudo guardar. Su configuración sigue aquí; vuelva a intentarlo.',
+  'equipment.rowWeight': 'Peso de la serie {{index}}',
+  'equipment.rowReps': 'Repeticiones de la serie {{index}}',
+  'equipment.removeRow': 'Eliminar la serie planificada {{index}}',
+  'equipment.removeBlock': 'Eliminar este bloque de agarre',
+  'equipment.addGroup': 'Añadir grupo al entrenamiento',
+  'equipment.cancel': 'Atrás',
+  'equipment.changeAttachment':
+    'Cambiar el accesorio para las siguientes series',
+  'equipment.syncPending':
+    'Los grupos de accesorios se guardan en este dispositivo. La sincronización de estos grupos requiere una actualización. Los demás entrenamientos pueden sincronizarse.',
+  'equipment.sharePending':
+    'El plan se guarda en este dispositivo. Para publicar grupos de accesorios se requiere una actualización del servidor.',
+  'equipment.handle': 'Agarre',
+  'equipment.accessories': 'Accesorios',
+  'equipment.compact': 'Agarre ergonómico estrecho',
+  'equipment.vHandle': 'Agarre en V',
+  'equipment.wideBar': 'Barra ancha',
+  'equipment.closeNeutral': 'Agarre neutro estrecho',
+  'equipment.widePronated': 'Agarre prono ancho',
+  'equipment.none': 'Sin accesorios adicionales',
+  'equipment.notRequired': 'No se requieren accesorios adicionales',
+  'equipment.choose': 'Elegir un agarre',
+  'equipment.change': 'Cambiar equipamiento: {{name}}',
+  'equipment.chooseHint': 'Abre la selección de equipamiento compatible',
+  'equipment.close': 'Cerrar la selección de equipos',
+  'equipment.unavailable': 'Equipo no disponible',
+  'equipment.imageUnavailable': 'Imagen no disponible',
+} as const;

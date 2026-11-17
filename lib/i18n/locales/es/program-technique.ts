@@ -1,0 +1,97 @@
+export default {
+  'technique.image': '{{name}}: {{phase}}',
+  'templates.deleteTitle': '¿Borrar el entrenamiento?',
+  'templates.deleteMessage':
+    '¿Eliminar «{{name}}»? Los entrenamientos activos y completados se conservan.',
+  'templates.deleteConfirm': 'Eliminar el entrenamiento',
+  'templates.keep': 'Mantenga el entrenamiento',
+  'templates.resume': 'Reanudar el entrenamiento activo',
+  'templates.start': 'Comenzar el entrenamiento',
+  'templates.customize': 'Duplicar / Personalizar',
+  'templates.hide': 'Ocultar de mis entrenamientos',
+  'templates.edit': 'Editar',
+  'templates.duplicate': 'Duplicar',
+  'templates.delete': 'Borrar',
+  'templates.close': 'Cerrar',
+  'templates.heading': 'ENTRENAMIENTOS',
+  'templates.builtIn': 'Incluido',
+  'templates.empty': 'No hay entrenamientos disponibles.',
+  'templates.create': 'Crear entrenamiento',
+  'templates.duplicateNamed': 'Duplicar {{name}}',
+  'templates.hideNamed': 'Ocultar {{name}}',
+  'templates.editNamed': 'Editar {{name}}',
+  'templates.deleteNamed': 'Eliminar {{name}}',
+  'templates.more': 'Más acciones para {{name}}',
+  'templates.resumeNamed': 'Reanudar el entrenamiento activo desde {{name}}',
+  'templates.startNamed': 'Iniciar {{name}}',
+  'templates.hint': 'Mantén pulsado para ver más acciones',
+  'templates.duplicateError':
+    'No se pudo duplicar este entrenamiento. Inténtalo de nuevo.',
+  'templates.hideError': 'No se pudo ocultar el entrenamiento.',
+  'templates.deleteError':
+    'No se pudo borrar este entrenamiento. Inténtalo de nuevo.',
+  'plan.startError': 'No se puede iniciar el entrenamiento',
+  'plan.startPlannedError': 'No se puede iniciar el entrenamiento planificado',
+  'plan.title': 'Tu plan de entrenamiento',
+  'plan.week': 'Semana {{week, number}} · {{workouts}} · Gimnasio',
+  'plan.workouts': {
+    one: '{{count, number}} entrenamiento planeado',
+    many: '{{count, number}} entrenamientos planificados',
+    other: '{{count, number}} entrenamientos planificados',
+  },
+  'plan.select': 'Seleccione {{name}} en {{date}}',
+  'plan.status': '{{date}} · {{status}}',
+  'plan.completed': 'Terminado',
+  'plan.missed': 'No realizado · elige cuándo hacerlo',
+  'plan.planned': 'Previsto',
+  'plan.recovery':
+    'Otros días: recuperación. Las sesiones perdidas nunca añaden series a otro entrenamiento.',
+  'plan.reduced':
+    'Primera sesión planificada: 1 serie de trabajo por ejercicio, según tu selección.',
+  'plan.cardio': 'Orientación cardiovascular',
+  'plan.cardioHelp':
+    'Caminar o andar en bicicleta · objetivo gradual: {{minutes, number}} minutos moderados por semana. Comience con sesiones manejables de 10 a 15 minutos.',
+  'plan.cardioDay': '{{date}} · {{minutes, number}} min objetivo',
+  'plan.unavailable':
+    'Esta rutina del programa fue editada, eliminada o no está disponible. Revise los entrenamientos en Perfil; los entrenamientos manuales permanecen disponibles.',
+  'plan.start': 'Iniciar entrenamiento planificado · {{key}}',
+  'plan.resume':
+    'Reanuda tu entrenamiento activo arriba antes de empezar otro.',
+  'plan.complete':
+    'Los entrenamientos planeados de esta semana están completos.',
+  'plan.manage': 'Revise los entrenamientos en Perfil',
+  'plan.recoveryError':
+    'Recuperación del programa está pendiente. Sus entrenamientos permanecen disponibles. Reintentar la recuperación; no recrear el programa.',
+  'plan.retry': 'Reintentar recuperar el programa',
+  'technique.title': 'Técnica',
+  'technique.statistics': 'Estadísticas',
+  'technique.closeDetails': 'Cerrar detalles del ejercicio',
+  'technique.close': 'Cerrar la técnica',
+  'technique.expand': 'Ampliar la ilustración del ejercicio',
+  'technique.tab': 'Detalles del ejercicio {{tab}}',
+  'technique.setup': 'Preparación',
+  'technique.movement': 'Movimiento',
+  'technique.checks': 'Puntos clave',
+  'technique.mistakes': 'Errores comunes',
+  'technique.sources': 'Fuentes',
+  'technique.sourceNote':
+    'Resúmenes CRESUM de las referencias a continuación; no una evaluación individualizada.',
+  'technique.sourceCheckedOn': 'Fuente consultada el {{date}}.',
+  'technique.openSource': 'Abrir fuente {{title}}',
+  'technique.linkError':
+    'No se pudo abrir esta fuente. Intente de nuevo cuando esté en línea.',
+  'technique.safety':
+    'Usa una carga que puedas controlar y sigue las instrucciones de ajuste de la máquina que estés usando. Detente si el movimiento te causa dolor. Consulta con un profesional si tienes síntomas o no conoces el equipo.',
+  'technique.unavailable': 'Técnica no disponible para este ejercicio.',
+  'technique.closeViewer': 'Cerrar la ilustración a pantalla completa',
+  'technique.viewerNote':
+    'Las imágenes de INICIO y FINAL aparecerán aquí después de su revisión.',
+  'technique.start': 'INICIO',
+  'technique.finish': 'FINAL',
+  'technique.showStart': 'Mostrar posición inicial',
+  'technique.showFinish': 'Mostrar posición final',
+  'technique.placeholder':
+    'Ilustración provisional de {{phase}} para {{imageKey}}',
+  'technique.imageUnavailable': 'Ilustraciones no disponibles',
+  'technique.imageSoon': 'Ilustración próximamente',
+} as const;

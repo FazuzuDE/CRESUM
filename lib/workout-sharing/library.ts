@@ -3,6 +3,7 @@ import type { AppLocale } from '../i18n/registry';
 import { validPlanOrigin } from './import';
 import { equipmentTaxonomy } from '../exercise-taxonomy';
 
+const optionalPublicationLocales = ['uk', 'es'] as const;
 const requiredPublicationLocales = ['en', 'ru', 'de', 'fr'] as const;
 type PublishedText = Record<
   (typeof requiredPublicationLocales)[number],
@@ -50,10 +51,13 @@ export function parseLibrary(input: unknown): LibraryPlan[] {
             (pack[locale] as string).trim().length > 0 &&
             (pack[locale] as string).length < 1000,
         ) ||
-        ('uk' in pack &&
-          (typeof pack.uk !== 'string' ||
-            !pack.uk.trim() ||
-            pack.uk.length >= 1000))
+        !optionalPublicationLocales.every(
+          (locale) =>
+            !(locale in pack) ||
+            (typeof pack[locale] === 'string' &&
+              (pack[locale] as string).trim().length > 0 &&
+              (pack[locale] as string).length < 1000),
+        )
       )
         throw Error('Incomplete library metadata');
     }

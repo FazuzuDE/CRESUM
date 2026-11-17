@@ -1,5 +1,20 @@
 [
   {
+    "file": "lib/workout-sharing/library.ts",
+    "kind": "internal",
+    "reason": "Optional locale identifiers for published plan metadata.",
+    "entries": [
+      {
+        "text": "uk",
+        "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+      },
+      {
+        "text": "es",
+        "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+      }
+    ]
+  },
+  {
     "file": "app/index.tsx",
     "kind": "internal",
     "reason": "Safe-area and scroll-inset values configure native layout.",
