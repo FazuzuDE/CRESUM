@@ -1,4 +1,9 @@
-import { isValidElement, useRef } from 'react';
+import {
+  createElement,
+  isValidElement,
+  useRef,
+  type ComponentType,
+} from 'react';
 import { FlatList, View, type FlatListProps } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { spacing } from '@/lib/theme';
@@ -30,11 +35,9 @@ export function AppFlatList<T>({
         }
         ListFooterComponent={
           <SafeAreaView edges={['bottom']}>
-            {ListFooterComponent && !isValidElement(ListFooterComponent) ? (
-              <ListFooterComponent />
-            ) : (
-              ListFooterComponent
-            )}
+            {ListFooterComponent && !isValidElement(ListFooterComponent)
+              ? createElement(ListFooterComponent as ComponentType)
+              : ListFooterComponent}
           </SafeAreaView>
         }
         style={{ flex: 1 }}
