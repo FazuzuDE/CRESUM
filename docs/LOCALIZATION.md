@@ -18,7 +18,9 @@ such as `hi-IN` and `hi-Deva-IN`. Counts include Hindi's `one` and `other` forms
 dates and exact decimal-point numbers use the selected locale.
 
 Every current exercise has Hindi search aliases, including alternative spellings
-and Roman Hindi where useful. Matching preserves Devanagari vowel marks and
+and Roman Hindi where useful. Hindi also covers every equipment, attachment and
+muscle alias entry in the shared search contract. Queries work across all bundled
+interface languages. Matching preserves Devanagari vowel marks and
 nukta, normalizes Unicode canonical equivalents and keeps existing filters and
 English canonical-name search. Stable exercise IDs and saved workout names are
 unchanged. Aliases expand search only and do not equate distinct variants.
@@ -359,18 +361,9 @@ not evidence for a released build or a physical-device pass.
 
 ## Every future change
 
-**Approved 2026-11-17:** every new exercise, equipment item and other visible
-entity or message must ship complete translations in **all languages currently
-selectable in the app**, including those with device acceptance still pending.
-Searchable entities also require locale-appropriate alternative names, common
-spellings and established slang in every supported language in the same change.
-New languages must cover existing entities and their search aliases. Preserve
-exact exercise variants; broad aliases must not migrate IDs or imply equivalence.
-The Hindi rollout supplies aliases for Hindi; the wider multilingual alias
-rollout remains a separate workstream and is not claimed complete by this PR.
-
-Add semantic message keys and complete translations for **every selectable
-locale in the same change**, including accessibility and error/retry states.
+Add semantic message keys and complete translations for **every locale currently
+present in `lib/i18n/registry.ts` in the same change**, including selectable locales
+awaiting release/device acceptance, accessibility and error/retry states.
 Use complete sentences and named parameters; count forms follow each language's
 plural categories. Never copy English into another locale merely to satisfy a
 nonempty-value check. Review meaning and domain terminology.
@@ -379,8 +372,39 @@ nonempty-value check. Review meaning and domain terminology.
 parameters and missing plural categories. It also rejects newly introduced raw
 copy candidates absent from the reviewed migration baseline. Updating that
 baseline is a reviewable migration action, not proof of translation. Existing
-pending strings block target-locale release eligibility. New message packs must cover every selectable locale together, including locales
-whose independent device or linguistic acceptance is pending.
+pending strings block target-locale release eligibility. The rule applies to all
+currently selectable languages, independently of the `released` flag.
+
+### Search alternatives — approved 2026-11-17
+
+Every searchable catalog addition requires natural alternatives in every current
+language in the same PR. Add synonyms, local gym slang and abbreviations where
+applicable; slang is authored for the language rather than translated literally.
+Existing official catalog names are indexed automatically, but are not a substitute
+for the alias dictionaries in `lib/i18n/search/{locale}.ts`. Do not manufacture
+slang for an item with no common colloquial name: use meaningful alternative terms.
+
+The current dictionaries cover every exercise, equipment/attachment and muscle.
+`npm run i18n:check` checks missing/empty/duplicate aliases, unknown IDs, missing
+catalog labels and missing locale dictionaries against the live registry/catalog.
+A new exercise, equipment item, muscle or language therefore expands the required
+coverage automatically. Message key, parameter, plural and source-inventory checks
+remain required for all other app-controlled text. Structural checks do not certify
+linguistic quality; review domain meaning and local usage during contribution.
+
+Use `exerciseSearchScore` for any exercise selection search, including saved
+performance choices. Use the current locale only for preferred label ranking;
+names and aliases from every bundled language must remain searchable offline.
+Search-only aliases never enter `legacyExerciseIds`, saved snapshots, sync payloads,
+or the canonical resolver. Shared equipment terms yield multiple matching exercises;
+exact variant qualifiers must remain specific. Never merge Romanian/conventional
+lifts, opposite movements or different equipment identities as synonyms.
+
+When introducing another searchable entity, add its translated names and alias
+coverage contract and connect its search before presenting it. Non-searchable UI
+text requires translations, not artificial search keywords. A new language needs
+all existing content and aliases before it is selectable. Physical-device and
+linguistic acceptance remain independent of automated coverage.
 
 User-entered names and historical exercise snapshots remain as recorded. Current
 catalog presentation translates by stable ID, never by rewriting stored data.

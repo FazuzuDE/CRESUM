@@ -1,5 +1,13 @@
 # CRESUM — Development Roadmap
 
+## Multilingual search and contribution rule — approved 2026-11-17
+
+Deliver all-language offline exercise search and complete synonym coverage for the
+current catalog. Add checks derived from the live locale registry and catalog so
+future additions require all-language text and natural search alternatives in the
+same PR. The scope includes saved-performance exercise selection; physical-device
+and linguistic review remain separate acceptance work. Integration pending.
+
 ## Growth Foundation — approved 2026-11-09 (parallel, planning only)
 
 The user approved a separate CRESUM marketing workstream: brand/landing page,

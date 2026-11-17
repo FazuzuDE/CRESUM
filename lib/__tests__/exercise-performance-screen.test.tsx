@@ -310,6 +310,22 @@ describe('ExercisePerformance', () => {
     act(() => view.unmount());
   });
 
+  it('finds a saved identity by cross-language slang without changing its name or sets', () => {
+    const history = [
+      workout('recent', 22, 'hammer-curl', 'My Hammer Snapshot', '22,5'),
+    ];
+    const before = JSON.stringify(history);
+    const view = render(
+      <ExercisePerformance history={history} period="1M" now={now} />,
+    );
+    press(view, 'Choose exercise for logged performance');
+    act(() => view.root.findByType(TextInput).props.onChangeText('молотки'));
+    press(view, 'View My Hammer Snapshot performance');
+    expect(JSON.stringify(view.toJSON())).toContain('22.5 kg × 8');
+    expect(JSON.stringify(history)).toBe(before);
+    act(() => view.unmount());
+  });
+
   it('retains selection across period changes and shows an honest empty period', () => {
     const history = [workout('old', 3, 'bench', 'Saved Bench', '60')];
     const view = render(

@@ -2649,3 +2649,16 @@ Use the approved Workout plans screen directly from Profile WORKOUTS. Preserve
 BrandHeader, individual saved-plan buttons, library control and detail Start/Share
 row. Add the existing localized Create Workout primary action. Retain management
 as a secondary action, avoiding an intermediate duplicate list in the main route.
+
+## Language wheel — approved 2026-11-17
+
+Language selection uses the shared AppPicker inside the shared centered glass
+dialog, with 30% transparency (70% opacity), preserving reduced-transparency
+fallbacks. This overrides the general 26.5% compact-dialog setting only for
+language selection. Keep flags, curved/faded neighbors and shared selection
+rules. System language is a separate option above the wheel. Show native names
+in alphabetical order using the existing English collator; open at the first
+language every time, regardless of the saved preference. Wheel changes are a
+draft: Done saves, Cancel/backdrop dismissal discards. System selection can be
+toggled off to return to the first wheel language. Use shared wheel feedback,
+without a separate synthetic scrolling sound. Keep actions inside the dialog.

@@ -1,7 +1,9 @@
-import hindiSearchAliases from '../i18n/hindi-search-aliases';
+import hindiSearch from '../i18n/search/hi';
 import { catalogLabel, searchLocalizedExercises } from '../i18n/catalog';
 import { exerciseLibrary } from '../exercise-library';
 import { muscleTaxonomy, equipmentTaxonomy } from '../exercise-taxonomy';
+const hindiSearchAliases = hindiSearch.exercise;
+
 it('finds localized and canonical names/aliases without changing the catalog or filters', () => {
   const before = JSON.stringify(exerciseLibrary);
   expect(
@@ -138,8 +140,10 @@ it('covers every exact exercise with Hindi aliases and matches slang without cha
     searchLocalizedExercises({ query: 'barbel rdl' }, 'hi').map((x) => x.id),
   ).toEqual(['barbell-romanian-deadlift']);
   expect(
-    searchLocalizedExercises({ query: 'butterfly machine' }, 'en'),
-  ).toEqual([]);
+    searchLocalizedExercises({ query: 'butterfly machine' }, 'en').map(
+      (x) => x.id,
+    ),
+  ).toContain('pec-deck-fly');
   expect(
     searchLocalizedExercises(
       { query: 'Bench Press', muscle: 'chest' },

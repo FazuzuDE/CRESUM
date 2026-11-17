@@ -1,5 +1,17 @@
 # CRESUM Decision Log
 
+## 2026-11-17 — All-language text and search synonyms
+
+User approved implementing multilingual search and made complete translation into
+every language currently present a permanent requirement for all future additions.
+Searchable catalog content also requires natural synonyms, local gym slang and
+abbreviations where applicable in every current language. The rule includes
+selectable locales awaiting release acceptance and expands automatically as
+languages/catalogs grow. Search remains offline, shared and independent of saved
+identity; variant meanings and historical/user-entered content remain unchanged.
+Synchronized to AGENTS, PRODUCT, LOCALIZATION and EXERCISE_LIBRARY; implementation
+and coverage checks prepared on the feature branch, integration pending.
+
 ## Bottom dock motion and transparency — 2026-11-16
 
 The user approved the floating dock and requested a sliding selection pill
@@ -4493,3 +4505,10 @@ Approved the white CRESUM onboarding set, with the paired character image on
 white, optional body details, and distinct self-directed and guided routes.
 Keep Build muscle and Get stronger separate, include Lose weight, and load
 the program review directly after goal selection. Begin accepts the plan.
+
+## 2026-11-17 — Approved language wheel
+
+Replace the language button list with the shared wheel. Open at the first
+alphabetical language, keep System above it, and confirm drafts with Done.
+Use the shared glass dialog at 30% transparency for this window. Physical Expo Go
+and accessibility acceptance remain pending until device review.

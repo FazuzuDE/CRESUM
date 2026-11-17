@@ -1,17 +1,13 @@
-import hindiSearchAliases from './hindi-search-aliases';
 import {
   canonicalExerciseId,
   exerciseLibrary,
   filterExercises,
-  legacyExerciseIds,
   type ExerciseFilters,
 } from '../exercise-library';
 import type { LibraryExercise } from '../workout-model';
 import { catalogs, type MessageCatalog } from './messages';
 import type { AppLocale } from './registry';
-const searchAliases: Partial<
-  Record<AppLocale, Readonly<Record<string, readonly string[]>>>
-> = { hi: hindiSearchAliases };
+import { exerciseSearchScore, prepareExerciseQuery } from './search/engine';
 export function catalogLabel(
   locale: AppLocale,
   kind: 'exercise' | 'muscle' | 'equipment' | 'program' | 'template',
@@ -29,20 +25,7 @@ export function searchLocalizedExercises(
   filters: ExerciseFilters,
   locale: AppLocale,
 ): LibraryExercise[] {
-  const normalize = (value: string) => {
-    const lower = value.toLocaleLowerCase(locale);
-    if (locale === 'hi') return lower.normalize('NFC').replace(/\s+/g, ' ');
-    if (locale === 'tr')
-      return lower.normalize('NFD').replace(/\p{M}/gu, '').replace(/ı/g, 'i');
-    if (locale === 'pl')
-      return lower.normalize('NFD').replace(/\p{M}/gu, '').replace(/ł/g, 'l');
-    if (locale === 'pt-BR' || locale === 'it')
-      return lower.normalize('NFD').replace(/\p{M}/gu, '');
-    return locale === 'es'
-      ? lower.normalize('NFD').replace(/\u0301/g, '')
-      : lower;
-  };
-  const query = normalize(filters.query?.trim() ?? '');
+  const query = prepareExerciseQuery(filters.query ?? '');
   // Both concrete identities persist normally; only the library listing is grouped.
   const visible = exerciseLibrary.filter(
     (x) => x.id !== 'kettlebell-goblet-squat',
@@ -59,19 +42,16 @@ export function searchLocalizedExercises(
     },
   )
     .map((item) => exerciseLibrary.find((x) => x.id === item.id)!)
-    .filter((item) => {
-      if (!query) return true;
-      const aliases = Object.entries(legacyExerciseIds)
-        .filter(([, canonical]) => canonical === item.id)
-        .map(([alias]) => alias);
-      return [
-        item.name,
-        catalogLabel(locale, 'exercise', item.id, item.name),
-        ...aliases,
-        ...(searchAliases[locale]?.[item.id] ?? []),
-        ...(item.id === 'goblet-squat'
-          ? (searchAliases[locale]?.['kettlebell-goblet-squat'] ?? [])
-          : []),
-      ].some((name) => normalize(name).includes(query));
-    });
+    .map((item) => ({
+      item,
+      score: Math.max(
+        exerciseSearchScore(item.id, query, locale),
+        item.id === 'goblet-squat'
+          ? exerciseSearchScore('kettlebell-goblet-squat', query, locale)
+          : 0,
+      ),
+    }))
+    .filter(({ score }) => score > 0)
+    .sort((a, b) => b.score - a.score)
+    .map(({ item }) => item);
 }

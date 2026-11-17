@@ -82,6 +82,24 @@ Do not accidentally lose active workouts or logged sets, duplicate completed wor
 - Do not fabricate surface regions for hidden muscles or uncertain boundaries;
   retain unresolved status or use a separately approved deeper view.
 
+## Localization and search — mandatory for every addition
+
+- Every new or changed app-controlled text must include complete translations in
+  **all locales currently present in `lib/i18n/registry.ts`**, including selectable
+  locales awaiting release/device acceptance. This includes exercise/equipment
+  names, descriptions, instructions, buttons, validation, errors and accessibility.
+- Every new searchable catalog item requires natural local search alternatives
+  in all those languages in the same PR: synonyms, customary gym slang and
+  abbreviations where applicable. Do not invent slang or translate it literally.
+- Update the per-locale dictionaries in `lib/i18n/search/`, preserve exact variant
+  meaning and stable IDs, and use the shared offline search engine at every
+  exercise selection surface. A discovery alias is never a persistence alias.
+- A new language must cover existing app copy, catalog content and search aliases
+  before it is offered. Derive coverage from the live locale registry and catalogs;
+  run `npm run i18n:check` and relevant search tests. Missing coverage blocks the PR.
+- User-authored content and historical snapshots remain unchanged. Technical and
+  external text exclusions are documented in `docs/LOCALIZATION.md`.
+
 ## Validation
 
 Before completion:
