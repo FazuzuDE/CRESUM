@@ -16012,5 +16012,311 @@
     "line": 352,
     "text": "contain",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:resizeMode/JsxAttributes"
+  },
+  {
+    "file": "components/AppFlatList.tsx",
+    "line": 32,
+    "text": "bottom",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/AppScrollView.tsx",
+    "line": 42,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/BindingElement/ObjectBindingPattern"
+  },
+  {
+    "file": "components/AppScrollView.tsx",
+    "line": 42,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/BindingElement/ObjectBindingPattern"
+  },
+  {
+    "file": "components/AppScrollView.tsx",
+    "line": 42,
+    "text": "bottom",
+    "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/BindingElement/ObjectBindingPattern"
+  },
+  {
+    "file": "components/BodyWeight.tsx",
+    "line": 186,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/BodyWeight.tsx",
+    "line": 186,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ContentScrollView.tsx",
+    "line": 41,
+    "text": "never",
+    "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/JsxExpression"
+  },
+  {
+    "file": "components/EstimatedOneRepMaxSeries.tsx",
+    "line": 145,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/EstimatedOneRepMaxSeries.tsx",
+    "line": 145,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/EstimatedOneRepMaxSeries.tsx",
+    "line": 145,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "line": 145,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/JsxExpression/JsxAttribute:edges"
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "line": 145,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/JsxExpression/JsxAttribute:edges"
+  },
+  {
+    "file": "components/ExerciseMuscles.tsx",
+    "line": 142,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExerciseMuscles.tsx",
+    "line": 142,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExerciseMuscles.tsx",
+    "line": 142,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExerciseMuscles.tsx",
+    "line": 160,
+    "text": "bottom",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+  },
+  {
+    "file": "components/ExercisePerformance.tsx",
+    "line": 153,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExercisePerformance.tsx",
+    "line": 153,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExercisePerformance.tsx",
+    "line": 153,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExercisePerformance.tsx",
+    "line": 174,
+    "text": "bottom",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+  },
+  {
+    "file": "components/ExercisePerformance.tsx",
+    "line": 222,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExercisePerformance.tsx",
+    "line": 222,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExercisePerformance.tsx",
+    "line": 222,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExercisePerformance.tsx",
+    "line": 244,
+    "text": "bottom",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "line": 349,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "line": 349,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "line": 349,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "line": 360,
+    "text": "bottom",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+  },
+  {
+    "file": "components/ExerciseTechnique.tsx",
+    "line": 81,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExerciseTechnique.tsx",
+    "line": 81,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExerciseTechnique.tsx",
+    "line": 81,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/ExerciseTechnique.tsx",
+    "line": 104,
+    "text": "bottom",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+  },
+  {
+    "file": "components/HomeCalendar.tsx",
+    "line": 57,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/HomeCalendar.tsx",
+    "line": 57,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/HomeDashboard.tsx",
+    "line": 662,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/HomeLayoutEditor.tsx",
+    "line": 47,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/HomeLayoutEditor.tsx",
+    "line": 47,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 419,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 419,
+    "text": "bottom",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 457,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 457,
+    "text": "bottom",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+  },
+  {
+    "file": "components/ScrollReturnButton.tsx",
+    "line": 24,
+    "text": "bottom",
+    "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/JsxExpression/JsxAttribute:edges"
+  },
+  {
+    "file": "components/TechniqueViewer.tsx",
+    "line": 33,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/TechniqueViewer.tsx",
+    "line": 33,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/TechniqueViewer.tsx",
+    "line": 33,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/TechniqueViewer.tsx",
+    "line": 49,
+    "text": "bottom",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+  },
+  {
+    "file": "components/TrainingVolume.tsx",
+    "line": 370,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/TrainingVolume.tsx",
+    "line": 370,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/TrainingVolume.tsx",
+    "line": 370,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/WorkoutTemplates.tsx",
+    "line": 194,
+    "text": "left",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
+    "file": "components/WorkoutTemplates.tsx",
+    "line": 194,
+    "text": "right",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
   }
 ]

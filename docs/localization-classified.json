@@ -1,5 +1,337 @@
 [
   {
+    "file": "app/index.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "left",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "right",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "top",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/AppFlatList.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "bottom",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/AppScrollView.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "top",
+        "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/BindingElement/ObjectBindingPattern"
+      },
+      {
+        "text": "bottom",
+        "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/BindingElement/ObjectBindingPattern"
+      }
+    ]
+  },
+  {
+    "file": "components/BodyWeight.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "left",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "right",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/ContentScrollView.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "never",
+        "context": "StringLiteral/ConditionalExpression/ParenthesizedExpression/BinaryExpression/JsxExpression"
+      }
+    ]
+  },
+  {
+    "file": "components/EstimatedOneRepMaxSeries.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "top",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "left",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "right",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseEquipmentSheet.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "bottom",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "left",
+        "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/JsxExpression/JsxAttribute:edges"
+      },
+      {
+        "text": "right",
+        "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/JsxExpression/JsxAttribute:edges"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseMuscles.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "top",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "left",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "right",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "bottom",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/ExercisePerformance.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "top",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "left",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "right",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "bottom",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseStatistics.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "top",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "left",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "right",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "bottom",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/ExerciseTechnique.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "top",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "left",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "right",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "bottom",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/HomeCalendar.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "left",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "right",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/HomeDashboard.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "top",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/HomeLayoutEditor.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "left",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "right",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "top",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+      },
+      {
+        "text": "bottom",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/ScrollReturnButton.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "bottom",
+        "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/JsxExpression/JsxAttribute:edges"
+      }
+    ]
+  },
+  {
+    "file": "components/TechniqueViewer.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "top",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "left",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "right",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "bottom",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/TrainingVolume.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "top",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "left",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "right",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/WorkoutTemplates.tsx",
+    "kind": "internal",
+    "reason": "Safe-area and scroll-inset values configure native layout.",
+    "entries": [
+      {
+        "text": "left",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      },
+      {
+        "text": "right",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      }
+    ]
+  },
+  {
     "file": "components/ExerciseLibrary.tsx",
     "kind": "internal",
     "reason": "Filter identifiers are distinct from localized filter labels.",
