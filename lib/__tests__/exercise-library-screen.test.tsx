@@ -88,6 +88,20 @@ const chooseFilter = (
 };
 
 describe('ExerciseLibrary', () => {
+  it('adds the exact exercise found through slang from a different language', () => {
+    const onAdd = jest.fn();
+    const view = renderLibrary(
+      <ExerciseLibrary visible onAdd={onAdd} onClose={jest.fn()} />,
+    );
+    act(() => view.root.findByType(TextInput).props.onChangeText('молотки'));
+    expect(resultLabels(view, 'Add ')).toEqual(['Add Hammer Curl']);
+    act(() => findPressable(view, 'Add Hammer Curl').props.onPress());
+    expect(onAdd).toHaveBeenCalledWith(
+      exerciseLibrary.find((record) => record.id === 'hammer-curl'),
+    );
+    act(() => view.unmount());
+  });
+
   it('searches names case-insensitively and renders no-results state', () => {
     const view = renderLibrary(
       <ExerciseLibrary visible onClose={jest.fn()} onAdd={jest.fn()} />,
