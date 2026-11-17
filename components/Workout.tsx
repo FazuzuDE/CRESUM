@@ -19,6 +19,7 @@ import {
   Text,
   View,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import * as Haptics from 'expo-haptics';
 import { GlassCard } from './GlassCard';
 import { AppButton } from './AppButton';
@@ -216,6 +217,7 @@ export function Workout({
       />
       <AppScrollView
         dockAware
+        contentInsetAdjustmentBehavior="never"
         ref={attachRef}
         scrollEnabled={!dragging}
         onScroll={onScroll}
@@ -225,30 +227,32 @@ export function Workout({
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={s.content}
       >
-        <View style={s.header}>
-          <BrandHeader />
-          <View style={s.titleRow}>
-            <Text style={s.title} accessibilityRole="header">
-              {session.name}
-            </Text>
-            <View style={s.elapsed}>
-              <Text
-                style={s.elapsedText}
-                accessibilityLabel={t('workout.elapsed', {
-                  time: duration(now - session.startedAt),
-                })}
-              >
-                {duration(now - session.startedAt)}
+        <View>
+          <SafeAreaView edges={['top']} style={s.header}>
+            <BrandHeader />
+            <View style={s.titleRow}>
+              <Text style={s.title} accessibilityRole="header">
+                {session.name}
               </Text>
+              <View style={s.elapsed}>
+                <Text
+                  style={s.elapsedText}
+                  accessibilityLabel={t('workout.elapsed', {
+                    time: duration(now - session.startedAt),
+                  })}
+                >
+                  {duration(now - session.startedAt)}
+                </Text>
+              </View>
             </View>
-          </View>
-          <Text style={s.summary}>
-            {t('workout.summary', {
-              completed: formatNumber(locale, completed),
-              count: total,
-              volume: formatNumber(locale, volume(session)),
-            })}
-          </Text>
+            <Text style={s.summary}>
+              {t('workout.summary', {
+                completed: formatNumber(locale, completed),
+                count: total,
+                volume: formatNumber(locale, volume(session)),
+              })}
+            </Text>
+          </SafeAreaView>
         </View>
         {inputError ? (
           <Text accessibilityRole="alert" style={s.error}>

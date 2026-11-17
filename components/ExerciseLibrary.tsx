@@ -1,10 +1,16 @@
 import { AppScrollView } from './AppScrollView';
 import { BrandHeader } from './BrandHeader';
+import { AppPicker } from './AppPicker';
+import { WheelPickerSheet } from './WheelPickerSheet';
+import { GlassMaterial } from './GlassMaterial';
+import { useReducedTransparency } from './useReducedTransparency';
+import { Ionicons } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import {
   Modal,
   Pressable,
-  ScrollView,
+  Keyboard,
+  Platform,
   StyleSheet,
   Text,
   TextInput,
@@ -26,7 +32,9 @@ import {
   MuscleId,
 } from '@/lib/exercise-taxonomy';
 import { LibraryExercise, type WorkoutSession } from '@/lib/workout-model';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { cardShadow, colors, radius, spacing, typography } from '@/lib/theme';
+
+type FilterGroup = 'muscle' | 'equipment';
 
 type ExerciseLibraryProps = {
   visible: boolean;
@@ -66,8 +74,36 @@ export function ExerciseLibrary({
   const [query, setQuery] = useState('');
   const [muscle, setMuscle] = useState<MuscleId>();
   const [equipment, setEquipment] = useState<EquipmentId>();
+  const [filterDraft, setFilterDraft] = useState<{
+    group: FilterGroup;
+    row: number;
+  }>();
+  const reduceTransparency = useReducedTransparency(visible);
+  const filterTitles = {
+    muscle: t('library.muscle'),
+    equipment: t('library.equipment'),
+  };
+  const filters = {
+    muscle: [
+      t('library.all'),
+      ...muscleTaxonomy.map(({ id, label }) =>
+        catalogLabel(locale, 'muscle', id, label),
+      ),
+    ],
+    equipment: [
+      t('library.all'),
+      ...equipmentTaxonomy.map(({ id, label }) =>
+        catalogLabel(locale, 'equipment', id, label),
+      ),
+    ],
+  };
+  const selectedRows = {
+    muscle: muscleTaxonomy.findIndex((item) => item.id === muscle) + 1,
+    equipment: equipmentTaxonomy.findIndex((item) => item.id === equipment) + 1,
+  };
 
   const reset = () => {
+    setFilterDraft(undefined);
     setQuery('');
     setMuscle(undefined);
     setEquipment(undefined);
@@ -85,6 +121,7 @@ export function ExerciseLibrary({
       setGobletId(undefined);
       setGobletEquipmentOpen(false);
       setGuide(null);
+      setFilterDraft(undefined);
       setQuery('');
       setMuscle(undefined);
       setEquipment(undefined);
@@ -142,53 +179,25 @@ export function ExerciseLibrary({
         style={s.search}
       />
 
-      <Text style={s.filterLabel}>{t('library.muscle')}</Text>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={s.filterScroller}
-        contentContainerStyle={s.filters}
-      >
-        <FilterChip
-          label={t('library.all')}
-          group="muscle"
-          selected={!muscle}
-          onPress={() => setMuscle(undefined)}
+      <View style={s.filterBar}>
+        <GlassMaterial
+          borderRadius={radius.pill}
+          solid={Platform.OS === 'ios' && reduceTransparency}
         />
-        {muscleTaxonomy.map((item) => (
-          <FilterChip
-            key={item.id}
-            label={catalogLabel(locale, 'muscle', item.id, item.label)}
-            group="muscle"
-            selected={muscle === item.id}
-            onPress={() => setMuscle(item.id)}
+        {(['muscle', 'equipment'] as const).map((group) => (
+          <FilterButton
+            key={group}
+            group={group}
+            title={filterTitles[group]}
+            value={filters[group][selectedRows[group]]}
+            filtered={selectedRows[group] > 0}
+            onPress={() => {
+              Keyboard.dismiss();
+              setFilterDraft({ group, row: selectedRows[group] });
+            }}
           />
         ))}
-      </ScrollView>
-
-      <Text style={s.filterLabel}>{t('library.equipment')}</Text>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={s.filterScroller}
-        contentContainerStyle={s.filters}
-      >
-        <FilterChip
-          label={t('library.all')}
-          group="equipment"
-          selected={!equipment}
-          onPress={() => setEquipment(undefined)}
-        />
-        {equipmentTaxonomy.map((item) => (
-          <FilterChip
-            key={item.id}
-            label={catalogLabel(locale, 'equipment', item.id, item.label)}
-            group="equipment"
-            selected={equipment === item.id}
-            onPress={() => setEquipment(item.id)}
-          />
-        ))}
-      </ScrollView>
+      </View>
 
       <AppScrollView
         dockAware={presentation === 'page'}
@@ -323,6 +332,34 @@ export function ExerciseLibrary({
           })
         )}
       </AppScrollView>
+      {visible && filterDraft ? (
+        <WheelPickerSheet
+          title={filterTitles[filterDraft.group]}
+          onCancel={() => setFilterDraft(undefined)}
+          onConfirm={() => {
+            if (filterDraft.group === 'muscle') {
+              setMuscle(muscleTaxonomy[filterDraft.row - 1]?.id);
+            } else {
+              setEquipment(equipmentTaxonomy[filterDraft.row - 1]?.id);
+            }
+            setFilterDraft(undefined);
+          }}
+        >
+          <AppPicker
+            flexible
+            columns={[filters[filterDraft.group]]}
+            labels={[filterTitles[filterDraft.group]]}
+            selected={[filterDraft.row]}
+            onChange={(_, row) =>
+              setFilterDraft((current) =>
+                current?.group === filterDraft.group
+                  ? { ...current, row }
+                  : current,
+              )
+            }
+          />
+        </WheelPickerSheet>
+      ) : null}
       {gobletEquipmentOpen ? (
         <ExerciseEquipmentSheet
           policy={equipmentPolicyFor('goblet-squat')!}
@@ -370,15 +407,17 @@ export function ExerciseLibrary({
   );
 }
 
-function FilterChip({
-  label,
+function FilterButton({
+  title,
+  value,
   group,
-  selected,
+  filtered,
   onPress,
 }: {
-  label: string;
-  group: 'muscle' | 'equipment';
-  selected: boolean;
+  title: string;
+  value: string;
+  group: FilterGroup;
+  filtered: boolean;
   onPress: () => void;
 }) {
   const { t } = useLocalization();
@@ -387,15 +426,22 @@ function FilterChip({
       accessibilityRole="button"
       accessibilityLabel={t(
         group === 'muscle' ? 'library.filterMuscle' : 'library.filterEquipment',
-        { label },
+        { label: value },
       )}
-      accessibilityState={{ selected }}
       onPress={onPress}
-      style={[s.filter, selected && s.selectedFilter]}
+      style={({ pressed }) => [
+        s.filter,
+        filtered && s.selectedFilter,
+        pressed && s.pressedFilter,
+      ]}
     >
-      <Text style={[s.filterText, selected && s.selectedFilterText]}>
-        {label}
-      </Text>
+      <View style={s.filterCopy}>
+        <Text style={s.filterLabel}>{title}</Text>
+        <Text style={[s.filterValue, filtered && s.selectedFilterText]}>
+          {value}
+        </Text>
+      </View>
+      <Ionicons name="chevron-down" size={16} color={colors.primary} />
     </Pressable>
   );
 }
@@ -434,23 +480,29 @@ const s = StyleSheet.create({
     color: colors.textPrimary,
     marginVertical: spacing.sm,
   },
-  filterLabel: {
-    ...typography.caption,
-    color: colors.textSecondary,
-    marginTop: spacing.xs,
-  },
-  filterScroller: { flexGrow: 0, flexShrink: 0 },
-  filters: { gap: spacing.xs, paddingVertical: spacing.xs },
-  filter: {
-    minHeight: 44,
-    justifyContent: 'center',
-    paddingHorizontal: spacing.sm,
+  filterBar: {
+    flexDirection: 'row',
+    padding: spacing.xxs,
     borderRadius: radius.pill,
-    backgroundColor: colors.surfaceSubtle,
+    ...cardShadow,
   },
+  filterLabel: { ...typography.caption, color: colors.textSecondary },
+  filter: {
+    flex: 1,
+    minWidth: 0,
+    minHeight: 44,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: spacing.xs,
+    paddingHorizontal: spacing.sm,
+    gap: spacing.xxs,
+    borderRadius: radius.pill,
+  },
+  filterCopy: { flex: 1, minWidth: 0 },
+  filterValue: { ...typography.subheadline, color: colors.textPrimary },
   selectedFilter: { backgroundColor: colors.primaryTint },
-  filterText: { ...typography.caption, color: colors.textSecondary },
   selectedFilterText: { color: colors.primary },
+  pressedFilter: { opacity: 0.65 },
   results: {
     paddingVertical: spacing.sm,
     paddingBottom: spacing.xxl,

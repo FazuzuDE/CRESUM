@@ -1108,9 +1108,17 @@ function AppContent({
     !showOnboarding &&
     !editingPersonalization &&
     !acceptingProgram;
+  const activeWorkoutViewport =
+    showDock && tab === 'workout' && Boolean(data.activeWorkout);
   const content = (
     <SafeAreaView
-      edges={showDock ? ['top', 'left', 'right'] : undefined}
+      edges={
+        activeWorkoutViewport
+          ? ['left', 'right']
+          : showDock
+            ? ['top', 'left', 'right']
+            : undefined
+      }
       style={[s.root, (showOnboarding || acceptingProgram) && s.onboardingRoot]}
     >
       <StatusBar style="dark" />

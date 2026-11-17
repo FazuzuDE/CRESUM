@@ -12,6 +12,19 @@ Animate a single selection pill between tabs and snap when Reduce Motion is enab
 Profile previews dock and pill transparency live on a 0–100% scale. Keep labels
 and icons opaque and keep the solid appearance when Reduce Transparency is enabled.
 
+The active workout viewport extends behind the status bar and the floating
+dock. Inset the initial workout header inside the scroll content so it starts
+in the safe area while scrolling can reach the top edge.
+
+## Compact wheel filters
+
+Show single-choice filters as compact glass pill buttons using the dock
+material. Each button shows its label and current value. Related filters
+share one row, as in Exercise Library (Muscles and Equipment). Open the same
+wheel dialog used for date-of-birth and body measurements. Apply the draft
+with Done and discard it on Cancel or dismissal. Keep the wheel appearance
+shared in AppPicker, so visual changes apply to every wheel by default.
+
 ## Compact dialogs and scrolling
 
 Use the centered light glass dialog for language selection, short confirmations,
