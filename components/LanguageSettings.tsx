@@ -25,7 +25,9 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState<LanguagePreference>('system');
   const [interacting, setInteracting] = useState(false);
-  const { t, locale, saving, error, select, store } = useLocalization();
+  const { t, locale, preference, saving, error, select, store } =
+    useLocalization();
+  const systemLocale = store?.getSystemLocale() ?? locale;
   const { height } = useWindowDimensions();
   const options = [...(store?.enabledLocales ?? [])].sort((a, b) =>
     localeRegistry[a].nativeName.localeCompare(
@@ -48,7 +50,7 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
         secondary
         presentation={compact ? 'text' : 'row'}
         onPress={() => {
-          setDraft(options[0] ?? 'system');
+          setDraft(preference);
           setInteracting(false);
           setOpen(true);
         }}
@@ -65,7 +67,7 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
             secondary
             disabled={saving || interacting || !select}
             onPress={() =>
-              setDraft(draft === 'system' ? (options[0] ?? 'system') : 'system')
+              setDraft(draft === 'system' ? systemLocale : 'system')
             }
           />
           <View
@@ -86,7 +88,7 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
               selected={[
                 Math.max(
                   0,
-                  options.indexOf(draft === 'system' ? options[0] : draft),
+                  options.indexOf(draft === 'system' ? systemLocale : draft),
                 ),
               ]}
               onChange={(_, row) => {

@@ -61,6 +61,7 @@ export class LocaleStore {
     const resolved = resolveLocale(preference, usable);
     return this.enabledLocales.includes(resolved) ? resolved : 'en';
   }
+  getSystemLocale = (): AppLocale => this.resolve('system');
   load = async () => {
     const revision = this.revision;
     const read = ++this.readEpoch;
