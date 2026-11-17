@@ -1,13 +1,14 @@
 # Localization coverage and contribution rules
 
-The app offers English, Russian, German, French and Ukrainian. System language
+The app offers English, Russian, German, French, Ukrainian and Spanish. System language
 appears first and is selected by default. An explicit choice is saved on the
-device. Final web and native acceptance for Russian, German, French and
-Ukrainian remains pending in the release eligibility ledger.
+device. Final web and native acceptance for Russian, German, French,
+Ukrainian and Spanish remain pending in the release eligibility ledger.
 
-Ukrainian covers the bundled messages and catalogs, including exercise technique
-and equipment. Shared plan titles and descriptions use the Ukrainian text when
-the publication supplies it; older publications use their English metadata.
+Ukrainian and Spanish cover the bundled messages and catalogs, including
+exercise technique, equipment and built-in plans. Shared plan titles and
+descriptions use the selected locale when the publication supplies it. Older
+publications use their English metadata.
 
 ## Current status
 
@@ -37,8 +38,8 @@ it does not exempt entire files or future strings. Moving an internal token into
 visible JSX invalidates that classification. The inventory includes technical
 and canonical content: counts are not a percentage of translated UI.
 
-The current resource catalog has 1567 semantic messages per language, including
-106 catalog labels, 66 exercise guides (502 guide messages) and the new equipment
+The current resource catalog has 1651 semantic messages per language, including
+110 catalog labels and 70 exercise guides (530 guide messages) and the new equipment
 selection, grouped-set, retry and capability-status messages. Matching
 key counts are a structural check, not independent linguistic acceptance. The native picker
 receives labels/values from JavaScript; it has no separate English UI copy in its

@@ -3,5 +3,6 @@
   "ru": { "web": false, "native": false },
   "de": { "web": false, "native": false },
   "fr": { "web": false, "native": false },
-  "uk": { "web": false, "native": false }
+  "uk": { "web": false, "native": false },
+  "es": { "web": false, "native": false }
 }

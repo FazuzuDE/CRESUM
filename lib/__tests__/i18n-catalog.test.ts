@@ -18,6 +18,11 @@ it('finds localized and canonical names/aliases without changing the catalog or 
   expect(
     searchLocalizedExercises({ query: 'bench', muscle: 'calves' }, 'ru'),
   ).toEqual([]);
+  expect(
+    searchLocalizedExercises({ query: 'jalon al pecho' }, 'es').map(
+      (x) => x.id,
+    ),
+  ).toContain('lat-pulldown');
   expect(catalogLabel('ru', 'exercise', 'bench', 'fallback')).toBe(
     'Жим штанги лёжа',
   );
@@ -27,8 +32,8 @@ it('finds localized and canonical names/aliases without changing the catalog or 
   expect(JSON.stringify(exerciseLibrary)).toBe(before);
   expect(searchLocalizedExercises({}, 'de')[0]).toBe(exerciseLibrary[0]);
 });
-it('covers every current exercise, muscle and equipment in all four languages', () => {
-  for (const locale of ['en', 'ru', 'de', 'fr', 'uk'] as const) {
+it('covers every current exercise, muscle and equipment in every supported language', () => {
+  for (const locale of ['en', 'ru', 'de', 'fr', 'uk', 'es'] as const) {
     for (const record of exerciseLibrary)
       expect(
         catalogLabel(locale, 'exercise', record.id, '__missing__'),

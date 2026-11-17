@@ -4,6 +4,7 @@ export const localeRegistry = {
   de: { nativeName: 'Deutsch', direction: 'ltr', released: false },
   fr: { nativeName: 'Français', direction: 'ltr', released: false },
   uk: { nativeName: 'Українська', direction: 'ltr', released: false },
+  es: { nativeName: 'Español', direction: 'ltr', released: false },
 } as const;
 export type AppLocale = keyof typeof localeRegistry;
 export type LanguagePreference = 'system' | AppLocale;
