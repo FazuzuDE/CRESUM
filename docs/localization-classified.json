@@ -1,5 +1,31 @@
 [
   {
+    "file": "components/ExerciseLibrary.tsx",
+    "kind": "internal",
+    "reason": "Filter identifiers are distinct from localized filter labels.",
+    "entries": [
+      {
+        "text": "muscle",
+        "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression"
+      },
+      {
+        "text": "equipment",
+        "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression"
+      }
+    ]
+  },
+  {
+    "file": "components/Workout.tsx",
+    "kind": "internal",
+    "reason": "The top safe-area edge insets the workout header.",
+    "entries": [
+      {
+        "text": "top",
+        "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+      }
+    ]
+  },
+  {
     "file": "app/index.tsx",
     "kind": "internal",
     "reason": "Local storage key for the bottom menu preference.",
@@ -26,6 +52,18 @@
       {
         "text": "right",
         "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/JsxExpression/JsxAttribute:edges"
+      },
+      {
+        "text": "top",
+        "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/ConditionalExpression/JsxExpression"
+      },
+      {
+        "text": "left",
+        "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/ConditionalExpression/JsxExpression"
+      },
+      {
+        "text": "right",
+        "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/ConditionalExpression/JsxExpression"
       }
     ]
   },

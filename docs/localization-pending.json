@@ -1,5 +1,23 @@
 [
   {
+    "file": "components/ExerciseLibrary.tsx",
+    "line": 187,
+    "text": "equipment",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression"
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "line": 187,
+    "text": "muscle",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression"
+  },
+  {
+    "file": "components/Workout.tsx",
+    "line": 231,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes"
+  },
+  {
     "file": "app/index.tsx",
     "line": 338,
     "text": "cresum.dockTransparency",

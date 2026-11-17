@@ -4,6 +4,7 @@ import type { StyleProp, ViewStyle } from 'react-native';
 import type { ReactElement } from 'react';
 import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { Workout } from '../../components/Workout';
+import { AppPicker } from '../../components/AppPicker';
 import { AppButton } from '../../components/AppButton';
 import { exerciseLibrary } from '../exercise-library';
 import { defaultTemplates } from '../workout-catalog';
@@ -70,6 +71,22 @@ const resultLabels = (view: ReturnType<typeof create>, prefix: string) =>
       Boolean(label?.startsWith(prefix)),
     );
 
+const chooseFilter = (
+  view: ReturnType<typeof create>,
+  filter: string,
+  value: string,
+) => {
+  act(() => findPressable(view, filter).props.onPress());
+  const picker = view.root.findByType(AppPicker);
+  const row = picker.props.columns[0].indexOf(value);
+  expect(row).toBeGreaterThanOrEqual(0);
+  act(() => picker.props.onChange(0, row));
+  const done = view.root
+    .findAllByType(AppButton)
+    .find((node: { props: { title: string } }) => node.props.title === 'Done');
+  act(() => done.props.onPress());
+};
+
 describe('ExerciseLibrary', () => {
   it('searches names case-insensitively and renders no-results state', () => {
     const view = renderLibrary(
@@ -90,16 +107,14 @@ describe('ExerciseLibrary', () => {
       <ExerciseLibrary visible onClose={jest.fn()} onAdd={jest.fn()} />,
     );
 
-    act(() => findPressable(view, 'Filter muscle Chest')?.props.onPress());
-    act(() =>
-      findPressable(view, 'Filter equipment Dumbbell')?.props.onPress(),
-    );
+    chooseFilter(view, 'Filter muscle All', 'Chest');
+    chooseFilter(view, 'Filter equipment All', 'Dumbbell');
 
     expect(resultLabels(view, 'Add Incline Dumbbell Press')).toHaveLength(1);
     expect(resultLabels(view, 'Add Barbell Bench Press')).toHaveLength(0);
   });
 
-  it('keeps horizontal filters compact so the result list owns remaining height', () => {
+  it('keeps two wheel filters compact so the result list owns remaining height', () => {
     const view = renderLibrary(
       <ExerciseLibrary visible onClose={jest.fn()} onAdd={jest.fn()} />,
     );
@@ -111,13 +126,8 @@ describe('ExerciseLibrary', () => {
       (node: ScrollNode) => node.props.keyboardShouldPersistTaps === 'handled',
     );
 
-    expect(horizontal).toHaveLength(2);
-    expect(
-      horizontal.every(
-        (node: ScrollNode) =>
-          StyleSheet.flatten(node.props.style)?.flexGrow === 0,
-      ),
-    ).toBe(true);
+    expect(horizontal).toHaveLength(0);
+    expect(resultLabels(view, 'Filter ')).toHaveLength(2);
     expect(StyleSheet.flatten(results?.props.style).flex).toBe(1);
   });
 
@@ -161,7 +171,7 @@ describe('ExerciseLibrary', () => {
     const view = renderLibrary(<ExerciseLibrary {...props} />);
 
     act(() => view.root.findByType(TextInput).props.onChangeText('squat'));
-    act(() => findPressable(view, 'Filter muscle Quadriceps')?.props.onPress());
+    chooseFilter(view, 'Filter muscle All', 'Quadriceps');
     act(() => findPressable(view, 'Close exercise library')?.props.onPress());
     expect(onClose).toHaveBeenCalledTimes(1);
 
