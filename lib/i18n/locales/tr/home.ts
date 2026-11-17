@@ -1,0 +1,105 @@
+export default {
+  'home.noAvailable': 'Mevcut egzersizlerle şablon yok',
+  'home.noTemplates': 'Antrenman şablonları yok',
+  'home.editTemplate':
+    "Mevcut egzersizleri seçmek için Profil'de bir şablon düzenleyin.",
+  'home.createTemplate': "Başlamak için Profil'de bir şablon oluşturun.",
+  'home.resume': 'Sürdür: {{name}}',
+  'home.startNamed': 'Başlat: {{name}}',
+  'home.inProgress': 'Devam ediyor',
+  'home.quickStart': 'Hızlı başlangıç',
+  'home.active': 'Aktif egzersiz',
+  'home.saved': 'Kaydedilen egzersiz',
+  'home.ready': 'Antrenmanınız devam etmeye hazır.',
+  'home.planned': {
+    one: '{{count, number}} planlanan set',
+    other: '{{count, number}} planlanan set',
+  },
+  'home.exercises': {
+    one: '{{count, number}} egzersiz',
+    other: '{{count, number}} egzersiz',
+  },
+  'home.availability':
+    '{{available, number}} kullanılabilir; {{unavailable, number}} kullanılamaz',
+  'home.fourWeeks': 'Son 4 hafta',
+  'home.completed': {
+    one: '{{count, number}} tamamlanan antrenman',
+    other: '{{count, number}} tamamlanan antrenman',
+  },
+  'home.local': '; yerel olarak kaydedildi',
+  'home.totalVolume': 'Toplam hacim',
+  'home.tonnes': '{{value}} t',
+  'home.kilograms': '{{value}} kg',
+  'home.week': 'haftan',
+  'home.workouts': {
+    one: '{{count, number}} antrenman',
+    other: '{{count, number}} antrenman',
+  },
+  'home.month': 'Ay',
+  'home.openCalendar': 'Aylık takvimi aç',
+  'home.day': '{{date}}: {{completed}}',
+  'home.dayToday': '{{date}}: {{completed}}, bugün',
+  'home.last': 'SON ANTRENMAN',
+  'home.volume': '{{value}} kg hacim',
+  'home.empty':
+    'Henüz tamamlanmış bir antrenman yok. Son antrenmanınızı görmek için birini bitirin.',
+  'home.templates': 'Egzersiz şablonları',
+  'home.moreTemplates': 'Daha fazla şablon',
+  'home.finishFirst':
+    'Başka bir başlangıç yapmak için mevcut egzersizinizi bitirin.',
+  'home.finishHint':
+    'Başka bir işe başlamadan önce mevcut antrenmanınızı bitirin.',
+  'home.start': 'Başla',
+  'home.welcomeNamed': 'Merhaba, {{name}}!',
+  'home.welcomeBack': 'Tekrar hoş geldin!',
+  'home.welcome': 'Hoş geldin',
+  'home.greeting': 'İlerlemek için iyi bir gün.',
+  'home.openProfile': 'Profili Aç',
+  'home.customize': 'Ana sayfayı özelleştir',
+  'home.loadError':
+    'Ev düzeni yüklenemedi. Varsayılan bloklar gösterilir; Antrenmanlarınız kullanılabilir durumda kalır.',
+  'home.retry': 'Düzeni yeniden dene',
+  'home.reset': 'Ana sayfa düzenini sıfırla',
+  'home.saveError': 'Ev düzeni kaydedilemedi. Tekrar deneyin.',
+  'home.editHint':
+    "Onları taşımak için blokları tutun ve sürükleyin. Kaydetmek için Bitti'yi seçin.",
+  'home.cancel': 'İptal',
+  'home.saving': 'Düzen kaydediliyor…',
+  'home.done': 'Tamamlandı',
+  'home.order': 'Sıralama ve görünürlük',
+  'home.saveDraftError':
+    "Ev düzeni kaydedilemedi. Tekrar Yap veya İptal'i dene.",
+  'home.editorIntro':
+    'Hangi blokların göründüğünü ve siparişlerini seçin. Antrenman eylemi görünür kalır.',
+  'home.widget.week': 'haftan',
+  'home.widget.primary': 'Egzersize başla / devam et',
+  'home.widget.summary': 'Eğitim özeti',
+  'home.widget.latest': 'Son egzersiz',
+  'home.widget.templates': 'Diğer egzersizler',
+  'home.moveUp': '{{label}} yukarı taşı',
+  'home.moveDown': '{{label}} aşağı taşı',
+  'home.always': 'Her zaman gösterilir',
+  'home.shown': 'Gösterildi',
+  'home.hidden': 'Gizli',
+  'home.show': 'Gösterim {{label}}',
+  'home.storage':
+    'Bu cihazda kaydedildi. Bazı bloklar yalnızca veriler mevcut olduğunda görünür. Ev düzeniniz egzersiz verileri sıfırlandığında kalır ve yedekleme dosyalarına veya bulut senkronizasyonuna dahil edilmez.',
+  'home.editorError':
+    'Ev düzeni kaydedilemedi. Tekrar deneyin veya iptal edin.',
+  'home.saveLayout': 'Düzeni kaydet',
+  'home.restoreOrder': 'Varsayılan sırayı geri yükle',
+  'home.editAnnounce':
+    "Ev Düzenleme. Blokları taşı, sonra Bitti veya İptal'i seç.",
+  'home.moved':
+    "Blok {{index, number}}'nin {{total, number}}'inin konumuna taşındı.",
+  'home.position': '{{label}}, pozisyon {{index, number}} / {{total, number}}',
+  'home.dragHint':
+    'Yeniden sipariş vermek için basılı tutun ve sürükleyin. Düğmeler için Sipariş ve görünürlüğü kullanın.',
+  'calendar.title': 'Takvim',
+  'calendar.close': 'Takvimi kapat',
+  'calendar.empty': 'Bu tarihte tamamlanmış bir antrenman yok.',
+  'calendar.session': '{{time}} ; {{volume}}',
+  'calendar.previous': 'Önceki ay',
+  'calendar.next': 'Gelecek ay',
+  'calendar.legend': 'Mavi tarihler ; tamamlanan egzersizler',
+} as const;

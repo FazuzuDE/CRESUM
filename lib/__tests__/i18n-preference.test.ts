@@ -100,6 +100,7 @@ it.each([
   ['it-IT', 'it'],
   ['it-CH', 'it'],
   ['pl-PL', 'pl'],
+  ['tr-TR', 'tr'],
 ])('selects the system language for %s', async (tag, locale) => {
   const store = new LocaleStore(
     { getItem: async () => null, setItem: async () => {} },

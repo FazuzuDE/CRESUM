@@ -111,16 +111,18 @@ function readCatalogs(root) {
     return exports;
   };
   return Object.fromEntries(
-    ['en', 'ru', 'de', 'fr', 'uk', 'es', 'pt-BR', 'it', 'pl'].map((locale) => {
-      const folder = path.join(root, 'lib/i18n/locales', locale);
-      const catalog = {};
-      for (const file of fs
-        .readdirSync(folder)
-        .filter((v) => v.endsWith('.ts'))) {
-        Object.assign(catalog, load(path.join(folder, file)).default);
-      }
-      return [locale, catalog];
-    }),
+    ['en', 'ru', 'de', 'fr', 'uk', 'es', 'pt-BR', 'it', 'pl', 'tr'].map(
+      (locale) => {
+        const folder = path.join(root, 'lib/i18n/locales', locale);
+        const catalog = {};
+        for (const file of fs
+          .readdirSync(folder)
+          .filter((v) => v.endsWith('.ts'))) {
+          Object.assign(catalog, load(path.join(folder, file)).default);
+        }
+        return [locale, catalog];
+      },
+    ),
   );
 }
 
@@ -227,6 +229,7 @@ async function main() {
         'pt-BR',
         'it',
         'pl',
+        'tr',
       ])
         for (const width of [320, 390]) {
           expandedMode = expand;

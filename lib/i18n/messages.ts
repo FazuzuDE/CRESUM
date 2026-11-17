@@ -1,3 +1,17 @@
+import trEquipment from './locales/tr/equipment';
+import trSharing from './locales/tr/sharing';
+import trProfile from './locales/tr/profile';
+import trCommon from './locales/tr/common';
+import trProgress from './locales/tr/progress';
+import trCatalog from './locales/tr/catalog';
+import trLibrary from './locales/tr/library';
+import trWorkout from './locales/tr/workout';
+import trHome from './locales/tr/home';
+import trHistory from './locales/tr/history';
+import trOnboarding from './locales/tr/onboarding';
+import trEditor from './locales/tr/editor';
+import trProgramTechnique from './locales/tr/program-technique';
+import trTechniqueContent from './locales/tr/technique-content';
 import plEquipment from './locales/pl/equipment';
 import plSharing from './locales/pl/sharing';
 import plProfile from './locales/pl/profile';
@@ -268,6 +282,22 @@ const pl = {
   ...plProgramTechnique,
   ...plTechniqueContent,
 } as const;
+const tr = {
+  ...trEquipment,
+  ...trSharing,
+  ...trProfile,
+  ...trProgress,
+  ...trCommon,
+  ...trCatalog,
+  ...trLibrary,
+  ...trWorkout,
+  ...trHome,
+  ...trHistory,
+  ...trOnboarding,
+  ...trEditor,
+  ...trProgramTechnique,
+  ...trTechniqueContent,
+} as const;
 export type MessageValue =
   string | Readonly<Partial<Record<Intl.LDMLPluralRule, string>>>;
 export type MessageCatalog = Readonly<Record<string, MessageValue>>;
@@ -281,6 +311,7 @@ export const catalogs = {
   'pt-BR': ptBR,
   it,
   pl,
+  tr,
 } satisfies Record<string, MessageCatalog>;
 export type MessageKey = keyof typeof en;
 type TrimFormat<S extends string> = S extends `${infer Name},${string}`

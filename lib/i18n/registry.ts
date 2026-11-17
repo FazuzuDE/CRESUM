@@ -7,6 +7,7 @@ export const localeRegistry = {
   es: { nativeName: 'Español', direction: 'ltr', released: false },
   it: { nativeName: 'Italiano', direction: 'ltr', released: false },
   pl: { nativeName: 'Polski', direction: 'ltr', released: false },
+  tr: { nativeName: 'Türkçe', direction: 'ltr', released: false },
   'pt-BR': {
     nativeName: 'Português (Brasil)',
     direction: 'ltr',
