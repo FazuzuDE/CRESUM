@@ -1,4 +1,4 @@
-import { Modal, TextInput } from 'react-native';
+import { Modal, Text, TextInput } from 'react-native';
 import { MuscleProgress } from '../../components/MuscleProgress';
 import { MuscleMap } from '../../components/MuscleMap';
 import { ExerciseStatistics } from '../../components/ExerciseStatistics';
@@ -437,7 +437,15 @@ it('keeps source-weight precision in statistics and estimated-record charts and 
       )!;
     expect(chart.props.accessibilityLabel).toContain('50,12345678912346');
     await series.press('Показать 1 точку расчётного 1ПМ за 1М');
-    expect(series.text()).toContain('По 50,12345678912346 кг × 8');
+    const sheet = series.view.root.findByType(Modal);
+    const labels = sheet
+      .findAllByType(Text)
+      .map((node: ReturnType<typeof create>['root']) => node.props.children);
+    expect(labels).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining('По 50,12345678912346 кг × 8'),
+      ]),
+    );
   } finally {
     act(() => series.view.unmount());
   }
