@@ -6,6 +6,8 @@ import { exerciseLibrary, findExercise } from '../exercise-library';
 import { TemplateEditor } from '../../components/TemplateEditor';
 import { ExerciseGroupComposer } from '../../components/ExerciseGroupComposer';
 import { ExerciseLibrary } from '../../components/ExerciseLibrary';
+import { AppPicker } from '../../components/AppPicker';
+import { AppButton } from '../../components/AppButton';
 import { ExerciseStatistics } from '../../components/ExerciseStatistics';
 import { Image, TextInput } from 'react-native';
 import { isPressable } from './pressable';
@@ -191,5 +193,32 @@ it('switches Goblet artwork with the equipment choice and retains the selected p
   expect(
     details.root.findAllByType(Image).some((x: any) => x.props.source === 4402),
   ).toBe(true);
+  act(() => view.unmount());
+});
+
+it('applies a library wheel filter only after Done and shows the current choice', () => {
+  let view: ReturnType<typeof create>;
+  act(() => {
+    view = create(<ExerciseLibrary visible onClose={() => {}} />);
+  });
+  press(view, 'Filter equipment All');
+  const chooseKettlebell = () => {
+    const picker = view.root.findByType(AppPicker);
+    act(() =>
+      picker.props.onChange(0, picker.props.columns[0].indexOf('Kettlebell')),
+    );
+  };
+  const action = (title: string) =>
+    view.root
+      .findAllByType(AppButton)
+      .find((node: { props: { title: string } }) => node.props.title === title)
+      .props.onPress;
+  chooseKettlebell();
+  act(action('Cancel'));
+  press(view, 'Filter equipment All');
+  chooseKettlebell();
+  act(action('Done'));
+  press(view, 'Filter equipment Kettlebell');
+  expect(view.root.findByType(AppPicker).props.selected[0]).toBeGreaterThan(0);
   act(() => view.unmount());
 });
