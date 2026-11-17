@@ -8,6 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import App from '../../app/index';
 import { AppButton } from '../../components/AppButton';
 import { Confirmation } from '../../components/Confirmation';
+import { GlassMaterial } from '../../components/GlassMaterial';
 import { Dock } from '../../components/Dock';
 import { Onboarding } from '../../components/Onboarding';
 import { defaultTemplates, exerciseLibrary } from '../workout-catalog';
@@ -129,6 +130,7 @@ it('asks for explicit destructive confirmation and Cancel leaves every key uncha
   act(() => button(view, 'Reset local data')?.props.onPress());
   const confirmation = resetConfirmation(view);
   expect(confirmation?.props.visible).toBe(true);
+  expect(confirmation?.findByType(GlassMaterial).props.solid).toBe(true);
   expect(confirmation?.props.message).toContain('active workout');
   expect(confirmation?.props.message).toContain('personalization');
   act(() => confirmation?.props.onCancel());

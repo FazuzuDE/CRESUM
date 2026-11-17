@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
-import {
-  DEFAULT_GLASS_TRANSPARENCY,
-  GlassMaterial,
-} from '../../components/GlassMaterial';
+import { GlassMaterial } from '../../components/GlassMaterial';
 import { AppPicker } from '../../components/AppPicker';
 import { AppDatePicker } from '../../components/AppDatePicker';
 import { DatePickerSheet } from '../../components/DatePickerSheet';
@@ -268,9 +265,7 @@ it('frames the selected date across all columns and lowers the dialog transparen
     );
   });
   try {
-    expect(view.root.findByType(GlassMaterial).props.transparency).toBe(
-      Math.round(DEFAULT_GLASS_TRANSPARENCY * 0.8),
-    );
+    expect(view.root.findByType(GlassMaterial).props.transparency).toBe(26.5);
     const frame = view.root.findAllByProps({
       testID: 'wheel-selection-lines',
     })[0];

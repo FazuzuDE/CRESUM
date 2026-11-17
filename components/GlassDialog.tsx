@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { DEFAULT_GLASS_TRANSPARENCY, GlassMaterial } from './GlassMaterial';
+import { GlassMaterial } from './GlassMaterial';
 import { cardShadow, radius, spacing } from '@/lib/theme';
 import { useReducedTransparency } from './useReducedTransparency';
 
@@ -9,12 +9,14 @@ export function GlassDialog({
   children,
   onClose,
   visible = true,
+  opaque = false,
 }: {
   children: ReactNode;
   onClose: () => void;
   visible?: boolean;
+  opaque?: boolean;
 }) {
-  const reduceTransparency = useReducedTransparency(visible);
+  const reduceTransparency = useReducedTransparency(visible && !opaque);
   return (
     <Modal
       transparent
@@ -32,8 +34,8 @@ export function GlassDialog({
           <View style={s.panel} accessibilityViewIsModal>
             <GlassMaterial
               borderRadius={radius.xxl}
-              transparency={Math.round(DEFAULT_GLASS_TRANSPARENCY * 0.8)}
-              solid={Platform.OS === 'ios' && reduceTransparency}
+              transparency={26.5}
+              solid={opaque || (Platform.OS === 'ios' && reduceTransparency)}
             />
             {children}
           </View>
