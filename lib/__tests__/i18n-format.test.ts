@@ -18,6 +18,7 @@ it('localizes exact entry display without rounding manual precision or reparsing
     'es',
     'pt-BR',
     'it',
+    'pl',
   ] as const) {
     expect(formatEntryNumber(locale, '12.1234567890123456789')).toBe(
       locale === 'en' ? '12.1234567890123456789' : '12,1234567890123456789',

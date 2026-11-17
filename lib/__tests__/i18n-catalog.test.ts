@@ -34,6 +34,11 @@ it('finds localized and canonical names/aliases without changing the catalog or 
       (x) => x.id,
     ),
   ).toContain('barbell-bench-press');
+  expect(
+    searchLocalizedExercises({ query: 'lawce plaskiej' }, 'pl').map(
+      (x) => x.id,
+    ),
+  ).toContain('barbell-bench-press');
   expect(catalogLabel('ru', 'exercise', 'bench', 'fallback')).toBe(
     'Жим штанги лёжа',
   );
@@ -53,6 +58,7 @@ it('covers every current exercise, muscle and equipment in every supported langu
     'es',
     'pt-BR',
     'it',
+    'pl',
   ] as const) {
     for (const record of exerciseLibrary)
       expect(

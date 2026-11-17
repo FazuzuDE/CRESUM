@@ -1,0 +1,153 @@
+export default {
+  'onboarding.decimalPart': 'Część dziesiętna',
+  'onboarding.welcomeTagline': 'Wszystkie treningi w jednym miejscu.',
+  'onboarding.bodyOptionalHelp':
+    'Dodaj wszelkie szczegóły, które Ci się podobają. Możesz je edytować w profilu.',
+  'onboarding.skipForNow': 'Pomiń na razie',
+  'onboarding.heightLabel': 'Wysokość',
+  'onboarding.weightLabel': 'Masa ciała',
+  'onboarding.select': 'Wybierz',
+  'onboarding.cm': 'cm',
+  'onboarding.kg': 'kg',
+  'onboarding.startPath': 'Jak chcesz zacząć?',
+  'onboarding.findProgram': 'Znajdź program',
+  'onboarding.findProgramHelp': 'Wybierz cel i zdobądź plan startowy.',
+  'onboarding.startOwn': 'Zacznij samodzielnie',
+  'onboarding.startOwnHelp': 'Przejdź od razu do ekranu głównego.',
+  'onboarding.goalQuestion': 'Jaki jest twój cel treningowy?',
+  'onboarding.loseWeight': 'Schudnąć',
+  'onboarding.strengthPlan': 'Twój plan siłowy',
+  'onboarding.trainingPlan': 'Twój plan szkolenia',
+  'onboarding.weeklySchedule': 'Schemat tygodniowy',
+  'onboarding.workoutIndex': 'Ćwiczenia {{index, number}}',
+  'onboarding.begin': 'Rozpocznij',
+  'onboarding.weeklyCount': {
+    one: '{{count, number}} trening w tygodniu',
+    few: '{{count, number}} treningi w tygodniu',
+    many: '{{count, number}} treningów w tygodniu',
+    other: '{{count, number}} treningu w tygodniu',
+  },
+  'onboarding.workoutSaved':
+    'Twój trening został zapisany. Status pokładowy nie mógł być zapisany.',
+  'onboarding.firstWorkout': 'Twój pierwszy trening',
+  'onboarding.firstWorkoutHelp':
+    'Utwórz trening, który możesz rozpocząć i edytować później. Planowane wartości nie są kompletne.',
+  'onboarding.welcome': 'Witaj w CRESUM',
+  'onboarding.intro': 'Pociąg, tor, rośnie, twój postęp zaczyna się tutaj.',
+  'onboarding.nameQuestion': 'Jak mamy się do Ciebie zwracać?',
+  'onboarding.name': 'Jak się nazywasz?',
+  'onboarding.continue': 'Kontynuuj',
+  'onboarding.next': 'Następny',
+  'onboarding.goal': 'Cel szkolenia',
+  'onboarding.goalHelp': 'Na czym chciałbyś się skupić?',
+  'onboarding.muscle': 'Zwiększyć masę mięśniową',
+  'onboarding.strength': 'Zwiększyć siłę',
+  'onboarding.fitness': 'Poprawić sprawność',
+  'onboarding.manual': 'Sam ustaw treningi',
+  'onboarding.experience': 'Doświadczenie treningowe',
+  'onboarding.experienceHelp': 'Wybierz najbliższe dopasowanie.',
+  'onboarding.beginner': 'Początkujący',
+  'onboarding.some': 'Pewne doświadczenie',
+  'onboarding.experienced': 'Doświadczony',
+  'onboarding.body': 'Dane ciała',
+  'onboarding.bodyHelp':
+    'Opcjonalne szczegóły dla profilu. Nie określają one ciężaru roboczego.',
+  'onboarding.optional': '{{label}} · opcjonalne',
+  'onboarding.birth': 'Data urodzenia',
+  'onboarding.chooseDate': 'Wybierz datę',
+  'onboarding.height': 'Wysokość (cm)',
+  'onboarding.weight': 'Masa ciała (kg)',
+  'onboarding.notProvided': 'Niedostarczone',
+  'onboarding.skipBody': 'Kontynuuj bez szczegółów dotyczących ciała',
+  'onboarding.ready': 'Jesteś gotowy do startu.',
+  'onboarding.review': 'Przejrzyj swój program',
+  'onboarding.summary': {
+    one: '{{count, number}} trening siłowy w tygodniu · Siłownia · start {{date}}',
+    few: '{{count, number}} treningi siłowe w tygodniu · Siłownia · start {{date}}',
+    many: '{{count, number}} treningów siłowych w tygodniu · Siłownia · start {{date}}',
+    other:
+      '{{count, number}} treningu siłowego w tygodniu · Siłownia · start {{date}}',
+  },
+  'onboarding.attribution':
+    'Dostosowanie CRESUM opublikowanych programów treningowych z ACCM, NSCA, ACE, HSS i NHS. Wagi robocze wybierane są ręcznie; planowane wartości nie liczą się jako kompletne serie.',
+  'onboarding.hideProgram': 'Ukryj pełny program',
+  'onboarding.viewProgram': 'Wyświetl pełny program',
+  'onboarding.week': 'Tydzień {{index, number}}: {{schedule}}',
+  'onboarding.slot': '{{key}} · {{date}}',
+  'onboarding.day': '{{key}} · {{name}}',
+  'onboarding.movement':
+    '{{name}} · {{sets, number}} × {{min, number}}–{{max, number}} · przerwa: {{restMin, number}}–{{restMax, number}} s',
+  'onboarding.movementPerSide':
+    '{{name}} · {{sets, number}} × {{min, number}}–{{max, number}} na stronę · przerwa: {{restMin, number}}–{{restMax, number}} s',
+  'onboarding.warmup':
+    'Najpierw zrób rozgrzewkę. Użyj ciężaru, który kontrolujesz, i zostaw od 2 do 3 powtórzeń w zapasie. Zwiększ ciężar ręcznie, gdy wykonasz górną liczbę powtórzeń z dobrą kontrolą. Ciężar nie rośnie automatycznie.',
+  'onboarding.cardio':
+    'Spacer lub jazda na rowerze: stopniowo cel 150 umiarkowanych minut w tygodniu; rozpocząć od zarządzania 10 Bethink 15 minut sesji. Cardio poradnictwo oddziela się od logowania siły.',
+  'onboarding.hideSchedule': 'Ukryj opcje harmonogramu',
+  'onboarding.schedule': 'Opcje harmonogramu',
+  'onboarding.startDateValue': 'Data rozpoczęcia · {{date}}',
+  'onboarding.startDate': 'Data rozpoczęcia',
+  'onboarding.frequency': 'Ćwiczenia na tydzień',
+  'onboarding.workouts': {
+    one: '{{count, number}} trening',
+    few: '{{count, number}} treningi',
+    many: '{{count, number}} treningów',
+    other: '{{count, number}} treningu',
+  },
+  'onboarding.frequencyHelp':
+    'Tylko zalecana częstotliwość ma sprawdzony wariant dla tego celu i doświadczenia. Inne częstotliwości korzystają z ręcznej konfiguracji.',
+  'onboarding.sessionDay':
+    'Sesja {{index, number}} · dzień tygodnia planu (1 kwiecień 7)',
+  'onboarding.sessionDayLabel': 'Sesja {{index, number}} dzień planu tygodnia',
+  'onboarding.reduced': 'Pierwsza sesja: 1 seria na ćwiczenie',
+  'onboarding.reduce':
+    'Dopiero zaczynasz? Ogranicz pierwszą sesję do 1 serii na ćwiczenie.',
+  'onboarding.retryStart': 'Spróbuj rozpocząć ponownie',
+  'onboarding.saving': 'Zapisywanie programu',
+  'onboarding.start': 'ZACZNIJ!',
+  'onboarding.openSaved': 'Otwórz zapisane treningi',
+  'onboarding.back': 'Tył',
+  'onboarding.backProfile': 'Powrót do profilu',
+  'onboarding.missing': 'Wymagane ćwiczenia niedostępne: {{exercises}}',
+  'onboarding.retry': 'Retry na pokładzie',
+  'onboarding.bypass': 'Kontynuuj aplikację',
+  'onboarding.loading': 'Wczytywanie treningów',
+  'onboarding.savedUnavailable': 'Oszczędzone treningi są niedostępne.',
+  'program.day.F': 'Całe ciało',
+  'program.day.U': 'Górna część ciała',
+  'program.day.L': 'Dolna część ciała',
+  'program.day.A': 'Siła A',
+  'program.day.B': 'Siła B',
+  'program.day.C': 'Siła C',
+  'program.day.D': 'Siła D',
+  'program.day.E': 'Siła E',
+  'program.day.G': 'Sprawność G',
+  'program.day.H': 'Sprawność H',
+  'error.nameRequired': 'Wpisz swoje imię, aby kontynuować.',
+  'error.birthDate': 'Wprowadź poprawną datę urodzenia lub zostaw ją pustą.',
+  'error.height': 'Wprowadź poprawną wysokość lub zostaw ją pustą.',
+  'error.bodyWeight': 'Wprowadź prawidłową masę ciała lub zostaw puste.',
+  'error.age': 'Wprowadź poprawny wiek lub pozostaw go pustym.',
+  'error.under18':
+    'Programy startowe dla dorosłych są niedostępne dla osób poniżej 18. roku życia. Można ręcznie skonfigurować treningi.',
+  'error.programFrequency':
+    'Brak zaznaczonego programu dla tej częstotliwości. Zachowaj zalecaną częstotliwość lub użyj ręcznej konfiguracji.',
+  'error.programMissing':
+    'Wymagane ćwiczenia są niedostępne. Przejrzyj program lub użyj ręcznej konfiguracji.',
+  'error.programSelection':
+    'Wybierz cel i doświadczenie, aby przygotować swój program.',
+  'error.programProposal':
+    'Propozycja programu jest niedostępna. Przejrzyj wszystkie wymagane ćwiczenia i daty.',
+  'error.programSchedule':
+    'Wybierz jedną datę każdej planowanej sesji. Alternatywne częstotliwości wymagają sprawdzenia programu.',
+  'error.programRest':
+    'Co najmniej jeden dzień odpoczynku pomiędzy sesjami całego ciała.',
+  'error.programSplitRest':
+    'Zachować odzysk pomiędzy powtarzającymi się sesjami górnymi / dolnymi.',
+  'error.programSave':
+    'Nie można zapisać programu. Przywróć; Twoje treningi są bezpieczne.',
+  'error.onboardingLoad':
+    'Oszczędzony na pokładzie jest niedostępny. Przywróć lub kontynuuj aplikację; Twoje treningi są bezpieczne.',
+  'error.onboardingSave':
+    'Postęp na pokładzie nie mógł zostać zapisany. Wciągnij przed zamknięciem aplikacji.',
+} as const;

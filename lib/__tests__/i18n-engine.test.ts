@@ -66,6 +66,21 @@ it('uses Italian singular and plural forms for completed sets', () => {
   expect(t('history.completedSets', { count: 2 })).toBe('2 serie completate');
 });
 
+it('selects Polish forms for zero, singular, few, many and fractional sets', () => {
+  const t = createTranslator('pl');
+  expect(
+    [0, 1, 2, 5, 12, 22, 1.5].map((count) => t('common.setCount', { count })),
+  ).toEqual([
+    '0 serii',
+    '1 seria',
+    '2 serie',
+    '5 serii',
+    '12 serii',
+    '22 serie',
+    '1,5 serii',
+  ]);
+});
+
 it('uses Russian plural categories and preserves literal interpolation', () => {
   const t = createTranslator('ru');
   expect(
