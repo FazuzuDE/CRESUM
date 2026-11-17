@@ -14,7 +14,7 @@ export default {
   'guide.captains-chair-knee-raise.scope':
     'Elevación de rodillas flexionadas con apoyo de antebrazos y espalda en una silla romana.',
   'guide.captains-chair-knee-raise.setup.0':
-    'Descanse los antebrazos en las almohadillas, agarre las agarres y sostenga su espalda contra la almohadilla; deje que las piernas cuelguen despejadas del suelo.',
+    'Apoya los antebrazos en las almohadillas, sujeta los agarres y apoya la espalda en el respaldo. Deja que las piernas cuelguen sin tocar el suelo.',
   'guide.captains-chair-knee-raise.movement.0':
     'Eleva las rodillas flexionadas hacia el pecho con control y baja lentamente a la posición inicial.',
   'guide.captains-chair-knee-raise.checks.0':
@@ -719,7 +719,7 @@ export default {
   'guide.seated-leg-curl.scope':
     'Flexión de rodillas en máquina, en posición sentada.',
   'guide.seated-leg-curl.setup.0':
-    'Apoyar la espalda, alinear las rodillas con el pivote y asegurar el apoyo del muslo; colocar las piernas inferiores en el rodillo.',
+    'Apoya la espalda, alinea las rodillas con el eje de la máquina y ajusta el apoyo sobre los muslos. Coloca la parte inferior de las piernas sobre el rodillo.',
   'guide.seated-leg-curl.movement.0':
     'Lleva los talones hacia abajo y atrás. Extiende las rodillas lentamente para volver a la posición inicial.',
   'guide.seated-leg-curl.checks.0':

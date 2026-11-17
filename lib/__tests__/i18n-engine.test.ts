@@ -44,7 +44,8 @@ it('supports Russian plurals when the runtime has no native Intl.PluralRules', (
 });
 
 it('resolves ordered device locales safely and respects manual choice', () => {
-  expect(resolveLocale('system', ['es-ES', 'de-AT'])).toBe('de');
+  expect(resolveLocale('system', ['es-ES', 'de-AT'])).toBe('es');
+  expect(resolveLocale('system', ['it-IT', 'de-AT'])).toBe('de');
   expect(resolveLocale('system', ['???', 'zh-CN'])).toBe('en');
   expect(resolveLocale('fr', ['ru-RU'])).toBe('fr');
 });
