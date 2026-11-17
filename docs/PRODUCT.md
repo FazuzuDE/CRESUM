@@ -1123,3 +1123,11 @@ returns to the refreshed list. Plan details retain Start workout plus square
 Share. Existing management remains available through a secondary Manage workouts
 action; the active Workout tab retains its current meaning. Network sharing
 remains gated independently.
+
+## Language selection draft — approved 2026-11-17
+
+Open the language wheel at the first alphabetically sorted native language name,
+independently of the saved app language. Include every currently enabled locale.
+Keep System language separate above the wheel. Selection changes apply only on
+Done; Cancel or dismissal preserves the stored language. A failed save retains
+the draft and offers Retry. Onboarding and Profile use the same behavior.
