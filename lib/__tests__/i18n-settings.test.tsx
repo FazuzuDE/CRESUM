@@ -39,16 +39,17 @@ it('puts System first and allows a manual choice from every available language',
     '🇹🇷  Türkçe',
     '🇷🇺  Русский',
     '🇺🇦  Українська',
+    '🇮🇳  हिन्दी',
     '🇨🇳  简体中文',
   ]);
   expect(buttons[0].props.selected).toBe(true);
-  expect(buttons[11].props.accessibilityLabel).toBe('简体中文');
+  expect(buttons[11].props.accessibilityLabel).toBe('हिन्दी');
   await act(async () => {
     buttons[11].props.onPress();
   });
   expect(store.getSnapshot()).toMatchObject({
-    preference: 'zh-Hans',
-    locale: 'zh-Hans',
+    preference: 'hi',
+    locale: 'hi',
   });
   expect(view!.root.findAllByType(Modal)).toHaveLength(0);
   act(() => view!.unmount());
@@ -94,6 +95,10 @@ it('switches live content without remounting a draft or resetting its value', as
     await store.select('zh-Hans');
   });
   expect(view!.root.findByType(Text).props.children).toBe('重试');
+  await act(async () => {
+    await store.select('hi');
+  });
+  expect(view!.root.findByType(Text).props.children).toBe('फिर प्रयास करें');
   expect(view!.root.findByType(TextInput).props.value).toBe('12,');
   expect(mounts).toBe(1);
   act(() => view!.unmount());

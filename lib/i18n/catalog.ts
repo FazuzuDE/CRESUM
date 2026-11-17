@@ -1,3 +1,4 @@
+import hindiSearchAliases from './hindi-search-aliases';
 import {
   canonicalExerciseId,
   exerciseLibrary,
@@ -8,6 +9,9 @@ import {
 import type { LibraryExercise } from '../workout-model';
 import { catalogs, type MessageCatalog } from './messages';
 import type { AppLocale } from './registry';
+const searchAliases: Partial<
+  Record<AppLocale, Readonly<Record<string, readonly string[]>>>
+> = { hi: hindiSearchAliases };
 export function catalogLabel(
   locale: AppLocale,
   kind: 'exercise' | 'muscle' | 'equipment' | 'program' | 'template',
@@ -27,6 +31,7 @@ export function searchLocalizedExercises(
 ): LibraryExercise[] {
   const normalize = (value: string) => {
     const lower = value.toLocaleLowerCase(locale);
+    if (locale === 'hi') return lower.normalize('NFC').replace(/\s+/g, ' ');
     if (locale === 'tr')
       return lower.normalize('NFD').replace(/\p{M}/gu, '').replace(/ı/g, 'i');
     if (locale === 'pl')
@@ -63,6 +68,10 @@ export function searchLocalizedExercises(
         item.name,
         catalogLabel(locale, 'exercise', item.id, item.name),
         ...aliases,
+        ...(searchAliases[locale]?.[item.id] ?? []),
+        ...(item.id === 'goblet-squat'
+          ? (searchAliases[locale]?.['kettlebell-goblet-squat'] ?? [])
+          : []),
       ].some((name) => normalize(name).includes(query));
     });
 }

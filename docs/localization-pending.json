@@ -16360,5 +16360,11 @@
     "line": 12,
     "text": "zh-Hans",
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 13,
+    "text": "hi",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
   }
 ]
