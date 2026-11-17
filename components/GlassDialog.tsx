@@ -10,11 +10,13 @@ export function GlassDialog({
   onClose,
   visible = true,
   opaque = false,
+  transparency = 26.5,
 }: {
   children: ReactNode;
   onClose: () => void;
   visible?: boolean;
   opaque?: boolean;
+  transparency?: number;
 }) {
   const reduceTransparency = useReducedTransparency(visible && !opaque);
   return (
@@ -34,7 +36,7 @@ export function GlassDialog({
           <View style={s.panel} accessibilityViewIsModal>
             <GlassMaterial
               borderRadius={radius.xxl}
-              transparency={26.5}
+              transparency={transparency}
               solid={opaque || (Platform.OS === 'ios' && reduceTransparency)}
             />
             {children}

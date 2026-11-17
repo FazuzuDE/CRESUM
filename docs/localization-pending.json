@@ -16360,5 +16360,53 @@
     "line": 12,
     "text": "zh-Hans",
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 62,
+    "text": "`🌐 ${t('language.system')}${draft === 'system' ? ' ✓' : ''}`",
+    "context": "TemplateExpression/JsxExpression/JsxAttribute:title/JsxAttributes/JsxSelfClosingElement"
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 72,
+    "text": "none",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes"
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 72,
+    "text": "auto",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes"
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 74,
+    "text": "no-hide-descendants",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes"
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 74,
+    "text": "auto",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes"
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 81,
+    "text": "`${flags[value]} ${localeRegistry[value].nativeName}`",
+    "context": "TemplateExpression/ArrowFunction/CallExpression/ArrayLiteralExpression/JsxExpression"
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 111,
+    "text": "common.retry",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 111,
+    "text": "common.done",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
   }
 ]
