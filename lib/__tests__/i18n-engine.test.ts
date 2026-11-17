@@ -81,6 +81,14 @@ it('selects Polish forms for zero, singular, few, many and fractional sets', () 
   ]);
 });
 
+it('formats Turkish set counts and preserves interpolated names', () => {
+  const t = createTranslator('tr');
+  expect(
+    [0, 1, 2, 1.5].map((count) => t('common.setCount', { count })),
+  ).toEqual(['0 set', '1 set', '2 set', '1,5 set']);
+  expect(t('common.named', { name: 'Işık İpek' })).toBe('Işık İpek');
+});
+
 it('uses Russian plural categories and preserves literal interpolation', () => {
   const t = createTranslator('ru');
   expect(

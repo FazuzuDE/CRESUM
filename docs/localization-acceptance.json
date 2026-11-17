@@ -7,5 +7,6 @@
   "es": { "web": false, "native": false },
   "pt-BR": { "web": false, "native": false },
   "it": { "web": false, "native": false },
-  "pl": { "web": false, "native": false }
+  "pl": { "web": false, "native": false },
+  "tr": { "web": false, "native": false }
 }
