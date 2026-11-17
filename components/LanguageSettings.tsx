@@ -8,7 +8,15 @@ import { useLocalization } from './LocalizationProvider';
 import { AppButton } from './AppButton';
 import { localeRegistry, type LanguagePreference } from '@/lib/i18n/registry';
 import { colors, spacing, typography } from '@/lib/theme';
-const flags = { en: '🇬🇧', ru: '🇷🇺', de: '🇩🇪', fr: '🇫🇷', uk: '🇺🇦', es: '🇪🇸' };
+const flags = {
+  en: '🇬🇧',
+  ru: '🇷🇺',
+  de: '🇩🇪',
+  fr: '🇫🇷',
+  uk: '🇺🇦',
+  es: '🇪🇸',
+  'pt-BR': '🇧🇷',
+};
 
 export function LanguageSettings({ compact = false }: { compact?: boolean }) {
   const [open, setOpen] = useState(false);

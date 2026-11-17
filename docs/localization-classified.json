@@ -11,6 +11,10 @@
       {
         "text": "es",
         "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+      },
+      {
+        "text": "pt-BR",
+        "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
       }
     ]
   },

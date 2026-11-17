@@ -3,7 +3,15 @@ import { techniqueCatalog, findTechnique } from '../exercise-technique';
 it('translates all authored guides while preserving revision, source IDs and canonical instructions', () => {
   const before = JSON.stringify(techniqueCatalog);
   for (const [id, source] of Object.entries(techniqueCatalog))
-    for (const locale of ['en', 'ru', 'de', 'fr', 'uk', 'es'] as const) {
+    for (const locale of [
+      'en',
+      'ru',
+      'de',
+      'fr',
+      'uk',
+      'es',
+      'pt-BR',
+    ] as const) {
       const translated = localizedTechnique(locale, id)!;
       expect(translated.revision).toBe(source.revision);
       expect(translated.sources).toEqual(source.sources);

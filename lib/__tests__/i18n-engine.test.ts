@@ -50,6 +50,15 @@ it('resolves ordered device locales safely and respects manual choice', () => {
   expect(resolveLocale('fr', ['ru-RU'])).toBe('fr');
 });
 
+it('uses Brazilian Portuguese for zero, singular and plural workout sets', () => {
+  const t = createTranslator('pt-BR');
+  expect([0, 1, 2].map((count) => t('common.setCount', { count }))).toEqual([
+    '0 séries',
+    '1 série',
+    '2 séries',
+  ]);
+});
+
 it('uses Russian plural categories and preserves literal interpolation', () => {
   const t = createTranslator('ru');
   expect(

@@ -33,15 +33,19 @@ it('puts System first and allows a manual choice from every available language',
     '🇬🇧  English',
     '🇪🇸  Español',
     '🇫🇷  Français',
+    '🇧🇷  Português (Brasil)',
     '🇷🇺  Русский',
     '🇺🇦  Українська',
   ]);
   expect(buttons[0].props.selected).toBe(true);
-  expect(buttons[3].props.accessibilityLabel).toBe('Español');
+  expect(buttons[5].props.accessibilityLabel).toBe('Português (Brasil)');
   await act(async () => {
-    buttons[3].props.onPress();
+    buttons[5].props.onPress();
   });
-  expect(store.getSnapshot()).toMatchObject({ preference: 'es', locale: 'es' });
+  expect(store.getSnapshot()).toMatchObject({
+    preference: 'pt-BR',
+    locale: 'pt-BR',
+  });
   expect(view!.root.findAllByType(Modal)).toHaveLength(0);
   act(() => view!.unmount());
 });

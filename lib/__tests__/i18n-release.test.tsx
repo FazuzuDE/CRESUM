@@ -94,7 +94,15 @@ it('rejects unregistered and pseudo languages without persisting them', async ()
   for (const unknown of ['xx', 'en-XA', 'qps-ploc'])
     expect(await store.select(unknown as never)).toBe(false);
   expect(storage.setItem).not.toHaveBeenCalled();
-  expect(Object.keys(catalogs)).toEqual(['en', 'ru', 'de', 'fr', 'uk', 'es']);
+  expect(Object.keys(catalogs)).toEqual([
+    'en',
+    'ru',
+    'de',
+    'fr',
+    'uk',
+    'es',
+    'pt-BR',
+  ]);
 });
 it('marks only a missing conflict name for translation, preserving a saved English title', async () => {
   const x = await conflictFixture();
