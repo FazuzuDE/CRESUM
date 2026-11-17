@@ -1,5 +1,17 @@
 # CRESUM Decision Log
 
+## 2026-11-17 — Repository-first account handoff
+
+The user requested preserving as much actionable CRESUM context as possible in
+GitHub before changing ChatGPT accounts. Add a discoverable START_HERE entry,
+public Mobile continuity notes, dated verified refs/PR state, and indexes of
+existing owning documents and runtime asset metadata. Keep private production
+context in its private repository. Distinguish verified code, chat-approved intent,
+implementation, merge, deployment, device acceptance and missing source binaries.
+Do not publish credentials, personal chat history or master reference binaries.
+Refresh live refs before resuming; snapshots are not a dashboard. This documents
+the handoff workflow and does not authorize automatic merges or new runtime work.
+
 ## 2026-11-17 — All-language text and search synonyms
 
 User approved implementing multilingual search and made complete translation into
