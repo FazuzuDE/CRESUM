@@ -4,5 +4,6 @@
   "de": { "web": false, "native": false },
   "fr": { "web": false, "native": false },
   "uk": { "web": false, "native": false },
-  "es": { "web": false, "native": false }
+  "es": { "web": false, "native": false },
+  "pt-BR": { "web": false, "native": false }
 }

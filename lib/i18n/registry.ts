@@ -5,6 +5,11 @@ export const localeRegistry = {
   fr: { nativeName: 'Français', direction: 'ltr', released: false },
   uk: { nativeName: 'Українська', direction: 'ltr', released: false },
   es: { nativeName: 'Español', direction: 'ltr', released: false },
+  'pt-BR': {
+    nativeName: 'Português (Brasil)',
+    direction: 'ltr',
+    released: false,
+  },
 } as const;
 export type AppLocale = keyof typeof localeRegistry;
 export type LanguagePreference = 'system' | AppLocale;
@@ -19,6 +24,7 @@ export function resolveLocale(
   for (const tag of deviceTags) {
     if (!/^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$/i.test(tag)) continue;
     const language = tag.split('-')[0].toLowerCase();
+    if (language === 'pt') return 'pt-BR';
     if (isAppLocale(language)) return language;
   }
   return 'en';

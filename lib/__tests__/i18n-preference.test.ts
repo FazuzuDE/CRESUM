@@ -95,6 +95,8 @@ it.each([
   ['uk-UA', 'uk'],
   ['es-MX', 'es'],
   ['es-ES', 'es'],
+  ['pt-BR', 'pt-BR'],
+  ['pt-PT', 'pt-BR'],
 ])('selects the system language for %s', async (tag, locale) => {
   const store = new LocaleStore(
     { getItem: async () => null, setItem: async () => {} },
