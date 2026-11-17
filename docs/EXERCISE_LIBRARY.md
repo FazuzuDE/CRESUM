@@ -134,7 +134,23 @@ Legacy and canonical `libraryId` values are normalized only for previous-perform
 
 Exercise records reference typed muscle, equipment, and movement-pattern IDs. Each record has at least one primary muscle, has no primary/secondary overlap, and uses only taxonomy values.
 
-Filtering is pure and preserves curated catalog order. Search trims input and matches names case-insensitively. Muscle filters match primary or secondary muscles; equipment filters match the equipment list. Active search, muscle, and equipment criteria combine with AND.
+Filtering is pure; empty search and equal-ranked matches preserve curated catalog
+order. The localized UI uses the shared offline search index in
+`lib/i18n/search/engine.ts` and ranks all-language official names and synonyms before
+equipment, muscle and limited typo matches. It supports prefixes, reordered words,
+case/accent/punctuation folding and Cyrillic transliteration. Muscle filters match
+primary or secondary muscles; equipment filters match the equipment list. Active
+search, muscle, and equipment criteria combine with AND. The lower-level canonical
+`filterExercises` helper retains its simple name-only filtering contract.
+
+Every new exercise, machine, equipment/attachment or muscle requires complete
+translated content and natural search alternatives in all current registry
+languages in the same change, even if those locales await release acceptance.
+The dictionaries and `npm run i18n:check` enforce catalog/locale coverage. Search
+aliases are separate from persisted compatibility aliases; keep exact variants,
+IDs and History unchanged. A grouped Goblet result also searches the kettlebell
+configuration's terms without adding a duplicate visible result. Logged performance
+search uses exact saved identity and preserves custom/unknown snapshot names.
 
 ## Artwork boundary
 

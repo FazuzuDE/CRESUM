@@ -40,6 +40,46 @@ function validateCatalogs(catalogs) {
   }
   return errors;
 }
+// All selectable locales count, including locales awaiting device acceptance.
+function validateSearchAliases(aliases, registry, catalogs, records) {
+  const errors = [];
+  for (const locale of Object.keys(registry)) {
+    if (!catalogs[locale]) errors.push(`${locale}: missing message catalog`);
+    for (const [kind, entries] of Object.entries(records)) {
+      const expected = new Set(entries.map((record) => record.id));
+      const section = aliases[locale]?.[kind];
+      for (const record of entries) {
+        const values = section?.[record.id];
+        if (
+          !Array.isArray(values) ||
+          !values.length ||
+          values.some((value) => typeof value !== 'string' || !value.trim())
+        )
+          errors.push(
+            `${locale}: missing/empty search aliases ${kind}.${record.id}`,
+          );
+        else if (
+          new Set(values.map((value) => value.trim().toLowerCase())).size !==
+          values.length
+        )
+          errors.push(
+            `${locale}: duplicate search aliases ${kind}.${record.id}`,
+          );
+        const key = record.messageKey ?? `catalog.${kind}.${record.id}`;
+        const text = catalogs[locale]?.[key];
+        if (typeof text !== 'string' || !text.trim())
+          errors.push(`${locale}: missing catalog translation ${key}`);
+      }
+      for (const id of Object.keys(section ?? {}))
+        if (!expected.has(id))
+          errors.push(`${locale}: unknown search alias ${kind}.${id}`);
+    }
+  }
+  for (const locale of Object.keys(aliases))
+    if (!(locale in registry))
+      errors.push(`${locale}: unregistered search locale`);
+  return errors;
+}
 const identity = (entry) => `${entry.file}\0${entry.text}`;
 function compareInventory(current, baseline) {
   const known = new Set(baseline.map(identity));
@@ -133,6 +173,21 @@ function run() {
     ...untracked.map((x) => `${x.file}:${x.line}: untracked copy: ${x.text}`),
   );
   const registry = loadTs(path.resolve('lib/i18n/registry.ts')).localeRegistry;
+  const aliases = loadTs(
+    path.resolve('lib/i18n/search/aliases.ts'),
+  ).searchAliases;
+  const { exerciseLibrary } = loadTs(path.resolve('lib/exercise-library.ts'));
+  const { exerciseEquipmentCatalog } = loadTs(
+    path.resolve('lib/exercise-equipment-catalog.ts'),
+  );
+  const { muscleTaxonomy } = loadTs(path.resolve('lib/exercise-taxonomy.ts'));
+  errors.push(
+    ...validateSearchAliases(aliases, registry, catalogs, {
+      exercise: exerciseLibrary,
+      equipment: exerciseEquipmentCatalog,
+      muscle: muscleTaxonomy,
+    }),
+  );
   const classifications = JSON.parse(
     fs.readFileSync('docs/localization-classified.json', 'utf8'),
   );
@@ -208,6 +263,7 @@ function run() {
 }
 module.exports = {
   validateCatalogs,
+  validateSearchAliases,
   compareInventory,
   classifyInventory,
   releaseEligibility,

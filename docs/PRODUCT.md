@@ -1,5 +1,31 @@
 # CRESUM — Product Definition
 
+## All-language content and search — approved 2026-11-17
+
+Every new or changed app-controlled text must be translated into all languages
+currently present in the application, as defined by `lib/i18n/registry.ts`,
+including selectable languages awaiting device/release acceptance. This applies
+to every future feature, exercise, machine, equipment item, guide, validation,
+error/retry message and accessibility label. Adding a language also requires
+complete existing content and search-alias coverage before exposing it.
+
+Every searchable catalog item must have natural search synonyms, common local gym
+slang and abbreviations where applicable in every current language. The current
+exercise, equipment/attachment and muscle dictionaries cover EN/RU/DE/FR/UK/ES/
+PT-BR/IT/PL/TR/ZH-HANS. Do not invent slang or equate mechanically distinct variants.
+Search all bundled language names and alternatives regardless of interface locale,
+including equipment and muscle terms, prefixes, word reordering, accent/case/
+punctuation differences, Cyrillic transliteration and limited long-token typos.
+Rank exact names/aliases before partial matches, equipment/muscle matches and typo
+matches; preserve curated order for ties and empty queries. Filters combine with
+AND, including the grouped Goblet entry's two equipment options.
+
+Use the shared offline matcher in Exercise Library, workout/template addition and
+logged-performance exercise selection. Search changes discovery only: preserve
+stable IDs, exact saved variants, historical/user-entered names and all logged data.
+Coverage checks derive from the live locale registry and catalog and block missing
+translations or search alternatives. See [contribution rules](LOCALIZATION.md).
+
 ## First-run onboarding — approved 2026-11-16
 
 Welcome → Exercise character → optional Body details → how to start.
@@ -367,8 +393,8 @@ existing workout, History/Progress, program/technique, Profile/account and backu
 recovery flows are connected in EN/RU/DE/FR. English remains the only release-enabled
 locale while web/native layout and accessibility acceptance is pending.
 See [coverage and contribution rules](LOCALIZATION.md). New app-controlled copy
-must include every enabled locale in the same change; during this migration all
-new message packs are authored in EN/RU/DE/FR. CI checks message contracts and
+must include every locale in the current registry in the same change, including
+those awaiting release acceptance; search alternatives follow the same rule. CI checks message contracts and
 tracks pending source candidates, blocking incomplete target-language activation.
 
 The app display name is CRESUM; package/Expo slug use `cresum`. Existing local

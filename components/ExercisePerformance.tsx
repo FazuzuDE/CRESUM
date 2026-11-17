@@ -8,6 +8,10 @@ import { GlassCard } from './GlassCard';
 import { EstimatedOneRepMaxSeries } from './EstimatedOneRepMaxSeries';
 import { useLocalization } from './LocalizationProvider';
 import { formatNumber } from '@/lib/i18n/format';
+import {
+  exerciseSearchScore,
+  prepareExerciseQuery,
+} from '@/lib/i18n/search/engine';
 import { progressDate, periodLabel, volumeNumber } from '@/lib/i18n/progress';
 import {
   listPerformanceExercises,
@@ -63,9 +67,20 @@ export function ExercisePerformance({ history, period, now }: Props) {
         : [],
     [history, period, now, identityKey],
   );
-  const matches = choices.filter((choice) =>
-    choice.name.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()),
-  );
+  const searchQuery = prepareExerciseQuery(query);
+  const matches = choices
+    .map((choice) => ({
+      choice,
+      score: exerciseSearchScore(
+        choice.sourceId,
+        searchQuery,
+        locale,
+        choice.name,
+      ),
+    }))
+    .filter(({ score }) => score > 0)
+    .sort((a, b) => b.score - a.score)
+    .map(({ choice }) => choice);
   const close = () => {
     setQuery('');
     setSelectorOpen(false);
