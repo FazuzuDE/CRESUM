@@ -19,6 +19,7 @@ const flags = {
   it: '🇮🇹',
   pl: '🇵🇱',
   tr: '🇹🇷',
+  'zh-Hans': '🇨🇳',
 };
 
 export function LanguageSettings({ compact = false }: { compact?: boolean }) {

@@ -111,18 +111,28 @@ function readCatalogs(root) {
     return exports;
   };
   return Object.fromEntries(
-    ['en', 'ru', 'de', 'fr', 'uk', 'es', 'pt-BR', 'it', 'pl', 'tr'].map(
-      (locale) => {
-        const folder = path.join(root, 'lib/i18n/locales', locale);
-        const catalog = {};
-        for (const file of fs
-          .readdirSync(folder)
-          .filter((v) => v.endsWith('.ts'))) {
-          Object.assign(catalog, load(path.join(folder, file)).default);
-        }
-        return [locale, catalog];
-      },
-    ),
+    [
+      'en',
+      'ru',
+      'de',
+      'fr',
+      'uk',
+      'es',
+      'pt-BR',
+      'it',
+      'pl',
+      'tr',
+      'zh-Hans',
+    ].map((locale) => {
+      const folder = path.join(root, 'lib/i18n/locales', locale);
+      const catalog = {};
+      for (const file of fs
+        .readdirSync(folder)
+        .filter((v) => v.endsWith('.ts'))) {
+        Object.assign(catalog, load(path.join(folder, file)).default);
+      }
+      return [locale, catalog];
+    }),
   );
 }
 
@@ -230,6 +240,7 @@ async function main() {
         'it',
         'pl',
         'tr',
+        'zh-Hans',
       ])
         for (const width of [320, 390]) {
           expandedMode = expand;
@@ -987,7 +998,7 @@ async function main() {
             await button('history.back').waitFor();
             const expectedSet = text('history.set', {
               index: 1,
-              weight: locale === 'en' ? '12.5' : '12,5',
+              weight: locale === 'en' || locale === 'zh-Hans' ? '12.5' : '12,5',
               reps: '8',
             });
             await page.getByText(expectedSet, { exact: true }).waitFor();
@@ -1232,7 +1243,8 @@ async function main() {
               .getByText(
                 text('history.set', {
                   index: 1,
-                  weight: locale === 'en' ? '12.5' : '12,5',
+                  weight:
+                    locale === 'en' || locale === 'zh-Hans' ? '12.5' : '12,5',
                   reps: '10',
                 }),
                 { exact: true },
@@ -1243,7 +1255,8 @@ async function main() {
               .getByText(
                 text('history.bilateralSet', {
                   index: 1,
-                  weight: locale === 'en' ? '12.5' : '12,5',
+                  weight:
+                    locale === 'en' || locale === 'zh-Hans' ? '12.5' : '12,5',
                   reps: '10',
                   other: '10',
                 }),

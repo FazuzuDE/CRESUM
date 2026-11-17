@@ -67,3 +67,30 @@ test('searches translated Ukrainian publications and preserves legacy English me
   expect(filterPlans([localized], 'верхня', 'uk')).toEqual([localized]);
   expect(filterPlans([localized], 'gym', 'uk')).toEqual([localized]);
 });
+
+test('searches Chinese publication metadata and falls back for older plans', () => {
+  const [legacy] = parseLibrary([entry]);
+  expect(filterPlans([legacy], 'upper', 'zh-Hans')).toEqual([legacy]);
+  const localized = {
+    ...entry,
+    metadata: {
+      ...entry.metadata,
+      title: { ...entry.metadata.title, 'zh-Hans': '上肢训练' },
+      description: { ...entry.metadata.description, 'zh-Hans': '哑铃健身计划' },
+    },
+  };
+  const [plan] = parseLibrary([localized]);
+  expect(filterPlans([plan], '上肢', 'zh-Hans')).toEqual([plan]);
+  expect(filterPlans([plan], '哑铃', 'zh-Hans')).toEqual([plan]);
+  expect(() =>
+    parseLibrary([
+      {
+        ...localized,
+        metadata: {
+          ...localized.metadata,
+          title: { ...localized.metadata.title, 'zh-Hans': '' },
+        },
+      },
+    ]),
+  ).toThrow();
+});

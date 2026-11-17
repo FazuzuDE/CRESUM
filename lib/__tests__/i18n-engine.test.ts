@@ -21,6 +21,11 @@ it('supports Russian plurals when the runtime has no native Intl.PluralRules', (
     });
     jest.isolateModules(() => {
       const { createTranslator: create } = jest.requireActual('../i18n/engine');
+      expect(
+        [0, 1, 2, 1.5].map((count) =>
+          create('zh-Hans')('common.setCount', { count }),
+        ),
+      ).toEqual(['0 组', '1 组', '2 组', '1.5 组']);
       const t = create('ru');
       expect(
         [0, 1, 2, 5, 11, 21, 22, 25, 1.5].map((count) =>
@@ -47,7 +52,13 @@ it('resolves ordered device locales safely and respects manual choice', () => {
   expect(resolveLocale('system', ['es-ES', 'de-AT'])).toBe('es');
   expect(resolveLocale('system', ['it-IT', 'de-AT'])).toBe('it');
   expect(resolveLocale('system', ['nl-NL', 'de-AT'])).toBe('de');
-  expect(resolveLocale('system', ['???', 'zh-CN'])).toBe('en');
+  expect(resolveLocale('system', ['???', 'zh-CN'])).toBe('zh-Hans');
+  expect(resolveLocale('system', ['zh-Hant', 'de-AT'])).toBe('de');
+  expect(resolveLocale('system', ['zh-TW', 'en-US'])).toBe('en');
+  expect(resolveLocale('system', ['zh-HK', 'en-US'])).toBe('en');
+  expect(resolveLocale('system', ['zh-MO', 'en-US'])).toBe('en');
+  expect(resolveLocale('system', ['zh-Hant-CN', 'de-AT'])).toBe('de');
+  expect(resolveLocale('zh-Hans', ['zh-Hant'])).toBe('zh-Hans');
   expect(resolveLocale('fr', ['ru-RU'])).toBe('fr');
 });
 
@@ -133,4 +144,15 @@ it('reuses immutable locale translators across screen mounts while isolating ove
   expect(ru('common.retry')).toBe('Повторить');
   expect(de('common.retry')).toBe('Erneut versuchen');
   expect(createTranslator('ru')).toBe(ru);
+});
+
+it('uses the Chinese other form for zero, whole and fractional counts', () => {
+  const t = createTranslator('zh-Hans');
+  expect(
+    [0, 1, 2, 1.5].map((count) => t('common.setCount', { count })),
+  ).toEqual(['0 组', '1 组', '2 组', '1.5 组']);
+  expect(
+    t('workout.summary', { completed: 1, count: 3, volume: '125.5' }),
+  ).toBe('1/3 组 · 125.5 千克');
+  expect(t('common.named', { name: '小林' })).toBe('小林');
 });
