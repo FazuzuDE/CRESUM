@@ -1,3 +1,4 @@
+import { ScreenModal } from '@/components/ScreenModal';
 import { ExerciseCharacterProvider } from '@/components/ExerciseCharacterProvider';
 import type { AssetModel } from '@/lib/exercise-variant-model';
 import { AppScrollView } from '@/components/AppScrollView';
@@ -42,7 +43,6 @@ import {
   useSyncExternalStore,
 } from 'react';
 import {
-  Modal,
   ActivityIndicator,
   Alert,
   AppState,
@@ -1121,11 +1121,9 @@ function AppContent({
     >
       <StatusBar style="dark" />
       {sharingOpen && ready && localDataAccess.ready ? (
-        <Modal
+        <ScreenModal
           visible
           animationType="slide"
-          statusBarTranslucent
-          navigationBarTranslucent
           onRequestClose={() => {
             if (!busy && !sharingEditing) setSharingOpen(false);
           }}
@@ -1192,7 +1190,7 @@ function AppContent({
               />
             </AppScrollView>
           </SafeAreaView>
-        </Modal>
+        </ScreenModal>
       ) : null}
       {notice ? (
         <SafeAreaView edges={['top']} style={s.notice}>

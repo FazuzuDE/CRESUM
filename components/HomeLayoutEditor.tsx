@@ -1,5 +1,6 @@
+import { ScreenModal } from './ScreenModal';
 import { useState } from 'react';
-import { Modal, Pressable, StyleSheet, Switch, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { AppScrollView } from './AppScrollView';
@@ -36,12 +37,10 @@ export function HomeLayoutEditor({
     if (!saving) onClose();
   };
   return (
-    <Modal
+    <ScreenModal
       visible
       animationType="slide"
       presentationStyle="pageSheet"
-      statusBarTranslucent
-      navigationBarTranslucent
       onRequestClose={close}
     >
       <SafeAreaView edges={['left', 'right']} style={s.screen}>
@@ -139,7 +138,7 @@ export function HomeLayoutEditor({
           />
         </AppScrollView>
       </SafeAreaView>
-    </Modal>
+    </ScreenModal>
   );
 }
 const s = StyleSheet.create({

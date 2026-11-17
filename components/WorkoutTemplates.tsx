@@ -1,6 +1,7 @@
+import { ScreenModal } from './ScreenModal';
 import { AppScrollView } from './AppScrollView';
 import { useEffect, useRef, useState } from 'react';
-import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import Swipeable, {
@@ -184,11 +185,9 @@ export function WorkoutTemplates({
         }}
       />
 
-      <Modal
+      <ScreenModal
         visible={Boolean(menuTemplate)}
         presentationStyle="pageSheet"
-        statusBarTranslucent
-        navigationBarTranslucent
         onRequestClose={() => setMenuTemplateId(undefined)}
       >
         <SafeAreaView edges={['left', 'right']} style={s.menuRoot}>
@@ -273,7 +272,7 @@ export function WorkoutTemplates({
             />
           </AppScrollView>
         </SafeAreaView>
-      </Modal>
+      </ScreenModal>
 
       {editor ? (
         <TemplateEditor

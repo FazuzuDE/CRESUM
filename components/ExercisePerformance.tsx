@@ -1,13 +1,7 @@
+import { ScreenModal } from './ScreenModal';
 import { AppScrollView } from './AppScrollView';
 import { useMemo, useState } from 'react';
-import {
-  Modal,
-  Pressable,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { GlassCard } from './GlassCard';
@@ -142,12 +136,10 @@ export function ExercisePerformance({ history, period, now }: Props) {
           ) : null}
         </>
       )}
-      <Modal
+      <ScreenModal
         visible={setsOpen}
         animationType="slide"
         presentationStyle="pageSheet"
-        statusBarTranslucent
-        navigationBarTranslucent
         onRequestClose={() => setSetsOpen(false)}
       >
         <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
@@ -210,13 +202,11 @@ export function ExercisePerformance({ history, period, now }: Props) {
             </View>
           </AppScrollView>
         </SafeAreaView>
-      </Modal>
-      <Modal
+      </ScreenModal>
+      <ScreenModal
         visible={selectorOpen}
         animationType="slide"
         presentationStyle="pageSheet"
-        statusBarTranslucent
-        navigationBarTranslucent
         onRequestClose={close}
       >
         <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
@@ -271,7 +261,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
             )}
           </AppScrollView>
         </SafeAreaView>
-      </Modal>
+      </ScreenModal>
     </GlassCard>
   );
 }

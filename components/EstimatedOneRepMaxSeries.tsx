@@ -1,6 +1,7 @@
+import { ScreenModal } from './ScreenModal';
 import { AppFlatList } from './AppFlatList';
 import { useState } from 'react';
-import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { EstimatedOneRepMaxBars } from './EstimatedOneRepMaxBars';
 import { VolumeTrendChart } from './VolumeTrendChart';
 import { progressPeriodStart } from '@/lib/progress-periods';
@@ -134,12 +135,10 @@ export function EstimatedOneRepMaxSeries({ points, period, now }: Props) {
           ) : null}
         </>
       )}
-      <Modal
+      <ScreenModal
         visible={allOpen}
         animationType="slide"
         presentationStyle="pageSheet"
-        statusBarTranslucent
-        navigationBarTranslucent
         onRequestClose={() => setAllOpen(false)}
       >
         <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
@@ -163,7 +162,7 @@ export function EstimatedOneRepMaxSeries({ points, period, now }: Props) {
             renderItem={({ item }) => <PointRow point={item} />}
           />
         </SafeAreaView>
-      </Modal>
+      </ScreenModal>
     </View>
   );
 }

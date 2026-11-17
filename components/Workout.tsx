@@ -1,3 +1,4 @@
+import { ScreenModal } from './ScreenModal';
 import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
 import { workoutStyles as s } from './workout-styles';
 import { ExerciseAttachmentBlock } from './ExerciseAttachmentBlock';
@@ -14,7 +15,6 @@ import { useEffect, useRef, useState } from 'react';
 import {
   AppState,
   KeyboardAvoidingView,
-  Modal,
   Platform,
   Pressable,
   Text,
@@ -633,12 +633,10 @@ export function Workout({
         }}
       />
       {composition && composition.sessionId === session.id ? (
-        <Modal
+        <ScreenModal
           visible
           animationType="slide"
           presentationStyle="pageSheet"
-          statusBarTranslucent
-          navigationBarTranslucent
           onRequestClose={() => setComposition(null)}
         >
           <AppScrollView contentContainerStyle={s.content}>
@@ -656,7 +654,7 @@ export function Workout({
               }}
             />
           </AppScrollView>
-        </Modal>
+        </ScreenModal>
       ) : null}
       {technique ? (
         <ExerciseTechnique

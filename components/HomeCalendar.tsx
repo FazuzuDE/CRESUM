@@ -1,5 +1,6 @@
+import { ScreenModal } from './ScreenModal';
 import { useState } from 'react';
-import { Modal, StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppScrollView } from './AppScrollView';
 import { AppButton } from './AppButton';
@@ -46,12 +47,10 @@ export function HomeCalendar({
     .filter((s) => localDay(s.finishedAt!) === selected)
     .sort((a, b) => a.finishedAt! - b.finishedAt!);
   return (
-    <Modal
+    <ScreenModal
       visible
       animationType="slide"
       presentationStyle="pageSheet"
-      statusBarTranslucent
-      navigationBarTranslucent
       onRequestClose={onClose}
     >
       <SafeAreaView edges={['left', 'right']} style={s.root}>
@@ -105,7 +104,7 @@ export function HomeCalendar({
           )}
         </AppScrollView>
       </SafeAreaView>
-    </Modal>
+    </ScreenModal>
   );
 }
 const s = StyleSheet.create({

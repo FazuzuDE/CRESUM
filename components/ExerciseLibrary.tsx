@@ -1,3 +1,4 @@
+import { ScreenModal } from './ScreenModal';
 import { AppScrollView } from './AppScrollView';
 import { BrandHeader } from './BrandHeader';
 import { AppPicker } from './AppPicker';
@@ -7,7 +8,6 @@ import { useReducedTransparency } from './useReducedTransparency';
 import { Ionicons } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import {
-  Modal,
   Pressable,
   Keyboard,
   Platform,
@@ -406,16 +406,14 @@ export function ExerciseLibrary({
   );
   if (presentation === 'page') return visible ? content : null;
   return (
-    <Modal
+    <ScreenModal
       visible={visible}
       animationType="slide"
       presentationStyle="pageSheet"
-      statusBarTranslucent
-      navigationBarTranslucent
       onRequestClose={close}
     >
       {content}
-    </Modal>
+    </ScreenModal>
   );
 }
 

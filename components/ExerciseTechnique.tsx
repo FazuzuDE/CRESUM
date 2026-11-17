@@ -1,16 +1,10 @@
+import { ScreenModal } from './ScreenModal';
 import { useState } from 'react';
 import { BrandHeader } from './BrandHeader';
 import { ExerciseMuscles } from './ExerciseMuscles';
 import { ExerciseStatistics } from './ExerciseStatistics';
 import { ExerciseArtwork } from './ExerciseArtwork';
-import {
-  Linking,
-  Modal,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { AppScrollView } from './AppScrollView';
@@ -69,12 +63,10 @@ export function ExerciseTechnique({
     [sources, setSources] = useState(false),
     [linkError, setLinkError] = useState(false);
   return (
-    <Modal
+    <ScreenModal
       visible
       animationType="slide"
       presentationStyle="pageSheet"
-      statusBarTranslucent
-      navigationBarTranslucent
       allowSwipeDismissal
       onRequestClose={onClose}
     >
@@ -306,7 +298,7 @@ export function ExerciseTechnique({
           />
         ) : null}
       </SafeAreaView>
-    </Modal>
+    </ScreenModal>
   );
 }
 function Section({

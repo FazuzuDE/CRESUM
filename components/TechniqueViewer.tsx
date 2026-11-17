@@ -1,4 +1,5 @@
-import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import { ScreenModal } from './ScreenModal';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { AppScrollView } from './AppScrollView';
@@ -22,12 +23,10 @@ export function TechniqueViewer({
 }) {
   const { t } = useLocalization();
   return (
-    <Modal
+    <ScreenModal
       visible
       animationType="slide"
       presentationStyle="fullScreen"
-      statusBarTranslucent
-      navigationBarTranslucent
       onRequestClose={onClose}
     >
       <SafeAreaView edges={['top', 'left', 'right']} style={s.root}>
@@ -54,7 +53,7 @@ export function TechniqueViewer({
           <Text style={s.context}>{t('technique.viewerNote')}</Text>
         </AppScrollView>
       </SafeAreaView>
-    </Modal>
+    </ScreenModal>
   );
 }
 const s = StyleSheet.create({

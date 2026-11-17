@@ -1,12 +1,6 @@
+import { ScreenModal } from './ScreenModal';
 import { useEffect, useMemo, useState } from 'react';
-import {
-  AppState,
-  Modal,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { AppState, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BrandHeader } from './BrandHeader';
 import { AppScrollView } from './AppScrollView';
@@ -337,12 +331,10 @@ function LoggedExerciseSets({
     progressNumber(locale, v, estimate);
   const date = (v: number) => progressDate(locale, v);
   return (
-    <Modal
+    <ScreenModal
       visible
       animationType="slide"
       presentationStyle="pageSheet"
-      statusBarTranslucent
-      navigationBarTranslucent
       allowSwipeDismissal
       onRequestClose={onClose}
     >
@@ -430,7 +422,7 @@ function LoggedExerciseSets({
           <Text style={s.note}>{t('stats.included')}</Text>
         </AppScrollView>
       </SafeAreaView>
-    </Modal>
+    </ScreenModal>
   );
 }
 const s = StyleSheet.create({

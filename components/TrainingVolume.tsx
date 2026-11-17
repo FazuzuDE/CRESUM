@@ -1,7 +1,7 @@
+import { ScreenModal } from './ScreenModal';
 import { AppFlatList } from './AppFlatList';
 import { useState } from 'react';
 import {
-  Modal,
   Pressable,
   StyleSheet,
   Text,
@@ -359,12 +359,10 @@ export function TrainingVolume({
           )}
         </>
       )}
-      <Modal
+      <ScreenModal
         visible={allOpen}
         animationType="slide"
         presentationStyle="pageSheet"
-        statusBarTranslucent
-        navigationBarTranslucent
         onRequestClose={() => setAllOpen(false)}
       >
         <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
@@ -406,7 +404,7 @@ export function TrainingVolume({
             )}
           />
         </SafeAreaView>
-      </Modal>
+      </ScreenModal>
     </GlassCard>
   );
 }

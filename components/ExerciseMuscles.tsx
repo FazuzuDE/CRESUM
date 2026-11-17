@@ -1,6 +1,6 @@
+import { ScreenModal } from './ScreenModal';
 import { useState } from 'react';
 import {
-  Modal,
   Pressable,
   StyleSheet,
   Text,
@@ -128,13 +128,11 @@ export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
       </View>
       {coverage()}
       {open ? (
-        <Modal
+        <ScreenModal
           testID="exercise-muscle-details"
           visible
           animationType="slide"
           presentationStyle="pageSheet"
-          statusBarTranslucent
-          navigationBarTranslucent
           allowSwipeDismissal
           onRequestClose={() => setOpen(false)}
         >
@@ -176,7 +174,7 @@ export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
               {coverage()}
             </AppScrollView>
           </SafeAreaView>
-        </Modal>
+        </ScreenModal>
       ) : null}
     </View>
   );
