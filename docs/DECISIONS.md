@@ -1,5 +1,17 @@
 # CRESUM Decision Log
 
+## 2026-11-17 — All-language text and search synonyms
+
+User approved implementing multilingual search and made complete translation into
+every language currently present a permanent requirement for all future additions.
+Searchable catalog content also requires natural synonyms, local gym slang and
+abbreviations where applicable in every current language. The rule includes
+selectable locales awaiting release acceptance and expands automatically as
+languages/catalogs grow. Search remains offline, shared and independent of saved
+identity; variant meanings and historical/user-entered content remain unchanged.
+Synchronized to AGENTS, PRODUCT, LOCALIZATION and EXERCISE_LIBRARY; implementation
+and coverage checks prepared on the feature branch, integration pending.
+
 ## Bottom dock motion and transparency — 2026-11-16
 
 The user approved the floating dock and requested a sliding selection pill
