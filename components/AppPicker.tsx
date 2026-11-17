@@ -283,7 +283,7 @@ const s = StyleSheet.create({
     top: '50%',
     borderTopWidth: StyleSheet.hairlineWidth,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: colors.separator,
+    borderColor: colors.wheelSelectionSeparator,
   },
   row: {
     justifyContent: 'center',

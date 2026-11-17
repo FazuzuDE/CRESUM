@@ -32,8 +32,9 @@ history filters and date or measurement wheels. Use the same clear glass
 material as the floating dock, with light blur on older iOS versions. Keep the surrounding dimming
 light and respect reduced transparency. Compact dialogs use 26.5%
 transparency. The local data reset confirmation uses a fully opaque surface.
-The center row on wheels has two thin, continuous rules. Neighboring values
-follow the curve of the wheel and fade at its edges. Reserve larger sheets for
+The center row on wheels has two continuous hairline rules that use the separator
+color at 19.2% opacity, 60% above the standard separator opacity. Neighboring
+values follow the curve of the wheel and fade at its edges. Reserve larger sheets for
 workflows such as editing workout sets or browsing equipment. Keep
 primary actions fully reachable inside the safe area. Enable page scrolling
 when content exceeds the viewport, including with the keyboard or larger text.
