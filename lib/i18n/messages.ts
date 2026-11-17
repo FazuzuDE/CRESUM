@@ -1,3 +1,17 @@
+import itEquipment from './locales/it/equipment';
+import itSharing from './locales/it/sharing';
+import itProfile from './locales/it/profile';
+import itCommon from './locales/it/common';
+import itProgress from './locales/it/progress';
+import itCatalog from './locales/it/catalog';
+import itLibrary from './locales/it/library';
+import itWorkout from './locales/it/workout';
+import itHome from './locales/it/home';
+import itHistory from './locales/it/history';
+import itOnboarding from './locales/it/onboarding';
+import itEditor from './locales/it/editor';
+import itProgramTechnique from './locales/it/program-technique';
+import itTechniqueContent from './locales/it/technique-content';
 import ptBREquipment from './locales/pt-BR/equipment';
 import ptBRSharing from './locales/pt-BR/sharing';
 import ptBRProfile from './locales/pt-BR/profile';
@@ -208,6 +222,22 @@ const ptBR = {
   ...ptBRProgramTechnique,
   ...ptBRTechniqueContent,
 } as const;
+const it = {
+  ...itEquipment,
+  ...itSharing,
+  ...itProfile,
+  ...itProgress,
+  ...itCommon,
+  ...itCatalog,
+  ...itLibrary,
+  ...itWorkout,
+  ...itHome,
+  ...itHistory,
+  ...itOnboarding,
+  ...itEditor,
+  ...itProgramTechnique,
+  ...itTechniqueContent,
+} as const;
 export type MessageValue =
   string | Readonly<Partial<Record<Intl.LDMLPluralRule, string>>>;
 export type MessageCatalog = Readonly<Record<string, MessageValue>>;
@@ -219,6 +249,7 @@ export const catalogs = {
   uk,
   es,
   'pt-BR': ptBR,
+  it,
 } satisfies Record<string, MessageCatalog>;
 export type MessageKey = keyof typeof en;
 type TrimFormat<S extends string> = S extends `${infer Name},${string}`

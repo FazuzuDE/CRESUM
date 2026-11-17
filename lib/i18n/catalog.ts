@@ -27,7 +27,7 @@ export function searchLocalizedExercises(
 ): LibraryExercise[] {
   const normalize = (value: string) => {
     const lower = value.toLocaleLowerCase(locale);
-    if (locale === 'pt-BR')
+    if (locale === 'pt-BR' || locale === 'it')
       return lower.normalize('NFD').replace(/\p{M}/gu, '');
     return locale === 'es'
       ? lower.normalize('NFD').replace(/\u0301/g, '')

@@ -3,7 +3,7 @@ import type { AppLocale } from '../i18n/registry';
 import { validPlanOrigin } from './import';
 import { equipmentTaxonomy } from '../exercise-taxonomy';
 
-const optionalPublicationLocales = ['uk', 'es', 'pt-BR'] as const;
+const optionalPublicationLocales = ['uk', 'es', 'pt-BR', 'it'] as const;
 const requiredPublicationLocales = ['en', 'ru', 'de', 'fr'] as const;
 type PublishedText = Record<
   (typeof requiredPublicationLocales)[number],
