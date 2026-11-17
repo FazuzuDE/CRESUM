@@ -34,6 +34,18 @@ it('preserves meaningful Devanagari marks across all interface languages', () =>
   );
 });
 
+it('treats Cyrillic е and ё as equivalent in search and transliteration', () => {
+  expect(normalizeSearch('сгибания лёжа')).toBe(
+    normalizeSearch('сгибания лежа'),
+  );
+  const exerciseId = 'hanging-straight-leg-raise';
+  const score = (query: string) =>
+    exerciseSearchScore(exerciseId, prepareExerciseQuery(query), 'en');
+  expect(score('подъём ног на турнике')).toBeGreaterThan(0);
+  expect(score('подъем ног на турнике')).toBe(score('подъём ног на турнике'));
+  expect(score('podem nog na turnike')).toBe(score('подъём ног на турнике'));
+});
+
 it('covers every current identity and every selectable language; omissions block checks', () => {
   expect(
     validateSearchAliases(searchAliases, localeRegistry, catalogs, records),

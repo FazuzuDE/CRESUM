@@ -6,6 +6,9 @@ CRESUM is a commercial React Native + Expo + TypeScript fitness tracker focused 
 
 ## Required context
 
+On a new chat/account/environment, read `docs/START_HERE.md` and revalidate its
+dated snapshot against current refs and PRs. Do not treat snapshot statuses as live.
+
 Before UI work, read `docs/DESIGN_SYSTEM.md`.
 Before product/feature work, read `docs/PRODUCT.md` and `docs/ROADMAP.md`.
 These documents are the source of truth.

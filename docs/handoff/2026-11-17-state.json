@@ -1,0 +1,1840 @@
+{
+  "schema_version": 1,
+  "recorded_on": "2026-11-17",
+  "timezone": "Europe/Berlin",
+  "kind": "dated-handoff-not-live-status",
+  "repository": "FazuzuDE/CRESUM",
+  "integration_branch": "develop",
+  "observed_base_sha": "6bb6d4b5d057c65cc1af2e0c027754c466e48ad3",
+  "observed_base_tree_sha": "e714273e3264abf3278b8a558bf913a1e7e91d82",
+  "current_locales": [
+    "en",
+    "ru",
+    "de",
+    "fr",
+    "uk",
+    "es",
+    "pt-BR",
+    "it",
+    "pl",
+    "tr",
+    "zh-Hans"
+  ],
+  "exercise_catalog_records": 70,
+  "search_equipment_records": 18,
+  "search_muscle_records": 17,
+  "observed_prs": [
+    {
+      "number": 285,
+      "state": "merged",
+      "head_sha": "fc23574dc026915c8921c808cc6a74f2ac807a77",
+      "merge_sha": "6bb6d4b5d057c65cc1af2e0c027754c466e48ad3",
+      "version": "0.2.85",
+      "ci": "success",
+      "local_test_suites": 152,
+      "local_tests": 1517
+    },
+    {
+      "number": 286,
+      "state": "open",
+      "draft": false,
+      "head_sha": "3cdb0c9ac5aba64d985a70173c0a2131a3abe3c8",
+      "version": "0.2.86",
+      "topic": "language wheel; 30% transparency; alphabetical first native name"
+    },
+    {
+      "number": 287,
+      "state": "open",
+      "draft": true,
+      "head_sha": "c84d0dcd2bab50eeb7705c3941710853db3532d2",
+      "topic": "Hindi localization; recheck final alias integration and Indic marks"
+    }
+  ],
+  "historical_open_prs_do_not_merge_automatically": [17, 20, 42, 67],
+  "observed_vs_context": {
+    "live_verified": [
+      "refs and PR state",
+      "registry locales",
+      "merged search rules",
+      "PR285 check results and CI",
+      "tracked docs and asset metadata paths"
+    ],
+    "provided_context_not_revalidated_on_device_or_server": [
+      "broader historical UX wishes",
+      "Oracle preview timer",
+      "old source-image availability outside this workspace"
+    ]
+  },
+  "known_limits": [
+    "Not a complete chat export",
+    "No credentials or master binaries published",
+    "No new physical-device or native-speaker acceptance",
+    "No server deployment or SSH audit performed",
+    "A file hash or manifest is not a binary backup receipt"
+  ],
+  "documentation": [
+    {
+      "path": "docs/ACCOUNT_AUTH.md",
+      "title": "Optional CRESUM Account — Stage 1",
+      "git_blob_sha": "ae5b599c61fc3533c153deae7cae36081dc65cbb"
+    },
+    {
+      "path": "docs/CLOUD_SYNC.md",
+      "title": "Cloud Sync Foundation and History Integration",
+      "git_blob_sha": "68d6cf385cb988756d6e408f0c2bc1f6cb9e73d6"
+    },
+    {
+      "path": "docs/DECISIONS.md",
+      "title": "CRESUM Decision Log",
+      "git_blob_sha": "3b095c112388f4102a8b0dc3264ab94be9a05e1b"
+    },
+    {
+      "path": "docs/DESIGN_SYSTEM.md",
+      "title": "CRESUM Design System v1.0",
+      "git_blob_sha": "81649a9d68bb48c5b8a69f2a26425db3671f5d6e"
+    },
+    {
+      "path": "docs/DEVICE_BUILDS.md",
+      "title": "Internal device builds",
+      "git_blob_sha": "274b7ba7939adb7a9643d0e952b2d692add6a96b"
+    },
+    {
+      "path": "docs/EQUIPMENT_GROUPS.md",
+      "title": "Equipment picker and attachment groups",
+      "git_blob_sha": "c7571616dccde34b0c1928beb086e64efb07e123"
+    },
+    {
+      "path": "docs/EXERCISE_ASSETS.md",
+      "title": "CRESUM Exercise Assets — approved production rules",
+      "git_blob_sha": "16e07cb83d9377683c16d2465095563c2e08deec"
+    },
+    {
+      "path": "docs/EXERCISE_BIOMECHANICS.md",
+      "title": "CRESUM Exercise Biomechanics — Lat Pulldown v1",
+      "git_blob_sha": "b169b848c61fea489b653f0d1e45b92635a008a7"
+    },
+    {
+      "path": "docs/EXERCISE_LIBRARY.md",
+      "title": "Exercise Library contracts",
+      "git_blob_sha": "290b211df01904bc108eedca4448d67629de4378"
+    },
+    {
+      "path": "docs/EXERCISE_TECHNIQUE.md",
+      "title": "Exercise Technique — content and source mapping",
+      "git_blob_sha": "044851404231c7dc7bfad8bed423b43fa0852719"
+    },
+    {
+      "path": "docs/GROWTH.md",
+      "title": "CRESUM Growth Foundation — approved marketing roadmap",
+      "git_blob_sha": "7c15687cb41dab4a6b6c9fe91a7c5ecb2c19786f"
+    },
+    {
+      "path": "docs/HISTORY.md",
+      "title": "History Core contracts",
+      "git_blob_sha": "8b808e82e40440fa2f6692a5a3932f89ce897d96"
+    },
+    {
+      "path": "docs/INFRASTRUCTURE.md",
+      "title": "GitHub и Oracle: подготовка инфраструктуры",
+      "git_blob_sha": "8352a67c63a43c7ea59de8e0871ab5a60dc4088b"
+    },
+    {
+      "path": "docs/LOCALIZATION.md",
+      "title": "Localization coverage and contribution rules",
+      "git_blob_sha": "c7a3b0036e03e6e0695967b2ebe7aa5396516549"
+    },
+    {
+      "path": "docs/MUSCLE_REGIONAL_MAPPING.md",
+      "title": "Regional muscle mapping: evidence and integration requirements",
+      "git_blob_sha": "8977b5ade3dd8679f10868da835eb4784a82d966"
+    },
+    {
+      "path": "docs/PRODUCT.md",
+      "title": "CRESUM — Product Definition",
+      "git_blob_sha": "5e4c759662d18e58eaeca07edbde80a715ee70a7"
+    },
+    {
+      "path": "docs/PROGRESS_ANALYTICS.md",
+      "title": "CRESUM Progress Analytics",
+      "git_blob_sha": "ab15d5fac362c019454072a981cf0db8cc16c8a3"
+    },
+    {
+      "path": "docs/PR_VERSIONING.md",
+      "title": "Application versions from pull requests",
+      "git_blob_sha": "3254689d83442009a75644769efe6183bbf60e5d"
+    },
+    {
+      "path": "docs/REBRANDING.md",
+      "title": "CRESUM rebranding",
+      "git_blob_sha": "80242dcdc9046549602de349524a16e2195fd759"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "title": "CRESUM — Development Roadmap",
+      "git_blob_sha": "ebb19382b2a95d7675fceec11b191ab17fb7e546"
+    },
+    {
+      "path": "docs/VISUAL_STORAGE.md",
+      "title": "CRESUM visual-source storage",
+      "git_blob_sha": "041bb726a210afb23d7c13fb5cb8d5f1fab08e45"
+    },
+    {
+      "path": "docs/WORKOUT_CORE.md",
+      "title": "Workout Core",
+      "git_blob_sha": "a1ef0a600f33e5e2ce3c6090477b3dc18e8de0b3"
+    },
+    {
+      "path": "docs/WORKOUT_SHARING.md",
+      "title": "Workout sharing — implementation and rollout",
+      "git_blob_sha": "6d9293a9872d43753dfbbbf6f514ca342d09ffc5"
+    },
+    {
+      "path": "docs/WORKOUT_TEMPLATES.md",
+      "title": "Workout Templates contracts",
+      "git_blob_sha": "c09514cf871095fb2ffcb97227ee6c14eb4876be"
+    },
+    {
+      "path": "docs/qa/2026-11-03-exercise-character.md",
+      "title": "Exercise character verification — 2026-11-03",
+      "git_blob_sha": "a4d1fb0766a5329752a411eb90dfc497cd82ca15"
+    },
+    {
+      "path": "docs/qa/2026-11-03-female-leg-extension.md",
+      "title": "Female Leg Extension integration — PR #178",
+      "git_blob_sha": "817beb954e11fd0f534ce3382910e92aec1aa82b"
+    },
+    {
+      "path": "docs/qa/2026-11-03-female-leg-press.md",
+      "title": "Female Leg Press integration — PR #177",
+      "git_blob_sha": "36551a7819c4969a3989c66f4401d7f0713381a2"
+    },
+    {
+      "path": "docs/qa/2026-11-03-female-lying-leg-curl.md",
+      "title": "Female Lying Leg Curl integration — PR #179",
+      "git_blob_sha": "8268b1646f25d1df27c4f4a73a7477e0c85bc2da"
+    },
+    {
+      "path": "docs/qa/2026-11-03-female-seated-leg-curl.md",
+      "title": "Female Seated Leg Curl integration — PR #180",
+      "git_blob_sha": "3a0b37871517314fdfe3b6d84e185b4d41fe886c"
+    },
+    {
+      "path": "docs/qa/2026-11-03-male-artwork-style-audit.md",
+      "title": "Male artwork equipment-style audit — 2026-11-03",
+      "git_blob_sha": "6a2eef4cce841320df38ad07c8e31dd3b708b3bd"
+    },
+    {
+      "path": "docs/qa/2026-11-04-female-back-extension.md",
+      "title": "Female Back Extension — PR #194",
+      "git_blob_sha": "d178acab263b45911201a7c6381a8d0f706fc130"
+    },
+    {
+      "path": "docs/qa/2026-11-04-female-barbell-hip-thrust.md",
+      "title": "Female Barbell Hip Thrust integration — PR #183",
+      "git_blob_sha": "b886a9a14aeefbca007fceeee067f2157e0b05e2"
+    },
+    {
+      "path": "docs/qa/2026-11-04-female-barbell-rdl.md",
+      "title": "Female Barbell Romanian Deadlift integration — PR #182",
+      "git_blob_sha": "2a694fad4f80a9e4336d3f93ed29b17743ba2fe5"
+    },
+    {
+      "path": "docs/qa/2026-11-04-female-cable-crunch.md",
+      "title": "Female Cable Crunch",
+      "git_blob_sha": "dc3a7e8c4cd75763687f0c147b93d83f64e805ce"
+    },
+    {
+      "path": "docs/qa/2026-11-04-female-cable-glute-kickback.md",
+      "title": "Female Cable Glute Kickback — PR #184",
+      "git_blob_sha": "4cbe1ff5edac5d7b217cce6a289bb50303f4f776"
+    },
+    {
+      "path": "docs/qa/2026-11-04-female-captains-chair-knee-raise.md",
+      "title": "Female Captain’s Chair Knee Raise — PR #190",
+      "git_blob_sha": "fd8ff3f494eaebf789e3d882648798b4da401b34"
+    },
+    {
+      "path": "docs/qa/2026-11-04-female-dumbbell-rdl.md",
+      "title": "Female Dumbbell Romanian Deadlift integration — PR #181",
+      "git_blob_sha": "e5df3145a9cf4d9abfe34c1b0d52a56f8527de70"
+    },
+    {
+      "path": "docs/qa/2026-11-04-female-hanging-knee-raise.md",
+      "title": "Female Hanging Knee Raise — PR #192",
+      "git_blob_sha": "b7e993c3535f726da11701c21a68f7aa9b6ff97a"
+    },
+    {
+      "path": "docs/qa/2026-11-04-female-hanging-straight-leg-raise.md",
+      "title": "Female Hanging Straight Leg Raise — PR #191",
+      "git_blob_sha": "54fe5fc79b1e209026664ab162548b348a4ce487"
+    },
+    {
+      "path": "docs/qa/2026-11-04-female-kettlebell-swing.md",
+      "title": "Female Kettlebell Swing — PR #188",
+      "git_blob_sha": "b6a2b00294261b8103c64dbeee6191faba695bf5"
+    },
+    {
+      "path": "docs/qa/2026-11-04-female-machine-hip-adduction.md",
+      "title": "Female Machine Hip Adduction — PR #187",
+      "git_blob_sha": "d538ad99b9290972c3fc410ee32072725af5aa2d"
+    },
+    {
+      "path": "docs/qa/2026-11-04-female-plank.md",
+      "title": "Female Plank — PR #189",
+      "git_blob_sha": "d10899ef1daca5595d0db29db936bc2b579bb04c"
+    },
+    {
+      "path": "docs/qa/2026-11-04-female-seated-calf-raise.md",
+      "title": "Female Seated Calf Raise — PR #186",
+      "git_blob_sha": "4fce7d3190a4944d3fc0154fad89cc1d2b8c6230"
+    },
+    {
+      "path": "docs/qa/2026-11-04-female-standing-calf-raise.md",
+      "title": "Female Standing Calf Raise — PR #185",
+      "git_blob_sha": "ecef54782584b6f3104dd63e8bd267e2d494bd63"
+    },
+    {
+      "path": "docs/qa/2026-11-05-female-dumbbell-shrug.md",
+      "title": "Female Dumbbell Shrug — PR #195",
+      "git_blob_sha": "43e573af43d98931918314d983452602b1ec6e72"
+    },
+    {
+      "path": "docs/qa/2026-11-05-female-farmers-carry.md",
+      "title": "Female Farmer’s Carry — PR #196",
+      "git_blob_sha": "16c7349f32f68b7f2fb6c129da278fa18b703843"
+    },
+    {
+      "path": "docs/qa/2026-11-05-female-pallof-press.md",
+      "title": "Female Standing Cable Anti-rotation Press — PR #197",
+      "git_blob_sha": "8ae0e3aff8292520a1d1822ec0f107fd988dc097"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-assisted-dip-machine.md",
+      "title": "Female Assisted Dip Machine",
+      "git_blob_sha": "114505821a8ce58600d6bd3e659cbe01d0e938cc"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-back-squat.md",
+      "title": "Female Barbell Back Squat — PR #203",
+      "git_blob_sha": "b49de4a7b62bfb9af020a70167a4187291da96eb"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-barbell-bench-press.md",
+      "title": "Female Barbell Bench Press",
+      "git_blob_sha": "0725b8e89a1f53e93214ca67016cae06730eee40"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-barbell-curl.md",
+      "title": "Female Straight-Bar Biceps Curl",
+      "git_blob_sha": "30baa203438730b1662c987aac0b486cba8a2b32"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-bulgarian-split-squat.md",
+      "title": "Female Bulgarian Split Squat — PR #201",
+      "git_blob_sha": "5720913ce12fae3166f3ce3ce6d5aff2f853ffe3"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-cable-biceps-curl.md",
+      "title": "Female Cable Biceps Curl",
+      "git_blob_sha": "b2b16859ec8177eb52933eb2bb1246d9db1720f0"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-cable-chest-fly.md",
+      "title": "Female Cable Chest Fly",
+      "git_blob_sha": "b4b73fd137b3731985248ad81b42062ee4b05a88"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-cable-triceps-pushdown.md",
+      "title": "Female Cable Triceps Pushdown",
+      "git_blob_sha": "2f9e05a5fffc63a9ec394c0dc3efcbbdf6e739ff"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-close-grip-bench-press.md",
+      "title": "Female Close-Grip Bench Press",
+      "git_blob_sha": "72b63ba28fecfefcfef71f86b290e7df097c54ae"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-deadlift.md",
+      "title": "Female Barbell Deadlift — PR #205",
+      "git_blob_sha": "9827b2abafe6e54da4893c56c8324069805e90bf"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-dumbbell-bench-press.md",
+      "title": "Female Dumbbell Bench Press",
+      "git_blob_sha": "7f01d1b07935a9f2f64c7245091de21493e6f9e2"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-dumbbell-curl.md",
+      "title": "Female Dumbbell Biceps Curl — PR #207",
+      "git_blob_sha": "e9617741e61ee571d02a138a0d6c665d8646d0ba"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-dumbbell-overhead-triceps-extension.md",
+      "title": "Female Dumbbell Overhead Triceps Extension",
+      "git_blob_sha": "acbb9b7ed45f20d614c5fb234416d10cff830deb"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-ez-bar-curl.md",
+      "title": "Female EZ-Bar Biceps Curl",
+      "git_blob_sha": "77786067abec5c2164a664849f69a69b9f830a40"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-floor-glute-bridge.md",
+      "title": "Female Dumbbell Floor Glute Bridge — PR #199",
+      "git_blob_sha": "a6d39d172fbb3174e05c90fbfe4400fcb7ef2496"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-front-squat.md",
+      "title": "Female Barbell Front Squat — PR #204",
+      "git_blob_sha": "defce32a3168fbf8e6fccc82198352ae3010ca94"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-hammer-curl.md",
+      "title": "Female Hammer Curl and EZ integration recovery",
+      "git_blob_sha": "9713596a7b5bce99d9fde7beee69572385484f21"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-incline-dumbbell-press.md",
+      "title": "Female Incline Dumbbell Press",
+      "git_blob_sha": "a29372fe027959c3a30ce3e8f357c4368fff6764"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-kettlebell-goblet.md",
+      "title": "Female Kettlebell Goblet Squat — PR #206",
+      "git_blob_sha": "6f7e0dd68e26c979df50f9dd3acfc2f6e12d62f0"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-lying-barbell-triceps-extension.md",
+      "title": "Female Lying Barbell Triceps Extension",
+      "git_blob_sha": "f1ab334475116f6f0fcb60fe0f7ac857f08f2d05"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-machine-chest-press.md",
+      "title": "Female Machine Chest Press",
+      "git_blob_sha": "56b8affe43bed852c061d124695aa1fda173c261"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-overhead-cable-triceps-extension.md",
+      "title": "Female Overhead Cable Triceps Extension",
+      "git_blob_sha": "3affac27b1ea695487d65c47794ad86bffb9b6c8"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-pec-deck-fly.md",
+      "title": "Female Pec Deck Fly",
+      "git_blob_sha": "3220d383f08000e8259e1f1430813059210ff13a"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-push-up.md",
+      "title": "Female Push-up",
+      "git_blob_sha": "330b0b02e47b036468f8f479e31c15b85750bfe8"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-reverse-lunge.md",
+      "title": "Female Dumbbell Reverse Lunge — PR #200",
+      "git_blob_sha": "b75600cc8cb2069a750503e2e46069392f04c815"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-smith-squat.md",
+      "title": "Female Smith Machine Squat — PR #202",
+      "git_blob_sha": "912069fe286af23a4fcc1dcc467a92be8e7dd603"
+    },
+    {
+      "path": "docs/qa/2026-11-06-female-step-up.md",
+      "title": "Female Bodyweight Step-up — PR #198",
+      "git_blob_sha": "e64caf9628bb8116757e5745c1a8cc14beea15a0"
+    },
+    {
+      "path": "docs/qa/2026-11-07-female-barbell-overhead-press.md",
+      "title": "Female Barbell Overhead Press",
+      "git_blob_sha": "9901e6bc568be1540f360d166e2065d3c601353d"
+    },
+    {
+      "path": "docs/qa/2026-11-07-female-dumbbell-shoulder-press.md",
+      "title": "Female Dumbbell Shoulder Press",
+      "git_blob_sha": "4f3900dfeae065b0d42a8c5cd1b436ecb28a2c7e"
+    },
+    {
+      "path": "docs/qa/equipment-picker/review.md",
+      "title": "Independent review and verification",
+      "git_blob_sha": "7513719694d791b71ee13ee2b5b6528884b34ef7"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-20-exercise-library.md",
+      "title": "Exercise Library Core Implementation Plan",
+      "git_blob_sha": "b9758a598b85a8fcefaa0e5a3e2c90992a0e07d6"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-21-workout-templates.md",
+      "title": "Workout Templates Core Implementation Plan",
+      "git_blob_sha": "43d016a711c652c9fc76a7155f712bfb7a51ce1e"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-22-history-core.md",
+      "title": "History Core Completion Implementation Plan",
+      "git_blob_sha": "6461d5ccff8eae43c61470a688983da1600bf9e9"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-22-progress-analytics-foundation.md",
+      "title": "Progress Analytics Foundation Implementation Plan",
+      "git_blob_sha": "bc84d42f3996b6e34cf52931aaf4d595ac055633"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-23-exercise-logged-performance.md",
+      "title": "Exercise-Specific Logged Performance Implementation Plan",
+      "git_blob_sha": "5176e4704ef0c1e2c3de4488b6b2b02fedaf1200"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-23-progress-period-foundation.md",
+      "title": "Progress Period Foundation Implementation Plan",
+      "git_blob_sha": "6ee77441cda7d2ebc0cd40b6ac9e8b6f8989f50c"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-25-guided-workout-builder.md",
+      "title": "Guided Workout Builder Implementation Plan",
+      "git_blob_sha": "c45ec9d81e05f1298a1956b07718c84d14414568"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-25-modular-dashboard-foundation.md",
+      "title": "Modular Dashboard Foundation Implementation Plan",
+      "git_blob_sha": "88c23ebfda0fa26405579394ce3e917e2999d080"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-25-onboarding-foundation.md",
+      "title": "Onboarding Foundation Implementation Plan",
+      "git_blob_sha": "1bab080b5cac9c1103c116436b90e639fedcd855"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-11-goal-training-programs.md",
+      "title": "CRESUM Goal-based Training Programs Implementation Plan",
+      "git_blob_sha": "f8e27262d32da2986fe61041986d1ad0611aa467"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-11-native-pickers-calendar.md",
+      "title": "Native pickers and calendar implementation plan",
+      "git_blob_sha": "47c2117f1af2698c5207a56df55d3add050cb37c"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-11-profile-identity-body-weight.md",
+      "title": "Profile identity and body-weight implementation",
+      "git_blob_sha": "6bf718c5b8e2f1a7bd5243f4c5d91d361493997b"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-12-exercise-technique.md",
+      "title": "Exercise Technique Implementation Plan",
+      "git_blob_sha": "766348b42150fdcbc103fb4b1cc5600d4778a84f"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-cresum-rebrand.md",
+      "title": "CRESUM Rebranding Implementation Plan",
+      "git_blob_sha": "372961be1a5d509da9c507dab7ddcadcf408e1a4"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-15-account-auth-integration.md",
+      "title": "Account/Auth Checkpoint Integration Plan",
+      "git_blob_sha": "abe8aca15b85b720c24ec16524a79927682dadd1"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-15-analytics-record-consistency.md",
+      "title": "Analytics Record Consistency Implementation Plan",
+      "git_blob_sha": "3a39ae3b2e596e9eee0424b016d74784b9b4fa9f"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-15-cloud-sync-foundation.md",
+      "title": "Cloud Sync Foundation Implementation Plan",
+      "git_blob_sha": "a9eeef05a3428fc2b6b938607c0b5b48d23bc285"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-15-history-first-sync.md",
+      "title": "History First Sync Implementation Plan",
+      "git_blob_sha": "56b78cee52665dca0c6bf6c842afa0cae880daf6"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-15-history-sync-protocol.md",
+      "title": "History Sync Protocol Implementation Plan",
+      "git_blob_sha": "646aaf66ff19cbb14fc87adfa262f1b3c89f6f8a"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-16-account-deletion.md",
+      "title": "Account Deletion Server Foundation Implementation Plan",
+      "git_blob_sha": "b497277e5060335269eafb412db3c1c91871ef45"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-16-history-conflicts.md",
+      "title": "History Conflict Resolution Implementation Plan",
+      "git_blob_sha": "a1bd27697ca0c1571df50fdc86d73e4133051f60"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-21-content-admin.md",
+      "title": "CRESUM Content Admin Implementation Plan",
+      "git_blob_sha": "d4d4ff0b9ceba8e775743cea2aa74836d89fa9ce"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-21-multilingual.md",
+      "title": "Multilingual Application Implementation Plan",
+      "git_blob_sha": "b4595d5f8df8de3cc25ae739112b9edae46b5039"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-23-unified-workouts.md",
+      "title": "Unified workouts implementation plan",
+      "git_blob_sha": "3b96f586e4638e69c37a61db4cd6904b2cab6866"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-23-workout-sharing.md",
+      "title": "Workout Sharing Implementation Plan",
+      "git_blob_sha": "0fe3973a2fb1ab8520c8f7000ad1df48b8bade35"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-25-exercise-equipment-picker.md",
+      "title": "Exercise Equipment Picker Implementation Plan",
+      "git_blob_sha": "c495a0d9304569ff060c925807630f93fc47bb6c"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-27-pr-version.md",
+      "title": "PR-based application version implementation plan",
+      "git_blob_sha": "05b20439cc1e503d2c2ead3272a4369bcb6cdfa3"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-27-seated-row-artwork.md",
+      "title": "Seated Row Artwork Implementation Plan",
+      "git_blob_sha": "183ee12adf6b7614afffc6a438d4f52875b37d89"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-27-technique-source-dates.md",
+      "title": "Technique source dates implementation plan",
+      "git_blob_sha": "3b461073e8512b8e87f31e41ebf0a67cfbbbe57a"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-27-wide-pronated-artwork.md",
+      "title": "Wide Pronated Artwork Implementation Plan",
+      "git_blob_sha": "7ec836b3f04148e1f8fc229b9622185177fbdcb2"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-29-band-pull-apart-artwork.md",
+      "title": "Band Pull-Apart Artwork Implementation Plan",
+      "git_blob_sha": "2a1f02a272b34c0eb4c31301a9f228aeb0bf89d2"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-29-cable-lateral-raise-artwork.md",
+      "title": "Cable Lateral Raise Artwork Implementation Plan",
+      "git_blob_sha": "592c75a21448fe5225e15c99457b00915543b3cf"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-29-dumbbell-curl-artwork.md",
+      "title": "Dumbbell Curl Artwork Implementation Plan",
+      "git_blob_sha": "13540daf115e464f39f5f9d691a6e870f36b63df"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-29-dumbbell-lateral-raise-artwork.md",
+      "title": "Dumbbell Lateral Raise Artwork Implementation Plan",
+      "git_blob_sha": "849a8e2fb7614b1b469d6b797a0542a445c7988d"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-29-exercise-muscle-card.md",
+      "title": "Exercise Muscle Card Implementation Plan",
+      "git_blob_sha": "8da027f18a04efa133e1f703adf9ece7e4e31fc7"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-29-reverse-pec-deck-artwork.md",
+      "title": "Reverse Pec Deck Artwork Implementation Plan",
+      "git_blob_sha": "0407003871925dfe62b42277719fec724c471ba6"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-29-upper-back-map.md",
+      "title": "Upper Back Map Implementation Plan",
+      "git_blob_sha": "50e905cd85e8e903d96d50828f09e59a5492ad21"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-30-adductor-map.md",
+      "title": "Adductor map implementation plan",
+      "git_blob_sha": "30c41d7eefa3769e0d724af227e024a4da3ceb2c"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-30-barbell-curl.md",
+      "title": "Barbell Curl integration plan",
+      "git_blob_sha": "1fd09cec3342569027bb75ce896abb74e670627a"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-30-cable-biceps-curl.md",
+      "title": "Cable Biceps Curl integration plan",
+      "git_blob_sha": "c0db444edff885e5fd036bbf269a478c41e7bed6"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-30-cable-triceps-pushdown.md",
+      "title": "Cable Triceps Pushdown integration plan",
+      "git_blob_sha": "d4c3ae85d1d27545093409efbf6db5733e6a7247"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-30-close-grip-bench-press.md",
+      "title": "Selected close-grip bench press integration plan",
+      "git_blob_sha": "668db07ee76363a095a7c13645aa9f118e868049"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-30-dumbbell-overhead-triceps-extension.md",
+      "title": "Two-hand overhead dumbbell extension integration plan",
+      "git_blob_sha": "3f6d8e0a525c224167f74676675d4f7ad686535d"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-30-ez-bar-curl.md",
+      "title": "EZ Bar Curl integration plan",
+      "git_blob_sha": "02459736f4d2114d9b7f3a005a24a963cbb0a1bc"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-30-hammer-curl.md",
+      "title": "Hammer Curl integration plan",
+      "git_blob_sha": "2ee0b8065f9eb0f2348558d5ea38c10c48faeab6"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-30-overhead-cable-triceps-extension.md",
+      "title": "Overhead cable triceps extension integration plan",
+      "git_blob_sha": "27db89fa5843e35ab553cbc270dc8ab98e1bf69f"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-30-rear-delt-map.md",
+      "title": "Rear-delt binding implementation plan",
+      "git_blob_sha": "cc29f0f7c27c01bc602249fe8ca45f7dfbc8b089"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-31-assisted-dip-pair.md",
+      "title": "Assisted Dip Pair Implementation Plan",
+      "git_blob_sha": "648e85b06de8184f1f9aa0bfd31e916cabd7dd52"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-31-back-squat.md",
+      "title": "Back Squat Implementation Plan",
+      "git_blob_sha": "e6e8a4d6c2a9faa5c800fed5f5fa3c3c820c4a97"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-31-barbell-bench-press.md",
+      "title": "Barbell Bench Press Implementation Plan",
+      "git_blob_sha": "ad828cf116cd9f37a2022593cb543dd6e21f214b"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-31-cable-chest-fly.md",
+      "title": "Cable Chest Fly Implementation Plan",
+      "git_blob_sha": "b11a709b78cc438fae97e7fa9e5b9d1ff073dbce"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-31-flat-dumbbell-press.md",
+      "title": "Flat Dumbbell Bench Press Implementation Plan",
+      "git_blob_sha": "2d7993ab00daaa9f7fbf17d008f85e11b70cd4d6"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-31-front-squat.md",
+      "title": "Front Squat Implementation Plan",
+      "git_blob_sha": "377e5ae49a216d4493256ce8c92cbe46f6c1b804"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-31-goblet-equipment.md",
+      "title": "Goblet equipment Implementation Plan",
+      "git_blob_sha": "71433d98fd935c8d918c334a5e887c1b3d842dd0"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-31-incline-dumbbell-press.md",
+      "title": "Incline Dumbbell Press Implementation Plan",
+      "git_blob_sha": "d812e71a2e48e222e4db0a3f7e44ceabe74ac66f"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-31-leg-press.md",
+      "title": "Leg Press Implementation Plan",
+      "git_blob_sha": "46fe0faf13f8aacef8a6f0c944f37acb427e57c1"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-31-lying-triceps-pair.md",
+      "title": "Lying Barbell Triceps Extension Pair Implementation Plan",
+      "git_blob_sha": "0bce131cb4d54806a9754a78cd0656267462cbb3"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-31-machine-chest-press.md",
+      "title": "Machine Chest Press Implementation Plan",
+      "git_blob_sha": "4e2c7c67b2f755e7b356e5be75f7a2862b4e3feb"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-31-pec-deck-fly.md",
+      "title": "Pec Deck Fly Implementation Plan",
+      "git_blob_sha": "121280d642d3fcf44b650257a7f139d2c17327de"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-31-push-up.md",
+      "title": "Push-Up Implementation Plan",
+      "git_blob_sha": "dfa7d3f516d6bbddaa530490602b35a7458e7a65"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-31-smith-squat.md",
+      "title": "Smith Squat plan",
+      "git_blob_sha": "62244bf69d0c26b5e7b48910266aa976fa7d17ee"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-01-bulgarian-split-squat.md",
+      "title": "Bulgarian Split Squat artwork implementation plan",
+      "git_blob_sha": "5fa8f742f457093cbfbed3868f0b776bdf6a8fc7"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-02-hanging-straight-leg-raise.md",
+      "title": "Hanging Straight Leg Raise Implementation Plan",
+      "git_blob_sha": "9bdbb66b54ba6fce907184f53c335c3c36216a34"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-chest-row-light-frame.md",
+      "title": "Chest-supported Row Light Frame Implementation Plan",
+      "git_blob_sha": "e10308297ea903f401be0c453a872ac9a331976a"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-ergonomic-pulldown-light-frame.md",
+      "title": "Ergonomic Pulldown Light Frame Implementation Plan",
+      "git_blob_sha": "7e88931f2e619c7275d330e5a2d0e320bede3a2c"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-exercise-character.md",
+      "title": "Exercise Character Implementation Plan",
+      "git_blob_sha": "b4059c22a07e7eff3f97bfe1fb7c761754e23fc0"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-female-master-foundation.md",
+      "title": "Female Master foundation plan",
+      "git_blob_sha": "009c64b92d824a54433e832e35cc300d160d9808"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-one-arm-row-light-frame.md",
+      "title": "One-arm Row Light Frame Implementation Plan",
+      "git_blob_sha": "7e8bb286e843828acb4eac5180270b2f186e2e36"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-pull-up-light-frame.md",
+      "title": "Pull-up Light Frame Implementation Plan",
+      "git_blob_sha": "8d01f76c22a2a68a087707c48e1025a876ae70de"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-reverse-pulldown-light-frame.md",
+      "title": "Reverse Pulldown Light Frame Implementation Plan",
+      "git_blob_sha": "b8fe0771a280c8cdcdea631b7ad348a34a424aeb"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-seated-row-light-frame.md",
+      "title": "Seated Row Light Frame Implementation Plan",
+      "git_blob_sha": "4342a1566c0e3dc500efb00235c1a4b8347fa54e"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-v-handle-pulldown-light-frame.md",
+      "title": "V-handle Pulldown Light Frame Implementation Plan",
+      "git_blob_sha": "47f3728a9bbf13a710665b30d76c3446dae95bcc"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-wide-pulldown-light-frame.md",
+      "title": "Wide Pulldown Light Frame Implementation Plan",
+      "git_blob_sha": "407ce96b5981fa085039162d297f09beb2f81662"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-assisted-dip-machine.md",
+      "title": "Female Assisted Dip Machine",
+      "git_blob_sha": "0e75ed8eb7552a20936225117bb421852424f9b7"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-back-squat.md",
+      "title": "Female Barbell Back Squat Implementation Plan",
+      "git_blob_sha": "2628d5a2f7a700031311d3230633b078e8284ff5"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-barbell-bench-press.md",
+      "title": "Female Barbell Bench Press",
+      "git_blob_sha": "12ca58fda8d5c395532d7aee2cfbfe97ee5d57ba"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-barbell-curl.md",
+      "title": "Female Straight-Bar Biceps Curl Implementation Plan",
+      "git_blob_sha": "b8ca8533c2588dd7303e678ae9af4e73d0ddffcf"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-bulgarian-split-squat.md",
+      "title": "Female Bulgarian Split Squat Implementation Plan",
+      "git_blob_sha": "4b19ad2c114e31ed178be0ba832aab35a1a948ed"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-cable-biceps-curl.md",
+      "title": "Female Cable Biceps Curl integration",
+      "git_blob_sha": "4fb1fe3ca07ee9b91ca8ef58fc0e588c8e2f4052"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-cable-chest-fly.md",
+      "title": "Female Cable Chest Fly",
+      "git_blob_sha": "245e9f97276d0b632c47d8788f51036db74236bc"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-cable-triceps-pushdown.md",
+      "title": "Female Cable Triceps Pushdown integration",
+      "git_blob_sha": "2fa32c23acffbcfcccff8b6ca4550a4bcfa79fc3"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-close-grip-bench-press.md",
+      "title": "Female Close-Grip Bench Press",
+      "git_blob_sha": "0a20c1ae81abcb18798338df7d6811a6f5033095"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-deadlift.md",
+      "title": "Female Barbell Deadlift Implementation Plan",
+      "git_blob_sha": "013145fb3781db9b1a27290af84a55d72d5182d7"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-dumbbell-bench-press.md",
+      "title": "Female Dumbbell Bench Press",
+      "git_blob_sha": "45a70c94be3e9bf7fa2c7e931691d807ef8c9fdc"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-dumbbell-curl.md",
+      "title": "Female Dumbbell Biceps Curl Implementation Plan",
+      "git_blob_sha": "b530cf069f58303b8d0b7f5bbe93098fa3c853a5"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-dumbbell-overhead-triceps-extension.md",
+      "title": "Female Dumbbell Overhead Triceps Extension",
+      "git_blob_sha": "2eccad7729c2b8a4d487ff122e3db296b30e41f7"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-ez-bar-curl.md",
+      "title": "Female EZ-Bar Biceps Curl Implementation Plan",
+      "git_blob_sha": "cf2e417ce90ba55f9c77c289aaf2b5b5d87f276a"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-floor-glute-bridge.md",
+      "title": "Female Floor Glute Bridge Implementation Plan",
+      "git_blob_sha": "f3a7cdeb7366859cb0ecb4961fa5ae0fcb255cc2"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-front-squat.md",
+      "title": "Female Barbell Front Squat Implementation Plan",
+      "git_blob_sha": "d4cf1c8d3d15cd4f832823ad6326b9c822fcdb4a"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-hammer-curl.md",
+      "title": "Female Hammer Curl Implementation Plan",
+      "git_blob_sha": "e8b59186b61ee5653b00683d607502ac26c6a69b"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-incline-dumbbell-press.md",
+      "title": "Female Incline Dumbbell Press",
+      "git_blob_sha": "afa8c0bcc194478a6ecceedcf1e1c1cb6faeca62"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-kettlebell-goblet.md",
+      "title": "Female Kettlebell Goblet Squat Implementation Plan",
+      "git_blob_sha": "220b01799dc5c3accbf61bc0cc5f67f0aceed466"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-lying-barbell-triceps-extension.md",
+      "title": "Female Lying Barbell Triceps Extension",
+      "git_blob_sha": "9cc8f80b684f494856e7d94e00824157480a930d"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-machine-chest-press.md",
+      "title": "Female Machine Chest Press",
+      "git_blob_sha": "9a560475c3fd8d3ec2b87b9b147d70b47d779436"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-overhead-cable-triceps-extension.md",
+      "title": "Female Overhead Cable Triceps Extension integration",
+      "git_blob_sha": "0bacd9ee328ff1d2fdc9890725da903d3234bb2a"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-pec-deck-fly.md",
+      "title": "Female Pec Deck Fly",
+      "git_blob_sha": "88d6bc5bab54f899606fd8fe7b82ac919c4db6b9"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-push-up.md",
+      "title": "Female Push-up",
+      "git_blob_sha": "f4c973cb3722cc7078f7c809be421a2ec48d1128"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-reverse-lunge.md",
+      "title": "Female Reverse Lunge Implementation Plan",
+      "git_blob_sha": "53528d5d372c8bf3c4a300a1a01271eb4b8d29e1"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-smith-squat.md",
+      "title": "Female Smith Machine Squat Implementation Plan",
+      "git_blob_sha": "e01e3ca3b0c2b3037d8bf5aaea2f576d14d4177d"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-06-female-step-up.md",
+      "title": "Female Step-up Implementation Plan",
+      "git_blob_sha": "3591b3c55666df8671e9cff4c634a17d701b3412"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-female-barbell-bent-over-row.md",
+      "title": "Female Barbell Bent-over Row",
+      "git_blob_sha": "9a03ee0b09aac6a3ac7f5a5d5e0ae6fe65566844"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-female-barbell-overhead-press.md",
+      "title": "Female Barbell Overhead Press",
+      "git_blob_sha": "c0c78d5383abc05a24d4624d17ed16ff6eca7935"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-female-cable-lateral-raise.md",
+      "title": "Female Cable Lateral Raise",
+      "git_blob_sha": "4b3ba993f6bbc531f14e1a4f94331d51fac75362"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-female-chest-supported-dumbbell-row.md",
+      "title": "Female Chest-supported Dumbbell Row",
+      "git_blob_sha": "c9ae5f8f0b17c1da07319e77d2d114dfd8719e54"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-female-dumbbell-lateral-raise.md",
+      "title": "Female Dumbbell Lateral Raise",
+      "git_blob_sha": "b02af555ccfd67cb8a8f8270ec3d84f9bdad45e2"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-female-dumbbell-shoulder-press.md",
+      "title": "Female Dumbbell Shoulder Press",
+      "git_blob_sha": "5e5a0de18457c11a82fe12608109ce3ca86e4b03"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-female-machine-high-row.md",
+      "title": "Female Machine High Row",
+      "git_blob_sha": "13b57c46d865f4e6a457c572ddc1ee658c599b5b"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-female-machine-shoulder-press.md",
+      "title": "Female Machine Shoulder Press",
+      "git_blob_sha": "60b14a3b1c5c382b72d91d0e0c0bbd52336fe224"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-female-one-arm-dumbbell-row.md",
+      "title": "Female One-arm Dumbbell Row",
+      "git_blob_sha": "372678cf358b9f2f017ebc622a39cbf7487bda43"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-07-female-reverse-pec-deck.md",
+      "title": "Female Reverse Pec Deck",
+      "git_blob_sha": "344174f7114b97cbf85c8101b10c994e4bace77d"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-08-branding-admin-kettlebell.md",
+      "title": "Kettlebell Branding Implementation Plan",
+      "git_blob_sha": "18be82b2a1d8a1401be1c5cb6567500a10ffd88c"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-09-20-exercise-library-design.md",
+      "title": "Exercise Library Core Design",
+      "git_blob_sha": "0c30b81c6e6e14ec62530bb519f9fc51fdb4c845"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-09-21-workout-templates-design.md",
+      "title": "Workout Templates Core Design",
+      "git_blob_sha": "ebfbbe83a8139228c7bb61cd5fd88e29d922e459"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-09-29-account-auth-foundation-design.md",
+      "title": "CRESUM Account/Auth Foundation — Stage 1 Design",
+      "git_blob_sha": "802ee53ebec63863e2a7e964c0b2418e3342b85f"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-11-goal-training-programs-design.md",
+      "title": "CRESUM — недельные программы по цели",
+      "git_blob_sha": "d94fb61f9b983a843139fba56d1dcc8169fc37fe"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-11-profile-identity-body-weight.md",
+      "title": "Profile identity and body-weight follow-up",
+      "git_blob_sha": "0daf51eefa31f7bd90da4ecccbf1de810cec63b3"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-15-cloud-sync-foundation-design.md",
+      "title": "Cloud Schema + Sync Foundation",
+      "git_blob_sha": "1cef50b8495433200216e04a1ffaedbbdc14b9d1"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-15-history-first-sync-design.md",
+      "title": "History First Sync Integration",
+      "git_blob_sha": "f7ed20b88ba6f20c6b3322691793c7d9a43b317c"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-15-history-sync-protocol-design.md",
+      "title": "History Sync Protocol",
+      "git_blob_sha": "40228d2b850a0aa05161f74cbd738f33977c7228"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-15-local-backup-design.md",
+      "title": "Local backup and restore",
+      "git_blob_sha": "66280883235fe7486ecbde0c3db9a34614438676"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-16-account-deletion-design.md",
+      "title": "Account deletion: server foundation",
+      "git_blob_sha": "d923c9f3ad26d9433c82d813cb6f08cb102a667d"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-16-history-conflict-resolution-design.md",
+      "title": "History Conflict Resolution — proposed design",
+      "git_blob_sha": "c12c28c12b1350954fe73da8187f558bbe03b106"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-21-content-admin-design.md",
+      "title": "CRESUM Content Admin — proposal for review",
+      "git_blob_sha": "8227b81541bbb35b4d3f365f0b6a6b64a3e86f20"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-21-multilingual-design.md",
+      "title": "CRESUM multilingual application",
+      "git_blob_sha": "b16a4e2c326594534420ccc29ce16f517ee28979"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-23-unified-workouts-design.md",
+      "title": "Unified workout plans",
+      "git_blob_sha": "c968444546fba4c4319867cf52ce8a134ddaab1b"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-23-workout-sharing-design.md",
+      "title": "CRESUM — Workout sharing and plan library",
+      "git_blob_sha": "3935600472f5f8c6ea8c910ee6b4bb1f5dcfa2ed"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-25-exercise-equipment-picker-design.md",
+      "title": "Exercise equipment picker and attachment blocks",
+      "git_blob_sha": "96f7302195deb02b2c49c0f8d2c3cca3b18133f2"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-27-seated-row-artwork-design.md",
+      "title": "Seated cable row — selected Male artwork",
+      "git_blob_sha": "89048814fd9aad9d39dfe7513fb698e4cc5f3e31"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-29-exercise-muscle-card-design.md",
+      "title": "Exercise muscle card — approved option 3",
+      "git_blob_sha": "3a18b611aeee3e81b9a3e64114dffce69fe211a8"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-29-upper-back-map-design.md",
+      "title": "Selected upper-back map projection",
+      "git_blob_sha": "bf12d3558e96f04662cdcf508d6f65bc28bb79f6"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-30-adductor-map-design.md",
+      "title": "Adductor map binding",
+      "git_blob_sha": "487444f7a55582d3a5d2850e88dad88d3a5839c8"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-30-barbell-curl-design.md",
+      "title": "Barbell Curl selected Male artwork",
+      "git_blob_sha": "d8fda50f9fc526544329c1a3c398a05b8ef1d072"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-30-cable-biceps-curl-design.md",
+      "title": "Selected low Cable Biceps Curl pair",
+      "git_blob_sha": "3cc6863dfc0a65722b3b7589de777ff5a8b32749"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-30-cable-triceps-pushdown-design.md",
+      "title": "Selected Cable Triceps Pushdown",
+      "git_blob_sha": "2d63c1d07ccaff9fba176d14e2f26f07ea6fde18"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-30-close-grip-bench-press-design.md",
+      "title": "Selected close-grip bench press",
+      "git_blob_sha": "e3360abc4df44becadf0a9b9e0baae609ecba9b2"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-30-dumbbell-overhead-triceps-extension-design.md",
+      "title": "Selected two-hand overhead dumbbell extension",
+      "git_blob_sha": "f5f33a6874093aea6601ab0b092c876ec9bc0038"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-30-ez-bar-curl-design.md",
+      "title": "Selected EZ Bar Curl pair",
+      "git_blob_sha": "267f49ffc6d15bb5f53d2f294d490f62853258a2"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-30-hammer-curl-design.md",
+      "title": "Selected Hammer Curl pair",
+      "git_blob_sha": "0144707824f9ccf0a10f7afc4b4253c382b385b8"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-30-overhead-cable-triceps-extension-design.md",
+      "title": "Overhead cable triceps extension selected pair",
+      "git_blob_sha": "ae0749944d2323816db5d452ae69c0188544d5e6"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-30-rear-delt-map-design.md",
+      "title": "Selected rear-shoulder map binding",
+      "git_blob_sha": "0144bbff0611ce2b885664abd4e9220cfe6102cd"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-31-assisted-dip-pair-design.md",
+      "title": "Selected assisted dip pair",
+      "git_blob_sha": "10e15e67c88d2cb910e592c18edf646a1324b928"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-31-back-squat-design.md",
+      "title": "Back Squat selected artwork",
+      "git_blob_sha": "50100e637a86a1ed79c0241cb17457229abbf842"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-31-barbell-bench-press-design.md",
+      "title": "Selected barbell bench press pair",
+      "git_blob_sha": "03c7b6fcc998b7dfa8883dff97b3ab9ac11c2dda"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-31-cable-chest-fly-design.md",
+      "title": "Selected cable chest fly pair",
+      "git_blob_sha": "44bb5d5652c2bcec865576fa8183a0e82d240889"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-31-flat-dumbbell-press-design.md",
+      "title": "Selected flat dumbbell bench press pair",
+      "git_blob_sha": "e36adfcceecfd572abbde115fb41771a8a71103a"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-31-front-squat-design.md",
+      "title": "Front Squat selected artwork",
+      "git_blob_sha": "f8dd06e037839aca39b9bd3543332deb405337f4"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-31-goblet-equipment-design.md",
+      "title": "Goblet Squat equipment choice — approved design",
+      "git_blob_sha": "80b9d0515a574a6dc9a41d43c41cb1e48d48ac0b"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-31-incline-dumbbell-press-design.md",
+      "title": "Selected incline dumbbell press pair",
+      "git_blob_sha": "60b870233b4f28f50d265bf934443432a578d3d2"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-31-leg-press-design.md",
+      "title": "Leg Press selected artwork",
+      "git_blob_sha": "82324c863feb20e963b7304ffcd746a1d4209193"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-31-lying-triceps-pair-design.md",
+      "title": "Selected lying barbell triceps extension pair",
+      "git_blob_sha": "f98a4afa3ae7a124e12738bc8b2ab16fd3fb179d"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-31-machine-chest-press-design.md",
+      "title": "Selected plate-loaded machine chest press pair",
+      "git_blob_sha": "18fbd50f1a80c2b8563fc6da1cf5bdd69cf1d7f8"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-31-pec-deck-fly-design.md",
+      "title": "Selected Pec Deck Fly pair",
+      "git_blob_sha": "6fbd276ebce671da82dee036237ca050e484c939"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-31-push-up-design.md",
+      "title": "Push-Up selected artwork",
+      "git_blob_sha": "7892a28fccba6b14c62ed79c38bc05ca658519a3"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-31-smith-squat-design.md",
+      "title": "Smith Squat selected pair",
+      "git_blob_sha": "71c89664da49eaaac4b890012c12331c66fc3b5b"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-11-03-exercise-character-design.md",
+      "title": "Exercise character selection",
+      "git_blob_sha": "71c82791227a965f0fe8af4ef041a981984a463d"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-11-08-branding-admin-design.md",
+      "title": "CRESUM branding administration",
+      "git_blob_sha": "484240ef2362a702602d48653ee39049de0a241e"
+    }
+  ],
+  "asset_metadata": [
+    {
+      "path": "assets/exercise-models/female-master-r1/manifest.json",
+      "git_blob_sha": "2e2a0d05a8b97487e8fd90e7cc318ca209a4bd72"
+    },
+    {
+      "path": "assets/exercises/assisted-dip-machine/female/technique-manifest.json",
+      "git_blob_sha": "a75e43061e5dbc7351417edf8e7937d87d8daf31"
+    },
+    {
+      "path": "assets/exercises/assisted-dip-machine/technique-manifest.json",
+      "git_blob_sha": "ff0f81fe06b5b158ac5581ed4f197e27fabd9cf4"
+    },
+    {
+      "path": "assets/exercises/assisted-pull-up/female/technique-manifest.json",
+      "git_blob_sha": "5f19e04ccc614a97965093de50ac0f1de4af835c"
+    },
+    {
+      "path": "assets/exercises/assisted-pull-up/technique-manifest.json",
+      "git_blob_sha": "fffde85fb3bdaa8374d443e6ee77a2717317d4b9"
+    },
+    {
+      "path": "assets/exercises/back-extension/female/technique-manifest.json",
+      "git_blob_sha": "d1598bac4d609ab2313508f1804ed7b5a0481a28"
+    },
+    {
+      "path": "assets/exercises/back-extension/technique-manifest.json",
+      "git_blob_sha": "e3205eaff37643b4abb376eef9b887a38e2d05b7"
+    },
+    {
+      "path": "assets/exercises/barbell-back-squat/female/technique-manifest.json",
+      "git_blob_sha": "92a1aa35835bacbd2620fc4b48101914dd28328a"
+    },
+    {
+      "path": "assets/exercises/barbell-back-squat/technique-manifest.json",
+      "git_blob_sha": "5e57dd2a6f28cd1d68738a557cbc396fc246d0e6"
+    },
+    {
+      "path": "assets/exercises/barbell-bench-press/female/technique-manifest.json",
+      "git_blob_sha": "4d3ce662f367423a5e75908e28f18fa951910eeb"
+    },
+    {
+      "path": "assets/exercises/barbell-bench-press/technique-manifest.json",
+      "git_blob_sha": "22305c8bc2b478b1987368b09cad872a55d03dc8"
+    },
+    {
+      "path": "assets/exercises/barbell-bent-over-row/female/technique-manifest.json",
+      "git_blob_sha": "a1661df252acabb99f953f7a10d00b41a9a58ff2"
+    },
+    {
+      "path": "assets/exercises/barbell-bent-over-row/technique-manifest.json",
+      "git_blob_sha": "0f7ef18009eec00a9cdf3507482b3a47c9793b9c"
+    },
+    {
+      "path": "assets/exercises/barbell-curl/female/technique-manifest.json",
+      "git_blob_sha": "3c590ded0ed5c2f1ffea90673cb840f39adfa606"
+    },
+    {
+      "path": "assets/exercises/barbell-curl/technique-manifest.json",
+      "git_blob_sha": "d8b94e3e44f9c725f812d52cdbb56213c34735f9"
+    },
+    {
+      "path": "assets/exercises/barbell-deadlift/female/technique-manifest.json",
+      "git_blob_sha": "1e7dd8d574f77ff8e0ba9a319bfb0e4d8ecc2e19"
+    },
+    {
+      "path": "assets/exercises/barbell-deadlift/technique-manifest.json",
+      "git_blob_sha": "8e79059ae267ffe4140e094e938ca754d1e7bfae"
+    },
+    {
+      "path": "assets/exercises/barbell-front-squat/female/technique-manifest.json",
+      "git_blob_sha": "9b167121472e2be97e738fa55e8f8cea9bfe70a2"
+    },
+    {
+      "path": "assets/exercises/barbell-front-squat/technique-manifest.json",
+      "git_blob_sha": "d8a312ec717b0b05b476a1f7ec1bb37754a0d24c"
+    },
+    {
+      "path": "assets/exercises/barbell-hip-thrust/female/technique-manifest.json",
+      "git_blob_sha": "7c87b962c79baa0aa8b63c609799468790ed0df5"
+    },
+    {
+      "path": "assets/exercises/barbell-hip-thrust/technique-manifest.json",
+      "git_blob_sha": "e6a8b4897b58583612521378bdcc7cb5bcd0b0f8"
+    },
+    {
+      "path": "assets/exercises/barbell-overhead-press/female/technique-manifest.json",
+      "git_blob_sha": "108453ce5e2fd14814085eeddf32f29e296fd85a"
+    },
+    {
+      "path": "assets/exercises/barbell-overhead-press/technique-manifest.json",
+      "git_blob_sha": "05ba9d07cd6b534319ce2c925ad029a8c1b0b495"
+    },
+    {
+      "path": "assets/exercises/barbell-romanian-deadlift/female/technique-manifest.json",
+      "git_blob_sha": "911aa6a4992b70dbb7607e8ca318ee17c063f00f"
+    },
+    {
+      "path": "assets/exercises/barbell-romanian-deadlift/technique-manifest.json",
+      "git_blob_sha": "fd94bcc6d59a15ae07b01a53f6b6733f1e50933e"
+    },
+    {
+      "path": "assets/exercises/bodyweight-step-up/female/technique-manifest.json",
+      "git_blob_sha": "6bfd2d5fe9334ba7a32e65d73336eea26d43efe9"
+    },
+    {
+      "path": "assets/exercises/bodyweight-step-up/technique-manifest.json",
+      "git_blob_sha": "c9a9fbf8521fd7114111cacf0ed86be33f0a0fc8"
+    },
+    {
+      "path": "assets/exercises/bulgarian-split-squat/female/technique-manifest.json",
+      "git_blob_sha": "f1da695f11097199d5ac4107a383311814eeb055"
+    },
+    {
+      "path": "assets/exercises/bulgarian-split-squat/technique-manifest.json",
+      "git_blob_sha": "c87fdb2efe5bcfae0974565791d568667eb72bcb"
+    },
+    {
+      "path": "assets/exercises/cable-biceps-curl/female/technique-manifest.json",
+      "git_blob_sha": "fb5c809080233b7fb16bc1e6ea4f5f9aaa746e71"
+    },
+    {
+      "path": "assets/exercises/cable-biceps-curl/technique-manifest.json",
+      "git_blob_sha": "e9501793083f1f9a9d2d0562a773ea7e9a8f772a"
+    },
+    {
+      "path": "assets/exercises/cable-chest-fly/female/technique-manifest.json",
+      "git_blob_sha": "67bdcd80ff7351785f367efafe1a5f0b882d01d0"
+    },
+    {
+      "path": "assets/exercises/cable-chest-fly/technique-manifest.json",
+      "git_blob_sha": "57673959f3234aa92317ed22f5010a769f4a0a88"
+    },
+    {
+      "path": "assets/exercises/cable-crunch/female/technique-manifest.json",
+      "git_blob_sha": "4bf5592c11f2c402c052a77c574a05e49cb4d84f"
+    },
+    {
+      "path": "assets/exercises/cable-crunch/technique-manifest.json",
+      "git_blob_sha": "72c64fa3e7c8f4910b13bcb9ef5736e434f4b8a0"
+    },
+    {
+      "path": "assets/exercises/cable-glute-kickback/female/technique-manifest.json",
+      "git_blob_sha": "d93ed1e559fbecd0cc777295908c53c53a1ac018"
+    },
+    {
+      "path": "assets/exercises/cable-glute-kickback/technique-manifest.json",
+      "git_blob_sha": "bd2f005976e936a51723e64efef6e752e621d860"
+    },
+    {
+      "path": "assets/exercises/cable-lateral-raise/female/technique-manifest.json",
+      "git_blob_sha": "bbb9efdc5b753cdcee5458fd0d6bbef0c00800c8"
+    },
+    {
+      "path": "assets/exercises/cable-lateral-raise/technique-manifest.json",
+      "git_blob_sha": "4fbe92306488fc6a6c4161d2465a9a93a9fb368a"
+    },
+    {
+      "path": "assets/exercises/cable-straight-arm-pulldown/female/technique-manifest.json",
+      "git_blob_sha": "7b067d448e7530a075694fd9cf7695da108d5ba9"
+    },
+    {
+      "path": "assets/exercises/cable-straight-arm-pulldown/technique-manifest.json",
+      "git_blob_sha": "636b58d074e4c8bc58c5db4f71241ec362b023f8"
+    },
+    {
+      "path": "assets/exercises/cable-triceps-pushdown/female/technique-manifest.json",
+      "git_blob_sha": "23afe085f6661179db0e2dc4dc3fddab6df40354"
+    },
+    {
+      "path": "assets/exercises/cable-triceps-pushdown/technique-manifest.json",
+      "git_blob_sha": "214e47d5b73ecc8db5ec87763e0513843f961d26"
+    },
+    {
+      "path": "assets/exercises/captains-chair-knee-raise/female/technique-manifest.json",
+      "git_blob_sha": "f15768608943794d98b08a44e7f657d868cdd749"
+    },
+    {
+      "path": "assets/exercises/captains-chair-knee-raise/technique-manifest.json",
+      "git_blob_sha": "c7256086af2e5c851583465aad69a941de2001e0"
+    },
+    {
+      "path": "assets/exercises/chest-supported-dumbbell-row/female/technique-manifest.json",
+      "git_blob_sha": "4460799209e2612306048aa90ef226eb8a8e830b"
+    },
+    {
+      "path": "assets/exercises/chest-supported-dumbbell-row/technique-manifest-dark-frame-r1.json",
+      "git_blob_sha": "852061cdf2a769ab362da250ffff84fbf2468dbd"
+    },
+    {
+      "path": "assets/exercises/chest-supported-dumbbell-row/technique-manifest.json",
+      "git_blob_sha": "83ff15ca47f8702228598cbd0399296cc73e0b72"
+    },
+    {
+      "path": "assets/exercises/close-grip-bench-press/female/technique-manifest.json",
+      "git_blob_sha": "6c54bcc369f8397a258ff573971c7f0dd8012c3a"
+    },
+    {
+      "path": "assets/exercises/close-grip-bench-press/technique-manifest.json",
+      "git_blob_sha": "128ea764bbff376dde2ade3bf5dc4d795bc99f1e"
+    },
+    {
+      "path": "assets/exercises/dumbbell-bench-press/female/technique-manifest.json",
+      "git_blob_sha": "e5a978a4f07aed949f41806c451ec4d38877d9ad"
+    },
+    {
+      "path": "assets/exercises/dumbbell-bench-press/technique-manifest.json",
+      "git_blob_sha": "1563b9191bcd876c6297acf85961b1ab2f0e1538"
+    },
+    {
+      "path": "assets/exercises/dumbbell-biceps-curl/female/technique-manifest.json",
+      "git_blob_sha": "a9de2db0cd521c24076609478111dcc871771919"
+    },
+    {
+      "path": "assets/exercises/dumbbell-biceps-curl/technique-manifest.json",
+      "git_blob_sha": "6683af9a7d4c8f5df68e21e5a36dce0258d83a06"
+    },
+    {
+      "path": "assets/exercises/dumbbell-floor-glute-bridge/female/technique-manifest.json",
+      "git_blob_sha": "adc14f3d858bbc03bcbe63b8a364cb14a2f0ecb4"
+    },
+    {
+      "path": "assets/exercises/dumbbell-floor-glute-bridge/technique-manifest.json",
+      "git_blob_sha": "bbc9fb6d734e1bdf987d304c8744eb8dd9ce68a8"
+    },
+    {
+      "path": "assets/exercises/dumbbell-lateral-raise/female/technique-manifest.json",
+      "git_blob_sha": "84db78f3a97cc6266795c3c1548007d819fe450e"
+    },
+    {
+      "path": "assets/exercises/dumbbell-lateral-raise/technique-manifest.json",
+      "git_blob_sha": "3e8947a5a6d1643a165df3e46e04a740182a8778"
+    },
+    {
+      "path": "assets/exercises/dumbbell-overhead-triceps-extension/female/technique-manifest.json",
+      "git_blob_sha": "85766743384eae89cc1a6f5384b367419f1748ad"
+    },
+    {
+      "path": "assets/exercises/dumbbell-overhead-triceps-extension/technique-manifest.json",
+      "git_blob_sha": "da9499baeaaf431d8dc7fbf952925146434929fd"
+    },
+    {
+      "path": "assets/exercises/dumbbell-reverse-lunge/female/technique-manifest.json",
+      "git_blob_sha": "499d6190619b867a4ecffa3c5ccd2d70c0e48f9e"
+    },
+    {
+      "path": "assets/exercises/dumbbell-reverse-lunge/technique-manifest.json",
+      "git_blob_sha": "2ef92f89a7378a61e61828b47eebdff3f2ddcf45"
+    },
+    {
+      "path": "assets/exercises/dumbbell-romanian-deadlift/female/technique-manifest.json",
+      "git_blob_sha": "730dca0f8f84a2d3ddbfd4fff0a02ec00b78ff92"
+    },
+    {
+      "path": "assets/exercises/dumbbell-romanian-deadlift/technique-manifest.json",
+      "git_blob_sha": "a3f2941026ee41ed63a258c0f008568fe22fefd7"
+    },
+    {
+      "path": "assets/exercises/dumbbell-shoulder-press/female/technique-manifest.json",
+      "git_blob_sha": "111228b956acbd204140ace515a6ceeb733e9925"
+    },
+    {
+      "path": "assets/exercises/dumbbell-shoulder-press/technique-manifest.json",
+      "git_blob_sha": "de70b7c54c158105021020d31666470277564d79"
+    },
+    {
+      "path": "assets/exercises/dumbbell-shrug/female/technique-manifest.json",
+      "git_blob_sha": "56d18796b540a5053288ad996e0e77328148f8c4"
+    },
+    {
+      "path": "assets/exercises/dumbbell-shrug/technique-manifest.json",
+      "git_blob_sha": "969605226d52b70f848e4b6c58b518a2b6e4cf94"
+    },
+    {
+      "path": "assets/exercises/ez-bar-curl/female/technique-manifest.json",
+      "git_blob_sha": "7c87843a6b41fb7c9f2446b8d134941708ea76aa"
+    },
+    {
+      "path": "assets/exercises/ez-bar-curl/technique-manifest.json",
+      "git_blob_sha": "676132b9ff707e24fed25840924136f833b06d8a"
+    },
+    {
+      "path": "assets/exercises/farmers-carry/female/technique-manifest.json",
+      "git_blob_sha": "4356616587b166d7226a3fa609db0bb96a24ba3e"
+    },
+    {
+      "path": "assets/exercises/farmers-carry/technique-manifest.json",
+      "git_blob_sha": "91731a835ec00938f294b975bf05e6abe7a0c1f4"
+    },
+    {
+      "path": "assets/exercises/goblet-squat/female/technique-manifest.json",
+      "git_blob_sha": "cb5807a2fd650c6b8b375f1dd34d63ccfbb3be10"
+    },
+    {
+      "path": "assets/exercises/goblet-squat/technique-manifest.json",
+      "git_blob_sha": "b1a4caebb68b3488049a7cdaf514765216af1699"
+    },
+    {
+      "path": "assets/exercises/hammer-curl/female/technique-manifest.json",
+      "git_blob_sha": "bf2708dc6914d8236e799c083e2479da4c61a462"
+    },
+    {
+      "path": "assets/exercises/hammer-curl/technique-manifest.json",
+      "git_blob_sha": "94c769a1ebbdb42cb050fd89b282baede00d063b"
+    },
+    {
+      "path": "assets/exercises/hanging-knee-raise/female/technique-manifest.json",
+      "git_blob_sha": "ff78f714fd5055e03ef16e3b87a244be01b9595d"
+    },
+    {
+      "path": "assets/exercises/hanging-knee-raise/technique-manifest.json",
+      "git_blob_sha": "186de0013fb6e50824b6025e6f9b82dd465c6e80"
+    },
+    {
+      "path": "assets/exercises/hanging-straight-leg-raise/female/technique-manifest.json",
+      "git_blob_sha": "e8773b9994dd807b632a7519efd47a1026efecb4"
+    },
+    {
+      "path": "assets/exercises/hanging-straight-leg-raise/technique-manifest.json",
+      "git_blob_sha": "604607809cae81186091e51bc07ede5b254007e6"
+    },
+    {
+      "path": "assets/exercises/incline-dumbbell-press/female/technique-manifest.json",
+      "git_blob_sha": "d823837ec6a6bae312f2c3589c98b47a35370b6f"
+    },
+    {
+      "path": "assets/exercises/incline-dumbbell-press/technique-manifest.json",
+      "git_blob_sha": "ca0e211eda891eb0edb5f28afe6670ccbb24275b"
+    },
+    {
+      "path": "assets/exercises/kettlebell-goblet-squat/female/technique-manifest.json",
+      "git_blob_sha": "4abaf70e5bfd32d1cfeb7a6c170f608861fcba81"
+    },
+    {
+      "path": "assets/exercises/kettlebell-goblet-squat/technique-manifest.json",
+      "git_blob_sha": "e74258206804a37088153b97c35e1b523fd0d12b"
+    },
+    {
+      "path": "assets/exercises/kettlebell-swing/female/technique-manifest.json",
+      "git_blob_sha": "a50b6997d530680792c124fdcfdd92ddd1b8ef7a"
+    },
+    {
+      "path": "assets/exercises/kettlebell-swing/technique-manifest.json",
+      "git_blob_sha": "adc7c7191b705b2e36397e22cd4304362df276ad"
+    },
+    {
+      "path": "assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/female/technique-manifest.json",
+      "git_blob_sha": "fe950893f083d54984c8460052a37e843cce5909"
+    },
+    {
+      "path": "assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/manifest-dark-frame-r1.json",
+      "git_blob_sha": "ba458e32c673e7b3f66ca0640aa778fc8611ebd7"
+    },
+    {
+      "path": "assets/exercises/lat-pulldown-close-neutral-ergonomic-handle/manifest.json",
+      "git_blob_sha": "3ed3b2f2f1df4fde7fadde383dcfc9beca7c4bde"
+    },
+    {
+      "path": "assets/exercises/lat-pulldown-close-neutral-v-handle/female/technique-manifest.json",
+      "git_blob_sha": "0eec5d6781de57e28927c2f93e3e911d1fdc85ea"
+    },
+    {
+      "path": "assets/exercises/lat-pulldown-close-neutral-v-handle/manifest.json",
+      "git_blob_sha": "c84b34c0e704b6d9116f6d72d29c0294a8f4d7ce"
+    },
+    {
+      "path": "assets/exercises/lat-pulldown-close-neutral-v-handle/technique-manifest-dark-frame-r1.json",
+      "git_blob_sha": "2f86935c2614f6e4d62d3320b7fc193770496a45"
+    },
+    {
+      "path": "assets/exercises/lat-pulldown-close-neutral-v-handle/technique-manifest.json",
+      "git_blob_sha": "e274ce922ac604ba5a86ae8a6a3f95db65847e57"
+    },
+    {
+      "path": "assets/exercises/lat-pulldown-reverse-grip/female/technique-manifest.json",
+      "git_blob_sha": "1e7c24edda67c4d8de306bc36f8cac606d690b9e"
+    },
+    {
+      "path": "assets/exercises/lat-pulldown-reverse-grip/technique-manifest-dark-frame-r2.json",
+      "git_blob_sha": "b05a6863ca797515eacc483a3103d1eed7737a12"
+    },
+    {
+      "path": "assets/exercises/lat-pulldown-reverse-grip/technique-manifest.json",
+      "git_blob_sha": "b4b706ef10ba218b25dc1394857d71dd9df0029f"
+    },
+    {
+      "path": "assets/exercises/lat-pulldown-wide-pronated-bar/female/technique-manifest.json",
+      "git_blob_sha": "5a1719a74c3be9016a80714f0145db5d1867e203"
+    },
+    {
+      "path": "assets/exercises/lat-pulldown-wide-pronated-bar/manifest.json",
+      "git_blob_sha": "19c9ef53d24b3b8007f13e5d5d01655d23b35079"
+    },
+    {
+      "path": "assets/exercises/lat-pulldown-wide-pronated-bar/technique-manifest-dark-frame-r1.json",
+      "git_blob_sha": "b18535b96283f6ddc7a52a8a5a37d03c4a43b013"
+    },
+    {
+      "path": "assets/exercises/lat-pulldown-wide-pronated-bar/technique-manifest.json",
+      "git_blob_sha": "3056e97e9cbd54a1d41bcbe457cfd80ffc670205"
+    },
+    {
+      "path": "assets/exercises/leg-extension/female/technique-manifest.json",
+      "git_blob_sha": "4be40c7c6294b7517c16e4d29f170767f9799144"
+    },
+    {
+      "path": "assets/exercises/leg-extension/technique-manifest.json",
+      "git_blob_sha": "f28be77bd7f34d8a058ac4bfa51669ffbe57fc78"
+    },
+    {
+      "path": "assets/exercises/leg-press/female/technique-manifest.json",
+      "git_blob_sha": "bdcfb414ae76e0d98075cbf57de00e7644ee32f0"
+    },
+    {
+      "path": "assets/exercises/leg-press/technique-manifest.json",
+      "git_blob_sha": "d1a899a9e4a26e7a0381b47c47e477da7cbd4d85"
+    },
+    {
+      "path": "assets/exercises/lying-barbell-triceps-extension/female/technique-manifest.json",
+      "git_blob_sha": "80d23897929756524678d4cdae0f5b5aa87f2621"
+    },
+    {
+      "path": "assets/exercises/lying-barbell-triceps-extension/technique-manifest.json",
+      "git_blob_sha": "77736218ebd8fc6b49e6ba04b7eb56cacced1083"
+    },
+    {
+      "path": "assets/exercises/lying-leg-curl/female/technique-manifest.json",
+      "git_blob_sha": "1397f0ca85b9a09b93c1c8965b648f27f63779ad"
+    },
+    {
+      "path": "assets/exercises/lying-leg-curl/technique-manifest.json",
+      "git_blob_sha": "da2ec80d7f627fd15cd28c0ffca1c7dd7865193d"
+    },
+    {
+      "path": "assets/exercises/machine-chest-press/female/technique-manifest.json",
+      "git_blob_sha": "1aa20ae6295ffb4625eebd11691a9a1008eabb20"
+    },
+    {
+      "path": "assets/exercises/machine-chest-press/technique-manifest.json",
+      "git_blob_sha": "8be7a807ad36d4184a19e26a56234f0da1c26148"
+    },
+    {
+      "path": "assets/exercises/machine-high-row/female/technique-manifest.json",
+      "git_blob_sha": "3ee621df47daa79da8045ab452753bd8450fd7bb"
+    },
+    {
+      "path": "assets/exercises/machine-high-row/technique-manifest.json",
+      "git_blob_sha": "ed09746b00c976a89e15ac253d51f4cc2e59318a"
+    },
+    {
+      "path": "assets/exercises/machine-hip-adduction/female/technique-manifest.json",
+      "git_blob_sha": "d72105757ee2ef27986887780a8ff3529ea2e587"
+    },
+    {
+      "path": "assets/exercises/machine-hip-adduction/technique-manifest.json",
+      "git_blob_sha": "4654699f586601d6db48ede3f7a47d2a53534dc1"
+    },
+    {
+      "path": "assets/exercises/machine-shoulder-press/female/technique-manifest.json",
+      "git_blob_sha": "5a47158d7c734af6194b1435a15e46b315b8aff1"
+    },
+    {
+      "path": "assets/exercises/machine-shoulder-press/technique-manifest.json",
+      "git_blob_sha": "8fe58c6c871bf942ff5a20f1c2f39a85467d7c7c"
+    },
+    {
+      "path": "assets/exercises/one-arm-dumbbell-row/female/technique-manifest.json",
+      "git_blob_sha": "6ad08a27836914abfdd5ee7e017bd2c51c4da241"
+    },
+    {
+      "path": "assets/exercises/one-arm-dumbbell-row/technique-manifest-dark-frame-r1.json",
+      "git_blob_sha": "78a3600ef1f51b31d34c29c3fcc4f243d8804dd2"
+    },
+    {
+      "path": "assets/exercises/one-arm-dumbbell-row/technique-manifest.json",
+      "git_blob_sha": "8e15eb4c44dc8077e673fffba94ffbf7d0a78792"
+    },
+    {
+      "path": "assets/exercises/overhead-cable-triceps-extension/female/technique-manifest.json",
+      "git_blob_sha": "187056da7899d578bc3dd3185996c6e93be96e24"
+    },
+    {
+      "path": "assets/exercises/overhead-cable-triceps-extension/technique-manifest.json",
+      "git_blob_sha": "641527cfa73d7d4233ebfc178f78799c7682e0b1"
+    },
+    {
+      "path": "assets/exercises/pec-deck-fly/female/technique-manifest.json",
+      "git_blob_sha": "63f2af02477c9ab77a521085f60a591b43e1111c"
+    },
+    {
+      "path": "assets/exercises/pec-deck-fly/technique-manifest.json",
+      "git_blob_sha": "b57653cf9184db34ada48f155c0236658d7dda1a"
+    },
+    {
+      "path": "assets/exercises/plank/female/technique-manifest.json",
+      "git_blob_sha": "2b3565c4df70896e418a3814b3dce3ad79597ffb"
+    },
+    {
+      "path": "assets/exercises/plank/technique-manifest.json",
+      "git_blob_sha": "5b6e1e2bb96db039318a638e64cd2351d4ef2be9"
+    },
+    {
+      "path": "assets/exercises/pull-up/female/technique-manifest.json",
+      "git_blob_sha": "fdc33b504552449e78fed8c00c59d4e710cb872c"
+    },
+    {
+      "path": "assets/exercises/pull-up/technique-manifest-dark-frame-r1.json",
+      "git_blob_sha": "e448447c63eddc1e1af0900163bab4c44aac98a2"
+    },
+    {
+      "path": "assets/exercises/pull-up/technique-manifest.json",
+      "git_blob_sha": "725cbbd576290b8ebfdafb25ca920cc85134b85f"
+    },
+    {
+      "path": "assets/exercises/push-up/female/technique-manifest.json",
+      "git_blob_sha": "fc84c13c9167cca36875d3613ff7c977b7b997b3"
+    },
+    {
+      "path": "assets/exercises/push-up/technique-manifest.json",
+      "git_blob_sha": "abf87e13d47664cbd0e465c12443d97e1f6727ad"
+    },
+    {
+      "path": "assets/exercises/resistance-band-pull-apart/female/technique-manifest.json",
+      "git_blob_sha": "0108a4889fadd1d56da5c4569dfbdefed2ee5591"
+    },
+    {
+      "path": "assets/exercises/resistance-band-pull-apart/technique-manifest.json",
+      "git_blob_sha": "f9de0f510091deddd8505727eeb1aff1c6ecf671"
+    },
+    {
+      "path": "assets/exercises/reverse-pec-deck/female/technique-manifest.json",
+      "git_blob_sha": "43d58e54c6b7066a5fbe098360a8855d3333e492"
+    },
+    {
+      "path": "assets/exercises/reverse-pec-deck/technique-manifest.json",
+      "git_blob_sha": "ea1b328352e2be425f9c5b1de54661801033fb47"
+    },
+    {
+      "path": "assets/exercises/seated-cable-row-close-neutral-v-handle/female/technique-manifest.json",
+      "git_blob_sha": "d5a39ffccf3a14df913fb83f45149eb5a98d6f1b"
+    },
+    {
+      "path": "assets/exercises/seated-cable-row-close-neutral-v-handle/technique-manifest-dark-frame-r1.json",
+      "git_blob_sha": "e2ade2d9f96d15bbfada0c07c90a7252a13c79d9"
+    },
+    {
+      "path": "assets/exercises/seated-cable-row-close-neutral-v-handle/technique-manifest.json",
+      "git_blob_sha": "0f8f5045ef05faea88a5491a9a3dab59dec4e978"
+    },
+    {
+      "path": "assets/exercises/seated-calf-raise/female/technique-manifest.json",
+      "git_blob_sha": "066fde76083901d189598f649ad1aeac6b1501f1"
+    },
+    {
+      "path": "assets/exercises/seated-calf-raise/technique-manifest.json",
+      "git_blob_sha": "d8633daa49c93fd8d0d93c982a81adfac88d20bd"
+    },
+    {
+      "path": "assets/exercises/seated-leg-curl/female/technique-manifest.json",
+      "git_blob_sha": "8be42b34bfe41b51a805383cde0804efd6e705cb"
+    },
+    {
+      "path": "assets/exercises/seated-leg-curl/technique-manifest.json",
+      "git_blob_sha": "706c40adc853340c8a5ca75ae2993cf2b2c32f5b"
+    },
+    {
+      "path": "assets/exercises/smith-machine-squat/female/technique-manifest.json",
+      "git_blob_sha": "19848d772687c243f007f7038f4894d661ed9c03"
+    },
+    {
+      "path": "assets/exercises/smith-machine-squat/technique-manifest.json",
+      "git_blob_sha": "875b75f472a285079a0ce3517565db42a3bb3d20"
+    },
+    {
+      "path": "assets/exercises/standing-cable-anti-rotation-press/female/technique-manifest.json",
+      "git_blob_sha": "3db9df2f8519a628862b2cbcec3f581de3423065"
+    },
+    {
+      "path": "assets/exercises/standing-cable-anti-rotation-press/technique-manifest.json",
+      "git_blob_sha": "350559317f46153a87b51e5daef2fafff24ae447"
+    },
+    {
+      "path": "assets/exercises/standing-calf-raise/female/technique-manifest.json",
+      "git_blob_sha": "2ac16ad2079d1b8a037b20b392d7c1fb93da8db8"
+    },
+    {
+      "path": "assets/exercises/standing-calf-raise/technique-manifest.json",
+      "git_blob_sha": "b51e2ac3b136290877a594ac1fb0d430313bbdb1"
+    },
+    {
+      "path": "assets/muscle-map/male-anatomy-v1/combined-review/manifest.json",
+      "git_blob_sha": "6d4d983533373546e3fb640f3aac49dfeac92bbf"
+    },
+    {
+      "path": "assets/visual-references/equipment-style-v1/manifest.json",
+      "git_blob_sha": "63a53313a75b4d9c54ff2ab5aff0004b8e522eb4"
+    }
+  ]
+}

@@ -20,18 +20,21 @@ const label = (locale: AppLocale, key: string): string => {
 
 // Language-neutral folding lets a Russian query work in a German interface.
 export function normalizeSearch(value: string): string {
-  return value
-    .toLowerCase()
-    .replace(/ß/g, 'ss')
-    .replace(/ł/g, 'l')
-    .replace(/ı/g, 'i')
-    .normalize('NFD')
-    .replace(/(\p{Script=Latin})(\p{M}+)/gu, '$1')
-    .normalize('NFC')
-    .replace(/['’ʼ]/g, '')
-    .replace(/[^\p{L}\p{N}\p{M}]+/gu, ' ')
-    .trim()
-    .replace(/\s+/g, ' ');
+  return (
+    value
+      .toLowerCase()
+      .replace(/ß/g, 'ss')
+      .replace(/ł/g, 'l')
+      .replace(/ı/g, 'i')
+      .normalize('NFD')
+      // Keep Latin and Cyrillic folding while retaining meaningful Indic marks.
+      .replace(/(\p{Script=Latin}|\p{Script=Cyrillic})\p{M}+/gu, '$1')
+      .normalize('NFC')
+      .replace(/['’ʼ]/g, '')
+      .replace(/[^\p{L}\p{N}\p{M}]+/gu, ' ')
+      .trim()
+      .replace(/\s+/g, ' ')
+  );
 }
 
 const cyrillic: Record<string, string> = {
