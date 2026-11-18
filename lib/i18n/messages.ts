@@ -1,3 +1,17 @@
+import viCommon from './locales/vi/common';
+import viCatalog from './locales/vi/catalog';
+import viEquipment from './locales/vi/equipment';
+import viLibrary from './locales/vi/library';
+import viEditor from './locales/vi/editor';
+import viSharing from './locales/vi/sharing';
+import viHome from './locales/vi/home';
+import viHistory from './locales/vi/history';
+import viProgramTechnique from './locales/vi/program-technique';
+import viWorkout from './locales/vi/workout';
+import viOnboarding from './locales/vi/onboarding';
+import viProgress from './locales/vi/progress';
+import viProfile from './locales/vi/profile';
+import viTechniqueContent from './locales/vi/technique-content';
 import jaCommon from './locales/ja/common';
 import jaCatalog from './locales/ja/catalog';
 import jaEditor from './locales/ja/editor';
@@ -448,6 +462,22 @@ const ja = {
   ...jaProfile,
   ...jaTechniqueContent,
 } as const;
+const vi = {
+  ...viCommon,
+  ...viCatalog,
+  ...viEquipment,
+  ...viLibrary,
+  ...viEditor,
+  ...viSharing,
+  ...viHome,
+  ...viHistory,
+  ...viProgramTechnique,
+  ...viWorkout,
+  ...viOnboarding,
+  ...viProgress,
+  ...viProfile,
+  ...viTechniqueContent,
+} as const;
 export type MessageValue =
   string | Readonly<Partial<Record<Intl.LDMLPluralRule, string>>>;
 export type MessageCatalog = Readonly<Record<string, MessageValue>>;
@@ -467,6 +497,7 @@ export const catalogs = {
   bn,
   ar,
   ja,
+  vi,
 } satisfies Record<string, MessageCatalog>;
 export type MessageKey = keyof typeof en;
 type TrimFormat<S extends string> = S extends `${infer Name},${string}`

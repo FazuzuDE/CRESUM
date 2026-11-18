@@ -30,6 +30,7 @@ export function normalizeSearch(value: string): string {
       .toLowerCase()
       .replace(/ß/g, 'ss')
       .replace(/ł/g, 'l')
+      .replace(/đ/g, 'd')
       .replace(/ı/g, 'i')
       .replace(/\u0640/g, '')
       .replace(/ى|ی/g, 'ي')

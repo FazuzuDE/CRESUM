@@ -22,6 +22,7 @@ const flags = {
   bn: '🇧🇩',
   ar: '🇸🇦',
   ja: '🇯🇵',
+  vi: '🇻🇳',
   'zh-Hans': '🇨🇳',
 };
 

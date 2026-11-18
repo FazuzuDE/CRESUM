@@ -16468,5 +16468,11 @@
     "line": 17,
     "text": "ja",
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 18,
+    "text": "vi",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
   }
 ]

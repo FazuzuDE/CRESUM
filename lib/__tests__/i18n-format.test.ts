@@ -26,6 +26,7 @@ it('localizes exact entry display without rounding manual precision or reparsing
     'bn',
     'ar',
     'ja',
+    'vi',
   ] as const) {
     expect(formatEntryNumber(locale, '12.1234567890123456789')).toBe(
       locale === 'ar'
@@ -163,4 +164,22 @@ it('handles Japanese dates, grouping and fullwidth numeric keyboard drafts witho
     '１２・５',
   ])
     expect(normalizeDecimalInput(invalid)).toBeNull();
+});
+
+it('formats Vietnamese numbers and dates without rounding exact manual values', () => {
+  expect(formatNumber('vi', 1234.5)).toBe('1.234,5');
+  expect(
+    formatDate('vi', Date.UTC(2026, 10, 18), {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    }),
+  ).toBe('18 tháng 11, 2026');
+  expect(formatEntryNumber('vi', '12.1234567890123456789')).toBe(
+    '12,1234567890123456789',
+  );
+  expect(formatEntryNumber('vi', '12,')).toBe('12,');
+  expect(normalizeDecimalInput('12,50')).toBe('12.50');
+  expect(normalizeDecimalInput('1.234,5')).toBeNull();
 });

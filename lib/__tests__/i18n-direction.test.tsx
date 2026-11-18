@@ -39,78 +39,85 @@ it('mirrors logical labels and arrows but preserves centering, vertical icons an
   ).toEqual({ weight: '12.50', reps: '8', otherSideReps: '9' });
 });
 
-it('switches live RTL/LTR including modal roots without remounting or rewriting an unfinished draft', async () => {
-  const store = new LocaleStore(
-    { getItem: async () => null, setItem: async () => {} },
-    () => ['en'],
-  );
-  let mounts = 0;
-  function Probe() {
-    const [draft, setDraft] = useState(() => {
-      mounts++;
-      return '12,';
+it.each(['ja', 'vi'] as const)(
+  'switches live RTL to %s including modal roots without remounting or rewriting an unfinished draft',
+  async (locale) => {
+    const store = new LocaleStore(
+      { getItem: async () => null, setItem: async () => {} },
+      () => ['en'],
+    );
+    let mounts = 0;
+    function Probe() {
+      const [draft, setDraft] = useState(() => {
+        mounts++;
+        return '12,';
+      });
+      const direction = useLayoutDirection();
+      return (
+        <LocalizedModal visible>
+          <View testID="direction-probe" style={{ direction }}>
+            <LocalizedText style={{ textAlign: 'left' }}>
+              Mixed 12 نص
+            </LocalizedText>
+            <LocalizedTextInput
+              value={draft}
+              keyboardType="decimal-pad"
+              onChangeText={setDraft}
+            />
+          </View>
+        </LocalizedModal>
+      );
+    }
+    let view: ReturnType<typeof create>;
+    await act(async () => {
+      view = create(
+        <LocalizationProvider store={store}>
+          <Probe />
+        </LocalizationProvider>,
+      );
     });
-    const direction = useLayoutDirection();
-    return (
-      <LocalizedModal visible>
-        <View testID="direction-probe" style={{ direction }}>
-          <LocalizedText style={{ textAlign: 'left' }}>
-            Mixed 12 نص
-          </LocalizedText>
-          <LocalizedTextInput
-            value={draft}
-            keyboardType="decimal-pad"
-            onChangeText={setDraft}
-          />
-        </View>
-      </LocalizedModal>
+    await act(async () => {
+      await store.select('ar');
+    });
+    expect(
+      view!.root.findByProps({ testID: 'direction-probe' }).props.style
+        .direction,
+    ).toBe('rtl');
+    expect(
+      StyleSheet.flatten(view!.root.findByType(Text).props.style),
+    ).toMatchObject({ writingDirection: 'rtl', textAlign: 'right' });
+    expect(
+      view!.root
+        .findByType(Modal)
+        .findAllByType(View)
+        .some(
+          (v: { props: { style: unknown } }) =>
+            StyleSheet.flatten(v.props.style as never)?.direction === 'rtl',
+        ),
+    ).toBe(true);
+    expect(view!.root.findByType(TextInput).props.value).toBe('12,');
+    act(() => view!.root.findByType(TextInput).props.onChangeText('١٢٫٥٠'));
+    expect(view!.root.findByType(TextInput).props.value).toBe('12.50');
+    await act(async () => {
+      await store.select(locale);
+    });
+    expect(view!.root.findByType(TextInput).props.value).toBe('12.50');
+    expect(mounts).toBe(1);
+    expect(store.getSnapshot().locale).toBe(locale);
+    expect(
+      view!.root.findByProps({ testID: 'direction-probe' }).props.style
+        .direction,
+    ).toBe('ltr');
+    expect(
+      StyleSheet.flatten(view!.root.findByType(Text).props.style),
+    ).toMatchObject({ writingDirection: 'ltr', textAlign: 'left' });
+    act(() =>
+      view!.root.findByType(TextInput).props.onChangeText('１２．５０'),
     );
-  }
-  let view: ReturnType<typeof create>;
-  await act(async () => {
-    view = create(
-      <LocalizationProvider store={store}>
-        <Probe />
-      </LocalizationProvider>,
-    );
-  });
-  await act(async () => {
-    await store.select('ar');
-  });
-  expect(
-    view!.root.findByProps({ testID: 'direction-probe' }).props.style.direction,
-  ).toBe('rtl');
-  expect(
-    StyleSheet.flatten(view!.root.findByType(Text).props.style),
-  ).toMatchObject({ writingDirection: 'rtl', textAlign: 'right' });
-  expect(
-    view!.root
-      .findByType(Modal)
-      .findAllByType(View)
-      .some(
-        (v: { props: { style: unknown } }) =>
-          StyleSheet.flatten(v.props.style as never)?.direction === 'rtl',
-      ),
-  ).toBe(true);
-  expect(view!.root.findByType(TextInput).props.value).toBe('12,');
-  act(() => view!.root.findByType(TextInput).props.onChangeText('١٢٫٥٠'));
-  expect(view!.root.findByType(TextInput).props.value).toBe('12.50');
-  await act(async () => {
-    await store.select('ja');
-  });
-  expect(view!.root.findByType(TextInput).props.value).toBe('12.50');
-  expect(mounts).toBe(1);
-  expect(store.getSnapshot().locale).toBe('ja');
-  expect(
-    view!.root.findByProps({ testID: 'direction-probe' }).props.style.direction,
-  ).toBe('ltr');
-  expect(
-    StyleSheet.flatten(view!.root.findByType(Text).props.style),
-  ).toMatchObject({ writingDirection: 'ltr', textAlign: 'left' });
-  act(() => view!.root.findByType(TextInput).props.onChangeText('１２．５０'));
-  expect(view!.root.findByType(TextInput).props.value).toBe('12.50');
-  act(() => view!.unmount());
-});
+    expect(view!.root.findByType(TextInput).props.value).toBe('12.50');
+    act(() => view!.unmount());
+  },
+);
 
 it('keeps the dock pill under the visually selected tab in RTL without relying on device direction', async () => {
   let view: ReturnType<typeof create>;
