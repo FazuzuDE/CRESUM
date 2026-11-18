@@ -330,7 +330,7 @@ it('wraps a cyclic wheel in both directions and silently recenters after a drag 
     act(() => list().props.onScrollBeginDrag());
     act(() => list().props.onScroll(event(middle - 1)));
     expect(change).not.toHaveBeenCalled();
-    expect(Haptics.selectionAsync).not.toHaveBeenCalled();
+    expect(Haptics.selectionAsync).toHaveBeenCalledTimes(1);
     expect(scroll).not.toHaveBeenCalled();
     act(() => list().props.onScrollEndDrag(event(middle - 1)));
     expect(interaction).toHaveBeenLastCalledWith(true);
@@ -365,6 +365,7 @@ it('wraps a cyclic wheel in both directions and silently recenters after a drag 
 
 it('keeps cyclic momentum active across multiple turns and emits logical indices only', () => {
   jest.useFakeTimers();
+  (Haptics.selectionAsync as jest.Mock).mockClear();
   const interaction = jest.fn(),
     change = jest.fn();
   function Harness() {
@@ -403,8 +404,12 @@ it('keeps cyclic momentum active across multiple turns and emits logical indices
     expect(interaction).toHaveBeenLastCalledWith(true);
     act(() => list().props.onScroll(event(middle + 7)));
     expect(change).not.toHaveBeenCalled();
+    expect(Haptics.selectionAsync).toHaveBeenCalledTimes(1);
+    act(() => list().props.onScroll(event(middle + 7)));
+    expect(Haptics.selectionAsync).toHaveBeenCalledTimes(1);
     act(() => list().props.onMomentumScrollEnd(event(middle + 8)));
     expect(change).toHaveBeenLastCalledWith(2);
+    expect(Haptics.selectionAsync).toHaveBeenCalledTimes(2);
     expect(scroll).toHaveBeenLastCalledWith({
       offset: (middle + 2) * height,
       animated: false,

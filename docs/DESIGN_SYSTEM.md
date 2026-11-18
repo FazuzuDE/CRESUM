@@ -2698,8 +2698,10 @@ on iOS/Android with normal platform deceleration for a fast flick. Perspective
 and opacity follow an Animated scroll event on the native driver; web uses its
 supported JS driver. Track cyclic movement in refs and commit the logical draft
 only once it settles, rather than rerendering the language dialog on each row.
-Emit feedback for the changed settled selection, not silent recentering. Extend
-the missing-momentum-event idle fallback on every coast event so a release timer
+Use a light selection haptic when the centered language row changes during drag
+or momentum. Emit one pulse for a skipped span. Row taps and accessibility
+adjustments also get selection feedback. Settling the draft and recentering are
+silent. Extend the missing-momentum-event idle fallback on every coast event so a release timer
 cannot recenter an actively moving wheel. Keep Done blocked until settled.
 
 Cache language options/columns between motion updates. Native name and flag come
