@@ -1,14 +1,39 @@
 # Localization coverage and contribution rules
 
-The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese and Vietnamese. System language
+The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese and Marathi. System language
 appears first and is selected by default. An explicit choice is saved on the
 device. Final web and native acceptance for Russian, German, French,
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese and Vietnamese remain pending in the release eligibility ledger.
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese and Marathi remain pending in the release eligibility ledger.
 
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese and Vietnamese cover the bundled messages and catalogs, including
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese and Marathi cover the bundled messages and catalogs, including
 exercise technique, equipment and built-in plans. Shared plan titles and
 descriptions use the selected locale when the publication supplies it. Older
 publications use their English metadata.
+
+## Marathi — approved 2026-11-18
+
+`mr` adds मराठी with all 1651 bundled messages, 110 catalog labels and 70
+complete technique guides (530 guide messages). Every searchable exercise,
+equipment, attachment and muscle identity has Marathi gym names, everyday
+alternatives or common abbreviations. Composed/decomposed Indic text matches
+without discarding meaningful vowel marks or changing saved names and IDs.
+
+Resolve mr, mr-IN and mr-Deva-IN device tags. The registry automatically adds
+मराठी and its flag to the shared alphabetical cyclic wheel. Keep the effective
+language at opening, staged Done/Cancel choices, inertia and click behavior.
+Manual preferences survive reload and live RTL-to-LTR switching preserves drafts.
+
+Use Marathi one/other plurals, dates and Devanagari number display through Intl.
+Shared numeric inputs now accept Devanagari digits while preserving exact raw
+precision and the existing unambiguous comma/dot decimal contract. Editable
+values use normalized ASCII digits; grouped ambiguous input is still rejected.
+Optional published-plan metadata accepts mr and retains English fallback for
+older publications. Offline workout recovery and immutable identities stay intact.
+
+No SDK/dependency changes. Automated translation, alias, input, formatting,
+preference and direction checks do not certify physical-device or linguistic
+quality. Native Expo Go rendering, keyboards, wheels, accessibility and an
+independent native-speaker review remain pending; acceptance flags stay false.
 
 ## Vietnamese — approved 2026-11-18
 

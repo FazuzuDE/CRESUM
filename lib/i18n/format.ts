@@ -44,6 +44,9 @@ export function normalizeDecimalInput(raw: string): string | null {
 // Normalize editable digits without parsing or rounding an unfinished draft.
 export function normalizeInputDigits(raw: string): string {
   return raw
+    .replace(/[\u0966-\u096f]/g, (digit) =>
+      String(digit.charCodeAt(0) - 0x0966),
+    )
     .replace(/[\uff10-\uff19]/g, (digit) =>
       String(digit.charCodeAt(0) - 0xff10),
     )

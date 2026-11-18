@@ -301,3 +301,28 @@ it('finds Vietnamese names, slang and abbreviations with or without diacritics a
   ).not.toContain('kettlebell-goblet-squat');
   expect(JSON.stringify(exerciseLibrary)).toBe(before);
 });
+
+it('matches Marathi gym names and Roman alternatives across languages while retaining meaningful marks', () => {
+  expect(normalizeSearch('पोटऱ्या')).toBe(
+    normalizeSearch('पोटऱ्या'.normalize('NFD')),
+  );
+  expect(normalizeSearch('काळे')).not.toBe(normalizeSearch('काले'));
+  expect(normalizeSearch('की')).not.toBe(normalizeSearch('क'));
+  expect(ids('बटरफ्लाय मशीन', 'de')).toContain('pec-deck-fly');
+  expect(ids('eka hatane dumbbell row', 'en')).toContain(
+    'one-arm-dumbbell-row',
+  );
+  expect(ids('व्ही हँडल पुलडाउन', 'mr')).toContain(
+    'lat-pulldown-close-neutral-v-handle',
+  );
+  expect(ids('डंबेल आरडीएल', 'ru')).toContain('dumbbell-romanian-deadlift');
+  expect(
+    searchLocalizedExercises({ query: 'बारबेल बेंचप्रेस', muscle: 'calves' }, 'mr'),
+  ).toEqual([]);
+  const goblet = searchLocalizedExercises(
+    { query: 'डंबेल गॉब्लेट स्क्वॉट', equipment: 'dumbbell' },
+    'mr',
+  ).map((x) => x.id);
+  expect(goblet).toContain('goblet-squat');
+  expect(goblet).not.toContain('kettlebell-goblet-squat');
+});

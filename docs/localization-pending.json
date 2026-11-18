@@ -16492,5 +16492,11 @@
     "line": 33,
     "text": "`${localeRegistry[value].flag} ${localeRegistry[value].nativeName}`",
     "context": "TemplateExpression/ArrowFunction/CallExpression/ArrayLiteralExpression/ArrowFunction"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 19,
+    "text": "mr",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
   }
 ]

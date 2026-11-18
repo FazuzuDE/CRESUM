@@ -27,6 +27,7 @@ it('localizes exact entry display without rounding manual precision or reparsing
     'ar',
     'ja',
     'vi',
+    'mr',
   ] as const) {
     expect(formatEntryNumber(locale, '12.1234567890123456789')).toBe(
       locale === 'ar'
@@ -35,7 +36,8 @@ it('localizes exact entry display without rounding manual precision or reparsing
             locale === 'zh-Hans' ||
             locale === 'hi' ||
             locale === 'bn' ||
-            locale === 'ja'
+            locale === 'ja' ||
+            locale === 'mr'
           ? '12.1234567890123456789'
           : '12,1234567890123456789',
     );
@@ -182,4 +184,23 @@ it('formats Vietnamese numbers and dates without rounding exact manual values', 
   expect(formatEntryNumber('vi', '12,')).toBe('12,');
   expect(normalizeDecimalInput('12,50')).toBe('12.50');
   expect(normalizeDecimalInput('1.234,5')).toBeNull();
+});
+
+it('formats Marathi digits, Indian grouping and dates while preserving exact editable precision', () => {
+  expect(formatNumber('mr', 123456.75)).toBe('१,२३,४५६.७५');
+  expect(
+    formatDate('mr', Date.UTC(2026, 10, 18), {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    }),
+  ).toBe('१८ नोव्हेंबर, २०२६');
+  expect(normalizeInputDigits('१२,')).toBe('12,');
+  expect(normalizeDecimalInput('१२.१२३४५६७८९०१२३४५६७८९')).toBe(
+    '12.1234567890123456789',
+  );
+  expect(formatEntryNumber('mr', '१२,५०')).toBe('12.50');
+  expect(formatEntryNumber('mr', '१२,')).toBe('१२,');
+  expect(normalizeDecimalInput('१,२३४.५')).toBeNull();
 });

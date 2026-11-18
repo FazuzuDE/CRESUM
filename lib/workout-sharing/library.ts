@@ -16,6 +16,7 @@ const optionalPublicationLocales = [
   'ar',
   'ja',
   'vi',
+  'mr',
 ] as const;
 const requiredPublicationLocales = ['en', 'ru', 'de', 'fr'] as const;
 type PublishedText = Record<

@@ -128,6 +128,7 @@ function readCatalogs(root) {
       'ar',
       'ja',
       'vi',
+      'mr',
     ].map((locale) => {
       const folder = path.join(root, 'lib/i18n/locales', locale);
       const catalog = {};
@@ -251,6 +252,7 @@ async function main() {
         'ar',
         'ja',
         'vi',
+        'mr',
       ])
         for (const width of [320, 390]) {
           expandedMode = expand;
@@ -1013,7 +1015,8 @@ async function main() {
                 locale === 'zh-Hans' ||
                 locale === 'hi' ||
                 locale === 'bn' ||
-                locale === 'ja'
+                locale === 'ja' ||
+                locale === 'mr'
                   ? '12.5'
                   : '12,5',
               reps: '8',
@@ -1265,7 +1268,8 @@ async function main() {
                     locale === 'zh-Hans' ||
                     locale === 'hi' ||
                     locale === 'bn' ||
-                    locale === 'ja'
+                    locale === 'ja' ||
+                    locale === 'mr'
                       ? '12.5'
                       : '12,5',
                   reps: '10',
@@ -1283,7 +1287,8 @@ async function main() {
                     locale === 'zh-Hans' ||
                     locale === 'hi' ||
                     locale === 'bn' ||
-                    locale === 'ja'
+                    locale === 'ja' ||
+                    locale === 'mr'
                       ? '12.5'
                       : '12,5',
                   reps: '10',

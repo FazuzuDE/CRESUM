@@ -1232,3 +1232,13 @@ music, and avoid a delayed playback queue during fast inertia. Closing the dialo
 cancels pending playback. This updates the previous language-specific no-custom-
 sound decision; bounded UIKit wheels keep their existing native feedback. Device
 sound and smoothness still need physical Expo Go review.
+
+## Marathi locale — approved 2026-11-18
+
+Offer मराठी (`mr`) after merged language-wheel follow-up #295 with complete
+interface, catalog, technique and search content. Resolve device tags and derive
+the language-wheel entry from the registry. Support Devanagari numeric entry
+without rounding raw drafts, native dates/numbers and one/other plural forms.
+Retain live draft-safe direction switching and optional publication metadata with
+English fallback. Physical Expo Go and independent linguistic acceptance remain
+pending. See LOCALIZATION.md.

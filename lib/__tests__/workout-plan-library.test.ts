@@ -214,3 +214,31 @@ test('accepts Vietnamese plan metadata with legacy English fallback and rejects 
       ]),
     ).toThrow();
 });
+
+test('accepts Marathi publication metadata with old English fallback and rejects malformed translations', () => {
+  const [legacy] = parseLibrary([entry]);
+  expect(filterPlans([legacy], 'upper', 'mr')).toEqual([legacy]);
+  const localized = {
+    ...entry,
+    metadata: {
+      ...entry.metadata,
+      title: { ...entry.metadata.title, mr: 'वरच्या शरीराचे प्रशिक्षण' },
+      description: { ...entry.metadata.description, mr: 'डंबेलचा आराखडा' },
+    },
+  };
+  const [plan] = parseLibrary([localized]);
+  expect(filterPlans([plan], 'वरच्या', 'mr')).toEqual([plan]);
+  expect(filterPlans([plan], 'डंबेल', 'mr')).toEqual([plan]);
+  for (const mr of ['', 42, null])
+    expect(() =>
+      parseLibrary([
+        {
+          ...localized,
+          metadata: {
+            ...localized.metadata,
+            title: { ...localized.metadata.title, mr },
+          },
+        },
+      ]),
+    ).toThrow();
+});
