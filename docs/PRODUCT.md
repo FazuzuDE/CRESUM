@@ -1250,3 +1250,11 @@ copy, catalog labels, exercise technique and search alternatives before selectio
 Use the registry-driven shared language wheel, local numbers/dates and optional
 publication metadata with older English fallback. Preserve offline Core, stable
 IDs, history and editor drafts. Independent language/device acceptance stays open.
+
+## Korean localization — approved 2026-11-18
+
+Continue after Indonesian with 한국어: complete interface, catalog labels,
+exercise guides and search alternatives before selection. Reuse the shared
+registry-driven wheel, numeric entry/formatting and publication fallback.
+Preserve offline Core, stable IDs, historical names and unfinished editors.
+Independent language and physical-device acceptance remain pending.

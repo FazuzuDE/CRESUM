@@ -4614,3 +4614,12 @@ for each locale. Indonesian uses the existing registry-driven wheel, decimal
 comma formatting and other plurals. Preserve offline data, exact variants and
 unfinished editors. See LOCALIZATION.md and ROADMAP.md; no automatic merge or
 physical/native-speaker acceptance is implied.
+
+## Korean localization — approved 2026-11-18
+
+After merging Indonesian #297, the owner requested the next approved language:
+Korean. Include all current messages, catalog content, exercise guides and search
+aliases. Use native 한국어 naming, existing Hangul normalization and the shared
+wheel/number-entry contracts without changing stored identities or history.
+Keep independent language/device acceptance pending and merge with the owner.
+Next after Korean: Dutch. See LOCALIZATION.md and ROADMAP.md.

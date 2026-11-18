@@ -106,6 +106,9 @@ it.each([
   ['bn', 'bn'],
   ['bn-BD', 'bn'],
   ['bn-IN', 'bn'],
+  ['ko', 'ko'],
+  ['ko-KR', 'ko'],
+  ['ko-Hang-KR', 'ko'],
   ['id', 'id'],
   ['id-ID', 'id'],
   ['id-Latn-ID', 'id'],
@@ -231,7 +234,7 @@ it('persists Vietnamese independently of device locale and restores it on reload
   });
 });
 
-it.each(['mr', 'id'] as const)(
+it.each(['mr', 'id', 'ko'] as const)(
   'persists %s independently of device language and restores it after reload',
   async (locale) => {
     let saved: string | null = null;

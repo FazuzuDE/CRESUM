@@ -351,3 +351,29 @@ it('finds Indonesian gym terms and abbreviations across languages and preserves 
   expect(goblet).not.toContain('kettlebell-goblet-squat');
   expect(JSON.stringify(exerciseLibrary)).toBe(before);
 });
+
+it('matches Korean gym names, slang and composed/decomposed Hangul across interface languages', () => {
+  const before = JSON.stringify(exerciseLibrary);
+  expect(normalizeSearch('팔굽혀펴기')).toBe(
+    normalizeSearch('팔굽혀펴기'.normalize('NFD')),
+  );
+  expect(normalizeSearch('컬')).not.toBe(normalizeSearch('콜'));
+  for (const query of ['팔굽혀펴기', '팔굽혀펴기'.normalize('NFD')])
+    expect(ids(query, 'de')).toContain('push-up');
+  expect(ids('턱걸이', 'en')).toContain('pull-up');
+  expect(ids('사레레', 'ru')).toContain('dumbbell-lateral-raise');
+  expect(ids('덤벨 RDL', 'ko')).toContain('dumbbell-romanian-deadlift');
+  expect(ids('V바 랫풀다운', 'en')).toContain(
+    'lat-pulldown-close-neutral-v-handle',
+  );
+  expect(
+    searchLocalizedExercises({ query: '바벨 벤치', muscle: 'calves' }, 'ko'),
+  ).toEqual([]);
+  const goblet = searchLocalizedExercises(
+    { query: '덤벨 고블릿스쿼트', equipment: 'dumbbell' },
+    'ko',
+  ).map((x) => x.id);
+  expect(goblet).toContain('goblet-squat');
+  expect(goblet).not.toContain('kettlebell-goblet-squat');
+  expect(JSON.stringify(exerciseLibrary)).toBe(before);
+});

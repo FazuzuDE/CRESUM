@@ -29,6 +29,7 @@ it('localizes exact entry display without rounding manual precision or reparsing
     'vi',
     'mr',
     'id',
+    'ko',
   ] as const) {
     expect(formatEntryNumber(locale, '12.1234567890123456789')).toBe(
       locale === 'ar'
@@ -38,7 +39,8 @@ it('localizes exact entry display without rounding manual precision or reparsing
             locale === 'hi' ||
             locale === 'bn' ||
             locale === 'ja' ||
-            locale === 'mr'
+            locale === 'mr' ||
+            locale === 'ko'
           ? '12.1234567890123456789'
           : '12,1234567890123456789',
     );
@@ -222,4 +224,23 @@ it('formats Indonesian comma decimals and dates without rounding manual input or
   expect(formatEntryNumber('id', '12,')).toBe('12,');
   expect(normalizeDecimalInput('12,50')).toBe('12.50');
   expect(normalizeDecimalInput('1.234,5')).toBeNull();
+});
+
+it('formats Korean decimal points and dates without rounding raw manual values', () => {
+  expect(formatNumber('ko', 1234.5)).toBe('1,234.5');
+  expect(
+    formatDate('ko', Date.UTC(2026, 10, 18), {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    }),
+  ).toBe('2026년 11월 18일');
+  expect(formatEntryNumber('ko', '12.1234567890123456789')).toBe(
+    '12.1234567890123456789',
+  );
+  expect(formatEntryNumber('ko', '12,')).toBe('12,');
+  expect(normalizeDecimalInput('12,50')).toBe('12.50');
+  expect(formatEntryNumber('ko', '１２，５０')).toBe('12.50');
+  expect(normalizeDecimalInput('1,234.5')).toBeNull();
 });

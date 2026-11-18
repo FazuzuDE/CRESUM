@@ -1,14 +1,37 @@
 # Localization coverage and contribution rules
 
-The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi and Indonesian. System language
+The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian and Korean. System language
 appears first and is selected by default. An explicit choice is saved on the
 device. Final web and native acceptance for Russian, German, French,
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi and Indonesian remain pending in the release eligibility ledger.
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian and Korean remain pending in the release eligibility ledger.
 
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi and Indonesian cover the bundled messages and catalogs, including
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian and Korean cover the bundled messages and catalogs, including
 exercise technique, equipment and built-in plans. Shared plan titles and
 descriptions use the selected locale when the publication supplies it. Older
 publications use their English metadata.
+
+## Korean — approved 2026-11-18
+
+`ko` adds 한국어 with all 1651 bundled messages, 110 catalog labels and 70
+complete technique guides (530 guide messages). Every exercise, equipment,
+attachment and muscle has natural Korean gym names, spacing variants and common
+search alternatives/abbreviations. Existing NFC search normalization handles
+composed and decomposed Hangul without rewriting stored text or catalog IDs.
+Initial-consonant search is not introduced or claimed.
+
+Resolve ko, ko-KR and ko-Hang-KR device tags. Native name and flag come from the
+registry-driven cyclic language wheel; retain current/device centering,
+Done/Cancel drafts, inertia, quiet clicks and 10% transparency. Switching from
+Arabic to Korean keeps mounted editors and unfinished values unchanged.
+Korean uses other plural forms, decimal points and local dates through Intl;
+exact manual weights retain precision, and ambiguous grouped input is rejected.
+Optional publication metadata accepts ko and falls back to English for older
+plans. Offline Core, historical snapshots and exact variants remain intact.
+
+No SDK/dependency changes. Physical Expo Go Hangul layout/wrapping, keyboard,
+wheel and screen-reader acceptance, plus independent Korean linguistic review,
+remain pending. Automated contracts do not certify those gates; acceptance flags
+stay false.
 
 ## Indonesian — approved 2026-11-18
 

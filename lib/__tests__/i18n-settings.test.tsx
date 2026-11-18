@@ -49,6 +49,7 @@ it('opens at the effective language, stages wheel choices, and saves only with D
     '🇮🇳  मराठी',
     '🇮🇳  हिन्दी',
     '🇧🇩  বাংলা',
+    '🇰🇷  한국어',
     '🇯🇵  日本語',
     '🇨🇳  简体中文',
   ]);
@@ -88,7 +89,7 @@ it('opens at the effective language, stages wheel choices, and saves only with D
   expect(store.getSnapshot().preference).toBe('system');
   act(() => view!.unmount());
 });
-it.each(['de-DE', 'ja-JP', 'vi-VN', 'mr-IN', 'id-ID'])(
+it.each(['de-DE', 'ja-JP', 'vi-VN', 'mr-IN', 'id-ID', 'ko-KR'])(
   'centers the resolved device language for %s without saving',
   async (tag) => {
     const write = jest.fn(async () => {});
@@ -115,7 +116,9 @@ it.each(['de-DE', 'ja-JP', 'vi-VN', 'mr-IN', 'id-ID'])(
             ? '🇻🇳  Tiếng Việt'
             : tag === 'mr-IN'
               ? '🇮🇳  मराठी'
-              : '🇮🇩  Bahasa Indonesia',
+              : tag === 'id-ID'
+                ? '🇮🇩  Bahasa Indonesia'
+                : '🇰🇷  한국어',
     );
     expect(
       view!.root.findByType(Modal).findAllByType(AppButton)[0].props.selected,
@@ -230,6 +233,11 @@ it('switches live content without remounting a draft or resetting its value', as
     await store.select('id');
   });
   expect(view!.root.findByType(Text).props.children).toBe('Coba lagi');
+  expect(view!.root.findByType(TextInput).props.value).toBe('12,');
+  await act(async () => {
+    await store.select('ko');
+  });
+  expect(view!.root.findByType(Text).props.children).toBe('다시 시도');
   expect(view!.root.findByType(TextInput).props.value).toBe('12,');
   expect(mounts).toBe(1);
   act(() => view!.unmount());

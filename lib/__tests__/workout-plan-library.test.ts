@@ -270,3 +270,31 @@ test('accepts Indonesian publication metadata with English fallback and rejects 
       ]),
     ).toThrow();
 });
+
+test('accepts Korean publication metadata with legacy English fallback and rejects malformed optional text', () => {
+  const [legacy] = parseLibrary([entry]);
+  expect(filterPlans([legacy], 'upper', 'ko')).toEqual([legacy]);
+  const localized = {
+    ...entry,
+    metadata: {
+      ...entry.metadata,
+      title: { ...entry.metadata.title, ko: '상체 운동' },
+      description: { ...entry.metadata.description, ko: '덤벨 계획' },
+    },
+  };
+  const [plan] = parseLibrary([localized]);
+  expect(filterPlans([plan], '상체', 'ko')).toEqual([plan]);
+  expect(filterPlans([plan], '덤벨', 'ko')).toEqual([plan]);
+  for (const ko of ['', 42, null])
+    expect(() =>
+      parseLibrary([
+        {
+          ...localized,
+          metadata: {
+            ...localized.metadata,
+            title: { ...localized.metadata.title, ko },
+          },
+        },
+      ]),
+    ).toThrow();
+});
