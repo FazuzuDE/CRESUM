@@ -15,17 +15,22 @@ import { requireNativeView, requireOptionalNativeModule } from 'expo';
 import * as Haptics from 'expo-haptics';
 import { colors, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
+import { useWheelClick } from './useWheelClick';
 
 type Props = {
   flexible?: boolean;
   cyclic?: boolean;
+  audible?: boolean;
   columns: string[][];
   selected: number[];
   labels: string[];
   onChange: (component: number, row: number) => void;
   onInteractionChange?: (active: boolean) => void;
 };
-type NativeProps = Omit<Props, 'onChange' | 'onInteractionChange' | 'cyclic'> &
+type NativeProps = Omit<
+  Props,
+  'onChange' | 'onInteractionChange' | 'cyclic' | 'audible'
+> &
   ViewProps & {
     selectionRevision: number;
     wheelRowHeight: number;
@@ -49,6 +54,7 @@ export function AppPicker({
   onInteractionChange,
   flexible = false,
   cyclic = false,
+  audible = false,
 }: Props) {
   const [revision, refreshSelection] = useReducer((n: number) => n + 1, 0);
   const [available, setAvailable] = useState<number | null>(null);
@@ -94,6 +100,7 @@ export function AppPicker({
             key={component}
             options={options}
             cyclic={cyclic}
+            audible={audible}
             selected={selected[component] ?? 0}
             label={labels[component]}
             height={height}
@@ -115,6 +122,7 @@ export function AppPicker({
 function WheelColumn({
   options,
   cyclic,
+  audible,
   selected,
   label,
   height,
@@ -125,6 +133,7 @@ function WheelColumn({
 }: {
   options: string[];
   cyclic: boolean;
+  audible: boolean;
   selected: number;
   label: string;
   height: number;
@@ -137,6 +146,7 @@ function WheelColumn({
   // Keep a large virtualized runway in both directions, then silently move back
   // to its middle when scrolling stops. Only logical option indices escape.
   const looping = cyclic && options.length > 1;
+  const click = useWheelClick(cyclic && audible);
   const origin = looping ? options.length * 100 : 0;
   const rows = useMemo(
     () =>
@@ -155,6 +165,7 @@ function WheelColumn({
   const dragging = useRef(false);
   const momentum = useRef(false);
   const settleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const released = useRef(false);
   const signature = JSON.stringify([height, viewport, looping, options]);
   const geometry = useRef(signature);
   const padding = Math.max(0, (viewport - height) / 2);
@@ -172,6 +183,7 @@ function WheelColumn({
     if (last.current !== selected || geometry.current !== signature) {
       geometry.current = signature;
       momentum.current = false;
+      released.current = false;
       last.current = selected;
       dragging.current = false;
       clearSettle();
@@ -211,9 +223,51 @@ function WheelColumn({
     void Haptics.selectionAsync?.().catch(() => {});
     onChange(next);
   };
+  const track = (offset: number) => {
+    const row = Math.max(
+      0,
+      Math.min(rows.length - 1, Math.round(offset / height)),
+    );
+    if (row !== physical.current) click();
+    physical.current = row;
+  };
+  const finish = () => {
+    clearSettle();
+    const userMotion = dragging.current || momentum.current;
+    dragging.current = false;
+    momentum.current = false;
+    released.current = false;
+    if (userMotion) choose(physical.current);
+    recenter();
+    onInteractionChange?.(false);
+  };
+  const waitForIdle = () => {
+    clearSettle();
+    // Some platforms omit momentum callbacks. Every coast event extends the
+    // idle fallback; release alone must never interrupt a moving native wheel.
+    settleTimer.current = setTimeout(finish, 200);
+  };
+  const scroll = Animated.event(
+    [{ nativeEvent: { contentOffset: { y: scrollOffset } } }],
+    // Animated.event only registers this deferred listener (AnimatedEvent.js);
+    // it never invokes the callback or reads these refs during render.
+    // eslint-disable-next-line react-hooks/refs
+    {
+      useNativeDriver: Platform.OS !== 'web',
+      listener: (event: { nativeEvent: { contentOffset: { y: number } } }) => {
+        const offset = event.nativeEvent.contentOffset.y;
+        if (looping) {
+          if (dragging.current || momentum.current) {
+            track(offset);
+            if (released.current) waitForIdle();
+          }
+        } else if (dragging.current) choose(Math.round(offset / height));
+      },
+    },
+  );
   return (
     <View style={{ flex: 1, height: viewport }}>
-      <FlatList
+      <Animated.FlatList
         ref={list}
         data={rows}
         accessible
@@ -236,6 +290,7 @@ function WheelColumn({
           clearSettle();
           dragging.current = false;
           momentum.current = false;
+          if (options.length > 1) click();
           choose(
             physical.current +
               (nativeEvent.actionName === 'increment' ? 1 : -1),
@@ -256,7 +311,7 @@ function WheelColumn({
         })}
         contentContainerStyle={{ paddingVertical: padding }}
         snapToInterval={height}
-        decelerationRate="fast"
+        decelerationRate={looping ? 'normal' : 'fast'}
         showsVerticalScrollIndicator={false}
         scrollEventThrottle={16}
         onScrollBeginDrag={() => {
@@ -264,40 +319,41 @@ function WheelColumn({
           onInteractionChange?.(true);
           dragging.current = true;
           momentum.current = true;
+          released.current = false;
         }}
-        onScroll={({ nativeEvent }) => {
-          scrollOffset.setValue(nativeEvent.contentOffset.y);
-          if (dragging.current)
-            choose(Math.round(nativeEvent.contentOffset.y / height));
-        }}
+        onScroll={scroll}
         onScrollEndDrag={({ nativeEvent }) => {
-          if (dragging.current)
-            choose(Math.round(nativeEvent.contentOffset.y / height));
-          dragging.current = false;
           if (looping) {
-            // Momentum may start just after release; if it doesn't, settle the
-            // drag without leaving Done disabled or exposing a runway edge.
-            clearSettle();
-            settleTimer.current = setTimeout(() => {
-              momentum.current = false;
-              recenter();
-              onInteractionChange?.(false);
-            }, 120);
-          } else onInteractionChange?.(false);
+            track(nativeEvent.contentOffset.y);
+            dragging.current = false;
+            released.current = true;
+            waitForIdle();
+          } else {
+            if (dragging.current)
+              choose(Math.round(nativeEvent.contentOffset.y / height));
+            dragging.current = false;
+            onInteractionChange?.(false);
+          }
         }}
         onMomentumScrollBegin={() => {
           clearSettle();
           if (momentum.current) onInteractionChange?.(true);
-          dragging.current = momentum.current;
+          if (looping && momentum.current) waitForIdle();
+          else if (!looping) dragging.current = momentum.current;
         }}
         onMomentumScrollEnd={({ nativeEvent }) => {
-          clearSettle();
-          if (dragging.current)
-            choose(Math.round(nativeEvent.contentOffset.y / height));
-          dragging.current = false;
-          momentum.current = false;
-          recenter();
-          onInteractionChange?.(false);
+          if (looping) {
+            if (dragging.current || momentum.current)
+              track(nativeEvent.contentOffset.y);
+            finish();
+          } else {
+            clearSettle();
+            if (dragging.current)
+              choose(Math.round(nativeEvent.contentOffset.y / height));
+            dragging.current = false;
+            momentum.current = false;
+            onInteractionChange?.(false);
+          }
         }}
         keyExtractor={(_, i) => String(i)}
         renderItem={({ item, index }) => {
@@ -322,6 +378,7 @@ function WheelColumn({
                 clearSettle();
                 dragging.current = false;
                 momentum.current = false;
+                if (index % options.length !== last.current) click();
                 choose(index);
                 list.current?.scrollToOffset({
                   offset: index * height,

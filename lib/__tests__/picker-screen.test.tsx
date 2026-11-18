@@ -9,6 +9,10 @@ import { HistoryCountWheel } from '../../components/HistoryCountWheel';
 import * as Haptics from 'expo-haptics';
 const { act, create } = jest.requireActual('react-test-renderer');
 jest.mock('expo-haptics', () => ({ selectionAsync: jest.fn(async () => {}) }));
+const mockClick = jest.fn();
+jest.mock('../../components/useWheelClick', () => ({
+  useWheelClick: () => mockClick,
+}));
 jest.mock('expo', () => ({ requireOptionalNativeModule: () => null }));
 jest.mock('react-native-safe-area-context', () => ({
   SafeAreaView: jest.requireActual('react-native').View,
@@ -324,11 +328,13 @@ it('wraps a cyclic wheel in both directions and silently recenters after a drag 
     });
     act(() => list().props.onScrollBeginDrag());
     act(() => list().props.onScroll(event(middle - 1)));
-    expect(change).toHaveBeenLastCalledWith(2);
+    expect(change).not.toHaveBeenCalled();
+    expect(Haptics.selectionAsync).not.toHaveBeenCalled();
     expect(scroll).not.toHaveBeenCalled();
     act(() => list().props.onScrollEndDrag(event(middle - 1)));
     expect(interaction).toHaveBeenLastCalledWith(true);
-    act(() => jest.advanceTimersByTime(120));
+    act(() => jest.advanceTimersByTime(200));
+    expect(change).toHaveBeenLastCalledWith(2);
     expect(scroll).toHaveBeenLastCalledWith({
       offset: (middle + 2) * height,
       animated: false,
@@ -395,7 +401,7 @@ it('keeps cyclic momentum active across multiple turns and emits logical indices
     expect(scroll).not.toHaveBeenCalled();
     expect(interaction).toHaveBeenLastCalledWith(true);
     act(() => list().props.onScroll(event(middle + 7)));
-    expect(change).toHaveBeenLastCalledWith(1);
+    expect(change).not.toHaveBeenCalled();
     act(() => list().props.onMomentumScrollEnd(event(middle + 8)));
     expect(change).toHaveBeenLastCalledWith(2);
     expect(scroll).toHaveBeenLastCalledWith({
@@ -463,6 +469,87 @@ it('keeps ordinary multi-option wheels bounded at their last row', () => {
       }),
     );
     expect(change).not.toHaveBeenCalled();
+  } finally {
+    act(() => view.unmount());
+  }
+});
+
+it('does not cut off coast events when a platform omits momentum callbacks', () => {
+  jest.useFakeTimers();
+  const change = jest.fn(),
+    interaction = jest.fn();
+  let view!: ReturnType<typeof create>;
+  act(() => {
+    view = create(
+      <AppPicker
+        cyclic
+        columns={[['A', 'B', 'C']]}
+        selected={[0]}
+        labels={['Language']}
+        onChange={change}
+        onInteractionChange={interaction}
+      />,
+    );
+  });
+  try {
+    const list = () => view.root.findByType(FlatList);
+    const middle = list().props.initialScrollIndex,
+      height = list().props.snapToInterval;
+    const scroll = jest.spyOn(list().instance, 'scrollToOffset');
+    const event = (row: number) => ({
+      nativeEvent: { contentOffset: { y: row * height } },
+    });
+    expect(list().props.decelerationRate).toBe('normal');
+    act(() => list().props.onScrollBeginDrag());
+    act(() => list().props.onScrollEndDrag(event(middle + 1)));
+    for (let row = 2; row <= 8; row++) {
+      act(() => jest.advanceTimersByTime(150));
+      act(() => list().props.onScroll(event(middle + row)));
+      expect(scroll).not.toHaveBeenCalled();
+      expect(change).not.toHaveBeenCalled();
+      expect(interaction).toHaveBeenLastCalledWith(true);
+    }
+    act(() => jest.advanceTimersByTime(200));
+    expect(change).toHaveBeenCalledTimes(1);
+    expect(change).toHaveBeenCalledWith(0, 2);
+    expect(interaction).toHaveBeenLastCalledWith(false);
+  } finally {
+    act(() => view.unmount());
+    jest.useRealTimers();
+  }
+});
+
+it('clicks on user-crossed language rows but not mount, repeated offsets or silent recentering', () => {
+  mockClick.mockClear();
+  let view!: ReturnType<typeof create>;
+  act(() => {
+    view = create(
+      <AppPicker
+        cyclic
+        audible
+        columns={[['A', 'B', 'C']]}
+        selected={[0]}
+        labels={['Language']}
+        onChange={() => {}}
+      />,
+    );
+  });
+  try {
+    const list = view.root.findByType(FlatList);
+    const middle = list.props.initialScrollIndex,
+      height = list.props.snapToInterval;
+    const event = {
+      nativeEvent: { contentOffset: { y: (middle + 1) * height } },
+    };
+    expect(mockClick).not.toHaveBeenCalled();
+    act(() => list.props.onScrollBeginDrag());
+    act(() => list.props.onScroll(event));
+    act(() => list.props.onScroll(event));
+    expect(mockClick).toHaveBeenCalledTimes(1);
+    act(() => list.props.onScrollEndDrag(event));
+    act(() => list.props.onMomentumScrollEnd(event));
+    act(() => list.props.onScroll(event));
+    expect(mockClick).toHaveBeenCalledTimes(1);
   } finally {
     act(() => view.unmount());
   }

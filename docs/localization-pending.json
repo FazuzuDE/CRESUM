@@ -16474,5 +16474,23 @@
     "line": 18,
     "text": "vi",
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+  },
+  {
+    "file": "components/AppPicker.tsx",
+    "line": 301,
+    "text": "normal",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:decelerationRate/JsxAttributes"
+  },
+  {
+    "file": "components/AppPicker.tsx",
+    "line": 301,
+    "text": "fast",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:decelerationRate/JsxAttributes"
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 33,
+    "text": "`${localeRegistry[value].flag} ${localeRegistry[value].nativeName}`",
+    "context": "TemplateExpression/ArrowFunction/CallExpression/ArrayLiteralExpression/ArrowFunction"
   }
 ]

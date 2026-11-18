@@ -1,5 +1,5 @@
 import { LocalizedText as Text } from '@/components/LayoutDirection';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { StyleSheet, View, useWindowDimensions } from 'react-native';
 import { GlassDialog } from './GlassDialog';
 import { AppPicker } from './AppPicker';
@@ -7,24 +7,6 @@ import { useLocalization } from './LocalizationProvider';
 import { AppButton } from './AppButton';
 import { localeRegistry, type LanguagePreference } from '@/lib/i18n/registry';
 import { colors, spacing, typography } from '@/lib/theme';
-const flags = {
-  en: '🇬🇧',
-  ru: '🇷🇺',
-  de: '🇩🇪',
-  fr: '🇫🇷',
-  uk: '🇺🇦',
-  es: '🇪🇸',
-  'pt-BR': '🇧🇷',
-  it: '🇮🇹',
-  pl: '🇵🇱',
-  tr: '🇹🇷',
-  hi: '🇮🇳',
-  bn: '🇧🇩',
-  ar: '🇸🇦',
-  ja: '🇯🇵',
-  vi: '🇻🇳',
-  'zh-Hans': '🇨🇳',
-};
 
 export function LanguageSettings({ compact = false }: { compact?: boolean }) {
   const [open, setOpen] = useState(false);
@@ -34,11 +16,24 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
     useLocalization();
   const systemLocale = store?.getSystemLocale() ?? locale;
   const { height } = useWindowDimensions();
-  const options = [...(store?.enabledLocales ?? [])].sort((a, b) =>
-    localeRegistry[a].nativeName.localeCompare(
-      localeRegistry[b].nativeName,
-      'en',
-    ),
+  const options = useMemo(
+    () =>
+      [...(store?.enabledLocales ?? [])].sort((a, b) =>
+        localeRegistry[a].nativeName.localeCompare(
+          localeRegistry[b].nativeName,
+          'en',
+        ),
+      ),
+    [store?.enabledLocales],
+  );
+  const columns = useMemo(
+    () => [
+      options.map(
+        (value) =>
+          `${localeRegistry[value].flag}  ${localeRegistry[value].nativeName}`,
+      ),
+    ],
+    [options],
   );
   const choose = async () => {
     if (saving || interacting || !select) return;
@@ -50,7 +45,7 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
   return (
     <View style={[s.root, compact && s.compact]}>
       <AppButton
-        title={compact ? flags[locale] : t('language.title')}
+        title={compact ? localeRegistry[locale].flag : t('language.title')}
         accessibilityLabel={t('language.title')}
         secondary
         presentation={compact ? 'text' : 'row'}
@@ -84,12 +79,8 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
             <AppPicker
               flexible
               cyclic
-              columns={[
-                options.map(
-                  (value) =>
-                    `${flags[value]}  ${localeRegistry[value].nativeName}`,
-                ),
-              ]}
+              audible
+              columns={columns}
               labels={[t('language.title')]}
               selected={[
                 Math.max(

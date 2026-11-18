@@ -2663,7 +2663,8 @@ existing supported-language fallback). Selecting System also centers that langua
 without saving until Done. Wheel changes are a draft: Done saves, Cancel/backdrop
 dismissal discards. System selection can be toggled off to use its resolved
 language manually. This supersedes the earlier first-alphabetical opening rule. Use shared wheel feedback,
-without a separate synthetic scrolling sound. Keep actions inside the dialog.
+Keep actions inside the dialog. The later language-only click update below
+supersedes the original no-custom-scrolling-sound rule.
 
 Update approved 2026-11-18: the language wheel loops in both directions. The
 alphabetical sequence repeats after the last language and before the first,
@@ -2690,3 +2691,39 @@ values in mixed Arabic/Latin text without rewriting stored content. Numeric/emai
 input uses a stable LTR text flow. Preserve existing theme tokens and touch targets.
 Do not call forceRTL or reload the app when changing languages. Native visual and
 accessibility acceptance remains separate from renderer/browser checks.
+
+## Language-wheel momentum — approved 2026-11-18
+
+After physical-device feedback on #294, keep cyclic language motion native-driven
+on iOS/Android with normal platform deceleration for a fast flick. Perspective
+and opacity follow an Animated scroll event on the native driver; web uses its
+supported JS driver. Track cyclic movement in refs and commit the logical draft
+only once it settles, rather than rerendering the language dialog on each row.
+Emit feedback for the changed settled selection, not silent recentering. Extend
+the missing-momentum-event idle fallback on every coast event so a release timer
+cannot recenter an actively moving wheel. Keep Done blocked until settled.
+
+Cache language options/columns between motion updates. Native name and flag come
+from the locale registry, with no separate language-menu list. Newly integrated
+locales appear in alphabetical order automatically; translation/search coverage
+requirements still apply before exposing them. Keep the 10% dialog transparency,
+System behavior, selection lines and ordinary wheel bounds. Native scroll feel
+and screen-reader behavior still require phone review after these changes.
+
+## Language-wheel clicks — approved 2026-11-18
+
+User requested quiet iOS-style clicks during language scrolling. This supersedes
+the earlier ban on a separate synthetic language-wheel click: opt the language
+wheel into the existing bundled 35 ms tick through public expo-audio APIs. Do not
+claim it is UIKit's system sound. Keep the native UIKit adapter's own feedback
+for bounded wheels, without adding a second sound there.
+
+Play on changed user-crossed rows (one tick for a skipped span), deliberate row
+taps and accessible adjustment. Never click on mount, unchanged offsets, prop
+synchronization or silent recentering. Throttle to at most one request per 50 ms
+and drop requests while seeking, rather than queue delayed playback. Use quiet
+volume, respect silent mode and mix with music without ducking it. Playback is
+foreground-only; closing the dialog releases the player and invalidates pending
+seeks. Feedback errors must not block selection/dismissal. No extra switch or
+new application copy is introduced. Physical sound/mute/routing and scroll-feel
+acceptance remain pending on Expo Go.

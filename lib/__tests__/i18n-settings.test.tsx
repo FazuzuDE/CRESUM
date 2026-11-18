@@ -5,6 +5,7 @@ import {
   useLocalization,
 } from '../../components/LocalizationProvider';
 import { LocaleStore } from '../i18n/preference-store';
+import { localeRegistry } from '../i18n/registry';
 import { LanguageSettings } from '../../components/LanguageSettings';
 import { AppPicker } from '../../components/AppPicker';
 import { GlassMaterial } from '../../components/GlassMaterial';
@@ -227,11 +228,15 @@ it('keeps a cyclic language draft unsaved until motion settles and Done is press
       },
     };
     const done = () => view.root.findByType(Modal).findAllByType(AppButton)[2];
+    const columnsBeforeDrag = view.root.findByType(AppPicker).props.columns;
     act(() => {
       list().props.onScrollBeginDrag();
       list().props.onScroll(event);
     });
     expect(done().props.disabled).toBe(true);
+    expect(view.root.findByType(AppPicker).props.columns).toBe(
+      columnsBeforeDrag,
+    );
     expect(write).not.toHaveBeenCalled();
     act(() => {
       list().props.onScrollEndDrag(event);
@@ -245,5 +250,42 @@ it('keeps a cyclic language draft unsaved until motion settles and Done is press
     expect(write).toHaveBeenCalledTimes(1);
   } finally {
     act(() => view.unmount());
+  }
+});
+
+it('automatically lists a newly registered language and its registry flag without a separate menu entry', async () => {
+  Object.defineProperty(localeRegistry, 'zz', {
+    configurable: true,
+    enumerable: true,
+    value: {
+      nativeName: 'Test Language',
+      flag: '🏳️',
+      direction: 'ltr',
+      released: false,
+    },
+  });
+  let view: ReturnType<typeof create> | undefined;
+  try {
+    const store = new LocaleStore(
+      { getItem: async () => null, setItem: async () => {} },
+      () => ['en'],
+    );
+    await act(async () => {
+      view = create(
+        <LocalizationProvider store={store}>
+          <LanguageSettings />
+        </LocalizationProvider>,
+      );
+    });
+    act(() => view!.root.findByType(AppButton).props.onPress());
+    const items = view!.root.findByType(AppPicker).props.columns[0];
+    expect(items).toContain('🏳️  Test Language');
+    expect(items.indexOf('🏳️  Test Language')).toBeLessThan(
+      items.indexOf('🇻🇳  Tiếng Việt'),
+    );
+    expect(items).toHaveLength(Object.keys(localeRegistry).length);
+  } finally {
+    if (view) act(() => view.unmount());
+    delete (localeRegistry as Record<string, unknown>).zz;
   }
 });

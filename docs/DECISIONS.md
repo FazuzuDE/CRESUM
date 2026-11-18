@@ -4575,3 +4575,23 @@ System outside the wheel and Done/Cancel draft behavior. Use 10% transparency
 (90% opacity) for this dialog, superseding the language-only 30% setting. Respect
 Reduce Transparency. Other wheels retain their bounded ranges and current dialog
 settings. See DESIGN_SYSTEM.md and PRODUCT.md; native acceptance stays pending.
+
+## Language-wheel lag and inertia follow-up — approved 2026-11-18
+
+User reported uneven/laggy scrolling after #294 and requested longer inertia on
+sharp swipes plus automatic language entries. Use native-driven wheel visuals,
+normal cyclic deceleration and one settled draft update instead of per-row React
+updates. The idle fallback follows actual coast events. Consolidate language
+flags/names in the locale registry; cache menu options and derive every entry
+from enabled locales. Preserve 10% transparency and draft confirmation. Automated
+checks do not certify physical-device scroll performance. See DESIGN_SYSTEM.md.
+
+## iOS-style language-wheel clicks — approved 2026-11-18
+
+During the momentum follow-up, user additionally requested clicks while scrolling.
+Enable quiet foreground feedback on the language wheel using the existing bundled
+tick and public expo-audio API. Respect silent mode and mix with music; throttle
+and drop stale/busy requests. No sound on mount, silent synchronization/recentering
+or after dismissal. This supersedes the earlier language-only no-synthetic-click
+rule. Do not present the bundled effect as UIKit's actual system sound. Physical
+sound/mute/routing acceptance remains pending.
