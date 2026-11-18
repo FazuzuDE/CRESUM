@@ -1,5 +1,6 @@
 import {
   normalizeDecimalInput,
+  normalizeInputDigits,
   formatNumber,
   formatDate,
   formatEntryNumber,
@@ -24,6 +25,7 @@ it('localizes exact entry display without rounding manual precision or reparsing
     'hi',
     'bn',
     'ar',
+    'ja',
   ] as const) {
     expect(formatEntryNumber(locale, '12.1234567890123456789')).toBe(
       locale === 'ar'
@@ -31,7 +33,8 @@ it('localizes exact entry display without rounding manual precision or reparsing
         : locale === 'en' ||
             locale === 'zh-Hans' ||
             locale === 'hi' ||
-            locale === 'bn'
+            locale === 'bn' ||
+            locale === 'ja'
           ? '12.1234567890123456789'
           : '12,1234567890123456789',
     );
@@ -44,6 +47,7 @@ it('normalizes one decimal separator without accepting grouping or ambiguous inp
   expect(
     ['1,234.5', '1 234', '1e3', 'Infinity', '12,', '-1', ''].map(
       normalizeDecimalInput,
+      normalizeInputDigits,
     ),
   ).toEqual(Array(7).fill(null));
 });
@@ -133,4 +137,30 @@ it('accepts Arabic editable digits and decimals without grouping, ambiguity or p
   );
   expect(formatNumber('ar', 1234.5)).toBe('١٬٢٣٤٫٥');
   expect(formatEntryNumber('ar', '12٫')).toBe('12٫');
+});
+
+it('handles Japanese dates, grouping and fullwidth numeric keyboard drafts without rounding', () => {
+  expect(formatNumber('ja', 1234.5)).toBe('1,234.5');
+  expect(
+    formatDate('ja', Date.UTC(2026, 10, 18), {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    }),
+  ).toBe('2026年11月18日');
+  expect(normalizeInputDigits('１２，')).toBe('12,');
+  expect(normalizeInputDigits('１２．')).toBe('12.');
+  expect(
+    normalizeDecimalInput('１２．１２３４５６７８９０１２３４５６７８９'),
+  ).toBe('12.1234567890123456789');
+  expect(formatEntryNumber('ja', '００１２，５０')).toBe('0012.50');
+  for (const invalid of [
+    '１，２３４．５',
+    '１２．',
+    '－１',
+    '１ｅ３',
+    '１２・５',
+  ])
+    expect(normalizeDecimalInput(invalid)).toBeNull();
 });

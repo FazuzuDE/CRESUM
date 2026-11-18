@@ -1,0 +1,143 @@
+export default {
+  'onboarding.decimalPart': '小数部分',
+  'onboarding.welcomeTagline': 'ワークアウトをひとつの場所に。',
+  'onboarding.bodyOptionalHelp':
+    '必要な情報だけ追加してください。プロフィールで編集できます。',
+  'onboarding.skipForNow': '今はスキップ',
+  'onboarding.heightLabel': '身長',
+  'onboarding.weightLabel': '体重',
+  'onboarding.select': '選択',
+  'onboarding.cm': 'cm',
+  'onboarding.kg': 'kg',
+  'onboarding.startPath': 'どのように始めますか？',
+  'onboarding.findProgram': 'プログラムを探す',
+  'onboarding.findProgramHelp': '目標を選んで、最初のプランを作成します。',
+  'onboarding.startOwn': '自分で始める',
+  'onboarding.startOwnHelp': 'そのままホームに進みます。',
+  'onboarding.goalQuestion': 'トレーニングの目標は何ですか？',
+  'onboarding.loseWeight': '体重を減らす',
+  'onboarding.strengthPlan': '筋力向上プラン',
+  'onboarding.trainingPlan': 'トレーニングプラン',
+  'onboarding.weeklySchedule': '週間スケジュール',
+  'onboarding.workoutIndex': 'ワークアウト{{index, number}}',
+  'onboarding.begin': '始める',
+  'onboarding.weeklyCount': {
+    other: '週{{count, number}}回のワークアウト',
+  },
+  'onboarding.workoutSaved':
+    'ワークアウトは保存されました。初期設定の状態を保存できませんでした。',
+  'onboarding.firstWorkout': '最初のワークアウト',
+  'onboarding.firstWorkoutHelp':
+    '後で開始・編集できるワークアウトを作りましょう。予定の値は完了済みのセットではありません。',
+  'onboarding.welcome': 'CRESUMへようこそ',
+  'onboarding.intro':
+    '鍛える。記録する。成長する。ここから一歩を踏み出しましょう。',
+  'onboarding.nameQuestion': 'お名前を教えてください',
+  'onboarding.name': 'お名前',
+  'onboarding.continue': '続ける',
+  'onboarding.next': '次へ',
+  'onboarding.goal': 'トレーニングの目標',
+  'onboarding.goalHelp': '何を重視したいですか？',
+  'onboarding.muscle': '筋肉をつける',
+  'onboarding.strength': '筋力を高める',
+  'onboarding.fitness': '総合的な体力づくり',
+  'onboarding.manual': '自分でワークアウトを設定',
+  'onboarding.experience': 'トレーニング経験',
+  'onboarding.experienceHelp': '最も近いものを選んでください。',
+  'onboarding.beginner': '初心者',
+  'onboarding.some': '少し経験あり',
+  'onboarding.experienced': '経験者',
+  'onboarding.body': '身体の情報',
+  'onboarding.bodyHelp':
+    'プロフィール用の任意の情報です。使用重量を決めるものではありません。',
+  'onboarding.optional': '{{label}}・任意',
+  'onboarding.birth': '生年月日',
+  'onboarding.chooseDate': '日付を選択',
+  'onboarding.height': '身長（cm）',
+  'onboarding.weight': '体重（kg）',
+  'onboarding.notProvided': '未入力',
+  'onboarding.skipBody': '身体の情報なしで続ける',
+  'onboarding.ready': '始める準備ができました',
+  'onboarding.review': 'プログラムを確認',
+  'onboarding.summary': {
+    other: '週{{count, number}}回の筋力トレーニング・ジム・{{date}}開始',
+  },
+  'onboarding.attribution':
+    'ACSM、NSCA、ACE、HSS、NHSの公開プログラムと指針をCRESUMが調整したものです。使用重量は手動で選びます。予定の値は完了したセットとして集計されません。',
+  'onboarding.hideProgram': 'プログラム全体を非表示',
+  'onboarding.viewProgram': 'プログラム全体を表示',
+  'onboarding.week': '第{{index, number}}週：{{schedule}}',
+  'onboarding.slot': '{{key}}・{{date}}',
+  'onboarding.day': '{{key}}・{{name}}',
+  'onboarding.movement':
+    '{{name}}・{{sets, number}} × {{min, number}}〜{{max, number}}回・休憩{{restMin, number}}〜{{restMax, number}}秒',
+  'onboarding.movementPerSide':
+    '{{name}}・{{sets, number}} × 片側{{min, number}}〜{{max, number}}回・休憩{{restMin, number}}〜{{restMax, number}}秒',
+  'onboarding.warmup':
+    'ウォームアップは別に行ってください。あと2〜3回できる余力が残る重量を使いましょう。上限の回数を安定してできたら手動で調整してください。重量は自動では増えません。',
+  'onboarding.cardio':
+    'ウォーキングやサイクリング：中強度の運動を週150分まで徐々に増やすことを目安に、無理のない10〜15分から始めてください。有酸素運動の案内は筋力トレーニングの記録とは別です。',
+  'onboarding.hideSchedule': 'スケジュールの設定を閉じる',
+  'onboarding.schedule': 'スケジュールの設定',
+  'onboarding.startDateValue': '開始日・{{date}}',
+  'onboarding.startDate': '開始日',
+  'onboarding.frequency': '週のワークアウト回数',
+  'onboarding.workouts': {
+    other: 'ワークアウト{{count, number}}回',
+  },
+  'onboarding.frequencyHelp':
+    'この目標と経験に対応する確認済みプログラムがあるのは推奨頻度だけです。他の頻度では手動で設定します。',
+  'onboarding.sessionDay':
+    'セッション{{index, number}}・プランの週の何日目か（1〜7）',
+  'onboarding.sessionDayLabel': 'セッション{{index, number}}のプラン週内の日',
+  'onboarding.reduced': '初回：各種目1セット',
+  'onboarding.reduce': '初めての方：初回を1セットに減らす',
+  'onboarding.retryStart': '開始を再試行！',
+  'onboarding.saving': 'プログラムを保存中…',
+  'onboarding.start': 'スタート！',
+  'onboarding.openSaved': '保存済みのワークアウトを開く',
+  'onboarding.back': '戻る',
+  'onboarding.backProfile': 'プロフィールに戻る',
+  'onboarding.missing': '必要な種目を利用できません：{{exercises}}',
+  'onboarding.retry': '初期設定を再試行',
+  'onboarding.bypass': 'アプリに進む',
+  'onboarding.loading': 'ワークアウトを読み込み中…',
+  'onboarding.savedUnavailable':
+    '保存済みのワークアウトを利用できません。上で再試行してください。',
+  'program.day.F': '全身',
+  'program.day.U': '上半身',
+  'program.day.L': '下半身',
+  'program.day.A': '筋力A',
+  'program.day.B': '筋力B',
+  'program.day.C': '筋力C',
+  'program.day.D': '筋力D',
+  'program.day.E': '筋力E',
+  'program.day.G': '体力G',
+  'program.day.H': '体力H',
+  'error.nameRequired': '続けるには名前を入力してください。',
+  'error.birthDate': '有効な生年月日を入力するか、空欄にしてください。',
+  'error.height': '有効な身長を入力するか、空欄にしてください。',
+  'error.bodyWeight': '有効な体重を入力するか、空欄にしてください。',
+  'error.age': '有効な年齢を入力するか、空欄にしてください。',
+  'error.under18':
+    '18歳未満の方には成人向けの初級プログラムを提供していません。手動でワークアウトを設定できます。',
+  'error.programFrequency':
+    'この頻度に対応する確認済みプログラムがありません。推奨頻度を使うか、手動で設定してください。',
+  'error.programMissing':
+    '必要な種目を利用できません。プログラムを確認するか、手動で設定してください。',
+  'error.programSelection': '目標と経験を選んでプログラムを作成してください。',
+  'error.programProposal':
+    'プログラムの提案を利用できません。必要なすべての種目と日付を確認してください。',
+  'error.programSchedule':
+    '予定する各セッションの日付を選んでください。別の頻度には確認済みプログラムが必要です。',
+  'error.programRest':
+    '全身のセッションの間には少なくとも1日の休養を入れてください。',
+  'error.programSplitRest':
+    '上半身・下半身の同じセッションを繰り返す間には回復の時間を取ってください。',
+  'error.programSave':
+    'プログラムを保存できませんでした。再試行してください。ワークアウトは安全です。',
+  'error.onboardingLoad':
+    '保存済みの初期設定を利用できません。再試行するかアプリに進んでください。ワークアウトは安全です。',
+  'error.onboardingSave':
+    '初期設定の進行状況を保存できませんでした。アプリを閉じる前に再試行してください。',
+} as const;

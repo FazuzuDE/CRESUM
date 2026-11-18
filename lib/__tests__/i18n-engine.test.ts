@@ -32,6 +32,11 @@ it('supports Russian plurals when the runtime has no native Intl.PluralRules', (
       expect(create('hi')('history.completedSets', { count: 2 })).toBe(
         '2 पूरे किए सेट',
       );
+      expect(
+        [0, 1, 2, 1.5].map((count) =>
+          create('ja')('common.setCount', { count }),
+        ),
+      ).toEqual(['0セット', '1セット', '2セット', '1.5セット']);
       const arabic = create('ar', {
         'common.setCount': {
           zero: 'zero {{count}}',
@@ -213,4 +218,12 @@ it('selects all six Arabic count categories and isolates mixed-direction paramet
   const name = 'My Plan 12';
   expect(t('common.named', { name })).toBe(`\u2068${name}\u2069`);
   expect(name).toBe('My Plan 12');
+});
+
+it('uses Japanese other forms and preserves literal personal names', () => {
+  const t = createTranslator('ja');
+  expect(
+    [0, 1, 2, 1.5].map((count) => t('common.setCount', { count })),
+  ).toEqual(['0セット', '1セット', '2セット', '1.5セット']);
+  expect(t('common.named', { name: 'ﾀﾅｶ Ａ１２' })).toBe('ﾀﾅｶ Ａ１２');
 });

@@ -22,6 +22,11 @@ const label = (locale: AppLocale, key: string): string => {
 export function normalizeSearch(value: string): string {
   return (
     value
+      // Fold width only for ASCII/kana in search; never rewrite stored text.
+      .replace(/[\uff01-\uff9f]+/gu, (span) => span.normalize('NFKC'))
+      .replace(/[\u30a1-\u30f6]/gu, (kana) =>
+        String.fromCharCode(kana.charCodeAt(0) - 0x60),
+      )
       .toLowerCase()
       .replace(/ß/g, 'ss')
       .replace(/ł/g, 'l')
@@ -87,6 +92,11 @@ function forms(value: string): string[] {
   // Also accept German keyboard spellings such as Bankdruecken.
   const german = normalizeSearch(
     value
+      // Fold width only for ASCII/kana in search; never rewrite stored text.
+      .replace(/[\uff01-\uff9f]+/gu, (span) => span.normalize('NFKC'))
+      .replace(/[\u30a1-\u30f6]/gu, (kana) =>
+        String.fromCharCode(kana.charCodeAt(0) - 0x60),
+      )
       .toLowerCase()
       .replace(/ä/g, 'ae')
       .replace(/ö/g, 'oe')

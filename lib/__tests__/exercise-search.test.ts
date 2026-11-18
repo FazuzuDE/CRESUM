@@ -227,3 +227,40 @@ it('finds Arabic gym names across interface languages and folds Arabic spelling 
   expect(normalizeSearch('أَمَامِيّ')).toBe(normalizeSearch('امامي'));
   expect(normalizeSearch('की')).not.toBe(normalizeSearch('क'));
 });
+
+it('matches Japanese kana and width variants across UI languages without erasing voicing', () => {
+  for (const query of [
+    'ベンチプレス',
+    'べんちぷれす',
+    'ﾍﾞﾝﾁﾌﾟﾚｽ',
+    'ベンチプレス'.normalize('NFD'),
+  ]) {
+    expect(ids(query, 'de')).toContain('barbell-bench-press');
+    expect(normalizeSearch(query)).toBe(normalizeSearch('ベンチプレス'));
+  }
+  expect(normalizeSearch('ＥＺバーカール')).toBe(
+    normalizeSearch('ezばーかーる'),
+  );
+  expect(normalizeSearch('カール')).not.toBe(normalizeSearch('ガール'));
+  expect(normalizeSearch('ハ')).not.toBe(normalizeSearch('パ'));
+  expect(ids('ワンハンドロー', 'en')).toContain('one-arm-dumbbell-row');
+  expect(ids('Vバープルダウン', 'ru')).toContain(
+    'lat-pulldown-close-neutral-v-handle',
+  );
+  expect(ids('内ももマシン', 'ja')).toContain('machine-hip-adduction');
+  expect(
+    searchLocalizedExercises({ query: 'べんちぷれす', muscle: 'calves' }, 'ja'),
+  ).toEqual([]);
+  expect(
+    searchLocalizedExercises(
+      { query: 'ダンベルゴブレットスクワット', equipment: 'dumbbell' },
+      'ja',
+    ).map((x) => x.id),
+  ).toContain('goblet-squat');
+  expect(
+    searchLocalizedExercises(
+      { query: 'ダンベルゴブレットスクワット', equipment: 'dumbbell' },
+      'ja',
+    ).map((x) => x.id),
+  ).not.toContain('kettlebell-goblet-squat');
+});

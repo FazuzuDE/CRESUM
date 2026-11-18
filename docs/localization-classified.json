@@ -11845,5 +11845,13 @@
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList",
     "kind": "internal",
     "reason": "Native keyboard/input-mode enum or locale identifier; not displayed as untranslated application copy."
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 17,
+    "text": "ja",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList",
+    "kind": "internal",
+    "reason": "Optional publication locale identifier; localized metadata is selected separately."
   }
 ]
