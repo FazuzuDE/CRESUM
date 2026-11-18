@@ -34,12 +34,16 @@ it('mirrors logical labels and arrows but preserves centering, vertical icons an
     normalizedEntry({ weight: '١٢٫٥٠', reps: '٨', otherSideReps: '٩' }),
   ).toEqual({ weight: '12.50', reps: '8', otherSideReps: '9' });
   expect(parseBodyWeight('٨٢٫١٢٥')).toBe(82.125);
+  expect(parseBodyWeight('८२.१२५')).toBe(82.125);
+  expect(
+    normalizedEntry({ weight: '१२.५०', reps: '८', otherSideReps: '९' }),
+  ).toEqual({ weight: '12.50', reps: '8', otherSideReps: '9' });
   expect(
     normalizedEntry({ weight: '１２．５０', reps: '８', otherSideReps: '９' }),
   ).toEqual({ weight: '12.50', reps: '8', otherSideReps: '9' });
 });
 
-it.each(['ja', 'vi'] as const)(
+it.each(['ja', 'vi', 'mr'] as const)(
   'switches live RTL to %s including modal roots without remounting or rewriting an unfinished draft',
   async (locale) => {
     const store = new LocaleStore(

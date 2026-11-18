@@ -42,6 +42,11 @@ it('supports Russian plurals when the runtime has no native Intl.PluralRules', (
           create('vi')('common.setCount', { count }),
         ),
       ).toEqual(['0 hiệp', '1 hiệp', '2 hiệp', '1,5 hiệp']);
+      expect(
+        [0, 1, 2, 1.5].map((count) =>
+          create('mr')('common.setCount', { count }),
+        ),
+      ).toEqual(['० सेट', '१ सेट', '२ सेट', '१.५ सेट']);
       const arabic = create('ar', {
         'common.setCount': {
           zero: 'zero {{count}}',
@@ -239,4 +244,14 @@ it('uses Vietnamese other forms with decimal commas while preserving personal te
     [0, 1, 2, 1.5].map((count) => t('common.setCount', { count })),
   ).toEqual(['0 hiệp', '1 hiệp', '2 hiệp', '1,5 hiệp']);
   expect(t('common.named', { name: 'Đặng Thị Ánh' })).toBe('Đặng Thị Ánh');
+});
+
+it('uses Marathi one/other categories and leaves personal names unchanged', () => {
+  const t = createTranslator('mr');
+  expect(
+    [0, 1, 2, 1.5].map((count) => t('common.setCount', { count })),
+  ).toEqual(['० सेट', '१ सेट', '२ सेट', '१.५ सेट']);
+  expect(t('profile.saved', { count: 1 })).toBe('1 जतन केलेले सत्र');
+  expect(t('profile.saved', { count: 2 })).toBe('2 जतन केलेली सत्रे');
+  expect(t('common.named', { name: 'श्रद्धा काळे' })).toBe('श्रद्धा काळे');
 });

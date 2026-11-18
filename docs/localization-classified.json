@@ -11885,5 +11885,13 @@
     "context": "TemplateExpression/ArrowFunction/CallExpression/ArrayLiteralExpression/ArrowFunction",
     "kind": "canonical",
     "reason": "Native language names and flags from the live locale registry; intentionally not translated."
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 19,
+    "text": "mr",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList",
+    "kind": "internal",
+    "reason": "Optional publication locale identifier; localized metadata is selected separately."
   }
 ]

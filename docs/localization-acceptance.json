@@ -62,5 +62,9 @@
   "vi": {
     "web": false,
     "native": false
+  },
+  "mr": {
+    "web": false,
+    "native": false
   }
 }

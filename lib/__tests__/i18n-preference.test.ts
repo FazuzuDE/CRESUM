@@ -106,6 +106,9 @@ it.each([
   ['bn', 'bn'],
   ['bn-BD', 'bn'],
   ['bn-IN', 'bn'],
+  ['mr', 'mr'],
+  ['mr-IN', 'mr'],
+  ['mr-Deva-IN', 'mr'],
   ['vi', 'vi'],
   ['vi-VN', 'vi'],
   ['vi-Latn-VN', 'vi'],
@@ -222,5 +225,24 @@ it('persists Vietnamese independently of device locale and restores it on reload
   expect(restored.getSnapshot()).toMatchObject({
     preference: 'vi',
     locale: 'vi',
+  });
+});
+
+it('persists Marathi independently of device language and restores it after reload', async () => {
+  let saved: string | null = null;
+  const storage = {
+    getItem: async () => saved,
+    setItem: async (_key: string, value: string) => {
+      saved = value;
+    },
+  };
+  const first = new LocaleStore(storage, () => ['ar-SA']);
+  await first.load();
+  expect(await first.select('mr')).toBe(true);
+  const restored = new LocaleStore(storage, () => ['de-DE']);
+  await restored.load();
+  expect(restored.getSnapshot()).toMatchObject({
+    preference: 'mr',
+    locale: 'mr',
   });
 });

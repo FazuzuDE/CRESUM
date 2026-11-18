@@ -16,6 +16,7 @@ import bn from './bn';
 import ar from './ar';
 import ja from './ja';
 import vi from './vi';
+import mr from './mr';
 
 export const searchAliases: Record<AppLocale, SearchAliasCatalog> = {
   hi,
@@ -23,6 +24,7 @@ export const searchAliases: Record<AppLocale, SearchAliasCatalog> = {
   ar,
   ja,
   vi,
+  mr,
   en,
   ru,
   de,

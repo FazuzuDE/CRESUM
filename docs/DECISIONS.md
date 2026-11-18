@@ -4595,3 +4595,12 @@ and drop stale/busy requests. No sound on mount, silent synchronization/recenter
 or after dismissal. This supersedes the earlier language-only no-synthetic-click
 rule. Do not present the bundled effect as UIKit's actual system sound. Physical
 sound/mute/routing acceptance remains pending.
+
+## Marathi localization — approved 2026-11-18
+
+User approved Marathi as the next complete locale. Include all bundled messages,
+exercise guides, catalog labels and search alternatives. Preserve meaningful Indic
+marks in search and normalize Devanagari keyboard digits for exact manual entry.
+Use existing locale resolution, registry-driven wheel and publication fallback.
+No unrelated wheel changes, automatic merge or acceptance claims. Physical and
+independent linguistic review remain open. See LOCALIZATION.md.
