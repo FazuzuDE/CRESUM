@@ -155,6 +155,7 @@ function WheelColumn({
   const dragging = useRef(false);
   const momentum = useRef(false);
   const settleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const released = useRef(false);
   const signature = JSON.stringify([height, viewport, looping, options]);
   const geometry = useRef(signature);
   const padding = Math.max(0, (viewport - height) / 2);
@@ -172,6 +173,7 @@ function WheelColumn({
     if (last.current !== selected || geometry.current !== signature) {
       geometry.current = signature;
       momentum.current = false;
+      released.current = false;
       last.current = selected;
       dragging.current = false;
       clearSettle();
@@ -211,9 +213,49 @@ function WheelColumn({
     void Haptics.selectionAsync?.().catch(() => {});
     onChange(next);
   };
+  const track = (offset: number) => {
+    physical.current = Math.max(
+      0,
+      Math.min(rows.length - 1, Math.round(offset / height)),
+    );
+  };
+  const finish = () => {
+    clearSettle();
+    const userMotion = dragging.current || momentum.current;
+    dragging.current = false;
+    momentum.current = false;
+    released.current = false;
+    if (userMotion) choose(physical.current);
+    recenter();
+    onInteractionChange?.(false);
+  };
+  const waitForIdle = () => {
+    clearSettle();
+    // Some platforms omit momentum callbacks. Every coast event extends the
+    // idle fallback; release alone must never interrupt a moving native wheel.
+    settleTimer.current = setTimeout(finish, 200);
+  };
+  const scroll = Animated.event(
+    [{ nativeEvent: { contentOffset: { y: scrollOffset } } }],
+    // Animated.event only registers this deferred listener (AnimatedEvent.js);
+    // it never invokes the callback or reads these refs during render.
+    // eslint-disable-next-line react-hooks/refs
+    {
+      useNativeDriver: Platform.OS !== 'web',
+      listener: (event: { nativeEvent: { contentOffset: { y: number } } }) => {
+        const offset = event.nativeEvent.contentOffset.y;
+        if (looping) {
+          if (dragging.current || momentum.current) {
+            track(offset);
+            if (released.current) waitForIdle();
+          }
+        } else if (dragging.current) choose(Math.round(offset / height));
+      },
+    },
+  );
   return (
     <View style={{ flex: 1, height: viewport }}>
-      <FlatList
+      <Animated.FlatList
         ref={list}
         data={rows}
         accessible
@@ -256,7 +298,7 @@ function WheelColumn({
         })}
         contentContainerStyle={{ paddingVertical: padding }}
         snapToInterval={height}
-        decelerationRate="fast"
+        decelerationRate={looping ? 'normal' : 'fast'}
         showsVerticalScrollIndicator={false}
         scrollEventThrottle={16}
         onScrollBeginDrag={() => {
@@ -264,40 +306,41 @@ function WheelColumn({
           onInteractionChange?.(true);
           dragging.current = true;
           momentum.current = true;
+          released.current = false;
         }}
-        onScroll={({ nativeEvent }) => {
-          scrollOffset.setValue(nativeEvent.contentOffset.y);
-          if (dragging.current)
-            choose(Math.round(nativeEvent.contentOffset.y / height));
-        }}
+        onScroll={scroll}
         onScrollEndDrag={({ nativeEvent }) => {
-          if (dragging.current)
-            choose(Math.round(nativeEvent.contentOffset.y / height));
-          dragging.current = false;
           if (looping) {
-            // Momentum may start just after release; if it doesn't, settle the
-            // drag without leaving Done disabled or exposing a runway edge.
-            clearSettle();
-            settleTimer.current = setTimeout(() => {
-              momentum.current = false;
-              recenter();
-              onInteractionChange?.(false);
-            }, 120);
-          } else onInteractionChange?.(false);
+            track(nativeEvent.contentOffset.y);
+            dragging.current = false;
+            released.current = true;
+            waitForIdle();
+          } else {
+            if (dragging.current)
+              choose(Math.round(nativeEvent.contentOffset.y / height));
+            dragging.current = false;
+            onInteractionChange?.(false);
+          }
         }}
         onMomentumScrollBegin={() => {
           clearSettle();
           if (momentum.current) onInteractionChange?.(true);
-          dragging.current = momentum.current;
+          if (looping && momentum.current) waitForIdle();
+          else if (!looping) dragging.current = momentum.current;
         }}
         onMomentumScrollEnd={({ nativeEvent }) => {
-          clearSettle();
-          if (dragging.current)
-            choose(Math.round(nativeEvent.contentOffset.y / height));
-          dragging.current = false;
-          momentum.current = false;
-          recenter();
-          onInteractionChange?.(false);
+          if (looping) {
+            if (dragging.current || momentum.current)
+              track(nativeEvent.contentOffset.y);
+            finish();
+          } else {
+            clearSettle();
+            if (dragging.current)
+              choose(Math.round(nativeEvent.contentOffset.y / height));
+            dragging.current = false;
+            momentum.current = false;
+            onInteractionChange?.(false);
+          }
         }}
         keyExtractor={(_, i) => String(i)}
         renderItem={({ item, index }) => {

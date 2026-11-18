@@ -681,3 +681,12 @@ final script lint/format checks. Independent review found two evidence gaps
 (full-confirmation wording and following-slot completeness); both are covered by
 assertions in the passing matrix. The test handles locale nonbreaking grouping
 spaces through normalized text matching. No production logic changed.
+
+## Automatic language-wheel entries — 2026-11-18
+
+LanguageSettings derives its alphabetized options from enabled locale registry
+entries. Each registry entry owns its native name and flag; there is no separate
+menu flag map or locale list to update. Cache those options while the wheel moves.
+New locales still require complete messages, catalog guides and search aliases in
+the same PR before becoming selectable. Registry types require the presentation
+metadata; wheel tests verify a newly registered entry appears automatically.

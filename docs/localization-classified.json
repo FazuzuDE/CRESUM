@@ -11861,5 +11861,29 @@
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList",
     "kind": "internal",
     "reason": "Optional publication locale identifier; localized metadata is selected separately."
+  },
+  {
+    "file": "components/AppPicker.tsx",
+    "line": 301,
+    "text": "normal",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:decelerationRate/JsxAttributes",
+    "kind": "internal",
+    "reason": "React Native deceleration enum; not displayed application copy."
+  },
+  {
+    "file": "components/AppPicker.tsx",
+    "line": 301,
+    "text": "fast",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:decelerationRate/JsxAttributes",
+    "kind": "internal",
+    "reason": "React Native deceleration enum; not displayed application copy."
+  },
+  {
+    "file": "components/LanguageSettings.tsx",
+    "line": 33,
+    "text": "`${localeRegistry[value].flag} ${localeRegistry[value].nativeName}`",
+    "context": "TemplateExpression/ArrowFunction/CallExpression/ArrayLiteralExpression/ArrowFunction",
+    "kind": "canonical",
+    "reason": "Native language names and flags from the live locale registry; intentionally not translated."
   }
 ]

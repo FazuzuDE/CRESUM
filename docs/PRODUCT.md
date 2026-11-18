@@ -1212,3 +1212,14 @@ Cancel/backdrop discards it, and Done waits for the wheel to settle. The languag
 dialog uses 10% transparency relative to its opaque surface (90% opacity), with
 the existing reduced-transparency fallback. This replaces its former 30% setting.
 Other picker ranges keep their bounds. Physical-device review remains pending.
+
+## Language-wheel motion and automatic entries — approved 2026-11-18
+
+A fast flick should coast with normal platform deceleration instead of stopping
+abruptly. Moving through language rows must not repeatedly rerender the dialog;
+update its selected draft after settling, and keep Done unavailable meanwhile.
+Preserve cyclic order, System/device-language behavior, Cancel and 10% transparency.
+Use the locale registry as the single source for language names and flags; new
+fully integrated locales enter the wheel automatically without a menu-specific
+entry. This does not bypass full translation/search coverage for new languages.
+Physical-device smoothness and accessibility acceptance remain pending.

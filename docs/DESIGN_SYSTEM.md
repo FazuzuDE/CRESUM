@@ -2690,3 +2690,21 @@ values in mixed Arabic/Latin text without rewriting stored content. Numeric/emai
 input uses a stable LTR text flow. Preserve existing theme tokens and touch targets.
 Do not call forceRTL or reload the app when changing languages. Native visual and
 accessibility acceptance remains separate from renderer/browser checks.
+
+## Language-wheel momentum — approved 2026-11-18
+
+After physical-device feedback on #294, keep cyclic language motion native-driven
+on iOS/Android with normal platform deceleration for a fast flick. Perspective
+and opacity follow an Animated scroll event on the native driver; web uses its
+supported JS driver. Track cyclic movement in refs and commit the logical draft
+only once it settles, rather than rerendering the language dialog on each row.
+Emit feedback for the changed settled selection, not silent recentering. Extend
+the missing-momentum-event idle fallback on every coast event so a release timer
+cannot recenter an actively moving wheel. Keep Done blocked until settled.
+
+Cache language options/columns between motion updates. Native name and flag come
+from the locale registry, with no separate language-menu list. Newly integrated
+locales appear in alphabetical order automatically; translation/search coverage
+requirements still apply before exposing them. Keep the 10% dialog transparency,
+System behavior, selection lines and ordinary wheel bounds. Native scroll feel
+and screen-reader behavior still require phone review after these changes.

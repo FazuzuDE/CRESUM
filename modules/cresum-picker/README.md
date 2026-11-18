@@ -25,3 +25,12 @@ and prop/geometry synchronization must not emit haptics or persist a draft.
 Language confirmation waits for motion to stop; a release without momentum also
 releases the confirmation lock. Native gesture feel and screen-reader behavior
 still require physical-device acceptance.
+
+### Momentum follow-up
+
+Cyclic wheels use normal platform deceleration and native-driver Animated scroll
+mapping on iOS/Android (JS driver on web). Movement only updates physical-index
+refs; draft selection and haptic feedback publish once after settling. The idle
+fallback extends on each coast event when momentum callbacks are missing, rather
+than interrupting motion a fixed delay after finger release. This is JS adapter
+work and does not modify or compile the bounded UIKit module.
