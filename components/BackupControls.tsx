@@ -1,6 +1,7 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useLocalization } from './LocalizationProvider';
 import { useRef, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { parseLocalBackup, type PreparedBackup } from '@/lib/local-backup';
 import { pickBackupFile } from '@/lib/backup-files';
 import { colors, spacing, typography } from '@/lib/theme';

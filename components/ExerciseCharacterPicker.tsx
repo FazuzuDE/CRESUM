@@ -1,4 +1,5 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { LocalizedText as Text } from '@/components/LayoutDirection';
+import { Image, StyleSheet, View } from 'react-native';
 import type { AssetModel } from '@/lib/exercise-variant-model';
 import { colors, spacing, typography } from '@/lib/theme';
 import { AppButton } from './AppButton';
@@ -93,7 +94,7 @@ const s = StyleSheet.create({
   title: { ...typography.title3, color: colors.textPrimary },
   copy: { ...typography.footnote, color: colors.textSecondary },
   error: { ...typography.footnote, color: colors.danger },
-  options: { flexDirection: 'row', gap: spacing.xs },
+  options: { direction: 'ltr', flexDirection: 'row', gap: spacing.xs },
   option: { flex: 1, gap: spacing.xs },
   welcome: { flexGrow: 1 },
   welcomeTitle: {

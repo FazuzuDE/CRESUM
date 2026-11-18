@@ -1,8 +1,12 @@
+import {
+  LocalizedText as Text,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { useState } from 'react';
-import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Switch, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
+
 import { AppScrollView } from './AppScrollView';
 import { AppButton } from './AppButton';
 import { GlassCard } from './GlassCard';

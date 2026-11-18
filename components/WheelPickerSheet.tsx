@@ -1,5 +1,6 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import type { ReactNode } from 'react';
-import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { StyleSheet, View, useWindowDimensions } from 'react-native';
 import { GlassDialog } from './GlassDialog';
 import { AppButton } from './AppButton';
 import { useLocalization } from './LocalizationProvider';

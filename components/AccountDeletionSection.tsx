@@ -1,6 +1,10 @@
+import {
+  LocalizedText as Text,
+  LocalizedTextInput as TextInput,
+} from '@/components/LayoutDirection';
 import { useLocalization } from './LocalizationProvider';
 import { useRef, useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { presentAppError } from '@/lib/i18n/errors';
 import { colors, radius, spacing, typography } from '@/lib/theme';
 import type { AccountSectionProps } from './AccountSection';

@@ -1,7 +1,11 @@
+import {
+  LocalizedText as Text,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
 import { useLocalization } from './LocalizationProvider';
 import { useRef, useState } from 'react';
-import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Pressable, StyleSheet, Switch, View } from 'react-native';
+
 import { BrandHeader } from './BrandHeader';
 import { AppScrollView } from './AppScrollView';
 import { GlassCard } from './GlassCard';

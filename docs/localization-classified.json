@@ -11789,5 +11789,61 @@
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList",
     "kind": "internal",
     "reason": "Bengali locale identity for optional publication metadata; user-visible text is supplied by the translated catalogs."
+  },
+  {
+    "file": "components/LayoutDirection.tsx",
+    "line": 50,
+    "text": "numeric",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression",
+    "kind": "internal",
+    "reason": "Native keyboard/input-mode enum or locale identifier; not displayed as untranslated application copy."
+  },
+  {
+    "file": "components/LayoutDirection.tsx",
+    "line": 50,
+    "text": "decimal-pad",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression",
+    "kind": "internal",
+    "reason": "Native keyboard/input-mode enum or locale identifier; not displayed as untranslated application copy."
+  },
+  {
+    "file": "components/LayoutDirection.tsx",
+    "line": 50,
+    "text": "number-pad",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression",
+    "kind": "internal",
+    "reason": "Native keyboard/input-mode enum or locale identifier; not displayed as untranslated application copy."
+  },
+  {
+    "file": "components/LayoutDirection.tsx",
+    "line": 50,
+    "text": "phone-pad",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression",
+    "kind": "internal",
+    "reason": "Native keyboard/input-mode enum or locale identifier; not displayed as untranslated application copy."
+  },
+  {
+    "file": "components/LayoutDirection.tsx",
+    "line": 57,
+    "text": "email-address",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression",
+    "kind": "internal",
+    "reason": "Native keyboard/input-mode enum or locale identifier; not displayed as untranslated application copy."
+  },
+  {
+    "file": "components/LayoutDirection.tsx",
+    "line": 57,
+    "text": "url",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression",
+    "kind": "internal",
+    "reason": "Native keyboard/input-mode enum or locale identifier; not displayed as untranslated application copy."
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 16,
+    "text": "ar",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList",
+    "kind": "internal",
+    "reason": "Native keyboard/input-mode enum or locale identifier; not displayed as untranslated application copy."
   }
 ]

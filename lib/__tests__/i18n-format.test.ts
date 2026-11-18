@@ -23,14 +23,17 @@ it('localizes exact entry display without rounding manual precision or reparsing
     'zh-Hans',
     'hi',
     'bn',
+    'ar',
   ] as const) {
     expect(formatEntryNumber(locale, '12.1234567890123456789')).toBe(
-      locale === 'en' ||
-        locale === 'zh-Hans' ||
-        locale === 'hi' ||
-        locale === 'bn'
-        ? '12.1234567890123456789'
-        : '12,1234567890123456789',
+      locale === 'ar'
+        ? '12٫1234567890123456789'
+        : locale === 'en' ||
+            locale === 'zh-Hans' ||
+            locale === 'hi' ||
+            locale === 'bn'
+          ? '12.1234567890123456789'
+          : '12,1234567890123456789',
     );
   }
 });
@@ -116,4 +119,18 @@ it('formats Bengali digits, grouping and calendar dates while retaining exact en
       timeZone: 'UTC',
     }),
   ).toBe('১৭ নভেম্বর, ২০২৬');
+});
+
+it('accepts Arabic editable digits and decimals without grouping, ambiguity or precision loss', () => {
+  expect(normalizeDecimalInput('١٢٫١٢٣٤٥٦٧٨٩٠١٢٣٤٥٦٧٨٩')).toBe(
+    '12.1234567890123456789',
+  );
+  expect(normalizeDecimalInput('۱۲,۵۰')).toBe('12.50');
+  expect(normalizeDecimalInput('١٬٢٣٤')).toBeNull();
+  expect(normalizeDecimalInput('١٢٫')).toBeNull();
+  expect(formatEntryNumber('ar', '12.1234567890123456789')).toBe(
+    '12٫1234567890123456789',
+  );
+  expect(formatNumber('ar', 1234.5)).toBe('١٬٢٣٤٫٥');
+  expect(formatEntryNumber('ar', '12٫')).toBe('12٫');
 });

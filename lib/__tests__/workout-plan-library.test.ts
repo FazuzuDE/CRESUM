@@ -141,3 +141,20 @@ test('accepts Bengali publication metadata with legacy English fallback', () => 
   expect(filterPlans([localized], 'শরীরের', 'bn')).toEqual([localized]);
   expect(filterPlans([localized], 'ডাম্বেল', 'bn')).toEqual([localized]);
 });
+
+test('accepts Arabic plan metadata without requiring it in older publications', () => {
+  const [legacy] = parseLibrary([entry]);
+  expect(filterPlans([legacy], 'upper', 'ar')).toEqual([legacy]);
+  const [localized] = parseLibrary([
+    {
+      ...entry,
+      metadata: {
+        ...entry.metadata,
+        title: { ...entry.metadata.title, ar: 'تمرين الجزء العلوي' },
+        description: { ...entry.metadata.description, ar: 'خطة دمبل للنادي' },
+      },
+    },
+  ]);
+  expect(filterPlans([localized], 'العلوي', 'ar')).toEqual([localized]);
+  expect(filterPlans([localized], 'دمبل', 'ar')).toEqual([localized]);
+});

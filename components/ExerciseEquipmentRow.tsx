@@ -1,6 +1,10 @@
+import {
+  LocalizedText as Text,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
 import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Image, Pressable, StyleSheet, View } from 'react-native';
+
 import { equipmentPolicyFor } from '@/lib/exercise-equipment';
 import { resolveAttachmentArtwork } from '@/lib/exercise-artwork';
 import { findExercise } from '@/lib/exercise-library';

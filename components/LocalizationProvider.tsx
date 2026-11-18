@@ -1,3 +1,5 @@
+import { LayoutDirectionContext } from './LayoutDirection';
+import { localeRegistry } from '@/lib/i18n/registry';
 import {
   createContext,
   useContext,
@@ -58,30 +60,33 @@ export function LocalizationProvider({
     });
     return () => subscription.remove();
   }, [store]);
+  const direction = localeRegistry[snapshot.locale].direction;
   return (
     <Context.Provider value={store}>
-      {snapshot.loading ? (
-        <View style={s.loading}>
-          <ActivityIndicator color={colors.primary} />
-          <Text style={s.copy}>{t('common.loading')}</Text>
-        </View>
-      ) : (
-        <View style={s.root}>
-          {snapshot.error === 'read' ? (
-            <View style={s.notice}>
-              <Text accessibilityRole="alert" style={s.copy}>
-                {t('language.readError')}
-              </Text>
-              <AppButton
-                title={t('common.retry')}
-                presentation="text"
-                onPress={() => void store.load()}
-              />
-            </View>
-          ) : null}
-          {children}
-        </View>
-      )}
+      <LayoutDirectionContext.Provider value={direction}>
+        {snapshot.loading ? (
+          <View style={[s.loading, { direction }]}>
+            <ActivityIndicator color={colors.primary} />
+            <Text style={s.copy}>{t('common.loading')}</Text>
+          </View>
+        ) : (
+          <View style={[s.root, { direction }]}>
+            {snapshot.error === 'read' ? (
+              <View style={s.notice}>
+                <Text accessibilityRole="alert" style={s.copy}>
+                  {t('language.readError')}
+                </Text>
+                <AppButton
+                  title={t('common.retry')}
+                  presentation="text"
+                  onPress={() => void store.load()}
+                />
+              </View>
+            ) : null}
+            {children}
+          </View>
+        )}
+      </LayoutDirectionContext.Provider>
     </Context.Provider>
   );
 }

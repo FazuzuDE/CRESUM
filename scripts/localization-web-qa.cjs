@@ -125,6 +125,7 @@ function readCatalogs(root) {
       'zh-Hans',
       'hi',
       'bn',
+      'ar',
     ].map((locale) => {
       const folder = path.join(root, 'lib/i18n/locales', locale);
       const catalog = {};
@@ -245,6 +246,7 @@ async function main() {
         'zh-Hans',
         'hi',
         'bn',
+        'ar',
       ])
         for (const width of [320, 390]) {
           expandedMode = expand;
@@ -1411,7 +1413,7 @@ async function main() {
   );
 }
 
-module.exports = { prepareQaBundle, expandCatalog, assertQaPlan };
+module.exports = { prepareQaBundle, expandCatalog, assertQaPlan, readCatalogs };
 if (require.main === module)
   main().catch((error) => {
     console.error(error);

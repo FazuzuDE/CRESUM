@@ -1,5 +1,6 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useLocalization } from './LocalizationProvider';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { AppButton } from './AppButton';
 import type { HistorySyncSnapshot } from '@/lib/sync/history-coordinator';
 import { colors, spacing, typography } from '@/lib/theme';

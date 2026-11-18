@@ -1,9 +1,14 @@
+import {
+  LocalizedText as Text,
+  LocalizedTextInput as TextInput,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { AppScrollView } from './AppScrollView';
 import { useMemo, useState } from 'react';
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
+
 import { GlassCard } from './GlassCard';
 import { EstimatedOneRepMaxSeries } from './EstimatedOneRepMaxSeries';
 import { useLocalization } from './LocalizationProvider';

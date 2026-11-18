@@ -274,7 +274,12 @@ function WheelColumn({
   );
 }
 const s = StyleSheet.create({
-  columns: { flexDirection: 'row', alignItems: 'center', overflow: 'hidden' },
+  columns: {
+    direction: 'ltr',
+    flexDirection: 'row',
+    alignItems: 'center',
+    overflow: 'hidden',
+  },
   nativePicker: { flex: 1, alignSelf: 'stretch' },
   selectionLines: {
     position: 'absolute',

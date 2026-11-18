@@ -1,4 +1,5 @@
-import { StyleSheet, Text } from 'react-native';
+import { LocalizedText as Text } from '@/components/LayoutDirection';
+import { StyleSheet } from 'react-native';
 import { ContentScrollView } from './ContentScrollView';
 import { GlassDialog } from './GlassDialog';
 import { colors, spacing, typography } from '@/lib/theme';

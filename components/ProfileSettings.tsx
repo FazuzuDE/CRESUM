@@ -1,10 +1,14 @@
+import {
+  LocalizedText as Text,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
 import Slider from '@react-native-community/slider';
 import { formatNumber } from '@/lib/i18n/format';
 import { useLocalization } from './LocalizationProvider';
 import { displayAppVersion } from '@/lib/app-version';
 import { AccountPage } from './AccountPage';
 import type { AccountSectionProps } from './AccountSection';
-import { Ionicons } from '@expo/vector-icons';
+
 import type { BackupControlsProps } from './BackupControls';
 import { BackupPage, type BackupPageOptions } from './BackupPage';
 import { useState } from 'react';
@@ -12,7 +16,7 @@ import { BrandHeader } from './BrandHeader';
 import { LanguageSettings } from './LanguageSettings';
 import { ExerciseCharacterSettings } from './ExerciseCharacterPicker';
 import { AppScrollView } from './AppScrollView';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { GlassCard } from './GlassCard';
 import { AppButton } from './AppButton';
 import { ExerciseLibrary } from './ExerciseLibrary';

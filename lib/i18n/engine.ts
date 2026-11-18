@@ -38,6 +38,16 @@ export function createTranslator(
     },
     interpolation: { escapeValue: false },
   });
+  // Pin Arabic presentation digits across CLDR/runtime defaults. Raw numbers and
+  // plural selection remain numeric; exact editable strings are never rounded here.
+  if (locale === 'ar')
+    engine.services.formatter?.addCached('number', (lng, options) => {
+      const formatter = new Intl.NumberFormat(lng, {
+        ...options,
+        numberingSystem: 'arab',
+      });
+      return (value: number) => formatter.format(value);
+    });
   const translate = ((key: string, options?: Record<string, unknown>) =>
     engine.t(key, options)) as Translate;
   if (!overrides) translators.set(locale, translate);

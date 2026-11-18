@@ -1,3 +1,7 @@
+import {
+  LocalizedText as Text,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
 import { BrandHeader } from './BrandHeader';
 import { HomeCalendar } from './HomeCalendar';
 import { HomeLayoutEditor } from './HomeLayoutEditor';
@@ -20,10 +24,9 @@ import {
   BackHandler,
   Pressable,
   StyleSheet,
-  Text,
   View,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+
 import { AppButton } from './AppButton';
 import type { DashboardGridItem } from './DashboardGrid';
 import { GlassCard } from './GlassCard';

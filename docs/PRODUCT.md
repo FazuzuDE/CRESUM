@@ -1171,3 +1171,12 @@ and established gym names, including Roman Bangla where useful, searchable from
 any interface language. Optional published-plan metadata accepts Bengali with
 legacy English fallback. Stored workout identities and historical names remain
 unchanged. Physical-device and native-speaker acceptance remain pending.
+
+## Arabic locale and live RTL — approved 2026-11-18
+
+Offer العربية (`ar`) with full existing UI, catalog, technique and local gym search
+alternatives. Resolve Arabic device tags and retain optional publication fallback.
+Arabic uses RTL presentation and logical navigation while preserving numeric
+meaning, exercise identities, recorded sides and historical names. Switching
+Arabic/LTR languages must retain unfinished drafts and active workout recovery,
+without a forced reload. See LOCALIZATION.md for digit, input and acceptance rules.

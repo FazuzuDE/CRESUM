@@ -1,5 +1,9 @@
+import {
+  LocalizedText as Text,
+  LocalizedTextInput as TextInput,
+} from '@/components/LayoutDirection';
 import { useEffect, useRef, useState } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppButton } from '../AppButton';
 import { useLocalization } from '../LocalizationProvider';

@@ -1,14 +1,16 @@
+import {
+  LocalizedModal as Modal,
+  LocalizedText as Text,
+  LocalizedTextInput as TextInput,
+} from '@/components/LayoutDirection';
 import { Fragment, useState } from 'react';
 import {
   Keyboard,
   KeyboardAvoidingView,
-  Modal,
   Platform,
   Pressable,
   ScrollView,
   StyleSheet,
-  Text,
-  TextInput,
   View,
   useWindowDimensions,
 } from 'react-native';

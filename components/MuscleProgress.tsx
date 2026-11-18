@@ -1,5 +1,9 @@
+import {
+  LocalizedModal as Modal,
+  LocalizedText as Text,
+} from '@/components/LayoutDirection';
 import { useMemo, useState } from 'react';
-import { Modal, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppButton } from './AppButton';
 import { AppScrollView } from './AppScrollView';

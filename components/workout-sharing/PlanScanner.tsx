@@ -1,5 +1,6 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useRef } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { AppButton } from '../AppButton';
 import { useLocalization } from '../LocalizationProvider';

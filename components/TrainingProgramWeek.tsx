@@ -1,5 +1,6 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { GlassCard } from './GlassCard';
 import { AppButton } from './AppButton';
 import type { ProgramAssignment } from '@/lib/training-programs/assignment';

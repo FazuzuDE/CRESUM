@@ -1,6 +1,6 @@
 import { findExercise } from './exercise-library';
 import { AppError } from './app-error';
-import { normalizeDecimalInput } from './i18n/format';
+import { normalizeDecimalInput, normalizeInputDigits } from './i18n/format';
 import { exerciseIdsMatch, setInputIsValid, updateSet } from './workout-engine';
 import {
   isSetComplete,
@@ -19,10 +19,10 @@ export function entryStep(id: string): number {
 export function normalizedEntry(v: SetValues): SetValues {
   return {
     weight: normalizeDecimalInput(v.weight) ?? v.weight.trim(),
-    reps: v.reps.trim(),
+    reps: normalizeInputDigits(v.reps).trim(),
     ...(v.otherSideReps === undefined
       ? {}
-      : { otherSideReps: v.otherSideReps.trim() }),
+      : { otherSideReps: normalizeInputDigits(v.otherSideReps).trim() }),
   };
 }
 export function entryIsValid(v: SetValues, id: string): boolean {

@@ -39,18 +39,19 @@ it('opens at the effective language, stages wheel choices, and saves only with D
     '🇹🇷  Türkçe',
     '🇷🇺  Русский',
     '🇺🇦  Українська',
+    '🇸🇦  العربية',
     '🇮🇳  हिन्दी',
     '🇧🇩  বাংলা',
     '🇨🇳  简体中文',
   ]);
   expect(view!.root.findByType(AppPicker).props.selected).toEqual([1]);
   expect(buttons()[0].props.title).toBe('🌐  System language ✓');
-  act(() => view!.root.findByType(AppPicker).props.onChange(0, 10));
+  act(() => view!.root.findByType(AppPicker).props.onChange(0, 11));
   expect(store.getSnapshot().preference).toBe('system');
   act(() => buttons()[1].props.onPress());
   await open();
   expect(view!.root.findByType(AppPicker).props.selected).toEqual([1]);
-  act(() => view!.root.findByType(AppPicker).props.onChange(0, 10));
+  act(() => view!.root.findByType(AppPicker).props.onChange(0, 11));
   await act(async () => buttons()[2].props.onPress());
   expect(store.getSnapshot()).toMatchObject({
     preference: 'hi',
@@ -58,7 +59,7 @@ it('opens at the effective language, stages wheel choices, and saves only with D
   });
   expect(view!.root.findAllByType(Modal)).toHaveLength(0);
   await open();
-  expect(view!.root.findByType(AppPicker).props.selected).toEqual([10]);
+  expect(view!.root.findByType(AppPicker).props.selected).toEqual([11]);
   act(() => buttons()[0].props.onPress());
   expect(buttons()[0].props.selected).toBe(true);
   expect(view!.root.findByType(AppPicker).props.selected).toEqual([1]);

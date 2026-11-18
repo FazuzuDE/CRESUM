@@ -1,6 +1,11 @@
-import { Image, Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import {
+  LocalizedModal as Modal,
+  LocalizedText as Text,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
+import { Image, Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
+
 import type { ExerciseEquipmentPolicy } from '@/lib/exercise-equipment';
 import { isValidEquipmentPolicy } from '@/lib/exercise-equipment';
 import { resolveAttachmentArtwork } from '@/lib/exercise-artwork';

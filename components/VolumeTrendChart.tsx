@@ -1,11 +1,6 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useMemo, useState } from 'react';
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  useWindowDimensions,
-} from 'react-native';
+import { Pressable, StyleSheet, View, useWindowDimensions } from 'react-native';
 import type { WorkoutVolume } from '@/lib/progress-analytics';
 import { volumeTrendModel, nearestTrendPoint } from '@/lib/volume-trend';
 import { volumeChartScale, volumeChartTick } from '@/lib/training-volume-chart';
@@ -94,7 +89,10 @@ export function VolumeTrendChart({
           value: volumeNumber(locale, p.volume),
         });
   return (
-    <View onLayout={(event) => setMeasured(event.nativeEvent.layout.width)}>
+    <View
+      style={{ direction: 'ltr' }}
+      onLayout={(event) => setMeasured(event.nativeEvent.layout.width)}
+    >
       <View style={s.row}>
         <View
           style={{ width: axisWidth }}

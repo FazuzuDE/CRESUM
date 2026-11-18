@@ -1,4 +1,5 @@
-import { Pressable, Text, View } from 'react-native';
+import { LocalizedText as Text } from '@/components/LayoutDirection';
+import { Pressable, View } from 'react-native';
 import { useLocalization } from './LocalizationProvider';
 import { ExerciseEquipmentRow } from './ExerciseEquipmentRow';
 import { ExerciseArtwork } from './ExerciseArtwork';

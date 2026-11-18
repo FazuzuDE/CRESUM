@@ -1,5 +1,6 @@
+import { LocalizedModal as Modal } from '@/components/LayoutDirection';
 import type { ReactNode } from 'react';
-import { Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
+import { Platform, Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { GlassMaterial } from './GlassMaterial';
 import { cardShadow, radius, spacing } from '@/lib/theme';

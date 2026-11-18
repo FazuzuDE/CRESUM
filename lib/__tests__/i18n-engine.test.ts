@@ -182,3 +182,20 @@ it('renders Bengali count forms with native presentation digits', () => {
   expect(t('history.completedSets', { count: 1 })).toBe('১ সম্পন্ন সেট');
   expect(t('history.completedSets', { count: 2 })).toBe('২ সম্পন্ন সেট');
 });
+
+it('selects all six Arabic count categories and isolates mixed-direction parameters only in presentation', () => {
+  const samples = { zero: 0, one: 1, two: 2, few: 3, many: 11, other: 1.5 };
+  const forms = Object.fromEntries(
+    Object.keys(samples).map((c) => [c, `${c}: {{count}}`]),
+  );
+  const custom = createTranslator('ar', { 'common.setCount': forms });
+  for (const [category, count] of Object.entries(samples))
+    expect(custom('common.setCount', { count })).toBe(`${category}: ${count}`);
+  const t = createTranslator('ar');
+  expect(t('common.setCount', { count: 2 })).toBe(
+    'عدد المجموعات: \u2068٢\u2069',
+  );
+  const name = 'My Plan 12';
+  expect(t('common.named', { name })).toBe(`\u2068${name}\u2069`);
+  expect(name).toBe('My Plan 12');
+});

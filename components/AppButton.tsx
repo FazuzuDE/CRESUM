@@ -1,5 +1,9 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import {
+  LocalizedText as Text,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
+import { Pressable, StyleSheet, View } from 'react-native';
+
 import { colors, spacing, typography } from '@/lib/theme';
 
 export function AppButton({

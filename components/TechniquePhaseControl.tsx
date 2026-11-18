@@ -1,4 +1,5 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { LocalizedText as Text } from '@/components/LayoutDirection';
+import { Pressable, StyleSheet, View } from 'react-native';
 import type { TechniquePhase } from '@/lib/exercise-technique';
 import { colors, radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';

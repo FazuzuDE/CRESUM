@@ -26,9 +26,13 @@ export function normalizeSearch(value: string): string {
       .replace(/ß/g, 'ss')
       .replace(/ł/g, 'l')
       .replace(/ı/g, 'i')
+      .replace(/\u0640/g, '')
+      .replace(/ى|ی/g, 'ي')
+      .replace(/ک/g, 'ك')
       .normalize('NFD')
       // Keep Latin and Cyrillic folding while retaining meaningful Indic marks.
       .replace(/(\p{Script=Latin}|\p{Script=Cyrillic})\p{M}+/gu, '$1')
+      .replace(/[\u064b-\u065f\u0670]/g, '')
       .normalize('NFC')
       .replace(/['’ʼ]/g, '')
       .replace(/[^\p{L}\p{N}\p{M}]+/gu, ' ')

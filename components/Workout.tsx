@@ -1,3 +1,4 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
 import { workoutStyles as s } from './workout-styles';
@@ -17,7 +18,6 @@ import {
   KeyboardAvoidingView,
   Platform,
   Pressable,
-  Text,
   View,
 } from 'react-native';
 import * as Haptics from 'expo-haptics';

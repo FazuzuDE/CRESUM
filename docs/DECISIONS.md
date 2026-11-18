@@ -4540,3 +4540,11 @@ names. Follow the current shared language-wheel behavior from #289. Preserve
 search identities, filters, offline availability and historical snapshots.
 Native shaping, accessibility and independent linguistic acceptance remain open;
 automated coverage is not physical-device approval. See LOCALIZATION.md.
+
+## Arabic localization and RTL — approved 2026-11-18
+
+Add Arabic after merged Bengali #290: complete messages, exercise technique and
+search alternatives, with live RTL presentation, Arabic-Indic number display and
+exact Arabic keyboard entry. Keep images/anatomy, identities, active workouts and
+drafts intact. No global reload or automatic merge. Physical and native-speaker
+acceptance remain open; owning details are in LOCALIZATION and DESIGN_SYSTEM.

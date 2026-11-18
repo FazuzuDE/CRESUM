@@ -1,6 +1,7 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useId } from 'react';
 import { useLocalization } from './LocalizationProvider';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Svg, {
   Defs,
   Image,
