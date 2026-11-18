@@ -213,14 +213,14 @@ function WheelColumn({
       animated: false,
     });
   };
-  const choose = (row: number) => {
+  const choose = (row: number, haptic = true) => {
     if (!options.length) return;
     physical.current = Math.max(0, Math.min(rows.length - 1, row));
     const next = looping ? physical.current % options.length : physical.current;
     if (next === last.current) return;
     last.current = next;
     // No feedback on mount or prop synchronization; unsupported/muted feedback is harmless.
-    void Haptics.selectionAsync?.().catch(() => {});
+    if (haptic) void Haptics.selectionAsync?.().catch(() => {});
     onChange(next);
   };
   const track = (offset: number) => {
@@ -228,7 +228,10 @@ function WheelColumn({
       0,
       Math.min(rows.length - 1, Math.round(offset / height)),
     );
-    if (row !== physical.current) click();
+    if (row !== physical.current) {
+      click();
+      void Haptics.selectionAsync?.().catch(() => {});
+    }
     physical.current = row;
   };
   const finish = () => {
@@ -237,7 +240,7 @@ function WheelColumn({
     dragging.current = false;
     momentum.current = false;
     released.current = false;
-    if (userMotion) choose(physical.current);
+    if (userMotion) choose(physical.current, false);
     recenter();
     onInteractionChange?.(false);
   };

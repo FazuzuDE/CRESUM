@@ -1,5 +1,11 @@
 # CRESUM Decision Log
 
+## 2026-11-18 — Language-wheel selection haptics
+
+Add iOS-style selection feedback as the centered row changes during drag or
+momentum. Keep taps and accessibility adjustments tactile. Settle the draft
+and recenter without an extra pulse.
+
 ## 2026-11-18 — Language-wheel feedback and selection contrast
 
 Physical iPhone feedback called out lagging clicks during fast scrolling, the
