@@ -39,7 +39,7 @@ work and does not modify or compile the bounded UIKit module.
 
 LanguageSettings opts the cyclic JS wheel into a quiet bundled 35 ms click using
 expo-audio. It is an application effect, not UIKit's system click. Bounded UIKit
-wheels do not opt in. The player is owned by the mounted language wheel, respects
-silent mode, mixes with music and is removed on dismissal; pending seeks are
-invalidated. Requests are throttled/dropped rather than queued. No custom module,
-private sound API, background audio or new SDK version is required.
+wheels do not opt in. The mounted language wheel owns two players that rewind
+after playback and are released on dismissal. The effect respects silent mode
+and mixes with music. Requests play only when a player is ready and remain
+throttled. This uses the existing SDK and its public foreground audio APIs.

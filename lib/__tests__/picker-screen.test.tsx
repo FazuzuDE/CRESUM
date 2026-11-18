@@ -274,8 +274,9 @@ it('frames the selected date across all columns and lowers the dialog transparen
       testID: 'wheel-selection-lines',
     })[0];
     expect(StyleSheet.flatten(frame?.props.style)).toMatchObject({
-      borderTopWidth: StyleSheet.hairlineWidth,
-      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderTopWidth: 1,
+      borderBottomWidth: 1,
+      borderColor: 'rgba(60,60,67,0.32)',
     });
   } finally {
     act(() => view.unmount());

@@ -1,5 +1,13 @@
 # CRESUM Decision Log
 
+## 2026-11-18 — Language-wheel feedback and selection contrast
+
+Physical iPhone feedback called out lagging clicks during fast scrolling, the
+System language button changing color during motion, and low-contrast selection
+rules. Start each eligible click from a prepared player and rewind it after
+playback. Keep the System button visually stable while wheel motion blocks taps.
+Use the stronger shared selection rules for all AppPicker wheels.
+
 ## 2026-11-17 — Repository-first account handoff
 
 The user requested preserving as much actionable CRESUM context as possible in

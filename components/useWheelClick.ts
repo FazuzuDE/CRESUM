@@ -3,80 +3,98 @@ import { AppState } from 'react-native';
 import { createAudioPlayer, setAudioModeAsync } from 'expo-audio';
 import type { AudioPlayer } from 'expo-audio';
 
+type Voice = { player: AudioPlayer; atStart: boolean };
+
 /** Short opt-in UI feedback; no playback queue or React updates during scrolling. */
 export function useWheelClick(enabled: boolean) {
-  const playerRef = useRef<AudioPlayer | null>(null);
+  const voices = useRef<Voice[]>([]);
   const ready = useRef(false);
-  const seeking = useRef(false);
-  const generation = useRef(0);
   const lastClick = useRef(-Infinity);
   useEffect(() => {
     if (!enabled) return;
-    let player: AudioPlayer;
-    try {
-      player = createAudioPlayer(require('../assets/audio/language-tick.wav'), {
-        keepAudioSessionActive: true,
-      });
-      player.volume = 0.18;
-    } catch {
-      return;
-    }
-    playerRef.current = player;
+    let mounted = true;
+    const dispose: (() => void)[] = [];
     ready.current = false;
-    seeking.current = false;
     lastClick.current = -Infinity;
-    const current = ++generation.current;
-    void setAudioModeAsync({
-      playsInSilentMode: false,
-      interruptionMode: 'mixWithOthers',
-      allowsRecording: false,
-      shouldPlayInBackground: false,
-    })
-      .then(() => {
-        if (generation.current === current) ready.current = true;
-      })
-      .catch(() => {});
-    return () => {
-      generation.current = current + 1;
-      ready.current = false;
-      seeking.current = false;
-      playerRef.current = null;
+
+    // Rewind a player after its click ends. A second player can start immediately
+    // while the first rewinds, so scrolling never waits for an asynchronous seek.
+    for (let index = 0; index < 2; index++) {
       try {
-        player.remove();
+        const player = createAudioPlayer(
+          require('../assets/audio/language-tick.wav'),
+          {
+            keepAudioSessionActive: true,
+          },
+        );
+        dispose.push(() => player.remove());
+        player.volume = 0.18;
+        const voice = { player, atStart: true };
+        const subscription = player.addListener(
+          'playbackStatusUpdate',
+          (status) => {
+            if (!mounted || !status.didJustFinish) return;
+            void player
+              .seekTo(0)
+              .then(() => {
+                if (mounted) voice.atStart = true;
+              })
+              .catch(() => {});
+          },
+        );
+        dispose.push(() => subscription.remove());
+        voices.current.push(voice);
       } catch {
-        /* Feedback cannot block dismissal. */
+        // Audio is optional even if a player cannot be initialized.
+      }
+    }
+    if (voices.current.length) {
+      void setAudioModeAsync({
+        playsInSilentMode: false,
+        interruptionMode: 'mixWithOthers',
+        allowsRecording: false,
+        shouldPlayInBackground: false,
+      })
+        .then(() => {
+          if (mounted) ready.current = true;
+        })
+        .catch(() => {});
+    }
+
+    return () => {
+      mounted = false;
+      ready.current = false;
+      voices.current = [];
+      for (const release of dispose.reverse()) {
+        try {
+          release();
+        } catch {
+          // Feedback cannot block dismissal.
+        }
       }
     };
   }, [enabled]);
+
   return useCallback(() => {
-    const player = playerRef.current;
     const now = Date.now();
     if (
       !enabled ||
       !ready.current ||
-      !player?.isLoaded ||
-      seeking.current ||
       AppState.currentState !== 'active' ||
       now - lastClick.current < 50
     )
       return;
-    lastClick.current = now;
-    seeking.current = true;
-    const current = generation.current;
-    // Drop fast/interrupted ticks rather than accumulate delayed clicks.
-    void (async () => {
-      try {
-        await player.seekTo(0);
-        if (
-          generation.current === current &&
-          AppState.currentState === 'active'
-        )
-          player.play();
-      } catch {
-        // Feedback failure must not affect selection or scrolling.
-      } finally {
-        if (generation.current === current) seeking.current = false;
-      }
-    })();
+
+    try {
+      const voice = voices.current.find(
+        ({ player, atStart }) => atStart && player.isLoaded,
+      );
+      if (!voice) return;
+      lastClick.current = now;
+      voice.player.play();
+      voice.atStart = false;
+    } catch {
+      // Feedback failure must not affect selection or scrolling.
+    }
   }, [enabled]);
 }

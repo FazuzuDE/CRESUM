@@ -12,7 +12,7 @@ export const colors = {
   textSecondary: '#6E6E73',
   textTertiary: '#AEAEB2',
   separator: 'rgba(60,60,67,0.12)',
-  wheelSelectionSeparator: 'rgba(60,60,67,0.192)',
+  wheelSelectionSeparator: 'rgba(60,60,67,0.32)',
   success: '#34C759',
   warning: '#FF9F0A',
   danger: '#FF3B30',

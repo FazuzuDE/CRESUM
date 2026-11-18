@@ -35,10 +35,9 @@ history filters and date or measurement wheels. Use the same clear glass
 material as the floating dock, with light blur on older iOS versions. Keep the surrounding dimming
 light and respect reduced transparency. Compact dialogs use 26.5%
 transparency. The local data reset confirmation uses a fully opaque surface.
-The center row on wheels has two continuous hairline rules that use the separator
-color at 19.2% opacity, 60% above the standard separator opacity. Neighboring
-values follow the curve of the wheel and fade at its edges. Reserve larger sheets for
-workflows such as editing workout sets or browsing equipment. Keep
+The center row on wheels has two continuous 1-point rules that use the separator
+color at 32% opacity. Neighboring values follow the curve of the wheel and fade
+at its edges. Reserve larger sheets for editing workout sets or browsing equipment. Keep
 primary actions fully reachable inside the safe area. Enable page scrolling
 when content exceeds the viewport, including with the keyboard or larger text.
 
@@ -2720,10 +2719,12 @@ for bounded wheels, without adding a second sound there.
 
 Play on changed user-crossed rows (one tick for a skipped span), deliberate row
 taps and accessible adjustment. Never click on mount, unchanged offsets, prop
-synchronization or silent recentering. Throttle to at most one request per 50 ms
-and drop requests while seeking, rather than queue delayed playback. Use quiet
-volume, respect silent mode and mix with music without ducking it. Playback is
-foreground-only; closing the dialog releases the player and invalidates pending
-seeks. Feedback errors must not block selection/dismissal. No extra switch or
+synchronization or silent recentering. Use two prepared players and rewind each
+after playback so a click can start immediately. Throttle to at most one click
+per 50 ms and skip requests if neither player is ready. Use quiet volume,
+respect silent mode and mix with music without ducking it. Playback is
+foreground-only; closing the dialog releases both players. The System language
+button keeps its normal appearance during wheel motion while taps remain blocked.
+Feedback errors must not block selection/dismissal. No extra switch or
 new application copy is introduced. Physical sound/mute/routing and scroll-feel
 acceptance remain pending on Expo Go.
