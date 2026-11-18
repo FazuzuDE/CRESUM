@@ -1,14 +1,45 @@
 # Localization coverage and contribution rules
 
-The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic and Japanese. System language
+The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese and Vietnamese. System language
 appears first and is selected by default. An explicit choice is saved on the
 device. Final web and native acceptance for Russian, German, French,
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic and Japanese remain pending in the release eligibility ledger.
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese and Vietnamese remain pending in the release eligibility ledger.
 
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic and Japanese cover the bundled messages and catalogs, including
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese and Vietnamese cover the bundled messages and catalogs, including
 exercise technique, equipment and built-in plans. Shared plan titles and
 descriptions use the selected locale when the publication supplies it. Older
 publications use their English metadata.
+
+## Vietnamese — approved 2026-11-18
+
+`vi` adds Tiếng Việt with all 1651 bundled messages, 110 catalog labels and
+70 complete technique guides (530 guide messages). The approved scope includes
+onboarding, workout editing/logging, rest, history, progress, profile, backups,
+auth/account deletion, sharing, errors and accessibility labels. Exercise,
+equipment, attachment and muscle aliases include Vietnamese gym vocabulary,
+regional everyday names such as hít đất and tạ chuông, and customary abbreviations
+such as DB, RDL and OHP. All searchable catalog identities have alternatives.
+
+The shared offline exercise search matches composed/decomposed Vietnamese and
+queries without diacritics. Existing Latin accent folding is retained, with đ/Đ
+folded to d only in search. Indic marks and Japanese voicing remain meaningful.
+Stable IDs, exact variants, saved personal text and historical snapshots stay
+unchanged. Published-plan metadata accepts vi when present and retains English
+fallback for old plans; malformed optional metadata remains invalid.
+
+Resolve vi, vi-VN and vi-Latn-VN device tags. The existing shared glass wheel
+includes the Vietnamese flag and native name in alphabetical order, opens on the
+effective language and stages choices until Done. Manual preferences survive
+reload; live Arabic-to-Vietnamese switching returns to LTR without remounting
+editors or discarding unfinished numeric drafts. Vietnamese uses other plural
+forms, decimal commas, local grouping and calendar dates through Intl. Exact
+entry precision and comma/dot validation keep the shared numeric contract.
+
+No SDK/dependency changes or online translation service are needed. Automated
+catalog, alias, formatting, preference, input and direction checks do not certify
+physical-device or linguistic quality. Native Expo Go wrapping, Vietnamese font
+rendering, keyboards, wheels, VoiceOver/TalkBack and independent native-speaker
+review remain pending; web/native acceptance flags stay false.
 
 ## Japanese — approved 2026-11-18
 

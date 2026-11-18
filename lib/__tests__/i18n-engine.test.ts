@@ -37,6 +37,11 @@ it('supports Russian plurals when the runtime has no native Intl.PluralRules', (
           create('ja')('common.setCount', { count }),
         ),
       ).toEqual(['0セット', '1セット', '2セット', '1.5セット']);
+      expect(
+        [0, 1, 2, 1.5].map((count) =>
+          create('vi')('common.setCount', { count }),
+        ),
+      ).toEqual(['0 hiệp', '1 hiệp', '2 hiệp', '1,5 hiệp']);
       const arabic = create('ar', {
         'common.setCount': {
           zero: 'zero {{count}}',
@@ -226,4 +231,12 @@ it('uses Japanese other forms and preserves literal personal names', () => {
     [0, 1, 2, 1.5].map((count) => t('common.setCount', { count })),
   ).toEqual(['0セット', '1セット', '2セット', '1.5セット']);
   expect(t('common.named', { name: 'ﾀﾅｶ Ａ１２' })).toBe('ﾀﾅｶ Ａ１２');
+});
+
+it('uses Vietnamese other forms with decimal commas while preserving personal text', () => {
+  const t = createTranslator('vi');
+  expect(
+    [0, 1, 2, 1.5].map((count) => t('common.setCount', { count })),
+  ).toEqual(['0 hiệp', '1 hiệp', '2 hiệp', '1,5 hiệp']);
+  expect(t('common.named', { name: 'Đặng Thị Ánh' })).toBe('Đặng Thị Ánh');
 });

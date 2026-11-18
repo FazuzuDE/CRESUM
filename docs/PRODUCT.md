@@ -1190,3 +1190,15 @@ approved shared glass wheel. Search supports kana/width variants without changin
 saved text or identities; numeric inputs accept fullwidth keyboard digits with
 exact precision. Offline behavior and workout recovery remain intact. Physical
 Expo Go and independent linguistic acceptance remain pending. See LOCALIZATION.md.
+
+## Vietnamese locale — approved 2026-11-18
+
+Offer Tiếng Việt (`vi`) after merged Japanese #292 with all interface, catalog,
+technique and search content. Include natural gym names and abbreviations for
+every searchable identity. Match Vietnamese diacritics and đ with unaccented
+queries in exercise search without rewriting saved text. Resolve device language,
+preserve shared wheel behavior and live draft-safe LTR/RTL switching, and use
+Vietnamese dates/numbers with exact manual entry precision. Optional published
+metadata keeps English fallback for older plans. Offline behavior, stable IDs
+and workout recovery are unchanged. Physical and native-speaker acceptance remain
+pending. See LOCALIZATION.md.

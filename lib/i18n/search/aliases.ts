@@ -15,12 +15,14 @@ import hi from './hi';
 import bn from './bn';
 import ar from './ar';
 import ja from './ja';
+import vi from './vi';
 
 export const searchAliases: Record<AppLocale, SearchAliasCatalog> = {
   hi,
   bn,
   ar,
   ja,
+  vi,
   en,
   ru,
   de,

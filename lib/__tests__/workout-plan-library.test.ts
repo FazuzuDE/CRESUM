@@ -186,3 +186,31 @@ test('accepts Japanese metadata and retains English fallback without accepting m
       ]),
     ).toThrow();
 });
+
+test('accepts Vietnamese plan metadata with legacy English fallback and rejects malformed translations', () => {
+  const [legacy] = parseLibrary([entry]);
+  expect(filterPlans([legacy], 'upper', 'vi')).toEqual([legacy]);
+  const localized = {
+    ...entry,
+    metadata: {
+      ...entry.metadata,
+      title: { ...entry.metadata.title, vi: 'Tập thân trên' },
+      description: { ...entry.metadata.description, vi: 'Kế hoạch với tạ đơn' },
+    },
+  };
+  const [plan] = parseLibrary([localized]);
+  expect(filterPlans([plan], 'thân trên', 'vi')).toEqual([plan]);
+  expect(filterPlans([plan], 'tạ đơn', 'vi')).toEqual([plan]);
+  for (const vi of ['', 42, null])
+    expect(() =>
+      parseLibrary([
+        {
+          ...localized,
+          metadata: {
+            ...localized.metadata,
+            title: { ...localized.metadata.title, vi },
+          },
+        },
+      ]),
+    ).toThrow();
+});

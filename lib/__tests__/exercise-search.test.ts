@@ -264,3 +264,40 @@ it('matches Japanese kana and width variants across UI languages without erasing
     ).map((x) => x.id),
   ).not.toContain('kettlebell-goblet-squat');
 });
+
+it('finds Vietnamese names, slang and abbreviations with or without diacritics across UI languages', () => {
+  const before = JSON.stringify(exerciseLibrary);
+  for (const query of [
+    'ĐẨY NGỰC TẠ ĐÒN',
+    'day nguc ta don',
+    'Đẩy ngực tạ đòn'.normalize('NFD'),
+  ]) {
+    expect(ids(query, 'de')).toContain('barbell-bench-press');
+    expect(normalizeSearch(query)).toBe('day nguc ta don');
+  }
+  expect(ids('hit dat', 'ru')).toContain('push-up');
+  expect(ids('may ep nguc', 'ja')).toContain('pec-deck-fly');
+  expect(ids('RDL tạ tay', 'en')).toContain('dumbbell-romanian-deadlift');
+  expect(ids('keo xo tay cam chu V', 'vi')).toContain(
+    'lat-pulldown-close-neutral-v-handle',
+  );
+  expect(
+    searchLocalizedExercises(
+      { query: 'day nguc ta don', muscle: 'calves' },
+      'vi',
+    ),
+  ).toEqual([]);
+  expect(
+    searchLocalizedExercises(
+      { query: 'squat om ta don truoc nguc', equipment: 'dumbbell' },
+      'vi',
+    ).map((x) => x.id),
+  ).toContain('goblet-squat');
+  expect(
+    searchLocalizedExercises(
+      { query: 'squat om ta don truoc nguc', equipment: 'dumbbell' },
+      'vi',
+    ).map((x) => x.id),
+  ).not.toContain('kettlebell-goblet-squat');
+  expect(JSON.stringify(exerciseLibrary)).toBe(before);
+});

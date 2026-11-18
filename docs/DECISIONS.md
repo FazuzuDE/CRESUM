@@ -4557,3 +4557,12 @@ retain voiced distinctions and stable catalog identities. Support fullwidth nume
 keyboard entry without rounding drafts. Preserve the current language wheel,
 device-language resolution, LTR/RTL switching and offline workout data. Native
 and independent language acceptance remain open. See LOCALIZATION.md.
+
+## Vietnamese localization — approved 2026-11-18
+
+Add Vietnamese after merged Japanese #292: all bundled messages, exercise guides,
+catalog labels and search alternatives. Use the approved shared language wheel,
+device-language resolution and exact number-entry contract. Search folds accents
+and đ for discovery without altering saved names or historical identities. Keep
+native typography/accessibility and independent linguistic acceptance pending
+until actually reviewed. See LOCALIZATION.md for the scope and limitations.
