@@ -106,6 +106,9 @@ it.each([
   ['bn', 'bn'],
   ['bn-BD', 'bn'],
   ['bn-IN', 'bn'],
+  ['ja', 'ja'],
+  ['ja-JP', 'ja'],
+  ['ja-Jpan-JP', 'ja'],
   ['ar', 'ar'],
   ['ar-SA', 'ar'],
   ['ar-EG', 'ar'],
@@ -179,4 +182,23 @@ it('late reads cannot overwrite explicit selection; invalid/read failures remain
   storage.getItem.mockRejectedValueOnce(Error('disk'));
   await store.load();
   expect(store.getSnapshot().preference).toBe('fr');
+});
+
+it('persists Japanese separately from the device language and restores it on reload', async () => {
+  let saved: string | null = null;
+  const storage = {
+    getItem: async () => saved,
+    setItem: async (_key: string, value: string) => {
+      saved = value;
+    },
+  };
+  const first = new LocaleStore(storage, () => ['ar-SA']);
+  await first.load();
+  expect(await first.select('ja')).toBe(true);
+  const restored = new LocaleStore(storage, () => ['de-DE']);
+  await restored.load();
+  expect(restored.getSnapshot()).toMatchObject({
+    preference: 'ja',
+    locale: 'ja',
+  });
 });

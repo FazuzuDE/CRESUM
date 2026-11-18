@@ -1,14 +1,43 @@
 # Localization coverage and contribution rules
 
-The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali and Arabic. System language
+The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic and Japanese. System language
 appears first and is selected by default. An explicit choice is saved on the
 device. Final web and native acceptance for Russian, German, French,
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali and Arabic remain pending in the release eligibility ledger.
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic and Japanese remain pending in the release eligibility ledger.
 
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali and Arabic cover the bundled messages and catalogs, including
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic and Japanese cover the bundled messages and catalogs, including
 exercise technique, equipment and built-in plans. Shared plan titles and
 descriptions use the selected locale when the publication supplies it. Older
 publications use their English metadata.
+
+## Japanese — approved 2026-11-18
+
+`ja` adds 日本語 with all 1651 bundled messages, 110 catalog labels and 70
+complete exercise guides (530 guide messages). Exercise, equipment, attachment
+and muscle aliases include Japanese gym terminology and customary abbreviations
+such as DB, RDL and OHP. The current shared glass language wheel resolves ja,
+ja-JP and ja-Jpan-JP, opens on the effective language, stages changes until Done,
+and preserves explicit preferences on reload. Japanese uses the existing LTR
+presentation; switching from Arabic retains the same mounted editor and draft.
+
+Search folds fullwidth ASCII and halfwidth kana, then matches katakana with
+hiragana while retaining meaningful dakuten/handakuten and Indic marks. This
+limited search transformation follows Unicode width normalization guidance
+(https://www.unicode.org/reports/tr15/); stored names, aliases, stable IDs and
+historical snapshots are not normalized or migrated. Existing filters and exact
+variant distinctions remain authoritative.
+
+Japanese plurals use `other`, including on runtimes without native PluralRules.
+Dates/numbers use Japanese Intl formatting. Fullwidth keyboard digits, decimal
+point and comma normalize in numeric inputs without parsing unfinished drafts,
+rounding precision or accepting grouping/exponents/signs. Non-numeric user text
+is untouched. Optional published metadata accepts ja; old plans retain English
+fallback. No remote translation service or new dependency is introduced.
+
+Automated catalog, alias, formatting, preference, live-direction and input checks
+are separate from visual and language acceptance. Independent native-speaker
+review and physical Expo Go typography, wrapping, keyboard, wheel, VoiceOver and
+TalkBack checks remain pending; web/native acceptance flags stay false.
 
 ## Arabic — approved 2026-11-18
 

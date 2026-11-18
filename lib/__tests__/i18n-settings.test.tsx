@@ -42,6 +42,7 @@ it('opens at the effective language, stages wheel choices, and saves only with D
     '🇸🇦  العربية',
     '🇮🇳  हिन्दी',
     '🇧🇩  বাংলা',
+    '🇯🇵  日本語',
     '🇨🇳  简体中文',
   ]);
   expect(view!.root.findByType(AppPicker).props.selected).toEqual([1]);
@@ -87,7 +88,7 @@ it.each(['de-DE', 'ja-JP'])(
     await act(async () => view!.root.findByType(AppButton).props.onPress());
     const picker = view!.root.findByType(AppPicker);
     expect(picker.props.columns[0][picker.props.selected[0]]).toBe(
-      tag === 'de-DE' ? '🇩🇪  Deutsch' : '🇬🇧  English',
+      tag === 'de-DE' ? '🇩🇪  Deutsch' : '🇯🇵  日本語',
     );
     expect(
       view!.root.findByType(Modal).findAllByType(AppButton)[0].props.selected,
@@ -179,6 +180,11 @@ it('switches live content without remounting a draft or resetting its value', as
     await store.select('bn');
   });
   expect(view!.root.findByType(Text).props.children).toBe('আবার চেষ্টা করুন');
+  expect(view!.root.findByType(TextInput).props.value).toBe('12,');
+  await act(async () => {
+    await store.select('ja');
+  });
+  expect(view!.root.findByType(Text).props.children).toBe('再試行');
   expect(view!.root.findByType(TextInput).props.value).toBe('12,');
   expect(mounts).toBe(1);
   act(() => view!.unmount());

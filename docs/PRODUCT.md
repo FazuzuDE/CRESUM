@@ -1180,3 +1180,13 @@ Arabic uses RTL presentation and logical navigation while preserving numeric
 meaning, exercise identities, recorded sides and historical names. Switching
 Arabic/LTR languages must retain unfinished drafts and active workout recovery,
 without a forced reload. See LOCALIZATION.md for digit, input and acceptance rules.
+
+## Japanese locale — approved 2026-11-18
+
+Offer 日本語 (`ja`) after Arabic #291 with all bundled interface, catalog and
+technique content, Japanese search alternatives and optional publication metadata.
+Resolve Japanese device tags, preserve live language switching and use the
+approved shared glass wheel. Search supports kana/width variants without changing
+saved text or identities; numeric inputs accept fullwidth keyboard digits with
+exact precision. Offline behavior and workout recovery remain intact. Physical
+Expo Go and independent linguistic acceptance remain pending. See LOCALIZATION.md.

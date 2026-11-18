@@ -4548,3 +4548,12 @@ search alternatives, with live RTL presentation, Arabic-Indic number display and
 exact Arabic keyboard entry. Keep images/anatomy, identities, active workouts and
 drafts intact. No global reload or automatic merge. Physical and native-speaker
 acceptance remain open; owning details are in LOCALIZATION and DESIGN_SYSTEM.
+
+## Japanese localization — approved 2026-11-18
+
+Add Japanese after merged Arabic #291: complete messages, exercise guides and
+search alternatives. Match hiragana/katakana and width variants in search only;
+retain voiced distinctions and stable catalog identities. Support fullwidth numeric
+keyboard entry without rounding drafts. Preserve the current language wheel,
+device-language resolution, LTR/RTL switching and offline workout data. Native
+and independent language acceptance remain open. See LOCALIZATION.md.

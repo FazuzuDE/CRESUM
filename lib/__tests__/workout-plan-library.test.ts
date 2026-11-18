@@ -158,3 +158,31 @@ test('accepts Arabic plan metadata without requiring it in older publications', 
   expect(filterPlans([localized], 'العلوي', 'ar')).toEqual([localized]);
   expect(filterPlans([localized], 'دمبل', 'ar')).toEqual([localized]);
 });
+
+test('accepts Japanese metadata and retains English fallback without accepting malformed translations', () => {
+  const [legacy] = parseLibrary([entry]);
+  expect(filterPlans([legacy], 'upper', 'ja')).toEqual([legacy]);
+  const localized = {
+    ...entry,
+    metadata: {
+      ...entry.metadata,
+      title: { ...entry.metadata.title, ja: '上半身トレーニング' },
+      description: { ...entry.metadata.description, ja: 'ダンベルのプラン' },
+    },
+  };
+  const [plan] = parseLibrary([localized]);
+  expect(filterPlans([plan], '上半身', 'ja')).toEqual([plan]);
+  expect(filterPlans([plan], 'ダンベル', 'ja')).toEqual([plan]);
+  for (const ja of ['', 42, null])
+    expect(() =>
+      parseLibrary([
+        {
+          ...localized,
+          metadata: {
+            ...localized.metadata,
+            title: { ...localized.metadata.title, ja },
+          },
+        },
+      ]),
+    ).toThrow();
+});

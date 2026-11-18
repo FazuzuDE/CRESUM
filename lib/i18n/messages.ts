@@ -1,3 +1,17 @@
+import jaCommon from './locales/ja/common';
+import jaCatalog from './locales/ja/catalog';
+import jaEditor from './locales/ja/editor';
+import jaEquipment from './locales/ja/equipment';
+import jaLibrary from './locales/ja/library';
+import jaSharing from './locales/ja/sharing';
+import jaHome from './locales/ja/home';
+import jaHistory from './locales/ja/history';
+import jaProgramTechnique from './locales/ja/program-technique';
+import jaWorkout from './locales/ja/workout';
+import jaOnboarding from './locales/ja/onboarding';
+import jaProgress from './locales/ja/progress';
+import jaProfile from './locales/ja/profile';
+import jaTechniqueContent from './locales/ja/technique-content';
 import arCommon from './locales/ar/common';
 import arCatalog from './locales/ar/catalog';
 import arEditor from './locales/ar/editor';
@@ -418,6 +432,22 @@ const ar = {
   ...arProfile,
   ...arTechniqueContent,
 } as const;
+const ja = {
+  ...jaCommon,
+  ...jaCatalog,
+  ...jaEditor,
+  ...jaEquipment,
+  ...jaLibrary,
+  ...jaSharing,
+  ...jaHome,
+  ...jaHistory,
+  ...jaProgramTechnique,
+  ...jaWorkout,
+  ...jaOnboarding,
+  ...jaProgress,
+  ...jaProfile,
+  ...jaTechniqueContent,
+} as const;
 export type MessageValue =
   string | Readonly<Partial<Record<Intl.LDMLPluralRule, string>>>;
 export type MessageCatalog = Readonly<Record<string, MessageValue>>;
@@ -436,6 +466,7 @@ export const catalogs = {
   hi,
   bn,
   ar,
+  ja,
 } satisfies Record<string, MessageCatalog>;
 export type MessageKey = keyof typeof en;
 type TrimFormat<S extends string> = S extends `${infer Name},${string}`

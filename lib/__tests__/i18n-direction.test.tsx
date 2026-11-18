@@ -34,6 +34,9 @@ it('mirrors logical labels and arrows but preserves centering, vertical icons an
     normalizedEntry({ weight: '١٢٫٥٠', reps: '٨', otherSideReps: '٩' }),
   ).toEqual({ weight: '12.50', reps: '8', otherSideReps: '9' });
   expect(parseBodyWeight('٨٢٫١٢٥')).toBe(82.125);
+  expect(
+    normalizedEntry({ weight: '１２．５０', reps: '８', otherSideReps: '９' }),
+  ).toEqual({ weight: '12.50', reps: '8', otherSideReps: '9' });
 });
 
 it('switches live RTL/LTR including modal roots without remounting or rewriting an unfinished draft', async () => {
@@ -93,11 +96,19 @@ it('switches live RTL/LTR including modal roots without remounting or rewriting 
   act(() => view!.root.findByType(TextInput).props.onChangeText('١٢٫٥٠'));
   expect(view!.root.findByType(TextInput).props.value).toBe('12.50');
   await act(async () => {
-    await store.select('en');
+    await store.select('ja');
   });
   expect(view!.root.findByType(TextInput).props.value).toBe('12.50');
   expect(mounts).toBe(1);
-  expect(store.getSnapshot().locale).toBe('en');
+  expect(store.getSnapshot().locale).toBe('ja');
+  expect(
+    view!.root.findByProps({ testID: 'direction-probe' }).props.style.direction,
+  ).toBe('ltr');
+  expect(
+    StyleSheet.flatten(view!.root.findByType(Text).props.style),
+  ).toMatchObject({ writingDirection: 'ltr', textAlign: 'left' });
+  act(() => view!.root.findByType(TextInput).props.onChangeText('１２．５０'));
+  expect(view!.root.findByType(TextInput).props.value).toBe('12.50');
   act(() => view!.unmount());
 });
 
