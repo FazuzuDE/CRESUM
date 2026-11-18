@@ -9,3 +9,19 @@ Set entry observes a simultaneous public pan gesture and reports interaction act
 Expo Go cannot load custom native modules. Android, web and missing-module environments use the shared accessible fallback, with supported selection haptics and no claimed native audio. A new iOS native/development build is required after adding this module. No Expo/native app was launched during this implementation.
 
 Verified locally: autolinking resolves CresumPicker / CresumPickerModule, TypeScript adapter and selection/date/draft tests. Linux cannot compile UIKit; existing JS-export CI does not replace an iOS build. Before release, compile with Xcode and review on a physical iPhone: click under system sound/mute preferences, haptic availability, VoiceOver per column, Dynamic Type, month/day clamping, and modal dismissal.
+
+## Cyclic language selection
+
+`AppPicker` accepts an opt-in `cyclic` mode used by the language dialog. Cyclic
+wheels use the same accessible virtualized JS renderer on every platform,
+including custom iOS builds that contain this module. The UIKit adapter remains
+bounded and is used by ordinary date/number wheels. No Swift or SDK update is
+required for cyclic language selection in Expo Go.
+
+The renderer repeats the logical options on a virtualized runway and silently
+recenters after drag/momentum settles. Public selection events and accessibility
+values use the original option indices, never repeated-row indices. Recentring
+and prop/geometry synchronization must not emit haptics or persist a draft.
+Language confirmation waits for motion to stop; a release without momentum also
+releases the confirmation lock. Native gesture feel and screen-reader behavior
+still require physical-device acceptance.
