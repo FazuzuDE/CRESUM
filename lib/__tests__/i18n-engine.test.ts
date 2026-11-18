@@ -32,6 +32,21 @@ it('supports Russian plurals when the runtime has no native Intl.PluralRules', (
       expect(create('hi')('history.completedSets', { count: 2 })).toBe(
         '2 पूरे किए सेट',
       );
+      const arabic = create('ar', {
+        'common.setCount': {
+          zero: 'zero {{count}}',
+          one: 'one {{count}}',
+          two: 'two {{count}}',
+          few: 'few {{count}}',
+          many: 'many {{count}}',
+          other: 'other {{count}}',
+        },
+      });
+      expect(
+        [0, 1, 2, 3, 11, 1.5].map((count) =>
+          arabic('common.setCount', { count }),
+        ),
+      ).toEqual(['zero 0', 'one 1', 'two 2', 'few 3', 'many 11', 'other 1.5']);
       const t = create('ru');
       expect(
         [0, 1, 2, 5, 11, 21, 22, 25, 1.5].map((count) =>

@@ -1,6 +1,8 @@
+import { Dock } from '../../components/Dock';
 import { useState } from 'react';
 import { Modal, TextInput, Text, View, StyleSheet } from 'react-native';
 import {
+  LayoutDirectionContext,
   LocalizedText,
   LocalizedTextInput,
   LocalizedModal,
@@ -11,6 +13,10 @@ import { LocaleStore } from '../i18n/preference-store';
 import { textDirectionStyle, logicalIcon } from '../i18n/direction';
 import { normalizedEntry } from '../set-entry';
 import { parseBodyWeight } from '../body-weight';
+jest.mock('react-native-safe-area-context', () => ({
+  ...jest.requireActual('react-native-safe-area-context'),
+  SafeAreaView: jest.requireActual('react-native').View,
+}));
 const { act, create } = jest.requireActual('react-test-renderer');
 
 it('mirrors logical labels and arrows but preserves centering, vertical icons and numeric value order', () => {
@@ -92,5 +98,51 @@ it('switches live RTL/LTR including modal roots without remounting or rewriting 
   expect(view!.root.findByType(TextInput).props.value).toBe('12.50');
   expect(mounts).toBe(1);
   expect(store.getSnapshot().locale).toBe('en');
+  act(() => view!.unmount());
+});
+
+it('keeps the dock pill under the visually selected tab in RTL without relying on device direction', async () => {
+  let view: ReturnType<typeof create>;
+  await act(async () => {
+    view = create(
+      <LayoutDirectionContext.Provider value="rtl">
+        <Dock active="home" onChange={() => {}} />
+      </LayoutDirectionContext.Provider>,
+    );
+  });
+  type HostNode = { props: Record<string, unknown>; children?: HostNode[] };
+  const nodes = (): HostNode[] => {
+    const walk = (node: HostNode): HostNode[] =>
+      !node || typeof node !== 'object'
+        ? []
+        : [node, ...(node.children ?? []).flatMap(walk)];
+    return walk(view!.toJSON());
+  };
+  expect(
+    nodes()
+      .filter((n) => n.props.accessibilityRole === 'tab')
+      .map((n) => n.props.accessibilityLabel),
+  ).toEqual(['Profile', 'Progress', 'Workout', 'Home']);
+  const row = nodes().find(
+    (n) =>
+      typeof n.props.onLayout === 'function' &&
+      StyleSheet.flatten(n.props.style as never)?.direction === 'ltr',
+  )!;
+  act(() =>
+    (row.props.onLayout as (event: unknown) => void)({
+      nativeEvent: { layout: { width: 400 } },
+    }),
+  );
+  const pill = nodes().find((n) => {
+    const style = StyleSheet.flatten(n.props.style as never);
+    return (
+      style?.position === 'absolute' &&
+      style?.start === 0 &&
+      style?.width === 100
+    );
+  })!;
+  expect(
+    StyleSheet.flatten(pill.props.style as never).transform[0].translateX,
+  ).toBe(300);
   act(() => view!.unmount());
 });
