@@ -52,6 +52,11 @@ it('supports Russian plurals when the runtime has no native Intl.PluralRules', (
           create('id')('common.setCount', { count }),
         ),
       ).toEqual(['0 set', '1 set', '2 set', '1,5 set']);
+      expect(
+        [0, 1, 2, 1.5].map((count) =>
+          create('ko')('common.setCount', { count }),
+        ),
+      ).toEqual(['0세트', '1세트', '2세트', '1.5세트']);
       const arabic = create('ar', {
         'common.setCount': {
           zero: 'zero {{count}}',
@@ -259,4 +264,13 @@ it('uses Marathi one/other categories and leaves personal names unchanged', () =
   expect(t('profile.saved', { count: 1 })).toBe('1 जतन केलेले सत्र');
   expect(t('profile.saved', { count: 2 })).toBe('2 जतन केलेली सत्रे');
   expect(t('common.named', { name: 'श्रद्धा काळे' })).toBe('श्रद्धा काळे');
+});
+
+it('uses Korean other forms and preserves personal text verbatim', () => {
+  const t = createTranslator('ko');
+  expect(
+    [0, 1, 2, 1.5].map((count) => t('common.setCount', { count })),
+  ).toEqual(['0세트', '1세트', '2세트', '1.5세트']);
+  const name = '김민수'.normalize('NFD');
+  expect(t('common.named', { name })).toBe(name);
 });

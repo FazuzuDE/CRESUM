@@ -1,3 +1,17 @@
+import koCatalog from './locales/ko/catalog';
+import koCommon from './locales/ko/common';
+import koEditor from './locales/ko/editor';
+import koEquipment from './locales/ko/equipment';
+import koHistory from './locales/ko/history';
+import koHome from './locales/ko/home';
+import koLibrary from './locales/ko/library';
+import koOnboarding from './locales/ko/onboarding';
+import koProfile from './locales/ko/profile';
+import koProgramTechnique from './locales/ko/program-technique';
+import koProgress from './locales/ko/progress';
+import koSharing from './locales/ko/sharing';
+import koTechniqueContent from './locales/ko/technique-content';
+import koWorkout from './locales/ko/workout';
 import idCatalog from './locales/id/catalog';
 import idCommon from './locales/id/common';
 import idEditor from './locales/id/editor';
@@ -538,6 +552,22 @@ const id = {
   ...idTechniqueContent,
   ...idWorkout,
 } as const;
+const ko = {
+  ...koCatalog,
+  ...koCommon,
+  ...koEditor,
+  ...koEquipment,
+  ...koHistory,
+  ...koHome,
+  ...koLibrary,
+  ...koOnboarding,
+  ...koProfile,
+  ...koProgramTechnique,
+  ...koProgress,
+  ...koSharing,
+  ...koTechniqueContent,
+  ...koWorkout,
+} as const;
 export type MessageValue =
   string | Readonly<Partial<Record<Intl.LDMLPluralRule, string>>>;
 export type MessageCatalog = Readonly<Record<string, MessageValue>>;
@@ -560,6 +590,7 @@ export const catalogs = {
   vi,
   mr,
   id,
+  ko,
 } satisfies Record<string, MessageCatalog>;
 export type MessageKey = keyof typeof en;
 type TrimFormat<S extends string> = S extends `${infer Name},${string}`

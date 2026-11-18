@@ -823,6 +823,6 @@ before refreshing the preview. This does not activate public QR sharing.
 
 After Marathi, continue complete locales in this order: Indonesian, Korean,
 Dutch, Swedish, Thai, Urdu, Telugu, Tamil. The owner approved following this list;
-this PR implements Indonesian only. Each step includes all current content,
+Indonesian is integrated in #297; Korean is the current step. Each step includes all current content,
 technique and search alternatives, existing checks and pending physical/linguistic
 acceptance. Initial release Core remains free. Do not skip coverage for speed.

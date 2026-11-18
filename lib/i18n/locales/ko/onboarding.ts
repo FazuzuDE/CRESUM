@@ -1,0 +1,143 @@
+export default {
+  'onboarding.decimalPart': '소수 부분',
+  'onboarding.welcomeTagline': '모든 운동을 한곳에서 관리하세요.',
+  'onboarding.bodyOptionalHelp':
+    '원하는 정보를 추가하세요. 프로필에서 수정할 수 있습니다.',
+  'onboarding.skipForNow': '지금은 건너뛰기',
+  'onboarding.heightLabel': '키',
+  'onboarding.weightLabel': '체중',
+  'onboarding.select': '선택',
+  'onboarding.cm': 'cm',
+  'onboarding.kg': 'kg',
+  'onboarding.startPath': '어떻게 시작할까요?',
+  'onboarding.findProgram': '프로그램 찾기',
+  'onboarding.findProgramHelp': '목표를 선택하고 입문 계획을 받아 보세요.',
+  'onboarding.startOwn': '직접 시작',
+  'onboarding.startOwnHelp': '바로 홈으로 이동합니다.',
+  'onboarding.goalQuestion': '운동 목표가 무엇인가요?',
+  'onboarding.loseWeight': '체중 감량',
+  'onboarding.strengthPlan': '내 근력 운동 계획',
+  'onboarding.trainingPlan': '내 운동 계획',
+  'onboarding.weeklySchedule': '주간 일정',
+  'onboarding.workoutIndex': '운동 {{index, number}}',
+  'onboarding.begin': '시작',
+  'onboarding.weeklyCount': {
+    other: '주 {{count, number}}회 운동',
+  },
+  'onboarding.workoutSaved':
+    '운동은 저장되었지만 초기 설정 상태를 저장할 수 없습니다.',
+  'onboarding.firstWorkout': '첫 운동',
+  'onboarding.firstWorkoutHelp':
+    '나중에 시작하고 편집할 수 있는 운동을 만드세요. 계획 값은 완료한 세트가 아닙니다.',
+  'onboarding.welcome': 'CRESUM에 오신 것을 환영합니다',
+  'onboarding.intro':
+    '운동하고. 기록하고. 성장하세요. 여기서 성장이 시작됩니다.',
+  'onboarding.nameQuestion': '어떻게 불러 드릴까요?',
+  'onboarding.name': '이름',
+  'onboarding.continue': '계속',
+  'onboarding.next': '다음',
+  'onboarding.goal': '운동 목표',
+  'onboarding.goalHelp': '어떤 부분에 집중하고 싶으신가요?',
+  'onboarding.muscle': '근육 키우기',
+  'onboarding.strength': '근력 높이기',
+  'onboarding.fitness': '전반적인 체력 향상',
+  'onboarding.manual': '운동 직접 설정',
+  'onboarding.experience': '운동 경험',
+  'onboarding.experienceHelp': '가장 가까운 항목을 선택하세요.',
+  'onboarding.beginner': '초보자',
+  'onboarding.some': '약간의 경험',
+  'onboarding.experienced': '숙련자',
+  'onboarding.body': '신체 정보',
+  'onboarding.bodyHelp':
+    '프로필을 위한 선택 정보입니다. 운동 중량을 결정하는 데 사용되지 않습니다.',
+  'onboarding.optional': '{{label}} · 선택 사항',
+  'onboarding.birth': '생년월일',
+  'onboarding.chooseDate': '날짜 선택',
+  'onboarding.height': '키(cm)',
+  'onboarding.weight': '체중(kg)',
+  'onboarding.notProvided': '입력하지 않음',
+  'onboarding.skipBody': '신체 정보 없이 계속',
+  'onboarding.ready': '시작할 준비가 되었습니다',
+  'onboarding.review': '프로그램 확인',
+  'onboarding.summary': {
+    other: '주 {{count, number}}회 근력 운동 · 헬스장 · {{date}} 시작',
+  },
+  'onboarding.attribution':
+    'ACSM, NSCA, ACE, HSS의 공개 운동 프로그램과 NHS 지침을 CRESUM이 조정한 내용입니다. 운동 중량은 직접 선택하며 계획 값은 완료한 세트로 계산되지 않습니다.',
+  'onboarding.hideProgram': '전체 프로그램 숨기기',
+  'onboarding.viewProgram': '전체 프로그램 보기',
+  'onboarding.week': '{{index, number}}주차: {{schedule}}',
+  'onboarding.slot': '{{key}} · {{date}}',
+  'onboarding.day': '{{key}} · {{name}}',
+  'onboarding.movement':
+    '{{name}} · {{sets, number}} × {{min, number}}–{{max, number}}회 · 휴식 {{restMin, number}}–{{restMax, number}}초',
+  'onboarding.movementPerSide':
+    '{{name}} · {{sets, number}} × 한쪽당 {{min, number}}–{{max, number}}회 · 휴식 {{restMin, number}}–{{restMax, number}}초',
+  'onboarding.warmup':
+    '준비운동은 별도로 하세요. 2–3회를 더 할 여유가 있는 조절 가능한 중량을 사용하세요. 반복 횟수 상한을 안정적으로 수행할 수 있으면 직접 늘리세요. 중량은 자동으로 증가하지 않습니다.',
+  'onboarding.cardio':
+    '걷기 또는 자전거: 주당 중강도 150분을 점진적으로 목표로 하되, 감당할 수 있는 10–15분부터 시작하세요. 유산소 안내는 근력 운동 기록과 별개입니다.',
+  'onboarding.hideSchedule': '일정 옵션 숨기기',
+  'onboarding.schedule': '일정 옵션',
+  'onboarding.startDateValue': '시작 날짜 · {{date}}',
+  'onboarding.startDate': '시작 날짜',
+  'onboarding.frequency': '주당 운동 횟수',
+  'onboarding.workouts': {
+    other: '운동 {{count, number}}회',
+  },
+  'onboarding.frequencyHelp':
+    '이 목표와 경험에 대해 검토된 구성은 권장 빈도에만 있습니다. 다른 빈도는 수동 설정을 사용합니다.',
+  'onboarding.sessionDay':
+    '{{index, number}}번째 세션 · 계획 주차의 요일 번호(1–7)',
+  'onboarding.sessionDayLabel':
+    '{{index, number}}번째 세션의 계획 주차 요일 번호',
+  'onboarding.reduced': '첫 세션: 운동당 1세트',
+  'onboarding.reduce': '운동이 처음인가요? 첫 세션을 1세트로 줄이기',
+  'onboarding.retryStart': '시작! 다시 시도',
+  'onboarding.saving': '프로그램 저장 중…',
+  'onboarding.start': '시작!',
+  'onboarding.openSaved': '저장된 운동 열기',
+  'onboarding.back': '뒤로',
+  'onboarding.backProfile': '프로필로 돌아가기',
+  'onboarding.missing': '필수 운동 이용 불가: {{exercises}}',
+  'onboarding.retry': '초기 설정 다시 시도',
+  'onboarding.bypass': '앱으로 계속',
+  'onboarding.loading': '운동을 불러오는 중…',
+  'onboarding.savedUnavailable':
+    '저장된 운동을 이용할 수 없습니다. 위에서 다시 시도하세요.',
+  'program.day.F': '전신',
+  'program.day.U': '상체',
+  'program.day.L': '하체',
+  'program.day.A': '근력 A',
+  'program.day.B': '근력 B',
+  'program.day.C': '근력 C',
+  'program.day.D': '근력 D',
+  'program.day.E': '근력 E',
+  'program.day.G': '체력 G',
+  'program.day.H': '체력 H',
+  'error.nameRequired': '계속하려면 이름을 입력하세요.',
+  'error.birthDate': '올바른 생년월일을 입력하거나 비워 두세요.',
+  'error.height': '올바른 키를 입력하거나 비워 두세요.',
+  'error.bodyWeight': '올바른 체중을 입력하거나 비워 두세요.',
+  'error.age': '올바른 나이를 입력하거나 비워 두세요.',
+  'error.under18':
+    '18세 미만은 성인용 입문 프로그램을 이용할 수 없습니다. 운동을 직접 설정할 수 있습니다.',
+  'error.programFrequency':
+    '이 빈도에 대해 검토된 프로그램이 없습니다. 권장 빈도를 유지하거나 수동 설정을 사용하세요.',
+  'error.programMissing':
+    '필수 운동을 이용할 수 없습니다. 프로그램을 확인하거나 수동 설정을 사용하세요.',
+  'error.programSelection': '프로그램을 준비하려면 목표와 경험을 선택하세요.',
+  'error.programProposal':
+    '추천 프로그램을 이용할 수 없습니다. 모든 필수 운동과 날짜를 확인하세요.',
+  'error.programSchedule':
+    '계획된 세션마다 날짜를 하나씩 선택하세요. 다른 빈도에는 검토된 프로그램이 필요합니다.',
+  'error.programRest': '전신 운동 사이에 최소 하루의 휴식일을 두세요.',
+  'error.programSplitRest':
+    '상체 또는 하체를 다시 훈련하기 전에 회복 시간을 두세요.',
+  'error.programSave':
+    '프로그램을 저장할 수 없습니다. 다시 시도하세요. 운동 데이터는 안전합니다.',
+  'error.onboardingLoad':
+    '저장된 초기 설정을 이용할 수 없습니다. 다시 시도하거나 앱으로 계속하세요. 운동 데이터는 안전합니다.',
+  'error.onboardingSave':
+    '초기 설정 진행 상황을 저장할 수 없습니다. 앱을 닫기 전에 다시 시도하세요.',
+} as const;

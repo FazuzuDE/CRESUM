@@ -16504,5 +16504,11 @@
     "line": 19,
     "text": "id",
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 19,
+    "text": "ko",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
   }
 ]

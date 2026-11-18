@@ -70,5 +70,9 @@
   "id": {
     "web": false,
     "native": false
+  },
+  "ko": {
+    "web": false,
+    "native": false
   }
 }

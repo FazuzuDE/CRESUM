@@ -17,6 +17,7 @@ export const localeRegistry = {
   bn: { flag: '🇧🇩', nativeName: 'বাংলা', direction: 'ltr', released: false },
   ar: { flag: '🇸🇦', nativeName: 'العربية', direction: 'rtl', released: false },
   ja: { flag: '🇯🇵', nativeName: '日本語', direction: 'ltr', released: false },
+  ko: { flag: '🇰🇷', nativeName: '한국어', direction: 'ltr', released: false },
   id: {
     flag: '🇮🇩',
     nativeName: 'Bahasa Indonesia',

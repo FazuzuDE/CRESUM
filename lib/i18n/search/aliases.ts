@@ -18,6 +18,7 @@ import ja from './ja';
 import vi from './vi';
 import mr from './mr';
 import id from './id';
+import ko from './ko';
 
 export const searchAliases: Record<AppLocale, SearchAliasCatalog> = {
   hi,
@@ -27,6 +28,7 @@ export const searchAliases: Record<AppLocale, SearchAliasCatalog> = {
   vi,
   mr,
   id,
+  ko,
   en,
   ru,
   de,
