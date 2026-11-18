@@ -818,3 +818,11 @@ These external prerequisites do not block offline Core and are not reported as d
 Unify Profile WORKOUTS with Workout plans, expose existing Create Workout there,
 and preserve management actions. Verify actual web start and muscle-map navigation
 before refreshing the preview. This does not activate public QR sharing.
+
+## Language expansion order — approved 2026-11-18
+
+After Marathi, continue complete locales in this order: Indonesian, Korean,
+Dutch, Swedish, Thai, Urdu, Telugu, Tamil. The owner approved following this list;
+this PR implements Indonesian only. Each step includes all current content,
+technique and search alternatives, existing checks and pending physical/linguistic
+acceptance. Initial release Core remains free. Do not skip coverage for speed.

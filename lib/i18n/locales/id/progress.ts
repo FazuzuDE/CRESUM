@@ -1,0 +1,216 @@
+export default {
+  'muscle.adductorRegion':
+    'Sorotan aduktor hanya menampilkan bagian terpilih yang terlihat pada paha dalam; batasnya sementara dan bagian dalam tidak ditampilkan.',
+  'muscle.rearDeltRegion':
+    'Sorotan deltoid belakang menampilkan area bahu belakang secara skematis; batas belakang/samping bersifat perkiraan.',
+  'muscle.upperBackProjection':
+    'Sorotan punggung atas merupakan proyeksi skematis di bawah trapezius, bukan batas otot romboid yang terlihat secara tepat.',
+  'volume.recentSummary':
+    'Volume sesi latihan terbaru dalam kilogram: {{points}}',
+  'progress.title': 'Kemajuan',
+  'progress.overview': 'Ringkasan',
+  'progress.muscles': 'Otot',
+  'progress.subtitle': 'Volume dan rekor perkiraan kekuatan',
+  'progress.periodGroup': 'Periode kemajuan',
+  'progress.periodAction': 'Periode kemajuan {{period}}',
+  'progress.periodHint': 'Tampilkan Kemajuan untuk {{period}}',
+  'progress.period.1W': '1Mg',
+  'progress.period.1M': '1Bln',
+  'progress.period.3M': '3Bln',
+  'progress.period.6M': '6Bln',
+  'progress.period.1Y': '1Th',
+  'progress.period.ALL': 'SEMUA',
+  'progress.long.1W': '1 minggu',
+  'progress.long.1M': '30 hari terakhir',
+  'progress.long.3M': '3 bulan',
+  'progress.long.6M': '6 bulan',
+  'progress.long.1Y': '1 tahun',
+  'progress.long.ALL': 'Sepanjang waktu',
+  'progress.trainingVolume': 'Volume latihan',
+  'progress.estimated': 'Perkiraan 1RM',
+  'progress.estimateContext': 'Rumus Epley · berdasarkan set selesai',
+  'progress.excluded': 'Sebagian set tersimpan tidak dapat disertakan.',
+  'progress.noRecords': 'Tidak ada rekor perkiraan dalam periode ini.',
+  'progress.topPR': 'PR TERBAIK',
+  'progress.kg': 'kg',
+  'progress.close': 'Tutup',
+  'progress.saving': 'Menyimpan…',
+  'progress.vsPrevious': 'dibanding periode sebelumnya',
+  'progress.valueKg': '{{value}} kg',
+  'progress.point': '{{name}}, {{date}}, {{value}} kg',
+  'progress.bilateral': '{{reps}} kiri / {{other}} kanan',
+  'progress.loggedSet': '{{weight}} kg × {{reps}}',
+  'progress.loggedBilateral': '{{weight}} kg × {{reps}} kiri / {{other}} kanan',
+  'muscle.map': 'Peta otot',
+  'muscle.workout': 'Sesi latihan',
+  'muscle.seven': '7 hari',
+  'muscle.four': '4 minggu',
+  'muscle.current': 'Sesi latihan saat ini',
+  'muscle.latest': 'Sesi latihan selesai terakhir',
+  'muscle.lastSeven': '7 hari terakhir',
+  'muscle.lastFour': '4 minggu terakhir',
+  'muscle.primary': 'Utama',
+  'muscle.secondary': 'Sekunder',
+  'muscle.neutral': 'Tanpa sorotan',
+  'muscle.meaning':
+    'Area anatomi skematis, bukan ukuran aktivasi atau pemulihan. Warna menunjukkan peran, bukan intensitas; peran utama didahulukan jika kedua peran muncul.',
+  'muscle.coverage':
+    'Area netral mungkin belum memiliki wilayah peta yang ditetapkan. Cakupan peta untuk {{groups}} masih disiapkan; jumlah setnya tetap tersedia di bawah. Sorotan punggung bawah merupakan proyeksi skematis di bawah fasia.',
+  'muscle.empty':
+    'Belum ada set selesai dalam periode ini. Catat set untuk melihat keterlibatan otot.',
+  'muscle.basis':
+    'Berdasarkan pemetaan katalog latihan saat ini. Satu set dapat melibatkan beberapa otot. Jumlah utama dan sekunder dihitung terpisah, bukan untuk dijumlahkan. Satu set bilateral tercatat dihitung sekali.',
+  'muscle.counts':
+    '{{primary, number}} set utama · {{secondary, number}} set sekunder',
+  'muscle.row':
+    '{{name}} · {{primary, number}} utama · {{secondary, number}} sekunder',
+  'muscle.rowA11y':
+    '{{name}}, {{primary, number}} set utama, {{secondary, number}} set sekunder. Tampilkan detail',
+  'muscle.contributing': 'Latihan yang berkontribusi',
+  'muscle.noSets':
+    'Tidak ada set selesai yang dipetakan untuk otot ini dalam periode tersebut.',
+  'muscle.showSets': 'Lihat set selesai',
+  'muscle.hideSets': 'Sembunyikan set selesai',
+  'muscle.setRole': 'Set {{index, number}} · {{role}}',
+  'muscle.logged':
+    'Beban tercatat: {{weight}} kg · Repetisi tercatat: {{reps}}',
+  'muscle.front': 'Depan',
+  'muscle.back': 'Belakang',
+  'volume.heading': 'VOLUME LATIHAN',
+  'volume.noData': 'Tidak ada data',
+  'volume.noChange': 'Tidak ada perubahan',
+  'volume.noComparison': 'Tidak ada data pembanding volume latihan',
+  'volume.unchanged':
+    'Volume latihan tidak berubah dibanding periode sebelumnya',
+  'volume.increased':
+    'Volume latihan naik {{amount}} kg dibanding periode sebelumnya',
+  'volume.decreased':
+    'Volume latihan turun {{amount}} kg dibanding periode sebelumnya',
+  'volume.empty': 'Belum ada sesi latihan dalam periode ini.',
+  'volume.recent':
+    'Sesi latihan terbaru · {{shown, number}} dari {{total, number}}',
+  'volume.lastThirty': '30 hari terakhir · kg',
+  'volume.byWorkout': 'Volume per sesi latihan · kg',
+  'volume.viewAll': 'Lihat semua sesi latihan dalam {{period}}',
+  'volume.listTitle': 'Volume sesi latihan',
+  'volume.close': 'Tutup volume sesi latihan',
+  'chart.summary': '{{measure}} dalam kilogram: {{points}}',
+  'chart.scale': 'Skala {{measure}} dalam kilogram',
+  'chart.title': 'Grafik {{measure}}',
+  'chart.curve': 'Kurva {{measure}}',
+  'chart.curveSelected': 'Kurva {{measure}}: {{point}}',
+  'chart.hint':
+    'Sentuh kurva untuk memilih {{item}}. Geser ke atas atau bawah untuk mengganti {{item}} yang dipilih.',
+  'chart.next': '{{item}} berikutnya',
+  'chart.previous': '{{item}} sebelumnya',
+  'chart.viewSelected': 'Lihat {{item}} yang dipilih',
+  'chart.workout': 'sesi latihan',
+  'chart.measurement': 'pengukuran',
+  'chart.workoutVolume': 'Volume sesi latihan',
+  'chart.oneWorkout': 'Satu sesi latihan tersimpan; kurva belum tersedia.',
+  'chart.point': '{{measure}}: {{point}}',
+  'series.point':
+    'Perkiraan 1RM: {{name}}, {{date}}, {{value}} kg diperkirakan dari {{weight}} kg × {{reps}}',
+  'series.value': 'Perkiraan {{value}} kg',
+  'series.source': 'Dari {{weight}} kg × {{reps}}',
+  'series.title': 'Perkiraan 1RM · per sesi latihan',
+  'series.empty':
+    'Tidak ada data perkiraan 1RM untuk latihan ini dalam {{period}}.',
+  'series.one': 'Satu perkiraan tersimpan; tren belum tersedia.',
+  'series.viewAll': 'Lihat semua perkiraan dalam {{period}}',
+  'series.modalTitle': 'Perkiraan 1RM · {{period}}',
+  'series.close': 'Tutup titik perkiraan 1RM',
+  'stats.volume': 'Volume',
+  'stats.topWeight': 'Beban tertinggi',
+  'stats.periodGroup': 'Periode statistik latihan',
+  'stats.periodAction': 'Periode latihan {{period}}',
+  'stats.metricGroup': 'Metrik statistik latihan',
+  'stats.metricAction': 'Metrik latihan {{metric}}',
+  'stats.comparisonUnavailable': 'Perbandingan tidak tersedia',
+  'stats.noPrevious': 'Tidak ada data periode sebelumnya',
+  'stats.volumeHelp': 'Volume latihan selesai dalam periode ini',
+  'stats.weightHelp': 'Beban tercatat tertinggi dalam periode ini',
+  'stats.estimateHelp': 'Perkiraan terbaik per sesi latihan',
+  'stats.noEstimate':
+    '1RM tidak tersedia untuk set berpasangan kiri/kanan atau tanpa beban. Pilih Volume atau Beban tertinggi.',
+  'stats.empty':
+    'Tidak ada set selesai untuk latihan ini dalam periode tersebut.',
+  'stats.estimateNote':
+    'Perkiraan Epley, bukan maksimum yang diuji. Set berpasangan kiri/kanan dan tanpa beban tidak disertakan.',
+  'stats.tap': 'Ketuk titik untuk melihat set selesai.',
+  'stats.workouts': 'Sesi latihan',
+  'stats.completed': 'Set selesai',
+  'stats.viewSets': 'Lihat set {{name}} {{id}}',
+  'stats.logged': 'Set tercatat',
+  'stats.back': '‹ Statistik',
+  'stats.backA11y': 'Kembali ke statistik latihan',
+  'stats.source': 'Dari {{weight}} kg × {{reps}} · perkiraan Epley',
+  'stats.included': 'Hanya set selesai untuk latihan ini yang disertakan.',
+  'performance.title': 'Performa latihan tercatat',
+  'performance.subtitle': 'Set selesai tersimpan · beban × repetisi',
+  'performance.first':
+    'Selesaikan sesi latihan untuk melihat performa latihan tercatat.',
+  'performance.empty': 'Belum ada set latihan selesai yang valid.',
+  'performance.chooseA11y': 'Pilih latihan untuk performa tercatat',
+  'performance.choose': 'Pilih latihan',
+  'performance.paired':
+    '1RM tidak tersedia untuk set berpasangan kiri/kanan. Kedua sisi tetap ada dalam hasil tercatat.',
+  'performance.zero':
+    '1RM tidak tersedia untuk set tanpa beban. Beban tambahan bukan berat badan.',
+  'performance.noSets':
+    'Tidak ada set tercatat untuk latihan ini dalam {{period}}.',
+  'performance.viewSets': 'Lihat set tercatat',
+  'performance.loggedTitle': 'Set tercatat · {{name}}',
+  'performance.closeSets': 'Tutup set tercatat',
+  'performance.selectorTitle': 'Latihan yang pernah dilakukan',
+  'performance.closeSelector': 'Tutup latihan yang pernah dilakukan',
+  'performance.search': 'Cari latihan yang pernah dilakukan',
+  'performance.noMatches': 'Latihan yang pernah dilakukan tidak ditemukan.',
+  'performance.choice': 'Lihat performa {{name}}',
+  'body.title': 'Berat badan',
+  'body.add': 'Tambah pengukuran',
+  'body.recorded': 'Pengukuran tercatat · kg',
+  'body.loadError':
+    'Berat badan tersimpan tidak tersedia. Pengukuran Anda tidak diubah.',
+  'body.retry': 'Coba muat pengukuran lagi',
+  'body.initial': 'Awal',
+  'body.current': 'Saat ini',
+  'body.change': '{{change}} kg sejak pengukuran pertama',
+  'body.empty':
+    'Tambahkan pengukuran pertama untuk mulai memantau berat badan.',
+  'body.point': '{{date}} · {{value}} kg',
+  'body.one':
+    'Satu pengukuran tersimpan. Tambahkan lagi untuk melihat tren Anda.',
+  'body.noPeriod':
+    'Tidak ada pengukuran dalam {{period}}. Pengukuran sebelumnya tetap tersimpan.',
+  'body.addCurrent': 'Tambahkan pengukuran Anda saat ini. {{date}}',
+  'body.input': 'Berat badan saat ini (kg)',
+  'body.save': 'Simpan pengukuran',
+  'body.invalid': 'Masukkan berat badan yang valid antara 0 dan 1.000 kg.',
+  'body.saveError': 'Pengukuran tidak dapat disimpan. Coba lagi.',
+  'muscle.completed': {
+    other: '{{count, number}} set selesai',
+  },
+  'muscle.unmapped': {
+    other:
+      '{{count, number}} set selesai tidak memiliki pemetaan katalog dan tidak ditampilkan di peta.',
+  },
+  'volume.workouts': {
+    other: '{{count, number}} sesi latihan selesai dalam {{period}}',
+  },
+  'volume.viewAllA11y': {
+    other: 'Lihat semua {{count, number}} volume sesi latihan dalam {{period}}',
+  },
+  'volume.all': {
+    other: 'Semua {{count, number}} sesi latihan dalam {{period}}',
+  },
+  'series.count': {
+    other: '{{count, number}} sesi latihan dalam {{period}} · perkiraan kg',
+  },
+  'series.viewAllA11y': {
+    other: 'Lihat semua {{count, number}} titik perkiraan 1RM dalam {{period}}',
+  },
+  'stats.trainingSets': {
+    other: 'Volume latihan · {{count, number}} set selesai',
+  },
+} as const;

@@ -27,10 +27,13 @@ it('opens at the effective language, stages wheel choices, and saves only with D
   const open = () =>
     act(async () => view!.root.findAllByType(AppButton)[0].props.onPress());
   const buttons = () => view!.root.findByType(Modal).findAllByType(AppButton);
+  const row = (name: string) =>
+    view!.root.findByType(AppPicker).props.columns[0].indexOf(name);
   await open();
   expect(view!.root.findByType(GlassMaterial).props.transparency).toBe(10);
   expect(view!.root.findByType(AppPicker).props.cyclic).toBe(true);
   expect(view!.root.findByType(AppPicker).props.columns[0]).toEqual([
+    '🇮🇩  Bahasa Indonesia',
     '🇩🇪  Deutsch',
     '🇬🇧  English',
     '🇪🇸  Español',
@@ -49,14 +52,22 @@ it('opens at the effective language, stages wheel choices, and saves only with D
     '🇯🇵  日本語',
     '🇨🇳  简体中文',
   ]);
-  expect(view!.root.findByType(AppPicker).props.selected).toEqual([1]);
+  expect(view!.root.findByType(AppPicker).props.selected).toEqual([
+    row('🇬🇧  English'),
+  ]);
   expect(buttons()[0].props.title).toBe('🌐  System language ✓');
-  act(() => view!.root.findByType(AppPicker).props.onChange(0, 13));
+  act(() =>
+    view!.root.findByType(AppPicker).props.onChange(0, row('🇮🇳  हिन्दी')),
+  );
   expect(store.getSnapshot().preference).toBe('system');
   act(() => buttons()[1].props.onPress());
   await open();
-  expect(view!.root.findByType(AppPicker).props.selected).toEqual([1]);
-  act(() => view!.root.findByType(AppPicker).props.onChange(0, 13));
+  expect(view!.root.findByType(AppPicker).props.selected).toEqual([
+    row('🇬🇧  English'),
+  ]);
+  act(() =>
+    view!.root.findByType(AppPicker).props.onChange(0, row('🇮🇳  हिन्दी')),
+  );
   await act(async () => buttons()[2].props.onPress());
   expect(store.getSnapshot()).toMatchObject({
     preference: 'hi',
@@ -64,16 +75,20 @@ it('opens at the effective language, stages wheel choices, and saves only with D
   });
   expect(view!.root.findAllByType(Modal)).toHaveLength(0);
   await open();
-  expect(view!.root.findByType(AppPicker).props.selected).toEqual([13]);
+  expect(view!.root.findByType(AppPicker).props.selected).toEqual([
+    row('🇮🇳  हिन्दी'),
+  ]);
   act(() => buttons()[0].props.onPress());
   expect(buttons()[0].props.selected).toBe(true);
-  expect(view!.root.findByType(AppPicker).props.selected).toEqual([1]);
+  expect(view!.root.findByType(AppPicker).props.selected).toEqual([
+    row('🇬🇧  English'),
+  ]);
   expect(store.getSnapshot().preference).toBe('hi');
   await act(async () => buttons()[2].props.onPress());
   expect(store.getSnapshot().preference).toBe('system');
   act(() => view!.unmount());
 });
-it.each(['de-DE', 'ja-JP', 'vi-VN', 'mr-IN'])(
+it.each(['de-DE', 'ja-JP', 'vi-VN', 'mr-IN', 'id-ID'])(
   'centers the resolved device language for %s without saving',
   async (tag) => {
     const write = jest.fn(async () => {});
@@ -98,7 +113,9 @@ it.each(['de-DE', 'ja-JP', 'vi-VN', 'mr-IN'])(
           ? '🇯🇵  日本語'
           : tag === 'vi-VN'
             ? '🇻🇳  Tiếng Việt'
-            : '🇮🇳  मराठी',
+            : tag === 'mr-IN'
+              ? '🇮🇳  मराठी'
+              : '🇮🇩  Bahasa Indonesia',
     );
     expect(
       view!.root.findByType(Modal).findAllByType(AppButton)[0].props.selected,
@@ -127,12 +144,15 @@ it('keeps a failed language draft available for retry', async () => {
     );
   });
   act(() => view!.root.findByType(AppButton).props.onPress());
-  act(() => view!.root.findByType(AppPicker).props.onChange(0, 9));
+  const russian = view!.root
+    .findByType(AppPicker)
+    .props.columns[0].indexOf('🇷🇺  Русский');
+  act(() => view!.root.findByType(AppPicker).props.onChange(0, russian));
   const confirm = () =>
     view!.root.findByType(Modal).findAllByType(AppButton)[2];
   await act(async () => confirm().props.onPress());
   expect(store.getSnapshot().preference).toBe('system');
-  expect(view!.root.findByType(AppPicker).props.selected).toEqual([9]);
+  expect(view!.root.findByType(AppPicker).props.selected).toEqual([russian]);
   expect(confirm().props.title).toBe('Retry');
   fail = false;
   await act(async () => confirm().props.onPress());
@@ -205,6 +225,11 @@ it('switches live content without remounting a draft or resetting its value', as
     await store.select('mr');
   });
   expect(view!.root.findByType(Text).props.children).toBe('पुन्हा प्रयत्न करा');
+  expect(view!.root.findByType(TextInput).props.value).toBe('12,');
+  await act(async () => {
+    await store.select('id');
+  });
+  expect(view!.root.findByType(Text).props.children).toBe('Coba lagi');
   expect(view!.root.findByType(TextInput).props.value).toBe('12,');
   expect(mounts).toBe(1);
   act(() => view!.unmount());

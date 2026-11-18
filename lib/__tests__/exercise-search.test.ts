@@ -326,3 +326,28 @@ it('matches Marathi gym names and Roman alternatives across languages while reta
   expect(goblet).toContain('goblet-squat');
   expect(goblet).not.toContain('kettlebell-goblet-squat');
 });
+
+it('finds Indonesian gym terms and abbreviations across languages and preserves exact equipment filters', () => {
+  const before = JSON.stringify(exerciseLibrary);
+  expect(ids('MESIN KUPU-KUPU DADA', 'de')).toContain('pec-deck-fly');
+  expect(ids('dumbel dayung satu tangan', 'ru')).toContain(
+    'one-arm-dumbbell-row',
+  );
+  expect(ids('RDL dumbel', 'id')).toContain('dumbbell-romanian-deadlift');
+  expect(ids('tarik lat pegangan V', 'en')).toContain(
+    'lat-pulldown-close-neutral-v-handle',
+  );
+  expect(
+    searchLocalizedExercises(
+      { query: 'bench press barbel', muscle: 'calves' },
+      'id',
+    ),
+  ).toEqual([]);
+  const goblet = searchLocalizedExercises(
+    { query: 'goblet squat dumbel', equipment: 'dumbbell' },
+    'id',
+  ).map((x) => x.id);
+  expect(goblet).toContain('goblet-squat');
+  expect(goblet).not.toContain('kettlebell-goblet-squat');
+  expect(JSON.stringify(exerciseLibrary)).toBe(before);
+});

@@ -66,5 +66,9 @@
   "mr": {
     "web": false,
     "native": false
+  },
+  "id": {
+    "web": false,
+    "native": false
   }
 }

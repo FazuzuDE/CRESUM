@@ -4604,3 +4604,13 @@ marks in search and normalize Devanagari keyboard digits for exact manual entry.
 Use existing locale resolution, registry-driven wheel and publication fallback.
 No unrelated wheel changes, automatic merge or acceptance claims. Physical and
 independent linguistic review remain open. See LOCALIZATION.md.
+
+## Indonesian and subsequent locale order — approved 2026-11-18
+
+Owner approved the proposed list and instructed starting with Indonesian. Order:
+Indonesian → Korean → Dutch → Swedish → Thai → Urdu → Telugu → Tamil.
+Implement complete bundled messages, catalogs, exercise guides and search aliases
+for each locale. Indonesian uses the existing registry-driven wheel, decimal
+comma formatting and other plurals. Preserve offline data, exact variants and
+unfinished editors. See LOCALIZATION.md and ROADMAP.md; no automatic merge or
+physical/native-speaker acceptance is implied.
