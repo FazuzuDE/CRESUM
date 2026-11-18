@@ -1202,3 +1202,13 @@ Vietnamese dates/numbers with exact manual entry precision. Optional published
 metadata keeps English fallback for older plans. Offline behavior, stable IDs
 and workout recovery are unchanged. Physical and native-speaker acceptance remain
 pending. See LOCALIZATION.md.
+
+## Cyclic language selection — approved 2026-11-18
+
+The language wheel repeats alphabetically in both scroll directions, including
+accessible adjustment at the first/last language. Keep System separate and open
+at the saved or resolved device language. Selection stays a draft until Done;
+Cancel/backdrop discards it, and Done waits for the wheel to settle. The language
+dialog uses 10% transparency relative to its opaque surface (90% opacity), with
+the existing reduced-transparency fallback. This replaces its former 30% setting.
+Other picker ranges keep their bounds. Physical-device review remains pending.

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Modal, Text, TextInput } from 'react-native';
+import { FlatList, Modal, Text, TextInput } from 'react-native';
 import {
   LocalizationProvider,
   useLocalization,
@@ -27,7 +27,8 @@ it('opens at the effective language, stages wheel choices, and saves only with D
     act(async () => view!.root.findAllByType(AppButton)[0].props.onPress());
   const buttons = () => view!.root.findByType(Modal).findAllByType(AppButton);
   await open();
-  expect(view!.root.findByType(GlassMaterial).props.transparency).toBe(30);
+  expect(view!.root.findByType(GlassMaterial).props.transparency).toBe(10);
+  expect(view!.root.findByType(AppPicker).props.cyclic).toBe(true);
   expect(view!.root.findByType(AppPicker).props.columns[0]).toEqual([
     '🇩🇪  Deutsch',
     '🇬🇧  English',
@@ -198,4 +199,51 @@ it('switches live content without remounting a draft or resetting its value', as
   expect(view!.root.findByType(TextInput).props.value).toBe('12,');
   expect(mounts).toBe(1);
   act(() => view!.unmount());
+});
+
+it('keeps a cyclic language draft unsaved until motion settles and Done is pressed', async () => {
+  const write = jest.fn(async () => {});
+  const store = new LocaleStore(
+    { getItem: async () => null, setItem: write },
+    () => ['en'],
+  );
+  let view!: ReturnType<typeof create>;
+  await act(async () => {
+    view = create(
+      <LocalizationProvider store={store}>
+        <LanguageSettings />
+      </LocalizationProvider>,
+    );
+  });
+  try {
+    act(() => view.root.findByType(AppButton).props.onPress());
+    const list = () => view.root.findByType(FlatList);
+    const event = {
+      nativeEvent: {
+        contentOffset: {
+          y:
+            (list().props.initialScrollIndex - 1) * list().props.snapToInterval,
+        },
+      },
+    };
+    const done = () => view.root.findByType(Modal).findAllByType(AppButton)[2];
+    act(() => {
+      list().props.onScrollBeginDrag();
+      list().props.onScroll(event);
+    });
+    expect(done().props.disabled).toBe(true);
+    expect(write).not.toHaveBeenCalled();
+    act(() => {
+      list().props.onScrollEndDrag(event);
+      list().props.onMomentumScrollBegin();
+    });
+    expect(done().props.disabled).toBe(true);
+    act(() => list().props.onMomentumScrollEnd(event));
+    expect(done().props.disabled).toBe(false);
+    await act(async () => done().props.onPress());
+    expect(store.getSnapshot().preference).toBe('de');
+    expect(write).toHaveBeenCalledTimes(1);
+  } finally {
+    act(() => view.unmount());
+  }
 });
