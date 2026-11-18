@@ -420,8 +420,8 @@ const s = StyleSheet.create({
     left: 0,
     right: 0,
     top: '50%',
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
     borderColor: colors.wheelSelectionSeparator,
   },
   row: {

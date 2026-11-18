@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { FlatList, Modal, Text, TextInput } from 'react-native';
+import type { ReactTestInstance } from 'react-test-renderer';
+import { FlatList, Modal, StyleSheet, Text, TextInput } from 'react-native';
 import {
   LocalizationProvider,
   useLocalization,
@@ -269,12 +270,25 @@ it('keeps a cyclic language draft unsaved until motion settles and Done is press
       },
     };
     const done = () => view.root.findByType(Modal).findAllByType(AppButton)[2];
+    const system = () =>
+      view.root
+        .findByType(Modal)
+        .findAllByType(AppButton)[0]
+        .find(
+          (node: ReactTestInstance) =>
+            typeof node.type === 'string' &&
+            node.props.accessibilityRole === 'button',
+        );
+    const systemStyle = () => StyleSheet.flatten(system().props.style);
+    const idleSystemStyle = systemStyle();
     const columnsBeforeDrag = view.root.findByType(AppPicker).props.columns;
     act(() => {
       list().props.onScrollBeginDrag();
       list().props.onScroll(event);
     });
     expect(done().props.disabled).toBe(true);
+    expect(system().props.accessibilityState.disabled).toBe(true);
+    expect(systemStyle()).toEqual(idleSystemStyle);
     expect(view.root.findByType(AppPicker).props.columns).toBe(
       columnsBeforeDrag,
     );
@@ -284,8 +298,10 @@ it('keeps a cyclic language draft unsaved until motion settles and Done is press
       list().props.onMomentumScrollBegin();
     });
     expect(done().props.disabled).toBe(true);
+    expect(systemStyle()).toEqual(idleSystemStyle);
     act(() => list().props.onMomentumScrollEnd(event));
     expect(done().props.disabled).toBe(false);
+    expect(system().props.accessibilityState.disabled).toBe(false);
     await act(async () => done().props.onPress());
     expect(store.getSnapshot().preference).toBe('de');
     expect(write).toHaveBeenCalledTimes(1);

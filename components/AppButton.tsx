@@ -14,6 +14,7 @@ export function AppButton({
   onPress,
   secondary = false,
   disabled = false,
+  dimWhenDisabled = true,
   selected,
   destructive = false,
   presentation = 'button',
@@ -26,6 +27,7 @@ export function AppButton({
   onPress: () => void;
   secondary?: boolean;
   disabled?: boolean;
+  dimWhenDisabled?: boolean;
   selected?: boolean;
   destructive?: boolean;
   presentation?: 'button' | 'row' | 'text' | 'choice';
@@ -52,7 +54,7 @@ export function AppButton({
         choice && s.choice,
         choice && (selected || highlighted) && s.highlighted,
         presentation === 'text' && s.textAction,
-        (pressed || disabled) && s.dim,
+        (pressed || (disabled && dimWhenDisabled)) && s.dim,
       ]}
     >
       <View

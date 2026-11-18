@@ -65,6 +65,7 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
             title={`🌐  ${t('language.system')}${draft === 'system' ? ' ✓' : ''}`}
             selected={draft === 'system'}
             secondary
+            dimWhenDisabled={saving || !select}
             disabled={saving || interacting || !select}
             onPress={() =>
               setDraft(draft === 'system' ? systemLocale : 'system')
