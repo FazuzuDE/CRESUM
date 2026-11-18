@@ -1,4 +1,4 @@
-import { useEffect, useRef, useReducer, useState } from 'react';
+import { useEffect, useRef, useReducer, useState, useMemo } from 'react';
 import type { ComponentType } from 'react';
 import {
   Animated,
@@ -18,13 +18,14 @@ import { useLocalization } from './LocalizationProvider';
 
 type Props = {
   flexible?: boolean;
+  cyclic?: boolean;
   columns: string[][];
   selected: number[];
   labels: string[];
   onChange: (component: number, row: number) => void;
   onInteractionChange?: (active: boolean) => void;
 };
-type NativeProps = Omit<Props, 'onChange' | 'onInteractionChange'> &
+type NativeProps = Omit<Props, 'onChange' | 'onInteractionChange' | 'cyclic'> &
   ViewProps & {
     selectionRevision: number;
     wheelRowHeight: number;
@@ -47,6 +48,7 @@ export function AppPicker({
   onChange,
   onInteractionChange,
   flexible = false,
+  cyclic = false,
 }: Props) {
   const [revision, refreshSelection] = useReducer((n: number) => n + 1, 0);
   const [available, setAvailable] = useState<number | null>(null);
@@ -71,7 +73,7 @@ export function AppPicker({
       style={[s.columns, geometry]}
       onLayout={({ nativeEvent }) => setAvailable(nativeEvent.layout.height)}
     >
-      {NativePicker ? (
+      {NativePicker && !cyclic ? (
         <NativePicker
           columns={columns}
           selected={selected}
@@ -91,6 +93,7 @@ export function AppPicker({
           <WheelColumn
             key={component}
             options={options}
+            cyclic={cyclic}
             selected={selected[component] ?? 0}
             label={labels[component]}
             height={height}
@@ -111,6 +114,7 @@ export function AppPicker({
 }
 function WheelColumn({
   options,
+  cyclic,
   selected,
   label,
   height,
@@ -120,6 +124,7 @@ function WheelColumn({
   onInteractionChange,
 }: {
   options: string[];
+  cyclic: boolean;
   selected: number;
   label: string;
   height: number;
@@ -129,31 +134,77 @@ function WheelColumn({
   onInteractionChange?: (active: boolean) => void;
 }) {
   const { t } = useLocalization();
+  // Keep a large virtualized runway in both directions, then silently move back
+  // to its middle when scrolling stops. Only logical option indices escape.
+  const looping = cyclic && options.length > 1;
+  const origin = looping ? options.length * 100 : 0;
+  const rows = useMemo(
+    () =>
+      looping
+        ? Array.from(
+            { length: options.length * 201 },
+            (_, i) => options[i % options.length],
+          )
+        : options,
+    [options, looping],
+  );
   const list = useRef<FlatList<string>>(null);
-  const scrollOffset = useAnimatedValue(selected * height);
+  const physical = useRef(origin + selected);
+  const scrollOffset = useAnimatedValue((origin + selected) * height);
   const last = useRef(selected);
   const dragging = useRef(false);
   const momentum = useRef(false);
-  const geometry = useRef(`${height}:${viewport}`);
+  const settleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const signature = JSON.stringify([height, viewport, looping, options]);
+  const geometry = useRef(signature);
   const padding = Math.max(0, (viewport - height) / 2);
+  const clearSettle = () => {
+    if (settleTimer.current !== null) clearTimeout(settleTimer.current);
+    settleTimer.current = null;
+  };
+  useEffect(
+    () => () => {
+      if (settleTimer.current !== null) clearTimeout(settleTimer.current);
+    },
+    [],
+  );
   useEffect(() => {
-    if (
-      last.current !== selected ||
-      geometry.current !== `${height}:${viewport}`
-    ) {
-      geometry.current = `${height}:${viewport}`;
+    if (last.current !== selected || geometry.current !== signature) {
+      geometry.current = signature;
       momentum.current = false;
       last.current = selected;
       dragging.current = false;
-      scrollOffset.setValue(selected * height);
+      clearSettle();
+      physical.current = origin + selected;
+      scrollOffset.setValue(physical.current * height);
       list.current?.scrollToOffset({
-        offset: selected * height,
+        offset: physical.current * height,
         animated: false,
       });
+      onInteractionChange?.(false);
     }
-  }, [selected, height, viewport, revision, scrollOffset]);
+  }, [
+    selected,
+    height,
+    signature,
+    origin,
+    revision,
+    scrollOffset,
+    onInteractionChange,
+  ]);
+  const recenter = () => {
+    if (!looping) return;
+    physical.current = origin + last.current;
+    scrollOffset.setValue(physical.current * height);
+    list.current?.scrollToOffset({
+      offset: physical.current * height,
+      animated: false,
+    });
+  };
   const choose = (row: number) => {
-    const next = Math.max(0, Math.min(options.length - 1, row));
+    if (!options.length) return;
+    physical.current = Math.max(0, Math.min(rows.length - 1, row));
+    const next = looping ? physical.current % options.length : physical.current;
     if (next === last.current) return;
     last.current = next;
     // No feedback on mount or prop synchronization; unsupported/muted feedback is harmless.
@@ -164,29 +215,40 @@ function WheelColumn({
     <View style={{ flex: 1, height: viewport }}>
       <FlatList
         ref={list}
-        data={options}
+        data={rows}
         accessible
         accessibilityRole="adjustable"
         accessibilityLabel={label}
         accessibilityHint={t('picker.hint')}
         accessibilityValue={{
           min: 0,
-          max: options.length - 1,
+          max: Math.max(0, options.length - 1),
           now: selected,
           text: options[selected],
         }}
         accessibilityActions={[{ name: 'increment' }, { name: 'decrement' }]}
         onAccessibilityAction={({ nativeEvent }) => {
+          if (
+            nativeEvent.actionName !== 'increment' &&
+            nativeEvent.actionName !== 'decrement'
+          )
+            return;
+          clearSettle();
           dragging.current = false;
           momentum.current = false;
-          choose(selected + (nativeEvent.actionName === 'increment' ? 1 : -1));
-          scrollOffset.setValue(last.current * height);
+          choose(
+            physical.current +
+              (nativeEvent.actionName === 'increment' ? 1 : -1),
+          );
+          recenter();
+          scrollOffset.setValue(physical.current * height);
           list.current?.scrollToOffset({
-            offset: last.current * height,
+            offset: physical.current * height,
             animated: false,
           });
+          onInteractionChange?.(false);
         }}
-        initialScrollIndex={selected}
+        initialScrollIndex={origin + selected}
         getItemLayout={(_, index) => ({
           length: height,
           offset: index * height,
@@ -198,6 +260,7 @@ function WheelColumn({
         showsVerticalScrollIndicator={false}
         scrollEventThrottle={16}
         onScrollBeginDrag={() => {
+          clearSettle();
           onInteractionChange?.(true);
           dragging.current = true;
           momentum.current = true;
@@ -211,17 +274,29 @@ function WheelColumn({
           if (dragging.current)
             choose(Math.round(nativeEvent.contentOffset.y / height));
           dragging.current = false;
-          onInteractionChange?.(false);
+          if (looping) {
+            // Momentum may start just after release; if it doesn't, settle the
+            // drag without leaving Done disabled or exposing a runway edge.
+            clearSettle();
+            settleTimer.current = setTimeout(() => {
+              momentum.current = false;
+              recenter();
+              onInteractionChange?.(false);
+            }, 120);
+          } else onInteractionChange?.(false);
         }}
         onMomentumScrollBegin={() => {
-          onInteractionChange?.(true);
+          clearSettle();
+          if (momentum.current) onInteractionChange?.(true);
           dragging.current = momentum.current;
         }}
         onMomentumScrollEnd={({ nativeEvent }) => {
+          clearSettle();
           if (dragging.current)
             choose(Math.round(nativeEvent.contentOffset.y / height));
           dragging.current = false;
           momentum.current = false;
+          recenter();
           onInteractionChange?.(false);
         }}
         keyExtractor={(_, i) => String(i)}
@@ -244,6 +319,7 @@ function WheelColumn({
               accessible={false}
               style={[s.row, { height }]}
               onPress={() => {
+                clearSettle();
                 dragging.current = false;
                 momentum.current = false;
                 choose(index);
@@ -251,6 +327,7 @@ function WheelColumn({
                   offset: index * height,
                   animated: true,
                 });
+                onInteractionChange?.(false);
               }}
             >
               <Animated.Text

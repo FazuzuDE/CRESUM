@@ -4566,3 +4566,12 @@ device-language resolution and exact number-entry contract. Search folds accents
 and đ for discovery without altering saved names or historical identities. Keep
 native typography/accessibility and independent linguistic acceptance pending
 until actually reviewed. See LOCALIZATION.md for the scope and limitations.
+
+## Cyclic language wheel and 10% transparency — approved 2026-11-18
+
+Loop the language list before the first/after the last item in both directions,
+including accessible adjustment. Keep alphabetical order, current/device opening,
+System outside the wheel and Done/Cancel draft behavior. Use 10% transparency
+(90% opacity) for this dialog, superseding the language-only 30% setting. Respect
+Reduce Transparency. Other wheels retain their bounded ranges and current dialog
+settings. See DESIGN_SYSTEM.md and PRODUCT.md; native acceptance stays pending.

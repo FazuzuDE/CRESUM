@@ -277,3 +277,193 @@ it('frames the selected date across all columns and lowers the dialog transparen
     act(() => view.unmount());
   }
 });
+
+it('wraps a cyclic wheel in both directions and silently recenters after a drag without momentum', () => {
+  jest.useFakeTimers();
+  (Haptics.selectionAsync as jest.Mock).mockClear();
+  const change = jest.fn(),
+    interaction = jest.fn();
+  function Harness() {
+    const [selected, select] = useState(0);
+    return (
+      <AppPicker
+        cyclic
+        columns={[['A', 'B', 'C']]}
+        labels={['Language']}
+        selected={[selected]}
+        onInteractionChange={interaction}
+        onChange={(_, row) => {
+          change(row);
+          select(row);
+        }}
+      />
+    );
+  }
+  let view!: ReturnType<typeof create>;
+  act(() => {
+    view = create(<Harness />);
+  });
+  try {
+    const list = () => view.root.findByType(FlatList);
+    const height = list().props.snapToInterval;
+    const middle = list().props.initialScrollIndex;
+    const scroll = jest.spyOn(list().instance, 'scrollToOffset');
+    const event = (row: number) => ({
+      nativeEvent: { contentOffset: { y: row * height } },
+    });
+    expect(list().props.data.slice(middle - 1, middle + 2)).toEqual([
+      'C',
+      'A',
+      'B',
+    ]);
+    expect(list().props.accessibilityValue).toMatchObject({
+      min: 0,
+      max: 2,
+      now: 0,
+      text: 'A',
+    });
+    act(() => list().props.onScrollBeginDrag());
+    act(() => list().props.onScroll(event(middle - 1)));
+    expect(change).toHaveBeenLastCalledWith(2);
+    expect(scroll).not.toHaveBeenCalled();
+    act(() => list().props.onScrollEndDrag(event(middle - 1)));
+    expect(interaction).toHaveBeenLastCalledWith(true);
+    act(() => jest.advanceTimersByTime(120));
+    expect(scroll).toHaveBeenLastCalledWith({
+      offset: (middle + 2) * height,
+      animated: false,
+    });
+    expect(interaction).toHaveBeenLastCalledWith(false);
+    expect(Haptics.selectionAsync).toHaveBeenCalledTimes(1);
+    act(() =>
+      list().props.onAccessibilityAction({
+        nativeEvent: { actionName: 'increment' },
+      }),
+    );
+    expect(change).toHaveBeenLastCalledWith(0);
+    expect(list().props.accessibilityValue.text).toBe('A');
+    act(() =>
+      list().props.onAccessibilityAction({
+        nativeEvent: { actionName: 'decrement' },
+      }),
+    );
+    expect(change).toHaveBeenLastCalledWith(2);
+    expect(list().props.accessibilityValue.text).toBe('C');
+    expect(Haptics.selectionAsync).toHaveBeenCalledTimes(3);
+  } finally {
+    act(() => view.unmount());
+    jest.useRealTimers();
+  }
+});
+
+it('keeps cyclic momentum active across multiple turns and emits logical indices only', () => {
+  jest.useFakeTimers();
+  const interaction = jest.fn(),
+    change = jest.fn();
+  function Harness() {
+    const [selected, select] = useState(0);
+    return (
+      <AppPicker
+        cyclic
+        columns={[['A', 'B', 'C']]}
+        labels={['Language']}
+        selected={[selected]}
+        onInteractionChange={interaction}
+        onChange={(_, row) => {
+          change(row);
+          select(row);
+        }}
+      />
+    );
+  }
+  let view!: ReturnType<typeof create>;
+  act(() => {
+    view = create(<Harness />);
+  });
+  try {
+    const list = () => view.root.findByType(FlatList);
+    const height = list().props.snapToInterval,
+      middle = list().props.initialScrollIndex;
+    const scroll = jest.spyOn(list().instance, 'scrollToOffset');
+    const event = (row: number) => ({
+      nativeEvent: { contentOffset: { y: row * height } },
+    });
+    act(() => list().props.onScrollBeginDrag());
+    act(() => list().props.onScrollEndDrag(event(middle)));
+    act(() => list().props.onMomentumScrollBegin());
+    act(() => jest.advanceTimersByTime(120));
+    expect(scroll).not.toHaveBeenCalled();
+    expect(interaction).toHaveBeenLastCalledWith(true);
+    act(() => list().props.onScroll(event(middle + 7)));
+    expect(change).toHaveBeenLastCalledWith(1);
+    act(() => list().props.onMomentumScrollEnd(event(middle + 8)));
+    expect(change).toHaveBeenLastCalledWith(2);
+    expect(scroll).toHaveBeenLastCalledWith({
+      offset: (middle + 2) * height,
+      animated: false,
+    });
+    expect(interaction).toHaveBeenLastCalledWith(false);
+    expect(change.mock.calls.flat().every((n: number) => n >= 0 && n < 3)).toBe(
+      true,
+    );
+  } finally {
+    act(() => view.unmount());
+    jest.useRealTimers();
+  }
+});
+
+it('keeps a one-option cyclic wheel stable and a normal wheel bounded', () => {
+  for (const cyclic of [false, true]) {
+    const change = jest.fn();
+    let view!: ReturnType<typeof create>;
+    act(() => {
+      view = create(
+        <AppPicker
+          cyclic={cyclic}
+          columns={[['Only']]}
+          labels={['Value']}
+          selected={[0]}
+          onChange={change}
+        />,
+      );
+    });
+    try {
+      const list = view.root.findByType(FlatList);
+      for (const actionName of ['increment', 'decrement'])
+        act(() =>
+          list.props.onAccessibilityAction({ nativeEvent: { actionName } }),
+        );
+      expect(change).not.toHaveBeenCalled();
+      expect(list.props.data).toEqual(['Only']);
+    } finally {
+      act(() => view.unmount());
+    }
+  }
+});
+
+it('keeps ordinary multi-option wheels bounded at their last row', () => {
+  const change = jest.fn();
+  let view!: ReturnType<typeof create>;
+  act(() => {
+    view = create(
+      <AppPicker
+        columns={[['A', 'B', 'C']]}
+        selected={[2]}
+        labels={['Value']}
+        onChange={change}
+      />,
+    );
+  });
+  try {
+    const list = view.root.findByType(FlatList);
+    expect(list.props.data).toEqual(['A', 'B', 'C']);
+    act(() =>
+      list.props.onAccessibilityAction({
+        nativeEvent: { actionName: 'increment' },
+      }),
+    );
+    expect(change).not.toHaveBeenCalled();
+  } finally {
+    act(() => view.unmount());
+  }
+});

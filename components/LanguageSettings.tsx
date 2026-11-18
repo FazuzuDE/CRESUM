@@ -61,7 +61,7 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
         }}
       />
       {open ? (
-        <GlassDialog onClose={dismiss} transparency={30}>
+        <GlassDialog onClose={dismiss} transparency={10}>
           <Text accessibilityRole="header" style={s.title}>
             {t('language.title')}
           </Text>
@@ -83,6 +83,7 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
           >
             <AppPicker
               flexible
+              cyclic
               columns={[
                 options.map(
                   (value) =>

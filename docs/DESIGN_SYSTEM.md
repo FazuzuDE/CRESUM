@@ -2653,7 +2653,7 @@ as a secondary action, avoiding an intermediate duplicate list in the main route
 ## Language wheel — approved 2026-11-17
 
 Language selection uses the shared AppPicker inside the shared centered glass
-dialog, with 30% transparency (70% opacity), preserving reduced-transparency
+dialog, with 10% transparency (90% opacity), preserving reduced-transparency
 fallbacks. This overrides the general 26.5% compact-dialog setting only for
 language selection. Keep flags, curved/faded neighbors and shared selection
 rules. System language is a separate option above the wheel. Show native names
@@ -2664,6 +2664,18 @@ without saving until Done. Wheel changes are a draft: Done saves, Cancel/backdro
 dismissal discards. System selection can be toggled off to use its resolved
 language manually. This supersedes the earlier first-alphabetical opening rule. Use shared wheel feedback,
 without a separate synthetic scrolling sound. Keep actions inside the dialog.
+
+Update approved 2026-11-18: the language wheel loops in both directions. The
+alphabetical sequence repeats after the last language and before the first,
+including accessibility increment/decrement. Use the shared cyclic renderer in
+Expo Go, Android, web and custom iOS builds; the bounded UIKit adapter stays for
+ordinary date/number wheels. Only logical language indices reach the selection
+state. Silent recentering after a gesture must preserve the visible selection
+and neighbors without extra haptics or saving a draft. Keep Done unavailable
+until drag/momentum settles. System remains a separate option. The 10% setting
+supersedes the former language-only 30%; Reduce Transparency still uses a solid
+surface. Other compact dialogs retain their existing transparency and bounds.
+Physical wheel feel, native momentum and screen-reader acceptance remain pending.
 
 ## Arabic and RTL presentation — approved 2026-11-18
 
