@@ -79,6 +79,7 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
             <AppPicker
               flexible
               cyclic
+              audible
               columns={columns}
               labels={[t('language.title')]}
               selected={[

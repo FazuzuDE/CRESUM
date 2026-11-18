@@ -9,6 +9,10 @@ import { HistoryCountWheel } from '../../components/HistoryCountWheel';
 import * as Haptics from 'expo-haptics';
 const { act, create } = jest.requireActual('react-test-renderer');
 jest.mock('expo-haptics', () => ({ selectionAsync: jest.fn(async () => {}) }));
+const mockClick = jest.fn();
+jest.mock('../../components/useWheelClick', () => ({
+  useWheelClick: () => mockClick,
+}));
 jest.mock('expo', () => ({ requireOptionalNativeModule: () => null }));
 jest.mock('react-native-safe-area-context', () => ({
   SafeAreaView: jest.requireActual('react-native').View,
@@ -512,5 +516,41 @@ it('does not cut off coast events when a platform omits momentum callbacks', () 
   } finally {
     act(() => view.unmount());
     jest.useRealTimers();
+  }
+});
+
+it('clicks on user-crossed language rows but not mount, repeated offsets or silent recentering', () => {
+  mockClick.mockClear();
+  let view!: ReturnType<typeof create>;
+  act(() => {
+    view = create(
+      <AppPicker
+        cyclic
+        audible
+        columns={[['A', 'B', 'C']]}
+        selected={[0]}
+        labels={['Language']}
+        onChange={() => {}}
+      />,
+    );
+  });
+  try {
+    const list = view.root.findByType(FlatList);
+    const middle = list.props.initialScrollIndex,
+      height = list.props.snapToInterval;
+    const event = {
+      nativeEvent: { contentOffset: { y: (middle + 1) * height } },
+    };
+    expect(mockClick).not.toHaveBeenCalled();
+    act(() => list.props.onScrollBeginDrag());
+    act(() => list.props.onScroll(event));
+    act(() => list.props.onScroll(event));
+    expect(mockClick).toHaveBeenCalledTimes(1);
+    act(() => list.props.onScrollEndDrag(event));
+    act(() => list.props.onMomentumScrollEnd(event));
+    act(() => list.props.onScroll(event));
+    expect(mockClick).toHaveBeenCalledTimes(1);
+  } finally {
+    act(() => view.unmount());
   }
 });

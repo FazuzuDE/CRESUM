@@ -34,3 +34,12 @@ refs; draft selection and haptic feedback publish once after settling. The idle
 fallback extends on each coast event when momentum callbacks are missing, rather
 than interrupting motion a fixed delay after finger release. This is JS adapter
 work and does not modify or compile the bounded UIKit module.
+
+### Opt-in language click
+
+LanguageSettings opts the cyclic JS wheel into a quiet bundled 35 ms click using
+expo-audio. It is an application effect, not UIKit's system click. Bounded UIKit
+wheels do not opt in. The player is owned by the mounted language wheel, respects
+silent mode, mixes with music and is removed on dismissal; pending seeks are
+invalidated. Requests are throttled/dropped rather than queued. No custom module,
+private sound API, background audio or new SDK version is required.

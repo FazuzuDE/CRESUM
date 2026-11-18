@@ -15,17 +15,22 @@ import { requireNativeView, requireOptionalNativeModule } from 'expo';
 import * as Haptics from 'expo-haptics';
 import { colors, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
+import { useWheelClick } from './useWheelClick';
 
 type Props = {
   flexible?: boolean;
   cyclic?: boolean;
+  audible?: boolean;
   columns: string[][];
   selected: number[];
   labels: string[];
   onChange: (component: number, row: number) => void;
   onInteractionChange?: (active: boolean) => void;
 };
-type NativeProps = Omit<Props, 'onChange' | 'onInteractionChange' | 'cyclic'> &
+type NativeProps = Omit<
+  Props,
+  'onChange' | 'onInteractionChange' | 'cyclic' | 'audible'
+> &
   ViewProps & {
     selectionRevision: number;
     wheelRowHeight: number;
@@ -49,6 +54,7 @@ export function AppPicker({
   onInteractionChange,
   flexible = false,
   cyclic = false,
+  audible = false,
 }: Props) {
   const [revision, refreshSelection] = useReducer((n: number) => n + 1, 0);
   const [available, setAvailable] = useState<number | null>(null);
@@ -94,6 +100,7 @@ export function AppPicker({
             key={component}
             options={options}
             cyclic={cyclic}
+            audible={audible}
             selected={selected[component] ?? 0}
             label={labels[component]}
             height={height}
@@ -115,6 +122,7 @@ export function AppPicker({
 function WheelColumn({
   options,
   cyclic,
+  audible,
   selected,
   label,
   height,
@@ -125,6 +133,7 @@ function WheelColumn({
 }: {
   options: string[];
   cyclic: boolean;
+  audible: boolean;
   selected: number;
   label: string;
   height: number;
@@ -137,6 +146,7 @@ function WheelColumn({
   // Keep a large virtualized runway in both directions, then silently move back
   // to its middle when scrolling stops. Only logical option indices escape.
   const looping = cyclic && options.length > 1;
+  const click = useWheelClick(cyclic && audible);
   const origin = looping ? options.length * 100 : 0;
   const rows = useMemo(
     () =>
@@ -214,10 +224,12 @@ function WheelColumn({
     onChange(next);
   };
   const track = (offset: number) => {
-    physical.current = Math.max(
+    const row = Math.max(
       0,
       Math.min(rows.length - 1, Math.round(offset / height)),
     );
+    if (row !== physical.current) click();
+    physical.current = row;
   };
   const finish = () => {
     clearSettle();
@@ -278,6 +290,7 @@ function WheelColumn({
           clearSettle();
           dragging.current = false;
           momentum.current = false;
+          if (options.length > 1) click();
           choose(
             physical.current +
               (nativeEvent.actionName === 'increment' ? 1 : -1),
@@ -365,6 +378,7 @@ function WheelColumn({
                 clearSettle();
                 dragging.current = false;
                 momentum.current = false;
+                if (index % options.length !== last.current) click();
                 choose(index);
                 list.current?.scrollToOffset({
                   offset: index * height,

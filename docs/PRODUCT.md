@@ -1223,3 +1223,12 @@ Use the locale registry as the single source for language names and flags; new
 fully integrated locales enter the wheel automatically without a menu-specific
 entry. This does not bypass full translation/search coverage for new languages.
 Physical-device smoothness and accessibility acceptance remain pending.
+
+## Language-wheel click feedback — approved 2026-11-18
+
+Add short, quiet clicks while passing language rows, with no sound at opening,
+silent recentering or unchanged selection. Respect silent mode, mix with other
+music, and avoid a delayed playback queue during fast inertia. Closing the dialog
+cancels pending playback. This updates the previous language-specific no-custom-
+sound decision; bounded UIKit wheels keep their existing native feedback. Device
+sound and smoothness still need physical Expo Go review.

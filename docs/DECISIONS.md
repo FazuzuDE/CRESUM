@@ -4585,3 +4585,13 @@ updates. The idle fallback follows actual coast events. Consolidate language
 flags/names in the locale registry; cache menu options and derive every entry
 from enabled locales. Preserve 10% transparency and draft confirmation. Automated
 checks do not certify physical-device scroll performance. See DESIGN_SYSTEM.md.
+
+## iOS-style language-wheel clicks — approved 2026-11-18
+
+During the momentum follow-up, user additionally requested clicks while scrolling.
+Enable quiet foreground feedback on the language wheel using the existing bundled
+tick and public expo-audio API. Respect silent mode and mix with music; throttle
+and drop stale/busy requests. No sound on mount, silent synchronization/recentering
+or after dismissal. This supersedes the earlier language-only no-synthetic-click
+rule. Do not present the bundled effect as UIKit's actual system sound. Physical
+sound/mute/routing acceptance remains pending.
