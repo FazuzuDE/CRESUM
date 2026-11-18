@@ -28,6 +28,7 @@ it('localizes exact entry display without rounding manual precision or reparsing
     'ja',
     'vi',
     'mr',
+    'id',
   ] as const) {
     expect(formatEntryNumber(locale, '12.1234567890123456789')).toBe(
       locale === 'ar'
@@ -203,4 +204,22 @@ it('formats Marathi digits, Indian grouping and dates while preserving exact edi
   expect(formatEntryNumber('mr', '१२,५०')).toBe('12.50');
   expect(formatEntryNumber('mr', '१२,')).toBe('१२,');
   expect(normalizeDecimalInput('१,२३४.५')).toBeNull();
+});
+
+it('formats Indonesian comma decimals and dates without rounding manual input or accepting grouping', () => {
+  expect(formatNumber('id', 1234.5)).toBe('1.234,5');
+  expect(
+    formatDate('id', Date.UTC(2026, 10, 18), {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    }),
+  ).toBe('18 November 2026');
+  expect(formatEntryNumber('id', '12.1234567890123456789')).toBe(
+    '12,1234567890123456789',
+  );
+  expect(formatEntryNumber('id', '12,')).toBe('12,');
+  expect(normalizeDecimalInput('12,50')).toBe('12.50');
+  expect(normalizeDecimalInput('1.234,5')).toBeNull();
 });

@@ -242,3 +242,31 @@ test('accepts Marathi publication metadata with old English fallback and rejects
       ]),
     ).toThrow();
 });
+
+test('accepts Indonesian publication metadata with English fallback and rejects malformed optional text', () => {
+  const [legacy] = parseLibrary([entry]);
+  expect(filterPlans([legacy], 'upper', 'id')).toEqual([legacy]);
+  const localized = {
+    ...entry,
+    metadata: {
+      ...entry.metadata,
+      title: { ...entry.metadata.title, id: 'Latihan tubuh bagian atas' },
+      description: { ...entry.metadata.description, id: 'Rencana dumbel' },
+    },
+  };
+  const [plan] = parseLibrary([localized]);
+  expect(filterPlans([plan], 'bagian atas', 'id')).toEqual([plan]);
+  expect(filterPlans([plan], 'dumbel', 'id')).toEqual([plan]);
+  for (const id of ['', 42, null])
+    expect(() =>
+      parseLibrary([
+        {
+          ...localized,
+          metadata: {
+            ...localized.metadata,
+            title: { ...localized.metadata.title, id },
+          },
+        },
+      ]),
+    ).toThrow();
+});

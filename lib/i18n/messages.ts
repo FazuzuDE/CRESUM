@@ -1,3 +1,17 @@
+import idCatalog from './locales/id/catalog';
+import idCommon from './locales/id/common';
+import idEditor from './locales/id/editor';
+import idEquipment from './locales/id/equipment';
+import idHistory from './locales/id/history';
+import idHome from './locales/id/home';
+import idLibrary from './locales/id/library';
+import idOnboarding from './locales/id/onboarding';
+import idProfile from './locales/id/profile';
+import idProgramTechnique from './locales/id/program-technique';
+import idProgress from './locales/id/progress';
+import idSharing from './locales/id/sharing';
+import idTechniqueContent from './locales/id/technique-content';
+import idWorkout from './locales/id/workout';
 import mrCommon from './locales/mr/common';
 import mrCatalog from './locales/mr/catalog';
 import mrEquipment from './locales/mr/equipment';
@@ -508,6 +522,22 @@ const mr = {
   ...mrProfile,
   ...mrTechniqueContent,
 } as const;
+const id = {
+  ...idCatalog,
+  ...idCommon,
+  ...idEditor,
+  ...idEquipment,
+  ...idHistory,
+  ...idHome,
+  ...idLibrary,
+  ...idOnboarding,
+  ...idProfile,
+  ...idProgramTechnique,
+  ...idProgress,
+  ...idSharing,
+  ...idTechniqueContent,
+  ...idWorkout,
+} as const;
 export type MessageValue =
   string | Readonly<Partial<Record<Intl.LDMLPluralRule, string>>>;
 export type MessageCatalog = Readonly<Record<string, MessageValue>>;
@@ -529,6 +559,7 @@ export const catalogs = {
   ja,
   vi,
   mr,
+  id,
 } satisfies Record<string, MessageCatalog>;
 export type MessageKey = keyof typeof en;
 type TrimFormat<S extends string> = S extends `${infer Name},${string}`

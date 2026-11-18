@@ -1,14 +1,37 @@
 # Localization coverage and contribution rules
 
-The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese and Marathi. System language
+The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi and Indonesian. System language
 appears first and is selected by default. An explicit choice is saved on the
 device. Final web and native acceptance for Russian, German, French,
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese and Marathi remain pending in the release eligibility ledger.
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi and Indonesian remain pending in the release eligibility ledger.
 
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese and Marathi cover the bundled messages and catalogs, including
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi and Indonesian cover the bundled messages and catalogs, including
 exercise technique, equipment and built-in plans. Shared plan titles and
 descriptions use the selected locale when the publication supplies it. Older
 publications use their English metadata.
+
+## Indonesian — approved 2026-11-18
+
+`id` adds Bahasa Indonesia with all 1651 bundled messages, 110 catalog labels
+and 70 complete technique guides (530 guide messages). Every exercise, equipment,
+attachment and muscle has search alternatives using Indonesian gym vocabulary,
+common borrowed terms and abbreviations. Search-only aliases preserve exact
+variants, catalog IDs, personal text and historical snapshots.
+
+Resolve id, id-ID and id-Latn-ID device tags. The registry-driven cyclic wheel
+adds the native name and flag automatically; preserve the current/device opening,
+Done/Cancel drafts, inertia, quiet clicks and 10% transparency. Switching from
+Arabic to Indonesian keeps mounted editors and unfinished values intact.
+
+Indonesian plural messages use other, including without native PluralRules.
+Numbers use decimal commas and local grouping; exact editable weights keep their
+precision and the shared comma/dot input contract rejects mixed grouping.
+Dates use Indonesian Intl formatting. Optional published-plan metadata accepts
+id and retains English fallback for older publications. Core stays offline.
+
+No SDK/dependency changes. Physical Expo Go font/layout/keyboard/wheel and
+screen-reader acceptance, plus independent native-speaker review, remain pending.
+Automated coverage is separate evidence; web/native acceptance flags stay false.
 
 ## Marathi — approved 2026-11-18
 

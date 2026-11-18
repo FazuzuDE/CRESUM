@@ -43,7 +43,7 @@ it('mirrors logical labels and arrows but preserves centering, vertical icons an
   ).toEqual({ weight: '12.50', reps: '8', otherSideReps: '9' });
 });
 
-it.each(['ja', 'vi', 'mr'] as const)(
+it.each(['ja', 'vi', 'mr', 'id'] as const)(
   'switches live RTL to %s including modal roots without remounting or rewriting an unfinished draft',
   async (locale) => {
     const store = new LocaleStore(

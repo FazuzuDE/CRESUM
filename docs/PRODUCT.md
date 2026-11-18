@@ -1242,3 +1242,11 @@ without rounding raw drafts, native dates/numbers and one/other plural forms.
 Retain live draft-safe direction switching and optional publication metadata with
 English fallback. Physical Expo Go and independent linguistic acceptance remain
 pending. See LOCALIZATION.md.
+
+## Indonesian localization — approved 2026-11-18
+
+Add Bahasa Indonesia as the next complete locale after Marathi. Include all app
+copy, catalog labels, exercise technique and search alternatives before selection.
+Use the registry-driven shared language wheel, local numbers/dates and optional
+publication metadata with older English fallback. Preserve offline Core, stable
+IDs, history and editor drafts. Independent language/device acceptance stays open.

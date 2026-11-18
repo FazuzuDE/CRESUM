@@ -129,6 +129,7 @@ function readCatalogs(root) {
       'ja',
       'vi',
       'mr',
+      'id',
     ].map((locale) => {
       const folder = path.join(root, 'lib/i18n/locales', locale);
       const catalog = {};
@@ -253,6 +254,7 @@ async function main() {
         'ja',
         'vi',
         'mr',
+        'id',
       ])
         for (const width of [320, 390]) {
           expandedMode = expand;

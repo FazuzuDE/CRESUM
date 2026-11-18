@@ -11893,5 +11893,13 @@
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList",
     "kind": "internal",
     "reason": "Optional publication locale identifier; localized metadata is selected separately."
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 19,
+    "text": "id",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList",
+    "kind": "internal",
+    "reason": "Optional publication locale identifier; localized metadata is selected separately."
   }
 ]

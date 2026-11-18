@@ -47,6 +47,11 @@ it('supports Russian plurals when the runtime has no native Intl.PluralRules', (
           create('mr')('common.setCount', { count }),
         ),
       ).toEqual(['० सेट', '१ सेट', '२ सेट', '१.५ सेट']);
+      expect(
+        [0, 1, 2, 1.5].map((count) =>
+          create('id')('common.setCount', { count }),
+        ),
+      ).toEqual(['0 set', '1 set', '2 set', '1,5 set']);
       const arabic = create('ar', {
         'common.setCount': {
           zero: 'zero {{count}}',
