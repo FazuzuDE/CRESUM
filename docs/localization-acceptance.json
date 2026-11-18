@@ -46,5 +46,9 @@
   "hi": {
     "web": false,
     "native": false
+  },
+  "bn": {
+    "web": false,
+    "native": false
   }
 }

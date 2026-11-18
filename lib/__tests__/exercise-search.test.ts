@@ -194,3 +194,21 @@ it('searches saved performance choices by exact canonical or legacy identity whi
     ),
   ).toBeGreaterThan(0);
 });
+
+it('preserves Bengali vowel signs, virama and nukta in searches across interface languages', () => {
+  expect(normalizeSearch('কি')).not.toBe(normalizeSearch('ক'));
+  expect(normalizeSearch('ক্')).not.toBe(normalizeSearch('ক'));
+  expect(normalizeSearch('ড়')).not.toBe(normalizeSearch('ড'));
+  expect(normalizeSearch('ড়')).toBe(normalizeSearch('ড়'.normalize('NFD')));
+  expect(ids('বাটারফ্লাই', 'de')[0]).toBe('pec-deck-fly');
+  expect(ids('bukdon', 'fr')[0]).toBe('push-up');
+  expect(ids('ডাম্বেল আরডিএল', 'en')).not.toContain('barbell-deadlift');
+  expect(
+    searchLocalizedExercises(
+      { query: 'বাটারফ্লাই', equipment: 'barbell' },
+      'bn',
+    ),
+  ).toEqual([]);
+  expect(ids('কেটলবেল গবলেট', 'ru')).toContain('goblet-squat');
+  expect(ids('কেটলবেল গবলেট', 'ru')).not.toContain('kettlebell-goblet-squat');
+});

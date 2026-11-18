@@ -16414,5 +16414,11 @@
     "line": 111,
     "text": "common.done",
     "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 15,
+    "text": "bn",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
   }
 ]

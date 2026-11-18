@@ -121,3 +121,23 @@ test('searches Hindi publication metadata and preserves older English publicatio
     ]),
   ).toThrow();
 });
+
+test('accepts Bengali publication metadata with legacy English fallback', () => {
+  const [legacy] = parseLibrary([entry]);
+  expect(filterPlans([legacy], 'upper', 'bn')).toEqual([legacy]);
+  const [localized] = parseLibrary([
+    {
+      ...entry,
+      metadata: {
+        ...entry.metadata,
+        title: { ...entry.metadata.title, bn: 'শরীরের ওপরের অংশ' },
+        description: {
+          ...entry.metadata.description,
+          bn: 'ডাম্বেল দিয়ে ট্রেনিং',
+        },
+      },
+    },
+  ]);
+  expect(filterPlans([localized], 'শরীরের', 'bn')).toEqual([localized]);
+  expect(filterPlans([localized], 'ডাম্বেল', 'bn')).toEqual([localized]);
+});

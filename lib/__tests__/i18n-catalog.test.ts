@@ -86,6 +86,7 @@ it('covers every current exercise, muscle and equipment in every supported langu
     'tr',
     'zh-Hans',
     'hi',
+    'bn',
   ] as const) {
     for (const record of exerciseLibrary)
       expect(

@@ -175,3 +175,10 @@ it('uses Hindi count forms and preserves names and interpolated set values', () 
   ).toBe('1/3 सेट · 125.5 किग्रा');
   expect(t('common.named', { name: 'आदित्य' })).toBe('आदित्य');
 });
+
+it('renders Bengali count forms with native presentation digits', () => {
+  const t = createTranslator('bn');
+  expect(t('history.completedSets', { count: 0 })).toBe('০ সম্পন্ন সেট');
+  expect(t('history.completedSets', { count: 1 })).toBe('১ সম্পন্ন সেট');
+  expect(t('history.completedSets', { count: 2 })).toBe('২ সম্পন্ন সেট');
+});

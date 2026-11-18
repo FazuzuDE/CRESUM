@@ -124,6 +124,7 @@ function readCatalogs(root) {
       'tr',
       'zh-Hans',
       'hi',
+      'bn',
     ].map((locale) => {
       const folder = path.join(root, 'lib/i18n/locales', locale);
       const catalog = {};
@@ -243,6 +244,7 @@ async function main() {
         'tr',
         'zh-Hans',
         'hi',
+        'bn',
       ])
         for (const width of [320, 390]) {
           expandedMode = expand;
@@ -1001,7 +1003,10 @@ async function main() {
             const expectedSet = text('history.set', {
               index: 1,
               weight:
-                locale === 'en' || locale === 'zh-Hans' || locale === 'hi'
+                locale === 'en' ||
+                locale === 'zh-Hans' ||
+                locale === 'hi' ||
+                locale === 'bn'
                   ? '12.5'
                   : '12,5',
               reps: '8',
@@ -1249,7 +1254,10 @@ async function main() {
                 text('history.set', {
                   index: 1,
                   weight:
-                    locale === 'en' || locale === 'zh-Hans' || locale === 'hi'
+                    locale === 'en' ||
+                    locale === 'zh-Hans' ||
+                    locale === 'hi' ||
+                    locale === 'bn'
                       ? '12.5'
                       : '12,5',
                   reps: '10',
@@ -1263,7 +1271,10 @@ async function main() {
                 text('history.bilateralSet', {
                   index: 1,
                   weight:
-                    locale === 'en' || locale === 'zh-Hans' || locale === 'hi'
+                    locale === 'en' ||
+                    locale === 'zh-Hans' ||
+                    locale === 'hi' ||
+                    locale === 'bn'
                       ? '12.5'
                       : '12,5',
                   reps: '10',
