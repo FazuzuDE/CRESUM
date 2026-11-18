@@ -1,3 +1,8 @@
+import {
+  LocalizedText as Text,
+  LocalizedTextInput as TextInput,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
 import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
 import {
   ExerciseGroupComposer,
@@ -14,8 +19,8 @@ import { TechniquePhaseControl } from './TechniquePhaseControl';
 import { equipmentPolicyFor } from '@/lib/exercise-equipment';
 import { useEquipmentFocus } from './useEquipmentFocus';
 import type { TechniquePhase } from '@/lib/exercise-technique';
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Pressable, StyleSheet, View } from 'react-native';
+
 import { AppButton } from './AppButton';
 import { Confirmation } from './Confirmation';
 import { ExerciseLibrary } from './ExerciseLibrary';

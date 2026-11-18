@@ -1,6 +1,7 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { formatEntryNumber } from '@/lib/i18n/format';
 import { useRef, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { AppButton } from '../AppButton';
 import { useLocalization } from '../LocalizationProvider';
 import { catalogLabel } from '@/lib/i18n/catalog';

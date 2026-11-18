@@ -1,14 +1,45 @@
 # Localization coverage and contribution rules
 
-The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi and Bengali. System language
+The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali and Arabic. System language
 appears first and is selected by default. An explicit choice is saved on the
 device. Final web and native acceptance for Russian, German, French,
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi and Bengali remain pending in the release eligibility ledger.
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali and Arabic remain pending in the release eligibility ledger.
 
-Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi and Bengali cover the bundled messages and catalogs, including
+Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali and Arabic cover the bundled messages and catalogs, including
 exercise technique, equipment and built-in plans. Shared plan titles and
 descriptions use the selected locale when the publication supplies it. Older
 publications use their English metadata.
+
+## Arabic — approved 2026-11-18
+
+`ar` adds العربية with all 1651 semantic messages, 110 catalog labels and 70
+complete technique guides (530 guide messages), plus Arabic exercise, equipment,
+attachment and muscle search alternatives. Local gym terminology includes names
+such as بنش, مجانص, باي and تراي; aliases expand discovery only. Arabic search folds
+vowel marks, tatweel and common alef/ya spellings while retaining meaningful Indic
+marks. All languages remain searchable offline from any interface locale.
+
+Arabic is the first RTL application locale. The presentation context follows the
+selected application language without forcing native-global I18nManager state,
+reloading the app or remounting its children. Shared text/input/icon/modal seams
+provide direction, physical text alignment and logical navigation arrows. The dock
+uses locale-aware visual tab order and a matching pill position. Wheel component
+order, artwork, anatomy and graph coordinates are not mirrored. Character choices
+stay aligned with the approved unmirrored male-left/female-right artwork.
+
+Arabic messages isolate interpolated values using FSI/PDI in presentation only.
+Names, identities and saved workout snapshots are not rewritten. Six plural
+categories use count-label phrasing appropriate for all counts. Presentation
+numbers explicitly use the Arabic-Indic numbering system, independently of CLDR
+runtime defaults. Exact editable numbers retain their precision and use the Arabic
+decimal separator; Arabic/Persian keyboard digits normalize without rounding.
+Grouping, signed/exponential and ambiguous numbers remain invalid.
+
+Resolve device tags such as ar-SA and ar-EG. Optional published-plan metadata
+accepts ar with the existing English fallback for older publications. Core stays
+offline and no translation service is bundled. Independent native-speaker review,
+physical Expo Go shaping, native direction/layout, gesture and screen-reader
+acceptance remain open. Browser and renderer checks do not certify those gates.
 
 ## Bengali — approved 2026-11-17
 

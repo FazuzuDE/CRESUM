@@ -1,4 +1,8 @@
 import {
+  LocalizedText as Text,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
+import {
   projectProgramSession,
   applyProgramProjection,
 } from '@/lib/exercise-groups';
@@ -17,10 +21,9 @@ import {
   AppState,
   Pressable,
   StyleSheet,
-  Text,
   View,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import * as Haptics from 'expo-haptics';
 import { moveWorkoutExercise, setCurrentExercise } from '@/lib/workout-engine';

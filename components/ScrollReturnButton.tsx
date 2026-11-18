@@ -1,6 +1,7 @@
+import { DirectionalIcon as Ionicons } from '@/components/LayoutDirection';
 import { Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
+
 import { colors, radius, spacing, cardShadow } from '@/lib/theme';
 import type { ScrollReturn } from './useScrollReturn';
 import { useLocalization } from './LocalizationProvider';

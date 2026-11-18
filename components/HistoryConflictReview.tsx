@@ -1,6 +1,7 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useLocalization } from './LocalizationProvider';
 import { useEffect, useRef, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import type { HistoryReviewActions } from './HistorySyncPanel';
 import type {
   HistoryComparison,

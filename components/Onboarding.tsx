@@ -1,3 +1,8 @@
+import {
+  LocalizedText as Text,
+  LocalizedTextInput as TextInput,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
 import { AppPicker } from './AppPicker';
 import { WheelPickerSheet } from './WheelPickerSheet';
 import { BrandHeader } from './BrandHeader';
@@ -22,15 +27,13 @@ import { exerciseLibrary, findExercise } from '@/lib/exercise-library';
 import { AppScrollView } from './AppScrollView';
 import { ContentScrollView } from './ContentScrollView';
 import { useRef, useState } from 'react';
-import { Ionicons } from '@expo/vector-icons';
+
 import {
   Image,
   KeyboardAvoidingView,
   Platform,
   Pressable,
   StyleSheet,
-  Text,
-  TextInput,
   useWindowDimensions,
   View,
 } from 'react-native';

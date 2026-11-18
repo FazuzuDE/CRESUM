@@ -1,6 +1,7 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { useState } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppScrollView } from './AppScrollView';
 import { AppButton } from './AppButton';

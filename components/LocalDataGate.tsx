@@ -1,5 +1,6 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { recoverLocalRestore } from '@/lib/local-backup';

@@ -50,5 +50,9 @@
   "bn": {
     "web": false,
     "native": false
+  },
+  "ar": {
+    "web": false,
+    "native": false
   }
 }

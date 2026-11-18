@@ -1,6 +1,7 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { formatDate } from '@/lib/i18n/format';
 import { useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { AppButton } from '../AppButton';
 import { useLocalization } from '../LocalizationProvider';
 import type { SharingClient } from '@/lib/workout-sharing/client';

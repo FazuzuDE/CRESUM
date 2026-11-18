@@ -212,3 +212,18 @@ it('preserves Bengali vowel signs, virama and nukta in searches across interface
   expect(ids('কেটলবেল গবলেট', 'ru')).toContain('goblet-squat');
   expect(ids('কেটলবেল গবলেট', 'ru')).not.toContain('kettlebell-goblet-squat');
 });
+
+it('finds Arabic gym names across interface languages and folds Arabic spelling marks only', () => {
+  expect(ids('فراشة', 'de')[0]).toBe('pec-deck-fly');
+  expect(ids('فَرَاشَة', 'fr')[0]).toBe('pec-deck-fly');
+  expect(ids('فــراشة', 'bn')[0]).toBe('pec-deck-fly');
+  expect(ids('روماني دمبل', 'en')[0]).toBe('dumbbell-romanian-deadlift');
+  expect(ids('روماني دمبل', 'en')).not.toContain('barbell-deadlift');
+  expect(ids('فراشة عكسي', 'ru')[0]).toBe('reverse-pec-deck');
+  expect(
+    searchLocalizedExercises({ query: 'فراشة', equipment: 'barbell' }, 'ar'),
+  ).toEqual([]);
+  expect(ids('جوبلت كيتل بيل', 'ar')).toContain('goblet-squat');
+  expect(normalizeSearch('أَمَامِيّ')).toBe(normalizeSearch('امامي'));
+  expect(normalizeSearch('की')).not.toBe(normalizeSearch('क'));
+});

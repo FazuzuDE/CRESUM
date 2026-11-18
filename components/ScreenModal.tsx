@@ -1,4 +1,5 @@
-import { Modal, type ModalProps } from 'react-native';
+import { LocalizedModal as Modal } from '@/components/LayoutDirection';
+import { type ModalProps } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export function ScreenModal({ children, ...props }: ModalProps) {

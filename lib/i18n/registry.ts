@@ -10,6 +10,7 @@ export const localeRegistry = {
   tr: { nativeName: 'Türkçe', direction: 'ltr', released: false },
   hi: { nativeName: 'हिन्दी', direction: 'ltr', released: false },
   bn: { nativeName: 'বাংলা', direction: 'ltr', released: false },
+  ar: { nativeName: 'العربية', direction: 'rtl', released: false },
   'zh-Hans': { nativeName: '简体中文', direction: 'ltr', released: false },
   'pt-BR': {
     nativeName: 'Português (Brasil)',

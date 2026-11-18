@@ -1,8 +1,12 @@
+import {
+  LocalizedText as Text,
+  LocalizedTextInput as TextInput,
+} from '@/components/LayoutDirection';
 import { useLocalization } from './LocalizationProvider';
 import type { AuthRepository } from '@/lib/auth-repository';
 import { HistorySyncPanel, type HistorySyncControls } from './HistorySyncPanel';
 import { useRef, useState } from 'react';
-import { StyleSheet, Text, TextInput } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { AppButton } from './AppButton';
 import { GlassCard } from './GlassCard';
 import { type AuthSnapshot } from '@/lib/auth-store';

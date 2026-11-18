@@ -1,13 +1,16 @@
-import { Ionicons } from '@expo/vector-icons';
+import {
+  LocalizedText as Text,
+  useLayoutDirection,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
+
 import { useEffect, useMemo, useState } from 'react';
 import {
   AccessibilityInfo,
   Animated,
-  I18nManager,
   Platform,
   Pressable,
   StyleSheet,
-  Text,
   View,
   useAnimatedValue,
 } from 'react-native';
@@ -40,11 +43,13 @@ export function Dock({
   const { t } = useLocalization();
   const reduceTransparency = useReducedTransparency();
   const reduced = Platform.OS === 'ios' && reduceTransparency;
-  const selectedIndex = tabs.findIndex(([id]) => id === active);
+  const direction = useLayoutDirection();
+  const visualTabs = direction === 'rtl' ? [...tabs].reverse() : tabs;
+  const selectedIndex = visualTabs.findIndex(([id]) => id === active);
   const position = useAnimatedValue(Math.max(0, selectedIndex));
   const [tabWidth, setTabWidth] = useState(0);
   const translateX = useMemo(
-    () => Animated.multiply(position, tabWidth * (I18nManager.isRTL ? -1 : 1)),
+    () => Animated.multiply(position, tabWidth),
     [position, tabWidth],
   );
   const [reduceMotion, setReduceMotion] = useState(true);
@@ -103,7 +108,7 @@ export function Dock({
             transparency={transparency}
           />
           <View
-            style={s.row}
+            style={[s.row, { direction: 'ltr' }]}
             onLayout={({ nativeEvent }) =>
               setTabWidth(nativeEvent.layout.width / tabs.length)
             }
@@ -121,7 +126,7 @@ export function Dock({
                 ]}
               />
             ) : null}
-            {tabs.map(([id, label, icon]) => {
+            {visualTabs.map(([id, label, icon]) => {
               const selected = active === id;
               return (
                 <Pressable

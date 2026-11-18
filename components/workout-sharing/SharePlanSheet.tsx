@@ -1,6 +1,7 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { OwnedLinks } from './OwnedLinks';
 import { useRef, useState } from 'react';
-import { Share, Switch, Text, View, StyleSheet } from 'react-native';
+import { Share, Switch, View, StyleSheet } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
 import Svg, { Path, Rect } from 'react-native-svg';
 import createQr from 'qrcode-generator';

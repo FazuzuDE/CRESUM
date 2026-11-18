@@ -32,6 +32,21 @@ it('supports Russian plurals when the runtime has no native Intl.PluralRules', (
       expect(create('hi')('history.completedSets', { count: 2 })).toBe(
         '2 पूरे किए सेट',
       );
+      const arabic = create('ar', {
+        'common.setCount': {
+          zero: 'zero {{count}}',
+          one: 'one {{count}}',
+          two: 'two {{count}}',
+          few: 'few {{count}}',
+          many: 'many {{count}}',
+          other: 'other {{count}}',
+        },
+      });
+      expect(
+        [0, 1, 2, 3, 11, 1.5].map((count) =>
+          arabic('common.setCount', { count }),
+        ),
+      ).toEqual(['zero 0', 'one 1', 'two 2', 'few 3', 'many 11', 'other 1.5']);
       const t = create('ru');
       expect(
         [0, 1, 2, 5, 11, 21, 22, 25, 1.5].map((count) =>
@@ -181,4 +196,21 @@ it('renders Bengali count forms with native presentation digits', () => {
   expect(t('history.completedSets', { count: 0 })).toBe('০ সম্পন্ন সেট');
   expect(t('history.completedSets', { count: 1 })).toBe('১ সম্পন্ন সেট');
   expect(t('history.completedSets', { count: 2 })).toBe('২ সম্পন্ন সেট');
+});
+
+it('selects all six Arabic count categories and isolates mixed-direction parameters only in presentation', () => {
+  const samples = { zero: 0, one: 1, two: 2, few: 3, many: 11, other: 1.5 };
+  const forms = Object.fromEntries(
+    Object.keys(samples).map((c) => [c, `${c}: {{count}}`]),
+  );
+  const custom = createTranslator('ar', { 'common.setCount': forms });
+  for (const [category, count] of Object.entries(samples))
+    expect(custom('common.setCount', { count })).toBe(`${category}: ${count}`);
+  const t = createTranslator('ar');
+  expect(t('common.setCount', { count: 2 })).toBe(
+    'عدد المجموعات: \u2068٢\u2069',
+  );
+  const name = 'My Plan 12';
+  expect(t('common.named', { name })).toBe(`\u2068${name}\u2069`);
+  expect(name).toBe('My Plan 12');
 });

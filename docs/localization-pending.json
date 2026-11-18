@@ -16420,5 +16420,47 @@
     "line": 15,
     "text": "bn",
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+  },
+  {
+    "file": "components/LayoutDirection.tsx",
+    "line": 50,
+    "text": "numeric",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression"
+  },
+  {
+    "file": "components/LayoutDirection.tsx",
+    "line": 50,
+    "text": "decimal-pad",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression"
+  },
+  {
+    "file": "components/LayoutDirection.tsx",
+    "line": 50,
+    "text": "number-pad",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression"
+  },
+  {
+    "file": "components/LayoutDirection.tsx",
+    "line": 50,
+    "text": "phone-pad",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression"
+  },
+  {
+    "file": "components/LayoutDirection.tsx",
+    "line": 57,
+    "text": "email-address",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression"
+  },
+  {
+    "file": "components/LayoutDirection.tsx",
+    "line": 57,
+    "text": "url",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/BinaryExpression"
+  },
+  {
+    "file": "lib/workout-sharing/library.ts",
+    "line": 16,
+    "text": "ar",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
   }
 ]

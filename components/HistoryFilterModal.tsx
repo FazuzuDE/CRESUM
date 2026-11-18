@@ -1,11 +1,6 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useState } from 'react';
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  useWindowDimensions,
-} from 'react-native';
+import { Pressable, StyleSheet, View, useWindowDimensions } from 'react-native';
 import { ContentScrollView } from './ContentScrollView';
 import { GlassDialog } from './GlassDialog';
 import { AppButton } from './AppButton';

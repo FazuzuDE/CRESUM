@@ -2664,3 +2664,17 @@ without saving until Done. Wheel changes are a draft: Done saves, Cancel/backdro
 dismissal discards. System selection can be toggled off to use its resolved
 language manually. This supersedes the earlier first-alphabetical opening rule. Use shared wheel feedback,
 without a separate synthetic scrolling sound. Keep actions inside the dialog.
+
+## Arabic and RTL presentation — approved 2026-11-18
+
+Use the selected app locale for live layout direction, shared text/input alignment,
+modal roots and logical back/forward icons. Keep centered labels centered and avoid
+letter spacing that breaks Arabic shaping. The glass dock mirrors its tab order
+and positions its selection pill on the corresponding visible tab. Preserve the
+physical wheel component order, chart axes/coordinates and all anatomical artwork;
+never mirror images or swap recorded left/right values. Character choices remain
+aligned with the approved unmirrored male-left/female-right image. Isolate dynamic
+values in mixed Arabic/Latin text without rewriting stored content. Numeric/email
+input uses a stable LTR text flow. Preserve existing theme tokens and touch targets.
+Do not call forceRTL or reload the app when changing languages. Native visual and
+accessibility acceptance remains separate from renderer/browser checks.

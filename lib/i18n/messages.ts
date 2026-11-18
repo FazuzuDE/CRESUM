@@ -1,3 +1,17 @@
+import arCommon from './locales/ar/common';
+import arCatalog from './locales/ar/catalog';
+import arEditor from './locales/ar/editor';
+import arEquipment from './locales/ar/equipment';
+import arLibrary from './locales/ar/library';
+import arSharing from './locales/ar/sharing';
+import arHome from './locales/ar/home';
+import arHistory from './locales/ar/history';
+import arProgramTechnique from './locales/ar/program-technique';
+import arWorkout from './locales/ar/workout';
+import arOnboarding from './locales/ar/onboarding';
+import arProgress from './locales/ar/progress';
+import arProfile from './locales/ar/profile';
+import arTechniqueContent from './locales/ar/technique-content';
 import bnCommon from './locales/bn/common';
 import bnCatalog from './locales/bn/catalog';
 import bnEditor from './locales/bn/editor';
@@ -388,6 +402,22 @@ const bn = {
   ...bnProfile,
   ...bnTechniqueContent,
 } as const;
+const ar = {
+  ...arCommon,
+  ...arCatalog,
+  ...arEditor,
+  ...arEquipment,
+  ...arLibrary,
+  ...arSharing,
+  ...arHome,
+  ...arHistory,
+  ...arProgramTechnique,
+  ...arWorkout,
+  ...arOnboarding,
+  ...arProgress,
+  ...arProfile,
+  ...arTechniqueContent,
+} as const;
 export type MessageValue =
   string | Readonly<Partial<Record<Intl.LDMLPluralRule, string>>>;
 export type MessageCatalog = Readonly<Record<string, MessageValue>>;
@@ -405,6 +435,7 @@ export const catalogs = {
   'zh-Hans': zhHans,
   hi,
   bn,
+  ar,
 } satisfies Record<string, MessageCatalog>;
 export type MessageKey = keyof typeof en;
 type TrimFormat<S extends string> = S extends `${infer Name},${string}`

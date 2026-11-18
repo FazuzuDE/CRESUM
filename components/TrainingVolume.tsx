@@ -1,17 +1,15 @@
+import {
+  LocalizedText as Text,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { AppFlatList } from './AppFlatList';
 import { useState } from 'react';
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  useWindowDimensions,
-} from 'react-native';
+import { Pressable, StyleSheet, View, useWindowDimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { GlassCard } from './GlassCard';
 import { VolumeTrendChart } from './VolumeTrendChart';
-import { Ionicons } from '@expo/vector-icons';
+
 import type { VolumeComparison } from '@/lib/progress-volume-comparison';
 import type { WorkoutVolume } from '@/lib/progress-analytics';
 import {

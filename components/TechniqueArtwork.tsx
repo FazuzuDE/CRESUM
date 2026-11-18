@@ -1,5 +1,9 @@
-import { Ionicons } from '@expo/vector-icons';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import {
+  LocalizedText as Text,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
+
+import { Image, StyleSheet, View } from 'react-native';
 import {
   resolveExerciseArtwork,
   resolveExerciseArtworkPlacement,

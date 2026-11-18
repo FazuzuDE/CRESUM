@@ -1,12 +1,16 @@
+import {
+  LocalizedText as Text,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { useState } from 'react';
 import { BrandHeader } from './BrandHeader';
 import { ExerciseMuscles } from './ExerciseMuscles';
 import { ExerciseStatistics } from './ExerciseStatistics';
 import { ExerciseArtwork } from './ExerciseArtwork';
-import { Linking, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Linking, Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
+
 import { AppScrollView } from './AppScrollView';
 import { TechniqueArtwork } from './TechniqueArtwork';
 import { TechniquePhaseControl } from './TechniquePhaseControl';

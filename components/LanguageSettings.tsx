@@ -1,5 +1,6 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useState } from 'react';
-import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { StyleSheet, View, useWindowDimensions } from 'react-native';
 import { GlassDialog } from './GlassDialog';
 import { AppPicker } from './AppPicker';
 import { useLocalization } from './LocalizationProvider';
@@ -19,6 +20,7 @@ const flags = {
   tr: '🇹🇷',
   hi: '🇮🇳',
   bn: '🇧🇩',
+  ar: '🇸🇦',
   'zh-Hans': '🇨🇳',
 };
 

@@ -1,3 +1,8 @@
+import {
+  LocalizedText as Text,
+  LocalizedTextInput as TextInput,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { AppScrollView } from './AppScrollView';
 import { BrandHeader } from './BrandHeader';
@@ -5,17 +10,9 @@ import { AppPicker } from './AppPicker';
 import { WheelPickerSheet } from './WheelPickerSheet';
 import { GlassMaterial } from './GlassMaterial';
 import { useReducedTransparency } from './useReducedTransparency';
-import { Ionicons } from '@expo/vector-icons';
+
 import { useEffect, useState } from 'react';
-import {
-  Pressable,
-  Keyboard,
-  Platform,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import { Pressable, Keyboard, Platform, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ExerciseEquipmentRow } from './ExerciseEquipmentRow';
 import { ExerciseEquipmentSheet } from './ExerciseEquipmentSheet';

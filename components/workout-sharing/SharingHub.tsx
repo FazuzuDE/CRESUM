@@ -1,16 +1,13 @@
+import {
+  LocalizedText as Text,
+  LocalizedTextInput as TextInput,
+} from '@/components/LayoutDirection';
 import { formatEntryNumber } from '@/lib/i18n/format';
 import { TemplateEditor } from '../TemplateEditor';
 import type { TemplateDraft } from '@/lib/workout-templates';
 import type { TemplateMutationResult } from '@/lib/workout-store';
 import { useEffect, useRef, useState } from 'react';
-import {
-  Platform,
-  Pressable,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import { Platform, Pressable, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';

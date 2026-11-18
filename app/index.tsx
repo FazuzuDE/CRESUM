@@ -1,3 +1,4 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { ScreenModal } from '@/components/ScreenModal';
 import { ExerciseCharacterProvider } from '@/components/ExerciseCharacterProvider';
 import type { AssetModel } from '@/lib/exercise-variant-model';
@@ -48,7 +49,6 @@ import {
   AppState,
   Pressable,
   StyleSheet,
-  Text,
   View,
   useWindowDimensions,
 } from 'react-native';

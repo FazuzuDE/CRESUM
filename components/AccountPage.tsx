@@ -1,5 +1,6 @@
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useLocalization } from './LocalizationProvider';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { AppScrollView } from './AppScrollView';
 import { BrandHeader } from './BrandHeader';
 import { AppButton } from './AppButton';

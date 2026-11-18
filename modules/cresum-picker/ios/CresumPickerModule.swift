@@ -46,6 +46,7 @@ final class CresumPickerView: ExpoView, UIPickerViewDataSource, UIPickerViewDele
     super.init(appContext: appContext)
     overrideUserInterfaceStyle = .light
     clipsToBounds = true
+    picker.semanticContentAttribute = .forceLeftToRight
     picker.dataSource = self
     picker.delegate = self
     addSubview(picker)

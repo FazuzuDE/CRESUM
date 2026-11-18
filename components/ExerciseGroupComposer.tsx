@@ -1,9 +1,13 @@
+import {
+  LocalizedText as Text,
+  LocalizedTextInput as TextInput,
+} from '@/components/LayoutDirection';
 import { findExercise } from '@/lib/exercise-library';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { muscleLabel } from '@/lib/exercise-taxonomy';
 import { localizedTechnique } from '@/lib/i18n/technique';
 import { useState } from 'react';
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import type {
   ExerciseGroupSnapshot,
   PlannedExercise,
