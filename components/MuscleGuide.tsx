@@ -1,7 +1,6 @@
 import { View } from 'react-native';
 import { LocalizedText as Text } from './LayoutDirection';
 import { createThemedStyles, useAppColors } from './AppThemeProvider';
-import { AppScrollView } from './AppScrollView';
 import { GlassCard } from './GlassCard';
 import { MuscleMap } from './MuscleMap';
 import { useLocalization } from './LocalizationProvider';
@@ -45,19 +44,11 @@ export function MuscleRole({
   );
 }
 
-export function MuscleGuide({ onBack }: { onBack: () => void }) {
+export function MuscleGuide() {
   const { t, locale } = useLocalization();
   const s = useStyles();
   return (
-    <AppScrollView
-      branded
-      dockAware
-      back={{ onPress: onBack }}
-      contentContainerStyle={s.content}
-    >
-      <Text style={s.title} accessibilityRole="header">
-        {t('muscle.readMap')}
-      </Text>
+    <View style={s.content}>
       <GlassCard style={s.card}>
         <Text style={s.heading} accessibilityRole="header">
           {catalogLabel(locale, 'exercise', example.id, example.name)}
@@ -80,13 +71,12 @@ export function MuscleGuide({ onBack }: { onBack: () => void }) {
       </GlassCard>
       <Text style={s.copy}>{t('muscle.guideCount')}</Text>
       <Text style={s.copy}>{t('muscle.shortMeaning')}</Text>
-    </AppScrollView>
+    </View>
   );
 }
 
 const useStyles = createThemedStyles((colors) => ({
-  content: { padding: spacing.lg, gap: spacing.md },
-  title: { ...typography.largeTitle, color: colors.textPrimary },
+  content: { gap: spacing.sm },
   heading: { ...typography.headline, color: colors.textPrimary },
   card: { gap: spacing.sm },
   roleBlock: { gap: spacing.xxs },

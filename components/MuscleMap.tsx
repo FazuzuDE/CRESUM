@@ -23,6 +23,14 @@ import {
 } from '@/lib/anatomical-muscle-map';
 import { spacing, typography, muscleMapPresentation } from '@/lib/theme';
 
+const views = ['front', 'back'] as const;
+const [sourceWidth, sourceHeight] = anatomicalAtlas.canvas;
+const [left, top, frontWidth, atlasHeight] =
+  anatomicalAtlas.views.front.viewBox;
+const atlasWidth = frontWidth + anatomicalAtlas.views.back.viewBox[2];
+const atlasAspect = atlasWidth / atlasHeight;
+const regions = anatomicalRegions.filter((region) => region.groupId !== null);
+
 const source = require('../assets/muscle-map/male-anatomy-v1/source.png');
 
 export function MuscleMap({
@@ -61,93 +69,98 @@ export function MuscleMap({
         ...anatomicalGroups.filter((g) => g.id === 'upper-back'),
       ]
     : anatomicalGroups;
+  const prefix = `anatomy${instance}`;
+  const sourceClipId = `${prefix}source-clip`;
   return (
-    <View style={s.row}>
-      {(['front', 'back'] as const).map((view) => {
-        const prefix = `anatomy${instance}${view}`;
-        const viewBox = anatomicalAtlas.views[view].viewBox;
-        const [x, y, width, viewHeight] = viewBox;
-        const sourceClipId = `${prefix}source-clip`;
-        const regions = anatomicalRegions.filter(
-          (r) => r.view === view && r.groupId !== null,
-        );
-        return (
-          <View key={view} style={s.body}>
-            <Svg
-              width="100%"
-              height={height}
-              viewBox={viewBox.join(' ')}
-              accessible={false}
-            >
-              <Defs>
-                <ClipPath id={sourceClipId}>
-                  <Rect x={x} y={y} width={width} height={viewHeight} />
-                </ClipPath>
-                {view === 'back' && cutout ? (
-                  <Mask
-                    id={`${prefix}role-occlusion`}
-                    testID="anatomical-role-occlusion-back"
-                    maskUnits="userSpaceOnUse"
-                    maskContentUnits="userSpaceOnUse"
-                    maskType="luminance"
-                    x={0}
-                    y={0}
-                    width={1312}
-                    height={1199}
-                  >
-                    <Rect x={0} y={0} width={1312} height={1199} fill="white" />
-                    {regions
-                      .filter((r) => r.groupId === cutout.occluder)
-                      .map((r) => (
-                        <Path
-                          key={r.id}
-                          d={r.path}
-                          transform={r.transform || undefined}
-                          fill="black"
-                        />
-                      ))}
-                  </Mask>
-                ) : null}
-                {anatomicalAtlas.clips.map((clip) => (
-                  <Mask
-                    key={clip.id}
-                    id={`${prefix}${clip.id}`}
-                    maskUnits="userSpaceOnUse"
-                    maskContentUnits="userSpaceOnUse"
-                    maskType="luminance"
-                    x={0}
-                    y={0}
-                    width={1312}
-                    height={1199}
-                  >
-                    <Image
-                      href={clip.image}
-                      x={0}
-                      y={0}
-                      width={1312}
-                      height={1199}
-                    />
-                  </Mask>
-                ))}
-                {regions
-                  .filter((r) => r.partitionPath)
-                  .map((r) => (
-                    <ClipPath key={r.id} id={`${prefix}${r.id}`}>
-                      <Path d={r.partitionPath!} />
-                    </ClipPath>
-                  ))}
-              </Defs>
-              <Image
-                href={source}
-                clipPath={`url(#${sourceClipId})`}
+    <View style={[s.atlas, { maxWidth: height * atlasAspect }]}>
+      <View style={s.canvas}>
+        <Svg
+          width="100%"
+          height="100%"
+          viewBox={`${left} ${top} ${atlasWidth} ${atlasHeight}`}
+          accessible={false}
+        >
+          <Defs>
+            <ClipPath id={sourceClipId}>
+              <Rect x={left} y={top} width={atlasWidth} height={atlasHeight} />
+            </ClipPath>
+            {cutout ? (
+              <Mask
+                id={`${prefix}role-occlusion`}
+                testID="anatomical-role-occlusion-back"
+                maskUnits="userSpaceOnUse"
+                maskContentUnits="userSpaceOnUse"
+                maskType="luminance"
                 x={0}
                 y={0}
-                width={1312}
-                height={1199}
-                pointerEvents="none"
-              />
+                width={sourceWidth}
+                height={sourceHeight}
+              >
+                <Rect
+                  x={0}
+                  y={0}
+                  width={sourceWidth}
+                  height={sourceHeight}
+                  fill="white"
+                />
+                {regions
+                  .filter(
+                    (r) => r.view === 'back' && r.groupId === cutout.occluder,
+                  )
+                  .map((r) => (
+                    <Path
+                      key={r.id}
+                      d={r.path}
+                      transform={r.transform || undefined}
+                      fill="black"
+                    />
+                  ))}
+              </Mask>
+            ) : null}
+            {anatomicalAtlas.clips.map((clip) => (
+              <Mask
+                key={clip.id}
+                id={`${prefix}${clip.id}`}
+                maskUnits="userSpaceOnUse"
+                maskContentUnits="userSpaceOnUse"
+                maskType="luminance"
+                x={0}
+                y={0}
+                width={sourceWidth}
+                height={sourceHeight}
+              >
+                <Image
+                  href={clip.image}
+                  x={0}
+                  y={0}
+                  width={sourceWidth}
+                  height={sourceHeight}
+                />
+              </Mask>
+            ))}
+            {regions
+              .filter((r) => r.partitionPath)
+              .map((r) => (
+                <ClipPath key={r.id} id={`${prefix}${r.id}`}>
+                  <Path d={r.partitionPath!} />
+                </ClipPath>
+              ))}
+          </Defs>
+          <Image
+            href={source}
+            clipPath={`url(#${sourceClipId})`}
+            x={0}
+            y={0}
+            width={sourceWidth}
+            height={sourceHeight}
+            pointerEvents="none"
+          />
+          {views.map((view) => (
+            <G key={view}>
               {groups.map((group) => {
-                const parts = regions.filter((r) => r.groupId === group.id);
+                const parts = regions.filter(
+                  (r) => r.view === view && r.groupId === group.id,
+                );
                 if (!parts.length) return null;
                 const participation = muscles.find((m) => m.id === group.id);
                 const primary = !!participation?.primary;
@@ -190,12 +203,6 @@ export function MuscleMap({
                               : undefined
                           }
                           fill={fill}
-                          stroke={
-                            selected === group.id ? colors.textPrimary : 'none'
-                          }
-                          strokeWidth={
-                            muscleMapPresentation.selectedStrokeWidth
-                          }
                           onPress={
                             onSelect ? () => onSelect(group.id) : undefined
                           }
@@ -205,20 +212,55 @@ export function MuscleMap({
                   </G>
                 );
               })}
-            </Svg>
-            <Text style={s.label}>
-              {t(view === 'front' ? 'muscle.front' : 'muscle.back')}
-            </Text>
-          </View>
-        );
-      })}
+            </G>
+          ))}
+          {selected
+            ? regions
+                .filter((region) => region.groupId === selected)
+                .map((region) => (
+                  <G
+                    key={region.id}
+                    mask={
+                      region.clipId
+                        ? `url(#${prefix}${region.clipId})`
+                        : undefined
+                    }
+                    pointerEvents="none"
+                  >
+                    <Path
+                      testID={`anatomical-selection-${region.id}`}
+                      d={region.path}
+                      transform={region.transform || undefined}
+                      clipPath={
+                        region.partitionPath
+                          ? `url(#${prefix}${region.id})`
+                          : undefined
+                      }
+                      fill="none"
+                      stroke={colors.musclePrimaryShade}
+                      strokeWidth={muscleMapPresentation.selectedStrokeWidth}
+                    />
+                  </G>
+                ))
+            : null}
+        </Svg>
+      </View>
+      <View style={s.row}>
+        {views.map((view) => (
+          <Text key={view} style={s.label}>
+            {t(view === 'front' ? 'muscle.front' : 'muscle.back')}
+          </Text>
+        ))}
+      </View>
     </View>
   );
 }
 const useStyles = createThemedStyles((colors) => ({
-  row: { flexDirection: 'row', gap: spacing.xs },
-  body: { flex: 1 },
+  atlas: { alignSelf: 'center', width: '100%' },
+  canvas: { width: '100%', aspectRatio: atlasAspect, overflow: 'hidden' },
+  row: { flexDirection: 'row', paddingTop: spacing.xxs },
   label: {
+    flex: 1,
     ...typography.footnote,
     color: colors.textSecondary,
     textAlign: 'center',

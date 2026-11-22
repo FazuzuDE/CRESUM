@@ -214,8 +214,16 @@ it('changes the Profile preference without modifying workouts and restores it on
   act(() => button(view, 'Exercise character').props.onPress());
   const workouts = await AsyncStorage.getItem(STATE_KEY);
   expect(button(view, 'Male').props.selected).toBe(true);
+  expect(
+    view.root.findAllByProps({ testID: 'exercise-character-preview-male' })
+      .length,
+  ).toBeGreaterThan(0);
   await act(async () => button(view, 'Female').props.onPress());
   expect(button(view, 'Female').props.selected).toBe(true);
+  expect(
+    view.root.findAllByProps({ testID: 'exercise-character-preview-female' })
+      .length,
+  ).toBeGreaterThan(0);
   expect(await AsyncStorage.getItem(STATE_KEY)).toBe(workouts);
   await act(async () => view.unmount());
   const reopened = await mount();
@@ -286,6 +294,10 @@ it('serializes character changes and keeps personalization closed until saving f
     await act(async () => {
       button(view, 'Female').props.onPress();
     });
+    expect(
+      view.root.findAllByProps({ testID: 'exercise-character-preview-female' })
+        .length,
+    ).toBeGreaterThan(0);
     expect(button(view, 'Male').props.disabled).toBe(true);
     act(() => backToProfile(view).props.onPress());
     act(() => button(view, 'Local data').props.onPress());

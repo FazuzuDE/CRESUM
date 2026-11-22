@@ -137,7 +137,9 @@ it('translates the selected muscle, its function and source sets without losing 
       await act(async () => {
         await ui.locale.select(next);
       });
-      expect(ui.view.root.findByType(Modal).props.visible).toBe(true);
+      expect(ui.view.root.findAllByType(MuscleMap)[0].props.selected).toBe(
+        'chest',
+      );
       expect(ui.text()).toContain('CUSTOM bench');
       expect(ui.text()).toContain('CUSTOM workout');
       expect(ui.text()).toContain(

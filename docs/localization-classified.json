@@ -12037,5 +12037,66 @@
     "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:fontVariant/ObjectLiteralExpression/PropertyAssignment:number",
     "kind": "internal",
     "reason": "React Native font variant for aligned counters."
+  },
+  {
+    "file": "components/ExerciseCharacterPicker.tsx",
+    "kind": "internal",
+    "reason": "Stable test identifier for the current character portrait.",
+    "entries": [
+      {
+        "text": "`exercise-character-preview-${value}`",
+        "context": "TemplateExpression/JsxExpression/JsxAttribute:testID/JsxAttributes/JsxOpeningElement"
+      }
+    ]
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "kind": "internal",
+    "reason": "Atlas view identifiers, SVG geometry and mask references, and selection test identifiers.",
+    "entries": [
+      {
+        "text": "front",
+        "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+      },
+      {
+        "text": "back",
+        "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+      },
+      {
+        "text": "`anatomy${instance}`",
+        "context": "TemplateExpression/VariableDeclaration/VariableDeclarationList/FirstStatement/Block"
+      },
+      {
+        "text": "`${left} ${top} ${atlasWidth} ${atlasHeight}`",
+        "context": "TemplateExpression/JsxExpression/JsxAttribute:viewBox/JsxAttributes/JsxOpeningElement"
+      },
+      {
+        "text": "`url(#${prefix}${region.clipId})`",
+        "context": "TemplateExpression/ConditionalExpression/JsxExpression/JsxAttribute:mask/JsxAttributes"
+      },
+      {
+        "text": "`anatomical-selection-${region.id}`",
+        "context": "TemplateExpression/JsxExpression/JsxAttribute:testID/JsxAttributes/JsxSelfClosingElement"
+      },
+      {
+        "text": "`url(#${prefix}${region.id})`",
+        "context": "TemplateExpression/ConditionalExpression/JsxExpression/JsxAttribute:clipPath/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/MuscleSetCatalog.tsx",
+    "kind": "internal",
+    "reason": "Directional icon glyph names for the expanded and collapsed rows.",
+    "entries": [
+      {
+        "text": "chevron-down",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes"
+      },
+      {
+        "text": "chevron-forward",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes"
+      }
+    ]
   }
 ]

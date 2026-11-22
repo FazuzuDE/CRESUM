@@ -843,3 +843,8 @@ catalog. Verify the updated progression and navigation in the device preview.
 
 Verify navigation on iPhone and Android, including nested sheets, vertical
 scrolling, horizontal controls and swipeable workout rows.
+
+### Inline Muscle Map and character preview — requested 2026-11-22
+
+Verify the seamless shared atlas in both themes, inline map-to-row selection
+and the character preview on iPhone and Android.

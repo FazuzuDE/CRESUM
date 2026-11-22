@@ -16606,5 +16606,53 @@
     "line": 169,
     "text": "tabular-nums",
     "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:fontVariant/ObjectLiteralExpression/PropertyAssignment:number"
+  },
+  {
+    "file": "components/ExerciseCharacterPicker.tsx",
+    "line": 50,
+    "text": "`exercise-character-preview-${value}`",
+    "context": "TemplateExpression/JsxExpression/JsxAttribute:testID/JsxAttributes/JsxOpeningElement"
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "line": 72,
+    "text": "`anatomy${instance}`",
+    "context": "TemplateExpression/VariableDeclaration/VariableDeclarationList/FirstStatement/Block"
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "line": 80,
+    "text": "`${left} ${top} ${atlasWidth} ${atlasHeight}`",
+    "context": "TemplateExpression/JsxExpression/JsxAttribute:viewBox/JsxAttributes/JsxOpeningElement"
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "line": 225,
+    "text": "`url(#${prefix}${region.clipId})`",
+    "context": "TemplateExpression/ConditionalExpression/JsxExpression/JsxAttribute:mask/JsxAttributes"
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "line": 231,
+    "text": "`anatomical-selection-${region.id}`",
+    "context": "TemplateExpression/JsxExpression/JsxAttribute:testID/JsxAttributes/JsxSelfClosingElement"
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "line": 236,
+    "text": "`url(#${prefix}${region.id})`",
+    "context": "TemplateExpression/ConditionalExpression/JsxExpression/JsxAttribute:clipPath/JsxAttributes"
+  },
+  {
+    "file": "components/MuscleSetCatalog.tsx",
+    "line": 117,
+    "text": "chevron-down",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes"
+  },
+  {
+    "file": "components/MuscleSetCatalog.tsx",
+    "line": 117,
+    "text": "chevron-forward",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes"
   }
 ]

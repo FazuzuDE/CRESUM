@@ -1050,6 +1050,11 @@ example and clickable source history. From an empty period, open discovery
 with that muscle already selected. Apply the shared function descriptions to
 all exercises, including machine exercises and equipment variants.
 
+Keep the guide and grouped sets on the Progress map as collapsible sections.
+A map tap reveals the corresponding group; selecting a row updates the map
+immediately and shows details under that row. In Profile, show the portrait
+of the selected exercise character and update it while the preference saves.
+
 References for muscle functions are [OpenStax upper limb anatomy](https://openstax.org/books/anatomy-and-physiology-2e/pages/11-5-muscles-of-the-pectoral-girdle-and-upper-limbs)
 and [Kenhub’s rhomboid anatomy](https://www.kenhub.com/en/library/anatomy/rhomboid-muscles).
 

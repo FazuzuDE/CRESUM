@@ -3,6 +3,7 @@ import type { AssetModel } from '@/lib/exercise-variant-model';
 
 type CharacterPreference = {
   model: AssetModel;
+  pendingModel?: AssetModel;
   saving: boolean;
   error: boolean;
   disabled: boolean;
