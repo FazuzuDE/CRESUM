@@ -35,7 +35,13 @@ export function ExerciseEquipmentSheet({
   const { t, locale } = useLocalization();
   if (!isValidEquipmentPolicy(policy) || policy.choices.length < 2) return null;
   return (
-    <Modal visible transparent animationType="slide" onRequestClose={onClose}>
+    <Modal
+      visible
+      transparent
+      animationType="slide"
+      onRequestClose={onClose}
+      swipeBack={{ onPress: onClose }}
+    >
       <View style={s.overlay}>
         <Pressable
           style={s.backdrop}

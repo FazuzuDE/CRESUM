@@ -382,6 +382,7 @@ export function Onboarding({
         back={
           previous
             ? {
+                scope: step,
                 testID: 'onboarding-back',
                 accessibilityLabel: t('onboarding.back'),
                 disabled: navigationDisabled,
@@ -392,6 +393,7 @@ export function Onboarding({
               }
             : editing && onExit
               ? {
+                  scope: step,
                   accessibilityLabel: t('onboarding.backProfile'),
                   disabled: navigationDisabled,
                   onPress: onExit,

@@ -122,6 +122,7 @@ export function LanguageSettings({
           <View style={s.actions}>
             <AppButton
               title={t('common.cancel')}
+              swipeBack
               presentation="text"
               secondary
               disabled={saving}

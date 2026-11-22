@@ -57,6 +57,7 @@ export function HomeLayoutEditor({
         <AppScrollView branded contentContainerStyle={s.content}>
           <AppButton
             title={t('home.cancel')}
+            swipeBack
             secondary
             disabled={saving}
             onPress={close}

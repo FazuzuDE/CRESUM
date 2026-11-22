@@ -1,4 +1,4 @@
-import { createContext, forwardRef, useContext } from 'react';
+import { forwardRef } from 'react';
 import {
   Modal as NativeModal,
   Text as NativeText,
@@ -9,18 +9,21 @@ import {
   type TextInputProps,
 } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { BackSwipeBoundary } from './BackSwipe';
+import {
+  BackSwipeBoundary,
+  useBackSwipeAction,
+  type BackSwipeAction,
+} from './BackSwipe';
+import { useLayoutDirection } from './LayoutDirectionContext';
 import { Ionicons as NativeIonicons } from '@expo/vector-icons';
 import type { ComponentProps, ComponentRef } from 'react';
-import {
-  textDirectionStyle,
-  logicalIcon,
-  type LayoutDirection,
-} from '@/lib/i18n/direction';
+import { textDirectionStyle, logicalIcon } from '@/lib/i18n/direction';
 import { normalizeInputDigits } from '@/lib/i18n/format';
 
-export const LayoutDirectionContext = createContext<LayoutDirection>('ltr');
-export const useLayoutDirection = () => useContext(LayoutDirectionContext);
+export {
+  LayoutDirectionContext,
+  useLayoutDirection,
+} from './LayoutDirectionContext';
 export const LocalizedText = forwardRef<
   ComponentRef<typeof NativeText>,
   TextProps
@@ -76,12 +79,28 @@ export const LocalizedTextInput = forwardRef<
     />
   );
 });
-export function LocalizedModal({ children, ...props }: ModalProps) {
+export type LocalizedModalProps = ModalProps & { swipeBack?: BackSwipeAction };
+
+function ModalBackAction({ action }: { action: BackSwipeAction }) {
+  useBackSwipeAction(action, 'fallback');
+  return null;
+}
+
+export function LocalizedModal({
+  children,
+  swipeBack,
+  ...props
+}: LocalizedModalProps) {
   const direction = useLayoutDirection();
   return (
     <NativeModal {...props}>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <BackSwipeBoundary isolate style={{ flex: 1, direction }}>
+        <BackSwipeBoundary
+          isolate
+          active={props.visible !== false}
+          style={{ flex: 1, direction }}
+        >
+          {swipeBack ? <ModalBackAction action={swipeBack} /> : null}
           {children}
         </BackSwipeBoundary>
       </GestureHandlerRootView>

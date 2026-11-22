@@ -1269,11 +1269,12 @@ Active tab uses `primary`, inactive tabs `textSecondary`. A translucent/floating
 
 ### Swipe back
 
-On iOS and Android, a deliberate left-to-right swipe can start anywhere on a
-page that has an enabled Back action. On release, it invokes that same action.
-Vertical scrolling, horizontal scrollers, sliders and open row actions keep
-their own gestures. For a nested screen or sheet, use the Back action of the
-visible layer and return one level at a time.
+On iOS and Android, a deliberate swipe toward the trailing side can start
+anywhere on a page with an enabled return action. Swipe right in
+LTR and left in RTL, using the current app language. On release, invoke the same
+action as the visible Back, Close or Cancel control. Vertical scrolling, horizontal
+scrollers, sliders and swipeable rows retain their gestures. On nested screens or
+sheets, return one level at a time using the action in the visible layer.
 
 The current screen follows a horizontal Back drag and settles offscreen
 before committing. A canceled gesture settles in place. Respect Reduce Motion.

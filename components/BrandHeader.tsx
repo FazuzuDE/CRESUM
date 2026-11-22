@@ -11,7 +11,7 @@ import { Platform, Pressable, View, useWindowDimensions } from 'react-native';
 import { DEFAULT_GLASS_TRANSPARENCY, GlassMaterial } from './GlassMaterial';
 import { useReducedTransparency } from './useReducedTransparency';
 import { spacing, typography } from '@/lib/theme';
-import { useBackSwipeAction } from './BackSwipe';
+import { useBackSwipeAction, type BackSwipeAction } from './BackSwipe';
 import { BrandWordmark } from './BrandWordmark';
 import { useLocalization } from './LocalizationProvider';
 
@@ -19,10 +19,8 @@ export const HeaderTransparency = createContext(DEFAULT_GLASS_TRANSPARENCY);
 
 export const HeaderBackdropProvided = createContext(false);
 
-export type BrandBackAction = {
-  onPress: () => void;
+export type BrandBackAction = BackSwipeAction & {
   accessibilityLabel?: string;
-  disabled?: boolean;
   testID?: string;
 };
 
@@ -47,7 +45,9 @@ export function BrandHeader({ back }: { back?: BrandBackAction } = {}) {
         </Text>
         {back ? (
           <Pressable
-            {...back}
+            disabled={back.disabled}
+            onPress={back.onPress}
+            testID={back.testID}
             accessibilityRole="button"
             accessibilityLabel={back.accessibilityLabel ?? t('library.back')}
             accessibilityState={{ disabled: back.disabled ?? false }}

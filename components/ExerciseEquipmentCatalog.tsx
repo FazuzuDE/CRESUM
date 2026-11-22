@@ -116,7 +116,13 @@ export function ExerciseEquipmentCatalog({
         <Text accessibilityRole="alert">{t('equipment.unavailable')}</Text>
       ) : null}
       {draft !== null ? (
-        <Modal visible transparent animationType="slide" onRequestClose={close}>
+        <Modal
+          visible
+          transparent
+          animationType="slide"
+          onRequestClose={close}
+          swipeBack={{ onPress: close, disabled: saving }}
+        >
           <View style={s.overlay}>
             <Pressable
               style={StyleSheet.absoluteFill}

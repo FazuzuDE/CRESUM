@@ -2,9 +2,10 @@
 
 ## Swipe back — requested 2026-11-22
 
-On iOS and Android, users can swipe from left to right anywhere on a page with
-an enabled return control. The gesture performs the same action as that
-control, including the current step of an editor or sheet.
+On iOS and Android, users can swipe toward the trailing side anywhere on a page
+with an enabled return control. This means rightward in LTR and leftward in RTL.
+The gesture performs the same action as that control, including the current
+step of an editor or sheet.
 
 ## Progress navigation continuity — approved 2026-11-22
 

@@ -90,6 +90,7 @@ export function BackupPage({
         dockAware
         contentContainerStyle={s.content}
         back={{
+          scope: 'full-restore',
           accessibilityLabel: t('backup.back'),
           onPress: () => setFullRestore(false),
         }}
@@ -104,6 +105,7 @@ export function BackupPage({
         dockAware
         contentContainerStyle={s.content}
         back={{
+          scope: 'preview',
           accessibilityLabel: t('backup.back'),
           disabled: checking,
           onPress: () => {
@@ -179,6 +181,7 @@ export function BackupPage({
       dockAware
       contentContainerStyle={s.content}
       back={{
+        scope: 'overview',
         accessibilityLabel: t('profile.back'),
         disabled: busy,
         onPress: onClose,

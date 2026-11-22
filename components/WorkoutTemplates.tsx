@@ -4,6 +4,7 @@ import {
 } from '@/components/AppThemeProvider';
 import {
   LocalizedText as Text,
+  useLayoutDirection,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
 import { useBackSwipeGesture } from './BackSwipe';
@@ -79,6 +80,7 @@ export function WorkoutTemplates({
   const [menuTemplateId, setMenuTemplateId] = useState<string>();
   const [menuError, setMenuError] = useState('');
   const backGesture = useBackSwipeGesture();
+  const rtl = useLayoutDirection() === 'rtl';
   const [openSwipeId, setOpenSwipeId] = useState<string>();
   const swipeableRefs = useRef(new Map<string, SwipeableMethods>());
   const openSwipeRef = useRef<string | undefined>(undefined);
@@ -325,7 +327,12 @@ export function WorkoutTemplates({
                 containerStyle={s.swipeContainer}
                 childrenContainerStyle={s.movingRow}
                 enabled={!listActionsDisabled}
-                block={openSwipeId === template.id ? backGesture : undefined}
+                block={
+                  rtl || openSwipeId === template.id ? backGesture : undefined
+                }
+                simultaneousWith={
+                  !rtl && openSwipeId !== template.id ? backGesture : undefined
+                }
                 friction={1}
                 rightThreshold={52}
                 overshootLeft={false}

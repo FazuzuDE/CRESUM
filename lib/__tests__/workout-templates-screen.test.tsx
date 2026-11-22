@@ -3,6 +3,8 @@ import { StyleSheet, Text, TextInput } from 'react-native';
 import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 import type { ReactElement, ReactNode } from 'react';
 import { AppButton } from '../../components/AppButton';
+import { AppScrollView } from '../../components/AppScrollView';
+import { LayoutDirectionContext } from '../../components/LayoutDirection';
 import { Confirmation } from '../../components/Confirmation';
 import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { TemplateEditor } from '../../components/TemplateEditor';
@@ -486,6 +488,36 @@ describe('WorkoutTemplates', () => {
       view.root.findByProps({ testID: 'quick-actions-custom-one' }).props
         .accessibilityElementsHidden,
     ).toBe(true);
+  });
+
+  it('lets Back run over a closed LTR row and gives conflicting row actions priority', () => {
+    const screen = (direction: 'ltr' | 'rtl') => (
+      <LayoutDirectionContext.Provider value={direction}>
+        <AppScrollView branded back={{ onPress: jest.fn() }}>
+          <WorkoutTemplates
+            templates={[custom]}
+            busy={false}
+            onCreate={jest.fn()}
+            onUpdate={jest.fn()}
+            onDelete={jest.fn()}
+          />
+        </AppScrollView>
+      </LayoutDirectionContext.Provider>
+    );
+    const view = render(screen('ltr'));
+    const row = () => view.root.findByType(Swipeable).props;
+    expect(row().simultaneousWith).toBeDefined();
+    expect(row().block).toBeUndefined();
+
+    act(() => row().onSwipeableWillOpen('left'));
+    expect(row().block).toBeDefined();
+    expect(row().simultaneousWith).toBeUndefined();
+
+    act(() => row().onSwipeableClose('right'));
+    act(() => view.update(screen('rtl')));
+    expect(row().block).toBeDefined();
+    expect(row().simultaneousWith).toBeUndefined();
+    act(() => view.unmount());
   });
 
   it('does not start a workout when closing an open swipe also emits a row press', () => {
