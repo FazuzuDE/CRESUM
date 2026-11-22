@@ -59,6 +59,7 @@ export function Confirmation({
         />
         <AppButton
           title={cancelLabel}
+          swipeBack
           disabled={busy}
           secondary
           onPress={onCancel}

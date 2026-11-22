@@ -1,8 +1,10 @@
-import { LocalizedModal as Modal } from '@/components/LayoutDirection';
-import { type ModalProps } from 'react-native';
+import {
+  LocalizedModal as Modal,
+  type LocalizedModalProps,
+} from '@/components/LayoutDirection';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-export function ScreenModal({ children, ...props }: ModalProps) {
+export function ScreenModal({ children, ...props }: LocalizedModalProps) {
   return (
     <Modal {...props} statusBarTranslucent navigationBarTranslucent>
       <SafeAreaProvider>{children}</SafeAreaProvider>

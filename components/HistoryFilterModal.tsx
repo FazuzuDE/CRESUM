@@ -177,8 +177,9 @@ export function HistoryFilterModal({
         </>
       )}
       <AppButton
+        key={pane}
         title={pane === 'filter' ? t('common.cancel') : t('filter.back')}
-        swipeBack={pane !== 'filter'}
+        swipeBack
         secondary
         onPress={back}
       />

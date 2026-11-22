@@ -4,6 +4,7 @@ import {
 } from '@/components/AppThemeProvider';
 import {
   LocalizedText as Text,
+  useLayoutDirection,
   LocalizedTextInput as TextInput,
 } from '@/components/LayoutDirection';
 import { formatEntryNumber } from '@/lib/i18n/format';
@@ -70,6 +71,7 @@ export function SharingHub({
   const s = useStyles();
   const { t, locale } = useLocalization();
   const backGesture = useBackSwipeGesture();
+  const rtl = useLayoutDirection() === 'rtl';
   const [openSwipeId, setOpenSwipeId] = useState<string>();
   const [editing, setEditing] = useState(false);
   const [adding, setAdding] = useState(false);
@@ -266,7 +268,12 @@ export function SharingHub({
           {savedPlan?.exercises.map((e) => (
             <Swipeable
               key={e.exerciseId}
-              block={openSwipeId === e.exerciseId ? backGesture : undefined}
+              block={
+                rtl || openSwipeId === e.exerciseId ? backGesture : undefined
+              }
+              simultaneousWith={
+                !rtl && openSwipeId !== e.exerciseId ? backGesture : undefined
+              }
               onSwipeableWillOpen={() => setOpenSwipeId(e.exerciseId)}
               onSwipeableClose={() =>
                 setOpenSwipeId((current) =>

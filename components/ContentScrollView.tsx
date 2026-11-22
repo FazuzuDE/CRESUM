@@ -1,4 +1,10 @@
-import { forwardRef, useState, type ComponentRef, type ReactNode } from 'react';
+import {
+  forwardRef,
+  useState,
+  type ComponentRef,
+  type ReactElement,
+  type ReactNode,
+} from 'react';
 import { ScrollView, StyleSheet, type ScrollViewProps } from 'react-native';
 import {
   GestureDetector,
@@ -33,13 +39,6 @@ export const ContentScrollView = forwardRef<
   },
   ref,
 ) {
-  const back = useBackSwipeGesture();
-  const horizontalScroll = horizontal && back;
-  const nativeScroll = useNativeGesture({
-    enabled: !!horizontalScroll,
-    block: horizontalScroll || undefined,
-    disallowInterruption: true,
-  });
   const [viewport, setViewport] = useState<number>();
   const [headerHeight, setHeaderHeight] = useState(0);
   const [content, setContent] = useState<number>();
@@ -53,6 +52,7 @@ export const ContentScrollView = forwardRef<
   const flexGrow = wrapsContent
     ? StyleSheet.flatten(contentContainerStyle)?.flexGrow
     : undefined;
+  const canScroll = scrollEnabled !== false && !fits;
   const scrollView = (
     <ScrollView
       {...props}
@@ -72,7 +72,7 @@ export const ContentScrollView = forwardRef<
       }
       bounces={bounces}
       horizontal={horizontal}
-      scrollEnabled={scrollEnabled !== false && !fits}
+      scrollEnabled={canScroll}
       onLayout={(event) => {
         const { width, height } = event.nativeEvent.layout;
         setViewport(horizontal ? width : height);
@@ -92,8 +92,10 @@ export const ContentScrollView = forwardRef<
       )}
     </ScrollView>
   );
-  const scroll = horizontalScroll ? (
-    <GestureDetector gesture={nativeScroll}>{scrollView}</GestureDetector>
+  const scroll = horizontal ? (
+    <HorizontalScrollGesture enabled={canScroll}>
+      {scrollView}
+    </HorizontalScrollGesture>
   ) : (
     scrollView
   );
@@ -119,6 +121,26 @@ export const ContentScrollView = forwardRef<
     scroll
   );
 });
+
+function HorizontalScrollGesture({
+  enabled,
+  children,
+}: {
+  enabled: boolean;
+  children: ReactElement;
+}) {
+  const back = useBackSwipeGesture();
+  const nativeScroll = useNativeGesture({
+    enabled: enabled && !!back,
+    block: enabled ? back : undefined,
+    disallowInterruption: true,
+  });
+  return back ? (
+    <GestureDetector gesture={nativeScroll}>{children}</GestureDetector>
+  ) : (
+    children
+  );
+}
 
 const s = StyleSheet.create({
   layer: { flex: 1 },

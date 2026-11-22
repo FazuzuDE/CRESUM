@@ -39,7 +39,12 @@ export function WheelPickerSheet({
           disabled={disabled}
           onPress={onConfirm}
         />
-        <AppButton title={t('common.cancel')} secondary onPress={onCancel} />
+        <AppButton
+          title={t('common.cancel')}
+          swipeBack
+          secondary
+          onPress={onCancel}
+        />
         {onClear ? (
           <AppButton
             title={t('date.clear')}

@@ -16,12 +16,21 @@ import {
   type PanGesture,
 } from 'react-native-gesture-handler';
 
-type Action = { onPress: () => void; disabled?: boolean };
+import { useLayoutDirection } from './LayoutDirectionContext';
+
+export type BackSwipeAction = {
+  onPress: () => void;
+  disabled?: boolean;
+  // Change when an existing control starts returning from a different step.
+  scope?: string;
+};
+type Priority = 'fallback' | 'page' | 'inline';
 type Target = {
-  action: RefObject<Action | undefined>;
-  inline: boolean;
+  action: RefObject<BackSwipeAction | undefined>;
+  priority: Priority;
   disabled: boolean;
 };
+type SwipeDestination = { target: Target; direction: 1 | -1 };
 type Register = (target: Target) => () => void;
 
 const BackSwipeContext = createContext<{
@@ -29,7 +38,10 @@ const BackSwipeContext = createContext<{
   gesture?: PanGesture;
 } | null>(null);
 
-export function useBackSwipeAction(action?: Action, inline = false) {
+export function useBackSwipeAction(
+  action?: BackSwipeAction,
+  priority: Priority = 'page',
+) {
   const register = useContext(BackSwipeContext)?.register;
   const latest = useRef(action);
   useLayoutEffect(() => {
@@ -38,9 +50,10 @@ export function useBackSwipeAction(action?: Action, inline = false) {
 
   const present = action !== undefined;
   const disabled = action?.disabled ?? false;
+  const scope = action?.scope;
   useLayoutEffect(() => {
-    if (present) return register?.({ action: latest, inline, disabled });
-  }, [register, present, inline, disabled]);
+    if (present) return register?.({ action: latest, priority, disabled });
+  }, [register, present, priority, disabled, scope]);
 }
 
 export function useBackSwipeGesture() {
@@ -50,52 +63,78 @@ export function useBackSwipeGesture() {
 /** A native modal starts a new input surface even when it is nested in React. */
 export function BackSwipeBoundary({
   isolate = false,
+  active = true,
   ...props
-}: ViewProps & { isolate?: boolean }) {
+}: ViewProps & { isolate?: boolean; active?: boolean }) {
   const enclosing = useContext(BackSwipeContext);
   const supported = Platform.OS === 'ios' || Platform.OS === 'android';
   if (!supported || (enclosing && !isolate)) return <View {...props} />;
-  return <BackSwipeSurface {...props} />;
+  return <BackSwipeSurface {...props} active={active} />;
 }
 
-function BackSwipeSurface(props: ViewProps) {
+function BackSwipeSurface({
+  active,
+  ...props
+}: ViewProps & { active: boolean }) {
   const [targets, setTargets] = useState<Target[]>([]);
   const register = useCallback<Register>((target) => {
     setTargets((current) => [...current, target]);
     return () =>
       setTargets((current) => current.filter((item) => item !== target));
   }, []);
-  const target = targets.filter((item) => item.inline).at(-1) ?? targets.at(-1);
-  const swiping = useRef<Target | undefined>(undefined);
-  const enabled = target !== undefined && !target.disabled;
+  const target =
+    targets.findLast((item) => item.priority === 'inline') ??
+    targets.findLast((item) => item.priority === 'page') ??
+    targets.at(-1);
+  const direction = useLayoutDirection() === 'rtl' ? -1 : 1;
+  const enabled = active && target !== undefined && !target.disabled;
+  const destination = useRef<SwipeDestination | undefined>(undefined);
+  const swiping = useRef<SwipeDestination | undefined>(undefined);
+  useLayoutEffect(() => {
+    destination.current = enabled ? { target, direction } : undefined;
+    return () => {
+      destination.current = undefined;
+      swiping.current = undefined;
+    };
+  }, [target, enabled, direction]);
 
   const gesture = usePanGesture({
     enabled,
     runOnJS: true,
     maxPointers: 1,
-    activeOffsetX: 24,
-    failOffsetX: -12,
+    activeOffsetX: 24 * direction,
+    failOffsetX: -12 * direction,
     failOffsetY: [-15, 15],
-    onActivate: ({ pointerType }) => {
-      swiping.current = pointerType === PointerType.TOUCH ? target : undefined;
+    onBegin: ({ pointerType, numberOfPointers }) => {
+      swiping.current =
+        pointerType === PointerType.TOUCH && numberOfPointers === 1
+          ? destination.current
+          : undefined;
+    },
+    onTouchesDown: ({ numberOfTouches }) => {
+      // A second finger can arrive after the pan has already activated.
+      if (numberOfTouches > 1) swiping.current = undefined;
     },
     onDeactivate: ({ canceled, translationX, translationY, velocityX }) => {
       const started = swiping.current;
       swiping.current = undefined;
-      const action = started?.action.current;
-      const traveled =
-        translationX >= 72 || (translationX >= 36 && velocityX >= 550);
+      if (!started || started !== destination.current || canceled) return;
+
+      const distance = translationX * started.direction;
+      const speed = velocityX * started.direction;
+      const traveled = distance >= 72 || (distance >= 36 && speed >= 550);
+      const action = started.target.action.current;
       if (
-        enabled &&
-        started === target &&
-        action &&
-        !action.disabled &&
-        !canceled &&
         traveled &&
-        translationX >= Math.abs(translationY) * 2
+        distance >= Math.abs(translationY) * 2 &&
+        action &&
+        !action.disabled
       ) {
         action.onPress();
       }
+    },
+    onFinalize: () => {
+      swiping.current = undefined;
     },
   });
   const value = useMemo(

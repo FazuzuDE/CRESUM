@@ -219,6 +219,7 @@ export function BodyWeight({
               />
               <AppButton
                 title={t('common.cancel')}
+                swipeBack
                 secondary
                 disabled={saving}
                 onPress={close}

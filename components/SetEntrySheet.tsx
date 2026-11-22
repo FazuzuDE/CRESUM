@@ -165,6 +165,7 @@ export function SetEntrySheet({
       presentationStyle="pageSheet"
       allowSwipeDismissal
       onRequestClose={onCancel}
+      swipeBack={{ onPress: onCancel }}
     >
       <SafeAreaView style={s.root}>
         <KeyboardAvoidingView

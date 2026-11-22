@@ -47,7 +47,7 @@ export function AppButton({
   wordmark?: boolean;
   swipeBack?: boolean;
 }) {
-  useBackSwipeAction(swipeBack ? { onPress, disabled } : undefined, true);
+  useBackSwipeAction(swipeBack ? { onPress, disabled } : undefined, 'inline');
   const colors = useAppColors();
   const s = useStyles();
   const schedule = presentation === 'row' && !!detail;

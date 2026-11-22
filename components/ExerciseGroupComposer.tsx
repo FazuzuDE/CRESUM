@@ -467,6 +467,7 @@ export function ExerciseGroupComposer({
       />
       <AppButton
         title={t('equipment.cancel')}
+        swipeBack
         secondary
         disabled={disabled}
         onPress={onCancel}

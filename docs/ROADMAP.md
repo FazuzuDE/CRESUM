@@ -842,7 +842,8 @@ catalog. Verify the updated progression and navigation in the device preview.
 ### Full-width swipe back — requested 2026-11-22
 
 Verify navigation on iPhone and Android, including nested sheets, vertical
-scrolling, horizontal controls and swipeable workout rows.
+scrolling, horizontal controls and swipeable workout rows. Cover both LTR
+and RTL layouts and confirm that each swipe returns one level.
 
 ### Inline Muscle Map and character preview — requested 2026-11-22
 

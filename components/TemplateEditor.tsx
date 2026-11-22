@@ -697,6 +697,7 @@ export function TemplateEditor({
         ) : null}
         {step === 'configure' || step === 'composition' ? (
           <AppButton
+            key={step}
             title={t('editor.back')}
             swipeBack
             secondary
@@ -707,6 +708,7 @@ export function TemplateEditor({
         {step !== 'library' ? (
           <AppButton
             title={t('editor.cancel')}
+            swipeBack={step === 'name'}
             secondary
             disabled={disabled}
             onPress={() => (changed ? setConfirmCancel(true) : onCancel())}

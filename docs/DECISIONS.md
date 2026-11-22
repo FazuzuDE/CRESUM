@@ -4671,6 +4671,13 @@ The owner requested left-to-right swipe back from anywhere on a page. Use
 the visible screen or sheet's enabled Back action and preserve existing
 scrolling and control gestures.
 
+### Swipe direction and nested return
+
+The owner approved swiping right in left-to-right layouts and left in
+right-to-left layouts. Use the visible Back, Close or Cancel action and
+return one level at a time. Keep scrolling and control gestures available.
+Physical iPhone and Android verification is pending.
+
 ## 2026-11-22 — Inline Muscle Map and character preview
 
 The owner requested a continuous front/back atlas, inline guide and set history,
