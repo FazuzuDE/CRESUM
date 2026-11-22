@@ -6,7 +6,6 @@ import { useLocalization } from './LocalizationProvider';
 import { useRef, useState } from 'react';
 import { Pressable, StyleSheet, Switch, View } from 'react-native';
 
-import { BrandHeader } from './BrandHeader';
 import { AppScrollView } from './AppScrollView';
 import { GlassCard } from './GlassCard';
 import { AppButton } from './AppButton';
@@ -80,8 +79,7 @@ export function BackupPage({
     : undefined;
   if (fullRestore)
     return (
-      <AppScrollView dockAware contentContainerStyle={s.content}>
-        <BrandHeader />
+      <AppScrollView branded dockAware contentContainerStyle={s.content}>
         <AppButton
           title={t('backup.back')}
           secondary
@@ -93,8 +91,7 @@ export function BackupPage({
     );
   if (importing && file && preview)
     return (
-      <AppScrollView dockAware contentContainerStyle={s.content}>
-        <BrandHeader />
+      <AppScrollView branded dockAware contentContainerStyle={s.content}>
         <AppButton
           title={t('backup.back')}
           secondary
@@ -167,8 +164,7 @@ export function BackupPage({
       </AppScrollView>
     );
   return (
-    <AppScrollView dockAware contentContainerStyle={s.content}>
-      <BrandHeader />
+    <AppScrollView branded dockAware contentContainerStyle={s.content}>
       <AppButton
         title={t('profile.back')}
         secondary

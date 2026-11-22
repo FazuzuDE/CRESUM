@@ -8,7 +8,13 @@ import { AppButton } from './AppButton';
 import { localeRegistry, type LanguagePreference } from '@/lib/i18n/registry';
 import { colors, spacing, typography } from '@/lib/theme';
 
-export function LanguageSettings({ compact = false }: { compact?: boolean }) {
+export function LanguageSettings({
+  compact = false,
+  settingsRow = false,
+}: {
+  compact?: boolean;
+  settingsRow?: boolean;
+}) {
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState<LanguagePreference>('system');
   const [interacting, setInteracting] = useState(false);
@@ -42,13 +48,17 @@ export function LanguageSettings({ compact = false }: { compact?: boolean }) {
   const dismiss = () => {
     if (!saving) setOpen(false);
   };
+  const presentation = settingsRow ? 'settings' : compact ? 'text' : 'row';
+  const icon = settingsRow ? 'globe-outline' : undefined;
   return (
     <View style={[s.root, compact && s.compact]}>
       <AppButton
         title={compact ? localeRegistry[locale].flag : t('language.title')}
         accessibilityLabel={t('language.title')}
         secondary
-        presentation={compact ? 'text' : 'row'}
+        presentation={presentation}
+        icon={icon}
+        value={settingsRow ? localeRegistry[locale].nativeName : undefined}
         onPress={() => {
           setDraft(preference);
           setInteracting(false);

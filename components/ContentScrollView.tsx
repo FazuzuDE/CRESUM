@@ -1,9 +1,12 @@
-import { forwardRef, useState, type ComponentRef } from 'react';
+import { forwardRef, useState, type ComponentRef, type ReactNode } from 'react';
 import { ScrollView, StyleSheet, type ScrollViewProps } from 'react-native';
 import { SafeAreaView, type Edge } from 'react-native-safe-area-context';
 
+const topEdge = ['top'] as const;
+
 export type SafeAreaScrollProps = {
   safeAreaEdges?: readonly Edge[];
+  fixedHeader?: ReactNode;
 };
 
 export const ContentScrollView = forwardRef<
@@ -14,7 +17,8 @@ export const ContentScrollView = forwardRef<
     bounces = false,
     children,
     contentContainerStyle,
-    safeAreaEdges,
+    safeAreaEdges: requestedEdges,
+    fixedHeader,
     contentInsetAdjustmentBehavior,
     automaticallyAdjustContentInsets,
     horizontal,
@@ -29,19 +33,24 @@ export const ContentScrollView = forwardRef<
   const [content, setContent] = useState<number>();
   const fits =
     viewport !== undefined && content !== undefined && content <= viewport + 1;
+  const safeAreaEdges = fixedHeader
+    ? requestedEdges?.filter((edge) => edge !== 'top')
+    : requestedEdges;
   const insetContent = !!safeAreaEdges?.length;
   const flexGrow = insetContent
     ? StyleSheet.flatten(contentContainerStyle)?.flexGrow
     : undefined;
-  return (
+  const scroll = (
     <ScrollView
       {...props}
       ref={ref}
       contentInsetAdjustmentBehavior={
-        contentInsetAdjustmentBehavior ?? (insetContent ? 'never' : undefined)
+        contentInsetAdjustmentBehavior ??
+        (insetContent || fixedHeader ? 'never' : undefined)
       }
       automaticallyAdjustContentInsets={
-        automaticallyAdjustContentInsets ?? (insetContent ? false : undefined)
+        automaticallyAdjustContentInsets ??
+        (insetContent || fixedHeader ? false : undefined)
       }
       contentContainerStyle={
         insetContent ? { flexGrow } : contentContainerStyle
@@ -68,4 +77,17 @@ export const ContentScrollView = forwardRef<
       )}
     </ScrollView>
   );
+  return fixedHeader ? (
+    <SafeAreaView
+      edges={requestedEdges?.includes('top') ? topEdge : []}
+      style={s.fixedPage}
+    >
+      {fixedHeader}
+      {scroll}
+    </SafeAreaView>
+  ) : (
+    scroll
+  );
 });
+
+const s = StyleSheet.create({ fixedPage: { flex: 1 } });

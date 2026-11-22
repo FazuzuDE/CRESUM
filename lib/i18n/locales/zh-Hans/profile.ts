@@ -1,4 +1,9 @@
 export default {
+  'profile.trainingSection': '训练',
+  'profile.myWorkouts': '我的训练',
+  'profile.settingsSection': '设置',
+  'profile.appearance': '外观',
+  'profile.dataSection': '数据',
   'profile.dockTransparency': '底部菜单透明度',
   'character.pendingShort': '准备中',
   'character.title': '动作示范角色',

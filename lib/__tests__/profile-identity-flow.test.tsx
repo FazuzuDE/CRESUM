@@ -158,7 +158,7 @@ it('keeps Profile compact and opens the saved workouts only through WORKOUTS', a
   });
   act(() => v.root.findByType(Dock).props.onChange('profile'));
   expect(v.root.findAllByType(WorkoutTemplates)).toHaveLength(0);
-  await act(async () => button(v, 'WORKOUTS').props.onPress());
+  await act(async () => button(v, 'My workouts').props.onPress());
   expect(v.root.findByType(SharingHub)).toBeDefined();
   await act(async () => button(v, 'Close').props.onPress());
   expect(v.root.findAllByType(WorkoutTemplates)).toHaveLength(0);
@@ -216,7 +216,7 @@ it('keeps workout drafts protected when returning to Profile', async () => {
       v = create(<App />);
     });
     act(() => v.root.findByType(Dock).props.onChange('profile'));
-    await act(async () => button(v, 'WORKOUTS').props.onPress());
+    await act(async () => button(v, 'My workouts').props.onPress());
     await act(async () => button(v, 'Create Workout').props.onPress());
     const modal = v.root
       .findAllByType(Modal)
@@ -274,6 +274,7 @@ it('reconciles a pending measurement after a failed reset restores local data', 
       await Promise.resolve();
     });
     act(() => v.root.findByType(Dock).props.onChange('profile'));
+    act(() => button(v, 'Local data')?.props.onPress());
     await act(async () => button(v, 'Reset local data').props.onPress());
     (AsyncStorage.removeItem as jest.Mock).mockRejectedValueOnce(
       Error('temporary reset failure'),
@@ -329,8 +330,8 @@ it('places Exercise Library immediately after WORKOUTS and opens a separate brow
     const titles = v.root
       .findAllByType(AppButton)
       .map((n: any) => n.props.title);
-    expect(titles.slice(0, 2)).toEqual(['WORKOUTS', 'EXERCISE LIBRARY']);
-    act(() => button(v, 'EXERCISE LIBRARY').props.onPress());
+    expect(titles.slice(0, 2)).toEqual(['My workouts', 'Exercise Library']);
+    act(() => button(v, 'Exercise Library').props.onPress());
     expect(v.root.findByType(ExerciseLibrary).props.presentation).toBe('page');
     expect(v.root.findAllByType(WorkoutTemplates)).toHaveLength(0);
     act(() =>
@@ -339,7 +340,7 @@ it('places Exercise Library immediately after WORKOUTS and opens a separate brow
         .find((n: any) => n.props.accessibilityLabel === 'Back to Profile')
         .props.onPress(),
     );
-    expect(button(v, 'WORKOUTS')).toBeDefined();
+    expect(button(v, 'My workouts')).toBeDefined();
   } finally {
     if (v) await act(async () => v.unmount());
   }

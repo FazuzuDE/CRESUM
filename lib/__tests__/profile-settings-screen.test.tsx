@@ -7,7 +7,8 @@ import { WorkoutTemplates } from '../../components/WorkoutTemplates';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { completeOnboardingForTest } from './onboarding-fixture';
 import { defaultTemplates } from '../workout-catalog';
-import { Text } from 'react-native';
+import { ScrollView, Text } from 'react-native';
+import { BrandHeader } from '../../components/BrandHeader';
 
 const { act, create } = jest.requireActual('react-test-renderer');
 
@@ -55,8 +56,12 @@ it('shows a truthful Profile and About without fake account or preference contro
     .join(' ');
   expect(text).toContain('CRESUM');
   expect(text).toContain('Profile');
-  expect(text).toContain('WORKOUTS');
+  expect(text).toContain('My workouts');
   expect(text).toContain('TRAIN. TRACK. GROW.');
+  expect(view.root.findAllByType(BrandHeader)).toHaveLength(1);
+  expect(
+    view.root.findByType(ScrollView).findAllByType(BrandHeader),
+  ).toHaveLength(0);
   expect(text).not.toContain('Saved workouts');
   expect(text).toContain('Version 0.1.05');
   expect(text).not.toContain('FitFlow');
@@ -68,7 +73,9 @@ it('shows a truthful Profile and About without fake account or preference contro
   act(() =>
     view.root
       .findAllByType(AppButton)
-      .find((b: { props: { title: string } }) => b.props.title === 'WORKOUTS')
+      .find(
+        (b: { props: { title: string } }) => b.props.title === 'My workouts',
+      )
       .props.onPress(),
   );
   expect(view.root.findByType(WorkoutTemplates).props.templates).toEqual(
@@ -94,12 +101,14 @@ it('keeps the Profile tab and navigation to Home functional', async () => {
   });
   act(() => view.root.findByType(Dock).props.onChange('profile'));
   expect(view.root.findByType(Dock).props.active).toBe('profile');
-  expect(JSON.stringify(view.toJSON())).toContain('WORKOUTS');
+  expect(JSON.stringify(view.toJSON())).toContain('My workouts');
   expect(view.root.findAllByType(WorkoutTemplates)).toHaveLength(0);
   act(() =>
     view.root
       .findAllByType(AppButton)
-      .find((b: { props: { title: string } }) => b.props.title === 'WORKOUTS')
+      .find(
+        (b: { props: { title: string } }) => b.props.title === 'My workouts',
+      )
       .props.onPress(),
   );
   expect(view.root.findByType(SharingHub)).toBeDefined();

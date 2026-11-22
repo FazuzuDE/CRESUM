@@ -1,4 +1,9 @@
 export default {
+  'profile.trainingSection': 'ওয়ার্কআউট',
+  'profile.myWorkouts': 'আমার ওয়ার্কআউট',
+  'profile.settingsSection': 'সেটিংস',
+  'profile.appearance': 'চেহারা',
+  'profile.dataSection': 'ডেটা',
   'profile.dockTransparency': 'নিচের মেনুর স্বচ্ছতা',
   'character.pendingShort': 'প্রস্তুত হচ্ছে',
   'character.title': 'ব্যায়ামের চরিত্র',

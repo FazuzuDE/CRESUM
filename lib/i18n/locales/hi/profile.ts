@@ -1,4 +1,9 @@
 export default {
+  'profile.trainingSection': 'वर्कआउट',
+  'profile.myWorkouts': 'मेरे वर्कआउट',
+  'profile.settingsSection': 'सेटिंग्स',
+  'profile.appearance': 'दिखावट',
+  'profile.dataSection': 'डेटा',
   'profile.dockTransparency': 'निचले मेन्यू की पारदर्शिता',
   'character.pendingShort': 'तैयारी जारी है',
   'character.title': 'अभ्यास का पात्र',

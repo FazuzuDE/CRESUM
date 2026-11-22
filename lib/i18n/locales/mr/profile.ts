@@ -1,4 +1,9 @@
 export default {
+  'profile.trainingSection': 'व्यायाम सत्रे',
+  'profile.myWorkouts': 'माझी सत्रे',
+  'profile.settingsSection': 'सेटिंग्ज',
+  'profile.appearance': 'स्वरूप',
+  'profile.dataSection': 'डेटा',
   'profile.dockTransparency': 'खालच्या मेनूची पारदर्शकता',
   'character.pendingShort': 'तयार होत आहे',
   'character.title': 'व्यायामातील पात्र',

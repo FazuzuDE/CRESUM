@@ -24,7 +24,6 @@ import {
   type PreparedBackup,
 } from '@/lib/local-backup';
 import { shareBackupFile } from '@/lib/backup-files';
-import { BrandHeader } from '@/components/BrandHeader';
 import { useLocalization } from '@/components/LocalizationProvider';
 import { formatNumber } from '@/lib/i18n/format';
 import { presentAppError } from '@/lib/i18n/errors';
@@ -164,7 +163,6 @@ function Stats({
           content: (
             <View style={{ gap: spacing.md }}>
               <View style={s.progressHeader}>
-                <BrandHeader />
                 <View style={s.progressHeading}>
                   <Text style={s.progressTitle} accessibilityRole="header">
                     {t('progress.title')}
@@ -1129,7 +1127,7 @@ function AppContent({
           }}
         >
           <SafeAreaView edges={['left', 'right']} style={s.root}>
-            <AppScrollView contentContainerStyle={{ padding: 16 }}>
+            <AppScrollView branded contentContainerStyle={{ padding: 16 }}>
               <SharingHub
                 key={
                   (account.snapshot.identity?.id ?? 'unsigned') +

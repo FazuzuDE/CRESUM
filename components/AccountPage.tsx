@@ -2,7 +2,6 @@ import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useLocalization } from './LocalizationProvider';
 import { StyleSheet } from 'react-native';
 import { AppScrollView } from './AppScrollView';
-import { BrandHeader } from './BrandHeader';
 import { AppButton } from './AppButton';
 import { AccountSection, type AccountSectionProps } from './AccountSection';
 import { colors, spacing, typography } from '@/lib/theme';
@@ -43,8 +42,7 @@ function AccountPageContent({
   const [reviewOwner, setReviewOwner] = useState<string | null>(null);
   const reviewing = !!owner && reviewOwner === owner && !!account.sync?.review;
   return (
-    <AppScrollView dockAware contentContainerStyle={s.content}>
-      <BrandHeader />
+    <AppScrollView branded dockAware contentContainerStyle={s.content}>
       <AppButton
         title={reviewing ? t('account.back') : t('profile.back')}
         secondary

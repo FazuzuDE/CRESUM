@@ -2,7 +2,6 @@ import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
-import { BrandHeader } from './BrandHeader';
 import { HomeCalendar } from './HomeCalendar';
 import { HomeLayoutEditor } from './HomeLayoutEditor';
 import { useHomeLayout } from './useHomeLayout';
@@ -542,6 +541,7 @@ export function HomeDashboard({
   return (
     <View style={{ flex: 1 }}>
       <AppScrollView
+        branded
         dockAware
         ref={attachRef}
         scrollEnabled={!dragging}
@@ -554,7 +554,6 @@ export function HomeDashboard({
           .map(([id, y]) => ({ id, label: id, y: gridTop + y }))}
       >
         <View style={s.header}>
-          <BrandHeader />
           <View style={s.greetingRow}>
             <View style={s.greetingCopy}>
               <Text style={s.title} accessibilityRole="header">

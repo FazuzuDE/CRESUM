@@ -1,3 +1,4 @@
+import { BrandHeader } from './BrandHeader';
 import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
@@ -364,6 +365,7 @@ export function TrainingVolume({
         onRequestClose={() => setAllOpen(false)}
       >
         <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
+          <BrandHeader />
           <View style={s.header}>
             <View style={s.headerCopy}>
               <Text style={s.title}>{t('volume.listTitle')}</Text>

@@ -1,4 +1,9 @@
 export default {
+  'profile.trainingSection': 'Antrenmanlar',
+  'profile.myWorkouts': 'Antrenmanlarım',
+  'profile.settingsSection': 'Ayarlar',
+  'profile.appearance': 'Görünüm',
+  'profile.dataSection': 'Veriler',
   'profile.dockTransparency': 'Alt menü şeffaflığı',
   'character.pendingShort': 'Hazırlanıyor',
   'character.title': 'Egzersiz karakteri',

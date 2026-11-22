@@ -5,7 +5,6 @@ import {
 } from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { AppScrollView } from './AppScrollView';
-import { BrandHeader } from './BrandHeader';
 import { AppPicker } from './AppPicker';
 import { WheelPickerSheet } from './WheelPickerSheet';
 import { GlassMaterial } from './GlassMaterial';
@@ -143,11 +142,11 @@ export function ExerciseLibrary({
       style={s.sheet}
     >
       <AppScrollView
+        branded
         dockAware={presentation === 'page'}
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={s.content}
       >
-        <BrandHeader />
         <View style={s.header}>
           <View style={s.headerCopy}>
             <Text style={s.title}>{t('library.title')}</Text>

@@ -1,3 +1,4 @@
+import { BrandHeader } from './BrandHeader';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { AppFlatList } from './AppFlatList';
@@ -143,6 +144,7 @@ export function EstimatedOneRepMaxSeries({ points, period, now }: Props) {
         onRequestClose={() => setAllOpen(false)}
       >
         <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
+          <BrandHeader />
           <View style={s.header}>
             <Text style={s.sheetTitle}>
               {t('series.modalTitle', { period: periodText })}

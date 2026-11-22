@@ -1,4 +1,9 @@
 export default {
+  'profile.trainingSection': 'Workouts',
+  'profile.myWorkouts': 'My workouts',
+  'profile.settingsSection': 'Settings',
+  'profile.appearance': 'Appearance',
+  'profile.dataSection': 'Data',
   'profile.dockTransparency': 'Bottom menu transparency',
   'character.pendingShort': 'Preparing',
   'character.title': 'Exercise character',

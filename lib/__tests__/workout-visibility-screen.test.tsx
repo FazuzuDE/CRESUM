@@ -59,7 +59,7 @@ const button = (view: ReturnType<typeof create>, title: string) =>
     );
 const openProfile = (view: ReturnType<typeof create>) => {
   act(() => view.root.findByType(Dock).props.onChange('profile'));
-  act(() => button(view, 'WORKOUTS')?.props.onPress());
+  act(() => button(view, 'My workouts')?.props.onPress());
   act(() => button(view, 'Manage workouts')?.props.onPress());
 };
 const mount = async () => {
@@ -205,6 +205,7 @@ it('clears hidden preferences on Reset local data and returns to first-run catal
   openProfile(view);
   act(() => row(view, 'More actions for Upper Body')?.props.onPress());
   await act(async () => button(view, 'Hide from My Workouts')?.props.onPress());
+  act(() => button(view, 'Local data')?.props.onPress());
   act(() => button(view, 'Reset local data')?.props.onPress());
   await act(async () =>
     view.root

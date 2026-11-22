@@ -12,12 +12,26 @@ Animate a single selection pill between tabs and snap when Reduce Motion is enab
 Profile previews dock and pill transparency live on a 0–100% scale. Keep labels
 and icons opaque and keep the solid appearance when Reduce Transparency is enabled.
 
-Vertical pages use edge-to-edge scrolling by default, including onboarding,
-the main tabs and standalone pages. Keep safe-area padding inside the scroll
-content so headings start below the status bar and can scroll behind it.
-Keep the final action reachable above the dock or home indicator. Fixed
-controls remain in the safe area. Compact dialogs and wheel columns scroll
-within their own bounds.
+Page headers are fixed across existing and new screens. Use the shared
+`BrandHeader` with the localized slogan outside the scroll view. For new
+scrolling pages, use `AppScrollView branded`. For custom page layouts use
+the same header above scrolling content, or pass it as `fixedHeader`.
+The top safe area clears the status bar or Dynamic Island; the brand block
+has matching 12 pt padding above the wordmark and below the slogan.
+Scroll page content independently from the header. Keep the final action
+reachable above the dock or home indicator. Compact dialogs scroll within
+their own bounds.
+
+Keep the current bottom dock layout and glass material during page redesigns
+unless the dock itself is explicitly in scope.
+
+## Profile
+
+Group the settings rows under Workouts, Settings and Data, using white surfaces,
+leading icons and thin row separators. Show the current language and exercise
+character in their rows. Put the existing transparency slider under Appearance
+and keep live preview and persistence. Local data reset stays behind the Local
+data page and its existing confirmation.
 
 ## Compact wheel filters
 

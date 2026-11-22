@@ -55,7 +55,7 @@ export function HomeCalendar({
       onRequestClose={onClose}
     >
       <SafeAreaView edges={['left', 'right']} style={s.root}>
-        <AppScrollView contentContainerStyle={s.content}>
+        <AppScrollView branded contentContainerStyle={s.content}>
           <Text accessibilityRole="header" style={s.title}>
             {t('calendar.title')}
           </Text>

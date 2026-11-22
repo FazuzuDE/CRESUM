@@ -6,11 +6,9 @@ import { ExerciseAttachmentBlock } from './ExerciseAttachmentBlock';
 import { ExerciseGroupComposer } from './ExerciseGroupComposer';
 import { equipmentPolicyFor } from '@/lib/exercise-equipment';
 import { projectExerciseGroups, setNumberInGroup } from '@/lib/exercise-groups';
-import { BrandHeader } from './BrandHeader';
 import { useLocalization } from './LocalizationProvider';
 import { formatEntryNumber, formatNumber } from '@/lib/i18n/format';
 import { presentAppError } from '@/lib/i18n/errors';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppScrollView } from './AppScrollView';
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -146,10 +144,10 @@ export function Workout({
   }, [deadline, now]);
   if (!session)
     return (
-      <SafeAreaView edges={['top']} style={s.empty}>
+      <AppScrollView branded dockAware contentContainerStyle={s.empty}>
         <Text style={s.title}>{t('workout.noActive')}</Text>
         <Text style={s.sub}>{t('workout.chooseTemplate')}</Text>
-      </SafeAreaView>
+      </AppScrollView>
     );
   const index = session.currentExerciseIndex;
   const exercise = session.exercises[index];
@@ -216,6 +214,7 @@ export function Workout({
         }}
       />
       <AppScrollView
+        branded
         dockAware
         ref={attachRef}
         scrollEnabled={!dragging}
@@ -228,7 +227,6 @@ export function Workout({
       >
         <View>
           <View style={s.header}>
-            <BrandHeader />
             <View style={s.titleRow}>
               <Text style={s.title} accessibilityRole="header">
                 {session.name}

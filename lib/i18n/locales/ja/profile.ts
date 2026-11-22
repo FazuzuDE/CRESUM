@@ -1,4 +1,9 @@
 export default {
+  'profile.trainingSection': 'トレーニング',
+  'profile.myWorkouts': 'マイトレーニング',
+  'profile.settingsSection': '設定',
+  'profile.appearance': '外観',
+  'profile.dataSection': 'データ',
   'profile.dockTransparency': '下部メニューの透明度',
   'character.pendingShort': '準備中',
   'character.title': 'エクササイズのキャラクター',

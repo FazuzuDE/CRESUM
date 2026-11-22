@@ -48,7 +48,7 @@ export function HomeLayoutEditor({
       onRequestClose={close}
     >
       <SafeAreaView edges={['left', 'right']} style={s.screen}>
-        <AppScrollView contentContainerStyle={s.content}>
+        <AppScrollView branded contentContainerStyle={s.content}>
           <AppButton
             title={t('home.cancel')}
             secondary

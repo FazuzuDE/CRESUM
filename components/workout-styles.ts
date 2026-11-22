@@ -54,7 +54,7 @@ export const workoutStyles = StyleSheet.create({
   sub: { ...typography.footnote, color: colors.textSecondary },
   error: { ...typography.footnote, color: colors.danger },
   empty: {
-    flex: 1,
+    flexGrow: 1,
     padding: spacing.md,
     justifyContent: 'center',
     gap: spacing.md,

@@ -1,3 +1,4 @@
+import { BrandHeader } from './BrandHeader';
 import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
@@ -139,6 +140,7 @@ export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
             style={s.modal}
             accessibilityViewIsModal
           >
+            <BrandHeader />
             <View style={s.heading}>
               <Text accessibilityRole="header" style={s.modalTitle}>
                 {t('exerciseMuscles.title')}

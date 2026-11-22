@@ -375,7 +375,7 @@ export function Onboarding({
   );
   const header = (previous?: OnboardingStep, showLanguage = false) => (
     <View style={s.characterHeader}>
-      <BrandHeader tagline={false} />
+      <BrandHeader />
       {previous ? (
         <Pressable
           testID="onboarding-back"
@@ -420,9 +420,9 @@ export function Onboarding({
       <ContentScrollView
         style={[s.root, s.white]}
         safeAreaEdges={['top', 'bottom']}
+        fixedHeader={header('welcome')}
         contentContainerStyle={[s.content, s.characterContent]}
       >
-        {header('welcome')}
         <ExerciseCharacterPicker
           value={state.answers.artworkModel}
           disabled={busy || saving}
@@ -459,13 +459,11 @@ export function Onboarding({
         style={s.root}
         safeAreaEdges={['top', 'bottom']}
         keyboardShouldPersistTaps="handled"
+        fixedHeader={
+          polished ? header(backTarget, step === 'welcome') : <BrandHeader />
+        }
         contentContainerStyle={[s.content, polished && s.polishedContent]}
       >
-        {polished ? (
-          header(backTarget, step === 'welcome')
-        ) : (
-          <BrandHeader tagline={false} />
-        )}
         {step === 'welcome' && !polished ? <LanguageSettings /> : null}
         {step === 'self_setup' ? (
           <>
@@ -1192,11 +1190,17 @@ const s = StyleSheet.create({
     gap: spacing.md,
   },
   characterContent: { flexGrow: 1, paddingBottom: spacing.md },
-  characterHeader: { justifyContent: 'center', minHeight: 44 },
-  headerLanguage: { position: 'absolute', right: 0 },
+  characterHeader: {
+    width: '100%',
+    maxWidth: maxContentWidth,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    minHeight: 44,
+  },
+  headerLanguage: { position: 'absolute', end: spacing.md },
   characterBack: {
     position: 'absolute',
-    left: 0,
+    start: spacing.md,
     minWidth: 44,
     minHeight: 44,
     justifyContent: 'center',
