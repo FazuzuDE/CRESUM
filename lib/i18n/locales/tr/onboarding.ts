@@ -1,4 +1,12 @@
 export default {
+  'program.universal': 'Genel program',
+  'onboarding.configureSchedule': 'Programı ayarla',
+  'onboarding.chooseWeekdays': 'Haftanın üç gününü seç.',
+  'program.chestAndArms': 'Göğüs ve kollar',
+  'program.treadmill': 'Koşu bandında yürüyüş',
+  'program.bike': 'Kondisyon bisikleti',
+  'program.moderate': 'Orta tempo',
+
   'onboarding.decimalPart': 'Ondalık parça',
   'onboarding.welcomeTagline': 'Tüm antrenmanların bir arada.',
   'onboarding.bodyOptionalHelp':

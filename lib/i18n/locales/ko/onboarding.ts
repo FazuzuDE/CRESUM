@@ -1,4 +1,12 @@
 export default {
+  'program.universal': '종합 프로그램',
+  'onboarding.configureSchedule': '일정 설정',
+  'onboarding.chooseWeekdays': '일주일 중 3일을 선택하세요.',
+  'program.chestAndArms': '가슴과 팔',
+  'program.treadmill': '트레드밀 걷기',
+  'program.bike': '실내 자전거',
+  'program.moderate': '중간 강도',
+
   'onboarding.decimalPart': '소수 부분',
   'onboarding.welcomeTagline': '모든 운동을 한곳에서 관리하세요.',
   'onboarding.bodyOptionalHelp':

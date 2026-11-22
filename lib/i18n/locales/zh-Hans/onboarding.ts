@@ -1,4 +1,12 @@
 export default {
+  'program.universal': '通用训练',
+  'onboarding.configureSchedule': '设置训练日程',
+  'onboarding.chooseWeekdays': '选择每周的三天。',
+  'program.chestAndArms': '胸部和手臂',
+  'program.treadmill': '跑步机走路',
+  'program.bike': '固定自行车',
+  'program.moderate': '中等强度',
+
   'onboarding.decimalPart': '小数部分',
   'onboarding.welcomeTagline': '你的全部训练，尽在一处。',
   'onboarding.bodyOptionalHelp': '可按需添加信息，之后可在个人资料中修改。',

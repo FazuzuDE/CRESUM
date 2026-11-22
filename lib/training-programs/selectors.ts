@@ -1,5 +1,6 @@
 import type { TrainingExperience, TrainingGoal } from '../onboarding';
 import { trainingPrograms } from './catalog';
+export { starterProgram } from './starter-programs';
 export const selectProgram = (
   goal: TrainingGoal,
   experience: TrainingExperience,

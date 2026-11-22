@@ -856,3 +856,11 @@ the selected fill in an inline muscle detail with zero sets.
 Verify a cold atlas load, return from exercise discovery and interactive Back
 on the iPhone release build. Include canceled gestures, sliders, vertical
 scrolling and retained tab position.
+
+### Starter program review and recurring schedule — approved 2026-11-23
+
+Ship the five repeatable three-workout programs with full illustrated review
+and a recurring weekday calendar. Check both themes on a phone, including
+month rollover, switching locales and returning to Home after saving.
+Standalone treadmill and cycling catalog records and artwork remain separate
+from program guidance.

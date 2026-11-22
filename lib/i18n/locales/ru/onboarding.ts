@@ -1,4 +1,12 @@
 export default {
+  'program.universal': 'Универсальная',
+  'onboarding.configureSchedule': 'Настроить расписание',
+  'onboarding.chooseWeekdays': 'Выберите три дня недели.',
+  'program.chestAndArms': 'Грудь и руки',
+  'program.treadmill': 'Ходьба на беговой дорожке',
+  'program.bike': 'Велотренажёр',
+  'program.moderate': 'Умеренно',
+
   'onboarding.decimalPart': 'Десятая доля',
   'onboarding.welcomeTagline': 'Все твои тренировки в одном месте.',
   'onboarding.bodyOptionalHelp':

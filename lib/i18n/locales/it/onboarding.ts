@@ -1,4 +1,12 @@
 export default {
+  'program.universal': 'Universale',
+  'onboarding.configureSchedule': 'Imposta il calendario',
+  'onboarding.chooseWeekdays': 'Scegli tre giorni della settimana.',
+  'program.chestAndArms': 'Petto e braccia',
+  'program.treadmill': 'Camminata sul tapis roulant',
+  'program.bike': 'Cyclette',
+  'program.moderate': 'Moderata',
+
   'onboarding.decimalPart': 'Parte decimale',
   'onboarding.welcomeTagline': 'Tutti i tuoi allenamenti in un unico posto.',
   'onboarding.bodyOptionalHelp':

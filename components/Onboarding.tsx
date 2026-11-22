@@ -15,16 +15,15 @@ import { programEligibilityIssue } from '@/lib/training-programs/eligibility';
 import { normalizeBirthDate } from '@/lib/personal-profile';
 import { DatePickerSheet } from './DatePickerSheet';
 import { calendarTime } from '@/lib/picker-date';
-import { selectProgram } from '@/lib/training-programs/selectors';
+import { starterProgram } from '@/lib/training-programs/selectors';
 import { projectProgramReadiness } from '@/lib/training-programs/readiness';
 import {
   makeAssignment,
   type ProgramAssignment,
 } from '@/lib/training-programs/assignment';
 import {
-  addCalendarDays,
-  adjustProgramSchedule,
   localDate,
+  recurringProgramSchedule,
 } from '@/lib/training-programs/schedule';
 import { exerciseLibrary, findExercise } from '@/lib/exercise-library';
 import { AppScrollView } from './AppScrollView';
@@ -50,7 +49,10 @@ import { catalogLabel } from '@/lib/i18n/catalog';
 import { formatDate } from '@/lib/i18n/format';
 import { presentAppError } from '@/lib/i18n/errors';
 import { AppError } from '@/lib/app-error';
-import { programDayLabel } from '@/lib/i18n/program';
+import { programTitle } from '@/lib/i18n/program';
+import { StarterProgramReview } from './StarterProgramReview';
+import { StarterProgramSchedule } from './StarterProgramSchedule';
+import type { WorkoutSession } from '@/lib/workout-model';
 
 const decimalDigits = Array.from({ length: 10 }, (_, i) => String(i));
 
@@ -62,7 +64,6 @@ const onboardingArtwork = {
   profile: require('../assets/onboarding/body-details.webp'),
   start_path: require('../assets/onboarding/start-path.webp'),
   goal: require('../assets/onboarding/training-goal.webp'),
-  complete: require('../assets/onboarding/plan-review.webp'),
 };
 
 type Props = {
@@ -76,6 +77,7 @@ type Props = {
   ) => Promise<void>;
   onCreateWorkout: (draft: TemplateDraft) => Promise<TemplateMutationResult>;
   onExit?: () => void;
+  history?: readonly WorkoutSession[];
 };
 
 export function Onboarding({
@@ -86,6 +88,7 @@ export function Onboarding({
   onComplete,
   onCreateWorkout,
   onExit,
+  history = [],
 }: Props) {
   const colors = useAppColors();
   const s = useStyles();
@@ -102,8 +105,6 @@ export function Onboarding({
     start_path: Math.min(330, height * 0.4),
     goal: Math.min(265, height * 0.29),
   };
-  const dateLabel = (date: string) =>
-    formatDate(locale, new Date(`${date}T00:00:00`).getTime());
   const [state, setState] = useState(() =>
     initial.step === 'environment' || (editing && initial.step === 'character')
       ? { ...initial, step: 'profile' as const }
@@ -113,15 +114,9 @@ export function Onboarding({
     () =>
       `accept-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`,
   );
-  const [startDate, setStartDate] = useState(() => localDate());
-  const [offsets, setOffsets] = useState<number[]>();
-  const [frequency, setFrequency] = useState<number>();
-  const [reduced, setReduced] = useState(false);
-  const [preview, setPreview] = useState(false);
-  const [openWorkout, setOpenWorkout] = useState<number>();
   const completing = useRef(false);
-  const [scheduleOpen, setScheduleOpen] = useState(false);
-  const [dateOpen, setDateOpen] = useState(false);
+  const weekdays = state.answers.scheduleWeekdays ?? [0, 2, 4];
+  const today = new Date();
   const [birthPicker, setBirthPicker] = useState<{
     value: number;
     maximum: number;
@@ -140,39 +135,40 @@ export function Onboarding({
     onChange(next);
   };
   const go = (step: OnboardingStep) => change({ ...state, step });
-  const base =
-    state.answers.goal && state.answers.experience
-      ? selectProgram(state.answers.goal, state.answers.experience)
-      : undefined;
+  const base = state.answers.goal
+    ? starterProgram(state.answers.goal, state.answers.experience ?? 'beginner')
+    : undefined;
   let proposal: ProgramAssignment | undefined;
   let proposalError: unknown = '';
   let missingExercises: string[] | undefined;
-  try {
-    const eligibility = programEligibilityIssue(state.answers);
-    if (eligibility) throw eligibility;
-    if (base) {
-      if (frequency !== undefined && frequency !== base.schedule[0].length)
+  if (state.step === 'complete' || state.step === 'schedule') {
+    try {
+      const eligibility = programEligibilityIssue(state.answers);
+      if (eligibility) throw eligibility;
+      if (!base)
         throw new AppError(
-          'program_frequency',
-          'No checked program for this frequency. Keep the recommended frequency or use manual setup.',
+          'program_selection',
+          'Choose a goal to prepare your program.',
         );
-      const program = offsets ? adjustProgramSchedule(base, offsets) : base;
-      const readiness = projectProgramReadiness(program, exerciseLibrary);
+      const readiness = projectProgramReadiness(base, exerciseLibrary);
       if (!readiness.ready) {
         missingExercises = readiness.blockers;
         throw new AppError(
           'program_missing_exercises',
-          `Required exercises unavailable: ${readiness.blockers.join(', ')}`,
+          'Required exercises are unavailable.',
         );
       }
-      proposal = makeAssignment(program, proposalId, startDate, reduced);
-    } else
-      proposalError = new AppError(
-        'program_selection',
-        'Choose a goal and experience to prepare your program.',
-      );
-  } catch (problem) {
-    proposalError = problem;
+      if (state.step === 'schedule' && weekdays.length === 3) {
+        const { program, startDate } = recurringProgramSchedule(
+          base,
+          weekdays,
+          today,
+        );
+        proposal = makeAssignment(program, proposalId, startDate);
+      }
+    } catch (problem) {
+      proposalError = problem;
+    }
   }
   if (lockedProposal) {
     proposal = lockedProposal;
@@ -190,6 +186,7 @@ export function Onboarding({
       if (manual) {
         delete answers.goal;
         delete answers.experience;
+        delete answers.scheduleWeekdays;
       } else {
         answers.environment = 'gym';
       }
@@ -223,11 +220,6 @@ export function Onboarding({
       secondary={state.answers[field] !== value}
       disabled={saving || Boolean(lockedProposal)}
       onPress={() => {
-        if (field === 'goal' || field === 'experience') {
-          setOffsets(undefined);
-          setFrequency(undefined);
-          setReduced(false);
-        }
         change({
           ...state,
           step: next,
@@ -300,6 +292,7 @@ export function Onboarding({
     profile: editing ? 'welcome' : 'character',
     character: 'welcome',
     complete: 'goal',
+    schedule: 'complete',
     self_setup: 'welcome',
   };
   const continueFromProfile = () => {
@@ -350,7 +343,7 @@ export function Onboarding({
   const step = state.step;
   const polished = !editing && step in onboardingArtwork;
   const FlowScroll = polished ? ContentScrollView : AppScrollView;
-  const Frame = polished ? View : GlassCard;
+  const Frame = polished || step === 'schedule' ? View : GlassCard;
   const backTarget = editing && step === 'goal' ? 'profile' : back[step];
   const navigationDisabled = saving || busy || Boolean(lockedProposal);
   const artwork = (key: keyof typeof onboardingArtwork) => (
@@ -408,22 +401,6 @@ export function Onboarding({
       ) : null}
     </View>
   );
-  const movementLabel = (
-    m: ProgramAssignment['program']['days'][number]['movements'][number],
-  ) =>
-    t(m.perSide ? 'onboarding.movementPerSide' : 'onboarding.movement', {
-      name: catalogLabel(
-        locale,
-        'exercise',
-        m.exerciseId,
-        findExercise(m.exerciseId)?.name ?? m.exerciseId,
-      ),
-      sets: m.sets,
-      min: m.repMin,
-      max: m.repMax,
-      restMin: m.restMin,
-      restMax: m.restMax,
-    });
   if (step === 'character') {
     return (
       <ContentScrollView
@@ -598,6 +575,7 @@ export function Onboarding({
                 {polished ? artwork('goal') : null}
                 {(
                   [
+                    ['universal', 'program.universal'],
                     ['build_muscle', 'onboarding.muscle'],
                     ['get_stronger', 'onboarding.strength'],
                     ['lose_weight', 'onboarding.loseWeight'],
@@ -612,32 +590,18 @@ export function Onboarding({
                     disabled={navigationDisabled}
                     onPress={() => {
                       setError('');
-                      setOffsets(undefined);
-                      setFrequency(undefined);
-                      setReduced(false);
-                      setPreview(false);
-                      setScheduleOpen(false);
-                      setOpenWorkout(undefined);
-                      change({ ...state, answers: { ...state.answers, goal } });
-                    }}
-                  />
-                ))}
-                <View style={polished && s.footer}>
-                  <AppButton
-                    title={t('onboarding.continue')}
-                    disabled={!state.answers.goal || navigationDisabled}
-                    onPress={() =>
                       change({
                         ...state,
                         step: 'complete',
                         answers: {
                           ...state.answers,
+                          goal,
                           experience: state.answers.experience ?? 'beginner',
                         },
-                      })
-                    }
+                      });
+                    }}
                   />
-                </View>
+                ))}
               </>
             ) : null}
             {step === 'experience' ? (
@@ -765,276 +729,77 @@ export function Onboarding({
             ) : null}
             {step === 'complete' ? (
               <>
-                <Text
-                  style={[s.title, polished && s.center]}
-                  accessibilityRole="header"
-                >
-                  {proposal
-                    ? t(
-                        state.answers.goal === 'get_stronger'
-                          ? 'onboarding.strengthPlan'
-                          : 'onboarding.trainingPlan',
-                      )
-                    : t('onboarding.review')}
+                <Text style={s.title} accessibilityRole="header">
+                  {t('onboarding.trainingPlan')}
                 </Text>
-                {proposal ? (
+                {base ? (
+                  <Text style={s.sub}>{programTitle(t, locale, base)}</Text>
+                ) : null}
+                {base && !proposalError ? (
                   <>
-                    <Text style={[s.sub, polished && s.center]}>
-                      {t('onboarding.weeklyCount', {
-                        count: proposal.program.schedule[0].length,
-                      })}
-                    </Text>
-                    {polished ? artwork('complete') : null}
-                    <Text style={s.scheduleTitle} accessibilityRole="header">
-                      {t('onboarding.weeklySchedule')}
-                    </Text>
-                    <View style={s.bodyGroup}>
-                      {proposal.program.schedule[0].map((slot, index) => {
-                        const day = proposal?.program.days.find(
-                          (entry) => entry.key === slot.dayKey,
-                        );
-                        if (!day) return null;
-                        const focus = [
-                          ...new Set(
-                            day.movements.flatMap(
-                              (m) =>
-                                findExercise(m.exerciseId)?.primaryMuscles ??
-                                [],
-                            ),
-                          ),
-                        ].slice(0, 3);
-                        return (
-                          <View
-                            key={slot.offset}
-                            style={index > 0 ? s.bodyDivider : undefined}
-                          >
-                            <AppButton
-                              title={t('onboarding.workoutIndex', {
-                                index: index + 1,
-                              })}
-                              detail={
-                                focus.length
-                                  ? focus
-                                      .map((id) =>
-                                        catalogLabel(locale, 'muscle', id, id),
-                                      )
-                                      .join(' · ')
-                                  : programDayLabel(t, day.key, day.name)
-                              }
-                              presentation="row"
-                              secondary
-                              onPress={() =>
-                                setOpenWorkout(
-                                  openWorkout === index ? undefined : index,
-                                )
-                              }
-                            />
-                            {openWorkout === index ? (
-                              <View style={s.workoutDetails}>
-                                <Text style={s.label}>
-                                  {programDayLabel(t, day.key, day.name)}
-                                </Text>
-                                {day.movements.map((m) => (
-                                  <Text key={m.exerciseId} style={s.support}>
-                                    {movementLabel(m)}
-                                  </Text>
-                                ))}
-                              </View>
-                            ) : null}
-                          </View>
-                        );
-                      })}
-                    </View>
-                    {openWorkout !== undefined || editing ? (
-                      <AppButton
-                        title={
-                          preview
-                            ? t('onboarding.hideProgram')
-                            : t('onboarding.viewProgram')
-                        }
-                        secondary
-                        onPress={() => setPreview(!preview)}
-                      />
-                    ) : null}
-                    {preview && (openWorkout !== undefined || editing) ? (
-                      <View style={s.field}>
-                        {proposal.program.schedule.map((week, i) => (
-                          <Text key={i} style={s.label}>
-                            {t('onboarding.week', {
-                              index: i + 1,
-                              schedule: week
-                                .map((slot) =>
-                                  t('onboarding.slot', {
-                                    key: slot.dayKey,
-                                    date: dateLabel(
-                                      addCalendarDays(
-                                        proposal!.startDate,
-                                        i * 7 + slot.offset,
-                                      ),
-                                    ),
-                                  }),
-                                )
-                                .join(' / '),
-                            })}
-                          </Text>
-                        ))}
-                        {proposal.program.days.map((day) => (
-                          <View key={day.key} style={s.field}>
-                            <Text style={s.label}>
-                              {t('onboarding.day', {
-                                key: day.key,
-                                name: programDayLabel(t, day.key, day.name),
-                              })}
-                            </Text>
-                            {day.movements.map((m) => (
-                              <Text key={m.exerciseId} style={s.support}>
-                                {movementLabel(m)}
-                              </Text>
-                            ))}
-                          </View>
-                        ))}
-                        <Text style={s.support}>{t('onboarding.warmup')}</Text>
-                        {proposal.program.cardio.length ? (
-                          <Text style={s.support}>
-                            {t('onboarding.cardio')}
-                          </Text>
-                        ) : null}
-                      </View>
-                    ) : null}
+                    <StarterProgramReview program={base} history={history} />
+                    <AppButton
+                      title={t('onboarding.configureSchedule')}
+                      disabled={navigationDisabled}
+                      onPress={() => go('schedule')}
+                    />
                   </>
                 ) : (
-                  <Text accessibilityRole="alert" style={s.error}>
-                    {missingExercises
-                      ? t('onboarding.missing', {
-                          exercises: missingExercises
-                            .map((id) =>
-                              catalogLabel(
-                                locale,
-                                'exercise',
-                                id,
-                                findExercise(id)?.name ?? id,
-                              ),
-                            )
-                            .join(', '),
-                        })
-                      : presentAppError(
-                          t,
-                          proposalError,
-                          'error.programProposal',
-                        )}
-                  </Text>
-                )}
-                {openWorkout !== undefined || editing ? (
-                  <AppButton
-                    title={
-                      scheduleOpen
-                        ? t('onboarding.hideSchedule')
-                        : t('onboarding.schedule')
-                    }
-                    secondary
-                    disabled={saving || Boolean(lockedProposal)}
-                    onPress={() => setScheduleOpen(!scheduleOpen)}
-                  />
-                ) : null}
-                {scheduleOpen &&
-                base &&
-                (openWorkout !== undefined || editing) ? (
-                  <View style={s.field}>
-                    <AppButton
-                      title={t('onboarding.startDateValue', {
-                        date: dateLabel(startDate),
-                      })}
-                      secondary
-                      disabled={saving || Boolean(lockedProposal)}
-                      onPress={() => setDateOpen(!dateOpen)}
-                    />
-                    {dateOpen ? (
-                      <DatePickerSheet
-                        title={t('onboarding.startDate')}
-                        value={new Date(`${startDate}T00:00:00`).getTime()}
-                        onCancel={() => setDateOpen(false)}
-                        onConfirm={(time) => {
-                          setStartDate(localDate(new Date(time)));
-                          setDateOpen(false);
-                        }}
-                      />
-                    ) : null}
-                    <Text style={s.label}>{t('onboarding.frequency')}</Text>
-                    {[2, 3, 4].map((n) => (
-                      <AppButton
-                        key={n}
-                        title={t('onboarding.workouts', { count: n })}
-                        secondary
-                        selected={(frequency ?? base.schedule[0].length) === n}
-                        disabled={saving || Boolean(lockedProposal)}
-                        onPress={() => setFrequency(n)}
-                      />
-                    ))}
-                    <Text style={s.support}>
-                      {t('onboarding.frequencyHelp')}
-                    </Text>
-                    {base.schedule[0].map((slot, i) => (
-                      <View key={i} style={s.field}>
-                        <Text style={s.label}>
-                          {t('onboarding.sessionDay', { index: i + 1 })}
-                        </Text>
-                        <TextInput
-                          accessibilityLabel={t('onboarding.sessionDayLabel', {
-                            index: i + 1,
-                          })}
-                          keyboardType="number-pad"
-                          value={String(
-                            (offsets ?? base.schedule[0].map((s) => s.offset))[
-                              i
-                            ] + 1,
+                  <>
+                    <Text accessibilityRole="alert" style={s.error}>
+                      {missingExercises
+                        ? t('onboarding.missing', {
+                            exercises: missingExercises
+                              .map((id) =>
+                                catalogLabel(
+                                  locale,
+                                  'exercise',
+                                  id,
+                                  findExercise(id)?.name ?? id,
+                                ),
+                              )
+                              .join(', '),
+                          })
+                        : presentAppError(
+                            t,
+                            proposalError,
+                            'error.programProposal',
                           )}
-                          editable={!saving && !lockedProposal}
-                          style={s.input}
-                          onChangeText={(value) => {
-                            const next = [
-                              ...(offsets ??
-                                base.schedule[0].map((s) => s.offset)),
-                            ];
-                            next[i] = Number(value) - 1;
-                            setOffsets(next);
-                          }}
-                        />
-                      </View>
-                    ))}
-                  </View>
-                ) : null}
-                {base?.firstSessionSetCap &&
-                (openWorkout !== undefined || editing) ? (
-                  <AppButton
-                    title={
-                      reduced ? t('onboarding.reduced') : t('onboarding.reduce')
-                    }
-                    secondary
-                    selected={reduced}
-                    disabled={saving || Boolean(lockedProposal)}
-                    onPress={() => setReduced(!reduced)}
-                  />
-                ) : null}
-                <View style={polished && s.footer}>
-                  <AppButton
-                    title={
-                      error && lockedProposal
-                        ? t('onboarding.retryStart')
-                        : saving
-                          ? t('onboarding.saving')
-                          : t('onboarding.begin')
-                    }
-                    disabled={!proposal || saving || busy}
-                    onPress={() => void complete()}
-                  />
-                </View>
-                {!lockedProposal && (!proposal || editing) ? (
-                  <AppButton
-                    title={t('onboarding.manual')}
-                    secondary
-                    disabled={saving || busy}
-                    onPress={() => go('self_setup')}
-                  />
+                    </Text>
+                    <AppButton
+                      title={t('onboarding.manual')}
+                      secondary
+                      onPress={() => go('self_setup')}
+                    />
+                  </>
+                )}
+              </>
+            ) : null}
+            {step === 'schedule' ? (
+              <>
+                <StarterProgramSchedule
+                  today={today}
+                  selected={weekdays}
+                  disabled={saving || busy || !!proposalError}
+                  changesDisabled={!!lockedProposal}
+                  saving={saving || busy}
+                  onToggle={(day) =>
+                    change({
+                      ...state,
+                      answers: {
+                        ...state.answers,
+                        scheduleWeekdays: weekdays.includes(day)
+                          ? weekdays.filter((item) => item !== day)
+                          : [...weekdays, day],
+                      },
+                    })
+                  }
+                  onDone={() => void complete()}
+                />
+                {proposalError ? (
+                  <Text accessibilityRole="alert" style={s.error}>
+                    {presentAppError(t, proposalError, 'error.programProposal')}
+                  </Text>
                 ) : null}
                 {lockedProposal && error && onExit ? (
                   <AppButton
@@ -1052,7 +817,11 @@ export function Onboarding({
               </Text>
             ) : null}
 
-            {editing && onExit && backTarget ? (
+            {editing &&
+            onExit &&
+            backTarget &&
+            step !== 'complete' &&
+            step !== 'schedule' ? (
               <AppButton
                 title={t('onboarding.backProfile')}
                 secondary

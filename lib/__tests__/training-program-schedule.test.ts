@@ -1,9 +1,10 @@
 import { makeAssignment } from '../training-programs/assignment';
-import { selectProgram } from '../training-programs/selectors';
+import { selectProgram, starterProgram } from '../training-programs/selectors';
 import {
   projectProgramWeek,
   templateForProgramSlot,
   adjustProgramSchedule,
+  recurringProgramSchedule,
 } from '../training-programs/schedule';
 import {
   startWorkout,
@@ -127,4 +128,29 @@ it('snapshots slot context through restart and applies an explicitly reduced fir
   expect(a.templates[0].plannedExercises?.every((m) => m.sets === 2)).toBe(
     true,
   );
+});
+
+it('repeats the requested weekdays through month rollover and moves timed guidance with each session', () => {
+  const { program, startDate } = recurringProgramSchedule(
+    starterProgram('lose_weight', 'some'),
+    [1, 3, 5],
+    new Date(2026, 11, 31, 12),
+  );
+  expect(startDate).toBe('2026-12-31');
+  const a = makeAssignment(program, 'recurring', startDate);
+  const week = projectProgramWeek(a, [], '2027-01-07');
+  expect(week.slots.map((slot) => slot.date)).toEqual([
+    '2027-01-07',
+    '2027-01-09',
+    '2027-01-12',
+  ]);
+  expect(
+    week.days.flatMap((day) =>
+      day.cardio.map((cardio) => [day.date, cardio.minutes]),
+    ),
+  ).toEqual([
+    ['2027-01-07', 25],
+    ['2027-01-09', 30],
+    ['2027-01-12', 30],
+  ]);
 });

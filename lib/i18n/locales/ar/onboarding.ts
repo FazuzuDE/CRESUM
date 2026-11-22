@@ -1,4 +1,12 @@
 export default {
+  'program.universal': 'برنامج شامل',
+  'onboarding.configureSchedule': 'ضبط الجدول',
+  'onboarding.chooseWeekdays': 'اختر ثلاثة أيام من الأسبوع.',
+  'program.chestAndArms': 'الصدر والذراعان',
+  'program.treadmill': 'المشي على جهاز المشي',
+  'program.bike': 'الدراجة الثابتة',
+  'program.moderate': 'شدة متوسطة',
+
   'onboarding.decimalPart': 'الجزء العشري',
   'onboarding.welcomeTagline': 'تمارينك كلها في مكان واحد.',
   'onboarding.bodyOptionalHelp':

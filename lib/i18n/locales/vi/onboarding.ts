@@ -1,4 +1,12 @@
 export default {
+  'program.universal': 'Chương trình tổng hợp',
+  'onboarding.configureSchedule': 'Thiết lập lịch tập',
+  'onboarding.chooseWeekdays': 'Chọn ba ngày trong tuần.',
+  'program.chestAndArms': 'Ngực và tay',
+  'program.treadmill': 'Đi bộ trên máy chạy',
+  'program.bike': 'Xe đạp tập tại chỗ',
+  'program.moderate': 'Cường độ vừa',
+
   'onboarding.decimalPart': 'Phần thập phân',
   'onboarding.welcomeTagline': 'Các buổi tập của bạn, cùng một nơi.',
   'onboarding.bodyOptionalHelp':

@@ -104,6 +104,7 @@ import {
   localDate,
   projectProgramWeek,
   templateForProgramSlot,
+  timedActivitiesForWorkout,
   type ProjectedProgramSlot,
 } from '@/lib/training-programs/schedule';
 import type { ProgramAssignment } from '@/lib/training-programs/assignment';
@@ -1373,6 +1374,7 @@ function AppContent({
               : onboardingState
           }
           editing={editingPersonalization}
+          history={data.history}
           busy={busy}
           onChange={saveOnboardingProgress}
           onComplete={completeOnboarding}
@@ -1409,6 +1411,10 @@ function AppContent({
           ) : tab === 'workout' ? (
             <Workout
               session={data.activeWorkout}
+              timedActivities={timedActivitiesForWorkout(
+                assignment,
+                data.activeWorkout,
+              )}
               history={data.history}
               templates={visibleTemplates}
               onStartTemplate={startTemplate}

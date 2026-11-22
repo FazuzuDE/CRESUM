@@ -1,4 +1,12 @@
 export default {
+  'program.universal': 'Uniwersalny',
+  'onboarding.configureSchedule': 'Ustaw harmonogram',
+  'onboarding.chooseWeekdays': 'Wybierz trzy dni tygodnia.',
+  'program.chestAndArms': 'Klatka piersiowa i ramiona',
+  'program.treadmill': 'Marsz na bieżni',
+  'program.bike': 'Rower stacjonarny',
+  'program.moderate': 'Umiarkowanie',
+
   'onboarding.decimalPart': 'Część dziesiętna',
   'onboarding.welcomeTagline': 'Wszystkie treningi w jednym miejscu.',
   'onboarding.bodyOptionalHelp':

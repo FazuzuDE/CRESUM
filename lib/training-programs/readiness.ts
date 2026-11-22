@@ -7,10 +7,14 @@ export const projectProgramReadiness = (
 ) => {
   if (
     !program ||
-    program.revision !== 1 ||
-    !['build_muscle', 'get_stronger', 'general_fitness'].includes(
-      program.goal,
-    ) ||
+    ![1, 2].includes(program.revision) ||
+    ![
+      'build_muscle',
+      'get_stronger',
+      'general_fitness',
+      'lose_weight',
+      'universal',
+    ].includes(program.goal) ||
     !['beginner', 'some', 'experienced'].includes(program.experience) ||
     program.environment !== 'gym' ||
     typeof program.id !== 'string' ||
@@ -30,7 +34,17 @@ export const projectProgramReadiness = (
         !d.key ||
         typeof d.name !== 'string' ||
         !Array.isArray(d.movements) ||
-        !d.movements.length,
+        !d.movements.length ||
+        (d.hold !== undefined &&
+          (!d.hold ||
+            d.hold.exerciseId !== 'plank' ||
+            !Number.isSafeInteger(d.hold.sets) ||
+            d.hold.sets < 1 ||
+            d.hold.sets > 20 ||
+            !Number.isSafeInteger(d.hold.minSeconds) ||
+            !Number.isSafeInteger(d.hold.maxSeconds) ||
+            d.hold.minSeconds < 1 ||
+            d.hold.maxSeconds < d.hold.minSeconds)),
     ) ||
     program.cardio.some(
       (c) =>
@@ -41,7 +55,9 @@ export const projectProgramReadiness = (
         !Number.isSafeInteger(c.minutes) ||
         c.minutes < 1 ||
         c.minutes > 1440 ||
-        c.intensity !== 'moderate',
+        c.intensity !== 'moderate' ||
+        (c.activity !== undefined &&
+          !['treadmill_walking', 'stationary_bike'].includes(c.activity)),
     ) ||
     new Set(program.cardio.map((c) => c.offset)).size !==
       program.cardio.length ||
@@ -53,6 +69,29 @@ export const projectProgramReadiness = (
     return { ready: false, blockers: ['Invalid program'] };
   const keys = program.days.map((d) => d.key);
   if (
+    (program.revision === 2 &&
+      (program.days.length !== 3 ||
+        program.schedule.length !== 1 ||
+        !Array.isArray(program.schedule[0]) ||
+        program.schedule[0].length !== 3 ||
+        program.schedule[0].some(
+          (slot, index) =>
+            !slot ||
+            slot.dayKey !== keys[index] ||
+            program.days[index].movements.length +
+              Number(!!program.days[index].hold) +
+              Number(
+                program.cardio.some(
+                  (c) => c.offset === slot.offset && c.activity,
+                ),
+              ) !==
+              6,
+        ) ||
+        program.cardio.some(
+          (c) =>
+            !c.activity ||
+            !program.schedule[0].some((slot) => slot?.offset === c.offset),
+        ))) ||
     new Set(keys).size !== keys.length ||
     program.days.some(
       (d) => !Array.isArray(d.movements) || !d.movements.length,
@@ -75,8 +114,16 @@ export const projectProgramReadiness = (
   )
     return { ready: false, blockers: ['Invalid schedule'] };
   const blockers = [
-    ...new Set(
-      program.days
+    ...new Set([
+      ...program.days.flatMap(({ hold }) =>
+        hold &&
+        !library.some(
+          (e) => e.id === hold.exerciseId && e.measurement === 'duration',
+        )
+          ? [hold.exerciseId]
+          : [],
+      ),
+      ...program.days
         .flatMap((d) => d.movements)
         .filter((m) => {
           if (!m || typeof m.exerciseId !== 'string') return true;
@@ -103,7 +150,7 @@ export const projectProgramReadiness = (
           );
         })
         .map((m) => m?.exerciseId ?? 'Invalid movement'),
-    ),
+    ]),
   ];
   return { ready: blockers.length === 0, blockers };
 };

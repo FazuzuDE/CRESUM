@@ -1,4 +1,12 @@
 export default {
+  'program.universal': 'सर्वांगीण कार्यक्रम',
+  'onboarding.configureSchedule': 'समय-सारणी तय करें',
+  'onboarding.chooseWeekdays': 'सप्ताह के तीन दिन चुनें।',
+  'program.chestAndArms': 'छाती और बाँहें',
+  'program.treadmill': 'ट्रेडमिल पर पैदल चलना',
+  'program.bike': 'स्टेशनरी बाइक',
+  'program.moderate': 'मध्यम तीव्रता',
+
   'onboarding.decimalPart': 'दशमलव भाग',
   'onboarding.welcomeTagline': 'आपके सभी वर्कआउट, एक जगह।',
   'onboarding.bodyOptionalHelp':

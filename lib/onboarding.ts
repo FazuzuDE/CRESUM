@@ -11,9 +11,14 @@ export type OnboardingStep =
   | 'environment'
   | 'profile'
   | 'complete'
+  | 'schedule'
   | 'self_setup';
 export type TrainingGoal =
-  'build_muscle' | 'get_stronger' | 'lose_weight' | 'general_fitness';
+  | 'universal'
+  | 'build_muscle'
+  | 'get_stronger'
+  | 'lose_weight'
+  | 'general_fitness';
 export type TrainingExperience = 'beginner' | 'some' | 'experienced';
 export type TrainingEnvironment = 'gym' | 'home' | 'both';
 export type OnboardingAnswers = {
@@ -22,6 +27,7 @@ export type OnboardingAnswers = {
   dateOfBirth?: string;
   goal?: TrainingGoal;
   experience?: TrainingExperience;
+  scheduleWeekdays?: number[];
   environment?: TrainingEnvironment;
   age?: string;
   heightCm?: string;
@@ -70,6 +76,7 @@ export function parseOnboardingState(value: unknown): OnboardingState {
       'environment',
       'profile',
       'complete',
+      'schedule',
       'self_setup',
     ])
   )
@@ -80,6 +87,7 @@ export function parseOnboardingState(value: unknown): OnboardingState {
       !oneOf(answers.artworkModel, ['male', 'female'])) ||
     (answers.goal !== undefined &&
       !oneOf(answers.goal, [
+        'universal',
         'build_muscle',
         'get_stronger',
         'lose_weight',
@@ -89,6 +97,14 @@ export function parseOnboardingState(value: unknown): OnboardingState {
       !oneOf(answers.experience, ['beginner', 'some', 'experienced'])) ||
     (answers.environment !== undefined &&
       !oneOf(answers.environment, ['gym', 'home', 'both'])) ||
+    (answers.scheduleWeekdays !== undefined &&
+      (!Array.isArray(answers.scheduleWeekdays) ||
+        answers.scheduleWeekdays.length > 3 ||
+        new Set(answers.scheduleWeekdays).size !==
+          answers.scheduleWeekdays.length ||
+        answers.scheduleWeekdays.some(
+          (day) => !Number.isInteger(day) || day < 0 || day > 6,
+        ))) ||
     ['age', 'dateOfBirth', 'heightCm', 'bodyWeightKg'].some(
       (field) =>
         answers[field] !== undefined &&
@@ -118,6 +134,9 @@ export function parseOnboardingState(value: unknown): OnboardingState {
       ...(answers.experience === undefined
         ? {}
         : { experience: answers.experience }),
+      ...(answers.scheduleWeekdays === undefined
+        ? {}
+        : { scheduleWeekdays: [...(answers.scheduleWeekdays as number[])] }),
       ...(answers.environment === undefined
         ? {}
         : { environment: answers.environment }),

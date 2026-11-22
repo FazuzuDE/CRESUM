@@ -1,4 +1,12 @@
 export default {
+  'program.universal': 'Універсальна',
+  'onboarding.configureSchedule': 'Налаштувати розклад',
+  'onboarding.chooseWeekdays': 'Виберіть три дні тижня.',
+  'program.chestAndArms': 'Груди й руки',
+  'program.treadmill': 'Ходьба на біговій доріжці',
+  'program.bike': 'Велотренажер',
+  'program.moderate': 'Помірно',
+
   'onboarding.decimalPart': 'Дробова частина',
   'onboarding.welcomeTagline': 'Усі ваші тренування в одному місці.',
   'onboarding.bodyOptionalHelp':

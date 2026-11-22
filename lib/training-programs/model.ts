@@ -14,16 +14,24 @@ export type ProgramDay = {
   key: string;
   name: string;
   movements: ProgramMovement[];
+  hold?: ProgramHold;
+};
+export type ProgramHold = {
+  exerciseId: 'plank';
+  sets: number;
+  minSeconds: number;
+  maxSeconds: number;
 };
 export type ProgramSlot = { offset: number; dayKey: string };
 export type CardioGuidance = {
   offset: number;
   minutes: number;
   intensity: 'moderate';
+  activity?: 'treadmill_walking' | 'stationary_bike';
 };
 export type ProgramDefinition = {
   id: string;
-  revision: 1;
+  revision: 1 | 2;
   goal: TrainingGoal;
   experience: TrainingExperience;
   environment: 'gym';

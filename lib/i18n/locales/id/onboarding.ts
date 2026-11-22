@@ -1,4 +1,12 @@
 export default {
+  'program.universal': 'Program umum',
+  'onboarding.configureSchedule': 'Atur jadwal',
+  'onboarding.chooseWeekdays': 'Pilih tiga hari dalam seminggu.',
+  'program.chestAndArms': 'Dada dan lengan',
+  'program.treadmill': 'Jalan kaki di treadmill',
+  'program.bike': 'Sepeda statis',
+  'program.moderate': 'Intensitas sedang',
+
   'onboarding.decimalPart': 'Bagian desimal',
   'onboarding.welcomeTagline': 'Semua latihan Anda dalam satu tempat.',
   'onboarding.bodyOptionalHelp':

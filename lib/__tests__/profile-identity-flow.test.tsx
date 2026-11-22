@@ -1,3 +1,4 @@
+import { StarterProgramSchedule } from '../../components/StarterProgramSchedule';
 import { AppPicker } from '../../components/AppPicker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Modal, TextInput } from 'react-native';
@@ -78,8 +79,10 @@ it('collects name, then body details, then goal; preserves the name through relo
   await act(async () => button(v, 'Continue').props.onPress());
   await act(async () => button(v, 'Find a program').props.onPress());
   await act(async () => button(v, 'Build muscle').props.onPress());
-  await act(async () => button(v, 'Continue').props.onPress());
-  await act(async () => button(v, 'Begin').props.onPress());
+  await act(async () => button(v, 'Set schedule').props.onPress());
+  await act(async () =>
+    v.root.findByType(StarterProgramSchedule).props.onDone(),
+  );
   expect(JSON.stringify(v.toJSON())).toContain('Welcome back, Ігор!');
   expect(
     JSON.parse((await AsyncStorage.getItem(ONBOARDING_KEY))!).answers
