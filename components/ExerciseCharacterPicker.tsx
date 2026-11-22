@@ -2,20 +2,24 @@ import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { Image, StyleSheet, View } from 'react-native';
 import type { AssetModel } from '@/lib/exercise-variant-model';
-import { spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { AppButton } from './AppButton';
 import { useLocalization } from './LocalizationProvider';
 import { useExerciseCharacter } from './ExerciseCharacterProvider';
+
+const characterArtwork = require('../assets/onboarding/exercise-characters.webp');
 
 export function ExerciseCharacterPicker({
   value,
   disabled = false,
   previews = false,
+  showSelectedPreview = false,
   onChange,
 }: {
   value?: AssetModel;
   disabled?: boolean;
   previews?: boolean;
+  showSelectedPreview?: boolean;
   onChange: (model: AssetModel) => void;
 }) {
   const s = useStyles();
@@ -34,10 +38,21 @@ export function ExerciseCharacterPicker({
       {previews ? (
         <View style={s.previewFrame}>
           <Image
-            source={require('../assets/onboarding/exercise-characters.webp')}
+            source={characterArtwork}
             resizeMode="contain"
             accessible={false}
             style={s.preview}
+          />
+        </View>
+      ) : showSelectedPreview && value ? (
+        <View
+          style={s.portraitFrame}
+          testID={`exercise-character-preview-${value}`}
+        >
+          <Image
+            source={characterArtwork}
+            accessible={false}
+            style={[s.portrait, value === 'male' ? s.maleCrop : s.femaleCrop]}
           />
         </View>
       ) : null}
@@ -63,7 +78,7 @@ export function ExerciseCharacterPicker({
 export function ExerciseCharacterSettings() {
   const s = useStyles();
   const { t } = useLocalization();
-  const { model, saving, error, disabled, select, retry } =
+  const { model, pendingModel, saving, error, disabled, select, retry } =
     useExerciseCharacter();
   const choose = (next: AssetModel) => {
     void select?.(next);
@@ -71,7 +86,8 @@ export function ExerciseCharacterSettings() {
   return (
     <View style={s.root}>
       <ExerciseCharacterPicker
-        value={model}
+        value={pendingModel ?? model}
+        showSelectedPreview
         disabled={disabled || saving || !select}
         onChange={choose}
       />
@@ -108,4 +124,15 @@ const useStyles = createThemedStyles((colors) => ({
   welcomeCopy: { textAlign: 'center' },
   previewFrame: { flexGrow: 1, minHeight: 260 },
   preview: { ...StyleSheet.absoluteFill, width: '100%', height: '100%' },
+  portraitFrame: {
+    alignSelf: 'center',
+    width: 146,
+    height: 194,
+    borderRadius: radius.md,
+    overflow: 'hidden',
+  },
+  // Both portraits are viewports into the same approved onboarding artwork.
+  portrait: { position: 'absolute', width: 430, height: 430 * (1448 / 1086) },
+  maleCrop: { left: -67 },
+  femaleCrop: { left: -213 },
 }));

@@ -79,7 +79,7 @@ it('preserves accepted exteriors, transforms, clips and all unresolved assignmen
   expect(anatomicalMissingGroups.map((m) => m.id).sort()).toEqual([]);
 });
 
-it('renders the selected original character in both views, with a neutral no-set state', () => {
+it('renders both anatomical views from one image, with a neutral no-set state', () => {
   let view!: ReturnType<typeof create>;
   act(() => {
     view = create(<MuscleMap muscles={neutral} onSelect={() => {}} />);
@@ -88,7 +88,7 @@ it('renders the selected original character in both views, with a neutral no-set
     view.root
       .findAllByType(SvgImage)
       .filter((n: { props: { href: unknown } }) => n.props.href === source),
-  ).toHaveLength(2);
+  ).toHaveLength(1);
   expect(
     view.root
       .findAllByType(Text)
@@ -108,7 +108,7 @@ it('renders the selected original character in both views, with a neutral no-set
   act(() => view.unmount());
 });
 
-it('clips the shared source image to each anatomical view box', () => {
+it('clips one source image to the continuous front and back view box', () => {
   let view!: ReturnType<typeof create>;
   act(() => {
     view = create(<MuscleMap muscles={neutral} />);
@@ -117,15 +117,19 @@ it('clips the shared source image to each anatomical view box', () => {
     .findAllByType(SvgImage)
     .filter((n: { props: { href: unknown } }) => n.props.href === source);
 
-  for (const [index, side] of (['front', 'back'] as const).entries()) {
-    const [x, y, width, height] = anatomicalAtlas.views[side].viewBox;
-    const clips = view.root.findAllByType(ClipPath);
-    const clip = clips.find(
-      (n: { props: { id: string } }) =>
-        images[index].props.clipPath === `url(#${n.props.id})`,
+  const [x, y, frontWidth, height] = anatomicalAtlas.views.front.viewBox;
+  const clip = view.root
+    .findAllByType(ClipPath)
+    .find(
+      (node: { props: { id: string } }) =>
+        images[0].props.clipPath === `url(#${node.props.id})`,
     );
-    expect(clip?.findByType(Rect).props).toMatchObject({ x, y, width, height });
-  }
+  expect(clip?.findByType(Rect).props).toMatchObject({
+    x,
+    y,
+    width: frontWidth + anatomicalAtlas.views.back.viewBox[2],
+    height,
+  });
 
   act(() => view.unmount());
 });
@@ -146,7 +150,12 @@ it('opens the chest parent from an accepted region and preserves role precedence
       testID: 'anatomical-region-pectoralis-major-clavicular-left',
     });
   expect(path().props.fill).toBe(colors.musclePrimary);
-  expect(path().props.stroke).toBe(colors.textPrimary);
+  const selection = {
+    testID: 'anatomical-selection-pectoralis-major-clavicular-left',
+  };
+  expect(view.root.findByProps(selection).props.stroke).toBe(
+    colors.musclePrimaryShade,
+  );
   act(() => path().props.onPress());
   expect(onSelect).toHaveBeenCalledWith('chest');
   const group = () =>
@@ -166,7 +175,7 @@ it('opens the chest parent from an accepted region and preserves role precedence
     ),
   );
   expect(group()!.props.opacity).toBe(opacity);
-  expect(path().props.stroke).toBe('none');
+  expect(view.root.findAllByProps(selection)).toHaveLength(0);
   act(() => view.unmount());
 });
 

@@ -103,7 +103,7 @@ export const muscleMapPresentation = {
   compactStackFontScale: 1.2,
   primaryOpacity: 0.62,
   secondaryOpacity: 0.55,
-  selectedStrokeWidth: 2.5,
+  selectedStrokeWidth: 5,
 } as const;
 // Selected Progress reference roles; other screens retain the base type scale.
 export const progressTypography = {

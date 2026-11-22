@@ -1,5 +1,6 @@
-import { Text } from 'react-native';
+import { Modal, Text } from 'react-native';
 import { MuscleProgress } from '../../components/MuscleProgress';
+import { MuscleGuide } from '../../components/MuscleGuide';
 import { MuscleMap } from '../../components/MuscleMap';
 import { AppButton } from '../../components/AppButton';
 import {
@@ -70,14 +71,6 @@ it('opens muscle details, shows source sets and closes stale details on period c
           node.props.children === 'Historical bench',
       ),
   ).toBe(true);
-  act(() =>
-    view.root
-      .find(
-        (node: any) =>
-          isPressable(node) && node.props.accessibilityLabel === 'Back',
-      )
-      .props.onPress(),
-  );
   act(() => view.root.findAllByType(MuscleSegments)[1].props.onChange('4w'));
   expect(
     view.root
@@ -149,7 +142,7 @@ it('does not reinterpret saved reps as seconds or meters for duration exercises'
   act(() => view.unmount());
 });
 
-it('shows a catalog-based guide and returns to the selected map period', () => {
+it('expands an illustrated guide inline without replacing the map or resetting its period', () => {
   let view!: ReturnType<typeof create>;
   act(() => {
     view = create(
@@ -158,19 +151,17 @@ it('shows a catalog-based guide and returns to the selected map period', () => {
   });
   act(() => view.root.findAllByType(MuscleSegments)[1].props.onChange('4w'));
   act(() => view.root.findAllByType(MuscleDisclosure)[0].props.onPress());
-  expect(view.root.findByType(MuscleMap).props.muscles).toEqual([
+  expect(
+    view.root.findByType(MuscleGuide).findByType(MuscleMap).props.muscles,
+  ).toEqual([
     { id: 'chest', primary: 1, secondary: 0 },
     { id: 'triceps', primary: 0, secondary: 1 },
     { id: 'front-delts', primary: 0, secondary: 1 },
   ]);
-  act(() =>
-    view.root
-      .find(
-        (node: any) =>
-          isPressable(node) && node.props.accessibilityLabel === 'Back',
-      )
-      .props.onPress(),
-  );
+  expect(view.root.findAllByType(MuscleMap)).toHaveLength(2);
+  expect(view.root.findAllByType(Modal)).toHaveLength(0);
+  act(() => view.root.findAllByType(MuscleDisclosure)[0].props.onPress());
+  expect(view.root.findAllByType(MuscleMap)).toHaveLength(1);
   expect(view.root.findAllByType(MuscleSegments)[1].props.value).toBe('4w');
   act(() => view.unmount());
 });
@@ -196,8 +187,13 @@ it('opens the grouped period catalog and preselects the muscle in discovery from
   )[0];
   expect(row.props.accessibilityLabel).toContain('0');
   act(() => row.props.onPress());
-  const detailMap = view.root.findByType(MuscleMap);
+  const [mainMap, detailMap] = view.root.findAllByType(MuscleMap);
+  expect(mainMap.props.selected).toBe('upper-back');
   expect(detailMap.props.selected).toBe('upper-back');
+  expect(view.root.findAllByType(Modal)).toHaveLength(0);
+  act(() => row.props.onPress());
+  expect(mainMap.props.selected).toBeUndefined();
+  act(() => row.props.onPress());
   act(() =>
     view.root
       .findAllByType(AppButton)

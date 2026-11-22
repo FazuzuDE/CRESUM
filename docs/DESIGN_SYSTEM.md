@@ -1914,11 +1914,18 @@ Keep the accepted source and mask geometry and use the existing red palette.
 Selection in the picker uses the primary red for all checked muscles. History
 continues to use the two role colors. Put selected names below the picker map,
 then body areas, collapsible groups and labeled checkboxes. Under the history
-map, keep the role legend. How to read the map opens an illustrated example
-of one bench-press set. Sets by muscle uses the picker’s body areas and groups
-with two counts per muscle. Muscle details display the function, a matching
-exercise and recorded history. Use that function copy in expanded muscle
-details for every catalog exercise and equipment variant.
+map, keep the role legend. Put both views on one continuous atlas canvas
+in every map appearance and keep their captions underneath. How to read the
+map expands an illustrated bench-press example inline. Sets by muscle expands
+inline with the picker’s body areas, groups and two counts per muscle.
+Selecting a muscle outlines it on the main map and opens its inline preview,
+function, matching exercise and recorded history. Keep the role colors
+independent of the selection outline. Use the function copy in expanded
+muscle details for every catalog exercise and equipment variant.
+
+Profile's Exercise character setting shows the selected Male or Female
+portrait using the existing onboarding artwork. The portrait updates when
+the selection is pressed and returns to the saved character if saving fails.
 
 ### Muscle Map visual refinement — 2026-10-17
 

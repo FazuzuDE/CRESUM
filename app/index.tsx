@@ -1628,6 +1628,7 @@ function AppContent({
     <ExerciseCharacterProvider
       value={{
         model: onboardingState.answers.artworkModel ?? 'male',
+        pendingModel: characterSaving ? characterAttempt : undefined,
         saving: characterSaving,
         error: characterError,
         disabled:

@@ -1,10 +1,8 @@
-import { useState } from 'react';
+import type { ReactNode } from 'react';
 import { Pressable, View } from 'react-native';
 import { LocalizedText as Text, DirectionalIcon } from './LayoutDirection';
 import { createThemedStyles, useAppColors } from './AppThemeProvider';
-import { AppScrollView } from './AppScrollView';
 import { GlassCard } from './GlassCard';
-import { MuscleRole } from './MuscleGuide';
 import { MuscleDisclosure, MuscleSegments } from './MusclePageControls';
 import { useLocalization } from './LocalizationProvider';
 import {
@@ -20,29 +18,27 @@ import { spacing, typography } from '@/lib/theme';
 export function MuscleSetCatalog({
   muscles,
   period,
-  onBack,
+  area,
+  group,
+  selected,
+  detail,
+  onBrowse,
   onSelect,
 }: {
   muscles: MuscleParticipation['muscles'];
   period: string;
-  onBack: () => void;
+  area: MuscleArea;
+  group?: string;
+  selected?: MuscleId;
+  detail: ReactNode;
+  onBrowse: (area: MuscleArea, group?: string) => void;
   onSelect: (id: MuscleId) => void;
 }) {
-  const [area, setArea] = useState<MuscleArea>('upper');
-  const [expanded, setExpanded] = useState<string>();
   const s = useStyles();
   const colors = useAppColors();
   const { t, locale } = useLocalization();
   return (
-    <AppScrollView
-      branded
-      dockAware
-      back={{ onPress: onBack }}
-      contentContainerStyle={s.content}
-    >
-      <Text style={s.title} accessibilityRole="header">
-        {t('muscle.setsByMuscle')}
-      </Text>
+    <View style={s.content}>
       <Text style={s.note}>{period}</Text>
       <MuscleSegments
         options={{
@@ -52,19 +48,18 @@ export function MuscleSetCatalog({
         }}
         value={area}
         onChange={(next) => {
-          setArea(next);
-          setExpanded(undefined);
+          if (next !== area) onBrowse(next);
         }}
       />
       <GlassCard style={s.card}>
         {groupsForArea(area).map(({ label, muscles: ids }, index) => {
-          const open = expanded === label;
+          const open = group === label;
           return (
             <View key={label} style={index > 0 && s.separator}>
               <MuscleDisclosure
                 label={t(`muscle.group.${label}`)}
                 expanded={open}
-                onPress={() => setExpanded(open ? undefined : label)}
+                onPress={() => onBrowse(area, open ? undefined : label)}
               />
               {open
                 ? ids.map((id) => {
@@ -76,50 +71,57 @@ export function MuscleSetCatalog({
                       muscleLabel(id),
                     );
                     const { primary, secondary } = item;
+                    const active = selected === id;
                     return (
-                      <Pressable
-                        key={id}
-                        accessibilityRole="button"
-                        accessibilityLabel={t('muscle.rowA11y', {
-                          name,
-                          primary,
-                          secondary,
-                        })}
-                        onPress={() => onSelect(id)}
-                        style={({ pressed }) => [s.row, pressed && s.pressed]}
-                      >
-                        <Text style={s.name}>{name}</Text>
-                        <View style={s.counts}>
-                          <View style={s.count}>
-                            <View
-                              style={[
-                                s.dot,
-                                { backgroundColor: colors.musclePrimary },
-                              ]}
-                            />
-                            <Text style={s.number}>
-                              {formatNumber(locale, primary)}
-                            </Text>
+                      <View key={id}>
+                        <Pressable
+                          accessibilityState={{
+                            expanded: active,
+                            selected: active,
+                          }}
+                          accessibilityRole="button"
+                          accessibilityLabel={t('muscle.rowA11y', {
+                            name,
+                            primary,
+                            secondary,
+                          })}
+                          onPress={() => onSelect(id)}
+                          style={({ pressed }) => [s.row, pressed && s.pressed]}
+                        >
+                          <Text style={s.name}>{name}</Text>
+                          <View style={s.counts}>
+                            <View style={s.count}>
+                              <View
+                                style={[
+                                  s.dot,
+                                  { backgroundColor: colors.musclePrimary },
+                                ]}
+                              />
+                              <Text style={s.number}>
+                                {formatNumber(locale, primary)}
+                              </Text>
+                            </View>
+                            <View style={s.count}>
+                              <View
+                                style={[
+                                  s.dot,
+                                  { backgroundColor: colors.muscleSecondary },
+                                ]}
+                              />
+                              <Text style={s.number}>
+                                {formatNumber(locale, secondary)}
+                              </Text>
+                            </View>
                           </View>
-                          <View style={s.count}>
-                            <View
-                              style={[
-                                s.dot,
-                                { backgroundColor: colors.muscleSecondary },
-                              ]}
-                            />
-                            <Text style={s.number}>
-                              {formatNumber(locale, secondary)}
-                            </Text>
-                          </View>
-                        </View>
-                        <DirectionalIcon
-                          name="chevron-forward"
-                          size={16}
-                          color={colors.primary}
-                          accessible={false}
-                        />
-                      </Pressable>
+                          <DirectionalIcon
+                            name={active ? 'chevron-down' : 'chevron-forward'}
+                            size={16}
+                            color={colors.primary}
+                            accessible={false}
+                          />
+                        </Pressable>
+                        {active ? detail : null}
+                      </View>
                     );
                   })
                 : null}
@@ -127,17 +129,12 @@ export function MuscleSetCatalog({
           );
         })}
       </GlassCard>
-      <View style={s.legend}>
-        <MuscleRole role="primary" />
-        <MuscleRole role="secondary" />
-      </View>
-    </AppScrollView>
+    </View>
   );
 }
 
 const useStyles = createThemedStyles((colors) => ({
-  content: { padding: spacing.lg, gap: spacing.md },
-  title: { ...typography.largeTitle, color: colors.textPrimary },
+  content: { gap: spacing.sm },
   note: { ...typography.subheadline, color: colors.textSecondary },
   card: { gap: 0 },
   separator: { borderTopWidth: 1, borderTopColor: colors.separator },
@@ -168,6 +165,5 @@ const useStyles = createThemedStyles((colors) => ({
     color: colors.textPrimary,
     fontVariant: ['tabular-nums'],
   },
-  legend: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
   pressed: { opacity: 0.65 },
 }));

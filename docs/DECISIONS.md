@@ -4670,3 +4670,9 @@ edge of the centered wordmark on nested branded pages.
 The owner requested left-to-right swipe back from anywhere on a page. Use
 the visible screen or sheet's enabled Back action and preserve existing
 scrolling and control gestures.
+
+## 2026-11-22 — Inline Muscle Map and character preview
+
+The owner requested a continuous front/back atlas, inline guide and set history,
+immediate muscle selection and an updating Male/Female portrait in Profile.
+Reuse the current atlas, grouping and character illustration.
