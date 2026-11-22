@@ -22,6 +22,7 @@ import {
   ContentScrollView,
   type SafeAreaScrollProps,
 } from './ContentScrollView';
+import { BackSwipeBoundary } from './BackSwipe';
 import { BrandHeader, type BrandBackAction } from './BrandHeader';
 import { DockSpace } from './DockSpace';
 import { GlassCard } from './GlassCard';
@@ -75,7 +76,7 @@ export const AppScrollView = forwardRef<
     ),
   ]);
   return (
-    <View style={[{ flex: 1 }, style]}>
+    <BackSwipeBoundary style={[{ flex: 1 }, style]}>
       <ContentScrollView
         {...props}
         ref={ref}
@@ -120,6 +121,6 @@ export const AppScrollView = forwardRef<
         safeAreaBottom={safeAreaEdges.includes('bottom')}
         disabled={props.scrollEnabled === false}
       />
-    </View>
+    </BackSwipeBoundary>
   );
 });

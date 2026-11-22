@@ -4,6 +4,7 @@ import {
 } from '@/components/AppThemeProvider';
 import { useContext, useEffect, useMemo, useState } from 'react';
 import { BackHandler, Pressable, StyleSheet, View } from 'react-native';
+import { BackSwipeBoundary } from './BackSwipe';
 import { AppButton } from './AppButton';
 import { AppScrollView } from './AppScrollView';
 import { DockSpace } from './DockSpace';
@@ -235,7 +236,7 @@ export function MuscleExerciseDiscovery({
           <Text style={s.note}>{t('muscle.catalogBasis')}</Text>
         </AppScrollView>
       ) : (
-        <View key="picker" style={s.page}>
+        <BackSwipeBoundary key="picker" style={s.page}>
           <AppScrollView
             branded
             back={{ onPress: onBack }}
@@ -358,7 +359,7 @@ export function MuscleExerciseDiscovery({
               onPress={() => setResults(true)}
             />
           </View>
-        </View>
+        </BackSwipeBoundary>
       )}
       {detail ? (
         <ExerciseTechnique

@@ -67,6 +67,7 @@ export function WorkoutHistory({
           <Text style={s.sectionTitle}>{t('history.details')}</Text>
           <AppButton
             title={t('history.back')}
+            swipeBack
             secondary
             onPress={() => setSelectedId(undefined)}
           />

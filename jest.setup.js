@@ -1,4 +1,21 @@
 /* global jest */
+// Expo's Jest preset supplies the legacy methods. Add the current native API
+// mock while retaining the legacy methods used by existing gesture tests.
+jest.mock(
+  'react-native-gesture-handler/lib/module/RNGestureHandlerModule',
+  () => {
+    const legacy = jest.requireActual(
+      'react-native-gesture-handler/lib/module/RNGestureHandlerModule',
+    );
+    const current = jest.requireActual(
+      'react-native-gesture-handler/lib/module/mocks/module',
+    );
+    return {
+      __esModule: true,
+      default: { ...legacy.default, ...current.default },
+    };
+  },
+);
 // Renderer tests do not install native gesture recognizers. Swipe callbacks are
 // exercised separately; physical gesture acceptance stays a device check.
 jest.mock('react-native-gesture-handler', () => ({

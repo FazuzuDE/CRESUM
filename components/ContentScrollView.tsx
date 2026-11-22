@@ -1,11 +1,11 @@
 import { forwardRef, useState, type ComponentRef, type ReactNode } from 'react';
+import { ScrollView, StyleSheet, type ScrollViewProps } from 'react-native';
 import {
-  ScrollView,
-  StyleSheet,
-  View,
-  type ScrollViewProps,
-} from 'react-native';
+  GestureDetector,
+  useNativeGesture,
+} from 'react-native-gesture-handler';
 import { SafeAreaView, type Edge } from 'react-native-safe-area-context';
+import { BackSwipeBoundary, useBackSwipeGesture } from './BackSwipe';
 import { BrandHeaderBackdrop, HeaderBackdropProvided } from './BrandHeader';
 
 export type SafeAreaScrollProps = {
@@ -33,6 +33,13 @@ export const ContentScrollView = forwardRef<
   },
   ref,
 ) {
+  const back = useBackSwipeGesture();
+  const horizontalScroll = horizontal && back;
+  const nativeScroll = useNativeGesture({
+    enabled: !!horizontalScroll,
+    block: horizontalScroll || undefined,
+    disallowInterruption: true,
+  });
   const [viewport, setViewport] = useState<number>();
   const [headerHeight, setHeaderHeight] = useState(0);
   const [content, setContent] = useState<number>();
@@ -46,7 +53,7 @@ export const ContentScrollView = forwardRef<
   const flexGrow = wrapsContent
     ? StyleSheet.flatten(contentContainerStyle)?.flexGrow
     : undefined;
-  const scroll = (
+  const scrollView = (
     <ScrollView
       {...props}
       ref={ref}
@@ -85,8 +92,13 @@ export const ContentScrollView = forwardRef<
       )}
     </ScrollView>
   );
+  const scroll = horizontalScroll ? (
+    <GestureDetector gesture={nativeScroll}>{scrollView}</GestureDetector>
+  ) : (
+    scrollView
+  );
   return fixedHeader ? (
-    <View style={s.layer}>
+    <BackSwipeBoundary style={s.layer}>
       {scroll}
       <SafeAreaView
         edges={requestedEdges?.filter((edge) => edge === 'top') ?? []}
@@ -102,7 +114,7 @@ export const ContentScrollView = forwardRef<
           {fixedHeader}
         </HeaderBackdropProvided.Provider>
       </SafeAreaView>
-    </View>
+    </BackSwipeBoundary>
   ) : (
     scroll
   );

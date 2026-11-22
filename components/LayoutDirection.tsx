@@ -3,12 +3,13 @@ import {
   Modal as NativeModal,
   Text as NativeText,
   TextInput as NativeTextInput,
-  View,
   StyleSheet,
   type ModalProps,
   type TextProps,
   type TextInputProps,
 } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { BackSwipeBoundary } from './BackSwipe';
 import { Ionicons as NativeIonicons } from '@expo/vector-icons';
 import type { ComponentProps, ComponentRef } from 'react';
 import {
@@ -79,7 +80,11 @@ export function LocalizedModal({ children, ...props }: ModalProps) {
   const direction = useLayoutDirection();
   return (
     <NativeModal {...props}>
-      <View style={{ flex: 1, direction }}>{children}</View>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <BackSwipeBoundary isolate style={{ flex: 1, direction }}>
+          {children}
+        </BackSwipeBoundary>
+      </GestureHandlerRootView>
     </NativeModal>
   );
 }

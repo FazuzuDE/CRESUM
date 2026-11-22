@@ -11,6 +11,7 @@ import { Platform, Pressable, View, useWindowDimensions } from 'react-native';
 import { DEFAULT_GLASS_TRANSPARENCY, GlassMaterial } from './GlassMaterial';
 import { useReducedTransparency } from './useReducedTransparency';
 import { spacing, typography } from '@/lib/theme';
+import { useBackSwipeAction } from './BackSwipe';
 import { BrandWordmark } from './BrandWordmark';
 import { useLocalization } from './LocalizationProvider';
 
@@ -26,6 +27,7 @@ export type BrandBackAction = {
 };
 
 export function BrandHeader({ back }: { back?: BrandBackAction } = {}) {
+  useBackSwipeAction(back);
   const colors = useAppColors();
   const s = useStyles();
   const { t } = useLocalization();

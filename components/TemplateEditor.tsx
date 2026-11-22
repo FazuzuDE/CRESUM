@@ -698,6 +698,7 @@ export function TemplateEditor({
         {step === 'configure' || step === 'composition' ? (
           <AppButton
             title={t('editor.back')}
+            swipeBack
             secondary
             disabled={disabled}
             onPress={goBack}

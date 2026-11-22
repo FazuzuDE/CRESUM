@@ -16,6 +16,7 @@ import { Ionicons } from '@expo/vector-icons';
 import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AppButton } from '../AppButton';
+import { useBackSwipeGesture } from '../BackSwipe';
 import { useLocalization } from '../LocalizationProvider';
 import { PlanPreview, type ImportPlan } from './PlanPreview';
 import { SharePlanSheet } from './SharePlanSheet';
@@ -68,6 +69,8 @@ export function SharingHub({
   const colors = useAppColors();
   const s = useStyles();
   const { t, locale } = useLocalization();
+  const backGesture = useBackSwipeGesture();
+  const [openSwipeId, setOpenSwipeId] = useState<string>();
   const [editing, setEditing] = useState(false);
   const [adding, setAdding] = useState(false);
   const [editingExercise, setEditingExercise] = useState<string>();
@@ -152,6 +155,7 @@ export function SharingHub({
       /* Unsupported legacy catalog entries remain editable through existing management. */
     }
   }
+  const hasPrevious = !!(template || resolved || screen !== 'mine');
   if (creating && onCreate)
     return (
       <TemplateEditor
@@ -196,14 +200,16 @@ export function SharingHub({
       ) : null}
       <AppButton
         title={t('sharing.close')}
+        swipeBack={!hasPrevious}
         disabled={busy}
         onPress={onClose}
         secondary
         presentation="text"
       />
-      {template || resolved || screen !== 'mine' ? (
+      {hasPrevious ? (
         <AppButton
           title={t('sharing.back')}
+          swipeBack
           disabled={busy}
           onPress={back}
           secondary
@@ -260,6 +266,13 @@ export function SharingHub({
           {savedPlan?.exercises.map((e) => (
             <Swipeable
               key={e.exerciseId}
+              block={openSwipeId === e.exerciseId ? backGesture : undefined}
+              onSwipeableWillOpen={() => setOpenSwipeId(e.exerciseId)}
+              onSwipeableClose={() =>
+                setOpenSwipeId((current) =>
+                  current === e.exerciseId ? undefined : current,
+                )
+              }
               enabled={!!canEdit && !busy}
               overshootRight={false}
               renderRightActions={() => (
