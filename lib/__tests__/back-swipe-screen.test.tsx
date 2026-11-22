@@ -12,6 +12,7 @@ import { ContentScrollView } from '../../components/ContentScrollView';
 import { BrandHeader } from '../../components/BrandHeader';
 import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { ExerciseTechnique } from '../../components/ExerciseTechnique';
+import { MuscleExerciseDiscovery } from '../../components/MuscleExerciseDiscovery';
 import { MuscleMap } from '../../components/MuscleMap';
 import { MuscleProgress } from '../../components/MuscleProgress';
 import {
@@ -360,11 +361,14 @@ it('returns from muscle results to selection and then to the map', () => {
         .props.onPress(),
     );
 
+  const pickerMap = () =>
+    view.root.findByType(MuscleExerciseDiscovery).findByType(MuscleMap);
   press('Find exercises');
-  act(() => view.root.findByType(MuscleMap).props.onSelect('chest'));
+  expect(view.root.findAllByType(MuscleMap)).toHaveLength(2);
+  act(() => pickerMap().props.onSelect('chest'));
   press('Show exercises · 1');
   swipe(gestures(view).find((gesture: PanGesture) => gesture.config.enabled));
-  expect(view.root.findByType(MuscleMap).props.muscles).toEqual([
+  expect(pickerMap().props.muscles).toEqual([
     expect.objectContaining({ id: 'chest' }),
   ]);
   swipe(gestures(view).find((gesture: PanGesture) => gesture.config.enabled));
