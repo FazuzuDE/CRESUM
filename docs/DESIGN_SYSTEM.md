@@ -1398,8 +1398,8 @@ Deliberate primary action. Normal Finish summarizes and saves. Destructive aband
 Use the unchanged `male-anatomy-v1/source.png` and common 1312 × 1199 mask
 coordinates in both views. Reuse selected view boxes, exact SVG paths/transforms,
 original clipping masks and complementary accepted chest partitions. Keep the
-underlying grayscale texture visible, a smooth edge, no decorative stroke and
-no added blur. A thin outline may indicate the selected parent group only.
+underlying grayscale texture visible, a smooth edge, and no added blur.
+Use a stronger red fill for the selected parent group.
 
 For this factual participation slice, existing Primary/Secondary colors use
 fixed presentation opacities 0.62/0.55, respectively; these are visual role tokens,
@@ -1923,10 +1923,12 @@ map, keep the role legend. Put both views on one continuous atlas canvas
 in every map appearance and keep their captions underneath. How to read the
 map expands an illustrated bench-press example inline. Sets by muscle expands
 inline with the picker’s body areas, groups and two counts per muscle.
-Selecting a muscle outlines it on the main map and opens its inline preview,
-function, matching exercise and recorded history. Keep the role colors
-independent of the selection outline. Use the function copy in expanded
-muscle details for every catalog exercise and equipment variant.
+Selecting a muscle fills its accepted regions with stronger red on the main
+map and in its inline preview, including when the period contains zero sets.
+Keep the role colors on other muscles. In expanded muscle details, use the
+available width between symmetric insets that match the function card's text
+padding. Keep the atlas proportions and apply these defaults to every muscle
+detail. Use the function copy for every catalog exercise and equipment variant.
 
 Profile's Exercise character setting shows the selected Male or Female
 portrait using the existing onboarding artwork. The portrait updates when

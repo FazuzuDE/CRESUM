@@ -190,6 +190,7 @@ it('opens the grouped period catalog and preselects the muscle in discovery from
   const [mainMap, detailMap] = view.root.findAllByType(MuscleMap);
   expect(mainMap.props.selected).toBe('upper-back');
   expect(detailMap.props.selected).toBe('upper-back');
+  expect(detailMap.props.fullWidth).toBe(true);
   expect(view.root.findAllByType(Modal)).toHaveLength(0);
   act(() => row.props.onPress());
   expect(mainMap.props.selected).toBeUndefined();
