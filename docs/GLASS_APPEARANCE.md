@@ -2,11 +2,13 @@
 
 Use the dock glass material for the fixed brand header. Let scrolling page
 content move behind the header and keep the wordmark and slogan above the glass.
+Extend the glass across the top safe area to the screen edge. Fade the material
+into the content at the bottom without a border.
 Respect Reduce Transparency and keep header opacity independent of dock
 transparency. Both controls live in Appearance and preview their own target.
 
 Use `AppSlider` for comparable sliders throughout CRESUM. The shared component
-uses a clear glass thumb and keeps the underlying native adjustable control.
+uses the standard opaque native thumb and native track.
 Place percentage values beside their labels when showing percentages.
 
 The Workout tab shows the plan action, an outlined empty workout action and saved

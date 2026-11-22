@@ -6,6 +6,7 @@ import {
   type ScrollViewProps,
 } from 'react-native';
 import { SafeAreaView, type Edge } from 'react-native-safe-area-context';
+import { BrandHeaderBackdrop, HeaderBackdropProvided } from './BrandHeader';
 
 export type SafeAreaScrollProps = {
   safeAreaEdges?: readonly Edge[];
@@ -85,30 +86,29 @@ export const ContentScrollView = forwardRef<
     </ScrollView>
   );
   return fixedHeader ? (
-    <SafeAreaView
-      edges={requestedEdges?.filter((edge) => edge === 'top') ?? []}
-      style={s.fixedPage}
-    >
-      <View style={s.layer}>
-        {scroll}
-        <View
-          pointerEvents="box-none"
-          style={s.overlay}
-          onLayout={({ nativeEvent }) =>
-            setHeaderHeight(nativeEvent.layout.height)
-          }
-        >
+    <View style={s.layer}>
+      {scroll}
+      <SafeAreaView
+        edges={requestedEdges?.filter((edge) => edge === 'top') ?? []}
+        pointerEvents="box-none"
+        style={s.overlay}
+        testID="fixed-header-overlay"
+        onLayout={({ nativeEvent }) =>
+          setHeaderHeight(nativeEvent.layout.height)
+        }
+      >
+        <BrandHeaderBackdrop />
+        <HeaderBackdropProvided.Provider value>
           {fixedHeader}
-        </View>
-      </View>
-    </SafeAreaView>
+        </HeaderBackdropProvided.Provider>
+      </SafeAreaView>
+    </View>
   ) : (
     scroll
   );
 });
 
 const s = StyleSheet.create({
-  fixedPage: { flex: 1 },
   layer: { flex: 1 },
   overlay: { position: 'absolute', top: 0, left: 0, right: 0 },
 });

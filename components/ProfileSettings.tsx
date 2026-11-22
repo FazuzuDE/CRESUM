@@ -380,7 +380,6 @@ function PercentSetting({
         maximumValue={100}
         step={1}
         value={gestureValue ?? value}
-        displayValue={value}
         onSlidingStart={() => setGestureValue(value)}
         onValueChange={(next) => {
           if (gestureValue === null) onCommit?.(next);
