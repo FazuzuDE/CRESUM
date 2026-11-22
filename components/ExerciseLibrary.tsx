@@ -153,7 +153,7 @@ export function ExerciseLibrary({
         back={
           presentation === 'page'
             ? { accessibilityLabel: t('library.backProfile'), onPress: close }
-            : undefined
+            : { accessibilityLabel: t('library.closeLibrary'), onPress: close }
         }
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={s.content}
@@ -165,16 +165,6 @@ export function ExerciseLibrary({
               {t('library.count', { count: results.length })}
             </Text>
           </View>
-          {presentation !== 'page' ? (
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={t('library.closeLibrary')}
-              onPress={close}
-              style={s.close}
-            >
-              <Text style={s.closeText}>{t('library.close')}</Text>
-            </Pressable>
-          ) : null}
         </View>
 
         <TextInput
@@ -478,14 +468,6 @@ const useStyles = createThemedStyles((colors) => ({
   headerCopy: { flex: 1, minWidth: 0 },
   title: { ...typography.largeTitle, color: colors.textPrimary },
   subtitle: { ...typography.footnote, color: colors.textSecondary },
-  close: {
-    minWidth: 44,
-    minHeight: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: spacing.sm,
-  },
-  closeText: { ...typography.headline, color: colors.primary },
   search: {
     ...typography.body,
     minHeight: 48,

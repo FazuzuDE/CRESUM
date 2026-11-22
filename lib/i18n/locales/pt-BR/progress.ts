@@ -1,4 +1,38 @@
 export default {
+  'muscle.guideExample': 'Exemplo de uma série concluída',
+  'muscle.guideNoSets': 'O cinza indica que não há séries registradas',
+  'muscle.guideCount':
+    'Uma série pode contar para vários músculos. Cada músculo é registrado de acordo com seu papel no exercício.',
+  'muscle.function': 'Função',
+  'muscle.periodHistory': 'Neste período',
+  'muscle.action.chest':
+    'Aproxima os braços à frente do peito durante os supinos.',
+  'muscle.action.upper-back':
+    'Os músculos entre as escápulas ajudam a aproximá-las e estabilizá-las na remada.',
+  'muscle.action.lats':
+    'Puxa a parte superior dos braços para baixo e para trás durante as puxadas.',
+  'muscle.action.traps':
+    'As partes do trapézio elevam, movimentam e estabilizam as escápulas.',
+  'muscle.action.front-delts':
+    'Eleva o braço à frente e auxilia nos movimentos acima da cabeça.',
+  'muscle.action.side-delts': 'Eleva o braço para o lado.',
+  'muscle.action.rear-delts':
+    'Move o braço para trás e para fora durante as puxadas.',
+  'muscle.action.biceps':
+    'Flexiona o cotovelo e ajuda a virar a palma para cima.',
+  'muscle.action.triceps':
+    'Estende o cotovelo nos movimentos de empurrar e nas extensões.',
+  'muscle.action.forearms': 'Ajuda a segurar a alça e estabilizar o punho.',
+  'muscle.action.abs': 'Flexiona e estabiliza o tronco.',
+  'muscle.action.lower-back':
+    'Ajuda a estender e estabilizar o tronco sob carga.',
+  'muscle.action.glutes': 'Estende o quadril e estabiliza a pelve.',
+  'muscle.action.quadriceps':
+    'Estende o joelho em agachamentos e extensões de perna.',
+  'muscle.action.hamstrings': 'Flexiona o joelho e ajuda a estender o quadril.',
+  'muscle.action.calves': 'Eleva o calcanhar ao apontar o pé para baixo.',
+  'muscle.action.adductors':
+    'Aproxima a coxa da linha média e ajuda a estabilizar o quadril.',
   'muscle.discover': 'Encontrar exercícios',
   'muscle.choose': 'Escolher músculos',
   'muscle.chooseHint': 'Selecione músculos no mapa ou na lista.',

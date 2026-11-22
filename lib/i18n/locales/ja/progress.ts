@@ -1,4 +1,32 @@
 export default {
+  'muscle.guideExample': '完了した1セットの例',
+  'muscle.guideNoSets': '灰色は記録されたセットがない部位です',
+  'muscle.guideCount':
+    '1セットが複数の筋肉に集計されることがあります。各筋肉は種目内での役割に応じて集計されます。',
+  'muscle.function': '働き',
+  'muscle.periodHistory': 'この期間',
+  'muscle.action.chest': 'プレス動作で上腕を胸の前に寄せます。',
+  'muscle.action.upper-back':
+    '肩甲骨の間の筋肉は、ローイングで肩甲骨を寄せて安定させます。',
+  'muscle.action.lats': '引く動作で上腕を下や後ろに引きます。',
+  'muscle.action.traps':
+    '僧帽筋の各部は肩甲骨を持ち上げたり動かしたりして安定させます。',
+  'muscle.action.front-delts': '腕を前に上げ、頭上へのプレスを補助します。',
+  'muscle.action.side-delts': '腕を横に上げます。',
+  'muscle.action.rear-delts': '引く動作で上腕を後ろや外側に動かします。',
+  'muscle.action.biceps': '肘を曲げ、手のひらを上に向けるのを助けます。',
+  'muscle.action.triceps': 'プレスや伸展動作で肘を伸ばします。',
+  'muscle.action.forearms': 'ハンドルを握り、手首を安定させます。',
+  'muscle.action.abs': '体幹を曲げ、安定させます。',
+  'muscle.action.lower-back':
+    '体幹を伸ばし、負荷がかかったときに安定させます。',
+  'muscle.action.glutes': '股関節を伸ばし、骨盤を安定させます。',
+  'muscle.action.quadriceps':
+    'スクワットやレッグエクステンションで膝を伸ばします。',
+  'muscle.action.hamstrings': '膝を曲げ、股関節を伸ばす動きを補助します。',
+  'muscle.action.calves': '足先を下に向けてかかとを上げます。',
+  'muscle.action.adductors':
+    '太ももを体の中央へ引き寄せ、股関節を安定させます。',
   'muscle.discover': '種目を探す',
   'muscle.choose': '筋肉を選択',
   'muscle.chooseHint': 'マップまたは一覧から筋肉を選択します。',

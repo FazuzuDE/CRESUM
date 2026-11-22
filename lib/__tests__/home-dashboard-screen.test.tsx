@@ -389,7 +389,12 @@ it('opens the full month above the workout and shows actual saved sessions for a
         .props.onPress(),
     );
     expect(visibleText(view)).toContain('No completed workouts on this date.');
-    act(() => button(view, 'Close calendar').props.onPress());
+    act(() =>
+      view.root
+        .findAll(isPressable)
+        .find((node: any) => node.props.accessibilityLabel === 'Close calendar')
+        .props.onPress(),
+    );
     expect(button(view, 'Start Upper Body')).toBeDefined();
   } finally {
     await act(async () => view.unmount());

@@ -1,4 +1,35 @@
 export default {
+  'muscle.guideExample': 'Example of one completed set',
+  'muscle.guideNoSets': 'Gray indicates no recorded sets',
+  'muscle.guideCount':
+    'One set can count for several muscles. Each muscle gets credit for its role in the exercise.',
+  'muscle.function': 'What it does',
+  'muscle.periodHistory': 'In this period',
+  'muscle.action.chest':
+    'Brings the upper arms toward the chest during presses.',
+  'muscle.action.upper-back':
+    'Muscles between the shoulder blades help draw them together and steady them during a row.',
+  'muscle.action.lats': 'Draws the upper arms down and back during pulls.',
+  'muscle.action.traps':
+    'Parts of the traps lift, move, and steady the shoulder blades.',
+  'muscle.action.front-delts':
+    'Raises the arm forward and helps in overhead presses.',
+  'muscle.action.side-delts': 'Raises the arm out to the side.',
+  'muscle.action.rear-delts': 'Moves the upper arm back and out during pulls.',
+  'muscle.action.biceps': 'Bends the elbow and helps turn the palm up.',
+  'muscle.action.triceps':
+    'Straightens the elbow during presses and extensions.',
+  'muscle.action.forearms': 'Helps grip the handle and steady the wrist.',
+  'muscle.action.abs': 'Bends the trunk and helps keep it steady.',
+  'muscle.action.lower-back':
+    'Helps extend the trunk and keep it steady under load.',
+  'muscle.action.glutes': 'Extends the hip and helps steady the pelvis.',
+  'muscle.action.quadriceps':
+    'Straightens the knee during squats and leg extensions.',
+  'muscle.action.hamstrings': 'Bends the knee and helps extend the hip.',
+  'muscle.action.calves': 'Raises the heel by pointing the foot down.',
+  'muscle.action.adductors':
+    'Draws the thigh toward the midline and helps steady the hips.',
   'muscle.discover': 'Find exercises',
   'muscle.choose': 'Choose muscles',
   'muscle.chooseHint': 'Select muscles on the map or in the list.',

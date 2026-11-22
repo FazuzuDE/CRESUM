@@ -26,6 +26,7 @@ import {
   spacing,
   typography,
 } from '@/lib/theme';
+import { MuscleFunction } from './MuscleFunction';
 import { MuscleMap } from './MuscleMap';
 import { AppScrollView } from './AppScrollView';
 import { useLocalization } from './LocalizationProvider';
@@ -52,7 +53,9 @@ export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
     primary: Number(exercise.primaryMuscles.includes(id)),
     secondary: Number(exercise.secondaryMuscles.includes(id)),
   }));
-  const involved = [...exercise.primaryMuscles, ...exercise.secondaryMuscles];
+  const involved = [
+    ...new Set([...exercise.primaryMuscles, ...exercise.secondaryMuscles]),
+  ];
   const missing = anatomicalMissingGroups
     .filter(({ id }) => involved.includes(id))
     .map(({ id }) => id);
@@ -145,19 +148,16 @@ export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
             style={s.modal}
             accessibilityViewIsModal
           >
-            <BrandHeader />
+            <BrandHeader
+              back={{
+                accessibilityLabel: t('exerciseMuscles.close'),
+                onPress: () => setOpen(false),
+              }}
+            />
             <View style={s.heading}>
               <Text accessibilityRole="header" style={s.modalTitle}>
                 {t('exerciseMuscles.title')}
               </Text>
-              <Pressable
-                accessibilityRole="button"
-                accessibilityLabel={t('exerciseMuscles.close')}
-                onPress={() => setOpen(false)}
-                style={s.close}
-              >
-                <Ionicons name="close" size={22} color={colors.textPrimary} />
-              </Pressable>
             </View>
             <AppScrollView
               safeAreaEdges={['bottom']}
@@ -176,6 +176,9 @@ export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
               </View>
               {roles()}
               <Text style={s.note}>{t('exerciseMuscles.meaning')}</Text>
+              {involved.map((id) => (
+                <MuscleFunction key={id} id={id} showName />
+              ))}
               {coverage()}
             </AppScrollView>
           </SafeAreaView>
@@ -230,11 +233,5 @@ const useStyles = createThemedStyles((colors) => ({
   },
   heading: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
   modalTitle: { ...typography.title2, color: colors.textPrimary, flex: 1 },
-  close: {
-    width: 44,
-    height: 44,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   details: { gap: spacing.md, paddingTop: spacing.sm },
 }));

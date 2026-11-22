@@ -1,4 +1,40 @@
 export default {
+  'muscle.guideExample': 'Contoh satu set yang selesai',
+  'muscle.guideNoSets': 'Warna abu-abu berarti tidak ada set tercatat',
+  'muscle.guideCount':
+    'Satu set dapat dihitung untuk beberapa otot. Setiap otot dicatat menurut perannya dalam latihan.',
+  'muscle.function': 'Fungsi',
+  'muscle.periodHistory': 'Pada periode ini',
+  'muscle.action.chest':
+    'Mendekatkan lengan atas di depan dada saat mendorong.',
+  'muscle.action.upper-back':
+    'Otot di antara tulang belikat membantu mendekatkan dan menstabilkannya saat mendayung.',
+  'muscle.action.lats':
+    'Menarik lengan atas ke bawah dan belakang saat menarik.',
+  'muscle.action.traps':
+    'Bagian-bagian trapezius mengangkat, menggerakkan, dan menstabilkan tulang belikat.',
+  'muscle.action.front-delts':
+    'Mengangkat lengan ke depan dan membantu mendorong beban ke atas kepala.',
+  'muscle.action.side-delts': 'Mengangkat lengan ke samping.',
+  'muscle.action.rear-delts':
+    'Menggerakkan lengan atas ke belakang dan ke samping saat menarik.',
+  'muscle.action.biceps':
+    'Menekuk siku dan membantu memutar telapak tangan ke atas.',
+  'muscle.action.triceps':
+    'Meluruskan siku saat mendorong atau melakukan ekstensi.',
+  'muscle.action.forearms':
+    'Membantu menggenggam pegangan dan menstabilkan pergelangan tangan.',
+  'muscle.action.abs': 'Menekuk dan menstabilkan batang tubuh.',
+  'muscle.action.lower-back':
+    'Membantu meluruskan dan menstabilkan batang tubuh saat menahan beban.',
+  'muscle.action.glutes': 'Meluruskan sendi panggul dan menstabilkan panggul.',
+  'muscle.action.quadriceps': 'Meluruskan lutut saat squat dan ekstensi kaki.',
+  'muscle.action.hamstrings':
+    'Menekuk lutut dan membantu meluruskan sendi panggul.',
+  'muscle.action.calves':
+    'Mengangkat tumit dengan mengarahkan telapak kaki ke bawah.',
+  'muscle.action.adductors':
+    'Mendekatkan paha ke tengah tubuh dan membantu menstabilkan panggul.',
   'muscle.discover': 'Cari latihan',
   'muscle.choose': 'Pilih otot',
   'muscle.chooseHint': 'Pilih otot pada peta atau daftar.',

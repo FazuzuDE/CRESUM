@@ -832,3 +832,9 @@ acceptance. Initial release Core remains free. Do not skip coverage for speed.
 Implement the grouped muscle picker, catalog matches and shared leading Back
 control in the current Core UI. Device review follows implementation, with
 attention to atlas touch targets, larger text and the fixed header.
+
+### Muscle Map guide and history refinement — approved 2026-11-22
+
+Apply the shared return control on the slogan line, illustrated guide, grouped
+set history and localized muscle functions across the exercise and equipment
+catalog. Verify the updated progression and navigation in the device preview.

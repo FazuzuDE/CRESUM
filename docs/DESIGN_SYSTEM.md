@@ -27,8 +27,9 @@ reachable above the dock or home indicator. Compact dialogs scroll within
 their own bounds.
 
 On nested branded pages, pass the return action to the shared header.
-Show the localized Back control at the leading edge on the same line as
-the wordmark. Keep the wordmark centered independently of the control.
+Show the localized Back control at the leading edge on the slogan line.
+Keep the wordmark centered, retain a 44 × 44 pt target, and show the chevron
+with its accessible Back label when space is limited.
 Top-level tabs have no Back control. Inline controls within a tool or dialog
 follow that tool's interaction, including Cancel and Close.
 
@@ -1905,8 +1906,11 @@ Keep the accepted source and mask geometry and use the existing red palette.
 Selection in the picker uses the primary red for all checked muscles. History
 continues to use the two role colors. Put selected names below the picker map,
 then body areas, collapsible groups and labeled checkboxes. Under the history
-map, keep the role legend and a short explanation. Keep detailed notes and
-per-muscle sets in disclosures.
+map, keep the role legend. How to read the map opens an illustrated example
+of one bench-press set. Sets by muscle uses the picker’s body areas and groups
+with two counts per muscle. Muscle details display the function, a matching
+exercise and recorded history. Use that function copy in expanded muscle
+details for every catalog exercise and equipment variant.
 
 ### Muscle Map visual refinement — 2026-10-17
 

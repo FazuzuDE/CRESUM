@@ -16564,5 +16564,47 @@
     "line": 4,
     "text": "rgba(0, 0, 0, 0.14)",
     "context": "StringLiteral/PropertyAssignment:dialogScrim/ObjectLiteralExpression/AsExpression/VariableDeclaration"
+  },
+  {
+    "file": "components/MuscleGuide.tsx",
+    "line": 42,
+    "text": "muscle.guideNoSets",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+  },
+  {
+    "file": "components/MuscleGuide.tsx",
+    "line": 42,
+    "text": "`muscle.${role}`",
+    "context": "TemplateExpression/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+  },
+  {
+    "file": "components/MuscleGuide.tsx",
+    "line": 67,
+    "text": "primary",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression"
+  },
+  {
+    "file": "components/MuscleGuide.tsx",
+    "line": 67,
+    "text": "secondary",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression"
+  },
+  {
+    "file": "components/MuscleProgress.tsx",
+    "line": 199,
+    "text": "primary",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression"
+  },
+  {
+    "file": "components/MuscleProgress.tsx",
+    "line": 199,
+    "text": "secondary",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression"
+  },
+  {
+    "file": "components/MuscleSetCatalog.tsx",
+    "line": 169,
+    "text": "tabular-nums",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:fontVariant/ObjectLiteralExpression/PropertyAssignment:number"
   }
 ]

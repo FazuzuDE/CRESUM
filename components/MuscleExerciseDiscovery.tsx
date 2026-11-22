@@ -36,19 +36,32 @@ export function MuscleExerciseDiscovery({
   onBack,
   history,
   now,
+  initialMuscle,
 }: {
   onBack: () => void;
   history: readonly WorkoutSession[];
   now: number;
+  initialMuscle?: MuscleId;
 }) {
   const colors = useAppColors();
   const s = useStyles();
   const { t, locale } = useLocalization();
   const dockSpace = useContext(DockSpace);
-  const [area, setArea] = useState<MuscleArea>('upper');
-  const [expanded, setExpanded] = useState<string>();
+  const initialArea =
+    muscleAreaIds.find((key) =>
+      groupsForArea(key).some(
+        ({ muscles }) => initialMuscle && muscles.includes(initialMuscle),
+      ),
+    ) ?? 'upper';
+  const [area, setArea] = useState<MuscleArea>(initialArea);
+  const [expanded, setExpanded] = useState<string | undefined>(
+    () =>
+      groupsForArea(initialArea).find(
+        ({ muscles }) => initialMuscle && muscles.includes(initialMuscle),
+      )?.label,
+  );
   const [selected, setSelected] = useState<ReadonlySet<MuscleId>>(
-    () => new Set(),
+    () => new Set(initialMuscle ? [initialMuscle] : []),
   );
   const [results, setResults] = useState(false);
   const [mode, setMode] = useState<MuscleMatchMode>('all');

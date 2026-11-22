@@ -1034,6 +1034,19 @@ number of chosen muscles in a primary role, then by the number in a secondary
 role. Show the equipment and each matching role, filter by catalog equipment,
 and open the existing exercise detail. These matches describe catalog coverage.
 
+### Muscle Map guide and history refinement — approved 2026-11-22
+
+Use the catalog roles for the bench-press example. The guide explains role
+colors, overlapping roles and how one set contributes to multiple muscles.
+Sets by muscle inherits the map period and uses the same body areas and groups
+as exercise discovery. Each muscle detail includes its function, a catalog
+example and clickable source history. From an empty period, open discovery
+with that muscle already selected. Apply the shared function descriptions to
+all exercises, including machine exercises and equipment variants.
+
+References for muscle functions are [OpenStax upper limb anatomy](https://openstax.org/books/anatomy-and-physiology-2e/pages/11-5-muscles-of-the-pectoral-girdle-and-upper-limbs)
+and [Kenhub’s rhomboid anatomy](https://www.kenhub.com/en/library/anatomy/rhomboid-muscles).
+
 ### Anatomical 3D source direction — approved 2026-10-17
 
 Use a reviewed anatomical 3D source with individually identifiable muscles to

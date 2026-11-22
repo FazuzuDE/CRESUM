@@ -1,4 +1,34 @@
 export default {
+  'muscle.guideExample': '완료한 1세트 예시',
+  'muscle.guideNoSets': '회색은 기록된 세트가 없는 부위입니다',
+  'muscle.guideCount':
+    '한 세트가 여러 근육에 집계될 수 있습니다. 각 근육은 운동에서 맡은 역할에 따라 집계됩니다.',
+  'muscle.function': '근육의 기능',
+  'muscle.periodHistory': '이 기간',
+  'muscle.action.chest': '프레스할 때 위팔을 가슴 앞으로 모읍니다.',
+  'muscle.action.upper-back':
+    '견갑골 사이의 근육은 로우 동작에서 견갑골을 모으고 안정시키는 데 도움을 줍니다.',
+  'muscle.action.lats': '당기는 동작에서 위팔을 아래쪽과 뒤쪽으로 움직입니다.',
+  'muscle.action.traps':
+    '승모근의 각 부분은 견갑골을 들어 올리고 움직이며 안정시킵니다.',
+  'muscle.action.front-delts':
+    '팔을 앞으로 들고 머리 위로 미는 동작을 돕습니다.',
+  'muscle.action.side-delts': '팔을 옆으로 들어 올립니다.',
+  'muscle.action.rear-delts':
+    '당기는 동작에서 위팔을 뒤쪽과 바깥쪽으로 움직입니다.',
+  'muscle.action.biceps':
+    '팔꿈치를 굽히고 손바닥을 위로 돌리는 데 도움을 줍니다.',
+  'muscle.action.triceps': '프레스와 팔 펴기 동작에서 팔꿈치를 폅니다.',
+  'muscle.action.forearms': '손잡이를 잡고 손목을 안정시키는 데 도움을 줍니다.',
+  'muscle.action.abs': '몸통을 굽히고 안정시킵니다.',
+  'muscle.action.lower-back':
+    '몸통을 펴고 부하가 걸릴 때 안정시키는 데 도움을 줍니다.',
+  'muscle.action.glutes': '고관절을 펴고 골반을 안정시킵니다.',
+  'muscle.action.quadriceps': '스쿼트와 레그 익스텐션에서 무릎을 폅니다.',
+  'muscle.action.hamstrings': '무릎을 굽히고 고관절을 펴는 동작을 돕습니다.',
+  'muscle.action.calves': '발을 아래로 밀어 뒤꿈치를 들어 올립니다.',
+  'muscle.action.adductors':
+    '허벅지를 몸 중앙으로 모으고 고관절을 안정시킵니다.',
   'muscle.discover': '운동 찾기',
   'muscle.choose': '근육 선택',
   'muscle.chooseHint': '지도 또는 목록에서 근육을 선택하세요.',

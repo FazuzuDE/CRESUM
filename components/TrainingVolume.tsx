@@ -365,7 +365,12 @@ export function TrainingVolume({
         onRequestClose={() => setAllOpen(false)}
       >
         <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
-          <BrandHeader />
+          <BrandHeader
+            back={{
+              accessibilityLabel: t('volume.close'),
+              onPress: () => setAllOpen(false),
+            }}
+          />
           <View style={s.header}>
             <View style={s.headerCopy}>
               <Text style={s.title}>{t('volume.listTitle')}</Text>
@@ -376,14 +381,6 @@ export function TrainingVolume({
                 })}
               </Text>
             </View>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={t('volume.close')}
-              onPress={() => setAllOpen(false)}
-              style={({ pressed }) => [s.close, pressed && s.pressed]}
-            >
-              <Text style={s.closeText}>{t('progress.close')}</Text>
-            </Pressable>
           </View>
           <AppFlatList
             data={workoutVolumes}
@@ -560,13 +557,6 @@ const useStyles = createThemedStyles((colors) => ({
   },
   headerCopy: { flex: 1, minWidth: 0 },
   title: { ...typography.title2, color: colors.textEmphasis },
-  close: {
-    minWidth: 44,
-    minHeight: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  closeText: { ...typography.headline, color: colors.primary },
   list: { paddingBottom: spacing.xxl },
   row: {
     flexDirection: 'row',

@@ -1,4 +1,34 @@
 export default {
+  'muscle.guideExample': 'Przykład jednej ukończonej serii',
+  'muscle.guideNoSets': 'Szary oznacza brak zapisanych serii',
+  'muscle.guideCount':
+    'Jedna seria może liczyć się dla kilku mięśni. Każdy mięsień jest uwzględniany zgodnie ze swoją rolą w ćwiczeniu.',
+  'muscle.function': 'Funkcja',
+  'muscle.periodHistory': 'W tym okresie',
+  'muscle.action.chest':
+    'Przybliża ramiona do siebie przed klatką piersiową podczas wyciskania.',
+  'muscle.action.upper-back':
+    'Mięśnie między łopatkami zbliżają je do siebie i stabilizują podczas wiosłowania.',
+  'muscle.action.lats': 'Ciągnie ramiona w dół i do tyłu podczas przyciągania.',
+  'muscle.action.traps':
+    'Części mięśnia czworobocznego unoszą, poruszają i stabilizują łopatki.',
+  'muscle.action.front-delts':
+    'Unosi ramię do przodu i pomaga przy wyciskaniu nad głowę.',
+  'muscle.action.side-delts': 'Unosi ramię w bok.',
+  'muscle.action.rear-delts': 'Cofa i odwodzi ramię podczas przyciągania.',
+  'muscle.action.biceps': 'Zgina łokieć i pomaga odwrócić dłoń do góry.',
+  'muscle.action.triceps':
+    'Prostuje łokieć przy wyciskaniu i prostowaniu ramion.',
+  'muscle.action.forearms': 'Pomaga trzymać uchwyt i stabilizować nadgarstek.',
+  'muscle.action.abs': 'Zgina i stabilizuje tułów.',
+  'muscle.action.lower-back':
+    'Pomaga prostować i stabilizować tułów pod obciążeniem.',
+  'muscle.action.glutes': 'Prostuje biodro i stabilizuje miednicę.',
+  'muscle.action.quadriceps':
+    'Prostuje kolano podczas przysiadów i prostowania nóg.',
+  'muscle.action.hamstrings': 'Zgina kolano i pomaga prostować biodro.',
+  'muscle.action.calves': 'Unosi piętę, kierując stopę w dół.',
+  'muscle.action.adductors': 'Przyciąga udo ku środkowi i stabilizuje biodro.',
   'muscle.discover': 'Znajdź ćwiczenia',
   'muscle.choose': 'Wybierz mięśnie',
   'muscle.chooseHint': 'Wybierz mięśnie na mapie lub liście.',

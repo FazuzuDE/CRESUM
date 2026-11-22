@@ -1,9 +1,6 @@
 import { Modal, Text, TextInput } from 'react-native';
 import { MuscleProgress } from '../../components/MuscleProgress';
-import {
-  MuscleDisclosure,
-  MuscleSegments,
-} from '../../components/MusclePageControls';
+import { MuscleSegments } from '../../components/MusclePageControls';
 import { MuscleMap } from '../../components/MuscleMap';
 import { ExerciseStatistics } from '../../components/ExerciseStatistics';
 import { ExercisePerformance } from '../../components/ExercisePerformance';
@@ -21,7 +18,6 @@ import { LocalizationProvider } from '../../components/LocalizationProvider';
 import { LocaleStore } from '../i18n/preference-store';
 import { createTranslator } from '../i18n/engine';
 import { catalogLabel } from '../i18n/catalog';
-import { muscleTaxonomy } from '../exercise-taxonomy';
 import { projectMuscleParticipation } from '../muscle-participation';
 import { projectExerciseStatistics } from '../exercise-statistics';
 import type { WorkoutSession } from '../workout-model';
@@ -122,7 +118,7 @@ const setup = async (element: React.ReactNode) => {
     text: () => JSON.stringify(view!.toJSON()),
   };
 };
-it('translates muscle roles, coverage and source sets without losing the selected muscle or rewriting history', async () => {
+it('translates the selected muscle, its function and source sets without losing the selected muscle or rewriting history', async () => {
   const before = JSON.stringify(history),
     metrics = JSON.stringify(
       projectMuscleParticipation(history, undefined, '7d', now),
@@ -133,14 +129,8 @@ it('translates muscle roles, coverage and source sets without losing the selecte
   try {
     expect(ui.text()).toContain('3 выполненных подхода');
     expect(ui.text()).toContain('1 выполненный подход не имеет привязки');
-    await act(async () => {
-      ui.view.root.findAllByType(MuscleMap)[0].props.onSelect('chest');
-    });
     await act(async () =>
-      ui.view.root.findAllByType(MuscleDisclosure)[1].props.onPress(),
-    );
-    await act(async () =>
-      ui.view.root.findAllByType(MuscleDisclosure)[0].props.onPress(),
+      ui.view.root.findByType(MuscleMap).props.onSelect('chest'),
     );
     await ui.button('Показать выполненные подходы');
     for (const next of ['de', 'fr', 'en', 'ru'] as const) {
@@ -150,17 +140,18 @@ it('translates muscle roles, coverage and source sets without losing the selecte
       expect(ui.view.root.findByType(Modal).props.visible).toBe(true);
       expect(ui.text()).toContain('CUSTOM bench');
       expect(ui.text()).toContain('CUSTOM workout');
-      for (const muscle of muscleTaxonomy)
-        expect(ui.text()).toContain(
-          catalogLabel(next, 'muscle', muscle.id, muscle.label),
-        );
+      expect(ui.text()).toContain(
+        catalogLabel(next, 'muscle', 'chest', 'Chest'),
+      );
+      expect(ui.text()).toContain(
+        createTranslator(next)('muscle.action.chest'),
+      );
       expect(
         JSON.stringify(
           projectMuscleParticipation(history, undefined, '7d', now),
         ),
       ).toBe(metrics);
     }
-    expect(ui.text()).toContain('Схематические анатомические области');
     expect(JSON.stringify(history)).toBe(before);
   } finally {
     act(() => ui.view.unmount());

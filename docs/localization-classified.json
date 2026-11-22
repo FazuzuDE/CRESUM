@@ -11981,5 +11981,61 @@
     "context": "StringLiteral/PropertyAssignment:dialogScrim/ObjectLiteralExpression/AsExpression/VariableDeclaration",
     "kind": "internal",
     "reason": "React Native color token, not interface copy."
+  },
+  {
+    "file": "components/MuscleGuide.tsx",
+    "line": 42,
+    "text": "muscle.guideNoSets",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement",
+    "kind": "internal",
+    "reason": "Localized message keys and muscle role identifiers for the guide."
+  },
+  {
+    "file": "components/MuscleGuide.tsx",
+    "line": 42,
+    "text": "`muscle.${role}`",
+    "context": "TemplateExpression/ConditionalExpression/CallExpression/JsxExpression/JsxElement",
+    "kind": "internal",
+    "reason": "Localized message keys and muscle role identifiers for the guide."
+  },
+  {
+    "file": "components/MuscleGuide.tsx",
+    "line": 67,
+    "text": "primary",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression",
+    "kind": "internal",
+    "reason": "Localized message keys and muscle role identifiers for the guide."
+  },
+  {
+    "file": "components/MuscleGuide.tsx",
+    "line": 67,
+    "text": "secondary",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression",
+    "kind": "internal",
+    "reason": "Localized message keys and muscle role identifiers for the guide."
+  },
+  {
+    "file": "components/MuscleProgress.tsx",
+    "line": 199,
+    "text": "primary",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression",
+    "kind": "internal",
+    "reason": "Internal primary and secondary role identifiers."
+  },
+  {
+    "file": "components/MuscleProgress.tsx",
+    "line": 199,
+    "text": "secondary",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression",
+    "kind": "internal",
+    "reason": "Internal primary and secondary role identifiers."
+  },
+  {
+    "file": "components/MuscleSetCatalog.tsx",
+    "line": 169,
+    "text": "tabular-nums",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:fontVariant/ObjectLiteralExpression/PropertyAssignment:number",
+    "kind": "internal",
+    "reason": "React Native font variant for aligned counters."
   }
 ]

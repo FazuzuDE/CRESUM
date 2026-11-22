@@ -1,4 +1,39 @@
 export default {
+  'muscle.guideExample': 'Esempio di una serie completata',
+  'muscle.guideNoSets': 'Il grigio indica l’assenza di serie registrate',
+  'muscle.guideCount':
+    'Una serie può contare per più muscoli. Ogni muscolo viene conteggiato in base al suo ruolo nell’esercizio.',
+  'muscle.function': 'Funzione',
+  'muscle.periodHistory': 'In questo periodo',
+  'muscle.action.chest':
+    'Avvicina le braccia davanti al petto durante le distensioni.',
+  'muscle.action.upper-back':
+    'I muscoli tra le scapole le avvicinano e le stabilizzano durante una remata.',
+  'muscle.action.lats':
+    'Porta le braccia verso il basso e indietro durante le tirate.',
+  'muscle.action.traps':
+    'Le diverse parti del trapezio sollevano, spostano e stabilizzano le scapole.',
+  'muscle.action.front-delts':
+    'Solleva il braccio in avanti e aiuta nelle spinte sopra la testa.',
+  'muscle.action.side-delts': 'Solleva il braccio lateralmente.',
+  'muscle.action.rear-delts':
+    'Sposta il braccio indietro e verso l’esterno durante le tirate.',
+  'muscle.action.biceps':
+    'Flette il gomito e aiuta a ruotare il palmo verso l’alto.',
+  'muscle.action.triceps': 'Estende il gomito nelle spinte e nelle estensioni.',
+  'muscle.action.forearms':
+    'Aiuta a tenere l’impugnatura e stabilizza il polso.',
+  'muscle.action.abs': 'Flette e stabilizza il busto.',
+  'muscle.action.lower-back':
+    'Aiuta a estendere e stabilizzare il busto sotto carico.',
+  'muscle.action.glutes': 'Estende l’anca e stabilizza il bacino.',
+  'muscle.action.quadriceps':
+    'Estende il ginocchio negli squat e nelle estensioni delle gambe.',
+  'muscle.action.hamstrings': 'Flette il ginocchio e aiuta a estendere l’anca.',
+  'muscle.action.calves':
+    'Solleva il tallone spingendo il piede verso il basso.',
+  'muscle.action.adductors':
+    'Porta la coscia verso il centro e aiuta a stabilizzare l’anca.',
   'muscle.discover': 'Trova esercizi',
   'muscle.choose': 'Scegli i muscoli',
   'muscle.chooseHint': 'Seleziona i muscoli sulla mappa o nell’elenco.',

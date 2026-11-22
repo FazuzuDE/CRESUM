@@ -1,4 +1,7 @@
 import * as Native from 'react-native';
+import { AppButton } from '../../components/AppButton';
+import { MuscleFunction } from '../../components/MuscleFunction';
+import { muscleTaxonomy } from '../exercise-taxonomy';
 import { ExerciseMuscles } from '../../components/ExerciseMuscles';
 import { ExerciseTechnique } from '../../components/ExerciseTechnique';
 import { ExerciseEquipmentSheet } from '../../components/ExerciseEquipmentSheet';
@@ -184,3 +187,20 @@ it('explains partial adductor coverage without a missing-group warning', () => {
   );
   act(() => v.unmount());
 });
+
+it.each(muscleTaxonomy)(
+  'uses a matching catalog exercise for $id',
+  ({ id }) => {
+    let view: ReturnType<typeof create>;
+    const onExample = jest.fn();
+    act(() => {
+      view = create(<MuscleFunction id={id} onExample={onExample} />);
+    });
+    act(() => view.root.findByType(AppButton).props.onPress());
+    const example = onExample.mock.calls[0][0];
+    expect([...example.primaryMuscles, ...example.secondaryMuscles]).toContain(
+      id,
+    );
+    act(() => view.unmount());
+  },
+);
