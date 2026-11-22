@@ -1,3 +1,4 @@
+import { isPressable } from './pressable';
 import { ContentScrollView } from '../../components/ContentScrollView';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
@@ -86,6 +87,13 @@ const mountLegacyBuilder = async () => {
 beforeEach(async () => {
   await AsyncStorage.clear();
 });
+
+const backToProfile = (view: any) =>
+  button(view, 'Back to Profile') ??
+  view.root.findAll(
+    (node: any) =>
+      isPressable(node) && node.props.accessibilityLabel === 'Back to Profile',
+  )[0];
 
 it('lets a new user go straight to Home without generating a program', async () => {
   const view = await mount();
@@ -316,7 +324,7 @@ it('lets a completed user reopen and update personalization from Profile', async
   act(() => view.root.findByType(Dock).props.onChange('profile'));
   await act(async () => button(view, 'Personalization')?.props.onPress());
   expect(button(view, 'Continue')).toBeDefined();
-  await act(async () => button(view, 'Back to Profile')?.props.onPress());
+  await act(async () => backToProfile(view)?.props.onPress());
   expect(view.root.findByType(Dock).props.active).toBe('profile');
   await act(async () => view.unmount());
 });
@@ -335,7 +343,7 @@ it('resumes an unfinished Profile body-details edit after reopening', async () =
   act(() => view.root.findByType(Dock).props.onChange('profile'));
   await act(async () => button(view, 'Personalization')?.props.onPress());
   await enterBody(view);
-  await act(async () => button(view, 'Back to Profile')?.props.onPress());
+  await act(async () => backToProfile(view)?.props.onPress());
   await act(async () => view.unmount());
   const restored = await mount();
   act(() => restored.root.findByType(Dock).props.onChange('profile'));

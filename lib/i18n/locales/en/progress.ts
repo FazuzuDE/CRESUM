@@ -1,4 +1,27 @@
 export default {
+  'muscle.discover': 'Find exercises',
+  'muscle.choose': 'Choose muscles',
+  'muscle.chooseHint': 'Select muscles on the map or in the list.',
+  'muscle.showExercises': 'Show exercises',
+  'muscle.results': 'Exercises',
+  'muscle.matchAll': 'All selected',
+  'muscle.matchAny': 'Any selected',
+  'muscle.readMap': 'How to read the map',
+  'muscle.setsByMuscle': 'Sets by muscle',
+  'muscle.clearSelection': 'Clear selection',
+  'muscle.shortMeaning':
+    'Color shows the muscle’s role in logged exercises. If it played both roles, the map shows the primary role.',
+  'muscle.catalogBasis': 'Matches use the muscle roles in the CRESUM catalog.',
+  'muscle.area.upper': 'Upper body',
+  'muscle.area.core': 'Core',
+  'muscle.area.lower': 'Lower body',
+  'muscle.group.chest': 'Chest',
+  'muscle.group.arms': 'Arms',
+  'muscle.group.back': 'Back',
+  'muscle.group.shoulders': 'Shoulders',
+  'muscle.group.core': 'Core',
+  'muscle.group.hips': 'Hips',
+  'muscle.group.legs': 'Legs',
   'muscle.adductorRegion':
     'Adductor highlights show only selected visible medial-thigh patches; boundaries are provisional and deep portions are not shown.',
   'muscle.rearDeltRegion':

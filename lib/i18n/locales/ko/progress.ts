@@ -1,4 +1,28 @@
 export default {
+  'muscle.discover': '운동 찾기',
+  'muscle.choose': '근육 선택',
+  'muscle.chooseHint': '지도 또는 목록에서 근육을 선택하세요.',
+  'muscle.showExercises': '운동 보기',
+  'muscle.results': '운동',
+  'muscle.matchAll': '선택한 근육 모두',
+  'muscle.matchAny': '선택한 근육 중 하나 이상',
+  'muscle.readMap': '지도 읽는 법',
+  'muscle.setsByMuscle': '근육별 세트',
+  'muscle.clearSelection': '선택 지우기',
+  'muscle.shortMeaning':
+    '색은 기록한 운동에서 근육이 맡은 역할을 나타냅니다. 두 역할을 모두 맡았다면 지도에는 주 역할이 표시됩니다.',
+  'muscle.catalogBasis':
+    'CRESUM 카탈로그의 근육 역할을 기준으로 운동을 찾습니다.',
+  'muscle.area.upper': '상체',
+  'muscle.area.core': '몸통',
+  'muscle.area.lower': '하체',
+  'muscle.group.chest': '가슴',
+  'muscle.group.arms': '팔',
+  'muscle.group.back': '등',
+  'muscle.group.shoulders': '어깨',
+  'muscle.group.core': '몸통',
+  'muscle.group.hips': '엉덩이 주변',
+  'muscle.group.legs': '다리',
   'muscle.adductorRegion':
     '내전근 강조 표시는 허벅지 안쪽에서 보이는 일부 영역만 나타냅니다. 경계는 잠정적이며 깊은 부분은 표시하지 않습니다.',
   'muscle.rearDeltRegion':

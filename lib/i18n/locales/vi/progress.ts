@@ -1,4 +1,28 @@
 export default {
+  'muscle.discover': 'Tìm bài tập',
+  'muscle.choose': 'Chọn cơ',
+  'muscle.chooseHint': 'Chọn cơ trên bản đồ hoặc trong danh sách.',
+  'muscle.showExercises': 'Xem bài tập',
+  'muscle.results': 'Bài tập',
+  'muscle.matchAll': 'Tất cả cơ đã chọn',
+  'muscle.matchAny': 'Ít nhất một cơ',
+  'muscle.readMap': 'Cách đọc bản đồ',
+  'muscle.setsByMuscle': 'Hiệp theo nhóm cơ',
+  'muscle.clearSelection': 'Bỏ chọn tất cả',
+  'muscle.shortMeaning':
+    'Màu sắc cho biết vai trò của cơ trong các bài tập đã ghi. Nếu cơ đảm nhận cả hai vai trò, bản đồ hiển thị vai trò chính.',
+  'muscle.catalogBasis':
+    'Bài tập được chọn theo vai trò của cơ trong danh mục CRESUM.',
+  'muscle.area.upper': 'Thân trên',
+  'muscle.area.core': 'Thân giữa',
+  'muscle.area.lower': 'Thân dưới',
+  'muscle.group.chest': 'Ngực',
+  'muscle.group.arms': 'Tay',
+  'muscle.group.back': 'Lưng',
+  'muscle.group.shoulders': 'Vai',
+  'muscle.group.core': 'Thân giữa',
+  'muscle.group.hips': 'Hông',
+  'muscle.group.legs': 'Chân',
   'muscle.adductorRegion':
     'Vùng tô cơ khép đùi chỉ thể hiện một số mảng nhìn thấy ở mặt trong đùi; ranh giới còn tạm thời và không hiển thị phần sâu.',
   'muscle.rearDeltRegion':

@@ -1,4 +1,27 @@
 export default {
+  'muscle.discover': 'Підібрати вправи',
+  'muscle.choose': 'Вибрати м’язи',
+  'muscle.chooseHint': 'Позначте м’язи на карті або в списку.',
+  'muscle.showExercises': 'Показати вправи',
+  'muscle.results': 'Вправи',
+  'muscle.matchAll': 'Усі вибрані',
+  'muscle.matchAny': 'Будь-який вибраний',
+  'muscle.readMap': 'Як читати карту',
+  'muscle.setsByMuscle': 'Підходи за м’язами',
+  'muscle.clearSelection': 'Скинути вибір',
+  'muscle.shortMeaning':
+    'Колір показує роль м’яза в записаних вправах. Якщо він виконував обидві ролі, карта показує основну.',
+  'muscle.catalogBasis': 'Підбір за ролями м’язів у каталозі CRESUM.',
+  'muscle.area.upper': 'Верх тіла',
+  'muscle.area.core': 'Корпус',
+  'muscle.area.lower': 'Низ тіла',
+  'muscle.group.chest': 'Груди',
+  'muscle.group.arms': 'Руки',
+  'muscle.group.back': 'Спина',
+  'muscle.group.shoulders': 'Плечі',
+  'muscle.group.core': 'Корпус',
+  'muscle.group.hips': 'Таз',
+  'muscle.group.legs': 'Ноги',
   'muscle.adductorRegion':
     'На внутрішній поверхні стегна виділено лише окремі видимі ділянки привідних м’язів. Межі орієнтовні, глибокі ділянки не показано.',
   'muscle.rearDeltRegion':

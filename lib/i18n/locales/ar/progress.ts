@@ -1,4 +1,27 @@
 export default {
+  'muscle.discover': 'البحث عن تمارين',
+  'muscle.choose': 'اختيار العضلات',
+  'muscle.chooseHint': 'اختر العضلات على الخريطة أو من القائمة.',
+  'muscle.showExercises': 'عرض التمارين',
+  'muscle.results': 'التمارين',
+  'muscle.matchAll': 'كل العضلات المحددة',
+  'muscle.matchAny': 'أي عضلة محددة',
+  'muscle.readMap': 'كيفية قراءة الخريطة',
+  'muscle.setsByMuscle': 'المجموعات حسب العضلة',
+  'muscle.clearSelection': 'مسح التحديد',
+  'muscle.shortMeaning':
+    'يشير اللون إلى دور العضلة في التمارين المسجلة. عند أداء الدورين، تعرض الخريطة الدور الأساسي.',
+  'muscle.catalogBasis': 'تُختار التمارين حسب أدوار العضلات في دليل CRESUM.',
+  'muscle.area.upper': 'الجزء العلوي',
+  'muscle.area.core': 'الجذع',
+  'muscle.area.lower': 'الجزء السفلي',
+  'muscle.group.chest': 'الصدر',
+  'muscle.group.arms': 'الذراعان',
+  'muscle.group.back': 'الظهر',
+  'muscle.group.shoulders': 'الكتفان',
+  'muscle.group.core': 'الجذع',
+  'muscle.group.hips': 'الوركان',
+  'muscle.group.legs': 'الساقان',
   'muscle.adductorRegion':
     'يُظهر تظليل العضلات المقرّبة أجزاء مختارة مرئية من باطن الفخذ فقط؛ الحدود مؤقتة والأجزاء العميقة غير ظاهرة.',
   'muscle.rearDeltRegion':

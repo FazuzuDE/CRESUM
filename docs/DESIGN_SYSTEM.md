@@ -26,6 +26,12 @@ Scroll page content independently from the header. Keep the final action
 reachable above the dock or home indicator. Compact dialogs scroll within
 their own bounds.
 
+On nested branded pages, pass the return action to the shared header.
+Show the localized Back control at the leading edge on the same line as
+the wordmark. Keep the wordmark centered independently of the control.
+Top-level tabs have no Back control. Inline controls within a tool or dialog
+follow that tool's interaction, including Cancel and Close.
+
 Keep the current bottom dock layout and glass material during page redesigns
 unless the dock itself is explicitly in scope.
 
@@ -1883,6 +1889,16 @@ Details expose saved exercise/workout names and actual logged rows. Retain the
 existing Overview rather than adding nonfunctional Strength/Volume tabs.
 Device SVG touch, large text, VoiceOver/TalkBack and visual acceptance remain
 release checks; automated tests and exports do not replace those checks.
+
+### Muscle Map and exercise discovery — approved 2026-11-22
+
+Use the same full-size front and back map in Progress and the muscle picker.
+Keep the accepted source and mask geometry and use the existing red palette.
+Selection in the picker uses the primary red for all checked muscles. History
+continues to use the two role colors. Put selected names below the picker map,
+then body areas, collapsible groups and labeled checkboxes. Under the history
+map, keep the role legend and a short explanation. Keep detailed notes and
+per-muscle sets in disclosures.
 
 ### Muscle Map visual refinement — 2026-10-17
 

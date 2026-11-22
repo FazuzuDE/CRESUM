@@ -340,15 +340,9 @@ function LoggedExerciseSets({
       onRequestClose={onClose}
     >
       <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
-        <BrandHeader />
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel={t('stats.backA11y')}
-          onPress={onClose}
-          style={s.back}
-        >
-          <Text style={s.link}>{t('stats.back')}</Text>
-        </Pressable>
+        <BrandHeader
+          back={{ accessibilityLabel: t('stats.backA11y'), onPress: onClose }}
+        />
         <AppScrollView
           safeAreaEdges={['bottom']}
           contentContainerStyle={s.content}
@@ -504,7 +498,6 @@ const s = StyleSheet.create({
     backgroundColor: colors.background,
     paddingHorizontal: spacing.md,
   },
-  back: { minHeight: 44, justifyContent: 'center' },
   pageTitle: { ...typography.largeTitle, color: colors.textPrimary },
   setRow: {
     flexDirection: 'row',

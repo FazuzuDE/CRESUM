@@ -1,3 +1,4 @@
+import { isPressable } from './pressable';
 import { BrandHeaderBackdrop } from '../../components/BrandHeader';
 import { GlassMaterial } from '../../components/GlassMaterial';
 import { SharingHub } from '../../components/workout-sharing/SharingHub';
@@ -49,6 +50,13 @@ const mount = async () => {
 beforeEach(async () => {
   await AsyncStorage.clear();
 });
+
+const backToProfile = (view: any) =>
+  button(view, 'Back to Profile') ??
+  view.root.findAll(
+    (node: any) =>
+      isPressable(node) && node.props.accessibilityLabel === 'Back to Profile',
+  )[0];
 
 it('chooses female during welcome, keeps it through back and relaunch', async () => {
   const view = await mount();
@@ -150,7 +158,7 @@ it('retains the previous character when saving fails and can retry', async () =>
     expect(JSON.stringify(view.toJSON())).toContain(
       'Could not save your character',
     );
-    act(() => button(view, 'Back to Profile').props.onPress());
+    act(() => backToProfile(view).props.onPress());
     await act(async () => button(view, 'Exercise Library').props.onPress());
     await act(async () =>
       view.root.findByType(ExerciseLibrary).props.onClose(),
@@ -190,7 +198,7 @@ it('serializes character changes and keeps personalization closed until saving f
       button(view, 'Female').props.onPress();
     });
     expect(button(view, 'Male').props.disabled).toBe(true);
-    act(() => button(view, 'Back to Profile').props.onPress());
+    act(() => backToProfile(view).props.onPress());
     act(() => button(view, 'Local data').props.onPress());
     expect(button(view, 'Reset local data').props.disabled).toBe(true);
     await act(async () => button(view, 'Reset local data').props.onPress());
@@ -199,7 +207,7 @@ it('serializes character changes and keeps personalization closed until saving f
       .find((node: any) => node.props.confirmLabel === 'Reset local data');
     await act(async () => reset.props.onConfirm());
     expect(await AsyncStorage.getItem(ONBOARDING_KEY)).not.toBeNull();
-    act(() => button(view, 'Back to Profile').props.onPress());
+    act(() => backToProfile(view).props.onPress());
     await act(async () => {
       button(view, 'Personalization').props.onPress();
     });
@@ -233,7 +241,14 @@ it('keeps character selection in Profile when editing personalization', async ()
   await act(async () => button(view, 'Continue').props.onPress());
   expect(button(view, 'Female')).toBeUndefined();
   expect(button(view, 'Continue without body details')).toBeDefined();
-  await act(async () => button(view, 'Back').props.onPress());
+  await act(async () =>
+    view.root
+      .find(
+        (node: any) =>
+          isPressable(node) && node.props.accessibilityLabel === 'Back',
+      )
+      .props.onPress(),
+  );
   expect(view.root.findByType(Onboarding).props.state.step).toBe('welcome');
   await act(async () => view.unmount());
 });

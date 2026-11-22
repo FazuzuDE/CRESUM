@@ -79,29 +79,33 @@ export function BackupPage({
     : undefined;
   if (fullRestore)
     return (
-      <AppScrollView branded dockAware contentContainerStyle={s.content}>
-        <AppButton
-          title={t('backup.back')}
-          secondary
-          presentation="text"
-          onPress={() => setFullRestore(false)}
-        />
+      <AppScrollView
+        branded
+        dockAware
+        contentContainerStyle={s.content}
+        back={{
+          accessibilityLabel: t('backup.back'),
+          onPress: () => setFullRestore(false),
+        }}
+      >
         <BackupControls {...backup} />
       </AppScrollView>
     );
   if (importing && file && preview)
     return (
-      <AppScrollView branded dockAware contentContainerStyle={s.content}>
-        <AppButton
-          title={t('backup.back')}
-          secondary
-          presentation="text"
-          disabled={checking}
-          onPress={() => {
+      <AppScrollView
+        branded
+        dockAware
+        contentContainerStyle={s.content}
+        back={{
+          accessibilityLabel: t('backup.back'),
+          disabled: checking,
+          onPress: () => {
             setImporting(false);
             setFile(undefined);
-          }}
-        />
+          },
+        }}
+      >
         <Text style={s.title} accessibilityRole="header">
           {t('backup.import')}
         </Text>
@@ -164,14 +168,16 @@ export function BackupPage({
       </AppScrollView>
     );
   return (
-    <AppScrollView branded dockAware contentContainerStyle={s.content}>
-      <AppButton
-        title={t('profile.back')}
-        secondary
-        presentation="text"
-        disabled={busy}
-        onPress={onClose}
-      />
+    <AppScrollView
+      branded
+      dockAware
+      contentContainerStyle={s.content}
+      back={{
+        accessibilityLabel: t('profile.back'),
+        disabled: busy,
+        onPress: onClose,
+      }}
+    >
       <Text style={s.title} accessibilityRole="header">
         {t('backup.title')}
       </Text>

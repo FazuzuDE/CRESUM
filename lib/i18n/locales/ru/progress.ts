@@ -1,4 +1,27 @@
 export default {
+  'muscle.discover': 'Подобрать упражнения',
+  'muscle.choose': 'Выбрать мышцы',
+  'muscle.chooseHint': 'Отметьте мышцы на карте или в списке.',
+  'muscle.showExercises': 'Показать упражнения',
+  'muscle.results': 'Упражнения',
+  'muscle.matchAll': 'Все выбранные',
+  'muscle.matchAny': 'Любая из выбранных',
+  'muscle.readMap': 'Как читать карту',
+  'muscle.setsByMuscle': 'Подходы по мышцам',
+  'muscle.clearSelection': 'Сбросить',
+  'muscle.shortMeaning':
+    'Цвет показывает роль мышцы в записанных упражнениях. Если она выполняла обе роли, на карте показана основная.',
+  'muscle.catalogBasis': 'Подбор по ролям мышц в каталоге CRESUM.',
+  'muscle.area.upper': 'Верх тела',
+  'muscle.area.core': 'Корпус',
+  'muscle.area.lower': 'Низ тела',
+  'muscle.group.chest': 'Грудь',
+  'muscle.group.arms': 'Руки',
+  'muscle.group.back': 'Спина',
+  'muscle.group.shoulders': 'Плечи',
+  'muscle.group.core': 'Корпус',
+  'muscle.group.hips': 'Таз',
+  'muscle.group.legs': 'Ноги',
   'muscle.adductorRegion':
     'Подсветка приводящих показывает только выбранные видимые участки внутренней поверхности бедра; границы условные, глубокие части не показаны.',
   'muscle.rearDeltRegion':

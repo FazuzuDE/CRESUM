@@ -1015,6 +1015,20 @@ multiple muscles; muscle counts must not be summed as a unique total.
 No stimulus coefficients, recovery estimates, intensity normalization, medical
 claims, recommendations, schema changes or history rewrites are introduced.
 
+### Muscle Map discovery — approved 2026-11-22
+
+The Progress map keeps recorded participation and source-set details.
+Find exercises is available with or without workout history. A separate picker
+groups the existing muscles by upper body, core and lower body, then by muscle
+group. Map taps and checkboxes share one selection across groups. Preserve the
+selection when returning from results.
+
+Results use existing catalog roles. All selected requires every chosen muscle
+to appear in either role. Any selected requires at least one. Sort by the
+number of chosen muscles in a primary role, then by the number in a secondary
+role. Show the equipment and each matching role, filter by catalog equipment,
+and open the existing exercise detail. These matches describe catalog coverage.
+
 ### Anatomical 3D source direction — approved 2026-10-17
 
 Use a reviewed anatomical 3D source with individually identifiable muscles to

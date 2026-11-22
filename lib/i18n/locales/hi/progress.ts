@@ -1,4 +1,28 @@
 export default {
+  'muscle.discover': 'व्यायाम ढूँढें',
+  'muscle.choose': 'मांसपेशियाँ चुनें',
+  'muscle.chooseHint': 'मानचित्र या सूची से मांसपेशियाँ चुनें।',
+  'muscle.showExercises': 'व्यायाम दिखाएँ',
+  'muscle.results': 'व्यायाम',
+  'muscle.matchAll': 'सभी चुनी हुई',
+  'muscle.matchAny': 'चुनी हुई में से कोई भी',
+  'muscle.readMap': 'मानचित्र कैसे पढ़ें',
+  'muscle.setsByMuscle': 'मांसपेशी के अनुसार सेट',
+  'muscle.clearSelection': 'चयन हटाएँ',
+  'muscle.shortMeaning':
+    'रंग दर्ज किए गए व्यायामों में मांसपेशी की भूमिका दिखाता है। दोनों भूमिकाएँ होने पर मानचित्र प्राथमिक भूमिका दिखाता है।',
+  'muscle.catalogBasis':
+    'व्यायाम CRESUM कैटलॉग में दर्ज मांसपेशियों की भूमिकाओं के आधार पर चुने जाते हैं।',
+  'muscle.area.upper': 'ऊपरी शरीर',
+  'muscle.area.core': 'धड़',
+  'muscle.area.lower': 'निचला शरीर',
+  'muscle.group.chest': 'छाती',
+  'muscle.group.arms': 'बाँहें',
+  'muscle.group.back': 'पीठ',
+  'muscle.group.shoulders': 'कंधे',
+  'muscle.group.core': 'धड़',
+  'muscle.group.hips': 'कूल्हे',
+  'muscle.group.legs': 'पैर',
   'muscle.adductorRegion':
     'जाँघ के अंदर की मांसपेशियों के हाइलाइट केवल चुने हुए दिखाई देने वाले हिस्से दिखाते हैं। सीमाएँ अस्थायी हैं और गहरे हिस्से नहीं दिखाए गए हैं।',
   'muscle.rearDeltRegion':

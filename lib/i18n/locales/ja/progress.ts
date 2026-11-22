@@ -1,4 +1,28 @@
 export default {
+  'muscle.discover': '種目を探す',
+  'muscle.choose': '筋肉を選択',
+  'muscle.chooseHint': 'マップまたは一覧から筋肉を選択します。',
+  'muscle.showExercises': '種目を表示',
+  'muscle.results': '種目',
+  'muscle.matchAll': '選択したすべて',
+  'muscle.matchAny': '選択したいずれか',
+  'muscle.readMap': 'マップの見方',
+  'muscle.setsByMuscle': '筋肉別のセット',
+  'muscle.clearSelection': '選択を解除',
+  'muscle.shortMeaning':
+    '色は記録した種目での筋肉の役割を示します。両方の役割を担った場合は、主働筋として表示されます。',
+  'muscle.catalogBasis':
+    'CRESUMの種目カタログにある筋肉の役割に基づいて絞り込みます。',
+  'muscle.area.upper': '上半身',
+  'muscle.area.core': '体幹',
+  'muscle.area.lower': '下半身',
+  'muscle.group.chest': '胸',
+  'muscle.group.arms': '腕',
+  'muscle.group.back': '背中',
+  'muscle.group.shoulders': '肩',
+  'muscle.group.core': '体幹',
+  'muscle.group.hips': '股関節まわり',
+  'muscle.group.legs': '脚',
   'muscle.adductorRegion':
     '内転筋の強調表示は、内ももの選択済みの見える部分だけを示します。境界は暫定的で、深部は表示していません。',
   'muscle.rearDeltRegion':

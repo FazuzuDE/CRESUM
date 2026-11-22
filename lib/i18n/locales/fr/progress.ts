@@ -1,4 +1,29 @@
 export default {
+  'muscle.discover': 'Trouver des exercices',
+  'muscle.choose': 'Choisir les muscles',
+  'muscle.chooseHint':
+    'Sélectionnez les muscles sur la carte ou dans la liste.',
+  'muscle.showExercises': 'Afficher les exercices',
+  'muscle.results': 'Exercices',
+  'muscle.matchAll': 'Tous les muscles choisis',
+  'muscle.matchAny': 'Au moins un muscle',
+  'muscle.readMap': 'Comment lire la carte',
+  'muscle.setsByMuscle': 'Séries par muscle',
+  'muscle.clearSelection': 'Effacer la sélection',
+  'muscle.shortMeaning':
+    'La couleur indique le rôle du muscle dans les exercices enregistrés. S’il a joué les deux rôles, la carte affiche le rôle principal.',
+  'muscle.catalogBasis':
+    'La sélection repose sur le rôle des muscles dans le catalogue CRESUM.',
+  'muscle.area.upper': 'Haut du corps',
+  'muscle.area.core': 'Tronc',
+  'muscle.area.lower': 'Bas du corps',
+  'muscle.group.chest': 'Pectoraux',
+  'muscle.group.arms': 'Bras',
+  'muscle.group.back': 'Dos',
+  'muscle.group.shoulders': 'Épaules',
+  'muscle.group.core': 'Tronc',
+  'muscle.group.hips': 'Hanches',
+  'muscle.group.legs': 'Jambes',
   'muscle.adductorRegion':
     'La coloration des adducteurs montre uniquement certaines zones visibles de la face médiale de la cuisse ; les limites sont provisoires et les parties profondes ne sont pas représentées.',
   'muscle.rearDeltRegion':

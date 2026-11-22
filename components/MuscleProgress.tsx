@@ -9,6 +9,8 @@ import { AppButton } from './AppButton';
 import { AppScrollView } from './AppScrollView';
 import { GlassCard } from './GlassCard';
 import { MuscleMap } from './MuscleMap';
+import { MuscleExerciseDiscovery } from './MuscleExerciseDiscovery';
+import { MuscleDisclosure, MuscleSegments } from './MusclePageControls';
 import { anatomicalMissingGroups } from '@/lib/anatomical-muscle-map';
 import {
   projectMuscleParticipation,
@@ -36,6 +38,9 @@ export function MuscleProgress({
   const [period, setPeriod] = useState<MusclePeriod>('7d');
   const [selected, setSelected] = useState<MuscleId>();
   const [showSets, setShowSets] = useState(false);
+  const [help, setHelp] = useState(false);
+  const [summary, setSummary] = useState(false);
+  const [discover, setDiscover] = useState(false);
   const data = useMemo(
     () => projectMuscleParticipation(history, activeWorkout, period, now),
     [history, activeWorkout, period, now],
@@ -59,117 +64,131 @@ export function MuscleProgress({
     setSelected(id);
     setShowSets(false);
   }
+  if (discover)
+    return (
+      <MuscleExerciseDiscovery
+        onBack={() => setDiscover(false)}
+        history={history}
+        now={now}
+      />
+    );
   return (
     <>
       <AppScrollView branded dockAware contentContainerStyle={s.content}>
         <Text style={s.title} accessibilityRole="header">
           {t('progress.title')}
         </Text>
-        <View style={s.tabs}>
-          <AppButton
-            title={t('progress.overview')}
-            secondary
-            onPress={onOverview}
-          />
-          <AppButton
-            title={t('progress.muscles')}
-            selected
-            onPress={() => {}}
-          />
-        </View>
-        <Text style={s.heading} accessibilityRole="header">
-          {t('muscle.map')}
-        </Text>
-        <View style={s.periods}>
-          {(
-            [
-              ['workout', t('muscle.workout')],
-              ['7d', t('muscle.seven')],
-              ['4w', t('muscle.four')],
-            ] as const
-          ).map(([id, label]) => (
-            <AppButton
-              key={id}
-              title={label}
-              secondary={period !== id}
-              selected={period === id}
-              onPress={() => {
-                setPeriod(id);
-                setSelected(undefined);
-              }}
-            />
-          ))}
-        </View>
-        <GlassCard>
-          <View style={s.card}>
-            <Text style={s.heading}>{context}</Text>
-            {data.workoutName ? (
-              <Text style={s.body}>{data.workoutName}</Text>
-            ) : null}
-            <Text style={s.body}>
+        <MuscleSegments
+          options={{
+            overview: t('progress.overview'),
+            muscles: t('progress.muscles'),
+          }}
+          value="muscles"
+          onChange={(tab) => {
+            if (tab === 'overview') onOverview();
+          }}
+        />
+        <GlassCard style={s.card}>
+          <View style={s.cardHeader}>
+            <Text style={s.heading} accessibilityRole="header">
+              {t('muscle.map')}
+            </Text>
+            <Text style={s.count}>
               {t('muscle.completed', { count: data.totalSets })}
             </Text>
-            <MuscleMap muscles={data.muscles} onSelect={select} />
-            <View style={s.legend}>
-              <Text style={s.body}>
-                <Text style={{ color: colors.musclePrimary }}>● </Text>
-                {t('muscle.primary')}
-              </Text>
-              <Text style={s.body}>
-                <Text style={{ color: colors.muscleSecondary }}>● </Text>
-                {t('muscle.secondary')}
-              </Text>
-              <Text style={s.body}>
-                <Text style={{ color: colors.muscleNeutral }}>● </Text>
-                {t('muscle.neutral')}
-              </Text>
-            </View>
-            <Text style={s.note}>{t('muscle.meaning')}</Text>
-            <Text style={s.note}>{t('muscle.upperBackProjection')}</Text>
-            <Text style={s.note}>{t('muscle.rearDeltRegion')}</Text>
-            <Text style={s.note}>{t('muscle.adductorRegion')}</Text>
-            <Text style={s.note}>{t('exerciseMuscles.lowerBack')}</Text>
-            {anatomicalMissingGroups.length ? (
-              <Text style={s.note}>
-                {t('muscle.coverage', {
-                  groups: anatomicalMissingGroups
-                    .map((m) => muscleLabel(m.id, m.label))
-                    .join(', '),
-                })}
-              </Text>
-            ) : null}
           </View>
-        </GlassCard>
-        {data.totalSets === 0 ? (
-          <Text style={s.body}>{t('muscle.empty')}</Text>
-        ) : null}
-        {data.unmappedSets > 0 ? (
-          <Text style={s.body}>
-            {t('muscle.unmapped', { count: data.unmappedSets })}
+          <MuscleSegments
+            options={{
+              workout: t('muscle.workout'),
+              '7d': t('muscle.seven'),
+              '4w': t('muscle.four'),
+            }}
+            value={period}
+            onChange={(id) => {
+              setPeriod(id);
+              setSelected(undefined);
+            }}
+          />
+          {data.workoutName ? (
+            <Text style={s.body}>{data.workoutName}</Text>
+          ) : null}
+          <MuscleMap muscles={data.muscles} onSelect={select} />
+          <View style={s.legend}>
+            <Text style={s.note}>
+              <Text style={{ color: colors.musclePrimary }}>● </Text>
+              {t('muscle.primary')}
+            </Text>
+            <Text style={s.note}>
+              <Text style={{ color: colors.muscleSecondary }}>● </Text>
+              {t('muscle.secondary')}
+            </Text>
+          </View>
+          <Text style={s.note}>
+            {data.totalSets === 0
+              ? t('muscle.empty')
+              : t('muscle.shortMeaning')}
           </Text>
-        ) : null}
-        <Text style={s.note}>{t('muscle.basis')}</Text>
-        <GlassCard>
-          <View style={s.card}>
-            {data.muscles.map((item) => (
-              <AppButton
-                key={item.id}
-                title={t('muscle.row', {
-                  name: muscleLabel(item.id, item.label),
-                  primary: item.primary,
-                  secondary: item.secondary,
-                })}
-                accessibilityLabel={t('muscle.rowA11y', {
-                  name: muscleLabel(item.id, item.label),
-                  primary: item.primary,
-                  secondary: item.secondary,
-                })}
-                presentation="row"
-                onPress={() => select(item.id)}
-              />
-            ))}
-          </View>
+          {data.unmappedSets > 0 ? (
+            <Text style={s.note}>
+              {t('muscle.unmapped', { count: data.unmappedSets })}
+            </Text>
+          ) : null}
+          <MuscleDisclosure
+            label={t('muscle.readMap')}
+            expanded={help}
+            onPress={() => setHelp(!help)}
+          />
+          {help ? (
+            <View style={s.help}>
+              <Text style={s.note}>{t('muscle.meaning')}</Text>
+              <Text style={s.note}>{t('muscle.basis')}</Text>
+              <Text style={s.note}>{t('muscle.upperBackProjection')}</Text>
+              <Text style={s.note}>{t('muscle.rearDeltRegion')}</Text>
+              <Text style={s.note}>{t('muscle.adductorRegion')}</Text>
+              <Text style={s.note}>{t('exerciseMuscles.lowerBack')}</Text>
+              {anatomicalMissingGroups.length ? (
+                <Text style={s.note}>
+                  {t('muscle.coverage', {
+                    groups: anatomicalMissingGroups
+                      .map((m) => muscleLabel(m.id, m.label))
+                      .join(', '),
+                  })}
+                </Text>
+              ) : null}
+            </View>
+          ) : null}
+          <MuscleDisclosure
+            label={t('muscle.setsByMuscle')}
+            expanded={summary}
+            onPress={() => setSummary(!summary)}
+          />
+          {summary ? (
+            <View style={s.help}>
+              {data.muscles.map((item) => (
+                <AppButton
+                  key={item.id}
+                  title={muscleLabel(item.id, item.label)}
+                  detail={t('muscle.counts', {
+                    primary: item.primary,
+                    secondary: item.secondary,
+                  })}
+                  accessibilityLabel={t('muscle.rowA11y', {
+                    name: muscleLabel(item.id, item.label),
+                    primary: item.primary,
+                    secondary: item.secondary,
+                  })}
+                  presentation="row"
+                  secondary
+                  onPress={() => select(item.id)}
+                />
+              ))}
+            </View>
+          ) : null}
         </GlassCard>
+        <AppButton
+          title={t('muscle.discover')}
+          onPress={() => setDiscover(true)}
+        />
       </AppScrollView>
       <Modal
         visible={!!muscle}
@@ -180,14 +199,10 @@ export function MuscleProgress({
         <SafeAreaView style={s.modal}>
           <AppScrollView
             branded
+            back={{ onPress: () => setSelected(undefined) }}
             safeAreaEdges={[]}
             contentContainerStyle={s.content}
           >
-            <AppButton
-              title={t('common.done')}
-              secondary
-              onPress={() => setSelected(undefined)}
-            />
             {muscle ? (
               <>
                 <Text style={s.title} accessibilityRole="header">
@@ -316,7 +331,21 @@ const s = StyleSheet.create({
   body: { ...typography.subheadline, color: colors.textSecondary },
   note: { ...typography.footnote, color: colors.textSecondary },
   card: { gap: spacing.sm },
-  tabs: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs },
-  periods: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs },
+  cardHeader: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.xs,
+  },
+  count: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    backgroundColor: colors.surfaceSubtle,
+    paddingHorizontal: spacing.xs,
+    paddingVertical: spacing.xxs,
+    borderRadius: spacing.xs,
+  },
+  help: { gap: spacing.sm },
   legend: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
 });
