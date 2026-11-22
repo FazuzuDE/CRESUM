@@ -16708,5 +16708,341 @@
     "line": 270,
     "text": "`${(sourceHeight / atlasHeight) * 100}%`",
     "context": "TemplateExpression/PropertyAssignment:height/ObjectLiteralExpression/PropertyAssignment:source/ObjectLiteralExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 151,
+    "text": "Choose a goal to prepare your program.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 158,
+    "text": "Required exercises are unavailable.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/Block/IfStatement"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 578,
+    "text": "universal",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+  },
+  {
+    "file": "components/Onboarding.tsx",
+    "line": 578,
+    "text": "program.universal",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/AsExpression/ParenthesizedExpression"
+  },
+  {
+    "file": "components/StarterProgramReview.tsx",
+    "line": 132,
+    "text": "Plank",
+    "context": "StringLiteral/CallExpression/JsxExpression/JsxElement/JsxElement"
+  },
+  {
+    "file": "components/StarterProgramReview.tsx",
+    "line": 150,
+    "text": "program.treadmill",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+  },
+  {
+    "file": "components/StarterProgramReview.tsx",
+    "line": 151,
+    "text": "program.bike",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement"
+  },
+  {
+    "file": "components/StarterProgramSchedule.tsx",
+    "line": 56,
+    "text": "`program-weekday-${day}`",
+    "context": "TemplateExpression/JsxExpression/JsxAttribute:testID/JsxAttributes/JsxOpeningElement"
+  },
+  {
+    "file": "components/StarterProgramSchedule.tsx",
+    "line": 92,
+    "text": "`heading-${day}`",
+    "context": "TemplateExpression/JsxExpression/JsxAttribute:key/JsxAttributes/JsxOpeningElement"
+  },
+  {
+    "file": "components/StarterProgramSchedule.tsx",
+    "line": 105,
+    "text": "`program-date-${month.getFullYear()}-${month.getMonth() + 1}-${day}`",
+    "context": "TemplateExpression/ConditionalExpression/JsxExpression/JsxAttribute:testID/JsxAttributes"
+  },
+  {
+    "file": "lib/onboarding.ts",
+    "line": 79,
+    "text": "schedule",
+    "context": "StringLiteral/ArrayLiteralExpression/CallExpression/PrefixUnaryExpression/IfStatement"
+  },
+  {
+    "file": "lib/onboarding.ts",
+    "line": 90,
+    "text": "universal",
+    "context": "StringLiteral/ArrayLiteralExpression/CallExpression/PrefixUnaryExpression/BinaryExpression"
+  },
+  {
+    "file": "lib/training-programs/readiness.ts",
+    "line": 15,
+    "text": "lose_weight",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+  },
+  {
+    "file": "lib/training-programs/readiness.ts",
+    "line": 16,
+    "text": "universal",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+  },
+  {
+    "file": "lib/training-programs/readiness.ts",
+    "line": 60,
+    "text": "treadmill_walking",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+  },
+  {
+    "file": "lib/training-programs/readiness.ts",
+    "line": 60,
+    "text": "stationary_bike",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/PrefixUnaryExpression"
+  },
+  {
+    "file": "lib/training-programs/readiness.ts",
+    "line": 152,
+    "text": "Invalid movement",
+    "context": "StringLiteral/BinaryExpression/ArrowFunction/CallExpression/SpreadElement"
+  },
+  {
+    "file": "lib/training-programs/schedule.ts",
+    "line": 20,
+    "text": "Choose valid training weekdays.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 30,
+    "text": "Universal",
+    "context": "StringLiteral/PropertyAssignment:name/ObjectLiteralExpression/PropertyAssignment:universal/ObjectLiteralExpression"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 33,
+    "text": "barbell-bench-press",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 34,
+    "text": "incline-dumbbell-press",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 35,
+    "text": "pec-deck-fly",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 36,
+    "text": "seated-cable-row-close-neutral-v-handle",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 37,
+    "text": "lat-pulldown-close-neutral-v-handle",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 38,
+    "text": "seated-leg-curl",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 41,
+    "text": "barbell-back-squat",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 42,
+    "text": "dumbbell-romanian-deadlift",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 43,
+    "text": "leg-press",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 44,
+    "text": "leg-extension",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 45,
+    "text": "seated-calf-raise",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 46,
+    "text": "cable-crunch",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 49,
+    "text": "machine-chest-press",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 51,
+    "text": "chest-supported-dumbbell-row",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 52,
+    "text": "dumbbell-biceps-curl",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 53,
+    "text": "cable-triceps-pushdown",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 54,
+    "text": "dumbbell-lateral-raise",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 59,
+    "text": "Build muscle",
+    "context": "StringLiteral/PropertyAssignment:name/ObjectLiteralExpression/PropertyAssignment:build_muscle/ObjectLiteralExpression"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 70,
+    "text": "goblet-squat",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 78,
+    "text": "dumbbell-bench-press",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 88,
+    "text": "Get stronger",
+    "context": "StringLiteral/PropertyAssignment:name/ObjectLiteralExpression/PropertyAssignment:get_stronger/ObjectLiteralExpression"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 99,
+    "text": "barbell-romanian-deadlift",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 100,
+    "text": "barbell-overhead-press",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 104,
+    "text": "plank",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 117,
+    "text": "Lose weight",
+    "context": "StringLiteral/PropertyAssignment:name/ObjectLiteralExpression/PropertyAssignment:lose_weight/ObjectLiteralExpression"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 125,
+    "text": "treadmill_walking",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 133,
+    "text": "stationary_bike",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 137,
+    "text": "machine-shoulder-press",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 139,
+    "text": "dumbbell-floor-glute-bridge",
+    "context": "StringLiteral/ArrayLiteralExpression/ArrayLiteralExpression/ArrayLiteralExpression/PropertyAssignment:days"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 146,
+    "text": "General fitness",
+    "context": "StringLiteral/PropertyAssignment:name/ObjectLiteralExpression/PropertyAssignment:general_fitness/ObjectLiteralExpression"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 186,
+    "text": "`universal-${index + 1}`",
+    "context": "TemplateExpression/ConditionalExpression/PropertyAssignment:dayKey/ObjectLiteralExpression/ParenthesizedExpression"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 216,
+    "text": "S1",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:sourceRefs/ObjectLiteralExpression/CallExpression"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 224,
+    "text": "Chest",
+    "context": "StringLiteral/ArrayLiteralExpression/ElementAccessExpression/ConditionalExpression/PropertyAssignment:name"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 224,
+    "text": "Legs",
+    "context": "StringLiteral/ArrayLiteralExpression/ElementAccessExpression/ConditionalExpression/PropertyAssignment:name"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 224,
+    "text": "Chest and arms",
+    "context": "StringLiteral/ArrayLiteralExpression/ElementAccessExpression/ConditionalExpression/PropertyAssignment:name"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 225,
+    "text": "`Workout ${index + 1}`",
+    "context": "TemplateExpression/ConditionalExpression/PropertyAssignment:name/ObjectLiteralExpression/ReturnStatement"
+  },
+  {
+    "file": "lib/training-programs/starter-programs.ts",
+    "line": 231,
+    "text": "`starter-${goal.replaceAll('_', '-')}`",
+    "context": "TemplateExpression/PropertyAssignment:id/ObjectLiteralExpression/ReturnStatement/Block"
   }
 ]
