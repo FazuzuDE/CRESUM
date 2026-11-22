@@ -848,3 +848,9 @@ scrolling, horizontal controls and swipeable workout rows.
 
 Verify the seamless shared atlas in both themes, inline map-to-row selection
 and the character preview on iPhone and Android.
+
+### Progress navigation continuity — approved 2026-11-22
+
+Verify a cold atlas load, return from exercise discovery and interactive Back
+on the iPhone release build. Include canceled gestures, sliders, vertical
+scrolling and retained tab position.

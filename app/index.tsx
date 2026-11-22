@@ -75,6 +75,7 @@ import { ProgressScrollView } from '@/components/ProgressScrollView';
 import { TrainingVolume } from '@/components/TrainingVolume';
 import { BodyWeight, type BodyWeightProps } from '@/components/BodyWeight';
 import { MuscleProgress } from '@/components/MuscleProgress';
+import { RetainedProgressPane } from '@/components/RetainedProgressPane';
 import { BodyWeightRepository, type BodyWeightEntry } from '@/lib/body-weight';
 import { volume } from '@/lib/workout-metrics';
 import {
@@ -112,10 +113,16 @@ import type { TemplateDraft } from '@/lib/workout-templates';
 import { progressTypography, radius, spacing, typography } from '@/lib/theme';
 
 function Stats({
+  active,
+  section,
+  onSectionChange,
   history,
   activeWorkout,
   measurements,
 }: {
+  active: boolean;
+  section: 'overview' | 'muscles';
+  onSectionChange: (section: 'overview' | 'muscles') => void;
   history: Session[];
   activeWorkout?: Session;
   measurements: BodyWeightProps & { updatedAt: number };
@@ -123,12 +130,12 @@ function Stats({
   const s = useStyles();
   const { t, locale } = useLocalization();
   const { fontScale } = useWindowDimensions();
-  const [section, setSection] = useState<'overview' | 'muscles'>('overview');
   const [period, setPeriod] = useState<ProgressPeriodId>(
     DEFAULT_PROGRESS_PERIOD,
   );
   const [now, setNow] = useState(Date.now);
   useEffect(() => {
+    if (!active) return;
     const refresh = () => setNow(Date.now());
     const timer = setInterval(refresh, 60_000);
     const subscription = AppState.addEventListener('change', (state) => {
@@ -138,7 +145,7 @@ function Stats({
       clearInterval(timer);
       subscription.remove();
     };
-  }, []);
+  }, [active]);
   const analytics = useMemo(
     () => projectPeriodAnalytics(history, period, now),
     [history, period, now],
@@ -148,193 +155,202 @@ function Stats({
     () => projectVolumeComparison(history, period, now),
     [history, period, now],
   );
-  if (section === 'muscles')
-    return (
-      <MuscleProgress
-        history={history}
-        activeWorkout={activeWorkout}
-        now={now}
-        onOverview={() => setSection('overview')}
-      />
-    );
+  const musclesActive = active && section === 'muscles';
   return (
-    <ProgressScrollView
-      contentContainerStyle={[s.content, s.progressContent]}
-      sections={[
-        {
-          id: 'overview',
-          label: t('progress.title'),
-          content: (
-            <View style={{ gap: spacing.md }}>
-              <View style={s.progressHeader}>
-                <View style={s.progressHeading}>
-                  <Text style={s.progressTitle} accessibilityRole="header">
-                    {t('progress.title')}
-                  </Text>
-                  <Text style={s.progressSubtitle}>
-                    {t('progress.subtitle')}
-                  </Text>
-                </View>
-              </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  flexWrap: 'wrap',
-                  gap: spacing.xs,
-                }}
-              >
-                <AppButton
-                  title={t('progress.overview')}
-                  selected
-                  onPress={() => {}}
-                />
-                <AppButton
-                  title={t('progress.muscles')}
-                  secondary
-                  onPress={() => setSection('muscles')}
-                />
-              </View>
-              <View
-                style={s.periods}
-                accessibilityLabel={t('progress.periodGroup')}
-              >
-                {PROGRESS_PERIODS.map((option) => (
-                  <Pressable
-                    key={option.id}
-                    accessibilityRole="button"
-                    accessibilityLabel={t('progress.periodAction', {
-                      period: periodLabel(t, option.id),
-                    })}
-                    accessibilityHint={t('progress.periodHint', {
-                      period: periodDescription(t, option.id),
-                    })}
-                    accessibilityState={{ selected: period === option.id }}
-                    onPress={() => setPeriod(option.id)}
-                    style={({ pressed }) => [
-                      s.periodChip,
-                      fontScale > 1.3 && s.periodChipLargeText,
-                      pressed && s.pressed,
-                    ]}
-                  >
-                    <Text
-                      style={[
-                        s.periodText,
-                        period === option.id && s.periodSelectedText,
-                      ]}
-                    >
-                      {periodLabel(t, option.id)}
-                    </Text>
-                  </Pressable>
-                ))}
-              </View>
-            </View>
-          ),
-        },
-        {
-          id: 'volume',
-          label: t('progress.trainingVolume'),
-          content: (
-            <>
-              <TrainingVolume
-                totalVolume={analytics.totalVolume}
-                workoutVolumes={analytics.workoutVolumes}
-                period={period}
-                comparison={comparison}
-                now={now}
-              />
-            </>
-          ),
-        },
-        {
-          id: 'records',
-          label: t('progress.estimated'),
-          content: (
-            <>
-              <GlassCard style={s.progressCard}>
-                <Text style={s.progressCardTitle} accessibilityRole="header">
-                  {t('progress.estimated')}
-                </Text>
-                <Text style={s.estimateContext}>
-                  {t('progress.estimateContext')}
-                </Text>
-                {analytics.excludedSampleCount > 0 ? (
-                  <Text style={s.sub}>{t('progress.excluded')}</Text>
-                ) : null}
-                {records.length === 0 ? (
-                  <Text style={s.sub}>{t('progress.noRecords')}</Text>
-                ) : (
-                  records.slice(0, 6).map((r, i) => (
-                    <View
-                      key={r.identityKey}
-                      style={[
-                        s.history,
-                        i === Math.min(records.length, 6) - 1 && s.lastRecord,
-                      ]}
-                    >
-                      <View style={s.recordCopy}>
-                        <Text style={s.recordName}>{r.name}</Text>
-                        <Text style={s.sub}>
-                          {t('progress.loggedSet', {
-                            weight: volumeNumber(locale, r.weight),
-                            reps: formatNumber(locale, r.reps),
-                          })}
-                        </Text>
-                      </View>
-                      <View style={s.recordValue}>
-                        {i === 0 && (
-                          <Text style={s.pr}>{t('progress.topPR')}</Text>
-                        )}
-                        <Text style={s.value2}>
-                          {t('progress.valueKg', {
-                            value: fixedEstimateNumber(
-                              locale,
-                              r.estimatedOneRepMax,
-                            ),
-                          })}
-                        </Text>
-                      </View>
+    <View style={s.progressPane}>
+      {active && section === 'overview' ? (
+        <ProgressScrollView
+          contentContainerStyle={[s.content, s.progressContent]}
+          sections={[
+            {
+              id: 'overview',
+              label: t('progress.title'),
+              content: (
+                <View style={{ gap: spacing.md }}>
+                  <View style={s.progressHeader}>
+                    <View style={s.progressHeading}>
+                      <Text style={s.progressTitle} accessibilityRole="header">
+                        {t('progress.title')}
+                      </Text>
+                      <Text style={s.progressSubtitle}>
+                        {t('progress.subtitle')}
+                      </Text>
                     </View>
-                  ))
-                )}
-              </GlassCard>
-            </>
-          ),
-        },
-        {
-          id: 'performance',
-          label: t('performance.title'),
-          content: (
-            <>
-              <ExercisePerformance
-                history={history}
-                period={period}
-                now={now}
-              />
-            </>
-          ),
-        },
-        {
-          id: 'body-weight',
-          label: t('body.title'),
-          content: (
-            <BodyWeight
-              {...measurements}
-              period={period}
-              now={Math.max(now, measurements.updatedAt)}
-            />
-          ),
-        },
-        {
-          id: 'history',
-          label: t('history.title'),
-          content: (
-            <>
-              <WorkoutHistory history={history} />
-            </>
-          ),
-        },
-      ]}
-    />
+                  </View>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      flexWrap: 'wrap',
+                      gap: spacing.xs,
+                    }}
+                  >
+                    <AppButton
+                      title={t('progress.overview')}
+                      selected
+                      onPress={() => {}}
+                    />
+                    <AppButton
+                      title={t('progress.muscles')}
+                      secondary
+                      onPress={() => onSectionChange('muscles')}
+                    />
+                  </View>
+                  <View
+                    style={s.periods}
+                    accessibilityLabel={t('progress.periodGroup')}
+                  >
+                    {PROGRESS_PERIODS.map((option) => (
+                      <Pressable
+                        key={option.id}
+                        accessibilityRole="button"
+                        accessibilityLabel={t('progress.periodAction', {
+                          period: periodLabel(t, option.id),
+                        })}
+                        accessibilityHint={t('progress.periodHint', {
+                          period: periodDescription(t, option.id),
+                        })}
+                        accessibilityState={{ selected: period === option.id }}
+                        onPress={() => setPeriod(option.id)}
+                        style={({ pressed }) => [
+                          s.periodChip,
+                          fontScale > 1.3 && s.periodChipLargeText,
+                          pressed && s.pressed,
+                        ]}
+                      >
+                        <Text
+                          style={[
+                            s.periodText,
+                            period === option.id && s.periodSelectedText,
+                          ]}
+                        >
+                          {periodLabel(t, option.id)}
+                        </Text>
+                      </Pressable>
+                    ))}
+                  </View>
+                </View>
+              ),
+            },
+            {
+              id: 'volume',
+              label: t('progress.trainingVolume'),
+              content: (
+                <>
+                  <TrainingVolume
+                    totalVolume={analytics.totalVolume}
+                    workoutVolumes={analytics.workoutVolumes}
+                    period={period}
+                    comparison={comparison}
+                    now={now}
+                  />
+                </>
+              ),
+            },
+            {
+              id: 'records',
+              label: t('progress.estimated'),
+              content: (
+                <>
+                  <GlassCard style={s.progressCard}>
+                    <Text
+                      style={s.progressCardTitle}
+                      accessibilityRole="header"
+                    >
+                      {t('progress.estimated')}
+                    </Text>
+                    <Text style={s.estimateContext}>
+                      {t('progress.estimateContext')}
+                    </Text>
+                    {analytics.excludedSampleCount > 0 ? (
+                      <Text style={s.sub}>{t('progress.excluded')}</Text>
+                    ) : null}
+                    {records.length === 0 ? (
+                      <Text style={s.sub}>{t('progress.noRecords')}</Text>
+                    ) : (
+                      records.slice(0, 6).map((r, i) => (
+                        <View
+                          key={r.identityKey}
+                          style={[
+                            s.history,
+                            i === Math.min(records.length, 6) - 1 &&
+                              s.lastRecord,
+                          ]}
+                        >
+                          <View style={s.recordCopy}>
+                            <Text style={s.recordName}>{r.name}</Text>
+                            <Text style={s.sub}>
+                              {t('progress.loggedSet', {
+                                weight: volumeNumber(locale, r.weight),
+                                reps: formatNumber(locale, r.reps),
+                              })}
+                            </Text>
+                          </View>
+                          <View style={s.recordValue}>
+                            {i === 0 && (
+                              <Text style={s.pr}>{t('progress.topPR')}</Text>
+                            )}
+                            <Text style={s.value2}>
+                              {t('progress.valueKg', {
+                                value: fixedEstimateNumber(
+                                  locale,
+                                  r.estimatedOneRepMax,
+                                ),
+                              })}
+                            </Text>
+                          </View>
+                        </View>
+                      ))
+                    )}
+                  </GlassCard>
+                </>
+              ),
+            },
+            {
+              id: 'performance',
+              label: t('performance.title'),
+              content: (
+                <>
+                  <ExercisePerformance
+                    history={history}
+                    period={period}
+                    now={now}
+                  />
+                </>
+              ),
+            },
+            {
+              id: 'body-weight',
+              label: t('body.title'),
+              content: (
+                <BodyWeight
+                  {...measurements}
+                  period={period}
+                  now={Math.max(now, measurements.updatedAt)}
+                />
+              ),
+            },
+            {
+              id: 'history',
+              label: t('history.title'),
+              content: (
+                <>
+                  <WorkoutHistory history={history} />
+                </>
+              ),
+            },
+          ]}
+        />
+      ) : null}
+      <RetainedProgressPane active={musclesActive}>
+        <MuscleProgress
+          active={musclesActive}
+          history={history}
+          activeWorkout={activeWorkout}
+          now={now}
+          onOverview={() => onSectionChange('overview')}
+        />
+      </RetainedProgressPane>
+    </View>
   );
 }
 const DOCK_TRANSPARENCY_KEY = 'cresum.dockTransparency';
@@ -429,7 +445,17 @@ function AppContent({
   const [programError, setProgramError] = useState('');
   const programRecovered = useRef(false);
   const [programReady, setProgramReady] = useState(false);
-  const [tab, setTab] = useState(initialTab);
+  const [tab, setCurrentTab] = useState(initialTab);
+  const [progressSection, setProgressSection] = useState<
+    'overview' | 'muscles'
+  >('overview');
+  const [progressVisited, setProgressVisited] = useState(
+    initialTab === 'progress',
+  );
+  const setTab = useCallback((next: string) => {
+    if (next === 'progress') setProgressVisited(true);
+    setCurrentTab(next);
+  }, []);
   const [dockSpace, setDockSpace] = useState(78);
   const dockGlass = useGlassTransparency(
     DOCK_TRANSPARENCY_KEY,
@@ -862,6 +888,7 @@ function AppContent({
     successHaptic();
     setConfirmFinish(false);
     setSummary(completed);
+    setProgressSection('overview');
     setTab('progress');
   };
   const backupOperation = (
@@ -1064,6 +1091,8 @@ function AppContent({
       setSummary(null);
       setDiscardSessionId(null);
       setConfirmFinish(false);
+      setProgressVisited(false);
+      setProgressSection('overview');
       setTab('home');
       setConfirmReset(false);
     } catch (problem) {
@@ -1438,9 +1467,10 @@ function AppContent({
               }}
               busy={busy}
             />
-          ) : tab === 'progress' ? (
-            <>
-              {summary && (
+          ) : null}
+          {progressVisited ? (
+            <RetainedProgressPane active={tab === 'progress'}>
+              {tab === 'progress' && summary && (
                 <SafeAreaView edges={['top']} style={s.notice}>
                   <Text style={s.h3}>{t('workout.saved')}</Text>
                   <Text style={s.sub}>
@@ -1461,6 +1491,9 @@ function AppContent({
                 </SafeAreaView>
               )}
               <Stats
+                active={tab === 'progress'}
+                section={progressSection}
+                onSectionChange={setProgressSection}
                 history={data.history}
                 activeWorkout={data.activeWorkout ?? undefined}
                 measurements={{
@@ -1513,7 +1546,7 @@ function AppContent({
                   },
                 }}
               />
-            </>
+            </RetainedProgressPane>
           ) : null}
           <View
             style={tab === 'profile' ? s.profileVisible : s.profileHidden}
@@ -1657,6 +1690,7 @@ function AppContent({
 const useStyles = createThemedStyles((colors) => ({
   root: { flex: 1, backgroundColor: colors.background },
   onboardingRoot: { backgroundColor: colors.surface },
+  progressPane: { flex: 1 },
   profileVisible: { flex: 1 },
   profileHidden: { display: 'none' },
   content: {

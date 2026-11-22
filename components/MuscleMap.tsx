@@ -3,7 +3,7 @@ import {
   useAppColors,
 } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
-import { useId } from 'react';
+import { useId, useState } from 'react';
 import { useLocalization } from './LocalizationProvider';
 import { View } from 'react-native';
 import Svg, {
@@ -48,6 +48,7 @@ export function MuscleMap({
   const s = useStyles();
   const { t } = useLocalization();
   const instance = useId().replace(/[^a-zA-Z0-9]/g, '');
+  const [ready, setReady] = useState(false);
   const role = (id: MuscleId) => {
     const value = muscles.find((m) => m.id === id);
     return value?.primary ? 2 : value?.secondary ? 1 : 0;
@@ -73,12 +74,13 @@ export function MuscleMap({
   const sourceClipId = `${prefix}source-clip`;
   return (
     <View style={[s.atlas, { maxWidth: height * atlasAspect }]}>
-      <View style={s.canvas}>
+      <View style={s.canvas} pointerEvents={ready ? 'auto' : 'none'}>
         <Svg
           width="100%"
           height="100%"
           viewBox={`${left} ${top} ${atlasWidth} ${atlasHeight}`}
           accessible={false}
+          opacity={ready ? 1 : 0}
         >
           <Defs>
             <ClipPath id={sourceClipId}>
@@ -148,6 +150,7 @@ export function MuscleMap({
           </Defs>
           <Image
             href={source}
+            onLoad={() => setReady(true)}
             clipPath={`url(#${sourceClipId})`}
             x={0}
             y={0}

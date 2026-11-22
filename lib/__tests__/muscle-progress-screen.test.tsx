@@ -200,7 +200,7 @@ it('opens the grouped period catalog and preselects the muscle in discovery from
       .find((node: any) => node.props.title === 'Find exercises')
       .props.onPress(),
   );
-  expect(view.root.findByType(MuscleMap).props.muscles).toEqual([
+  expect(view.root.findAllByType(MuscleMap).at(-1).props.muscles).toEqual([
     { id: 'upper-back', primary: 1, secondary: 0 },
   ]);
   act(() => view.unmount());
@@ -221,10 +221,11 @@ it('synchronizes map and checkboxes, filters the catalog and retains selection o
     view.root.find(
       (n: any) => isPressable(n) && n.props.accessibilityLabel === label,
     );
-  const map = () => view.root.findByType(MuscleMap);
+  const map = () => view.root.findAllByType(MuscleMap).at(-1);
   const displayed = (value: string) =>
     view.root.findAllByType(Text).some((n: any) => n.props.children === value);
 
+  const mainMap = map();
   act(() => button('Find exercises').props.onPress());
   expect(button('Show exercises').props.disabled).toBe(true);
   act(() => map().props.onSelect('chest'));
@@ -236,12 +237,18 @@ it('synchronizes map and checkboxes, filters the catalog and retains selection o
   act(() => button('Show exercises · 2').props.onPress());
   expect(displayed('Machine Chest Press')).toBe(true);
   expect(displayed('Cable Triceps Pushdown')).toBe(false);
-  act(() => view.root.findByType(MuscleSegments).props.onChange('any'));
+  act(() =>
+    view.root.findAllByType(MuscleSegments).at(-1).props.onChange('any'),
+  );
   expect(displayed('Cable Triceps Pushdown')).toBe(true);
+  const pickerMap = map();
   act(() => pressable('Back').props.onPress());
+  expect(map()).toBe(pickerMap);
   expect(map().props.muscles.map(({ id }: { id: string }) => id)).toEqual([
     'chest',
     'triceps',
   ]);
+  act(() => pressable('Back').props.onPress());
+  expect(map()).toBe(mainMap);
   act(() => view.unmount());
 });

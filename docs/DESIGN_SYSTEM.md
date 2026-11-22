@@ -1275,6 +1275,10 @@ Vertical scrolling, horizontal scrollers, sliders and open row actions keep
 their own gestures. For a nested screen or sheet, use the Back action of the
 visible layer and return one level at a time.
 
+The current screen follows a horizontal Back drag and settles offscreen
+before committing. A canceled gesture settles in place. Respect Reduce Motion.
+Keep the visible Progress map or picker mounted underneath its next screen.
+
 ### Onboarding
 
 The approved first-run sequence is Welcome (name and language), Exercise

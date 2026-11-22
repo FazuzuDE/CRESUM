@@ -1,11 +1,12 @@
 import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
-import { useMemo, useState } from 'react';
-import { View } from 'react-native';
+import { useCallback, useMemo, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 import { AppButton } from './AppButton';
 import { AppScrollView } from './AppScrollView';
 import { GlassCard } from './GlassCard';
 import { MuscleMap } from './MuscleMap';
+import { RetainedProgressPane } from './RetainedProgressPane';
 import { MuscleExerciseDiscovery } from './MuscleExerciseDiscovery';
 import { MuscleGuide, MuscleRole } from './MuscleGuide';
 import { MuscleSetCatalog } from './MuscleSetCatalog';
@@ -28,11 +29,13 @@ import {
 import { formatDate, formatEntryNumber } from '@/lib/i18n/format';
 
 export function MuscleProgress({
+  active = true,
   history,
   activeWorkout,
   now,
   onOverview,
 }: {
+  active?: boolean;
   history: WorkoutSession[];
   activeWorkout?: WorkoutSession;
   now: number;
@@ -67,6 +70,7 @@ export function MuscleProgress({
             : 'muscle.latest',
         )
       : t(period === '7d' ? 'muscle.lastSeven' : 'muscle.lastFour');
+  const closeDiscovery = useCallback(() => setDiscover(undefined), []);
   function select(id?: MuscleId) {
     setSelected(id);
     setShowSets(false);
@@ -89,15 +93,6 @@ export function MuscleProgress({
       return;
     }
   }
-  if (discover)
-    return (
-      <MuscleExerciseDiscovery
-        initialMuscle={discover.initialMuscle}
-        onBack={() => setDiscover(undefined)}
-        history={history}
-        now={now}
-      />
-    );
   const detail = muscle ? (
     <View style={s.detail}>
       <MuscleMap muscles={[muscle]} height={180} selected={muscle.id} />
@@ -189,99 +184,115 @@ export function MuscleProgress({
     </View>
   ) : null;
   return (
-    <>
-      <AppScrollView branded dockAware contentContainerStyle={s.content}>
-        <Text style={s.title} accessibilityRole="header">
-          {t('progress.title')}
-        </Text>
-        <MuscleSegments
-          options={{
-            overview: t('progress.overview'),
-            muscles: t('progress.muscles'),
-          }}
-          value="muscles"
-          onChange={(tab) => {
-            if (tab === 'overview') onOverview();
-          }}
-        />
-        <GlassCard style={s.card}>
-          <View style={s.cardHeader}>
-            <Text style={s.heading} accessibilityRole="header">
-              {t('muscle.map')}
-            </Text>
-            <Text style={s.count}>
-              {t('muscle.completed', { count: data.totalSets })}
-            </Text>
-          </View>
+    <View style={s.page}>
+      <RetainedProgressPane
+        active={active && !discover}
+        behind={active && !!discover}
+      >
+        <AppScrollView branded dockAware contentContainerStyle={s.content}>
+          <Text style={s.title} accessibilityRole="header">
+            {t('progress.title')}
+          </Text>
           <MuscleSegments
             options={{
-              workout: t('muscle.workout'),
-              '7d': t('muscle.seven'),
-              '4w': t('muscle.four'),
+              overview: t('progress.overview'),
+              muscles: t('progress.muscles'),
             }}
-            value={period}
-            onChange={(id) => {
-              setPeriod(id);
-              select();
+            value="muscles"
+            onChange={(tab) => {
+              if (tab === 'overview') onOverview();
             }}
           />
-          {data.workoutName ? (
-            <Text style={s.body}>{data.workoutName}</Text>
-          ) : null}
-          <MuscleMap
-            muscles={data.muscles}
-            selected={selected}
-            onSelect={selectFromMap}
-          />
-          <View style={s.legend}>
-            <MuscleRole role="primary" />
-            <MuscleRole role="secondary" />
-          </View>
-          {data.totalSets === 0 ? (
-            <Text style={s.note}>{t('muscle.empty')}</Text>
-          ) : null}
-          {data.unmappedSets > 0 ? (
-            <Text style={s.note}>
-              {t('muscle.unmapped', { count: data.unmappedSets })}
-            </Text>
-          ) : null}
-          <MuscleDisclosure
-            label={t('muscle.readMap')}
-            expanded={guideOpen}
-            onPress={() => setGuideOpen(!guideOpen)}
-          />
-          {guideOpen ? <MuscleGuide /> : null}
-          <MuscleDisclosure
-            label={t('muscle.setsByMuscle')}
-            expanded={catalogOpen}
-            onPress={() => {
-              setCatalogOpen(!catalogOpen);
-              if (catalogOpen) select();
-            }}
-          />
-          {catalogOpen ? (
-            <MuscleSetCatalog
-              muscles={data.muscles}
-              period={context}
-              area={area}
-              group={group}
-              selected={selected}
-              detail={detail}
-              onBrowse={(nextArea, nextGroup) => {
-                setArea(nextArea);
-                setGroup(nextGroup);
+          <GlassCard style={s.card}>
+            <View style={s.cardHeader}>
+              <Text style={s.heading} accessibilityRole="header">
+                {t('muscle.map')}
+              </Text>
+              <Text style={s.count}>
+                {t('muscle.completed', { count: data.totalSets })}
+              </Text>
+            </View>
+            <MuscleSegments
+              options={{
+                workout: t('muscle.workout'),
+                '7d': t('muscle.seven'),
+                '4w': t('muscle.four'),
+              }}
+              value={period}
+              onChange={(id) => {
+                setPeriod(id);
                 select();
               }}
-              onSelect={(id) => select(selected === id ? undefined : id)}
             />
-          ) : null}
-        </GlassCard>
-        <AppButton
-          title={t('muscle.discover')}
-          onPress={() => setDiscover({})}
-        />
-      </AppScrollView>
-      {example ? (
+            {data.workoutName ? (
+              <Text style={s.body}>{data.workoutName}</Text>
+            ) : null}
+            <MuscleMap
+              muscles={data.muscles}
+              selected={selected}
+              onSelect={selectFromMap}
+            />
+            <View style={s.legend}>
+              <MuscleRole role="primary" />
+              <MuscleRole role="secondary" />
+            </View>
+            {data.totalSets === 0 ? (
+              <Text style={s.note}>{t('muscle.empty')}</Text>
+            ) : null}
+            {data.unmappedSets > 0 ? (
+              <Text style={s.note}>
+                {t('muscle.unmapped', { count: data.unmappedSets })}
+              </Text>
+            ) : null}
+            <MuscleDisclosure
+              label={t('muscle.readMap')}
+              expanded={guideOpen}
+              onPress={() => setGuideOpen(!guideOpen)}
+            />
+            {guideOpen ? <MuscleGuide /> : null}
+            <MuscleDisclosure
+              label={t('muscle.setsByMuscle')}
+              expanded={catalogOpen}
+              onPress={() => {
+                setCatalogOpen(!catalogOpen);
+                if (catalogOpen) select();
+              }}
+            />
+            {catalogOpen ? (
+              <MuscleSetCatalog
+                muscles={data.muscles}
+                period={context}
+                area={area}
+                group={group}
+                selected={selected}
+                detail={detail}
+                onBrowse={(nextArea, nextGroup) => {
+                  setArea(nextArea);
+                  setGroup(nextGroup);
+                  select();
+                }}
+                onSelect={(id) => select(selected === id ? undefined : id)}
+              />
+            ) : null}
+          </GlassCard>
+          <AppButton
+            title={t('muscle.discover')}
+            onPress={() => setDiscover({})}
+          />
+        </AppScrollView>
+      </RetainedProgressPane>
+      {discover ? (
+        <View style={StyleSheet.absoluteFill}>
+          <MuscleExerciseDiscovery
+            active={active}
+            initialMuscle={discover.initialMuscle}
+            onBack={closeDiscovery}
+            history={history}
+            now={now}
+          />
+        </View>
+      ) : null}
+      {active && example ? (
         <ExerciseTechnique
           exercise={example}
           history={history}
@@ -289,10 +300,11 @@ export function MuscleProgress({
           onClose={() => setExample(undefined)}
         />
       ) : null}
-    </>
+    </View>
   );
 }
 const useStyles = createThemedStyles((colors) => ({
+  page: { flex: 1 },
   content: { padding: spacing.lg, gap: spacing.md },
   title: { ...typography.largeTitle, color: colors.textPrimary },
   heading: { ...typography.headline, color: colors.textPrimary },

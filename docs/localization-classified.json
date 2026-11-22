@@ -12098,5 +12098,43 @@
         "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes"
       }
     ]
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "kind": "internal",
+    "reason": "Pointer interaction modes for the atlas loading state.",
+    "entries": [
+      {
+        "text": "auto",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes"
+      },
+      {
+        "text": "none",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes"
+      }
+    ]
+  },
+  {
+    "file": "components/RetainedProgressPane.tsx",
+    "kind": "internal",
+    "reason": "Native pointer and accessibility visibility options for retained panes.",
+    "entries": [
+      {
+        "text": "auto",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes"
+      },
+      {
+        "text": "none",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes"
+      },
+      {
+        "text": "auto",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes"
+      },
+      {
+        "text": "no-hide-descendants",
+        "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes"
+      }
+    ]
   }
 ]

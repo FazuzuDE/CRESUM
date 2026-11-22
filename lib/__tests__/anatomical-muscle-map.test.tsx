@@ -1,5 +1,5 @@
 import { Text } from 'react-native';
-import {
+import Svg, {
   Image as SvgImage,
   Path,
   G,
@@ -89,6 +89,15 @@ it('renders both anatomical views from one image, with a neutral no-set state', 
       .findAllByType(SvgImage)
       .filter((n: { props: { href: unknown } }) => n.props.href === source),
   ).toHaveLength(1);
+  const atlas = view.root.findByType(Svg);
+  expect(atlas.props.opacity).toBe(0);
+  act(() =>
+    atlas
+      .findAllByType(SvgImage)
+      .find((node: { props: { href: unknown } }) => node.props.href === source)
+      .props.onLoad(),
+  );
+  expect(atlas.props.opacity).toBe(1);
   expect(
     view.root
       .findAllByType(Text)

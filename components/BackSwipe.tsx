@@ -8,13 +8,26 @@ import {
   useState,
   type RefObject,
 } from 'react';
-import { Platform, View, type ViewProps } from 'react-native';
+import {
+  Platform,
+  View,
+  useWindowDimensions,
+  type ViewProps,
+} from 'react-native';
 import {
   GestureDetector,
   PointerType,
   usePanGesture,
   type PanGesture,
 } from 'react-native-gesture-handler';
+import Animated, {
+  cancelAnimation,
+  useAnimatedStyle,
+  useReducedMotion,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
+import { scheduleOnRN } from 'react-native-worklets';
 
 type Action = { onPress: () => void; disabled?: boolean };
 type Target = {
@@ -66,36 +79,77 @@ function BackSwipeSurface(props: ViewProps) {
       setTargets((current) => current.filter((item) => item !== target));
   }, []);
   const target = targets.filter((item) => item.inline).at(-1) ?? targets.at(-1);
-  const swiping = useRef<Target | undefined>(undefined);
   const enabled = target !== undefined && !target.disabled;
+  const { width } = useWindowDimensions();
+  const reduceMotion = useReducedMotion();
+  const offset = useSharedValue(0);
+  const tracking = useSharedValue(false);
+  const settling = useSharedValue(false);
+  const currentTarget = useRef(target);
+  const [completion, setCompletion] = useState(0);
+  useLayoutEffect(() => {
+    currentTarget.current = target;
+    cancelAnimation(offset);
+    offset.set(0);
+    tracking.set(false);
+    settling.set(false);
+  }, [target, completion, offset, tracking, settling]);
+  const completeBack = () => {
+    if (currentTarget.current !== target) return;
+    const action = target?.action.current;
+    if (action && !action.disabled) action.onPress();
+    // Reset the surface after React commits the destination, including inline Back.
+    setCompletion((count) => count + 1);
+  };
+  const motion = useAnimatedStyle(() => ({
+    transform: [{ translateX: offset.get() }],
+  }));
 
   const gesture = usePanGesture({
     enabled,
-    runOnJS: true,
     maxPointers: 1,
     activeOffsetX: 24,
     failOffsetX: -12,
     failOffsetY: [-15, 15],
     onActivate: ({ pointerType }) => {
-      swiping.current = pointerType === PointerType.TOUCH ? target : undefined;
+      'worklet';
+      if (!enabled || settling.get() || pointerType !== PointerType.TOUCH)
+        return;
+      cancelAnimation(offset);
+      tracking.set(true);
+    },
+    onUpdate: ({ translationX, translationY }) => {
+      'worklet';
+      if (tracking.get() && !reduceMotion) {
+        offset.set(
+          translationX >= Math.abs(translationY)
+            ? Math.min(width, Math.max(0, translationX))
+            : 0,
+        );
+      }
     },
     onDeactivate: ({ canceled, translationX, translationY, velocityX }) => {
-      const started = swiping.current;
-      swiping.current = undefined;
-      const action = started?.action.current;
+      'worklet';
+      if (!tracking.get()) return;
+      tracking.set(false);
       const traveled =
         translationX >= 72 || (translationX >= 36 && velocityX >= 550);
-      if (
-        enabled &&
-        started === target &&
-        action &&
-        !action.disabled &&
-        !canceled &&
-        traveled &&
-        translationX >= Math.abs(translationY) * 2
-      ) {
-        action.onPress();
+      if (canceled || !traveled || translationX < Math.abs(translationY) * 2) {
+        offset.set(withTiming(0, { duration: 160 }));
+        return;
       }
+
+      settling.set(true);
+      if (reduceMotion) {
+        scheduleOnRN(completeBack);
+        return;
+      }
+      offset.set(
+        withTiming(width, { duration: 150 }, (finished) => {
+          'worklet';
+          if (finished) scheduleOnRN(completeBack);
+        }),
+      );
     },
   });
   const value = useMemo(
@@ -106,7 +160,11 @@ function BackSwipeSurface(props: ViewProps) {
   return (
     <BackSwipeContext.Provider value={value}>
       <GestureDetector gesture={gesture}>
-        <View {...props} collapsable={false} />
+        <Animated.View
+          {...props}
+          style={enabled ? [props.style, motion] : props.style}
+          collapsable={false}
+        />
       </GestureDetector>
     </BackSwipeContext.Provider>
   );

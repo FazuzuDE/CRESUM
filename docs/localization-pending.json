@@ -16654,5 +16654,35 @@
     "line": 117,
     "text": "chevron-forward",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes"
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "line": 77,
+    "text": "auto",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes"
+  },
+  {
+    "file": "components/RetainedProgressPane.tsx",
+    "line": 21,
+    "text": "auto",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes"
+  },
+  {
+    "file": "components/RetainedProgressPane.tsx",
+    "line": 21,
+    "text": "none",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes"
+  },
+  {
+    "file": "components/RetainedProgressPane.tsx",
+    "line": 23,
+    "text": "auto",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes"
+  },
+  {
+    "file": "components/RetainedProgressPane.tsx",
+    "line": 23,
+    "text": "no-hide-descendants",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes"
   }
 ]
