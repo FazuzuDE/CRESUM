@@ -302,8 +302,8 @@ it('previews and persists header opacity independently of the dock', async () =>
   const view = await mount();
   const dock = () => view.root.findByType(Dock);
   const dockTransparency = dock().props.transparency;
-  act(() => dock().props.onChange('profile'));
-  act(() => button(view, 'Appearance').props.onPress());
+  await act(async () => dock().props.onChange('profile'));
+  await act(async () => button(view, 'Appearance').props.onPress());
   const slider = view.root
     .findAllByProps({ accessibilityLabel: 'Header opacity' })
     .find((node: any) => node.props.onSlidingComplete);
