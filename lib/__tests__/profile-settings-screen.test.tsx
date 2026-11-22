@@ -62,6 +62,16 @@ it('shows a truthful Profile and About without fake account or preference contro
   expect(
     view.root.findByType(ScrollView).findAllByType(BrandHeader),
   ).toHaveLength(0);
+  const overlay = view.root.findAllByProps({
+    testID: 'fixed-header-overlay',
+  })[0];
+  expect(overlay.props.edges).toEqual(['top']);
+  act(() =>
+    overlay.props.onLayout({ nativeEvent: { layout: { height: 120 } } }),
+  );
+  expect(
+    view.root.findByType(ScrollView).props.contentContainerStyle,
+  ).toMatchObject({ paddingTop: 120 });
   expect(text).not.toContain('Saved workouts');
   expect(text).toContain('Version 0.1.05');
   expect(text).not.toContain('FitFlow');

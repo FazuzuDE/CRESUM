@@ -1,5 +1,5 @@
-import { BrandHeader } from '../../components/BrandHeader';
-import { GlassMaterial } from '../../components/GlassMaterial';
+import { BrandHeaderBackdrop } from '../../components/BrandHeader';
+import { Stop } from 'react-native-svg';
 import { SharingHub } from '../../components/workout-sharing/SharingHub';
 import { startWorkout, updateSet, toggleSet } from '../workout-engine';
 import { defaultTemplates, exerciseLibrary } from '../workout-catalog';
@@ -302,25 +302,25 @@ it('previews and persists header opacity independently of the dock', async () =>
   const view = await mount();
   const dock = () => view.root.findByType(Dock);
   const dockTransparency = dock().props.transparency;
-  act(() => dock().props.onChange('profile'));
-  act(() => button(view, 'Appearance').props.onPress());
+  await act(async () => dock().props.onChange('profile'));
+  await act(async () => button(view, 'Appearance').props.onPress());
   const slider = view.root
     .findAllByProps({ accessibilityLabel: 'Header opacity' })
     .find((node: any) => node.props.onSlidingComplete);
   act(() => slider.props.onSlidingStart());
   act(() => slider.props.onValueChange(75));
   expect(
-    view.root.findByType(BrandHeader).findByType(GlassMaterial).props
-      .transparency,
-  ).toBe(25);
+    view.root.findByType(BrandHeaderBackdrop).findAllByType(Stop)[0].props
+      .stopOpacity,
+  ).toBe(0.75);
   expect(dock().props.transparency).toBe(dockTransparency);
   await act(async () => slider.props.onSlidingComplete(75));
   await act(async () => view.unmount());
   const reopened = await mount();
   expect(
-    reopened.root.findAllByType(BrandHeader)[0].findByType(GlassMaterial).props
-      .transparency,
-  ).toBe(25);
+    reopened.root.findAllByType(BrandHeaderBackdrop)[0].findAllByType(Stop)[0]
+      .props.stopOpacity,
+  ).toBe(0.75);
   await act(async () => reopened.unmount());
 });
 
