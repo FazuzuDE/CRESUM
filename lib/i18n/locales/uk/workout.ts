@@ -1,4 +1,8 @@
 export default {
+  'workout.startFromPlan': 'Почати за планом',
+  'workout.emptyStart': 'Порожнє тренування',
+  'workout.savedTemplates': 'Збережені шаблони',
+  'workout.startHint': 'Виберіть план або почніть із нуля',
   'picker.hint': 'Проведіть угору або вниз, щоб змінити вибране значення',
   'nav.home': 'Головна',
   'nav.workout': 'Тренування',

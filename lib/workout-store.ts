@@ -170,6 +170,16 @@ export class WorkoutStore {
     }
   }
   start(template: WorkoutTemplate, programSlot?: ProgramSlotContext) {
+    this.startSession(template, false, programSlot);
+  }
+  startEmpty(name: string) {
+    this.startSession({ id: 'ad-hoc', name, exerciseIds: [] }, true);
+  }
+  private startSession(
+    template: WorkoutTemplate,
+    allowEmpty: boolean,
+    programSlot?: ProgramSlotContext,
+  ) {
     const { data, ready, busy } = this.snapshot;
     if (!ready || busy) return;
     if (data.activeWorkout)
@@ -188,7 +198,7 @@ export class WorkoutStore {
       createWorkoutSnapshotId,
       programSlot,
     );
-    if (!activeWorkout.exercises.length)
+    if (!allowEmpty && !activeWorkout.exercises.length)
       throw new Error('This template has no available exercises.');
     this.persist({ ...data, activeWorkout });
   }

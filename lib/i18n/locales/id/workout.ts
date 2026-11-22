@@ -1,4 +1,8 @@
 export default {
+  'workout.startFromPlan': 'Mulai dari rencana',
+  'workout.emptyStart': 'Latihan kosong',
+  'workout.savedTemplates': 'Templat tersimpan',
+  'workout.startHint': 'Pilih rencana atau mulai dari awal',
   'picker.hint': 'Geser ke atas atau bawah untuk mengubah nilai yang dipilih',
   'nav.home': 'Beranda',
   'nav.workout': 'Latihan',

@@ -1,4 +1,8 @@
 export default {
+  'workout.startFromPlan': 'プランから開始',
+  'workout.emptyStart': '空のワークアウト',
+  'workout.savedTemplates': '保存済みテンプレート',
+  'workout.startHint': 'プランを選ぶか、最初から始めましょう',
   'picker.hint': '上下にスワイプして選択値を変更します',
   'nav.home': 'ホーム',
   'nav.workout': 'ワークアウト',

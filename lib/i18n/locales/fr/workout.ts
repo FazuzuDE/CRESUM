@@ -1,4 +1,8 @@
 export default {
+  'workout.startFromPlan': 'Démarrer selon le plan',
+  'workout.emptyStart': 'Séance vide',
+  'workout.savedTemplates': 'Modèles enregistrés',
+  'workout.startHint': 'Choisissez un plan ou partez de zéro',
   'picker.hint':
     'Balayez vers le haut ou le bas pour modifier la valeur sélectionnée',
   'nav.home': 'Accueil',

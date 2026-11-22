@@ -1,4 +1,8 @@
 export default {
+  'workout.startFromPlan': 'Bắt đầu theo kế hoạch',
+  'workout.emptyStart': 'Buổi tập trống',
+  'workout.savedTemplates': 'Mẫu đã lưu',
+  'workout.startHint': 'Chọn kế hoạch hoặc bắt đầu từ đầu',
   'picker.hint': 'Vuốt lên hoặc xuống để đổi giá trị đang chọn',
   'nav.home': 'Trang chủ',
   'nav.workout': 'Buổi tập',

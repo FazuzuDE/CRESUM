@@ -1,4 +1,8 @@
 export default {
+  'workout.startFromPlan': 'योजना से शुरू करें',
+  'workout.emptyStart': 'खाली वर्कआउट',
+  'workout.savedTemplates': 'सहेजे गए टेम्पलेट',
+  'workout.startHint': 'कोई योजना चुनें या शुरुआत से शुरू करें',
   'picker.hint': 'चुना मान बदलने के लिए ऊपर या नीचे स्वाइप करें',
   'nav.home': 'होम',
   'nav.workout': 'वर्कआउट',

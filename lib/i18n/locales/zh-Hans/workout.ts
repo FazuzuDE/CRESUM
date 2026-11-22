@@ -1,4 +1,8 @@
 export default {
+  'workout.startFromPlan': '按计划开始',
+  'workout.emptyStart': '空白训练',
+  'workout.savedTemplates': '已保存的模板',
+  'workout.startHint': '选择计划或从头开始',
   'picker.hint': '向上或向下轻扫以更改所选值',
   'nav.home': '主页',
   'nav.workout': '训练',

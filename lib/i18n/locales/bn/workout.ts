@@ -1,4 +1,8 @@
 export default {
+  'workout.startFromPlan': 'পরিকল্পনা থেকে শুরু করুন',
+  'workout.emptyStart': 'খালি ওয়ার্কআউট',
+  'workout.savedTemplates': 'সংরক্ষিত টেমপ্লেট',
+  'workout.startHint': 'একটি পরিকল্পনা বেছে নিন বা নতুন করে শুরু করুন',
   'picker.hint': 'নির্বাচিত মান বদলাতে ওপর বা নিচে সোয়াইপ করুন',
   'nav.home': 'হোম',
   'nav.workout': 'ওয়ার্কআউট',

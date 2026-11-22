@@ -57,6 +57,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 import { GlassCard } from '@/components/GlassCard';
 import { DEFAULT_DOCK_TRANSPARENCY, Dock } from '@/components/Dock';
+import { HeaderTransparency } from '@/components/BrandHeader';
+import { DEFAULT_GLASS_TRANSPARENCY } from '@/components/GlassMaterial';
+import { useGlassTransparency } from '@/components/useGlassTransparency';
 import { DockSpace } from '@/components/DockSpace';
 import { AppButton } from '@/components/AppButton';
 import { HomeDashboard } from '@/components/HomeDashboard';
@@ -94,7 +97,12 @@ import {
 import { OnboardingRepository } from '@/lib/onboarding-repository';
 import { ProgramRepository } from '@/lib/training-programs/repository';
 import { ProgramAcceptance } from '@/lib/training-programs/acceptance';
-import type { ProjectedProgramSlot } from '@/lib/training-programs/schedule';
+import {
+  localDate,
+  projectProgramWeek,
+  templateForProgramSlot,
+  type ProjectedProgramSlot,
+} from '@/lib/training-programs/schedule';
 import type { ProgramAssignment } from '@/lib/training-programs/assignment';
 import { resetLocalData } from '@/lib/local-data-reset';
 import { HiddenBuiltInsRepository } from '@/lib/hidden-builtins';
@@ -425,35 +433,14 @@ function AppContent({
   const [programReady, setProgramReady] = useState(false);
   const [tab, setTab] = useState(initialTab);
   const [dockSpace, setDockSpace] = useState(78);
-  const [dockTransparency, setDockTransparency] = useState(
+  const dockGlass = useGlassTransparency(
+    DOCK_TRANSPARENCY_KEY,
     DEFAULT_DOCK_TRANSPARENCY,
   );
-  const dockTransparencyEdited = useRef(false);
-  useEffect(() => {
-    let mounted = true;
-    void AsyncStorage.getItem(DOCK_TRANSPARENCY_KEY)
-      .then((stored) => {
-        if (!mounted || dockTransparencyEdited.current || stored === null)
-          return;
-        const value = Number(stored);
-        if (Number.isInteger(value) && value >= 0 && value <= 100)
-          setDockTransparency(value);
-      })
-      .catch(() => {});
-    return () => {
-      mounted = false;
-    };
-  }, []);
-  function previewDockTransparency(value: number) {
-    dockTransparencyEdited.current = true;
-    setDockTransparency(value);
-  }
-  function saveDockTransparency(value: number) {
-    previewDockTransparency(value);
-    void AsyncStorage.setItem(DOCK_TRANSPARENCY_KEY, String(value)).catch(
-      () => {},
-    );
-  }
+  const headerGlass = useGlassTransparency(
+    'cresum.headerTransparency',
+    DEFAULT_GLASS_TRANSPARENCY,
+  );
   const [sharingEditing, setSharingEditing] = useState(false);
   const [managePlans, setManagePlans] = useState<(() => void) | undefined>();
   const [sharingOpen, setSharingOpen] = useState(!!incomingSharingToken);
@@ -1396,6 +1383,49 @@ function AppContent({
             <Workout
               session={data.activeWorkout}
               history={data.history}
+              templates={visibleTemplates}
+              onStartTemplate={startTemplate}
+              onStartPlan={() => {
+                if (assignment) {
+                  try {
+                    const slot = projectProgramWeek(
+                      assignment,
+                      data.history,
+                      localDate(),
+                    ).nextSlot;
+                    if (slot) {
+                      startProgramSlot(
+                        slot,
+                        templateForProgramSlot(
+                          assignment,
+                          visibleTemplates,
+                          slot,
+                        ),
+                      );
+                      return;
+                    }
+                  } catch (problem) {
+                    Alert.alert(
+                      t('plan.startPlannedError'),
+                      presentAppError(t, problem, 'error.workoutOperation'),
+                    );
+                    return;
+                  }
+                }
+                setManagePlans(undefined);
+                setSharingOpen(true);
+              }}
+              onStartEmpty={() => {
+                if (data.activeWorkout) return;
+                try {
+                  store.startEmpty(t('workout.emptyStart'));
+                } catch (problem) {
+                  Alert.alert(
+                    t('plan.startError'),
+                    presentAppError(t, problem, 'error.workoutOperation'),
+                  );
+                }
+              }}
               update={(transform) => store.updateWorkout(transform)}
               appendGroup={(entries, id) =>
                 store.appendEquipmentGroup(entries, id)
@@ -1497,9 +1527,14 @@ function AppContent({
             }
           >
             <ProfileSettings
-              dockTransparency={dockTransparency}
-              onDockTransparencyChange={previewDockTransparency}
-              onDockTransparencyCommit={saveDockTransparency}
+              dockTransparency={dockGlass.value}
+              headerOpacity={100 - headerGlass.value}
+              onHeaderOpacityChange={(value) =>
+                headerGlass.preview(100 - value)
+              }
+              onHeaderOpacityCommit={(value) => headerGlass.commit(100 - value)}
+              onDockTransparencyChange={dockGlass.preview}
+              onDockTransparencyCommit={dockGlass.commit}
               account={{
                 ...account,
                 sync: account.historyRpc ? cloud.controls : undefined,
@@ -1586,7 +1621,7 @@ function AppContent({
             active={tab}
             onChange={setTab}
             onHeightChange={setDockSpace}
-            transparency={dockTransparency}
+            transparency={dockGlass.value}
           />
         </DockSpace.Provider>
       )}
@@ -1615,7 +1650,9 @@ function AppContent({
           : undefined,
       }}
     >
-      {content}
+      <HeaderTransparency.Provider value={headerGlass.value}>
+        {content}
+      </HeaderTransparency.Provider>
     </ExerciseCharacterProvider>
   );
 }

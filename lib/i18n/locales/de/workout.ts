@@ -1,4 +1,8 @@
 export default {
+  'workout.startFromPlan': 'Nach Plan starten',
+  'workout.emptyStart': 'Leeres Training',
+  'workout.savedTemplates': 'Gespeicherte Vorlagen',
+  'workout.startHint': 'Wähle einen Plan oder starte ohne Vorlage',
   'picker.hint':
     'Nach oben oder unten wischen, um den ausgewählten Wert zu ändern',
   'nav.home': 'Start',
