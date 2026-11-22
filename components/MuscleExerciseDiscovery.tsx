@@ -1,3 +1,7 @@
+import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
 import { useContext, useEffect, useMemo, useState } from 'react';
 import { BackHandler, Pressable, StyleSheet, View } from 'react-native';
 import { AppButton } from './AppButton';
@@ -25,7 +29,7 @@ import {
   type MuscleArea,
   type MuscleMatchMode,
 } from '@/lib/muscle-exercise-discovery';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import type { LibraryExercise, WorkoutSession } from '@/lib/workout-model';
 
 export function MuscleExerciseDiscovery({
@@ -37,6 +41,8 @@ export function MuscleExerciseDiscovery({
   history: readonly WorkoutSession[];
   now: number;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const dockSpace = useContext(DockSpace);
   const [area, setArea] = useState<MuscleArea>('upper');
@@ -354,7 +360,7 @@ export function MuscleExerciseDiscovery({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   page: { flex: 1 },
   footer: {
     paddingHorizontal: spacing.lg,
@@ -434,4 +440,4 @@ const s = StyleSheet.create({
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: colors.separator,
   },
-});
+}));

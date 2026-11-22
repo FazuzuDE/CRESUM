@@ -1,4 +1,8 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   useLayoutDirection,
   DirectionalIcon as Ionicons,
@@ -10,12 +14,11 @@ import {
   Animated,
   Platform,
   Pressable,
-  StyleSheet,
   View,
   useAnimatedValue,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { cardShadow, colors, radius, spacing, typography } from '@/lib/theme';
+import { cardShadow, radius, spacing, typography } from '@/lib/theme';
 import { DEFAULT_GLASS_TRANSPARENCY, GlassMaterial } from './GlassMaterial';
 import { useLocalization } from './LocalizationProvider';
 import { useReducedTransparency } from './useReducedTransparency';
@@ -40,6 +43,8 @@ export function Dock({
   transparency?: number;
   onHeightChange?: (height: number) => void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t } = useLocalization();
   const reduceTransparency = useReducedTransparency();
   const reduced = Platform.OS === 'ios' && reduceTransparency;
@@ -156,7 +161,7 @@ export function Dock({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   overlay: {
     position: 'absolute',
     left: 0,
@@ -206,4 +211,4 @@ const s = StyleSheet.create({
     textAlign: 'center',
   },
   selected: { color: colors.primary },
-});
+}));

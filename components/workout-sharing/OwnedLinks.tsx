@@ -1,3 +1,4 @@
+import { useAppColors } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { formatDate } from '@/lib/i18n/format';
 import { useEffect, useState } from 'react';
@@ -5,7 +6,7 @@ import { View } from 'react-native';
 import { AppButton } from '../AppButton';
 import { useLocalization } from '../LocalizationProvider';
 import type { SharingClient } from '@/lib/workout-sharing/client';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 export function OwnedLinks({
   client,
   onRevoked,
@@ -13,6 +14,7 @@ export function OwnedLinks({
   client: SharingClient;
   onRevoked?: (id: string) => void;
 }) {
+  const colors = useAppColors();
   const { t, locale } = useLocalization();
   const [links, setLinks] = useState<
     Awaited<ReturnType<SharingClient['owned']>>

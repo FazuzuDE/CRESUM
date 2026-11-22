@@ -1,3 +1,7 @@
+import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
 import { BrandHeader } from './BrandHeader';
 import {
   LocalizedText as Text,
@@ -6,7 +10,7 @@ import {
 import { ScreenModal } from './ScreenModal';
 import { AppFlatList } from './AppFlatList';
 import { useState } from 'react';
-import { Pressable, StyleSheet, View, useWindowDimensions } from 'react-native';
+import { Pressable, View, useWindowDimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { GlassCard } from './GlassCard';
 import { VolumeTrendChart } from './VolumeTrendChart';
@@ -17,13 +21,7 @@ import {
   progressPeriodStart,
   type ProgressPeriodId,
 } from '@/lib/progress-periods';
-import {
-  colors,
-  progressTypography,
-  radius,
-  spacing,
-  typography,
-} from '@/lib/theme';
+import { progressTypography, radius, spacing, typography } from '@/lib/theme';
 import { volumeChartScale, volumeChartTick } from '@/lib/training-volume-chart';
 import { useLocalization } from './LocalizationProvider';
 import { formatDate } from '@/lib/i18n/format';
@@ -48,6 +46,8 @@ export function TrainingVolume({
   comparison,
   now,
 }: Props) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const periodText = periodLabel(t, period);
   const volumeNumber = (v: number) => localizedVolume(locale, v);
@@ -409,7 +409,7 @@ export function TrainingVolume({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   card: { padding: spacing.md, borderRadius: radius.xxl },
   cardLabel: {
     ...progressTypography.label,
@@ -588,4 +588,4 @@ const s = StyleSheet.create({
     flexShrink: 1,
     textAlign: 'right',
   },
-});
+}));

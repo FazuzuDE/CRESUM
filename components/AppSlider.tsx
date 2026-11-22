@@ -1,9 +1,11 @@
+import { useAppColors } from '@/components/AppThemeProvider';
 import Slider, { type SliderProps } from '@react-native-community/slider';
 import { StyleSheet } from 'react-native';
-import { colors } from '@/lib/theme';
+
 import { useLayoutDirection } from './LayoutDirection';
 
 export function AppSlider({ style, ...props }: SliderProps) {
+  const colors = useAppColors();
   const rtl = useLayoutDirection() === 'rtl';
   return (
     <Slider

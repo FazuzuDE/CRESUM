@@ -1,7 +1,8 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useLocalization } from './LocalizationProvider';
 import { useEffect, useRef, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import type { HistoryReviewActions } from './HistorySyncPanel';
 import type {
   HistoryComparison,
@@ -16,7 +17,7 @@ import { completedSetCount } from '@/lib/workout-engine';
 import { completedSetMetrics, volume } from '@/lib/workout-metrics';
 import { AppButton } from './AppButton';
 import { GlassCard } from './GlassCard';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import type { MessageKey } from '@/lib/i18n/messages';
 import { formatDate, formatNumber, formatEntryNumber } from '@/lib/i18n/format';
 
@@ -40,6 +41,7 @@ function Version({
   onChoose(): void;
   disabled: boolean;
 }) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const displaySet = (set: WorkoutSet) =>
     set.otherSideReps === undefined
@@ -186,6 +188,7 @@ export function HistoryConflictReview({
   onClose(): void;
   onSignOut(): Promise<void>;
 }) {
+  const s = useStyles();
   const { t } = useLocalization();
   const [items, setItems] = useState<HistoryConflictSummary[]>([]);
   const [view, setView] = useState<HistoryComparison | null>(null);
@@ -491,7 +494,7 @@ export function HistoryConflictReview({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: { gap: spacing.md },
   title: { ...typography.title2, color: colors.textPrimary },
   heading: { ...typography.headline, color: colors.textPrimary },
@@ -504,4 +507,4 @@ const s = StyleSheet.create({
   changed: { backgroundColor: colors.primaryTint },
   difference: { color: colors.primary },
   value: { ...typography.body, color: colors.textPrimary },
-});
+}));

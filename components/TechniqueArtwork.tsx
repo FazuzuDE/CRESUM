@@ -1,16 +1,20 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
 
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, View } from 'react-native';
 import {
   resolveExerciseArtwork,
   resolveExerciseArtworkPlacement,
 } from '@/lib/exercise-artwork';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import type { TechniquePhase } from '@/lib/exercise-technique';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { useExerciseCharacter } from './ExerciseCharacterProvider';
 
@@ -24,6 +28,8 @@ export function TechniqueArtwork({
   phase: TechniquePhase;
   expanded?: boolean;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const { model } = useExerciseCharacter();
   const phaseLabel =
@@ -76,7 +82,7 @@ export function TechniqueArtwork({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   picture: {
     position: 'absolute',
     top: 0,
@@ -102,4 +108,4 @@ const s = StyleSheet.create({
     textAlign: 'center',
   },
   phase: { ...typography.caption, color: colors.primary },
-});
+}));

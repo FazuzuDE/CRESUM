@@ -1,7 +1,8 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { Image, StyleSheet, View } from 'react-native';
 import type { AssetModel } from '@/lib/exercise-variant-model';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import { AppButton } from './AppButton';
 import { useLocalization } from './LocalizationProvider';
 import { useExerciseCharacter } from './ExerciseCharacterProvider';
@@ -17,6 +18,7 @@ export function ExerciseCharacterPicker({
   previews?: boolean;
   onChange: (model: AssetModel) => void;
 }) {
+  const s = useStyles();
   const { t } = useLocalization();
   return (
     <View style={[s.root, previews && s.welcome]}>
@@ -59,6 +61,7 @@ export function ExerciseCharacterPicker({
 }
 
 export function ExerciseCharacterSettings() {
+  const s = useStyles();
   const { t } = useLocalization();
   const { model, saving, error, disabled, select, retry } =
     useExerciseCharacter();
@@ -89,7 +92,7 @@ export function ExerciseCharacterSettings() {
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: { gap: spacing.sm },
   title: { ...typography.title3, color: colors.textPrimary },
   copy: { ...typography.footnote, color: colors.textSecondary },
@@ -105,4 +108,4 @@ const s = StyleSheet.create({
   welcomeCopy: { textAlign: 'center' },
   previewFrame: { flexGrow: 1, minHeight: 260 },
   preview: { ...StyleSheet.absoluteFill, width: '100%', height: '100%' },
-});
+}));

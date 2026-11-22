@@ -1,3 +1,7 @@
+import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { ScreenModal } from '@/components/ScreenModal';
 import { ExerciseCharacterProvider } from '@/components/ExerciseCharacterProvider';
@@ -47,12 +51,10 @@ import {
   Alert,
   AppState,
   Pressable,
-  StyleSheet,
   View,
   useWindowDimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { StatusBar } from 'expo-status-bar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 import { GlassCard } from '@/components/GlassCard';
@@ -107,15 +109,8 @@ import type { ProgramAssignment } from '@/lib/training-programs/assignment';
 import { resetLocalData } from '@/lib/local-data-reset';
 import { HiddenBuiltInsRepository } from '@/lib/hidden-builtins';
 import type { TemplateDraft } from '@/lib/workout-templates';
-import {
-  colors,
-  progressTypography,
-  radius,
-  spacing,
-  typography,
-} from '@/lib/theme';
+import { progressTypography, radius, spacing, typography } from '@/lib/theme';
 
-const blue = colors.primary;
 function Stats({
   history,
   activeWorkout,
@@ -125,6 +120,7 @@ function Stats({
   activeWorkout?: Session;
   measurements: BodyWeightProps & { updatedAt: number };
 }) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const { fontScale } = useWindowDimensions();
   const [section, setSection] = useState<'overview' | 'muscles'>('overview');
@@ -407,6 +403,8 @@ function AppContent({
   consumeSharingToken: () => void;
   localDataAccess: { ready: boolean; isReady: () => boolean };
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const localization = useLocalization();
   const { t, locale } = localization;
   const localBackups = useBackupArchive();
@@ -1104,7 +1102,6 @@ function AppContent({
       edges={showDock || showOnboardingPage ? ['left', 'right'] : undefined}
       style={[s.root, (showOnboarding || acceptingProgram) && s.onboardingRoot]}
     >
-      <StatusBar style="dark" />
       {sharingOpen && ready && localDataAccess.ready ? (
         <ScreenModal
           visible
@@ -1281,7 +1278,7 @@ function AppContent({
       {!ready || !onboardingReady || !hiddenReady ? (
         <View style={s.empty}>
           {busy || !onboardingReady || !hiddenReady ? (
-            <ActivityIndicator color={blue} />
+            <ActivityIndicator color={colors.primary} />
           ) : null}
           <Text style={s.sub}>
             {busy || !onboardingReady || !hiddenReady
@@ -1656,7 +1653,7 @@ function AppContent({
     </ExerciseCharacterProvider>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: { flex: 1, backgroundColor: colors.background },
   onboardingRoot: { backgroundColor: colors.surface },
   profileVisible: { flex: 1 },
@@ -1763,4 +1760,4 @@ const s = StyleSheet.create({
     fontVariant: ['tabular-nums'],
   },
   lastRecord: { borderBottomWidth: 0 },
-});
+}));

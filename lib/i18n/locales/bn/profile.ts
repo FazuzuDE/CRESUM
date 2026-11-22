@@ -4,6 +4,12 @@ export default {
   'profile.myWorkouts': 'আমার ওয়ার্কআউট',
   'profile.settingsSection': 'সেটিংস',
   'profile.appearance': 'চেহারা',
+  'profile.theme': 'থিম',
+  'profile.theme.system': 'সিস্টেম অনুযায়ী',
+  'profile.theme.light': 'হালকা',
+  'profile.theme.dark': 'গাঢ়',
+  'profile.theme.systemHint':
+    'সিস্টেম মোডে ডিভাইসের চেহারা অনুসরণ করা হয়, নির্ধারিত সময়ে স্বয়ংক্রিয় পরিবর্তনসহ।',
   'profile.dataSection': 'ডেটা',
   'profile.dockTransparency': 'নিচের মেনুর স্বচ্ছতা',
   'character.pendingShort': 'প্রস্তুত হচ্ছে',

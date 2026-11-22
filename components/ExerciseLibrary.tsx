@@ -1,4 +1,8 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   LocalizedTextInput as TextInput,
   DirectionalIcon as Ionicons,
@@ -11,7 +15,7 @@ import { GlassMaterial } from './GlassMaterial';
 import { useReducedTransparency } from './useReducedTransparency';
 
 import { useEffect, useState } from 'react';
-import { Pressable, Keyboard, Platform, StyleSheet, View } from 'react-native';
+import { Pressable, Keyboard, Platform, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ExerciseEquipmentRow } from './ExerciseEquipmentRow';
 import { ExerciseEquipmentSheet } from './ExerciseEquipmentSheet';
@@ -28,7 +32,7 @@ import {
   MuscleId,
 } from '@/lib/exercise-taxonomy';
 import { LibraryExercise, type WorkoutSession } from '@/lib/workout-model';
-import { cardShadow, colors, radius, spacing, typography } from '@/lib/theme';
+import { cardShadow, radius, spacing, typography } from '@/lib/theme';
 
 type FilterGroup = 'muscle' | 'equipment';
 
@@ -53,6 +57,8 @@ export function ExerciseLibrary({
   history,
   now,
 }: ExerciseLibraryProps) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { locale, t } = useLocalization();
   const [guide, setGuide] = useState<LibraryExercise | null>(null);
   const [guideTab, setGuideTab] = useState<'Technique' | 'Statistics'>(
@@ -427,6 +433,8 @@ function FilterButton({
   filtered: boolean;
   onPress: () => void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t } = useLocalization();
   return (
     <Pressable
@@ -453,7 +461,7 @@ function FilterButton({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   sheet: {
     flex: 1,
     paddingHorizontal: spacing.md,
@@ -576,4 +584,4 @@ const s = StyleSheet.create({
     paddingVertical: spacing.xxl,
   },
   emptyTitle: { ...typography.headline, color: colors.textPrimary },
-});
+}));

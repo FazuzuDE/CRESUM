@@ -1,6 +1,7 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useState } from 'react';
-import { Pressable, StyleSheet, View, useWindowDimensions } from 'react-native';
+import { Pressable, View, useWindowDimensions } from 'react-native';
 import { ContentScrollView } from './ContentScrollView';
 import { GlassDialog } from './GlassDialog';
 import { AppButton } from './AppButton';
@@ -8,7 +9,7 @@ import { GlassCard } from './GlassCard';
 import { HistoryCountWheel } from './HistoryCountWheel';
 import { HistoryDatePicker } from './HistoryDatePicker';
 import { type HistoryFilter, validHistoryRange } from '@/lib/history-filter';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { formatDate, formatNumber } from '@/lib/i18n/format';
 
@@ -23,6 +24,7 @@ export function HistoryFilterModal({
   onApply: (filter: HistoryFilter) => void;
   onClose: () => void;
 }) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const [draft, setDraft] = useState(initial);
   const [pane, setPane] = useState<'filter' | 'count' | 'from' | 'to'>(
@@ -182,7 +184,7 @@ export function HistoryFilterModal({
     </GlassDialog>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   list: { flexGrow: 0, flexShrink: 1 },
   content: { gap: spacing.sm },
   title: { ...typography.title1, color: colors.textPrimary },
@@ -207,4 +209,4 @@ const s = StyleSheet.create({
   check: { ...typography.headline, color: colors.textPrimary },
   context: { ...typography.footnote, color: colors.textSecondary },
   error: { ...typography.footnote, color: colors.danger },
-});
+}));

@@ -4,6 +4,12 @@ export default {
   'profile.myWorkouts': 'Мої тренування',
   'profile.settingsSection': 'Налаштування',
   'profile.appearance': 'Оформлення',
+  'profile.theme': 'Тема',
+  'profile.theme.system': 'Як у системі',
+  'profile.theme.light': 'Світла',
+  'profile.theme.dark': 'Темна',
+  'profile.theme.systemHint':
+    'Системний режим змінює тему разом із пристроєм, зокрема за розкладом.',
   'profile.dataSection': 'Дані',
   'profile.dockTransparency': 'Прозорість нижнього меню',
   'character.pendingShort': 'Готується',

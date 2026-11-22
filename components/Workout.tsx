@@ -1,10 +1,11 @@
+import { useAppColors } from '@/components/AppThemeProvider';
 import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
-import { workoutStyles as s } from './workout-styles';
+import { useWorkoutStyles } from './workout-styles';
 import { ExerciseAttachmentBlock } from './ExerciseAttachmentBlock';
 import { ExerciseGroupComposer } from './ExerciseGroupComposer';
 import { equipmentPolicyFor } from '@/lib/exercise-equipment';
@@ -56,7 +57,7 @@ import {
 } from '@/lib/workout-engine';
 import { isSetComplete, WorkoutSession } from '@/lib/workout-model';
 import { volume } from '@/lib/workout-metrics';
-import { colors, spacing } from '@/lib/theme';
+import { spacing } from '@/lib/theme';
 
 export const successHaptic = () => {
   void Haptics.notificationAsync(
@@ -98,6 +99,8 @@ export function Workout({
     expectedSessionId: string,
   ) => Promise<boolean>;
 }) {
+  const colors = useAppColors();
+  const s = useWorkoutStyles();
   const { t, locale } = useLocalization();
   const [now, setNow] = useState(Date.now());
   const [picker, setPicker] = useState(false);

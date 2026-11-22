@@ -4,6 +4,12 @@ export default {
   'profile.myWorkouts': '내 운동',
   'profile.settingsSection': '설정',
   'profile.appearance': '화면 설정',
+  'profile.theme': '테마',
+  'profile.theme.system': '시스템 설정 따르기',
+  'profile.theme.light': '라이트',
+  'profile.theme.dark': '다크',
+  'profile.theme.systemHint':
+    '시스템 설정을 따르면 예약된 자동 전환을 포함해 기기의 화면 모드가 적용됩니다.',
   'profile.dataSection': '데이터',
   'profile.dockTransparency': '하단 메뉴 투명도',
   'character.pendingShort': '준비 중',

@@ -5,7 +5,7 @@
     "version": "0.3.7",
     "orientation": "portrait",
     "scheme": ["cresum", "fitflow"],
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "plugins": [
       "expo-router",
       "expo-localization",

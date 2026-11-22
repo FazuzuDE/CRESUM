@@ -1,4 +1,8 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   LocalizedTextInput as TextInput,
 } from '@/components/LayoutDirection';
@@ -31,7 +35,6 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
-  StyleSheet,
   useWindowDimensions,
   View,
 } from 'react-native';
@@ -41,7 +44,7 @@ import { TemplateEditor } from './TemplateEditor';
 import type { OnboardingState, OnboardingStep } from '@/lib/onboarding';
 import type { TemplateMutationResult } from '@/lib/workout-store';
 import type { TemplateDraft } from '@/lib/workout-templates';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { formatDate } from '@/lib/i18n/format';
@@ -84,6 +87,8 @@ export function Onboarding({
   onCreateWorkout,
   onExit,
 }: Props) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const { width, height } = useWindowDimensions();
   const welcomeArtworkWidth = Math.min(width, maxContentWidth);
@@ -1136,7 +1141,7 @@ export function Onboarding({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: { flex: 1 },
   white: { backgroundColor: colors.surface },
   polishedContent: { flexGrow: 1, paddingBottom: spacing.md },
@@ -1207,4 +1212,4 @@ const s = StyleSheet.create({
     paddingHorizontal: spacing.md,
   },
   error: { ...typography.footnote, color: colors.danger },
-});
+}));

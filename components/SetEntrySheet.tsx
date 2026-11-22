@@ -1,4 +1,8 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedModal as Modal,
   LocalizedText as Text,
   LocalizedTextInput as TextInput,
@@ -10,7 +14,6 @@ import {
   Platform,
   Pressable,
   ScrollView,
-  StyleSheet,
   View,
   useWindowDimensions,
 } from 'react-native';
@@ -30,7 +33,7 @@ import {
   type SetValues,
 } from '@/lib/set-entry';
 import type { WorkoutSet } from '@/lib/workout-model';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 
 /** Mounted per snapshot; drafts never reach storage before Save. */
 export function SetEntrySheet({
@@ -50,6 +53,8 @@ export function SetEntrySheet({
   onCancel: () => void;
   onSave: (values: SetValues) => void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const [draft, setDraft] = useState<SetValues>(() => ({
     weight: set.weight,
@@ -355,7 +360,7 @@ export function SetEntrySheet({
     </Modal>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: { flex: 1, backgroundColor: colors.surface },
   container: {
     flex: 1,
@@ -446,4 +451,4 @@ const s = StyleSheet.create({
     textAlign: 'center',
   },
   error: { ...typography.footnote, color: colors.danger },
-});
+}));

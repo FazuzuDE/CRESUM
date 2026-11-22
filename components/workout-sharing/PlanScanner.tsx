@@ -1,10 +1,11 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useRef } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { AppButton } from '../AppButton';
 import { useLocalization } from '../LocalizationProvider';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 export function PlanScanner({
   onRead,
   onClose,
@@ -12,6 +13,7 @@ export function PlanScanner({
   onRead: (url: string) => void;
   onClose: () => void;
 }) {
+  const s = useStyles();
   const { t } = useLocalization();
   const [permission, requestPermission] = useCameraPermissions();
   const scanned = useRef(false);
@@ -42,8 +44,8 @@ export function PlanScanner({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: { gap: spacing.md },
   camera: { height: 320 },
   copy: { ...typography.body, color: colors.textPrimary },
-});
+}));

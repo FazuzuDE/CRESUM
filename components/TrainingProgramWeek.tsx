@@ -1,3 +1,4 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
@@ -11,7 +12,7 @@ import {
   type ProjectedProgramSlot,
 } from '@/lib/training-programs/schedule';
 import type { WorkoutSession, WorkoutTemplate } from '@/lib/workout-model';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { formatDate } from '@/lib/i18n/format';
 import { catalogLabel } from '@/lib/i18n/catalog';
@@ -34,6 +35,7 @@ export function TrainingProgramWeek({
   onStart,
   onManage,
 }: Props) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const dateLabel = (value: string) =>
     formatDate(locale, new Date(`${value}T00:00:00`).getTime());
@@ -153,7 +155,7 @@ export function TrainingProgramWeek({
     </GlassCard>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   card: { gap: spacing.sm },
   title: { ...typography.title2, color: colors.textPrimary },
   name: { ...typography.headline, color: colors.textPrimary },
@@ -168,4 +170,4 @@ const s = StyleSheet.create({
     borderBottomColor: colors.separator,
   },
   guidance: { gap: spacing.xs },
-});
+}));

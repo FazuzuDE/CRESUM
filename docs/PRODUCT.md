@@ -507,6 +507,11 @@ Home · Workout · Progress · Profile
 Profile offers a live bottom-menu transparency control for trying the glass
 appearance. Save the preference locally on the device.
 
+Profile → Appearance also offers System, Light and Dark. Choose System by
+default and update the app when the device changes appearance, including at a
+scheduled system transition. Light and Dark override device appearance for
+CRESUM. Apply the choice immediately and save it locally.
+
 ## Core v1
 
 ### Onboarding

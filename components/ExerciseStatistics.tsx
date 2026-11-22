@@ -1,7 +1,8 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { useEffect, useMemo, useState } from 'react';
-import { AppState, Pressable, StyleSheet, View } from 'react-native';
+import { AppState, Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BrandHeader } from './BrandHeader';
 import { AppScrollView } from './AppScrollView';
@@ -19,7 +20,7 @@ import {
 } from '@/lib/progress-periods';
 import type { WorkoutSession } from '@/lib/workout-model';
 import type { WorkoutVolume } from '@/lib/progress-analytics';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { formatNumber } from '@/lib/i18n/format';
@@ -47,6 +48,7 @@ export function ExerciseStatistics({
   name: string;
   now?: number;
 }) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const number = (v: number, estimate = false) =>
     progressNumber(locale, v, estimate);
@@ -327,6 +329,7 @@ function LoggedExerciseSets({
   showEquipment?: boolean;
   onClose: () => void;
 }) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const number = (v: number, estimate = false) =>
     progressNumber(locale, v, estimate);
@@ -420,7 +423,7 @@ function LoggedExerciseSets({
     </ScreenModal>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   content: { gap: spacing.md, paddingBottom: spacing.lg },
   segments: {
     flexDirection: 'row',
@@ -513,4 +516,4 @@ const s = StyleSheet.create({
     fontVariant: ['tabular-nums'],
   },
   cellLabel: { flex: 1, ...typography.caption, color: colors.textSecondary },
-});
+}));

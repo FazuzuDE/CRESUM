@@ -16510,5 +16510,59 @@
     "line": 19,
     "text": "ko",
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+  },
+  {
+    "file": "app/_layout.tsx",
+    "line": 49,
+    "text": "light",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:style/JsxAttributes"
+  },
+  {
+    "file": "app/_layout.tsx",
+    "line": 49,
+    "text": "dark",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:style/JsxAttributes"
+  },
+  {
+    "file": "components/AppThemeProvider.tsx",
+    "line": 23,
+    "text": "cresum.colorScheme",
+    "context": "StringLiteral/VariableDeclaration/VariableDeclarationList/FirstStatement"
+  },
+  {
+    "file": "components/AppThemeProvider.tsx",
+    "line": 24,
+    "text": "system",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+  },
+  {
+    "file": "components/AppThemeProvider.tsx",
+    "line": 24,
+    "text": "light",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+  },
+  {
+    "file": "components/AppThemeProvider.tsx",
+    "line": 24,
+    "text": "dark",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+  },
+  {
+    "file": "components/AppThemeProvider.tsx",
+    "line": 47,
+    "text": "system",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/Block"
+  },
+  {
+    "file": "components/AppThemeProvider.tsx",
+    "line": 59,
+    "text": "auto",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/Block"
+  },
+  {
+    "file": "lib/theme.ts",
+    "line": 4,
+    "text": "rgba(0, 0, 0, 0.14)",
+    "context": "StringLiteral/PropertyAssignment:dialogScrim/ObjectLiteralExpression/AsExpression/VariableDeclaration"
   }
 ]

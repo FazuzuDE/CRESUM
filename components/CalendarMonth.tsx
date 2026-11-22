@@ -1,11 +1,15 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
 
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { calendarTime } from '@/lib/picker-date';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { formatDate } from '@/lib/i18n/format';
 
@@ -24,6 +28,8 @@ export function CalendarMonth({
   onMonth: (time: number) => void;
   onSelect: (time: number) => void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const date = new Date(month),
     year = date.getFullYear(),
@@ -105,7 +111,7 @@ export function CalendarMonth({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   calendar: { gap: spacing.sm },
   navigation: {
     flexDirection: 'row',
@@ -159,4 +165,4 @@ const s = StyleSheet.create({
   },
   completedText: { color: colors.surface },
   context: { ...typography.footnote, color: colors.textSecondary },
-});
+}));

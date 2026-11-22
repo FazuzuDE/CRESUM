@@ -1,11 +1,15 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
 import type { ComponentProps } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 
 export function AppButton({
   title,
@@ -40,6 +44,8 @@ export function AppButton({
   presentation?: 'button' | 'row' | 'text' | 'choice' | 'settings';
   wordmark?: boolean;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const schedule = presentation === 'row' && !!detail;
   const settings = presentation === 'settings';
   const choice = presentation === 'choice';
@@ -127,7 +133,7 @@ export function AppButton({
     </Pressable>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   button: {
     minHeight: 56,
     borderRadius: 16,
@@ -203,4 +209,4 @@ const s = StyleSheet.create({
     letterSpacing: 4,
     color: colors.textPrimary,
   },
-});
+}));

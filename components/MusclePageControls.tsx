@@ -1,6 +1,10 @@
+import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
 import { DirectionalIcon, LocalizedText as Text } from './LayoutDirection';
-import { Pressable, StyleSheet, View } from 'react-native';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { Pressable, View } from 'react-native';
+import { radius, spacing, typography } from '@/lib/theme';
 
 export function MuscleSegments<T extends string>({
   options,
@@ -11,6 +15,7 @@ export function MuscleSegments<T extends string>({
   value: NoInfer<T>;
   onChange: (value: T) => void;
 }) {
+  const s = useStyles();
   return (
     <View style={s.segments}>
       {(Object.entries(options) as [T, string][]).map(([id, label]) => (
@@ -48,6 +53,8 @@ export function MuscleDisclosure({
   expanded: boolean;
   onPress: () => void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   return (
     <Pressable
       accessibilityRole="button"
@@ -66,7 +73,7 @@ export function MuscleDisclosure({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   segments: {
     flexDirection: 'row',
     backgroundColor: colors.surfaceSubtle,
@@ -97,4 +104,4 @@ const s = StyleSheet.create({
     gap: spacing.xs,
   },
   link: { ...typography.subheadline, color: colors.primary, flexShrink: 1 },
-});
+}));

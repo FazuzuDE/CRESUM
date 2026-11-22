@@ -1,4 +1,8 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   LocalizedTextInput as TextInput,
 } from '@/components/LayoutDirection';
@@ -6,13 +10,12 @@ import { useLocalization } from './LocalizationProvider';
 import type { AuthRepository } from '@/lib/auth-repository';
 import { HistorySyncPanel, type HistorySyncControls } from './HistorySyncPanel';
 import { useRef, useState } from 'react';
-import { StyleSheet } from 'react-native';
 import { AppButton } from './AppButton';
 import { GlassCard } from './GlassCard';
 import { type AuthSnapshot } from '@/lib/auth-store';
 import { presentAppError } from '@/lib/i18n/errors';
 import { AppError } from '@/lib/app-error';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { AccountDeletionSection } from './AccountDeletionSection';
 
 export type AccountSectionProps = {
@@ -50,6 +53,8 @@ function AccountSectionContent({
   deleteAccount,
   retryAccount,
 }: AccountSectionProps) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t } = useLocalization();
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
@@ -278,7 +283,7 @@ function AccountSectionContent({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   card: { gap: spacing.sm },
   title: { ...typography.title3, color: colors.textPrimary },
   copy: { ...typography.footnote, color: colors.textSecondary },
@@ -291,4 +296,4 @@ const s = StyleSheet.create({
     color: colors.textPrimary,
     ...typography.body,
   },
-});
+}));

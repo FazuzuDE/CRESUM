@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
-import { colors, radius, spacing, typography } from '@/lib/theme';
-export const workoutStyles = StyleSheet.create({
+import { createThemedStyles } from '@/components/AppThemeProvider';
+import { radius, spacing, typography } from '@/lib/theme';
+export const useWorkoutStyles = createThemedStyles((colors) => ({
   valueCell: { justifyContent: 'center', alignItems: 'center' },
   valueText: {
     maxWidth: '100%',
@@ -148,4 +148,4 @@ export const workoutStyles = StyleSheet.create({
   actionRow: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs },
   action: { flexGrow: 1, flexBasis: 120, minWidth: 0 },
   dim: { opacity: 0.6 },
-});
+}));

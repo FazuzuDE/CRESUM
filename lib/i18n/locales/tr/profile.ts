@@ -4,6 +4,12 @@ export default {
   'profile.myWorkouts': 'Antrenmanlarım',
   'profile.settingsSection': 'Ayarlar',
   'profile.appearance': 'Görünüm',
+  'profile.theme': 'Tema',
+  'profile.theme.system': 'Sistem',
+  'profile.theme.light': 'Açık',
+  'profile.theme.dark': 'Koyu',
+  'profile.theme.systemHint':
+    'Sistem modu, zamanlanmış değişiklikler dâhil olmak üzere cihazının görünümünü izler.',
   'profile.dataSection': 'Veriler',
   'profile.dockTransparency': 'Alt menü şeffaflığı',
   'character.pendingShort': 'Hazırlanıyor',

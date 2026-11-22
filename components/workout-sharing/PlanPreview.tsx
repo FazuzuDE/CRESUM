@@ -1,7 +1,8 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { formatEntryNumber } from '@/lib/i18n/format';
 import { useRef, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { AppButton } from '../AppButton';
 import { useLocalization } from '../LocalizationProvider';
 import { catalogLabel } from '@/lib/i18n/catalog';
@@ -12,7 +13,7 @@ import type {
   SharedPlan,
   SharedPlanExerciseV2,
 } from '@/lib/workout-sharing/contract';
-import { colors, spacing, typography, radius } from '@/lib/theme';
+import { spacing, typography, radius } from '@/lib/theme';
 export type ImportPlan = (
   plan: SharedPlan,
   origin: PlanOrigin,
@@ -37,6 +38,7 @@ export function PlanPreview({
   savedTemplate?: WorkoutTemplate;
   onOpenSaved?: (template: WorkoutTemplate) => void;
 }) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const [saved, setSaved] = useState(savedTemplate);
   const [busy, setBusy] = useState(false);
@@ -181,7 +183,7 @@ export function PlanPreview({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   content: { gap: spacing.md },
   title: { ...typography.title1, color: colors.textPrimary },
   card: {
@@ -192,4 +194,4 @@ const s = StyleSheet.create({
   },
   name: { ...typography.headline, color: colors.textPrimary },
   copy: { ...typography.footnote, color: colors.textSecondary },
-});
+}));

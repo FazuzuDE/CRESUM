@@ -1,16 +1,17 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { BrandHeader } from './BrandHeader';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { AppFlatList } from './AppFlatList';
 import { useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { EstimatedOneRepMaxBars } from './EstimatedOneRepMaxBars';
 import { VolumeTrendChart } from './VolumeTrendChart';
 import { progressPeriodStart } from '@/lib/progress-periods';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import type { EstimatedOneRepMaxPoint } from '@/lib/exercise-performance';
 import type { ProgressPeriodId } from '@/lib/progress-periods';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { formatNumber } from '@/lib/i18n/format';
 import {
@@ -42,6 +43,7 @@ const pointLabel = (
   });
 
 function PointRow({ point }: { point: EstimatedOneRepMaxPoint }) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   return (
     <View
@@ -71,6 +73,7 @@ function PointRow({ point }: { point: EstimatedOneRepMaxPoint }) {
 }
 
 export function EstimatedOneRepMaxSeries({ points, period, now }: Props) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const periodText = periodLabel(t, period);
   const [allOpen, setAllOpen] = useState(false);
@@ -170,7 +173,7 @@ export function EstimatedOneRepMaxSeries({ points, period, now }: Props) {
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   section: { marginTop: spacing.lg },
   title: { ...typography.headline, color: colors.textPrimary },
   note: {
@@ -221,4 +224,4 @@ const s = StyleSheet.create({
   sheetTitle: { ...typography.title2, color: colors.textPrimary, flex: 1 },
   close: { minWidth: 44, minHeight: 44, justifyContent: 'center' },
   list: { paddingBottom: spacing.xxl },
-});
+}));

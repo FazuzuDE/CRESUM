@@ -4,6 +4,12 @@ export default {
   'profile.myWorkouts': 'Mis entrenamientos',
   'profile.settingsSection': 'Ajustes',
   'profile.appearance': 'Apariencia',
+  'profile.theme': 'Tema',
+  'profile.theme.system': 'Sistema',
+  'profile.theme.light': 'Claro',
+  'profile.theme.dark': 'Oscuro',
+  'profile.theme.systemHint':
+    'El modo del sistema sigue la apariencia de tu dispositivo, incluidos los cambios programados.',
   'profile.dataSection': 'Datos',
   'profile.dockTransparency': 'Transparencia del menú inferior',
   'character.pendingShort': 'Preparación',

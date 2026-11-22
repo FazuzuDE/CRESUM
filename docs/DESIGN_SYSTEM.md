@@ -37,6 +37,13 @@ unless the dock itself is explicitly in scope.
 
 ## Profile
 
+Appearance offers System, Light and Dark. Use the existing light palette and
+the shared dark palette across screens, cards, dialogs, the status bar and
+navigation. Dark mode uses graphite surfaces, light text and a lighter blue
+accent. Match glass and blur to the active palette while preserving the
+opacity settings. Preserve the existing colors of muscle highlights and
+the original exercise artwork.
+
 Group the settings rows under Workouts, Settings and Data, using white surfaces,
 leading icons and thin row separators. Show the current language and exercise
 character in their rows. Put the existing transparency slider under Appearance
@@ -1091,7 +1098,8 @@ theme tokens and editor confirmation behavior.
 
 **Status:** approved baseline for CRESUM Core
 **Stack:** React Native + Expo + TypeScript  
-**Direction:** Light Premium / Apple-inspired iOS UI  
+**Direction:** Premium / Apple-inspired iOS UI in light and dark palettes
+
 **Primary:** `#0A84FF`
 
 ## 1. Principles

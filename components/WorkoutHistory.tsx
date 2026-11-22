@@ -1,9 +1,10 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
 import { ExerciseEquipmentRow } from './ExerciseEquipmentRow';
 import { setNumberInGroup } from '@/lib/exercise-groups';
 import { useMemo, useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { HistoryFilterModal } from './HistoryFilterModal';
 import {
   defaultHistoryFilter,
@@ -17,7 +18,7 @@ import { newestFirstHistory } from '@/lib/workout-history';
 import { completedSetCount } from '@/lib/workout-engine';
 import { volume } from '@/lib/workout-metrics';
 import { isSetComplete, type WorkoutSession } from '@/lib/workout-model';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { formatDate, formatEntryNumber, formatNumber } from '@/lib/i18n/format';
 import { localizedHistoryFilterLabel } from '@/lib/i18n/history';
@@ -45,6 +46,7 @@ export function WorkoutHistory({
 }: {
   history: readonly WorkoutSession[];
 }) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const [selectedId, setSelectedId] = useState<string>();
   const [filter, setFilter] = useState<HistoryFilter>(() =>
@@ -203,7 +205,7 @@ export function WorkoutHistory({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   section: { gap: spacing.sm },
   sectionTitle: { ...typography.title3, color: colors.textPrimary },
   detailHeader: { gap: spacing.sm },
@@ -226,4 +228,4 @@ const s = StyleSheet.create({
     color: colors.textPrimary,
     fontVariant: ['tabular-nums'],
   },
-});
+}));

@@ -1,9 +1,10 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import {
   LocalizedText as Text,
   LocalizedTextInput as TextInput,
 } from '@/components/LayoutDirection';
 import { useEffect, useRef, useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppButton } from '../AppButton';
 import { useLocalization } from '../LocalizationProvider';
@@ -15,7 +16,7 @@ import {
   type LibraryPlan,
 } from '@/lib/workout-sharing/library';
 import type { SharingClient } from '@/lib/workout-sharing/client';
-import { colors, spacing, typography, radius } from '@/lib/theme';
+import { spacing, typography, radius } from '@/lib/theme';
 import { equipmentTaxonomy } from '@/lib/exercise-taxonomy';
 import { catalogLabel } from '@/lib/i18n/catalog';
 export function PlanLibrary({
@@ -25,6 +26,7 @@ export function PlanLibrary({
   client: SharingClient | null;
   onSelect: (id: string) => void;
 }) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const [plans, setPlans] = useState<LibraryPlan[]>([]);
   const [query, setQuery] = useState('');
@@ -163,7 +165,7 @@ export function PlanLibrary({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: { gap: spacing.md },
   title: { ...typography.title1, color: colors.textPrimary },
   name: { ...typography.headline, color: colors.textPrimary },
@@ -183,4 +185,4 @@ const s = StyleSheet.create({
     borderRadius: radius.lg,
     backgroundColor: colors.surface,
   },
-});
+}));

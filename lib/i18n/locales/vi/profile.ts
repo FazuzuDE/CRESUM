@@ -4,6 +4,12 @@ export default {
   'profile.myWorkouts': 'Buổi tập của tôi',
   'profile.settingsSection': 'Cài đặt',
   'profile.appearance': 'Giao diện',
+  'profile.theme': 'Giao diện',
+  'profile.theme.system': 'Theo hệ thống',
+  'profile.theme.light': 'Sáng',
+  'profile.theme.dark': 'Tối',
+  'profile.theme.systemHint':
+    'Chế độ hệ thống áp dụng giao diện của thiết bị, kể cả khi thiết bị tự đổi theo lịch.',
   'profile.dataSection': 'Dữ liệu',
   'profile.dockTransparency': 'Độ trong suốt menu dưới',
   'character.pendingShort': 'Đang chuẩn bị',

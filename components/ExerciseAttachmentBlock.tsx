@@ -4,7 +4,7 @@ import { useLocalization } from './LocalizationProvider';
 import { ExerciseEquipmentRow } from './ExerciseEquipmentRow';
 import { ExerciseArtwork } from './ExerciseArtwork';
 import { AppButton } from './AppButton';
-import { workoutStyles as s } from './workout-styles';
+import { useWorkoutStyles } from './workout-styles';
 import { setNumberInGroup } from '@/lib/exercise-groups';
 import { formatEntryNumber, formatNumber } from '@/lib/i18n/format';
 import { findExercise } from '@/lib/exercise-library';
@@ -40,6 +40,7 @@ export function ExerciseAttachmentBlock({
   onToggle: (index: number) => void;
   onRemove: (index: number) => void;
 }) {
+  const s = useWorkoutStyles();
   const { t, locale } = useLocalization();
   const exercise = session.exercises[index];
   const previous = history

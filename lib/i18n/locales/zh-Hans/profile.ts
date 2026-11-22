@@ -4,6 +4,12 @@ export default {
   'profile.myWorkouts': '我的训练',
   'profile.settingsSection': '设置',
   'profile.appearance': '外观',
+  'profile.theme': '主题',
+  'profile.theme.system': '跟随系统',
+  'profile.theme.light': '浅色',
+  'profile.theme.dark': '深色',
+  'profile.theme.systemHint':
+    '跟随系统时，主题会随设备外观切换，包括按计划自动切换。',
   'profile.dataSection': '数据',
   'profile.dockTransparency': '底部菜单透明度',
   'character.pendingShort': '准备中',

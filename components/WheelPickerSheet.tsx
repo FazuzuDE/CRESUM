@@ -1,10 +1,11 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import type { ReactNode } from 'react';
-import { StyleSheet, View, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
 import { GlassDialog } from './GlassDialog';
 import { AppButton } from './AppButton';
 import { useLocalization } from './LocalizationProvider';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 
 export function WheelPickerSheet({
   title,
@@ -21,6 +22,7 @@ export function WheelPickerSheet({
   onClear?: () => void;
   disabled?: boolean;
 }) {
+  const s = useStyles();
   const { t } = useLocalization();
   const { height } = useWindowDimensions();
   return (
@@ -51,7 +53,7 @@ export function WheelPickerSheet({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   title: { ...typography.title2, color: colors.textPrimary },
   actions: { gap: spacing.sm },
-});
+}));

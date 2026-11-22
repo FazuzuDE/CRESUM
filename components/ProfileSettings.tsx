@@ -1,3 +1,8 @@
+import {
+  createThemedStyles,
+  themePreferences,
+  useAppTheme,
+} from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { AppSlider } from './AppSlider';
 import { formatNumber } from '@/lib/i18n/format';
@@ -22,7 +27,7 @@ import { defaultTemplates } from '@/lib/workout-catalog';
 import type { WorkoutTemplate, WorkoutSession } from '@/lib/workout-model';
 import type { TemplateMutationResult } from '@/lib/workout-store';
 import type { TemplateDraft } from '@/lib/workout-templates';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { catalogLabel, searchLocalizedExercises } from '@/lib/i18n/catalog';
 
 export type ProfileSettingsProps = {
@@ -83,7 +88,9 @@ export function ProfileSettings({
   backup,
   account,
 }: ProfileSettingsProps) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
+  const { preference } = useAppTheme();
   const { model } = useExerciseCharacter();
   const [detail, setDetail] = useState<
     'appearance' | 'character' | 'data' | null
@@ -215,6 +222,7 @@ export function ProfileSettings({
         </Text>
         {detail === 'appearance' ? (
           <>
+            <ThemeSetting />
             {headerOpacity !== undefined ? (
               <PercentSetting
                 label={t('profile.headerOpacity')}
@@ -305,14 +313,13 @@ export function ProfileSettings({
           presentation="settings"
           onPress={() => setDetail('character')}
         />
-        {dockTransparency !== undefined || headerOpacity !== undefined ? (
-          <AppButton
-            title={t('profile.appearance')}
-            icon="sunny-outline"
-            presentation="settings"
-            onPress={() => setDetail('appearance')}
-          />
-        ) : null}
+        <AppButton
+          title={t('profile.appearance')}
+          icon="sunny-outline"
+          value={t(`profile.theme.${preference}`)}
+          presentation="settings"
+          onPress={() => setDetail('appearance')}
+        />
       </ProfileGroup>
       <ProfileGroup title={t('profile.dataSection')}>
         {account ? (
@@ -351,6 +358,29 @@ export function ProfileSettings({
   );
 }
 
+function ThemeSetting() {
+  const { t } = useLocalization();
+  const { preference, select } = useAppTheme();
+  const s = useStyles();
+  return (
+    <GlassCard style={s.card}>
+      <Text style={s.sectionTitle} accessibilityRole="header">
+        {t('profile.theme')}
+      </Text>
+      {themePreferences.map((mode) => (
+        <AppButton
+          key={mode}
+          title={t(`profile.theme.${mode}`)}
+          presentation="choice"
+          selected={preference === mode}
+          onPress={() => select(mode)}
+        />
+      ))}
+      <Text style={s.sub}>{t('profile.theme.systemHint')}</Text>
+    </GlassCard>
+  );
+}
+
 function PercentSetting({
   label,
   value,
@@ -362,6 +392,7 @@ function PercentSetting({
   onPreview?: (value: number) => void;
   onCommit?: (value: number) => void;
 }) {
+  const s = useStyles();
   const { locale } = useLocalization();
   const [gestureValue, setGestureValue] = useState<number | null>(null);
   const percent = formatNumber(locale, value / 100, { style: 'percent' });
@@ -402,6 +433,7 @@ function ProfileGroup({
   title: string;
   children: ReactNode;
 }) {
+  const s = useStyles();
   return (
     <View style={s.group}>
       <Text style={s.groupTitle} accessibilityRole="header">
@@ -419,7 +451,7 @@ function ProfileGroup({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   percentHeading: {
     flexDirection: 'row',
     alignItems: 'baseline',
@@ -475,4 +507,4 @@ const s = StyleSheet.create({
   restoreName: { ...typography.headline, color: colors.textPrimary, flex: 1 },
   error: { ...typography.footnote, color: colors.danger },
   aboutTitle: { ...typography.headline, color: colors.textPrimary },
-});
+}));

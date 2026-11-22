@@ -1,4 +1,8 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   LocalizedTextInput as TextInput,
   DirectionalIcon as Ionicons,
@@ -19,7 +23,7 @@ import { TechniquePhaseControl } from './TechniquePhaseControl';
 import { equipmentPolicyFor } from '@/lib/exercise-equipment';
 import { useEquipmentFocus } from './useEquipmentFocus';
 import type { TechniquePhase } from '@/lib/exercise-technique';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { AppButton } from './AppButton';
 import { Confirmation } from './Confirmation';
@@ -39,7 +43,7 @@ import {
   validateTemplateDraft,
   staleExerciseIds,
 } from '@/lib/workout-templates';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { formatEntryNumber } from '@/lib/i18n/format';
@@ -72,6 +76,8 @@ export function TemplateEditor({
   initialStep,
   initialExerciseId,
 }: Props) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const [equipmentOpen, setEquipmentOpen] = useState(false);
   const equipmentFocus = useEquipmentFocus(equipmentOpen);
@@ -731,6 +737,8 @@ function IconAction({
   disabled: boolean;
   onPress: () => void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   return (
     <Pressable
       accessibilityRole="button"
@@ -749,7 +757,7 @@ function IconAction({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   card: { gap: spacing.md },
   title: { ...typography.title3, color: colors.textPrimary },
   heading: {
@@ -797,4 +805,4 @@ const s = StyleSheet.create({
     justifyContent: 'center',
   },
   dimmed: { opacity: 0.5 },
-});
+}));

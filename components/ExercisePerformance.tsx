@@ -1,3 +1,7 @@
+import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
 import { BrandHeader } from './BrandHeader';
 import {
   LocalizedText as Text,
@@ -7,7 +11,7 @@ import {
 import { ScreenModal } from './ScreenModal';
 import { AppScrollView } from './AppScrollView';
 import { useMemo, useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { GlassCard } from './GlassCard';
@@ -26,13 +30,7 @@ import {
 } from '@/lib/exercise-performance';
 import type { ProgressPeriodId } from '@/lib/progress-periods';
 import type { WorkoutSession } from '@/lib/workout-model';
-import {
-  colors,
-  progressTypography,
-  radius,
-  spacing,
-  typography,
-} from '@/lib/theme';
+import { progressTypography, radius, spacing, typography } from '@/lib/theme';
 
 type Props = {
   history: readonly WorkoutSession[];
@@ -41,6 +39,8 @@ type Props = {
 };
 
 export function ExercisePerformance({ history, period, now }: Props) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const [identityKey, setIdentityKey] = useState<string>();
   const [selectorOpen, setSelectorOpen] = useState(false);
@@ -289,7 +289,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   card: { padding: spacing.md, borderRadius: radius.xxl },
   title: { ...progressTypography.sectionTitle, color: colors.textEmphasis },
   subtitle: {
@@ -394,4 +394,4 @@ const s = StyleSheet.create({
   },
   resultText: { ...typography.body, color: colors.textPrimary },
   pressed: { opacity: 0.6 },
-});
+}));

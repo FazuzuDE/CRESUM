@@ -1,9 +1,9 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useLocalization } from './LocalizationProvider';
-import { StyleSheet } from 'react-native';
 import { AppScrollView } from './AppScrollView';
 import { AccountSection, type AccountSectionProps } from './AccountSection';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import { useState } from 'react';
 import { HistoryConflictReview } from './HistoryConflictReview';
 
@@ -37,6 +37,7 @@ function AccountPageContent({
   onClose: () => void;
   owner: string | null;
 }) {
+  const s = useStyles();
   const { t } = useLocalization();
   const [reviewOwner, setReviewOwner] = useState<string | null>(null);
   const reviewing = !!owner && reviewOwner === owner && !!account.sync?.review;
@@ -76,7 +77,7 @@ function AccountPageContent({
     </AppScrollView>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   title: { ...typography.largeTitle, color: colors.textPrimary },
   content: {
     width: '100%',
@@ -85,4 +86,4 @@ const s = StyleSheet.create({
     padding: spacing.md,
     gap: spacing.lg,
   },
-});
+}));

@@ -1,3 +1,4 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { useEffect, useRef, useReducer, useState, useMemo } from 'react';
 import type { ComponentType } from 'react';
 import {
@@ -5,7 +6,6 @@ import {
   FlatList,
   Platform,
   Pressable,
-  StyleSheet,
   View,
   useAnimatedValue,
   useWindowDimensions,
@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { requireNativeView, requireOptionalNativeModule } from 'expo';
 import * as Haptics from 'expo-haptics';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { useWheelClick } from './useWheelClick';
 
@@ -56,6 +56,7 @@ export function AppPicker({
   cyclic = false,
   audible = false,
 }: Props) {
+  const s = useStyles();
   const [revision, refreshSelection] = useReducer((n: number) => n + 1, 0);
   const [available, setAvailable] = useState<number | null>(null);
   const changed = (component: number, row: number) => {
@@ -142,6 +143,7 @@ function WheelColumn({
   onChange: (row: number) => void;
   onInteractionChange?: (active: boolean) => void;
 }) {
+  const s = useStyles();
   const { t } = useLocalization();
   // Keep a large virtualized runway in both directions, then silently move back
   // to its middle when scrolling stops. Only logical option indices escape.
@@ -410,7 +412,7 @@ function WheelColumn({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   columns: {
     direction: 'ltr',
     flexDirection: 'row',
@@ -438,4 +440,4 @@ const s = StyleSheet.create({
     color: colors.textPrimary,
     fontVariant: ['tabular-nums'],
   },
-});
+}));

@@ -1,17 +1,21 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { useState } from 'react';
-import { Pressable, StyleSheet, Switch, View } from 'react-native';
+import { Pressable, Switch, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AppScrollView } from './AppScrollView';
 import { AppButton } from './AppButton';
 import { GlassCard } from './GlassCard';
 import { defaultHomeLayout, type HomeLayout } from '@/lib/home-layout';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 
 export function HomeLayoutEditor({
@@ -27,6 +31,8 @@ export function HomeLayoutEditor({
   onSave: (layout: HomeLayout) => void;
   onClose: () => void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t } = useLocalization();
   const [draft, setDraft] = useState(initial);
   function move(index: number, delta: number) {
@@ -145,7 +151,7 @@ export function HomeLayoutEditor({
     </ScreenModal>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   screen: { flex: 1, backgroundColor: colors.background },
   content: {
     padding: spacing.md,
@@ -178,4 +184,4 @@ const s = StyleSheet.create({
   },
   dim: { opacity: 0.6 },
   error: { ...typography.body, color: colors.danger },
-});
+}));

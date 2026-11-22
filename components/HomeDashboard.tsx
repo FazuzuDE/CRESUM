@@ -1,4 +1,8 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
@@ -18,13 +22,7 @@ import type { ProjectedProgramSlot } from '@/lib/training-programs/schedule';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppScrollView } from './AppScrollView';
 import { useEffect, useRef, useState } from 'react';
-import {
-  AppState,
-  BackHandler,
-  Pressable,
-  StyleSheet,
-  View,
-} from 'react-native';
+import { AppState, BackHandler, Pressable, View } from 'react-native';
 
 import { AppButton } from './AppButton';
 import type { DashboardGridItem } from './DashboardGrid';
@@ -35,7 +33,7 @@ import {
   type HomeTemplateDetails,
 } from '@/lib/home-dashboard';
 import type { WorkoutSession, WorkoutTemplate } from '@/lib/workout-model';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { formatDate, formatNumber } from '@/lib/i18n/format';
 import { catalogLabel } from '@/lib/i18n/catalog';
@@ -111,6 +109,8 @@ function PrimaryWorkoutWidget({
   onResume: () => void;
   startTemplate: HomeProps['startTemplate'];
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const presentation = featured
     ? templatePresentation(featured, t, locale)
@@ -179,6 +179,7 @@ function TrainingSummaryWidget({
   totalVolume: number;
   completedCount: number;
 }) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   return (
     <View style={s.statPair}>
@@ -213,6 +214,8 @@ function TrainingWeekWidget({
   week: ReturnType<typeof projectHomeDashboard>['week'];
   onOpenCalendar: () => void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   return (
     <GlassCard style={s.weekCard}>
@@ -279,6 +282,7 @@ function LatestWorkoutWidget({
 }: {
   latest: ReturnType<typeof projectHomeDashboard>['latestWorkout'];
 }) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   return latest ? (
     <GlassCard style={s.recent}>
@@ -302,6 +306,8 @@ function WorkoutTemplatesWidget({
   activeWorkout: WorkoutSession | null;
   startTemplate: HomeProps['startTemplate'];
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   return (
     <View style={s.templates}>
@@ -373,6 +379,8 @@ export function HomeDashboard({
   assignment,
   startProgramSlot,
 }: HomeProps) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t } = useLocalization();
   const homeLayout = useHomeLayout();
   const [editingLayout, setEditingLayout] = useState(false);
@@ -701,7 +709,7 @@ export function HomeDashboard({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   editBar: {
     position: 'absolute',
     top: 0,
@@ -830,4 +838,4 @@ const s = StyleSheet.create({
     gap: spacing.sm,
   },
   section: { ...typography.title3, color: colors.textPrimary },
-});
+}));
