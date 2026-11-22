@@ -1,10 +1,14 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
 import { useLocalization } from './LocalizationProvider';
 import { useRef, useState } from 'react';
-import { Pressable, StyleSheet, Switch, View } from 'react-native';
+import { Pressable, Switch, View } from 'react-native';
 
 import { AppScrollView } from './AppScrollView';
 import { GlassCard } from './GlassCard';
@@ -16,7 +20,7 @@ import { previewHistoryImport } from '@/lib/history-import';
 import type { WorkoutSession } from '@/lib/workout-model';
 import { emptyWorkoutState } from '@/lib/workout-repository';
 import type { BackupPolicy } from '@/lib/backup-policy';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { presentAppError } from '@/lib/i18n/errors';
 import { formatDate, formatNumber } from '@/lib/i18n/format';
 export type BackupPageOptions = {
@@ -40,6 +44,8 @@ export function BackupPage({
   history: readonly WorkoutSession[];
   onClose: () => void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const [fullRestore, setFullRestore] = useState(false),
     [importing, setImporting] = useState(false),
@@ -332,7 +338,7 @@ export function BackupPage({
     </AppScrollView>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   content: {
     width: '100%',
     maxWidth: 600,
@@ -365,4 +371,4 @@ const s = StyleSheet.create({
     borderRadius: radius.xl,
     gap: spacing.xs,
   },
-});
+}));

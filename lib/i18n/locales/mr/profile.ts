@@ -4,6 +4,12 @@ export default {
   'profile.myWorkouts': 'माझी सत्रे',
   'profile.settingsSection': 'सेटिंग्ज',
   'profile.appearance': 'स्वरूप',
+  'profile.theme': 'थीम',
+  'profile.theme.system': 'सिस्टमप्रमाणे',
+  'profile.theme.light': 'फिकट',
+  'profile.theme.dark': 'गडद',
+  'profile.theme.systemHint':
+    'सिस्टम मोड डिव्हाइसच्या स्वरूपानुसार बदलतो. ठरलेल्या वेळेचे स्वयंचलित बदलही लागू होतात.',
   'profile.dataSection': 'डेटा',
   'profile.dockTransparency': 'खालच्या मेनूची पारदर्शकता',
   'character.pendingShort': 'तयार होत आहे',

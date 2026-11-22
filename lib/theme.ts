@@ -1,6 +1,7 @@
 // Values from docs/DESIGN_SYSTEM.md. Native/system font is intentional.
 export const colors = {
   scrim: 'rgba(0,0,0,0.24)',
+  dialogScrim: 'rgba(0, 0, 0, 0.14)',
   primary: '#0A84FF',
   primaryTint: '#EAF5FF',
   secondary: '#5E5CE6',
@@ -28,6 +29,36 @@ export const colors = {
   muscleSecondaryHighlight: '#F1C4C4',
   muscleSecondaryShade: '#D99393',
 } as const;
+
+export type AppColorScheme = 'light' | 'dark';
+export type AppColors = { readonly [Key in keyof typeof colors]: string };
+
+export const palettes: Record<AppColorScheme, AppColors> = {
+  light: colors,
+  dark: {
+    ...colors,
+    scrim: 'rgba(0,0,0,0.55)',
+    dialogScrim: 'rgba(0,0,0,0.48)',
+    primary: '#64B5FF',
+    primaryTint: '#182F45',
+    secondary: '#ABA9FF',
+    background: '#101114',
+    surface: '#1C1E23',
+    surfaceSubtle: '#292C33',
+    textPrimary: '#F5F5F7',
+    textEmphasis: '#FFFFFF',
+    textSecondary: '#B3B6C0',
+    textTertiary: '#9599A5',
+    separator: 'rgba(218,224,240,0.16)',
+    wheelSelectionSeparator: 'rgba(218,224,240,0.36)',
+    success: '#68DB8A',
+    warning: '#FFC26A',
+    danger: '#FF8282',
+    volumeIncrease: '#77E39A',
+    volumeDecrease: '#FF9292',
+  },
+};
+
 export const spacing = {
   xxs: 4,
   xs: 8,

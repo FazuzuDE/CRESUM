@@ -4,6 +4,12 @@ export default {
   'profile.myWorkouts': 'Latihan saya',
   'profile.settingsSection': 'Pengaturan',
   'profile.appearance': 'Tampilan',
+  'profile.theme': 'Tema',
+  'profile.theme.system': 'Ikuti sistem',
+  'profile.theme.light': 'Terang',
+  'profile.theme.dark': 'Gelap',
+  'profile.theme.systemHint':
+    'Mode sistem mengikuti tampilan perangkat, termasuk perubahan otomatis sesuai jadwal.',
   'profile.dataSection': 'Data',
   'profile.dockTransparency': 'Transparansi menu bawah',
   'character.pendingShort': 'Disiapkan',

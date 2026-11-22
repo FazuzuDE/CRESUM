@@ -1,10 +1,11 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { recoverLocalRestore } from '@/lib/local-backup';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import { AppButton } from './AppButton';
 import { useLocalization } from './LocalizationProvider';
 import { presentAppError } from '@/lib/i18n/errors';
@@ -25,6 +26,7 @@ export function LocalDataGate({
     access: { ready: boolean; isReady: () => boolean },
   ) => ReactNode;
 }) {
+  const s = useStyles();
   const { t } = useLocalization();
   const [phase, setPhase] = useState<
     'recovering' | 'ready' | 'working' | 'blocked'
@@ -177,7 +179,7 @@ export function LocalDataGate({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   container: { flex: 1 },
   root: {
     flex: 1,
@@ -187,4 +189,4 @@ const s = StyleSheet.create({
     justifyContent: 'center',
   },
   text: { ...typography.body, color: colors.textPrimary },
-});
+}));

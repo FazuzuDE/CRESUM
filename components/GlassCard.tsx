@@ -1,5 +1,6 @@
-import { StyleSheet, View, ViewStyle, type ViewProps } from 'react-native';
-import { cardShadow, colors, radius, spacing } from '@/lib/theme';
+import { createThemedStyles } from '@/components/AppThemeProvider';
+import { View, ViewStyle, type ViewProps } from 'react-native';
+import { cardShadow, radius, spacing } from '@/lib/theme';
 export function GlassCard({
   children,
   style,
@@ -9,17 +10,18 @@ export function GlassCard({
   style?: ViewStyle;
   onLayout?: ViewProps['onLayout'];
 }) {
+  const styles = useStyles();
   return (
     <View onLayout={onLayout} style={[styles.card, style]}>
       {children}
     </View>
   );
 }
-const styles = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   card: {
     ...cardShadow,
     borderRadius: radius.xl,
     padding: spacing.md,
     backgroundColor: colors.surface,
   },
-});
+}));

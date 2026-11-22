@@ -1,9 +1,13 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedModal as Modal,
   LocalizedText as Text,
 } from '@/components/LayoutDirection';
 import { useMemo, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppButton } from './AppButton';
 import { AppScrollView } from './AppScrollView';
@@ -18,7 +22,7 @@ import {
 } from '@/lib/muscle-participation';
 import type { MuscleId } from '@/lib/exercise-taxonomy';
 import type { WorkoutSession } from '@/lib/workout-model';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { formatDate, formatEntryNumber } from '@/lib/i18n/format';
@@ -34,6 +38,8 @@ export function MuscleProgress({
   now: number;
   onOverview: () => void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const [period, setPeriod] = useState<MusclePeriod>('7d');
   const [selected, setSelected] = useState<MuscleId>();
@@ -323,7 +329,7 @@ export function MuscleProgress({
     </>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   content: { padding: spacing.lg, gap: spacing.md },
   modal: { flex: 1, backgroundColor: colors.background },
   title: { ...typography.largeTitle, color: colors.textPrimary },
@@ -348,4 +354,4 @@ const s = StyleSheet.create({
   },
   help: { gap: spacing.sm },
   legend: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
-});
+}));

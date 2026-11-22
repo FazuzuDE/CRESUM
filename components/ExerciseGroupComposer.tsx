@@ -1,3 +1,4 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import {
   LocalizedText as Text,
   LocalizedTextInput as TextInput,
@@ -7,7 +8,7 @@ import { catalogLabel } from '@/lib/i18n/catalog';
 import { muscleLabel } from '@/lib/exercise-taxonomy';
 import { localizedTechnique } from '@/lib/i18n/technique';
 import { useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import type {
   ExerciseGroupSnapshot,
   PlannedExercise,
@@ -20,7 +21,7 @@ import {
 import { validateExerciseGroupMembers } from '@/lib/exercise-groups';
 import { createWorkoutSnapshotId } from '@/lib/workout-snapshot-id';
 import type { TechniquePhase } from '@/lib/exercise-technique';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { AppButton } from './AppButton';
 import { ExerciseEquipmentRow } from './ExerciseEquipmentRow';
 import { ExerciseEquipmentSheet } from './ExerciseEquipmentSheet';
@@ -58,6 +59,7 @@ export function ExerciseGroupComposer({
   onDraftChange?: (draft: EquipmentCompositionDraft) => void;
   onDirty?: () => void;
 }) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const [draft, setDraft] = useState<EquipmentCompositionDraft>(() => {
     if (initialDraft) return initialDraft;
@@ -480,7 +482,7 @@ export function ExerciseGroupComposer({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   content: { gap: spacing.sm },
   heading: { ...typography.headline, color: colors.textPrimary },
   inputs: {
@@ -520,4 +522,4 @@ const s = StyleSheet.create({
   },
   removeText: { ...typography.title2, color: colors.danger },
   error: { ...typography.footnote, color: colors.danger },
-});
+}));

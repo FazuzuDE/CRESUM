@@ -1,8 +1,8 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
-import { StyleSheet } from 'react-native';
 import { ContentScrollView } from './ContentScrollView';
 import { GlassDialog } from './GlassDialog';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import { AppButton } from './AppButton';
 import { useLocalization } from './LocalizationProvider';
 
@@ -33,6 +33,7 @@ export function Confirmation({
   onConfirm: () => void;
   onCancel: () => void;
 }) {
+  const s = useStyles();
   const { t } = useLocalization();
   return (
     <GlassDialog
@@ -66,9 +67,9 @@ export function Confirmation({
     </GlassDialog>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   scroll: { flexGrow: 0, flexShrink: 1 },
   content: { gap: spacing.sm },
   title: { ...typography.title1, color: colors.textPrimary },
   body: { ...typography.body, color: colors.textPrimary },
-});
+}));

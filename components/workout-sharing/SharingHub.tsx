@@ -1,4 +1,8 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   LocalizedTextInput as TextInput,
 } from '@/components/LayoutDirection';
@@ -7,7 +11,7 @@ import { TemplateEditor } from '../TemplateEditor';
 import type { TemplateDraft } from '@/lib/workout-templates';
 import type { TemplateMutationResult } from '@/lib/workout-store';
 import { useEffect, useRef, useState } from 'react';
-import { Platform, Pressable, StyleSheet, View } from 'react-native';
+import { Platform, Pressable, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -24,7 +28,7 @@ import { exportSharedPlan } from '@/lib/workout-sharing/adapter';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { findExercise } from '@/lib/exercise-library';
 import { isBuiltInTemplate } from '@/lib/workout-templates';
-import { colors, spacing, typography, radius } from '@/lib/theme';
+import { spacing, typography, radius } from '@/lib/theme';
 export function SharingHub({
   templates,
   busy,
@@ -61,6 +65,8 @@ export function SharingHub({
     draft: TemplateDraft,
   ) => Promise<TemplateMutationResult>;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const [editing, setEditing] = useState(false);
   const [adding, setAdding] = useState(false);
@@ -453,7 +459,7 @@ export function SharingHub({
     </GestureHandlerRootView>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   more: {
     minWidth: 44,
     minHeight: 44,
@@ -493,4 +499,4 @@ const s = StyleSheet.create({
     padding: spacing.md,
     minHeight: 44,
   },
-});
+}));

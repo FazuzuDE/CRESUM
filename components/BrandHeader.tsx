@@ -1,12 +1,16 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   DirectionalIcon,
   LocalizedText as Text,
 } from '@/components/LayoutDirection';
 import { createContext, useContext } from 'react';
-import { Platform, Pressable, StyleSheet, View } from 'react-native';
+import { Platform, Pressable, View } from 'react-native';
 import { DEFAULT_GLASS_TRANSPARENCY, GlassMaterial } from './GlassMaterial';
 import { useReducedTransparency } from './useReducedTransparency';
-import { brand, colors, spacing, typography } from '@/lib/theme';
+import { brand, spacing, typography } from '@/lib/theme';
 import { BrandWordmark } from './BrandWordmark';
 import { useLocalization } from './LocalizationProvider';
 
@@ -22,6 +26,8 @@ export type BrandBackAction = {
 };
 
 export function BrandHeader({ back }: { back?: BrandBackAction } = {}) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t } = useLocalization();
   const backdropProvided = useContext(HeaderBackdropProvided);
   return (
@@ -63,7 +69,7 @@ export function BrandHeaderBackdrop() {
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: {
     alignSelf: 'stretch',
     alignItems: 'center',
@@ -90,4 +96,4 @@ const s = StyleSheet.create({
     textAlign: 'center',
     color: colors.textSecondary,
   },
-});
+}));

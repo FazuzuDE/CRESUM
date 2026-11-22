@@ -1,7 +1,8 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { OwnedLinks } from './OwnedLinks';
 import { useRef, useState } from 'react';
-import { Share, Switch, View, StyleSheet } from 'react-native';
+import { Share, Switch, View } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
 import Svg, { Path, Rect } from 'react-native-svg';
 import createQr from 'qrcode-generator';
@@ -14,7 +15,7 @@ import type {
 } from '@/lib/workout-sharing/client';
 import { exportSharedPlan } from '@/lib/workout-sharing/adapter';
 import { EquipmentSharingUnavailable } from '@/lib/workout-sharing/client';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 function PlanQR({ url, label }: { url: string; label: string }) {
   const qr = createQr(0, 'M');
   qr.addData(url, 'Byte');
@@ -32,8 +33,8 @@ function PlanQR({ url, label }: { url: string; label: string }) {
       accessibilityRole="image"
       accessibilityLabel={label}
     >
-      <Rect width={n + 8} height={n + 8} fill={colors.surface} />
-      <Path d={path} fill={colors.textPrimary} />
+      <Rect width={n + 8} height={n + 8} fill="#FFFFFF" />
+      <Path d={path} fill="#111111" />
     </Svg>
   );
 }
@@ -46,6 +47,7 @@ export function SharePlanSheet({
   client: SharingClient | null;
   signedIn: boolean;
 }) {
+  const s = useStyles();
   const { t } = useLocalization();
   const [weights, setWeights] = useState(false);
   const [published, setPublished] = useState<PublishedPlan | null>(null);
@@ -175,7 +177,7 @@ export function SharePlanSheet({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   content: { gap: spacing.md },
   row: {
     flexDirection: 'row',
@@ -186,4 +188,4 @@ const s = StyleSheet.create({
   title: { ...typography.title1, color: colors.textPrimary },
   name: { ...typography.headline, color: colors.textPrimary },
   copy: { ...typography.footnote, color: colors.textSecondary, flexShrink: 1 },
-});
+}));

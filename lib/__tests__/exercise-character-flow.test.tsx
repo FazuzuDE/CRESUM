@@ -1,5 +1,12 @@
 import { isPressable } from './pressable';
 import { BrandHeaderBackdrop } from '../../components/BrandHeader';
+import { BrandWordmark } from '../../components/BrandWordmark';
+import {
+  AppThemeProvider,
+  THEME_PREFERENCE_KEY,
+} from '../../components/AppThemeProvider';
+import { palettes } from '../theme';
+import { Path } from 'react-native-svg';
 import { GlassMaterial } from '../../components/GlassMaterial';
 import { SharingHub } from '../../components/workout-sharing/SharingHub';
 import { startWorkout, updateSet, toggleSet } from '../workout-engine';
@@ -15,10 +22,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { completeOnboardingForTest } from './onboarding-fixture';
 import { ONBOARDING_KEY } from '../onboarding-repository';
 import { STATE_KEY } from '../workout-repository';
-import { Image, StyleSheet, TextInput } from 'react-native';
+import { Appearance, Image, StyleSheet, TextInput } from 'react-native';
 import { ExerciseCharacterPicker } from '../../components/ExerciseCharacterPicker';
 const { act, create } = jest.requireActual('react-test-renderer');
 
+jest.unmock('react-native/Libraries/Utilities/useColorScheme');
 jest.mock('@react-native-async-storage/async-storage', () =>
   jest.requireActual(
     '@react-native-async-storage/async-storage/jest/async-storage-mock',
@@ -57,6 +65,87 @@ const backToProfile = (view: any) =>
     (node: any) =>
       isPressable(node) && node.props.accessibilityLabel === 'Back to Profile',
   )[0];
+
+it('follows device appearance live and persists a forced theme from Profile', async () => {
+  let deviceScheme: 'light' | 'dark' = 'light';
+  let notify: () => void = () => {};
+  const getScheme = jest
+    .spyOn(Appearance, 'getColorScheme')
+    .mockImplementation(() => deviceScheme);
+  const listen = jest
+    .spyOn(Appearance, 'addChangeListener')
+    .mockImplementation((listener) => {
+      notify = () => listener({ colorScheme: deviceScheme });
+      return { remove: () => {} };
+    });
+  const setScheme = jest
+    .spyOn(Appearance, 'setColorScheme')
+    .mockImplementation(() => {});
+  let view: ReturnType<typeof create> | undefined;
+  const start = async () => {
+    await act(async () => {
+      view = create(
+        <AppThemeProvider storage={AsyncStorage}>
+          <App />
+        </AppThemeProvider>,
+      );
+    });
+  };
+  const wordmarkColor = () =>
+    view!.root.findAllByType(BrandWordmark)[0].findByType(Path).props.stroke;
+  const pick = async (label: string) => {
+    await act(async () => button(view, label).props.onPress());
+  };
+
+  try {
+    await completeOnboardingForTest();
+    await start();
+    expect(wordmarkColor()).toBe(palettes.light.textPrimary);
+    await act(async () => {
+      deviceScheme = 'dark';
+      notify();
+    });
+    expect(wordmarkColor()).toBe(palettes.dark.textPrimary);
+
+    await act(async () =>
+      view!.root.findByType(Dock).props.onChange('profile'),
+    );
+    await pick('Appearance');
+    expect(button(view, 'System').props.selected).toBe(true);
+    await pick('Dark');
+    expect(button(view, 'Dark').props.selected).toBe(true);
+    expect(setScheme).toHaveBeenLastCalledWith('dark');
+    await act(async () => {
+      deviceScheme = 'light';
+      notify();
+    });
+    expect(wordmarkColor()).toBe(palettes.dark.textPrimary);
+    expect(await AsyncStorage.getItem(THEME_PREFERENCE_KEY)).toBe('dark');
+
+    await act(async () => view!.unmount());
+    await start();
+    expect(wordmarkColor()).toBe(palettes.dark.textPrimary);
+    await act(async () =>
+      view!.root.findByType(Dock).props.onChange('profile'),
+    );
+    await pick('Appearance');
+    await pick('Light');
+    expect(wordmarkColor()).toBe(palettes.light.textPrimary);
+    expect(setScheme).toHaveBeenLastCalledWith('light');
+    await pick('System');
+    expect(setScheme).toHaveBeenLastCalledWith('auto');
+    await act(async () => {
+      deviceScheme = 'dark';
+      notify();
+    });
+    expect(wordmarkColor()).toBe(palettes.dark.textPrimary);
+  } finally {
+    if (view) await act(async () => view!.unmount());
+    getScheme.mockRestore();
+    listen.mockRestore();
+    setScheme.mockRestore();
+  }
+});
 
 it('chooses female during welcome, keeps it through back and relaunch', async () => {
   const view = await mount();

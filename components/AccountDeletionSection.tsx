@@ -1,12 +1,16 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   LocalizedTextInput as TextInput,
 } from '@/components/LayoutDirection';
 import { useLocalization } from './LocalizationProvider';
 import { useRef, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { presentAppError } from '@/lib/i18n/errors';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import type { AccountSectionProps } from './AccountSection';
 import { AppButton } from './AppButton';
 
@@ -19,6 +23,8 @@ export function AccountDeletionSection({
   busy: boolean;
   setBusy(value: boolean): void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t } = useLocalization();
   const [confirming, setConfirming] = useState(false);
   const [typed, setTyped] = useState('');
@@ -136,7 +142,7 @@ export function AccountDeletionSection({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: { gap: spacing.sm },
   heading: { ...typography.headline, color: colors.textPrimary },
   copy: { ...typography.footnote, color: colors.textSecondary },
@@ -149,4 +155,4 @@ const s = StyleSheet.create({
     backgroundColor: colors.surfaceSubtle,
     color: colors.textPrimary,
   },
-});
+}));

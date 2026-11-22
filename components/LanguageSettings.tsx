@@ -1,12 +1,13 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useMemo, useState } from 'react';
-import { StyleSheet, View, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
 import { GlassDialog } from './GlassDialog';
 import { AppPicker } from './AppPicker';
 import { useLocalization } from './LocalizationProvider';
 import { AppButton } from './AppButton';
 import { localeRegistry, type LanguagePreference } from '@/lib/i18n/registry';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 
 export function LanguageSettings({
   compact = false,
@@ -15,6 +16,7 @@ export function LanguageSettings({
   compact?: boolean;
   settingsRow?: boolean;
 }) {
+  const s = useStyles();
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState<LanguagePreference>('system');
   const [interacting, setInteracting] = useState(false);
@@ -137,7 +139,7 @@ export function LanguageSettings({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: { gap: spacing.sm },
   compact: { alignItems: 'flex-end' },
   title: { ...typography.title2, color: colors.textPrimary },
@@ -148,4 +150,4 @@ const s = StyleSheet.create({
     justifyContent: 'space-between',
     flexWrap: 'wrap',
   },
-});
+}));

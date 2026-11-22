@@ -11909,5 +11909,77 @@
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList",
     "kind": "internal",
     "reason": "Optional publication locale identifier; localized metadata is selected separately."
+  },
+  {
+    "file": "app/_layout.tsx",
+    "line": 49,
+    "text": "light",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:style/JsxAttributes",
+    "kind": "internal",
+    "reason": "Expo StatusBar style enum; the value is never displayed."
+  },
+  {
+    "file": "app/_layout.tsx",
+    "line": 49,
+    "text": "dark",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:style/JsxAttributes",
+    "kind": "internal",
+    "reason": "Expo StatusBar style enum; the value is never displayed."
+  },
+  {
+    "file": "components/AppThemeProvider.tsx",
+    "line": 23,
+    "text": "cresum.colorScheme",
+    "context": "StringLiteral/VariableDeclaration/VariableDeclarationList/FirstStatement",
+    "kind": "internal",
+    "reason": "Theme preference storage and native appearance identifiers; the picker labels are localized separately."
+  },
+  {
+    "file": "components/AppThemeProvider.tsx",
+    "line": 24,
+    "text": "system",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList",
+    "kind": "internal",
+    "reason": "Theme preference storage and native appearance identifiers; the picker labels are localized separately."
+  },
+  {
+    "file": "components/AppThemeProvider.tsx",
+    "line": 24,
+    "text": "light",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList",
+    "kind": "internal",
+    "reason": "Theme preference storage and native appearance identifiers; the picker labels are localized separately."
+  },
+  {
+    "file": "components/AppThemeProvider.tsx",
+    "line": 24,
+    "text": "dark",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList",
+    "kind": "internal",
+    "reason": "Theme preference storage and native appearance identifiers; the picker labels are localized separately."
+  },
+  {
+    "file": "components/AppThemeProvider.tsx",
+    "line": 47,
+    "text": "system",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/Block",
+    "kind": "internal",
+    "reason": "Theme preference storage and native appearance identifiers; the picker labels are localized separately."
+  },
+  {
+    "file": "components/AppThemeProvider.tsx",
+    "line": 59,
+    "text": "auto",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/Block",
+    "kind": "internal",
+    "reason": "Theme preference storage and native appearance identifiers; the picker labels are localized separately."
+  },
+  {
+    "file": "lib/theme.ts",
+    "line": 4,
+    "text": "rgba(0, 0, 0, 0.14)",
+    "context": "StringLiteral/PropertyAssignment:dialogScrim/ObjectLiteralExpression/AsExpression/VariableDeclaration",
+    "kind": "internal",
+    "reason": "React Native color token, not interface copy."
   }
 ]

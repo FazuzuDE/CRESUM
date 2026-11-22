@@ -4,6 +4,12 @@ export default {
   'profile.myWorkouts': 'تماريني',
   'profile.settingsSection': 'الإعدادات',
   'profile.appearance': 'المظهر',
+  'profile.theme': 'المظهر',
+  'profile.theme.system': 'حسب النظام',
+  'profile.theme.light': 'فاتح',
+  'profile.theme.dark': 'داكن',
+  'profile.theme.systemHint':
+    'يتبع وضع النظام مظهر جهازك، بما في ذلك التغييرات المجدولة تلقائيًا.',
   'profile.dataSection': 'البيانات',
   'profile.dockTransparency': 'شفافية القائمة السفلية',
   'character.pendingShort': 'قيد الإعداد',

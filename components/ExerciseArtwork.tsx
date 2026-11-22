@@ -1,11 +1,15 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
 
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, View } from 'react-native';
 import { resolveExerciseArtwork } from '@/lib/exercise-artwork';
-import { colors, radius, typography } from '@/lib/theme';
+import { radius, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { useExerciseCharacter } from './ExerciseCharacterProvider';
@@ -17,6 +21,8 @@ export function ExerciseArtwork({
   imageKey: string;
   size?: number;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const { model } = useExerciseCharacter();
   const name = catalogLabel(locale, 'exercise', imageKey, imageKey);
@@ -63,7 +69,7 @@ export function ExerciseArtwork({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   pending: {
     ...typography.caption,
     color: colors.textSecondary,
@@ -76,4 +82,4 @@ const s = StyleSheet.create({
     borderRadius: radius.md,
     backgroundColor: colors.surfaceSubtle,
   },
-});
+}));

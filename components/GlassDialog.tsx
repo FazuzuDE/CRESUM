@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { GlassMaterial } from './GlassMaterial';
 import { cardShadow, radius, spacing } from '@/lib/theme';
 import { useReducedTransparency } from './useReducedTransparency';
+import { useAppColors } from './AppThemeProvider';
 
 export function GlassDialog({
   children,
@@ -20,6 +21,7 @@ export function GlassDialog({
   transparency?: number;
 }) {
   const reduceTransparency = useReducedTransparency(visible && !opaque);
+  const { dialogScrim } = useAppColors();
   return (
     <Modal
       transparent
@@ -27,7 +29,7 @@ export function GlassDialog({
       onRequestClose={onClose}
       statusBarTranslucent
     >
-      <SafeAreaView style={s.safeArea}>
+      <SafeAreaView style={[s.safeArea, { backgroundColor: dialogScrim }]}>
         <View style={s.overlay}>
           <Pressable
             accessible={false}
@@ -51,7 +53,6 @@ export function GlassDialog({
 const s = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.14)',
   },
   overlay: {
     flex: 1,

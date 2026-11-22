@@ -1,4 +1,8 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedModal as Modal,
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
@@ -16,7 +20,7 @@ import {
 } from '@/lib/exercise-equipment-catalog';
 import { resolveAttachmentArtwork } from '@/lib/exercise-artwork';
 import { catalogLabel } from '@/lib/i18n/catalog';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { AppScrollView } from './AppScrollView';
 import { KettlebellCatalogArtwork } from './KettlebellCatalogArtwork';
 import { useLocalization } from './LocalizationProvider';
@@ -39,6 +43,8 @@ export function ExerciseEquipmentCatalog({
 }: {
   exerciseId: string;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const key = `cresum:exercise-equipment:${canonicalExerciseId(exerciseId) ?? exerciseId}`;
   const defaults = defaultExerciseEquipment(exerciseId);
@@ -218,7 +224,7 @@ export function ExerciseEquipmentCatalog({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   overlay: {
     flex: 1,
     justifyContent: 'flex-end',
@@ -242,4 +248,4 @@ const s = StyleSheet.create({
   title: { ...typography.headline, color: colors.textPrimary },
   detail: { ...typography.footnote, color: colors.textSecondary },
   image: { width: 48, height: 48 },
-});
+}));

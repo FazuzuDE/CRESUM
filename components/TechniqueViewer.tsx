@@ -1,16 +1,20 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AppScrollView } from './AppScrollView';
 import { TechniqueArtwork } from './TechniqueArtwork';
 import { TechniquePhaseControl } from './TechniquePhaseControl';
 import type { TechniquePhase } from '@/lib/exercise-technique';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 export function TechniqueViewer({
   name,
@@ -25,6 +29,8 @@ export function TechniqueViewer({
   onPhase: (phase: TechniquePhase) => void;
   onClose: () => void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t } = useLocalization();
   return (
     <ScreenModal
@@ -60,7 +66,7 @@ export function TechniqueViewer({
     </ScreenModal>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: { flex: 1, backgroundColor: colors.background },
   header: {
     flexDirection: 'row',
@@ -81,4 +87,4 @@ const s = StyleSheet.create({
     color: colors.textSecondary,
     textAlign: 'center',
   },
-});
+}));

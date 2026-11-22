@@ -1,10 +1,11 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useLocalization } from './LocalizationProvider';
 import { useRef, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { parseLocalBackup, type PreparedBackup } from '@/lib/local-backup';
 import { pickBackupFile } from '@/lib/backup-files';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import { AppButton } from './AppButton';
 import { Confirmation } from './Confirmation';
 import { presentAppError } from '@/lib/i18n/errors';
@@ -21,6 +22,7 @@ export function BackupControls({
   onExport,
   onRestore,
 }: BackupControlsProps) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const [picking, setPicking] = useState(false),
     [error, setError] = useState<{ problem: unknown }>();
@@ -103,8 +105,8 @@ export function BackupControls({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: { gap: spacing.sm },
   title: { ...typography.headline, color: colors.textPrimary },
   text: { ...typography.footnote, color: colors.textSecondary },
-});
+}));

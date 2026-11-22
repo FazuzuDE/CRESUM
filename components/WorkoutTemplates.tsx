@@ -1,11 +1,15 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { AppScrollView } from './AppScrollView';
 import { useEffect, useRef, useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Swipeable, {
@@ -21,7 +25,7 @@ import type { WorkoutTemplate } from '@/lib/workout-model';
 import type { TemplateMutationResult } from '@/lib/workout-store';
 import type { TemplateDraft } from '@/lib/workout-templates';
 import { isBuiltInTemplate } from '@/lib/workout-templates';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { catalogLabel } from '@/lib/i18n/catalog';
 
@@ -64,6 +68,7 @@ export function WorkoutTemplates({
   showHeading = true,
   onEditorChange,
 }: WorkoutTemplatesProps) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const displayName = (template: WorkoutTemplate) =>
     isBuiltInTemplate(template.id)
@@ -489,6 +494,8 @@ function TemplateAction({
   disabled: boolean;
   onPress: () => void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   return (
     <Pressable
       accessibilityRole="button"
@@ -517,7 +524,7 @@ function TemplateAction({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   card: { gap: spacing.sm, borderRadius: radius.xxl },
   title: {
     ...typography.caption,
@@ -579,4 +586,4 @@ const s = StyleSheet.create({
   menuContent: { padding: spacing.md, gap: spacing.sm },
   menuTitle: { ...typography.title2, color: colors.textPrimary },
   menuError: { ...typography.body, color: colors.danger },
-});
+}));

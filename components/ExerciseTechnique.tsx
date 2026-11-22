@@ -1,4 +1,8 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
@@ -8,7 +12,7 @@ import { BrandHeader } from './BrandHeader';
 import { ExerciseMuscles } from './ExerciseMuscles';
 import { ExerciseStatistics } from './ExerciseStatistics';
 import { ExerciseArtwork } from './ExerciseArtwork';
-import { Linking, Pressable, StyleSheet, View } from 'react-native';
+import { Linking, Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AppScrollView } from './AppScrollView';
@@ -26,7 +30,7 @@ import {
 } from '@/lib/exercise-technique';
 import { equipmentLabel, muscleLabel } from '@/lib/exercise-taxonomy';
 import type { LibraryExercise, WorkoutSession } from '@/lib/workout-model';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { formatDate } from '@/lib/i18n/format';
@@ -47,6 +51,8 @@ export function ExerciseTechnique({
   now?: number;
   onEquipmentChange?: (id: string) => void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const [viewedId, setViewedId] = useState(initialExercise.id);
   const exercise = findExercise(viewedId) ?? initialExercise;
   const [equipmentOpen, setEquipmentOpen] = useState(false);
@@ -314,6 +320,7 @@ function Section({
   items: readonly string[];
   hideTitle?: boolean;
 }) {
+  const s = useStyles();
   return (
     <View style={s.section}>
       {!hideTitle ? (
@@ -339,6 +346,8 @@ function Disclosure({
   open: boolean;
   onPress: () => void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   return (
     <Pressable
       accessibilityRole="button"
@@ -357,7 +366,7 @@ function Disclosure({
     </Pressable>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: { flex: 1, backgroundColor: colors.surface },
   grabber: {
     width: 40,
@@ -439,4 +448,4 @@ const s = StyleSheet.create({
   source: { minHeight: 44, gap: spacing.xxs, paddingVertical: spacing.xs },
   link: { ...typography.footnote, color: colors.primary },
   error: { ...typography.footnote, color: colors.danger },
-});
+}));

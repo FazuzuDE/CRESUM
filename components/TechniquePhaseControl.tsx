@@ -1,7 +1,8 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import type { TechniquePhase } from '@/lib/exercise-technique';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 export function TechniquePhaseControl({
   phase,
@@ -10,6 +11,7 @@ export function TechniquePhaseControl({
   phase: TechniquePhase;
   onChange: (value: TechniquePhase) => void;
 }) {
+  const s = useStyles();
   const { t } = useLocalization();
   return (
     <View style={s.control}>
@@ -35,7 +37,7 @@ export function TechniquePhaseControl({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   control: {
     flexDirection: 'row',
     backgroundColor: colors.surfaceSubtle,
@@ -52,4 +54,4 @@ const s = StyleSheet.create({
   selected: { backgroundColor: colors.primaryTint },
   text: { ...typography.footnote, color: colors.textSecondary },
   active: { color: colors.primary, fontWeight: '600' },
-});
+}));

@@ -1,3 +1,7 @@
+import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
 import { BrandHeader } from './BrandHeader';
 import {
   LocalizedText as Text,
@@ -17,7 +21,6 @@ import { anatomicalMissingGroups } from '@/lib/anatomical-muscle-map';
 import type { LibraryExercise } from '@/lib/workout-model';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import {
-  colors,
   muscleMapPresentation,
   radius,
   spacing,
@@ -30,6 +33,8 @@ import { useEquipmentFocus } from './useEquipmentFocus';
 
 /** Exercise roles only; numeric flags adapt the shared map, never logged sets. */
 export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const [open, setOpen] = useState(false);
   const focus = useEquipmentFocus(open);
   const { locale, t } = useLocalization();
@@ -179,7 +184,7 @@ export function ExerciseMuscles({ exercise }: { exercise: LibraryExercise }) {
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   card: {
     backgroundColor: colors.surface,
     borderRadius: radius.lg,
@@ -232,4 +237,4 @@ const s = StyleSheet.create({
     alignItems: 'center',
   },
   details: { gap: spacing.md, paddingTop: spacing.sm },
-});
+}));

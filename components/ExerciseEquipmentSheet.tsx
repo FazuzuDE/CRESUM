@@ -1,4 +1,8 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedModal as Modal,
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
@@ -11,7 +15,7 @@ import { isValidEquipmentPolicy } from '@/lib/exercise-equipment';
 import { resolveAttachmentArtwork } from '@/lib/exercise-artwork';
 import { findExercise } from '@/lib/exercise-library';
 import { catalogLabel } from '@/lib/i18n/catalog';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { AppScrollView } from './AppScrollView';
 import { useLocalization } from './LocalizationProvider';
 
@@ -26,6 +30,8 @@ export function ExerciseEquipmentSheet({
   onSelect: (variantId: string) => void;
   onClose: () => void;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   if (!isValidEquipmentPolicy(policy) || policy.choices.length < 2) return null;
   return (
@@ -128,7 +134,7 @@ export function ExerciseEquipmentSheet({
     </Modal>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   overlay: {
     flex: 1,
     justifyContent: 'flex-end',
@@ -181,4 +187,4 @@ const s = StyleSheet.create({
   copy: { flex: 1, minWidth: 0 },
   name: { ...typography.headline, color: colors.textPrimary },
   detail: { ...typography.footnote, color: colors.textSecondary },
-});
+}));

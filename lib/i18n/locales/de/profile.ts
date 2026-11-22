@@ -4,6 +4,12 @@ export default {
   'profile.myWorkouts': 'Meine Trainings',
   'profile.settingsSection': 'Einstellungen',
   'profile.appearance': 'Darstellung',
+  'profile.theme': 'Farbschema',
+  'profile.theme.system': 'System',
+  'profile.theme.light': 'Hell',
+  'profile.theme.dark': 'Dunkel',
+  'profile.theme.systemHint':
+    'Die Systemeinstellung übernimmt das Erscheinungsbild deines Geräts, auch bei einem automatischen Zeitplan.',
   'profile.dataSection': 'Daten',
   'profile.dockTransparency': 'Transparenz der unteren Navigation',
   'character.pendingShort': 'In Arbeit',

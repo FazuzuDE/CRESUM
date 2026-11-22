@@ -1,7 +1,11 @@
+import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useId } from 'react';
 import { useLocalization } from './LocalizationProvider';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import Svg, {
   Defs,
   Image,
@@ -17,12 +21,7 @@ import {
   anatomicalGroups,
   anatomicalRegions,
 } from '@/lib/anatomical-muscle-map';
-import {
-  colors,
-  spacing,
-  typography,
-  muscleMapPresentation,
-} from '@/lib/theme';
+import { spacing, typography, muscleMapPresentation } from '@/lib/theme';
 
 const source = require('../assets/muscle-map/male-anatomy-v1/source.png');
 
@@ -37,6 +36,8 @@ export function MuscleMap({
   onSelect?: (id: MuscleId) => void;
   height?: number;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t } = useLocalization();
   const instance = useId().replace(/[^a-zA-Z0-9]/g, '');
   const role = (id: MuscleId) => {
@@ -214,7 +215,7 @@ export function MuscleMap({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   row: { flexDirection: 'row', gap: spacing.xs },
   body: { flex: 1 },
   label: {
@@ -222,4 +223,4 @@ const s = StyleSheet.create({
     color: colors.textSecondary,
     textAlign: 'center',
   },
-});
+}));

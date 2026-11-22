@@ -1,4 +1,8 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
@@ -20,7 +24,6 @@ import {
   Animated,
   AppState,
   Pressable,
-  StyleSheet,
   View,
 } from 'react-native';
 
@@ -32,7 +35,7 @@ import {
   WorkoutExercise,
   WorkoutSession,
 } from '@/lib/workout-model';
-import { cardShadow, colors, radius, spacing, typography } from '@/lib/theme';
+import { cardShadow, radius, spacing, typography } from '@/lib/theme';
 import type { ProgramScroll } from './useProgramScroll';
 import { useLocalization } from './LocalizationProvider';
 
@@ -65,6 +68,7 @@ export function WorkoutProgram({
   update: Update;
   scroll: ProgramScroll;
 }) {
+  const s = useStyles();
   const session = projectProgramSession(sourceSession);
   const update: Update = (transform) =>
     sourceUpdate((current) => applyProgramProjection(current, transform));
@@ -128,6 +132,7 @@ function ProgramList({
   suppressTapRef: RefObject<number>;
   onSelect: () => void;
 }) {
+  const s = useStyles();
   const { t } = useLocalization();
   const translate = useRef(t);
   useLayoutEffect(() => {
@@ -433,6 +438,8 @@ function ProgramRow({
   resetTap,
   measure,
 }: RowProps) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t } = useLocalization();
   const [rotation] = useState(() => new Animated.Value(0));
   const [displaced] = useState(() => new Animated.Value(0));
@@ -581,7 +588,7 @@ function ProgramRow({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   top: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -616,4 +623,4 @@ const s = StyleSheet.create({
   name: { ...typography.subheadline, color: colors.textPrimary, flex: 1 },
   selected: { backgroundColor: colors.primaryTint },
   dim: { opacity: 0.6 },
-});
+}));

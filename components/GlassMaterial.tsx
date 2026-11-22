@@ -1,3 +1,4 @@
+import { createThemedStyles, useAppTheme } from '@/components/AppThemeProvider';
 import { BlurView } from 'expo-blur';
 import {
   GlassView,
@@ -5,7 +6,6 @@ import {
   isLiquidGlassAvailable,
 } from 'expo-glass-effect';
 import { Platform, StyleSheet, View } from 'react-native';
-import { colors } from '@/lib/theme';
 
 export const DEFAULT_GLASS_TRANSPARENCY = 66;
 
@@ -18,6 +18,8 @@ export function GlassMaterial({
   solid: boolean;
   transparency?: number;
 }) {
+  const s = useStyles();
+  const { scheme } = useAppTheme();
   const translucent = Platform.OS === 'ios' && !solid;
   const nativeGlass =
     translucent && isGlassEffectAPIAvailable() && isLiquidGlassAvailable();
@@ -31,14 +33,14 @@ export function GlassMaterial({
         <GlassView
           pointerEvents="none"
           glassEffectStyle="clear"
-          colorScheme="light"
+          colorScheme={scheme}
           style={bounds}
         />
       ) : translucent ? (
         <BlurView
           pointerEvents="none"
           intensity={Math.round(84 - clarity * 48)}
-          tint="light"
+          tint={scheme}
           style={bounds}
         />
       ) : null}
@@ -48,11 +50,11 @@ export function GlassMaterial({
   );
 }
 
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   bounds: { ...StyleSheet.absoluteFill, overflow: 'hidden' },
   tint: { backgroundColor: colors.surface },
   edge: {
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.separator,
   },
-});
+}));

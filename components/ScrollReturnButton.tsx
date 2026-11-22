@@ -1,8 +1,12 @@
+import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
 import { DirectionalIcon as Ionicons } from '@/components/LayoutDirection';
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { colors, radius, spacing, cardShadow } from '@/lib/theme';
+import { radius, spacing, cardShadow } from '@/lib/theme';
 import type { ScrollReturn } from './useScrollReturn';
 import { useLocalization } from './LocalizationProvider';
 
@@ -17,6 +21,8 @@ export function ScrollReturnButton({
   bottomOverlay?: number;
   safeAreaBottom?: boolean;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t } = useLocalization();
   if (!control.visible || disabled) return null;
   return (
@@ -44,7 +50,7 @@ export function ScrollReturnButton({
     </SafeAreaView>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   anchor: { position: 'absolute', right: spacing.md },
   up: {
     width: 48,
@@ -56,4 +62,4 @@ const s = StyleSheet.create({
     ...cardShadow,
   },
   pressed: { opacity: 0.6 },
-});
+}));

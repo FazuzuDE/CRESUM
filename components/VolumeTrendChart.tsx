@@ -1,10 +1,11 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useMemo, useState } from 'react';
-import { Pressable, StyleSheet, View, useWindowDimensions } from 'react-native';
+import { Pressable, View, useWindowDimensions } from 'react-native';
 import type { WorkoutVolume } from '@/lib/progress-analytics';
 import { volumeTrendModel, nearestTrendPoint } from '@/lib/volume-trend';
 import { volumeChartScale, volumeChartTick } from '@/lib/training-volume-chart';
-import { colors, progressTypography, spacing, typography } from '@/lib/theme';
+import { progressTypography, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { formatDate } from '@/lib/i18n/format';
 import { progressDate, volumeNumber } from '@/lib/i18n/progress';
@@ -30,6 +31,7 @@ export function VolumeTrendChart({
   itemLabel?: string;
   onSelectPoint?: (point: WorkoutVolume) => void;
 }) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const measureLabel = customMeasureLabel ?? t('chart.workoutVolume');
   const singlePointMessage = customSinglePointMessage ?? t('chart.oneWorkout');
@@ -278,7 +280,7 @@ export function VolumeTrendChart({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   row: { flexDirection: 'row', gap: spacing.xs },
   axis: {
     ...progressTypography.chart,
@@ -332,4 +334,4 @@ const s = StyleSheet.create({
     color: colors.textPrimary,
     marginTop: spacing.sm,
   },
-});
+}));

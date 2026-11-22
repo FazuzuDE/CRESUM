@@ -1,9 +1,10 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useLocalization } from './LocalizationProvider';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { AppButton } from './AppButton';
 import type { HistorySyncSnapshot } from '@/lib/sync/history-coordinator';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import type {
   HistoryComparison,
   HistoryConflictSummary,
@@ -29,6 +30,7 @@ export function HistorySyncPanel({
   review,
   onReview,
 }: HistorySyncControls) {
+  const s = useStyles();
   const { t } = useLocalization();
   const { status, kind } = snapshot;
   const title =
@@ -86,8 +88,8 @@ export function HistorySyncPanel({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: { gap: spacing.sm },
   title: { ...typography.headline, color: colors.textPrimary },
   copy: { ...typography.body, color: colors.textSecondary },
-});
+}));

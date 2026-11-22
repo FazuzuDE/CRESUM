@@ -1,10 +1,14 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   LocalizedTextInput as TextInput,
 } from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { useState } from 'react';
-import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppScrollView } from './AppScrollView';
 import { AppButton } from './AppButton';
@@ -18,13 +22,7 @@ import {
   progressPeriodStart,
   type ProgressPeriodId,
 } from '@/lib/progress-periods';
-import {
-  colors,
-  progressTypography,
-  radius,
-  spacing,
-  typography,
-} from '@/lib/theme';
+import { progressTypography, radius, spacing, typography } from '@/lib/theme';
 export type BodyWeightProps = {
   entries: BodyWeightEntry[];
   busy: boolean;
@@ -41,6 +39,8 @@ export function BodyWeight({
   period,
   now,
 }: { period: ProgressPeriodId; now: number } & BodyWeightProps) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const [adding, setAdding] = useState(false),
     [value, setValue] = useState(''),
@@ -230,7 +230,7 @@ export function BodyWeight({
     </GlassCard>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   addAction: { maxWidth: '100%' },
   card: { gap: spacing.sm, borderRadius: radius.xxl },
   heading: { ...progressTypography.sectionTitle, color: colors.textEmphasis },
@@ -268,4 +268,4 @@ const s = StyleSheet.create({
     borderRadius: radius.md,
   },
   error: { ...typography.footnote, color: colors.danger },
-});
+}));

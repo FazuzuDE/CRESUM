@@ -1,7 +1,7 @@
+import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { useState } from 'react';
-import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppScrollView } from './AppScrollView';
 import { AppButton } from './AppButton';
@@ -10,7 +10,7 @@ import { GlassCard } from './GlassCard';
 import { calendarTime } from '@/lib/picker-date';
 import { volume } from '@/lib/workout-metrics';
 import type { WorkoutSession } from '@/lib/workout-model';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { formatDate, formatNumber } from '@/lib/i18n/format';
 
@@ -23,6 +23,7 @@ export function HomeCalendar({
   now: number;
   onClose: () => void;
 }) {
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const [selected, setSelected] = useState(() => {
     const d = new Date(now);
@@ -108,11 +109,11 @@ export function HomeCalendar({
     </ScreenModal>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: { flex: 1, backgroundColor: colors.background },
   content: { padding: spacing.md, gap: spacing.lg },
   title: { ...typography.largeTitle, color: colors.textPrimary },
   date: { ...typography.headline, color: colors.textPrimary },
   name: { ...typography.title3, color: colors.textPrimary },
   context: { ...typography.footnote, color: colors.textSecondary },
-});
+}));

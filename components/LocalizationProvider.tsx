@@ -1,3 +1,7 @@
+import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
 import { LayoutDirectionContext } from './LayoutDirection';
 import { localeRegistry } from '@/lib/i18n/registry';
 import {
@@ -8,16 +12,10 @@ import {
   useSyncExternalStore,
   type ReactNode,
 } from 'react';
-import {
-  ActivityIndicator,
-  AppState,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { ActivityIndicator, AppState, Text, View } from 'react-native';
 import { LocaleStore, type LocaleSnapshot } from '@/lib/i18n/preference-store';
 import { createTranslator } from '@/lib/i18n/engine';
-import { colors, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import { AppButton } from './AppButton';
 
 const Context = createContext<LocaleStore | null>(null);
@@ -47,6 +45,8 @@ export function LocalizationProvider({
   children: ReactNode;
   store: LocaleStore;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const snapshot = useSyncExternalStore(
     store.subscribe,
     store.getSnapshot,
@@ -90,7 +90,7 @@ export function LocalizationProvider({
     </Context.Provider>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   root: { flex: 1 },
   loading: {
     flex: 1,
@@ -101,4 +101,4 @@ const s = StyleSheet.create({
   },
   notice: { padding: spacing.md, backgroundColor: colors.surfaceSubtle },
   copy: { ...typography.footnote, color: colors.textSecondary },
-});
+}));

@@ -1,8 +1,12 @@
+import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useState } from 'react';
-import { Pressable, StyleSheet, View, useWindowDimensions } from 'react-native';
+import { Pressable, View, useWindowDimensions } from 'react-native';
 import type { WorkoutVolume } from '@/lib/progress-analytics';
-import { colors, progressTypography, radius, spacing } from '@/lib/theme';
+import { progressTypography, radius, spacing } from '@/lib/theme';
 import { volumeChartScale, volumeChartTick } from '@/lib/training-volume-chart';
 import { useLocalization } from './LocalizationProvider';
 import { formatDate } from '@/lib/i18n/format';
@@ -20,6 +24,8 @@ export function EstimatedOneRepMaxBars({
   onSelectPoint?: (point: WorkoutVolume) => void;
   pointLimit?: number;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const measureLabel = customMeasureLabel ?? t('progress.estimated');
   const volumeNumber = (value: number) =>
@@ -196,7 +202,7 @@ export function EstimatedOneRepMaxBars({
     </View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   pointValue: {
     ...progressTypography.chartValue,
     color: colors.textPrimary,
@@ -259,4 +265,4 @@ const s = StyleSheet.create({
     color: colors.textSecondary,
     textAlign: 'center',
   },
-});
+}));

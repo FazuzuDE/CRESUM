@@ -1,15 +1,19 @@
 import {
+  createThemedStyles,
+  useAppColors,
+} from '@/components/AppThemeProvider';
+import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
 import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
-import { Image, Pressable, StyleSheet, View } from 'react-native';
+import { Image, Pressable, View } from 'react-native';
 
 import { equipmentPolicyFor } from '@/lib/exercise-equipment';
 import { resolveAttachmentArtwork } from '@/lib/exercise-artwork';
 import { findExercise } from '@/lib/exercise-library';
 import { catalogLabel } from '@/lib/i18n/catalog';
-import { colors, radius, spacing, typography } from '@/lib/theme';
+import { radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import type { ComponentRef, Ref } from 'react';
 
@@ -36,6 +40,8 @@ function ExerciseVariantEquipmentRow({
   onPress?: () => void;
   focusRef?: Ref<ComponentRef<typeof Pressable>>;
 }) {
+  const colors = useAppColors();
+  const s = useStyles();
   const { t, locale } = useLocalization();
   const policy = equipmentPolicyFor(exerciseId);
   if (!policy) return null;
@@ -104,7 +110,7 @@ function ExerciseVariantEquipmentRow({
     <View style={s.row}>{content}</View>
   );
 }
-const s = StyleSheet.create({
+const useStyles = createThemedStyles((colors) => ({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -124,4 +130,4 @@ const s = StyleSheet.create({
   copy: { flex: 1, minWidth: 0 },
   name: { ...typography.headline, color: colors.textPrimary },
   detail: { ...typography.footnote, color: colors.textSecondary },
-});
+}));

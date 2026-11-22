@@ -4,6 +4,12 @@ export default {
   'profile.myWorkouts': 'मेरे वर्कआउट',
   'profile.settingsSection': 'सेटिंग्स',
   'profile.appearance': 'दिखावट',
+  'profile.theme': 'थीम',
+  'profile.theme.system': 'सिस्टम के अनुसार',
+  'profile.theme.light': 'हल्की',
+  'profile.theme.dark': 'गहरी',
+  'profile.theme.systemHint':
+    'सिस्टम मोड डिवाइस की दिखावट और उसके तय समय पर होने वाले बदलावों का अनुसरण करता है।',
   'profile.dataSection': 'डेटा',
   'profile.dockTransparency': 'निचले मेन्यू की पारदर्शिता',
   'character.pendingShort': 'तैयारी जारी है',
