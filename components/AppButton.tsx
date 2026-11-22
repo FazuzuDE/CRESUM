@@ -16,6 +16,7 @@ export function AppButton({
   highlighted = false,
   onPress,
   secondary = false,
+  outlined = false,
   disabled = false,
   dimWhenDisabled = true,
   selected,
@@ -31,6 +32,7 @@ export function AppButton({
   highlighted?: boolean;
   onPress: () => void;
   secondary?: boolean;
+  outlined?: boolean;
   disabled?: boolean;
   dimWhenDisabled?: boolean;
   selected?: boolean;
@@ -54,6 +56,7 @@ export function AppButton({
       style={({ pressed }) => [
         s.button,
         secondary && s.secondary,
+        outlined && s.outlined,
         destructive && s.destructive,
         (presentation === 'row' || choice || settings) && s.row,
         settings && s.settings,
@@ -85,6 +88,7 @@ export function AppButton({
           style={[
             s.text,
             secondary && s.secondaryText,
+            outlined && s.linkText,
             destructive && s.destructiveText,
             (presentation === 'row' || settings) && s.rowText,
             settings && s.settingsTitle,
@@ -132,6 +136,11 @@ const s = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.primary,
+  },
+  outlined: {
+    backgroundColor: colors.background,
+    borderWidth: 1,
+    borderColor: colors.primary,
   },
   secondary: { backgroundColor: colors.surfaceSubtle },
   destructive: { backgroundColor: colors.surfaceSubtle },

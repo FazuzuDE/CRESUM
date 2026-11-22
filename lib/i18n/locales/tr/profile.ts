@@ -1,4 +1,5 @@
 export default {
+  'profile.headerOpacity': 'Üst başlık opaklığı',
   'profile.trainingSection': 'Antrenmanlar',
   'profile.myWorkouts': 'Antrenmanlarım',
   'profile.settingsSection': 'Ayarlar',

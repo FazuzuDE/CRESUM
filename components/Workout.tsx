@@ -1,4 +1,7 @@
-import { LocalizedText as Text } from '@/components/LayoutDirection';
+import {
+  LocalizedText as Text,
+  DirectionalIcon as Ionicons,
+} from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
 import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
 import { workoutStyles as s } from './workout-styles';
@@ -7,6 +10,7 @@ import { ExerciseGroupComposer } from './ExerciseGroupComposer';
 import { equipmentPolicyFor } from '@/lib/exercise-equipment';
 import { projectExerciseGroups, setNumberInGroup } from '@/lib/exercise-groups';
 import { useLocalization } from './LocalizationProvider';
+import { catalogLabel } from '@/lib/i18n/catalog';
 import { formatEntryNumber, formatNumber } from '@/lib/i18n/format';
 import { presentAppError } from '@/lib/i18n/errors';
 import { AppScrollView } from './AppScrollView';
@@ -28,7 +32,11 @@ import { ExerciseArtwork } from './ExerciseArtwork';
 import { SetEntrySheet } from './SetEntrySheet';
 import { previousEntry, saveSetEntry } from '@/lib/set-entry';
 import { findExercise } from '@/lib/exercise-library';
-import type { LibraryExercise, PlannedExercise } from '@/lib/workout-model';
+import type {
+  LibraryExercise,
+  PlannedExercise,
+  WorkoutTemplate,
+} from '@/lib/workout-model';
 import { WorkoutProgram } from './WorkoutProgram';
 import { useProgramScroll } from './useProgramScroll';
 import {
@@ -48,7 +56,7 @@ import {
 } from '@/lib/workout-engine';
 import { isSetComplete, WorkoutSession } from '@/lib/workout-model';
 import { volume } from '@/lib/workout-metrics';
-import { spacing } from '@/lib/theme';
+import { colors, spacing } from '@/lib/theme';
 
 export const successHaptic = () => {
   void Haptics.notificationAsync(
@@ -70,6 +78,10 @@ export function Workout({
   discard,
   busy,
   appendGroup,
+  templates = [],
+  onStartTemplate,
+  onStartPlan,
+  onStartEmpty,
 }: {
   session: WorkoutSession | null;
   history: WorkoutSession[];
@@ -77,6 +89,10 @@ export function Workout({
   finish: () => void;
   discard?: () => void;
   busy: boolean;
+  templates?: readonly WorkoutTemplate[];
+  onStartTemplate?: (template: WorkoutTemplate) => void;
+  onStartPlan?: () => void;
+  onStartEmpty?: () => void;
   appendGroup?: (
     entries: readonly PlannedExercise[],
     expectedSessionId: string,
@@ -144,17 +160,73 @@ export function Workout({
   }, [deadline, now]);
   if (!session)
     return (
-      <AppScrollView branded dockAware contentContainerStyle={s.empty}>
-        <Text style={s.title}>{t('workout.noActive')}</Text>
-        <Text style={s.sub}>{t('workout.chooseTemplate')}</Text>
+      <AppScrollView branded dockAware contentContainerStyle={s.content}>
+        <Text accessibilityRole="header" style={s.title}>
+          {t('nav.workout')}
+        </Text>
+        <View style={s.workoutEmpty}>
+          <View style={s.workoutEmptyIcon}>
+            <Ionicons
+              name="barbell-outline"
+              color={colors.primary}
+              size={40}
+              accessible={false}
+            />
+          </View>
+          <Text style={[s.heading, s.centerCopy]}>{t('workout.noActive')}</Text>
+          <Text style={[s.sub, s.centerCopy]}>
+            {onStartEmpty
+              ? t('workout.startHint')
+              : t('workout.chooseTemplate')}
+          </Text>
+        </View>
+        <View style={s.startActions}>
+          {onStartPlan ? (
+            <AppButton
+              title={t('workout.startFromPlan')}
+              disabled={busy}
+              onPress={onStartPlan}
+            />
+          ) : null}
+          {onStartEmpty ? (
+            <AppButton
+              title={t('workout.emptyStart')}
+              outlined
+              disabled={busy}
+              onPress={onStartEmpty}
+            />
+          ) : null}
+        </View>
+        {templates.length && onStartTemplate ? (
+          <View style={s.startActions}>
+            <Text accessibilityRole="header" style={s.heading}>
+              {t('workout.savedTemplates')}
+            </Text>
+            {templates.map((template) => (
+              <View style={s.templateRow} key={template.id}>
+                <AppButton
+                  title={catalogLabel(
+                    locale,
+                    'template',
+                    template.id,
+                    template.name,
+                  )}
+                  presentation="settings"
+                  onPress={() => onStartTemplate(template)}
+                  disabled={busy}
+                />
+              </View>
+            ))}
+          </View>
+        ) : null}
       </AppScrollView>
     );
   const index = session.currentExerciseIndex;
   const exercise = session.exercises[index];
   const station = projectExerciseGroups(session.exercises).find((g) =>
     g.indices.includes(index),
-  )!;
-  const nextStation = station.indices.at(-1)! + 1;
+  );
+  const nextStation = (station?.indices.at(-1) ?? index) + 1;
   const rest = remainingRestSeconds(session, now);
   const completed = completedSetCount(session);
   const total = totalSetCount(session);
@@ -265,7 +337,7 @@ export function Workout({
               update={update}
               scroll={programScroll}
             />
-            {exercise.exerciseGroup ? (
+            {exercise.exerciseGroup && station ? (
               <>
                 <Text style={s.heading} accessibilityRole="header">
                   {exercise.exerciseGroup.name}

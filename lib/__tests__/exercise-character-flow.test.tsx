@@ -1,3 +1,6 @@
+import { BrandHeader } from '../../components/BrandHeader';
+import { GlassMaterial } from '../../components/GlassMaterial';
+import { SharingHub } from '../../components/workout-sharing/SharingHub';
 import { startWorkout, updateSet, toggleSet } from '../workout-engine';
 import { defaultTemplates, exerciseLibrary } from '../workout-catalog';
 import { ExerciseLibrary } from '../../components/ExerciseLibrary';
@@ -291,5 +294,56 @@ it('previews dock transparency immediately and restores the committed value on r
 
   const reopened = await mount();
   expect(reopened.root.findByType(Dock).props.transparency).toBe(85);
+  await act(async () => reopened.unmount());
+});
+
+it('previews and persists header opacity independently of the dock', async () => {
+  await completeOnboardingForTest();
+  const view = await mount();
+  const dock = () => view.root.findByType(Dock);
+  const dockTransparency = dock().props.transparency;
+  act(() => dock().props.onChange('profile'));
+  act(() => button(view, 'Appearance').props.onPress());
+  const slider = view.root
+    .findAllByProps({ accessibilityLabel: 'Header opacity' })
+    .find((node: any) => node.props.onSlidingComplete);
+  act(() => slider.props.onSlidingStart());
+  act(() => slider.props.onValueChange(75));
+  expect(
+    view.root.findByType(BrandHeader).findByType(GlassMaterial).props
+      .transparency,
+  ).toBe(25);
+  expect(dock().props.transparency).toBe(dockTransparency);
+  await act(async () => slider.props.onSlidingComplete(75));
+  await act(async () => view.unmount());
+  const reopened = await mount();
+  expect(
+    reopened.root.findAllByType(BrandHeader)[0].findByType(GlassMaterial).props
+      .transparency,
+  ).toBe(25);
+  await act(async () => reopened.unmount());
+});
+
+it('opens plan selection and starts a durable empty workout with no saved template', async () => {
+  await completeOnboardingForTest();
+  const view = await mount();
+  act(() => view.root.findByType(Dock).props.onChange('workout'));
+  act(() => button(view, 'Start from plan').props.onPress());
+  act(() => view.root.findByType(SharingHub).props.onClose());
+  await act(async () => button(view, 'Empty workout').props.onPress());
+  expect(button(view, 'Add exercise')).toBeDefined();
+  expect(button(view, 'Finish workout').props.disabled).toBe(true);
+  const saved = JSON.parse((await AsyncStorage.getItem(STATE_KEY))!);
+  expect(saved.activeWorkout.exercises).toEqual([]);
+  expect(
+    saved.templates.some(
+      (template: { id: string }) =>
+        template.id === saved.activeWorkout.templateId,
+    ),
+  ).toBe(false);
+  await act(async () => view.unmount());
+  const reopened = await mount();
+  act(() => reopened.root.findByType(Dock).props.onChange('workout'));
+  expect(button(reopened, 'Add exercise')).toBeDefined();
   await act(async () => reopened.unmount());
 });

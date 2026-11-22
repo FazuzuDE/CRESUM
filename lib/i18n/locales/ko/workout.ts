@@ -1,4 +1,8 @@
 export default {
+  'workout.startFromPlan': '계획대로 시작',
+  'workout.emptyStart': '빈 운동',
+  'workout.savedTemplates': '저장된 템플릿',
+  'workout.startHint': '계획을 선택하거나 처음부터 시작하세요',
   'picker.hint': '위아래로 스와이프하여 선택한 값을 변경하세요',
   'nav.home': '홈',
   'nav.workout': '운동',

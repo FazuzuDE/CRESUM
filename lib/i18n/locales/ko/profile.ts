@@ -1,4 +1,5 @@
 export default {
+  'profile.headerOpacity': '헤더 불투명도',
   'profile.trainingSection': '운동',
   'profile.myWorkouts': '내 운동',
   'profile.settingsSection': '설정',

@@ -1,4 +1,8 @@
 export default {
+  'workout.startFromPlan': 'योजनेनुसार सुरू करा',
+  'workout.emptyStart': 'रिकामे व्यायाम सत्र',
+  'workout.savedTemplates': 'जतन केलेले साचे',
+  'workout.startHint': 'योजना निवडा किंवा नव्याने सुरू करा',
   'picker.hint': 'निवडलेले मूल्य बदलण्यासाठी वर किंवा खाली स्वाइप करा',
   'nav.home': 'मुख्यपृष्ठ',
   'nav.workout': 'व्यायाम सत्र',

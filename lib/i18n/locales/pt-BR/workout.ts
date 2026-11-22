@@ -1,4 +1,8 @@
 export default {
+  'workout.startFromPlan': 'Começar pelo plano',
+  'workout.emptyStart': 'Treino vazio',
+  'workout.savedTemplates': 'Modelos salvos',
+  'workout.startHint': 'Escolha um plano ou comece do zero',
   'picker.hint':
     'Deslize para cima ou para baixo para alterar o valor selecionado',
   'nav.home': 'Início',

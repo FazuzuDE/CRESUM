@@ -1,4 +1,5 @@
 export default {
+  'profile.headerOpacity': 'हेडरची अपारदर्शकता',
   'profile.trainingSection': 'व्यायाम सत्रे',
   'profile.myWorkouts': 'माझी सत्रे',
   'profile.settingsSection': 'सेटिंग्ज',

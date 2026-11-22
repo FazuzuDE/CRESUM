@@ -1,4 +1,5 @@
 export default {
+  'profile.headerOpacity': 'Độ mờ của đầu trang',
   'profile.trainingSection': 'Buổi tập',
   'profile.myWorkouts': 'Buổi tập của tôi',
   'profile.settingsSection': 'Cài đặt',

@@ -1,4 +1,8 @@
 export default {
+  'workout.startFromPlan': 'Start from plan',
+  'workout.emptyStart': 'Empty workout',
+  'workout.savedTemplates': 'Saved templates',
+  'workout.startHint': 'Choose a plan or start from scratch',
   'picker.hint': 'Swipe up or down to change the selected value',
   'nav.home': 'Home',
   'nav.workout': 'Workout',

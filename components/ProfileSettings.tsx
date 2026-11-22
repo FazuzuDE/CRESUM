@@ -1,5 +1,5 @@
 import { LocalizedText as Text } from '@/components/LayoutDirection';
-import Slider from '@react-native-community/slider';
+import { AppSlider } from './AppSlider';
 import { formatNumber } from '@/lib/i18n/format';
 import { useLocalization } from './LocalizationProvider';
 import { displayAppVersion } from '@/lib/app-version';
@@ -27,6 +27,9 @@ import { catalogLabel, searchLocalizedExercises } from '@/lib/i18n/catalog';
 
 export type ProfileSettingsProps = {
   dockTransparency?: number;
+  headerOpacity?: number;
+  onHeaderOpacityChange?: (value: number) => void;
+  onHeaderOpacityCommit?: (value: number) => void;
   onDockTransparencyChange?: (value: number) => void;
   onDockTransparencyCommit?: (value: number) => void;
   templates: WorkoutTemplate[];
@@ -55,6 +58,9 @@ export type ProfileSettingsProps = {
 
 export function ProfileSettings({
   dockTransparency,
+  headerOpacity,
+  onHeaderOpacityChange,
+  onHeaderOpacityCommit,
   onDockTransparencyChange,
   onDockTransparencyCommit,
   templates,
@@ -81,9 +87,6 @@ export function ProfileSettings({
   const { model } = useExerciseCharacter();
   const [detail, setDetail] = useState<
     'appearance' | 'character' | 'data' | null
-  >(null);
-  const [transparencyAtGestureStart, setTransparencyAtGestureStart] = useState<
-    number | null
   >(null);
   const [accountOpen, setAccountOpen] = useState(false);
   const [backupOpen, setBackupOpen] = useState(false);
@@ -209,42 +212,25 @@ export function ProfileSettings({
         <Text style={s.title} accessibilityRole="header">
           {title}
         </Text>
-        {detail === 'appearance' && dockTransparency !== undefined ? (
-          <GlassCard style={s.card}>
-            <Text style={s.sectionTitle} accessibilityRole="header">
-              {t('profile.dockTransparency')}
-            </Text>
-            <Text style={s.sub}>
-              {formatNumber(locale, dockTransparency / 100, {
-                style: 'percent',
-              })}
-            </Text>
-            <Slider
-              accessibilityLabel={t('profile.dockTransparency')}
-              accessibilityRole="adjustable"
-              accessibilityValue={{ min: 0, max: 100, now: dockTransparency }}
-              style={s.transparencySlider}
-              minimumValue={0}
-              maximumValue={100}
-              step={1}
-              value={transparencyAtGestureStart ?? dockTransparency}
-              minimumTrackTintColor={colors.primary}
-              onSlidingStart={() => {
-                setTransparencyAtGestureStart(dockTransparency);
-              }}
-              onValueChange={(value) => {
-                if (transparencyAtGestureStart === null) {
-                  onDockTransparencyCommit?.(value);
-                } else {
-                  onDockTransparencyChange?.(value);
-                }
-              }}
-              onSlidingComplete={(value) => {
-                setTransparencyAtGestureStart(null);
-                onDockTransparencyCommit?.(value);
-              }}
-            />
-          </GlassCard>
+        {detail === 'appearance' ? (
+          <>
+            {headerOpacity !== undefined ? (
+              <PercentSetting
+                label={t('profile.headerOpacity')}
+                value={headerOpacity}
+                onPreview={onHeaderOpacityChange}
+                onCommit={onHeaderOpacityCommit}
+              />
+            ) : null}
+            {dockTransparency !== undefined ? (
+              <PercentSetting
+                label={t('profile.dockTransparency')}
+                value={dockTransparency}
+                onPreview={onDockTransparencyChange}
+                onCommit={onDockTransparencyCommit}
+              />
+            ) : null}
+          </>
         ) : null}
         {detail === 'character' ? (
           <GlassCard style={s.card}>
@@ -318,7 +304,7 @@ export function ProfileSettings({
           presentation="settings"
           onPress={() => setDetail('character')}
         />
-        {dockTransparency !== undefined ? (
+        {dockTransparency !== undefined || headerOpacity !== undefined ? (
           <AppButton
             title={t('profile.appearance')}
             icon="sunny-outline"
@@ -364,6 +350,51 @@ export function ProfileSettings({
   );
 }
 
+function PercentSetting({
+  label,
+  value,
+  onPreview,
+  onCommit,
+}: {
+  label: string;
+  value: number;
+  onPreview?: (value: number) => void;
+  onCommit?: (value: number) => void;
+}) {
+  const { locale } = useLocalization();
+  const [gestureValue, setGestureValue] = useState<number | null>(null);
+  const percent = formatNumber(locale, value / 100, { style: 'percent' });
+  return (
+    <GlassCard style={s.card}>
+      <View style={s.percentHeading}>
+        <Text style={s.percentLabel} accessibilityRole="header">
+          {label}
+        </Text>
+        <Text style={s.percentValue}>{percent}</Text>
+      </View>
+      <AppSlider
+        accessibilityLabel={label}
+        accessibilityRole="adjustable"
+        accessibilityValue={{ min: 0, max: 100, now: value, text: percent }}
+        minimumValue={0}
+        maximumValue={100}
+        step={1}
+        value={gestureValue ?? value}
+        displayValue={value}
+        onSlidingStart={() => setGestureValue(value)}
+        onValueChange={(next) => {
+          if (gestureValue === null) onCommit?.(next);
+          else onPreview?.(next);
+        }}
+        onSlidingComplete={(next) => {
+          setGestureValue(null);
+          onCommit?.(next);
+        }}
+      />
+    </GlassCard>
+  );
+}
+
 function ProfileGroup({
   title,
   children,
@@ -389,7 +420,16 @@ function ProfileGroup({
 }
 
 const s = StyleSheet.create({
-  transparencySlider: { minHeight: 44 },
+  percentHeading: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: spacing.sm,
+  },
+  percentLabel: { ...typography.headline, color: colors.textPrimary, flex: 1 },
+  percentValue: {
+    ...typography.footnote,
+    color: colors.textSecondary,
+  },
   group: { gap: spacing.xs },
   groupTitle: {
     ...typography.headline,

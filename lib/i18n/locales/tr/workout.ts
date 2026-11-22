@@ -1,4 +1,8 @@
 export default {
+  'workout.startFromPlan': 'Planla başla',
+  'workout.emptyStart': 'Boş antrenman',
+  'workout.savedTemplates': 'Kayıtlı şablonlar',
+  'workout.startHint': 'Bir plan seç veya sıfırdan başla',
   'picker.hint': 'Seçilen değeri değiştirmek için yukarı veya aşağı kaydırın',
   'nav.home': 'Ana sayfa',
   'nav.workout': 'Antrenman',

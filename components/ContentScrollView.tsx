@@ -1,5 +1,10 @@
 import { forwardRef, useState, type ComponentRef, type ReactNode } from 'react';
-import { ScrollView, StyleSheet, type ScrollViewProps } from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  View,
+  type ScrollViewProps,
+} from 'react-native';
 import { SafeAreaView, type Edge } from 'react-native-safe-area-context';
 
 export type SafeAreaScrollProps = {
@@ -28,6 +33,7 @@ export const ContentScrollView = forwardRef<
   ref,
 ) {
   const [viewport, setViewport] = useState<number>();
+  const [headerHeight, setHeaderHeight] = useState(0);
   const [content, setContent] = useState<number>();
   const fits =
     viewport !== undefined && content !== undefined && content <= viewport + 1;
@@ -35,7 +41,8 @@ export const ContentScrollView = forwardRef<
     ? requestedEdges?.filter((edge) => edge !== 'top')
     : requestedEdges;
   const insetContent = !!safeAreaEdges?.length;
-  const flexGrow = insetContent
+  const wrapsContent = insetContent || Boolean(fixedHeader);
+  const flexGrow = wrapsContent
     ? StyleSheet.flatten(contentContainerStyle)?.flexGrow
     : undefined;
   const scroll = (
@@ -51,7 +58,9 @@ export const ContentScrollView = forwardRef<
         (insetContent || fixedHeader ? false : undefined)
       }
       contentContainerStyle={
-        insetContent ? { flexGrow } : contentContainerStyle
+        wrapsContent
+          ? { flexGrow, paddingTop: headerHeight }
+          : contentContainerStyle
       }
       bounces={bounces}
       horizontal={horizontal}
@@ -66,8 +75,8 @@ export const ContentScrollView = forwardRef<
         onContentSizeChange?.(width, height);
       }}
     >
-      {insetContent ? (
-        <SafeAreaView edges={safeAreaEdges} style={contentContainerStyle}>
+      {wrapsContent ? (
+        <SafeAreaView edges={safeAreaEdges ?? []} style={contentContainerStyle}>
           {children}
         </SafeAreaView>
       ) : (
@@ -80,12 +89,26 @@ export const ContentScrollView = forwardRef<
       edges={requestedEdges?.filter((edge) => edge === 'top') ?? []}
       style={s.fixedPage}
     >
-      {fixedHeader}
-      {scroll}
+      <View style={s.layer}>
+        {scroll}
+        <View
+          pointerEvents="box-none"
+          style={s.overlay}
+          onLayout={({ nativeEvent }) =>
+            setHeaderHeight(nativeEvent.layout.height)
+          }
+        >
+          {fixedHeader}
+        </View>
+      </View>
     </SafeAreaView>
   ) : (
     scroll
   );
 });
 
-const s = StyleSheet.create({ fixedPage: { flex: 1 } });
+const s = StyleSheet.create({
+  fixedPage: { flex: 1 },
+  layer: { flex: 1 },
+  overlay: { position: 'absolute', top: 0, left: 0, right: 0 },
+});

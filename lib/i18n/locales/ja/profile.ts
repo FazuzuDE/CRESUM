@@ -1,4 +1,5 @@
 export default {
+  'profile.headerOpacity': 'ヘッダーの不透明度',
   'profile.trainingSection': 'トレーニング',
   'profile.myWorkouts': 'マイトレーニング',
   'profile.settingsSection': '設定',

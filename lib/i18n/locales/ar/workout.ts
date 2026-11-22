@@ -1,4 +1,8 @@
 export default {
+  'workout.startFromPlan': 'ابدأ حسب الخطة',
+  'workout.emptyStart': 'تمرين فارغ',
+  'workout.savedTemplates': 'القوالب المحفوظة',
+  'workout.startHint': 'اختر خطة أو ابدأ من الصفر',
   'picker.hint': 'اسحب لأعلى أو لأسفل لتغيير القيمة المختارة',
   'nav.home': 'الرئيسية',
   'nav.workout': 'التمرين',

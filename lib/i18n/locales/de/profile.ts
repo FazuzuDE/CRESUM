@@ -1,4 +1,5 @@
 export default {
+  'profile.headerOpacity': 'Deckkraft der Kopfzeile',
   'profile.trainingSection': 'Trainings',
   'profile.myWorkouts': 'Meine Trainings',
   'profile.settingsSection': 'Einstellungen',
