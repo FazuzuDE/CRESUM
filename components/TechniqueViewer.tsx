@@ -10,6 +10,7 @@ import { ScreenModal } from './ScreenModal';
 import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { useBackSwipeAction } from './BackSwipe';
 import { AppScrollView } from './AppScrollView';
 import { TechniqueArtwork } from './TechniqueArtwork';
 import { TechniquePhaseControl } from './TechniquePhaseControl';
@@ -29,9 +30,6 @@ export function TechniqueViewer({
   onPhase: (phase: TechniquePhase) => void;
   onClose: () => void;
 }) {
-  const colors = useAppColors();
-  const s = useStyles();
-  const { t } = useLocalization();
   return (
     <ScreenModal
       visible
@@ -39,31 +37,52 @@ export function TechniqueViewer({
       presentationStyle="fullScreen"
       onRequestClose={onClose}
     >
-      <SafeAreaView edges={['top', 'left', 'right']} style={s.root}>
-        <View style={s.header}>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel={t('technique.closeViewer')}
-            onPress={onClose}
-            style={s.close}
-          >
-            <Ionicons name="close" size={24} color={colors.textPrimary} />
-          </Pressable>
-          <Text accessibilityRole="header" style={s.title}>
-            {name}
-          </Text>
-          <Text style={s.context}>{phase === 'START' ? '1 / 2' : '2 / 2'}</Text>
-        </View>
-        <AppScrollView
-          safeAreaEdges={['bottom']}
-          contentContainerStyle={s.content}
-        >
-          <TechniqueArtwork imageKey={imageKey} phase={phase} expanded />
-          <TechniquePhaseControl phase={phase} onChange={onPhase} />
-          <Text style={s.context}>{t('technique.viewerNote')}</Text>
-        </AppScrollView>
-      </SafeAreaView>
+      <TechniqueViewerContent
+        name={name}
+        imageKey={imageKey}
+        phase={phase}
+        onPhase={onPhase}
+        onClose={onClose}
+      />
     </ScreenModal>
+  );
+}
+function TechniqueViewerContent({
+  name,
+  imageKey,
+  phase,
+  onPhase,
+  onClose,
+}: Parameters<typeof TechniqueViewer>[0]) {
+  const colors = useAppColors();
+  const s = useStyles();
+  const { t } = useLocalization();
+  useBackSwipeAction({ onPress: onClose });
+  return (
+    <SafeAreaView edges={['top', 'left', 'right']} style={s.root}>
+      <View style={s.header}>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={t('technique.closeViewer')}
+          onPress={onClose}
+          style={s.close}
+        >
+          <Ionicons name="close" size={24} color={colors.textPrimary} />
+        </Pressable>
+        <Text accessibilityRole="header" style={s.title}>
+          {name}
+        </Text>
+        <Text style={s.context}>{phase === 'START' ? '1 / 2' : '2 / 2'}</Text>
+      </View>
+      <AppScrollView
+        safeAreaEdges={['bottom']}
+        contentContainerStyle={s.content}
+      >
+        <TechniqueArtwork imageKey={imageKey} phase={phase} expanded />
+        <TechniquePhaseControl phase={phase} onChange={onPhase} />
+        <Text style={s.context}>{t('technique.viewerNote')}</Text>
+      </AppScrollView>
+    </SafeAreaView>
   );
 }
 const useStyles = createThemedStyles((colors) => ({

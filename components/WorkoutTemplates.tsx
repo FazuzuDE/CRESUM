@@ -6,6 +6,7 @@ import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
+import { useBackSwipeGesture } from './BackSwipe';
 import { ScreenModal } from './ScreenModal';
 import { AppScrollView } from './AppScrollView';
 import { useEffect, useRef, useState } from 'react';
@@ -77,6 +78,7 @@ export function WorkoutTemplates({
   const [editor, setEditor] = useState<EditorState>(null);
   const [menuTemplateId, setMenuTemplateId] = useState<string>();
   const [menuError, setMenuError] = useState('');
+  const backGesture = useBackSwipeGesture();
   const [openSwipeId, setOpenSwipeId] = useState<string>();
   const swipeableRefs = useRef(new Map<string, SwipeableMethods>());
   const openSwipeRef = useRef<string | undefined>(undefined);
@@ -276,6 +278,7 @@ export function WorkoutTemplates({
             ) : null}
             <AppButton
               title={t('templates.close')}
+              swipeBack
               secondary
               onPress={() => setMenuTemplateId(undefined)}
             />
@@ -322,6 +325,7 @@ export function WorkoutTemplates({
                 containerStyle={s.swipeContainer}
                 childrenContainerStyle={s.movingRow}
                 enabled={!listActionsDisabled}
+                block={openSwipeId === template.id ? backGesture : undefined}
                 friction={1}
                 rightThreshold={52}
                 overshootLeft={false}

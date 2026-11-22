@@ -361,6 +361,7 @@ export function HistoryConflictReview({
               />
               <AppButton
                 title={t('conflict.backComparison')}
+                swipeBack
                 secondary
                 disabled={busy}
                 onPress={() => setChoice(null)}
@@ -427,6 +428,7 @@ export function HistoryConflictReview({
           )}
           <AppButton
             title={t('conflict.backList')}
+            swipeBack={!choice}
             secondary
             disabled={busy}
             onPress={() => {

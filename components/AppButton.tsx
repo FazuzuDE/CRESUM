@@ -6,6 +6,7 @@ import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
+import { useBackSwipeAction } from './BackSwipe';
 import type { ComponentProps } from 'react';
 import { Pressable, View } from 'react-native';
 
@@ -27,6 +28,7 @@ export function AppButton({
   destructive = false,
   presentation = 'button',
   wordmark = false,
+  swipeBack = false,
 }: {
   title: string;
   accessibilityLabel?: string;
@@ -43,7 +45,9 @@ export function AppButton({
   destructive?: boolean;
   presentation?: 'button' | 'row' | 'text' | 'choice' | 'settings';
   wordmark?: boolean;
+  swipeBack?: boolean;
 }) {
+  useBackSwipeAction(swipeBack ? { onPress, disabled } : undefined, true);
   const colors = useAppColors();
   const s = useStyles();
   const schedule = presentation === 'row' && !!detail;

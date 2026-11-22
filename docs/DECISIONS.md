@@ -4664,3 +4664,9 @@ Next after Korean: Dutch. See LOCALIZATION.md and ROADMAP.md.
 current red palette in the grouped muscle picker. Match exercises by selected
 muscles and existing catalog roles and equipment. Place Back at the leading
 edge of the centered wordmark on nested branded pages.
+
+## 2026-11-22 — Full-width swipe back
+
+The owner requested left-to-right swipe back from anywhere on a page. Use
+the visible screen or sheet's enabled Back action and preserve existing
+scrolling and control gestures.

@@ -1,5 +1,11 @@
 # CRESUM — Product Definition
 
+## Swipe back — requested 2026-11-22
+
+On iOS and Android, users can swipe from left to right anywhere on a page with
+an enabled return control. The gesture performs the same action as that
+control, including the current step of an editor or sheet.
+
 ## All-language content and search — approved 2026-11-17
 
 Every new or changed app-controlled text must be translated into all languages

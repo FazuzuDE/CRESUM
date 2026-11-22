@@ -1267,6 +1267,14 @@ Primary tabs: **Home · Workout · Progress · Profile**.
 
 Active tab uses `primary`, inactive tabs `textSecondary`. A translucent/floating dock is allowed if it does not steal useful workout space. During an active workout, avoid navigation that can accidentally discard the session.
 
+### Swipe back
+
+On iOS and Android, a deliberate left-to-right swipe can start anywhere on a
+page that has an enabled Back action. On release, it invokes that same action.
+Vertical scrolling, horizontal scrollers, sliders and open row actions keep
+their own gestures. For a nested screen or sheet, use the Back action of the
+visible layer and return one level at a time.
+
 ### Onboarding
 
 The approved first-run sequence is Welcome (name and language), Exercise

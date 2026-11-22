@@ -838,3 +838,8 @@ attention to atlas touch targets, larger text and the fixed header.
 Apply the shared return control on the slogan line, illustrated guide, grouped
 set history and localized muscle functions across the exercise and equipment
 catalog. Verify the updated progression and navigation in the device preview.
+
+### Full-width swipe back — requested 2026-11-22
+
+Verify navigation on iPhone and Android, including nested sheets, vertical
+scrolling, horizontal controls and swipeable workout rows.
