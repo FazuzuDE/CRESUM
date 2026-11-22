@@ -1058,6 +1058,8 @@ as exercise discovery. Each muscle detail includes its function, a catalog
 example and clickable source history. From an empty period, open discovery
 with that muscle already selected. Apply the shared function descriptions to
 all exercises, including machine exercises and equipment variants.
+The selected muscle is filled with red on the shared map and in its inline
+preview, including when its recorded set count is zero.
 
 Keep the guide and grouped sets on the Progress map as collapsible sections.
 A map tap reveals the corresponding group; selecting a row updates the map

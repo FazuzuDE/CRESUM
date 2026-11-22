@@ -2,7 +2,7 @@ import { Image, StyleSheet, Text } from 'react-native';
 import Svg, { Path, G, Mask, ClipPath } from 'react-native-svg';
 import { MuscleMap } from '../../components/MuscleMap';
 import { projectMuscleParticipation } from '../muscle-participation';
-import { colors } from '../theme';
+import { colors, muscleMapPresentation } from '../theme';
 import {
   anatomicalAtlas,
   anatomicalMissingGroups,
@@ -137,21 +137,13 @@ it('opens the chest parent from an accepted region and preserves role precedence
   );
   let view!: ReturnType<typeof create>;
   act(() => {
-    view = create(
-      <MuscleMap muscles={muscles} selected="chest" onSelect={onSelect} />,
-    );
+    view = create(<MuscleMap muscles={muscles} onSelect={onSelect} />);
   });
   const path = () =>
     view.root.findByProps({
       testID: 'anatomical-region-pectoralis-major-clavicular-left',
     });
   expect(path().props.fill).toBe(colors.musclePrimary);
-  const selection = {
-    testID: 'anatomical-selection-pectoralis-major-clavicular-left',
-  };
-  expect(view.root.findByProps(selection).props.stroke).toBe(
-    colors.musclePrimaryShade,
-  );
   act(() => path().props.onPress());
   expect(onSelect).toHaveBeenCalledWith('chest');
   const group = () =>
@@ -171,7 +163,16 @@ it('opens the chest parent from an accepted region and preserves role precedence
     ),
   );
   expect(group()!.props.opacity).toBe(opacity);
-  expect(view.root.findAllByProps(selection)).toHaveLength(0);
+  act(() =>
+    view.update(
+      <MuscleMap muscles={neutral} selected="chest" onSelect={onSelect} />,
+    ),
+  );
+  expect(path().props.fill).toBe(colors.musclePrimaryShade);
+  expect(path().props.stroke).toBeUndefined();
+  expect(group()!.props.opacity).toBe(muscleMapPresentation.selectedOpacity);
+  act(() => path().props.onPress());
+  expect(onSelect).toHaveBeenLastCalledWith('chest');
   act(() => view.unmount());
 });
 

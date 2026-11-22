@@ -95,7 +95,9 @@ export function MuscleProgress({
   }
   const detail = muscle ? (
     <View style={s.detail}>
-      <MuscleMap muscles={[muscle]} height={180} selected={muscle.id} />
+      <View style={s.detailAtlas}>
+        <MuscleMap muscles={[muscle]} selected={muscle.id} fullWidth />
+      </View>
       <MuscleFunction id={muscle.id} onExample={setExample} />
       <Text style={s.heading} accessibilityRole="header">
         {t('muscle.periodHistory')}
@@ -327,5 +329,6 @@ const useStyles = createThemedStyles((colors) => ({
     borderRadius: spacing.xs,
   },
   detail: { gap: spacing.sm, paddingVertical: spacing.sm },
+  detailAtlas: { marginHorizontal: spacing.md },
   legend: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
 }));

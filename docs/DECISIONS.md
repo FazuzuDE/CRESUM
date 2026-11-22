@@ -4689,3 +4689,9 @@ Reuse the current atlas, grouping and character illustration.
 Approved preparing the atlas on Overview, retaining the map during navigation,
 and making Back gestures interactive. Keep counters, masks and return actions
 bound to their current data and screens.
+
+## 2026-11-22 — Inline muscle atlas size and selected fill
+
+Align the inline atlas with the function heading and mirror the inset on the
+opposite side. Fill selected muscle regions in red, including at zero sets.
+Use the shared atlas and this presentation for current and future muscle details.

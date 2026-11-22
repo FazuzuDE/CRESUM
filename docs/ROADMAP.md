@@ -848,7 +848,8 @@ and RTL layouts and confirm that each swipe returns one level.
 ### Inline Muscle Map and character preview — requested 2026-11-22
 
 Verify the seamless shared atlas in both themes, inline map-to-row selection
-and the character preview on iPhone and Android.
+and the character preview on iPhone and Android. Check heading alignment and
+the selected fill in an inline muscle detail with zero sets.
 
 ### Progress navigation continuity — approved 2026-11-22
 

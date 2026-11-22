@@ -38,18 +38,36 @@ export function MuscleMap({
   selected,
   onSelect,
   height = muscleMapPresentation.height,
+  fullWidth = false,
 }: {
   muscles: readonly { id: MuscleId; primary: number; secondary: number }[];
   selected?: MuscleId;
   onSelect?: (id: MuscleId) => void;
   height?: number;
+  fullWidth?: boolean;
 }) {
   const colors = useAppColors();
   const s = useStyles();
   const { t } = useLocalization();
   const instance = useId().replace(/[^a-zA-Z0-9]/g, '');
   const [ready, setReady] = useState(false);
+  const highlights = [
+    { fill: 'transparent', opacity: 1 },
+    {
+      fill: colors.muscleSecondary,
+      opacity: muscleMapPresentation.secondaryOpacity,
+    },
+    {
+      fill: colors.musclePrimary,
+      opacity: muscleMapPresentation.primaryOpacity,
+    },
+    {
+      fill: colors.musclePrimaryShade,
+      opacity: muscleMapPresentation.selectedOpacity,
+    },
+  ] as const;
   const role = (id: MuscleId) => {
+    if (selected === id) return 3;
     const value = muscles.find((m) => m.id === id);
     return value?.primary ? 2 : value?.secondary ? 1 : 0;
   };
@@ -73,7 +91,7 @@ export function MuscleMap({
   const prefix = `anatomy${instance}`;
   // The native Image reports readiness for both fresh and cached artwork.
   return (
-    <View style={[s.atlas, { maxWidth: height * atlasAspect }]}>
+    <View style={[s.atlas, !fullWidth && { maxWidth: height * atlasAspect }]}>
       <View style={s.canvas} pointerEvents={ready ? 'auto' : 'none'}>
         <AtlasImage
           source={source}
@@ -161,24 +179,12 @@ export function MuscleMap({
                   (r) => r.view === view && r.groupId === group.id,
                 );
                 if (!parts.length) return null;
-                const participation = muscles.find((m) => m.id === group.id);
-                const primary = !!participation?.primary;
-                const secondary = !primary && !!participation?.secondary;
-                const fill = primary
-                  ? colors.musclePrimary
-                  : secondary
-                    ? colors.muscleSecondary
-                    : 'transparent';
-                const opacity = primary
-                  ? muscleMapPresentation.primaryOpacity
-                  : secondary
-                    ? muscleMapPresentation.secondaryOpacity
-                    : 1;
+                const highlight = highlights[role(group.id)];
                 return (
                   <G
                     key={group.id}
                     testID={`anatomical-group-${view}-${group.id}`}
-                    opacity={opacity}
+                    opacity={highlight.opacity}
                     mask={
                       view === 'back' && cutout?.occluded === group.id
                         ? `url(#${prefix}role-occlusion)`
@@ -201,7 +207,7 @@ export function MuscleMap({
                               ? `url(#${prefix}${r.id})`
                               : undefined
                           }
-                          fill={fill}
+                          fill={highlight.fill}
                           onPress={
                             onSelect ? () => onSelect(group.id) : undefined
                           }
@@ -213,35 +219,6 @@ export function MuscleMap({
               })}
             </G>
           ))}
-          {selected
-            ? regions
-                .filter((region) => region.groupId === selected)
-                .map((region) => (
-                  <G
-                    key={region.id}
-                    mask={
-                      region.clipId
-                        ? `url(#${prefix}${region.clipId})`
-                        : undefined
-                    }
-                    pointerEvents="none"
-                  >
-                    <Path
-                      testID={`anatomical-selection-${region.id}`}
-                      d={region.path}
-                      transform={region.transform || undefined}
-                      clipPath={
-                        region.partitionPath
-                          ? `url(#${prefix}${region.id})`
-                          : undefined
-                      }
-                      fill="none"
-                      stroke={colors.musclePrimaryShade}
-                      strokeWidth={muscleMapPresentation.selectedStrokeWidth}
-                    />
-                  </G>
-                ))
-            : null}
         </Svg>
       </View>
       <View style={s.row}>
