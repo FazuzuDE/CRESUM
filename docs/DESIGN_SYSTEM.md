@@ -18,6 +18,10 @@ scrolling pages, use `AppScrollView branded`. For custom page layouts use
 the same header above scrolling content, or pass it as `fixedHeader`.
 The top safe area clears the status bar or Dynamic Island; the brand block
 has matching 12 pt padding above the wordmark and below the slogan.
+Use one edge-to-edge backdrop with the same clear glass material as the dock.
+Use the shared light blur fallback on older iOS and the shared translucent tint
+on Android and web. The Appearance header opacity slider controls the header
+independently. Full opacity and iOS Reduce Transparency use a solid surface.
 Scroll page content independently from the header. Keep the final action
 reachable above the dock or home indicator. Compact dialogs scroll within
 their own bounds.

@@ -1,5 +1,11 @@
 # CRESUM Decision Log
 
+## 2026-11-22 — Match the fixed header glass to the dock
+
+Use the dock's shared glass material across the fixed header in response to
+the Progress screenshot. Keep the header edge-to-edge and retain its separate
+opacity control and opaque accessibility fallback.
+
 ## 2026-11-22 — Fixed branding and grouped Profile
 
 Keep the brand and localized slogan fixed above scrolling pages with equal
