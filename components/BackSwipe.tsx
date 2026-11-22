@@ -8,13 +8,26 @@ import {
   useState,
   type RefObject,
 } from 'react';
-import { Platform, View, type ViewProps } from 'react-native';
+import {
+  Platform,
+  View,
+  useWindowDimensions,
+  type ViewProps,
+} from 'react-native';
 import {
   GestureDetector,
   PointerType,
   usePanGesture,
   type PanGesture,
 } from 'react-native-gesture-handler';
+import Animated, {
+  cancelAnimation,
+  useAnimatedStyle,
+  useReducedMotion,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
+import { scheduleOnRN } from 'react-native-worklets';
 
 import { useLayoutDirection } from './LayoutDirectionContext';
 
@@ -31,6 +44,7 @@ type Target = {
   disabled: boolean;
 };
 type SwipeDestination = { target: Target; direction: 1 | -1 };
+type SwipePhase = 'idle' | 'began' | 'dragging' | 'settling';
 type Register = (target: Target) => () => void;
 
 const BackSwipeContext = createContext<{
@@ -88,53 +102,103 @@ function BackSwipeSurface({
     targets.at(-1);
   const direction = useLayoutDirection() === 'rtl' ? -1 : 1;
   const enabled = active && target !== undefined && !target.disabled;
-  const destination = useRef<SwipeDestination | undefined>(undefined);
-  const swiping = useRef<SwipeDestination | undefined>(undefined);
+  const destination = useMemo<SwipeDestination | undefined>(
+    () => (enabled ? { target, direction } : undefined),
+    [target, enabled, direction],
+  );
+  const currentDestination = useRef(destination);
+  const { width } = useWindowDimensions();
+  const reduceMotion = useReducedMotion();
+  const offset = useSharedValue(0);
+  const phase = useSharedValue<SwipePhase>('idle');
+  const [completion, setCompletion] = useState(0);
   useLayoutEffect(() => {
-    destination.current = enabled ? { target, direction } : undefined;
+    currentDestination.current = destination;
+    cancelAnimation(offset);
+    offset.set(0);
+    phase.set('idle');
     return () => {
-      destination.current = undefined;
-      swiping.current = undefined;
+      currentDestination.current = undefined;
     };
-  }, [target, enabled, direction]);
+  }, [destination, completion, offset, phase]);
+  const completeBack = () => {
+    if (!destination || currentDestination.current !== destination) return;
+    const action = destination.target.action.current;
+    if (action && !action.disabled) action.onPress();
+    // Reset the offset after React commits the destination, including inline Back.
+    setCompletion((count) => count + 1);
+  };
+  const motion = useAnimatedStyle(() => ({
+    transform: [{ translateX: offset.get() }],
+  }));
 
   const gesture = usePanGesture({
     enabled,
-    runOnJS: true,
     maxPointers: 1,
     activeOffsetX: 24 * direction,
     failOffsetX: -12 * direction,
     failOffsetY: [-15, 15],
     onBegin: ({ pointerType, numberOfPointers }) => {
-      swiping.current =
-        pointerType === PointerType.TOUCH && numberOfPointers === 1
-          ? destination.current
-          : undefined;
-    },
-    onTouchesDown: ({ numberOfTouches }) => {
-      // A second finger can arrive after the pan has already activated.
-      if (numberOfTouches > 1) swiping.current = undefined;
-    },
-    onDeactivate: ({ canceled, translationX, translationY, velocityX }) => {
-      const started = swiping.current;
-      swiping.current = undefined;
-      if (!started || started !== destination.current || canceled) return;
-
-      const distance = translationX * started.direction;
-      const speed = velocityX * started.direction;
-      const traveled = distance >= 72 || (distance >= 36 && speed >= 550);
-      const action = started.target.action.current;
+      'worklet';
       if (
-        traveled &&
-        distance >= Math.abs(translationY) * 2 &&
-        action &&
-        !action.disabled
+        enabled &&
+        phase.get() === 'idle' &&
+        pointerType === PointerType.TOUCH &&
+        numberOfPointers === 1
       ) {
-        action.onPress();
+        phase.set('began');
       }
     },
+    onActivate: () => {
+      'worklet';
+      if (phase.get() !== 'began') return;
+      cancelAnimation(offset);
+      phase.set('dragging');
+    },
+    onUpdate: ({ translationX, translationY }) => {
+      'worklet';
+      if (phase.get() !== 'dragging' || reduceMotion) return;
+      const distance = translationX * direction;
+      offset.set(
+        distance >= Math.abs(translationY)
+          ? Math.min(width, distance) * direction
+          : 0,
+      );
+    },
+    onTouchesDown: ({ numberOfTouches }) => {
+      'worklet';
+      if (numberOfTouches <= 1) return;
+      const current = phase.get();
+      if (current === 'dragging') offset.set(withTiming(0, { duration: 160 }));
+      if (current === 'began' || current === 'dragging') phase.set('idle');
+    },
+    onDeactivate: ({ canceled, translationX, translationY, velocityX }) => {
+      'worklet';
+      if (phase.get() !== 'dragging') return;
+      const distance = translationX * direction;
+      const speed = velocityX * direction;
+      const traveled = distance >= 72 || (distance >= 36 && speed >= 550);
+      if (canceled || !traveled || distance < Math.abs(translationY) * 2) {
+        phase.set('idle');
+        offset.set(withTiming(0, { duration: 160 }));
+        return;
+      }
+
+      phase.set('settling');
+      if (reduceMotion) {
+        scheduleOnRN(completeBack);
+        return;
+      }
+      offset.set(
+        withTiming(width * direction, { duration: 150 }, (finished) => {
+          'worklet';
+          if (finished) scheduleOnRN(completeBack);
+        }),
+      );
+    },
     onFinalize: () => {
-      swiping.current = undefined;
+      'worklet';
+      if (phase.get() === 'began') phase.set('idle');
     },
   });
   const value = useMemo(
@@ -145,7 +209,11 @@ function BackSwipeSurface({
   return (
     <BackSwipeContext.Provider value={value}>
       <GestureDetector gesture={gesture}>
-        <View {...props} collapsable={false} />
+        <Animated.View
+          {...props}
+          style={enabled ? [props.style, motion] : props.style}
+          collapsable={false}
+        />
       </GestureDetector>
     </BackSwipeContext.Provider>
   );

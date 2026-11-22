@@ -7,6 +7,14 @@ with an enabled return control. This means rightward in LTR and leftward in RTL.
 The gesture performs the same action as that control, including the current
 step of an editor or sheet.
 
+## Progress navigation continuity — approved 2026-11-22
+
+Prepare the atlas while Progress Overview is open. Show the anatomical
+image and overlays together. Preserve the Muscle Map’s period, selections
+and scroll position across tab switches and exercise discovery. On an
+eligible Back swipe, move the screen with the gesture and return it to
+rest when the swipe is canceled.
+
 ## All-language content and search — approved 2026-11-17
 
 Every new or changed app-controlled text must be translated into all languages

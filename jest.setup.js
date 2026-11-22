@@ -23,6 +23,41 @@ jest.mock('react-native-gesture-handler', () => ({
   GestureDetector: jest.requireActual('react-native').View,
   GestureHandlerRootView: jest.requireActual('react-native').View,
 }));
+// Renderer tests run gesture worklets on the test thread.
+jest.mock('react-native-worklets', () => ({
+  ...jest.requireActual('react-native-worklets/lib/module/mock'),
+  scheduleOnRN: (callback, ...args) => callback(...args),
+}));
+jest.mock('react-native-reanimated', () => ({
+  __esModule: true,
+  default: {
+    View: jest.requireActual('react-native').View,
+    createAnimatedComponent: (component) => component,
+  },
+  cancelAnimation: jest.fn(),
+  setGestureState: jest.fn(),
+  isSharedValue: (value) => value?._isReanimatedSharedValue === true,
+  useComposedEventHandler: () => undefined,
+  useAnimatedStyle: (createStyle) => createStyle(),
+  useEvent: () => undefined,
+  useHandler: () => undefined,
+  useReducedMotion: () => false,
+  useSharedValue: (initial) =>
+    jest.requireActual('react').useMemo(() => {
+      let value = initial;
+      return {
+        _isReanimatedSharedValue: true,
+        get: () => value,
+        set: (next) => {
+          value = next;
+        },
+      };
+    }, []),
+  withTiming: jest.fn((value, _config, complete) => {
+    complete?.(true);
+    return value;
+  }),
+}));
 // Native crypto is unavailable in Jest. Use Node's real secure UUID generator
 // at this platform boundary instead of Expo's empty generated native mock.
 jest.mock('expo-crypto', () => ({

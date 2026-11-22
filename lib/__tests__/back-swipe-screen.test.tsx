@@ -4,6 +4,7 @@ import {
   PointerType,
   type PanGesture,
 } from 'react-native-gesture-handler';
+import { withTiming } from 'react-native-reanimated';
 import { AppScrollView } from '../../components/AppScrollView';
 import { AppButton } from '../../components/AppButton';
 import { AppSlider } from '../../components/AppSlider';
@@ -49,9 +50,11 @@ type SwipeValues = Partial<{
 }>;
 
 function beginSwipe(gesture: PanGesture, pointerType = PointerType.TOUCH) {
-  act(() =>
-    gesture.config.onBegin?.({ pointerType, numberOfPointers: 1 } as never),
-  );
+  act(() => {
+    const event = { pointerType, numberOfPointers: 1 } as never;
+    gesture.config.onBegin?.(event);
+    gesture.config.onActivate?.(event);
+  });
 }
 
 function endSwipe(gesture: PanGesture, values: SwipeValues = {}) {
@@ -114,6 +117,45 @@ it.each(['ios', 'android'] as const)(
     );
     act(() => button.props.onPress());
     expect(back).toHaveBeenCalledTimes(3);
+    act(() => view.unmount());
+  },
+);
+
+it.each([
+  ['ltr', 1],
+  ['rtl', -1],
+] as const)(
+  'restores an interrupted drag and animates to the %s edge before invoking Back',
+  (direction, sign) => {
+    const back = jest.fn();
+    const timing = jest.mocked(withTiming);
+    let view: ReturnType<typeof create>;
+    act(() => {
+      view = create(
+        <LayoutDirectionContext.Provider value={direction}>
+          <AppScrollView branded back={{ onPress: back }} />
+        </LayoutDirectionContext.Provider>,
+      );
+    });
+    const gesture = gestures(view)[0];
+    beginSwipe(gesture);
+    endSwipe(gesture, { translationX: sign * 56, canceled: true });
+    expect(timing).toHaveBeenLastCalledWith(0, { duration: 160 });
+    expect(back).not.toHaveBeenCalled();
+
+    beginSwipe(gesture);
+    act(() => gesture.config.onTouchesDown?.({ numberOfTouches: 2 } as never));
+    endSwipe(gesture, { translationX: sign * 120 });
+    expect(timing).toHaveBeenLastCalledWith(0, { duration: 160 });
+    expect(back).not.toHaveBeenCalled();
+
+    timing.mockImplementationOnce((destination) => destination);
+    swipe(gesture, { translationX: sign * 120 });
+    const [destination, , finish] = timing.mock.lastCall!;
+    expect((destination as number) * sign).toBeGreaterThan(0);
+    expect(back).not.toHaveBeenCalled();
+    act(() => finish?.(true));
+    expect(back).toHaveBeenCalledTimes(1);
     act(() => view.unmount());
   },
 );
@@ -223,8 +265,17 @@ it('disarms a swipe when the same header changes destinations', () => {
   endSwipe(gestures(view)[0]);
   expect(first).not.toHaveBeenCalled();
   expect(second).not.toHaveBeenCalled();
+
+  const timing = jest.mocked(withTiming);
+  timing.mockImplementationOnce((destination) => destination);
   swipe(gestures(view)[0]);
-  expect(second).toHaveBeenCalledTimes(1);
+  const [, , finish] = timing.mock.lastCall!;
+  act(() => view.update(page('first', first)));
+  act(() => finish?.(true));
+  expect(first).not.toHaveBeenCalled();
+  expect(second).not.toHaveBeenCalled();
+  swipe(gestures(view)[0]);
+  expect(first).toHaveBeenCalledTimes(1);
   act(() => view.unmount());
 });
 

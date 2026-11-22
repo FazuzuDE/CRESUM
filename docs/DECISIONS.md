@@ -4683,3 +4683,9 @@ Physical iPhone and Android verification is pending.
 The owner requested a continuous front/back atlas, inline guide and set history,
 immediate muscle selection and an updating Male/Female portrait in Profile.
 Reuse the current atlas, grouping and character illustration.
+
+## 2026-11-22 — Progress navigation continuity
+
+Approved preparing the atlas on Overview, retaining the map during navigation,
+and making Back gestures interactive. Keep counters, masks and return actions
+bound to their current data and screens.

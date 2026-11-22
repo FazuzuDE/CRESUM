@@ -1276,6 +1276,10 @@ action as the visible Back, Close or Cancel control. Vertical scrolling, horizon
 scrollers, sliders and swipeable rows retain their gestures. On nested screens or
 sheets, return one level at a time using the action in the visible layer.
 
+The current screen follows a horizontal Back drag and settles offscreen
+before committing. A canceled gesture settles in place. Respect Reduce Motion.
+Keep the visible Progress map or picker mounted underneath its next screen.
+
 ### Onboarding
 
 The approved first-run sequence is Welcome (name and language), Exercise
