@@ -1,12 +1,5 @@
-import { Text } from 'react-native';
-import Svg, {
-  Image as SvgImage,
-  Path,
-  G,
-  Mask,
-  ClipPath,
-  Rect,
-} from 'react-native-svg';
+import { Image, StyleSheet, Text } from 'react-native';
+import Svg, { Path, G, Mask, ClipPath } from 'react-native-svg';
 import { MuscleMap } from '../../components/MuscleMap';
 import { projectMuscleParticipation } from '../muscle-participation';
 import { colors } from '../theme';
@@ -79,25 +72,19 @@ it('preserves accepted exteriors, transforms, clips and all unresolved assignmen
   expect(anatomicalMissingGroups.map((m) => m.id).sort()).toEqual([]);
 });
 
-it('renders both anatomical views from one image, with a neutral no-set state', () => {
+it('reveals the artwork and overlays together, including when another map mounts', () => {
   let view!: ReturnType<typeof create>;
   act(() => {
     view = create(<MuscleMap muscles={neutral} onSelect={() => {}} />);
   });
-  expect(
-    view.root
-      .findAllByType(SvgImage)
-      .filter((n: { props: { href: unknown } }) => n.props.href === source),
-  ).toHaveLength(1);
   const atlas = view.root.findByType(Svg);
+  const art = view.root.findByType(Image);
+  expect(art.props.source).toEqual(source);
   expect(atlas.props.opacity).toBe(0);
-  act(() =>
-    atlas
-      .findAllByType(SvgImage)
-      .find((node: { props: { href: unknown } }) => node.props.href === source)
-      .props.onLoad(),
-  );
+  expect(StyleSheet.flatten(art.props.style).opacity).toBe(0);
+  act(() => art.props.onLoad());
   expect(atlas.props.opacity).toBe(1);
+  expect(StyleSheet.flatten(art.props.style).opacity).toBeUndefined();
   expect(
     view.root
       .findAllByType(Text)
@@ -114,6 +101,10 @@ it('renders both anatomical views from one image, with a neutral no-set state', 
       (n: { props: { fill: string } }) => n.props.fill === 'transparent',
     ),
   ).toBe(true);
+  act(() => view.update(<MuscleMap key="second" muscles={neutral} />));
+  expect(view.root.findByType(Svg).props.opacity).toBe(0);
+  act(() => view.root.findByType(Image).props.onLoad());
+  expect(view.root.findByType(Svg).props.opacity).toBe(1);
   act(() => view.unmount());
 });
 
@@ -122,22 +113,18 @@ it('clips one source image to the continuous front and back view box', () => {
   act(() => {
     view = create(<MuscleMap muscles={neutral} />);
   });
-  const images = view.root
-    .findAllByType(SvgImage)
-    .filter((n: { props: { href: unknown } }) => n.props.href === source);
-
+  const image = view.root.findByType(Image);
+  const [sourceWidth, sourceHeight] = anatomicalAtlas.canvas;
   const [x, y, frontWidth, height] = anatomicalAtlas.views.front.viewBox;
-  const clip = view.root
-    .findAllByType(ClipPath)
-    .find(
-      (node: { props: { id: string } }) =>
-        images[0].props.clipPath === `url(#${node.props.id})`,
-    );
-  expect(clip?.findByType(Rect).props).toMatchObject({
-    x,
-    y,
-    width: frontWidth + anatomicalAtlas.views.back.viewBox[2],
-    height,
+  const width = frontWidth + anatomicalAtlas.views.back.viewBox[2];
+  expect(view.root.findByType(Svg).props.viewBox).toBe(
+    `${x} ${y} ${width} ${height}`,
+  );
+  expect(StyleSheet.flatten(image.props.style)).toMatchObject({
+    left: `${(-x / width) * 100}%`,
+    top: `${(-y / height) * 100}%`,
+    width: `${(sourceWidth / width) * 100}%`,
+    height: `${(sourceHeight / height) * 100}%`,
   });
 
   act(() => view.unmount());

@@ -137,6 +137,7 @@ function Stats({
   useEffect(() => {
     if (!active) return;
     const refresh = () => setNow(Date.now());
+    refresh();
     const timer = setInterval(refresh, 60_000);
     const subscription = AppState.addEventListener('change', (state) => {
       if (state === 'active') refresh();

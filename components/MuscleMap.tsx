@@ -5,7 +5,7 @@ import {
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { useId, useState } from 'react';
 import { useLocalization } from './LocalizationProvider';
-import { View } from 'react-native';
+import { Image as AtlasImage, View } from 'react-native';
 import Svg, {
   Defs,
   Image,
@@ -71,21 +71,27 @@ export function MuscleMap({
       ]
     : anatomicalGroups;
   const prefix = `anatomy${instance}`;
-  const sourceClipId = `${prefix}source-clip`;
+  // The native Image reports readiness for both fresh and cached artwork.
   return (
     <View style={[s.atlas, { maxWidth: height * atlasAspect }]}>
       <View style={s.canvas} pointerEvents={ready ? 'auto' : 'none'}>
+        <AtlasImage
+          source={source}
+          accessible={false}
+          fadeDuration={0}
+          resizeMode="stretch"
+          onLoad={() => setReady(true)}
+          style={[s.source, !ready && s.loading]}
+        />
         <Svg
           width="100%"
           height="100%"
           viewBox={`${left} ${top} ${atlasWidth} ${atlasHeight}`}
+          preserveAspectRatio="none"
           accessible={false}
           opacity={ready ? 1 : 0}
         >
           <Defs>
-            <ClipPath id={sourceClipId}>
-              <Rect x={left} y={top} width={atlasWidth} height={atlasHeight} />
-            </ClipPath>
             {cutout ? (
               <Mask
                 id={`${prefix}role-occlusion`}
@@ -148,16 +154,6 @@ export function MuscleMap({
                 </ClipPath>
               ))}
           </Defs>
-          <Image
-            href={source}
-            onLoad={() => setReady(true)}
-            clipPath={`url(#${sourceClipId})`}
-            x={0}
-            y={0}
-            width={sourceWidth}
-            height={sourceHeight}
-            pointerEvents="none"
-          />
           {views.map((view) => (
             <G key={view}>
               {groups.map((group) => {
@@ -260,7 +256,20 @@ export function MuscleMap({
 }
 const useStyles = createThemedStyles((colors) => ({
   atlas: { alignSelf: 'center', width: '100%' },
-  canvas: { width: '100%', aspectRatio: atlasAspect, overflow: 'hidden' },
+  canvas: {
+    width: '100%',
+    aspectRatio: atlasAspect,
+    direction: 'ltr',
+    overflow: 'hidden',
+  },
+  source: {
+    position: 'absolute',
+    left: `${(-left / atlasWidth) * 100}%`,
+    top: `${(-top / atlasHeight) * 100}%`,
+    width: `${(sourceWidth / atlasWidth) * 100}%`,
+    height: `${(sourceHeight / atlasHeight) * 100}%`,
+  },
+  loading: { opacity: 0 },
   row: { flexDirection: 'row', paddingTop: spacing.xxs },
   label: {
     flex: 1,

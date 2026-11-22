@@ -16684,5 +16684,29 @@
     "line": 23,
     "text": "no-hide-descendants",
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes"
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "line": 267,
+    "text": "`${(-left / atlasWidth) * 100}%`",
+    "context": "TemplateExpression/PropertyAssignment:left/ObjectLiteralExpression/PropertyAssignment:source/ObjectLiteralExpression"
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "line": 268,
+    "text": "`${(-top / atlasHeight) * 100}%`",
+    "context": "TemplateExpression/PropertyAssignment:top/ObjectLiteralExpression/PropertyAssignment:source/ObjectLiteralExpression"
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "line": 269,
+    "text": "`${(sourceWidth / atlasWidth) * 100}%`",
+    "context": "TemplateExpression/PropertyAssignment:width/ObjectLiteralExpression/PropertyAssignment:source/ObjectLiteralExpression"
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "line": 270,
+    "text": "`${(sourceHeight / atlasHeight) * 100}%`",
+    "context": "TemplateExpression/PropertyAssignment:height/ObjectLiteralExpression/PropertyAssignment:source/ObjectLiteralExpression"
   }
 ]

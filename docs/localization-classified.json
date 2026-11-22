@@ -12136,5 +12136,28 @@
         "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes"
       }
     ]
+  },
+  {
+    "file": "components/MuscleMap.tsx",
+    "kind": "internal",
+    "reason": "Layout values align the atlas image with its SVG overlays.",
+    "entries": [
+      {
+        "text": "`${(-left / atlasWidth) * 100}%`",
+        "context": "TemplateExpression/PropertyAssignment:left/ObjectLiteralExpression/PropertyAssignment:source/ObjectLiteralExpression"
+      },
+      {
+        "text": "`${(-top / atlasHeight) * 100}%`",
+        "context": "TemplateExpression/PropertyAssignment:top/ObjectLiteralExpression/PropertyAssignment:source/ObjectLiteralExpression"
+      },
+      {
+        "text": "`${(sourceWidth / atlasWidth) * 100}%`",
+        "context": "TemplateExpression/PropertyAssignment:width/ObjectLiteralExpression/PropertyAssignment:source/ObjectLiteralExpression"
+      },
+      {
+        "text": "`${(sourceHeight / atlasHeight) * 100}%`",
+        "context": "TemplateExpression/PropertyAssignment:height/ObjectLiteralExpression/PropertyAssignment:source/ObjectLiteralExpression"
+      }
+    ]
   }
 ]
