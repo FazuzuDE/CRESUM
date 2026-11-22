@@ -8,6 +8,7 @@ import { WorkoutHistory } from '../../components/WorkoutHistory';
 import { Dock } from '../../components/Dock';
 import { AppButton } from '../../components/AppButton';
 import { MuscleProgress } from '../../components/MuscleProgress';
+import { MuscleSegments } from '../../components/MusclePageControls';
 import App from '../../app/index';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { WorkoutSession } from '../workout-model';
@@ -99,7 +100,16 @@ it('uses the same Progress period after loading history without filtering the ar
       )!
       .props.onPress(),
   );
-  expect(view.root.findByType(MuscleProgress).props.history).toEqual(history);
+  const muscles = view.root.findByType(MuscleProgress);
+  expect(muscles.props.history).toEqual(history);
+  const period = () => muscles.findAllByType(MuscleSegments)[1];
+  act(() => period().props.onChange('4w'));
+  act(() => view.root.findByType(Dock).props.onChange('profile'));
+  expect(muscles.props.active).toBe(false);
+  act(() => view.root.findByType(Dock).props.onChange('progress'));
+  expect(view.root.findByType(MuscleProgress)).toBe(muscles);
+  expect(muscles.props.active).toBe(true);
+  expect(period().props.value).toBe('4w');
   act(() => view.root.findByType(MuscleProgress).props.onOverview());
   expect(view.root.findByType(ExercisePerformance).props.period).toBe('ALL');
   act(() => view.unmount());

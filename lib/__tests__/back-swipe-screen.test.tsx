@@ -1,4 +1,5 @@
 import { View } from 'react-native';
+import { withTiming } from 'react-native-reanimated';
 import {
   GestureDetector,
   PointerType,
@@ -74,6 +75,39 @@ it('only commits a completed rightward swipe on a screen with Back', () => {
   swipe(gesture);
   swipe(gesture, { translationX: 39, velocityX: 660 });
   expect(back).toHaveBeenCalledTimes(2);
+  act(() => view.unmount());
+});
+
+it('settles an interrupted swipe back in place and animates out before committed Back', () => {
+  const back = jest.fn();
+  const timing = jest.mocked(withTiming);
+  let view: ReturnType<typeof create>;
+  act(() => {
+    view = create(<AppScrollView branded back={{ onPress: back }} />);
+  });
+  const gesture = gestures(view)[0];
+  act(() => {
+    gesture.config.onActivate?.({ pointerType: PointerType.TOUCH } as never);
+    const drag = { translationX: 56, translationY: 2 };
+    if (typeof gesture.config.onUpdate === 'function') {
+      gesture.config.onUpdate(drag as never);
+    }
+    gesture.config.onDeactivate?.({
+      ...drag,
+      velocityX: 100,
+      canceled: true,
+    } as never);
+  });
+  expect(timing).toHaveBeenLastCalledWith(0, { duration: 160 });
+  expect(back).not.toHaveBeenCalled();
+
+  timing.mockImplementationOnce((destination) => destination);
+  swipe(gesture);
+  const [destination, , finish] = timing.mock.lastCall!;
+  expect(destination as number).toBeGreaterThan(0);
+  expect(back).not.toHaveBeenCalled();
+  act(() => finish?.(true));
+  expect(back).toHaveBeenCalledTimes(1);
   act(() => view.unmount());
 });
 

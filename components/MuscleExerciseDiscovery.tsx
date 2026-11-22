@@ -5,6 +5,7 @@ import {
 import { useContext, useEffect, useMemo, useState } from 'react';
 import { BackHandler, Pressable, StyleSheet, View } from 'react-native';
 import { BackSwipeBoundary } from './BackSwipe';
+import { RetainedProgressPane } from './RetainedProgressPane';
 import { AppButton } from './AppButton';
 import { AppScrollView } from './AppScrollView';
 import { DockSpace } from './DockSpace';
@@ -34,11 +35,13 @@ import { radius, spacing, typography } from '@/lib/theme';
 import type { LibraryExercise, WorkoutSession } from '@/lib/workout-model';
 
 export function MuscleExerciseDiscovery({
+  active = true,
   onBack,
   history,
   now,
   initialMuscle,
 }: {
+  active?: boolean;
   onBack: () => void;
   history: readonly WorkoutSession[];
   now: number;
@@ -89,6 +92,7 @@ export function MuscleExerciseDiscovery({
   ));
 
   useEffect(() => {
+    if (!active) return;
     const subscription = BackHandler.addEventListener(
       'hardwareBackPress',
       () => {
@@ -99,7 +103,7 @@ export function MuscleExerciseDiscovery({
       },
     );
     return () => subscription.remove();
-  }, [detail, onBack, results]);
+  }, [active, detail, onBack, results]);
 
   function toggle(id: MuscleId) {
     setSelected((previous) => {
@@ -125,121 +129,15 @@ export function MuscleExerciseDiscovery({
   }
 
   return (
-    <>
-      {results ? (
-        <AppScrollView
-          key="results"
-          branded
-          back={{ onPress: () => setResults(false) }}
-          dockAware
-          contentContainerStyle={s.content}
-        >
-          <Text style={s.title} accessibilityRole="header">
-            {t('muscle.results')}
-          </Text>
-          <View style={s.wrap}>{chips}</View>
-          <MuscleSegments
-            options={{ all: t('muscle.matchAll'), any: t('muscle.matchAny') }}
-            value={mode}
-            onChange={(next) => {
-              setMode(next);
-              setEquipment(undefined);
-            }}
-          />
-          <GlassCard style={s.stack}>
-            <Text style={s.heading} accessibilityRole="header">
-              {t('library.equipment')}
-            </Text>
-            <View style={s.wrap}>
-              {[undefined, ...availableEquipment].map((id) => (
-                <Pressable
-                  key={id ?? 'all'}
-                  accessibilityRole="button"
-                  accessibilityState={{ selected: equipment === id }}
-                  style={({ pressed }) => [
-                    s.filter,
-                    equipment === id && s.activeFilter,
-                    pressed && s.pressed,
-                  ]}
-                  onPress={() => setEquipment(id)}
-                >
-                  <Text style={equipment === id ? s.accent : s.note}>
-                    {id ? gear(id) : t('library.all')}
-                  </Text>
-                </Pressable>
-              ))}
-            </View>
-          </GlassCard>
-          {filtered.length ? (
-            <GlassCard style={s.list}>
-              {filtered.map(({ exercise, primary, secondary }, index) => (
-                <Pressable
-                  key={exercise.id}
-                  accessibilityRole="button"
-                  style={({ pressed }) => [
-                    s.result,
-                    index > 0 && s.separator,
-                    pressed && s.pressed,
-                  ]}
-                  onPress={() => setDetail(exercise)}
-                >
-                  <ExerciseArtwork imageKey={exercise.imageKey} size={40} />
-                  <View style={s.resultCopy}>
-                    <Text style={s.heading}>
-                      {catalogLabel(
-                        locale,
-                        'exercise',
-                        exercise.id,
-                        exercise.name,
-                      )}
-                    </Text>
-                    <Text style={s.note}>
-                      {exercise.equipment.map(gear).join(' · ')}
-                    </Text>
-                    <View style={s.wrap}>
-                      {primary.map((id) => (
-                        <Text key={id} style={s.badge}>
-                          {label(id)} · {t('muscle.primary')}
-                        </Text>
-                      ))}
-                      {secondary.map((id) => (
-                        <Text key={id} style={[s.badge, s.secondaryBadge]}>
-                          {label(id)} · {t('muscle.secondary')}
-                        </Text>
-                      ))}
-                    </View>
-                  </View>
-                  <DirectionalIcon
-                    name="chevron-forward"
-                    size={18}
-                    color={colors.primary}
-                    accessible={false}
-                  />
-                </Pressable>
-              ))}
-            </GlassCard>
-          ) : (
-            <GlassCard style={s.stack}>
-              <Text style={s.note}>{t('library.empty')}</Text>
-              {mode === 'all' && selected.size > 1 ? (
-                <AppButton
-                  title={t('muscle.matchAny')}
-                  presentation="text"
-                  onPress={() => {
-                    setMode('any');
-                    setEquipment(undefined);
-                  }}
-                />
-              ) : null}
-            </GlassCard>
-          )}
-          <Text style={s.note}>{t('muscle.catalogBasis')}</Text>
-        </AppScrollView>
-      ) : (
-        <BackSwipeBoundary key="picker" style={s.page}>
+    <View style={s.page}>
+      <RetainedProgressPane
+        active={active && !results}
+        behind={active && results}
+      >
+        <BackSwipeBoundary style={[s.page, s.screen]}>
           <AppScrollView
             branded
-            back={{ onPress: onBack }}
+            back={active && !results ? { onPress: onBack } : undefined}
             contentContainerStyle={s.content}
           >
             <Text style={s.title} accessibilityRole="header">
@@ -360,8 +258,119 @@ export function MuscleExerciseDiscovery({
             />
           </View>
         </BackSwipeBoundary>
-      )}
-      {detail ? (
+      </RetainedProgressPane>
+      {results ? (
+        <AppScrollView
+          key="results"
+          branded
+          back={active ? { onPress: () => setResults(false) } : undefined}
+          style={s.screen}
+          dockAware
+          contentContainerStyle={s.content}
+        >
+          <Text style={s.title} accessibilityRole="header">
+            {t('muscle.results')}
+          </Text>
+          <View style={s.wrap}>{chips}</View>
+          <MuscleSegments
+            options={{ all: t('muscle.matchAll'), any: t('muscle.matchAny') }}
+            value={mode}
+            onChange={(next) => {
+              setMode(next);
+              setEquipment(undefined);
+            }}
+          />
+          <GlassCard style={s.stack}>
+            <Text style={s.heading} accessibilityRole="header">
+              {t('library.equipment')}
+            </Text>
+            <View style={s.wrap}>
+              {[undefined, ...availableEquipment].map((id) => (
+                <Pressable
+                  key={id ?? 'all'}
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: equipment === id }}
+                  style={({ pressed }) => [
+                    s.filter,
+                    equipment === id && s.activeFilter,
+                    pressed && s.pressed,
+                  ]}
+                  onPress={() => setEquipment(id)}
+                >
+                  <Text style={equipment === id ? s.accent : s.note}>
+                    {id ? gear(id) : t('library.all')}
+                  </Text>
+                </Pressable>
+              ))}
+            </View>
+          </GlassCard>
+          {filtered.length ? (
+            <GlassCard style={s.list}>
+              {filtered.map(({ exercise, primary, secondary }, index) => (
+                <Pressable
+                  key={exercise.id}
+                  accessibilityRole="button"
+                  style={({ pressed }) => [
+                    s.result,
+                    index > 0 && s.separator,
+                    pressed && s.pressed,
+                  ]}
+                  onPress={() => setDetail(exercise)}
+                >
+                  <ExerciseArtwork imageKey={exercise.imageKey} size={40} />
+                  <View style={s.resultCopy}>
+                    <Text style={s.heading}>
+                      {catalogLabel(
+                        locale,
+                        'exercise',
+                        exercise.id,
+                        exercise.name,
+                      )}
+                    </Text>
+                    <Text style={s.note}>
+                      {exercise.equipment.map(gear).join(' · ')}
+                    </Text>
+                    <View style={s.wrap}>
+                      {primary.map((id) => (
+                        <Text key={id} style={s.badge}>
+                          {label(id)} · {t('muscle.primary')}
+                        </Text>
+                      ))}
+                      {secondary.map((id) => (
+                        <Text key={id} style={[s.badge, s.secondaryBadge]}>
+                          {label(id)} · {t('muscle.secondary')}
+                        </Text>
+                      ))}
+                    </View>
+                  </View>
+                  <DirectionalIcon
+                    name="chevron-forward"
+                    size={18}
+                    color={colors.primary}
+                    accessible={false}
+                  />
+                </Pressable>
+              ))}
+            </GlassCard>
+          ) : (
+            <GlassCard style={s.stack}>
+              <Text style={s.note}>{t('library.empty')}</Text>
+              {mode === 'all' && selected.size > 1 ? (
+                <AppButton
+                  title={t('muscle.matchAny')}
+                  presentation="text"
+                  onPress={() => {
+                    setMode('any');
+                    setEquipment(undefined);
+                  }}
+                />
+              ) : null}
+            </GlassCard>
+          )}
+          <Text style={s.note}>{t('muscle.catalogBasis')}</Text>
+        </AppScrollView>
+      ) : null}
+      {active && detail ? (
         <ExerciseTechnique
           key={detail.id}
           exercise={detail}
@@ -370,12 +379,13 @@ export function MuscleExerciseDiscovery({
           onClose={() => setDetail(undefined)}
         />
       ) : null}
-    </>
+    </View>
   );
 }
 
 const useStyles = createThemedStyles((colors) => ({
   page: { flex: 1 },
+  screen: { backgroundColor: colors.background },
   footer: {
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.xs,
