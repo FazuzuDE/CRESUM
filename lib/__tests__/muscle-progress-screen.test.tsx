@@ -149,45 +149,65 @@ it('does not reinterpret saved reps as seconds or meters for duration exercises'
   act(() => view.unmount());
 });
 
-it('explains the upper-back projection in Progress and its muscle details', () => {
-  let v!: ReturnType<typeof create>;
+it('shows a catalog-based guide and returns to the selected map period', () => {
+  let view!: ReturnType<typeof create>;
   act(() => {
-    v = create(
+    view = create(
       <MuscleProgress history={history} now={now} onOverview={() => {}} />,
     );
   });
-  const copy = () =>
-    v.root
-      .findAllByType(Text)
-      .map((n: any) => n.props.children)
-      .join(' ');
-  expect(copy()).not.toContain('beneath trapezius');
-  act(() => v.root.findAllByType(MuscleDisclosure)[0].props.onPress());
-  expect(copy()).toContain('beneath trapezius');
-  act(() => v.root.findByType(MuscleMap).props.onSelect('upper-back'));
-  expect(copy().match(/beneath trapezius/g)).toHaveLength(2);
-  act(() => v.unmount());
+  act(() => view.root.findAllByType(MuscleSegments)[1].props.onChange('4w'));
+  act(() => view.root.findAllByType(MuscleDisclosure)[0].props.onPress());
+  expect(view.root.findByType(MuscleMap).props.muscles).toEqual([
+    { id: 'chest', primary: 1, secondary: 0 },
+    { id: 'triceps', primary: 0, secondary: 1 },
+    { id: 'front-delts', primary: 0, secondary: 1 },
+  ]);
+  act(() =>
+    view.root
+      .find(
+        (node: any) =>
+          isPressable(node) && node.props.accessibilityLabel === 'Back',
+      )
+      .props.onPress(),
+  );
+  expect(view.root.findAllByType(MuscleSegments)[1].props.value).toBe('4w');
+  act(() => view.unmount());
 });
 
-it('explains partial adductor coverage in overview and selected detail without empty missing copy', () => {
-  let v: ReturnType<typeof create>;
+it('opens the grouped period catalog and preselects the muscle in discovery from an empty detail', () => {
+  let view!: ReturnType<typeof create>;
   act(() => {
-    v = create(<MuscleProgress history={[]} now={now} onOverview={() => {}} />);
+    view = create(
+      <MuscleProgress history={[]} now={now} onOverview={() => {}} />,
+    );
   });
-  const copy = () =>
-    v!.root
-      .findAllByType(Text)
-      .map((n: any) => n.props.children)
-      .join(' ');
-  act(() => v!.root.findAllByType(MuscleDisclosure)[0].props.onPress());
-  expect(copy()).toContain('selected visible medial-thigh patches');
-  expect(copy()).not.toContain('Map coverage is pending for');
-  expect(copy()).toContain('schematic projections beneath fascia');
-  act(() => v!.root.findByType(MuscleMap).props.onSelect('adductors'));
-  expect(copy().match(/selected visible medial-thigh patches/g)).toHaveLength(
-    2,
+  act(() => view.root.findAllByType(MuscleDisclosure)[1].props.onPress());
+  act(() =>
+    view.root
+      .findAllByType(MuscleDisclosure)
+      .find((item: any) => item.props.label === 'Back')
+      .props.onPress(),
   );
-  act(() => v!.unmount());
+  const row = view.root.findAll(
+    (node: any) =>
+      isPressable(node) &&
+      node.props.accessibilityLabel?.startsWith('Upper Back,'),
+  )[0];
+  expect(row.props.accessibilityLabel).toContain('0');
+  act(() => row.props.onPress());
+  const detailMap = view.root.findByType(MuscleMap);
+  expect(detailMap.props.selected).toBe('upper-back');
+  act(() =>
+    view.root
+      .findAllByType(AppButton)
+      .find((node: any) => node.props.title === 'Find exercises')
+      .props.onPress(),
+  );
+  expect(view.root.findByType(MuscleMap).props.muscles).toEqual([
+    { id: 'upper-back', primary: 1, secondary: 0 },
+  ]);
+  act(() => view.unmount());
 });
 
 it('synchronizes map and checkboxes, filters the catalog and retains selection on back', () => {

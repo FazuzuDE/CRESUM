@@ -82,25 +82,21 @@ export function ExerciseTechnique({
     >
       <SafeAreaView edges={['top', 'left', 'right']} style={s.root}>
         <View style={s.grabber} />
-        <BrandHeader />
+        <BrandHeader
+          back={{
+            accessibilityLabel:
+              history !== undefined
+                ? t('technique.closeDetails')
+                : t('technique.close'),
+            onPress: onClose,
+          }}
+        />
         <View style={s.header}>
           <Text accessibilityRole="header" style={s.headerTitle}>
             {tab === 'Technique'
               ? t('technique.title')
               : t('technique.statistics')}
           </Text>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel={
-              history !== undefined
-                ? t('technique.closeDetails')
-                : t('technique.close')
-            }
-            onPress={onClose}
-            style={s.close}
-          >
-            <Ionicons name="close" size={22} color={colors.textPrimary} />
-          </Pressable>
         </View>
         <AppScrollView
           safeAreaEdges={['bottom']}
@@ -384,14 +380,6 @@ const useStyles = createThemedStyles((colors) => ({
     justifyContent: 'space-between',
   },
   headerTitle: { ...typography.headline, color: colors.textPrimary },
-  close: {
-    width: 44,
-    minHeight: 44,
-    borderRadius: radius.pill,
-    backgroundColor: colors.surfaceSubtle,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   content: { padding: spacing.md, gap: spacing.md },
   techniqueContent: { gap: spacing.md },
   detailHeading: {

@@ -1,4 +1,38 @@
 export default {
+  'muscle.guideExample': 'Tamamlanmış bir set örneği',
+  'muscle.guideNoSets': 'Gri alanlarda kayıtlı set yoktur',
+  'muscle.guideCount':
+    'Bir set birden çok kas için sayılabilir. Her kas egzersizdeki rolüne göre kaydedilir.',
+  'muscle.function': 'Görevi',
+  'muscle.periodHistory': 'Bu dönemde',
+  'muscle.action.chest':
+    'İtiş hareketlerinde üst kolları göğsün önünde birbirine yaklaştırır.',
+  'muscle.action.upper-back':
+    'Kürek kemikleri arasındaki kaslar, yatay çekişte kemikleri birbirine yaklaştırır ve sabitler.',
+  'muscle.action.lats': 'Çekişlerde üst kolları aşağı ve geriye çeker.',
+  'muscle.action.traps':
+    'Trapezin farklı bölümleri kürek kemiklerini kaldırır, hareket ettirir ve sabitler.',
+  'muscle.action.front-delts':
+    'Kolu öne kaldırır ve baş üstü itişlere yardım eder.',
+  'muscle.action.side-delts': 'Kolu yana kaldırır.',
+  'muscle.action.rear-delts': 'Çekişlerde üst kolu geriye ve yana götürür.',
+  'muscle.action.biceps':
+    'Dirseği büker ve avucu yukarı çevirmeye yardımcı olur.',
+  'muscle.action.triceps':
+    'İtişlerde ve açma hareketlerinde dirseği düzleştirir.',
+  'muscle.action.forearms':
+    'Tutacağı kavramaya ve bileği sabitlemeye yardım eder.',
+  'muscle.action.abs': 'Gövdeyi büker ve sabitler.',
+  'muscle.action.lower-back':
+    'Yük altında gövdeyi doğrultmaya ve sabitlemeye yardım eder.',
+  'muscle.action.glutes': 'Kalçayı açar ve pelvisi sabitler.',
+  'muscle.action.quadriceps':
+    'Squat ve bacak açma hareketlerinde dizi düzleştirir.',
+  'muscle.action.hamstrings':
+    'Dizi büker ve kalçanın açılmasına yardımcı olur.',
+  'muscle.action.calves': 'Ayağı aşağı iterek topuğu kaldırır.',
+  'muscle.action.adductors':
+    'Uyluğu orta hatta yaklaştırır ve kalçayı sabitler.',
   'muscle.discover': 'Egzersiz bul',
   'muscle.choose': 'Kasları seç',
   'muscle.chooseHint': 'Kasları haritadan veya listeden seç.',

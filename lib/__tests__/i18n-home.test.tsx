@@ -1,3 +1,4 @@
+import { isPressable } from './pressable';
 import { HomeDashboard } from '../../components/HomeDashboard';
 import { HomeLayoutEditor } from '../../components/HomeLayoutEditor';
 import { CalendarMonth } from '../../components/CalendarMonth';
@@ -68,7 +69,14 @@ it('changes Home language with calendar selection and unsaved layout preserved',
     expect(JSON.stringify(view!.toJSON())).toContain(
       'Keine abgeschlossenen Trainings an diesem Datum.',
     );
-    await press('Kalender schließen');
+    await act(async () =>
+      view!.root
+        .findAll(isPressable)
+        .find(
+          (node: any) => node.props.accessibilityLabel === 'Kalender schließen',
+        )
+        .props.onPress(),
+    );
     await press('Startseite anpassen');
     const editor = view!.root.findByType(HomeLayoutEditor);
     const switches = view!.root.findAll(

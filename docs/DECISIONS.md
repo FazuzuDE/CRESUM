@@ -1,5 +1,12 @@
 # CRESUM Decision Log
 
+## 2026-11-22 — Muscle Map guide and history
+
+Approved the slogan-line return control, an illustrated bench-press guide,
+grouped muscle counts for the selected period, and the reusable function
+descriptions and exercise examples across the catalog. Empty muscle history
+opens discovery with the current muscle selected.
+
 ## 2026-11-22 — Match the fixed header glass to the dock
 
 Use the dock's shared glass material across the fixed header in response to

@@ -1,4 +1,31 @@
 export default {
+  'muscle.guideExample': 'مثال على مجموعة مكتملة واحدة',
+  'muscle.guideNoSets': 'يشير اللون الرمادي إلى عدم وجود مجموعات مسجلة',
+  'muscle.guideCount':
+    'قد تُحتسب مجموعة واحدة لعدة عضلات. تُسجَّل كل عضلة بحسب دورها في التمرين.',
+  'muscle.function': 'الوظيفة',
+  'muscle.periodHistory': 'خلال هذه الفترة',
+  'muscle.action.chest': 'تقرّب العضدين أمام الصدر أثناء الدفع.',
+  'muscle.action.upper-back':
+    'تساعد العضلات بين لوحي الكتف على تقريبهما وتثبيتهما أثناء السحب الأفقي.',
+  'muscle.action.lats': 'تسحب العضدين إلى أسفل وإلى الخلف أثناء تمارين السحب.',
+  'muscle.action.traps':
+    'ترفع أجزاء العضلة شبه المنحرفة لوحي الكتف وتحركهما وتثبتهما.',
+  'muscle.action.front-delts':
+    'ترفع الذراع إلى الأمام وتساعد في الدفع فوق الرأس.',
+  'muscle.action.side-delts': 'ترفع الذراع إلى الجانب.',
+  'muscle.action.rear-delts': 'تحرك العضد إلى الخلف وإلى الخارج أثناء السحب.',
+  'muscle.action.biceps': 'تثني المرفق وتساعد على تدوير راحة اليد إلى أعلى.',
+  'muscle.action.triceps': 'تمدّ المرفق أثناء تمارين الدفع والمدّ.',
+  'muscle.action.forearms': 'تساعد على إمساك المقبض وتثبيت الرسغ.',
+  'muscle.action.abs': 'تثني الجذع وتساعد على تثبيته.',
+  'muscle.action.lower-back': 'تساعد على مدّ الجذع وتثبيته تحت الحمل.',
+  'muscle.action.glutes': 'تمدّ مفصل الورك وتساعد على تثبيت الحوض.',
+  'muscle.action.quadriceps': 'تمدّ الركبة أثناء القرفصاء وتمارين مدّ الساق.',
+  'muscle.action.hamstrings': 'تثني الركبة وتساعد على مدّ مفصل الورك.',
+  'muscle.action.calves': 'ترفع الكعب عند دفع القدم إلى أسفل.',
+  'muscle.action.adductors':
+    'تقرّب الفخذ نحو منتصف الجسم وتساعد على تثبيت الورك.',
   'muscle.discover': 'البحث عن تمارين',
   'muscle.choose': 'اختيار العضلات',
   'muscle.chooseHint': 'اختر العضلات على الخريطة أو من القائمة.',

@@ -1,4 +1,39 @@
 export default {
+  'muscle.guideExample': 'Ejemplo de una serie completada',
+  'muscle.guideNoSets': 'El gris indica que no hay series registradas',
+  'muscle.guideCount':
+    'Una serie puede contar para varios músculos. Cada músculo se registra según su función en el ejercicio.',
+  'muscle.function': 'Función',
+  'muscle.periodHistory': 'En este período',
+  'muscle.action.chest':
+    'Acerca los brazos por delante del pecho en los presses.',
+  'muscle.action.upper-back':
+    'Los músculos entre los omóplatos los acercan y estabilizan durante el remo.',
+  'muscle.action.lats':
+    'Lleva la parte superior de los brazos hacia abajo y atrás en los tirones.',
+  'muscle.action.traps':
+    'Las distintas partes del trapecio elevan, mueven y estabilizan los omóplatos.',
+  'muscle.action.front-delts':
+    'Eleva el brazo hacia delante y ayuda en los presses por encima de la cabeza.',
+  'muscle.action.side-delts': 'Eleva el brazo hacia el lado.',
+  'muscle.action.rear-delts':
+    'Lleva el brazo hacia atrás y afuera en los tirones.',
+  'muscle.action.biceps':
+    'Flexiona el codo y ayuda a girar la palma hacia arriba.',
+  'muscle.action.triceps': 'Extiende el codo en presses y extensiones.',
+  'muscle.action.forearms':
+    'Ayuda a sujetar el agarre y estabilizar la muñeca.',
+  'muscle.action.abs': 'Flexiona y estabiliza el tronco.',
+  'muscle.action.lower-back':
+    'Ayuda a extender y estabilizar el tronco bajo carga.',
+  'muscle.action.glutes': 'Extiende la cadera y estabiliza la pelvis.',
+  'muscle.action.quadriceps':
+    'Extiende la rodilla en sentadillas y extensiones de piernas.',
+  'muscle.action.hamstrings':
+    'Flexiona la rodilla y ayuda a extender la cadera.',
+  'muscle.action.calves': 'Eleva el talón al apuntar el pie hacia abajo.',
+  'muscle.action.adductors':
+    'Acerca el muslo a la línea media y estabiliza la cadera.',
   'muscle.discover': 'Buscar ejercicios',
   'muscle.choose': 'Elegir músculos',
   'muscle.chooseHint': 'Selecciona músculos en el mapa o en la lista.',

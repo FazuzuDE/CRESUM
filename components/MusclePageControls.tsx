@@ -50,7 +50,7 @@ export function MuscleDisclosure({
   onPress,
 }: {
   label: string;
-  expanded: boolean;
+  expanded?: boolean;
   onPress: () => void;
 }) {
   const colors = useAppColors();
@@ -58,13 +58,13 @@ export function MuscleDisclosure({
   return (
     <Pressable
       accessibilityRole="button"
-      accessibilityState={{ expanded }}
+      accessibilityState={expanded === undefined ? undefined : { expanded }}
       onPress={onPress}
       style={({ pressed }) => [s.disclosure, pressed && s.pressed]}
     >
       <Text style={s.link}>{label}</Text>
       <DirectionalIcon
-        name={disclosureChevron(expanded)}
+        name={disclosureChevron(expanded ?? false)}
         size={16}
         color={colors.primary}
         accessible={false}

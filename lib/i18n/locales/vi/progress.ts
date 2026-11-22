@@ -1,4 +1,32 @@
 export default {
+  'muscle.guideExample': 'Ví dụ về một hiệp đã hoàn thành',
+  'muscle.guideNoSets': 'Màu xám cho biết chưa có hiệp được ghi',
+  'muscle.guideCount':
+    'Một hiệp có thể được tính cho nhiều nhóm cơ. Mỗi nhóm cơ được tính theo vai trò trong bài tập.',
+  'muscle.function': 'Chức năng',
+  'muscle.periodHistory': 'Trong giai đoạn này',
+  'muscle.action.chest':
+    'Đưa hai cánh tay trên lại gần nhau trước ngực khi đẩy.',
+  'muscle.action.upper-back':
+    'Các cơ giữa hai xương bả vai giúp kéo chúng lại gần và ổn định chúng khi kéo ngang.',
+  'muscle.action.lats':
+    'Kéo cánh tay trên xuống và ra sau trong các động tác kéo.',
+  'muscle.action.traps':
+    'Các phần của cơ thang nâng, di chuyển và giữ ổn định xương bả vai.',
+  'muscle.action.front-delts': 'Nâng tay về trước và hỗ trợ đẩy tạ qua đầu.',
+  'muscle.action.side-delts': 'Nâng tay sang ngang.',
+  'muscle.action.rear-delts': 'Đưa cánh tay trên ra sau và sang bên khi kéo.',
+  'muscle.action.biceps': 'Gập khuỷu tay và giúp xoay lòng bàn tay lên trên.',
+  'muscle.action.triceps': 'Duỗi khuỷu tay trong các bài đẩy và duỗi tay.',
+  'muscle.action.forearms': 'Giúp nắm tay cầm và giữ cổ tay ổn định.',
+  'muscle.action.abs': 'Gập và giữ ổn định thân người.',
+  'muscle.action.lower-back':
+    'Giúp duỗi và giữ ổn định thân người khi chịu tải.',
+  'muscle.action.glutes': 'Duỗi hông và giữ ổn định khung chậu.',
+  'muscle.action.quadriceps': 'Duỗi gối trong bài squat và bài duỗi chân.',
+  'muscle.action.hamstrings': 'Gập gối và hỗ trợ duỗi hông.',
+  'muscle.action.calves': 'Nâng gót bằng cách hướng bàn chân xuống.',
+  'muscle.action.adductors': 'Đưa đùi về đường giữa và giúp ổn định hông.',
   'muscle.discover': 'Tìm bài tập',
   'muscle.choose': 'Chọn cơ',
   'muscle.chooseHint': 'Chọn cơ trên bản đồ hoặc trong danh sách.',

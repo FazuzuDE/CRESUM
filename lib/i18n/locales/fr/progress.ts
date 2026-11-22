@@ -1,4 +1,37 @@
 export default {
+  'muscle.guideExample': 'Exemple d’une série terminée',
+  'muscle.guideNoSets': 'Le gris indique l’absence de séries enregistrées',
+  'muscle.guideCount':
+    'Une série peut compter pour plusieurs muscles. Chaque muscle est compté selon son rôle dans l’exercice.',
+  'muscle.function': 'Fonction',
+  'muscle.periodHistory': 'Sur cette période',
+  'muscle.action.chest':
+    'Rapproche les bras devant la poitrine lors des développés.',
+  'muscle.action.upper-back':
+    'Les muscles entre les omoplates les rapprochent et les stabilisent pendant un tirage horizontal.',
+  'muscle.action.lats':
+    'Ramène le haut des bras vers le bas et l’arrière lors des tirages.',
+  'muscle.action.traps':
+    'Les différentes parties du trapèze soulèvent, déplacent et stabilisent les omoplates.',
+  'muscle.action.front-delts':
+    'Lève le bras vers l’avant et aide lors des développés au-dessus de la tête.',
+  'muscle.action.side-delts': 'Lève le bras sur le côté.',
+  'muscle.action.rear-delts':
+    'Ramène le bras vers l’arrière et l’extérieur lors des tirages.',
+  'muscle.action.biceps':
+    'Fléchit le coude et aide à tourner la paume vers le haut.',
+  'muscle.action.triceps': 'Étend le coude lors des développés et extensions.',
+  'muscle.action.forearms': 'Aide à tenir la poignée et stabilise le poignet.',
+  'muscle.action.abs': 'Fléchit et stabilise le tronc.',
+  'muscle.action.lower-back':
+    'Aide à redresser et stabiliser le tronc sous charge.',
+  'muscle.action.glutes': 'Étend la hanche et stabilise le bassin.',
+  'muscle.action.quadriceps':
+    'Étend le genou lors des squats et extensions de jambes.',
+  'muscle.action.hamstrings': 'Fléchit le genou et aide à étendre la hanche.',
+  'muscle.action.calves': 'Soulève le talon en pointant le pied vers le bas.',
+  'muscle.action.adductors':
+    'Ramène la cuisse vers le centre et stabilise les hanches.',
   'muscle.discover': 'Trouver des exercices',
   'muscle.choose': 'Choisir les muscles',
   'muscle.chooseHint':

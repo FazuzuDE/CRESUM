@@ -4,7 +4,6 @@ import { ScreenModal } from './ScreenModal';
 import { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppScrollView } from './AppScrollView';
-import { AppButton } from './AppButton';
 import { CalendarMonth } from './CalendarMonth';
 import { GlassCard } from './GlassCard';
 import { calendarTime } from '@/lib/picker-date';
@@ -56,16 +55,14 @@ export function HomeCalendar({
       onRequestClose={onClose}
     >
       <SafeAreaView edges={['left', 'right']} style={s.root}>
-        <AppScrollView branded contentContainerStyle={s.content}>
+        <AppScrollView
+          branded
+          back={{ accessibilityLabel: t('calendar.close'), onPress: onClose }}
+          contentContainerStyle={s.content}
+        >
           <Text accessibilityRole="header" style={s.title}>
             {t('calendar.title')}
           </Text>
-          <AppButton
-            title={t('calendar.close')}
-            secondary
-            presentation="text"
-            onPress={onClose}
-          />
           <GlassCard>
             <CalendarMonth
               month={month}

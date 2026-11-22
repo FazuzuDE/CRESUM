@@ -147,19 +147,16 @@ export function EstimatedOneRepMaxSeries({ points, period, now }: Props) {
         onRequestClose={() => setAllOpen(false)}
       >
         <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
-          <BrandHeader />
+          <BrandHeader
+            back={{
+              accessibilityLabel: t('series.close'),
+              onPress: () => setAllOpen(false),
+            }}
+          />
           <View style={s.header}>
             <Text style={s.sheetTitle}>
               {t('series.modalTitle', { period: periodText })}
             </Text>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={t('series.close')}
-              onPress={() => setAllOpen(false)}
-              style={s.close}
-            >
-              <Text style={s.action}>{t('progress.close')}</Text>
-            </Pressable>
           </View>
           <AppFlatList
             data={points}
@@ -222,6 +219,5 @@ const useStyles = createThemedStyles((colors) => ({
     gap: spacing.sm,
   },
   sheetTitle: { ...typography.title2, color: colors.textPrimary, flex: 1 },
-  close: { minWidth: 44, minHeight: 44, justifyContent: 'center' },
   list: { paddingBottom: spacing.xxl },
 }));

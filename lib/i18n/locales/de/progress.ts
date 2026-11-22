@@ -1,4 +1,40 @@
 export default {
+  'muscle.guideExample': 'Beispiel für einen abgeschlossenen Satz',
+  'muscle.guideNoSets': 'Grau zeigt Bereiche ohne erfasste Sätze',
+  'muscle.guideCount':
+    'Ein Satz kann für mehrere Muskeln zählen. Jede Muskelgruppe wird nach ihrer Rolle in der Übung erfasst.',
+  'muscle.function': 'Funktion',
+  'muscle.periodHistory': 'In diesem Zeitraum',
+  'muscle.action.chest':
+    'Führt die Oberarme beim Drücken vor der Brust zusammen.',
+  'muscle.action.upper-back':
+    'Die Muskeln zwischen den Schulterblättern ziehen sie beim Rudern zusammen und stabilisieren sie.',
+  'muscle.action.lats':
+    'Zieht die Oberarme bei Zugübungen nach unten und hinten.',
+  'muscle.action.traps':
+    'Die Anteile des Trapezmuskels heben, bewegen und stabilisieren die Schulterblätter.',
+  'muscle.action.front-delts':
+    'Hebt den Arm nach vorn und unterstützt das Überkopfdrücken.',
+  'muscle.action.side-delts': 'Hebt den Arm seitlich an.',
+  'muscle.action.rear-delts':
+    'Führt den Oberarm bei Zugübungen nach hinten und außen.',
+  'muscle.action.biceps':
+    'Beugt den Ellenbogen und dreht die Handfläche nach oben.',
+  'muscle.action.triceps':
+    'Streckt den Ellenbogen bei Druck- und Streckübungen.',
+  'muscle.action.forearms':
+    'Hilft beim Greifen und stabilisiert das Handgelenk.',
+  'muscle.action.abs': 'Beugt und stabilisiert den Rumpf.',
+  'muscle.action.lower-back':
+    'Hilft, den Rumpf zu strecken und unter Last zu stabilisieren.',
+  'muscle.action.glutes': 'Streckt die Hüfte und stabilisiert das Becken.',
+  'muscle.action.quadriceps':
+    'Streckt das Knie bei Kniebeugen und Beinstrecken.',
+  'muscle.action.hamstrings': 'Beugt das Knie und hilft bei der Hüftstreckung.',
+  'muscle.action.calves':
+    'Hebt die Ferse, indem der Fuß nach unten gestreckt wird.',
+  'muscle.action.adductors':
+    'Führt den Oberschenkel zur Körpermitte und stabilisiert die Hüfte.',
   'muscle.discover': 'Übungen finden',
   'muscle.choose': 'Muskeln auswählen',
   'muscle.chooseHint': 'Wähle Muskeln auf der Karte oder in der Liste aus.',

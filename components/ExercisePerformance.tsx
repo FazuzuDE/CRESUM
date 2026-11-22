@@ -164,7 +164,12 @@ export function ExercisePerformance({ history, period, now }: Props) {
         onRequestClose={() => setSetsOpen(false)}
       >
         <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
-          <BrandHeader />
+          <BrandHeader
+            back={{
+              accessibilityLabel: t('performance.closeSets'),
+              onPress: () => setSetsOpen(false),
+            }}
+          />
           <View style={s.header}>
             <Text
               style={s.sheetTitle}
@@ -175,14 +180,6 @@ export function ExercisePerformance({ history, period, now }: Props) {
             >
               {t('performance.loggedTitle', { name: selected?.name ?? '' })}
             </Text>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={t('performance.closeSets')}
-              style={s.close}
-              onPress={() => setSetsOpen(false)}
-            >
-              <Text style={s.closeText}>{t('progress.close')}</Text>
-            </Pressable>
           </View>
           <AppScrollView
             safeAreaEdges={['bottom']}
@@ -232,17 +229,14 @@ export function ExercisePerformance({ history, period, now }: Props) {
         onRequestClose={close}
       >
         <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
-          <BrandHeader />
+          <BrandHeader
+            back={{
+              accessibilityLabel: t('performance.closeSelector'),
+              onPress: close,
+            }}
+          />
           <View style={s.header}>
             <Text style={s.sheetTitle}>{t('performance.selectorTitle')}</Text>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={t('performance.closeSelector')}
-              onPress={close}
-              style={s.close}
-            >
-              <Text style={s.closeText}>{t('progress.close')}</Text>
-            </Pressable>
           </View>
           <TextInput
             accessibilityLabel={t('performance.search')}

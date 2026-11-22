@@ -7,10 +7,10 @@ import {
   LocalizedText as Text,
 } from '@/components/LayoutDirection';
 import { createContext, useContext } from 'react';
-import { Platform, Pressable, View } from 'react-native';
+import { Platform, Pressable, View, useWindowDimensions } from 'react-native';
 import { DEFAULT_GLASS_TRANSPARENCY, GlassMaterial } from './GlassMaterial';
 import { useReducedTransparency } from './useReducedTransparency';
-import { brand, spacing, typography } from '@/lib/theme';
+import { spacing, typography } from '@/lib/theme';
 import { BrandWordmark } from './BrandWordmark';
 import { useLocalization } from './LocalizationProvider';
 
@@ -29,31 +29,45 @@ export function BrandHeader({ back }: { back?: BrandBackAction } = {}) {
   const colors = useAppColors();
   const s = useStyles();
   const { t } = useLocalization();
+  const { width, fontScale } = useWindowDimensions();
+  const compact = width < 360 || fontScale >= 1.3;
   const backdropProvided = useContext(HeaderBackdropProvided);
   return (
     <View testID="brand-header" pointerEvents="box-none" style={s.root}>
       {backdropProvided ? null : <BrandHeaderBackdrop />}
-      {back ? (
-        <Pressable
-          {...back}
-          accessibilityRole="button"
-          accessibilityLabel={back.accessibilityLabel ?? t('library.back')}
-          accessibilityState={{ disabled: back.disabled ?? false }}
-          style={({ pressed }) => [s.back, (pressed || back.disabled) && s.dim]}
-        >
-          <DirectionalIcon
-            name="chevron-back"
-            size={20}
-            color={colors.primary}
-            accessible={false}
-          />
-          <Text numberOfLines={1} style={s.backLabel}>
-            {t('library.back')}
-          </Text>
-        </Pressable>
-      ) : null}
       <BrandWordmark />
-      <Text style={s.tagline}>{t('brand.tagline')}</Text>
+      <View
+        pointerEvents="box-none"
+        style={[s.taglineRow, back && (compact ? s.compactGutters : s.gutters)]}
+      >
+        <Text style={[s.tagline, back && s.taglineWithBack]}>
+          {t('brand.tagline')}
+        </Text>
+        {back ? (
+          <Pressable
+            {...back}
+            accessibilityRole="button"
+            accessibilityLabel={back.accessibilityLabel ?? t('library.back')}
+            accessibilityState={{ disabled: back.disabled ?? false }}
+            style={({ pressed }) => [
+              s.back,
+              (pressed || back.disabled) && s.dim,
+            ]}
+          >
+            <DirectionalIcon
+              name="chevron-back"
+              size={20}
+              color={colors.primary}
+              accessible={false}
+            />
+            {compact ? null : (
+              <Text numberOfLines={1} style={s.backLabel}>
+                {t('library.back')}
+              </Text>
+            )}
+          </Pressable>
+        ) : null}
+      </View>
     </View>
   );
 }
@@ -73,23 +87,29 @@ const useStyles = createThemedStyles((colors) => ({
   root: {
     alignSelf: 'stretch',
     alignItems: 'center',
-    paddingVertical: spacing.sm,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.md,
     paddingHorizontal: spacing.md,
     gap: spacing.xxs,
   },
+  taglineRow: { alignSelf: 'stretch', justifyContent: 'center' },
+  gutters: { paddingHorizontal: 70 },
+  compactGutters: { paddingHorizontal: 44 },
   back: {
     position: 'absolute',
-    start: spacing.xs,
-    top: spacing.sm + (brand.wordmarkHeight - 44) / 2,
+    start: 0,
+    top: '50%',
+    transform: [{ translateY: -22 }],
     minHeight: 44,
     minWidth: 44,
-    maxWidth: '27%',
+    maxWidth: 70,
     flexDirection: 'row',
     alignItems: 'center',
     zIndex: 1,
   },
   backLabel: { ...typography.footnote, color: colors.primary, flexShrink: 1 },
   dim: { opacity: 0.5 },
+  taglineWithBack: { fontSize: 11, letterSpacing: 0.3 },
   tagline: {
     ...typography.caption,
     letterSpacing: 1,
