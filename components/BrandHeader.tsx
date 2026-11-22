@@ -24,14 +24,6 @@ export function BrandHeader() {
     </View>
   );
 }
-// Native blur cannot be placed under a parent alpha mask on iOS.
-const blurBands = [
-  { top: '0%', height: '72%', strength: 1 },
-  { top: '72%', height: '7%', strength: 0.74 },
-  { top: '79%', height: '7%', strength: 0.48 },
-  { top: '86%', height: '7%', strength: 0.24 },
-] as const;
-
 export function BrandHeaderBackdrop() {
   const transparency = useContext(HeaderTransparency);
   const reduced = useReducedTransparency();
@@ -40,16 +32,14 @@ export function BrandHeaderBackdrop() {
     ios && reduced ? 1 : 1 - (transparency / 100) * (ios ? 1 : 0.92);
   return (
     <View pointerEvents="none" style={StyleSheet.absoluteFill}>
-      {ios && !reduced && opacity > 0
-        ? blurBands.map(({ top, height, strength }) => (
-            <BlurView
-              key={top}
-              tint="light"
-              intensity={Math.round(60 * opacity * strength)}
-              style={[s.blurBand, { top, height }]}
-            />
-          ))
-        : null}
+      {ios && !reduced && opacity > 0 ? (
+        <BlurView
+          testID="brand-header-blur"
+          tint="light"
+          intensity={Math.round(36 * opacity)}
+          style={StyleSheet.absoluteFill}
+        />
+      ) : null}
       <HeaderGradient color={colors.surface} opacity={opacity} />
     </View>
   );
@@ -78,7 +68,6 @@ function HeaderGradient({
 }
 
 const s = StyleSheet.create({
-  blurBand: { position: 'absolute', left: 0, right: 0, overflow: 'hidden' },
   root: {
     alignSelf: 'stretch',
     alignItems: 'center',

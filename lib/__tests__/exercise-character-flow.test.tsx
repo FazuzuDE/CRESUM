@@ -1,5 +1,6 @@
 import { BrandHeaderBackdrop } from '../../components/BrandHeader';
 import { Stop } from 'react-native-svg';
+import { BlurView } from 'expo-blur';
 import { SharingHub } from '../../components/workout-sharing/SharingHub';
 import { startWorkout, updateSet, toggleSet } from '../workout-engine';
 import { defaultTemplates, exerciseLibrary } from '../workout-catalog';
@@ -313,6 +314,14 @@ it('previews and persists header opacity independently of the dock', async () =>
     view.root.findByType(BrandHeaderBackdrop).findAllByType(Stop)[0].props
       .stopOpacity,
   ).toBe(0.75);
+  const nativeBlur = view.root
+    .findByType(BrandHeaderBackdrop)
+    .findAllByType(BlurView)
+    .filter(
+      (node: { props: { testID?: string } }) =>
+        node.props.testID === 'brand-header-blur',
+    );
+  expect(nativeBlur).toHaveLength(1);
   expect(dock().props.transparency).toBe(dockTransparency);
   await act(async () => slider.props.onSlidingComplete(75));
   await act(async () => view.unmount());
