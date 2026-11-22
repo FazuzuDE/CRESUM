@@ -1,4 +1,27 @@
 export default {
+  'muscle.discover': 'Znajdź ćwiczenia',
+  'muscle.choose': 'Wybierz mięśnie',
+  'muscle.chooseHint': 'Wybierz mięśnie na mapie lub liście.',
+  'muscle.showExercises': 'Pokaż ćwiczenia',
+  'muscle.results': 'Ćwiczenia',
+  'muscle.matchAll': 'Wszystkie wybrane',
+  'muscle.matchAny': 'Co najmniej jeden',
+  'muscle.readMap': 'Jak czytać mapę',
+  'muscle.setsByMuscle': 'Serie według mięśni',
+  'muscle.clearSelection': 'Wyczyść wybór',
+  'muscle.shortMeaning':
+    'Kolor pokazuje rolę mięśnia w zapisanych ćwiczeniach. Jeśli pełnił obie role, mapa pokazuje rolę główną.',
+  'muscle.catalogBasis': 'Dobór opiera się na rolach mięśni w katalogu CRESUM.',
+  'muscle.area.upper': 'Górna część ciała',
+  'muscle.area.core': 'Tułów',
+  'muscle.area.lower': 'Dolna część ciała',
+  'muscle.group.chest': 'Klatka piersiowa',
+  'muscle.group.arms': 'Ramiona',
+  'muscle.group.back': 'Plecy',
+  'muscle.group.shoulders': 'Barki',
+  'muscle.group.core': 'Tułów',
+  'muscle.group.hips': 'Biodra',
+  'muscle.group.legs': 'Nogi',
   'muscle.adductorRegion':
     'Najważniejsze cechy adduktora pokazują tylko wybrane widoczne plastry środkowo-udowe; granice są tymczasowe i głębokie porcje nie są pokazane.',
   'muscle.rearDeltRegion':

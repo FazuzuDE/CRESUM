@@ -1,4 +1,27 @@
 export default {
+  'muscle.discover': 'व्यायाम शोधा',
+  'muscle.choose': 'स्नायू निवडा',
+  'muscle.chooseHint': 'नकाशावरून किंवा यादीतून स्नायू निवडा.',
+  'muscle.showExercises': 'व्यायाम दाखवा',
+  'muscle.results': 'व्यायाम',
+  'muscle.matchAll': 'निवडलेले सर्व',
+  'muscle.matchAny': 'निवडलेल्यांपैकी किमान एक',
+  'muscle.readMap': 'नकाशा कसा वाचावा',
+  'muscle.setsByMuscle': 'स्नायूनुसार सेट',
+  'muscle.clearSelection': 'निवड रद्द करा',
+  'muscle.shortMeaning':
+    'रंग नोंदवलेल्या व्यायामांतील स्नायूची भूमिका दाखवतो. दोन्ही भूमिका असल्यास नकाशा मुख्य भूमिका दाखवतो.',
+  'muscle.catalogBasis': 'CRESUM सूचीतील स्नायूंच्या भूमिकांनुसार व्यायाम निवडले जातात.',
+  'muscle.area.upper': 'शरीराचा वरचा भाग',
+  'muscle.area.core': 'धड',
+  'muscle.area.lower': 'शरीराचा खालचा भाग',
+  'muscle.group.chest': 'छाती',
+  'muscle.group.arms': 'हात',
+  'muscle.group.back': 'पाठ',
+  'muscle.group.shoulders': 'खांदे',
+  'muscle.group.core': 'धड',
+  'muscle.group.hips': 'नितंब',
+  'muscle.group.legs': 'पाय',
   'muscle.adductorRegion':
     'आतील मांडीच्या निवडक दिसणाऱ्या भागांनाच ठळक केले आहे; सीमा तात्पुरत्या आहेत आणि खोल भाग दाखवलेले नाहीत.',
   'muscle.rearDeltRegion':

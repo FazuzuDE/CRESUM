@@ -1,4 +1,28 @@
 export default {
+  'muscle.discover': 'Cari latihan',
+  'muscle.choose': 'Pilih otot',
+  'muscle.chooseHint': 'Pilih otot pada peta atau daftar.',
+  'muscle.showExercises': 'Tampilkan latihan',
+  'muscle.results': 'Latihan',
+  'muscle.matchAll': 'Semua otot terpilih',
+  'muscle.matchAny': 'Minimal satu otot',
+  'muscle.readMap': 'Cara membaca peta',
+  'muscle.setsByMuscle': 'Set per otot',
+  'muscle.clearSelection': 'Hapus pilihan',
+  'muscle.shortMeaning':
+    'Warna menunjukkan peran otot dalam latihan yang dicatat. Jika otot memiliki kedua peran, peta menampilkan peran utama.',
+  'muscle.catalogBasis':
+    'Latihan dicocokkan berdasarkan peran otot dalam katalog CRESUM.',
+  'muscle.area.upper': 'Tubuh bagian atas',
+  'muscle.area.core': 'Batang tubuh',
+  'muscle.area.lower': 'Tubuh bagian bawah',
+  'muscle.group.chest': 'Dada',
+  'muscle.group.arms': 'Lengan',
+  'muscle.group.back': 'Punggung',
+  'muscle.group.shoulders': 'Bahu',
+  'muscle.group.core': 'Batang tubuh',
+  'muscle.group.hips': 'Pinggul',
+  'muscle.group.legs': 'Tungkai',
   'muscle.adductorRegion':
     'Sorotan aduktor hanya menampilkan bagian terpilih yang terlihat pada paha dalam; batasnya sementara dan bagian dalam tidak ditampilkan.',
   'muscle.rearDeltRegion':

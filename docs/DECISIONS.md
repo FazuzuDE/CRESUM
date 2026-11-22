@@ -4650,3 +4650,10 @@ aliases. Use native 한국어 naming, existing Hangul normalization and the shar
 wheel/number-entry contracts without changing stored identities or history.
 Keep independent language/device acceptance pending and merge with the owner.
 Next after Korean: Dutch. See LOCALIZATION.md and ROADMAP.md.
+
+## 2026-11-22 — Muscle Map discovery and nested return
+
+**Approved.** Keep the accepted atlas and masks. Use the full-size atlas and
+current red palette in the grouped muscle picker. Match exercises by selected
+muscles and existing catalog roles and equipment. Place Back at the leading
+edge of the centered wordmark on nested branded pages.

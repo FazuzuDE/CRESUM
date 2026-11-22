@@ -1,4 +1,28 @@
 export default {
+  'muscle.discover': 'ব্যায়াম খুঁজুন',
+  'muscle.choose': 'পেশি বেছে নিন',
+  'muscle.chooseHint': 'মানচিত্র বা তালিকা থেকে পেশি বেছে নিন।',
+  'muscle.showExercises': 'ব্যায়াম দেখুন',
+  'muscle.results': 'ব্যায়াম',
+  'muscle.matchAll': 'বাছাই করা সব পেশি',
+  'muscle.matchAny': 'অন্তত একটি পেশি',
+  'muscle.readMap': 'মানচিত্র পড়ার নিয়ম',
+  'muscle.setsByMuscle': 'পেশি অনুযায়ী সেট',
+  'muscle.clearSelection': 'বাছাই মুছুন',
+  'muscle.shortMeaning':
+    'রংটি নথিভুক্ত ব্যায়ামে পেশির ভূমিকা দেখায়। দুই ভূমিকাতেই থাকলে মানচিত্রে প্রধান ভূমিকাটি দেখানো হয়।',
+  'muscle.catalogBasis':
+    'CRESUM ক্যাটালগে পেশির ভূমিকা অনুযায়ী ব্যায়াম বাছাই করা হয়।',
+  'muscle.area.upper': 'দেহের ওপরের অংশ',
+  'muscle.area.core': 'ধড়',
+  'muscle.area.lower': 'দেহের নিচের অংশ',
+  'muscle.group.chest': 'বুক',
+  'muscle.group.arms': 'বাহু',
+  'muscle.group.back': 'পিঠ',
+  'muscle.group.shoulders': 'কাঁধ',
+  'muscle.group.core': 'ধড়',
+  'muscle.group.hips': 'নিতম্ব',
+  'muscle.group.legs': 'পা',
   'muscle.adductorRegion':
     'অ্যাডাক্টরের রঙিন অংশে উরুর ভেতরের নির্বাচিত দৃশ্যমান অংশই দেখানো হয়েছে; সীমানা অস্থায়ী এবং গভীরের অংশ দেখানো হয়নি।',
   'muscle.rearDeltRegion':

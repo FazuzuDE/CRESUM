@@ -36,6 +36,13 @@ const make = () => {
   };
   return finishWorkout(w, 120);
 };
+const backToProfile = (view: any) =>
+  button(view, 'Back to Profile') ??
+  view.root.findAll(
+    (node: any) =>
+      isPressable(node) && node.props.accessibilityLabel === 'Back to Profile',
+  )[0];
+
 it('opens the compact Profile entry, applies schedule controls and returns to Profile', async () => {
   const onPolicy = jest.fn(async () => {});
   let view: any;
@@ -78,7 +85,7 @@ it('opens the compact Profile entry, applies schedule controls and returns to Pr
     ...backup.policy,
     frequency: 'weekly',
   });
-  act(() => button(view, 'Back to Profile').props.onPress());
+  act(() => backToProfile(view).props.onPress());
   expect(button(view, 'Backup & restore')).toBeDefined();
   act(() => view.unmount());
 });

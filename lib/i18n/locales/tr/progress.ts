@@ -1,4 +1,28 @@
 export default {
+  'muscle.discover': 'Egzersiz bul',
+  'muscle.choose': 'Kasları seç',
+  'muscle.chooseHint': 'Kasları haritadan veya listeden seç.',
+  'muscle.showExercises': 'Egzersizleri göster',
+  'muscle.results': 'Egzersizler',
+  'muscle.matchAll': 'Seçilenlerin tümü',
+  'muscle.matchAny': 'Seçilenlerden en az biri',
+  'muscle.readMap': 'Harita nasıl okunur?',
+  'muscle.setsByMuscle': 'Kasa göre setler',
+  'muscle.clearSelection': 'Seçimi temizle',
+  'muscle.shortMeaning':
+    'Renk, kasın kaydedilen egzersizlerdeki rolünü gösterir. Her iki rolü de üstlendiyse haritada birincil rol görünür.',
+  'muscle.catalogBasis':
+    'Egzersiz seçimi, CRESUM kataloğundaki kas rollerine dayanır.',
+  'muscle.area.upper': 'Üst vücut',
+  'muscle.area.core': 'Gövde',
+  'muscle.area.lower': 'Alt vücut',
+  'muscle.group.chest': 'Göğüs',
+  'muscle.group.arms': 'Kollar',
+  'muscle.group.back': 'Sırt',
+  'muscle.group.shoulders': 'Omuzlar',
+  'muscle.group.core': 'Gövde',
+  'muscle.group.hips': 'Kalça',
+  'muscle.group.legs': 'Bacaklar',
   'muscle.adductorRegion':
     'Adductor vurguları yalnızca seçilmiş görünür medial-yüksek yamaları gösterir; sınırlar geçicidir ve derin kısımlar gösterilmez.',
   'muscle.rearDeltRegion':

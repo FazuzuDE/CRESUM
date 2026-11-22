@@ -1,4 +1,27 @@
 export default {
+  'muscle.discover': '查找训练动作',
+  'muscle.choose': '选择肌肉',
+  'muscle.chooseHint': '在图上或列表中选择肌肉。',
+  'muscle.showExercises': '显示训练动作',
+  'muscle.results': '训练动作',
+  'muscle.matchAll': '所有已选肌肉',
+  'muscle.matchAny': '任一已选肌肉',
+  'muscle.readMap': '如何阅读肌肉图',
+  'muscle.setsByMuscle': '各肌肉的训练组数',
+  'muscle.clearSelection': '清除选择',
+  'muscle.shortMeaning':
+    '颜色表示肌肉在已记录动作中的作用。如果同时发挥两种作用，图上显示主要作用。',
+  'muscle.catalogBasis': '根据 CRESUM 动作库中的肌肉作用匹配动作。',
+  'muscle.area.upper': '上半身',
+  'muscle.area.core': '躯干',
+  'muscle.area.lower': '下半身',
+  'muscle.group.chest': '胸部',
+  'muscle.group.arms': '手臂',
+  'muscle.group.back': '背部',
+  'muscle.group.shoulders': '肩部',
+  'muscle.group.core': '躯干',
+  'muscle.group.hips': '髋部',
+  'muscle.group.legs': '腿部',
   'muscle.adductorRegion':
     '内收肌高亮仅展示选定的大腿内侧可见区域；边界为暂定，深层部分未显示。',
   'muscle.rearDeltRegion':

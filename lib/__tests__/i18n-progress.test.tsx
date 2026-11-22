@@ -1,5 +1,9 @@
 import { Modal, Text, TextInput } from 'react-native';
 import { MuscleProgress } from '../../components/MuscleProgress';
+import {
+  MuscleDisclosure,
+  MuscleSegments,
+} from '../../components/MusclePageControls';
 import { MuscleMap } from '../../components/MuscleMap';
 import { ExerciseStatistics } from '../../components/ExerciseStatistics';
 import { ExercisePerformance } from '../../components/ExercisePerformance';
@@ -132,6 +136,12 @@ it('translates muscle roles, coverage and source sets without losing the selecte
     await act(async () => {
       ui.view.root.findAllByType(MuscleMap)[0].props.onSelect('chest');
     });
+    await act(async () =>
+      ui.view.root.findAllByType(MuscleDisclosure)[1].props.onPress(),
+    );
+    await act(async () =>
+      ui.view.root.findAllByType(MuscleDisclosure)[0].props.onPress(),
+    );
     await ui.button('Показать выполненные подходы');
     for (const next of ['de', 'fr', 'en', 'ru'] as const) {
       await act(async () => {
@@ -315,7 +325,9 @@ it('keeps the overview period and stored records when switching sections and lan
     await act(async () => {
       await ui.locale.select('fr');
     });
-    await ui.button('Vue d’ensemble');
+    await act(async () =>
+      ui.view.root.findAllByType(MuscleSegments)[0].props.onChange('overview'),
+    );
     expect(ui.view.root.findByType(TrainingVolume).props.period).toBe('3M');
     expect(ui.text()).toContain('Volume et records de force estimés');
     expect(ui.text()).toContain('CUSTOM bench');

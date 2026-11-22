@@ -1,4 +1,28 @@
 export default {
+  'muscle.discover': 'Übungen finden',
+  'muscle.choose': 'Muskeln auswählen',
+  'muscle.chooseHint': 'Wähle Muskeln auf der Karte oder in der Liste aus.',
+  'muscle.showExercises': 'Übungen anzeigen',
+  'muscle.results': 'Übungen',
+  'muscle.matchAll': 'Alle ausgewählten',
+  'muscle.matchAny': 'Mindestens einer',
+  'muscle.readMap': 'So liest du die Karte',
+  'muscle.setsByMuscle': 'Sätze pro Muskel',
+  'muscle.clearSelection': 'Auswahl löschen',
+  'muscle.shortMeaning':
+    'Die Farbe zeigt die Rolle des Muskels in protokollierten Übungen. Bei beiden Rollen zeigt die Karte die Hauptrolle.',
+  'muscle.catalogBasis':
+    'Die Auswahl basiert auf den Muskelrollen im CRESUM-Katalog.',
+  'muscle.area.upper': 'Oberkörper',
+  'muscle.area.core': 'Rumpf',
+  'muscle.area.lower': 'Unterkörper',
+  'muscle.group.chest': 'Brust',
+  'muscle.group.arms': 'Arme',
+  'muscle.group.back': 'Rücken',
+  'muscle.group.shoulders': 'Schultern',
+  'muscle.group.core': 'Rumpf',
+  'muscle.group.hips': 'Hüfte',
+  'muscle.group.legs': 'Beine',
   'muscle.adductorRegion':
     'Die Adduktorenmarkierung zeigt nur ausgewählte sichtbare Bereiche der Oberschenkelinnenseite; Grenzen sind vorläufig, tiefe Anteile sind nicht dargestellt.',
   'muscle.rearDeltRegion':

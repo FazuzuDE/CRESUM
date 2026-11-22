@@ -144,6 +144,11 @@ export function ExerciseLibrary({
       <AppScrollView
         branded
         dockAware={presentation === 'page'}
+        back={
+          presentation === 'page'
+            ? { accessibilityLabel: t('library.backProfile'), onPress: close }
+            : undefined
+        }
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={s.content}
       >
@@ -154,20 +159,16 @@ export function ExerciseLibrary({
               {t('library.count', { count: results.length })}
             </Text>
           </View>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel={
-              presentation === 'page'
-                ? t('library.backProfile')
-                : t('library.closeLibrary')
-            }
-            onPress={close}
-            style={s.close}
-          >
-            <Text style={s.closeText}>
-              {t(presentation === 'page' ? 'library.back' : 'library.close')}
-            </Text>
-          </Pressable>
+          {presentation !== 'page' ? (
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={t('library.closeLibrary')}
+              onPress={close}
+              style={s.close}
+            >
+              <Text style={s.closeText}>{t('library.close')}</Text>
+            </Pressable>
+          ) : null}
         </View>
 
         <TextInput

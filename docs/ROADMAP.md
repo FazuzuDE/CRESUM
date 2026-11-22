@@ -826,3 +826,9 @@ Dutch, Swedish, Thai, Urdu, Telugu, Tamil. The owner approved following this lis
 Indonesian is integrated in #297; Korean is the current step. Each step includes all current content,
 technique and search alternatives, existing checks and pending physical/linguistic
 acceptance. Initial release Core remains free. Do not skip coverage for speed.
+
+### Muscle Map discovery — approved 2026-11-22
+
+Implement the grouped muscle picker, catalog matches and shared leading Back
+control in the current Core UI. Device review follows implementation, with
+attention to atlas touch targets, larger text and the fixed header.

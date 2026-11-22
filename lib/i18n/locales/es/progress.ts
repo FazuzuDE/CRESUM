@@ -1,4 +1,28 @@
 export default {
+  'muscle.discover': 'Buscar ejercicios',
+  'muscle.choose': 'Elegir músculos',
+  'muscle.chooseHint': 'Selecciona músculos en el mapa o en la lista.',
+  'muscle.showExercises': 'Mostrar ejercicios',
+  'muscle.results': 'Ejercicios',
+  'muscle.matchAll': 'Todos los elegidos',
+  'muscle.matchAny': 'Al menos uno',
+  'muscle.readMap': 'Cómo leer el mapa',
+  'muscle.setsByMuscle': 'Series por músculo',
+  'muscle.clearSelection': 'Borrar selección',
+  'muscle.shortMeaning':
+    'El color indica la función del músculo en los ejercicios registrados. Si cumplió ambas funciones, el mapa muestra la principal.',
+  'muscle.catalogBasis':
+    'La selección se basa en las funciones musculares del catálogo de CRESUM.',
+  'muscle.area.upper': 'Tren superior',
+  'muscle.area.core': 'Tronco',
+  'muscle.area.lower': 'Tren inferior',
+  'muscle.group.chest': 'Pecho',
+  'muscle.group.arms': 'Brazos',
+  'muscle.group.back': 'Espalda',
+  'muscle.group.shoulders': 'Hombros',
+  'muscle.group.core': 'Tronco',
+  'muscle.group.hips': 'Caderas',
+  'muscle.group.legs': 'Piernas',
   'muscle.adductorRegion':
     'Los puntos destacados del Adductor muestran sólo parches visibles seleccionados de medial-thigh; los límites son provisionales y no se muestran porciones profundas.',
   'muscle.rearDeltRegion':

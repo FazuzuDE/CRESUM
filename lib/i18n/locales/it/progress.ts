@@ -1,4 +1,28 @@
 export default {
+  'muscle.discover': 'Trova esercizi',
+  'muscle.choose': 'Scegli i muscoli',
+  'muscle.chooseHint': 'Seleziona i muscoli sulla mappa o nell’elenco.',
+  'muscle.showExercises': 'Mostra gli esercizi',
+  'muscle.results': 'Esercizi',
+  'muscle.matchAll': 'Tutti quelli scelti',
+  'muscle.matchAny': 'Almeno uno',
+  'muscle.readMap': 'Come leggere la mappa',
+  'muscle.setsByMuscle': 'Serie per muscolo',
+  'muscle.clearSelection': 'Azzera selezione',
+  'muscle.shortMeaning':
+    'Il colore indica il ruolo del muscolo negli esercizi registrati. Se ha svolto entrambi i ruoli, la mappa mostra quello principale.',
+  'muscle.catalogBasis':
+    'La selezione si basa sui ruoli muscolari nel catalogo CRESUM.',
+  'muscle.area.upper': 'Parte superiore',
+  'muscle.area.core': 'Tronco',
+  'muscle.area.lower': 'Parte inferiore',
+  'muscle.group.chest': 'Petto',
+  'muscle.group.arms': 'Braccia',
+  'muscle.group.back': 'Schiena',
+  'muscle.group.shoulders': 'Spalle',
+  'muscle.group.core': 'Tronco',
+  'muscle.group.hips': 'Anche',
+  'muscle.group.legs': 'Gambe',
   'muscle.adductorRegion':
     "I punti salienti dell'adduttore mostrano solo le toppe mediali visibili; i confini sono provvisori e le porzioni profonde non sono mostrate.",
   'muscle.rearDeltRegion':

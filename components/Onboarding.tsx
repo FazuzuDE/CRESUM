@@ -1,7 +1,6 @@
 import {
   LocalizedText as Text,
   LocalizedTextInput as TextInput,
-  DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
 import { AppPicker } from './AppPicker';
 import { WheelPickerSheet } from './WheelPickerSheet';
@@ -32,7 +31,6 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
-  Pressable,
   StyleSheet,
   useWindowDimensions,
   View,
@@ -375,23 +373,27 @@ export function Onboarding({
   );
   const header = (previous?: OnboardingStep, showLanguage = false) => (
     <View style={s.characterHeader}>
-      <BrandHeader />
-      {previous ? (
-        <Pressable
-          testID="onboarding-back"
-          accessibilityRole="button"
-          accessibilityLabel={t('onboarding.back')}
-          accessibilityState={{ disabled: navigationDisabled }}
-          disabled={navigationDisabled}
-          onPress={() => {
-            setError('');
-            go(previous);
-          }}
-          style={s.characterBack}
-        >
-          <Ionicons name="chevron-back" size={26} color={colors.primary} />
-        </Pressable>
-      ) : null}
+      <BrandHeader
+        back={
+          previous
+            ? {
+                testID: 'onboarding-back',
+                accessibilityLabel: t('onboarding.back'),
+                disabled: navigationDisabled,
+                onPress: () => {
+                  setError('');
+                  go(previous);
+                },
+              }
+            : editing && onExit
+              ? {
+                  accessibilityLabel: t('onboarding.backProfile'),
+                  disabled: navigationDisabled,
+                  onPress: onExit,
+                }
+              : undefined
+        }
+      />
       {showLanguage ? (
         <View style={s.headerLanguage}>
           <LanguageSettings compact />
@@ -459,9 +461,7 @@ export function Onboarding({
         style={s.root}
         safeAreaEdges={['top', 'bottom']}
         keyboardShouldPersistTaps="handled"
-        fixedHeader={
-          polished ? header(backTarget, step === 'welcome') : <BrandHeader />
-        }
+        fixedHeader={header(backTarget, polished && step === 'welcome')}
         contentContainerStyle={[s.content, polished && s.polishedContent]}
       >
         {step === 'welcome' && !polished ? <LanguageSettings /> : null}
@@ -1044,19 +1044,12 @@ export function Onboarding({
                 {presentAppError(t, error, 'error.programSave')}
               </Text>
             ) : null}
-            {!polished && backTarget ? (
-              <AppButton
-                title={t('onboarding.back')}
-                disabled={saving || busy || Boolean(lockedProposal)}
-                secondary
-                onPress={() => go(backTarget)}
-              />
-            ) : null}
-            {editing && onExit ? (
+
+            {editing && onExit && backTarget ? (
               <AppButton
                 title={t('onboarding.backProfile')}
                 secondary
-                disabled={saving || busy || Boolean(lockedProposal)}
+                disabled={navigationDisabled}
                 onPress={onExit}
               />
             ) : null}
@@ -1198,13 +1191,6 @@ const s = StyleSheet.create({
     minHeight: 44,
   },
   headerLanguage: { position: 'absolute', end: spacing.md },
-  characterBack: {
-    position: 'absolute',
-    start: spacing.md,
-    minWidth: 44,
-    minHeight: 44,
-    justifyContent: 'center',
-  },
   card: { gap: spacing.md },
   title: { ...typography.title1, color: colors.textPrimary },
   sub: { ...typography.body, color: colors.textSecondary },

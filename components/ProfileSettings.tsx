@@ -116,14 +116,16 @@ export function ProfileSettings({
     );
   if (workoutsOpen)
     return (
-      <AppScrollView branded dockAware contentContainerStyle={s.content}>
-        <AppButton
-          title={t('profile.back')}
-          disabled={workoutEditing || busy}
-          secondary
-          presentation="text"
-          onPress={() => setWorkoutsOpen(false)}
-        />
+      <AppScrollView
+        branded
+        dockAware
+        contentContainerStyle={s.content}
+        back={{
+          accessibilityLabel: t('profile.back'),
+          disabled: workoutEditing || busy,
+          onPress: () => setWorkoutsOpen(false),
+        }}
+      >
         <Text
           style={[s.title, { letterSpacing: 4 }]}
           accessibilityRole="header"
@@ -202,13 +204,12 @@ export function ProfileSettings({
         key={detail}
         branded
         dockAware
+        back={{
+          accessibilityLabel: t('profile.back'),
+          onPress: () => setDetail(null),
+        }}
         contentContainerStyle={s.content}
       >
-        <AppButton
-          title={t('profile.back')}
-          presentation="text"
-          onPress={() => setDetail(null)}
-        />
         <Text style={s.title} accessibilityRole="header">
           {title}
         </Text>

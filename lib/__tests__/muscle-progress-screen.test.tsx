@@ -2,6 +2,11 @@ import { Text } from 'react-native';
 import { MuscleProgress } from '../../components/MuscleProgress';
 import { MuscleMap } from '../../components/MuscleMap';
 import { AppButton } from '../../components/AppButton';
+import {
+  MuscleDisclosure,
+  MuscleSegments,
+} from '../../components/MusclePageControls';
+import { isPressable } from './pressable';
 import type { WorkoutSession } from '../workout-model';
 
 const { act, create } = jest.requireActual('react-test-renderer');
@@ -65,8 +70,15 @@ it('opens muscle details, shows source sets and closes stale details on period c
           node.props.children === 'Historical bench',
       ),
   ).toBe(true);
-  press('Done');
-  press('4 weeks');
+  act(() =>
+    view.root
+      .find(
+        (node: any) =>
+          isPressable(node) && node.props.accessibilityLabel === 'Back',
+      )
+      .props.onPress(),
+  );
+  act(() => view.root.findAllByType(MuscleSegments)[1].props.onChange('4w'));
   expect(
     view.root
       .findAllByType(AppButton)
@@ -75,7 +87,9 @@ it('opens muscle details, shows source sets and closes stale details on period c
           button.props.title === 'View completed sets',
       ),
   ).toBe(false);
-  press('Overview');
+  act(() =>
+    view.root.findAllByType(MuscleSegments)[0].props.onChange('overview'),
+  );
   expect(onOverview).toHaveBeenCalledTimes(1);
   act(() => view.unmount());
 });
@@ -147,6 +161,8 @@ it('explains the upper-back projection in Progress and its muscle details', () =
       .findAllByType(Text)
       .map((n: any) => n.props.children)
       .join(' ');
+  expect(copy()).not.toContain('beneath trapezius');
+  act(() => v.root.findAllByType(MuscleDisclosure)[0].props.onPress());
   expect(copy()).toContain('beneath trapezius');
   act(() => v.root.findByType(MuscleMap).props.onSelect('upper-back'));
   expect(copy().match(/beneath trapezius/g)).toHaveLength(2);
@@ -163,6 +179,7 @@ it('explains partial adductor coverage in overview and selected detail without e
       .findAllByType(Text)
       .map((n: any) => n.props.children)
       .join(' ');
+  act(() => v!.root.findAllByType(MuscleDisclosure)[0].props.onPress());
   expect(copy()).toContain('selected visible medial-thigh patches');
   expect(copy()).not.toContain('Map coverage is pending for');
   expect(copy()).toContain('schematic projections beneath fascia');
@@ -171,4 +188,44 @@ it('explains partial adductor coverage in overview and selected detail without e
     2,
   );
   act(() => v!.unmount());
+});
+
+it('synchronizes map and checkboxes, filters the catalog and retains selection on back', () => {
+  let view!: ReturnType<typeof create>;
+  act(() => {
+    view = create(
+      <MuscleProgress history={[]} now={now} onOverview={() => {}} />,
+    );
+  });
+  const button = (title: string) =>
+    view.root
+      .findAllByType(AppButton)
+      .find((n: any) => n.props.title === title);
+  const pressable = (label: string) =>
+    view.root.find(
+      (n: any) => isPressable(n) && n.props.accessibilityLabel === label,
+    );
+  const map = () => view.root.findByType(MuscleMap);
+  const displayed = (value: string) =>
+    view.root.findAllByType(Text).some((n: any) => n.props.children === value);
+
+  act(() => button('Find exercises').props.onPress());
+  expect(button('Show exercises').props.disabled).toBe(true);
+  act(() => map().props.onSelect('chest'));
+  expect(pressable('Chest').props.accessibilityState.checked).toBe(true);
+  act(() => pressable('Chest').props.onPress());
+  expect(map().props.muscles).toEqual([]);
+  act(() => map().props.onSelect('chest'));
+  act(() => map().props.onSelect('triceps'));
+  act(() => button('Show exercises · 2').props.onPress());
+  expect(displayed('Machine Chest Press')).toBe(true);
+  expect(displayed('Cable Triceps Pushdown')).toBe(false);
+  act(() => view.root.findByType(MuscleSegments).props.onChange('any'));
+  expect(displayed('Cable Triceps Pushdown')).toBe(true);
+  act(() => pressable('Back').props.onPress());
+  expect(map().props.muscles.map(({ id }: { id: string }) => id)).toEqual([
+    'chest',
+    'triceps',
+  ]);
+  act(() => view.unmount());
 });
