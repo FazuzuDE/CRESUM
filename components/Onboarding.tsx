@@ -342,7 +342,10 @@ export function Onboarding({
   };
   const step = state.step;
   const polished = !editing && step in onboardingArtwork;
-  const FlowScroll = polished ? ContentScrollView : AppScrollView;
+  const FlowScroll =
+    polished || step === 'complete' || step === 'schedule'
+      ? ContentScrollView
+      : AppScrollView;
   const Frame = polished || step === 'schedule' ? View : GlassCard;
   const backTarget = editing && step === 'goal' ? 'profile' : back[step];
   const navigationDisabled = saving || busy || Boolean(lockedProposal);
