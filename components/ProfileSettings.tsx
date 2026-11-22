@@ -23,7 +23,7 @@ import type { WorkoutTemplate, WorkoutSession } from '@/lib/workout-model';
 import type { TemplateMutationResult } from '@/lib/workout-store';
 import type { TemplateDraft } from '@/lib/workout-templates';
 import { colors, radius, spacing, typography } from '@/lib/theme';
-import { catalogLabel } from '@/lib/i18n/catalog';
+import { catalogLabel, searchLocalizedExercises } from '@/lib/i18n/catalog';
 
 export type ProfileSettingsProps = {
   dockTransparency?: number;
@@ -292,6 +292,9 @@ export function ProfileSettings({
         <AppButton
           title={t('library.title')}
           icon="book-outline"
+          value={t('profile.exercises', {
+            count: searchLocalizedExercises({}, locale).length,
+          })}
           presentation="settings"
           onPress={() => setLibraryOpen(true)}
         />
