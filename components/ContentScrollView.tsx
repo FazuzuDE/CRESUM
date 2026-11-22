@@ -2,8 +2,6 @@ import { forwardRef, useState, type ComponentRef, type ReactNode } from 'react';
 import { ScrollView, StyleSheet, type ScrollViewProps } from 'react-native';
 import { SafeAreaView, type Edge } from 'react-native-safe-area-context';
 
-const topEdge = ['top'] as const;
-
 export type SafeAreaScrollProps = {
   safeAreaEdges?: readonly Edge[];
   fixedHeader?: ReactNode;
@@ -79,7 +77,7 @@ export const ContentScrollView = forwardRef<
   );
   return fixedHeader ? (
     <SafeAreaView
-      edges={requestedEdges?.includes('top') ? topEdge : []}
+      edges={requestedEdges?.filter((edge) => edge === 'top') ?? []}
       style={s.fixedPage}
     >
       {fixedHeader}

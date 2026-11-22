@@ -177,8 +177,12 @@ export function MuscleProgress({
         presentationStyle="pageSheet"
         onRequestClose={() => setSelected(undefined)}
       >
-        <SafeAreaView edges={['left', 'right']} style={s.modal}>
-          <AppScrollView branded contentContainerStyle={s.content}>
+        <SafeAreaView style={s.modal}>
+          <AppScrollView
+            branded
+            safeAreaEdges={[]}
+            contentContainerStyle={s.content}
+          >
             <AppButton
               title={t('common.done')}
               secondary

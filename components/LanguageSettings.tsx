@@ -48,23 +48,30 @@ export function LanguageSettings({
   const dismiss = () => {
     if (!saving) setOpen(false);
   };
-  const presentation = settingsRow ? 'settings' : compact ? 'text' : 'row';
-  const icon = settingsRow ? 'globe-outline' : undefined;
+  const openPicker = () => {
+    setDraft(preference);
+    setInteracting(false);
+    setOpen(true);
+  };
   return (
     <View style={[s.root, compact && s.compact]}>
-      <AppButton
-        title={compact ? localeRegistry[locale].flag : t('language.title')}
-        accessibilityLabel={t('language.title')}
-        secondary
-        presentation={presentation}
-        icon={icon}
-        value={settingsRow ? localeRegistry[locale].nativeName : undefined}
-        onPress={() => {
-          setDraft(preference);
-          setInteracting(false);
-          setOpen(true);
-        }}
-      />
+      {settingsRow ? (
+        <AppButton
+          title={t('language.title')}
+          presentation="settings"
+          icon="globe-outline"
+          value={localeRegistry[locale].nativeName}
+          onPress={openPicker}
+        />
+      ) : (
+        <AppButton
+          title={compact ? localeRegistry[locale].flag : t('language.title')}
+          accessibilityLabel={t('language.title')}
+          secondary
+          presentation={compact ? 'text' : 'row'}
+          onPress={openPicker}
+        />
+      )}
       {open ? (
         <GlassDialog onClose={dismiss} transparency={10}>
           <Text accessibilityRole="header" style={s.title}>
