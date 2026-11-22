@@ -22,6 +22,7 @@ import {
   ContentScrollView,
   type SafeAreaScrollProps,
 } from './ContentScrollView';
+import { BrandHeader } from './BrandHeader';
 import { DockSpace } from './DockSpace';
 import { GlassCard } from './GlassCard';
 import { useScrollReturn } from './useScrollReturn';
@@ -34,11 +35,14 @@ export const AppScrollView = forwardRef<
     SafeAreaScrollProps & {
       sectionPositions?: ProgressSectionPosition[];
       dockAware?: boolean;
+      branded?: boolean;
     }
 >(function AppScrollView(
   {
     children,
     dockAware = false,
+    branded = false,
+    fixedHeader,
     safeAreaEdges = dockAware ? ['top'] : ['top', 'bottom'],
     style,
     contentContainerStyle,
@@ -74,6 +78,7 @@ export const AppScrollView = forwardRef<
         {...props}
         ref={ref}
         safeAreaEdges={safeAreaEdges}
+        fixedHeader={branded ? <BrandHeader /> : fixedHeader}
         style={{ flex: 1 }}
         contentContainerStyle={[
           contentContainerStyle,

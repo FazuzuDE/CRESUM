@@ -12,7 +12,6 @@ import { Ionicons } from '@expo/vector-icons';
 import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AppButton } from '../AppButton';
-import { BrandHeader } from '../BrandHeader';
 import { useLocalization } from '../LocalizationProvider';
 import { PlanPreview, type ImportPlan } from './PlanPreview';
 import { SharePlanSheet } from './SharePlanSheet';
@@ -186,7 +185,6 @@ export function SharingHub({
     );
   return (
     <GestureHandlerRootView style={s.root}>
-      <BrandHeader />
       {Platform.OS === 'web' && initialToken ? (
         <Text style={s.copy}>{t('sharing.install')}</Text>
       ) : null}

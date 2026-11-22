@@ -1,5 +1,12 @@
 # CRESUM Decision Log
 
+## 2026-11-22 — Fixed branding and grouped Profile
+
+Keep the brand and localized slogan fixed above scrolling pages with equal
+spacing around the brand block. Adopt grouped Profile settings and move the
+transparency control into Appearance. Preserve the dock layout and glass
+material unless a change to the dock is explicitly requested.
+
 ## 2026-11-18 — Language-wheel selection haptics
 
 Add iOS-style selection feedback as the centered row changes during drag or

@@ -7,7 +7,6 @@ import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppButton } from './AppButton';
 import { AppScrollView } from './AppScrollView';
-import { BrandHeader } from './BrandHeader';
 import { GlassCard } from './GlassCard';
 import { MuscleMap } from './MuscleMap';
 import { anatomicalMissingGroups } from '@/lib/anatomical-muscle-map';
@@ -62,8 +61,7 @@ export function MuscleProgress({
   }
   return (
     <>
-      <AppScrollView dockAware contentContainerStyle={s.content}>
-        <BrandHeader />
+      <AppScrollView branded dockAware contentContainerStyle={s.content}>
         <Text style={s.title} accessibilityRole="header">
           {t('progress.title')}
         </Text>
@@ -180,7 +178,11 @@ export function MuscleProgress({
         onRequestClose={() => setSelected(undefined)}
       >
         <SafeAreaView style={s.modal}>
-          <AppScrollView contentContainerStyle={s.content}>
+          <AppScrollView
+            branded
+            safeAreaEdges={[]}
+            contentContainerStyle={s.content}
+          >
             <AppButton
               title={t('common.done')}
               secondary

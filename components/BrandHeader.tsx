@@ -4,12 +4,12 @@ import { colors, spacing, typography } from '@/lib/theme';
 import { BrandWordmark } from './BrandWordmark';
 import { useLocalization } from './LocalizationProvider';
 
-export function BrandHeader({ tagline = true }: { tagline?: boolean }) {
+export function BrandHeader() {
   const { t } = useLocalization();
   return (
-    <View style={s.root}>
+    <View testID="brand-header" style={s.root}>
       <BrandWordmark />
-      {tagline ? <Text style={s.tagline}>{t('brand.tagline')}</Text> : null}
+      <Text style={s.tagline}>{t('brand.tagline')}</Text>
     </View>
   );
 }
@@ -18,6 +18,7 @@ const s = StyleSheet.create({
     alignSelf: 'stretch',
     alignItems: 'center',
     paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.md,
     gap: spacing.xxs,
   },
   tagline: {

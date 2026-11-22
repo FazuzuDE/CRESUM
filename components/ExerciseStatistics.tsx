@@ -340,7 +340,7 @@ function LoggedExerciseSets({
       onRequestClose={onClose}
     >
       <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
-        <BrandHeader tagline={false} />
+        <BrandHeader />
         <Pressable
           accessibilityRole="button"
           accessibilityLabel={t('stats.backA11y')}

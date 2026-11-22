@@ -1,4 +1,9 @@
 export default {
+  'profile.trainingSection': 'Latihan',
+  'profile.myWorkouts': 'Latihan saya',
+  'profile.settingsSection': 'Pengaturan',
+  'profile.appearance': 'Tampilan',
+  'profile.dataSection': 'Data',
   'profile.dockTransparency': 'Transparansi menu bawah',
   'character.pendingShort': 'Disiapkan',
   'character.title': 'Karakter latihan',

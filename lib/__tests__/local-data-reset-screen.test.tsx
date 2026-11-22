@@ -126,6 +126,7 @@ beforeEach(async () => {
 it('asks for explicit destructive confirmation and Cancel leaves every key unchanged', async () => {
   const original = await seed();
   const view = await mountProfile();
+  act(() => button(view, 'Local data')?.props.onPress());
   expect(button(view, 'Reset local data')?.props.destructive).toBe(true);
   act(() => button(view, 'Reset local data')?.props.onPress());
   const confirmation = resetConfirmation(view);
@@ -145,6 +146,7 @@ it('asks for explicit destructive confirmation and Cancel leaves every key uncha
 it('removes all five keys and returns to Welcome, including after app restart', async () => {
   await seed();
   let view = await mountProfile();
+  act(() => button(view, 'Local data')?.props.onPress());
   act(() => button(view, 'Reset local data')?.props.onPress());
   await act(async () => resetConfirmation(view)?.props.onConfirm());
   for (const key of LOCAL_DATA_KEYS)
@@ -176,6 +178,7 @@ it('shows an error and keeps prior in-memory data after partial deletion failure
     },
   );
   try {
+    act(() => button(view, 'Local data')?.props.onPress());
     act(() => button(view, 'Reset local data')?.props.onPress());
     await act(async () => resetConfirmation(view)?.props.onConfirm());
     expect(resetConfirmation(view)?.props.visible).toBe(true);
@@ -223,6 +226,7 @@ it('waits for an in-flight onboarding retry before deleting its key', async () =
     act(() => button(view, 'Retry onboarding')?.props.onPress());
     act(() => button(view, 'Continue to app')?.props.onPress());
     act(() => view.root.findByType(Dock).props.onChange('profile'));
+    act(() => button(view, 'Local data')?.props.onPress());
     act(() => button(view, 'Reset local data')?.props.onPress());
     (AsyncStorage.removeItem as jest.Mock).mockClear();
     act(() => resetConfirmation(view)?.props.onConfirm());
@@ -243,6 +247,7 @@ it('waits for an in-flight onboarding retry before deleting its key', async () =
 it('starts only one reset when confirmation is pressed twice before rerender', async () => {
   await seed();
   const view = await mountProfile();
+  act(() => button(view, 'Local data')?.props.onPress());
   act(() => button(view, 'Reset local data')?.props.onPress());
   (AsyncStorage.removeItem as jest.Mock).mockClear();
   await act(async () => {
@@ -303,6 +308,7 @@ it('ignores an old onboarding retry result that arrives after reset', async () =
     act(() => button(view, 'Retry onboarding')?.props.onPress());
     act(() => button(view, 'Continue to app')?.props.onPress());
     act(() => view.root.findByType(Dock).props.onChange('profile'));
+    act(() => button(view, 'Local data')?.props.onPress());
     act(() => button(view, 'Reset local data')?.props.onPress());
     await act(async () => resetConfirmation(view)?.props.onConfirm());
     expect(view.root.findByType(Onboarding)).toBeDefined();

@@ -159,6 +159,7 @@ it('resetDoesNotSignOutOrRemoveAuthStorage', async () => {
     view = create(<App />);
   });
   act(() => view.root.findByType(Dock).props.onChange('profile'));
+  act(() => button(view, 'Local data')?.props.onPress());
   act(() => button(view, 'Reset local data')?.props.onPress());
   await act(async () =>
     view.root

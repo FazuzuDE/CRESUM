@@ -1,4 +1,9 @@
 export default {
+  'profile.trainingSection': 'Buổi tập',
+  'profile.myWorkouts': 'Buổi tập của tôi',
+  'profile.settingsSection': 'Cài đặt',
+  'profile.appearance': 'Giao diện',
+  'profile.dataSection': 'Dữ liệu',
   'profile.dockTransparency': 'Độ trong suốt menu dưới',
   'character.pendingShort': 'Đang chuẩn bị',
   'character.title': 'Nhân vật minh họa bài tập',

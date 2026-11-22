@@ -1,4 +1,9 @@
 export default {
+  'profile.trainingSection': 'التمارين',
+  'profile.myWorkouts': 'تماريني',
+  'profile.settingsSection': 'الإعدادات',
+  'profile.appearance': 'المظهر',
+  'profile.dataSection': 'البيانات',
   'profile.dockTransparency': 'شفافية القائمة السفلية',
   'character.pendingShort': 'قيد الإعداد',
   'character.title': 'شخصية التمارين',

@@ -1,4 +1,9 @@
 export default {
+  'profile.trainingSection': '운동',
+  'profile.myWorkouts': '내 운동',
+  'profile.settingsSection': '설정',
+  'profile.appearance': '화면 설정',
+  'profile.dataSection': '데이터',
   'profile.dockTransparency': '하단 메뉴 투명도',
   'character.pendingShort': '준비 중',
   'character.title': '운동 캐릭터',

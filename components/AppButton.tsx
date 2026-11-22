@@ -2,6 +2,7 @@ import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
+import type { ComponentProps } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import { colors, spacing, typography } from '@/lib/theme';
@@ -10,6 +11,8 @@ export function AppButton({
   title,
   accessibilityLabel,
   detail,
+  icon,
+  value,
   highlighted = false,
   onPress,
   secondary = false,
@@ -23,6 +26,8 @@ export function AppButton({
   title: string;
   accessibilityLabel?: string;
   detail?: string;
+  icon?: ComponentProps<typeof Ionicons>['name'];
+  value?: string;
   highlighted?: boolean;
   onPress: () => void;
   secondary?: boolean;
@@ -30,10 +35,11 @@ export function AppButton({
   dimWhenDisabled?: boolean;
   selected?: boolean;
   destructive?: boolean;
-  presentation?: 'button' | 'row' | 'text' | 'choice';
+  presentation?: 'button' | 'row' | 'text' | 'choice' | 'settings';
   wordmark?: boolean;
 }) {
   const schedule = presentation === 'row' && !!detail;
+  const settings = presentation === 'settings';
   const choice = presentation === 'choice';
   return (
     <Pressable
@@ -49,7 +55,8 @@ export function AppButton({
         s.button,
         secondary && s.secondary,
         destructive && s.destructive,
-        (presentation === 'row' || choice) && s.row,
+        (presentation === 'row' || choice || settings) && s.row,
+        settings && s.settings,
         schedule && s.schedule,
         choice && s.choice,
         choice && (selected || highlighted) && s.highlighted,
@@ -57,11 +64,19 @@ export function AppButton({
         (pressed || (disabled && dimWhenDisabled)) && s.dim,
       ]}
     >
+      {settings && icon ? (
+        <Ionicons
+          name={icon}
+          size={22}
+          color={colors.textPrimary}
+          accessible={false}
+        />
+      ) : null}
       <View
         style={
           choice
             ? s.choiceContent
-            : presentation === 'row'
+            : presentation === 'row' || settings
               ? s.rowContent
               : undefined
         }
@@ -71,7 +86,8 @@ export function AppButton({
             s.text,
             secondary && s.secondaryText,
             destructive && s.destructiveText,
-            presentation === 'row' && s.rowText,
+            (presentation === 'row' || settings) && s.rowText,
+            settings && s.settingsTitle,
             schedule && s.detail,
             choice && s.choiceTitle,
             presentation === 'text' && s.actionText,
@@ -93,7 +109,9 @@ export function AppButton({
           accessible={false}
         />
       ) : null}
-      {presentation === 'row' ||
+      {settings && value ? <Text style={s.settingsValue}>{value}</Text> : null}
+      {settings ||
+      presentation === 'row' ||
       (choice && selected === undefined && detail) ? (
         <Ionicons
           name="chevron-forward"
@@ -129,6 +147,19 @@ const s = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     gap: spacing.sm,
+  },
+  settings: {
+    minHeight: 52,
+    borderRadius: 0,
+    paddingHorizontal: spacing.md,
+    backgroundColor: colors.surface,
+  },
+  settingsTitle: { color: colors.textPrimary, fontWeight: '500' },
+  settingsValue: {
+    ...typography.footnote,
+    color: colors.textSecondary,
+    flexShrink: 1,
+    maxWidth: '38%',
   },
   schedule: { backgroundColor: colors.surface, borderRadius: 0 },
   rowContent: { flex: 1, minWidth: 0 },

@@ -76,7 +76,7 @@ export function ExerciseTechnique({
     >
       <SafeAreaView edges={['top', 'left', 'right']} style={s.root}>
         <View style={s.grabber} />
-        <BrandHeader tagline={false} />
+        <BrandHeader />
         <View style={s.header}>
           <Text accessibilityRole="header" style={s.headerTitle}>
             {tab === 'Technique'

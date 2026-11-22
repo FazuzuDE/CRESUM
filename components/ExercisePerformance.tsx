@@ -1,3 +1,4 @@
+import { BrandHeader } from './BrandHeader';
 import {
   LocalizedText as Text,
   LocalizedTextInput as TextInput,
@@ -163,6 +164,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
         onRequestClose={() => setSetsOpen(false)}
       >
         <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
+          <BrandHeader />
           <View style={s.header}>
             <Text
               style={s.sheetTitle}
@@ -230,6 +232,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
         onRequestClose={close}
       >
         <SafeAreaView edges={['top', 'left', 'right']} style={s.sheet}>
+          <BrandHeader />
           <View style={s.header}>
             <Text style={s.sheetTitle}>{t('performance.selectorTitle')}</Text>
             <Pressable

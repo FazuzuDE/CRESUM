@@ -111,6 +111,7 @@ it('changes the Profile preference without modifying workouts and restores it on
   );
   const view = await mount();
   act(() => view.root.findByType(Dock).props.onChange('profile'));
+  act(() => button(view, 'Exercise character').props.onPress());
   const workouts = await AsyncStorage.getItem(STATE_KEY);
   expect(button(view, 'Male').props.selected).toBe(true);
   await act(async () => button(view, 'Female').props.onPress());
@@ -119,6 +120,7 @@ it('changes the Profile preference without modifying workouts and restores it on
   await act(async () => view.unmount());
   const reopened = await mount();
   act(() => reopened.root.findByType(Dock).props.onChange('profile'));
+  act(() => button(reopened, 'Exercise character').props.onPress());
   expect(button(reopened, 'Female').props.selected).toBe(true);
   await act(async () => button(reopened, 'Male').props.onPress());
   expect(
@@ -132,6 +134,7 @@ it('retains the previous character when saving fails and can retry', async () =>
   await completeOnboardingForTest();
   const view = await mount();
   act(() => view.root.findByType(Dock).props.onChange('profile'));
+  act(() => button(view, 'Exercise character').props.onPress());
   const original = (AsyncStorage.setItem as jest.Mock).getMockImplementation()!;
   const write = jest.spyOn(AsyncStorage, 'setItem');
   write.mockImplementation(async (key: string, value: string) => {
@@ -144,10 +147,12 @@ it('retains the previous character when saving fails and can retry', async () =>
     expect(JSON.stringify(view.toJSON())).toContain(
       'Could not save your character',
     );
-    await act(async () => button(view, 'EXERCISE LIBRARY').props.onPress());
+    act(() => button(view, 'Back to Profile').props.onPress());
+    await act(async () => button(view, 'Exercise Library').props.onPress());
     await act(async () =>
       view.root.findByType(ExerciseLibrary).props.onClose(),
     );
+    act(() => button(view, 'Exercise character').props.onPress());
     expect(button(view, 'Retry character selection').props.disabled).toBe(
       false,
     );
@@ -166,6 +171,7 @@ it('serializes character changes and keeps personalization closed until saving f
   await completeOnboardingForTest();
   const view = await mount();
   act(() => view.root.findByType(Dock).props.onChange('profile'));
+  act(() => button(view, 'Exercise character').props.onPress());
   const original = (AsyncStorage.setItem as jest.Mock).getMockImplementation()!;
   let release!: () => void;
   const blocked = new Promise<void>((resolve) => {
@@ -181,6 +187,8 @@ it('serializes character changes and keeps personalization closed until saving f
       button(view, 'Female').props.onPress();
     });
     expect(button(view, 'Male').props.disabled).toBe(true);
+    act(() => button(view, 'Back to Profile').props.onPress());
+    act(() => button(view, 'Local data').props.onPress());
     expect(button(view, 'Reset local data').props.disabled).toBe(true);
     await act(async () => button(view, 'Reset local data').props.onPress());
     const reset = view.root
@@ -188,9 +196,7 @@ it('serializes character changes and keeps personalization closed until saving f
       .find((node: any) => node.props.confirmLabel === 'Reset local data');
     await act(async () => reset.props.onConfirm());
     expect(await AsyncStorage.getItem(ONBOARDING_KEY)).not.toBeNull();
-    await act(async () => {
-      button(view, 'Male').props.onPress();
-    });
+    act(() => button(view, 'Back to Profile').props.onPress());
     await act(async () => {
       button(view, 'Personalization').props.onPress();
     });
@@ -199,6 +205,7 @@ it('serializes character changes and keeps personalization closed until saving f
       release();
       await blocked;
     });
+    act(() => button(view, 'Exercise character').props.onPress());
     expect(button(view, 'Female').props.selected).toBe(true);
     expect(
       JSON.parse((await AsyncStorage.getItem(ONBOARDING_KEY))!).answers
@@ -243,6 +250,7 @@ it('blocks character changes while initial program recovery is still outstanding
   const view = await mount();
   try {
     act(() => view.root.findByType(Dock).props.onChange('profile'));
+    act(() => button(view, 'Exercise character').props.onPress());
     expect(button(view, 'Female').props.disabled).toBe(true);
     await act(async () => button(view, 'Female').props.onPress());
     expect(
@@ -266,6 +274,12 @@ it('previews dock transparency immediately and restores the committed value on r
   const view = await mount();
   const dock = () => view.root.findByType(Dock);
   act(() => dock().props.onChange('profile'));
+  expect(
+    view.root.findAllByProps({
+      accessibilityLabel: 'Bottom menu transparency',
+    }),
+  ).toHaveLength(0);
+  act(() => button(view, 'Appearance').props.onPress());
   const slider = view.root.findAllByProps({
     accessibilityLabel: 'Bottom menu transparency',
   })[0];

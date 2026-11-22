@@ -1,7 +1,4 @@
-import {
-  LocalizedText as Text,
-  DirectionalIcon as Ionicons,
-} from '@/components/LayoutDirection';
+import { LocalizedText as Text } from '@/components/LayoutDirection';
 import Slider from '@react-native-community/slider';
 import { formatNumber } from '@/lib/i18n/format';
 import { useLocalization } from './LocalizationProvider';
@@ -11,8 +8,8 @@ import type { AccountSectionProps } from './AccountSection';
 
 import type { BackupControlsProps } from './BackupControls';
 import { BackupPage, type BackupPageOptions } from './BackupPage';
-import { useState } from 'react';
-import { BrandHeader } from './BrandHeader';
+import { Children, useState, type ReactNode } from 'react';
+import { useExerciseCharacter } from './ExerciseCharacterProvider';
 import { LanguageSettings } from './LanguageSettings';
 import { ExerciseCharacterSettings } from './ExerciseCharacterPicker';
 import { AppScrollView } from './AppScrollView';
@@ -81,6 +78,10 @@ export function ProfileSettings({
   account,
 }: ProfileSettingsProps) {
   const { t, locale } = useLocalization();
+  const { model } = useExerciseCharacter();
+  const [detail, setDetail] = useState<
+    'appearance' | 'character' | 'data' | null
+  >(null);
   const [transparencyAtGestureStart, setTransparencyAtGestureStart] = useState<
     number | null
   >(null);
@@ -112,8 +113,7 @@ export function ProfileSettings({
     );
   if (workoutsOpen)
     return (
-      <AppScrollView dockAware contentContainerStyle={s.content}>
-        <BrandHeader />
+      <AppScrollView branded dockAware contentContainerStyle={s.content}>
         <AppButton
           title={t('profile.back')}
           disabled={workoutEditing || busy}
@@ -187,199 +187,171 @@ export function ProfileSettings({
         ) : null}
       </AppScrollView>
     );
-  return (
-    <AppScrollView dockAware contentContainerStyle={s.content}>
-      <View style={s.header}>
-        <BrandHeader />
-        <View style={s.heading}>
-          <Text style={s.title} accessibilityRole="header">
-            {t('profile.title')}
-          </Text>
-          <Text style={s.subtitle}>{t('profile.subtitle')}</Text>
-        </View>
-      </View>
-
-      {dockTransparency !== undefined ? (
-        <GlassCard style={s.card}>
-          <Text style={s.sectionTitle} accessibilityRole="header">
-            {t('profile.dockTransparency')}
-          </Text>
-          <Text style={s.sub}>
-            {formatNumber(locale, dockTransparency / 100, { style: 'percent' })}
-          </Text>
-          <Slider
-            accessibilityLabel={t('profile.dockTransparency')}
-            accessibilityRole="adjustable"
-            accessibilityValue={{ min: 0, max: 100, now: dockTransparency }}
-            style={s.transparencySlider}
-            minimumValue={0}
-            maximumValue={100}
-            step={1}
-            value={transparencyAtGestureStart ?? dockTransparency}
-            minimumTrackTintColor={colors.primary}
-            onSlidingStart={() => {
-              setTransparencyAtGestureStart(dockTransparency);
-            }}
-            onValueChange={(value) => {
-              if (transparencyAtGestureStart === null) {
-                onDockTransparencyCommit?.(value);
-              } else {
-                onDockTransparencyChange?.(value);
-              }
-            }}
-            onSlidingComplete={(value) => {
-              setTransparencyAtGestureStart(null);
-              onDockTransparencyCommit?.(value);
-            }}
-          />
-        </GlassCard>
-      ) : null}
-
-      <GlassCard style={s.card}>
-        <View style={s.menuRow}>
-          <View style={s.menuIcon}>
-            <Ionicons
-              name="barbell-outline"
-              size={24}
-              color={colors.textPrimary}
-            />
-          </View>
-          <View style={s.menuCopy}>
-            <AppButton
-              title={t('profile.workouts')}
-              wordmark
-              secondary
-              presentation="row"
-              onPress={() =>
-                onOpenPlans
-                  ? onOpenPlans(() => setWorkoutsOpen(true))
-                  : setWorkoutsOpen(true)
-              }
-            />
-            <Text style={s.sub}>
-              {t('profile.saved', { count: templates.length })}
+  if (detail) {
+    const title =
+      detail === 'appearance'
+        ? t('profile.appearance')
+        : detail === 'character'
+          ? t('character.title')
+          : t('profile.localData');
+    return (
+      <AppScrollView
+        key={detail}
+        branded
+        dockAware
+        contentContainerStyle={s.content}
+      >
+        <AppButton
+          title={t('profile.back')}
+          presentation="text"
+          onPress={() => setDetail(null)}
+        />
+        <Text style={s.title} accessibilityRole="header">
+          {title}
+        </Text>
+        {detail === 'appearance' && dockTransparency !== undefined ? (
+          <GlassCard style={s.card}>
+            <Text style={s.sectionTitle} accessibilityRole="header">
+              {t('profile.dockTransparency')}
             </Text>
-          </View>
-        </View>
-        <View style={s.menuSeparator} />
-        <View style={s.menuRow}>
-          <View style={s.menuIcon}>
-            <Ionicons
-              name="book-outline"
-              size={24}
-              color={colors.textPrimary}
-            />
-          </View>
-          <View style={s.menuCopy}>
-            <AppButton
-              title={t('profile.library')}
-              wordmark
-              secondary
-              presentation="row"
-              onPress={() => setLibraryOpen(true)}
-            />
             <Text style={s.sub}>
-              {t('profile.exercises', {
-                count: searchLocalizedExercises({}, locale).length,
+              {formatNumber(locale, dockTransparency / 100, {
+                style: 'percent',
               })}
             </Text>
-          </View>
-        </View>
-        {onPersonalize ? (
-          <>
-            <View style={s.menuSeparator} />
-            <View style={s.menuRow}>
-              <View style={s.menuIcon}>
-                <Ionicons
-                  name="person-outline"
-                  size={24}
-                  color={colors.textPrimary}
-                />
-              </View>
-              <View style={s.menuCopy}>
-                <AppButton
-                  title={t('profile.personalize')}
-                  secondary
-                  presentation="row"
-                  onPress={onPersonalize}
-                />
-                <Text style={s.sub}>{t('profile.preferences')}</Text>
-              </View>
-            </View>
-          </>
+            <Slider
+              accessibilityLabel={t('profile.dockTransparency')}
+              accessibilityRole="adjustable"
+              accessibilityValue={{ min: 0, max: 100, now: dockTransparency }}
+              style={s.transparencySlider}
+              minimumValue={0}
+              maximumValue={100}
+              step={1}
+              value={transparencyAtGestureStart ?? dockTransparency}
+              minimumTrackTintColor={colors.primary}
+              onSlidingStart={() => {
+                setTransparencyAtGestureStart(dockTransparency);
+              }}
+              onValueChange={(value) => {
+                if (transparencyAtGestureStart === null) {
+                  onDockTransparencyCommit?.(value);
+                } else {
+                  onDockTransparencyChange?.(value);
+                }
+              }}
+              onSlidingComplete={(value) => {
+                setTransparencyAtGestureStart(null);
+                onDockTransparencyCommit?.(value);
+              }}
+            />
+          </GlassCard>
         ) : null}
-      </GlassCard>
-      {backup ? (
-        <GlassCard style={{ ...s.card, ...s.backupCard }}>
-          <View style={s.menuRow}>
-            <View style={[s.menuIcon, s.backupIcon]}>
-              <Ionicons
-                name="archive-outline"
-                size={24}
-                color={colors.primary}
-              />
-            </View>
-            <View style={s.menuCopy}>
+        {detail === 'character' ? (
+          <GlassCard style={s.card}>
+            <ExerciseCharacterSettings />
+          </GlassCard>
+        ) : null}
+        {detail === 'data' ? (
+          <GlassCard style={s.card}>
+            <Text style={s.sub}>{t('profile.removeHint')}</Text>
+            {onResetLocalData ? (
               <AppButton
-                title={t('backup.title')}
-                secondary
-                presentation="row"
-                onPress={() => setBackupOpen(true)}
+                title={t('profile.reset')}
+                destructive
+                presentation="text"
+                disabled={busy}
+                onPress={onResetLocalData}
               />
-              <Text style={s.sub}>{t('profile.backupHint')}</Text>
-            </View>
-          </View>
-        </GlassCard>
-      ) : null}
-      {account ? (
-        <GlassCard>
-          <View style={s.menuRow}>
-            <View style={s.menuIcon}>
-              <Ionicons
-                name="person-circle-outline"
-                size={24}
-                color={colors.textPrimary}
-              />
-            </View>
-            <View style={s.menuCopy}>
-              <AppButton
-                title={t('account.title')}
-                secondary
-                presentation="row"
-                onPress={() => setAccountOpen(true)}
-              />
-              <Text style={s.sub}>
-                {account.snapshot.status === 'signed_in'
-                  ? t('profile.connected')
-                  : t('profile.optionalEmail')}
-              </Text>
-            </View>
-          </View>
-        </GlassCard>
-      ) : null}
-      <GlassCard style={s.card}>
-        <LanguageSettings />
-      </GlassCard>
-      <GlassCard style={s.card}>
-        <ExerciseCharacterSettings />
-      </GlassCard>
-      <GlassCard style={s.card}>
-        <Text style={s.sectionTitle} accessibilityRole="header">
-          {t('profile.localData')}
-        </Text>
-        <Text style={s.sub}>{t('profile.removeHint')}</Text>
-        {onResetLocalData ? (
+            ) : null}
+          </GlassCard>
+        ) : null}
+      </AppScrollView>
+    );
+  }
+  return (
+    <AppScrollView
+      key="profile"
+      branded
+      dockAware
+      contentContainerStyle={s.content}
+    >
+      <Text style={s.title} accessibilityRole="header">
+        {t('profile.title')}
+      </Text>
+      <ProfileGroup title={t('profile.trainingSection')}>
+        <AppButton
+          title={t('profile.myWorkouts')}
+          icon="barbell-outline"
+          presentation="settings"
+          onPress={() =>
+            onOpenPlans
+              ? onOpenPlans(() => setWorkoutsOpen(true))
+              : setWorkoutsOpen(true)
+          }
+        />
+        <AppButton
+          title={t('library.title')}
+          icon="book-outline"
+          value={t('profile.exercises', {
+            count: searchLocalizedExercises({}, locale).length,
+          })}
+          presentation="settings"
+          onPress={() => setLibraryOpen(true)}
+        />
+      </ProfileGroup>
+      <ProfileGroup title={t('profile.settingsSection')}>
+        {onPersonalize ? (
           <AppButton
-            title={t('profile.reset')}
-            destructive
-            presentation="text"
-            disabled={busy}
-            onPress={onResetLocalData}
+            title={t('profile.personalize')}
+            icon="person-outline"
+            presentation="settings"
+            onPress={onPersonalize}
           />
         ) : null}
-      </GlassCard>
-
-      <GlassCard style={s.card}>
+        <LanguageSettings settingsRow />
+        <AppButton
+          title={t('character.title')}
+          icon="body-outline"
+          value={
+            model === 'female' ? t('character.female') : t('character.male')
+          }
+          presentation="settings"
+          onPress={() => setDetail('character')}
+        />
+        {dockTransparency !== undefined ? (
+          <AppButton
+            title={t('profile.appearance')}
+            icon="sunny-outline"
+            presentation="settings"
+            onPress={() => setDetail('appearance')}
+          />
+        ) : null}
+      </ProfileGroup>
+      <ProfileGroup title={t('profile.dataSection')}>
+        {account ? (
+          <AppButton
+            title={t('account.title')}
+            icon="person-circle-outline"
+            presentation="settings"
+            onPress={() => setAccountOpen(true)}
+          />
+        ) : null}
+        {backup ? (
+          <AppButton
+            title={t('backup.title')}
+            icon="archive-outline"
+            presentation="settings"
+            onPress={() => setBackupOpen(true)}
+          />
+        ) : null}
+        <AppButton
+          title={t('profile.localData')}
+          icon="save-outline"
+          presentation="settings"
+          onPress={() => setDetail('data')}
+        />
+      </ProfileGroup>
+      <View style={s.about}>
         <Text style={s.aboutTitle}>CRESUM</Text>
         <Text style={s.sub}>{t('profile.about')}</Text>
         {version ? (
@@ -387,30 +359,54 @@ export function ProfileSettings({
             {t('profile.version', { version: displayAppVersion(version) })}
           </Text>
         ) : null}
-      </GlassCard>
+      </View>
     </AppScrollView>
+  );
+}
+
+function ProfileGroup({
+  title,
+  children,
+}: {
+  title: string;
+  children: ReactNode;
+}) {
+  return (
+    <View style={s.group}>
+      <Text style={s.groupTitle} accessibilityRole="header">
+        {title}
+      </Text>
+      <View style={s.groupCard}>
+        {Children.toArray(children).map((row, index) => (
+          <View key={index}>
+            {index > 0 ? <View style={s.menuSeparator} /> : null}
+            {row}
+          </View>
+        ))}
+      </View>
+    </View>
   );
 }
 
 const s = StyleSheet.create({
   transparencySlider: { minHeight: 44 },
-  menuRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
-  menuCopy: { flex: 1 },
-  menuIcon: {
-    width: 44,
-    height: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.surfaceSubtle,
-    borderRadius: radius.md,
+  group: { gap: spacing.xs },
+  groupTitle: {
+    ...typography.headline,
+    color: colors.textSecondary,
+    paddingHorizontal: spacing.xs,
+  },
+  groupCard: {
+    backgroundColor: colors.surface,
+    borderRadius: radius.xl,
+    overflow: 'hidden',
   },
   menuSeparator: {
     height: StyleSheet.hairlineWidth,
     backgroundColor: colors.separator,
-    marginVertical: spacing.sm,
+    marginHorizontal: spacing.md,
   },
-  backupCard: { backgroundColor: colors.primaryTint },
-  backupIcon: { backgroundColor: colors.surface },
+  about: { gap: spacing.xxs, paddingHorizontal: spacing.xs },
   content: {
     width: '100%',
     maxWidth: 600,
@@ -419,8 +415,6 @@ const s = StyleSheet.create({
     paddingBottom: spacing.lg,
     gap: spacing.lg,
   },
-  header: { gap: spacing.lg, paddingVertical: spacing.xs },
-  heading: { gap: spacing.xxs },
   title: { ...typography.largeTitle, color: colors.textPrimary },
   sub: { ...typography.footnote, color: colors.textSecondary },
   subtitle: { ...typography.subheadline, color: colors.textSecondary },
