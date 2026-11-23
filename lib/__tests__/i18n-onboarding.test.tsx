@@ -1,3 +1,4 @@
+import { StarterProgramSchedule } from '../../components/StarterProgramSchedule';
 import { AppPicker } from '../../components/AppPicker';
 import { TextInput } from 'react-native';
 import { Onboarding } from '../../components/Onboarding';
@@ -9,8 +10,6 @@ import type { ProgramAssignment } from '../training-programs/assignment';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import App from '../../app/index';
 import { ONBOARDING_KEY } from '../onboarding-repository';
-import { AppDatePicker } from '../../components/AppDatePicker';
-import { calendarTime } from '../picker-date';
 const { act, create } = jest.requireActual('react-test-renderer');
 jest.mock('react-native-safe-area-context', () => ({
   SafeAreaView: jest.requireActual('react-native').View,
@@ -101,13 +100,13 @@ it('retains onboarding answers, proposal identity and retry state across languag
     await press('Continuer');
     await press('Trouver un programme');
     await press('Développer les muscles');
-    await press('Continuer');
-    await press('Séance 1');
-    await press('Voir le programme complet');
     expect(JSON.stringify(view!.toJSON())).toContain(
       'Développé couché aux haltères',
     );
-    await press('Commencer');
+    await press('Configurer le planning');
+    const done = () =>
+      view!.root.findByType(StarterProgramSchedule).props.onDone();
+    await act(async () => done());
     expect(complete).toHaveBeenCalledTimes(1);
     expect(JSON.stringify(view!.toJSON())).not.toContain(
       'SECRET_BACKEND_DIAGNOSTIC',
@@ -119,7 +118,7 @@ it('retains onboarding answers, proposal identity and retry state across languag
       'Не удалось сохранить программу. Повторите попытку; ваши тренировки сохранены.',
     );
     expect(complete).toHaveBeenCalledTimes(1);
-    await press('Повторить старт');
+    await act(async () => done());
     expect(complete).toHaveBeenCalledTimes(2);
     expect(complete.mock.calls[1]).toEqual(complete.mock.calls[0]);
     const [state, proposal] = complete.mock.calls[1];
@@ -132,7 +131,7 @@ it('retains onboarding answers, proposal identity and retry state across languag
     });
   }
 });
-it('preserves custom schedule, start-date picker and frequency error across languages', async () => {
+it('preserves recurring weekdays across languages', async () => {
   const locale = new LocaleStore(
     {
       getItem: async () => JSON.stringify({ version: 1, preference: 'de' }),
@@ -177,62 +176,24 @@ it('preserves custom schedule, start-date picker and frequency error across lang
     });
   };
   try {
-    await press('Training 1');
-    await press('Zeitplanoptionen');
-    const start = view!.root
-      .findAllByType(AppButton)
-      .find((n: { props: { title: string } }) =>
-        n.props.title.startsWith('Startdatum ·'),
-      )!;
-    await act(async () => {
-      start.props.onPress();
-    });
-    const date = calendarTime(2026, 10, 2);
-    await act(async () => {
-      view!.root.findByType(AppDatePicker).props.onChange(date);
-    });
-    await act(async () => {
-      await locale.select('fr');
-    });
-    expect(view!.root.findByType(AppDatePicker).props.value).toBe(date);
-    await press('Terminé');
-    const inputs = view!.root.findAllByType(TextInput);
-    for (let index = 0; index < 3; index++)
-      await act(async () => {
-        inputs[index].props.onChangeText(String(2 + 2 * index));
-      });
-    await press('2 entraînements');
-    expect(JSON.stringify(view!.toJSON())).toContain(
-      'Aucun programme vérifié pour cette fréquence.',
-    );
+    await press('Zeitplan festlegen');
+    const calendar = () => view!.root.findByType(StarterProgramSchedule);
+    await act(async () => calendar().props.onToggle(0));
+    await act(async () => calendar().props.onToggle(1));
     await act(async () => {
       await locale.select('ru');
     });
     expect(JSON.stringify(view!.toJSON())).toContain(
-      'Для этой частоты нет проверенной программы.',
+      'Выберите три дня недели.',
     );
-    expect(
-      view!.root
-        .findAllByType(TextInput)
-        .map((n: { props: { value: string } }) => n.props.value),
-    ).toEqual(['2', '4', '6']);
-    await press('3 тренировки');
-    await act(async () => {
-      await locale.select('en');
-    });
-    await press('Begin');
+    expect(calendar().props.selected.slice().sort()).toEqual([1, 2, 4]);
+    await act(async () => calendar().props.onDone());
     expect(complete).toHaveBeenCalledTimes(1);
-    const proposal = complete.mock.calls[0][1];
-    expect(proposal!.startDate).toBe('2026-11-02');
-    expect(
-      proposal!.program.schedule[0].map(
-        (slot: { offset: number }) => slot.offset,
-      ),
-    ).toEqual([1, 3, 5]);
+    const [state, proposal] = complete.mock.calls[0];
+    expect(state.answers.scheduleWeekdays?.slice().sort()).toEqual([1, 2, 4]);
+    expect(proposal!.program.schedule[0]).toHaveLength(3);
   } finally {
-    await act(async () => {
-      view!.unmount();
-    });
+    await act(async () => view!.unmount());
   }
 });
 it('translates real-app onboarding load recovery without exposing diagnostics or retrying on locale changes', async () => {

@@ -1,4 +1,12 @@
 export default {
+  'program.universal': 'सर्वांगीण कार्यक्रम',
+  'onboarding.configureSchedule': 'वेळापत्रक ठरवा',
+  'onboarding.chooseWeekdays': 'आठवड्यातील तीन दिवस निवडा.',
+  'program.chestAndArms': 'छाती आणि हात',
+  'program.treadmill': 'ट्रेडमिलवर चालणे',
+  'program.bike': 'स्थिर व्यायाम सायकल',
+  'program.moderate': 'मध्यम तीव्रता',
+
   'onboarding.decimalPart': 'दशांश भाग',
   'onboarding.welcomeTagline': 'तुमची व्यायाम सत्रे, एकाच ठिकाणी.',
   'onboarding.bodyOptionalHelp': 'हवी ती माहिती जोडा. ती प्रोफाइलमध्ये बदलता येईल.',

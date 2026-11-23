@@ -9,6 +9,49 @@ import { findExercise } from '../exercise-library';
 import { AppError } from '../app-error';
 export const localDate = (date = new Date()): string =>
   `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+export const weekdayOffset = (date: Date): number => (date.getDay() + 6) % 7;
+
+export function recurringProgramSchedule(
+  program: ProgramDefinition,
+  weekdays: readonly number[],
+  today: Date,
+) {
+  if (weekdays.some((day) => !Number.isInteger(day) || day < 0 || day > 6))
+    throw new AppError('program_schedule', 'Choose valid training weekdays.');
+  const offset = weekdayOffset(today);
+  const days = weekdays
+    .map((day) => (day - offset + 7) % 7)
+    .sort((a, b) => a - b);
+  const first = days[0] ?? 0;
+  return {
+    startDate: addCalendarDays(localDate(today), first),
+    program: adjustProgramSchedule(
+      program,
+      days.map((day) => day - first),
+    ),
+  };
+}
+
+export function timedActivitiesForWorkout(
+  assignment: ProgramAssignment | null | undefined,
+  session: WorkoutSession | null,
+) {
+  if (!assignment || !session || assignment.program.revision !== 2) return;
+  const index = assignment.templates.findIndex(
+    (template) => template.id === session.templateId,
+  );
+  if (index < 0) return;
+  const day = assignment.program.days[index];
+  const slot = assignment.program.schedule[0].find(
+    ({ dayKey }) => dayKey === day.key,
+  );
+  return {
+    hold: day.hold,
+    cardio: assignment.program.cardio.find(
+      ({ offset }) => offset === slot?.offset,
+    ),
+  };
+}
 export const addCalendarDays = (date: string, days: number): string => {
   if (!validLocalDate(date)) throw Error('Invalid local date');
   const [y, m, d] = date.split('-').map(Number);
@@ -79,7 +122,11 @@ export const projectProgramWeek = (
     weekIndex,
     slots,
     days,
-    nextSlot: slots.find((s) => !s.completedWorkoutIds.length),
+    nextSlot: slots.find(
+      (s) =>
+        !s.completedWorkoutIds.length &&
+        (a.program.revision === 1 || !s.missed),
+    ),
   };
 };
 export const templateForProgramSlot = (
@@ -134,6 +181,16 @@ export const adjustProgramSchedule = (
   adjusted.schedule = adjusted.schedule.map((w) =>
     w.map((s, i) => ({ ...s, offset: offsets[i] })),
   );
+  if (program.revision === 2) {
+    adjusted.cardio = program.cardio.map((block) => ({
+      ...block,
+      offset:
+        offsets[
+          program.schedule[0].findIndex((slot) => slot.offset === block.offset)
+        ],
+    }));
+    return adjusted;
+  }
   const repeated = [...adjusted.schedule, ...adjusted.schedule].flatMap(
     (w, week) => w.map((s) => ({ ...s, absolute: week * 7 + s.offset })),
   );

@@ -30,6 +30,11 @@ import { Confirmation } from './Confirmation';
 import { ExerciseLibrary } from './ExerciseLibrary';
 import { ExerciseTechnique } from './ExerciseTechnique';
 import { ExerciseArtwork } from './ExerciseArtwork';
+import { ProgramTimedActivities } from './StarterProgramReview';
+import type {
+  CardioGuidance,
+  ProgramHold,
+} from '@/lib/training-programs/model';
 import { SetEntrySheet } from './SetEntrySheet';
 import { previousEntry, saveSetEntry } from '@/lib/set-entry';
 import { findExercise } from '@/lib/exercise-library';
@@ -83,8 +88,10 @@ export function Workout({
   onStartTemplate,
   onStartPlan,
   onStartEmpty,
+  timedActivities,
 }: {
   session: WorkoutSession | null;
+  timedActivities?: { hold?: ProgramHold; cardio?: CardioGuidance };
   history: WorkoutSession[];
   update: (transform: (session: WorkoutSession) => WorkoutSession) => void;
   finish: () => void;
@@ -597,6 +604,9 @@ export function Workout({
             )}
           </GlassCard>
         )}
+        {timedActivities ? (
+          <ProgramTimedActivities {...timedActivities} />
+        ) : null}
         {deadline !== undefined && (
           <GlassCard style={s.restCard}>
             <View style={s.restHeading}>

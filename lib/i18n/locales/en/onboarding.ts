@@ -1,4 +1,12 @@
 export default {
+  'program.universal': 'Universal',
+  'onboarding.configureSchedule': 'Set schedule',
+  'onboarding.chooseWeekdays': 'Choose three days of the week.',
+  'program.chestAndArms': 'Chest and arms',
+  'program.treadmill': 'Treadmill walking',
+  'program.bike': 'Stationary bike',
+  'program.moderate': 'Moderate',
+
   'onboarding.decimalPart': 'Decimal part',
   'onboarding.welcomeTagline': 'Your workouts, all in one place.',
   'onboarding.bodyOptionalHelp':

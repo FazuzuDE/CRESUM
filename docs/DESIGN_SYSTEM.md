@@ -2798,3 +2798,15 @@ button keeps its normal appearance during wheel motion while taps remain blocked
 Feedback errors must not block selection/dismissal. No extra switch or
 new application copy is introduced. Physical sound/mute/routing and scroll-feel
 acceptance remain pending on Expo Go.
+
+### Starter program review and schedule — approved 2026-11-23
+
+Show all three numbered workout sections on one screen. Use catalog artwork,
+rep ranges and the last recorded weight where available. Use a clock
+placeholder and show duration and intensity for cardio guidance. Set schedule
+is the single forward action.
+
+Show Monday through Sunday as selectable circles above two fixed month grids.
+Keep the current month on the left and the next month on the right. Highlight
+every matching weekday in both grids as the user changes the selection.
+Place a green checkmark and localized Done label below the calendars.

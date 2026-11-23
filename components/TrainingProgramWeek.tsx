@@ -15,8 +15,7 @@ import type { WorkoutSession, WorkoutTemplate } from '@/lib/workout-model';
 import { spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { formatDate } from '@/lib/i18n/format';
-import { catalogLabel } from '@/lib/i18n/catalog';
-import { programDayLabel } from '@/lib/i18n/program';
+import { programDayLabel, programTitle } from '@/lib/i18n/program';
 type Props = {
   assignment: ProgramAssignment;
   history: readonly WorkoutSession[];
@@ -61,14 +60,7 @@ export function TrainingProgramWeek({
       <Text style={s.title} accessibilityRole="header">
         {t('plan.title')}
       </Text>
-      <Text style={s.name}>
-        {catalogLabel(
-          locale,
-          'program',
-          assignment.program.id,
-          assignment.program.name,
-        )}
-      </Text>
+      <Text style={s.name}>{programTitle(t, locale, assignment.program)}</Text>
       <Text style={s.meta}>
         {t('plan.week', {
           week: week.weekIndex + 1,

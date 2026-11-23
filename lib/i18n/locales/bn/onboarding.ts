@@ -1,4 +1,12 @@
 export default {
+  'program.universal': 'সর্বাঙ্গীণ কর্মসূচি',
+  'onboarding.configureSchedule': 'সময়সূচি ঠিক করুন',
+  'onboarding.chooseWeekdays': 'সপ্তাহের তিনটি দিন বেছে নিন।',
+  'program.chestAndArms': 'বুক ও বাহু',
+  'program.treadmill': 'ট্রেডমিলে হাঁটা',
+  'program.bike': 'স্থির সাইকেল',
+  'program.moderate': 'মাঝারি তীব্রতা',
+
   'onboarding.decimalPart': 'দশমিক অংশ',
   'onboarding.welcomeTagline': 'আপনার সব ওয়ার্কআউট এক জায়গায়।',
   'onboarding.bodyOptionalHelp':

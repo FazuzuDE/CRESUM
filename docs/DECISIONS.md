@@ -4695,3 +4695,10 @@ bound to their current data and screens.
 Align the inline atlas with the function heading and mirror the inset on the
 opposite side. Fill selected muscle regions in red, including at zero sets.
 Use the shared atlas and this presentation for current and future muscle details.
+
+## 2026-11-23 — Five starter programs and recurring calendar
+
+The owner requested the Universal plan first and adopted three sessions per
+week. Show all sessions as soon as a goal is selected, with a single
+schedule action. Choose weekdays with circles, preview the matching dates in
+two side-by-side months, and accept the assignment via the green checkmark.

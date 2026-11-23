@@ -1,4 +1,12 @@
 export default {
+  'program.universal': '総合プログラム',
+  'onboarding.configureSchedule': 'スケジュールを設定',
+  'onboarding.chooseWeekdays': '週に3日を選択してください。',
+  'program.chestAndArms': '胸と腕',
+  'program.treadmill': 'トレッドミルでのウォーキング',
+  'program.bike': 'エアロバイク',
+  'program.moderate': '中強度',
+
   'onboarding.decimalPart': '小数部分',
   'onboarding.welcomeTagline': 'ワークアウトをひとつの場所に。',
   'onboarding.bodyOptionalHelp':

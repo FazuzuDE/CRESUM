@@ -1312,3 +1312,20 @@ exercise guides and search alternatives before selection. Reuse the shared
 registry-driven wheel, numeric entry/formatting and publication fallback.
 Preserve offline Core, stable IDs, historical names and unfinished editors.
 Independent language and physical-device acceptance remain pending.
+
+### Starter program selection and recurring schedule — approved 2026-11-23
+
+The current starter programs supersede the original prescriptions for new
+selections. List Universal first, then Muscle, Strength, Weight loss and
+General fitness. Each program has three workouts with six planned activities.
+Universal emphasizes chest, legs, then chest and arms. Repetition targets,
+holds in seconds and moderate cardio in minutes are shown together. Timed
+guidance belongs to the corresponding workout and stays separate from the
+strength-set log. Previously accepted assignments retain their saved program
+and templates.
+
+Selecting a goal opens all three workouts immediately. Set schedule opens
+recurring weekday selection with Monday, Wednesday and Friday initially
+selected. Confirm exactly three days to accept the assignment and return to
+Home. Workout 1 is scheduled on the first selected day on or after today.
+The existing manual route is available before picking a program.

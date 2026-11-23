@@ -1,3 +1,4 @@
+import { StarterProgramSchedule } from '../../components/StarterProgramSchedule';
 import { isPressable } from './pressable';
 import { ContentScrollView } from '../../components/ContentScrollView';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -161,10 +162,13 @@ it('collects a name on the welcome screen before showing the normal dock', async
 it('persists a goal selection through Back and reload and opens the review directly', async () => {
   const view = await mount();
   await enterGoal(view);
-  expect(button(view, 'Continue').props.disabled).toBe(true);
+  expect(
+    view.root
+      .findAllByType(AppButton)
+      .find((item: any) => item.props.presentation === 'choice').props.title,
+  ).toBe('Universal');
   await act(async () => button(view, 'Build muscle').props.onPress());
-  await act(async () => button(view, 'Continue').props.onPress());
-  expect(button(view, 'Begin')).toBeDefined();
+  expect(button(view, 'Set schedule')).toBeDefined();
   expect(button(view, 'Beginner')).toBeUndefined();
   const back = view.root
     .findAll(
@@ -180,8 +184,11 @@ it('persists a goal selection through Back and reload and opens the review direc
   await act(async () => view.unmount());
   const restored = await mount();
   expect(button(restored, 'Build muscle').props.selected).toBe(true);
-  await act(async () => button(restored, 'Continue').props.onPress());
-  await act(async () => button(restored, 'Begin').props.onPress());
+  await act(async () => button(restored, 'Build muscle').props.onPress());
+  await act(async () => button(restored, 'Set schedule').props.onPress());
+  await act(async () =>
+    restored.root.findByType(StarterProgramSchedule).props.onDone(),
+  );
   expect(restored.root.findByType(Dock).props.active).toBe('home');
   await act(async () => restored.unmount());
   const completed = await mount();
@@ -193,13 +200,22 @@ it('preserves the Lose weight selection and reviews the fitness starter plan', a
   const view = await mount();
   await enterGoal(view);
   await act(async () => button(view, 'Lose weight').props.onPress());
-  await act(async () => button(view, 'Continue').props.onPress());
-  expect(button(view, 'Workout 1')).toBeDefined();
-  expect(button(view, 'Workout 2')).toBeDefined();
-  expect(button(view, 'Workout 3')).toBeUndefined();
-  await act(async () => button(view, 'Workout 1').props.onPress());
-  expect(JSON.stringify(view.toJSON())).toContain('Dumbbell Bench Press');
-  await act(async () => button(view, 'Begin').props.onPress());
+  for (const title of [
+    'Workout 1',
+    'Workout 2',
+    'Workout 3',
+    'Treadmill walking',
+    'Stationary bike',
+  ]) {
+    expect(JSON.stringify(view.toJSON())).toContain(title);
+  }
+  expect(
+    view.root.findAllByType(AppButton).map((item: any) => item.props.title),
+  ).toEqual(['Set schedule']);
+  await act(async () => button(view, 'Set schedule').props.onPress());
+  await act(async () =>
+    view.root.findByType(StarterProgramSchedule).props.onDone(),
+  );
   const saved = JSON.parse((await AsyncStorage.getItem(ONBOARDING_KEY))!);
   expect(saved.answers.goal).toBe('lose_weight');
   expect(view.root.findByType(Dock).props.active).toBe('home');
@@ -395,8 +411,10 @@ it('does not turn body details into workout history', async () => {
   await act(async () => button(view, 'Continue')?.props.onPress());
   await act(async () => button(view, 'Find a program')?.props.onPress());
   await act(async () => button(view, 'Build muscle')?.props.onPress());
-  await act(async () => button(view, 'Continue')?.props.onPress());
-  await act(async () => button(view, 'Begin')?.props.onPress());
+  await act(async () => button(view, 'Set schedule')?.props.onPress());
+  await act(async () =>
+    view.root.findByType(StarterProgramSchedule).props.onDone(),
+  );
   expect(JSON.parse((await AsyncStorage.getItem(STATE_KEY))!).history).toEqual(
     [],
   );

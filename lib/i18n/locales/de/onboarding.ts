@@ -1,4 +1,12 @@
 export default {
+  'program.universal': 'Universal',
+  'onboarding.configureSchedule': 'Zeitplan festlegen',
+  'onboarding.chooseWeekdays': 'Wähle drei Wochentage.',
+  'program.chestAndArms': 'Brust und Arme',
+  'program.treadmill': 'Gehen auf dem Laufband',
+  'program.bike': 'Fahrradergometer',
+  'program.moderate': 'Moderat',
+
   'onboarding.decimalPart': 'Nachkommastelle',
   'onboarding.welcomeTagline': 'Alle deine Workouts an einem Ort.',
   'onboarding.bodyOptionalHelp':
