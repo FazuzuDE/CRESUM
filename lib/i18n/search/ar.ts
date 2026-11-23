@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 // Arabic gym alternatives are discovery metadata, never persistence identities.
 export default {
   exercise: {
+    'treadmill-walking': ['جهاز المشي', 'المشي على السير'],
     'barbell-bench-press': ['بنش بار مستوي', 'بنش برس', 'bench press'],
     'incline-dumbbell-press': [
       'بنش دمبل مائل',

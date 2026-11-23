@@ -166,7 +166,13 @@ function run() {
     fs.writeFileSync(baselinePath, JSON.stringify(current, null, 2) + '\n');
     return;
   }
-  const baseline = JSON.parse(fs.readFileSync(baselinePath, 'utf8'));
+  const additions = JSON.parse(
+    fs.readFileSync('docs/localization-additions.json', 'utf8'),
+  );
+  const baseline = [
+    ...JSON.parse(fs.readFileSync(baselinePath, 'utf8')),
+    ...additions,
+  ];
   const errors = validateCatalogs(catalogs);
   const untracked = compareInventory(current, baseline);
   errors.push(
@@ -188,9 +194,10 @@ function run() {
       muscle: muscleTaxonomy,
     }),
   );
-  const classifications = JSON.parse(
-    fs.readFileSync('docs/localization-classified.json', 'utf8'),
-  );
+  const classifications = [
+    ...JSON.parse(fs.readFileSync('docs/localization-classified.json', 'utf8')),
+    ...additions,
+  ];
   const acceptance = JSON.parse(
     fs.readFileSync('docs/localization-acceptance.json', 'utf8'),
   );

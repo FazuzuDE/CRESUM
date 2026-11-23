@@ -1,4 +1,10 @@
 export default {
+  'guide.treadmill-walking.scope': 'মোটরচালিত ট্রেডমিলে হাঁটা।',
+  'guide.treadmill-walking.setup.0': 'শুরু করার আগে পোশাকে সেফটি ক্লিপ লাগান।',
+  'guide.treadmill-walking.movement.0':
+    'কম গতিতে শুরু করুন এবং ধাপে ধাপে গতি বাড়ান।',
+  'guide.treadmill-walking.checks.0': 'মাথা ও শরীর সামনের দিকে রাখুন।',
+  'guide.treadmill-walking.mistakes.0': 'ঘুরে দাঁড়ানোর আগে বেল্ট থামান।',
   'guide.hanging-straight-leg-raise.scope':
     'মাথার ওপরের বার থেকে ঝুলে সোজা পা তোলা।',
   'guide.hanging-straight-leg-raise.setup.0':

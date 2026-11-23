@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.treadmill-walking': 'トレッドミルでのウォーキング',
   'catalog.exercise.barbell-bench-press': 'バーベルベンチプレス',
   'catalog.exercise.incline-dumbbell-press': 'インクラインダンベルプレス',
   'catalog.exercise.dumbbell-bench-press': 'ダンベルベンチプレス',

@@ -1,4 +1,11 @@
 export default {
+  'guide.treadmill-walking.scope': '전동 러닝머신에서 걷기.',
+  'guide.treadmill-walking.setup.0':
+    '시작하기 전에 안전 클립을 옷에 고정하세요.',
+  'guide.treadmill-walking.movement.0':
+    '낮은 속도로 시작해 조금씩 속도를 올리세요.',
+  'guide.treadmill-walking.checks.0': '머리와 몸을 정면으로 향하게 하세요.',
+  'guide.treadmill-walking.mistakes.0': '몸을 돌리기 전에 벨트를 멈추세요.',
   'guide.hanging-straight-leg-raise.scope':
     '머리 위 철봉에 매달려 다리를 곧게 들어 올리는 운동입니다.',
   'guide.hanging-straight-leg-raise.setup.0':

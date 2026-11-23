@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 // Search-only alternatives; never displayed or persisted as exercise identity.
 export default {
   exercise: {
+    'treadmill-walking': ['Laufband', 'Laufband gehen'],
     'barbell-bench-press': ['Flachbank', 'Bankdrücken Langhantel'],
     'incline-dumbbell-press': ['Schrägbank Kurzhanteln'],
     'dumbbell-bench-press': ['Flachbank Kurzhanteln'],

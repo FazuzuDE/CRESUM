@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.treadmill-walking': 'Marche sur tapis',
   'catalog.exercise.hanging-straight-leg-raise':
     'Relevé des jambes tendues en suspension',
   'catalog.exercise.captains-chair-knee-raise':

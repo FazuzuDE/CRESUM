@@ -37,7 +37,6 @@ const snapshot = (libraryId: string): WorkoutSession => ({
 
 describe('non-destructive exercise catalog adapter', () => {
   it('keeps the existing catalog as the source of display and movement metadata', () => {
-    expect(exerciseLibrary).toHaveLength(70);
     expect(catalogVariants.map(({ id }) => id)).toEqual([
       'barbell-bench-press',
       'incline-dumbbell-press',
@@ -88,7 +87,7 @@ describe('non-destructive exercise catalog adapter', () => {
       expect(source.equipment).toContain(variant.equipmentType);
       expect(variant).not.toBe(source);
     }
-    expect(findExercise('bench')).toBe(exerciseLibrary[0]);
+    expect(findExercise('bench')).toBe(findExercise('barbell-bench-press'));
   });
 
   it('maps only defensible families and keeps generic IDs unspecified', () => {
@@ -149,7 +148,13 @@ describe('non-destructive exercise catalog adapter', () => {
         exerciseLibrary.some((item) => item.id === id),
       ),
     ).toBe(true);
-    expect(catalogVariants.length + unmappedExerciseIds.length).toBe(70);
+    const classifiedIds = [
+      ...catalogVariants.map(({ id }) => id),
+      ...unmappedExerciseIds,
+    ];
+    expect(classifiedIds.sort()).toEqual(
+      exerciseLibrary.map(({ id }) => id).sort(),
+    );
     expect(getFamilyForExercise('barbell-bench-press')).toBe(
       getCatalogFamily('bench-press'),
     );

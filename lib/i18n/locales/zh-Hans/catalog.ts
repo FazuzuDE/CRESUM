@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.treadmill-walking': '跑步机走路',
   'catalog.exercise.barbell-bench-press': '杠铃卧推',
   'catalog.exercise.incline-dumbbell-press': '上斜哑铃卧推',
   'catalog.exercise.dumbbell-bench-press': '哑铃卧推',

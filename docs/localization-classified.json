@@ -4373,6 +4373,10 @@
         "context": "StringLiteral/PropertyAssignment:name/ObjectLiteralExpression/CallExpression/ArrayLiteralExpression"
       },
       {
+        "text": "Treadmill walking",
+        "context": "StringLiteral/PropertyAssignment:name/ObjectLiteralExpression/CallExpression/ArrayLiteralExpression"
+      },
+      {
         "text": "chest",
         "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:primaryMuscles/ObjectLiteralExpression/CallExpression"
       },
@@ -4968,6 +4972,10 @@
       },
       {
         "text": "carry",
+        "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+      },
+      {
+        "text": "cardio",
         "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
       },
       {

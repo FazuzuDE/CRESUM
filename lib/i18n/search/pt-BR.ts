@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 // Search-only alternatives; never displayed or persisted as exercise identity.
 export default {
   exercise: {
+    'treadmill-walking': ['esteira', 'caminhar na esteira'],
     'barbell-bench-press': ['supino reto', 'supino barra'],
     'incline-dumbbell-press': ['supino inclinado halteres'],
     'dumbbell-bench-press': ['supino reto halteres'],

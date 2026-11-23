@@ -137,7 +137,10 @@ export function ExerciseLibrary({
       equipment,
     },
     locale,
-  );
+  ).filter(({ movementPattern }) => {
+    // Workout and template pickers currently record weight and repetitions.
+    return (!onToggle && !onAdd) || movementPattern !== 'cardio';
+  });
   const selectionMode = Boolean(onToggle);
   const browsing = !selectionMode && !onAdd;
   const CopyContainer = browsing ? Pressable : View;

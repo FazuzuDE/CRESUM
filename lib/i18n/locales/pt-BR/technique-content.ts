@@ -1,4 +1,12 @@
 export default {
+  'guide.treadmill-walking.scope': 'Caminhada em esteira motorizada.',
+  'guide.treadmill-walking.setup.0':
+    'Prenda o clipe de segurança à roupa antes de começar.',
+  'guide.treadmill-walking.movement.0':
+    'Comece em baixa velocidade e aumente aos poucos.',
+  'guide.treadmill-walking.checks.0':
+    'Mantenha a cabeça e o corpo voltados para a frente.',
+  'guide.treadmill-walking.mistakes.0': 'Pare a esteira antes de se virar.',
   'guide.hanging-straight-leg-raise.scope':
     'Elevação de pernas estendidas em suspensão na barra fixa.',
   'guide.hanging-straight-leg-raise.setup.0':

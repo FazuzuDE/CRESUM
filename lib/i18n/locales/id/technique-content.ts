@@ -1,4 +1,13 @@
 export default {
+  'guide.treadmill-walking.scope': 'Berjalan di atas treadmill bermotor.',
+  'guide.treadmill-walking.setup.0':
+    'Pasang klip pengaman pada pakaian sebelum mulai.',
+  'guide.treadmill-walking.movement.0':
+    'Mulai dengan kecepatan rendah lalu naikkan sedikit demi sedikit.',
+  'guide.treadmill-walking.checks.0':
+    'Jaga kepala dan badan tetap menghadap ke depan.',
+  'guide.treadmill-walking.mistakes.0':
+    'Hentikan sabuk treadmill sebelum berbalik badan.',
   'guide.hanging-straight-leg-raise.scope':
     'Angkat tungkai lurus sambil menggantung pada palang di atas kepala.',
   'guide.hanging-straight-leg-raise.setup.0':

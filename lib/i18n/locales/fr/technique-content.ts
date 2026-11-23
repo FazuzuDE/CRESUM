@@ -1,5 +1,12 @@
 import { flattenTechniqueText } from '../../technique-text';
 export default flattenTechniqueText({
+  'treadmill-walking': {
+    scope: 'Marche sur un tapis roulant motorisé.',
+    setup: ['Fixe la pince de sécurité à tes vêtements avant de démarrer.'],
+    movement: ['Pars à faible vitesse et augmente-la par petits paliers.'],
+    checks: ['Garde la tête et le corps orientés vers l’avant.'],
+    mistakes: ['Arrête le tapis avant de te retourner.'],
+  },
   'hanging-straight-leg-raise': {
     scope: 'Relevé des jambes tendues en suspension à une barre.',
     setup: [

@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 // Search-only alternatives; never persisted as exercise identities.
 export default {
   exercise: {
+    'treadmill-walking': ['treadmill', 'jalan di treadmill'],
     'barbell-bench-press': [
       'bench press barbel',
       'angkat barbel dada',

@@ -1,4 +1,11 @@
 export default {
+  'guide.treadmill-walking.scope': 'Camminata su tapis roulant motorizzato.',
+  'guide.treadmill-walking.setup.0':
+    'Prima di partire, fissa la clip di sicurezza ai vestiti.',
+  'guide.treadmill-walking.movement.0':
+    'Inizia a bassa velocità e aumentala gradualmente.',
+  'guide.treadmill-walking.checks.0': 'Tieni testa e busto rivolti in avanti.',
+  'guide.treadmill-walking.mistakes.0': 'Arresta il nastro prima di girarti.',
   'guide.hanging-straight-leg-raise.scope':
     'Sollevamento delle gambe tese in sospensione a una sbarra alta.',
   'guide.hanging-straight-leg-raise.setup.0':

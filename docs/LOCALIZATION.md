@@ -252,7 +252,9 @@ Expo Go layout/accessibility acceptance remain pending in the ledger.
 `npm run i18n:report` emits catalog counts, locale release flags, release eligibility,
 source candidates and unclassified candidates grouped by file.
 `docs/localization-pending.json` retains its compatibility filename and stores the
-full inventory with file, line, text and syntax-parent context.
+baseline inventory with file, line, text and syntax-parent context.
+`docs/localization-additions.json` records new reviewed source sites with the
+same coordinates and a classification, without regenerating either baseline.
 `docs/localization-classified.json` records exact reviewed sites and reasons;
 it does not exempt entire files or future strings. Moving an internal token into
 visible JSX invalidates that classification. The inventory includes technical

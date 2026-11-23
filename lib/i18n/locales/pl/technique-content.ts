@@ -1,4 +1,13 @@
 export default {
+  'guide.treadmill-walking.scope': 'Marsz na bieżni mechanicznej.',
+  'guide.treadmill-walking.setup.0':
+    'Przed uruchomieniem przypnij klips bezpieczeństwa do ubrania.',
+  'guide.treadmill-walking.movement.0':
+    'Zacznij od małej prędkości i zwiększaj ją stopniowo.',
+  'guide.treadmill-walking.checks.0':
+    'Trzymaj głowę i tułów skierowane do przodu.',
+  'guide.treadmill-walking.mistakes.0':
+    'Zatrzymaj pas bieżni, zanim się odwrócisz.',
   'guide.hanging-straight-leg-raise.scope':
     'Unoszenie prostych nóg w zwisie na wysokim drążku.',
   'guide.hanging-straight-leg-raise.setup.0':

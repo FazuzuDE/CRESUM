@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 // Search-only alternatives; never displayed or persisted as exercise identity.
 export default {
   exercise: {
+    'treadmill-walking': ['treadmill', 'walk on treadmill'],
     'barbell-bench-press': ['bench', 'flat bench', 'BB bench'],
     'incline-dumbbell-press': ['incline DB press', 'incline dumbbell bench'],
     'dumbbell-bench-press': ['DB bench', 'flat dumbbell press'],

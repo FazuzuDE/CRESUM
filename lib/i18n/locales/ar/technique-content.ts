@@ -1,4 +1,10 @@
 export default {
+  'guide.treadmill-walking.scope': 'المشي على جهاز سير كهربائي.',
+  'guide.treadmill-walking.setup.0': 'ثبّت مشبك الأمان بملابسك قبل البدء.',
+  'guide.treadmill-walking.movement.0':
+    'ابدأ بسرعة منخفضة وزدها تدريجيًا بخطوات صغيرة.',
+  'guide.treadmill-walking.checks.0': 'أبقِ رأسك وجسمك متجهين إلى الأمام.',
+  'guide.treadmill-walking.mistakes.0': 'أوقف سير الجهاز قبل أن تستدير.',
   'guide.hanging-straight-leg-raise.scope':
     'رفع الساقين مستقيمتين أثناء التعلّق ببار علوي.',
   'guide.hanging-straight-leg-raise.setup.0':

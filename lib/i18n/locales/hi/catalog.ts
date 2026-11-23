@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.treadmill-walking': 'ट्रेडमिल पर पैदल चलना',
   'catalog.exercise.barbell-bench-press': 'बारबेल बेंच प्रेस',
   'catalog.exercise.incline-dumbbell-press': 'इनक्लाइन डंबल प्रेस',
   'catalog.exercise.dumbbell-bench-press': 'डंबल बेंच प्रेस',

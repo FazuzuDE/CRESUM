@@ -1,4 +1,11 @@
 export default {
+  'guide.treadmill-walking.scope': '電動トレッドミルでのウォーキング。',
+  'guide.treadmill-walking.setup.0':
+    '始める前に安全クリップを衣服に取り付けます。',
+  'guide.treadmill-walking.movement.0': '低速で始め、速度を少しずつ上げます。',
+  'guide.treadmill-walking.checks.0': '顔と体を正面に向けます。',
+  'guide.treadmill-walking.mistakes.0':
+    '振り返るときは、先にベルトを止めます。',
   'guide.hanging-straight-leg-raise.scope':
     '頭上のバーにぶら下がり、脚を伸ばしたまま上げます。',
   'guide.hanging-straight-leg-raise.setup.0':

@@ -1,4 +1,13 @@
 export default {
+  'guide.treadmill-walking.scope': 'Đi bộ trên máy chạy bộ có động cơ.',
+  'guide.treadmill-walking.setup.0':
+    'Gắn kẹp an toàn vào quần áo trước khi bắt đầu.',
+  'guide.treadmill-walking.movement.0':
+    'Bắt đầu ở tốc độ thấp rồi tăng từng chút một.',
+  'guide.treadmill-walking.checks.0':
+    'Giữ đầu và thân người hướng về phía trước.',
+  'guide.treadmill-walking.mistakes.0':
+    'Dừng băng chạy trước khi quay người lại.',
   'guide.hanging-straight-leg-raise.scope':
     'Nâng chân thẳng khi treo người trên xà phía trên đầu.',
   'guide.hanging-straight-leg-raise.setup.0':

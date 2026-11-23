@@ -1,4 +1,10 @@
 export const techniqueSources = {
+  'horizon-treadmill-owner-guide': {
+    publisher: 'Horizon Fitness',
+    title: 'Horizon Series Treadmill Owner’s Guide',
+    url: 'https://content.johnsonfit.com/inc/uploaded_media/a005a4a78aa8323ddc9da2ed767811da/owners_guide/3f10af8d9932e71dee9fd0299c13b634.pdf',
+    checkedOn: '2026-11-23',
+  },
   'puregym-hanging-leg-raise': {
     publisher: 'PureGym',
     title: 'How To Do Hanging Leg Raises',

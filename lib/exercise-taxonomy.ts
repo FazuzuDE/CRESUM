@@ -46,6 +46,7 @@ export const movementPatterns = [
   'lunge',
   'isolation',
   'carry',
+  'cardio',
   'core',
 ] as const;
 

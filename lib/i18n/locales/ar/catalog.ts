@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.treadmill-walking': 'المشي على جهاز المشي',
   'catalog.exercise.barbell-bench-press': 'ضغط صدر بالبار على مقعد مستوٍ',
   'catalog.exercise.incline-dumbbell-press': 'ضغط دمبل على مقعد مائل',
   'catalog.exercise.dumbbell-bench-press': 'ضغط صدر بالدمبل على مقعد مستوٍ',

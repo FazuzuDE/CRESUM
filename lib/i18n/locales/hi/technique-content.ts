@@ -1,4 +1,9 @@
 export default {
+  'guide.treadmill-walking.scope': 'मोटर वाले ट्रेडमिल पर चलना।',
+  'guide.treadmill-walking.setup.0': 'शुरू करने से पहले सेफ़्टी क्लिप कपड़ों में लगाएँ।',
+  'guide.treadmill-walking.movement.0': 'कम गति से शुरू करें और धीरे-धीरे गति बढ़ाएँ।',
+  'guide.treadmill-walking.checks.0': 'सिर और शरीर सामने की ओर रखें।',
+  'guide.treadmill-walking.mistakes.0': 'पीछे मुड़ने से पहले बेल्ट रोकें।',
   'guide.hanging-straight-leg-raise.scope': 'ऊपर की बार से लटककर सीधे पैर उठाना।',
   'guide.hanging-straight-leg-raise.setup.0':
     'कंधे जितनी दूरी पर ओवरहैंड ग्रिप से बार पकड़ें। बाँहें और पैर सीधे रखकर लटकें।',

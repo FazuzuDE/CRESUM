@@ -1,3 +1,4 @@
+import { findExercise } from '../exercise-library';
 import { defaultTemplates, exerciseLibrary } from '../workout-catalog';
 import {
   addSet,
@@ -118,9 +119,10 @@ describe('workout engine', () => {
   });
 
   it('snapshots canonical catalog metadata without live joins', () => {
+    const benchPress = findExercise('barbell-bench-press')!;
     const catalogExercise = {
-      ...exerciseLibrary[0],
-      primaryMuscles: [...exerciseLibrary[0].primaryMuscles],
+      ...benchPress,
+      primaryMuscles: [...benchPress.primaryMuscles],
     };
     const snapshot = createExercise(catalogExercise, () => 'snapshot-id');
 
@@ -211,9 +213,9 @@ describe('workout engine', () => {
     expect(session.exercises[0].sets[3].completedAt).toBeUndefined();
     for (let i = 0; i < 6; i++) session = removeSet(session, 0, 0);
     expect(session.exercises[0].sets).toHaveLength(1);
-    expect(appendExercise(session, exerciseLibrary[0]).exercises).toHaveLength(
-      5,
-    );
+    expect(
+      appendExercise(session, findExercise('barbell-bench-press')!).exercises,
+    ).toHaveLength(5);
   });
   it('prevents empty finish and supports intentional partial finish', () => {
     expect(() => finishWorkout(start())).toThrow();

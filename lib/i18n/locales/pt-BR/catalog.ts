@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.treadmill-walking': 'Caminhada na esteira',
   'catalog.exercise.barbell-bench-press': 'Supino reto com barra',
   'catalog.exercise.incline-dumbbell-press': 'Supino inclinado com halteres',
   'catalog.exercise.dumbbell-bench-press': 'Supino reto com halteres',

@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 export default {
   // Discovery vocabulary only; stable IDs and historical names are untouched.
   exercise: {
+    'treadmill-walking': ['máy chạy bộ', 'đi bộ trên máy chạy bộ'],
     'barbell-bench-press': [
       'đẩy ngực tạ đòn',
       'đẩy ngực ghế ngang',
