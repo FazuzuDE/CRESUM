@@ -1,4 +1,14 @@
 export default {
+  'guide.treadmill-walking.scope':
+    'Caminata en una cinta de correr motorizada.',
+  'guide.treadmill-walking.setup.0':
+    'Sujeta el clip de seguridad a la ropa antes de empezar.',
+  'guide.treadmill-walking.movement.0':
+    'Empieza a baja velocidad y auméntala poco a poco.',
+  'guide.treadmill-walking.checks.0':
+    'Mantén la cabeza y el cuerpo orientados hacia delante.',
+  'guide.treadmill-walking.mistakes.0':
+    'Detén la cinta antes de darte la vuelta.',
   'guide.hanging-straight-leg-raise.scope':
     'Elevación de piernas rectas en suspensión de una barra alta.',
   'guide.hanging-straight-leg-raise.setup.0':

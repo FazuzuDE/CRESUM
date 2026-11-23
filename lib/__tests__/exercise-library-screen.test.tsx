@@ -6,7 +6,7 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { Workout } from '../../components/Workout';
 import { AppPicker } from '../../components/AppPicker';
 import { AppButton } from '../../components/AppButton';
-import { exerciseLibrary } from '../exercise-library';
+import { exerciseLibrary, findExercise } from '../exercise-library';
 import { defaultTemplates } from '../workout-catalog';
 import { startWorkout } from '../workout-engine';
 import App from '../../app/index';
@@ -267,7 +267,7 @@ it('selects canonical exercises for a template without rendering the full catalo
   act(() => button('Next')?.props.onPress());
 
   const sheet = view.root.findByType(ExerciseLibrary);
-  act(() => sheet.props.onAdd(exerciseLibrary[0]));
+  act(() => sheet.props.onAdd(findExercise('barbell-bench-press')));
   act(() => button('Add Exercise')?.props.onPress());
   act(() => button('Add Exercise')?.props.onPress());
   act(() =>

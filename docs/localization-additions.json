@@ -1,0 +1,66 @@
+[
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 6,
+    "text": "Walking on a motorized treadmill.",
+    "context": "StringLiteral/PropertyAssignment:scope/ObjectLiteralExpression/PropertyAssignment:'treadmill-walking'/ObjectLiteralExpression",
+    "kind": "canonical",
+    "reason": "Offline cardio technique guide with authored text in all 19 locales and a stable reference ID."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 7,
+    "text": "Attach the safety clip to your clothing before starting.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:setup/ObjectLiteralExpression/PropertyAssignment:'treadmill-walking'",
+    "kind": "canonical",
+    "reason": "Offline cardio technique guide with authored text in all 19 locales and a stable reference ID."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 8,
+    "text": "Start at a low speed and increase it in small steps.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:movement/ObjectLiteralExpression/PropertyAssignment:'treadmill-walking'",
+    "kind": "canonical",
+    "reason": "Offline cardio technique guide with authored text in all 19 locales and a stable reference ID."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 9,
+    "text": "Keep your head and body facing forward.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:checks/ObjectLiteralExpression/PropertyAssignment:'treadmill-walking'",
+    "kind": "canonical",
+    "reason": "Offline cardio technique guide with authored text in all 19 locales and a stable reference ID."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 10,
+    "text": "Turning around on the moving belt: stop the belt first.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:mistakes/ObjectLiteralExpression/PropertyAssignment:'treadmill-walking'",
+    "kind": "canonical",
+    "reason": "Offline cardio technique guide with authored text in all 19 locales and a stable reference ID."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 11,
+    "text": "horizon-treadmill-owner-guide",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:sources/ObjectLiteralExpression/PropertyAssignment:'treadmill-walking'",
+    "kind": "internal",
+    "reason": "Offline cardio technique guide with authored text in all 19 locales and a stable reference ID."
+  },
+  {
+    "file": "lib/exercise-technique/sources.ts",
+    "line": 3,
+    "text": "Horizon Fitness",
+    "context": "StringLiteral/PropertyAssignment:publisher/ObjectLiteralExpression/PropertyAssignment:'horizon-treadmill-owner-guide'/ObjectLiteralExpression",
+    "kind": "bibliography",
+    "reason": "Equipment manufacturer reference displayed as bibliography."
+  },
+  {
+    "file": "lib/exercise-technique/sources.ts",
+    "line": 4,
+    "text": "Horizon Series Treadmill Owner’s Guide",
+    "context": "StringLiteral/PropertyAssignment:title/ObjectLiteralExpression/PropertyAssignment:'horizon-treadmill-owner-guide'/ObjectLiteralExpression",
+    "kind": "bibliography",
+    "reason": "Equipment manufacturer reference displayed as bibliography."
+  }
+]

@@ -1,4 +1,10 @@
 export default {
+  'guide.treadmill-walking.scope': 'मोटरवर चालणाऱ्या ट्रेडमिलवर चालणे.',
+  'guide.treadmill-walking.setup.0': 'सुरू करण्यापूर्वी सेफ्टी क्लिप कपड्यांना लावा.',
+  'guide.treadmill-walking.movement.0':
+    'कमी वेगाने सुरू करा आणि वेग टप्प्याटप्प्याने वाढवा.',
+  'guide.treadmill-walking.checks.0': 'डोके आणि शरीर समोरच्या दिशेने ठेवा.',
+  'guide.treadmill-walking.mistakes.0': 'मागे वळण्यापूर्वी बेल्ट थांबवा.',
   'guide.hanging-straight-leg-raise.scope':
     'डोक्यावरच्या बारला लटकून सरळ पाय उचलणे.',
   'guide.hanging-straight-leg-raise.setup.0':

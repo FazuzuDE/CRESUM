@@ -1,4 +1,9 @@
 export default {
+  'guide.treadmill-walking.scope': '在电动跑步机上步行。',
+  'guide.treadmill-walking.setup.0': '启动前，将安全夹夹在衣服上。',
+  'guide.treadmill-walking.movement.0': '从低速开始，小幅逐步提高速度。',
+  'guide.treadmill-walking.checks.0': '头部和身体始终朝前。',
+  'guide.treadmill-walking.mistakes.0': '转身前先让跑带停止。',
   'guide.hanging-straight-leg-raise.scope': '悬垂于头顶单杠的直腿上举。',
   'guide.hanging-straight-leg-raise.setup.0':
     '双手与肩同宽正握单杠，双臂与双腿伸直悬垂。',

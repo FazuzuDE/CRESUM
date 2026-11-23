@@ -1,5 +1,14 @@
 import { flattenTechniqueText } from '../../technique-text';
 export default flattenTechniqueText({
+  'treadmill-walking': {
+    scope: 'Gehen auf einem motorisierten Laufband.',
+    setup: ['Befestige den Sicherheitsclip vor dem Start an deiner Kleidung.'],
+    movement: [
+      'Beginne bei niedriger Geschwindigkeit und steigere sie in kleinen Schritten.',
+    ],
+    checks: ['Halte Kopf und Körper nach vorne gerichtet.'],
+    mistakes: ['Halte das Band an, bevor du dich umdrehst.'],
+  },
   'hanging-straight-leg-raise': {
     scope: 'Heben gestreckter Beine im Hang an einer Stange.',
     setup: [

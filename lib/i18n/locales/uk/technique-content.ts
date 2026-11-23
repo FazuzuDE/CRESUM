@@ -1,4 +1,12 @@
 export default {
+  'guide.treadmill-walking.scope': 'Ходьба на моторизованій біговій доріжці.',
+  'guide.treadmill-walking.setup.0':
+    'Перед запуском прикріпи затискач ключа безпеки до одягу.',
+  'guide.treadmill-walking.movement.0':
+    'Почни з низької швидкості та підвищуй її невеликими кроками.',
+  'guide.treadmill-walking.checks.0': 'Спрямовуй голову й корпус уперед.',
+  'guide.treadmill-walking.mistakes.0':
+    'Перш ніж розвернутися, зупини полотно.',
   'guide.hanging-straight-leg-raise.scope':
     'Піднімання прямих ніг у висі на перекладині.',
   'guide.hanging-straight-leg-raise.setup.0':

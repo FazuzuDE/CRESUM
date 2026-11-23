@@ -1,4 +1,11 @@
 export default {
+  'guide.treadmill-walking.scope': 'Motorlu koşu bandında yürüyüş.',
+  'guide.treadmill-walking.setup.0':
+    'Başlamadan önce emniyet klipsini kıyafetine tak.',
+  'guide.treadmill-walking.movement.0':
+    'Düşük hızla başla ve hızı küçük adımlarla artır.',
+  'guide.treadmill-walking.checks.0': 'Başını ve gövdeni öne dönük tut.',
+  'guide.treadmill-walking.mistakes.0': 'Arkana dönmeden önce bandı durdur.',
   'guide.hanging-straight-leg-raise.scope':
     'Yüksek bir barda asılıyken düz bacakları kaldırma.',
   'guide.hanging-straight-leg-raise.setup.0':

@@ -1,6 +1,15 @@
 import type { ExerciseId } from '../exercise-library';
 import type { ExerciseTechnique } from './types';
 export const techniqueCatalog = {
+  'treadmill-walking': {
+    revision: 1,
+    scope: 'Walking on a motorized treadmill.',
+    setup: ['Attach the safety clip to your clothing before starting.'],
+    movement: ['Start at a low speed and increase it in small steps.'],
+    checks: ['Keep your head and body facing forward.'],
+    mistakes: ['Turning around on the moving belt: stop the belt first.'],
+    sources: ['horizon-treadmill-owner-guide'],
+  },
   'hanging-straight-leg-raise': {
     revision: 1,
     scope: 'Straight-leg raise while hanging from an overhead bar.',
