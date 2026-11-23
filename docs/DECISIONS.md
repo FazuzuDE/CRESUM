@@ -8,6 +8,10 @@ dimensions and approved export quality consistent with the target surface.
 Prepare both character variants as one review set and continue through
 integration, validation and PR after visual acceptance.
 
+For every new exercise, machine, or variant, add the canonical library entry
+with translations and mandatory search synonyms in all registry locales first.
+Then connect consumers to that record by its stable ID.
+
 ## 2026-11-22 — Muscle Map guide and history
 
 Approved the slogan-line return control, an illustrated bench-press guide,
