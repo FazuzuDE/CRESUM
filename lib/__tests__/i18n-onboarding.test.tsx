@@ -112,6 +112,7 @@ it('retains onboarding answers, proposal identity and retry state across languag
       'Développé couché aux haltères',
     );
     await press('Configurer le planning');
+    await chooseDays(view!);
     const done = () =>
       view!.root.findByType(StarterProgramSchedule).props.onDone();
     await act(async () => done());
