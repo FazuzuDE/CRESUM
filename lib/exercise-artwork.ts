@@ -5,6 +5,10 @@ const treadmillPair = {
   start: require('../assets/exercises/treadmill-walking/male/start.webp'),
   finish: require('../assets/exercises/treadmill-walking/male/finish.webp'),
 };
+const uprightBikePair = {
+  start: require('../assets/exercises/upright-stationary-bike/male/start.webp'),
+  finish: require('../assets/exercises/upright-stationary-bike/male/finish.webp'),
+};
 const floorBridgePair = {
   start: require('../assets/exercises/dumbbell-floor-glute-bridge/start.webp'),
   finish: require('../assets/exercises/dumbbell-floor-glute-bridge/finish.webp'),
@@ -115,6 +119,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'upright-stationary-bike': {
+    start: require('../assets/exercises/upright-stationary-bike/female/start.webp'),
+    finish: require('../assets/exercises/upright-stationary-bike/female/finish.webp'),
+  },
   'treadmill-walking': {
     start: require('../assets/exercises/treadmill-walking/female/start.webp'),
     finish: require('../assets/exercises/treadmill-walking/female/finish.webp'),
@@ -576,6 +584,7 @@ export function resolveExerciseArtwork(
 ): ImageSourcePropType | null {
   if (model === 'female') return femalePairs[variantId]?.[phase] ?? null;
   if (model !== 'male') return null;
+  if (variantId === 'upright-stationary-bike') return uprightBikePair[phase];
   if (variantId === 'treadmill-walking') return treadmillPair[phase];
   if (variantId === 'dumbbell-floor-glute-bridge')
     return floorBridgePair[phase];

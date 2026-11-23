@@ -1,4 +1,14 @@
 export default {
+  'guide.upright-stationary-bike.scope':
+    'Pedaleo sentado en una bicicleta estática vertical.',
+  'guide.upright-stationary-bike.setup.0':
+    'Ajusta y bloquea la altura del sillín antes de empezar.',
+  'guide.upright-stationary-bike.movement.0':
+    'Pedalea sin levantarte del sillín.',
+  'guide.upright-stationary-bike.checks.0':
+    'Cuando el pedal esté en el punto más bajo, la rodilla debe quedar ligeramente flexionada.',
+  'guide.upright-stationary-bike.mistakes.0':
+    'Si las caderas se balancean, detente y revisa la altura del sillín.',
   'guide.treadmill-walking.scope':
     'Caminata en una cinta de correr motorizada.',
   'guide.treadmill-walking.setup.0':

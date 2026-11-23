@@ -1,4 +1,8 @@
 export default {
+  'workout.cardioStart': 'कार्डिओ सुरू करा',
+  'workout.cardioPause': 'विराम',
+  'workout.cardioResume': 'पुन्हा सुरू करा',
+  'workout.cardioPrevious': 'मागील सत्र',
   'workout.startFromPlan': 'योजनेनुसार सुरू करा',
   'workout.emptyStart': 'रिकामे व्यायाम सत्र',
   'workout.savedTemplates': 'जतन केलेले साचे',

@@ -1,4 +1,14 @@
 export default {
+  'guide.upright-stationary-bike.scope':
+    'アップライト型エアロバイクでの座位ペダリング。',
+  'guide.upright-stationary-bike.setup.0':
+    '始める前にサドルの高さを調整して固定します。',
+  'guide.upright-stationary-bike.movement.0':
+    'サドルに座ったままペダルをこぎます。',
+  'guide.upright-stationary-bike.checks.0':
+    'ペダルが一番下に来たときも膝は軽く曲げておきます。',
+  'guide.upright-stationary-bike.mistakes.0':
+    '骨盤が左右に揺れる場合は、いったん止めてサドルの高さを確認します。',
   'guide.treadmill-walking.scope': '電動トレッドミルでのウォーキング。',
   'guide.treadmill-walking.setup.0':
     '始める前に安全クリップを衣服に取り付けます。',

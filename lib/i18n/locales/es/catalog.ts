@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.upright-stationary-bike': 'Bicicleta estática vertical',
   'catalog.exercise.treadmill-walking': 'Caminata en cinta',
   'catalog.exercise.barbell-bench-press': 'Press de banca con barra',
   'catalog.exercise.incline-dumbbell-press': 'Press inclinado con mancuernas',

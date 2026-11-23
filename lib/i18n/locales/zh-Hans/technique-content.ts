@@ -1,4 +1,10 @@
 export default {
+  'guide.upright-stationary-bike.scope': '在立式健身车上坐姿骑行。',
+  'guide.upright-stationary-bike.setup.0': '开始前调好并锁定座椅高度。',
+  'guide.upright-stationary-bike.movement.0': '保持坐姿踩踏。',
+  'guide.upright-stationary-bike.checks.0': '脚踏处于最低点时，膝盖保持微弯。',
+  'guide.upright-stationary-bike.mistakes.0':
+    '如果骨盆左右摇摆，请先停下，再检查座椅高度。',
   'guide.treadmill-walking.scope': '在电动跑步机上步行。',
   'guide.treadmill-walking.setup.0': '启动前，将安全夹夹在衣服上。',
   'guide.treadmill-walking.movement.0': '从低速开始，小幅逐步提高速度。',

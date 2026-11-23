@@ -1,3 +1,4 @@
+import { CARDIO_TIMERS_KEY, readCardioTimers } from '../cardio-timer';
 import { trainingPrograms } from '../training-programs/catalog';
 import { makeAssignment } from '../training-programs/assignment';
 import {
@@ -75,6 +76,28 @@ function storage() {
     },
   };
 }
+it('exports and restores local cardio timers and clears them when restoring an older backup', async () => {
+  const source = storage();
+  const cardio = {
+    exerciseId: 'upright-stationary-bike',
+    goalSeconds: 1500,
+    elapsedMs: 600000,
+  };
+  await source.setItem(CARDIO_TIMERS_KEY, JSON.stringify({ session: cardio }));
+  const backup = await createLocalBackup(source, now);
+  expect(JSON.parse(backup).version).toBe(3);
+  const target = storage();
+  await restoreLocalBackup(target, await parseLocalBackup(backup));
+  expect(
+    readCardioTimers(await target.getItem(CARDIO_TIMERS_KEY)).get('session'),
+  ).toEqual(cardio);
+  await restoreLocalBackup(
+    target,
+    await parseLocalBackup(await createLocalBackup(storage(), now)),
+  );
+  expect(await target.getItem(CARDIO_TIMERS_KEY)).toBeNull();
+});
+
 it('roundtrips whitelisted data without exporting unrelated keys or rewriting snapshots', async () => {
   const source = storage();
   source.values.set(

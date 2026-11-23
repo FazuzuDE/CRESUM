@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.upright-stationary-bike': 'Pionowy rower stacjonarny',
   'catalog.exercise.treadmill-walking': 'Marsz na bieżni',
   'catalog.exercise.barbell-bench-press':
     'Wyciskanie sztangi na ławce płaskiej',

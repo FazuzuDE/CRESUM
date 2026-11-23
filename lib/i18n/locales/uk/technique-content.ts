@@ -1,4 +1,14 @@
 export default {
+  'guide.upright-stationary-bike.scope':
+    'Їзда сидячи на вертикальному велотренажері.',
+  'guide.upright-stationary-bike.setup.0':
+    'Перед початком налаштуй і зафіксуй висоту сідла.',
+  'guide.upright-stationary-bike.movement.0':
+    'Крути педалі, залишаючись у сідлі.',
+  'guide.upright-stationary-bike.checks.0':
+    'У нижньому положенні педалі коліно залишається трохи зігнутим.',
+  'guide.upright-stationary-bike.mistakes.0':
+    'Якщо таз розгойдується, зупинися та перевір висоту сідла.',
   'guide.treadmill-walking.scope': 'Ходьба на моторизованій біговій доріжці.',
   'guide.treadmill-walking.setup.0':
     'Перед запуском прикріпи затискач ключа безпеки до одягу.',

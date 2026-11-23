@@ -1,4 +1,8 @@
 export default {
+  'workout.cardioStart': 'Bắt đầu cardio',
+  'workout.cardioPause': 'Tạm dừng',
+  'workout.cardioResume': 'Tiếp tục',
+  'workout.cardioPrevious': 'Buổi trước',
   'workout.startFromPlan': 'Bắt đầu theo kế hoạch',
   'workout.emptyStart': 'Buổi tập trống',
   'workout.savedTemplates': 'Mẫu đã lưu',

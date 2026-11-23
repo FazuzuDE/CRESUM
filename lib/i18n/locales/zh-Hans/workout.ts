@@ -1,4 +1,8 @@
 export default {
+  'workout.cardioStart': '开始有氧运动',
+  'workout.cardioPause': '暂停',
+  'workout.cardioResume': '继续',
+  'workout.cardioPrevious': '上次训练',
   'workout.startFromPlan': '按计划开始',
   'workout.emptyStart': '空白训练',
   'workout.savedTemplates': '已保存的模板',

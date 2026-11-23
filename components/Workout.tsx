@@ -1,3 +1,5 @@
+import { CardioCountdown } from './CardioCountdown';
+import { cardioExerciseIds } from '@/lib/cardio-timer';
 import { useAppColors } from '@/components/AppThemeProvider';
 import {
   LocalizedText as Text,
@@ -605,7 +607,19 @@ export function Workout({
           </GlassCard>
         )}
         {timedActivities ? (
-          <ProgramTimedActivities {...timedActivities} />
+          <>
+            <ProgramTimedActivities {...timedActivities} />
+            {timedActivities.cardio?.activity ? (
+              <CardioCountdown
+                key={session.id}
+                sessionId={session.id}
+                exerciseId={cardioExerciseIds[timedActivities.cardio.activity]}
+                goalSeconds={timedActivities.cardio.minutes * 60}
+                now={now}
+                history={history}
+              />
+            ) : null}
+          </>
         ) : null}
         {deadline !== undefined && (
           <GlassCard style={s.restCard}>

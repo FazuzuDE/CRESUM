@@ -1,4 +1,8 @@
 export default {
+  'workout.cardioStart': 'कार्डियो शुरू करें',
+  'workout.cardioPause': 'रोकें',
+  'workout.cardioResume': 'जारी रखें',
+  'workout.cardioPrevious': 'पिछला सत्र',
   'workout.startFromPlan': 'योजना से शुरू करें',
   'workout.emptyStart': 'खाली वर्कआउट',
   'workout.savedTemplates': 'सहेजे गए टेम्पलेट',

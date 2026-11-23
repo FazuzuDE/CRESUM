@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 // Search-only alternatives; never displayed or persisted as exercise identity.
 export default {
   exercise: {
+    'upright-stationary-bike': ['велотренажер', 'езда на велотренажёре'],
     'treadmill-walking': ['беговая дорожка', 'ходьба на дорожке'],
     'barbell-bench-press': ['жим лёжа', 'жим лежа', 'жим штанги'],
     'incline-dumbbell-press': ['наклонный жим гантелей'],

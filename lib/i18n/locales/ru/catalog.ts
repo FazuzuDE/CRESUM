@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.upright-stationary-bike': 'Вертикальный велотренажёр',
   'catalog.exercise.treadmill-walking': 'Ходьба на беговой дорожке',
   'catalog.exercise.hanging-straight-leg-raise': 'Подъём прямых ног в висе',
   'catalog.exercise.captains-chair-knee-raise':

@@ -22,14 +22,17 @@ const records = {
   muscle: muscleTaxonomy,
 };
 
-it('finds treadmill walking by its aliases in every locale', () => {
-  for (const locale of Object.keys(localeRegistry) as AppLocale[]) {
-    const aliases = searchAliases[locale].exercise['treadmill-walking'];
-    for (const alias of aliases) {
-      expect(ids(alias, locale)).toContain('treadmill-walking');
+it.each(['treadmill-walking', 'upright-stationary-bike'] as const)(
+  'finds %s by its aliases in every locale',
+  (id) => {
+    for (const locale of Object.keys(localeRegistry) as AppLocale[]) {
+      const aliases = searchAliases[locale].exercise[id];
+      for (const alias of aliases) {
+        expect(ids(alias, locale)).toContain(id);
+      }
     }
-  }
-});
+  },
+);
 
 it('preserves meaningful Devanagari marks across all interface languages', () => {
   expect(normalizeSearch('पैलॉफ')).toBe(

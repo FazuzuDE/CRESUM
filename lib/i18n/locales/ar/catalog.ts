@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.upright-stationary-bike': 'دراجة تمارين ثابتة عمودية',
   'catalog.exercise.treadmill-walking': 'المشي على جهاز المشي',
   'catalog.exercise.barbell-bench-press': 'ضغط صدر بالبار على مقعد مستوٍ',
   'catalog.exercise.incline-dumbbell-press': 'ضغط دمبل على مقعد مائل',

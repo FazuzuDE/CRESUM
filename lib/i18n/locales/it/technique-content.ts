@@ -1,4 +1,13 @@
 export default {
+  'guide.upright-stationary-bike.scope':
+    'Pedalata da seduti su una cyclette verticale.',
+  'guide.upright-stationary-bike.setup.0':
+    'Regola e blocca l’altezza della sella prima di partire.',
+  'guide.upright-stationary-bike.movement.0': 'Pedala rimanendo in sella.',
+  'guide.upright-stationary-bike.checks.0':
+    'Quando il pedale è in basso, il ginocchio resta leggermente piegato.',
+  'guide.upright-stationary-bike.mistakes.0':
+    'Se il bacino oscilla, fermati e controlla l’altezza della sella.',
   'guide.treadmill-walking.scope': 'Camminata su tapis roulant motorizzato.',
   'guide.treadmill-walking.setup.0':
     'Prima di partire, fissa la clip di sicurezza ai vestiti.',

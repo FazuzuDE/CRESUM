@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 export default {
   // Search vocabulary only; canonical identities and saved user text stay intact.
   exercise: {
+    'upright-stationary-bike': ['エアロバイク', 'フィットネスバイク'],
     'treadmill-walking': ['ランニングマシン', 'トレッドミル歩行'],
     'barbell-bench-press': ['ベンチプレス', 'バーベルベンチ', 'BP'],
     'incline-dumbbell-press': [

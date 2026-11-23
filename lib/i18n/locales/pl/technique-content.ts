@@ -1,4 +1,14 @@
 export default {
+  'guide.upright-stationary-bike.scope':
+    'Jazda w pozycji siedzącej na pionowym rowerze stacjonarnym.',
+  'guide.upright-stationary-bike.setup.0':
+    'Przed rozpoczęciem ustaw i zablokuj wysokość siodełka.',
+  'guide.upright-stationary-bike.movement.0':
+    'Pedałuj, pozostając na siodełku.',
+  'guide.upright-stationary-bike.checks.0':
+    'Gdy pedał jest najniżej, kolano powinno być lekko ugięte.',
+  'guide.upright-stationary-bike.mistakes.0':
+    'Jeśli biodra kołyszą się na boki, zatrzymaj się i sprawdź wysokość siodełka.',
   'guide.treadmill-walking.scope': 'Marsz na bieżni mechanicznej.',
   'guide.treadmill-walking.setup.0':
     'Przed uruchomieniem przypnij klips bezpieczeństwa do ubrania.',

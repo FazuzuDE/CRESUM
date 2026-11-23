@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.upright-stationary-bike': '업라이트 실내 자전거',
   'catalog.exercise.treadmill-walking': '트레드밀 걷기',
   'catalog.exercise.barbell-bench-press': '바벨 벤치 프레스',
   'catalog.exercise.incline-dumbbell-press': '인클라인 덤벨 프레스',

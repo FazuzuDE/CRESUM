@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 export default {
   // Search-only aliases. They never change exercise identities or stored names.
   exercise: {
+    'upright-stationary-bike': ['एक्सरसाइज़ बाइक', 'स्टेशनरी बाइक'],
     'treadmill-walking': ['ट्रेडमिल', 'ट्रेडमिल पर चलना'],
     'barbell-bench-press': ['बेंचप्रेस', 'बारबेल चेस्ट प्रेस', 'barbel bench'],
     'incline-dumbbell-press': [

@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 // Search-only alternatives; never displayed or persisted as exercise identity.
 export default {
   exercise: {
+    'upright-stationary-bike': ['vélo stationnaire', 'vélo d’intérieur'],
     'treadmill-walking': ['tapis de course', 'marche sur tapis roulant'],
     'barbell-bench-press': ['DC barre', 'développé barre'],
     'incline-dumbbell-press': ['développé incliné haltères', 'DI haltères'],

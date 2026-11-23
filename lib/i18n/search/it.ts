@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 // Search-only alternatives; never displayed or persisted as exercise identity.
 export default {
   exercise: {
+    'upright-stationary-bike': ['cyclette', 'bici da camera'],
     'treadmill-walking': ['tapis roulant', 'camminare sul tapis roulant'],
     'barbell-bench-press': ['panca piana', 'panca bilanciere'],
     'incline-dumbbell-press': ['panca inclinata manubri'],

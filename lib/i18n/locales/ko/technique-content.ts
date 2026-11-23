@@ -1,4 +1,13 @@
 export default {
+  'guide.upright-stationary-bike.scope':
+    '업라이트 고정식 자전거에 앉아 페달을 밟는 운동.',
+  'guide.upright-stationary-bike.setup.0':
+    '시작 전에 안장 높이를 조절하고 고정하세요.',
+  'guide.upright-stationary-bike.movement.0': '안장에 앉은 채 페달을 밟으세요.',
+  'guide.upright-stationary-bike.checks.0':
+    '페달이 가장 낮을 때 무릎을 약간 구부린 상태로 유지하세요.',
+  'guide.upright-stationary-bike.mistakes.0':
+    '골반이 좌우로 흔들리면 멈추고 안장 높이를 확인하세요.',
   'guide.treadmill-walking.scope': '전동 러닝머신에서 걷기.',
   'guide.treadmill-walking.setup.0':
     '시작하기 전에 안전 클립을 옷에 고정하세요.',

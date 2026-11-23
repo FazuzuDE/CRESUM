@@ -1,5 +1,16 @@
 import { flattenTechniqueText } from '../../technique-text';
 export default flattenTechniqueText({
+  'upright-stationary-bike': {
+    scope: 'Pédalage assis sur un vélo d’appartement droit.',
+    setup: ['Règle et verrouille la hauteur de la selle avant de commencer.'],
+    movement: ['Pédale en restant assis sur la selle.'],
+    checks: [
+      'Au point le plus bas de la pédale, le genou reste légèrement fléchi.',
+    ],
+    mistakes: [
+      'Si les hanches oscillent, arrête-toi et vérifie la hauteur de la selle.',
+    ],
+  },
   'treadmill-walking': {
     scope: 'Marche sur un tapis roulant motorisé.',
     setup: ['Fixe la pince de sécurité à tes vêtements avant de démarrer.'],

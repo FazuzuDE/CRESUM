@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 // Search-only alternatives; never displayed or persisted as exercise identity.
 export default {
   exercise: {
+    'upright-stationary-bike': ['sabit bisiklet', 'egzersiz bisikleti'],
     'treadmill-walking': ['koşu bandı', 'bantta yürüyüş'],
     'barbell-bench-press': ['bench press', 'düz sehpa bar press'],
     'incline-dumbbell-press': [

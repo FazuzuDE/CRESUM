@@ -1,4 +1,8 @@
 export default {
+  'workout.cardioStart': 'কার্ডিও শুরু করুন',
+  'workout.cardioPause': 'বিরতি',
+  'workout.cardioResume': 'চালিয়ে যান',
+  'workout.cardioPrevious': 'আগের সেশন',
   'workout.startFromPlan': 'পরিকল্পনা থেকে শুরু করুন',
   'workout.emptyStart': 'খালি ওয়ার্কআউট',
   'workout.savedTemplates': 'সংরক্ষিত টেমপ্লেট',

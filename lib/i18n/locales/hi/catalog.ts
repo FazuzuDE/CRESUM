@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.upright-stationary-bike': 'सीधी स्थिर व्यायाम साइकिल',
   'catalog.exercise.treadmill-walking': 'ट्रेडमिल पर पैदल चलना',
   'catalog.exercise.barbell-bench-press': 'बारबेल बेंच प्रेस',
   'catalog.exercise.incline-dumbbell-press': 'इनक्लाइन डंबल प्रेस',

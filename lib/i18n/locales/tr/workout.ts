@@ -1,4 +1,8 @@
 export default {
+  'workout.cardioStart': 'Kardiyoya başla',
+  'workout.cardioPause': 'Duraklat',
+  'workout.cardioResume': 'Devam et',
+  'workout.cardioPrevious': 'Önceki seans',
   'workout.startFromPlan': 'Planla başla',
   'workout.emptyStart': 'Boş antrenman',
   'workout.savedTemplates': 'Kayıtlı şablonlar',

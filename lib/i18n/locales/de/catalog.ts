@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.upright-stationary-bike': 'Aufrechtes Fahrradergometer',
   'catalog.exercise.treadmill-walking': 'Gehen auf dem Laufband',
   'catalog.exercise.hanging-straight-leg-raise':
     'Beinheben im Hang mit gestreckten Beinen',

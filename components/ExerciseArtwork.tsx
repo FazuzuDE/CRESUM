@@ -1,3 +1,4 @@
+import { ExerciseArtworkWordmark } from './ExerciseArtworkWordmark';
 import {
   createThemedStyles,
   useAppColors,
@@ -29,15 +30,23 @@ export function ExerciseArtwork({
   const source = resolveExerciseArtwork(imageKey, 'start', model);
   if (source)
     return (
-      <Image
-        source={source}
-        resizeMode="contain"
-        accessibilityLabel={name}
+      <View
         style={[
           s.placeholder,
-          { width: size, height: size, backgroundColor: colors.surface },
+          { width: size, height: size, overflow: 'hidden' },
         ]}
-      />
+      >
+        <Image
+          source={source}
+          resizeMode="contain"
+          accessibilityLabel={name}
+          style={[
+            s.placeholder,
+            { width: size, height: size, backgroundColor: colors.surface },
+          ]}
+        />
+        <ExerciseArtworkWordmark imageKey={imageKey} />
+      </View>
     );
   return (
     <View

@@ -19,6 +19,7 @@ describe('canonical exercise metadata', () => {
           ({ id }) =>
             ![
               'treadmill-walking',
+              'upright-stationary-bike',
               'lat-pulldown-wide-pronated-bar',
               'lat-pulldown-close-neutral-v-handle',
               'lat-pulldown-reverse-grip',

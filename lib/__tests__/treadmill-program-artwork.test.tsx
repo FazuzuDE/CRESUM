@@ -16,6 +16,11 @@ jest.mock(
   () => 102,
 );
 
+jest.mock(
+  '../../assets/exercises/upright-stationary-bike/female/start.webp',
+  () => 103,
+);
+
 function activity(model: AssetModel, activity: CardioGuidance['activity']) {
   return (
     <ExerciseCharacterProvider
@@ -40,8 +45,8 @@ it('switches the treadmill image with the character and keeps the wordmark separ
     expect(view.root.findByType(Image).props.source).toBe(102);
     expect(view.root.findByType(BrandWordmark)).toBeDefined();
     await act(async () => view.update(activity('female', 'stationary_bike')));
-    expect(view.root.findAllByType(Image)).toHaveLength(0);
-    expect(view.root.findAllByType(BrandWordmark)).toHaveLength(0);
+    expect(view.root.findByType(Image).props.source).toBe(103);
+    expect(view.root.findByType(BrandWordmark)).toBeDefined();
   } finally {
     await act(async () => view.unmount());
   }

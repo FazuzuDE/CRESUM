@@ -1,6 +1,17 @@
 import type { ExerciseId } from '../exercise-library';
 import type { ExerciseTechnique } from './types';
 export const techniqueCatalog = {
+  'upright-stationary-bike': {
+    revision: 1,
+    scope: 'Seated cycling on an upright stationary bike.',
+    setup: ['Adjust and lock the saddle height before starting.'],
+    movement: ['Stay seated as you pedal.'],
+    checks: ['Keep a slight knee bend at the bottom of the pedal stroke.'],
+    mistakes: [
+      'If your hips rock from side to side, stop and check the saddle height.',
+    ],
+    sources: ['horizon-upright-bike-owner-guide'],
+  },
   'treadmill-walking': {
     revision: 1,
     scope: 'Walking on a motorized treadmill.',

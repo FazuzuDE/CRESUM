@@ -1,4 +1,10 @@
 export const techniqueSources = {
+  'horizon-upright-bike-owner-guide': {
+    publisher: 'Horizon Fitness',
+    title: 'Upright and Recumbent Exercise Bike Owner’s Guide',
+    url: 'https://content.johnsonfit.com/inc/uploaded_media/78cc097b0b8e2d33ba6d4ab6393326a9/owners_guide/ac65a1db147fb78981a4a66f8c5a99ea.pdf',
+    checkedOn: '2026-11-23',
+  },
   'horizon-treadmill-owner-guide': {
     publisher: 'Horizon Fitness',
     title: 'Horizon Series Treadmill Owner’s Guide',

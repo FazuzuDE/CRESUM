@@ -3,6 +3,10 @@ import type { SearchAliasCatalog } from './types';
 // Search-only alternatives; never displayed or persisted as exercise identity.
 export default {
   exercise: {
+    'upright-stationary-bike': [
+      'rowerek stacjonarny',
+      'jazda na rowerze stacjonarnym',
+    ],
     'treadmill-walking': ['bieżnia', 'chodzenie na bieżni'],
     'barbell-bench-press': ['wyciskanie na płaskiej', 'ławka płaska'],
     'incline-dumbbell-press': ['wyciskanie hantli na skosie dodatnim'],

@@ -1,4 +1,8 @@
 export default {
+  'workout.cardioStart': '有酸素運動を開始',
+  'workout.cardioPause': '一時停止',
+  'workout.cardioResume': '再開',
+  'workout.cardioPrevious': '前回のセッション',
   'workout.startFromPlan': 'プランから開始',
   'workout.emptyStart': '空のワークアウト',
   'workout.savedTemplates': '保存済みテンプレート',

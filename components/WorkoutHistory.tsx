@@ -1,9 +1,18 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {
+  CARDIO_TIMERS_KEY,
+  cardioElapsed,
+  readCardioTimers,
+  type CardioTimer,
+} from '@/lib/cardio-timer';
+import { findExercise } from '@/lib/exercise-library';
+import { catalogLabel } from '@/lib/i18n/catalog';
 import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
 import { ExerciseEquipmentRow } from './ExerciseEquipmentRow';
 import { setNumberInGroup } from '@/lib/exercise-groups';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { HistoryFilterModal } from './HistoryFilterModal';
 import {
@@ -49,6 +58,8 @@ export function WorkoutHistory({
   const s = useStyles();
   const { t, locale } = useLocalization();
   const [selectedId, setSelectedId] = useState<string>();
+  const [cardioHistory, setCardioHistory] =
+    useState<ReadonlyMap<string, CardioTimer>>();
   const [filter, setFilter] = useState<HistoryFilter>(() =>
     defaultHistoryFilter(Date.now()),
   );
@@ -60,7 +71,25 @@ export function WorkoutHistory({
   const ordered = useMemo(() => newestFirstHistory(history), [history]);
   const selected = ordered.find((workout) => workout.id === selectedId);
 
+  useEffect(() => {
+    let active = true;
+    if (selectedId)
+      void AsyncStorage.getItem(CARDIO_TIMERS_KEY)
+        .then((raw) => {
+          if (active) setCardioHistory(readCardioTimers(raw));
+        })
+        .catch(() => {
+          if (active) setCardioHistory(undefined);
+        });
+    return () => {
+      active = false;
+    };
+  }, [selectedId]);
+
   if (selected) {
+    const timer = cardioHistory?.get(selected.id);
+    const cardio = timer && findExercise(timer.exerciseId);
+    const elapsed = timer && cardioElapsed(timer, completedAt(selected));
     return (
       <View style={s.section}>
         <View style={s.detailHeader}>
@@ -85,6 +114,12 @@ export function WorkoutHistory({
             })}
           </Text>
           <Text style={s.metadata}>{workoutMetadata(selected, t, locale)}</Text>
+          {cardio && elapsed ? (
+            <Text style={s.metadata}>
+              {catalogLabel(locale, 'exercise', cardio.id, cardio.name)} ·{' '}
+              {duration(elapsed)}
+            </Text>
+          ) : null}
           {selected.exercises.map((exercise, exerciseIndex) => {
             const completedSets = exercise.sets.filter(isSetComplete);
             return (

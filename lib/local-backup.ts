@@ -1,3 +1,4 @@
+import { CARDIO_TIMERS_KEY, readCardioTimers } from './cardio-timer';
 import { AppError } from './app-error';
 import { BodyWeightRepository, BODY_WEIGHT_KEY } from './body-weight';
 import { HIDDEN_BUILT_INS_KEY } from './hidden-builtins';
@@ -62,6 +63,7 @@ function unique(ids: string[]) {
   if (new Set(ids).size !== ids.length) throw invalid();
 }
 async function validate(values: Values) {
+  readCardioTimers(values[CARDIO_TIMERS_KEY]);
   const reader = memory(values);
   const workouts = await new WorkoutRepository(reader).load();
   unique(workouts.templates.map((t) => t.id));
@@ -102,7 +104,9 @@ export async function parseLocalBackup(text: string): Promise<PreparedBackup> {
     if (
       !object(envelope) ||
       envelope.format !== 'cresum-local-backup' ||
-      (envelope.version !== 1 && envelope.version !== 2) ||
+      (envelope.version !== 1 &&
+        envelope.version !== 2 &&
+        envelope.version !== 3) ||
       typeof envelope.createdAt !== 'number' ||
       !Number.isFinite(envelope.createdAt) ||
       envelope.createdAt < 0 ||
@@ -112,7 +116,8 @@ export async function parseLocalBackup(text: string): Promise<PreparedBackup> {
       throw invalid();
     const data = envelope.data;
     if (
-      Object.keys(data).length !== Object.keys(documents).length ||
+      Object.keys(data).length !==
+        Object.keys(documents).length + (envelope.version === 3 ? 1 : 0) ||
       !object(data.workouts)
     )
       throw invalid();
@@ -126,6 +131,10 @@ export async function parseLocalBackup(text: string): Promise<PreparedBackup> {
       )
         throw invalid();
       values[key] = data[name] === null ? null : JSON.stringify(data[name]);
+    }
+    if (envelope.version === 3) {
+      if (!object(data.cardio)) throw invalid();
+      values[CARDIO_TIMERS_KEY] = JSON.stringify(data.cardio);
     }
     const { workouts, measurements } = await validate(values);
     return {
@@ -164,15 +173,18 @@ export async function createLocalBackup(
           : JSON.parse(values[key]!),
     ]),
   );
+  const cardio = readCardioTimers(values[CARDIO_TIMERS_KEY]);
+  if (cardio.size) data.cardio = Object.fromEntries(cardio);
   const text = JSON.stringify({
     format: 'cresum-local-backup',
-    version:
-      workouts.templates.some((t) =>
-        t.plannedExercises?.some((e) => e.exerciseGroup || e.plannedSets),
-      ) ||
-      [workouts.activeWorkout, ...workouts.history].some((w) =>
-        w?.exercises.some((e) => e.exerciseGroup),
-      )
+    version: cardio.size
+      ? 3
+      : workouts.templates.some((t) =>
+            t.plannedExercises?.some((e) => e.exerciseGroup || e.plannedSets),
+          ) ||
+          [workouts.activeWorkout, ...workouts.history].some((w) =>
+            w?.exercises.some((e) => e.exerciseGroup),
+          )
         ? 2
         : 1,
     createdAt: now,
