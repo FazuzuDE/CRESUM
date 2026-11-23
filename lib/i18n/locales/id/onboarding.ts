@@ -1,4 +1,13 @@
 export default {
+  'onboarding.skipSchedule': 'Lewati dan mulai!',
+  'onboarding.scheduleFlexible':
+    'Jadwal ini bersifat sementara. Kamu bisa mengubahnya kapan saja.',
+  'onboarding.scheduleWelcome': 'Selamat datang!',
+  'onboarding.scheduleSaved': 'Jadwalmu sudah diatur.',
+  'onboarding.scheduleReady': 'Kamu siap untuk latihan pertama.',
+  'onboarding.personalRecords': 'Semoga kamu meraih rekor pribadi baru!',
+  'onboarding.welcomeOk': 'Oke',
+
   'program.universal': 'Program umum',
   'onboarding.configureSchedule': 'Atur jadwal',
   'onboarding.chooseWeekdays': 'Pilih tiga hari dalam seminggu.',

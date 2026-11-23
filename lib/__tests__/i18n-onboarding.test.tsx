@@ -11,6 +11,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import App from '../../app/index';
 import { ONBOARDING_KEY } from '../onboarding-repository';
 const { act, create } = jest.requireActual('react-test-renderer');
+async function chooseDays(view: ReturnType<typeof create>, days = [0, 2, 4]) {
+  for (const day of days) {
+    await act(async () =>
+      view.root.findByType(StarterProgramSchedule).props.onToggle(day),
+    );
+  }
+}
+
 jest.mock('react-native-safe-area-context', () => ({
   SafeAreaView: jest.requireActual('react-native').View,
 }));
@@ -104,6 +112,7 @@ it('retains onboarding answers, proposal identity and retry state across languag
       'Développé couché aux haltères',
     );
     await press('Configurer le planning');
+    await chooseDays(view!);
     const done = () =>
       view!.root.findByType(StarterProgramSchedule).props.onDone();
     await act(async () => done());
@@ -178,8 +187,7 @@ it('preserves recurring weekdays across languages', async () => {
   try {
     await press('Zeitplan festlegen');
     const calendar = () => view!.root.findByType(StarterProgramSchedule);
-    await act(async () => calendar().props.onToggle(0));
-    await act(async () => calendar().props.onToggle(1));
+    await chooseDays(view!, [1, 2, 4]);
     await act(async () => {
       await locale.select('ru');
     });

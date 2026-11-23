@@ -1,4 +1,13 @@
 export default {
+  'onboarding.skipSchedule': '¡Omitir y empezar!',
+  'onboarding.scheduleFlexible':
+    'Este horario es orientativo. Puedes cambiarlo en cualquier momento.',
+  'onboarding.scheduleWelcome': '¡Te damos la bienvenida!',
+  'onboarding.scheduleSaved': 'Tu horario está listo.',
+  'onboarding.scheduleReady': 'Todo listo para tu primer entrenamiento.',
+  'onboarding.personalRecords': '¡A por nuevos récords personales!',
+  'onboarding.welcomeOk': 'Aceptar',
+
   'program.universal': 'Universal',
   'onboarding.configureSchedule': 'Configurar el horario',
   'onboarding.chooseWeekdays': 'Elige tres días de la semana.',

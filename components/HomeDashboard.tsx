@@ -488,6 +488,7 @@ export function HomeDashboard({
         onStart={(slot, template) => {
           if (!draftRef.current) startProgramSlot(slot, template);
         }}
+        onStartUnscheduled={guardedStart}
         onManage={guardedProfile}
       />
     ) : null;

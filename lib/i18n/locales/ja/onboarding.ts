@@ -1,4 +1,13 @@
 export default {
+  'onboarding.skipSchedule': 'スキップして始める！',
+  'onboarding.scheduleFlexible':
+    'このスケジュールは目安です。いつでも変更できます。',
+  'onboarding.scheduleWelcome': 'ようこそ！',
+  'onboarding.scheduleSaved': 'スケジュールを設定しました。',
+  'onboarding.scheduleReady': '最初のトレーニングを始められます。',
+  'onboarding.personalRecords': '自己ベストの更新を応援しています！',
+  'onboarding.welcomeOk': 'OK',
+
   'program.universal': '総合プログラム',
   'onboarding.configureSchedule': 'スケジュールを設定',
   'onboarding.chooseWeekdays': '週に3日を選択してください。',

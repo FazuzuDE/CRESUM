@@ -1,4 +1,13 @@
 export default {
+  'onboarding.skipSchedule': 'छोड़ें और शुरू करें!',
+  'onboarding.scheduleFlexible':
+    'यह एक शुरुआती समय-सारणी है। इसे कभी भी बदल सकते हैं।',
+  'onboarding.scheduleWelcome': 'स्वागत है!',
+  'onboarding.scheduleSaved': 'आपकी समय-सारणी तय हो गई है।',
+  'onboarding.scheduleReady': 'पहले वर्कआउट के लिए सब तैयार है।',
+  'onboarding.personalRecords': 'नए व्यक्तिगत रिकॉर्ड के लिए शुभकामनाएँ!',
+  'onboarding.welcomeOk': 'ठीक है',
+
   'program.universal': 'सर्वांगीण कार्यक्रम',
   'onboarding.configureSchedule': 'समय-सारणी तय करें',
   'onboarding.chooseWeekdays': 'सप्ताह के तीन दिन चुनें।',

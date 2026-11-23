@@ -2809,4 +2809,7 @@ is the single forward action.
 Show Monday through Sunday as selectable circles above two fixed month grids.
 Keep the current month on the left and the next month on the right. Highlight
 every matching weekday in both grids as the user changes the selection.
-Place a green checkmark and localized Done label below the calendars.
+Place the schedule flexibility note above the large Done checkmark. Keep the
+checkmark gray until three days are selected. Place Skip and start below it.
+Show a welcome dialog on Home with an OK button and a wish for new personal
+records. Only the saved-schedule path confirms the schedule.

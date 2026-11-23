@@ -1,3 +1,5 @@
+import { ScheduleWelcome } from '../../components/ScheduleWelcome';
+import { projectProgramWeek } from '../training-programs/schedule';
 import { StarterProgramSchedule } from '../../components/StarterProgramSchedule';
 import { DatePickerSheet } from '../../components/DatePickerSheet';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -11,6 +13,14 @@ import { starterProgram } from '../training-programs/selectors';
 import { STATE_KEY } from '../workout-repository';
 import type { TrainingGoal, TrainingExperience } from '../onboarding';
 const { act, create } = jest.requireActual('react-test-renderer');
+async function chooseDays(view: ReturnType<typeof create>, days = [0, 2, 4]) {
+  for (const day of days) {
+    await act(async () =>
+      view.root.findByType(StarterProgramSchedule).props.onToggle(day),
+    );
+  }
+}
+
 jest.mock('@react-native-async-storage/async-storage', () =>
   jest.requireActual(
     '@react-native-async-storage/async-storage/jest/async-storage-mock',
@@ -71,6 +81,7 @@ it.each(variants)(
     const view = await seed(goal, experience);
     try {
       await act(async () => button(view, 'Set schedule').props.onPress());
+      await chooseDays(view);
       await act(async () =>
         view.root.findByType(StarterProgramSchedule).props.onDone(),
       );
@@ -138,6 +149,7 @@ it('resumes legacy environment at Body details and preserves Home until explicit
 it('keeps the proposal and Retry after a late write failure without generating duplicate routines', async () => {
   const view = await seed();
   await act(async () => button(view, 'Set schedule').props.onPress());
+  await chooseDays(view);
   const original = (AsyncStorage.setItem as jest.Mock).getMockImplementation()!;
   let failed = false;
   const spy = jest
@@ -175,6 +187,7 @@ it('updates all matching calendar days and saves a recurring three-day schedule'
     expect(JSON.stringify(view.toJSON())).toContain('Chest and arms');
     await act(async () => button(view, 'Set schedule').props.onPress());
     const schedule = () => view.root.findByType(StarterProgramSchedule);
+    expect(schedule().props.selected).toEqual([]);
     const today = schedule().props.today as Date;
     const months = [0, 1].map(
       (offset) => new Date(today.getFullYear(), today.getMonth() + offset, 1),
@@ -184,10 +197,9 @@ it('updates all matching calendar days and saves a recurring three-day schedule'
         testID: `program-date-${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
       })[0].props.accessibilityState.selected;
     for (const month of months) {
-      expect(highlight(month)).toBe([1, 3, 5].includes(month.getDay()));
+      expect(highlight(month)).toBe(false);
     }
-    await act(async () => schedule().props.onToggle(0));
-    await act(async () => schedule().props.onToggle(1));
+    await chooseDays(view, [1, 2, 4]);
     for (const month of months) {
       expect(highlight(month)).toBe([2, 3, 5].includes(month.getDay()));
     }
@@ -236,3 +248,34 @@ it('retains manual setup and blocks an adult automatic proposal when the supplie
     await act(async () => view.unmount());
   }
 });
+
+it.each([false, true])(
+  'opens a dismissible welcome on Home with skip=%s',
+  async (skip) => {
+    const view = await seed('universal');
+    try {
+      await act(async () => button(view, 'Set schedule').props.onPress());
+      const schedule = () => view.root.findByType(StarterProgramSchedule);
+      expect(schedule().props.selected).toEqual([]);
+      await chooseDays(view, skip ? [0] : [0, 2, 4]);
+      await act(async () =>
+        skip ? schedule().props.onSkip() : schedule().props.onDone(),
+      );
+      expect(view.root.findByType(Dock).props.active).toBe('home');
+      expect(view.root.findByType(ScheduleWelcome).props.saved).toBe(!skip);
+      const { assignment } = JSON.parse(
+        (await AsyncStorage.getItem(PROGRAM_KEY))!,
+      );
+      expect(assignment.scheduleSkipped).toBe(skip ? true : undefined);
+      expect(
+        projectProgramWeek(assignment, [], assignment.startDate).slots,
+      ).toHaveLength(skip ? 0 : 3);
+      expect(assignment.templates).toHaveLength(3);
+      await act(async () => button(view, 'OK').props.onPress());
+      expect(view.root.findAllByType(ScheduleWelcome)).toHaveLength(0);
+      expect(view.root.findByType(Dock).props.active).toBe('home');
+    } finally {
+      await act(async () => view.unmount());
+    }
+  },
+);

@@ -1,4 +1,14 @@
 export default {
+  'onboarding.skipSchedule': 'Überspringen und starten!',
+  'onboarding.scheduleFlexible':
+    'Dieser Zeitplan ist vorläufig und lässt sich jederzeit ändern.',
+  'onboarding.scheduleWelcome': 'Willkommen!',
+  'onboarding.scheduleSaved': 'Dein Zeitplan steht.',
+  'onboarding.scheduleReady': 'Du kannst mit deinem ersten Training loslegen.',
+  'onboarding.personalRecords':
+    'Viel Erfolg auf dem Weg zu neuen persönlichen Rekorden!',
+  'onboarding.welcomeOk': 'OK',
+
   'program.universal': 'Universal',
   'onboarding.configureSchedule': 'Zeitplan festlegen',
   'onboarding.chooseWeekdays': 'Wähle drei Wochentage.',

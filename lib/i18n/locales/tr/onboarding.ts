@@ -1,4 +1,13 @@
 export default {
+  'onboarding.skipSchedule': 'Atla ve başla!',
+  'onboarding.scheduleFlexible':
+    'Bu program taslaktır. İstediğin zaman değiştirebilirsin.',
+  'onboarding.scheduleWelcome': 'Hoş geldin!',
+  'onboarding.scheduleSaved': 'Programın hazır.',
+  'onboarding.scheduleReady': 'İlk antrenmanına başlayabilirsin.',
+  'onboarding.personalRecords': 'Yeni kişisel rekorlar dileriz!',
+  'onboarding.welcomeOk': 'Tamam',
+
   'program.universal': 'Genel program',
   'onboarding.configureSchedule': 'Programı ayarla',
   'onboarding.chooseWeekdays': 'Haftanın üç gününü seç.',

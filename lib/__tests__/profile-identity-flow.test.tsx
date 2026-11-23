@@ -12,6 +12,14 @@ import { WorkoutTemplates } from '../../components/WorkoutTemplates';
 import { ONBOARDING_KEY } from '../onboarding-repository';
 import { BODY_WEIGHT_KEY } from '../body-weight';
 const { act, create } = jest.requireActual('react-test-renderer');
+async function chooseDays(view: ReturnType<typeof create>, days = [0, 2, 4]) {
+  for (const day of days) {
+    await act(async () =>
+      view.root.findByType(StarterProgramSchedule).props.onToggle(day),
+    );
+  }
+}
+
 jest.mock('@react-native-async-storage/async-storage', () =>
   jest.requireActual(
     '@react-native-async-storage/async-storage/jest/async-storage-mock',
@@ -80,6 +88,7 @@ it('collects name, then body details, then goal; preserves the name through relo
   await act(async () => button(v, 'Find a program').props.onPress());
   await act(async () => button(v, 'Build muscle').props.onPress());
   await act(async () => button(v, 'Set schedule').props.onPress());
+  await chooseDays(v);
   await act(async () =>
     v.root.findByType(StarterProgramSchedule).props.onDone(),
   );

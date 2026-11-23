@@ -1,4 +1,13 @@
 export default {
+  'onboarding.skipSchedule': 'Пропустити й почати!',
+  'onboarding.scheduleFlexible':
+    'Це орієнтовний розклад. Його можна змінити будь-коли.',
+  'onboarding.scheduleWelcome': 'Вітаємо!',
+  'onboarding.scheduleSaved': 'Розклад налаштовано.',
+  'onboarding.scheduleReady': 'Усе готово до першого тренування.',
+  'onboarding.personalRecords': 'Бажаємо нових особистих рекордів!',
+  'onboarding.welcomeOk': 'ОК',
+
   'program.universal': 'Універсальна',
   'onboarding.configureSchedule': 'Налаштувати розклад',
   'onboarding.chooseWeekdays': 'Виберіть три дні тижня.',

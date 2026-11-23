@@ -82,7 +82,9 @@ export const projectProgramWeek = (
     Math.floor((ordinal(date) - ordinal(a.startDate)) / 7),
   );
   const start = addCalendarDays(a.startDate, weekIndex * 7);
-  const schedule = a.program.schedule[weekIndex % a.program.schedule.length];
+  const schedule = a.scheduleSkipped
+    ? []
+    : a.program.schedule[weekIndex % a.program.schedule.length];
   const slots: ProjectedProgramSlot[] = schedule.map((s, slotIndex) => {
     const scheduledDate = addCalendarDays(start, s.offset);
     const context = {
@@ -116,7 +118,9 @@ export const projectProgramWeek = (
   const days = Array.from({ length: 7 }, (_, offset) => ({
     date: addCalendarDays(start, offset),
     slot: slots.find((s) => s.date === addCalendarDays(start, offset)),
-    cardio: a.program.cardio.filter((c) => c.offset === offset),
+    cardio: (a.scheduleSkipped ? [] : a.program.cardio).filter(
+      (c) => c.offset === offset,
+    ),
   }));
   return {
     weekIndex,

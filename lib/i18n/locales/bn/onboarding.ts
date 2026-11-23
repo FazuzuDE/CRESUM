@@ -1,4 +1,13 @@
 export default {
+  'onboarding.skipSchedule': 'এড়িয়ে শুরু করুন!',
+  'onboarding.scheduleFlexible':
+    'এটি একটি প্রাথমিক সময়সূচি। যেকোনো সময় বদলাতে পারবেন।',
+  'onboarding.scheduleWelcome': 'স্বাগতম!',
+  'onboarding.scheduleSaved': 'আপনার সময়সূচি তৈরি হয়েছে।',
+  'onboarding.scheduleReady': 'প্রথম ওয়ার্কআউটের জন্য সব প্রস্তুত।',
+  'onboarding.personalRecords': 'নতুন ব্যক্তিগত রেকর্ডের জন্য শুভকামনা!',
+  'onboarding.welcomeOk': 'ঠিক আছে',
+
   'program.universal': 'সর্বাঙ্গীণ কর্মসূচি',
   'onboarding.configureSchedule': 'সময়সূচি ঠিক করুন',
   'onboarding.chooseWeekdays': 'সপ্তাহের তিনটি দিন বেছে নিন।',

@@ -107,6 +107,7 @@ import {
   timedActivitiesForWorkout,
   type ProjectedProgramSlot,
 } from '@/lib/training-programs/schedule';
+import { ScheduleWelcome } from '@/components/ScheduleWelcome';
 import type { ProgramAssignment } from '@/lib/training-programs/assignment';
 import { resetLocalData } from '@/lib/local-data-reset';
 import { HiddenBuiltInsRepository } from '@/lib/hidden-builtins';
@@ -443,6 +444,7 @@ function AppContent({
           .join(' ')
       : t('error.workoutOperation')
     : '';
+  const [scheduleWelcome, setScheduleWelcome] = useState<{ saved: boolean }>();
   const [assignment, setAssignment] = useState<ProgramAssignment | null>(null);
   const [programError, setProgramError] = useState('');
   const programRecovered = useRef(false);
@@ -797,6 +799,7 @@ function AppContent({
     if (resetInProgress.current || onboardingEpoch.current !== epoch) return;
     setOnboardingError('');
     setOnboardingState(next);
+    if (proposal) setScheduleWelcome({ saved: !proposal.scheduleSkipped });
     setAcceptingProgram(false);
     setEditingPersonalization(false);
     setTab('home');
@@ -1082,6 +1085,7 @@ function AppContent({
       setBodyWeightError('');
       setAcceptingProgram(false);
       setAssignment(null);
+      setScheduleWelcome(undefined);
       setProgramError('');
       setHiddenBuiltInIds([]);
       setHiddenError('');
@@ -1397,17 +1401,25 @@ function AppContent({
             </SafeAreaView>
           ) : null}
           {tab === 'home' ? (
-            <HomeDashboard
-              displayName={onboardingState.answers.displayName}
-              assignment={assignment}
-              startProgramSlot={startProgramSlot}
-              history={data.history}
-              activeWorkout={data.activeWorkout}
-              onResume={() => setTab('workout')}
-              templates={visibleTemplates}
-              startTemplate={startTemplate}
-              onOpenProfile={() => setTab('profile')}
-            />
+            <>
+              <HomeDashboard
+                displayName={onboardingState.answers.displayName}
+                assignment={assignment}
+                startProgramSlot={startProgramSlot}
+                history={data.history}
+                activeWorkout={data.activeWorkout}
+                onResume={() => setTab('workout')}
+                templates={visibleTemplates}
+                startTemplate={startTemplate}
+                onOpenProfile={() => setTab('profile')}
+              />
+              {scheduleWelcome ? (
+                <ScheduleWelcome
+                  saved={scheduleWelcome.saved}
+                  onClose={() => setScheduleWelcome(undefined)}
+                />
+              ) : null}
+            </>
           ) : tab === 'workout' ? (
             <Workout
               session={data.activeWorkout}

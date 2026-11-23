@@ -1,4 +1,13 @@
 export default {
+  'onboarding.skipSchedule': 'Bỏ qua và bắt đầu!',
+  'onboarding.scheduleFlexible':
+    'Đây là lịch dự kiến. Bạn có thể đổi lịch bất cứ lúc nào.',
+  'onboarding.scheduleWelcome': 'Chào mừng bạn!',
+  'onboarding.scheduleSaved': 'Lịch tập đã được thiết lập.',
+  'onboarding.scheduleReady': 'Bạn đã sẵn sàng cho buổi tập đầu tiên.',
+  'onboarding.personalRecords': 'Chúc bạn lập thêm nhiều kỷ lục cá nhân!',
+  'onboarding.welcomeOk': 'OK',
+
   'program.universal': 'Chương trình tổng hợp',
   'onboarding.configureSchedule': 'Thiết lập lịch tập',
   'onboarding.chooseWeekdays': 'Chọn ba ngày trong tuần.',

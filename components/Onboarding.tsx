@@ -115,7 +115,7 @@ export function Onboarding({
       `accept-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`,
   );
   const completing = useRef(false);
-  const weekdays = state.answers.scheduleWeekdays ?? [0, 2, 4];
+  const weekdays = state.answers.scheduleWeekdays ?? [];
   const today = new Date();
   const [birthPicker, setBirthPicker] = useState<{
     value: number;
@@ -174,14 +174,19 @@ export function Onboarding({
     proposal = lockedProposal;
     proposalError = '';
   }
-  const complete = async (manual = false) => {
+  const complete = async (manual = false, skipSchedule = false) => {
     if (completing.current || busy) return;
     completing.current = true;
     setSaving(true);
     setError('');
     try {
-      if (!manual && !proposal) throw proposalError;
-      if (!manual) setLockedProposal(proposal);
+      const accepted =
+        lockedProposal ??
+        (skipSchedule && base && !proposalError
+          ? makeAssignment(base, proposalId, localDate(today), false, true)
+          : proposal);
+      if (!manual && !accepted) throw proposalError;
+      if (!manual) setLockedProposal(accepted);
       const answers = { ...state.answers };
       if (manual) {
         delete answers.goal;
@@ -189,6 +194,9 @@ export function Onboarding({
         delete answers.scheduleWeekdays;
       } else {
         answers.environment = 'gym';
+        answers.scheduleWeekdays = accepted?.scheduleSkipped
+          ? []
+          : [...weekdays];
       }
       await onComplete(
         {
@@ -197,7 +205,7 @@ export function Onboarding({
           step: 'complete',
           answers,
         },
-        manual ? undefined : proposal,
+        manual ? undefined : accepted,
       );
     } catch (problem) {
       setError(problem || true);
@@ -798,6 +806,8 @@ export function Onboarding({
                     })
                   }
                   onDone={() => void complete()}
+                  onSkip={() => void complete(false, true)}
+                  retrySkipped={!!lockedProposal?.scheduleSkipped}
                 />
                 {proposalError ? (
                   <Text accessibilityRole="alert" style={s.error}>
