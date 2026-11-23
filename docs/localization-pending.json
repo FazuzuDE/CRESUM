@@ -6121,6 +6121,12 @@
   },
   {
     "file": "lib/exercise-library.ts",
+    "line": 15,
+    "text": "Treadmill walking",
+    "context": "StringLiteral/PropertyAssignment:name/ObjectLiteralExpression/CallExpression/ArrayLiteralExpression"
+  },
+  {
+    "file": "lib/exercise-library.ts",
     "line": 16,
     "text": "chest",
     "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:primaryMuscles/ObjectLiteralExpression/CallExpression"
@@ -8397,6 +8403,12 @@
     "file": "lib/exercise-taxonomy.ts",
     "line": 48,
     "text": "carry",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
+  },
+  {
+    "file": "lib/exercise-taxonomy.ts",
+    "line": 49,
+    "text": "cardio",
     "context": "StringLiteral/ArrayLiteralExpression/AsExpression/VariableDeclaration/VariableDeclarationList"
   },
   {
