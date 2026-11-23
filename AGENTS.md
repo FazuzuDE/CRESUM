@@ -65,7 +65,10 @@ Do not accidentally lose active workouts or logged sets, duplicate completed wor
 
 - A request that names an exercise or machine starts the workflow in
   [docs/EXERCISE_ADDITION_WORKFLOW.md](docs/EXERCISE_ADDITION_WORKFLOW.md).
-  Preserve existing on-screen sizes and artwork export profiles.
+  Add each new exercise, machine, or variant to its canonical library with
+  a stable ID, all locale translations, and mandatory search synonyms before
+  wiring it into any consuming surface by that ID. Preserve existing on-screen
+  sizes and artwork export profiles.
 
 - Before changing exercise metadata or artwork, read `docs/EXERCISE_LIBRARY.md` and `docs/EXERCISE_ASSETS.md`.
 - Preserve stable exercise IDs and historical meaning; do not casually rename or reinterpret saved IDs.
