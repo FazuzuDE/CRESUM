@@ -73,6 +73,13 @@ jest.mock('react-native-gesture-handler/ReanimatedSwipeable', () => ({
   default: jest.requireActual('react-native').View,
 }));
 
+// Renderer tests exercise local persistence through the in-memory native mock.
+jest.mock('@react-native-async-storage/async-storage', () =>
+  jest.requireActual(
+    '@react-native-async-storage/async-storage/jest/async-storage-mock',
+  ),
+);
+
 // Core screen tests never access device files; archive durability has dedicated port tests.
 jest.mock('./lib/automatic-backup-files', () => ({
   supportsAutomaticBackups: false,

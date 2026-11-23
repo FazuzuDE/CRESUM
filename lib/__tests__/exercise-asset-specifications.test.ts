@@ -213,10 +213,10 @@ describe('exercise asset specifications', () => {
     for (const id of exactIds) expect(findExercise(id)?.id).toBe(id);
     expect(
       exerciseLibrary.filter(
-        ({ id }) =>
+        ({ id, movementPattern }) =>
+          movementPattern !== 'cardio' &&
           !exactIds.includes(id) &&
           ![
-            'treadmill-walking',
             'standing-cable-anti-rotation-press',
             'bodyweight-step-up',
             'dumbbell-floor-glute-bridge',

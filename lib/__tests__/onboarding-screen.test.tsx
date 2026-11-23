@@ -213,7 +213,7 @@ it('preserves the Lose weight selection and reviews the fitness starter plan', a
     'Workout 2',
     'Workout 3',
     'Treadmill walking',
-    'Stationary bike',
+    'Upright stationary bike',
   ]) {
     expect(JSON.stringify(view.toJSON())).toContain(title);
   }
