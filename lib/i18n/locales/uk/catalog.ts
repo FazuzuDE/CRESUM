@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.treadmill-walking': 'Ходьба на біговій доріжці',
   'catalog.exercise.barbell-bench-press': 'Жим штанги лежачи',
   'catalog.exercise.incline-dumbbell-press': 'Жим гантелей на похилій лаві',
   'catalog.exercise.dumbbell-bench-press': 'Жим гантелей лежачи',

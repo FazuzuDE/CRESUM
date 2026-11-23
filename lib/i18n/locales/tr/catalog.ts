@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.treadmill-walking': 'Koşu bandında yürüyüş',
   'catalog.exercise.barbell-bench-press': 'Düz sehpada barbell bench press',
   'catalog.exercise.incline-dumbbell-press': 'Eğimli sehpada dambıl press',
   'catalog.exercise.dumbbell-bench-press': 'Düz sehpada dambıl press',

@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.treadmill-walking': 'Jalan kaki di treadmill',
   'catalog.exercise.barbell-bench-press': 'Bench Press Barbel',
   'catalog.exercise.incline-dumbbell-press': 'Press Dumbel di Bangku Miring',
   'catalog.exercise.dumbbell-bench-press': 'Bench Press Dumbel',

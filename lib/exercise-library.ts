@@ -11,6 +11,15 @@ const exercise = (
 
 export const exerciseLibrary = [
   exercise({
+    id: 'treadmill-walking',
+    name: 'Treadmill walking',
+    measurement: 'duration',
+    primaryMuscles: ['quadriceps', 'calves', 'glutes'],
+    secondaryMuscles: ['hamstrings'],
+    equipment: ['machine'],
+    movementPattern: 'cardio',
+  }),
+  exercise({
     id: 'barbell-bench-press',
     name: 'Barbell Bench Press',
     primaryMuscles: ['chest'],

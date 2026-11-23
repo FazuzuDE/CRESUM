@@ -11,6 +11,7 @@ import { useLocalization } from './LocalizationProvider';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { formatEntryNumber, formatNumber } from '@/lib/i18n/format';
 import { programDayLabel } from '@/lib/i18n/program';
+import { resolveExerciseArtwork } from '@/lib/exercise-artwork';
 import { findExercise } from '@/lib/exercise-library';
 import type {
   CardioGuidance,
@@ -24,10 +25,6 @@ import { newestFirstHistory } from '@/lib/workout-history';
 const treadmillThumbnailSize = 64;
 const treadmillWordmarkWidth = treadmillThumbnailSize * 0.15;
 const treadmillWordmarkHeight = (treadmillWordmarkWidth * 24) / 182;
-const treadmillThumbnails = {
-  male: require('../assets/exercises/treadmill-walking/male/start.webp'),
-  female: require('../assets/exercises/treadmill-walking/female/start.webp'),
-};
 
 export function StarterProgramReview({
   program,
@@ -118,7 +115,10 @@ export function ProgramTimedActivities({
   const colors = useAppColors();
   const { t, locale } = useLocalization();
   const { model } = useExerciseCharacter();
-  const treadmill = cardio?.activity === 'treadmill_walking';
+  const treadmill =
+    cardio?.activity === 'treadmill_walking'
+      ? findExercise('treadmill-walking')
+      : undefined;
   const minutes =
     cardio &&
     formatNumber(locale, cardio.minutes, {
@@ -159,7 +159,10 @@ export function ProgramTimedActivities({
               importantForAccessibility="no-hide-descendants"
             >
               <Image
-                source={treadmillThumbnails[model]}
+                source={
+                  resolveExerciseArtwork(treadmill.imageKey, 'start', model) ??
+                  undefined
+                }
                 resizeMode="contain"
                 style={s.treadmillThumbnail}
               />
@@ -178,7 +181,9 @@ export function ProgramTimedActivities({
           )}
           <View style={s.info}>
             <Text style={s.name}>
-              {t(treadmill ? 'program.treadmill' : 'program.bike')}
+              {treadmill
+                ? catalogLabel(locale, 'exercise', treadmill.id, treadmill.name)
+                : t('program.bike')}
             </Text>
             <Text style={s.meta}>
               {minutes} · {t('program.moderate')}

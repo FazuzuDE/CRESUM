@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 // Search-only alternatives; never displayed or persisted as exercise identity.
 export default {
   exercise: {
+    'treadmill-walking': ['cinta de correr', 'caminar en cinta'],
     'barbell-bench-press': ['press banca', 'press de banca con barra'],
     'incline-dumbbell-press': ['press inclinado mancuernas'],
     'dumbbell-bench-press': ['press plano mancuernas'],

@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.treadmill-walking': 'Đi bộ trên máy chạy',
   'catalog.exercise.barbell-bench-press': 'Đẩy ngực với tạ đòn trên ghế phẳng',
   'catalog.exercise.incline-dumbbell-press':
     'Đẩy ngực với tạ đơn trên ghế dốc lên',

@@ -1,6 +1,10 @@
 import type { ImageSourcePropType, ImageStyle } from 'react-native';
 
 // Explicit exact-variant bindings; technique pairs and equipment have separate approval.
+const treadmillPair = {
+  start: require('../assets/exercises/treadmill-walking/male/start.webp'),
+  finish: require('../assets/exercises/treadmill-walking/male/finish.webp'),
+};
 const floorBridgePair = {
   start: require('../assets/exercises/dumbbell-floor-glute-bridge/start.webp'),
   finish: require('../assets/exercises/dumbbell-floor-glute-bridge/finish.webp'),
@@ -111,6 +115,10 @@ const femalePairs: Readonly<
     }
   >
 > = {
+  'treadmill-walking': {
+    start: require('../assets/exercises/treadmill-walking/female/start.webp'),
+    finish: require('../assets/exercises/treadmill-walking/female/finish.webp'),
+  },
   'dumbbell-shoulder-press': {
     start: require('../assets/exercises/dumbbell-shoulder-press/female/start.webp'),
     finish: require('../assets/exercises/dumbbell-shoulder-press/female/finish.webp'),
@@ -568,6 +576,7 @@ export function resolveExerciseArtwork(
 ): ImageSourcePropType | null {
   if (model === 'female') return femalePairs[variantId]?.[phase] ?? null;
   if (model !== 'male') return null;
+  if (variantId === 'treadmill-walking') return treadmillPair[phase];
   if (variantId === 'dumbbell-floor-glute-bridge')
     return floorBridgePair[phase];
   if (variantId === 'bodyweight-step-up') return stepUpPair[phase];

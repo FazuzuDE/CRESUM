@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 export default {
   // Search alternatives only; identities and historical user text never change.
   exercise: {
+    'treadmill-walking': ['ट्रेडमिल', 'ट्रेडमिलवर पायी चालणे'],
     'barbell-bench-press': [
       'बारबेल बेंचप्रेस',
       'छातीचा बारबेल प्रेस',
