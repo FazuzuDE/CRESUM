@@ -1,4 +1,14 @@
 export default {
+  'onboarding.skipSchedule': 'Passer et commencer !',
+  'onboarding.scheduleFlexible':
+    'Ce planning est indicatif. Tu peux le modifier à tout moment.',
+  'onboarding.scheduleWelcome': 'Bienvenue !',
+  'onboarding.scheduleSaved': 'Ton planning est prêt.',
+  'onboarding.scheduleReady': 'Tout est prêt pour ta première séance.',
+  'onboarding.personalRecords':
+    'On te souhaite de nouveaux records personnels !',
+  'onboarding.welcomeOk': 'OK',
+
   'program.universal': 'Programme universel',
   'onboarding.configureSchedule': 'Configurer le planning',
   'onboarding.chooseWeekdays': 'Choisis trois jours de la semaine.',

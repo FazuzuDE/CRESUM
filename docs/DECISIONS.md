@@ -4702,3 +4702,9 @@ The owner requested the Universal plan first and adopted three sessions per
 week. Show all sessions as soon as a goal is selected, with a single
 schedule action. Choose weekdays with circles, preview the matching dates in
 two side-by-side months, and accept the assignment via the green checkmark.
+
+## 2026-11-23 — Optional schedule and welcome
+
+The owner approved round day controls, an empty initial selection, and an
+optional schedule. Confirm three days or skip the schedule while keeping the
+program. Both paths return to Home with a dismissible welcome.

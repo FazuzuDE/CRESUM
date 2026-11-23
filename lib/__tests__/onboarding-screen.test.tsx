@@ -24,6 +24,13 @@ import { defaultTemplates, exerciseLibrary } from '../workout-catalog';
 import { startWorkout } from '../workout-engine';
 
 const { act, create } = jest.requireActual('react-test-renderer');
+async function chooseDays(view: ReturnType<typeof create>, days = [0, 2, 4]) {
+  for (const day of days) {
+    await act(async () =>
+      view.root.findByType(StarterProgramSchedule).props.onToggle(day),
+    );
+  }
+}
 
 jest.mock('@react-native-async-storage/async-storage', () =>
   jest.requireActual(
@@ -186,6 +193,7 @@ it('persists a goal selection through Back and reload and opens the review direc
   expect(button(restored, 'Build muscle').props.selected).toBe(true);
   await act(async () => button(restored, 'Build muscle').props.onPress());
   await act(async () => button(restored, 'Set schedule').props.onPress());
+  await chooseDays(restored);
   await act(async () =>
     restored.root.findByType(StarterProgramSchedule).props.onDone(),
   );
@@ -213,6 +221,7 @@ it('preserves the Lose weight selection and reviews the fitness starter plan', a
     view.root.findAllByType(AppButton).map((item: any) => item.props.title),
   ).toEqual(['Set schedule']);
   await act(async () => button(view, 'Set schedule').props.onPress());
+  await chooseDays(view);
   await act(async () =>
     view.root.findByType(StarterProgramSchedule).props.onDone(),
   );
@@ -412,6 +421,7 @@ it('does not turn body details into workout history', async () => {
   await act(async () => button(view, 'Find a program')?.props.onPress());
   await act(async () => button(view, 'Build muscle')?.props.onPress());
   await act(async () => button(view, 'Set schedule')?.props.onPress());
+  await chooseDays(view);
   await act(async () =>
     view.root.findByType(StarterProgramSchedule).props.onDone(),
   );

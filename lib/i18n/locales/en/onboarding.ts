@@ -1,4 +1,13 @@
 export default {
+  'onboarding.skipSchedule': 'Skip and start!',
+  'onboarding.scheduleFlexible':
+    'This schedule is tentative. You can change it anytime.',
+  'onboarding.scheduleWelcome': 'Welcome!',
+  'onboarding.scheduleSaved': 'Your schedule is set.',
+  'onboarding.scheduleReady': "You're ready for your first workout.",
+  'onboarding.personalRecords': "Here's to new personal records!",
+  'onboarding.welcomeOk': 'OK',
+
   'program.universal': 'Universal',
   'onboarding.configureSchedule': 'Set schedule',
   'onboarding.chooseWeekdays': 'Choose three days of the week.',

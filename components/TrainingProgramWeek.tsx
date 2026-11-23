@@ -24,6 +24,7 @@ type Props = {
   now: number;
   onStart: (slot: ProjectedProgramSlot, template: WorkoutTemplate) => void;
   onManage?: () => void;
+  onStartUnscheduled?: (template: WorkoutTemplate) => void;
 };
 export function TrainingProgramWeek({
   assignment,
@@ -33,6 +34,7 @@ export function TrainingProgramWeek({
   now,
   onStart,
   onManage,
+  onStartUnscheduled,
 }: Props) {
   const s = useStyles();
   const { t, locale } = useLocalization();
@@ -54,6 +56,36 @@ export function TrainingProgramWeek({
     } catch (error) {
       unavailable = (error as Error).message;
     }
+  }
+  if (assignment.scheduleSkipped) {
+    const first = templates.find(
+      (item) => item.id === assignment.templates[0]?.id,
+    );
+    return (
+      <GlassCard style={s.card}>
+        <Text style={s.title} accessibilityRole="header">
+          {t('plan.title')}
+        </Text>
+        <Text style={s.name}>
+          {programTitle(t, locale, assignment.program)}
+        </Text>
+        {first && !active && onStartUnscheduled ? (
+          <AppButton
+            title={t('plan.start', {
+              key: programDayLabel(
+                t,
+                assignment.program.days[0].key,
+                assignment.program.days[0].name,
+              ),
+            })}
+            onPress={() => onStartUnscheduled(first)}
+          />
+        ) : null}
+        {onManage ? (
+          <AppButton title={t('plan.manage')} secondary onPress={onManage} />
+        ) : null}
+      </GlassCard>
+    );
   }
   return (
     <GlassCard style={s.card}>

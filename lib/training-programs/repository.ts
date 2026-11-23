@@ -16,6 +16,7 @@ const validateAssignment = (value: ProgramAssignment): ProgramAssignment => {
     value.id,
     value.startDate,
     value.reducedFirstSession,
+    value.scheduleSkipped,
   );
   if (
     typeof value.reducedFirstSession !== 'boolean' ||

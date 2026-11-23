@@ -1,4 +1,12 @@
 export default {
+  'onboarding.skipSchedule': 'تخطَّ وابدأ!',
+  'onboarding.scheduleFlexible': 'هذا جدول مبدئي. يمكنك تغييره في أي وقت.',
+  'onboarding.scheduleWelcome': 'أهلًا بك!',
+  'onboarding.scheduleSaved': 'تم إعداد جدولك.',
+  'onboarding.scheduleReady': 'كل شيء جاهز لتمرينك الأول.',
+  'onboarding.personalRecords': 'نتمنى لك أرقامًا قياسية شخصية جديدة!',
+  'onboarding.welcomeOk': 'حسنًا',
+
   'program.universal': 'برنامج شامل',
   'onboarding.configureSchedule': 'ضبط الجدول',
   'onboarding.chooseWeekdays': 'اختر ثلاثة أيام من الأسبوع.',

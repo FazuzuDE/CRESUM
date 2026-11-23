@@ -1,9 +1,10 @@
-import { Pressable, View } from 'react-native';
+import { Pressable, View, useWindowDimensions } from 'react-native';
 import { createThemedStyles, useAppColors } from './AppThemeProvider';
 import {
   DirectionalIcon as Icon,
   LocalizedText as Text,
 } from './LayoutDirection';
+import { AppButton } from './AppButton';
 import { useLocalization } from './LocalizationProvider';
 import { formatDate, formatNumber } from '@/lib/i18n/format';
 import { weekdayOffset } from '@/lib/training-programs/schedule';
@@ -21,6 +22,8 @@ export function StarterProgramSchedule({
   saving,
   onToggle,
   onDone,
+  onSkip,
+  retrySkipped,
 }: {
   today: Date;
   selected: readonly number[];
@@ -29,13 +32,20 @@ export function StarterProgramSchedule({
   saving: boolean;
   onToggle: (day: number) => void;
   onDone: () => void;
+  onSkip: () => void;
+  retrySkipped: boolean;
 }) {
   const s = useStyles();
   const colors = useAppColors();
   const { t, locale } = useLocalization();
   const weekday = (i: number, style: 'short' | 'narrow' | 'long') =>
     formatDate(locale, weekdayDate(i), { weekday: style });
-  const valid = selected.length === 3;
+  const valid = selected.length === 3 && !retrySkipped;
+  const { width } = useWindowDimensions();
+  const circleSize = Math.min(
+    44,
+    Math.floor((width - 2 * spacing.md) / 7) - spacing.xxs,
+  );
   const months = [0, 1].map(
     (offset) => new Date(today.getFullYear(), today.getMonth() + offset, 1, 12),
   );
@@ -61,7 +71,13 @@ export function StarterProgramSchedule({
               onPress={() => onToggle(day)}
               style={s.weekdayButton}
             >
-              <View style={[s.circle, checked && s.circleSelected]}>
+              <View
+                style={[
+                  s.circle,
+                  { width: circleSize, height: circleSize },
+                  checked && s.circleSelected,
+                ]}
+              >
                 <Text style={[s.circleLabel, checked && s.circleLabelSelected]}>
                   {weekday(day, 'short')}
                 </Text>
@@ -138,6 +154,7 @@ export function StarterProgramSchedule({
           );
         })}
       </View>
+      <Text style={s.note}>{t('onboarding.scheduleFlexible')}</Text>
       <Pressable
         accessibilityRole="button"
         accessibilityLabel={saving ? t('onboarding.saving') : t('common.done')}
@@ -151,14 +168,20 @@ export function StarterProgramSchedule({
       >
         <Icon
           name="checkmark-circle"
-          color={colors.success}
-          size={42}
+          color={valid && !disabled ? colors.success : colors.textTertiary}
+          size={84}
           accessible={false}
         />
         <Text style={s.doneText}>
           {saving ? t('onboarding.saving') : t('common.done')}
         </Text>
       </Pressable>
+      <AppButton
+        title={t('onboarding.skipSchedule')}
+        presentation="text"
+        disabled={disabled || (changesDisabled && !retrySkipped)}
+        onPress={onSkip}
+      />
     </View>
   );
 }
@@ -175,9 +198,6 @@ const useStyles = createThemedStyles((colors) => ({
     justifyContent: 'center',
   },
   circle: {
-    width: '92%',
-    maxWidth: 44,
-    aspectRatio: 1,
     borderRadius: radius.pill,
     alignItems: 'center',
     justifyContent: 'center',
@@ -227,6 +247,12 @@ const useStyles = createThemedStyles((colors) => ({
   },
   highlight: { backgroundColor: colors.primaryTint },
   highlightText: { color: colors.textPrimary, fontWeight: '700' },
+  note: {
+    ...typography.subheadline,
+    marginTop: spacing.sm,
+    color: colors.textSecondary,
+    textAlign: 'center',
+  },
   done: {
     alignSelf: 'center',
     alignItems: 'center',

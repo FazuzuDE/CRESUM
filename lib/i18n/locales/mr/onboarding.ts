@@ -1,4 +1,13 @@
 export default {
+  'onboarding.skipSchedule': 'वगळा आणि सुरू करा!',
+  'onboarding.scheduleFlexible':
+    'हे एक प्राथमिक वेळापत्रक आहे. तुम्ही ते कधीही बदलू शकता.',
+  'onboarding.scheduleWelcome': 'स्वागत आहे!',
+  'onboarding.scheduleSaved': 'तुमचे वेळापत्रक तयार झाले आहे.',
+  'onboarding.scheduleReady': 'तुमच्या पहिल्या वर्कआउटसाठी सर्व तयार आहे.',
+  'onboarding.personalRecords': 'नवीन वैयक्तिक विक्रमांसाठी शुभेच्छा!',
+  'onboarding.welcomeOk': 'ठीक आहे',
+
   'program.universal': 'सर्वांगीण कार्यक्रम',
   'onboarding.configureSchedule': 'वेळापत्रक ठरवा',
   'onboarding.chooseWeekdays': 'आठवड्यातील तीन दिवस निवडा.',

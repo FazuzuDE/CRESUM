@@ -1325,7 +1325,7 @@ strength-set log. Previously accepted assignments retain their saved program
 and templates.
 
 Selecting a goal opens all three workouts immediately. Set schedule opens
-recurring weekday selection with Monday, Wednesday and Friday initially
-selected. Confirm exactly three days to accept the assignment and return to
-Home. Workout 1 is scheduled on the first selected day on or after today.
+recurring weekday selection with no days initially selected. Confirm exactly
+three days or skip to accept the selected program without scheduled dates.
+Both paths return to Home with a dismissible welcome dialog. Workout 1 is scheduled on the first selected day on or after today.
 The existing manual route is available before picking a program.

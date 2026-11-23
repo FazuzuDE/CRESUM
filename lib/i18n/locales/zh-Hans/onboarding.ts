@@ -1,4 +1,12 @@
 export default {
+  'onboarding.skipSchedule': '跳过并开始！',
+  'onboarding.scheduleFlexible': '这是初步日程，你可以随时修改。',
+  'onboarding.scheduleWelcome': '欢迎！',
+  'onboarding.scheduleSaved': '训练日程已设置。',
+  'onboarding.scheduleReady': '你可以开始第一次训练了。',
+  'onboarding.personalRecords': '祝你再创个人纪录！',
+  'onboarding.welcomeOk': '确定',
+
   'program.universal': '通用训练',
   'onboarding.configureSchedule': '设置训练日程',
   'onboarding.chooseWeekdays': '选择每周的三天。',

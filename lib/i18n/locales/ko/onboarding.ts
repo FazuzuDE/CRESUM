@@ -1,4 +1,13 @@
 export default {
+  'onboarding.skipSchedule': '건너뛰고 시작하기!',
+  'onboarding.scheduleFlexible':
+    '이 일정은 임시로 정한 것이며 언제든지 바꿀 수 있습니다.',
+  'onboarding.scheduleWelcome': '환영합니다!',
+  'onboarding.scheduleSaved': '일정을 설정했습니다.',
+  'onboarding.scheduleReady': '첫 운동을 시작할 준비가 됐습니다.',
+  'onboarding.personalRecords': '새로운 개인 기록을 응원합니다!',
+  'onboarding.welcomeOk': '확인',
+
   'program.universal': '종합 프로그램',
   'onboarding.configureSchedule': '일정 설정',
   'onboarding.chooseWeekdays': '일주일 중 3일을 선택하세요.',

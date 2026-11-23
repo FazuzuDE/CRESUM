@@ -99,6 +99,7 @@ export class ProgramAcceptance {
               assignment.id,
               assignment.startDate,
               assignment.reducedFirstSession,
+              assignment.scheduleSkipped,
             ),
           ) !== JSON.stringify(assignment)
         )

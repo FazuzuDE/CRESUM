@@ -9,6 +9,7 @@ export type ProgramAssignment = {
   templates: WorkoutTemplate[];
   startDate: string;
   reducedFirstSession: boolean;
+  scheduleSkipped?: true;
 };
 export const validLocalDate = (date: string): boolean => {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return false;
@@ -25,6 +26,7 @@ export const makeAssignment = (
   id: string,
   startDate: string,
   reducedFirstSession = false,
+  scheduleSkipped?: true,
 ): ProgramAssignment => {
   if (
     !/^[a-zA-Z0-9-]{1,80}$/.test(id) ||
@@ -43,6 +45,7 @@ export const makeAssignment = (
     reducedFirstSession: Boolean(
       reducedFirstSession && snapshot.firstSessionSetCap,
     ),
+    ...(scheduleSkipped === true ? { scheduleSkipped } : {}),
     templates: snapshot.days.map((day) => ({
       id: `program-${id}-${day.key}`,
       name: `${snapshot.name} · ${day.name}`,

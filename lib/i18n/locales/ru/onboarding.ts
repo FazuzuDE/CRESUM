@@ -1,4 +1,13 @@
 export default {
+  'onboarding.skipSchedule': 'Пропустить и Начать!',
+  'onboarding.scheduleFlexible':
+    'Это примерное расписание. Его можно изменить в любой момент.',
+  'onboarding.scheduleWelcome': 'Добро пожаловать!',
+  'onboarding.scheduleSaved': 'Расписание настроено.',
+  'onboarding.scheduleReady': 'Всё готово к первой тренировке.',
+  'onboarding.personalRecords': 'Желаем новых личных рекордов!',
+  'onboarding.welcomeOk': 'Ок',
+
   'program.universal': 'Универсальная',
   'onboarding.configureSchedule': 'Настроить расписание',
   'onboarding.chooseWeekdays': 'Выберите три дня недели.',
