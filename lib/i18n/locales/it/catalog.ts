@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.upright-stationary-bike': 'Cyclette verticale',
   'catalog.exercise.treadmill-walking': 'Camminata sul tapis roulant',
   'catalog.exercise.barbell-bench-press': 'Panca piana con bilanciere',
   'catalog.exercise.incline-dumbbell-press': 'Panca inclinata con manubri',

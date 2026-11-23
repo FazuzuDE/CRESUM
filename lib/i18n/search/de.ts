@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 // Search-only alternatives; never displayed or persisted as exercise identity.
 export default {
   exercise: {
+    'upright-stationary-bike': ['Heimtrainer', 'Ergometer fahren'],
     'treadmill-walking': ['Laufband', 'Laufband gehen'],
     'barbell-bench-press': ['Flachbank', 'Bankdrücken Langhantel'],
     'incline-dumbbell-press': ['Schrägbank Kurzhanteln'],

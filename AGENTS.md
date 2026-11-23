@@ -68,7 +68,9 @@ Do not accidentally lose active workouts or logged sets, duplicate completed wor
   Add each new exercise, machine, or variant to its canonical library with
   a stable ID, all locale translations, and mandatory search synonyms before
   wiring it into any consuming surface by that ID. Preserve existing on-screen
-  sizes and artwork export profiles.
+  sizes and artwork export profiles. Show the CRESUM wordmark on new machine
+  and equipment previews and in app as a replaceable separate vector layer.
+  Keep the original illustration clean and store placement per artwork revision.
 
 - Before changing exercise metadata or artwork, read `docs/EXERCISE_LIBRARY.md` and `docs/EXERCISE_ASSETS.md`.
 - Preserve stable exercise IDs and historical meaning; do not casually rename or reinterpret saved IDs.

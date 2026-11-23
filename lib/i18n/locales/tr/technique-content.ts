@@ -1,4 +1,13 @@
 export default {
+  'guide.upright-stationary-bike.scope':
+    'Dik kondisyon bisikletinde oturarak pedal çevirme.',
+  'guide.upright-stationary-bike.setup.0':
+    'Başlamadan önce sele yüksekliğini ayarla ve seleyi sabitle.',
+  'guide.upright-stationary-bike.movement.0': 'Selede oturarak pedal çevir.',
+  'guide.upright-stationary-bike.checks.0':
+    'Pedal en alttayken dizini hafif bükülü tut.',
+  'guide.upright-stationary-bike.mistakes.0':
+    'Kalçan sağa sola sallanıyorsa dur ve sele yüksekliğini kontrol et.',
   'guide.treadmill-walking.scope': 'Motorlu koşu bandında yürüyüş.',
   'guide.treadmill-walking.setup.0':
     'Başlamadan önce emniyet klipsini kıyafetine tak.',

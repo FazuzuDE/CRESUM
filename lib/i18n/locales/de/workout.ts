@@ -1,4 +1,8 @@
 export default {
+  'workout.cardioStart': 'Cardio starten',
+  'workout.cardioPause': 'Pause',
+  'workout.cardioResume': 'Fortsetzen',
+  'workout.cardioPrevious': 'Letzte Einheit',
   'workout.startFromPlan': 'Nach Plan starten',
   'workout.emptyStart': 'Leeres Training',
   'workout.savedTemplates': 'Gespeicherte Vorlagen',

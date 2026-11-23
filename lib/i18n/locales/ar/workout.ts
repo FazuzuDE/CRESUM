@@ -1,4 +1,8 @@
 export default {
+  'workout.cardioStart': 'ابدأ تمارين الكارديو',
+  'workout.cardioPause': 'إيقاف مؤقت',
+  'workout.cardioResume': 'متابعة',
+  'workout.cardioPrevious': 'الجلسة السابقة',
   'workout.startFromPlan': 'ابدأ حسب الخطة',
   'workout.emptyStart': 'تمرين فارغ',
   'workout.savedTemplates': 'القوالب المحفوظة',

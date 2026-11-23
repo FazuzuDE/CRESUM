@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.upright-stationary-bike': 'Вертикальний велотренажер',
   'catalog.exercise.treadmill-walking': 'Ходьба на біговій доріжці',
   'catalog.exercise.barbell-bench-press': 'Жим штанги лежачи',
   'catalog.exercise.incline-dumbbell-press': 'Жим гантелей на похилій лаві',

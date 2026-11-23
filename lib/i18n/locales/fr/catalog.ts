@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.upright-stationary-bike': 'Vélo d’appartement vertical',
   'catalog.exercise.treadmill-walking': 'Marche sur tapis',
   'catalog.exercise.hanging-straight-leg-raise':
     'Relevé des jambes tendues en suspension',

@@ -1,4 +1,8 @@
 export default {
+  'workout.cardioStart': 'Почати кардіо',
+  'workout.cardioPause': 'Пауза',
+  'workout.cardioResume': 'Продовжити',
+  'workout.cardioPrevious': 'Попереднє заняття',
   'workout.startFromPlan': 'Почати за планом',
   'workout.emptyStart': 'Порожнє тренування',
   'workout.savedTemplates': 'Збережені шаблони',

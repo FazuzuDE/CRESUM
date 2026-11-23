@@ -1,4 +1,8 @@
 export default {
+  'workout.cardioStart': '유산소 운동 시작',
+  'workout.cardioPause': '일시 정지',
+  'workout.cardioResume': '재개',
+  'workout.cardioPrevious': '이전 운동',
   'workout.startFromPlan': '계획대로 시작',
   'workout.emptyStart': '빈 운동',
   'workout.savedTemplates': '저장된 템플릿',

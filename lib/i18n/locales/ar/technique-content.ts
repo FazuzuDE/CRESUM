@@ -1,4 +1,14 @@
 export default {
+  'guide.upright-stationary-bike.scope':
+    'التبديل جلوسًا على دراجة تمرين ثابتة عمودية.',
+  'guide.upright-stationary-bike.setup.0':
+    'اضبط ارتفاع المقعد وثبّته قبل البدء.',
+  'guide.upright-stationary-bike.movement.0':
+    'حرّك الدواسات وأنت جالس على المقعد.',
+  'guide.upright-stationary-bike.checks.0':
+    'عندما تصل الدواسة إلى أدنى نقطة، أبقِ ركبتك مثنية قليلًا.',
+  'guide.upright-stationary-bike.mistakes.0':
+    'إذا تأرجح الحوض إلى الجانبين، توقّف وتحقق من ارتفاع المقعد.',
   'guide.treadmill-walking.scope': 'المشي على جهاز سير كهربائي.',
   'guide.treadmill-walking.setup.0': 'ثبّت مشبك الأمان بملابسك قبل البدء.',
   'guide.treadmill-walking.movement.0':

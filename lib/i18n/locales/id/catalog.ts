@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.upright-stationary-bike': 'Sepeda statis tegak',
   'catalog.exercise.treadmill-walking': 'Jalan kaki di treadmill',
   'catalog.exercise.barbell-bench-press': 'Bench Press Barbel',
   'catalog.exercise.incline-dumbbell-press': 'Press Dumbel di Bangku Miring',

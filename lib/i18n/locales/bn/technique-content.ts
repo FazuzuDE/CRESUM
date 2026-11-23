@@ -1,4 +1,13 @@
 export default {
+  'guide.upright-stationary-bike.scope':
+    'সোজা হয়ে বসে স্থির ব্যায়ামের সাইকেলে প্যাডেল চালানো।',
+  'guide.upright-stationary-bike.setup.0':
+    'শুরু করার আগে সিটের উচ্চতা ঠিক করে লক করুন।',
+  'guide.upright-stationary-bike.movement.0': 'সিটে বসে প্যাডেল চালান।',
+  'guide.upright-stationary-bike.checks.0':
+    'প্যাডেল সবচেয়ে নিচে থাকলে হাঁটু সামান্য বাঁকা রাখুন।',
+  'guide.upright-stationary-bike.mistakes.0':
+    'নিতম্ব দুললে থামুন এবং সিটের উচ্চতা পরীক্ষা করুন।',
   'guide.treadmill-walking.scope': 'মোটরচালিত ট্রেডমিলে হাঁটা।',
   'guide.treadmill-walking.setup.0': 'শুরু করার আগে পোশাকে সেফটি ক্লিপ লাগান।',
   'guide.treadmill-walking.movement.0':

@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 // Search-only alternatives; never displayed or persisted as exercise identity.
 export default {
   exercise: {
+    'upright-stationary-bike': ['立式动感单车', '室内健身单车'],
     'treadmill-walking': ['跑步机', '跑步机快走'],
     'barbell-bench-press': ['平板杠铃卧推', '平板卧推'],
     'incline-dumbbell-press': ['哑铃上斜推胸', '上斜卧推哑铃'],

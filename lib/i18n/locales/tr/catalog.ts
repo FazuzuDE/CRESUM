@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.upright-stationary-bike': 'Dik kondisyon bisikleti',
   'catalog.exercise.treadmill-walking': 'Koşu bandında yürüyüş',
   'catalog.exercise.barbell-bench-press': 'Düz sehpada barbell bench press',
   'catalog.exercise.incline-dumbbell-press': 'Eğimli sehpada dambıl press',

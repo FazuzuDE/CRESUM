@@ -1,4 +1,8 @@
 export default {
+  'workout.cardioStart': 'Iniciar cardio',
+  'workout.cardioPause': 'Pausa',
+  'workout.cardioResume': 'Reanudar',
+  'workout.cardioPrevious': 'Sesión anterior',
   'workout.startFromPlan': 'Empezar según el plan',
   'workout.emptyStart': 'Entrenamiento vacío',
   'workout.savedTemplates': 'Plantillas guardadas',

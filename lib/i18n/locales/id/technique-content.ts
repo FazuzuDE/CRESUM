@@ -1,4 +1,14 @@
 export default {
+  'guide.upright-stationary-bike.scope':
+    'Mengayuh sambil duduk di sepeda statis tegak.',
+  'guide.upright-stationary-bike.setup.0':
+    'Atur dan kunci ketinggian sadel sebelum mulai.',
+  'guide.upright-stationary-bike.movement.0':
+    'Kayuh sambil tetap duduk di sadel.',
+  'guide.upright-stationary-bike.checks.0':
+    'Saat pedal berada di titik terendah, lutut tetap sedikit menekuk.',
+  'guide.upright-stationary-bike.mistakes.0':
+    'Jika pinggul bergoyang ke samping, berhenti dan periksa ketinggian sadel.',
   'guide.treadmill-walking.scope': 'Berjalan di atas treadmill bermotor.',
   'guide.treadmill-walking.setup.0':
     'Pasang klip pengaman pada pakaian sebelum mulai.',

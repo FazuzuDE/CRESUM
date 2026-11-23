@@ -1,4 +1,14 @@
 export default {
+  'guide.upright-stationary-bike.scope':
+    'Đạp xe ở tư thế ngồi trên xe đạp tập đứng.',
+  'guide.upright-stationary-bike.setup.0':
+    'Chỉnh và khóa độ cao yên trước khi bắt đầu.',
+  'guide.upright-stationary-bike.movement.0':
+    'Giữ tư thế ngồi trên yên khi đạp.',
+  'guide.upright-stationary-bike.checks.0':
+    'Khi bàn đạp ở vị trí thấp nhất, đầu gối vẫn hơi gập.',
+  'guide.upright-stationary-bike.mistakes.0':
+    'Nếu hông lắc sang hai bên, hãy dừng lại và kiểm tra độ cao yên.',
   'guide.treadmill-walking.scope': 'Đi bộ trên máy chạy bộ có động cơ.',
   'guide.treadmill-walking.setup.0':
     'Gắn kẹp an toàn vào quần áo trước khi bắt đầu.',

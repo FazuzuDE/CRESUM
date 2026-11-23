@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 // Search-only Bengali alternatives and Roman Bangla gym names.
 export default {
   exercise: {
+    'upright-stationary-bike': ['এক্সারসাইজ বাইক', 'স্টেশনারি বাইক'],
     'treadmill-walking': ['ট্রেডমিল', 'ট্রেডমিলে হাঁটার ব্যায়াম'],
     'barbell-bench-press': ['বেঞ্চপ্রেস', 'ফ্ল্যাট বেঞ্চ প্রেস', 'buker bench press'],
     'incline-dumbbell-press': [

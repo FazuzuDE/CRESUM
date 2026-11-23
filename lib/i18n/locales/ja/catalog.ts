@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.upright-stationary-bike': 'アップライト型エアロバイク',
   'catalog.exercise.treadmill-walking': 'トレッドミルでのウォーキング',
   'catalog.exercise.barbell-bench-press': 'バーベルベンチプレス',
   'catalog.exercise.incline-dumbbell-press': 'インクラインダンベルプレス',

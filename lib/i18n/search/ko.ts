@@ -3,6 +3,7 @@ import type { SearchAliasCatalog } from './types';
 // Search-only gym terms; stable identities and saved text are unchanged.
 export default {
   exercise: {
+    'upright-stationary-bike': ['실내 사이클', '고정식 자전거'],
     'treadmill-walking': ['러닝머신', '러닝머신 걷기'],
     'barbell-bench-press': ['벤치프레스', '바벨 벤치', '플랫 벤치프레스'],
     'incline-dumbbell-press': ['인클라인 덤벨프레스', '인클라인 덤벨 벤치'],

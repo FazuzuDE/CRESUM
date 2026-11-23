@@ -1,4 +1,8 @@
 export default {
+  'workout.cardioStart': 'Mulai kardio',
+  'workout.cardioPause': 'Jeda',
+  'workout.cardioResume': 'Lanjutkan',
+  'workout.cardioPrevious': 'Sesi sebelumnya',
   'workout.startFromPlan': 'Mulai dari rencana',
   'workout.emptyStart': 'Latihan kosong',
   'workout.savedTemplates': 'Templat tersimpan',

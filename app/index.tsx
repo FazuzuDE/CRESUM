@@ -1,3 +1,4 @@
+import { waitForCardioWrites } from '@/lib/cardio-timer';
 import {
   createThemedStyles,
   useAppColors,
@@ -913,6 +914,7 @@ function AppContent({
           await localBackups.repository.waitForPendingWrites();
           await onboardingWrites.current;
           await store.waitForPendingWrites();
+          await waitForCardioWrites();
           await hiddenWrites.current;
           await bodyWeightRepository.waitForPendingWrites();
           const snapshot = store.getSnapshot();
@@ -1072,6 +1074,7 @@ function AppContent({
         await localBackups.repository.waitForPendingWrites();
         await onboardingWrites.current;
         await store.waitForPendingWrites();
+        await waitForCardioWrites();
         await hiddenWrites.current;
         await bodyWeightRepository.waitForPendingWrites();
       });

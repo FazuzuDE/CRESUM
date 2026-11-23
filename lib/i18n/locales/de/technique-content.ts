@@ -1,5 +1,16 @@
 import { flattenTechniqueText } from '../../technique-text';
 export default flattenTechniqueText({
+  'upright-stationary-bike': {
+    scope: 'Radfahren im Sitzen auf einem aufrechten Ergometer.',
+    setup: [
+      'Stelle die Sattelhöhe vor dem Start ein und arretiere den Sattel.',
+    ],
+    movement: ['Bleibe beim Treten im Sattel.'],
+    checks: ['Am tiefsten Punkt des Pedals bleibt das Knie leicht gebeugt.'],
+    mistakes: [
+      'Wenn die Hüfte hin und her wippt, halte an und prüfe die Sattelhöhe.',
+    ],
+  },
   'treadmill-walking': {
     scope: 'Gehen auf einem motorisierten Laufband.',
     setup: ['Befestige den Sicherheitsclip vor dem Start an deiner Kleidung.'],

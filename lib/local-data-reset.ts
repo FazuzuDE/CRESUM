@@ -1,3 +1,4 @@
+import { CARDIO_TIMERS_KEY } from './cardio-timer';
 import { BACKUP_POLICY_KEY } from './backup-policy';
 import { AppError } from './app-error';
 import { SYNC_METADATA_KEY } from './sync/storage';
@@ -15,6 +16,7 @@ export const LOCAL_DATA_KEYS = [
   ONBOARDING_KEY,
   PROGRAM_KEY,
   HIDDEN_BUILT_INS_KEY,
+  CARDIO_TIMERS_KEY,
   ...LEGACY_KEYS,
   STATE_KEY,
 ] as const;

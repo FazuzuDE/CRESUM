@@ -9,8 +9,8 @@ export function BrandWordmark({
   height = brand.wordmarkHeight,
   color,
 }: {
-  width?: number;
-  height?: number;
+  width?: number | '100%';
+  height?: number | '100%';
   color?: string;
 } = {}) {
   const colors = useAppColors();

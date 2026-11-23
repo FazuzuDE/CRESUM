@@ -1,3 +1,7 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { WorkoutHistory } from '../../components/WorkoutHistory';
+import { CARDIO_TIMERS_KEY, readCardioTimers } from '../cardio-timer';
+import type { CardioGuidance } from '../training-programs/model';
 import { AppScrollView } from '../../components/AppScrollView';
 import { useState } from 'react';
 import {
@@ -36,11 +40,18 @@ jest.mock('@expo/vector-icons', () => ({
 const initialSession = () =>
   startWorkout(defaultTemplates[0], exerciseLibrary, Date.now());
 
-function Harness({ busy = false }: { busy?: boolean }) {
+function Harness({
+  busy = false,
+  cardio,
+}: {
+  busy?: boolean;
+  cardio?: CardioGuidance;
+}) {
   const [session, setSession] = useState(initialSession);
   return (
     <Workout
       session={session}
+      timedActivities={cardio ? { cardio } : undefined}
       history={[]}
       update={(transform) => setSession(transform)}
       finish={() => {}}
@@ -583,3 +594,67 @@ it('allows later non-pointer activation after suppressing the releasing press', 
     jest.useRealTimers();
   }
 });
+
+it.each([
+  ['treadmill_walking', 'treadmill-walking', 'Treadmill walking'],
+  ['stationary_bike', 'upright-stationary-bike', 'Upright stationary bike'],
+] as const)(
+  'restores the %s countdown and shows actual time in history',
+  async (activity, exerciseId, label) => {
+    await AsyncStorage.removeItem(CARDIO_TIMERS_KEY);
+    jest.useFakeTimers();
+    let view: ReturnType<typeof create>;
+    const press = async (title: string) => {
+      const control = view.root
+        .findAllByType(AppButton)
+        .find(
+          (entry: { props: { title: string } }) => entry.props.title === title,
+        );
+      expect(control).toBeDefined();
+      await act(async () => control.props.onPress());
+    };
+    try {
+      await act(async () => {
+        view = create(
+          <Harness
+            cardio={{ offset: 0, activity, minutes: 1, intensity: 'moderate' }}
+          />,
+        );
+      });
+      const session: WorkoutSession =
+        view.root.findByType(Workout).props.session;
+      await press('Start cardio');
+      act(() => jest.advanceTimersByTime(5000));
+      await press('Pause');
+      await press('+15s');
+      act(() => jest.advanceTimersByTime(4000));
+      await press('Resume');
+      act(() => jest.advanceTimersByTime(3000));
+      await press('Pause');
+
+      const timers = readCardioTimers(
+        await AsyncStorage.getItem(CARDIO_TIMERS_KEY),
+      );
+      expect(timers.get(session.id)).toMatchObject({
+        exerciseId,
+        goalSeconds: 75,
+        elapsedMs: 8000,
+      });
+      const finishedAt = Date.now();
+      await act(async () => {
+        view.update(<WorkoutHistory history={[{ ...session, finishedAt }]} />);
+      });
+      await act(async () => {
+        const row = pressable(view, `Open ${session.name} workout details`);
+        expect(row).toBeDefined();
+        row.props.onPress();
+      });
+      expect(JSON.stringify(view.toJSON())).toContain(label);
+      expect(JSON.stringify(view.toJSON())).toContain('00:08');
+    } finally {
+      if (view) await act(async () => view.unmount());
+      jest.useRealTimers();
+      await AsyncStorage.removeItem(CARDIO_TIMERS_KEY);
+    }
+  },
+);

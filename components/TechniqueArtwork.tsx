@@ -1,3 +1,4 @@
+import { ExerciseArtworkWordmark } from './ExerciseArtworkWordmark';
 import {
   createThemedStyles,
   useAppColors,
@@ -56,6 +57,7 @@ export function TechniqueArtwork({
           })}
           style={[s.picture, placement]}
         />
+        <ExerciseArtworkWordmark imageKey={imageKey} />
       </View>
     );
   return (

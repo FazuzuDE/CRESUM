@@ -62,5 +62,133 @@
     "context": "StringLiteral/PropertyAssignment:title/ObjectLiteralExpression/PropertyAssignment:'horizon-treadmill-owner-guide'/ObjectLiteralExpression",
     "kind": "bibliography",
     "reason": "Equipment manufacturer reference displayed as bibliography."
+  },
+  {
+    "file": "components/CardioCountdown.tsx",
+    "line": 105,
+    "text": "`${formatNumber(locale, Math.floor(seconds / 60))}:${formatNumber(locale, seconds % 60, { minimumIntegerDigits: 2 })}`",
+    "context": "TemplateExpression/ArrowFunction/VariableDeclaration/VariableDeclarationList/FirstStatement",
+    "kind": "internal",
+    "reason": "Localized timer formatting, translation keys and internal storage identifiers."
+  },
+  {
+    "file": "components/CardioCountdown.tsx",
+    "line": 128,
+    "text": "workout.cardioPause",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title",
+    "kind": "internal",
+    "reason": "Localized timer formatting, translation keys and internal storage identifiers."
+  },
+  {
+    "file": "components/CardioCountdown.tsx",
+    "line": 130,
+    "text": "workout.cardioResume",
+    "context": "StringLiteral/ConditionalExpression/ConditionalExpression/CallExpression/JsxExpression",
+    "kind": "internal",
+    "reason": "Localized timer formatting, translation keys and internal storage identifiers."
+  },
+  {
+    "file": "components/CardioCountdown.tsx",
+    "line": 131,
+    "text": "workout.cardioStart",
+    "context": "StringLiteral/ConditionalExpression/ConditionalExpression/CallExpression/JsxExpression",
+    "kind": "internal",
+    "reason": "Localized timer formatting, translation keys and internal storage identifiers."
+  },
+  {
+    "file": "components/CardioCountdown.tsx",
+    "line": 151,
+    "text": "workout.minus15",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title",
+    "kind": "internal",
+    "reason": "Localized timer formatting, translation keys and internal storage identifiers."
+  },
+  {
+    "file": "components/CardioCountdown.tsx",
+    "line": 151,
+    "text": "workout.plus15",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:title",
+    "kind": "internal",
+    "reason": "Localized timer formatting, translation keys and internal storage identifiers."
+  },
+  {
+    "file": "lib/cardio-timer.ts",
+    "line": 15,
+    "text": "cresum.cardio-timers.v1",
+    "context": "StringLiteral/VariableDeclaration/VariableDeclarationList/FirstStatement",
+    "kind": "internal",
+    "reason": "Localized timer formatting, translation keys and internal storage identifiers."
+  },
+  {
+    "file": "lib/exercise-library.ts",
+    "line": 15,
+    "text": "Upright stationary bike",
+    "context": "StringLiteral/PropertyAssignment:name/ObjectLiteralExpression/CallExpression/ArrayLiteralExpression",
+    "kind": "canonical",
+    "reason": "Catalog label translated in every locale."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 6,
+    "text": "Seated cycling on an upright stationary bike.",
+    "context": "StringLiteral/PropertyAssignment:scope/ObjectLiteralExpression/PropertyAssignment:'upright-stationary-bike'/ObjectLiteralExpression",
+    "kind": "canonical",
+    "reason": "Offline upright cycling guide with authored text in all 19 locales and a stable reference ID."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 7,
+    "text": "Adjust and lock the saddle height before starting.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:setup/ObjectLiteralExpression/PropertyAssignment:'upright-stationary-bike'",
+    "kind": "canonical",
+    "reason": "Offline upright cycling guide with authored text in all 19 locales and a stable reference ID."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 8,
+    "text": "Stay seated as you pedal.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:movement/ObjectLiteralExpression/PropertyAssignment:'upright-stationary-bike'",
+    "kind": "canonical",
+    "reason": "Offline upright cycling guide with authored text in all 19 locales and a stable reference ID."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 9,
+    "text": "Keep a slight knee bend at the bottom of the pedal stroke.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:checks/ObjectLiteralExpression/PropertyAssignment:'upright-stationary-bike'",
+    "kind": "canonical",
+    "reason": "Offline upright cycling guide with authored text in all 19 locales and a stable reference ID."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 11,
+    "text": "If your hips rock from side to side, stop and check the saddle height.",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:mistakes/ObjectLiteralExpression/PropertyAssignment:'upright-stationary-bike'",
+    "kind": "canonical",
+    "reason": "Offline upright cycling guide with authored text in all 19 locales and a stable reference ID."
+  },
+  {
+    "file": "lib/exercise-technique/catalog.ts",
+    "line": 13,
+    "text": "horizon-upright-bike-owner-guide",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:sources/ObjectLiteralExpression/PropertyAssignment:'upright-stationary-bike'",
+    "kind": "internal",
+    "reason": "Offline upright cycling guide with authored text in all 19 locales and a stable reference ID."
+  },
+  {
+    "file": "lib/exercise-technique/sources.ts",
+    "line": 4,
+    "text": "Upright and Recumbent Exercise Bike Owner’s Guide",
+    "context": "StringLiteral/PropertyAssignment:title/ObjectLiteralExpression/PropertyAssignment:'horizon-upright-bike-owner-guide'/ObjectLiteralExpression",
+    "kind": "bibliography",
+    "reason": "Equipment manufacturer reference displayed as bibliography."
+  },
+  {
+    "file": "lib/exercise-technique/sources.ts",
+    "line": 3,
+    "text": "Horizon Fitness",
+    "context": "StringLiteral/PropertyAssignment:publisher/ObjectLiteralExpression/PropertyAssignment:'horizon-upright-bike-owner-guide'/ObjectLiteralExpression",
+    "kind": "bibliography",
+    "reason": "Equipment manufacturer reference displayed as bibliography."
   }
 ]

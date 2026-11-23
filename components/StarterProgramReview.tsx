@@ -1,17 +1,15 @@
-import { Image, View } from 'react-native';
+import { cardioExerciseIds } from '@/lib/cardio-timer';
+import { View } from 'react-native';
 import { createThemedStyles, useAppColors } from './AppThemeProvider';
-import { BrandWordmark } from './BrandWordmark';
 import {
   DirectionalIcon as Icon,
   LocalizedText as Text,
 } from './LayoutDirection';
 import { ExerciseArtwork } from './ExerciseArtwork';
-import { useExerciseCharacter } from './ExerciseCharacterProvider';
 import { useLocalization } from './LocalizationProvider';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { formatEntryNumber, formatNumber } from '@/lib/i18n/format';
 import { programDayLabel } from '@/lib/i18n/program';
-import { resolveExerciseArtwork } from '@/lib/exercise-artwork';
 import { findExercise } from '@/lib/exercise-library';
 import type {
   CardioGuidance,
@@ -21,10 +19,6 @@ import type {
 import { isSetComplete, type WorkoutSession } from '@/lib/workout-model';
 import { radius, spacing, typography } from '@/lib/theme';
 import { newestFirstHistory } from '@/lib/workout-history';
-
-const treadmillThumbnailSize = 64;
-const treadmillWordmarkWidth = treadmillThumbnailSize * 0.15;
-const treadmillWordmarkHeight = (treadmillWordmarkWidth * 24) / 182;
 
 export function StarterProgramReview({
   program,
@@ -114,11 +108,9 @@ export function ProgramTimedActivities({
   const s = useStyles();
   const colors = useAppColors();
   const { t, locale } = useLocalization();
-  const { model } = useExerciseCharacter();
-  const treadmill =
-    cardio?.activity === 'treadmill_walking'
-      ? findExercise('treadmill-walking')
-      : undefined;
+  const cardioExercise = cardio?.activity
+    ? findExercise(cardioExerciseIds[cardio.activity])
+    : undefined;
   const minutes =
     cardio &&
     formatNumber(locale, cardio.minutes, {
@@ -152,28 +144,8 @@ export function ProgramTimedActivities({
       ) : null}
       {cardio?.activity ? (
         <View style={s.card}>
-          {treadmill ? (
-            <View
-              style={s.treadmillThumbnail}
-              accessibilityElementsHidden
-              importantForAccessibility="no-hide-descendants"
-            >
-              <Image
-                source={
-                  resolveExerciseArtwork(treadmill.imageKey, 'start', model) ??
-                  undefined
-                }
-                resizeMode="contain"
-                style={s.treadmillThumbnail}
-              />
-              <View style={s.treadmillWordmark} pointerEvents="none">
-                <BrandWordmark
-                  width={treadmillWordmarkWidth}
-                  height={treadmillWordmarkHeight}
-                  color="#D5D9DC"
-                />
-              </View>
-            </View>
+          {cardioExercise ? (
+            <ExerciseArtwork imageKey={cardioExercise.imageKey} size={64} />
           ) : (
             <View style={s.icon}>
               <Icon name="time-outline" size={25} color={colors.primary} />
@@ -181,8 +153,13 @@ export function ProgramTimedActivities({
           )}
           <View style={s.info}>
             <Text style={s.name}>
-              {treadmill
-                ? catalogLabel(locale, 'exercise', treadmill.id, treadmill.name)
+              {cardioExercise
+                ? catalogLabel(
+                    locale,
+                    'exercise',
+                    cardioExercise.id,
+                    cardioExercise.name,
+                  )
                 : t('program.bike')}
             </Text>
             <Text style={s.meta}>
@@ -214,17 +191,6 @@ const useStyles = createThemedStyles((colors) => ({
     backgroundColor: colors.primaryTint,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  treadmillThumbnail: {
-    width: treadmillThumbnailSize,
-    height: treadmillThumbnailSize,
-    borderRadius: radius.md,
-    overflow: 'hidden',
-  },
-  treadmillWordmark: {
-    position: 'absolute',
-    left: treadmillThumbnailSize * 0.438 - treadmillWordmarkWidth / 2,
-    top: treadmillThumbnailSize * 0.9115 - treadmillWordmarkHeight / 2,
   },
   info: { flex: 1, minWidth: 0, gap: spacing.xxs },
   name: {

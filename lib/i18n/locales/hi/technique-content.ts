@@ -1,4 +1,12 @@
 export default {
+  'guide.upright-stationary-bike.scope': 'सीधे बैठकर स्थिर व्यायाम बाइक चलाना।',
+  'guide.upright-stationary-bike.setup.0':
+    'शुरू करने से पहले सीट की ऊँचाई सेट करें और उसे लॉक करें।',
+  'guide.upright-stationary-bike.movement.0': 'सीट पर बैठे हुए पैडल चलाएँ।',
+  'guide.upright-stationary-bike.checks.0':
+    'पैडल सबसे नीचे हो तो घुटना थोड़ा मुड़ा रहे।',
+  'guide.upright-stationary-bike.mistakes.0':
+    'अगर कूल्हे दाएँ-बाएँ हिलें, रुककर सीट की ऊँचाई जाँचें।',
   'guide.treadmill-walking.scope': 'मोटर वाले ट्रेडमिल पर चलना।',
   'guide.treadmill-walking.setup.0': 'शुरू करने से पहले सेफ़्टी क्लिप कपड़ों में लगाएँ।',
   'guide.treadmill-walking.movement.0': 'कम गति से शुरू करें और धीरे-धीरे गति बढ़ाएँ।',

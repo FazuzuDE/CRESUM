@@ -1,4 +1,13 @@
 export default {
+  'guide.upright-stationary-bike.scope':
+    'Pedalada sentada em bicicleta ergométrica vertical.',
+  'guide.upright-stationary-bike.setup.0':
+    'Ajuste e trave a altura do selim antes de começar.',
+  'guide.upright-stationary-bike.movement.0': 'Pedale sem sair do selim.',
+  'guide.upright-stationary-bike.checks.0':
+    'No ponto mais baixo do pedal, mantenha o joelho levemente flexionado.',
+  'guide.upright-stationary-bike.mistakes.0':
+    'Se o quadril balançar de um lado para o outro, pare e verifique a altura do selim.',
   'guide.treadmill-walking.scope': 'Caminhada em esteira motorizada.',
   'guide.treadmill-walking.setup.0':
     'Prenda o clipe de segurança à roupa antes de começar.',

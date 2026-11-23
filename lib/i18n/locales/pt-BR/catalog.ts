@@ -1,4 +1,5 @@
 export default {
+  'catalog.exercise.upright-stationary-bike': 'Bicicleta ergométrica vertical',
   'catalog.exercise.treadmill-walking': 'Caminhada na esteira',
   'catalog.exercise.barbell-bench-press': 'Supino reto com barra',
   'catalog.exercise.incline-dumbbell-press': 'Supino inclinado com halteres',
