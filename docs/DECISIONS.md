@@ -1,5 +1,13 @@
 # CRESUM Decision Log
 
+## 2026-11-23 — Workflow for adding exercises and equipment
+
+An exercise or machine name is sufficient to begin the
+[exercise addition workflow](EXERCISE_ADDITION_WORKFLOW.md). Keep display
+dimensions and approved export quality consistent with the target surface.
+Prepare both character variants as one review set and continue through
+integration, validation and PR after visual acceptance.
+
 ## 2026-11-22 — Muscle Map guide and history
 
 Approved the slogan-line return control, an illustrated bench-press guide,

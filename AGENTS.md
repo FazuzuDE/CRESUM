@@ -63,6 +63,10 @@ Do not accidentally lose active workouts or logged sets, duplicate completed wor
 
 ## Exercise Library and assets
 
+- A request that names an exercise or machine starts the workflow in
+  [docs/EXERCISE_ADDITION_WORKFLOW.md](docs/EXERCISE_ADDITION_WORKFLOW.md).
+  Preserve existing on-screen sizes and artwork export profiles.
+
 - Before changing exercise metadata or artwork, read `docs/EXERCISE_LIBRARY.md` and `docs/EXERCISE_ASSETS.md`.
 - Preserve stable exercise IDs and historical meaning; do not casually rename or reinterpret saved IDs.
 - Exercise assets are not approved until they pass the biomechanics QA in `docs/EXERCISE_ASSETS.md`.
