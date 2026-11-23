@@ -1,10 +1,12 @@
-import { View } from 'react-native';
+import { Image, View } from 'react-native';
 import { createThemedStyles, useAppColors } from './AppThemeProvider';
+import { BrandWordmark } from './BrandWordmark';
 import {
   DirectionalIcon as Icon,
   LocalizedText as Text,
 } from './LayoutDirection';
 import { ExerciseArtwork } from './ExerciseArtwork';
+import { useExerciseCharacter } from './ExerciseCharacterProvider';
 import { useLocalization } from './LocalizationProvider';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { formatEntryNumber, formatNumber } from '@/lib/i18n/format';
@@ -18,6 +20,14 @@ import type {
 import { isSetComplete, type WorkoutSession } from '@/lib/workout-model';
 import { radius, spacing, typography } from '@/lib/theme';
 import { newestFirstHistory } from '@/lib/workout-history';
+
+const treadmillThumbnailSize = 64;
+const treadmillWordmarkWidth = treadmillThumbnailSize * 0.15;
+const treadmillWordmarkHeight = (treadmillWordmarkWidth * 24) / 182;
+const treadmillThumbnails = {
+  male: require('../assets/exercises/treadmill-walking/male/start.webp'),
+  female: require('../assets/exercises/treadmill-walking/female/start.webp'),
+};
 
 export function StarterProgramReview({
   program,
@@ -107,6 +117,8 @@ export function ProgramTimedActivities({
   const s = useStyles();
   const colors = useAppColors();
   const { t, locale } = useLocalization();
+  const { model } = useExerciseCharacter();
+  const treadmill = cardio?.activity === 'treadmill_walking';
   const minutes =
     cardio &&
     formatNumber(locale, cardio.minutes, {
@@ -140,16 +152,33 @@ export function ProgramTimedActivities({
       ) : null}
       {cardio?.activity ? (
         <View style={s.card}>
-          <View style={s.icon}>
-            <Icon name="time-outline" size={25} color={colors.primary} />
-          </View>
+          {treadmill ? (
+            <View
+              style={s.treadmillThumbnail}
+              accessibilityElementsHidden
+              importantForAccessibility="no-hide-descendants"
+            >
+              <Image
+                source={treadmillThumbnails[model]}
+                resizeMode="contain"
+                style={s.treadmillThumbnail}
+              />
+              <View style={s.treadmillWordmark} pointerEvents="none">
+                <BrandWordmark
+                  width={treadmillWordmarkWidth}
+                  height={treadmillWordmarkHeight}
+                  color="#D5D9DC"
+                />
+              </View>
+            </View>
+          ) : (
+            <View style={s.icon}>
+              <Icon name="time-outline" size={25} color={colors.primary} />
+            </View>
+          )}
           <View style={s.info}>
             <Text style={s.name}>
-              {t(
-                cardio.activity === 'treadmill_walking'
-                  ? 'program.treadmill'
-                  : 'program.bike',
-              )}
+              {t(treadmill ? 'program.treadmill' : 'program.bike')}
             </Text>
             <Text style={s.meta}>
               {minutes} · {t('program.moderate')}
@@ -180,6 +209,17 @@ const useStyles = createThemedStyles((colors) => ({
     backgroundColor: colors.primaryTint,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  treadmillThumbnail: {
+    width: treadmillThumbnailSize,
+    height: treadmillThumbnailSize,
+    borderRadius: radius.md,
+    overflow: 'hidden',
+  },
+  treadmillWordmark: {
+    position: 'absolute',
+    left: treadmillThumbnailSize * 0.438 - treadmillWordmarkWidth / 2,
+    top: treadmillThumbnailSize * 0.9115 - treadmillWordmarkHeight / 2,
   },
   info: { flex: 1, minWidth: 0, gap: spacing.xxs },
   name: {

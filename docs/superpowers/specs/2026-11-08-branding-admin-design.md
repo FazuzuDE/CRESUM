@@ -52,3 +52,22 @@ The scope is exercise and equipment illustrations. Exercise identity, workout
 history, equipment defaults and application behavior remain outside this editor.
 Production hosting and authorization implementation are separate delivery
 decisions.
+
+## Treadmill walking placements — approved 2026-11-23
+
+For the treadmill walking illustration, use two independent regions on the
+lower side panel of the deck. The primary region displays the bundled CRESUM
+wordmark by default and accepts a replacement. The adjacent sponsor region is
+empty by default and accepts an independently removable logo. Keep the clean
+base image and both logos separate. Apply the existing one-logo conflict rule
+to each region independently.
+
+The editor previews the effective combination in each supported frame. Once a
+frame has a reviewed placement, the same primary and sponsor selection applies
+to it, using its own artwork-revision coordinates. Constrain each image to its
+region and preserve its aspect ratio. Keep the region positions independent so
+adding or removing a sponsor does not move the primary logo.
+
+Publish both positions together through the existing revision contract, with
+authorization, rollback and bundled fallback. The treadmill editor prototype
+covers preview only. Mobile delivery and authorized publication are pending.
