@@ -14,7 +14,7 @@ import { WheelPickerSheet } from './WheelPickerSheet';
 import { GlassMaterial } from './GlassMaterial';
 import { useReducedTransparency } from './useReducedTransparency';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Pressable, Keyboard, Platform, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ExerciseEquipmentRow } from './ExerciseEquipmentRow';
@@ -50,6 +50,8 @@ type ExerciseLibraryProps = {
   onToggle?: (id: string) => void;
   history?: readonly WorkoutSession[];
   now?: number;
+  overlay?: ReactNode;
+  onCloseOverlay?: () => void;
 };
 
 export function ExerciseLibrary({
@@ -61,10 +63,13 @@ export function ExerciseLibrary({
   onToggle,
   history,
   now,
+  overlay,
+  onCloseOverlay,
 }: ExerciseLibraryProps) {
   const colors = useAppColors();
   const s = useStyles();
   const { locale, t } = useLocalization();
+  const [detailAddition, setDetailAddition] = useState<string>();
   const [guide, setGuide] = useState<LibraryExercise | null>(null);
   const [guideTab, setGuideTab] = useState<'Technique' | 'Statistics'>(
     'Technique',
@@ -73,6 +78,7 @@ export function ExerciseLibrary({
     exercise: LibraryExercise,
     tab: 'Technique' | 'Statistics' = 'Technique',
   ) => {
+    setDetailAddition(undefined);
     setGuideTab(tab);
     setGuide(exercise);
   };
@@ -115,7 +121,12 @@ export function ExerciseLibrary({
     setMuscle(undefined);
     setEquipment(undefined);
   };
+  const closeGuide = () => {
+    setDetailAddition(undefined);
+    setGuide(null);
+  };
   const close = () => {
+    setDetailAddition(undefined);
     setGuide(null);
     setGobletId(undefined);
     setGobletEquipmentOpen(false);
@@ -125,6 +136,7 @@ export function ExerciseLibrary({
 
   useEffect(() => {
     if (!visible) {
+      setDetailAddition(undefined);
       setGobletId(undefined);
       setGobletEquipmentOpen(false);
       setGuide(null);
@@ -134,6 +146,25 @@ export function ExerciseLibrary({
       setEquipment(undefined);
     }
   }, [visible]);
+
+  const overlayOpen = Boolean(overlay);
+  useEffect(() => {
+    if (overlayOpen) {
+      setGuide(null);
+      setDetailAddition(undefined);
+    }
+  }, [overlayOpen]);
+
+  const detailAdded =
+    detailAddition !== undefined && selectedIds.includes(detailAddition);
+  useEffect(() => {
+    if (!visible || !detailAdded) return;
+    const timer = setTimeout(() => {
+      setDetailAddition(undefined);
+      setGuide(null);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [visible, detailAdded, detailAddition]);
 
   const results = searchLocalizedExercises(
     {
@@ -147,13 +178,23 @@ export function ExerciseLibrary({
   const browsing = !selectionMode && !onAdd;
   const CopyContainer = browsing ? Pressable : View;
 
-  const renderAction = (exercise: LibraryExercise, name: string) => {
-    if (browsing || !isManualWorkoutExercise(exercise)) return null;
+  const renderAction = (
+    exercise: LibraryExercise,
+    name: string,
+    inGuide = false,
+  ) => {
+    if (browsing) return null;
+    const unavailable = !isManualWorkoutExercise(exercise);
+    const programOnly =
+      unavailable &&
+      Object.values(cardioExerciseIds).some((id) => id === exercise.id);
     const selected = selectedIds.includes(exercise.id);
     return (
       <ExerciseLibraryAction
         selected={selected}
         toggle={selectionMode}
+        unavailable={unavailable}
+        accessibilityHint={programOnly ? t('library.programCardio') : undefined}
         label={
           selectionMode
             ? t(selected ? 'library.selected' : 'library.select')
@@ -167,7 +208,12 @@ export function ExerciseLibrary({
               : 'library.addName',
           { name },
         )}
-        onPress={() => (onToggle ? onToggle(exercise.id) : onAdd?.(exercise))}
+        onPress={() => {
+          if (unavailable) return;
+          if (inGuide && !selected) setDetailAddition(exercise.id);
+          if (onToggle) onToggle(exercise.id);
+          else onAdd?.(exercise);
+        }}
       />
     );
   };
@@ -177,168 +223,178 @@ export function ExerciseLibrary({
       edges={presentation === 'page' ? [] : ['left', 'right']}
       style={s.sheet}
     >
-      <AppScrollView
-        branded
-        dockAware={presentation === 'page'}
-        back={
-          presentation === 'page'
-            ? { accessibilityLabel: t('library.backProfile'), onPress: close }
-            : { accessibilityLabel: t('library.closeLibrary'), onPress: close }
-        }
-        keyboardShouldPersistTaps="handled"
-        contentContainerStyle={s.content}
+      <View
+        style={s.libraryContent}
+        accessibilityElementsHidden={Boolean(overlay)}
+        importantForAccessibility={overlay ? 'no-hide-descendants' : undefined}
       >
-        <View style={s.header}>
-          <View style={s.headerCopy}>
-            <Text style={s.title}>{t('library.title')}</Text>
-            <Text style={s.subtitle}>
-              {t('library.count', { count: results.length })}
-            </Text>
-          </View>
-        </View>
-
-        <TextInput
-          accessibilityLabel={t('library.searchLabel')}
-          value={query}
-          onChangeText={setQuery}
-          placeholder={t('library.searchPlaceholder')}
-          placeholderTextColor={colors.textTertiary}
-          returnKeyType="search"
-          style={s.search}
-        />
-
-        <View style={s.filterBar}>
-          <GlassMaterial
-            borderRadius={radius.pill}
-            solid={Platform.OS === 'ios' && reduceTransparency}
-          />
-          {(['muscle', 'equipment'] as const).map((group) => (
-            <FilterButton
-              key={group}
-              group={group}
-              title={filterTitles[group]}
-              value={filters[group][selectedRows[group]]}
-              filtered={selectedRows[group] > 0}
-              onPress={() => {
-                Keyboard.dismiss();
-                setFilterDraft({ group, row: selectedRows[group] });
-              }}
-            />
-          ))}
-        </View>
-
-        <View style={s.results}>
-          {results.length === 0 ? (
-            <View style={s.empty}>
-              <Text style={s.emptyTitle}>{t('library.empty')}</Text>
-              <Text style={s.subtitle}>{t('library.emptyHint')}</Text>
+        <AppScrollView
+          branded
+          dockAware={presentation === 'page'}
+          back={
+            presentation === 'page'
+              ? { accessibilityLabel: t('library.backProfile'), onPress: close }
+              : {
+                  accessibilityLabel: t('library.closeLibrary'),
+                  onPress: close,
+                }
+          }
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={s.content}
+        >
+          <View style={s.header}>
+            <View style={s.headerCopy}>
+              <Text style={s.title}>{t('library.title')}</Text>
+              <Text style={s.subtitle}>
+                {t('library.count', { count: results.length })}
+              </Text>
             </View>
-          ) : (
-            results.map((listedExercise) => {
-              const exercise =
-                listedExercise.id === 'goblet-squat'
-                  ? findExercise(
-                      gobletId ??
-                        selectedIds.find(
-                          (id) =>
-                            id === 'goblet-squat' ||
-                            id === 'kettlebell-goblet-squat',
-                        ) ??
-                        (equipment === 'kettlebell'
-                          ? 'kettlebell-goblet-squat'
-                          : 'goblet-squat'),
-                    )!
-                  : listedExercise;
-              const name = catalogLabel(
-                locale,
-                'exercise',
-                exercise.id,
-                exercise.name,
-              );
-              const selected = selectedIds.includes(exercise.id);
-              const readOnly = !browsing && !isManualWorkoutExercise(exercise);
-              const programOnly =
-                readOnly &&
-                Object.values(cardioExerciseIds).some(
-                  (id) => id === exercise.id,
+          </View>
+
+          <TextInput
+            accessibilityLabel={t('library.searchLabel')}
+            value={query}
+            onChangeText={setQuery}
+            placeholder={t('library.searchPlaceholder')}
+            placeholderTextColor={colors.textTertiary}
+            returnKeyType="search"
+            style={s.search}
+          />
+
+          <View style={s.filterBar}>
+            <GlassMaterial
+              borderRadius={radius.pill}
+              solid={Platform.OS === 'ios' && reduceTransparency}
+            />
+            {(['muscle', 'equipment'] as const).map((group) => (
+              <FilterButton
+                key={group}
+                group={group}
+                title={filterTitles[group]}
+                value={filters[group][selectedRows[group]]}
+                filtered={selectedRows[group] > 0}
+                onPress={() => {
+                  Keyboard.dismiss();
+                  setFilterDraft({ group, row: selectedRows[group] });
+                }}
+              />
+            ))}
+          </View>
+
+          <View style={s.results}>
+            {results.length === 0 ? (
+              <View style={s.empty}>
+                <Text style={s.emptyTitle}>{t('library.empty')}</Text>
+                <Text style={s.subtitle}>{t('library.emptyHint')}</Text>
+              </View>
+            ) : (
+              results.map((listedExercise) => {
+                const exercise =
+                  listedExercise.id === 'goblet-squat'
+                    ? findExercise(
+                        gobletId ??
+                          selectedIds.find(
+                            (id) =>
+                              id === 'goblet-squat' ||
+                              id === 'kettlebell-goblet-squat',
+                          ) ??
+                          (equipment === 'kettlebell'
+                            ? 'kettlebell-goblet-squat'
+                            : 'goblet-squat'),
+                      )!
+                    : listedExercise;
+                const name = catalogLabel(
+                  locale,
+                  'exercise',
+                  exercise.id,
+                  exercise.name,
                 );
-              return (
-                <View
-                  key={exercise.id}
-                  style={[s.row, selected && s.selectedRow]}
-                >
-                  <View style={s.copy}>
-                    <CopyContainer
-                      accessibilityRole={browsing ? 'button' : undefined}
-                      accessibilityLabel={
-                        browsing ? t('library.view', { name }) : undefined
-                      }
-                      onPress={browsing ? () => openGuide(exercise) : undefined}
-                      style={s.nameCopy}
-                    >
-                      <Text style={s.name}>{name}</Text>
-                      <Text style={s.metadata}>
-                        {exercise.primaryMuscles
-                          .map((id) => catalogLabel(locale, 'muscle', id, id))
-                          .join(' · ')}
-                      </Text>
-                      <Text style={s.metadata}>
-                        {exercise.equipment
-                          .map((id) =>
-                            catalogLabel(locale, 'equipment', id, id),
-                          )
-                          .join(' · ')}
-                      </Text>
-                    </CopyContainer>
-                    {history !== undefined ? (
-                      <Pressable
-                        accessibilityRole="button"
-                        accessibilityLabel={t('library.statisticsFor', {
-                          name,
-                        })}
-                        accessibilityHint={t('library.statisticsHint')}
-                        onPress={() => openGuide(exercise, 'Statistics')}
-                        style={s.statisticsAction}
+                const selected = selectedIds.includes(exercise.id);
+                const readOnly =
+                  !browsing && !isManualWorkoutExercise(exercise);
+                const programOnly =
+                  readOnly &&
+                  Object.values(cardioExerciseIds).some(
+                    (id) => id === exercise.id,
+                  );
+                return (
+                  <View
+                    key={exercise.id}
+                    style={[s.row, selected && s.selectedRow]}
+                  >
+                    <View style={s.copy}>
+                      <CopyContainer
+                        accessibilityRole={browsing ? 'button' : undefined}
+                        accessibilityLabel={
+                          browsing ? t('library.view', { name }) : undefined
+                        }
+                        onPress={
+                          browsing ? () => openGuide(exercise) : undefined
+                        }
+                        style={s.nameCopy}
                       >
-                        <Text style={s.techniqueLabel}>
-                          {t('library.statistics')}
+                        <Text style={s.name}>{name}</Text>
+                        <Text style={s.metadata}>
+                          {exercise.primaryMuscles
+                            .map((id) => catalogLabel(locale, 'muscle', id, id))
+                            .join(' · ')}
                         </Text>
-                      </Pressable>
-                    ) : null}
-                    {listedExercise.id === 'goblet-squat' ? (
-                      <ExerciseEquipmentRow
-                        exerciseId={exercise.id}
-                        onPress={() => setGobletEquipmentOpen(true)}
-                      />
-                    ) : null}
-                    {readOnly ? (
-                      programOnly ? (
+                        <Text style={s.metadata}>
+                          {exercise.equipment
+                            .map((id) =>
+                              catalogLabel(locale, 'equipment', id, id),
+                            )
+                            .join(' · ')}
+                        </Text>
+                      </CopyContainer>
+                      {history !== undefined ? (
+                        <Pressable
+                          accessibilityRole="button"
+                          accessibilityLabel={t('library.statisticsFor', {
+                            name,
+                          })}
+                          accessibilityHint={t('library.statisticsHint')}
+                          onPress={() => openGuide(exercise, 'Statistics')}
+                          style={s.statisticsAction}
+                        >
+                          <Text style={s.techniqueLabel}>
+                            {t('library.statistics')}
+                          </Text>
+                        </Pressable>
+                      ) : null}
+                      {listedExercise.id === 'goblet-squat' ? (
+                        <ExerciseEquipmentRow
+                          exerciseId={exercise.id}
+                          onPress={() => setGobletEquipmentOpen(true)}
+                        />
+                      ) : null}
+                      {renderAction(exercise, name)}
+                      {programOnly ? (
                         <Text style={s.metadata}>
                           {t('library.programCardio')}
                         </Text>
-                      ) : null
-                    ) : (
-                      renderAction(exercise, name)
-                    )}
+                      ) : null}
+                    </View>
+                    <Pressable
+                      accessibilityRole="button"
+                      accessibilityLabel={t('library.techniqueFor', { name })}
+                      accessibilityHint={t('library.techniqueHint')}
+                      onPress={() => openGuide(exercise)}
+                      style={s.techniqueAction}
+                    >
+                      <ExerciseArtwork imageKey={exercise.imageKey} size={76} />
+                      <Text style={s.techniqueLabel}>
+                        {t('library.technique')}
+                      </Text>
+                    </Pressable>
                   </View>
-                  <Pressable
-                    accessibilityRole="button"
-                    accessibilityLabel={t('library.techniqueFor', { name })}
-                    accessibilityHint={t('library.techniqueHint')}
-                    onPress={() => openGuide(exercise)}
-                    style={s.techniqueAction}
-                  >
-                    <ExerciseArtwork imageKey={exercise.imageKey} size={76} />
-                    <Text style={s.techniqueLabel}>
-                      {t('library.technique')}
-                    </Text>
-                  </Pressable>
-                </View>
-              );
-            })
-          )}
-        </View>
-      </AppScrollView>
+                );
+              })
+            )}
+          </View>
+        </AppScrollView>
+      </View>
+      {overlay ? <View style={s.overlay}>{overlay}</View> : null}
       {visible && filterDraft ? (
         <WheelPickerSheet
           title={filterTitles[filterDraft.group]}
@@ -383,11 +439,11 @@ export function ExerciseLibrary({
           onClose={() => setGobletEquipmentOpen(false)}
         />
       ) : null}
-      {guide ? (
+      {guide && !overlay ? (
         <ExerciseTechnique
           key={guide.id}
           exercise={guide}
-          renderAction={browsing ? undefined : renderAction}
+          renderAction={(exercise, name) => renderAction(exercise, name, true)}
           onEquipmentChange={
             guide.id === 'goblet-squat' ||
             guide.id === 'kettlebell-goblet-squat'
@@ -397,7 +453,7 @@ export function ExerciseLibrary({
           history={history}
           initialTab={guideTab}
           now={now}
-          onClose={() => setGuide(null)}
+          onClose={closeGuide}
         />
       ) : null}
     </SafeAreaView>
@@ -408,7 +464,7 @@ export function ExerciseLibrary({
       visible={visible}
       animationType="slide"
       presentationStyle="pageSheet"
-      onRequestClose={close}
+      onRequestClose={overlay ? onCloseOverlay : close}
     >
       {content}
     </ScreenModal>
@@ -460,6 +516,15 @@ const useStyles = createThemedStyles((colors) => ({
   sheet: {
     flex: 1,
     paddingHorizontal: spacing.md,
+    backgroundColor: colors.background,
+  },
+  libraryContent: { flex: 1 },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
     backgroundColor: colors.background,
   },
   content: { paddingTop: spacing.sm },

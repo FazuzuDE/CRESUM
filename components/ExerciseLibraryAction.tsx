@@ -10,6 +10,8 @@ type Props = {
   selected: boolean;
   toggle: boolean;
   onPress: () => void;
+  unavailable?: boolean;
+  accessibilityHint?: string;
 };
 
 export function ExerciseLibraryAction({
@@ -18,16 +20,25 @@ export function ExerciseLibraryAction({
   selected,
   toggle,
   onPress,
+  unavailable = false,
+  accessibilityHint,
 }: Props) {
   const colors = useAppColors();
   const duration = useReducedMotion() ? 0 : 500;
-  const disabled = selected && !toggle;
-  const ink = selected ? colors.libraryAddedText : colors.libraryActionInk;
+  const disabled = unavailable || (selected && !toggle);
+  const ink = selected
+    ? colors.libraryAddedText
+    : unavailable
+      ? colors.textSecondary
+      : colors.libraryActionInk;
   return (
     <Pressable
       accessibilityRole={toggle ? 'checkbox' : 'button'}
       accessibilityLabel={accessibilityLabel}
-      accessibilityState={toggle ? { checked: selected } : { disabled }}
+      accessibilityHint={accessibilityHint}
+      accessibilityState={
+        toggle ? { checked: selected, disabled } : { disabled }
+      }
       disabled={disabled}
       onPress={onPress}
       style={styles.button}

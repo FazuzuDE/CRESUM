@@ -8,6 +8,7 @@ import {
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
 import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
+import { AppScrollView } from './AppScrollView';
 import {
   ExerciseGroupComposer,
   type EquipmentCompositionDraft,
@@ -295,7 +296,9 @@ export function TemplateEditor({
     }
   };
 
-  return (
+  const configuringFromLibrary =
+    step === 'configure' && !configuration?.editing;
+  const editorContent = (
     <>
       <Confirmation
         visible={confirmCancel}
@@ -305,12 +308,6 @@ export function TemplateEditor({
         cancelLabel={t('editor.keep')}
         onConfirm={onCancel}
         onCancel={() => setConfirmCancel(false)}
-      />
-      <ExerciseLibrary
-        visible={step === 'library'}
-        onClose={goBack}
-        onAdd={(exercise) => selectExercise(exercise.id)}
-        selectedIds={draft.exerciseIds}
       />
       <GlassCard style={s.card}>
         <Text style={s.title} accessibilityRole="header">
@@ -723,6 +720,25 @@ export function TemplateEditor({
           onClose={() => setEquipmentOpen(false)}
         />
       ) : null}
+    </>
+  );
+  return (
+    <>
+      <ExerciseLibrary
+        visible={step === 'library' || configuringFromLibrary}
+        onClose={goBack}
+        onAdd={(exercise) => selectExercise(exercise.id)}
+        selectedIds={draft.exerciseIds}
+        onCloseOverlay={goBack}
+        overlay={
+          configuringFromLibrary ? (
+            <AppScrollView keyboardShouldPersistTaps="handled">
+              {editorContent}
+            </AppScrollView>
+          ) : undefined
+        }
+      />
+      {configuringFromLibrary ? null : editorContent}
     </>
   );
 }

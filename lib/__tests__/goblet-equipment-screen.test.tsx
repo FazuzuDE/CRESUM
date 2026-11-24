@@ -199,6 +199,7 @@ it('switches Goblet artwork with the equipment choice and retains the selected p
 });
 
 it('adds the variant currently displayed in the guide and reflects its selection in both places', () => {
+  jest.useFakeTimers();
   const onAdd = jest.fn();
   const props = { visible: true, onClose: () => {}, onAdd };
   let view: ReturnType<typeof create>;
@@ -228,7 +229,20 @@ it('adds the variant currently displayed in the guide and reflects its selection
         node.props.disabled,
     );
   expect(added).toHaveLength(2);
+  act(() => jest.advanceTimersByTime(500));
+  expect(view.root.findAllByType(ExerciseTechnique)).toHaveLength(0);
+  expect(view.root.findByType(TextInput).props.value).toBe('Goblet');
+  expect(
+    view.root
+      .findAll(isPressable)
+      .filter(
+        (node: any) =>
+          node.props.disabled &&
+          node.props.accessibilityLabel?.includes('Goblet Squat'),
+      ),
+  ).toHaveLength(1);
   act(() => view.unmount());
+  jest.useRealTimers();
 });
 
 it('applies a library wheel filter only after Done and shows the current choice', () => {

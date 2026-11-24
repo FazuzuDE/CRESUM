@@ -236,6 +236,7 @@ it('uses the reusable library to append an exercise to an active workout', () =>
   act(() =>
     sheet.props.onAdd(exerciseLibrary.find(({ id }) => id === 'farmers-carry')),
   );
+  expect(sheet.props.visible).toBe(true);
   const transform = update.mock.calls.at(-1)?.[0];
   expect(transform(session).exercises.at(-1).libraryId).toBe('farmers-carry');
   act(() => view.unmount());
@@ -379,8 +380,12 @@ it('shows current cardio entries in a workout picker without offering strength-s
   expect(
     findPressable(view, 'Already added Barbell Bench Press')?.props.disabled,
   ).toBe(true);
-  expect(findPressable(view, 'Add Treadmill walking')).toBeUndefined();
-  expect(findPressable(view, 'Add Upright stationary bike')).toBeUndefined();
+  expect(findPressable(view, 'Add Treadmill walking')?.props.disabled).toBe(
+    true,
+  );
+  expect(
+    findPressable(view, 'Add Upright stationary bike')?.props.disabled,
+  ).toBe(true);
   expect(findPressable(view, 'Technique for Treadmill walking')).toBeDefined();
   expect(
     findPressable(view, 'Technique for Upright stationary bike'),

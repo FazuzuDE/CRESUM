@@ -297,5 +297,12 @@
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes",
     "kind": "internal",
     "reason": "Native accessibility role, animation property or icon identifier for the V7 action."
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "text": "no-hide-descendants",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes",
+    "kind": "internal",
+    "reason": "Native accessibility visibility for the covered exercise list."
   }
 ]
