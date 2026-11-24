@@ -1,4 +1,5 @@
 export default {
+  'library.programCardio': 'Disponible en los programas iniciales',
   'exerciseMuscles.title': 'Músculos trabajados',
   'exerciseMuscles.more': 'Más detalles',
   'exerciseMuscles.open': 'Detalles musculares para {{name}}',

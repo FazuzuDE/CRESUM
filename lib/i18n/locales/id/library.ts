@@ -1,4 +1,5 @@
 export default {
+  'library.programCardio': 'Tersedia di program awal',
   'exerciseMuscles.title': 'Otot yang bekerja',
   'exerciseMuscles.more': 'Detail lainnya',
   'exerciseMuscles.open': 'Detail otot untuk {{name}}',

@@ -362,3 +362,31 @@ it('offers a read-only full library page with working search and Back', () => {
     act(() => view.unmount());
   }
 });
+
+it('shows current cardio entries in a workout picker without offering strength-set logging', () => {
+  const onAdd = jest.fn();
+  const view = renderLibrary(
+    <ExerciseLibrary
+      visible
+      onClose={() => {}}
+      onAdd={onAdd}
+      selectedIds={['barbell-bench-press']}
+    />,
+  );
+  expect(JSON.stringify(view.toJSON())).toContain(
+    `${exerciseLibrary.length - 1} exercises`,
+  );
+  expect(
+    findPressable(view, 'Already added Barbell Bench Press')?.props.disabled,
+  ).toBe(true);
+  expect(findPressable(view, 'Add Treadmill walking')).toBeUndefined();
+  expect(findPressable(view, 'Add Upright stationary bike')).toBeUndefined();
+  expect(findPressable(view, 'Technique for Treadmill walking')).toBeDefined();
+  expect(
+    findPressable(view, 'Technique for Upright stationary bike'),
+  ).toBeDefined();
+  expect(JSON.stringify(view.toJSON())).toContain(
+    'Available in starter programs',
+  );
+  act(() => view.unmount());
+});

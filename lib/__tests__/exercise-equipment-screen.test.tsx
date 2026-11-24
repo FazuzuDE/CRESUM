@@ -1,3 +1,5 @@
+import { ExerciseTechnique } from '../../components/ExerciseTechnique';
+import { findExercise } from '../exercise-library';
 import { ExerciseEquipmentSheet } from '../../components/ExerciseEquipmentSheet';
 import { equipmentPolicyFor } from '../exercise-equipment';
 import { Modal, TextInput } from 'react-native';
@@ -109,4 +111,35 @@ it('retains each configuration draft when browsing away from an edited attachmen
           x.props.accessibilityLabel === 'Starting weight in kilograms',
       )!.props.value,
   ).toBe('38');
+});
+
+it('keeps the lat pulldown handle picker in the technique sheet and applies the selected variant', () => {
+  const close = jest.fn();
+  const selected = jest.fn();
+  let view: ReturnType<typeof create>;
+  act(() => {
+    view = create(
+      <ExerciseTechnique
+        exercise={findExercise('lat-pulldown')!}
+        onClose={close}
+        onEquipmentChange={selected}
+      />,
+    );
+  });
+  const control = (label: string) =>
+    view.root
+      .findAll(isPressable)
+      .find(
+        (node: { props: { accessibilityLabel?: string } }) =>
+          node.props.accessibilityLabel === label,
+      );
+  act(() => control('Change equipment: Choose a handle').props.onPress());
+  expect(view.root.findAllByType(Modal)).toHaveLength(1);
+  expect(control('V-handle')).toBeDefined();
+  act(() => control('V-handle').props.onPress());
+  expect(selected).toHaveBeenCalledWith('lat-pulldown-close-neutral-v-handle');
+  expect(close).not.toHaveBeenCalled();
+  expect(control('Change equipment: V-handle')).toBeDefined();
+  expect(control('V-handle')).toBeUndefined();
+  act(() => view.unmount());
 });

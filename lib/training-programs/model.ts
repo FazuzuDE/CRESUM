@@ -1,3 +1,4 @@
+import type { cardioExerciseIds } from '../exercise-library';
 import type { TrainingExperience, TrainingGoal } from '../onboarding';
 export type ProgramMovement = {
   exerciseId: string;
@@ -27,7 +28,7 @@ export type CardioGuidance = {
   offset: number;
   minutes: number;
   intensity: 'moderate';
-  activity?: 'treadmill_walking' | 'stationary_bike';
+  activity?: keyof typeof cardioExerciseIds;
 };
 export type ProgramDefinition = {
   id: string;

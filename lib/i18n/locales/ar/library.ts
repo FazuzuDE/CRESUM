@@ -1,4 +1,5 @@
 export default {
+  'library.programCardio': 'متاح في البرامج المبدئية',
   'exerciseMuscles.title': 'العضلات العاملة',
   'exerciseMuscles.more': 'مزيد من التفاصيل',
   'exerciseMuscles.open': 'تفاصيل عضلات ⁨{{name}}⁩',

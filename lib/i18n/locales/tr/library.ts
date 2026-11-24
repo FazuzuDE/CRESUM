@@ -1,4 +1,5 @@
 export default {
+  'library.programCardio': 'Başlangıç programlarında kullanılabilir',
   'exerciseMuscles.title': 'Çalışan kaslar',
   'exerciseMuscles.more': 'Daha fazla detay',
   'exerciseMuscles.open': '{{name}} için kas detayları',

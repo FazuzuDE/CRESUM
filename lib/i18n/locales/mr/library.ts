@@ -1,4 +1,5 @@
 export default {
+  'library.programCardio': 'सुरुवातीच्या कार्यक्रमांमध्ये उपलब्ध',
   'exerciseMuscles.title': 'काम करणारे स्नायू',
   'exerciseMuscles.more': 'अधिक तपशील',
   'exerciseMuscles.open': '{{name}} साठी स्नायूंचे तपशील',

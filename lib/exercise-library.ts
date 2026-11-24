@@ -625,6 +625,24 @@ export const findExercise = (id: string): LibraryExercise | undefined => {
   return canonicalId ? exerciseById.get(canonicalId) : undefined;
 };
 
+export const cardioExerciseIds = {
+  treadmill_walking: 'treadmill-walking',
+  stationary_bike: 'upright-stationary-bike',
+} as const;
+
+export function isManualWorkoutExercise({
+  id,
+  movementPattern,
+  measurement,
+}: Pick<LibraryExercise, 'id' | 'movementPattern' | 'measurement'>) {
+  // These entries already have a manual workflow with the existing set editor.
+  if (id === 'plank' || id === 'farmers-carry') return true;
+  return (
+    movementPattern !== 'cardio' &&
+    (measurement === undefined || measurement === 'repetitions')
+  );
+}
+
 export type ExerciseFilters = {
   query?: string;
   muscle?: MuscleId;

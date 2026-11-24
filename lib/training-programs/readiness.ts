@@ -1,3 +1,4 @@
+import { cardioExerciseIds } from '../exercise-library';
 import type { LibraryExercise } from '../workout-model';
 import type { ProgramDefinition } from './model';
 import { programSources } from './sources';
@@ -57,7 +58,7 @@ export const projectProgramReadiness = (
         c.minutes > 1440 ||
         c.intensity !== 'moderate' ||
         (c.activity !== undefined &&
-          !['treadmill_walking', 'stationary_bike'].includes(c.activity)),
+          !Object.hasOwn(cardioExerciseIds, c.activity)),
     ) ||
     new Set(program.cardio.map((c) => c.offset)).size !==
       program.cardio.length ||
@@ -115,6 +116,18 @@ export const projectProgramReadiness = (
     return { ready: false, blockers: ['Invalid schedule'] };
   const blockers = [
     ...new Set([
+      ...program.cardio.flatMap(({ activity }) => {
+        if (activity === undefined) return [];
+        const id = cardioExerciseIds[activity];
+        return library.some(
+          (item) =>
+            item.id === id &&
+            item.movementPattern === 'cardio' &&
+            item.measurement === 'duration',
+        )
+          ? []
+          : [id];
+      }),
       ...program.days.flatMap(({ hold }) =>
         hold &&
         !library.some(

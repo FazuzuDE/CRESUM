@@ -1,4 +1,5 @@
 export default {
+  'library.programCardio': 'スタータープログラムで利用できます',
   'exerciseMuscles.title': '使われる筋肉',
   'exerciseMuscles.more': '詳しく見る',
   'exerciseMuscles.open': '{{name}}の筋肉の詳細',

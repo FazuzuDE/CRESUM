@@ -1,4 +1,5 @@
 export default {
+  'library.programCardio': 'প্রারম্ভিক প্রোগ্রামে উপলব্ধ',
   'exerciseMuscles.title': 'কাজ করা পেশি',
   'exerciseMuscles.more': 'আরও বিস্তারিত',
   'exerciseMuscles.open': '{{name}}-এর পেশির বিবরণ',

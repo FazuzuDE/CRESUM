@@ -16,6 +16,7 @@ import { resolveAttachmentArtwork } from '@/lib/exercise-artwork';
 import { findExercise } from '@/lib/exercise-library';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { radius, spacing, typography } from '@/lib/theme';
+import { useBackSwipeAction } from './BackSwipe';
 import { AppScrollView } from './AppScrollView';
 import { useLocalization } from './LocalizationProvider';
 
@@ -24,16 +25,122 @@ export function ExerciseEquipmentSheet({
   selectedVariantId,
   onSelect,
   onClose,
+  inline = false,
 }: {
   policy: ExerciseEquipmentPolicy;
   selectedVariantId: string;
   onSelect: (variantId: string) => void;
   onClose: () => void;
+  inline?: boolean;
 }) {
   const colors = useAppColors();
   const s = useStyles();
   const { t, locale } = useLocalization();
-  if (!isValidEquipmentPolicy(policy) || policy.choices.length < 2) return null;
+  const available =
+    isValidEquipmentPolicy(policy) && policy.choices.length >= 2;
+  useBackSwipeAction(
+    inline && available ? { onPress: onClose } : undefined,
+    'inline',
+  );
+  if (!available) return null;
+  const content = (
+    <View style={[s.overlay, inline && StyleSheet.absoluteFill]}>
+      <Pressable
+        style={s.backdrop}
+        accessibilityRole="button"
+        accessibilityLabel={t('equipment.close')}
+        onPress={onClose}
+      />
+      <SafeAreaView
+        edges={['left', 'right']}
+        style={[s.sheet, inline && s.inlineSheet]}
+        accessibilityViewIsModal
+      >
+        <View style={s.grabber} />
+        <View style={s.heading}>
+          <Text accessibilityRole="header" style={s.title}>
+            {t(policy.label)}
+          </Text>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={t('equipment.close')}
+            onPress={onClose}
+            style={s.close}
+          >
+            <Ionicons name="close" size={22} color={colors.textPrimary} />
+          </Pressable>
+        </View>
+        <AppScrollView
+          safeAreaEdges={['bottom']}
+          contentContainerStyle={s.list}
+        >
+          {policy.choices.map((choice) => {
+            const exercise = findExercise(choice.variantId)!;
+            const name =
+              choice.id === 'none'
+                ? t('equipment.none')
+                : choice.nameKey
+                  ? t(choice.nameKey)
+                  : catalogLabel(
+                      locale,
+                      'exercise',
+                      exercise.id,
+                      exercise.name,
+                    );
+            const source = resolveAttachmentArtwork(choice.variantId);
+            const selected = choice.variantId === selectedVariantId;
+            return (
+              <Pressable
+                key={choice.id}
+                accessibilityRole="radio"
+                accessibilityLabel={name}
+                accessibilityState={{ checked: selected }}
+                onPress={() => {
+                  onSelect(choice.variantId);
+                  onClose();
+                }}
+                style={s.option}
+              >
+                <View style={s.thumbnail}>
+                  {source ? (
+                    <Image
+                      source={source}
+                      resizeMode="contain"
+                      style={s.image}
+                      accessibilityLabel={name}
+                    />
+                  ) : (
+                    <Ionicons
+                      name="barbell-outline"
+                      size={26}
+                      color={colors.textSecondary}
+                    />
+                  )}
+                </View>
+                <View style={s.copy}>
+                  <Text style={s.name}>{name}</Text>
+                  {choice.gripKey ? (
+                    <Text style={s.detail}>{t(choice.gripKey)}</Text>
+                  ) : null}
+                  {!source && choice.id !== 'none' ? (
+                    <Text style={s.detail}>
+                      {t('equipment.imageUnavailable')}
+                    </Text>
+                  ) : null}
+                </View>
+                <Ionicons
+                  name={selected ? 'checkmark-circle' : 'ellipse-outline'}
+                  size={24}
+                  color={selected ? colors.primary : colors.textTertiary}
+                />
+              </Pressable>
+            );
+          })}
+        </AppScrollView>
+      </SafeAreaView>
+    </View>
+  );
+  if (inline) return content;
   return (
     <Modal
       visible
@@ -42,101 +149,7 @@ export function ExerciseEquipmentSheet({
       onRequestClose={onClose}
       swipeBack={{ onPress: onClose }}
     >
-      <View style={s.overlay}>
-        <Pressable
-          style={s.backdrop}
-          accessibilityRole="button"
-          accessibilityLabel={t('equipment.close')}
-          onPress={onClose}
-        />
-        <SafeAreaView
-          edges={['left', 'right']}
-          style={s.sheet}
-          accessibilityViewIsModal
-        >
-          <View style={s.grabber} />
-          <View style={s.heading}>
-            <Text accessibilityRole="header" style={s.title}>
-              {t(policy.label)}
-            </Text>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={t('equipment.close')}
-              onPress={onClose}
-              style={s.close}
-            >
-              <Ionicons name="close" size={22} color={colors.textPrimary} />
-            </Pressable>
-          </View>
-          <AppScrollView
-            safeAreaEdges={['bottom']}
-            contentContainerStyle={s.list}
-          >
-            {policy.choices.map((choice) => {
-              const exercise = findExercise(choice.variantId)!;
-              const name =
-                choice.id === 'none'
-                  ? t('equipment.none')
-                  : choice.nameKey
-                    ? t(choice.nameKey)
-                    : catalogLabel(
-                        locale,
-                        'exercise',
-                        exercise.id,
-                        exercise.name,
-                      );
-              const source = resolveAttachmentArtwork(choice.variantId);
-              const selected = choice.variantId === selectedVariantId;
-              return (
-                <Pressable
-                  key={choice.id}
-                  accessibilityRole="radio"
-                  accessibilityLabel={name}
-                  accessibilityState={{ checked: selected }}
-                  onPress={() => {
-                    onSelect(choice.variantId);
-                    onClose();
-                  }}
-                  style={s.option}
-                >
-                  <View style={s.thumbnail}>
-                    {source ? (
-                      <Image
-                        source={source}
-                        resizeMode="contain"
-                        style={s.image}
-                        accessibilityLabel={name}
-                      />
-                    ) : (
-                      <Ionicons
-                        name="barbell-outline"
-                        size={26}
-                        color={colors.textSecondary}
-                      />
-                    )}
-                  </View>
-                  <View style={s.copy}>
-                    <Text style={s.name}>{name}</Text>
-                    {choice.gripKey ? (
-                      <Text style={s.detail}>{t(choice.gripKey)}</Text>
-                    ) : null}
-                    {!source && choice.id !== 'none' ? (
-                      <Text style={s.detail}>
-                        {t('equipment.imageUnavailable')}
-                      </Text>
-                    ) : null}
-                  </View>
-                  <Ionicons
-                    name={selected ? 'checkmark-circle' : 'ellipse-outline'}
-                    size={24}
-                    color={selected ? colors.primary : colors.textTertiary}
-                  />
-                </Pressable>
-              );
-            })}
-          </AppScrollView>
-        </SafeAreaView>
-      </View>
+      {content}
     </Modal>
   );
 }
@@ -155,6 +168,7 @@ const useStyles = createThemedStyles((colors) => ({
     paddingHorizontal: spacing.md,
     paddingTop: spacing.xs,
   },
+  inlineSheet: { height: '80%' },
   grabber: {
     alignSelf: 'center',
     width: 36,
