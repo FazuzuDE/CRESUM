@@ -206,5 +206,96 @@
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes",
     "kind": "internal",
     "reason": "React Native pointer events mode for the technique surface."
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "text": "library.selected",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression",
+    "kind": "internal",
+    "reason": "Existing translated library action key."
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "text": "library.select",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression",
+    "kind": "internal",
+    "reason": "Existing translated library action key."
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "text": "library.added",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression",
+    "kind": "internal",
+    "reason": "Existing translated library action key."
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "text": "library.add",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ConditionalExpression/JsxExpression",
+    "kind": "internal",
+    "reason": "Existing translated library action key."
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "text": "library.selectName",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:accessibilityLabel",
+    "kind": "internal",
+    "reason": "Existing translated library action key."
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "text": "library.alreadyAddedName",
+    "context": "StringLiteral/ConditionalExpression/ConditionalExpression/CallExpression/JsxExpression",
+    "kind": "internal",
+    "reason": "Existing translated library action key."
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "text": "library.addName",
+    "context": "StringLiteral/ConditionalExpression/ConditionalExpression/CallExpression/JsxExpression",
+    "kind": "internal",
+    "reason": "Existing translated library action key."
+  },
+  {
+    "file": "components/ExerciseLibraryAction.tsx",
+    "text": "checkbox",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:accessibilityRole/JsxAttributes",
+    "kind": "internal",
+    "reason": "Native accessibility role, animation property or icon identifier for the V7 action."
+  },
+  {
+    "file": "components/ExerciseLibraryAction.tsx",
+    "text": "button",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:accessibilityRole/JsxAttributes",
+    "kind": "internal",
+    "reason": "Native accessibility role, animation property or icon identifier for the V7 action."
+  },
+  {
+    "file": "components/ExerciseLibraryAction.tsx",
+    "text": "width",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:transitionProperty/ObjectLiteralExpression/AsExpression",
+    "kind": "internal",
+    "reason": "Native accessibility role, animation property or icon identifier for the V7 action."
+  },
+  {
+    "file": "components/ExerciseLibraryAction.tsx",
+    "text": "height",
+    "context": "StringLiteral/ArrayLiteralExpression/PropertyAssignment:transitionProperty/ObjectLiteralExpression/AsExpression",
+    "kind": "internal",
+    "reason": "Native accessibility role, animation property or icon identifier for the V7 action."
+  },
+  {
+    "file": "components/ExerciseLibraryAction.tsx",
+    "text": "checkmark",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes",
+    "kind": "internal",
+    "reason": "Native accessibility role, animation property or icon identifier for the V7 action."
+  },
+  {
+    "file": "components/ExerciseLibraryAction.tsx",
+    "text": "add",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:name/JsxAttributes",
+    "kind": "internal",
+    "reason": "Native accessibility role, animation property or icon identifier for the V7 action."
   }
 ]

@@ -7,7 +7,7 @@ import {
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
 import { ScreenModal } from './ScreenModal';
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { BrandHeader } from './BrandHeader';
 import { ExerciseMuscles } from './ExerciseMuscles';
 import { ExerciseStatistics } from './ExerciseStatistics';
@@ -43,12 +43,14 @@ export function ExerciseTechnique({
   initialTab = 'Technique',
   now,
   onEquipmentChange,
+  renderAction,
 }: {
   exercise: LibraryExercise;
   onClose: () => void;
   history?: readonly WorkoutSession[];
   initialTab?: 'Technique' | 'Statistics';
   now?: number;
+  renderAction?: (exercise: LibraryExercise, name: string) => ReactNode;
   onEquipmentChange?: (id: string) => void;
 }) {
   const colors = useAppColors();
@@ -105,6 +107,7 @@ export function ExerciseTechnique({
                 ? t('technique.title')
                 : t('technique.statistics')}
             </Text>
+            {renderAction?.(exercise, exerciseName)}
           </View>
           <AppScrollView
             safeAreaEdges={['bottom']}
@@ -399,8 +402,13 @@ const useStyles = createThemedStyles((colors) => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    flexWrap: 'wrap',
   },
-  headerTitle: { ...typography.headline, color: colors.textPrimary },
+  headerTitle: {
+    flexShrink: 1,
+    ...typography.headline,
+    color: colors.textPrimary,
+  },
   content: { padding: spacing.md, gap: spacing.md },
   techniqueContent: { gap: spacing.md },
   detailHeading: {

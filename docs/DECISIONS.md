@@ -1,5 +1,11 @@
 # CRESUM Decision Log
 
+## 2026-11-24 — Exercise library add button
+
+Use the approved V7 contour for workout and template exercise selection,
+including the action at the top of the opened guide. The selected state follows
+the actual exercise variant. See [Design System](DESIGN_SYSTEM.md).
+
 ## 2026-11-23 — Workflow for adding exercises and equipment
 
 An exercise or machine name is sufficient to begin the

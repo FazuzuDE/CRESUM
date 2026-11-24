@@ -25,6 +25,7 @@ import {
   findExercise,
   isManualWorkoutExercise,
 } from '@/lib/exercise-library';
+import { ExerciseLibraryAction } from './ExerciseLibraryAction';
 import { ExerciseTechnique } from './ExerciseTechnique';
 import { ExerciseArtwork } from './ExerciseArtwork';
 import { catalogLabel, searchLocalizedExercises } from '@/lib/i18n/catalog';
@@ -145,6 +146,31 @@ export function ExerciseLibrary({
   const selectionMode = Boolean(onToggle);
   const browsing = !selectionMode && !onAdd;
   const CopyContainer = browsing ? Pressable : View;
+
+  const renderAction = (exercise: LibraryExercise, name: string) => {
+    if (browsing || !isManualWorkoutExercise(exercise)) return null;
+    const selected = selectedIds.includes(exercise.id);
+    return (
+      <ExerciseLibraryAction
+        selected={selected}
+        toggle={selectionMode}
+        label={
+          selectionMode
+            ? t(selected ? 'library.selected' : 'library.select')
+            : t(selected ? 'library.added' : 'library.add')
+        }
+        accessibilityLabel={t(
+          selectionMode
+            ? 'library.selectName'
+            : selected
+              ? 'library.alreadyAddedName'
+              : 'library.addName',
+          { name },
+        )}
+        onPress={() => (onToggle ? onToggle(exercise.id) : onAdd?.(exercise))}
+      />
+    );
+  };
 
   const content = (
     <SafeAreaView
@@ -291,47 +317,9 @@ export function ExerciseLibrary({
                           {t('library.programCardio')}
                         </Text>
                       ) : null
-                    ) : selectionMode ? (
-                      <Pressable
-                        accessibilityRole="checkbox"
-                        accessibilityLabel={t('library.selectName', { name })}
-                        accessibilityState={{ checked: selected }}
-                        onPress={() => onToggle?.(exercise.id)}
-                        style={[s.action, selected && s.selectedAction]}
-                      >
-                        <Text
-                          style={[
-                            s.actionText,
-                            selected && s.selectedActionText,
-                          ]}
-                        >
-                          {t(selected ? 'library.selected' : 'library.select')}
-                        </Text>
-                      </Pressable>
-                    ) : onAdd ? (
-                      <Pressable
-                        accessibilityRole="button"
-                        accessibilityLabel={t(
-                          selected
-                            ? 'library.alreadyAddedName'
-                            : 'library.addName',
-                          { name },
-                        )}
-                        accessibilityState={{ disabled: selected }}
-                        disabled={selected}
-                        onPress={() => onAdd?.(exercise)}
-                        style={[s.addAction, selected && s.disabledAction]}
-                      >
-                        <Text
-                          style={[
-                            s.addActionText,
-                            selected && s.disabledActionText,
-                          ]}
-                        >
-                          {t(selected ? 'library.added' : 'library.add')}
-                        </Text>
-                      </Pressable>
-                    ) : null}
+                    ) : (
+                      renderAction(exercise, name)
+                    )}
                   </View>
                   <Pressable
                     accessibilityRole="button"
@@ -399,6 +387,7 @@ export function ExerciseLibrary({
         <ExerciseTechnique
           key={guide.id}
           exercise={guide}
+          renderAction={browsing ? undefined : renderAction}
           onEquipmentChange={
             guide.id === 'goblet-squat' ||
             guide.id === 'kettlebell-goblet-squat'
@@ -547,35 +536,6 @@ const useStyles = createThemedStyles((colors) => ({
   },
   name: { ...typography.headline, color: colors.textPrimary, flexWrap: 'wrap' },
   metadata: { ...typography.footnote, color: colors.textSecondary },
-  action: {
-    minWidth: 72,
-    minHeight: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: spacing.sm,
-    borderRadius: radius.md,
-    backgroundColor: colors.surface,
-  },
-  selectedAction: { backgroundColor: colors.primary },
-  actionText: { ...typography.caption, color: colors.primary },
-  selectedActionText: { color: colors.surface },
-  addAction: {
-    minWidth: 56,
-    minHeight: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: spacing.sm,
-    borderRadius: radius.md,
-    backgroundColor: colors.primary,
-  },
-  addActionText: {
-    ...typography.headline,
-    color: colors.surface,
-    maxWidth: '100%',
-    textAlign: 'center',
-  },
-  disabledAction: { backgroundColor: colors.surfaceSubtle },
-  disabledActionText: { color: colors.textSecondary },
   empty: {
     alignItems: 'center',
     gap: spacing.xs,

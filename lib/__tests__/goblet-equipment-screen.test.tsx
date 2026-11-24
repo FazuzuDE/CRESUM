@@ -198,6 +198,39 @@ it('switches Goblet artwork with the equipment choice and retains the selected p
   act(() => view.unmount());
 });
 
+it('adds the variant currently displayed in the guide and reflects its selection in both places', () => {
+  const onAdd = jest.fn();
+  const props = { visible: true, onClose: () => {}, onAdd };
+  let view: ReturnType<typeof create>;
+  act(() => {
+    view = create(<ExerciseLibrary {...props} />);
+  });
+  act(() => view.root.findByType(TextInput).props.onChangeText('Goblet'));
+  press(view, 'Technique for Goblet Squat');
+  const details = { root: view.root.findByType(ExerciseTechnique) };
+  press(details, 'Change equipment: Dumbbell');
+  press(details, 'Kettlebell');
+  expect(onAdd).not.toHaveBeenCalled();
+  press(details, 'Add Goblet Squat');
+  expect(onAdd).toHaveBeenCalledWith(
+    expect.objectContaining({ id: 'kettlebell-goblet-squat' }),
+  );
+  act(() =>
+    view.update(
+      <ExerciseLibrary {...props} selectedIds={['kettlebell-goblet-squat']} />,
+    ),
+  );
+  const added = view.root
+    .findAll(isPressable)
+    .filter(
+      (node: any) =>
+        node.props.accessibilityLabel?.includes('Goblet Squat') &&
+        node.props.disabled,
+    );
+  expect(added).toHaveLength(2);
+  act(() => view.unmount());
+});
+
 it('applies a library wheel filter only after Done and shows the current choice', () => {
   let view: ReturnType<typeof create>;
   act(() => {
