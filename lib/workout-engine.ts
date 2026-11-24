@@ -516,13 +516,8 @@ export const workoutIsComplete = (
   session: WorkoutSession,
   now = Date.now(),
 ): boolean =>
-  session.exercises.length > 0 &&
   hasWorkoutResults(session, now) &&
-  session.exercises.every(({ sets, cardio }) =>
-    cardio
-      ? cardioElapsed(cardio, now) === cardio.goalSeconds * 1000
-      : sets.every(isSetComplete),
-  );
+  completedSetCount(session) === totalSetCount(session);
 
 export const finishWorkout = (
   session: WorkoutSession,

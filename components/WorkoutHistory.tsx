@@ -42,6 +42,17 @@ const workoutMetadata = (
   t: Translate,
   locale: AppLocale,
 ): string => {
+  if (
+    workout.exercises.length &&
+    workout.exercises.every(({ cardio }) => cardio)
+  ) {
+    return duration(
+      workout.exercises.reduce(
+        (sum, { cardio }) => sum + (cardio?.elapsedMs ?? 0),
+        0,
+      ),
+    );
+  }
   const completed = completedSetCount(workout);
   return t('history.metadata', {
     time: duration(completedAt(workout) - workout.startedAt),

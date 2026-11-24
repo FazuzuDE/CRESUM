@@ -75,6 +75,7 @@ it('persists manual cardio with no strength sets and records only elapsed cardio
   });
   const restored = (await repository.load()).activeWorkout!;
   expect(restored.exercises[0].cardio?.startedAt).toBe(40_000);
+  expect(workoutIsComplete(restored, 48_000)).toBe(true);
   const completed = finishWorkout(restored, 48_000);
   expect(completedSetCount(completed)).toBe(0);
   expect(completed.exercises[0].cardio).toMatchObject({ elapsedMs: 8000 });
