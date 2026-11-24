@@ -455,21 +455,27 @@ export class WorkoutStore {
         const localExercises = new Map(
           local.exercises.map((exercise) => [exercise.id, exercise]),
         );
-        return {
-          ...workout,
-          exercises: workout.exercises.map((exercise) => {
-            const previous = localExercises.get(exercise.id);
-            return !exercise.cardio &&
-              exercise.sets.length === 0 &&
-              previous?.cardio?.exerciseId === exercise.libraryId
-              ? { ...exercise, cardio: previous.cardio }
-              : exercise;
-          }),
-        };
+        const exercises = workout.exercises.map((exercise) => {
+          const previous = localExercises.get(exercise.id);
+          return !exercise.cardio &&
+            exercise.sets.length === 0 &&
+            previous?.cardio?.exerciseId === exercise.libraryId
+            ? { ...exercise, cardio: previous.cardio }
+            : exercise;
+        });
+        return exercises.some(
+          (exercise, index) => exercise !== workout.exercises[index],
+        )
+          ? { ...workout, exercises }
+          : workout;
       });
       const result = await this.repository.saveVerified({
         ...data,
-        history: mergedHistory,
+        history: mergedHistory.some(
+          (workout, index) => workout !== history[index],
+        )
+          ? mergedHistory
+          : history,
       });
       if (result.data)
         this.publish(
