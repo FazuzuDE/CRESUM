@@ -9,6 +9,11 @@ import {
   WorkoutTemplate,
 } from './workout-model';
 import { canonicalExerciseId } from './exercise-library';
+import {
+  cardioElapsed,
+  isCardioExerciseId,
+  pauseCardioTimer,
+} from './cardio-timer';
 import { AppError } from './app-error';
 import { muscleLabel } from './exercise-taxonomy';
 import {
@@ -39,6 +44,9 @@ export const createExercise = (
     !validPlannedExerciseShape(planned)
   )
     throw new AppError('invalid_set_values', 'Invalid planned exercise rows.');
+  const cardio = isCardioExerciseId(exercise.id)
+    ? { exerciseId: exercise.id, goalSeconds: 300, elapsedMs: 0 }
+    : undefined;
   return {
     id: idFactory(),
     libraryId: exercise.id,
@@ -48,23 +56,30 @@ export const createExercise = (
       ? { exerciseGroup: clone(planned.exerciseGroup) }
       : {}),
     ...(planned?.target ? { target: clone(planned.target) } : {}),
-    sets: Array.from(
-      { length: planned && validPlannedSets(planned.sets) ? planned.sets : 3 },
-      (_, index) => ({
-        id: idFactory(),
-        weight: planned?.plannedSets
-          ? planned.plannedSets[index].weight
-            ? (normalizePlannedWeight(planned.plannedSets[index].weight!) ?? '')
-            : ''
-          : planned?.weight
-            ? (normalizePlannedWeight(planned.weight) ?? '')
-            : '',
-        reps:
-          planned?.plannedSets?.[index].reps ??
-          (exercise.perSide || planned?.target ? '' : '10'),
-        ...(exercise.perSide ? { otherSideReps: '' } : {}),
-      }),
-    ),
+    ...(cardio ? { cardio } : {}),
+    sets: cardio
+      ? []
+      : Array.from(
+          {
+            length:
+              planned && validPlannedSets(planned.sets) ? planned.sets : 3,
+          },
+          (_, index) => ({
+            id: idFactory(),
+            weight: planned?.plannedSets
+              ? planned.plannedSets[index].weight
+                ? (normalizePlannedWeight(planned.plannedSets[index].weight!) ??
+                  '')
+                : ''
+              : planned?.weight
+                ? (normalizePlannedWeight(planned.weight) ?? '')
+                : '',
+            reps:
+              planned?.plannedSets?.[index].reps ??
+              (exercise.perSide || planned?.target ? '' : '10'),
+            ...(exercise.perSide ? { otherSideReps: '' } : {}),
+          }),
+        ),
   };
 };
 
@@ -262,9 +277,12 @@ export const appendExercise = (
 };
 
 export const hasExerciseProgress = (exercise: WorkoutExercise): boolean =>
-  exercise.sets.some(
-    (set) => set.entered || isSetComplete(set) || Boolean(set.weight.trim()),
-  );
+  exercise.cardio
+    ? exercise.cardio.startedAt !== undefined || exercise.cardio.elapsedMs > 0
+    : exercise.sets.some(
+        (set) =>
+          set.entered || isSetComplete(set) || Boolean(set.weight.trim()),
+      );
 
 export function removeWorkoutExercises(
   session: WorkoutSession,
@@ -296,6 +314,10 @@ export function removeWorkoutExercises(
   };
   if (!save) return { active };
   const recordedExercises = removed.flatMap((exercise) => {
+    if (exercise.cardio) {
+      const cardio = pauseCardioTimer(exercise.cardio, now);
+      return cardio.elapsedMs > 0 ? [{ ...exercise, cardio }] : [];
+    }
     const sets = exercise.sets.flatMap((set) => {
       if (isSetComplete(set)) return [set];
       if (!set.entered) return [];
@@ -481,15 +503,27 @@ export const totalSetCount = (session: WorkoutSession): number =>
     0,
   );
 
-export const workoutIsComplete = (session: WorkoutSession): boolean =>
-  totalSetCount(session) > 0 &&
+export const hasWorkoutResults = (
+  session: WorkoutSession,
+  now = Date.now(),
+): boolean =>
+  completedSetCount(session) > 0 ||
+  session.exercises.some(
+    ({ cardio }) => cardio && cardioElapsed(cardio, now) > 0,
+  );
+
+export const workoutIsComplete = (
+  session: WorkoutSession,
+  now = Date.now(),
+): boolean =>
+  hasWorkoutResults(session, now) &&
   completedSetCount(session) === totalSetCount(session);
 
 export const finishWorkout = (
   session: WorkoutSession,
   now = Date.now(),
 ): WorkoutSession => {
-  if (completedSetCount(session) === 0) {
+  if (!hasWorkoutResults(session, now)) {
     throw new AppError(
       'empty_workout',
       'Complete at least one set before finishing.',
@@ -501,5 +535,17 @@ export const finishWorkout = (
       'Check your device time, then try Finish again. The finish time must not be earlier than the workout start. Your active workout is still here.',
     );
   }
-  return { ...session, finishedAt: now, restEndsAt: undefined };
+  return {
+    ...session,
+    ...(session.programSlot && completedSetCount(session) === 0
+      ? { programSlot: undefined }
+      : {}),
+    finishedAt: now,
+    restEndsAt: undefined,
+    exercises: session.exercises.map((exercise) =>
+      exercise.cardio
+        ? { ...exercise, cardio: pauseCardioTimer(exercise.cardio, now) }
+        : exercise,
+    ),
+  };
 };

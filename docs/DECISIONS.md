@@ -1,5 +1,10 @@
 # CRESUM Decision Log
 
+## 2026-11-24 — Cardio timing in an active workout
+
+Start cardio timing only on the user's explicit action at the equipment.
+Record its active duration separately. See [Product Definition](PRODUCT.md).
+
 ## 2026-11-24 — Exercise removal during a workout
 
 The green V7 action removes the selected exercise from the current workout.

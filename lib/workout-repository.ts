@@ -10,6 +10,7 @@ import {
 } from './planned-exercise';
 import { validGroupSequence } from './exercise-groups';
 import { canonicalExerciseId } from './exercise-library';
+import { isCardioTimer } from './cardio-timer';
 
 // Stable on-device identifiers survive the CRESUM rebrand; renaming them
 // without a data migration would hide existing workouts and history.
@@ -158,8 +159,19 @@ function session(
       !Array.isArray(exercise.sets)
     )
       return invalid();
+    const cardio = exercise.cardio;
+    if (
+      cardio !== undefined &&
+      (!isCardioTimer(cardio) ||
+        cardio.exerciseId !== exercise.libraryId ||
+        exercise.sets.length !== 0 ||
+        (cardio.startedAt !== undefined &&
+          (kind === 'history' || cardio.startedAt < startedAt)))
+    )
+      return invalid();
     return {
       id: exercise.id,
+      ...(cardio === undefined ? {} : { cardio: { ...cardio } }),
       libraryId: string(exercise.libraryId)
         ? exercise.libraryId
         : exercise.id.split('-')[0],

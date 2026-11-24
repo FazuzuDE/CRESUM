@@ -20,6 +20,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { ExerciseEquipmentRow } from './ExerciseEquipmentRow';
 import { ExerciseEquipmentSheet } from './ExerciseEquipmentSheet';
 import { equipmentPolicyFor } from '@/lib/exercise-equipment';
+import { isCardioExerciseId } from '@/lib/cardio-timer';
 import {
   cardioExerciseIds,
   findExercise,
@@ -48,6 +49,7 @@ type ExerciseLibraryProps = {
   onRemove?: (exercise: LibraryExercise) => void;
   actionDialog?: ReactNode;
   onAdd?: (exercise: LibraryExercise) => void;
+  allowCardio?: boolean;
   selectedIds?: readonly string[];
   onToggle?: (id: string) => void;
   history?: readonly WorkoutSession[];
@@ -61,6 +63,7 @@ export function ExerciseLibrary({
   presentation = 'sheet',
   onClose,
   onAdd,
+  allowCardio = false,
   onRemove,
   actionDialog,
   selectedIds = [],
@@ -181,6 +184,9 @@ export function ExerciseLibrary({
   const selectionMode = Boolean(onToggle);
   const browsing = !selectionMode && !onAdd;
   const CopyContainer = browsing ? Pressable : View;
+  const canAdd = (exercise: LibraryExercise) =>
+    isManualWorkoutExercise(exercise) ||
+    (allowCardio && isCardioExerciseId(exercise.id));
 
   const renderAction = (
     exercise: LibraryExercise,
@@ -190,7 +196,7 @@ export function ExerciseLibrary({
     if (browsing) return null;
     const selected = selectedIds.includes(exercise.id);
     const removable = selected && Boolean(onRemove);
-    const unavailable = !removable && !isManualWorkoutExercise(exercise);
+    const unavailable = !removable && !canAdd(exercise);
     const programOnly =
       unavailable &&
       Object.values(cardioExerciseIds).some((id) => id === exercise.id);
@@ -318,8 +324,7 @@ export function ExerciseLibrary({
                   exercise.name,
                 );
                 const selected = selectedIds.includes(exercise.id);
-                const readOnly =
-                  !browsing && !isManualWorkoutExercise(exercise);
+                const readOnly = !browsing && !canAdd(exercise);
                 const programOnly =
                   readOnly &&
                   Object.values(cardioExerciseIds).some(

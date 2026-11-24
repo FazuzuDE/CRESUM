@@ -3,6 +3,7 @@ import type {
   MovementPatternId,
   MuscleId,
 } from './exercise-taxonomy';
+import type { CardioTimer } from './cardio-timer';
 
 export type ExerciseTarget = {
   repMin: number;
@@ -40,6 +41,7 @@ export type ExerciseGroupSnapshot = {
 export type PlannedSet = { id: string; weight?: string; reps?: string };
 
 export type WorkoutExercise = {
+  cardio?: CardioTimer;
   exerciseGroup?: ExerciseGroupSnapshot;
   id: string;
   libraryId: string;

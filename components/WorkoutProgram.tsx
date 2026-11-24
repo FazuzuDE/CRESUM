@@ -30,6 +30,7 @@ import {
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import * as Haptics from 'expo-haptics';
 import { moveWorkoutExercise, setCurrentExercise } from '@/lib/workout-engine';
+import { cardioElapsed } from '@/lib/cardio-timer';
 import {
   isSetComplete,
   WorkoutExercise,
@@ -59,11 +60,13 @@ const lightHaptic = () => {
 // but changing the same snapshot's index by reordering keeps the program open.
 export function WorkoutProgram({
   session: sourceSession,
+  now,
   busy,
   update: sourceUpdate,
   scroll,
 }: {
   session: WorkoutSession;
+  now: number;
   busy: boolean;
   update: Update;
   scroll: ProgramScroll;
@@ -106,6 +109,7 @@ export function WorkoutProgram({
         <ProgramList
           key={String(busy)}
           session={session}
+          now={now}
           busy={busy}
           update={update}
           scroll={scroll}
@@ -119,6 +123,7 @@ export function WorkoutProgram({
 
 function ProgramList({
   session,
+  now,
   busy,
   update,
   scroll,
@@ -126,6 +131,7 @@ function ProgramList({
   onSelect,
 }: {
   session: WorkoutSession;
+  now: number;
   busy: boolean;
   update: Update;
   scroll: ProgramScroll;
@@ -373,6 +379,12 @@ function ProgramList({
         }
         return (
           <ProgramRow
+            complete={
+              item.cardio
+                ? cardioElapsed(item.cardio, now) >=
+                  item.cardio.goalSeconds * 1000
+                : item.sets.length > 0 && item.sets.every(isSetComplete)
+            }
             key={item.id}
             item={item}
             index={index}
@@ -402,6 +414,7 @@ function ProgramList({
 
 type RowProps = {
   item: WorkoutExercise;
+  complete: boolean;
   index: number;
   count: number;
   busy: boolean;
@@ -421,6 +434,7 @@ type RowProps = {
 };
 function ProgramRow({
   item,
+  complete,
   index,
   count,
   busy,
@@ -504,7 +518,6 @@ function ProgramRow({
         .onFinalize(() => cancel(item.id)),
     [busy, cancel, change, commit, count, item.id, resetTap, start],
   );
-  const complete = item.sets.length > 0 && item.sets.every(isSetComplete);
   return (
     <Animated.View
       testID={`program-row-${item.id}`}

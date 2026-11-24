@@ -25,21 +25,30 @@ export function CardioCountdown({
   goalSeconds,
   now,
   history,
+  manual,
 }: {
   sessionId: string;
   exerciseId: CardioTimer['exerciseId'];
   goalSeconds: number;
   now: number;
   history: readonly WorkoutSession[];
+  manual?: {
+    timer: CardioTimer;
+    disabled: boolean;
+    onChange: (transform: (timer: CardioTimer) => CardioTimer) => void;
+  };
 }) {
   const s = useStyles();
   const { t, locale } = useLocalization();
-  const [timer, setTimer] = useState<CardioTimer>();
+  const [programTimer, setTimer] = useState<CardioTimer>();
+  const timer = manual?.timer ?? programTimer;
+  const isManual = Boolean(manual);
   const [previous, setPrevious] = useState<number>();
   const [saving, setSaving] = useState(false);
   const [failed, setFailed] = useState(false);
   const pending = useRef(false);
   useEffect(() => {
+    if (isManual) return;
     let active = true;
     AsyncStorage.getItem(CARDIO_TIMERS_KEY)
       .then((raw) => {
@@ -57,7 +66,7 @@ export function CardioCountdown({
     return () => {
       active = false;
     };
-  }, [sessionId, exerciseId, goalSeconds]);
+  }, [sessionId, exerciseId, goalSeconds, isManual]);
 
   useEffect(() => {
     let active = true;
@@ -66,6 +75,14 @@ export function CardioCountdown({
         if (!active) return;
         const timers = readCardioTimers(raw);
         for (const session of newestFirstHistory(history)) {
+          const recorded = session.exercises.find(
+            ({ cardio }) =>
+              cardio?.exerciseId === exerciseId && cardio.elapsedMs > 0,
+          )?.cardio;
+          if (recorded) {
+            setPrevious(recorded.elapsedMs);
+            return;
+          }
           const stored = timers.get(session.id);
           if (stored?.exerciseId === exerciseId && session.finishedAt) {
             const elapsed = cardioElapsed(stored, session.finishedAt);
@@ -75,6 +92,7 @@ export function CardioCountdown({
             }
           }
         }
+        setPrevious(undefined);
       })
       .catch(() => {});
     return () => {
@@ -82,8 +100,14 @@ export function CardioCountdown({
     };
   }, [history, exerciseId]);
 
-  const apply = async (next: CardioTimer) => {
+  const apply = async (transform: (timer: CardioTimer) => CardioTimer) => {
+    if (manual) {
+      if (!manual.disabled) manual.onChange(transform);
+      return;
+    }
+    if (!timer) return;
     if (pending.current) return;
+    const next = transform(timer);
     pending.current = true;
     setSaving(true);
     setFailed(false);
@@ -130,17 +154,18 @@ export function CardioCountdown({
                   ? 'workout.cardioResume'
                   : 'workout.cardioStart',
             )}
-            disabled={saving || remaining === 0}
+            disabled={saving || manual?.disabled || remaining === 0}
             onPress={() => {
               const pressedAt = Date.now();
-              const done = cardioElapsed(timer, pressedAt);
-              void apply({
-                ...timer,
-                elapsedMs: done,
-                startedAt:
-                  running || done >= timer.goalSeconds * 1000
-                    ? undefined
-                    : pressedAt,
+              void apply((current) => {
+                const elapsedMs = cardioElapsed(current, pressedAt);
+                if (elapsedMs >= current.goalSeconds * 1000) return current;
+                return {
+                  ...current,
+                  elapsedMs,
+                  startedAt:
+                    current.startedAt === undefined ? pressedAt : undefined,
+                };
               });
             }}
           />
@@ -150,9 +175,11 @@ export function CardioCountdown({
                 <AppButton
                   title={t(step < 0 ? 'workout.minus15' : 'workout.plus15')}
                   secondary
-                  disabled={saving}
+                  disabled={saving || manual?.disabled}
                   onPress={() =>
-                    void apply(adjustCardioGoal(timer, step, Date.now()))
+                    void apply((current) =>
+                      adjustCardioGoal(current, step, Date.now()),
+                    )
                   }
                 />
               </View>

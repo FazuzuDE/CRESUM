@@ -1,5 +1,14 @@
 # CRESUM — Product Definition
 
+## Cardio in an active workout
+
+Add the stationary bike or treadmill from the active workout's exercise picker.
+Open its timer when the exercise is selected and start it only when the user
+presses Start cardio. The timer tracks its own active intervals. Switching to
+another exercise pauses it. In History, display the measured cardio duration
+separately from the workout duration and strength sets. Cardio durations are
+stored in local history.
+
 ## Removing exercises from an active workout
 
 During an active workout, the exercise picker and technique guide support adding

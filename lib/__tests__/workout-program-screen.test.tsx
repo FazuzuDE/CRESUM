@@ -15,7 +15,8 @@ import {
 import { Workout } from '../../components/Workout';
 import { AppButton } from '../../components/AppButton';
 import { defaultTemplates, exerciseLibrary } from '../workout-catalog';
-import { startWorkout } from '../workout-engine';
+import { appendExercise, finishWorkout, startWorkout } from '../workout-engine';
+import { findExercise } from '../exercise-library';
 import type { WorkoutSession } from '../workout-model';
 import { isPressable } from './pressable';
 import { editWorkoutSet } from './set-entry-fixture';
@@ -43,11 +44,21 @@ const initialSession = () =>
 function Harness({
   busy = false,
   cardio,
+  manualCardio = false,
 }: {
   busy?: boolean;
   cardio?: CardioGuidance;
+  manualCardio?: boolean;
 }) {
-  const [session, setSession] = useState(initialSession);
+  const [session, setSession] = useState(() => {
+    const initial = initialSession();
+    return manualCardio
+      ? appendExercise(
+          { ...initial, exercises: initial.exercises.slice(0, 1) },
+          findExercise('treadmill-walking')!,
+        )
+      : initial;
+  });
   return (
     <Workout
       session={session}
@@ -591,6 +602,38 @@ it('allows later non-pointer activation after suppressing the releasing press', 
     expect(choices(view)).toHaveLength(0);
   } finally {
     act(() => view.unmount());
+    jest.useRealTimers();
+  }
+});
+
+it('shows manual cardio at its station and starts after the user presses Start', async () => {
+  jest.useFakeTimers();
+  let view: ReturnType<typeof create>;
+  const button = (title: string) =>
+    view.root
+      .findAllByType(AppButton)
+      .find(
+        (entry: { props: { title: string } }) => entry.props.title === title,
+      );
+  const session = (): WorkoutSession =>
+    view.root.findByType(Workout).props.session;
+  try {
+    await act(async () => {
+      view = create(<Harness manualCardio />);
+    });
+    expect(button('Start cardio')).toBeUndefined();
+    act(() => jest.advanceTimersByTime(40_000));
+    await act(async () => button('Next exercise')!.props.onPress());
+    expect(button('Start cardio')).toBeDefined();
+    expect(button('Add set')).toBeUndefined();
+    expect(session().exercises[1].cardio?.startedAt).toBeUndefined();
+    act(() => jest.advanceTimersByTime(20_000));
+    await act(async () => button('Start cardio')!.props.onPress());
+    act(() => jest.advanceTimersByTime(7000));
+    await act(async () => button('Pause')!.props.onPress());
+    expect(finishWorkout(session()).exercises[1].cardio?.elapsedMs).toBe(7000);
+  } finally {
+    if (view) await act(async () => view.unmount());
     jest.useRealTimers();
   }
 });
