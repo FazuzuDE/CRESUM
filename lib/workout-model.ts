@@ -28,6 +28,7 @@ export type WorkoutSet = {
   weight: string;
   reps: string;
   completedAt?: number;
+  entered?: true;
   otherSideReps?: string;
 };
 

@@ -114,7 +114,9 @@ export const updateSet = (
   const next = clone(session);
   if (isSetComplete(next.exercises[exerciseIndex].sets[setIndex]))
     return session;
-  Object.assign(next.exercises[exerciseIndex].sets[setIndex], values);
+  Object.assign(next.exercises[exerciseIndex].sets[setIndex], values, {
+    entered: true,
+  });
   return next;
 };
 
@@ -258,6 +260,78 @@ export const appendExercise = (
   next.exercises.push(createExercise(exercise, idFactory));
   return next;
 };
+
+export const hasExerciseProgress = (exercise: WorkoutExercise): boolean =>
+  exercise.sets.some(
+    (set) => set.entered || isSetComplete(set) || Boolean(set.weight.trim()),
+  );
+
+export function removeWorkoutExercises(
+  session: WorkoutSession,
+  ids: readonly string[],
+  save: boolean,
+  historyId: string,
+  now = Date.now(),
+): { active: WorkoutSession; recorded?: WorkoutSession } {
+  const removed = session.exercises.filter((exercise) =>
+    ids.includes(exercise.id),
+  );
+  if (removed.length === 0) return { active: session };
+  const exercises = session.exercises.filter(
+    (exercise) => !ids.includes(exercise.id),
+  );
+  const current = session.exercises[session.currentExerciseIndex];
+  const nextIndex = session.exercises
+    .slice(0, session.currentExerciseIndex)
+    .filter((exercise) => !ids.includes(exercise.id)).length;
+  const active = {
+    ...session,
+    exercises,
+    currentExerciseIndex: Math.max(
+      0,
+      Math.min(nextIndex, exercises.length - 1),
+    ),
+    restEndsAt:
+      current && ids.includes(current.id) ? undefined : session.restEndsAt,
+  };
+  if (!save) return { active };
+  const recordedExercises = removed.flatMap((exercise) => {
+    const sets = exercise.sets.flatMap((set) => {
+      if (isSetComplete(set)) return [set];
+      if (!set.entered) return [];
+      if (
+        !setInputIsValid(set) ||
+        (exercise.libraryId === 'bodyweight-step-up' &&
+          Number(set.weight.replace(',', '.')) !== 0)
+      )
+        throw new AppError('invalid_set_values', 'Invalid set values.');
+      return [
+        {
+          ...set,
+          weight: set.weight.replace(',', '.').trim(),
+          reps: set.reps.trim(),
+          completedAt: Math.max(now, session.startedAt),
+        },
+      ];
+    });
+    return sets.length ? [{ ...exercise, sets }] : [];
+  });
+  if (!recordedExercises.length)
+    throw new AppError('empty_workout', 'No entered sets to save.');
+  const recorded = finishWorkout(
+    {
+      id: historyId,
+      templateId: session.templateId,
+      name: removed[0].name,
+      startedAt: session.startedAt,
+      currentExerciseIndex: 0,
+      restDurationSeconds: session.restDurationSeconds,
+      exercises: recordedExercises,
+    },
+    Math.max(now, session.startedAt),
+  );
+  return { active, recorded };
+}
 
 export function appendExerciseGroup(
   session: WorkoutSession,

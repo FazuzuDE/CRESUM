@@ -45,6 +45,8 @@ type ExerciseLibraryProps = {
   visible: boolean;
   presentation?: 'sheet' | 'page';
   onClose: () => void;
+  onRemove?: (exercise: LibraryExercise) => void;
+  actionDialog?: ReactNode;
   onAdd?: (exercise: LibraryExercise) => void;
   selectedIds?: readonly string[];
   onToggle?: (id: string) => void;
@@ -59,6 +61,8 @@ export function ExerciseLibrary({
   presentation = 'sheet',
   onClose,
   onAdd,
+  onRemove,
+  actionDialog,
   selectedIds = [],
   onToggle,
   history,
@@ -184,15 +188,16 @@ export function ExerciseLibrary({
     inGuide = false,
   ) => {
     if (browsing) return null;
-    const unavailable = !isManualWorkoutExercise(exercise);
+    const selected = selectedIds.includes(exercise.id);
+    const removable = selected && Boolean(onRemove);
+    const unavailable = !removable && !isManualWorkoutExercise(exercise);
     const programOnly =
       unavailable &&
       Object.values(cardioExerciseIds).some((id) => id === exercise.id);
-    const selected = selectedIds.includes(exercise.id);
     return (
       <ExerciseLibraryAction
         selected={selected}
-        toggle={selectionMode}
+        toggle={selectionMode || removable}
         unavailable={unavailable}
         accessibilityHint={programOnly ? t('library.programCardio') : undefined}
         label={
@@ -204,14 +209,17 @@ export function ExerciseLibrary({
           selectionMode
             ? 'library.selectName'
             : selected
-              ? 'library.alreadyAddedName'
+              ? removable
+                ? 'library.removeName'
+                : 'library.alreadyAddedName'
               : 'library.addName',
           { name },
         )}
         onPress={() => {
           if (unavailable) return;
           if (inGuide && !selected) setDetailAddition(exercise.id);
-          if (onToggle) onToggle(exercise.id);
+          if (removable) onRemove?.(exercise);
+          else if (onToggle) onToggle(exercise.id);
           else onAdd?.(exercise);
         }}
       />
@@ -439,10 +447,12 @@ export function ExerciseLibrary({
           onClose={() => setGobletEquipmentOpen(false)}
         />
       ) : null}
+      {!guide ? actionDialog : null}
       {guide && !overlay ? (
         <ExerciseTechnique
           key={guide.id}
           exercise={guide}
+          actionDialog={actionDialog}
           renderAction={(exercise, name) => renderAction(exercise, name, true)}
           onEquipmentChange={
             guide.id === 'goblet-squat' ||

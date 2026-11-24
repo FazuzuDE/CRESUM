@@ -11,6 +11,7 @@ type Props = {
   toggle: boolean;
   onPress: () => void;
   unavailable?: boolean;
+  showIcon?: boolean;
   accessibilityHint?: string;
 };
 
@@ -21,6 +22,7 @@ export function ExerciseLibraryAction({
   toggle,
   onPress,
   unavailable = false,
+  showIcon = true,
   accessibilityHint,
 }: Props) {
   const colors = useAppColors();
@@ -70,11 +72,13 @@ export function ExerciseLibraryAction({
               <Animated.View style={[styles.leadingCorner, corner]} />
               <Animated.View style={[styles.trailingCorner, corner]} />
             </Animated.View>
-            <DirectionalIcon
-              name={selected ? 'checkmark' : 'add'}
-              size={18}
-              color={ink}
-            />
+            {showIcon ? (
+              <DirectionalIcon
+                name={selected ? 'checkmark' : 'add'}
+                size={18}
+                color={ink}
+              />
+            ) : null}
             <LocalizedText style={[styles.label, { color: ink }]}>
               {label}
             </LocalizedText>

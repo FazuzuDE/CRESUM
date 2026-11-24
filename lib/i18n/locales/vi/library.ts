@@ -33,6 +33,12 @@ export default {
   'library.selectName': 'Chọn {{name}}',
   'library.select': 'Chọn',
   'library.selected': 'Đã chọn',
+  'library.removeName': 'Bỏ {{name}} khỏi buổi tập hiện tại',
+  'library.removeQuestion':
+    'Bạn có muốn bỏ “{{name}}” khỏi buổi tập hiện tại không?',
+  'library.removeWarning': 'Dữ liệu chưa lưu sẽ bị mất.',
+  'library.saveAndRemove': 'Lưu rồi bỏ',
+  'library.discardAndRemove': 'Bỏ mà không lưu',
   'library.addName': 'Thêm {{name}}',
   'library.alreadyAddedName': 'Đã thêm {{name}}',
   'library.add': 'Thêm',

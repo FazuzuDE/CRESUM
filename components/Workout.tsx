@@ -28,6 +28,9 @@ import * as Haptics from 'expo-haptics';
 import { GlassCard } from './GlassCard';
 import { AppButton } from './AppButton';
 import { Confirmation } from './Confirmation';
+import { GlassDialog } from './GlassDialog';
+import { ContentScrollView } from './ContentScrollView';
+import { ExerciseLibraryAction } from './ExerciseLibraryAction';
 import { ExerciseLibrary } from './ExerciseLibrary';
 import { ExerciseTechnique } from './ExerciseTechnique';
 import { ExerciseArtwork } from './ExerciseArtwork';
@@ -38,7 +41,11 @@ import type {
 } from '@/lib/training-programs/model';
 import { SetEntrySheet } from './SetEntrySheet';
 import { previousEntry, saveSetEntry } from '@/lib/set-entry';
-import { canonicalExerciseId, findExercise } from '@/lib/exercise-library';
+import {
+  canonicalExerciseId,
+  findExercise,
+  isManualWorkoutExercise,
+} from '@/lib/exercise-library';
 import type {
   LibraryExercise,
   PlannedExercise,
@@ -51,6 +58,7 @@ import {
   appendExercise,
   completedSetCount,
   exerciseIdsMatch,
+  hasExerciseProgress,
   extendRest,
   remainingRestSeconds,
   removeSet,
@@ -85,6 +93,7 @@ export function Workout({
   discard,
   busy,
   appendGroup,
+  removeExercises,
   templates = [],
   onStartTemplate,
   onStartPlan,
@@ -102,6 +111,11 @@ export function Workout({
   onStartTemplate?: (template: WorkoutTemplate) => void;
   onStartPlan?: () => void;
   onStartEmpty?: () => void;
+  removeExercises?: (
+    sessionId: string,
+    ids: readonly string[],
+    save: boolean,
+  ) => Promise<boolean>;
   appendGroup?: (
     entries: readonly PlannedExercise[],
     expectedSessionId: string,
@@ -111,6 +125,12 @@ export function Workout({
   const s = useWorkoutStyles();
   const { t, locale } = useLocalization();
   const [now, setNow] = useState(Date.now());
+  const [removal, setRemoval] = useState<{
+    sessionId: string;
+    ids: string[];
+    name: string;
+    failed?: boolean;
+  }>();
   const [picker, setPicker] = useState(false);
   const [technique, setTechnique] = useState<LibraryExercise | null>(null);
   const [inputError, setInputError] = useState<unknown>(null);
@@ -267,6 +287,90 @@ export function Workout({
       exerciseId: exercise.id,
       setId: exercise.sets[setIndex].id,
     });
+  const addFromLibrary = (item: LibraryExercise) => {
+    if (busy) return;
+    if (equipmentPolicyFor(item.id)?.supportsSetGroups) {
+      setTechnique(null);
+      setPicker(true);
+      setComposition({ sessionId: session.id, exerciseId: item.id });
+      return;
+    }
+    update((current) =>
+      current.exercises.some((entry) =>
+        exerciseIdsMatch(entry.libraryId ?? entry.id, item.id),
+      )
+        ? current
+        : appendExercise(current, item),
+    );
+  };
+  const requestRemoval = (item: LibraryExercise) => {
+    if (busy || !removeExercises) return;
+    const matches = session.exercises.filter((entry) =>
+      exerciseIdsMatch(entry.libraryId ?? entry.id, item.id),
+    );
+    const ids = matches.map((entry) => entry.id);
+    if (!ids.length) return;
+    const name = catalogLabel(locale, 'exercise', item.id, item.name);
+    if (matches.some(hasExerciseProgress)) {
+      setRemoval({ sessionId: session.id, ids, name });
+    } else {
+      void removeExercises(session.id, ids, false);
+    }
+  };
+  const removalDialog =
+    removal?.sessionId === session.id ? (
+      <GlassDialog
+        onClose={() => {
+          if (!busy) setRemoval(undefined);
+        }}
+      >
+        <ContentScrollView>
+          <Text style={s.heading}>
+            {t('library.removeQuestion', { name: removal.name })}
+          </Text>
+          <Text style={s.previous}>{t('library.removeWarning')}</Text>
+          {removal.failed ? (
+            <Text accessibilityRole="alert" style={s.error}>
+              {t('error.workoutOperation')}
+            </Text>
+          ) : null}
+          {(
+            [
+              'common.cancel',
+              'library.saveAndRemove',
+              'library.discardAndRemove',
+            ] as const
+          ).map((key) => (
+            <ExerciseLibraryAction
+              key={key}
+              showIcon={false}
+              selected={false}
+              toggle={false}
+              unavailable={busy}
+              label={t(key)}
+              accessibilityLabel={t(key)}
+              onPress={async () => {
+                if (busy) return;
+                if (key === 'common.cancel') {
+                  setRemoval(undefined);
+                } else if (
+                  await removeExercises?.(
+                    removal.sessionId,
+                    removal.ids,
+                    key === 'library.saveAndRemove',
+                  )
+                ) {
+                  setRemoval(undefined);
+                } else {
+                  setRemoval({ ...removal, failed: true });
+                }
+              }}
+            />
+          ))}
+        </ContentScrollView>
+      </GlassDialog>
+    ) : null;
+
   return (
     <KeyboardAvoidingView
       style={s.flex}
@@ -723,19 +827,9 @@ export function Workout({
             exercise.id,
         )}
         onClose={() => setPicker(false)}
-        onAdd={(item) => {
-          if (equipmentPolicyFor(item.id)?.supportsSetGroups) {
-            setComposition({ sessionId: session.id, exerciseId: item.id });
-            return;
-          }
-          update((current) =>
-            current.exercises.some((entry) =>
-              exerciseIdsMatch(entry.libraryId ?? entry.id, item.id),
-            )
-              ? current
-              : appendExercise(current, item),
-          );
-        }}
+        onAdd={addFromLibrary}
+        onRemove={removeExercises ? requestRemoval : undefined}
+        actionDialog={picker ? removalDialog : undefined}
         onCloseOverlay={() => setComposition(null)}
         overlay={
           composition && composition.sessionId === session.id ? (
@@ -761,6 +855,33 @@ export function Workout({
         <ExerciseTechnique
           key={technique.id}
           exercise={technique}
+          actionDialog={removalDialog}
+          renderAction={
+            removeExercises
+              ? (item, name) => {
+                  const selected = session.exercises.some((entry) =>
+                    exerciseIdsMatch(entry.libraryId ?? entry.id, item.id),
+                  );
+                  return (
+                    <ExerciseLibraryAction
+                      label={t(selected ? 'library.added' : 'library.add')}
+                      accessibilityLabel={t(
+                        selected ? 'library.removeName' : 'library.addName',
+                        { name },
+                      )}
+                      selected={selected}
+                      toggle
+                      unavailable={
+                        busy || (!selected && !isManualWorkoutExercise(item))
+                      }
+                      onPress={() =>
+                        selected ? requestRemoval(item) : addFromLibrary(item)
+                      }
+                    />
+                  );
+                }
+              : undefined
+          }
           onClose={() => setTechnique(null)}
         />
       ) : null}

@@ -44,12 +44,14 @@ export function ExerciseTechnique({
   now,
   onEquipmentChange,
   renderAction,
+  actionDialog,
 }: {
   exercise: LibraryExercise;
   onClose: () => void;
   history?: readonly WorkoutSession[];
   initialTab?: 'Technique' | 'Statistics';
   now?: number;
+  actionDialog?: ReactNode;
   renderAction?: (exercise: LibraryExercise, name: string) => ReactNode;
   onEquipmentChange?: (id: string) => void;
 }) {
@@ -317,6 +319,7 @@ export function ExerciseTechnique({
             onClose={() => setEquipmentOpen(false)}
           />
         ) : null}
+        {actionDialog}
         {viewer ? (
           <TechniqueViewer
             name={exerciseName}

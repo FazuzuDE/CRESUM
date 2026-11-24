@@ -7,6 +7,7 @@ import { exerciseLibrary } from './workout-catalog';
 import {
   appendExerciseGroup,
   finishWorkout,
+  removeWorkoutExercises,
   startWorkout,
 } from './workout-engine';
 import {
@@ -126,6 +127,46 @@ export class WorkoutStore {
     const { data, ready, busy } = this.snapshot;
     if (!ready || busy || !data.activeWorkout) return;
     this.persist({ ...data, activeWorkout: transform(data.activeWorkout) });
+  }
+  async removeExercises(
+    expectedSessionId: string,
+    ids: readonly string[],
+    save: boolean,
+  ) {
+    const { data, ready, busy } = this.snapshot;
+    if (!ready || busy || data.activeWorkout?.id !== expectedSessionId)
+      return false;
+    const session = data.activeWorkout;
+    ++this.revision;
+    this.publish({ busy: true, error: '' });
+    try {
+      const { active, recorded } = removeWorkoutExercises(
+        session,
+        ids,
+        save,
+        save ? createWorkoutSnapshotId() : '',
+      );
+      if (active === session) return true;
+      const next = {
+        ...data,
+        activeWorkout: active,
+        history: recorded ? [recorded, ...data.history] : data.history,
+      };
+      await this.repository.waitForWrites();
+      const result = await this.repository.saveVerified(next);
+      if (!result.saved && result.data !== next)
+        throw new Error('Exercise removal write failed.');
+      this.publish({ data: next });
+      return true;
+    } catch (problem) {
+      this.publish(
+        { error: 'Could not remove the exercise. The workout is still open.' },
+        problem instanceof AppError ? [problem] : 'workout_save_failed',
+      );
+      return false;
+    } finally {
+      this.publish({ busy: false });
+    }
   }
   async appendEquipmentGroup(
     entries: readonly PlannedExercise[],

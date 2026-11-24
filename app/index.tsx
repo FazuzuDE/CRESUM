@@ -1475,6 +1475,9 @@ function AppContent({
                 }
               }}
               update={(transform) => store.updateWorkout(transform)}
+              removeExercises={(id, exerciseIds, save) =>
+                store.removeExercises(id, exerciseIds, save)
+              }
               appendGroup={(entries, id) =>
                 store.appendEquipmentGroup(entries, id)
               }

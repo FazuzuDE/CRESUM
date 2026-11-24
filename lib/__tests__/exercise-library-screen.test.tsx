@@ -395,3 +395,46 @@ it('shows current cardio entries in a workout picker without offering strength-s
   );
   act(() => view.unmount());
 });
+
+it('uses the selected V7 action to remove from the active workout with three choices after progress', async () => {
+  const initial = startWorkout(
+    { id: 'press', name: 'Press', exerciseIds: ['barbell-bench-press'] },
+    exerciseLibrary,
+  );
+  const exercise = initial.exercises[0];
+  exercise.sets[0] = { ...exercise.sets[0], weight: '40', entered: true };
+  const removeExercises = jest.fn(async () => true);
+  const view = renderLibrary(
+    <Workout
+      session={initial}
+      history={[]}
+      busy={false}
+      update={() => {}}
+      finish={() => {}}
+      removeExercises={removeExercises}
+    />,
+  );
+  const add = view.root
+    .findAllByType(AppButton)
+    .find(
+      (item: { props: { title: string } }) =>
+        item.props.title === 'Add exercise',
+    );
+  act(() => add!.props.onPress());
+  const remove = () =>
+    findPressable(view, 'Remove Barbell Bench Press from the current workout');
+  act(() => remove()!.props.onPress());
+  expect(findPressable(view, 'Remove without saving')).toBeDefined();
+  await act(async () => {
+    await findPressable(view, 'Cancel')!.props.onPress();
+  });
+  expect(removeExercises).not.toHaveBeenCalled();
+
+  act(() => remove()!.props.onPress());
+  await act(async () => {
+    await findPressable(view, 'Save and remove')!.props.onPress();
+  });
+  expect(removeExercises).toHaveBeenCalledWith(initial.id, [exercise.id], true);
+  expect(view.root.findByType(ExerciseLibrary).props.visible).toBe(true);
+  act(() => view.unmount());
+});

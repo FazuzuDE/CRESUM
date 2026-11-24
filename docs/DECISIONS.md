@@ -1,5 +1,13 @@
 # CRESUM Decision Log
 
+## 2026-11-24 — Exercise removal during a workout
+
+The green V7 action removes the selected exercise from the current workout.
+When the exercise has progress, offer Cancel, Save and remove, and Remove
+without saving using the V7 contour. Use «Старт» and «Финиш» for exercise
+phases in Russian. See [Product Definition](PRODUCT.md) and
+[Design System](DESIGN_SYSTEM.md).
+
 ## 2026-11-24 — Exercise library add button
 
 Use the approved V7 contour for workout and template exercise selection,

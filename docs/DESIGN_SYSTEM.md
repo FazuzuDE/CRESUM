@@ -7,6 +7,15 @@ the top of its detail sheet. The two opposite corners and plus use the approved
 wordmark ink (#171D27 in light appearance). On press, close the slanted outline
 and scale it to 90% over 500 ms. Respect Reduce Motion. Show the green check
 when the current workout or selection contains the displayed variant.
+In an active workout, tapping the green action removes the displayed exercise.
+If it has progress, use the same V7 contour for all three dialog actions.
+
+## Exercise technique phases
+
+Use the shared phase labels for the artwork and phase selector on every
+exercise technique card. Open the card on the start phase. In Russian, the
+visible labels are «СТАРТ» and «ФИНИШ». New cards inherit these labels through
+`TechniqueArtwork` and `TechniquePhaseControl`.
 
 ## Floating tab navigation
 
