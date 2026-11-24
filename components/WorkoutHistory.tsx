@@ -121,6 +121,23 @@ export function WorkoutHistory({
             </Text>
           ) : null}
           {selected.exercises.map((exercise, exerciseIndex) => {
+            if (exercise.cardio) {
+              return exercise.cardio.elapsedMs > 0 ? (
+                <View key={exercise.id} style={s.exercise}>
+                  <Text style={s.exerciseName}>
+                    {catalogLabel(
+                      locale,
+                      'exercise',
+                      exercise.libraryId,
+                      exercise.name,
+                    )}
+                  </Text>
+                  <Text style={s.setValue}>
+                    {duration(exercise.cardio.elapsedMs)}
+                  </Text>
+                </View>
+              ) : null;
+            }
             const completedSets = exercise.sets.filter(isSetComplete);
             return (
               <View key={exercise.id} style={s.exercise}>

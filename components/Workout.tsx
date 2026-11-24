@@ -1,5 +1,5 @@
 import { CardioCountdown } from './CardioCountdown';
-import { cardioExerciseIds } from '@/lib/cardio-timer';
+import { cardioExerciseIds, isCardioExerciseId } from '@/lib/cardio-timer';
 import { useAppColors } from '@/components/AppThemeProvider';
 import {
   LocalizedText as Text,
@@ -59,6 +59,7 @@ import {
   completedSetCount,
   exerciseIdsMatch,
   hasExerciseProgress,
+  hasWorkoutResults,
   extendRest,
   remainingRestSeconds,
   removeSet,
@@ -448,6 +449,7 @@ export function Workout({
             <WorkoutProgram
               key={`${session.id}:${exercise.id}`}
               session={session}
+              now={now}
               busy={busy}
               update={update}
               scroll={programScroll}
@@ -493,7 +495,14 @@ export function Workout({
                     style={[s.heading, s.exerciseName]}
                     accessibilityRole="header"
                   >
-                    {exercise.name}
+                    {exercise.cardio
+                      ? catalogLabel(
+                          locale,
+                          'exercise',
+                          exercise.libraryId,
+                          exercise.name,
+                        )
+                      : exercise.name}
                   </Text>
                   {findExercise(exercise.libraryId) ? (
                     <Pressable
@@ -520,191 +529,241 @@ export function Workout({
                   key={exercise.libraryId}
                   exerciseId={exercise.libraryId}
                 />
-                <Text style={s.previous}>
-                  {previous?.length
-                    ? t('workout.last', {
-                        summary: previous
-                          .map((set) =>
-                            set.otherSideReps === undefined
-                              ? t('entry.singleSummary', {
-                                  weight: formatEntryNumber(locale, set.weight),
-                                  reps: formatEntryNumber(locale, set.reps),
-                                })
-                              : t('entry.bilateralSummary', {
-                                  weight: formatEntryNumber(locale, set.weight),
-                                  reps: formatEntryNumber(locale, set.reps),
-                                  other: formatEntryNumber(
-                                    locale,
-                                    set.otherSideReps,
-                                  ),
-                                }),
-                          )
-                          .join(' · '),
-                      })
-                    : t('workout.first')}
-                </Text>
-                {exercise.target ? (
-                  <View style={{ gap: spacing.sm }}>
+                {exercise.cardio ? (
+                  <CardioCountdown
+                    key={exercise.id}
+                    sessionId={session.id}
+                    exerciseId={exercise.cardio.exerciseId}
+                    goalSeconds={exercise.cardio.goalSeconds}
+                    now={now}
+                    history={history}
+                    manual={{
+                      timer: exercise.cardio,
+                      disabled: busy,
+                      onChange: (transform) => {
+                        update((current) => {
+                          const selected =
+                            current.exercises[current.currentExerciseIndex];
+                          if (selected?.id !== exercise.id || !selected.cardio)
+                            return current;
+                          const exercises = [...current.exercises];
+                          exercises[current.currentExerciseIndex] = {
+                            ...selected,
+                            cardio: transform(selected.cardio),
+                          };
+                          return { ...current, exercises };
+                        });
+                        setNow(Date.now());
+                      },
+                    }}
+                  />
+                ) : (
+                  <>
                     <Text style={s.previous}>
-                      {t(
-                        exercise.target.perSide
-                          ? 'workout.targetPerSide'
-                          : 'workout.target',
-                        {
-                          min: formatNumber(locale, exercise.target.repMin),
-                          max: formatNumber(locale, exercise.target.repMax),
-                          restMin: formatNumber(
-                            locale,
-                            exercise.target.restMin,
-                          ),
-                          restMax: formatNumber(
-                            locale,
-                            exercise.target.restMax,
-                          ),
-                        },
-                      )}
+                      {previous?.length
+                        ? t('workout.last', {
+                            summary: previous
+                              .map((set) =>
+                                set.otherSideReps === undefined
+                                  ? t('entry.singleSummary', {
+                                      weight: formatEntryNumber(
+                                        locale,
+                                        set.weight,
+                                      ),
+                                      reps: formatEntryNumber(locale, set.reps),
+                                    })
+                                  : t('entry.bilateralSummary', {
+                                      weight: formatEntryNumber(
+                                        locale,
+                                        set.weight,
+                                      ),
+                                      reps: formatEntryNumber(locale, set.reps),
+                                      other: formatEntryNumber(
+                                        locale,
+                                        set.otherSideReps,
+                                      ),
+                                    }),
+                              )
+                              .join(' · '),
+                          })
+                        : t('workout.first')}
                     </Text>
-                    <Text style={s.previous}>{t('workout.warmup')}</Text>
+                    {exercise.target ? (
+                      <View style={{ gap: spacing.sm }}>
+                        <Text style={s.previous}>
+                          {t(
+                            exercise.target.perSide
+                              ? 'workout.targetPerSide'
+                              : 'workout.target',
+                            {
+                              min: formatNumber(locale, exercise.target.repMin),
+                              max: formatNumber(locale, exercise.target.repMax),
+                              restMin: formatNumber(
+                                locale,
+                                exercise.target.restMin,
+                              ),
+                              restMax: formatNumber(
+                                locale,
+                                exercise.target.restMax,
+                              ),
+                            },
+                          )}
+                        </Text>
+                        <Text style={s.previous}>{t('workout.warmup')}</Text>
+                        <AppButton
+                          title={t('workout.changeRest', {
+                            seconds: formatNumber(
+                              locale,
+                              session.restOverrideSeconds ??
+                                exercise.target.restMin,
+                            ),
+                          })}
+                          secondary
+                          disabled={busy}
+                          onPress={() =>
+                            update((current) => ({
+                              ...current,
+                              restOverrideSeconds:
+                                (current.restOverrideSeconds ??
+                                  exercise.target!.restMin) ===
+                                exercise.target!.restMin
+                                  ? exercise.target!.restMax
+                                  : exercise.target!.restMin,
+                            }))
+                          }
+                        />
+                      </View>
+                    ) : null}
+                    {exercise.libraryId === 'bodyweight-step-up' ? (
+                      <Text style={s.previous}>{t('workout.stepUp')}</Text>
+                    ) : null}
+                    <View style={s.tableHeader}>
+                      <Text style={s.number}>{t('workout.tableSet')}</Text>
+                      <Text style={s.column}>{t('workout.tableKg')}</Text>
+                      <Text style={s.column}>{t('workout.tableReps')}</Text>
+                      <Text style={s.number}>{t('workout.tableDone')}</Text>
+                    </View>
+                    {exercise.sets.map((set, i) => {
+                      const done = isSetComplete(set);
+                      return (
+                        <View key={set.id} style={s.setRow}>
+                          <Pressable
+                            style={({ pressed }) => [
+                              s.target,
+                              pressed && s.dim,
+                            ]}
+                            disabled={busy || exercise.sets.length === 1}
+                            accessibilityLabel={t('workout.removeNamed', {
+                              index: i + 1,
+                            })}
+                            accessibilityHint={t('workout.confirmHint')}
+                            onPress={() => remove(i)}
+                          >
+                            <Text style={s.setNumber}>{i + 1}</Text>
+                          </Pressable>
+                          {[
+                            {
+                              field: 'weight',
+                              value: set.weight,
+                              placeholder: '0',
+                            },
+                            {
+                              field:
+                                set.otherSideReps === undefined
+                                  ? 'repetitions'
+                                  : 'left repetitions',
+                              value: set.reps,
+                              placeholder: t(
+                                set.otherSideReps === undefined
+                                  ? 'entry.phReps'
+                                  : 'entry.phLeft',
+                              ),
+                            },
+                            ...(set.otherSideReps === undefined
+                              ? []
+                              : [
+                                  {
+                                    field: 'right repetitions',
+                                    value: set.otherSideReps,
+                                    placeholder: t('entry.phRight'),
+                                  },
+                                ]),
+                          ].map((cell) => (
+                            <Pressable
+                              key={cell.field}
+                              accessibilityRole="button"
+                              accessibilityLabel={t(
+                                cell.field === 'weight'
+                                  ? 'workout.editWeight'
+                                  : cell.field === 'right repetitions'
+                                    ? 'workout.editRight'
+                                    : cell.field === 'left repetitions'
+                                      ? 'workout.editLeft'
+                                      : 'workout.editReps',
+                                { index: i + 1 },
+                              )}
+                              accessibilityValue={{
+                                text: cell.value
+                                  ? formatEntryNumber(locale, cell.value)
+                                  : t('workout.notEntered'),
+                              }}
+                              accessibilityState={{ disabled: done || busy }}
+                              disabled={done || busy}
+                              style={[
+                                s.input,
+                                s.valueCell,
+                                done && s.completed,
+                              ]}
+                              onPress={() =>
+                                setEditing({
+                                  sessionId: session.id,
+                                  exerciseId: exercise.id,
+                                  setId: set.id,
+                                })
+                              }
+                            >
+                              <Text style={s.valueText}>
+                                {cell.value
+                                  ? formatEntryNumber(locale, cell.value)
+                                  : cell.placeholder}
+                              </Text>
+                            </Pressable>
+                          ))}
+                          <Pressable
+                            accessibilityRole="checkbox"
+                            accessibilityLabel={t('workout.completeNamed', {
+                              index: i + 1,
+                            })}
+                            accessibilityState={{
+                              checked: done,
+                              disabled: busy,
+                            }}
+                            disabled={busy}
+                            onPress={() => toggle(i)}
+                            style={({ pressed }) => [
+                              s.target,
+                              s.check,
+                              done && s.checked,
+                              (pressed || busy) && s.dim,
+                            ]}
+                          >
+                            <Text style={[s.checkText, done && s.checkedText]}>
+                              {done ? '✓' : '○'}
+                            </Text>
+                          </Pressable>
+                        </View>
+                      );
+                    })}
                     <AppButton
-                      title={t('workout.changeRest', {
-                        seconds: formatNumber(
-                          locale,
-                          session.restOverrideSeconds ??
-                            exercise.target.restMin,
-                        ),
-                      })}
+                      title={t('workout.addSet')}
                       secondary
                       disabled={busy}
                       onPress={() =>
-                        update((current) => ({
-                          ...current,
-                          restOverrideSeconds:
-                            (current.restOverrideSeconds ??
-                              exercise.target!.restMin) ===
-                            exercise.target!.restMin
-                              ? exercise.target!.restMax
-                              : exercise.target!.restMin,
-                        }))
+                        update((current) => addSet(current, index))
                       }
                     />
-                  </View>
-                ) : null}
-                {exercise.libraryId === 'bodyweight-step-up' ? (
-                  <Text style={s.previous}>{t('workout.stepUp')}</Text>
-                ) : null}
-                <View style={s.tableHeader}>
-                  <Text style={s.number}>{t('workout.tableSet')}</Text>
-                  <Text style={s.column}>{t('workout.tableKg')}</Text>
-                  <Text style={s.column}>{t('workout.tableReps')}</Text>
-                  <Text style={s.number}>{t('workout.tableDone')}</Text>
-                </View>
-                {exercise.sets.map((set, i) => {
-                  const done = isSetComplete(set);
-                  return (
-                    <View key={set.id} style={s.setRow}>
-                      <Pressable
-                        style={({ pressed }) => [s.target, pressed && s.dim]}
-                        disabled={busy || exercise.sets.length === 1}
-                        accessibilityLabel={t('workout.removeNamed', {
-                          index: i + 1,
-                        })}
-                        accessibilityHint={t('workout.confirmHint')}
-                        onPress={() => remove(i)}
-                      >
-                        <Text style={s.setNumber}>{i + 1}</Text>
-                      </Pressable>
-                      {[
-                        {
-                          field: 'weight',
-                          value: set.weight,
-                          placeholder: '0',
-                        },
-                        {
-                          field:
-                            set.otherSideReps === undefined
-                              ? 'repetitions'
-                              : 'left repetitions',
-                          value: set.reps,
-                          placeholder: t(
-                            set.otherSideReps === undefined
-                              ? 'entry.phReps'
-                              : 'entry.phLeft',
-                          ),
-                        },
-                        ...(set.otherSideReps === undefined
-                          ? []
-                          : [
-                              {
-                                field: 'right repetitions',
-                                value: set.otherSideReps,
-                                placeholder: t('entry.phRight'),
-                              },
-                            ]),
-                      ].map((cell) => (
-                        <Pressable
-                          key={cell.field}
-                          accessibilityRole="button"
-                          accessibilityLabel={t(
-                            cell.field === 'weight'
-                              ? 'workout.editWeight'
-                              : cell.field === 'right repetitions'
-                                ? 'workout.editRight'
-                                : cell.field === 'left repetitions'
-                                  ? 'workout.editLeft'
-                                  : 'workout.editReps',
-                            { index: i + 1 },
-                          )}
-                          accessibilityValue={{
-                            text: cell.value
-                              ? formatEntryNumber(locale, cell.value)
-                              : t('workout.notEntered'),
-                          }}
-                          accessibilityState={{ disabled: done || busy }}
-                          disabled={done || busy}
-                          style={[s.input, s.valueCell, done && s.completed]}
-                          onPress={() =>
-                            setEditing({
-                              sessionId: session.id,
-                              exerciseId: exercise.id,
-                              setId: set.id,
-                            })
-                          }
-                        >
-                          <Text style={s.valueText}>
-                            {cell.value
-                              ? formatEntryNumber(locale, cell.value)
-                              : cell.placeholder}
-                          </Text>
-                        </Pressable>
-                      ))}
-                      <Pressable
-                        accessibilityRole="checkbox"
-                        accessibilityLabel={t('workout.completeNamed', {
-                          index: i + 1,
-                        })}
-                        accessibilityState={{ checked: done, disabled: busy }}
-                        disabled={busy}
-                        onPress={() => toggle(i)}
-                        style={({ pressed }) => [
-                          s.target,
-                          s.check,
-                          done && s.checked,
-                          (pressed || busy) && s.dim,
-                        ]}
-                      >
-                        <Text style={[s.checkText, done && s.checkedText]}>
-                          {done ? '✓' : '○'}
-                        </Text>
-                      </Pressable>
-                    </View>
-                  );
-                })}
-                <AppButton
-                  title={t('workout.addSet')}
-                  secondary
-                  disabled={busy}
-                  onPress={() => update((current) => addSet(current, index))}
-                />
+                  </>
+                )}
               </>
             )}
           </GlassCard>
@@ -801,11 +860,11 @@ export function Workout({
           title={
             busy
               ? t('workout.saving')
-              : workoutIsComplete(session)
+              : workoutIsComplete(session, now)
                 ? t('workout.finishSave')
                 : t('workout.finish')
           }
-          disabled={busy || completed === 0}
+          disabled={busy || !hasWorkoutResults(session, now)}
           onPress={finish}
         />
         {discard ? (
@@ -828,6 +887,7 @@ export function Workout({
         )}
         onClose={() => setPicker(false)}
         onAdd={addFromLibrary}
+        allowCardio
         onRemove={removeExercises ? requestRemoval : undefined}
         actionDialog={picker ? removalDialog : undefined}
         onCloseOverlay={() => setComposition(null)}
@@ -872,7 +932,10 @@ export function Workout({
                       selected={selected}
                       toggle
                       unavailable={
-                        busy || (!selected && !isManualWorkoutExercise(item))
+                        busy ||
+                        (!selected &&
+                          !isManualWorkoutExercise(item) &&
+                          !isCardioExerciseId(item.id))
                       }
                       onPress={() =>
                         selected ? requestRemoval(item) : addFromLibrary(item)

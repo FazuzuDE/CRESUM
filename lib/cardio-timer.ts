@@ -10,20 +10,33 @@ export type CardioTimer = {
 
 export const CARDIO_TIMERS_KEY = 'cresum.cardio-timers.v1';
 
-function validateCardioTimer(value: CardioTimer): CardioTimer {
-  if (
-    !value ||
-    !Object.values(cardioExerciseIds).includes(value.exerciseId) ||
-    !Number.isSafeInteger(value.goalSeconds) ||
-    value.goalSeconds < 15 ||
-    value.goalSeconds > 7200 ||
-    !Number.isSafeInteger(value.elapsedMs) ||
-    value.elapsedMs < 0 ||
-    value.elapsedMs > value.goalSeconds * 1000 ||
-    (value.startedAt !== undefined &&
-      (!Number.isSafeInteger(value.startedAt) || value.startedAt < 0))
-  )
-    throw new Error(CARDIO_TIMERS_KEY);
+export function isCardioExerciseId(
+  id: string,
+): id is CardioTimer['exerciseId'] {
+  return (
+    id === cardioExerciseIds.treadmill_walking ||
+    id === cardioExerciseIds.stationary_bike
+  );
+}
+
+export function isCardioTimer(value: unknown): value is CardioTimer {
+  if (!value || typeof value !== 'object') return false;
+  const timer = value as CardioTimer;
+  return (
+    isCardioExerciseId(timer.exerciseId) &&
+    Number.isSafeInteger(timer.goalSeconds) &&
+    timer.goalSeconds >= 15 &&
+    timer.goalSeconds <= 7200 &&
+    Number.isSafeInteger(timer.elapsedMs) &&
+    timer.elapsedMs >= 0 &&
+    timer.elapsedMs <= timer.goalSeconds * 1000 &&
+    (timer.startedAt === undefined ||
+      (Number.isSafeInteger(timer.startedAt) && timer.startedAt >= 0))
+  );
+}
+
+function validateCardioTimer(value: unknown): CardioTimer {
+  if (!isCardioTimer(value)) throw new Error(CARDIO_TIMERS_KEY);
   return value;
 }
 
@@ -33,6 +46,14 @@ export const cardioElapsed = (timer: CardioTimer, now: number) =>
     timer.elapsedMs +
       (timer.startedAt === undefined ? 0 : Math.max(0, now - timer.startedAt)),
   );
+
+export const pauseCardioTimer = (
+  timer: CardioTimer,
+  now: number,
+): CardioTimer =>
+  timer.startedAt === undefined
+    ? timer
+    : { ...timer, elapsedMs: cardioElapsed(timer, now), startedAt: undefined };
 
 export function adjustCardioGoal(
   timer: CardioTimer,
@@ -65,7 +86,7 @@ export function readCardioTimers(raw: string | null): Map<string, CardioTimer> {
   return new Map(
     Object.entries(value).map(([id, timer]) => [
       id,
-      validateCardioTimer(timer as CardioTimer),
+      validateCardioTimer(timer),
     ]),
   );
 }

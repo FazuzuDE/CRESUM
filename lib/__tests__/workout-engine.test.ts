@@ -8,6 +8,8 @@ import {
   exerciseIdsMatch,
   extendRest,
   finishWorkout,
+  hasWorkoutResults,
+  removeWorkoutExercises,
   remainingRestSeconds,
   removeSet,
   resolveTemplateExercises,
@@ -47,6 +49,68 @@ const logSet = (session = start(), ei = 0, si = 0, now = 2000) =>
     si,
     now,
   ).session;
+
+it('persists manual cardio with no strength sets and records only elapsed cardio', async () => {
+  const storage = memoryStorage();
+  const repository = new WorkoutRepository(storage);
+  const session = startWorkout(
+    { id: 'cardio', name: 'Cardio', exerciseIds: ['treadmill-walking'] },
+    exerciseLibrary,
+    1000,
+  );
+  const exercise = session.exercises[0];
+  expect(exercise.sets).toEqual([]);
+  expect(hasWorkoutResults(session, 40_000)).toBe(false);
+  const running = {
+    ...session,
+    exercises: [
+      { ...exercise, cardio: { ...exercise.cardio!, startedAt: 40_000 } },
+    ],
+  };
+  await repository.saveVerified({
+    schemaVersion: 1,
+    activeWorkout: running,
+    history: [],
+    templates: [],
+  });
+  const restored = (await repository.load()).activeWorkout!;
+  expect(restored.exercises[0].cardio?.startedAt).toBe(40_000);
+  const completed = finishWorkout(restored, 48_000);
+  expect(completedSetCount(completed)).toBe(0);
+  expect(completed.exercises[0].cardio).toMatchObject({ elapsedMs: 8000 });
+  expect(completed.exercises[0].cardio?.startedAt).toBeUndefined();
+  const removal = removeWorkoutExercises(
+    restored,
+    [exercise.id],
+    true,
+    'saved',
+    45_000,
+  );
+  expect(removal.active.exercises).toEqual([]);
+  expect(removal.recorded?.exercises[0].cardio?.elapsedMs).toBe(5000);
+  await repository.saveVerified({
+    schemaVersion: 1,
+    activeWorkout: null,
+    history: [completed],
+    templates: [],
+  });
+  const store = new WorkoutStore(repository);
+  await store.load();
+  const localHistory = store.getSnapshot().data.history;
+  const remote = {
+    ...completed,
+    exercises: completed.exercises.map((row) => ({
+      ...row,
+      cardio: undefined,
+    })),
+  };
+  expect(
+    await store.applyCloudHistory(localHistory, [remote], () => true),
+  ).toBe(true);
+  expect(
+    store.getSnapshot().data.history[0].exercises[0].cardio?.elapsedMs,
+  ).toBe(8000);
+});
 
 describe('workout engine', () => {
   it('resolves legacy template ids to canonical snapshot ids', () => {

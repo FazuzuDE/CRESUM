@@ -4,6 +4,7 @@ import { validPlanOrigin } from './workout-sharing/import';
 import type { SharedPlan } from './workout-sharing/contract';
 import type { PlanOrigin } from './workout-model';
 import { exerciseLibrary } from './workout-catalog';
+import { pauseCardioTimer } from './cardio-timer';
 import {
   appendExerciseGroup,
   finishWorkout,
@@ -126,7 +127,22 @@ export class WorkoutStore {
   updateWorkout(transform: (session: WorkoutSession) => WorkoutSession) {
     const { data, ready, busy } = this.snapshot;
     if (!ready || busy || !data.activeWorkout) return;
-    this.persist({ ...data, activeWorkout: transform(data.activeWorkout) });
+    const previous = data.activeWorkout;
+    const next = transform(previous);
+    const current = previous.exercises[previous.currentExerciseIndex];
+    const exercises =
+      current?.cardio?.startedAt !== undefined &&
+      next.exercises[next.currentExerciseIndex]?.id !== current.id
+        ? next.exercises.map((exercise) =>
+            exercise.id === current.id && exercise.cardio
+              ? {
+                  ...exercise,
+                  cardio: pauseCardioTimer(exercise.cardio, Date.now()),
+                }
+              : exercise,
+          )
+        : next.exercises;
+    this.persist({ ...data, activeWorkout: { ...next, exercises } });
   }
   async removeExercises(
     expectedSessionId: string,
@@ -423,7 +439,38 @@ export class WorkoutStore {
     ++this.revision;
     this.publish({ busy: true });
     try {
-      const result = await this.repository.saveVerified({ ...data, history });
+      // The cloud history protocol carries strength sets. Preserve local cardio
+      // for matching exercise snapshots when a remote workout replaces them.
+      const localById = new Map(
+        expected.map((workout) => [workout.id, workout]),
+      );
+      const mergedHistory = history.map((workout) => {
+        const local = localById.get(workout.id);
+        if (
+          !local ||
+          local === workout ||
+          !local.exercises.some(({ cardio }) => cardio)
+        )
+          return workout;
+        const localExercises = new Map(
+          local.exercises.map((exercise) => [exercise.id, exercise]),
+        );
+        return {
+          ...workout,
+          exercises: workout.exercises.map((exercise) => {
+            const previous = localExercises.get(exercise.id);
+            return !exercise.cardio &&
+              exercise.sets.length === 0 &&
+              previous?.cardio?.exerciseId === exercise.libraryId
+              ? { ...exercise, cardio: previous.cardio }
+              : exercise;
+          }),
+        };
+      });
+      const result = await this.repository.saveVerified({
+        ...data,
+        history: mergedHistory,
+      });
       if (result.data)
         this.publish(
           {

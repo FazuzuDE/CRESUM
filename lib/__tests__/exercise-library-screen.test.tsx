@@ -364,13 +364,14 @@ it('offers a read-only full library page with working search and Back', () => {
   }
 });
 
-it('shows current cardio entries in a workout picker without offering strength-set logging', () => {
+it('lets the active workout add both cardio exercises', () => {
   const onAdd = jest.fn();
   const view = renderLibrary(
     <ExerciseLibrary
       visible
       onClose={() => {}}
       onAdd={onAdd}
+      allowCardio
       selectedIds={['barbell-bench-press']}
     />,
   );
@@ -381,18 +382,26 @@ it('shows current cardio entries in a workout picker without offering strength-s
     findPressable(view, 'Already added Barbell Bench Press')?.props.disabled,
   ).toBe(true);
   expect(findPressable(view, 'Add Treadmill walking')?.props.disabled).toBe(
-    true,
+    false,
   );
   expect(
     findPressable(view, 'Add Upright stationary bike')?.props.disabled,
-  ).toBe(true);
+  ).toBe(false);
   expect(findPressable(view, 'Technique for Treadmill walking')).toBeDefined();
   expect(
     findPressable(view, 'Technique for Upright stationary bike'),
   ).toBeDefined();
-  expect(JSON.stringify(view.toJSON())).toContain(
+  expect(JSON.stringify(view.toJSON())).not.toContain(
     'Available in starter programs',
   );
+  act(() => findPressable(view, 'Add Treadmill walking')?.props.onPress());
+  act(() =>
+    findPressable(view, 'Add Upright stationary bike')?.props.onPress(),
+  );
+  expect(onAdd.mock.calls.map(([entry]) => entry.id)).toEqual([
+    'treadmill-walking',
+    'upright-stationary-bike',
+  ]);
   act(() => view.unmount());
 });
 
