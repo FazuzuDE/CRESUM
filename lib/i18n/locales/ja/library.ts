@@ -33,6 +33,12 @@ export default {
   'library.selectName': '{{name}}を選択',
   'library.select': '選択',
   'library.selected': '選択済み',
+  'library.removeName': '現在のワークアウトから{{name}}を削除',
+  'library.removeQuestion':
+    '現在のワークアウトから「{{name}}」を削除しますか？',
+  'library.removeWarning': '未保存のデータは失われます。',
+  'library.saveAndRemove': '記録して削除',
+  'library.discardAndRemove': '記録せずに削除',
   'library.addName': '{{name}}を追加',
   'library.alreadyAddedName': '{{name}}は追加済み',
   'library.add': '追加',

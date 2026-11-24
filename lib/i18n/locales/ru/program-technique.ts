@@ -85,8 +85,8 @@ export default {
   'technique.closeViewer': 'Закрыть полноэкранную иллюстрацию',
   'technique.viewerNote':
     'Изображения начального и конечного положений появятся после визуальной проверки.',
-  'technique.start': 'НАЧАЛО',
-  'technique.finish': 'КОНЕЦ',
+  'technique.start': 'СТАРТ',
+  'technique.finish': 'ФИНИШ',
   'technique.showStart': 'Показать начальное положение',
   'technique.showFinish': 'Показать конечное положение',
   'technique.placeholder': 'Заглушка иллюстрации {{imageKey}}: {{phase}}',

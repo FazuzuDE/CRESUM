@@ -279,6 +279,52 @@ describe('local persistence and migration', () => {
     expect(restored.getSnapshot().data.history).toHaveLength(1);
     expect(volume(restored.getSnapshot().data.history[0])).toBe(9660);
   });
+  it('records only entered sets when removing an exercise and keeps the current workout active after reload', async () => {
+    const storage = memoryStorage();
+    let store = new WorkoutStore(new WorkoutRepository(storage));
+    await store.load();
+    store.start(defaultTemplates[0]);
+    store.updateWorkout((session) =>
+      updateSet(logSet(session), 0, 1, { weight: '50,5', reps: '8' }),
+    );
+    const { activeWorkout } = store.getSnapshot().data;
+    const first = activeWorkout!.exercises[0];
+    const nextId = activeWorkout!.exercises[1].id;
+    expect(
+      await store.removeExercises(activeWorkout!.id, [first.id], true),
+    ).toBe(true);
+
+    store = new WorkoutStore(new WorkoutRepository(storage));
+    await store.load();
+    const data = store.getSnapshot().data;
+    expect(data.activeWorkout?.id).toBe(activeWorkout!.id);
+    expect(
+      data.activeWorkout?.exercises[data.activeWorkout.currentExerciseIndex].id,
+    ).toBe(nextId);
+    expect(data.activeWorkout?.restEndsAt).toBeUndefined();
+    expect(data.history).toHaveLength(1);
+    expect(data.history[0].id).not.toBe(activeWorkout!.id);
+    expect(
+      data.history[0].exercises.flatMap((exercise) =>
+        exercise.sets.map((set) => [set.weight, set.reps]),
+      ),
+    ).toEqual([
+      ['80.5', '10'],
+      ['50.5', '8'],
+    ]);
+    expect(completedSetCount(data.history[0])).toBe(2);
+
+    expect(
+      await store.removeExercises(activeWorkout!.id, [nextId], false),
+    ).toBe(true);
+    expect(store.getSnapshot().data.history).toHaveLength(1);
+    expect(
+      store
+        .getSnapshot()
+        .data.activeWorkout?.exercises.some((entry) => entry.id === nextId),
+    ).toBe(false);
+  });
+
   it('restores active inputs and timer after reopening', async () => {
     const storage = memoryStorage(),
       repo = new WorkoutRepository(storage);

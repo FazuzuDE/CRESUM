@@ -36,6 +36,12 @@ export default {
   'library.selectName': 'Seleccionar {{name}}',
   'library.select': 'Seleccionar',
   'library.selected': 'Seleccionado',
+  'library.removeName': 'Quitar {{name}} del entrenamiento actual',
+  'library.removeQuestion':
+    '¿Quieres quitar «{{name}}» del entrenamiento actual?',
+  'library.removeWarning': 'Se perderán los datos sin guardar.',
+  'library.saveAndRemove': 'Guardar y quitar',
+  'library.discardAndRemove': 'Quitar sin guardar',
   'library.addName': 'Añadir {{name}}',
   'library.alreadyAddedName': 'Ya se ha añadido {{name}}',
   'library.add': 'Añadir',

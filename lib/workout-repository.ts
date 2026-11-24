@@ -179,6 +179,7 @@ function session(
           !string(set.reps) ||
           (set.otherSideReps !== undefined && !string(set.otherSideReps)) ||
           !optionalNumber(set.completedAt) ||
+          (set.entered !== undefined && set.entered !== true) ||
           (legacy
             ? set.done !== undefined && typeof set.done !== 'boolean'
             : set.done !== undefined)
@@ -191,6 +192,7 @@ function session(
           ...(set.otherSideReps === undefined
             ? {}
             : { otherSideReps: set.otherSideReps as string }),
+          ...(set.entered === true ? { entered: true as const } : {}),
           completedAt:
             (set.completedAt as number | undefined) ??
             (legacy && set.done === true

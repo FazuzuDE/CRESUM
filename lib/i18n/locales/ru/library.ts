@@ -38,6 +38,12 @@ export default {
   'library.selectName': 'Выбрать: {{name}}',
   'library.select': 'Выбрать',
   'library.selected': 'Выбрано',
+  'library.removeName': 'Убрать {{name}} из текущей тренировки',
+  'library.removeQuestion':
+    'Вы действительно хотите удалить «{{name}}» из текущей тренировки?',
+  'library.removeWarning': 'Это приведёт к потере несохранённых данных.',
+  'library.saveAndRemove': 'Записать и удалить',
+  'library.discardAndRemove': 'Удалить без сохранения',
   'library.addName': 'Добавить: {{name}}',
   'library.alreadyAddedName': 'Уже добавлено: {{name}}',
   'library.add': 'Добавить',

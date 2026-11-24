@@ -1,5 +1,13 @@
 # CRESUM — Product Definition
 
+## Removing exercises from an active workout
+
+During an active workout, the exercise picker and technique guide support adding
+and removing catalog exercises. Removing an exercise with entered or completed
+sets asks the user to cancel, save and remove, or remove without saving.
+Saving records the exercise's logged work in History and keeps the active workout
+open. The history record does not complete a program slot.
+
 ## Swipe back — requested 2026-11-22
 
 On iOS and Android, users can swipe toward the trailing side anywhere on a page

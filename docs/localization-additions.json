@@ -304,5 +304,103 @@
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes",
     "kind": "internal",
     "reason": "Native accessibility visibility for the covered exercise list."
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "text": "library.removeName",
+    "context": "StringLiteral/ConditionalExpression/ConditionalExpression/ConditionalExpression/CallExpression",
+    "kind": "internal",
+    "reason": "Translation key or internal error metadata for removing an exercise. User-facing errors are localized."
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "text": "library.alreadyAddedName",
+    "context": "StringLiteral/ConditionalExpression/ConditionalExpression/ConditionalExpression/CallExpression",
+    "kind": "internal",
+    "reason": "Translation key or internal error metadata for removing an exercise. User-facing errors are localized."
+  },
+  {
+    "file": "components/Workout.tsx",
+    "text": "common.cancel",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression",
+    "kind": "internal",
+    "reason": "Translation key or internal error metadata for removing an exercise. User-facing errors are localized."
+  },
+  {
+    "file": "components/Workout.tsx",
+    "text": "library.saveAndRemove",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression",
+    "kind": "internal",
+    "reason": "Translation key or internal error metadata for removing an exercise. User-facing errors are localized."
+  },
+  {
+    "file": "components/Workout.tsx",
+    "text": "library.discardAndRemove",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression",
+    "kind": "internal",
+    "reason": "Translation key or internal error metadata for removing an exercise. User-facing errors are localized."
+  },
+  {
+    "file": "components/Workout.tsx",
+    "text": "library.added",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:label",
+    "kind": "internal",
+    "reason": "Translation key or internal error metadata for removing an exercise. User-facing errors are localized."
+  },
+  {
+    "file": "components/Workout.tsx",
+    "text": "library.add",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:label",
+    "kind": "internal",
+    "reason": "Translation key or internal error metadata for removing an exercise. User-facing errors are localized."
+  },
+  {
+    "file": "components/Workout.tsx",
+    "text": "library.removeName",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:accessibilityLabel",
+    "kind": "internal",
+    "reason": "Translation key or internal error metadata for removing an exercise. User-facing errors are localized."
+  },
+  {
+    "file": "components/Workout.tsx",
+    "text": "library.addName",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxAttribute:accessibilityLabel",
+    "kind": "internal",
+    "reason": "Translation key or internal error metadata for removing an exercise. User-facing errors are localized."
+  },
+  {
+    "file": "lib/workout-engine.ts",
+    "text": "Invalid set values.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block",
+    "kind": "internal",
+    "reason": "Translation key or internal error metadata for removing an exercise. User-facing errors are localized."
+  },
+  {
+    "file": "lib/workout-engine.ts",
+    "text": "No entered sets to save.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block",
+    "kind": "internal",
+    "reason": "Translation key or internal error metadata for removing an exercise. User-facing errors are localized."
+  },
+  {
+    "file": "lib/workout-store.ts",
+    "text": "Exercise removal write failed.",
+    "context": "StringLiteral/NewExpression/ThrowStatement/IfStatement/Block",
+    "kind": "internal",
+    "reason": "Translation key or internal error metadata for removing an exercise. User-facing errors are localized."
+  },
+  {
+    "file": "lib/workout-store.ts",
+    "text": "Could not remove the exercise. The workout is still open.",
+    "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/CallExpression/ExpressionStatement",
+    "kind": "diagnostic",
+    "reason": "Translation key or internal error metadata for removing an exercise. User-facing errors are localized."
+  },
+  {
+    "file": "lib/workout-store.ts",
+    "text": "workout_save_failed",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/Block",
+    "kind": "internal",
+    "reason": "Translation key or internal error metadata for removing an exercise. User-facing errors are localized."
   }
 ]
