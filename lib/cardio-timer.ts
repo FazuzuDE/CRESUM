@@ -1,9 +1,5 @@
-import type { CardioGuidance } from './training-programs/model';
-
-export const cardioExerciseIds = {
-  treadmill_walking: 'treadmill-walking',
-  stationary_bike: 'upright-stationary-bike',
-} as const satisfies Record<NonNullable<CardioGuidance['activity']>, string>;
+import { cardioExerciseIds } from './exercise-library';
+export { cardioExerciseIds } from './exercise-library';
 
 export type CardioTimer = {
   exerciseId: (typeof cardioExerciseIds)[keyof typeof cardioExerciseIds];

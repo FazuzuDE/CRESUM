@@ -20,7 +20,11 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { ExerciseEquipmentRow } from './ExerciseEquipmentRow';
 import { ExerciseEquipmentSheet } from './ExerciseEquipmentSheet';
 import { equipmentPolicyFor } from '@/lib/exercise-equipment';
-import { findExercise } from '@/lib/exercise-library';
+import {
+  cardioExerciseIds,
+  findExercise,
+  isManualWorkoutExercise,
+} from '@/lib/exercise-library';
 import { ExerciseTechnique } from './ExerciseTechnique';
 import { ExerciseArtwork } from './ExerciseArtwork';
 import { catalogLabel, searchLocalizedExercises } from '@/lib/i18n/catalog';
@@ -226,8 +230,12 @@ export function ExerciseLibrary({
                 exercise.name,
               );
               const selected = selectedIds.includes(exercise.id);
+              const readOnly = !browsing && !isManualWorkoutExercise(exercise);
               const programOnly =
-                !browsing && exercise.movementPattern === 'cardio';
+                readOnly &&
+                Object.values(cardioExerciseIds).some(
+                  (id) => id === exercise.id,
+                );
               return (
                 <View
                   key={exercise.id}
@@ -277,10 +285,12 @@ export function ExerciseLibrary({
                         onPress={() => setGobletEquipmentOpen(true)}
                       />
                     ) : null}
-                    {programOnly ? (
-                      <Text style={s.metadata}>
-                        {t('library.programCardio')}
-                      </Text>
+                    {readOnly ? (
+                      programOnly ? (
+                        <Text style={s.metadata}>
+                          {t('library.programCardio')}
+                        </Text>
+                      ) : null
                     ) : selectionMode ? (
                       <Pressable
                         accessibilityRole="checkbox"
