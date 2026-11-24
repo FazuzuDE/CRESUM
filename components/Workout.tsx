@@ -5,7 +5,6 @@ import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
-import { ScreenModal } from './ScreenModal';
 import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
 import { useWorkoutStyles } from './workout-styles';
 import { ExerciseAttachmentBlock } from './ExerciseAttachmentBlock';
@@ -727,37 +726,37 @@ export function Workout({
         onAdd={(item) => {
           if (equipmentPolicyFor(item.id)?.supportsSetGroups) {
             setComposition({ sessionId: session.id, exerciseId: item.id });
-            setPicker(false);
             return;
           }
-          update((current) => appendExercise(current, item));
-          setPicker(false);
+          update((current) =>
+            current.exercises.some((entry) =>
+              exerciseIdsMatch(entry.libraryId ?? entry.id, item.id),
+            )
+              ? current
+              : appendExercise(current, item),
+          );
         }}
+        onCloseOverlay={() => setComposition(null)}
+        overlay={
+          composition && composition.sessionId === session.id ? (
+            <AppScrollView contentContainerStyle={s.content}>
+              <ExerciseGroupComposer
+                initialExerciseId={composition.exerciseId}
+                existingOutsideIds={session.exercises.map((e) => e.libraryId)}
+                busy={busy}
+                onCancel={() => setComposition(null)}
+                onApply={async (entries) => {
+                  const saved =
+                    (await appendGroup?.(entries, composition.sessionId)) ??
+                    false;
+                  if (saved) setComposition(null);
+                  return saved;
+                }}
+              />
+            </AppScrollView>
+          ) : undefined
+        }
       />
-      {composition && composition.sessionId === session.id ? (
-        <ScreenModal
-          visible
-          animationType="slide"
-          presentationStyle="pageSheet"
-          onRequestClose={() => setComposition(null)}
-        >
-          <AppScrollView contentContainerStyle={s.content}>
-            <ExerciseGroupComposer
-              initialExerciseId={composition.exerciseId}
-              existingOutsideIds={session.exercises.map((e) => e.libraryId)}
-              busy={busy}
-              onCancel={() => setComposition(null)}
-              onApply={async (entries) => {
-                const saved =
-                  (await appendGroup?.(entries, composition.sessionId)) ??
-                  false;
-                if (saved) setComposition(null);
-                return saved;
-              }}
-            />
-          </AppScrollView>
-        </ScreenModal>
-      ) : null}
       {technique ? (
         <ExerciseTechnique
           key={technique.id}

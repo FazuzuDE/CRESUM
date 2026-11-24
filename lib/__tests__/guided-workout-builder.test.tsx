@@ -16,11 +16,19 @@ jest.mock('@expo/vector-icons', () => ({
   Ionicons: jest.requireActual('react-native').View,
 }));
 
+const views: ReturnType<typeof create>[] = [];
+afterEach(async () => {
+  await act(async () => {
+    for (const view of views.splice(0)) view.unmount();
+  });
+});
+
 const render = (element: ReactElement) => {
   let view!: ReturnType<typeof create>;
   act(() => {
     view = create(element);
   });
+  views.push(view);
   return view;
 };
 const button = (view: ReturnType<typeof create>, title: string) =>

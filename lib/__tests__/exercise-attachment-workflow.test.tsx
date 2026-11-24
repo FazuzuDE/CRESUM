@@ -207,6 +207,15 @@ it('keeps staged rows on failed active-workout save and commits through the atom
   });
   act(() =>
     view!.root
+      .findAllByType(AppButton)
+      .find(
+        (node: { props: { title: string } }) =>
+          node.props.title === 'Add exercise',
+      )!
+      .props.onPress(),
+  );
+  act(() =>
+    view!.root
       .findByType(ExerciseLibrary)
       .props.onAdd(findExercise('lat-pulldown-close-neutral-ergonomic-handle')),
   );
