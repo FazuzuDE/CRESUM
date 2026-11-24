@@ -1,5 +1,13 @@
 # CRESUM Design System v1.0
 
+## Exercise library actions
+
+Use the V7 contour for adding or selecting an exercise in the library and at
+the top of its detail sheet. The two opposite corners and plus use the approved
+wordmark ink (#171D27 in light appearance). On press, close the slanted outline
+and scale it to 90% over 500 ms. Respect Reduce Motion. Show the green check
+when the current workout or selection contains the displayed variant.
+
 ## Floating tab navigation
 
 The main tabs scroll behind a floating glass dock. Place the dock above the
