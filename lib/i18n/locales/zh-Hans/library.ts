@@ -1,4 +1,5 @@
 export default {
+  'library.programCardio': '可在入门计划中使用',
   'exerciseMuscles.title': '参与肌群',
   'exerciseMuscles.more': '更多详情',
   'exerciseMuscles.open': '{{name}} 的肌群详情',

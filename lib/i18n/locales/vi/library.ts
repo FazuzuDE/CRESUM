@@ -1,4 +1,5 @@
 export default {
+  'library.programCardio': 'Có trong các chương trình khởi đầu',
   'exerciseMuscles.title': 'Các cơ tham gia',
   'exerciseMuscles.more': 'Chi tiết',
   'exerciseMuscles.open': 'Chi tiết cơ của {{name}}',

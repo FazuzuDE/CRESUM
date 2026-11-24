@@ -1,4 +1,5 @@
 export default {
+  'library.programCardio': 'Доступно в стартових програмах',
   'exerciseMuscles.title': 'Задіяні м’язи',
   'exerciseMuscles.more': 'Докладніше',
   'exerciseMuscles.open': 'Задіяні м’язи у вправі «{{name}}»',

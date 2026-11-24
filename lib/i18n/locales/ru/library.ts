@@ -1,4 +1,5 @@
 export default {
+  'library.programCardio': 'Доступно в стартовых программах',
   'exerciseMuscles.title': 'Работающие мышцы',
   'exerciseMuscles.more': 'Подробнее',
   'exerciseMuscles.open': 'Карта мышц: {{name}}',

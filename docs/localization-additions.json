@@ -190,5 +190,21 @@
     "context": "StringLiteral/PropertyAssignment:publisher/ObjectLiteralExpression/PropertyAssignment:'horizon-upright-bike-owner-guide'/ObjectLiteralExpression",
     "kind": "bibliography",
     "reason": "Equipment manufacturer reference displayed as bibliography."
+  },
+  {
+    "file": "components/ExerciseTechnique.tsx",
+    "line": 86,
+    "text": "none",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes",
+    "kind": "internal",
+    "reason": "React Native pointer events mode for the technique surface."
+  },
+  {
+    "file": "components/ExerciseTechnique.tsx",
+    "line": 86,
+    "text": "auto",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes",
+    "kind": "internal",
+    "reason": "React Native pointer events mode for the technique surface."
   }
 ]

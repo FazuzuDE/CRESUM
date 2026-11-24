@@ -39,7 +39,7 @@ import type {
 } from '@/lib/training-programs/model';
 import { SetEntrySheet } from './SetEntrySheet';
 import { previousEntry, saveSetEntry } from '@/lib/set-entry';
-import { findExercise } from '@/lib/exercise-library';
+import { canonicalExerciseId, findExercise } from '@/lib/exercise-library';
 import type {
   LibraryExercise,
   PlannedExercise,
@@ -718,6 +718,11 @@ export function Workout({
       <ExerciseLibrary
         history={history}
         visible={picker}
+        selectedIds={session.exercises.map(
+          (exercise) =>
+            canonicalExerciseId(exercise.libraryId ?? exercise.id) ??
+            exercise.id,
+        )}
         onClose={() => setPicker(false)}
         onAdd={(item) => {
           if (equipmentPolicyFor(item.id)?.supportsSetGroups) {

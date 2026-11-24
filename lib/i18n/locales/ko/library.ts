@@ -1,4 +1,5 @@
 export default {
+  'library.programCardio': '스타터 프로그램에서 이용 가능',
   'exerciseMuscles.title': '사용 근육',
   'exerciseMuscles.more': '자세히 보기',
   'exerciseMuscles.open': '{{name}} 근육 상세',

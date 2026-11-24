@@ -77,223 +77,243 @@ export function ExerciseTechnique({
       visible
       animationType="slide"
       presentationStyle="pageSheet"
-      allowSwipeDismissal
-      onRequestClose={onClose}
+      allowSwipeDismissal={!equipmentOpen}
+      onRequestClose={equipmentOpen ? () => setEquipmentOpen(false) : onClose}
     >
       <SafeAreaView edges={['top', 'left', 'right']} style={s.root}>
-        <View style={s.grabber} />
-        <BrandHeader
-          back={{
-            accessibilityLabel:
-              history !== undefined
-                ? t('technique.closeDetails')
-                : t('technique.close'),
-            onPress: onClose,
-          }}
-        />
-        <View style={s.header}>
-          <Text accessibilityRole="header" style={s.headerTitle}>
-            {tab === 'Technique'
-              ? t('technique.title')
-              : t('technique.statistics')}
-          </Text>
-        </View>
-        <AppScrollView
-          safeAreaEdges={['bottom']}
-          contentContainerStyle={s.content}
+        <View
+          style={s.contentSurface}
+          pointerEvents={equipmentOpen ? 'none' : 'auto'}
+          accessibilityElementsHidden={equipmentOpen}
+          importantForAccessibility={
+            equipmentOpen ? 'no-hide-descendants' : 'auto'
+          }
         >
-          <View style={s.detailHeading}>
-            <View style={s.headingCopy}>
-              <Text accessibilityRole="header" style={s.title}>
-                {exerciseName}
-              </Text>
-              <Text style={s.metadata}>
-                {exercise.primaryMuscles
-                  .map((id) =>
-                    catalogLabel(locale, 'muscle', id, muscleLabel(id)),
-                  )
-                  .join(' · ')}{' '}
-                ·{' '}
-                {exercise.equipment
-                  .map((id) =>
-                    catalogLabel(locale, 'equipment', id, equipmentLabel(id)),
-                  )
-                  .join(' · ')}
-              </Text>
+          <View style={s.grabber} />
+          <BrandHeader
+            back={{
+              accessibilityLabel:
+                history !== undefined
+                  ? t('technique.closeDetails')
+                  : t('technique.close'),
+              onPress: onClose,
+            }}
+          />
+          <View style={s.header}>
+            <Text accessibilityRole="header" style={s.headerTitle}>
+              {tab === 'Technique'
+                ? t('technique.title')
+                : t('technique.statistics')}
+            </Text>
+          </View>
+          <AppScrollView
+            safeAreaEdges={['bottom']}
+            contentContainerStyle={s.content}
+          >
+            <View style={s.detailHeading}>
+              <View style={s.headingCopy}>
+                <Text accessibilityRole="header" style={s.title}>
+                  {exerciseName}
+                </Text>
+                <Text style={s.metadata}>
+                  {exercise.primaryMuscles
+                    .map((id) =>
+                      catalogLabel(locale, 'muscle', id, muscleLabel(id)),
+                    )
+                    .join(' · ')}{' '}
+                  ·{' '}
+                  {exercise.equipment
+                    .map((id) =>
+                      catalogLabel(locale, 'equipment', id, equipmentLabel(id)),
+                    )
+                    .join(' · ')}
+                </Text>
+              </View>
+              {history !== undefined ? (
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={t('technique.expand')}
+                  onPress={() => setViewer(true)}
+                  style={s.thumbnail}
+                >
+                  <ExerciseArtwork imageKey={exercise.imageKey} size={76} />
+                </Pressable>
+              ) : null}
             </View>
             {history !== undefined ? (
+              <View style={s.tabs}>
+                {(['Technique', 'Statistics'] as const).map((value) => (
+                  <Pressable
+                    key={value}
+                    accessibilityRole="button"
+                    accessibilityLabel={t('technique.tab', {
+                      tab:
+                        value === 'Technique'
+                          ? t('technique.title')
+                          : t('technique.statistics'),
+                    })}
+                    accessibilityState={{ selected: tab === value }}
+                    onPress={() => setTab(value)}
+                    style={[s.tab, value === tab && s.activeTab]}
+                  >
+                    <Text
+                      style={[s.metadata, value === tab && s.activeTabText]}
+                    >
+                      {value === 'Technique'
+                        ? t('technique.title')
+                        : t('technique.statistics')}
+                    </Text>
+                  </Pressable>
+                ))}
+              </View>
+            ) : null}
+            {history !== undefined ? (
+              <View
+                style={tab === 'Statistics' ? undefined : { display: 'none' }}
+                accessibilityElementsHidden={tab !== 'Statistics'}
+                importantForAccessibility={
+                  tab === 'Statistics' ? 'auto' : 'no-hide-descendants'
+                }
+              >
+                <ExerciseStatistics
+                  history={history}
+                  exerciseId={exercise.id}
+                  name={exerciseName}
+                  now={now}
+                />
+              </View>
+            ) : null}
+            <View
+              accessibilityElementsHidden={tab !== 'Technique'}
+              importantForAccessibility={
+                tab === 'Technique' ? 'auto' : 'no-hide-descendants'
+              }
+              style={[
+                s.techniqueContent,
+                tab === 'Statistics' && { display: 'none' },
+              ]}
+            >
               <Pressable
                 accessibilityRole="button"
                 accessibilityLabel={t('technique.expand')}
                 onPress={() => setViewer(true)}
-                style={s.thumbnail}
+                style={s.artwork}
               >
-                <ExerciseArtwork imageKey={exercise.imageKey} size={76} />
-              </Pressable>
-            ) : null}
-          </View>
-          {history !== undefined ? (
-            <View style={s.tabs}>
-              {(['Technique', 'Statistics'] as const).map((value) => (
-                <Pressable
-                  key={value}
-                  accessibilityRole="button"
-                  accessibilityLabel={t('technique.tab', {
-                    tab:
-                      value === 'Technique'
-                        ? t('technique.title')
-                        : t('technique.statistics'),
-                  })}
-                  accessibilityState={{ selected: tab === value }}
-                  onPress={() => setTab(value)}
-                  style={[s.tab, value === tab && s.activeTab]}
-                >
-                  <Text style={[s.metadata, value === tab && s.activeTabText]}>
-                    {value === 'Technique'
-                      ? t('technique.title')
-                      : t('technique.statistics')}
-                  </Text>
-                </Pressable>
-              ))}
-            </View>
-          ) : null}
-          {history !== undefined ? (
-            <View
-              style={tab === 'Statistics' ? undefined : { display: 'none' }}
-              accessibilityElementsHidden={tab !== 'Statistics'}
-              importantForAccessibility={
-                tab === 'Statistics' ? 'auto' : 'no-hide-descendants'
-              }
-            >
-              <ExerciseStatistics
-                history={history}
-                exerciseId={exercise.id}
-                name={exerciseName}
-                now={now}
-              />
-            </View>
-          ) : null}
-          <View
-            accessibilityElementsHidden={tab !== 'Technique'}
-            importantForAccessibility={
-              tab === 'Technique' ? 'auto' : 'no-hide-descendants'
-            }
-            style={[
-              s.techniqueContent,
-              tab === 'Statistics' && { display: 'none' },
-            ]}
-          >
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={t('technique.expand')}
-              onPress={() => setViewer(true)}
-              style={s.artwork}
-            >
-              <TechniqueArtwork imageKey={exercise.imageKey} phase={phase} />
-              <View style={s.expand}>
-                <Ionicons
-                  name="expand-outline"
-                  size={20}
-                  color={colors.textPrimary}
-                />
-              </View>
-            </Pressable>
-            <TechniquePhaseControl phase={phase} onChange={setPhase} />
-            <ExerciseMuscles key={exercise.id} exercise={exercise} />
-            <ExerciseEquipmentRow
-              exerciseId={exercise.id}
-              focusRef={equipmentFocus}
-              onPress={() => setEquipmentOpen(true)}
-            />
-            {equipmentOpen && equipmentPolicy ? (
-              <ExerciseEquipmentSheet
-                policy={equipmentPolicy}
-                selectedVariantId={exercise.id}
-                onSelect={(id) => {
-                  setViewedId(id);
-                  onEquipmentChange?.(id);
-                }}
-                onClose={() => setEquipmentOpen(false)}
-              />
-            ) : null}
-            {guide ? (
-              <>
-                <Text style={s.metadata}>{guide.scope}</Text>
-                <Section title={t('technique.setup')} items={guide.setup} />
-                <Section
-                  title={t('technique.movement')}
-                  items={guide.movement}
-                />
-                <Section title={t('technique.checks')} items={guide.checks} />
-                <Disclosure
-                  title={t('technique.mistakes')}
-                  open={mistakes}
-                  onPress={() => setMistakes(!mistakes)}
-                />
-                {mistakes ? (
-                  <Section
-                    title={t('technique.mistakes')}
-                    items={guide.mistakes}
-                    hideTitle
+                <TechniqueArtwork imageKey={exercise.imageKey} phase={phase} />
+                <View style={s.expand}>
+                  <Ionicons
+                    name="expand-outline"
+                    size={20}
+                    color={colors.textPrimary}
                   />
-                ) : null}
-                <Disclosure
-                  title={t('technique.sources')}
-                  open={sources}
-                  onPress={() => setSources(!sources)}
-                />
-                {sources ? (
-                  <View style={s.sourceList}>
-                    <Text style={s.metadata}>{t('technique.sourceNote')}</Text>
-                    {guide.adaptation ? (
-                      <Text style={s.metadata}>{guide.adaptation}</Text>
-                    ) : null}
-                    {guide.sources.map((id) => {
-                      const source = techniqueSources[id];
-                      const checkedOn = t('technique.sourceCheckedOn', {
-                        date: formatDate(locale, Date.parse(source.checkedOn), {
-                          day: 'numeric',
-                          month: 'short',
-                          year: 'numeric',
-                          timeZone: 'UTC',
-                        }),
-                      });
-                      return (
-                        <Pressable
-                          key={id}
-                          accessibilityRole="link"
-                          accessibilityLabel={[
-                            t('technique.openSource', { title: source.title }),
-                            checkedOn,
-                          ].join('. ')}
-                          onPress={() => {
-                            setLinkError(false);
-                            void Linking.openURL(source.url).catch(() =>
-                              setLinkError(true),
-                            );
-                          }}
-                          style={s.source}
-                        >
-                          <Text style={s.link}>{source.title}</Text>
-                          <Text style={s.metadata}>{source.publisher}</Text>
-                          <Text style={s.metadata}>{checkedOn}</Text>
-                        </Pressable>
-                      );
-                    })}
-                    {linkError ? (
-                      <Text accessibilityRole="alert" style={s.error}>
-                        {t('technique.linkError')}
+                </View>
+              </Pressable>
+              <TechniquePhaseControl phase={phase} onChange={setPhase} />
+              <ExerciseMuscles key={exercise.id} exercise={exercise} />
+              <ExerciseEquipmentRow
+                exerciseId={exercise.id}
+                focusRef={equipmentFocus}
+                onPress={() => setEquipmentOpen(true)}
+              />
+              {guide ? (
+                <>
+                  <Text style={s.metadata}>{guide.scope}</Text>
+                  <Section title={t('technique.setup')} items={guide.setup} />
+                  <Section
+                    title={t('technique.movement')}
+                    items={guide.movement}
+                  />
+                  <Section title={t('technique.checks')} items={guide.checks} />
+                  <Disclosure
+                    title={t('technique.mistakes')}
+                    open={mistakes}
+                    onPress={() => setMistakes(!mistakes)}
+                  />
+                  {mistakes ? (
+                    <Section
+                      title={t('technique.mistakes')}
+                      items={guide.mistakes}
+                      hideTitle
+                    />
+                  ) : null}
+                  <Disclosure
+                    title={t('technique.sources')}
+                    open={sources}
+                    onPress={() => setSources(!sources)}
+                  />
+                  {sources ? (
+                    <View style={s.sourceList}>
+                      <Text style={s.metadata}>
+                        {t('technique.sourceNote')}
                       </Text>
-                    ) : null}
-                  </View>
-                ) : null}
-                <Text style={s.metadata}>{t('technique.safety')}</Text>
-              </>
-            ) : (
-              <Text style={s.metadata}>{t('technique.unavailable')}</Text>
-            )}
-          </View>
-        </AppScrollView>
+                      {guide.adaptation ? (
+                        <Text style={s.metadata}>{guide.adaptation}</Text>
+                      ) : null}
+                      {guide.sources.map((id) => {
+                        const source = techniqueSources[id];
+                        const checkedOn = t('technique.sourceCheckedOn', {
+                          date: formatDate(
+                            locale,
+                            Date.parse(source.checkedOn),
+                            {
+                              day: 'numeric',
+                              month: 'short',
+                              year: 'numeric',
+                              timeZone: 'UTC',
+                            },
+                          ),
+                        });
+                        return (
+                          <Pressable
+                            key={id}
+                            accessibilityRole="link"
+                            accessibilityLabel={[
+                              t('technique.openSource', {
+                                title: source.title,
+                              }),
+                              checkedOn,
+                            ].join('. ')}
+                            onPress={() => {
+                              setLinkError(false);
+                              void Linking.openURL(source.url).catch(() =>
+                                setLinkError(true),
+                              );
+                            }}
+                            style={s.source}
+                          >
+                            <Text style={s.link}>{source.title}</Text>
+                            <Text style={s.metadata}>{source.publisher}</Text>
+                            <Text style={s.metadata}>{checkedOn}</Text>
+                          </Pressable>
+                        );
+                      })}
+                      {linkError ? (
+                        <Text accessibilityRole="alert" style={s.error}>
+                          {t('technique.linkError')}
+                        </Text>
+                      ) : null}
+                    </View>
+                  ) : null}
+                  <Text style={s.metadata}>{t('technique.safety')}</Text>
+                </>
+              ) : (
+                <Text style={s.metadata}>{t('technique.unavailable')}</Text>
+              )}
+            </View>
+          </AppScrollView>
+        </View>
+        {equipmentOpen && equipmentPolicy ? (
+          <ExerciseEquipmentSheet
+            inline
+            policy={equipmentPolicy}
+            selectedVariantId={exercise.id}
+            onSelect={(id) => {
+              setViewedId(id);
+              onEquipmentChange?.(id);
+            }}
+            onClose={() => setEquipmentOpen(false)}
+          />
+        ) : null}
         {viewer ? (
           <TechniqueViewer
             name={exerciseName}
@@ -363,6 +383,7 @@ function Disclosure({
   );
 }
 const useStyles = createThemedStyles((colors) => ({
+  contentSurface: { flex: 1 },
   root: { flex: 1, backgroundColor: colors.surface },
   grabber: {
     width: 40,
