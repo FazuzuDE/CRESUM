@@ -1,4 +1,4 @@
-import { enabledAppLocales, localeRegistry } from '../i18n/registry';
+import { localeRegistry } from '../i18n/registry';
 import { LocaleStore, LANGUAGE_PREFERENCE_KEY } from '../i18n/preference-store';
 it('a read begun during a pending write cannot undo its acknowledged choice', async () => {
   let finishWrite!: () => void;
@@ -262,46 +262,30 @@ it.each(['mr', 'id', 'ko', 'nl', 'sv'] as const)(
   },
 );
 
-it('keeps Dutch in internal preview until its release flag is enabled', async () => {
+it('exposes every bundled locale regardless of release acceptance', async () => {
   const storage = { getItem: async () => null, setItem: async () => {} };
-  const production = new LocaleStore(
-    storage,
-    () => ['nl-BE', 'fr-BE'],
-    enabledAppLocales(),
-  );
-  const preview = new LocaleStore(
-    storage,
-    () => ['nl-BE', 'fr-BE'],
-    enabledAppLocales({ nl: true }),
-  );
-  const expected = localeRegistry.nl.released ? 'nl' : 'fr';
-  await production.load();
-  await preview.load();
-  expect(production.getSnapshot().locale).toBe(expected);
-  expect(await production.select('nl')).toBe(localeRegistry.nl.released);
-  expect(preview.getSnapshot().locale).toBe('nl');
-  expect(await preview.select('nl')).toBe(true);
+  const store = new LocaleStore(storage, () => ['nl-BE', 'fr-BE']);
+
+  await store.load();
+  expect(store.enabledLocales).toEqual(Object.keys(localeRegistry));
+  expect(store.getSnapshot()).toMatchObject({
+    preference: 'system',
+    locale: 'nl',
+  });
+
+  for (const locale of store.enabledLocales) {
+    expect(await store.select(locale)).toBe(true);
+    expect(store.getSnapshot()).toMatchObject({ preference: locale, locale });
+  }
 });
 
-it('keeps Svenska in its own preview and can return to the device language', async () => {
+it('uses Swedish device language after returning from manual selection', async () => {
   const storage = { getItem: async () => null, setItem: async () => {} };
-  const production = new LocaleStore(
-    storage,
-    () => ['sv-SE', 'de-AT'],
-    enabledAppLocales({ nl: true }),
-  );
-  const preview = new LocaleStore(
-    storage,
-    () => ['sv-SE', 'de-AT'],
-    enabledAppLocales({ sv: true }),
-  );
-  await production.load();
-  expect(production.getSnapshot().locale).toBe('de');
-  expect(await production.select('sv')).toBe(false);
-  await preview.load();
-  expect(preview.getSnapshot().locale).toBe('sv');
-  expect(await preview.select('en')).toBe(true);
-  expect(preview.getSnapshot().locale).toBe('en');
-  expect(await preview.select('system')).toBe(true);
-  expect(preview.getSnapshot().locale).toBe('sv');
+  const store = new LocaleStore(storage, () => ['sv-SE', 'de-AT']);
+  await store.load();
+  expect(store.getSnapshot().locale).toBe('sv');
+  expect(await store.select('en')).toBe(true);
+  expect(store.getSnapshot().locale).toBe('en');
+  expect(await store.select('system')).toBe(true);
+  expect(store.getSnapshot().locale).toBe('sv');
 });

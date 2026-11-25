@@ -41,6 +41,12 @@ to every future feature, exercise, machine, equipment item, guide, validation,
 error/retry message and accessibility label. Adding a language also requires
 complete existing content and search-alias coverage before exposing it.
 
+Use the same language list in test and final builds for manual choice and
+device-language detection. All bundled registry locales are available without
+per-language environment flags. Record verification separately from visibility;
+do not mark physical checks or independent review as passed without evidence.
+Complete the final language pass before store publication.
+
 Every searchable catalog item must have natural search synonyms, common local gym
 slang and abbreviations where applicable in every current language. The current
 exercise, equipment/attachment and muscle dictionaries cover EN/RU/DE/FR/UK/ES/

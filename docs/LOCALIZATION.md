@@ -8,7 +8,6 @@ Use a clean checkout of the QA commit and Node/npm from `.nvmrc` and
 ```sh
 npm ci
 EXPO_NO_DOTENV=1 \
-EXPO_PUBLIC_DUTCH_PREVIEW=true \
 EXPO_PUBLIC_SUPABASE_URL=disabled \
 EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY=disabled \
 EXPO_PUBLIC_SHARING_ENABLED=false \
@@ -17,11 +16,11 @@ npm start -- --go --lan --clear
 ```
 
 Open the Metro QR code in an SDK-compatible Expo Go on a physical iPhone and
-Android. Use test data. The preview command enables Dutch in the language
-picker. Keep the registry and acceptance flags unchanged during the test.
-Other languages retain their current picker behavior. Expo Go uses the picker
-fallback. To accept the iOS UIKit wheel, repeat the wheel checks in
-the signed `preview` build described in [Device builds](DEVICE_BUILDS.md).
+Android. Use test data. The same bundled languages are selectable in Expo Go
+and in production without a preview flag. Keep the registry and acceptance
+flags unchanged during the test. Expo Go uses the picker fallback. To accept
+the iOS UIKit wheel, repeat the wheel checks in the signed `preview` build
+described in [Device builds](DEVICE_BUILDS.md).
 
 Start with German, French and Russian, then cover every other registry locale
 on both platforms. Record the commit, phone, OS, build type and results.
@@ -44,7 +43,7 @@ Record independent review of exercise and equipment names and technique
 instructions separately. Confirm web, both physical platforms and linguistic
 review for each language before promoting its release flag.
 
-The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian, Korean and Dutch. System language
+The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian, Korean, Dutch and Swedish. System language
 appears first and is selected by default. An explicit choice is saved on the
 device. Final web and native acceptance for Russian, German, French,
 Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian and Korean remain pending in the release eligibility ledger.
@@ -56,13 +55,10 @@ publications use their English metadata.
 
 ## Swedish (Svenska)
 
-Swedish is bundled as `sv` for Sweden. System language detection recognizes
-both `sv` and `sv-SE`. The normal app hides Svenska until release. To test it on
-an iPhone and an Android phone, use the command under
-[physical-device localization QA](#physical-device-localization-qa), swapping
-`EXPO_PUBLIC_DUTCH_PREVIEW=true` for `EXPO_PUBLIC_SWEDISH_PREVIEW=true`.
-Use a clean checkout of the tested commit and the SDK-compatible Expo Go app;
-the switch is independent of the Dutch preview.
+Swedish is bundled as `sv` for Sweden. Both test and final builds offer
+Svenska and recognize `sv` and `sv-SE` in System mode. Use the
+[physical-device localization QA](#physical-device-localization-qa) setup on
+both phones.
 
 1. Select Svenska manually. Restart, check that it is retained, then select
    System with Swedish (Sweden) selected on the phone.
@@ -86,10 +82,9 @@ Older publications retain their existing fallback.
 
 Dutch uses a single offline catalog for the Netherlands and Dutch-speaking
 Belgium. The language wheel can select Nederlands manually or follow the
-device locale for `nl`, `nl-NL` and `nl-BE` when enabled. Before release,
-Nederlands is available through the internal preview command above; a normal
-build omits it from language selection and system detection. Publication metadata uses an
-optional `nl` field and preserves the English fallback for older publications.
+device locale for `nl`, `nl-NL` and `nl-BE` in both preview and production
+builds. Publication metadata uses an optional `nl` field and preserves the
+English fallback for older publications.
 
 Use the [phone QA setup](#physical-device-localization-qa) on both phones:
 
@@ -109,7 +104,9 @@ Use the [phone QA setup](#physical-device-localization-qa) on both phones:
 
 Record this evidence and independent fluent review of the Dutch terms and
 technique separately. Dutch requires `web`, `native` and `linguistic` acceptance
-before its release flag can be enabled.
+before its acceptance flag can be marked released. The flag records
+acceptance and does not control availability. Independent review is not
+planned; leave that result unconfirmed.
 
 ## Korean — approved 2026-11-18
 
@@ -661,9 +658,9 @@ baseline is a reviewable migration action, not proof of translation. Existing
 pending strings block target-locale release eligibility. The rule applies to all
 currently selectable languages, independently of the `released` flag.
 
-For Dutch and Swedish, unchanged English copy fails even when it is nonempty.
-Use `docs/localization-<locale>-copy-exceptions.json` only for an established
-term in that language, an international gym term or an invariant unit. Add the exact
+For Dutch, unchanged English copy fails even when it is nonempty. Use
+`docs/localization-nl-copy-exceptions.json` only when the exact term is also
+standard Dutch, an international gym term or an invariant unit. Add the exact
 Dutch string (and plural form where relevant) and explain why it is identical.
 Remove unused entries when their copy changes. Strings containing only
 interpolation placeholders, numbers or punctuation are language neutral.

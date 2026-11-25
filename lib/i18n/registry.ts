@@ -66,18 +66,6 @@ export const localeRegistry = {
 >;
 export type AppLocale = keyof typeof localeRegistry;
 export type LanguagePreference = 'system' | AppLocale;
-const previewOnlyLocales: readonly AppLocale[] = ['nl', 'sv'];
-
-export function enabledAppLocales(
-  preview: Partial<Record<AppLocale, boolean>> = {},
-): AppLocale[] {
-  return (Object.keys(localeRegistry) as AppLocale[]).filter(
-    (locale) =>
-      !previewOnlyLocales.includes(locale) ||
-      localeRegistry[locale].released ||
-      preview[locale],
-  );
-}
 export function isAppLocale(value: unknown): value is AppLocale {
   return typeof value === 'string' && Object.hasOwn(localeRegistry, value);
 }
