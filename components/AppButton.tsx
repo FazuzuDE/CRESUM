@@ -91,7 +91,7 @@ export function AppButton({
             ? s.choiceContent
             : presentation === 'row' || settings
               ? s.rowContent
-              : undefined
+              : s.buttonContent
         }
       >
         <Text
@@ -181,6 +181,7 @@ const useStyles = createThemedStyles((colors) => ({
     maxWidth: '38%',
   },
   schedule: { backgroundColor: colors.surface, borderRadius: 0 },
+  buttonContent: { maxWidth: '100%', minWidth: 0 },
   rowContent: { flex: 1, minWidth: 0 },
   rowText: { ...typography.body, textAlign: 'left' },
   choice: {

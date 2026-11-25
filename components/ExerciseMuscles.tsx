@@ -225,7 +225,12 @@ const useStyles = createThemedStyles((colors) => ({
     paddingVertical: spacing.xs,
   },
   pressed: { opacity: 0.6 },
-  link: { ...typography.subheadline, color: colors.primary, flexShrink: 1 },
+  link: {
+    ...typography.subheadline,
+    color: colors.primary,
+    flexShrink: 1,
+    minWidth: 0,
+  },
   modal: {
     flex: 1,
     backgroundColor: colors.surface,

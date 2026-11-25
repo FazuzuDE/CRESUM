@@ -46,12 +46,18 @@ const useStyles = createThemedStyles((colors) => ({
   },
   button: {
     flex: 1,
+    minWidth: 0,
     minHeight: 44,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: radius.pill,
   },
   selected: { backgroundColor: colors.primaryTint },
-  text: { ...typography.footnote, color: colors.textSecondary },
+  text: {
+    ...typography.footnote,
+    color: colors.textSecondary,
+    maxWidth: '100%',
+    textAlign: 'center',
+  },
   active: { color: colors.primary, fontWeight: '600' },
 }));

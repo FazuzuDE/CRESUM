@@ -164,6 +164,7 @@ async function main() {
   const outputDir = path.resolve(
     option('--output-dir', '.tools/localization-web-qa/browser'),
   );
+  const captureScreenshots = !process.argv.includes('--no-screenshots');
   const entryDir = path.join(exportDir, '_expo/static/js/web');
   const entries = fs
     .readdirSync(entryDir)
@@ -382,12 +383,13 @@ async function main() {
             return failures;
           });
           assert.deepEqual(overflow, [], screen + ' horizontal clipping');
-          await page.screenshot({
-            path: path.join(
-              outputDir,
-              `${locale}-${width}-${expand ? 'expanded' : 'normal'}-${screen}.png`,
-            ),
-          });
+          if (captureScreenshots)
+            await page.screenshot({
+              path: path.join(
+                outputDir,
+                `${locale}-${width}-${expand ? 'expanded' : 'normal'}-${screen}.png`,
+              ),
+            });
           result.screens.push(screen);
         };
         try {
