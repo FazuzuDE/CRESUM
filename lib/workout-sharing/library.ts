@@ -1,26 +1,15 @@
 import type { PlanOrigin } from '../workout-model';
-import type { AppLocale } from '../i18n/registry';
+import { localeRegistry, type AppLocale } from '../i18n/registry';
 import { validPlanOrigin } from './import';
 import { equipmentTaxonomy } from '../exercise-taxonomy';
 
-const optionalPublicationLocales = [
-  'uk',
-  'es',
-  'pt-BR',
-  'it',
-  'pl',
-  'tr',
-  'zh-Hans',
-  'hi',
-  'bn',
-  'ar',
-  'ja',
-  'vi',
-  'mr',
-  'id',
-  'ko',
-] as const;
 const requiredPublicationLocales = ['en', 'ru', 'de', 'fr'] as const;
+const optionalPublicationLocales = (
+  Object.keys(localeRegistry) as AppLocale[]
+).filter(
+  (locale) =>
+    !requiredPublicationLocales.some((required) => required === locale),
+);
 type PublishedText = Record<
   (typeof requiredPublicationLocales)[number],
   string

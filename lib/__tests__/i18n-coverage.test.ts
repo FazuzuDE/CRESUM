@@ -72,3 +72,79 @@ it('rejects new untracked copy and reports remaining source candidates explicitl
     ),
   ).toHaveLength(1);
 });
+
+const {
+  validateDutchCopy,
+  validateProgramLocalization,
+  validateSearchAliases,
+} = jest.requireActual('../../scripts/check-localization.cjs');
+
+it('requires Dutch for newly introduced messages and rejects English copies', () => {
+  const field = 'newScreen.deleteTitle';
+  const en = { [field]: 'Delete this plan?' };
+  expect(validateCatalogs({ en, nl: {} })).toContain('nl: missing ' + field);
+  expect(validateCatalogs({ en, nl: { [field]: '  ' } })).toContain(
+    'nl.' + field + ': empty text',
+  );
+  expect(validateDutchCopy({ en, nl: en }, {})).toContain(
+    'nl: unchanged English copy ' + field,
+  );
+  const catalogs = { en, nl: { [field]: 'Dit plan verwijderen?' } };
+  expect(validateCatalogs(catalogs)).toEqual([]);
+  expect(validateDutchCopy(catalogs, {})).toEqual([]);
+});
+
+it('requires separate Dutch names and aliases for new searchable records', () => {
+  const id = 'new-attachment';
+  const key = 'equipment.newAttachment';
+  const records = { equipment: [{ id, messageKey: key }] };
+  const registry = { nl: {} };
+  const catalogs = { nl: { [key]: 'Dubbele handgreep' } };
+  const aliases = { nl: { equipment: { [id]: ['dubbel handvat'] } } };
+  expect(validateSearchAliases(aliases, registry, { nl: {} }, records)).toEqual(
+    ['nl: missing catalog translation ' + key],
+  );
+  expect(
+    validateSearchAliases(
+      { nl: { equipment: {} } },
+      registry,
+      catalogs,
+      records,
+    ),
+  ).toEqual(['nl: missing/empty search aliases equipment.' + id]);
+  expect(validateSearchAliases(aliases, registry, catalogs, records)).toEqual(
+    [],
+  );
+});
+
+it('requires built-in program titles, days and resolvable exercise labels', () => {
+  const programs = [
+    {
+      id: 'new-plan',
+      days: [{ key: 'A', movements: [{ exerciseId: 'new-exercise' }] }],
+      cardio: [],
+    },
+  ];
+  const keys = {
+    programTitleKey: () => 'catalog.program.new-plan',
+    programDayKey: () => 'program.day.A',
+  };
+  const resolve = (id: string) => id;
+  expect(
+    validateProgramLocalization({ nl: {} }, programs, keys, resolve),
+  ).toEqual([
+    'nl: missing program title new-plan (catalog.program.new-plan)',
+    'nl: missing program day new-plan/A (program.day.A)',
+    'nl: missing program exercise new-exercise in new-plan/A',
+  ]);
+  const catalogs = {
+    nl: {
+      'catalog.program.new-plan': 'Volledig lichaam',
+      'program.day.A': 'Dag A',
+      'catalog.exercise.new-exercise': 'Knielen en draaien',
+    },
+  };
+  expect(
+    validateProgramLocalization(catalogs, programs, keys, resolve),
+  ).toEqual([]);
+});

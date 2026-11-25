@@ -1,0 +1,96 @@
+export default {
+  'technique.image': '{{name}}: {{phase}}',
+  'templates.deleteTitle': 'Trainen verwijderen?',
+  'templates.deleteMessage':
+    '‘{{name}}’ verwijderen? Je actieve en voltooide trainingen blijven behouden.',
+  'templates.deleteConfirm': 'Training verwijderen',
+  'templates.keep': 'Blijf trainen',
+  'templates.resume': 'Actieve training hervatten',
+  'templates.start': 'Training starten',
+  'templates.customize': 'Dupliceren - aanpassen',
+  'templates.hide': 'Verbergen voor mijn trainingen',
+  'templates.edit': 'Bewerken',
+  'templates.duplicate': 'Dupliceren',
+  'templates.delete': 'Verwijderen',
+  'templates.close': 'Sluiten',
+  'templates.heading': 'WERKSTUKKEN',
+  'templates.builtIn': 'Ingebouwd',
+  'templates.empty': 'Geen trainingen beschikbaar.',
+  'templates.create': 'Aanmaken',
+  'templates.duplicateNamed': 'Duplicaat {{name}}',
+  'templates.hideNamed': '{{name}} verbergen',
+  'templates.editNamed': '{{name}} bewerken',
+  'templates.deleteNamed': 'Schrappen {{name}}',
+  'templates.more': 'Meer acties voor {{name}}',
+  'templates.resumeNamed': 'Hervatten actieve training van {{name}}',
+  'templates.startNamed': '{{name}} starten',
+  'templates.hint': 'Houd ingedrukt voor meer opties',
+  'templates.duplicateError':
+    'Kon deze training niet dupliceren. Probeer het opnieuw.',
+  'templates.hideError':
+    'De training kon niet verborgen worden. Probeer het opnieuw.',
+  'templates.deleteError':
+    'Kon deze training niet verwijderen. Probeer het opnieuw.',
+  'plan.startError': 'Kan training niet starten',
+  'plan.startPlannedError': 'Kan geplande training niet starten',
+  'plan.title': 'Je trainingsplan',
+  'plan.week': 'Week {{week, number}} · {{workouts}} · Sportschool',
+  'plan.workouts': {
+    one: '{{count, number}} geplande training',
+    other: '{{count, number}} geplande trainingen',
+  },
+  'plan.select': 'Selecteer {{name}} op {{date}}',
+  'plan.status': '{{date}} · {{status}}',
+  'plan.completed': 'Voltooid',
+  'plan.missed': 'Gemist · kies wanneer je er klaar voor bent',
+  'plan.planned': 'Gepland',
+  'plan.recovery':
+    'Andere dagen: herstel. Gemiste sessies voegen nooit sets toe aan een andere training.',
+  'plan.reduced':
+    'Eerste geplande sessie: 1 werkset per oefening, zoals geselecteerd.',
+  'plan.cardio': 'Cardio-geleiding',
+  'plan.cardioHelp':
+    'Wandelen of fietsen · geleidelijke doelstelling: {{minutes, number}} matige minuten per week. Beginnen met beheersbare 10/15 minuten sessies.',
+  'plan.cardioDay': 'Doel: {{date}} · {{minutes, number}} min.',
+  'plan.unavailable':
+    'Deze programma routine werd bewerkt, verwijderd of is niet beschikbaar. Bekijk trainingen in Profile; handmatige trainingen blijven beschikbaar.',
+  'plan.start': 'Start geplande training · {{key}}',
+  'plan.resume':
+    'Hervat je actieve training hierboven voordat u een andere start.',
+  'plan.complete': 'Deze week zijn geplande trainingen voltooid.',
+  'plan.manage': 'Bekijk trainingen in Profiel',
+  'plan.recoveryError':
+    'Het trainingsprogramma moet nog worden hersteld. Je trainingen blijven beschikbaar. Probeer het herstel opnieuw zonder het programma opnieuw te starten.',
+  'plan.retry': 'Programmaherstel opnieuw proberen',
+  'technique.title': 'Techniek',
+  'technique.statistics': 'Statistieken',
+  'technique.closeDetails': 'Details van de oefeningen sluiten',
+  'technique.close': 'Sluit techniek',
+  'technique.expand': 'Oefenafbeelding vergroten',
+  'technique.tab': 'Oefeningsdetail {{tab}}',
+  'technique.setup': 'Startpositie',
+  'technique.movement': 'Beweging',
+  'technique.checks': 'Aandachtspunten',
+  'technique.mistakes': 'Veelgemaakte fouten',
+  'technique.sources': 'Bronnen',
+  'technique.sourceNote':
+    'CRESUM vat de bronnen hieronder samen. Dit is geen persoonlijke beoordeling.',
+  'technique.sourceCheckedOn': 'Bron: {{date}}.',
+  'technique.openSource': 'Bron openen: {{title}}',
+  'technique.linkError':
+    'Kon deze bron niet openen. Probeer opnieuw wanneer online.',
+  'technique.safety':
+    'Kies een gewicht dat je beheerst en volg de instelinstructies van het toestel. Stop als de beweging pijn doet. Vraag een deskundige om hulp bij klachten of onbekende toestellen.',
+  'technique.unavailable':
+    'Voor deze oefening is nog geen techniekbeschrijving beschikbaar.',
+  'technique.closeViewer': 'Volledige schermafbeelding sluiten',
+  'technique.viewerNote':
+    'De beelden voor de start- en eindpositie verschijnen hier na controle.',
+  'technique.start': 'START',
+  'technique.finish': 'EIND',
+  'technique.showStart': 'Startpositie tonen',
+  'technique.showFinish': 'Eindpositie tonen',
+  'technique.placeholder': 'Illustratie voor {{phase}} ontbreekt: {{imageKey}}',
+  'technique.imageUnavailable': 'Illustratie niet beschikbaar',
+  'technique.imageSoon': 'Beeld komt binnenkort',
+} as const;

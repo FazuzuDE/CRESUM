@@ -1,3 +1,17 @@
+import nlCatalog from './locales/nl/catalog';
+import nlCommon from './locales/nl/common';
+import nlEditor from './locales/nl/editor';
+import nlEquipment from './locales/nl/equipment';
+import nlHistory from './locales/nl/history';
+import nlHome from './locales/nl/home';
+import nlLibrary from './locales/nl/library';
+import nlOnboarding from './locales/nl/onboarding';
+import nlProfile from './locales/nl/profile';
+import nlProgramTechnique from './locales/nl/program-technique';
+import nlProgress from './locales/nl/progress';
+import nlSharing from './locales/nl/sharing';
+import nlTechniqueContent from './locales/nl/technique-content';
+import nlWorkout from './locales/nl/workout';
 import koCatalog from './locales/ko/catalog';
 import koCommon from './locales/ko/common';
 import koEditor from './locales/ko/editor';
@@ -552,6 +566,22 @@ const id = {
   ...idTechniqueContent,
   ...idWorkout,
 } as const;
+const nl = {
+  ...nlCatalog,
+  ...nlCommon,
+  ...nlEditor,
+  ...nlEquipment,
+  ...nlHistory,
+  ...nlHome,
+  ...nlLibrary,
+  ...nlOnboarding,
+  ...nlProfile,
+  ...nlProgramTechnique,
+  ...nlProgress,
+  ...nlSharing,
+  ...nlTechniqueContent,
+  ...nlWorkout,
+};
 const ko = {
   ...koCatalog,
   ...koCommon,
@@ -591,6 +621,7 @@ export const catalogs = {
   mr,
   id,
   ko,
+  nl,
 } satisfies Record<string, MessageCatalog>;
 export type MessageKey = keyof typeof en;
 type TrimFormat<S extends string> = S extends `${infer Name},${string}`

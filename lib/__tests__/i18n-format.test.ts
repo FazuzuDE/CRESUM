@@ -247,3 +247,18 @@ it('formats Korean decimal points and dates without rounding raw manual values',
   expect(formatEntryNumber('ko', '１２，５０')).toBe('12.50');
   expect(normalizeDecimalInput('1,234.5')).toBeNull();
 });
+
+it('uses Dutch decimal and date notation without rounding exact input', () => {
+  expect(normalizeDecimalInput('62,5')).toBe('62.5');
+  expect(normalizeDecimalInput('62.5')).toBe('62.5');
+  expect(formatEntryNumber('nl', '62.5')).toBe('62,5');
+  expect(formatNumber('nl', 1234.5)).toBe('1.234,5');
+  expect(
+    formatDate('nl', Date.UTC(2026, 10, 25), {
+      timeZone: 'UTC',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }),
+  ).toBe('25 november 2026');
+});

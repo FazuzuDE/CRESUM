@@ -389,3 +389,47 @@ it('matches Korean gym names, slang and composed/decomposed Hangul across interf
   expect(goblet).not.toContain('kettlebell-goblet-squat');
   expect(JSON.stringify(exerciseLibrary)).toBe(before);
 });
+
+it.each(['nl', 'de', 'fr'] as const)(
+  'finds Dutch names and gym slang offline with the %s interface',
+  (locale) => {
+    for (const query of [
+      'bankdrukken',
+      'bench press',
+      'halterstang',
+      'barbell',
+    ]) {
+      expect(ids(query, locale)).toContain('barbell-bench-press');
+    }
+    for (const query of [
+      'lat pulldown',
+      'lat pulldown-machine',
+      'lat pulldown machine',
+    ]) {
+      expect(ids(query, locale)).toContain('lat-pulldown');
+    }
+    expect(ids('kabelmachine', locale)).toContain('cable-lateral-raise');
+    expect(ids('cable machine', locale)).toContain('cable-lateral-raise');
+    expect(ids('dumbbell', locale)).toContain('dumbbell-lateral-raise');
+    expect(ids('halter', locale)).toContain('dumbbell-lateral-raise');
+    expect(ids('bilspieren', locale)).toContain('barbell-hip-thrust');
+    expect(ids('glutes', locale)).toContain('barbell-hip-thrust');
+    expect(ids('pompen', locale)).toContain('push-up');
+  },
+);
+
+it('uses the exact equipment filter and keeps Dutch grip variants distinct', () => {
+  const barbell = searchLocalizedExercises(
+    { query: 'bankdrukken', equipment: 'barbell' },
+    'nl',
+  );
+  expect(barbell.map(({ id }) => id)).toContain('barbell-bench-press');
+  expect(barbell.every(({ equipment }) => equipment.includes('barbell'))).toBe(
+    true,
+  );
+  const results = ids('lat pulldown V-greep', 'nl');
+  expect(results[0]).toBe('lat-pulldown-close-neutral-v-handle');
+  expect(ids('ergonomische lat pulldown', 'nl')[0]).toBe(
+    'lat-pulldown-close-neutral-ergonomic-handle',
+  );
+});

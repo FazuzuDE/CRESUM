@@ -176,6 +176,8 @@ const plans = {
   { name: string; days: readonly (readonly Entry[])[] }
 >;
 
+export const starterProgramGoals = Object.keys(plans) as TrainingGoal[];
+
 export function starterProgram(
   goal: TrainingGoal,
   experience: TrainingExperience,
