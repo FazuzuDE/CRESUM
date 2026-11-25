@@ -1,0 +1,154 @@
+{
+  "catalog.muscle.biceps": {
+    "text": "Biceps",
+    "reason": "Established Swedish anatomical or gym term."
+  },
+  "catalog.muscle.triceps": {
+    "text": "Triceps",
+    "reason": "Established Swedish anatomical or gym term."
+  },
+  "catalog.equipment.kettlebell": {
+    "text": "Kettlebell",
+    "reason": "Established Swedish anatomical or gym term."
+  },
+  "common.setCount.one": {
+    "text": "{{count, number}} set",
+    "reason": "Standard Swedish training term for a group of repetitions."
+  },
+  "editor.setCount.one": {
+    "text": "{{count, number}} set",
+    "reason": "Standard Swedish training term for a group of repetitions."
+  },
+  "editor.weightValue": {
+    "text": "{{weight}} kg",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "history.set": {
+    "text": "Set {{index, number}} · {{weight}} kg × {{reps}}",
+    "reason": "Standard Swedish training term for a group of repetitions."
+  },
+  "home.tonnes": {
+    "text": "{{value}} t",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "home.kilograms": {
+    "text": "{{value}} kg",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "onboarding.welcomeOk": {
+    "text": "OK",
+    "reason": "Established Swedish interface label with the same spelling."
+  },
+  "onboarding.cm": {
+    "text": "cm",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "onboarding.kg": {
+    "text": "kg",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "profile.theme.system": {
+    "text": "System",
+    "reason": "Established Swedish interface label with the same spelling."
+  },
+  "profile.dataSection": {
+    "text": "Data",
+    "reason": "Established Swedish interface label with the same spelling."
+  },
+  "profile.version": {
+    "text": "Version {{version}}",
+    "reason": "Established Swedish interface label with the same spelling."
+  },
+  "conflict.set": {
+    "text": "Set {{number}}",
+    "reason": "Standard Swedish training term for a group of repetitions."
+  },
+  "conflict.setValue": {
+    "text": "{{weight}} kg × {{reps}} · {{status}}",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "conflict.setValueBoth": {
+    "text": "{{weight}} kg × {{reps}} / {{other}} · {{status}}",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "progress.kg": {
+    "text": "kg",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "progress.valueKg": {
+    "text": "{{value}} kg",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "progress.point": {
+    "text": "{{name}}, {{date}}, {{value}} kg",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "progress.loggedSet": {
+    "text": "{{weight}} kg × {{reps}}",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "muscle.setRole": {
+    "text": "Set {{index, number}} · {{role}}",
+    "reason": "Standard Swedish training term for a group of repetitions."
+  },
+  "body.point": {
+    "text": "{{date}} · {{value}} kg",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "sharing.sets.one": {
+    "text": "{{count}} set",
+    "reason": "Standard Swedish training term for a group of repetitions."
+  },
+  "sharing.weight": {
+    "text": "{{weight}} kg",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "workout.summary.one": {
+    "text": "{{completed}}/{{count}} set · {{volume}} kg",
+    "reason": "Standard Swedish training term for a group of repetitions."
+  },
+  "workout.tableSet": {
+    "text": "SET",
+    "reason": "Standard Swedish training term for a group of repetitions."
+  },
+  "workout.tableKg": {
+    "text": "KG",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "workout.savedSummary.one": {
+    "text": "{{count, number}} set · {{volume}} kg · {{time}}",
+    "reason": "Standard Swedish training term for a group of repetitions."
+  },
+  "entry.title": {
+    "text": "Set {{index}}",
+    "reason": "Standard Swedish training term for a group of repetitions."
+  },
+  "entry.singleSummary": {
+    "text": "{{weight}} kg × {{reps}}",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "entry.bilateralSummary": {
+    "text": "{{weight}} kg × {{reps}} / {{other}}",
+    "reason": "International unit symbols and locale-formatted values."
+  },
+  "sharing.sets.other": {
+    "text": "{{count}} set",
+    "reason": "Standard Swedish training term for a group of repetitions."
+  },
+  "common.setCount.other": {
+    "text": "{{count, number}} set",
+    "reason": "Standard Swedish training term for a group of repetitions."
+  },
+  "workout.summary.other": {
+    "text": "{{completed}}/{{count}} set · {{volume}} kg",
+    "reason": "Standard Swedish training term for a group of repetitions."
+  },
+  "workout.savedSummary.other": {
+    "text": "{{count, number}} set · {{volume}} kg · {{time}}",
+    "reason": "Standard Swedish training term for a group of repetitions."
+  },
+  "editor.setCount.other": {
+    "text": "{{count, number}} set",
+    "reason": "Standard Swedish training term for a group of repetitions."
+  }
+}

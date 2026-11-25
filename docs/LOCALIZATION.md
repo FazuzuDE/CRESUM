@@ -43,7 +43,7 @@ Record independent review of exercise and equipment names and technique
 instructions separately. Confirm web, both physical platforms and linguistic
 review for each language before promoting its release flag.
 
-The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian, Korean and Dutch. System language
+The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian, Korean, Dutch and Swedish. System language
 appears first and is selected by default. An explicit choice is saved on the
 device. Final web and native acceptance for Russian, German, French,
 Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian and Korean remain pending in the release eligibility ledger.
@@ -52,6 +52,31 @@ Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified C
 exercise technique, equipment and built-in plans. Shared plan titles and
 descriptions use the selected locale when the publication supplies it. Older
 publications use their English metadata.
+
+## Swedish (Svenska)
+
+Swedish is bundled as `sv` for Sweden. Both test and final builds offer
+Svenska and recognize `sv` and `sv-SE` in System mode. Use the
+[physical-device localization QA](#physical-device-localization-qa) setup on
+both phones.
+
+1. Select Svenska manually. Restart, check that it is retained, then select
+   System with Swedish (Sweden) selected on the phone.
+2. Search for `bankpress` and filter by Skivstång. Try `latsdrag V-handtag`
+   and compare it with the wide-grip variant. Check the STARTLÄGE and SLUTLÄGE
+   views on each technique card.
+3. Enter `62,5` kg and `8` repetitions. With a draft open, switch languages,
+   then check the draft, active workout and rest timer. Record the set and
+   complete the workout. Open Historik and Muskelkarta, restart and verify the
+   saved entry.
+4. Check narrow layout, large text, VoiceOver or TalkBack, the delete
+   confirmation and the separate cardio timer. Record the phone, OS, commit
+   and results for each platform.
+
+The offline search uses the existing accent and punctuation normalization. Use
+the same catalog and CI contracts for new Swedish labels, instructions, plans
+and aliases. Shared publications may include Swedish titles and descriptions.
+Older publications retain their existing fallback.
 
 ## Dutch (Nederlands)
 

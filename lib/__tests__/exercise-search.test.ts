@@ -433,3 +433,38 @@ it('uses the exact equipment filter and keeps Dutch grip variants distinct', () 
     'lat-pulldown-close-neutral-ergonomic-handle',
   );
 });
+
+it('finds Swedish names offline with or without accents, case, spacing and hyphens', () => {
+  for (const locale of ['sv', 'en'] as const)
+    for (const [query, exercise] of [
+      ['bänkpress', 'barbell-bench-press'],
+      ['BANKPRESS', 'barbell-bench-press'],
+      ['knäböj', 'barbell-back-squat'],
+      ['knaboj', 'barbell-back-squat'],
+      ['latsdrag', 'lat-pulldown'],
+      ['lat pulldown', 'lat-pulldown'],
+      ['  SITTANDE   KABELRODD  ', 'seated-cable-row'],
+      ['löpband', 'treadmill-walking'],
+      ['lopband', 'treadmill-walking'],
+      ['motionscykel', 'upright-stationary-bike'],
+      ['tricepsrep', 'cable-triceps-pushdown'],
+      ['skivstång', 'barbell-bench-press'],
+      ['tahavning', 'standing-calf-raise'],
+    ])
+      expect(ids(query, locale)).toContain(exercise);
+  expect(ids('latsdrag v handtag', 'sv')[0]).toBe(
+    'lat-pulldown-close-neutral-v-handle',
+  );
+  expect(ids('latsdrag med bred stång', 'sv')[0]).toBe(
+    'lat-pulldown-wide-pronated-bar',
+  );
+  const bench = searchLocalizedExercises(
+    { query: 'bankpress', equipment: 'barbell' },
+    'sv',
+  );
+  expect(bench.map(({ id }) => id)).toContain('barbell-bench-press');
+  expect(bench.every(({ equipment }) => equipment.includes('barbell'))).toBe(
+    true,
+  );
+  expect(ids('motionscykel', 'sv')).not.toContain('treadmill-walking');
+});

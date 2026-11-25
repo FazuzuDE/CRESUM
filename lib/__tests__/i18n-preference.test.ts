@@ -94,6 +94,8 @@ function setup(initial: string | null = null) {
 }
 it.each([
   ['nl', 'nl'],
+  ['sv', 'sv'],
+  ['sv-SE', 'sv'],
   ['nl-NL', 'nl'],
   ['nl-BE', 'nl'],
   ['uk-UA', 'uk'],
@@ -238,7 +240,7 @@ it('persists Vietnamese independently of device locale and restores it on reload
   });
 });
 
-it.each(['mr', 'id', 'ko', 'nl'] as const)(
+it.each(['mr', 'id', 'ko', 'nl', 'sv'] as const)(
   'persists %s independently of device language and restores it after reload',
   async (locale) => {
     let saved: string | null = null;
@@ -275,4 +277,15 @@ it('exposes every bundled locale regardless of release acceptance', async () => 
     expect(await store.select(locale)).toBe(true);
     expect(store.getSnapshot()).toMatchObject({ preference: locale, locale });
   }
+});
+
+it('uses Swedish device language after returning from manual selection', async () => {
+  const storage = { getItem: async () => null, setItem: async () => {} };
+  const store = new LocaleStore(storage, () => ['sv-SE', 'de-AT']);
+  await store.load();
+  expect(store.getSnapshot().locale).toBe('sv');
+  expect(await store.select('en')).toBe(true);
+  expect(store.getSnapshot().locale).toBe('en');
+  expect(await store.select('system')).toBe(true);
+  expect(store.getSnapshot().locale).toBe('sv');
 });

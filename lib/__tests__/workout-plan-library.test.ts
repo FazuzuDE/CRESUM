@@ -328,3 +328,23 @@ test('uses Dutch plan metadata when supplied and preserves legacy publications',
     ]),
   ).toThrow();
 });
+
+test('uses Swedish plan metadata and preserves legacy publication fallback', () => {
+  const [legacy] = parseLibrary([entry]);
+  expect(filterPlans([legacy], 'upper', 'sv')).toEqual([legacy]);
+  const [plan] = parseLibrary([
+    {
+      ...entry,
+      metadata: {
+        ...entry.metadata,
+        title: { ...entry.metadata.title, sv: 'Överkropp' },
+        description: {
+          ...entry.metadata.description,
+          sv: 'Träning med hantlar',
+        },
+      },
+    },
+  ]);
+  expect(filterPlans([plan], 'överkropp', 'sv')).toEqual([plan]);
+  expect(filterPlans([plan], 'hantlar', 'sv')).toEqual([plan]);
+});

@@ -1,4 +1,10 @@
 export const localeRegistry = {
+  sv: {
+    flag: '🇸🇪',
+    nativeName: 'Svenska',
+    direction: 'ltr',
+    released: false,
+  },
   nl: {
     flag: '🇳🇱',
     nativeName: 'Nederlands',
