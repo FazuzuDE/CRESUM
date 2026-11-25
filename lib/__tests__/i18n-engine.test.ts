@@ -98,7 +98,7 @@ it('resolves ordered device locales safely and respects manual choice', () => {
   expect(resolveLocale('system', ['es-ES', 'de-AT'])).toBe('es');
   expect(resolveLocale('system', ['it-IT', 'de-AT'])).toBe('it');
   expect(resolveLocale('system', ['nl-NL', 'de-AT'])).toBe('nl');
-  expect(resolveLocale('system', ['sv-SE', 'de-AT'])).toBe('de');
+  expect(resolveLocale('system', ['da-DK', 'de-AT'])).toBe('de');
   expect(resolveLocale('system', ['???', 'zh-CN'])).toBe('zh-Hans');
   expect(resolveLocale('system', ['zh-Hant', 'de-AT'])).toBe('de');
   expect(resolveLocale('system', ['zh-TW', 'en-US'])).toBe('en');
@@ -274,4 +274,10 @@ it('uses Korean other forms and preserves personal text verbatim', () => {
   ).toEqual(['0세트', '1세트', '2세트', '1.5세트']);
   const name = '김민수'.normalize('NFD');
   expect(t('common.named', { name })).toBe(name);
+});
+
+it('uses Swedish singular and plural branches for workout summaries', () => {
+  const t = createTranslator('sv');
+  expect(t('history.completedSets', { count: 1 })).toBe('1 slutfört set');
+  expect(t('history.completedSets', { count: 8 })).toBe('8 slutförda set');
 });

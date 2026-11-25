@@ -116,8 +116,7 @@ function qaModuleLoader(root) {
   return load;
 }
 
-function readCatalogs(root) {
-  const load = qaModuleLoader(root);
+function readCatalogs(root, load = qaModuleLoader(root)) {
   const registry = load(path.join(root, 'lib/i18n/registry.ts')).localeRegistry;
   const { catalogs } = load(path.join(root, 'lib/i18n/messages.ts'));
   assert.deepEqual(
@@ -196,10 +195,11 @@ async function main() {
       hash(source),
     ]),
   );
-  const catalogs = readCatalogs(root);
-  const locales = Object.keys(catalogs);
-  const matrix = qaMatrix(locales);
   const load = qaModuleLoader(root);
+  const catalogs = readCatalogs(root, load);
+  const { localeRegistry } = load(path.join(root, 'lib/i18n/registry.ts'));
+  const locales = Object.keys(localeRegistry);
+  const matrix = qaMatrix(locales);
   const aliases = load(
     path.join(root, 'lib/i18n/search/aliases.ts'),
   ).searchAliases;
@@ -648,7 +648,7 @@ async function main() {
               exact: true,
             })
             .fill(synonym);
-          if (locale === 'nl') {
+          if (locale === 'nl' || locale === 'sv') {
             const all = text('library.all');
             const dumbbell = text('catalog.equipment.dumbbell');
             const equipmentFilter = (label) =>
@@ -908,7 +908,7 @@ async function main() {
 
           await editFirst.click();
           await button('entry.useKeypad').click();
-          const manualWeight = locale === 'nl' ? 62.5 : 12.5;
+          const manualWeight = ['nl', 'sv'].includes(locale) ? 62.5 : 12.5;
           const manualReps = 8;
           const manualVolumeKg = manualWeight * manualReps;
           await exactWeight.fill(numberLocale(manualWeight));

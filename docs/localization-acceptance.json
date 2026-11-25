@@ -79,5 +79,10 @@
     "web": true,
     "native": false,
     "linguistic": false
+  },
+  "sv": {
+    "web": false,
+    "native": false,
+    "linguistic": false
   }
 }

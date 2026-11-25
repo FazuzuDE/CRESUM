@@ -132,13 +132,19 @@ it('keeps a real editor draft and rest deadline across language switches, then f
     view!.root.findByType(SetEntrySheet).findAllByType(TextInput)[0];
   act(() => weight().props.onChangeText('62,'));
   const sessionId = view!.root.findByType(Workout).props.session.id;
-  for (const next of ['ru', 'nl', 'de', 'fr'] as const) {
+  for (const next of ['ru', 'nl', 'sv', 'de', 'fr'] as const) {
     await act(async () => {
       await locale.select(next);
     });
     expect(weight().props.value).toBe('62,');
     expect(view!.root.findByType(Workout).props.session.id).toBe(sessionId);
-    const titles = { ru: 'Подход 1', nl: 'Set 1', de: 'Satz 1', fr: 'Série 1' };
+    const titles = {
+      ru: 'Подход 1',
+      nl: 'Set 1',
+      sv: 'Set 1',
+      de: 'Satz 1',
+      fr: 'Série 1',
+    };
     expect(
       view!.root
         .findAllByType(Text)
@@ -170,7 +176,7 @@ it('keeps a real editor draft and rest deadline across language switches, then f
     .mocked(AsyncStorage.setItem)
     .mock.calls.filter(([key]) => key === STATE_KEY).length;
   const deadline = active.restEndsAt;
-  for (const next of ['nl', 'de'] as const) {
+  for (const next of ['nl', 'sv', 'de'] as const) {
     await act(async () => {
       await locale.select(next);
     });

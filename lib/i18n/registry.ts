@@ -1,4 +1,10 @@
 export const localeRegistry = {
+  sv: {
+    flag: '🇸🇪',
+    nativeName: 'Svenska',
+    direction: 'ltr',
+    released: false,
+  },
   nl: {
     flag: '🇳🇱',
     nativeName: 'Nederlands',
@@ -60,10 +66,16 @@ export const localeRegistry = {
 >;
 export type AppLocale = keyof typeof localeRegistry;
 export type LanguagePreference = 'system' | AppLocale;
-export function enabledAppLocales(allowDutchPreview: boolean): AppLocale[] {
+const previewOnlyLocales: readonly AppLocale[] = ['nl', 'sv'];
+
+export function enabledAppLocales(
+  preview: Partial<Record<AppLocale, boolean>> = {},
+): AppLocale[] {
   return (Object.keys(localeRegistry) as AppLocale[]).filter(
     (locale) =>
-      locale !== 'nl' || localeRegistry.nl.released || allowDutchPreview,
+      !previewOnlyLocales.includes(locale) ||
+      localeRegistry[locale].released ||
+      preview[locale],
   );
 }
 export function isAppLocale(value: unknown): value is AppLocale {
