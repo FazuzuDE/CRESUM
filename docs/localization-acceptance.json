@@ -76,7 +76,7 @@
     "native": false
   },
   "nl": {
-    "web": false,
+    "web": true,
     "native": false,
     "linguistic": false
   }
