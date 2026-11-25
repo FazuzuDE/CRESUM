@@ -8,6 +8,7 @@ Use a clean checkout of the QA commit and Node/npm from `.nvmrc` and
 ```sh
 npm ci
 EXPO_NO_DOTENV=1 \
+EXPO_PUBLIC_DUTCH_PREVIEW=true \
 EXPO_PUBLIC_SUPABASE_URL=disabled \
 EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY=disabled \
 EXPO_PUBLIC_SHARING_ENABLED=false \
@@ -16,10 +17,10 @@ npm start -- --go --lan --clear
 ```
 
 Open the Metro QR code in an SDK-compatible Expo Go on a physical iPhone and
-Android. Use test data. The language picker offers all locales in
-`lib/i18n/registry.ts`, including locales with `released: false`. Keep the
-registry and acceptance flags unchanged during the test. Expo Go uses the
-picker fallback. To accept the iOS UIKit wheel, repeat the wheel checks in
+Android. Use test data. The preview command enables Dutch in the language
+picker. Keep the registry and acceptance flags unchanged during the test.
+Other languages retain their current picker behavior. Expo Go uses the picker
+fallback. To accept the iOS UIKit wheel, repeat the wheel checks in
 the signed `preview` build described in [Device builds](DEVICE_BUILDS.md).
 
 Start with German, French and Russian, then cover every other registry locale
@@ -57,7 +58,9 @@ publications use their English metadata.
 
 Dutch uses a single offline catalog for the Netherlands and Dutch-speaking
 Belgium. The language wheel can select Nederlands manually or follow the
-device locale for `nl`, `nl-NL` and `nl-BE`. Publication metadata uses an
+device locale for `nl`, `nl-NL` and `nl-BE` when enabled. Before release,
+Nederlands is available through the internal preview command above; a normal
+build omits it from language selection and system detection. Publication metadata uses an
 optional `nl` field and preserves the English fallback for older publications.
 
 Use the [phone QA setup](#physical-device-localization-qa) on both phones:
