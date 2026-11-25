@@ -101,11 +101,12 @@ export function ExerciseEquipmentCatalog({
     <>
       <Pressable
         accessibilityRole="button"
+        accessibilityLabel={title}
         onPress={open}
         disabled={opening}
         style={s.row}
       >
-        <Text style={s.title}>{title}</Text>
+        <Text style={[s.title, s.rowTitle]}>{title}</Text>
         <Ionicons
           name="chevron-forward"
           size={20}
@@ -252,6 +253,7 @@ const useStyles = createThemedStyles((colors) => ({
   },
   copy: { flex: 1 },
   title: { ...typography.headline, color: colors.textPrimary },
+  rowTitle: { flexShrink: 1, minWidth: 0 },
   detail: { ...typography.footnote, color: colors.textSecondary },
   image: { width: 48, height: 48 },
 }));

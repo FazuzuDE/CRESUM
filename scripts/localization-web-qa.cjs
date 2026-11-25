@@ -119,18 +119,13 @@ function qaModuleLoader(root) {
 function readCatalogs(root) {
   const load = qaModuleLoader(root);
   const registry = load(path.join(root, 'lib/i18n/registry.ts')).localeRegistry;
-  return Object.fromEntries(
-    Object.keys(registry).map((locale) => {
-      const folder = path.join(root, 'lib/i18n/locales', locale);
-      const catalog = {};
-      for (const file of fs
-        .readdirSync(folder)
-        .filter((v) => v.endsWith('.ts'))) {
-        Object.assign(catalog, load(path.join(folder, file)).default);
-      }
-      return [locale, catalog];
-    }),
+  const { catalogs } = load(path.join(root, 'lib/i18n/messages.ts'));
+  assert.deepEqual(
+    Object.keys(catalogs).sort(),
+    Object.keys(registry).sort(),
+    'Rendered catalogs must match the locale registry',
   );
+  return catalogs;
 }
 
 const widths = [320, 390];
@@ -638,9 +633,9 @@ async function main() {
           await button('profile.myWorkouts', false).waitFor();
           await capture('profile');
           await button('profile.myWorkouts', false).click();
-          await button('editor.create').waitFor();
+          await button('templates.create').waitFor();
           await capture('plans');
-          await button('editor.create').click();
+          await button('templates.create').click();
           await page
             .getByRole('textbox', { name: text('editor.name'), exact: true })
             .fill('QA-localized-plan');

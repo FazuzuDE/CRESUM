@@ -8,7 +8,7 @@ export default {
     'Kaydedilmemiş egzersiz değişiklikleriniz kaybolacaktır.',
   'editor.discard': 'Değişiklikleri At',
   'editor.keep': 'Düzenlemeye Devam Et',
-  'editor.create': 'Egzersiz Oluştur',
+  'editor.create': 'Antrenman oluştur',
   'editor.edit': 'Egzersizi Düzenle',
   'editor.name': 'Egzersiz Adı',
   'editor.next': 'Sonraki',
