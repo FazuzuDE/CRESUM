@@ -15,9 +15,8 @@ import { StatusBar } from 'expo-status-bar';
 export default function Layout() {
   const [localeStore] = useState(
     () =>
-      new LocaleStore(
-        AsyncStorage,
-        () => (getLocales() ?? []).map((value) => value.languageTag),
+      new LocaleStore(AsyncStorage, () =>
+        (getLocales() ?? []).map((value) => value.languageTag),
       ),
   );
   return (
