@@ -429,7 +429,7 @@ it('uses the exact equipment filter and keeps Dutch grip variants distinct', () 
   );
   const results = ids('lat pulldown V-greep', 'nl');
   expect(results[0]).toBe('lat-pulldown-close-neutral-v-handle');
-  expect(ids('ergonomische lat pulldown', 'nl')[0]).toBe(
+  expect(ids('lat pulldown ergonomische greep', 'nl')[0]).toBe(
     'lat-pulldown-close-neutral-ergonomic-handle',
   );
 });

@@ -64,7 +64,11 @@ function validateDutchCopy(catalogs, exceptions) {
       if (!/\p{L}/u.test(literal) || !originals.includes(text)) continue;
       const id = form ? key + '.' + form : key;
       const exception = exceptions[id];
-      if (exception?.text !== value || !exception.reason?.trim())
+      if (
+        exception?.text !== value ||
+        typeof exception.reason !== 'string' ||
+        !exception.reason.trim()
+      )
         errors.push('nl: unchanged English copy ' + id);
       else usedExceptions.add(id);
     }
@@ -72,6 +76,33 @@ function validateDutchCopy(catalogs, exceptions) {
   for (const id of Object.keys(exceptions))
     if (!usedExceptions.has(id))
       errors.push('nl: stale English-copy exception ' + id);
+  return errors;
+}
+
+function validateTechniqueLinks(catalogs, exercises, techniqueCatalog) {
+  const errors = [];
+  for (const { id } of exercises) {
+    const guide = techniqueCatalog[id];
+    if (!guide) {
+      errors.push('nl: missing linked technique guide ' + id);
+      continue;
+    }
+    const required = [
+      'scope',
+      ...['setup', 'movement', 'checks', 'mistakes'].flatMap((field) =>
+        guide[field]?.length
+          ? guide[field].map((_, index) => field + '.' + index)
+          : [field + '.0'],
+      ),
+      ...(guide.adaptation ? ['adaptation'] : []),
+    ];
+    for (const field of required) {
+      const key = 'guide.' + id + '.' + field;
+      const value = catalogs.nl?.[key];
+      if (typeof value !== 'string' || !value.trim())
+        errors.push('nl: missing technique translation ' + key);
+    }
+  }
   return errors;
 }
 
@@ -307,19 +338,27 @@ function run() {
       muscle: muscleTaxonomy,
     }),
   );
+  const { techniqueCatalog } = loadTs(
+    path.resolve('lib/exercise-technique/catalog.ts'),
+  );
+  if (catalogs.nl)
+    errors.push(
+      ...validateTechniqueLinks(catalogs, exerciseLibrary, techniqueCatalog),
+    );
   const { trainingPrograms } = loadTs(
     path.resolve('lib/training-programs/catalog.ts'),
   );
   const { starterProgram, starterProgramGoals } = loadTs(
     path.resolve('lib/training-programs/starter-programs.ts'),
   );
+  const programs = [
+    ...trainingPrograms,
+    ...starterProgramGoals.map((goal) => starterProgram(goal, 'beginner')),
+  ];
   errors.push(
     ...validateProgramLocalization(
       catalogs,
-      [
-        ...trainingPrograms,
-        ...starterProgramGoals.map((goal) => starterProgram(goal, 'beginner')),
-      ],
+      programs,
       loadTs(path.resolve('lib/i18n/program.ts')),
       (id) => cardioExerciseIds[id] ?? canonicalExerciseId(id),
     ),
@@ -370,6 +409,19 @@ function run() {
               },
             ]),
           ),
+          content: {
+            exercises: exerciseLibrary.length,
+            equipment: exerciseEquipmentCatalog.length,
+            muscles: muscleTaxonomy.length,
+            techniqueGuides: Object.keys(techniqueCatalog).length,
+            techniqueMessages: Object.keys(catalogs.en).filter((key) =>
+              key.startsWith('guide.'),
+            ).length,
+            builtInPrograms: programs.length,
+            builtInTemplates: Object.keys(catalogs.en).filter((key) =>
+              key.startsWith('catalog.template.'),
+            ).length,
+          },
           sourceCandidates: current.length,
           classifiedSourceCandidates: current.length - unclassified.length,
           pendingSourceCandidates: unclassified.length,
@@ -401,6 +453,7 @@ function run() {
 module.exports = {
   validateCatalogs,
   validateDutchCopy,
+  validateTechniqueLinks,
   validateProgramLocalization,
   validateSearchAliases,
   compareInventory,

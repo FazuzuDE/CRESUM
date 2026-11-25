@@ -130,15 +130,15 @@ it('keeps a real editor draft and rest deadline across language switches, then f
   act(() => byLabel('Edit set 1 weight').props.onPress());
   const weight = () =>
     view!.root.findByType(SetEntrySheet).findAllByType(TextInput)[0];
-  act(() => weight().props.onChangeText('12,'));
+  act(() => weight().props.onChangeText('62,'));
   const sessionId = view!.root.findByType(Workout).props.session.id;
-  for (const next of ['ru', 'de', 'fr'] as const) {
+  for (const next of ['ru', 'nl', 'de', 'fr'] as const) {
     await act(async () => {
       await locale.select(next);
     });
-    expect(weight().props.value).toBe('12,');
+    expect(weight().props.value).toBe('62,');
     expect(view!.root.findByType(Workout).props.session.id).toBe(sessionId);
-    const titles = { ru: 'Подход 1', de: 'Satz 1', fr: 'Série 1' };
+    const titles = { ru: 'Подход 1', nl: 'Set 1', de: 'Satz 1', fr: 'Série 1' };
     expect(
       view!.root
         .findAllByType(Text)
@@ -155,7 +155,7 @@ it('keeps a real editor draft and rest deadline across language switches, then f
         (n: { props: { children: unknown } }) => n.props.children === 'Série 1',
       ),
   ).toBe(true);
-  act(() => weight().props.onChangeText('12,5'));
+  act(() => weight().props.onChangeText('62,5'));
   await act(async () => {
     byLabel('Enregistrer les valeurs de la série').props.onPress();
   });
@@ -163,19 +163,21 @@ it('keeps a real editor draft and rest deadline across language switches, then f
     byLabel('Terminer la série 1').props.onPress();
   });
   const active = view!.root.findByType(Workout).props.session;
-  expect(active.exercises[0].sets[0].weight).toBe('12.5');
+  expect(active.exercises[0].sets[0].weight).toBe('62.5');
   expect(active.exercises[0].sets[0].completedAt).toBeDefined();
   const state = await AsyncStorage.getItem(STATE_KEY);
   const writes = jest
     .mocked(AsyncStorage.setItem)
     .mock.calls.filter(([key]) => key === STATE_KEY).length;
   const deadline = active.restEndsAt;
-  await act(async () => {
-    await locale.select('de');
-  });
-  expect(view!.root.findByType(Workout).props.session.restEndsAt).toBe(
-    deadline,
-  );
+  for (const next of ['nl', 'de'] as const) {
+    await act(async () => {
+      await locale.select(next);
+    });
+    expect(view!.root.findByType(Workout).props.session.restEndsAt).toBe(
+      deadline,
+    );
+  }
   expect(await AsyncStorage.getItem(STATE_KEY)).toBe(state);
   expect(
     jest

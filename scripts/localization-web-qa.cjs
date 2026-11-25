@@ -648,6 +648,27 @@ async function main() {
               exact: true,
             })
             .fill(synonym);
+          if (locale === 'nl') {
+            const all = text('library.all');
+            const dumbbell = text('catalog.equipment.dumbbell');
+            const equipmentFilter = (label) =>
+              page.getByRole('button', {
+                name: text('library.filterEquipment', { label }),
+                exact: true,
+              });
+            await equipmentFilter(all).click();
+            await page
+              .getByRole('slider', {
+                name: text('library.equipment'),
+                exact: true,
+              })
+              .getByText(dumbbell, { exact: true })
+              .first()
+              .click();
+            await button('common.done').click();
+            await equipmentFilter(dumbbell).waitFor();
+            result.searchEquipment = 'dumbbell';
+          }
           await page
             .getByRole('button', {
               name: text('library.addName', {

@@ -293,3 +293,17 @@ it.each(['ru', 'de', 'fr'] as const)(
     }
   },
 );
+
+it('requires separate Dutch linguistic acceptance even after both platforms pass', () => {
+  const eligibility = (linguistic: boolean) =>
+    releaseEligibility(catalogs, localeRegistry, {
+      sourceCandidates: [],
+      classifications: [],
+      acceptance: { nl: { web: true, native: true, linguistic } },
+    }).nl;
+  expect(eligibility(false)).toMatchObject({
+    eligible: false,
+    errors: ['nl: independent linguistic acceptance pending'],
+  });
+  expect(eligibility(true).eligible).toBe(true);
+});

@@ -1,8 +1,8 @@
 export default {
   'sharing.editCopy':
     'Wijzigingen aan dit ingebouwde plan worden als je eigen kopie opgeslagen.',
-  'sharing.manage': 'work-outs beheren',
-  'sharing.title': 'Plannen voor de training',
+  'sharing.manage': 'Trainingen beheren',
+  'sharing.title': 'Trainingsplannen',
   'sharing.mine': 'Mijn plannen',
   'sharing.library': 'Planbibliotheek',
   'sharing.start': 'Training starten',
@@ -20,7 +20,7 @@ export default {
   'sharing.unavailable':
     'Dit plan is niet beschikbaar of wordt niet ondersteund. Controleer de link of werk de app bij.',
   'sharing.back': 'Terug',
-  'sharing.loading': 'Laden van plan...',
+  'sharing.loading': 'Trainingsplan laden…',
   'sharing.sets': {
     one: '{{count}} set',
     other: '{{count}} sets',
@@ -29,37 +29,37 @@ export default {
   'sharing.linkAccess':
     'Iedereen met deze link kan het plan bekijken en doorsturen.',
   'sharing.weights': 'Inclusief werkgewichten',
-  'sharing.send': 'Verwijzing versturen',
-  'sharing.copyLink': 'Verwijzing kopiëren',
-  'sharing.copied': 'Koppeling gekopieerd',
+  'sharing.send': 'Link versturen',
+  'sharing.copyLink': 'Link kopiëren',
+  'sharing.copied': 'Link gekopieerd',
   'sharing.disable': 'Deze link uitschakelen',
   'sharing.disabled':
-    'Koppeling uitgeschakeld. Opgeslagen kopieën blijven beschikbaar.',
+    'De link is uitgeschakeld. Opgeslagen kopieën blijven beschikbaar.',
   'sharing.publish': 'Link en QR aanmaken',
   'sharing.snapshot':
     'De link deelt een snapshot. Het bewerken van het plan creëert een nieuwe link; vorige links blijven actief totdat ze uitgeschakeld zijn.',
   'sharing.signIn':
-    'Meld je aan via Profiel om een plan te publiceren. Studenten hebben geen account nodig.',
+    'Meld je aan via Profiel om een plan te publiceren. Ontvangers hebben geen account nodig.',
   'sharing.paste': 'Plak een planlink',
   'sharing.open': 'Trainingsplan openen',
   'sharing.scan': 'Scan QR-code',
   'sharing.permission':
-    'Laat camera toegang tot een QR-code scannen. Je kunt ook een link plakken.',
+    'Geef toegang tot de camera om een QR-code te scannen. Je kunt ook een link plakken.',
   'sharing.allow': 'Camera toestaan',
   'sharing.search': 'Zoek een plan',
   'sharing.all': 'Alles',
   'sharing.empty': 'Geen plannen gevonden',
   'sharing.cached':
-    'Opgeslagen bibliotheekvoorbeeld. Verbinden met het downloaden van een plan.',
+    'Je ziet de opgeslagen bibliotheek. Maak verbinding om een plan te downloaden.',
   'sharing.retry': 'Opnieuw proberen',
   'sharing.unconfigured': 'Plan delen is nog niet beschikbaar in deze build.',
   'sharing.close': 'Sluiten',
   'sharing.qr': 'QR-code voor deze planlink',
   'sharing.install':
     'Open deze link op een apparaat met CRESUM geïnstalleerd. Als u de app eerst installeert, heropent u daarna de originele link.',
-  'sharing.goal.build_muscle': 'Spier',
+  'sharing.goal.build_muscle': 'Spiermassa opbouwen',
   'sharing.goal.get_stronger': 'Sterker worden',
-  'sharing.goal.general_fitness': 'Passend',
+  'sharing.goal.general_fitness': 'Conditie verbeteren',
   'sharing.experience.beginner': 'Beginnend',
   'sharing.experience.some': 'Enige ervaring',
   'sharing.experience.experienced': 'Ervaren',

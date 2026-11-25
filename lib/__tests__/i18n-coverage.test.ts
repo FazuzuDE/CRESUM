@@ -148,3 +148,41 @@ it('requires built-in program titles, days and resolvable exercise labels', () =
     validateProgramLocalization(catalogs, programs, keys, resolve),
   ).toEqual([]);
 });
+
+it('requires a technique guide and the Dutch instructions for a new exercise ID', () => {
+  const { validateTechniqueLinks } = jest.requireActual(
+    '../../scripts/check-localization.cjs',
+  );
+  const id = 'new-exercise';
+  const exercises = [{ id }];
+  expect(validateTechniqueLinks({ nl: {} }, exercises, {})).toEqual([
+    'nl: missing linked technique guide ' + id,
+  ]);
+  const guides = {
+    [id]: {
+      scope: 'Scope',
+      setup: ['Setup'],
+      movement: ['Movement'],
+      checks: ['Checks'],
+      mistakes: ['Mistake'],
+    },
+  };
+  const nl = {
+    'guide.new-exercise.scope': 'Beschrijving',
+    'guide.new-exercise.setup.0': 'Startpositie',
+    'guide.new-exercise.movement.0': 'Beweging',
+    'guide.new-exercise.checks.0': 'Aandachtspunt',
+  };
+  expect(validateTechniqueLinks({ nl }, exercises, guides)).toEqual([
+    'nl: missing technique translation guide.new-exercise.mistakes.0',
+  ]);
+  expect(
+    validateTechniqueLinks(
+      {
+        nl: { ...nl, 'guide.new-exercise.mistakes.0': 'Veelgemaakte fout' },
+      },
+      exercises,
+      guides,
+    ),
+  ).toEqual([]);
+});
