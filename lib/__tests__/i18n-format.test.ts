@@ -276,3 +276,21 @@ it('formats Swedish dates and numbers without changing exact stored decimal inpu
     }),
   ).toBe('25 november 2026');
 });
+
+it('normalizes Thai keypad digits and keeps workout dates aligned with the Gregorian picker', () => {
+  expect(normalizeDecimalInput('๖๒.๕')).toBe('62.5');
+  expect(normalizeDecimalInput('62.5')).toBe('62.5');
+  expect(normalizeDecimalInput('๖๒,๕๐๐๑')).toBe('62.5001');
+  expect(normalizeInputDigits('๘')).toBe('8');
+  expect(normalizeDecimalInput('๑,๒๓๔.๕')).toBeNull();
+  expect(formatNumber('th', 1234.5)).toBe('1,234.5');
+  const epoch = Date.UTC(2026, 10, 25);
+  expect(
+    formatDate('th', epoch, {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    }),
+  ).toBe('25 พฤศจิกายน 2026');
+});

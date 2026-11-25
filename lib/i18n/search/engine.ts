@@ -103,7 +103,14 @@ function forms(value: string): string[] {
       .replace(/ö/g, 'oe')
       .replace(/ü/g, 'ue'),
   );
-  return [...new Set([folded, romanize(folded), german])].filter(Boolean);
+  // Accept optional spaces between Thai words without dropping vowel or tone marks.
+  const thaiJoined = folded.replace(
+    /(\p{Script=Thai}) +(?=\p{Script=Thai})/gu,
+    '$1',
+  );
+  return [...new Set([folded, romanize(folded), german, thaiJoined])].filter(
+    Boolean,
+  );
 }
 
 type Field = { values: string[]; tokens: string[] };

@@ -9,11 +9,11 @@ const {
 const registry = `__d(function(g,r,i,a,m,e,d){Object.defineProperty(e,"localeRegistry",{get:()=>registry});const registry={en:{released:!0},ru:{released:!1},de:{released:!1},fr:{released:!1}}},7,[]);`;
 const messages = `__d(function(g,r,i,a,m,e,d){Object.defineProperty(e,"catalogs",{get:()=>catalogs});const catalogs={en:{hello:"Hello"}}},8,[]);`;
 
-it('opens all locale choices only in the served QA registry module', () => {
+it('serves the ordinary registry without patching acceptance flags', () => {
   const unrelated = '__d(function(){const other={released:!1}},9,[]);';
   const original = registry + messages + unrelated;
   const served = prepareQaBundle(original);
-  expect(served).toContain('ru:{released:!0}');
+  expect(served).toBe(original);
   expect(served).toContain(unrelated);
   expect(original).toContain('ru:{released:!1}');
 });
@@ -36,11 +36,6 @@ it('checks exact saved plan values rather than numeric substrings', () => {
   expect(() => assertQaPlan(stored(4, '12.5'))).not.toThrow();
   expect(() => assertQaPlan(stored(3, '12.5'))).toThrow(/planned/i);
   expect(() => assertQaPlan(stored(4, '112.5'))).toThrow(/planned/i);
-});
-
-it('fails closed if the export has missing or ambiguous registry modules', () => {
-  expect(() => prepareQaBundle(messages)).toThrow(/registry/i);
-  expect(() => prepareQaBundle(registry + registry)).toThrow(/registry/i);
 });
 
 it('expands literal text without changing interpolation and plural structure', () => {

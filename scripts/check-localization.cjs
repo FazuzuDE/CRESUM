@@ -44,7 +44,7 @@ function validateCatalogs(catalogs) {
 const comparableCopy = (text) =>
   text.normalize('NFKC').trim().replace(/\s+/gu, ' ').toLowerCase();
 
-const strictCopyLocales = ['nl', 'sv'];
+const strictCopyLocales = ['nl', 'sv', 'th'];
 
 function validateLocalizedCopy(catalogs, locale, exceptions) {
   const errors = [];
@@ -194,6 +194,13 @@ function validateSearchAliases(aliases, registry, catalogs, records) {
         )
           errors.push(
             `${locale}: duplicate search aliases ${kind}.${record.id}`,
+          );
+        else if (
+          locale === 'th' &&
+          !values.some((value) => /\p{Script=Thai}/u.test(value))
+        )
+          errors.push(
+            `${locale}: missing Thai search alias ${kind}.${record.id}`,
           );
         const key = record.messageKey ?? `catalog.${kind}.${record.id}`;
         const text = catalogs[locale]?.[key];
