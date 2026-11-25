@@ -15,7 +15,6 @@ import {
   Platform,
   Pressable,
   View,
-  useAnimatedValue,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { cardShadow, radius, spacing, typography } from '@/lib/theme';
@@ -51,7 +50,9 @@ export function Dock({
   const direction = useLayoutDirection();
   const visualTabs = direction === 'rtl' ? [...tabs].reverse() : tabs;
   const selectedIndex = visualTabs.findIndex(([id]) => id === active);
-  const position = useAnimatedValue(Math.max(0, selectedIndex));
+  const [position] = useState(
+    () => new Animated.Value(Math.max(0, selectedIndex)),
+  );
   const [tabWidth, setTabWidth] = useState(0);
   const translateX = useMemo(
     () => Animated.multiply(position, tabWidth),

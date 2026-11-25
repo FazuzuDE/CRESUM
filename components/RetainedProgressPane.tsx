@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Platform, StyleSheet, View, type ViewStyle } from 'react-native';
 
 /** Keep the scroll view and its loaded artwork alive while another pane is shown. */
 export function RetainedProgressPane({
@@ -30,5 +30,10 @@ export function RetainedProgressPane({
 const styles = StyleSheet.create({
   pane: { flex: 1 },
   inactive: StyleSheet.absoluteFill,
-  hidden: { opacity: 0 },
+  hidden: {
+    opacity: 0,
+    ...Platform.select({
+      web: { visibility: 'hidden' } as ViewStyle & { visibility: 'hidden' },
+    }),
+  },
 });

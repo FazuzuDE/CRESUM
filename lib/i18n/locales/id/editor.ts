@@ -30,7 +30,7 @@ export default {
   },
   'editor.weightValue': '{{weight}} kg',
   'editor.weightUnset': 'beban belum diatur',
-  'editor.editNamed': 'Edit {{name}}',
+  'editor.editNamed': 'Ubah {{name}}',
   'editor.up': 'Pindahkan {{name}} ke atas',
   'editor.down': 'Pindahkan {{name}} ke bawah',
   'editor.remove': 'Hapus {{name}}',

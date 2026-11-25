@@ -1,5 +1,48 @@
 # Localization coverage and contribution rules
 
+## Physical-device localization QA
+
+Use a clean checkout of the QA commit and Node/npm from `.nvmrc` and
+`package.json`. On a machine on the same network as the test phones, run:
+
+```sh
+npm ci
+EXPO_NO_DOTENV=1 \
+EXPO_PUBLIC_SUPABASE_URL=disabled \
+EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY=disabled \
+EXPO_PUBLIC_SHARING_ENABLED=false \
+EXPO_PUBLIC_ACCOUNT_DELETION_ENABLED=false \
+npm start -- --go --lan --clear
+```
+
+Open the Metro QR code in an SDK-compatible Expo Go on a physical iPhone and
+Android. Use test data. The language picker offers all locales in
+`lib/i18n/registry.ts`, including locales with `released: false`. Keep the
+registry and acceptance flags unchanged during the test. Expo Go uses the
+picker fallback. To accept the iOS UIKit wheel, repeat the wheel checks in
+the signed `preview` build described in [Device builds](DEVICE_BUILDS.md).
+
+Start with German, French and Russian, then cover every other registry locale
+on both platforms. Record the commit, phone, OS, build type and results.
+
+1. Choose the app language. Check automatic selection with the phone set to
+   the matching language, and confirm the explicit selection survives restart.
+2. Find an exercise with a local alias from `lib/i18n/search/`. Open its technique
+   and inspect the exercise, equipment and muscle names.
+3. Enter an exact weight with the locale's decimal separator and enter reps.
+   Check an unfinished draft when switching language, then confirm the values
+   and exercise identity after returning. Complete a set and finish the workout.
+4. Open History and Muscle Map. Confirm values and count grammar. Force close
+   and reopen, then verify the workout and selected language were retained.
+5. Use a narrow phone and larger text. Check clipped labels and accessible
+   actions. In Arabic check mirrored navigation, mixed-direction text and
+   Arabic numeric input. For non-Latin scripts check glyphs and local keyboard
+   input in search and applicable numeric fields.
+
+Record independent review of exercise and equipment names and technique
+instructions separately. Confirm web, both physical platforms and linguistic
+review for each language before promoting its release flag.
+
 The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian and Korean. System language
 appears first and is selected by default. An explicit choice is saved on the
 device. Final web and native acceptance for Russian, German, French,

@@ -6,7 +6,7 @@ import {
   type CardioTimer,
 } from '@/lib/cardio-timer';
 import { findExercise } from '@/lib/exercise-library';
-import { catalogLabel } from '@/lib/i18n/catalog';
+import { catalogLabel, workoutExerciseLabel } from '@/lib/i18n/catalog';
 import { createThemedStyles } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
@@ -136,12 +136,7 @@ export function WorkoutHistory({
               return exercise.cardio.elapsedMs > 0 ? (
                 <View key={exercise.id} style={s.exercise}>
                   <Text style={s.exerciseName}>
-                    {catalogLabel(
-                      locale,
-                      'exercise',
-                      exercise.libraryId,
-                      exercise.name,
-                    )}
+                    {workoutExerciseLabel(locale, exercise)}
                   </Text>
                   <Text style={s.setValue}>
                     {duration(exercise.cardio.elapsedMs)}
@@ -159,7 +154,9 @@ export function WorkoutHistory({
                     {exercise.exerciseGroup.name}
                   </Text>
                 ) : null}
-                <Text style={s.exerciseName}>{exercise.name}</Text>
+                <Text style={s.exerciseName}>
+                  {workoutExerciseLabel(locale, exercise)}
+                </Text>
                 {exercise.exerciseGroup ? (
                   <ExerciseEquipmentRow exerciseId={exercise.libraryId} />
                 ) : (
