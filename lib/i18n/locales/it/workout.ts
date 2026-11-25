@@ -9,7 +9,7 @@ export default {
   'workout.startHint': 'Scegli un piano o inizia da zero',
   'picker.hint':
     "Scorri verso l'alto o verso il basso per modificare il valore selezionato",
-  'nav.home': 'Home',
+  'nav.home': 'Inizio',
   'nav.workout': 'Allenamento',
   'nav.progress': 'Progressi',
   'nav.profile': 'Profilo',

@@ -7,7 +7,6 @@ import {
   Platform,
   Pressable,
   View,
-  useAnimatedValue,
   useWindowDimensions,
   type ViewProps,
 } from 'react-native';
@@ -162,7 +161,9 @@ function WheelColumn({
   );
   const list = useRef<FlatList<string>>(null);
   const physical = useRef(origin + selected);
-  const scrollOffset = useAnimatedValue((origin + selected) * height);
+  const [scrollOffset] = useState(
+    () => new Animated.Value((origin + selected) * height),
+  );
   const last = useRef(selected);
   const dragging = useRef(false);
   const momentum = useRef(false);

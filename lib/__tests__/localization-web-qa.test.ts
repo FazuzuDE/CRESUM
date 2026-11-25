@@ -1,6 +1,10 @@
-const { prepareQaBundle, expandCatalog, assertQaPlan } = jest.requireActual(
-  '../../scripts/localization-web-qa.cjs',
-);
+const {
+  prepareQaBundle,
+  expandCatalog,
+  assertQaPlan,
+  qaMatrix,
+  assertQaMatrix,
+} = jest.requireActual('../../scripts/localization-web-qa.cjs');
 
 const registry = `__d(function(g,r,i,a,m,e,d){Object.defineProperty(e,"localeRegistry",{get:()=>registry});const registry={en:{released:!0},ru:{released:!1},de:{released:!1},fr:{released:!1}}},7,[]);`;
 const messages = `__d(function(g,r,i,a,m,e,d){Object.defineProperty(e,"catalogs",{get:()=>catalogs});const catalogs={en:{hello:"Hello"}}},8,[]);`;
@@ -66,4 +70,23 @@ it('also expands Cyrillic and accented Latin labels beyond wrapper brackets', ()
   expect(expanded.russian.length).toBeGreaterThan(input.russian.length + 2);
   expect(expanded.french.length).toBeGreaterThan(input.french.length + 2);
   expect(expanded.russian).toContain('{{name}}');
+});
+
+it('expands non-Latin scripts and checks every distinct scenario even when counts match', () => {
+  const source = { ar: 'تمرين {{name}}', ja: 'トレーニング', bn: 'ব্যায়াম' };
+  const expanded = expandCatalog(source);
+  for (const locale of Object.keys(source) as (keyof typeof source)[])
+    expect(expanded[locale].length).toBeGreaterThan(source[locale].length + 2);
+  expect(expanded.ar).toContain('{{name}}');
+
+  const matrix = qaMatrix(['ar', 'en', 'ja']);
+  expect(matrix).toHaveLength(12);
+  expect(() => assertQaMatrix(matrix, matrix.toReversed())).not.toThrow();
+  expect(() => assertQaMatrix(matrix, matrix.slice(1))).toThrow(/missing/i);
+  expect(() => assertQaMatrix(matrix, [...matrix.slice(1), matrix[1]])).toThrow(
+    /duplicate/i,
+  );
+  expect(() =>
+    assertQaMatrix(matrix, [...matrix.slice(1), { ...matrix[0], width: 321 }]),
+  ).toThrow(/unexpected/i);
 });

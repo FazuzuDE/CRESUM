@@ -247,7 +247,7 @@ export function Onboarding({
     if (row) {
       return (
         <View style={[s.bodyRow, s.bodyDivider]}>
-          <Text style={s.label}>
+          <Text style={[s.label, s.bodyLabel]}>
             {t(height ? 'onboarding.heightLabel' : 'onboarding.weightLabel')}
           </Text>
           <AppButton
@@ -659,7 +659,7 @@ export function Onboarding({
                 </Text>
                 <View style={polished ? s.bodyGroup : s.field}>
                   <View style={polished ? s.bodyRow : s.field}>
-                    <Text style={s.label}>
+                    <Text style={[s.label, polished && s.bodyLabel]}>
                       {polished
                         ? t('onboarding.birth')
                         : t('onboarding.optional', {
@@ -953,6 +953,7 @@ const useStyles = createThemedStyles((colors) => ({
     paddingHorizontal: spacing.md,
   },
   bodyDivider: { borderTopColor: colors.separator, borderTopWidth: 1 },
+  bodyLabel: { flexShrink: 1, minWidth: 0 },
   bodyInput: {
     ...typography.body,
     flex: 1,

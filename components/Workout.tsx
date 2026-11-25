@@ -12,7 +12,7 @@ import { ExerciseGroupComposer } from './ExerciseGroupComposer';
 import { equipmentPolicyFor } from '@/lib/exercise-equipment';
 import { projectExerciseGroups, setNumberInGroup } from '@/lib/exercise-groups';
 import { useLocalization } from './LocalizationProvider';
-import { catalogLabel } from '@/lib/i18n/catalog';
+import { catalogLabel, workoutExerciseLabel } from '@/lib/i18n/catalog';
 import { formatEntryNumber, formatNumber } from '@/lib/i18n/format';
 import { presentAppError } from '@/lib/i18n/errors';
 import { AppScrollView } from './AppScrollView';
@@ -495,20 +495,13 @@ export function Workout({
                     style={[s.heading, s.exerciseName]}
                     accessibilityRole="header"
                   >
-                    {exercise.cardio
-                      ? catalogLabel(
-                          locale,
-                          'exercise',
-                          exercise.libraryId,
-                          exercise.name,
-                        )
-                      : exercise.name}
+                    {workoutExerciseLabel(locale, exercise)}
                   </Text>
                   {findExercise(exercise.libraryId) ? (
                     <Pressable
                       accessibilityRole="button"
                       accessibilityLabel={t('library.techniqueFor', {
-                        name: exercise.name,
+                        name: workoutExerciseLabel(locale, exercise),
                       })}
                       onPress={() =>
                         setTechnique(findExercise(exercise.libraryId) ?? null)

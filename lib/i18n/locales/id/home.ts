@@ -24,7 +24,7 @@ export default {
     other: '{{count, number}} sesi latihan selesai',
   },
   'home.local': ' · disimpan di perangkat',
-  'home.totalVolume': 'Total volume',
+  'home.totalVolume': 'Total volume latihan',
   'home.tonnes': '{{value}} t',
   'home.kilograms': '{{value}} kg',
   'home.week': 'Minggu Anda',

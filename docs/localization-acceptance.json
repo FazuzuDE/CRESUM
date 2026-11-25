@@ -1,78 +1,78 @@
 {
   "en": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "ru": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "de": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "fr": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "uk": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "es": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "pt-BR": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "it": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "pl": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "tr": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "zh-Hans": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "hi": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "bn": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "ar": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "ja": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "vi": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "mr": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "id": {
-    "web": false,
+    "web": true,
     "native": false
   },
   "ko": {
-    "web": false,
+    "web": true,
     "native": false
   }
 }

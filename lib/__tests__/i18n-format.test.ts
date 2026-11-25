@@ -117,6 +117,9 @@ it('formats Hindi dates and Indian number grouping without changing entry precis
 
 it('formats Bengali digits, grouping and calendar dates while retaining exact entry text', () => {
   expect(formatNumber('bn', 123456.75)).toBe('১,২৩,৪৫৬.৭৫');
+  expect(normalizeDecimalInput('১২,৫০')).toBe('12.50');
+  expect(normalizeInputDigits('১২,')).toBe('12,');
+  expect(normalizeDecimalInput('১,২৩৪.৫')).toBeNull();
   expect(formatEntryNumber('bn', '12.1234567890123456789')).toBe(
     '12.1234567890123456789',
   );

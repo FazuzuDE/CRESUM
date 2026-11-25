@@ -31,6 +31,7 @@ import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import * as Haptics from 'expo-haptics';
 import { moveWorkoutExercise, setCurrentExercise } from '@/lib/workout-engine';
 import { cardioElapsed } from '@/lib/cardio-timer';
+import { workoutExerciseLabel, workoutMuscleLabel } from '@/lib/i18n/catalog';
 import {
   isSetComplete,
   WorkoutExercise,
@@ -75,7 +76,7 @@ export function WorkoutProgram({
   const session = projectProgramSession(sourceSession);
   const update: Update = (transform) =>
     sourceUpdate((current) => applyProgramProjection(current, transform));
-  const { t } = useLocalization();
+  const { t, locale } = useLocalization();
   const [expanded, setExpanded] = useState(false);
   const suppressTapRef = useRef(0);
   const index = session.currentExerciseIndex;
@@ -85,7 +86,7 @@ export function WorkoutProgram({
       <View style={s.top}>
         <Text style={s.position}>
           {t('workout.position', {
-            muscle: exercise.muscle,
+            muscle: workoutMuscleLabel(locale, exercise.muscle),
             index: index + 1,
             total: session.exercises.length,
           })}
@@ -454,7 +455,8 @@ function ProgramRow({
 }: RowProps) {
   const colors = useAppColors();
   const s = useStyles();
-  const { t } = useLocalization();
+  const { t, locale } = useLocalization();
+  const name = workoutExerciseLabel(locale, item);
   const [rotation] = useState(() => new Animated.Value(0));
   const [displaced] = useState(() => new Animated.Value(0));
   useLayoutEffect(() => {
@@ -538,7 +540,7 @@ function ProgramRow({
             complete
               ? 'workout.selectCompletedExercise'
               : 'workout.selectExercise',
-            { index: index + 1, name: item.name },
+            { index: index + 1, name },
           )}
           accessibilityHint={t('workout.dragHint')}
           accessibilityState={{ selected, disabled: busy }}
@@ -585,7 +587,7 @@ function ProgramRow({
             ]}
           >
             <Text style={s.name}>
-              {index + 1}. {item.name}
+              {index + 1}. {name}
               {complete ? ' ✓' : ''}
             </Text>
             <Ionicons

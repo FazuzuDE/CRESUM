@@ -1,6 +1,9 @@
 import type { MessageKey, Translate } from './messages';
 import type { AppLocale } from './registry';
 import type { ProgramDefinition } from '../training-programs/model';
+import type { ProgramAssignment } from '../training-programs/assignment';
+import type { WorkoutTemplate } from '../workout-model';
+import { defaultTemplates } from '../workout-catalog';
 import { catalogLabel } from './catalog';
 
 export const goalMessage = {
@@ -46,4 +49,22 @@ export function programDayLabel(
   if (key === 'universal-2') return t('muscle.group.legs');
   if (key === 'universal-3') return t('program.chestAndArms');
   return message ? t(message) : fallback;
+}
+
+export function workoutTemplateLabel(
+  t: Translate,
+  locale: AppLocale,
+  template: WorkoutTemplate,
+  assignment?: ProgramAssignment | null,
+): string {
+  const builtIn = defaultTemplates.find(({ id }) => id === template.id);
+  if (builtIn?.name === template.name)
+    return catalogLabel(locale, 'template', template.id, template.name);
+  const index =
+    assignment?.templates.findIndex(({ id }) => id === template.id) ?? -1;
+  const program = assignment?.program;
+  const day = program?.days[index];
+  if (program && day && template.name === `${program.name} · ${day.name}`)
+    return `${programTitle(t, locale, program)} · ${programDayLabel(t, day.key, day.name)}`;
+  return template.name;
 }

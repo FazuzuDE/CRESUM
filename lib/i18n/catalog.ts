@@ -2,9 +2,11 @@ import {
   canonicalExerciseId,
   exerciseLibrary,
   filterExercises,
+  findExercise,
   type ExerciseFilters,
 } from '../exercise-library';
-import type { LibraryExercise } from '../workout-model';
+import type { LibraryExercise, WorkoutExercise } from '../workout-model';
+import { muscleTaxonomy } from '../exercise-taxonomy';
 import { catalogs, type MessageCatalog } from './messages';
 import type { AppLocale } from './registry';
 import { exerciseSearchScore, prepareExerciseQuery } from './search/engine';
@@ -20,6 +22,21 @@ export function catalogLabel(
     `catalog.${kind}.${canonical}`
   ];
   return typeof value === 'string' ? value : fallback;
+}
+
+export function workoutExerciseLabel(
+  locale: AppLocale,
+  exercise: Pick<WorkoutExercise, 'libraryId' | 'name'>,
+): string {
+  const canonical = findExercise(exercise.libraryId);
+  return canonical?.name === exercise.name
+    ? catalogLabel(locale, 'exercise', canonical.id, exercise.name)
+    : exercise.name;
+}
+
+export function workoutMuscleLabel(locale: AppLocale, name: string): string {
+  const muscle = muscleTaxonomy.find(({ label }) => label === name);
+  return muscle ? catalogLabel(locale, 'muscle', muscle.id, name) : name;
 }
 export function searchLocalizedExercises(
   filters: ExerciseFilters,

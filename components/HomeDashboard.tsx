@@ -37,6 +37,7 @@ import { radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { formatDate, formatNumber } from '@/lib/i18n/format';
 import { catalogLabel } from '@/lib/i18n/catalog';
+import { workoutTemplateLabel } from '@/lib/i18n/program';
 import { findExercise } from '@/lib/exercise-library';
 import type { Translate } from '@/lib/i18n/messages';
 import type { AppLocale } from '@/lib/i18n/registry';
@@ -127,9 +128,12 @@ function PrimaryWorkoutWidget({
       </GlassCard>
     );
   }
+  const featuredName = featured
+    ? workoutTemplateLabel(t, locale, featured.template)
+    : '';
   const title = activeWorkout
     ? t('home.resume', { name: activeWorkout.name })
-    : t('home.startNamed', { name: featured!.template.name });
+    : t('home.startNamed', { name: featuredName });
   return (
     <GlassCard style={s.hero}>
       <View style={s.heroTop}>
@@ -144,7 +148,7 @@ function PrimaryWorkoutWidget({
         </Text>
       </View>
       <Text style={s.heroTitle} accessibilityRole="header">
-        {activeWorkout?.name ?? featured?.template.name}
+        {activeWorkout?.name ?? featuredName}
       </Text>
       {activeWorkout ? (
         <Text style={s.sub}>{t('home.ready')}</Text>
@@ -300,10 +304,12 @@ function LatestWorkoutWidget({
 function WorkoutTemplatesWidget({
   templates,
   activeWorkout,
+  assignment,
   startTemplate,
 }: {
   templates: HomeTemplateDetails[];
   activeWorkout: WorkoutSession | null;
+  assignment?: ProgramAssignment | null;
   startTemplate: HomeProps['startTemplate'];
 }) {
   const colors = useAppColors();
@@ -319,13 +325,14 @@ function WorkoutTemplatesWidget({
       ) : null}
       {templates.map((details) => {
         const { template, availableCount } = details;
+        const name = workoutTemplateLabel(t, locale, template, assignment);
         const { count, preview } = templatePresentation(details, t, locale);
         const canStart = !activeWorkout && availableCount > 0;
         return (
           <GlassCard key={template.id}>
             <View style={s.quick}>
               <View style={s.templateCopy}>
-                <Text style={s.templateName}>{template.name}</Text>
+                <Text style={s.templateName}>{name}</Text>
                 <Text style={s.sub}>{count}</Text>
                 {preview ? (
                   <Text style={s.sub} accessibilityLabel={preview}>
@@ -336,7 +343,7 @@ function WorkoutTemplatesWidget({
               <Pressable
                 accessibilityRole="button"
                 accessibilityLabel={t('home.startNamed', {
-                  name: template.name,
+                  name,
                 })}
                 accessibilityHint={
                   activeWorkout
@@ -524,6 +531,7 @@ export function HomeDashboard({
       <WorkoutTemplatesWidget
         templates={data.otherTemplates}
         activeWorkout={activeWorkout}
+        assignment={assignment}
         startTemplate={guardedStart}
       />
     ) : null,
