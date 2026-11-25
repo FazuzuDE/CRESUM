@@ -1,0 +1,52 @@
+export default {
+  'error.editorEmpty': 'Kies ten minste één oefening.',
+  'error.editorUnavailable':
+    'Verwijder of vervang niet-beschikbare oefeningen voordat u opslaat.',
+  'error.editorMissing': 'Sjabloon is niet meer beschikbaar.',
+  'editor.discardTitle': 'Wijzigingen weggooien?',
+  'editor.discardMessage':
+    'Je niet-opgeslagen trainingsveranderingen zullen verloren gaan.',
+  'editor.discard': 'Wijzigingen verwerpen',
+  'editor.keep': 'Verder bewerken',
+  'editor.create': 'Aanmaken',
+  'editor.edit': 'Training bewerken',
+  'editor.name': 'Naam van de training',
+  'editor.next': 'Volgende',
+  'editor.unavailable': 'Oefening niet beschikbaar',
+  'editor.unavailableNamed': 'Oefening niet beschikbaar: {{id}}',
+  'editor.sets': 'Geplande sets',
+  'editor.weight': 'Begingewicht (kg) · facultatief',
+  'editor.weightLabel': 'Begingewicht in kilogram',
+  'editor.unset': 'Niet ingesteld',
+  'editor.help':
+    'Geplande waarden kunnen tijdens je training worden gewijzigd.',
+  'editor.updateExercise': 'Oefening bijwerken',
+  'editor.addExercise': 'Oefening toevoegen',
+  'editor.exercises': {
+    one: '{{count, number}} oefening',
+    other: '{{count, number}} oefeningen',
+  },
+  'editor.planned': '{{sets}} · {{weight}}',
+  'editor.setCount': {
+    one: '{{count, number}} set',
+    other: '{{count, number}} sets',
+  },
+  'editor.weightValue': '{{weight}} kg',
+  'editor.weightUnset': 'Geen startgewicht',
+  'editor.editNamed': '{{name}} bewerken',
+  'editor.up': '{{name}} omhoog verplaatsen',
+  'editor.down': '{{name}} omlaag verplaatsen',
+  'editor.remove': '{{name}} verwijderen',
+  'editor.saving': 'Opslaan...',
+  'editor.save': 'Training opslaan',
+  'editor.back': 'Terug',
+  'editor.cancel': 'Annuleren',
+  'error.editorName': 'Vul een trainingsnaam in.',
+  'error.editorDuplicate': 'Deze oefening is al in deze training.',
+  'error.editorSets': 'Voer 1–20 geplande sets in.',
+  'error.editorWeight': 'Vul een geldig niet-negatief gewicht in.',
+  'error.editorReview':
+    'Bekijk de trainingsnaam, oefeningen en geplande waarden voordat u opslaat.',
+  'error.editorSave':
+    'De training kon niet worden opgeslagen. Probeer het opnieuw.',
+} as const;

@@ -1,4 +1,10 @@
 export const localeRegistry = {
+  nl: {
+    flag: '🇳🇱',
+    nativeName: 'Nederlands',
+    direction: 'ltr',
+    released: false,
+  },
   en: { flag: '🇬🇧', nativeName: 'English', direction: 'ltr', released: true },
   ru: { flag: '🇷🇺', nativeName: 'Русский', direction: 'ltr', released: false },
   de: { flag: '🇩🇪', nativeName: 'Deutsch', direction: 'ltr', released: false },
@@ -54,6 +60,12 @@ export const localeRegistry = {
 >;
 export type AppLocale = keyof typeof localeRegistry;
 export type LanguagePreference = 'system' | AppLocale;
+export function enabledAppLocales(allowDutchPreview: boolean): AppLocale[] {
+  return (Object.keys(localeRegistry) as AppLocale[]).filter(
+    (locale) =>
+      locale !== 'nl' || localeRegistry.nl.released || allowDutchPreview,
+  );
+}
 export function isAppLocale(value: unknown): value is AppLocale {
   return typeof value === 'string' && Object.hasOwn(localeRegistry, value);
 }

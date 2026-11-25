@@ -1,5 +1,14 @@
 # CRESUM Decision Log
 
+## 2026-11-25 — Dutch localization and contributor checks
+
+Dutch uses the existing offline catalogs and search. For new app-controlled
+content, missing or empty Dutch messages and missing catalog labels/aliases fail
+the existing CI check. Unchanged English requires an exact, justified Dutch
+exception. Built-in plans require localized titles, days and linked exercises.
+Dutch release requires verified browser, both device platforms and independent
+linguistic acceptance.
+
 ## 2026-11-24 — Cardio timing in an active workout
 
 Start cardio timing only on the user's explicit action at the equipment.

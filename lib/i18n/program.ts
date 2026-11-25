@@ -14,6 +14,12 @@ export const goalMessage = {
   general_fitness: 'onboarding.fitness',
 } as const;
 
+export function programTitleKey(program: ProgramDefinition) {
+  return program.revision === 2
+    ? goalMessage[program.goal]
+    : 'catalog.program.' + program.id;
+}
+
 export function programTitle(
   t: Translate,
   locale: AppLocale,
@@ -37,18 +43,24 @@ const dayKeys: Readonly<
   G: 'program.day.G',
   H: 'program.day.H',
 };
+export function programDayKey(key: string) {
+  if (/^[1-9]\d*$/.test(key)) return 'onboarding.workoutIndex';
+  if (key === 'universal-1') return 'muscle.group.chest';
+  if (key === 'universal-2') return 'muscle.group.legs';
+  if (key === 'universal-3') return 'program.chestAndArms';
+  return dayKeys[key];
+}
+
 export function programDayLabel(
   t: Translate,
   key: string,
   fallback: string,
 ): string {
-  const message = dayKeys[key];
-  if (['1', '2', '3'].includes(key))
-    return t('onboarding.workoutIndex', { index: Number(key) });
-  if (key === 'universal-1') return t('muscle.group.chest');
-  if (key === 'universal-2') return t('muscle.group.legs');
-  if (key === 'universal-3') return t('program.chestAndArms');
-  return message ? t(message) : fallback;
+  const message = programDayKey(key);
+  if (!message) return fallback;
+  return message === 'onboarding.workoutIndex'
+    ? t(message, { index: Number(key) })
+    : t(message);
 }
 
 export function workoutTemplateLabel(

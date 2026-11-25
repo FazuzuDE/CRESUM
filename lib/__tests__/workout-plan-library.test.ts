@@ -298,3 +298,33 @@ test('accepts Korean publication metadata with legacy English fallback and rejec
       ]),
     ).toThrow();
 });
+
+test('uses Dutch plan metadata when supplied and preserves legacy publications', () => {
+  const [legacy] = parseLibrary([entry]);
+  expect(filterPlans([legacy], 'upper', 'nl')).toEqual([legacy]);
+  const localized = {
+    ...entry,
+    metadata: {
+      ...entry.metadata,
+      title: { ...entry.metadata.title, nl: 'Bovenlichaam' },
+      description: {
+        ...entry.metadata.description,
+        nl: 'Training met dumbbells',
+      },
+    },
+  };
+  const [plan] = parseLibrary([localized]);
+  expect(filterPlans([plan], 'bovenlichaam', 'nl')).toEqual([plan]);
+  expect(filterPlans([plan], 'dumbbells', 'nl')).toEqual([plan]);
+  expect(() =>
+    parseLibrary([
+      {
+        ...localized,
+        metadata: {
+          ...localized.metadata,
+          title: { ...localized.metadata.title, nl: ' ' },
+        },
+      },
+    ]),
+  ).toThrow();
+});

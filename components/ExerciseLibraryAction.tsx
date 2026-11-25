@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet } from 'react-native';
+import { Platform, Pressable, StyleSheet, View } from 'react-native';
 import Animated, { useReducedMotion } from 'react-native-reanimated';
 import { useAppColors } from './AppThemeProvider';
 import { DirectionalIcon, LocalizedText } from './LayoutDirection';
@@ -57,21 +57,25 @@ export function ExerciseLibraryAction({
         } as const;
         return (
           <>
-            <Animated.View
-              pointerEvents="none"
-              style={[
-                styles.frame,
-                {
-                  transform: [{ scale: closed ? 0.9 : 1 }, { skewX: '-32deg' }],
-                  transitionProperty: 'transform',
-                  transitionDuration: duration,
-                  transitionTimingFunction: 'ease',
-                },
-              ]}
-            >
-              <Animated.View style={[styles.leadingCorner, corner]} />
-              <Animated.View style={[styles.trailingCorner, corner]} />
-            </Animated.View>
+            <View pointerEvents="none" style={styles.frameBounds}>
+              <Animated.View
+                style={[
+                  styles.frame,
+                  {
+                    transform: [
+                      { scale: closed ? 0.9 : 1 },
+                      { skewX: '-32deg' },
+                    ],
+                    transitionProperty: 'transform',
+                    transitionDuration: duration,
+                    transitionTimingFunction: 'ease',
+                  },
+                ]}
+              >
+                <Animated.View style={[styles.leadingCorner, corner]} />
+                <Animated.View style={[styles.trailingCorner, corner]} />
+              </Animated.View>
+            </View>
             {showIcon ? (
               <DirectionalIcon
                 name={selected ? 'checkmark' : 'add'}
@@ -101,6 +105,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xl,
     paddingVertical: spacing.sm,
   },
+  frameBounds: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    overflow: 'hidden',
+  },
   frame: {
     position: 'absolute',
     left: spacing.md,
@@ -125,6 +137,8 @@ const styles = StyleSheet.create({
   label: {
     ...typography.subheadline,
     flexShrink: 1,
+    minWidth: 0,
+    ...Platform.select({ web: { wordBreak: 'break-word' } }),
     textAlign: 'center',
     fontWeight: '700',
   },

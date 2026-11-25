@@ -74,5 +74,10 @@
   "ko": {
     "web": true,
     "native": false
+  },
+  "nl": {
+    "web": true,
+    "native": false,
+    "linguistic": false
   }
 }

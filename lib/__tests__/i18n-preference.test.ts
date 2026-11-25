@@ -1,3 +1,4 @@
+import { enabledAppLocales, localeRegistry } from '../i18n/registry';
 import { LocaleStore, LANGUAGE_PREFERENCE_KEY } from '../i18n/preference-store';
 it('a read begun during a pending write cannot undo its acknowledged choice', async () => {
   let finishWrite!: () => void;
@@ -92,6 +93,9 @@ function setup(initial: string | null = null) {
   };
 }
 it.each([
+  ['nl', 'nl'],
+  ['nl-NL', 'nl'],
+  ['nl-BE', 'nl'],
   ['uk-UA', 'uk'],
   ['es-MX', 'es'],
   ['es-ES', 'es'],
@@ -234,7 +238,7 @@ it('persists Vietnamese independently of device locale and restores it on reload
   });
 });
 
-it.each(['mr', 'id', 'ko'] as const)(
+it.each(['mr', 'id', 'ko', 'nl'] as const)(
   'persists %s independently of device language and restores it after reload',
   async (locale) => {
     let saved: string | null = null;
@@ -255,3 +259,24 @@ it.each(['mr', 'id', 'ko'] as const)(
     });
   },
 );
+
+it('keeps Dutch in internal preview until its release flag is enabled', async () => {
+  const storage = { getItem: async () => null, setItem: async () => {} };
+  const production = new LocaleStore(
+    storage,
+    () => ['nl-BE', 'fr-BE'],
+    enabledAppLocales(false),
+  );
+  const preview = new LocaleStore(
+    storage,
+    () => ['nl-BE', 'fr-BE'],
+    enabledAppLocales(true),
+  );
+  const expected = localeRegistry.nl.released ? 'nl' : 'fr';
+  await production.load();
+  await preview.load();
+  expect(production.getSnapshot().locale).toBe(expected);
+  expect(await production.select('nl')).toBe(localeRegistry.nl.released);
+  expect(preview.getSnapshot().locale).toBe('nl');
+  expect(await preview.select('nl')).toBe(true);
+});

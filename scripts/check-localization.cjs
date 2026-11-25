@@ -40,6 +40,134 @@ function validateCatalogs(catalogs) {
   }
   return errors;
 }
+
+const comparableCopy = (text) =>
+  text.normalize('NFKC').trim().replace(/\s+/gu, ' ').toLowerCase();
+
+function validateDutchCopy(catalogs, exceptions) {
+  const errors = [];
+  const usedExceptions = new Set();
+  for (const [key, source] of Object.entries(catalogs.en)) {
+    const translation = catalogs.nl?.[key];
+    if (translation == null) continue; // Catalog parity reports missing keys.
+    const originals = (
+      typeof source === 'string' ? [source] : Object.values(source)
+    ).map(comparableCopy);
+    const translations =
+      typeof translation === 'string'
+        ? [['', translation]]
+        : Object.entries(translation);
+    for (const [form, value] of translations) {
+      if (typeof value !== 'string') continue;
+      const text = comparableCopy(value);
+      const literal = text.replace(/{{[^}]+}}/g, '');
+      if (!/\p{L}/u.test(literal) || !originals.includes(text)) continue;
+      const id = form ? key + '.' + form : key;
+      const exception = exceptions[id];
+      if (
+        exception?.text !== value ||
+        typeof exception.reason !== 'string' ||
+        !exception.reason.trim()
+      )
+        errors.push('nl: unchanged English copy ' + id);
+      else usedExceptions.add(id);
+    }
+  }
+  for (const id of Object.keys(exceptions))
+    if (!usedExceptions.has(id))
+      errors.push('nl: stale English-copy exception ' + id);
+  return errors;
+}
+
+function validateTechniqueLinks(catalogs, exercises, techniqueCatalog) {
+  const errors = [];
+  for (const { id } of exercises) {
+    const guide = techniqueCatalog[id];
+    if (!guide) {
+      errors.push('nl: missing linked technique guide ' + id);
+      continue;
+    }
+    const required = [
+      'scope',
+      ...['setup', 'movement', 'checks', 'mistakes'].flatMap((field) =>
+        guide[field]?.length
+          ? guide[field].map((_, index) => field + '.' + index)
+          : [field + '.0'],
+      ),
+      ...(guide.adaptation ? ['adaptation'] : []),
+    ];
+    for (const field of required) {
+      const key = 'guide.' + id + '.' + field;
+      const value = catalogs.nl?.[key];
+      if (typeof value !== 'string' || !value.trim())
+        errors.push('nl: missing technique translation ' + key);
+    }
+  }
+  return errors;
+}
+
+function validateProgramLocalization(
+  catalogs,
+  programs,
+  keys,
+  resolveExercise,
+) {
+  const errors = new Set();
+  const hasText = (catalog, key) =>
+    typeof catalog[key] === 'string' && Boolean(catalog[key].trim());
+  for (const program of programs) {
+    const title = keys.programTitleKey(program);
+    for (const [locale, catalog] of Object.entries(catalogs)) {
+      if (!hasText(catalog, title))
+        errors.add(
+          locale + ': missing program title ' + program.id + ' (' + title + ')',
+        );
+      for (const day of program.days) {
+        const label = keys.programDayKey(day.key);
+        if (!label || !hasText(catalog, label))
+          errors.add(
+            locale +
+              ': missing program day ' +
+              program.id +
+              '/' +
+              day.key +
+              ' (' +
+              (label ?? 'no message key') +
+              ')',
+          );
+        for (const id of [
+          ...day.movements.map((movement) => movement.exerciseId),
+          ...(day.hold ? [day.hold.exerciseId] : []),
+        ]) {
+          const exercise = resolveExercise(id);
+          if (!exercise || !hasText(catalog, 'catalog.exercise.' + exercise))
+            errors.add(
+              locale +
+                ': missing program exercise ' +
+                id +
+                ' in ' +
+                program.id +
+                '/' +
+                day.key,
+            );
+        }
+      }
+      for (const activity of program.cardio) {
+        if (!activity.activity) continue;
+        const exercise = resolveExercise(activity.activity);
+        if (!exercise || !hasText(catalog, 'catalog.exercise.' + exercise))
+          errors.add(
+            locale +
+              ': missing program cardio exercise ' +
+              activity.activity +
+              ' in ' +
+              program.id,
+          );
+      }
+    }
+  }
+  return [...errors];
+}
 // All selectable locales count, including locales awaiting device acceptance.
 function validateSearchAliases(aliases, registry, catalogs, records) {
   const errors = [];
@@ -134,11 +262,15 @@ function releaseEligibility(
           acceptance[locale]?.native !== true)
       )
         errors.push(`${locale}: web/native acceptance pending`);
+      if (locale === 'nl' && acceptance.nl?.linguistic !== true)
+        errors.push('nl: independent linguistic acceptance pending');
       return [locale, { eligible: errors.length === 0, errors }];
     }),
   );
 }
+const tsModules = new Map();
 function loadTs(filename) {
+  if (tsModules.has(filename)) return tsModules.get(filename).exports;
   const code = ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
     compilerOptions: {
       module: ts.ModuleKind.CommonJS,
@@ -146,6 +278,7 @@ function loadTs(filename) {
     },
   }).outputText;
   const module = { exports: {} };
+  tsModules.set(filename, module);
   const requireRelative = (spec) => {
     if (!spec.startsWith('.'))
       throw Error('Coverage catalog imports must be local');
@@ -174,6 +307,15 @@ function run() {
     ...additions,
   ];
   const errors = validateCatalogs(catalogs);
+  if (catalogs.nl)
+    errors.push(
+      ...validateDutchCopy(
+        catalogs,
+        JSON.parse(
+          fs.readFileSync('docs/localization-nl-copy-exceptions.json', 'utf8'),
+        ),
+      ),
+    );
   const untracked = compareInventory(current, baseline);
   errors.push(
     ...untracked.map((x) => `${x.file}:${x.line}: untracked copy: ${x.text}`),
@@ -182,7 +324,9 @@ function run() {
   const aliases = loadTs(
     path.resolve('lib/i18n/search/aliases.ts'),
   ).searchAliases;
-  const { exerciseLibrary } = loadTs(path.resolve('lib/exercise-library.ts'));
+  const { exerciseLibrary, canonicalExerciseId, cardioExerciseIds } = loadTs(
+    path.resolve('lib/exercise-library.ts'),
+  );
   const { exerciseEquipmentCatalog } = loadTs(
     path.resolve('lib/exercise-equipment-catalog.ts'),
   );
@@ -193,6 +337,31 @@ function run() {
       equipment: exerciseEquipmentCatalog,
       muscle: muscleTaxonomy,
     }),
+  );
+  const { techniqueCatalog } = loadTs(
+    path.resolve('lib/exercise-technique/catalog.ts'),
+  );
+  if (catalogs.nl)
+    errors.push(
+      ...validateTechniqueLinks(catalogs, exerciseLibrary, techniqueCatalog),
+    );
+  const { trainingPrograms } = loadTs(
+    path.resolve('lib/training-programs/catalog.ts'),
+  );
+  const { starterProgram, starterProgramGoals } = loadTs(
+    path.resolve('lib/training-programs/starter-programs.ts'),
+  );
+  const programs = [
+    ...trainingPrograms,
+    ...starterProgramGoals.map((goal) => starterProgram(goal, 'beginner')),
+  ];
+  errors.push(
+    ...validateProgramLocalization(
+      catalogs,
+      programs,
+      loadTs(path.resolve('lib/i18n/program.ts')),
+      (id) => cardioExerciseIds[id] ?? canonicalExerciseId(id),
+    ),
   );
   const classifications = [
     ...JSON.parse(fs.readFileSync('docs/localization-classified.json', 'utf8')),
@@ -240,6 +409,19 @@ function run() {
               },
             ]),
           ),
+          content: {
+            exercises: exerciseLibrary.length,
+            equipment: exerciseEquipmentCatalog.length,
+            muscles: muscleTaxonomy.length,
+            techniqueGuides: Object.keys(techniqueCatalog).length,
+            techniqueMessages: Object.keys(catalogs.en).filter((key) =>
+              key.startsWith('guide.'),
+            ).length,
+            builtInPrograms: programs.length,
+            builtInTemplates: Object.keys(catalogs.en).filter((key) =>
+              key.startsWith('catalog.template.'),
+            ).length,
+          },
           sourceCandidates: current.length,
           classifiedSourceCandidates: current.length - unclassified.length,
           pendingSourceCandidates: unclassified.length,
@@ -270,6 +452,9 @@ function run() {
 }
 module.exports = {
   validateCatalogs,
+  validateDutchCopy,
+  validateTechniqueLinks,
+  validateProgramLocalization,
   validateSearchAliases,
   compareInventory,
   classifyInventory,

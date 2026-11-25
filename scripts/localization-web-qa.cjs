@@ -648,6 +648,27 @@ async function main() {
               exact: true,
             })
             .fill(synonym);
+          if (locale === 'nl') {
+            const all = text('library.all');
+            const dumbbell = text('catalog.equipment.dumbbell');
+            const equipmentFilter = (label) =>
+              page.getByRole('button', {
+                name: text('library.filterEquipment', { label }),
+                exact: true,
+              });
+            await equipmentFilter(all).click();
+            await page
+              .getByRole('slider', {
+                name: text('library.equipment'),
+                exact: true,
+              })
+              .getByText(dumbbell, { exact: true })
+              .first()
+              .click();
+            await button('common.done').click();
+            await equipmentFilter(dumbbell).waitFor();
+            result.searchEquipment = 'dumbbell';
+          }
           await page
             .getByRole('button', {
               name: text('library.addName', {
@@ -887,8 +908,11 @@ async function main() {
 
           await editFirst.click();
           await button('entry.useKeypad').click();
-          await exactWeight.fill(numberLocale(12.5));
-          await exactReps.fill(numberLocale(8));
+          const manualWeight = locale === 'nl' ? 62.5 : 12.5;
+          const manualReps = 8;
+          const manualVolumeKg = manualWeight * manualReps;
+          await exactWeight.fill(numberLocale(manualWeight));
+          await exactReps.fill(numberLocale(manualReps));
           await failNextWrite();
           await button('entry.saveValues').click();
           await exactWeight.waitFor({ state: 'hidden' });
@@ -908,8 +932,8 @@ async function main() {
           const entered = await state();
           assert.deepEqual(entered.activeWorkout.exercises[0].sets[0], {
             id: session.exercises[0].sets[0].id,
-            weight: '12.5',
-            reps: '8',
+            weight: String(manualWeight),
+            reps: String(manualReps),
             entered: true,
           });
           await page
@@ -921,8 +945,8 @@ async function main() {
           await button('workout.skipRest').waitFor();
           const resting = await state();
           const first = resting.activeWorkout.exercises[0].sets[0];
-          assert.equal(first.weight, '12.5');
-          assert.equal(first.reps, '8');
+          assert.equal(first.weight, String(manualWeight));
+          assert.equal(first.reps, String(manualReps));
           assert.equal(typeof first.completedAt, 'number');
           assert.equal(typeof resting.activeWorkout.restEndsAt, 'number');
           assert.equal(resting.activeWorkout.id, session.id);
@@ -1014,8 +1038,8 @@ async function main() {
           await button('history.back').waitFor();
           const expectedSet = text('history.set', {
             index: 1,
-            weight: formatEntryNumber(locale, '12.5'),
-            reps: '8',
+            weight: formatEntryNumber(locale, String(manualWeight)),
+            reps: String(manualReps),
             entered: true,
           });
           await page.getByText(expectedSet, { exact: true }).waitFor();
@@ -1239,7 +1263,7 @@ async function main() {
             numberLocale(value).replace(/\s/g, ' ');
           await page
             .getByText(
-              `${formatInteger(workoutVolumeKg + 100)} ${text('progress.kg')}`,
+              `${formatInteger(workoutVolumeKg + manualVolumeKg)} ${text('progress.kg')}`,
               {
                 exact: false,
               },
@@ -1373,7 +1397,7 @@ async function main() {
             completedExercises: expectedLogged.length,
             completedSets,
             workoutVolumeKg,
-            combinedVolumeKg: workoutVolumeKg + 100,
+            combinedVolumeKg: workoutVolumeKg + manualVolumeKg,
             historyRecords: 2,
             completedSlotRetained: true,
             nextSlotUsesAuthoredSets: true,

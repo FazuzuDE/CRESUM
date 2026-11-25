@@ -1,0 +1,230 @@
+{
+  "catalog.exercise.lat-pulldown": {
+    "text": "Lat pulldown",
+    "reason": "Gangbare Nederlandse sportschoolterm in Nederland en Vlaanderen."
+  },
+  "catalog.muscle.biceps": {
+    "text": "Biceps",
+    "reason": "Ook in het Nederlands de gebruikelijke anatomische benaming."
+  },
+  "catalog.muscle.triceps": {
+    "text": "Triceps",
+    "reason": "Ook in het Nederlands de gebruikelijke anatomische benaming."
+  },
+  "catalog.muscle.quadriceps": {
+    "text": "Quadriceps",
+    "reason": "Ook in het Nederlands de gebruikelijke anatomische benaming."
+  },
+  "catalog.muscle.hamstrings": {
+    "text": "Hamstrings",
+    "reason": "Ook in het Nederlands de gebruikelijke anatomische benaming."
+  },
+  "catalog.equipment.dumbbell": {
+    "text": "Dumbbell",
+    "reason": "Gangbare Nederlandse sportschoolterm in Nederland en Vlaanderen."
+  },
+  "catalog.equipment.kettlebell": {
+    "text": "Kettlebell",
+    "reason": "Gangbare Nederlandse sportschoolterm in Nederland en Vlaanderen."
+  },
+  "common.setCount.one": {
+    "text": "{{count, number}} set",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "common.setCount.other": {
+    "text": "{{count, number}} sets",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "editor.setCount.one": {
+    "text": "{{count, number}} set",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "editor.setCount.other": {
+    "text": "{{count, number}} sets",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "editor.weightValue": {
+    "text": "{{weight}} kg",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "equipment.stationName": {
+    "text": "Lat pulldown",
+    "reason": "Gangbare Nederlandse sportschoolterm in Nederland en Vlaanderen."
+  },
+  "equipment.configureSets": {
+    "text": "Sets",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "history.set": {
+    "text": "Set {{index, number}} · {{weight}} kg × {{reps}}",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "history.filterButton": {
+    "text": "Filter · {{filter}}",
+    "reason": "De letterlijke term wordt ook in het Nederlands gebruikt en past op de huidige bediening."
+  },
+  "home.tonnes": {
+    "text": "{{value}} t",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "home.kilograms": {
+    "text": "{{value}} kg",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "onboarding.welcomeOk": {
+    "text": "OK",
+    "reason": "De letterlijke term wordt ook in het Nederlands gebruikt en past op de huidige bediening."
+  },
+  "onboarding.cm": {
+    "text": "cm",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "onboarding.kg": {
+    "text": "kg",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "onboarding.week": {
+    "text": "Week {{index, number}}: {{schedule}}",
+    "reason": "Week is de Nederlandse tijdseenheid en W de afkorting op het tabblad."
+  },
+  "onboarding.start": {
+    "text": "Start!",
+    "reason": "De letterlijke term wordt ook in het Nederlands gebruikt en past op de huidige bediening."
+  },
+  "program.day.G": {
+    "text": "Fitness G",
+    "reason": "De letterlijke term wordt ook in het Nederlands gebruikt en past op de huidige bediening."
+  },
+  "program.day.H": {
+    "text": "Fitness H",
+    "reason": "De letterlijke term wordt ook in het Nederlands gebruikt en past op de huidige bediening."
+  },
+  "account.title": {
+    "text": "Account",
+    "reason": "De letterlijke term wordt ook in het Nederlands gebruikt en past op de huidige bediening."
+  },
+  "conflict.set": {
+    "text": "Set {{number}}",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "conflict.setValue": {
+    "text": "{{weight}} kg × {{reps}} · {{status}}",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "conflict.setValueBoth": {
+    "text": "{{weight}} kg × {{reps}} / {{other}} · {{status}}",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "technique.start": {
+    "text": "START",
+    "reason": "De letterlijke term wordt ook in het Nederlands gebruikt en past op de huidige bediening."
+  },
+  "progress.period.1W": {
+    "text": "1W",
+    "reason": "Week is de Nederlandse tijdseenheid en W de afkorting op het tabblad."
+  },
+  "progress.period.1M": {
+    "text": "1M",
+    "reason": "M is de afkorting voor maand op het tabblad."
+  },
+  "progress.period.3M": {
+    "text": "3M",
+    "reason": "M is de afkorting voor maand op het tabblad."
+  },
+  "progress.period.6M": {
+    "text": "6M",
+    "reason": "M is de afkorting voor maand op het tabblad."
+  },
+  "progress.long.1W": {
+    "text": "1 week",
+    "reason": "Week is de Nederlandse tijdseenheid en W de afkorting op het tabblad."
+  },
+  "progress.kg": {
+    "text": "kg",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "progress.valueKg": {
+    "text": "{{value}} kg",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "progress.point": {
+    "text": "{{name}}, {{date}}, {{value}} kg",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "progress.loggedSet": {
+    "text": "{{weight}} kg × {{reps}}",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "muscle.setRole": {
+    "text": "Set {{index, number}} · {{role}}",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "stats.volume": {
+    "text": "Volume",
+    "reason": "De letterlijke term wordt ook in het Nederlands gebruikt en past op de huidige bediening."
+  },
+  "body.point": {
+    "text": "{{date}} · {{value}} kg",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "sharing.sets.one": {
+    "text": "{{count}} set",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "sharing.sets.other": {
+    "text": "{{count}} sets",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "sharing.weight": {
+    "text": "{{weight}} kg",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "sharing.linkRef": {
+    "text": "Link {{id}} · {{date}}",
+    "reason": "De letterlijke term wordt ook in het Nederlands gebruikt en past op de huidige bediening."
+  },
+  "workout.summary.one": {
+    "text": "{{completed}}/{{count}} Set · {{volume}} kg",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "workout.summary.other": {
+    "text": "{{completed}}/{{count}} sets · {{volume}} kg",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "workout.tableSet": {
+    "text": "SET",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "workout.tableKg": {
+    "text": "KG",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "workout.minus15": {
+    "text": "−15s",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "workout.plus15": {
+    "text": "+15s",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "workout.savedSummary.one": {
+    "text": "{{count, number}} Set · {{volume}} kg · {{time}}",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "workout.savedSummary.other": {
+    "text": "{{count, number}} sets · {{volume}} kg · {{time}}",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "entry.title": {
+    "text": "Set {{index}}",
+    "reason": "Set en sets zijn gangbare Nederlandse krachttrainingstermen."
+  },
+  "entry.singleSummary": {
+    "text": "{{weight}} kg × {{reps}}",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  },
+  "entry.bilateralSummary": {
+    "text": "{{weight}} kg × {{reps}} / {{other}}",
+    "reason": "Internationaal eenheidssymbool en locale-afhankelijke waarden."
+  }
+}

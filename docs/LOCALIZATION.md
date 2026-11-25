@@ -8,6 +8,7 @@ Use a clean checkout of the QA commit and Node/npm from `.nvmrc` and
 ```sh
 npm ci
 EXPO_NO_DOTENV=1 \
+EXPO_PUBLIC_DUTCH_PREVIEW=true \
 EXPO_PUBLIC_SUPABASE_URL=disabled \
 EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY=disabled \
 EXPO_PUBLIC_SHARING_ENABLED=false \
@@ -16,10 +17,10 @@ npm start -- --go --lan --clear
 ```
 
 Open the Metro QR code in an SDK-compatible Expo Go on a physical iPhone and
-Android. Use test data. The language picker offers all locales in
-`lib/i18n/registry.ts`, including locales with `released: false`. Keep the
-registry and acceptance flags unchanged during the test. Expo Go uses the
-picker fallback. To accept the iOS UIKit wheel, repeat the wheel checks in
+Android. Use test data. The preview command enables Dutch in the language
+picker. Keep the registry and acceptance flags unchanged during the test.
+Other languages retain their current picker behavior. Expo Go uses the picker
+fallback. To accept the iOS UIKit wheel, repeat the wheel checks in
 the signed `preview` build described in [Device builds](DEVICE_BUILDS.md).
 
 Start with German, French and Russian, then cover every other registry locale
@@ -43,7 +44,7 @@ Record independent review of exercise and equipment names and technique
 instructions separately. Confirm web, both physical platforms and linguistic
 review for each language before promoting its release flag.
 
-The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian and Korean. System language
+The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian, Korean and Dutch. System language
 appears first and is selected by default. An explicit choice is saved on the
 device. Final web and native acceptance for Russian, German, French,
 Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian and Korean remain pending in the release eligibility ledger.
@@ -52,6 +53,35 @@ Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified C
 exercise technique, equipment and built-in plans. Shared plan titles and
 descriptions use the selected locale when the publication supplies it. Older
 publications use their English metadata.
+
+## Dutch (Nederlands)
+
+Dutch uses a single offline catalog for the Netherlands and Dutch-speaking
+Belgium. The language wheel can select Nederlands manually or follow the
+device locale for `nl`, `nl-NL` and `nl-BE` when enabled. Before release,
+Nederlands is available through the internal preview command above; a normal
+build omits it from language selection and system detection. Publication metadata uses an
+optional `nl` field and preserves the English fallback for older publications.
+
+Use the [phone QA setup](#physical-device-localization-qa) on both phones:
+
+1. Select Nederlands or test System with the phone set to Dutch (Netherlands
+   and Belgium). Check that manual selection survives restart.
+2. Find `bankdrukken`, select the halterstang filter and inspect START and
+   EIND in Technique. Try `lat pulldown-machine` and the exact V-grip
+   variant, where applicable.
+3. Enter `62,5` kg and `8` reps. Change the language with an unrecorded set,
+   check the draft and the active workout, then record the set and finish.
+4. Confirm the values in History and the sets in Muscle Map. Force close,
+   reopen and verify the workout and language. Check both an invalid weight
+   and the deletion confirmation, including the cancel path.
+5. Open a supported cardio exercise. Verify elapsed cardio time starts only
+   after its own Start action and survives a language change. Check narrow
+   layout, large text and VoiceOver/TalkBack labels.
+
+Record this evidence and independent fluent review of the Dutch terms and
+technique separately. Dutch requires `web`, `native` and `linguistic` acceptance
+before its release flag can be enabled.
 
 ## Korean — approved 2026-11-18
 
@@ -602,6 +632,18 @@ copy candidates absent from the reviewed migration baseline. Updating that
 baseline is a reviewable migration action, not proof of translation. Existing
 pending strings block target-locale release eligibility. The rule applies to all
 currently selectable languages, independently of the `released` flag.
+
+For Dutch, unchanged English copy fails even when it is nonempty. Use
+`docs/localization-nl-copy-exceptions.json` only when the exact term is also
+standard Dutch, an international gym term or an invariant unit. Add the exact
+Dutch string (and plural form where relevant) and explain why it is identical.
+Remove unused entries when their copy changes. Strings containing only
+interpolation placeholders, numbers or punctuation are language neutral.
+
+For each built-in program, CI resolves its title, day labels, movements,
+holds and cardio entries against the live program and exercise catalogs.
+Consult the [exercise addition workflow](EXERCISE_ADDITION_WORKFLOW.md) for the
+order in which to add, translate and connect new content.
 
 ### Search alternatives — approved 2026-11-17
 
