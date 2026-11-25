@@ -19,7 +19,10 @@ export default function Layout() {
       new LocaleStore(
         AsyncStorage,
         () => (getLocales() ?? []).map((value) => value.languageTag),
-        enabledAppLocales(process.env.EXPO_PUBLIC_DUTCH_PREVIEW === 'true'),
+        enabledAppLocales({
+          nl: process.env.EXPO_PUBLIC_DUTCH_PREVIEW === 'true',
+          sv: process.env.EXPO_PUBLIC_SWEDISH_PREVIEW === 'true',
+        }),
       ),
   );
   return (

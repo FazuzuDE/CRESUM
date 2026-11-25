@@ -74,7 +74,7 @@ it('rejects new untracked copy and reports remaining source candidates explicitl
 });
 
 const {
-  validateDutchCopy,
+  validateLocalizedCopy,
   validateProgramLocalization,
   validateSearchAliases,
 } = jest.requireActual('../../scripts/check-localization.cjs');
@@ -86,12 +86,12 @@ it('requires Dutch for newly introduced messages and rejects English copies', ()
   expect(validateCatalogs({ en, nl: { [field]: '  ' } })).toContain(
     'nl.' + field + ': empty text',
   );
-  expect(validateDutchCopy({ en, nl: en }, {})).toContain(
+  expect(validateLocalizedCopy({ en, nl: en }, 'nl', {})).toContain(
     'nl: unchanged English copy ' + field,
   );
   const catalogs = { en, nl: { [field]: 'Dit plan verwijderen?' } };
   expect(validateCatalogs(catalogs)).toEqual([]);
-  expect(validateDutchCopy(catalogs, {})).toEqual([]);
+  expect(validateLocalizedCopy(catalogs, 'nl', {})).toEqual([]);
 });
 
 it('requires separate Dutch names and aliases for new searchable records', () => {
@@ -155,7 +155,7 @@ it('requires a technique guide and the Dutch instructions for a new exercise ID'
   );
   const id = 'new-exercise';
   const exercises = [{ id }];
-  expect(validateTechniqueLinks({ nl: {} }, exercises, {})).toEqual([
+  expect(validateTechniqueLinks({ nl: {} }, 'nl', exercises, {})).toEqual([
     'nl: missing linked technique guide ' + id,
   ]);
   const guides = {
@@ -173,7 +173,7 @@ it('requires a technique guide and the Dutch instructions for a new exercise ID'
     'guide.new-exercise.movement.0': 'Beweging',
     'guide.new-exercise.checks.0': 'Aandachtspunt',
   };
-  expect(validateTechniqueLinks({ nl }, exercises, guides)).toEqual([
+  expect(validateTechniqueLinks({ nl }, 'nl', exercises, guides)).toEqual([
     'nl: missing technique translation guide.new-exercise.mistakes.0',
   ]);
   expect(
@@ -181,8 +181,65 @@ it('requires a technique guide and the Dutch instructions for a new exercise ID'
       {
         nl: { ...nl, 'guide.new-exercise.mistakes.0': 'Veelgemaakte fout' },
       },
+      'nl',
       exercises,
       guides,
+    ),
+  ).toEqual([]);
+});
+
+it('blocks Swedish omissions in copy, guide instructions and search aliases', () => {
+  const { validateTechniqueLinks } = jest.requireActual(
+    '../../scripts/check-localization.cjs',
+  );
+  const en = { 'new.title': 'New title' };
+  expect(validateCatalogs({ en, sv: {} })).toContain('sv: missing new.title');
+  expect(validateLocalizedCopy({ en, sv: en }, 'sv', {})).toContain(
+    'sv: unchanged English copy new.title',
+  );
+
+  const exercises = [{ id: 'new-exercise' }];
+  const guides = {
+    'new-exercise': {
+      scope: 'Scope',
+      setup: ['Setup'],
+      movement: ['Movement'],
+      checks: ['Checks'],
+      mistakes: ['Mistake'],
+    },
+  };
+  const sv = {
+    'guide.new-exercise.scope': 'Om övningen',
+    'guide.new-exercise.setup.0': 'Utgångsläge',
+    'guide.new-exercise.movement.0': 'Rörelse',
+    'guide.new-exercise.checks.0': 'Att tänka på',
+    'catalog.exercise.new-exercise': 'Ny övning',
+  };
+  expect(validateTechniqueLinks({ sv }, 'sv', exercises, guides)).toEqual([
+    'sv: missing technique translation guide.new-exercise.mistakes.0',
+  ]);
+  expect(
+    validateSearchAliases(
+      { sv: { exercise: { 'new-exercise': [' '] } } },
+      { sv: {} },
+      { sv },
+      { exercise: exercises },
+    ),
+  ).toEqual(['sv: missing/empty search aliases exercise.new-exercise']);
+  expect(
+    validateTechniqueLinks(
+      { sv: { ...sv, 'guide.new-exercise.mistakes.0': 'Vanligt fel' } },
+      'sv',
+      exercises,
+      guides,
+    ),
+  ).toEqual([]);
+  expect(
+    validateSearchAliases(
+      { sv: { exercise: { 'new-exercise': ['övningsnamn'] } } },
+      { sv: {} },
+      { sv },
+      { exercise: exercises },
     ),
   ).toEqual([]);
 });

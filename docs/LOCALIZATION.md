@@ -54,6 +54,34 @@ exercise technique, equipment and built-in plans. Shared plan titles and
 descriptions use the selected locale when the publication supplies it. Older
 publications use their English metadata.
 
+## Swedish (Svenska)
+
+Swedish is bundled as `sv` for Sweden. System language detection recognizes
+both `sv` and `sv-SE`. The normal app hides Svenska until release. To test it on
+an iPhone and an Android phone, use the command under
+[physical-device localization QA](#physical-device-localization-qa), swapping
+`EXPO_PUBLIC_DUTCH_PREVIEW=true` for `EXPO_PUBLIC_SWEDISH_PREVIEW=true`.
+Use a clean checkout of the tested commit and the SDK-compatible Expo Go app;
+the switch is independent of the Dutch preview.
+
+1. Select Svenska manually. Restart, check that it is retained, then select
+   System with Swedish (Sweden) selected on the phone.
+2. Search for `bankpress` and filter by Skivstång. Try `latsdrag V-handtag`
+   and compare it with the wide-grip variant. Check the STARTLÄGE and SLUTLÄGE
+   views on each technique card.
+3. Enter `62,5` kg and `8` repetitions. With a draft open, switch languages,
+   then check the draft, active workout and rest timer. Record the set and
+   complete the workout. Open Historik and Muskelkarta, restart and verify the
+   saved entry.
+4. Check narrow layout, large text, VoiceOver or TalkBack, the delete
+   confirmation and the separate cardio timer. Record the phone, OS, commit
+   and results for each platform.
+
+The offline search uses the existing accent and punctuation normalization. Use
+the same catalog and CI contracts for new Swedish labels, instructions, plans
+and aliases. Shared publications may include Swedish titles and descriptions.
+Older publications retain their existing fallback.
+
 ## Dutch (Nederlands)
 
 Dutch uses a single offline catalog for the Netherlands and Dutch-speaking
@@ -633,9 +661,9 @@ baseline is a reviewable migration action, not proof of translation. Existing
 pending strings block target-locale release eligibility. The rule applies to all
 currently selectable languages, independently of the `released` flag.
 
-For Dutch, unchanged English copy fails even when it is nonempty. Use
-`docs/localization-nl-copy-exceptions.json` only when the exact term is also
-standard Dutch, an international gym term or an invariant unit. Add the exact
+For Dutch and Swedish, unchanged English copy fails even when it is nonempty.
+Use `docs/localization-<locale>-copy-exceptions.json` only for an established
+term in that language, an international gym term or an invariant unit. Add the exact
 Dutch string (and plural form where relevant) and explain why it is identical.
 Remove unused entries when their copy changes. Strings containing only
 interpolation placeholders, numbers or punctuation are language neutral.

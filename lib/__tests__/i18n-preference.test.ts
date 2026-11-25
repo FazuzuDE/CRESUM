@@ -94,6 +94,8 @@ function setup(initial: string | null = null) {
 }
 it.each([
   ['nl', 'nl'],
+  ['sv', 'sv'],
+  ['sv-SE', 'sv'],
   ['nl-NL', 'nl'],
   ['nl-BE', 'nl'],
   ['uk-UA', 'uk'],
@@ -238,7 +240,7 @@ it('persists Vietnamese independently of device locale and restores it on reload
   });
 });
 
-it.each(['mr', 'id', 'ko', 'nl'] as const)(
+it.each(['mr', 'id', 'ko', 'nl', 'sv'] as const)(
   'persists %s independently of device language and restores it after reload',
   async (locale) => {
     let saved: string | null = null;
@@ -265,12 +267,12 @@ it('keeps Dutch in internal preview until its release flag is enabled', async ()
   const production = new LocaleStore(
     storage,
     () => ['nl-BE', 'fr-BE'],
-    enabledAppLocales(false),
+    enabledAppLocales(),
   );
   const preview = new LocaleStore(
     storage,
     () => ['nl-BE', 'fr-BE'],
-    enabledAppLocales(true),
+    enabledAppLocales({ nl: true }),
   );
   const expected = localeRegistry.nl.released ? 'nl' : 'fr';
   await production.load();
@@ -279,4 +281,27 @@ it('keeps Dutch in internal preview until its release flag is enabled', async ()
   expect(await production.select('nl')).toBe(localeRegistry.nl.released);
   expect(preview.getSnapshot().locale).toBe('nl');
   expect(await preview.select('nl')).toBe(true);
+});
+
+it('keeps Svenska in its own preview and can return to the device language', async () => {
+  const storage = { getItem: async () => null, setItem: async () => {} };
+  const production = new LocaleStore(
+    storage,
+    () => ['sv-SE', 'de-AT'],
+    enabledAppLocales({ nl: true }),
+  );
+  const preview = new LocaleStore(
+    storage,
+    () => ['sv-SE', 'de-AT'],
+    enabledAppLocales({ sv: true }),
+  );
+  await production.load();
+  expect(production.getSnapshot().locale).toBe('de');
+  expect(await production.select('sv')).toBe(false);
+  await preview.load();
+  expect(preview.getSnapshot().locale).toBe('sv');
+  expect(await preview.select('en')).toBe(true);
+  expect(preview.getSnapshot().locale).toBe('en');
+  expect(await preview.select('system')).toBe(true);
+  expect(preview.getSnapshot().locale).toBe('sv');
 });

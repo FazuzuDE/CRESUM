@@ -262,3 +262,17 @@ it('uses Dutch decimal and date notation without rounding exact input', () => {
     }),
   ).toBe('25 november 2026');
 });
+
+it('formats Swedish dates and numbers without changing exact stored decimal input', () => {
+  expect(normalizeDecimalInput('62,5')).toBe('62.5');
+  expect(formatEntryNumber('sv', '62.5')).toBe('62,5');
+  expect(formatNumber('sv', 1234.5).replace(/\s/g, ' ')).toBe('1 234,5');
+  expect(
+    formatDate('sv', Date.UTC(2026, 10, 25), {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    }),
+  ).toBe('25 november 2026');
+});

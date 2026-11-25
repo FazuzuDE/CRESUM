@@ -44,11 +44,13 @@ function validateCatalogs(catalogs) {
 const comparableCopy = (text) =>
   text.normalize('NFKC').trim().replace(/\s+/gu, ' ').toLowerCase();
 
-function validateDutchCopy(catalogs, exceptions) {
+const strictCopyLocales = ['nl', 'sv'];
+
+function validateLocalizedCopy(catalogs, locale, exceptions) {
   const errors = [];
   const usedExceptions = new Set();
   for (const [key, source] of Object.entries(catalogs.en)) {
-    const translation = catalogs.nl?.[key];
+    const translation = catalogs[locale]?.[key];
     if (translation == null) continue; // Catalog parity reports missing keys.
     const originals = (
       typeof source === 'string' ? [source] : Object.values(source)
@@ -69,22 +71,22 @@ function validateDutchCopy(catalogs, exceptions) {
         typeof exception.reason !== 'string' ||
         !exception.reason.trim()
       )
-        errors.push('nl: unchanged English copy ' + id);
+        errors.push(locale + ': unchanged English copy ' + id);
       else usedExceptions.add(id);
     }
   }
   for (const id of Object.keys(exceptions))
     if (!usedExceptions.has(id))
-      errors.push('nl: stale English-copy exception ' + id);
+      errors.push(locale + ': stale English-copy exception ' + id);
   return errors;
 }
 
-function validateTechniqueLinks(catalogs, exercises, techniqueCatalog) {
+function validateTechniqueLinks(catalogs, locale, exercises, techniqueCatalog) {
   const errors = [];
   for (const { id } of exercises) {
     const guide = techniqueCatalog[id];
     if (!guide) {
-      errors.push('nl: missing linked technique guide ' + id);
+      errors.push(locale + ': missing linked technique guide ' + id);
       continue;
     }
     const required = [
@@ -98,9 +100,9 @@ function validateTechniqueLinks(catalogs, exercises, techniqueCatalog) {
     ];
     for (const field of required) {
       const key = 'guide.' + id + '.' + field;
-      const value = catalogs.nl?.[key];
+      const value = catalogs[locale]?.[key];
       if (typeof value !== 'string' || !value.trim())
-        errors.push('nl: missing technique translation ' + key);
+        errors.push(locale + ': missing technique translation ' + key);
     }
   }
   return errors;
@@ -262,8 +264,11 @@ function releaseEligibility(
           acceptance[locale]?.native !== true)
       )
         errors.push(`${locale}: web/native acceptance pending`);
-      if (locale === 'nl' && acceptance.nl?.linguistic !== true)
-        errors.push('nl: independent linguistic acceptance pending');
+      if (
+        strictCopyLocales.includes(locale) &&
+        acceptance[locale]?.linguistic !== true
+      )
+        errors.push(locale + ': independent linguistic acceptance pending');
       return [locale, { eligible: errors.length === 0, errors }];
     }),
   );
@@ -307,15 +312,20 @@ function run() {
     ...additions,
   ];
   const errors = validateCatalogs(catalogs);
-  if (catalogs.nl)
-    errors.push(
-      ...validateDutchCopy(
-        catalogs,
-        JSON.parse(
-          fs.readFileSync('docs/localization-nl-copy-exceptions.json', 'utf8'),
+  for (const locale of strictCopyLocales)
+    if (catalogs[locale])
+      errors.push(
+        ...validateLocalizedCopy(
+          catalogs,
+          locale,
+          JSON.parse(
+            fs.readFileSync(
+              `docs/localization-${locale}-copy-exceptions.json`,
+              'utf8',
+            ),
+          ),
         ),
-      ),
-    );
+      );
   const untracked = compareInventory(current, baseline);
   errors.push(
     ...untracked.map((x) => `${x.file}:${x.line}: untracked copy: ${x.text}`),
@@ -341,10 +351,16 @@ function run() {
   const { techniqueCatalog } = loadTs(
     path.resolve('lib/exercise-technique/catalog.ts'),
   );
-  if (catalogs.nl)
-    errors.push(
-      ...validateTechniqueLinks(catalogs, exerciseLibrary, techniqueCatalog),
-    );
+  for (const locale of strictCopyLocales)
+    if (catalogs[locale])
+      errors.push(
+        ...validateTechniqueLinks(
+          catalogs,
+          locale,
+          exerciseLibrary,
+          techniqueCatalog,
+        ),
+      );
   const { trainingPrograms } = loadTs(
     path.resolve('lib/training-programs/catalog.ts'),
   );
@@ -452,7 +468,7 @@ function run() {
 }
 module.exports = {
   validateCatalogs,
-  validateDutchCopy,
+  validateLocalizedCopy,
   validateTechniqueLinks,
   validateProgramLocalization,
   validateSearchAliases,
