@@ -1,13 +1,20 @@
 # CRESUM Decision Log
 
+## 2026-11-25 — Same languages in test and final builds
+
+Show every bundled registry language in test and final builds. The language
+wheel and device detection do not depend on acceptance flags. Keep pending
+checks recorded honestly and do a final pass before store publication. See
+[Product Definition](PRODUCT.md).
+
 ## 2026-11-25 — Dutch localization and contributor checks
 
 Dutch uses the existing offline catalogs and search. For new app-controlled
 content, missing or empty Dutch messages and missing catalog labels/aliases fail
 the existing CI check. Unchanged English requires an exact, justified Dutch
 exception. Built-in plans require localized titles, days and linked exercises.
-Dutch release requires verified browser, both device platforms and independent
-linguistic acceptance.
+Dutch acceptance evidence tracks browser, both device platforms and
+linguistic checks separately from availability.
 
 ## 2026-11-24 — Cardio timing in an active workout
 

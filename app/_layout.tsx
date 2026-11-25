@@ -1,4 +1,3 @@
-import { enabledAppLocales } from '@/lib/i18n/registry';
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { LocalizationProvider } from '@/components/LocalizationProvider';
@@ -19,7 +18,6 @@ export default function Layout() {
       new LocaleStore(
         AsyncStorage,
         () => (getLocales() ?? []).map((value) => value.languageTag),
-        enabledAppLocales(process.env.EXPO_PUBLIC_DUTCH_PREVIEW === 'true'),
       ),
   );
   return (

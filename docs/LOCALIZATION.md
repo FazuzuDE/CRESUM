@@ -8,7 +8,6 @@ Use a clean checkout of the QA commit and Node/npm from `.nvmrc` and
 ```sh
 npm ci
 EXPO_NO_DOTENV=1 \
-EXPO_PUBLIC_DUTCH_PREVIEW=true \
 EXPO_PUBLIC_SUPABASE_URL=disabled \
 EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY=disabled \
 EXPO_PUBLIC_SHARING_ENABLED=false \
@@ -17,11 +16,11 @@ npm start -- --go --lan --clear
 ```
 
 Open the Metro QR code in an SDK-compatible Expo Go on a physical iPhone and
-Android. Use test data. The preview command enables Dutch in the language
-picker. Keep the registry and acceptance flags unchanged during the test.
-Other languages retain their current picker behavior. Expo Go uses the picker
-fallback. To accept the iOS UIKit wheel, repeat the wheel checks in
-the signed `preview` build described in [Device builds](DEVICE_BUILDS.md).
+Android. Use test data. The same bundled languages are selectable in Expo Go
+and in production without a preview flag. Keep the registry and acceptance
+flags unchanged during the test. Expo Go uses the picker fallback. To accept
+the iOS UIKit wheel, repeat the wheel checks in the signed `preview` build
+described in [Device builds](DEVICE_BUILDS.md).
 
 Start with German, French and Russian, then cover every other registry locale
 on both platforms. Record the commit, phone, OS, build type and results.
@@ -58,10 +57,9 @@ publications use their English metadata.
 
 Dutch uses a single offline catalog for the Netherlands and Dutch-speaking
 Belgium. The language wheel can select Nederlands manually or follow the
-device locale for `nl`, `nl-NL` and `nl-BE` when enabled. Before release,
-Nederlands is available through the internal preview command above; a normal
-build omits it from language selection and system detection. Publication metadata uses an
-optional `nl` field and preserves the English fallback for older publications.
+device locale for `nl`, `nl-NL` and `nl-BE` in both preview and production
+builds. Publication metadata uses an optional `nl` field and preserves the
+English fallback for older publications.
 
 Use the [phone QA setup](#physical-device-localization-qa) on both phones:
 
@@ -81,7 +79,9 @@ Use the [phone QA setup](#physical-device-localization-qa) on both phones:
 
 Record this evidence and independent fluent review of the Dutch terms and
 technique separately. Dutch requires `web`, `native` and `linguistic` acceptance
-before its release flag can be enabled.
+before its acceptance flag can be marked released. The flag records
+acceptance and does not control availability. Independent review is not
+planned; leave that result unconfirmed.
 
 ## Korean — approved 2026-11-18
 
