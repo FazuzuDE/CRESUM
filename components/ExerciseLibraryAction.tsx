@@ -1,4 +1,4 @@
-import { Platform, Pressable, StyleSheet } from 'react-native';
+import { Platform, Pressable, StyleSheet, View } from 'react-native';
 import Animated, { useReducedMotion } from 'react-native-reanimated';
 import { useAppColors } from './AppThemeProvider';
 import { DirectionalIcon, LocalizedText } from './LayoutDirection';
@@ -57,21 +57,25 @@ export function ExerciseLibraryAction({
         } as const;
         return (
           <>
-            <Animated.View
-              pointerEvents="none"
-              style={[
-                styles.frame,
-                {
-                  transform: [{ scale: closed ? 0.9 : 1 }, { skewX: '-32deg' }],
-                  transitionProperty: 'transform',
-                  transitionDuration: duration,
-                  transitionTimingFunction: 'ease',
-                },
-              ]}
-            >
-              <Animated.View style={[styles.leadingCorner, corner]} />
-              <Animated.View style={[styles.trailingCorner, corner]} />
-            </Animated.View>
+            <View pointerEvents="none" style={styles.frameBounds}>
+              <Animated.View
+                style={[
+                  styles.frame,
+                  {
+                    transform: [
+                      { scale: closed ? 0.9 : 1 },
+                      { skewX: '-32deg' },
+                    ],
+                    transitionProperty: 'transform',
+                    transitionDuration: duration,
+                    transitionTimingFunction: 'ease',
+                  },
+                ]}
+              >
+                <Animated.View style={[styles.leadingCorner, corner]} />
+                <Animated.View style={[styles.trailingCorner, corner]} />
+              </Animated.View>
+            </View>
             {showIcon ? (
               <DirectionalIcon
                 name={selected ? 'checkmark' : 'add'}
@@ -100,6 +104,10 @@ const styles = StyleSheet.create({
     gap: spacing.xxs,
     paddingHorizontal: spacing.xl,
     paddingVertical: spacing.sm,
+  },
+  frameBounds: {
+    ...StyleSheet.absoluteFillObject,
+    overflow: 'hidden',
   },
   frame: {
     position: 'absolute',
