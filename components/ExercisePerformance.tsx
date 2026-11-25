@@ -1,3 +1,4 @@
+import { workoutExerciseLabel } from '@/lib/i18n/catalog';
 import {
   createThemedStyles,
   useAppColors,
@@ -47,18 +48,25 @@ export function ExercisePerformance({ history, period, now }: Props) {
   const [setsOpen, setSetsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const choices = useMemo(
-    () => listPerformanceExercises(history, now),
-    [history, now],
+    () =>
+      listPerformanceExercises(history, now).map((choice) => ({
+        ...choice,
+        label: workoutExerciseLabel(locale, {
+          libraryId: choice.sourceId,
+          name: choice.name,
+        }),
+      })),
+    [history, now, locale],
   );
   const selected = choices.find((choice) => choice.identityKey === identityKey);
   const choiceLabel = (choice: (typeof choices)[number]) =>
     choices.some(
       (other) =>
         other.identityKey !== choice.identityKey &&
-        other.name.toLocaleLowerCase() === choice.name.toLocaleLowerCase(),
+        other.label.toLocaleLowerCase() === choice.label.toLocaleLowerCase(),
     )
-      ? `${choice.name} (${choice.sourceId})`
-      : choice.name;
+      ? `${choice.label} (${choice.sourceId})`
+      : choice.label;
   const entries = useMemo(
     () =>
       identityKey
@@ -175,10 +183,10 @@ export function ExercisePerformance({ history, period, now }: Props) {
               style={s.sheetTitle}
               numberOfLines={2}
               accessibilityLabel={t('performance.loggedTitle', {
-                name: selected?.name ?? '',
+                name: selected?.label ?? '',
               })}
             >
-              {t('performance.loggedTitle', { name: selected?.name ?? '' })}
+              {t('performance.loggedTitle', { name: selected?.label ?? '' })}
             </Text>
           </View>
           <AppScrollView

@@ -455,3 +455,37 @@ it('keeps source-weight precision in statistics and estimated-record charts and 
     act(() => series.view.unmount());
   }
 });
+
+it('localizes canonical exercise names in the Thai muscle history and preserves renamed exercises', async () => {
+  const original = history[0].exercises[0];
+  const records = [
+    {
+      ...history[0],
+      exercises: [
+        original,
+        {
+          ...original,
+          id: 'canonical-bench',
+          libraryId: 'barbell-bench-press',
+          name: 'Barbell Bench Press',
+        },
+      ],
+    },
+  ];
+  const before = JSON.stringify(records);
+  const ui = await setup(
+    <MuscleProgress history={records} now={now} onOverview={() => {}} />,
+  );
+  try {
+    await act(async () => {
+      await ui.locale.select('th');
+      ui.view.root.findByType(MuscleMap).props.onSelect('chest');
+    });
+    await ui.button(createTranslator('th')('muscle.showSets'));
+    expect(ui.text()).toContain('เบนช์เพรสบาร์เบล');
+    expect(ui.text()).toContain('CUSTOM bench');
+    expect(JSON.stringify(records)).toBe(before);
+  } finally {
+    act(() => ui.view.unmount());
+  }
+});

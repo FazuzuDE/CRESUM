@@ -1145,6 +1145,17 @@ async function main() {
             .getByRole('tab', { name: contains(text('nav.progress')) })
             .click();
           await button('progress.muscles').waitFor();
+          await page
+            .getByRole('heading', {
+              name: text('progress.estimated'),
+              exact: true,
+            })
+            .locator('..')
+            .getByText(text('catalog.exercise.dumbbell-lateral-raise'), {
+              exact: true,
+            })
+            .waitFor();
+          result.localizedProgressRecord = true;
           await capture('progress');
           await button('progress.muscles').click();
           await capture('muscles');
