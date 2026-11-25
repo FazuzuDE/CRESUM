@@ -43,7 +43,7 @@ export default {
   'library.discardAndRemove': 'Verwijderen zonder opslaan',
   'library.addName': '{{name}} toevoegen',
   'library.alreadyAddedName': '{{name}} is al toegevoegd',
-  'library.add': 'Toevoegen',
+  'library.add': 'Voeg toe',
   'library.added': 'Toegevoegd',
   'library.techniqueFor': 'Techniek voor {{name}}',
   'library.techniqueHint':

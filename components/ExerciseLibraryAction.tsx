@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet } from 'react-native';
+import { Platform, Pressable, StyleSheet } from 'react-native';
 import Animated, { useReducedMotion } from 'react-native-reanimated';
 import { useAppColors } from './AppThemeProvider';
 import { DirectionalIcon, LocalizedText } from './LayoutDirection';
@@ -125,6 +125,8 @@ const styles = StyleSheet.create({
   label: {
     ...typography.subheadline,
     flexShrink: 1,
+    minWidth: 0,
+    ...Platform.select({ web: { wordBreak: 'break-word' } }),
     textAlign: 'center',
     fontWeight: '700',
   },

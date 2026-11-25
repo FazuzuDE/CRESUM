@@ -97,7 +97,8 @@ it('supports Russian plurals when the runtime has no native Intl.PluralRules', (
 it('resolves ordered device locales safely and respects manual choice', () => {
   expect(resolveLocale('system', ['es-ES', 'de-AT'])).toBe('es');
   expect(resolveLocale('system', ['it-IT', 'de-AT'])).toBe('it');
-  expect(resolveLocale('system', ['nl-NL', 'de-AT'])).toBe('de');
+  expect(resolveLocale('system', ['nl-NL', 'de-AT'])).toBe('nl');
+  expect(resolveLocale('system', ['sv-SE', 'de-AT'])).toBe('de');
   expect(resolveLocale('system', ['???', 'zh-CN'])).toBe('zh-Hans');
   expect(resolveLocale('system', ['zh-Hant', 'de-AT'])).toBe('de');
   expect(resolveLocale('system', ['zh-TW', 'en-US'])).toBe('en');
