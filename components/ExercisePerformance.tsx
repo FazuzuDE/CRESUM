@@ -51,7 +51,8 @@ export function ExercisePerformance({ history, period, now }: Props) {
     () =>
       listPerformanceExercises(history, now).map((choice) => ({
         ...choice,
-        label: workoutExerciseLabel(locale, {
+        savedName: choice.name,
+        name: workoutExerciseLabel(locale, {
           libraryId: choice.sourceId,
           name: choice.name,
         }),
@@ -63,10 +64,10 @@ export function ExercisePerformance({ history, period, now }: Props) {
     choices.some(
       (other) =>
         other.identityKey !== choice.identityKey &&
-        other.label.toLocaleLowerCase() === choice.label.toLocaleLowerCase(),
+        other.name.toLocaleLowerCase() === choice.name.toLocaleLowerCase(),
     )
-      ? `${choice.label} (${choice.sourceId})`
-      : choice.label;
+      ? `${choice.name} (${choice.sourceId})`
+      : choice.name;
   const entries = useMemo(
     () =>
       identityKey
@@ -89,7 +90,7 @@ export function ExercisePerformance({ history, period, now }: Props) {
         choice.sourceId,
         searchQuery,
         locale,
-        choice.name,
+        choice.savedName,
       ),
     }))
     .filter(({ score }) => score > 0)
@@ -183,10 +184,10 @@ export function ExercisePerformance({ history, period, now }: Props) {
               style={s.sheetTitle}
               numberOfLines={2}
               accessibilityLabel={t('performance.loggedTitle', {
-                name: selected?.label ?? '',
+                name: selected?.name ?? '',
               })}
             >
-              {t('performance.loggedTitle', { name: selected?.label ?? '' })}
+              {t('performance.loggedTitle', { name: selected?.name ?? '' })}
             </Text>
           </View>
           <AppScrollView
