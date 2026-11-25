@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.sm,
   },
   frameBounds: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     overflow: 'hidden',
   },
   frame: {
