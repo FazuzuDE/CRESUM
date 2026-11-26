@@ -45,17 +45,30 @@ function validateCatalogs(catalogs) {
 const comparableCopy = (text) =>
   text.normalize('NFKC').trim().replace(/\s+/gu, ' ').toLowerCase();
 
-const strictCopyLocales = ['nl', 'sv', 'th', 'ur', 'te', 'ta', 'zh-Hant', 'nb'];
+const strictCopyLocales = [
+  'nl',
+  'sv',
+  'th',
+  'ur',
+  'te',
+  'ta',
+  'zh-Hant',
+  'nb',
+  'fi',
+];
 
-function validateNbSource(current, reviewed) {
+const sourceReviewedLocales = ['nb', 'fi'];
+
+function validateReviewedSource(locale, current, reviewed) {
   return Object.keys({ ...current, ...reviewed })
     .filter((file) => current[file] !== reviewed[file])
     .map(
-      (file) => `nb: review translation after English source change in ${file}`,
+      (file) =>
+        `${locale}: review translation after English source change in ${file}`,
     );
 }
 
-function nbSourceSnapshot(cameraPermission) {
+function sourceSnapshot(cameraPermission) {
   const directory = 'lib/i18n/locales/en';
   const files = fs
     .readdirSync(directory)
@@ -288,7 +301,7 @@ function validateSearchAliases(aliases, registry, catalogs, records) {
           errors.push(
             `${locale}: missing Taiwan search alias ${kind}.${record.id}`,
           );
-        else if (locale === 'nb') {
+        else if (sourceReviewedLocales.includes(locale)) {
           const key = record.messageKey ?? `catalog.${kind}.${record.id}`;
           const english = [
             catalogs.en?.[key],
@@ -297,7 +310,9 @@ function validateSearchAliases(aliases, registry, catalogs, records) {
             .filter((value) => typeof value === 'string')
             .map(comparableCopy);
           if (!values.some((value) => !english.includes(comparableCopy(value))))
-            errors.push(`nb: missing Bokmål search alias ${kind}.${record.id}`);
+            errors.push(
+              `${locale}: missing local search alias ${kind}.${record.id}`,
+            );
         }
         const key = record.messageKey ?? `catalog.${kind}.${record.id}`;
         const text = catalogs[locale]?.[key];
@@ -416,37 +431,45 @@ function run() {
     ...additions,
   ];
   const errors = validateCatalogs(catalogs);
-  const nbSourcePath = 'docs/localization-nb-source.json';
   const { expo } = JSON.parse(fs.readFileSync('app.json', 'utf8'));
   const cameraPermission = expo.plugins.find(
     (plugin) => Array.isArray(plugin) && plugin[0] === 'expo-camera',
   )?.[1]?.cameraPermission;
-  const nativeNb = expo.locales?.nb;
-  const localizedCameraPermission = nativeNb
-    ? JSON.parse(fs.readFileSync(nativeNb, 'utf8')).ios
-        ?.NSCameraUsageDescription
-    : undefined;
-  if (
-    typeof localizedCameraPermission !== 'string' ||
-    !localizedCameraPermission.trim() ||
-    localizedCameraPermission === cameraPermission
-  )
-    errors.push('nb: missing localized iOS camera permission');
-  const nbSource = nbSourceSnapshot(cameraPermission ?? null);
-  const reviewedNbSource = JSON.parse(fs.readFileSync(nbSourcePath, 'utf8'));
-  const recordNb = process.argv.indexOf('--record-nb-source');
-  if (recordNb === -1) {
-    errors.push(...validateNbSource(nbSource, reviewedNbSource));
-  } else {
-    const files = process.argv.slice(recordNb + 1);
-    for (const file of files.length ? files : Object.keys(nbSource)) {
-      if (Object.hasOwn(nbSource, file))
-        reviewedNbSource[file] = nbSource[file];
-      else if (Object.hasOwn(reviewedNbSource, file))
-        delete reviewedNbSource[file];
-      else errors.push(`nb: unknown English source ${file}`);
+  const currentSource = sourceSnapshot(cameraPermission ?? null);
+  const sourceUpdates = [];
+  for (const locale of sourceReviewedLocales) {
+    const nativeFile = expo.locales?.[locale];
+    const camera = nativeFile
+      ? JSON.parse(fs.readFileSync(nativeFile, 'utf8')).ios
+          ?.NSCameraUsageDescription
+      : undefined;
+    if (
+      typeof camera !== 'string' ||
+      !camera.trim() ||
+      camera === cameraPermission
+    )
+      errors.push(`${locale}: missing localized iOS camera permission`);
+
+    const sourcePath = `docs/localization-${locale}-source.json`;
+    const reviewedSource = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
+    const record = process.argv.indexOf(`--record-${locale}-source`);
+    if (record !== -1) {
+      const next = process.argv.findIndex(
+        (arg, index) => index > record && arg.startsWith('--'),
+      );
+      const files = process.argv.slice(record + 1, next < 0 ? undefined : next);
+      for (const file of files.length ? files : Object.keys(currentSource)) {
+        if (Object.hasOwn(currentSource, file))
+          reviewedSource[file] = currentSource[file];
+        else if (Object.hasOwn(reviewedSource, file))
+          delete reviewedSource[file];
+        else errors.push(`${locale}: unknown English source ${file}`);
+      }
+      sourceUpdates.push([sourcePath, reviewedSource]);
     }
-    errors.push(...validateNbSource(nbSource, reviewedNbSource));
+    errors.push(
+      ...validateReviewedSource(locale, currentSource, reviewedSource),
+    );
   }
   for (const locale of strictCopyLocales)
     if (catalogs[locale])
@@ -603,11 +626,11 @@ function run() {
     process.stderr.write(errors.join('\n') + '\n');
     process.exitCode = 1;
   } else {
-    if (recordNb !== -1)
+    for (const [sourcePath, reviewedSource] of sourceUpdates)
       fs.writeFileSync(
-        nbSourcePath,
+        sourcePath,
         JSON.stringify(
-          Object.fromEntries(Object.entries(reviewedNbSource).sort()),
+          Object.fromEntries(Object.entries(reviewedSource).sort()),
           null,
           2,
         ) + '\n',
@@ -620,7 +643,7 @@ function run() {
 }
 module.exports = {
   validateCatalogs,
-  validateNbSource,
+  validateReviewedSource,
   validateLocalizedCopy,
   validateTechniqueLinks,
   validateProgramLocalization,

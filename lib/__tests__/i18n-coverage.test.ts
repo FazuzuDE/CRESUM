@@ -1,4 +1,4 @@
-const { validateCatalogs, validateNbSource, compareInventory } =
+const { validateCatalogs, validateReviewedSource, compareInventory } =
   jest.requireActual('../../scripts/check-localization.cjs');
 const { sourceCandidates } = jest.requireActual(
   '../../scripts/inventory-localization.cjs',
@@ -360,9 +360,24 @@ it('rejects missing Bokmål fields and translations reviewed against older Engli
   ).toContain('nb.required: parameters differ');
   const file = 'lib/i18n/locales/en/workout.ts';
   expect(
-    validateNbSource({ [file]: 'changed' }, { [file]: 'reviewed' }),
+    validateReviewedSource('nb', { [file]: 'changed' }, { [file]: 'reviewed' }),
   ).toEqual(['nb: review translation after English source change in ' + file]);
   expect(
-    validateNbSource({ [file]: 'changed' }, { [file]: 'changed' }),
+    validateReviewedSource('nb', { [file]: 'changed' }, { [file]: 'changed' }),
   ).toEqual([]);
+});
+
+it('rejects missing, empty, stale and incompatible Finnish translations', () => {
+  const en = { required: 'New field {{name}}' };
+  expect(validateCatalogs({ en, fi: {} })).toContain('fi: missing required');
+  expect(validateCatalogs({ en, fi: { required: '' } })).toContain(
+    'fi.required: empty text',
+  );
+  expect(
+    validateCatalogs({ en, fi: { required: 'Uusi kenttä {{other}}' } }),
+  ).toContain('fi.required: parameters differ');
+  const file = 'lib/i18n/locales/en/workout.ts';
+  expect(
+    validateReviewedSource('fi', { [file]: 'new' }, { [file]: 'old' }),
+  ).toEqual(['fi: review translation after English source change in ' + file]);
 });

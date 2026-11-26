@@ -1,3 +1,17 @@
+import fiCatalog from './locales/fi/catalog';
+import fiCommon from './locales/fi/common';
+import fiEditor from './locales/fi/editor';
+import fiEquipment from './locales/fi/equipment';
+import fiHistory from './locales/fi/history';
+import fiHome from './locales/fi/home';
+import fiLibrary from './locales/fi/library';
+import fiOnboarding from './locales/fi/onboarding';
+import fiProfile from './locales/fi/profile';
+import fiProgramTechnique from './locales/fi/program-technique';
+import fiProgress from './locales/fi/progress';
+import fiSharing from './locales/fi/sharing';
+import fiTechniqueContent from './locales/fi/technique-content';
+import fiWorkout from './locales/fi/workout';
 import nbCatalog from './locales/nb/catalog';
 import nbCommon from './locales/nb/common';
 import nbEditor from './locales/nb/editor';
@@ -552,6 +566,22 @@ const zhHans = {
   ...zhHansProgramTechnique,
   ...zhHansTechniqueContent,
 } as const;
+const fi = {
+  ...fiCatalog,
+  ...fiCommon,
+  ...fiEditor,
+  ...fiEquipment,
+  ...fiHistory,
+  ...fiHome,
+  ...fiLibrary,
+  ...fiOnboarding,
+  ...fiProfile,
+  ...fiProgramTechnique,
+  ...fiProgress,
+  ...fiSharing,
+  ...fiTechniqueContent,
+  ...fiWorkout,
+} as const;
 const nb = {
   ...nbCatalog,
   ...nbCommon,
@@ -823,6 +853,7 @@ export const catalogs = {
   pl,
   tr,
   'zh-Hans': zhHans,
+  fi,
   nb,
   'zh-Hant': zhHant,
   hi,

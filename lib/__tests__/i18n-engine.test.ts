@@ -292,3 +292,9 @@ it('selects Bokmål singular and plural phrases', () => {
   expect(t('history.lastCount', { count: 1 })).toBe('Siste 1 økt');
   expect(t('history.lastCount', { count: 2 })).toBe('Siste 2 økter');
 });
+
+it('uses Finnish singular and plural forms', () => {
+  const t = createTranslator('fi');
+  expect(t('common.setCount', { count: 1 })).toBe('1 sarja');
+  expect(t('common.setCount', { count: 2 })).toBe('2 sarjaa');
+});

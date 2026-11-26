@@ -1,0 +1,70 @@
+{
+  "body.point": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "{{date}} · {{value}} kg"
+  },
+  "conflict.setValue": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "{{weight}} kg × {{reps}} · {{status}}"
+  },
+  "conflict.setValueBoth": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "{{weight}} kg × {{reps}} / {{other}} · {{status}}"
+  },
+  "editor.weightValue": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "{{weight}} kg"
+  },
+  "entry.bilateralSummary": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "{{weight}} kg × {{reps}} / {{other}}"
+  },
+  "entry.singleSummary": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "{{weight}} kg × {{reps}}"
+  },
+  "home.kilograms": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "{{value}} kg"
+  },
+  "home.tonnes": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "{{value}} t"
+  },
+  "onboarding.cm": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "cm"
+  },
+  "onboarding.kg": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "kg"
+  },
+  "onboarding.welcomeOk": {
+    "reason": "OK is a standard acknowledgement in Finnish.",
+    "text": "OK"
+  },
+  "progress.kg": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "kg"
+  },
+  "progress.loggedSet": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "{{weight}} kg × {{reps}}"
+  },
+  "progress.point": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "{{name}}, {{date}}, {{value}} kg"
+  },
+  "progress.valueKg": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "{{value}} kg"
+  },
+  "sharing.weight": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "{{weight}} kg"
+  },
+  "workout.tableKg": {
+    "reason": "Localized numeric data with international units or symbols.",
+    "text": "KG"
+  }
+}

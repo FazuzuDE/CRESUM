@@ -1053,3 +1053,34 @@ The signed iOS build uses the Bokmål camera usage description in
 `lib/i18n/locales/nb/native.json` when iOS selects Bokmål. The in-app QR
 permission screen uses the regular catalog. Changing the default camera
 usage description requires reviewing `app.json` in the Bokmål source ledger.
+
+## Finnish (Suomi)
+
+Suomi is available in onboarding and Settings regardless of acceptance flags.
+Device tags `fi` and `fi-FI` select Finnish, while `sv-FI` selects Swedish.
+Finnish dates and numbers use `fi-FI`.
+
+Translate every English message, including accessibility text, guide steps,
+exercise names, equipment and muscles. Preserve placeholder names, units,
+plural forms, variants, and safety instructions. Add Finnish search
+alternatives for each searchable ID. Use recognizable English gym names as
+additional aliases. Shared search folds case and accents, so `JALKAPRÄSSI`
+and `jalkaprassi` match the same exercise. Keep distinct grips and equipment
+variants separate.
+
+Review affected Finnish and Bokmål text when the English source changes, and
+update the reviewed file digests once the translations fit. For example:
+
+```sh
+node scripts/check-localization.cjs --record-fi-source lib/i18n/locales/en/workout.ts --record-nb-source lib/i18n/locales/en/workout.ts
+```
+
+The command writes the ledgers only once localization contracts pass. Review
+`lib/i18n/search/en.ts` for English alias changes and `app.json` for changes to
+the default iOS camera prompt. Localized native camera copy is in
+`lib/i18n/locales/fi/native.json`.
+
+Run the full browser matrix. On iPhone and Android, verify onboarding, Settings,
+restart and System behavior in Expo Go and the signed build. Check Finnish
+dates, weight entry with a comma, History, offline search, large text and
+VoiceOver or TalkBack. Record the exact build, device, and OS.
