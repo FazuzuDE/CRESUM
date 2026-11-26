@@ -1140,7 +1140,8 @@ and precise borrowed names without attaching generic queries to every variant.
 The existing CI check enforces Czech key coverage, placeholders, plurals,
 technique, and aliases. When an English catalog or search alias changes,
 review the affected Czech text and search terms, then update the Czech source
-ledger alongside the other affected ledgers. For example:
+ledger alongside the other affected ledgers. For an English workout catalog
+change, run the following command.
 
 ```sh
 node scripts/check-localization.cjs \
@@ -1154,7 +1155,12 @@ Record `lib/i18n/search/en.ts` for English alias changes and `app.json`
 for changes to the English iOS camera purpose string. The latter has its Czech
 counterpart in `lib/i18n/locales/cs/native.json`. Run `npm run i18n:check`
 after recording the review. Acceptance status tracks QA independently of
-availability. Independent linguistic acceptance is pending and is not planned.
+availability. Independent linguistic review is not planned.
+
+The Czech browser scenarios passed at 320 px and 390 px with both standard
+and expanded text on the `0.3.40` runtime from `ca737fe`. They exercised
+onboarding, Settings, manual persistence, the system choice, RTL-to-LTR
+switching, offline search and History with both decimal marks.
 
 ### Czech physical-device checklist
 
