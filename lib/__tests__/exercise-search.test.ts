@@ -469,6 +469,38 @@ it('finds Swedish names offline with or without accents, case, spacing and hyphe
   expect(ids('motionscykel', 'sv')).not.toContain('treadmill-walking');
 });
 
+it.each(['th', 'en'] as const)(
+  'finds Thai gym vocabulary offline in %s while preserving Thai marks and equipment filters',
+  (locale) => {
+    for (const [query, exercise] of [
+      ['ลู่วิ่ง', 'treadmill-walking'],
+      ['จักรยานออกกำลังกาย', 'upright-stationary-bike'],
+      ['จักรยาน ออก กำลังกาย', 'upright-stationary-bike'],
+      ['ดัมเบล', 'dumbbell-lateral-raise'],
+      ['ดัม เบล', 'dumbbell-lateral-raise'],
+      ['บาร์เบล', 'barbell-bench-press'],
+      ['เลกเพรส', 'leg-press'],
+      ['เลก เพรส', 'leg-press'],
+      ['  LEG   PRESS ', 'leg-press'],
+      ['วิดพื้น', 'push-up'],
+      ['แลตพูลดาวน์มือจับวี', 'lat-pulldown-close-neutral-v-handle'],
+      ['แลตพูลดาวน์มือจับเข้ารูป', 'lat-pulldown-close-neutral-ergonomic-handle'],
+    ]) {
+      expect(ids(query, locale)).toContain(exercise);
+    }
+    expect(normalizeSearch('ไก่')).not.toBe(normalizeSearch('ไก้'));
+    const filtered = searchLocalizedExercises(
+      { query: 'ดัมเบล', equipment: 'dumbbell' },
+      locale,
+    );
+    expect(filtered.map(({ id }) => id)).toContain('dumbbell-lateral-raise');
+    expect(
+      filtered.every(({ equipment }) => equipment.includes('dumbbell')),
+    ).toBe(true);
+    expect(ids('จักรยานออกกำลังกาย', locale)).not.toContain('treadmill-walking');
+  },
+);
+
 it.each(['ur', 'en'] as const)(
   'finds Urdu, Roman Urdu and gym English aliases offline in %s',
   (locale) => {

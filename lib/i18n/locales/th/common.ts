@@ -1,0 +1,23 @@
+export default {
+  'brand.tagline': 'ฝึกให้ดี ติดตามผล พัฒนาไปด้วยกัน',
+  'artwork.placeholder': 'ไม่มีภาพประกอบ: {{name}}',
+  'artwork.generic': 'ไม่มีภาพประกอบท่านี้',
+  'backup.shareTitle': 'บันทึกข้อมูลสำรอง CRESUM',
+  'workout.retrySaveLoad': 'ลองบันทึกหรือโหลดอีกครั้ง',
+  'scroll.top': 'กลับไปด้านบน',
+  'scroll.section': 'กลับไปต้นส่วน',
+  'scroll.hint': 'แตะครั้งแรกเพื่อกลับไปต้นส่วน แตะอีกครั้งเพื่อกลับไปด้านบนสุดของหน้า',
+  'common.retry': 'ลองอีกครั้ง',
+  'common.cancel': 'ยกเลิก',
+  'common.done': 'เสร็จสิ้น',
+  'common.loading': 'กำลังโหลด…',
+  'common.named': '{{name}}',
+  'common.setCount': {
+    other: '{{count, number}} เซต',
+  },
+  'language.title': 'ภาษา',
+  'language.system': 'ภาษาของอุปกรณ์',
+  'language.readError': 'โหลดการตั้งค่าภาษาไม่ได้ ข้อมูลการฝึกยังอยู่ ลองอีกครั้ง',
+  'language.saveError': 'บันทึกภาษาไม่ได้ ระบบยังใช้ภาษาที่เลือกไว้ก่อนหน้า ลองอีกครั้ง',
+  'language.description': 'เลือกภาษาที่ใช้บนอุปกรณ์นี้',
+} as const;

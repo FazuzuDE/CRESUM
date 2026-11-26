@@ -30,6 +30,7 @@ import {
 } from '@/lib/local-backup';
 import { shareBackupFile } from '@/lib/backup-files';
 import { useLocalization } from '@/components/LocalizationProvider';
+import { workoutExerciseLabel } from '@/lib/i18n/catalog';
 import { formatNumber } from '@/lib/i18n/format';
 import { presentAppError } from '@/lib/i18n/errors';
 import { AppError } from '@/lib/app-error';
@@ -281,7 +282,12 @@ function Stats({
                           ]}
                         >
                           <View style={s.recordCopy}>
-                            <Text style={s.recordName}>{r.name}</Text>
+                            <Text style={s.recordName}>
+                              {workoutExerciseLabel(locale, {
+                                libraryId: r.exerciseId,
+                                name: r.name,
+                              })}
+                            </Text>
                             <Text style={s.sub}>
                               {t('progress.loggedSet', {
                                 weight: volumeNumber(locale, r.weight),

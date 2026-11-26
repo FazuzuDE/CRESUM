@@ -1,3 +1,17 @@
+import thCatalog from './locales/th/catalog';
+import thCommon from './locales/th/common';
+import thEditor from './locales/th/editor';
+import thEquipment from './locales/th/equipment';
+import thHistory from './locales/th/history';
+import thHome from './locales/th/home';
+import thLibrary from './locales/th/library';
+import thOnboarding from './locales/th/onboarding';
+import thProfile from './locales/th/profile';
+import thProgramTechnique from './locales/th/program-technique';
+import thProgress from './locales/th/progress';
+import thSharing from './locales/th/sharing';
+import thTechniqueContent from './locales/th/technique-content';
+import thWorkout from './locales/th/workout';
 import svCatalog from './locales/sv/catalog';
 import svCommon from './locales/sv/common';
 import svEditor from './locales/sv/editor';
@@ -610,6 +624,22 @@ const id = {
   ...idTechniqueContent,
   ...idWorkout,
 } as const;
+const th = {
+  ...thCatalog,
+  ...thCommon,
+  ...thEditor,
+  ...thEquipment,
+  ...thHistory,
+  ...thHome,
+  ...thLibrary,
+  ...thOnboarding,
+  ...thProfile,
+  ...thProgramTechnique,
+  ...thProgress,
+  ...thSharing,
+  ...thTechniqueContent,
+  ...thWorkout,
+};
 const sv = {
   ...svCatalog,
   ...svCommon,
@@ -684,6 +714,7 @@ export const catalogs = {
   ko,
   nl,
   sv,
+  th,
 } satisfies Record<string, MessageCatalog>;
 export type MessageKey = keyof typeof en;
 type TrimFormat<S extends string> = S extends `${infer Name},${string}`

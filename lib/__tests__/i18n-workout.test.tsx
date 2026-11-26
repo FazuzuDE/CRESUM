@@ -132,7 +132,7 @@ it('keeps a real editor draft and rest deadline across language switches, then f
     view!.root.findByType(SetEntrySheet).findAllByType(TextInput)[0];
   act(() => weight().props.onChangeText('62,'));
   const sessionId = view!.root.findByType(Workout).props.session.id;
-  for (const next of ['ru', 'nl', 'sv', 'de', 'fr'] as const) {
+  for (const next of ['ru', 'nl', 'sv', 'th', 'de', 'fr'] as const) {
     await act(async () => {
       await locale.select(next);
     });
@@ -142,6 +142,7 @@ it('keeps a real editor draft and rest deadline across language switches, then f
       ru: 'Подход 1',
       nl: 'Set 1',
       sv: 'Set 1',
+      th: 'เซต 1',
       de: 'Satz 1',
       fr: 'Série 1',
     };
@@ -176,7 +177,7 @@ it('keeps a real editor draft and rest deadline across language switches, then f
     .mocked(AsyncStorage.setItem)
     .mock.calls.filter(([key]) => key === STATE_KEY).length;
   const deadline = active.restEndsAt;
-  for (const next of ['nl', 'sv', 'de'] as const) {
+  for (const next of ['nl', 'sv', 'th', 'de'] as const) {
     await act(async () => {
       await locale.select(next);
     });

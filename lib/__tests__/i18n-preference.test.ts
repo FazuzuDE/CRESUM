@@ -96,6 +96,8 @@ it.each([
   ['nl', 'nl'],
   ['sv', 'sv'],
   ['sv-SE', 'sv'],
+  ['th', 'th'],
+  ['th-TH', 'th'],
   ['nl-NL', 'nl'],
   ['nl-BE', 'nl'],
   ['uk-UA', 'uk'],
@@ -244,7 +246,7 @@ it('persists Vietnamese independently of device locale and restores it on reload
   });
 });
 
-it.each(['mr', 'id', 'ko', 'nl', 'sv', 'ur'] as const)(
+it.each(['mr', 'id', 'ko', 'nl', 'sv', 'th', 'ur'] as const)(
   'persists %s independently of device language and restores it after reload',
   async (locale) => {
     let saved: string | null = null;
@@ -283,13 +285,20 @@ it('exposes every bundled locale regardless of release acceptance', async () => 
   }
 });
 
-it('uses Swedish device language after returning from manual selection', async () => {
-  const storage = { getItem: async () => null, setItem: async () => {} };
-  const store = new LocaleStore(storage, () => ['ur-PK', 'de-AT']);
-  await store.load();
-  expect(store.getSnapshot().locale).toBe('ur');
-  expect(await store.select('en')).toBe(true);
-  expect(store.getSnapshot().locale).toBe('en');
-  expect(await store.select('system')).toBe(true);
-  expect(store.getSnapshot().locale).toBe('ur');
-});
+it.each([
+  ['th-TH', 'th'],
+  ['ur-PK', 'ur'],
+  ['ur-IN', 'ur'],
+] as const)(
+  'restores system language for %s after manual selection',
+  async (device, expected) => {
+    const storage = { getItem: async () => null, setItem: async () => {} };
+    const store = new LocaleStore(storage, () => [device, 'de-AT']);
+    await store.load();
+    expect(store.getSnapshot().locale).toBe(expected);
+    expect(await store.select('en')).toBe(true);
+    expect(store.getSnapshot().locale).toBe('en');
+    expect(await store.select('system')).toBe(true);
+    expect(store.getSnapshot().locale).toBe(expected);
+  },
+);

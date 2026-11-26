@@ -103,6 +103,11 @@ function forms(value: string): string[] {
       .replace(/ö/g, 'oe')
       .replace(/ü/g, 'ue'),
   );
+  // Accept optional spaces between Thai words without dropping vowel or tone marks.
+  const thaiJoined = folded.replace(
+    /(\p{Script=Thai}) +(?=\p{Script=Thai})/gu,
+    '$1',
+  );
   // Accept Arabic-script presentation forms and invisible join controls in Urdu queries.
   const presentation = normalizeSearch(
     value
@@ -114,9 +119,9 @@ function forms(value: string): string[] {
         '',
       ),
   );
-  return [...new Set([folded, romanize(folded), german, presentation])].filter(
-    Boolean,
-  );
+  return [
+    ...new Set([folded, romanize(folded), german, thaiJoined, presentation]),
+  ].filter(Boolean);
 }
 
 type Field = { values: string[]; tokens: string[] };

@@ -85,5 +85,6 @@
     "native": false,
     "linguistic": false
   },
+  "th": { "web": true, "native": false, "linguistic": false },
   "ur": { "web": false, "native": false, "linguistic": false }
 }

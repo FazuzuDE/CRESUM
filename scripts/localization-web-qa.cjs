@@ -33,7 +33,8 @@ function expandCatalog(catalog) {
   );
 }
 
-function prepareQaBundle(source, catalogs, patchRegistry = true) {
+function prepareQaBundle(source, catalogs) {
+  if (!catalogs) return source;
   const modules = parse(source).program.body.filter(
     (node) => node.expression?.callee?.name === '__d',
   );
@@ -44,25 +45,10 @@ function prepareQaBundle(source, catalogs, patchRegistry = true) {
     assert.equal(matches.length, 1, `Expected one ${name} module`);
     return matches[0];
   };
-  const replacements = [];
-  if (patchRegistry) {
-    const registry = find('localeRegistry');
-    const original = source.slice(registry.start, registry.end);
-    const code = original.replace(/released:(?:!1|false)/g, 'released:!0');
-    replacements.push({ ...registry, code });
-  }
-  if (catalogs) {
-    const module = find('catalogs');
-    const id = module.expression.arguments[1].value;
-    replacements.push({
-      ...module,
-      code: `__d(function(g,r,i,a,m,e,d){Object.defineProperty(e,"__esModule",{value:true});e.catalogs=${JSON.stringify(catalogs)}},${id},[]);`,
-    });
-  }
-  for (const edit of replacements.sort((a, b) => b.start - a.start)) {
-    source = source.slice(0, edit.start) + edit.code + source.slice(edit.end);
-  }
-  return source;
+  const module = find('catalogs');
+  const id = module.expression.arguments[1].value;
+  const code = `__d(function(g,r,i,a,m,e,d){Object.defineProperty(e,"__esModule",{value:true});e.catalogs=${JSON.stringify(catalogs)}},${id},[]);`;
+  return source.slice(0, module.start) + code + source.slice(module.end);
 }
 
 function assertQaPlan(raw) {
@@ -164,6 +150,10 @@ async function main() {
     option('--output-dir', '.tools/localization-web-qa/browser'),
   );
   const captureScreenshots = !process.argv.includes('--no-screenshots');
+  const screenshotLocale = option('--screenshot-locale', '');
+  const screenshotScreens = option('--screenshot-screens', '')
+    .split(',')
+    .filter(Boolean);
   const entryDir = path.join(exportDir, '_expo/static/js/web');
   const entries = fs
     .readdirSync(entryDir)
@@ -206,18 +196,13 @@ async function main() {
   const { formatEntryNumber, formatNumber } = load(
     path.join(root, 'lib/i18n/format.ts'),
   );
-  const normal = registryBundle.source;
   const expandedCatalogs = Object.fromEntries(
     Object.entries(catalogs).map(([locale, value]) => [
       locale,
       expandCatalog(value),
     ]),
   );
-  const expanded = prepareQaBundle(
-    catalogBundle === registryBundle ? normal : catalogBundle.source,
-    expandedCatalogs,
-    false,
-  );
+  const expanded = prepareQaBundle(catalogBundle.source, expandedCatalogs);
   fs.mkdirSync(outputDir, { recursive: true });
   const playwright = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
   let expandedMode = false;
@@ -244,9 +229,7 @@ async function main() {
       response.end(
         file === catalogBundle.file && expandedMode
           ? expanded
-          : file === registryBundle.file
-            ? normal
-            : fs.readFileSync(file),
+          : fs.readFileSync(file),
       );
     } catch {
       response.writeHead(404);
@@ -323,7 +306,7 @@ async function main() {
                 JSON.stringify({ version: 1, preference: value }),
               );
           },
-          locale === 'ur' && !expand ? 'en' : locale,
+          ['th', 'ur'].includes(locale) && !expand ? 'en' : locale,
         );
         const catalog = expand
           ? expandCatalog(catalogs[locale])
@@ -387,7 +370,11 @@ async function main() {
             return failures;
           });
           assert.deepEqual(overflow, [], screen + ' horizontal clipping');
-          if (captureScreenshots)
+          if (
+            captureScreenshots &&
+            (!screenshotLocale || locale === screenshotLocale) &&
+            (!screenshotScreens.length || screenshotScreens.includes(screen))
+          )
             await page.screenshot({
               path: path.join(
                 outputDir,
@@ -398,6 +385,32 @@ async function main() {
         };
         try {
           await page.goto(origin);
+          if (locale === 'th' && !expand) {
+            await page
+              .getByRole('button', {
+                name: catalogs.en['language.title'],
+                exact: true,
+              })
+              .click();
+            await page
+              .getByRole('slider', { name: catalogs.en['language.title'] })
+              .getByText(/🇹🇭.*ไทย/)
+              .first()
+              .click();
+            await page
+              .getByRole('button', {
+                name: catalogs.en['common.done'],
+                exact: true,
+              })
+              .click();
+            await page.waitForFunction(
+              () =>
+                JSON.parse(
+                  localStorage.getItem('cresum_language_preference_v1'),
+                ).preference === 'th',
+            );
+            result.manualLanguageSelected = true;
+          }
           if (locale === 'ur') {
             const expectDirection = async (dir) => {
               await page.waitForFunction((expected) => {
@@ -445,6 +458,18 @@ async function main() {
           });
           await nameInput.waitFor();
           assert.equal(await button('onboarding.continue').isDisabled(), true);
+          const tagline = await page.getByTestId('brand-tagline').boundingBox();
+          const languageControl = await button('language.title').boundingBox();
+          assert.ok(
+            tagline && languageControl,
+            'Onboarding header and language control',
+          );
+          assert.ok(
+            tagline.x + tagline.width <= languageControl.x + 1 ||
+              languageControl.x + languageControl.width <= tagline.x + 1,
+            'Onboarding tagline clears the language control',
+          );
+          result.onboardingHeaderClear = true;
           await capture('onboarding-welcome');
           await nameInput.fill('QA Athlete');
           await button('onboarding.continue').click();
@@ -693,7 +718,7 @@ async function main() {
               exact: true,
             })
             .fill(synonym);
-          if (locale === 'nl' || locale === 'sv') {
+          if (['nl', 'sv', 'th', 'ur'].includes(locale)) {
             const all = text('library.all');
             const dumbbell = text('catalog.equipment.dumbbell');
             const equipmentFilter = (label) =>
@@ -953,13 +978,14 @@ async function main() {
 
           await editFirst.click();
           await button('entry.useKeypad').click();
-          const manualWeight = ['nl', 'sv', 'ur'].includes(locale)
+          const manualWeight = ['nl', 'sv', 'th', 'ur'].includes(locale)
             ? 62.5
             : 12.5;
           const manualReps = 8;
           const manualVolumeKg = manualWeight * manualReps;
-          await exactWeight.fill(numberLocale(manualWeight));
-          await exactReps.fill(numberLocale(manualReps));
+          const entryLocale = locale === 'th' ? 'th-TH-u-nu-thai' : locale;
+          await exactWeight.fill(formatNumber(entryLocale, manualWeight));
+          await exactReps.fill(formatNumber(entryLocale, manualReps));
           await failNextWrite();
           await button('entry.saveValues').click();
           await exactWeight.waitFor({ state: 'hidden' });
@@ -1180,12 +1206,53 @@ async function main() {
             .getByRole('tab', { name: contains(text('nav.progress')) })
             .click();
           await button('progress.muscles').waitFor();
+          await page
+            .getByRole('heading', {
+              name: text('progress.estimated'),
+              exact: true,
+            })
+            .locator('..')
+            .getByText(text('catalog.exercise.dumbbell-lateral-raise'), {
+              exact: true,
+            })
+            .waitFor();
+          result.localizedProgressRecord = true;
           await capture('progress');
           await button('progress.muscles').click();
           await capture('muscles');
+          if (locale === 'ur') {
+            const labels = page.getByTestId('muscle-view-labels');
+            const front = await labels
+              .getByText(text('muscle.front'), { exact: true })
+              .boundingBox();
+            const back = await labels
+              .getByText(text('muscle.back'), { exact: true })
+              .boundingBox();
+            assert.ok(
+              front && back && front.x < back.x,
+              'Keep labels below the front and back artwork',
+            );
+            result.anatomyLabelsAligned = true;
+          }
           await page
             .getByRole('tab', { name: contains(text('nav.home')) })
             .click();
+          if (locale === 'ur') {
+            await button('home.openCalendar').click();
+            const previousMonth = button('calendar.previous');
+            const nextMonth = button('calendar.next');
+            const previousBox = await previousMonth.boundingBox();
+            const nextBox = await nextMonth.boundingBox();
+            assert.ok(
+              previousBox && nextBox && previousBox.x > nextBox.x,
+              'Mirror calendar navigation in Urdu',
+            );
+            await previousMonth.click();
+            await nextMonth.click();
+            await capture('calendar');
+            await button('calendar.close').click();
+            result.rtlCalendar = true;
+          }
           await page.getByRole('radio').nth(0).click();
           await planStart().click();
           await button('workout.addSet').waitFor();

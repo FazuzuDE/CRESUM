@@ -16,6 +16,7 @@ import { MuscleDisclosure, MuscleSegments } from './MusclePageControls';
 import {
   projectMuscleParticipation,
   type MusclePeriod,
+  type ParticipationSet,
 } from '@/lib/muscle-participation';
 import type { MuscleId } from '@/lib/exercise-taxonomy';
 import type { LibraryExercise, WorkoutSession } from '@/lib/workout-model';
@@ -26,6 +27,7 @@ import {
   muscleAreaIds,
   type MuscleArea,
 } from '@/lib/muscle-exercise-discovery';
+import { workoutExerciseLabel } from '@/lib/i18n/catalog';
 import { formatDate, formatEntryNumber } from '@/lib/i18n/format';
 
 export function MuscleProgress({
@@ -57,6 +59,8 @@ export function MuscleProgress({
     () => projectMuscleParticipation(history, activeWorkout, period, now),
     [history, activeWorkout, period, now],
   );
+  const exerciseLabel = ({ libraryId, exerciseName }: ParticipationSet) =>
+    workoutExerciseLabel(locale, { libraryId, name: exerciseName });
   const muscle = data.muscles.find((item) => item.id === selected);
   const context =
     period === 'workout'
@@ -109,7 +113,7 @@ export function MuscleProgress({
           return (
             <GlassCard key={id} style={s.card}>
               <MuscleDisclosure
-                label={sets[0].exerciseName}
+                label={exerciseLabel(sets[0])}
                 expanded={isOpen}
                 onPress={() => setExpandedHistory(isOpen ? undefined : id)}
               />
@@ -150,7 +154,7 @@ export function MuscleProgress({
                 key={`${set.workoutId}:${set.exerciseId}:${set.setId}:${index}`}
               >
                 <View style={s.card}>
-                  <Text style={s.heading}>{set.exerciseName}</Text>
+                  <Text style={s.heading}>{exerciseLabel(set)}</Text>
                   <Text style={s.body}>
                     {set.workoutName} · {formatDate(locale, set.date)}
                   </Text>

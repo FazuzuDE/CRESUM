@@ -613,9 +613,9 @@ executable. Browser tooling is not an application dependency. To inspect an
 existing fresh export, invoke `node scripts/localization-web-qa.cjs --export-dir
 /absolute/path/to/export --output-dir /absolute/path/to/results`.
 
-Unreleased language choices are enabled only in the local server's JavaScript
-responses. Expanded runs replace only the served catalogs; original exports and
-the production registry are not rewritten. Each browser context starts with
+The current runner uses the same language registry as the normal app. Normal
+runs serve the original export. Expanded runs replace only the served message
+catalogs; the original export and the production registry stay intact. Each browser context starts with
 isolated test storage and no real account. The report retains the original
 export hash and browser version. This is a representative smoke matrix, not full
 web acceptance: onboarding/program/technique, complete chart coverage, every
@@ -658,10 +658,11 @@ baseline is a reviewable migration action, not proof of translation. Existing
 pending strings block target-locale release eligibility. The rule applies to all
 currently selectable languages, independently of the `released` flag.
 
-For Dutch, unchanged English copy fails even when it is nonempty. Use
-`docs/localization-nl-copy-exceptions.json` only when the exact term is also
-standard Dutch, an international gym term or an invariant unit. Add the exact
-Dutch string (and plural form where relevant) and explain why it is identical.
+For Dutch, Swedish and Thai, unchanged English copy fails even when it is
+nonempty. Use `docs/localization-<locale>-copy-exceptions.json` for established
+terms or invariant units. Record the exact string (and plural form where
+relevant) with an explanation. Thai search records require a Thai-script alias
+for each ID. Add commonly used English gym terms as additional aliases.
 Remove unused entries when their copy changes. Strings containing only
 interpolation placeholders, numbers or punctuation are language neutral.
 
@@ -873,6 +874,30 @@ menu flag map or locale list to update. Cache those options while the wheel move
 New locales still require complete messages, catalog guides and search aliases in
 the same PR before becoming selectable. Registry types require the presentation
 metadata; wheel tests verify a newly registered entry appears automatically.
+
+## Thai phone preview
+
+From the Thai PR checkout, install the locked dependencies with `npm ci` and
+start Metro using `npx expo start --lan`. Join the same network on iPhone and
+Android and scan the Expo Go QR code. On the existing Tailscale preview host,
+build this branch in its own checkout and start Metro with the host's reachable
+Tailscale address. The preview service that tracks `develop` gets Thai after
+merge. Every bundled language, including ไทย, is available in the normal and
+test builds. Acceptance records are tracked separately.
+
+On each physical device:
+
+1. Set the OS to Thai (Thailand) and select the system language in CRESUM.
+   Verify ไทย, select another language manually, restart, and switch back to
+   the system setting. Check the narrow layout and the largest text size for
+   line wraps, visible Thai vowels and tone marks, and VoiceOver or TalkBack.
+2. Go offline after the bundle loads. Search for ดัมเบลยกข้าง and use the
+   ดัมเบล equipment filter. Record 62.5 kg × 8, including a pass with ๖๒.๕
+   and ๘ pasted or typed using the device keyboard. Thai dates use Thai labels
+   with the Gregorian year to align with the saved date and the date picker.
+3. Change the app language with an unfinished set and an active timer. Verify
+   that the same session, draft and timer are present. Finish the workout, then
+   restart and check History, Muscle Map and the original workout date.
 
 ## Urdu (اردو)
 
