@@ -1,5 +1,9 @@
 # CRESUM — Development Roadmap
 
+## Competitive development priorities — approved 2026-11-26
+
+Follow [the P0–P3 specification](COMPETITIVE_ROADMAP.md): P0 recovery, smoothness, fast entry and locked-phone timers; P1 RIR/RPE and double progression, historical notes/settings, records/comparison, CSV, plate/warm-up calculators and cardio; P2 HealthKit/Health Connect and watches; P3 GPS, AI and nutrition discovery. Keep existing localization and artwork PRs separate. Review existing implementations before each focused PR; P0 acceptance gates precede affected P1 work. This is not a release claim.
+
 ## Multilingual search and contribution rule — approved 2026-11-17
 
 Deliver all-language offline exercise search and complete synonym coverage for the
