@@ -89,7 +89,7 @@ export default {
     'தளத்தை தொகுக்கவும். தளங்களை நகர்த்து, முடிந்தது அல்லது ரத்து செய் என்பதை தேர்ந்தெடு.',
   'home.moved':
     'பகுதி {{total, number}} இல் {{index, number}} ஆம் இடத்துக்கு நகர்த்தப்பட்டது.',
-  'home.position': '{{label}}, நிலை {{index, number}} of {{total, number}}',
+  'home.position': '{{label}}, {{total, number}} இல் {{index, number}} ஆம் இடம்',
   'home.dragHint':
     'மறுவரிசைப்படுத்த இழுத்து பிடித்து வைத்துக் கொள்ளவும். பொத்தான்களுக்கு & தெரியும்படி வரிசைப்படுத்தி பயன்படுத்தவும்.',
   'calendar.title': 'நாள்காட்டி',

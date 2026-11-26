@@ -84,8 +84,13 @@ export default {
     'barbell-front-squat': ['பார்பெல் ஃப்ரண்ட் ஸ்குவாட்', 'barbell front squat'],
     'leg-press': ['கால் பிரஸ் மெஷின்', 'leg press'],
     'smith-machine-squat': ['ஸ்மித் மெஷின் ஸ்குவாட்', 'smith machine squat'],
-    'goblet-squat': ['மார்புக்கு முன் டம்பெல் ஸ்குவாட்', 'dumbbell goblet squat'],
+    'goblet-squat': [
+      'டம்பெல் கோப்லெட் ஸ்குவாட்',
+      'மார்புக்கு முன் டம்பெல் ஸ்குவாட்',
+      'dumbbell goblet squat',
+    ],
     'kettlebell-goblet-squat': [
+      'கெட்டில்பெல் கோப்லெட் ஸ்குவாட்',
       'மார்புக்கு முன் கெட்டில்பெல் ஸ்குவாட்',
       'kettlebell goblet squat',
     ],

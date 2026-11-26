@@ -81,7 +81,7 @@ export default {
       '{{count, number}} வாரம் ஒருமுறையான வலிமை பயிற்சிகள் · உடற்பயிற்சி · தொடங்குகிறது {{date}}',
   },
   'onboarding.attribution':
-    'CRESUM ACSM, NSCA, ACE, HSS மற்றும் NHS வழிகாட்டுதல்களிலிருந்து வெளியிடப்பட்ட பயிற்சி நிரல்களின் மாற்றம். வேலை செய்யும் எடைகள் கைமுறையாக தேர்ந்தெடுக்கப்படுகின்றன; திட்டமிடப்பட்ட மதிப்புகள் முடிந்த தொகுப்புகளாக கணக்கிடப்படுவதில்லை.',
+    'ACSM, NSCA, ACE, HSS மற்றும் NHS வழிகாட்டுதல்களில் வெளியான பயிற்சித் திட்டங்களை CRESUM தழுவியுள்ளது. பயன்படுத்தும் எடைகளை நீங்களே தேர்ந்தெடுக்கலாம். திட்டமிட்ட மதிப்புகள் முடித்த செட்களாகக் கணக்கிடப்படாது.',
   'onboarding.hideProgram': 'நிரலின் முழுமையையும் மறை',
   'onboarding.viewProgram': 'முழு நிரலையும் காட்டு',
   'onboarding.week': 'வாரங்கள் {{index, number}}: {{schedule}}',
@@ -117,7 +117,7 @@ export default {
   'onboarding.back': 'பின்னால்',
   'onboarding.backProfile': 'சுயவிவரத்திற்குத் திரும்பு',
   'onboarding.missing': 'தேவையான பயிற்சிகள் கிடைக்கவில்லை: {{exercises}}',
-  'onboarding.retry': 'இணைப்பதை மீண்டும் முயற்சிக்கவும்',
+  'onboarding.retry': 'முதல் அமைப்பை மீண்டும் முயல்க',
   'onboarding.bypass': 'பயன்பாட்டிற்கு தொடர்க',
   'onboarding.loading': 'உங்கள் பயிற்சிகளை ஏற்றுகிறது…',
   'onboarding.savedUnavailable':
