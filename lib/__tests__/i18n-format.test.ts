@@ -276,3 +276,11 @@ it('formats Swedish dates and numbers without changing exact stored decimal inpu
     }),
   ).toBe('25 november 2026');
 });
+
+it('accepts Urdu and ASCII keypad values with the same precision and presents Pakistani digits', () => {
+  expect(normalizeDecimalInput('۶۲٫۵')).toBe(normalizeDecimalInput('62.5'));
+  expect(normalizeDecimalInput('۶۲٫۵۰۰۱')).toBe('62.5001');
+  expect(normalizeInputDigits('۸')).toBe(normalizeInputDigits('8'));
+  expect(formatNumber('ur', 62.5)).toBe('۶۲٫۵');
+  expect(formatEntryNumber('ur', '62.5001')).toBe('62٫5001');
+});

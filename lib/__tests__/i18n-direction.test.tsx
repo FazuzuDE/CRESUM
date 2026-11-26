@@ -43,9 +43,16 @@ it('mirrors logical labels and arrows but preserves centering, vertical icons an
   ).toEqual({ weight: '12.50', reps: '8', otherSideReps: '9' });
 });
 
-it.each(['ja', 'vi', 'mr', 'id', 'ko'] as const)(
-  'switches live RTL to %s including modal roots without remounting or rewriting an unfinished draft',
-  async (locale) => {
+it.each([
+  ['ar', 'ja'],
+  ['ar', 'vi'],
+  ['ar', 'mr'],
+  ['ar', 'id'],
+  ['ar', 'ko'],
+  ['ur', 'en'],
+] as const)(
+  'switches live %s to %s including modal roots without remounting or rewriting an unfinished draft',
+  async (rtl, locale) => {
     const store = new LocaleStore(
       { getItem: async () => null, setItem: async () => {} },
       () => ['en'],
@@ -81,7 +88,7 @@ it.each(['ja', 'vi', 'mr', 'id', 'ko'] as const)(
       );
     });
     await act(async () => {
-      await store.select('ar');
+      await store.select(rtl);
     });
     expect(
       view!.root.findByProps({ testID: 'direction-probe' }).props.style
@@ -100,7 +107,11 @@ it.each(['ja', 'vi', 'mr', 'id', 'ko'] as const)(
         ),
     ).toBe(true);
     expect(view!.root.findByType(TextInput).props.value).toBe('12,');
-    act(() => view!.root.findByType(TextInput).props.onChangeText('١٢٫٥٠'));
+    act(() =>
+      view!.root
+        .findByType(TextInput)
+        .props.onChangeText(rtl === 'ur' ? '۱۲٫۵۰' : '١٢٫٥٠'),
+    );
     expect(view!.root.findByType(TextInput).props.value).toBe('12.50');
     await act(async () => {
       await store.select(locale);

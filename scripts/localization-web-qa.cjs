@@ -206,7 +206,7 @@ async function main() {
   const { formatEntryNumber, formatNumber } = load(
     path.join(root, 'lib/i18n/format.ts'),
   );
-  const normal = prepareQaBundle(registryBundle.source);
+  const normal = registryBundle.source;
   const expandedCatalogs = Object.fromEntries(
     Object.entries(catalogs).map(([locale, value]) => [
       locale,
@@ -280,7 +280,7 @@ async function main() {
       ]),
     ),
     browser: browser.version(),
-    qaOnlyRegistryOverride: true,
+    qaOnlyRegistryOverride: false,
     qaMutatedProductionFiles: false,
     matrix,
     results: [],
@@ -315,12 +315,16 @@ async function main() {
           result.network.push(url);
           return route.abort();
         });
-        await context.addInitScript((value) => {
-          localStorage.setItem(
-            'cresum_language_preference_v1',
-            JSON.stringify({ version: 1, preference: value }),
-          );
-        }, locale);
+        await context.addInitScript(
+          (value) => {
+            if (!localStorage.getItem('cresum_language_preference_v1'))
+              localStorage.setItem(
+                'cresum_language_preference_v1',
+                JSON.stringify({ version: 1, preference: value }),
+              );
+          },
+          locale === 'ur' && !expand ? 'en' : locale,
+        );
         const catalog = expand
           ? expandCatalog(catalogs[locale])
           : catalogs[locale];
@@ -394,6 +398,47 @@ async function main() {
         };
         try {
           await page.goto(origin);
+          if (locale === 'ur') {
+            const expectDirection = async (dir) => {
+              await page.waitForFunction((expected) => {
+                const header = document.querySelector(
+                  '[data-testid="brand-header"]',
+                );
+                return (
+                  header && getComputedStyle(header).direction === expected
+                );
+              }, dir);
+            };
+            if (!expand) {
+              const selectLanguage = async (from, to) => {
+                const messages = catalogs[from];
+                const language = messages['language.title'];
+                await page
+                  .getByRole('button', { name: language, exact: true })
+                  .click();
+                await page
+                  .getByRole('slider', { name: language })
+                  .getByText(new RegExp(localeRegistry[to].nativeName))
+                  .first()
+                  .click();
+                await page
+                  .getByRole('button', {
+                    name: messages['common.done'],
+                    exact: true,
+                  })
+                  .click();
+                await expectDirection(localeRegistry[to].direction);
+              };
+              await expectDirection('ltr');
+              await selectLanguage('en', 'ur');
+              await selectLanguage('ur', 'en');
+              await selectLanguage('en', 'ur');
+              result.manualRtlRoundTrip = true;
+            } else {
+              await expectDirection('rtl');
+            }
+            result.urduRtl = true;
+          }
           const nameInput = page.getByRole('textbox', {
             name: text('onboarding.name'),
             exact: true,
@@ -908,7 +953,9 @@ async function main() {
 
           await editFirst.click();
           await button('entry.useKeypad').click();
-          const manualWeight = ['nl', 'sv'].includes(locale) ? 62.5 : 12.5;
+          const manualWeight = ['nl', 'sv', 'ur'].includes(locale)
+            ? 62.5
+            : 12.5;
           const manualReps = 8;
           const manualVolumeKg = manualWeight * manualReps;
           await exactWeight.fill(numberLocale(manualWeight));

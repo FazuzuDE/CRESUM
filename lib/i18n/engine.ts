@@ -2,6 +2,7 @@ import 'intl-pluralrules';
 import { createInstance } from 'i18next';
 import { catalogs, type MessageCatalog, type Translate } from './messages';
 import type { AppLocale } from './registry';
+import { displayNumberingSystem } from './format';
 // UI callers receive only a translation function, never the mutable engine.
 // Share one engine per locale instead of rebuilding its resources per component.
 const translators = new Map<AppLocale, Translate>();
@@ -38,13 +39,14 @@ export function createTranslator(
     },
     interpolation: { escapeValue: false },
   });
-  // Pin Arabic presentation digits across CLDR/runtime defaults. Raw numbers and
+  // Pin locale-specific presentation digits across CLDR/runtime defaults. Raw numbers and
   // plural selection remain numeric; exact editable strings are never rounded here.
-  if (locale === 'ar')
+  const numberingSystem = displayNumberingSystem(locale);
+  if (numberingSystem)
     engine.services.formatter?.addCached('number', (lng, options) => {
       const formatter = new Intl.NumberFormat(lng, {
         ...options,
-        numberingSystem: 'arab',
+        numberingSystem,
       });
       return (value: number) => formatter.format(value);
     });

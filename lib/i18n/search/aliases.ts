@@ -14,6 +14,7 @@ import zhHans from './zh-Hans';
 import hi from './hi';
 import bn from './bn';
 import ar from './ar';
+import ur from './ur';
 import ja from './ja';
 import vi from './vi';
 import mr from './mr';
@@ -26,6 +27,7 @@ export const searchAliases: Record<AppLocale, SearchAliasCatalog> = {
   hi,
   bn,
   ar,
+  ur,
   ja,
   vi,
   mr,

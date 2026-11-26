@@ -44,7 +44,7 @@ function validateCatalogs(catalogs) {
 const comparableCopy = (text) =>
   text.normalize('NFKC').trim().replace(/\s+/gu, ' ').toLowerCase();
 
-const strictCopyLocales = ['nl', 'sv'];
+const strictCopyLocales = ['nl', 'sv', 'ur'];
 
 function validateLocalizedCopy(catalogs, locale, exceptions) {
   const errors = [];
@@ -195,6 +195,15 @@ function validateSearchAliases(aliases, registry, catalogs, records) {
           errors.push(
             `${locale}: duplicate search aliases ${kind}.${record.id}`,
           );
+        else if (
+          locale === 'ur' &&
+          !values.some((value) =>
+            /\p{Script=Arabic}/u.test(value.replace(/[^\p{L}]/gu, '')),
+          )
+        )
+          errors.push(
+            `${locale}: missing Urdu search alias ${kind}.${record.id}`,
+          );
         const key = record.messageKey ?? `catalog.${kind}.${record.id}`;
         const text = catalogs[locale]?.[key];
         if (typeof text !== 'string' || !text.trim())
@@ -341,13 +350,12 @@ function run() {
     path.resolve('lib/exercise-equipment-catalog.ts'),
   );
   const { muscleTaxonomy } = loadTs(path.resolve('lib/exercise-taxonomy.ts'));
-  errors.push(
-    ...validateSearchAliases(aliases, registry, catalogs, {
-      exercise: exerciseLibrary,
-      equipment: exerciseEquipmentCatalog,
-      muscle: muscleTaxonomy,
-    }),
-  );
+  const aliasErrors = validateSearchAliases(aliases, registry, catalogs, {
+    exercise: exerciseLibrary,
+    equipment: exerciseEquipmentCatalog,
+    muscle: muscleTaxonomy,
+  });
+  errors.push(...aliasErrors);
   const { techniqueCatalog } = loadTs(
     path.resolve('lib/exercise-technique/catalog.ts'),
   );
@@ -361,6 +369,12 @@ function run() {
           techniqueCatalog,
         ),
       );
+  // Importing the program presentation also constructs the offline search index.
+  if (aliasErrors.length) {
+    process.stderr.write(errors.join('\n') + '\n');
+    process.exitCode = 1;
+    return;
+  }
   const { trainingPrograms } = loadTs(
     path.resolve('lib/training-programs/catalog.ts'),
   );

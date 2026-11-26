@@ -1,4 +1,8 @@
 import type { AppLocale } from './registry';
+export function displayNumberingSystem(locale: AppLocale) {
+  if (locale === 'ar') return 'arab';
+  if (locale === 'ur') return 'arabext';
+}
 const decimalSeparators = new Map<AppLocale, string>();
 export function formatEntryNumber(locale: AppLocale, raw: string): string {
   const normalized = normalizeDecimalInput(raw);
@@ -6,10 +10,9 @@ export function formatEntryNumber(locale: AppLocale, raw: string): string {
   let separator = decimalSeparators.get(locale);
   if (!separator) {
     separator =
-      new Intl.NumberFormat(
-        locale,
-        locale === 'ar' ? { numberingSystem: 'arab' } : undefined,
-      )
+      new Intl.NumberFormat(locale, {
+        numberingSystem: displayNumberingSystem(locale),
+      })
         .format(1.1)
         .match(/[.,\u066b]/)?.[0] ?? '.';
     decimalSeparators.set(locale, separator);
@@ -22,7 +25,7 @@ export function formatNumber(
   options?: Intl.NumberFormatOptions,
 ): string {
   return new Intl.NumberFormat(locale, {
-    ...(locale === 'ar' ? { numberingSystem: 'arab' } : {}),
+    numberingSystem: displayNumberingSystem(locale),
     ...options,
   }).format(value);
 }
@@ -32,7 +35,7 @@ export function formatDate(
   options?: Intl.DateTimeFormatOptions,
 ): string {
   return new Intl.DateTimeFormat(locale, {
-    ...(locale === 'ar' ? { numberingSystem: 'arab' } : {}),
+    numberingSystem: displayNumberingSystem(locale),
     ...options,
   }).format(new Date(epochMs));
 }

@@ -243,3 +243,27 @@ it('blocks Swedish omissions in copy, guide instructions and search aliases', ()
     ),
   ).toEqual([]);
 });
+
+it('rejects an omitted Urdu message, a copied fallback, broken placeholders and English-only aliases', () => {
+  const en = { set: 'Set {{index}}', 'catalog.exercise.test': 'Test exercise' };
+  const ur = { set: 'سیٹ {{index}}', 'catalog.exercise.test': 'آزمائشی ورزش' };
+  expect(validateCatalogs({ en, ur: {} })).toContain('ur: missing set');
+  expect(validateCatalogs({ en, ur: { ...ur, set: 'سیٹ' } })).toContain(
+    'ur.set: parameters differ',
+  );
+  expect(validateCatalogs({ en, ur })).toEqual([]);
+  expect(validateLocalizedCopy({ en, ur: en }, 'ur', {})).toContain(
+    'ur: unchanged English copy set',
+  );
+  const errorsFor = (values: string[]) =>
+    validateSearchAliases(
+      { ur: { exercise: { test: values } } },
+      { ur: {} },
+      { ur },
+      { exercise: [{ id: 'test' }] },
+    );
+  expect(errorsFor(['test exercise'])).toEqual([
+    'ur: missing Urdu search alias exercise.test',
+  ]);
+  expect(errorsFor(['آزمائشی ورزش', 'azmaishi warzish'])).toEqual([]);
+});

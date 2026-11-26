@@ -468,3 +468,28 @@ it('finds Swedish names offline with or without accents, case, spacing and hyphe
   );
   expect(ids('motionscykel', 'sv')).not.toContain('treadmill-walking');
 });
+
+it.each(['ur', 'en'] as const)(
+  'finds Urdu, Roman Urdu and gym English aliases offline in %s',
+  (locale) => {
+    expect(ids('بینچ پریس', locale)[0]).toBe('barbell-bench-press');
+    expect(ids('بِينچ   پريس', locale)[0]).toBe('barbell-bench-press');
+    expect(ids('BENCH PRESS', locale)[0]).toBe('barbell-bench-press');
+    expect(ids('bench par barbell press', locale)[0]).toBe(
+      'barbell-bench-press',
+    );
+    for (const query of [
+      'ٹریڈ مل',
+      'ٹریڈمل',
+      'treadmill',
+      'treadmill par walk',
+    ])
+      expect(ids(query, locale)[0]).toBe('treadmill-walking');
+    expect(ids('وی ہینڈل پل ڈاؤن', locale)[0]).toBe(
+      'lat-pulldown-close-neutral-v-handle',
+    );
+    expect(ids('چوڑی گرفت کا لیٹ پل ڈاؤن', locale)[0]).toBe(
+      'lat-pulldown-wide-pronated-bar',
+    );
+  },
+);

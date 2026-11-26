@@ -873,3 +873,34 @@ menu flag map or locale list to update. Cache those options while the wheel move
 New locales still require complete messages, catalog guides and search aliases in
 the same PR before becoming selectable. Registry types require the presentation
 metadata; wheel tests verify a newly registered entry appears automatically.
+
+## Urdu (اردو)
+
+Urdu is selectable in test and final builds. The device language resolves
+`ur`, `ur-PK` and `ur-IN` to the bundled Urdu catalog with the Pakistan
+locale conventions. The acceptance ledger is separate from language
+availability. Names, exercise guides and offline search use the same stable
+catalog IDs. Use Urdu-script and natural Roman Urdu aliases for new records.
+Common English gym terms can be included as additional search aliases. The
+localization check requires an Urdu-script search alias and validates message
+parity, placeholders and technique links. Record any intentional identical
+English copy in `localization-ur-copy-exceptions.json` with its exact value and
+a reason.
+
+Use the [physical-device setup](#physical-device-localization-qa) on an iPhone
+and Android. Record the device, OS and commit for each platform.
+
+1. Select اردو at first launch and from settings. Restart, then switch back to
+   English and verify LTR returns. Select System with the device set to Urdu.
+2. Check narrow and large-text layouts, screen readers and letter shaping.
+   Check the right-edge swipe-back, calendar, progress charts and muscle map.
+   The CRESUM wordmark and exercise/anatomy artwork retain their orientation.
+3. After loading the app, disconnect from the network. Search for
+   `بینچ پریس`, `bench par barbell press`, `bench press` and `ٹریڈ مل`.
+   Open Technique, switch phases, then add an exercise and record
+   `۶۲٫۵` kg and `۸` reps. Compare with `62.5` and `8` in a second set.
+   Complete the workout and check History, then restart and recheck the data.
+
+Urdu uses the existing RTL layout boundary and bidirectional text components.
+The numeric fields accept Eastern Arabic and ASCII digits. Exact entered
+values and workout snapshots use the existing storage format.

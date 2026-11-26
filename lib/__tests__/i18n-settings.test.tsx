@@ -48,6 +48,7 @@ it('opens at the effective language, stages wheel choices, and saves only with D
     '🇹🇷  Türkçe',
     '🇷🇺  Русский',
     '🇺🇦  Українська',
+    '🇵🇰  اردو',
     '🇸🇦  العربية',
     '🇮🇳  मराठी',
     '🇮🇳  हिन्दी',
