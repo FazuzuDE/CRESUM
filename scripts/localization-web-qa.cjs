@@ -141,6 +141,8 @@ async function main() {
   const http = require('node:http');
   const { execFileSync } = require('node:child_process');
   const root = path.resolve(__dirname, '..');
+  const { version } = require(path.join(root, 'app.json')).expo;
+  const displayVersion = version.replace(/\.(\d)$/, '.0$1');
   const option = (name, fallback) => {
     const index = process.argv.indexOf(name);
     return index < 0 ? fallback : process.argv[index + 1];
@@ -725,6 +727,11 @@ async function main() {
             );
             result.tamilSettingsSelection = true;
           }
+          await page
+            .getByText(text('profile.version', { version: displayVersion }), {
+              exact: true,
+            })
+            .waitFor();
           await capture('profile');
           await button('profile.myWorkouts', false).click();
           await button('templates.create').waitFor();
