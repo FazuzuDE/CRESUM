@@ -124,6 +124,20 @@ import arOnboarding from './locales/ar/onboarding';
 import arProgress from './locales/ar/progress';
 import arProfile from './locales/ar/profile';
 import arTechniqueContent from './locales/ar/technique-content';
+import urCommon from './locales/ur/common';
+import urCatalog from './locales/ur/catalog';
+import urEditor from './locales/ur/editor';
+import urEquipment from './locales/ur/equipment';
+import urLibrary from './locales/ur/library';
+import urSharing from './locales/ur/sharing';
+import urHome from './locales/ur/home';
+import urHistory from './locales/ur/history';
+import urProgramTechnique from './locales/ur/program-technique';
+import urWorkout from './locales/ur/workout';
+import urOnboarding from './locales/ur/onboarding';
+import urProgress from './locales/ur/progress';
+import urProfile from './locales/ur/profile';
+import urTechniqueContent from './locales/ur/technique-content';
 import bnCommon from './locales/bn/common';
 import bnCatalog from './locales/bn/catalog';
 import bnEditor from './locales/bn/editor';
@@ -530,6 +544,22 @@ const ar = {
   ...arProfile,
   ...arTechniqueContent,
 } as const;
+const ur = {
+  ...urCommon,
+  ...urCatalog,
+  ...urEditor,
+  ...urEquipment,
+  ...urLibrary,
+  ...urSharing,
+  ...urHome,
+  ...urHistory,
+  ...urProgramTechnique,
+  ...urWorkout,
+  ...urOnboarding,
+  ...urProgress,
+  ...urProfile,
+  ...urTechniqueContent,
+} as const;
 const ja = {
   ...jaCommon,
   ...jaCatalog,
@@ -676,6 +706,7 @@ export const catalogs = {
   hi,
   bn,
   ar,
+  ur,
   ja,
   vi,
   mr,

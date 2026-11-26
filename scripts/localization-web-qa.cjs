@@ -150,6 +150,10 @@ async function main() {
     option('--output-dir', '.tools/localization-web-qa/browser'),
   );
   const captureScreenshots = !process.argv.includes('--no-screenshots');
+  const screenshotLocale = option('--screenshot-locale', '');
+  const screenshotScreens = option('--screenshot-screens', '')
+    .split(',')
+    .filter(Boolean);
   const entryDir = path.join(exportDir, '_expo/static/js/web');
   const entries = fs
     .readdirSync(entryDir)
@@ -302,7 +306,7 @@ async function main() {
                 JSON.stringify({ version: 1, preference: value }),
               );
           },
-          locale === 'th' && !expand ? 'en' : locale,
+          ['th', 'ur'].includes(locale) && !expand ? 'en' : locale,
         );
         const catalog = expand
           ? expandCatalog(catalogs[locale])
@@ -366,7 +370,11 @@ async function main() {
             return failures;
           });
           assert.deepEqual(overflow, [], screen + ' horizontal clipping');
-          if (captureScreenshots)
+          if (
+            captureScreenshots &&
+            (!screenshotLocale || locale === screenshotLocale) &&
+            (!screenshotScreens.length || screenshotScreens.includes(screen))
+          )
             await page.screenshot({
               path: path.join(
                 outputDir,
@@ -402,6 +410,47 @@ async function main() {
                 ).preference === 'th',
             );
             result.manualLanguageSelected = true;
+          }
+          if (locale === 'ur') {
+            const expectDirection = async (dir) => {
+              await page.waitForFunction((expected) => {
+                const header = document.querySelector(
+                  '[data-testid="brand-header"]',
+                );
+                return (
+                  header && getComputedStyle(header).direction === expected
+                );
+              }, dir);
+            };
+            if (!expand) {
+              const selectLanguage = async (from, to) => {
+                const messages = catalogs[from];
+                const language = messages['language.title'];
+                await page
+                  .getByRole('button', { name: language, exact: true })
+                  .click();
+                await page
+                  .getByRole('slider', { name: language })
+                  .getByText(new RegExp(localeRegistry[to].nativeName))
+                  .first()
+                  .click();
+                await page
+                  .getByRole('button', {
+                    name: messages['common.done'],
+                    exact: true,
+                  })
+                  .click();
+                await expectDirection(localeRegistry[to].direction);
+              };
+              await expectDirection('ltr');
+              await selectLanguage('en', 'ur');
+              await selectLanguage('ur', 'en');
+              await selectLanguage('en', 'ur');
+              result.manualRtlRoundTrip = true;
+            } else {
+              await expectDirection('rtl');
+            }
+            result.urduRtl = true;
           }
           const nameInput = page.getByRole('textbox', {
             name: text('onboarding.name'),
@@ -669,7 +718,7 @@ async function main() {
               exact: true,
             })
             .fill(synonym);
-          if (['nl', 'sv', 'th'].includes(locale)) {
+          if (['nl', 'sv', 'th', 'ur'].includes(locale)) {
             const all = text('library.all');
             const dumbbell = text('catalog.equipment.dumbbell');
             const equipmentFilter = (label) =>
@@ -922,6 +971,23 @@ async function main() {
           await button('entry.useKeypad').click();
           await exactWeight.fill('99,5');
           await exactReps.fill(numberLocale(7));
+          if (locale === 'ur') {
+            for (const input of [exactWeight, exactReps]) {
+              assert.ok(
+                await input.evaluate((element) => {
+                  const field = element.getBoundingClientRect();
+                  const row = element.parentElement.getBoundingClientRect();
+                  return (
+                    field.width > 0 &&
+                    field.left >= row.left - 1 &&
+                    field.right <= row.right + 1
+                  );
+                }),
+                'Keep both exact numeric inputs inside the RTL row',
+              );
+            }
+            result.urduNumericFieldsVisible = true;
+          }
           await capture('set-draft');
           await button('entry.cancelLabel').click();
           await exactWeight.waitFor({ state: 'hidden' });
@@ -929,7 +995,7 @@ async function main() {
 
           await editFirst.click();
           await button('entry.useKeypad').click();
-          const manualWeight = ['nl', 'sv', 'th'].includes(locale)
+          const manualWeight = ['nl', 'sv', 'th', 'ur'].includes(locale)
             ? 62.5
             : 12.5;
           const manualReps = 8;
@@ -1171,9 +1237,39 @@ async function main() {
           await capture('progress');
           await button('progress.muscles').click();
           await capture('muscles');
+          if (locale === 'ur') {
+            const labels = page.getByTestId('muscle-view-labels');
+            const front = await labels
+              .getByText(text('muscle.front'), { exact: true })
+              .boundingBox();
+            const back = await labels
+              .getByText(text('muscle.back'), { exact: true })
+              .boundingBox();
+            assert.ok(
+              front && back && front.x < back.x,
+              'Keep labels below the front and back artwork',
+            );
+            result.anatomyLabelsAligned = true;
+          }
           await page
             .getByRole('tab', { name: contains(text('nav.home')) })
             .click();
+          if (locale === 'ur') {
+            await button('home.openCalendar').click();
+            const previousMonth = button('calendar.previous');
+            const nextMonth = button('calendar.next');
+            const previousBox = await previousMonth.boundingBox();
+            const nextBox = await nextMonth.boundingBox();
+            assert.ok(
+              previousBox && nextBox && previousBox.x > nextBox.x,
+              'Mirror calendar navigation in Urdu',
+            );
+            await previousMonth.click();
+            await nextMonth.click();
+            await capture('calendar');
+            await button('calendar.close').click();
+            result.rtlCalendar = true;
+          }
           await page.getByRole('radio').nth(0).click();
           await planStart().click();
           await button('workout.addSet').waitFor();

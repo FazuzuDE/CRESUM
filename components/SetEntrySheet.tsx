@@ -422,6 +422,7 @@ const useStyles = createThemedStyles((colors) => ({
     backgroundColor: colors.surfaceSubtle,
     borderRadius: radius.md,
     minHeight: 60,
+    minWidth: 0,
     padding: spacing.sm,
     flex: 1,
     textAlign: 'center',

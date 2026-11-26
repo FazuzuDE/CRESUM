@@ -221,7 +221,7 @@ export function MuscleMap({
           ))}
         </Svg>
       </View>
-      <View style={s.row}>
+      <View testID="muscle-view-labels" style={s.row}>
         {views.map((view) => (
           <Text key={view} style={s.label}>
             {t(view === 'front' ? 'muscle.front' : 'muscle.back')}
@@ -247,7 +247,7 @@ const useStyles = createThemedStyles((colors) => ({
     height: `${(sourceHeight / atlasHeight) * 100}%`,
   },
   loading: { opacity: 0 },
-  row: { flexDirection: 'row', paddingTop: spacing.xxs },
+  row: { direction: 'ltr', flexDirection: 'row', paddingTop: spacing.xxs },
   label: {
     flex: 1,
     ...typography.footnote,

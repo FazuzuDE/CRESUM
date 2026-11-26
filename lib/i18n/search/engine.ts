@@ -108,9 +108,20 @@ function forms(value: string): string[] {
     /(\p{Script=Thai}) +(?=\p{Script=Thai})/gu,
     '$1',
   );
-  return [...new Set([folded, romanize(folded), german, thaiJoined])].filter(
-    Boolean,
+  // Accept Arabic-script presentation forms and invisible join controls in Urdu queries.
+  const presentation = normalizeSearch(
+    value
+      .replace(/[\ufb50-\ufdff\ufe70-\ufefc]+/gu, (span) =>
+        span.normalize('NFKC'),
+      )
+      .replace(
+        /(?<=\p{Script=Arabic})[\u200c\u200d](?=\p{Script=Arabic})/gu,
+        '',
+      ),
   );
+  return [
+    ...new Set([folded, romanize(folded), german, thaiJoined, presentation]),
+  ].filter(Boolean);
 }
 
 type Field = { values: string[]; tokens: string[] };
