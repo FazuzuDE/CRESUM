@@ -1102,15 +1102,17 @@ Danish spelling in displayed names and use the shared search normalization
 without changes.
 
 When English text, search aliases or the default iOS camera permission change,
-review the corresponding Danish content and explicitly record the reviewed
-source. Pass only the affected paths to the existing command. For example:
+review the corresponding translations. Record the affected source paths for all
+ledgers that track those paths in the same command. For example:
 
 ```sh
-node scripts/check-localization.cjs --record-da-source lib/i18n/locales/en/workout.ts
+node scripts/check-localization.cjs \
+  --record-da-source lib/i18n/locales/en/workout.ts \
+  --record-fi-source lib/i18n/locales/en/workout.ts \
+  --record-nb-source lib/i18n/locales/en/workout.ts
 ```
 
-Review and update the Bokmål and Finnish ledgers if the same English sources
-changed. The Danish iOS camera prompt lives in
+Leave unaffected ledger entries unchanged. The Danish iOS camera prompt lives in
 `lib/i18n/locales/da/native.json`. A change to the English camera prompt
 requires review of `app.json` in all affected source ledgers.
 
