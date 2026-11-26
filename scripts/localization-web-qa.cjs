@@ -409,6 +409,18 @@ async function main() {
           });
           await nameInput.waitFor();
           assert.equal(await button('onboarding.continue').isDisabled(), true);
+          const tagline = await page.getByTestId('brand-tagline').boundingBox();
+          const languageControl = await button('language.title').boundingBox();
+          assert.ok(
+            tagline && languageControl,
+            'Onboarding header and language control',
+          );
+          assert.ok(
+            tagline.x + tagline.width <= languageControl.x + 1 ||
+              languageControl.x + languageControl.width <= tagline.x + 1,
+            'Onboarding tagline clears the language control',
+          );
+          result.onboardingHeaderClear = true;
           await capture('onboarding-welcome');
           await nameInput.fill('QA Athlete');
           await button('onboarding.continue').click();

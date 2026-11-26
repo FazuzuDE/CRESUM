@@ -383,6 +383,7 @@ export function Onboarding({
   const header = (previous?: OnboardingStep, showLanguage = false) => (
     <View style={s.characterHeader}>
       <BrandHeader
+        reserveLanguageControl={showLanguage}
         back={
           previous
             ? {
