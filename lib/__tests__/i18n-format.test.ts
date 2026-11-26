@@ -320,3 +320,20 @@ it('accepts Telugu and ASCII weight and repetitions with the same stored precisi
     }),
   ).toContain('నవంబర్');
 });
+
+it('accepts Tamil and ASCII weight and repetitions at the same precision and formats in ta-IN', () => {
+  expect(normalizeDecimalInput('௬௨.௫')).toBe(normalizeDecimalInput('62.5'));
+  expect(normalizeDecimalInput('௬௨.௫௦௦௧')).toBe('62.5001');
+  expect(normalizeInputDigits('௮')).toBe(normalizeInputDigits('8'));
+  expect(formatNumber('ta', 62.5)).toBe('௬௨.௫');
+  expect(formatNumber('ta', 1234567.5)).toBe('௧௨,௩௪,௫௬௭.௫');
+  expect(formatEntryNumber('ta', '62.5001')).toBe('62.5001');
+  expect(
+    formatDate('ta', Date.UTC(2026, 10, 26), {
+      day: 'numeric',
+      year: 'numeric',
+      month: 'long',
+      timeZone: 'UTC',
+    }),
+  ).toBe('௨௬ நவம்பர், ௨௦௨௬');
+});

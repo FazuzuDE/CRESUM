@@ -273,6 +273,8 @@ async function main() {
       expandedMode = expand;
       const scenarios = matrix.filter(({ expanded }) => expanded === expand);
       const runScenario = async ({ locale, width }) => {
+        const offlineWorkout = locale === 'te' || locale === 'ta';
+        const verifyRtlRoundTrip = offlineWorkout || locale === 'ur';
         const context = await browser.newContext({
           viewport: { width, height: 850 },
           locale,
@@ -306,7 +308,7 @@ async function main() {
                 JSON.stringify({ version: 1, preference: value }),
               );
           },
-          ['th', 'ur', 'te'].includes(locale) && !expand ? 'en' : locale,
+          (locale === 'th' || verifyRtlRoundTrip) && !expand ? 'en' : locale,
         );
         const catalog = expand
           ? expandCatalog(catalogs[locale])
@@ -383,6 +385,24 @@ async function main() {
             });
           result.screens.push(screen);
         };
+        const selectLanguage = async (from, to, settings = false) => {
+          const messages = catalogs[from];
+          const language = messages['language.title'];
+          await page
+            .getByRole('button', { name: language, exact: !settings })
+            .click();
+          await page
+            .getByRole('slider', { name: language })
+            .getByText(new RegExp(localeRegistry[to].nativeName))
+            .first()
+            .click();
+          await page
+            .getByRole('button', {
+              name: messages['common.done'],
+              exact: true,
+            })
+            .click();
+        };
         try {
           await page.goto(origin);
           if (locale === 'th' && !expand) {
@@ -411,7 +431,7 @@ async function main() {
             );
             result.manualLanguageSelected = true;
           }
-          if (locale === 'ur' || locale === 'te') {
+          if (verifyRtlRoundTrip) {
             const expectDirection = async (dir) => {
               await page.waitForFunction((expected) => {
                 const header = document.querySelector(
@@ -423,36 +443,21 @@ async function main() {
               }, dir);
             };
             if (!expand) {
-              const selectLanguage = async (from, to) => {
-                const messages = catalogs[from];
-                const language = messages['language.title'];
-                await page
-                  .getByRole('button', { name: language, exact: true })
-                  .click();
-                await page
-                  .getByRole('slider', { name: language })
-                  .getByText(new RegExp(localeRegistry[to].nativeName))
-                  .first()
-                  .click();
-                await page
-                  .getByRole('button', {
-                    name: messages['common.done'],
-                    exact: true,
-                  })
-                  .click();
-                await expectDirection(localeRegistry[to].direction);
-              };
               await expectDirection('ltr');
-              const alternate = locale === 'te' ? 'ur' : 'en';
+              const alternate = offlineWorkout ? 'ur' : 'en';
               await selectLanguage('en', locale);
+              await expectDirection(localeRegistry[locale].direction);
               await selectLanguage(locale, alternate);
+              await expectDirection(localeRegistry[alternate].direction);
               await selectLanguage(alternate, locale);
+              await expectDirection(localeRegistry[locale].direction);
               result.manualRtlRoundTrip = true;
             } else {
               await expectDirection(localeRegistry[locale].direction);
             }
             if (locale === 'ur') result.urduRtl = true;
             if (locale === 'te') result.teluguLtr = true;
+            if (locale === 'ta') result.tamilLtr = true;
           }
           const nameInput = page.getByRole('textbox', {
             name: text('onboarding.name'),
@@ -705,6 +710,17 @@ async function main() {
             .getByRole('tab', { name: contains(text('nav.profile')) })
             .click();
           await button('profile.myWorkouts', false).waitFor();
+          if (locale === 'ta' && !expand) {
+            await selectLanguage('ta', 'en', true);
+            await selectLanguage('en', 'ta', true);
+            await page.waitForFunction(
+              () =>
+                JSON.parse(
+                  localStorage.getItem('cresum_language_preference_v1'),
+                ).preference === 'ta',
+            );
+            result.tamilSettingsSelection = true;
+          }
           await capture('profile');
           await button('profile.myWorkouts', false).click();
           await button('templates.create').waitFor();
@@ -714,7 +730,7 @@ async function main() {
             .getByRole('textbox', { name: text('editor.name'), exact: true })
             .fill('QA-localized-plan');
           await button('editor.next').click();
-          if (locale === 'te') {
+          if (offlineWorkout) {
             await page
               .getByRole('textbox', {
                 name: text('library.searchLabel'),
@@ -730,7 +746,7 @@ async function main() {
               exact: true,
             })
             .fill(synonym);
-          if (['nl', 'sv', 'th', 'ur', 'te'].includes(locale)) {
+          if (['nl', 'sv', 'th', 'ur', 'te', 'ta'].includes(locale)) {
             const all = text('library.all');
             const dumbbell = text('catalog.equipment.dumbbell');
             const equipmentFilter = (label) =>
@@ -1008,21 +1024,28 @@ async function main() {
 
           await editFirst.click();
           await button('entry.useKeypad').click();
-          const manualWeight = ['nl', 'sv', 'th', 'ur', 'te'].includes(locale)
+          const manualWeight = ['nl', 'sv', 'th', 'ur', 'te', 'ta'].includes(
+            locale,
+          )
             ? 62.5
             : 12.5;
           const manualReps = 8;
           const manualVolumeKg = manualWeight * manualReps;
           const entryLocale = locale === 'th' ? 'th-TH-u-nu-thai' : locale;
-          const asciiTeluguCase = locale === 'te' && width === 390;
-          const weightInput = asciiTeluguCase
+          const asciiDigitCase = offlineWorkout && width === 390;
+          const weightInput = asciiDigitCase
             ? String(manualWeight)
             : formatNumber(entryLocale, manualWeight);
-          const repsInput = asciiTeluguCase
+          const repsInput = asciiDigitCase
             ? String(manualReps)
             : formatNumber(entryLocale, manualReps);
           if (locale === 'te')
             result.teluguInput = { weight: weightInput, reps: repsInput };
+          if (locale === 'ta') {
+            assert.equal(weightInput, asciiDigitCase ? '62.5' : '௬௨.௫');
+            assert.equal(repsInput, asciiDigitCase ? '8' : '௮');
+            result.tamilInput = { weight: weightInput, reps: repsInput };
+          }
           await exactWeight.fill(weightInput);
           await exactReps.fill(repsInput);
           await failNextWrite();
@@ -1076,7 +1099,7 @@ async function main() {
             'Discard cancel preserves Core',
           );
 
-          if (locale !== 'te') {
+          if (!offlineWorkout) {
             await page.reload();
             const resume = namedButton('home.resume', {
               name: 'QA-localized-plan',
@@ -1158,9 +1181,10 @@ async function main() {
           });
           await page.getByText(expectedSet, { exact: true }).waitFor();
           await capture('history-detail');
-          if (locale === 'te') {
+          if (offlineWorkout) {
             assert.equal(await page.evaluate(() => navigator.onLine), false);
-            result.teluguOfflineHistoryVerified = true;
+            if (locale === 'te') result.teluguOfflineHistoryVerified = true;
+            if (locale === 'ta') result.tamilOfflineHistoryVerified = true;
             await context.setOffline(false);
           }
           await page.reload();
@@ -1240,7 +1264,7 @@ async function main() {
             plannedSets: 4,
             weight: first.weight,
             reps: first.reps,
-            reloadPreservedRestDeadline: locale !== 'te',
+            reloadPreservedRestDeadline: !offlineWorkout,
             historyRecords: finished.history.length,
             setWriteRetry: true,
             finishWriteRetry: true,
@@ -1283,7 +1307,7 @@ async function main() {
           await page
             .getByRole('tab', { name: contains(text('nav.home')) })
             .click();
-          if (locale === 'ur' || locale === 'te') {
+          if (verifyRtlRoundTrip) {
             await button('home.openCalendar').click();
             const previousMonth = button('calendar.previous');
             const nextMonth = button('calendar.next');
@@ -1303,6 +1327,7 @@ async function main() {
             await button('calendar.close').click();
             if (locale === 'ur') result.rtlCalendar = true;
             if (locale === 'te') result.teluguCalendar = true;
+            if (locale === 'ta') result.tamilCalendar = true;
           }
           await page.getByRole('radio').nth(0).click();
           await planStart().click();

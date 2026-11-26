@@ -133,6 +133,9 @@ it.each([
   ['ur', 'ur'],
   ['te', 'te'],
   ['te-IN', 'te'],
+  ['ta', 'ta'],
+  ['ta-IN', 'ta'],
+  ['ta-LK', 'ta'],
   ['ur-PK', 'ur'],
   ['ur-IN', 'ur'],
   ['ur-Arab-PK', 'ur'],
@@ -292,6 +295,9 @@ it.each([
   ['ur-PK', 'ur'],
   ['ur-IN', 'ur'],
   ['te-IN', 'te'],
+  ['ta', 'ta'],
+  ['ta-IN', 'ta'],
+  ['ta-LK', 'ta'],
 ] as const)(
   'restores system language for %s after manual selection',
   async (device, expected) => {
@@ -305,3 +311,19 @@ it.each([
     expect(store.getSnapshot().locale).toBe(expected);
   },
 );
+
+it('restores a manually selected Tamil locale after restart and returns to the device language', async () => {
+  const { store, storage } = setup();
+  expect(await store.select('ta')).toBe(true);
+  const restarted = new LocaleStore(storage, () => ['ur-PK']);
+  await restarted.load();
+  expect(restarted.getSnapshot()).toMatchObject({
+    preference: 'ta',
+    locale: 'ta',
+  });
+  expect(await restarted.select('system')).toBe(true);
+  expect(restarted.getSnapshot()).toMatchObject({
+    preference: 'system',
+    locale: 'ur',
+  });
+});

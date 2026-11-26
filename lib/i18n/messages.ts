@@ -152,6 +152,20 @@ import teOnboarding from './locales/te/onboarding';
 import teProgress from './locales/te/progress';
 import teProfile from './locales/te/profile';
 import teTechniqueContent from './locales/te/technique-content';
+import taCommon from './locales/ta/common';
+import taCatalog from './locales/ta/catalog';
+import taEditor from './locales/ta/editor';
+import taEquipment from './locales/ta/equipment';
+import taLibrary from './locales/ta/library';
+import taSharing from './locales/ta/sharing';
+import taHome from './locales/ta/home';
+import taHistory from './locales/ta/history';
+import taProgramTechnique from './locales/ta/program-technique';
+import taWorkout from './locales/ta/workout';
+import taOnboarding from './locales/ta/onboarding';
+import taProgress from './locales/ta/progress';
+import taProfile from './locales/ta/profile';
+import taTechniqueContent from './locales/ta/technique-content';
 import bnCommon from './locales/bn/common';
 import bnCatalog from './locales/bn/catalog';
 import bnEditor from './locales/bn/editor';
@@ -590,6 +604,22 @@ const te = {
   ...teProfile,
   ...teTechniqueContent,
 } as const;
+const ta = {
+  ...taCommon,
+  ...taCatalog,
+  ...taEditor,
+  ...taEquipment,
+  ...taLibrary,
+  ...taSharing,
+  ...taHome,
+  ...taHistory,
+  ...taProgramTechnique,
+  ...taWorkout,
+  ...taOnboarding,
+  ...taProgress,
+  ...taProfile,
+  ...taTechniqueContent,
+} as const;
 const ja = {
   ...jaCommon,
   ...jaCatalog,
@@ -738,6 +768,7 @@ export const catalogs = {
   ar,
   ur,
   te,
+  ta,
   ja,
   vi,
   mr,

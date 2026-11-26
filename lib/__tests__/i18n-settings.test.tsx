@@ -53,6 +53,7 @@ it('opens at the effective language, stages wheel choices, and saves only with D
     '🇮🇳  मराठी',
     '🇮🇳  हिन्दी',
     '🇧🇩  বাংলা',
+    '🇮🇳  தமிழ்',
     '🇮🇳  తెలుగు',
     '🇹🇭  ไทย',
     '🇰🇷  한국어',
@@ -95,9 +96,17 @@ it('opens at the effective language, stages wheel choices, and saves only with D
   expect(store.getSnapshot().preference).toBe('system');
   act(() => view!.unmount());
 });
-it.each(['de-DE', 'ja-JP', 'vi-VN', 'mr-IN', 'id-ID', 'ko-KR'])(
+it.each([
+  ['de-DE', '🇩🇪  Deutsch'],
+  ['ja-JP', '🇯🇵  日本語'],
+  ['vi-VN', '🇻🇳  Tiếng Việt'],
+  ['mr-IN', '🇮🇳  मराठी'],
+  ['id-ID', '🇮🇩  Bahasa Indonesia'],
+  ['ko-KR', '🇰🇷  한국어'],
+  ['ta-LK', '🇮🇳  தமிழ்'],
+])(
   'centers the resolved device language for %s without saving',
-  async (tag) => {
+  async (tag, expectedRow) => {
     const write = jest.fn(async () => {});
     const store = new LocaleStore(
       { getItem: async () => null, setItem: write },
@@ -113,19 +122,7 @@ it.each(['de-DE', 'ja-JP', 'vi-VN', 'mr-IN', 'id-ID', 'ko-KR'])(
     });
     await act(async () => view!.root.findByType(AppButton).props.onPress());
     const picker = view!.root.findByType(AppPicker);
-    expect(picker.props.columns[0][picker.props.selected[0]]).toBe(
-      tag === 'de-DE'
-        ? '🇩🇪  Deutsch'
-        : tag === 'ja-JP'
-          ? '🇯🇵  日本語'
-          : tag === 'vi-VN'
-            ? '🇻🇳  Tiếng Việt'
-            : tag === 'mr-IN'
-              ? '🇮🇳  मराठी'
-              : tag === 'id-ID'
-                ? '🇮🇩  Bahasa Indonesia'
-                : '🇰🇷  한국어',
-    );
+    expect(picker.props.columns[0][picker.props.selected[0]]).toBe(expectedRow);
     expect(
       view!.root.findByType(Modal).findAllByType(AppButton)[0].props.selected,
     ).toBe(true);

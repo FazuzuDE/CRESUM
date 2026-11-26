@@ -3,7 +3,11 @@ export function displayNumberingSystem(locale: AppLocale) {
   if (locale === 'ar') return 'arab';
   if (locale === 'ur') return 'arabext';
   if (locale === 'te') return 'telu';
+  if (locale === 'ta') return 'tamldec';
 }
+export const formatLocaleTag = (locale: AppLocale) =>
+  locale === 'ta' ? 'ta-IN' : locale;
+
 const decimalSeparators = new Map<AppLocale, string>();
 export function formatEntryNumber(locale: AppLocale, raw: string): string {
   const normalized = normalizeDecimalInput(raw);
@@ -11,7 +15,7 @@ export function formatEntryNumber(locale: AppLocale, raw: string): string {
   let separator = decimalSeparators.get(locale);
   if (!separator) {
     separator =
-      new Intl.NumberFormat(locale, {
+      new Intl.NumberFormat(formatLocaleTag(locale), {
         numberingSystem: displayNumberingSystem(locale),
       })
         .format(1.1)
@@ -25,7 +29,7 @@ export function formatNumber(
   value: number,
   options?: Intl.NumberFormatOptions,
 ): string {
-  return new Intl.NumberFormat(locale, {
+  return new Intl.NumberFormat(formatLocaleTag(locale), {
     numberingSystem: displayNumberingSystem(locale),
     ...options,
   }).format(value);
@@ -35,7 +39,7 @@ export function formatDate(
   epochMs: number,
   options?: Intl.DateTimeFormatOptions,
 ): string {
-  return new Intl.DateTimeFormat(locale, {
+  return new Intl.DateTimeFormat(formatLocaleTag(locale), {
     numberingSystem: displayNumberingSystem(locale),
     ...(locale === 'th' ? { calendar: 'gregory' } : {}),
     ...options,
@@ -49,6 +53,9 @@ export function normalizeDecimalInput(raw: string): string | null {
 // Normalize editable digits without parsing or rounding an unfinished draft.
 export function normalizeInputDigits(raw: string): string {
   return raw
+    .replace(/[\u0be6-\u0bef]/g, (digit) =>
+      String(digit.charCodeAt(0) - 0x0be6),
+    )
     .replace(/[\u0c66-\u0c6f]/g, (digit) =>
       String(digit.charCodeAt(0) - 0x0c66),
     )

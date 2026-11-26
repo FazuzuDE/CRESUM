@@ -113,6 +113,11 @@ function forms(value: string): string[] {
     /(\p{Script=Telugu}) +(?=\p{Script=Telugu})/gu,
     '$1',
   );
+  // Tamil compounds may be typed with spaces or join controls; keep the pulli.
+  const tamilJoined = folded.replace(
+    /(\p{Script=Tamil}) +(?=\p{Script=Tamil})/gu,
+    '$1',
+  );
   // Accept Arabic-script presentation forms and invisible join controls in Urdu queries.
   const presentation = normalizeSearch(
     value
@@ -131,6 +136,7 @@ function forms(value: string): string[] {
       german,
       thaiJoined,
       teluguJoined,
+      tamilJoined,
       presentation,
     ]),
   ].filter(Boolean);

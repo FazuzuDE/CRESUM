@@ -200,6 +200,16 @@ it.each([
     'övningsnamn',
   ],
   [
+    'ta',
+    'பயிற்சியின் விளக்கம்',
+    'தொடக்க நிலை',
+    'இயக்கம்',
+    'கவனிக்க வேண்டியவை',
+    'புதிய பயிற்சி',
+    'பொதுவான தவறு',
+    'பயிற்சியின் பெயர்',
+  ],
+  [
     'th',
     'เกี่ยวกับท่านี้',
     'ท่าเตรียม',
@@ -270,6 +280,10 @@ it.each([
       expect(verifyAlias(['new exercise'])).toEqual([
         'th: missing Thai search alias exercise.' + id,
       ]);
+    if (locale === 'ta')
+      expect(verifyAlias(['new exercise', '௧'])).toEqual([
+        'ta: missing Tamil search alias exercise.' + id,
+      ]);
     expect(verifyAlias([alias])).toEqual([]);
   },
 );
@@ -296,4 +310,15 @@ it('rejects an omitted Urdu message, a copied fallback, broken placeholders and 
     'ur: missing Urdu search alias exercise.test',
   ]);
   expect(errorsFor(['آزمائشی ورزش', 'azmaishi warzish'])).toEqual([]);
+});
+
+it('rejects non-Tamil fallback paraphrases and mismatched Tamil parameters', () => {
+  const en = { label: 'Select {{name}}' };
+  const ta = { label: 'Choose {{name}}' };
+  expect(validateLocalizedCopy({ en, ta }, 'ta', {})).toEqual([
+    'ta: missing Tamil copy label',
+  ]);
+  expect(validateCatalogs({ en, ta: { label: 'தேர்ந்தெடு {{id}}' } })).toEqual([
+    'ta.label: parameters differ',
+  ]);
 });

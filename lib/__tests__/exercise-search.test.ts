@@ -558,3 +558,30 @@ it.each(['te', 'en'] as const)(
     expect(normalizeSearch('కాలి')).not.toBe(normalizeSearch('కలి'));
   },
 );
+
+it.each(['ta', 'en'] as const)(
+  'finds Tamil aliases offline in %s across NFC and NFD and retains exact variants',
+  (locale) => {
+    for (const term of ['பெஞ்ச் பிரஸ்', 'பெஞ்ச்பிரஸ்', 'bench press'])
+      expect(ids(term, locale)[0]).toBe('barbell-bench-press');
+    for (const term of ['டிரெட்மில்', 'டிரெட் மில்', 'டிரெட்\u200dமில்', 'treadmill'])
+      expect(ids(term, locale)[0]).toBe('treadmill-walking');
+    const composed = 'கோப்லெட்';
+    expect(composed).not.toBe(composed.normalize('NFD'));
+    expect(ids(composed, locale)[0]).toBe('goblet-squat');
+    expect(ids(composed.normalize('NFD'), locale)).toEqual(
+      ids(composed, locale),
+    );
+    expect(normalizeSearch('கால்')).not.toBe(normalizeSearch('கால'));
+    expect(ids('வி கிரிப் புல்டவுன்', locale)[0]).toBe(
+      'lat-pulldown-close-neutral-v-handle',
+    );
+    expect(ids('எர்கோ கைப்பிடி புல்டவுன்', locale)[0]).toBe(
+      'lat-pulldown-close-neutral-ergonomic-handle',
+    );
+    expect(ids('அகலப் பிடி லாட் புல்டவுன்', locale)[0]).toBe(
+      'lat-pulldown-wide-pronated-bar',
+    );
+    expect(ids('ஸ்மித் மெஷின் ஸ்குவாட்', locale)[0]).toBe('smith-machine-squat');
+  },
+);
