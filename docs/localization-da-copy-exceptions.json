@@ -1,0 +1,138 @@
+{
+  "body.point": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "{{date}} · {{value}} kg"
+  },
+  "catalog.equipment.kettlebell": {
+    "reason": "Established Danish gym term for this equipment.",
+    "text": "Kettlebell"
+  },
+  "catalog.muscle.biceps": {
+    "reason": "Established Danish anatomical term.",
+    "text": "Biceps"
+  },
+  "catalog.muscle.triceps": {
+    "reason": "Established Danish anatomical term.",
+    "text": "Triceps"
+  },
+  "conflict.setValue": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "{{weight}} kg × {{reps}} · {{status}}"
+  },
+  "conflict.setValueBoth": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "{{weight}} kg × {{reps}} / {{other}} · {{status}}"
+  },
+  "editor.weightValue": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "{{weight}} kg"
+  },
+  "entry.bilateralSummary": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "{{weight}} kg × {{reps}} / {{other}}"
+  },
+  "entry.singleSummary": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "{{weight}} kg × {{reps}}"
+  },
+  "history.filterButton": {
+    "reason": "Filter is an established Danish noun.",
+    "text": "Filter · {{filter}}"
+  },
+  "home.kilograms": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "{{value}} kg"
+  },
+  "home.start": {
+    "reason": "Start is the Danish imperative for starting a workout.",
+    "text": "Start"
+  },
+  "home.startNamed": {
+    "reason": "Start is the Danish imperative for beginning the named workout.",
+    "text": "Start {{name}}"
+  },
+  "home.tonnes": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "{{value}} t"
+  },
+  "onboarding.cm": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "cm"
+  },
+  "onboarding.kg": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "kg"
+  },
+  "onboarding.start": {
+    "reason": "Start is the Danish imperative for beginning.",
+    "text": "Start!"
+  },
+  "onboarding.welcomeOk": {
+    "reason": "Standard confirmation button in Danish.",
+    "text": "OK"
+  },
+  "profile.dataSection": {
+    "reason": "Established Danish word for the data section.",
+    "text": "Data"
+  },
+  "profile.theme.system": {
+    "reason": "Short Danish label for following the system setting.",
+    "text": "System"
+  },
+  "profile.version": {
+    "reason": "Danish app version label.",
+    "text": "Version {{version}}"
+  },
+  "progress.kg": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "kg"
+  },
+  "progress.loggedSet": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "{{weight}} kg × {{reps}}"
+  },
+  "progress.period.1M": {
+    "reason": "Compact Danish abbreviation for one month (måned).",
+    "text": "1M"
+  },
+  "progress.period.3M": {
+    "reason": "Compact Danish abbreviation for three months (måneder).",
+    "text": "3M"
+  },
+  "progress.period.6M": {
+    "reason": "Compact Danish abbreviation for six months (måneder).",
+    "text": "6M"
+  },
+  "progress.point": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "{{name}}, {{date}}, {{value}} kg"
+  },
+  "progress.valueKg": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "{{value}} kg"
+  },
+  "sharing.linkRef": {
+    "reason": "Technical link ID and date label; link is a Danish loanword.",
+    "text": "Link {{id}} · {{date}}"
+  },
+  "sharing.send": {
+    "reason": "Natural Danish imperative with the established word link.",
+    "text": "Send link"
+  },
+  "sharing.weight": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "{{weight}} kg"
+  },
+  "technique.start": {
+    "reason": "Start is the Danish noun for the starting phase.",
+    "text": "START"
+  },
+  "templates.startNamed": {
+    "reason": "Start is the Danish imperative for beginning the named workout.",
+    "text": "Start {{name}}"
+  },
+  "workout.tableKg": {
+    "reason": "International measurement unit with language-neutral values and symbols.",
+    "text": "KG"
+  }
+}

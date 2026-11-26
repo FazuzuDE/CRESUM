@@ -385,3 +385,23 @@ it('formats Finnish dates and preserves exact decimal weights', () => {
     }),
   ).toBe('26. marraskuuta 2026');
 });
+
+it('formats Danish dates and accepts both decimal marks without accepting grouped input', () => {
+  expect(formatLocaleTag('da')).toBe('da-DK');
+  expect(formatNumber('da', 1234.5)).toBe('1.234,5');
+  expect(formatEntryNumber('da', '62.5')).toBe('62,5');
+  expect(['62,5', '62.5'].map(normalizeDecimalInput)).toEqual(['62.5', '62.5']);
+  expect(['1.234,5', '1,234.5', '1 234'].map(normalizeDecimalInput)).toEqual([
+    null,
+    null,
+    null,
+  ]);
+  expect(
+    formatDate('da', Date.UTC(2026, 10, 26), {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC',
+    }),
+  ).toBe('26. november 2026');
+});

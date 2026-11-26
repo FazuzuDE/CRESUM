@@ -650,3 +650,28 @@ it('finds Finnish names, accent-folded queries and exact pulldown variants', () 
   for (const [query, id] of queries) expect(ids(query, 'fi')[0]).toBe(id);
   expect(normalizeSearch('Ä Ö')).toBe('a o');
 });
+
+it('finds Danish canonical exercises with normal spelling and explicit ASCII aliases', () => {
+  for (const query of ['bænkpres', 'baenkpres']) {
+    expect(ids(query, 'da')).toEqual(
+      expect.arrayContaining([
+        'barbell-bench-press',
+        'dumbbell-bench-press',
+        'close-grip-bench-press',
+      ]),
+    );
+  }
+  for (const query of ['håndvægte', 'haandvaegte']) {
+    const exercises = ids(query, 'da');
+    expect(exercises).toContain('dumbbell-lateral-raise');
+    expect(exercises).toContain('dumbbell-bench-press');
+    expect(exercises).not.toContain('barbell-bench-press');
+  }
+  for (const query of ['løbebånd', 'loebebaand']) {
+    expect(ids(query, 'da')[0]).toBe('treadmill-walking');
+  }
+  expect(ids('benpres', 'da')[0]).toBe('leg-press');
+  expect(ids('motionscykel', 'da')[0]).toBe('upright-stationary-bike');
+  expect(ids('spinningscykel', 'da')).not.toContain('upright-stationary-bike');
+  expect(normalizeSearch('LØBEBÅND')).not.toBe(normalizeSearch('LOEBEBAAND'));
+});

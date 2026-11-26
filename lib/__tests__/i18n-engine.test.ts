@@ -103,7 +103,9 @@ it('resolves ordered device locales safely and respects manual choice', () => {
   expect(resolveLocale('system', ['es-ES', 'de-AT'])).toBe('es');
   expect(resolveLocale('system', ['it-IT', 'de-AT'])).toBe('it');
   expect(resolveLocale('system', ['nl-NL', 'de-AT'])).toBe('nl');
-  expect(resolveLocale('system', ['da-DK', 'de-AT'])).toBe('de');
+  expect(resolveLocale('system', ['da-DK', 'de-AT'])).toBe('da');
+  expect(resolveLocale('system', ['da', 'de-AT'])).toBe('da');
+  expect(resolveLocale('system', ['is-IS', 'de-AT'])).toBe('de');
   expect(resolveLocale('system', ['???', 'zh-CN'])).toBe('zh-Hans');
   expect(resolveLocale('system', ['zh-Hant', 'de-AT'])).toBe('zh-Hant');
   expect(resolveLocale('system', ['zh-TW', 'en-US'])).toBe('zh-Hant');
@@ -297,4 +299,10 @@ it('uses Finnish singular and plural forms', () => {
   const t = createTranslator('fi');
   expect(t('common.setCount', { count: 1 })).toBe('1 sarja');
   expect(t('common.setCount', { count: 2 })).toBe('2 sarjaa');
+});
+
+it('selects Danish singular and plural phrases', () => {
+  const t = createTranslator('da');
+  expect(t('history.lastCount', { count: 1 })).toBe('Seneste 1 træning');
+  expect(t('history.lastCount', { count: 2 })).toBe('Seneste 2 træninger');
 });

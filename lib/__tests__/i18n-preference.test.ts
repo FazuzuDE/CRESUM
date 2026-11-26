@@ -403,3 +403,31 @@ it('restores a saved Finnish choice and follows Swedish in Finland when asked', 
     locale: 'sv',
   });
 });
+
+it('restores Danish after restart and switches between Urdu and the Danish device locale', async () => {
+  const { store, storage } = setup(null);
+  await store.load();
+  expect(await store.select('da')).toBe(true);
+  const restarted = new LocaleStore(storage, () => ['ur-PK']);
+  await restarted.load();
+  expect(restarted.getSnapshot()).toMatchObject({
+    preference: 'da',
+    locale: 'da',
+  });
+  expect(localeRegistry[restarted.getSnapshot().locale].direction).toBe('ltr');
+  expect(await restarted.select('system')).toBe(true);
+  expect(restarted.getSnapshot()).toMatchObject({
+    preference: 'system',
+    locale: 'ur',
+  });
+  expect(localeRegistry[restarted.getSnapshot().locale].direction).toBe('rtl');
+  const danishDevice = new LocaleStore(storage, () => ['da-DK']);
+  await danishDevice.load();
+  expect(danishDevice.getSnapshot()).toMatchObject({
+    preference: 'system',
+    locale: 'da',
+  });
+  expect(localeRegistry[danishDevice.getSnapshot().locale].direction).toBe(
+    'ltr',
+  );
+});
