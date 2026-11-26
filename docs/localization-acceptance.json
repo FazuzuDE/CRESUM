@@ -87,5 +87,5 @@
   },
   "th": { "web": true, "native": false, "linguistic": false },
   "ur": { "web": true, "native": false, "linguistic": false },
-  "te": { "web": false, "native": false, "linguistic": false }
+  "te": { "web": true, "native": false, "linguistic": false }
 }

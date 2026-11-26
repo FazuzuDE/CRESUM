@@ -933,9 +933,9 @@ values and workout snapshots use the existing storage format.
 ## Telugu (తెలుగు)
 
 Telugu is selectable in test and final builds. The device tags `te` and
-`te-IN` follow the same left-to-right catalog. Displayed numbers use Telugu
-digits and Indian grouping. The numeric keypad accepts Telugu and ASCII
-digits and stores the same exact values for both.
+`te-IN` follow the same left-to-right catalog. Number formatting uses Telugu
+digits and the platform's Telugu separators. The numeric keypad accepts
+Telugu and ASCII digits and stores the same exact values for both.
 
 Add Telugu copy and guide steps with the same stable keys as the English
 catalog. Include a Telugu-script alias for every searchable exercise,
