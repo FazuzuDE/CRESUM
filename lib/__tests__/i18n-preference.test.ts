@@ -149,6 +149,13 @@ it.each([
   ['zh-SG', 'zh-Hans'],
   ['zh-Hans', 'zh-Hans'],
   ['zh-Hans-HK', 'zh-Hans'],
+  ['zh-Hans-TW', 'zh-Hans'],
+  ['zh-Hant', 'zh-Hant'],
+  ['zh-Hant-CN', 'zh-Hant'],
+  ['zh-Hant-SG', 'zh-Hant'],
+  ['zh-TW', 'zh-Hant'],
+  ['zh-HK', 'zh-Hant'],
+  ['zh-MO', 'zh-Hant'],
 ])('selects the system language for %s', async (tag, locale) => {
   const store = new LocaleStore(
     { getItem: async () => null, setItem: async () => {} },
@@ -325,5 +332,31 @@ it('restores a manually selected Tamil locale after restart and returns to the d
   expect(restarted.getSnapshot()).toMatchObject({
     preference: 'system',
     locale: 'ur',
+  });
+});
+
+it('keeps a saved Simplified Chinese preference on a Traditional Chinese device', async () => {
+  const { store, storage } = setup(
+    JSON.stringify({ version: 1, preference: 'zh-Hans' }),
+  );
+  await store.load();
+  expect(store.getSnapshot().locale).toBe('zh-Hans');
+  const restarted = new LocaleStore(storage, () => ['zh-TW']);
+  await restarted.load();
+  expect(restarted.getSnapshot()).toMatchObject({
+    preference: 'zh-Hans',
+    locale: 'zh-Hans',
+  });
+  expect(await restarted.select('zh-Hant')).toBe(true);
+  const restartedAgain = new LocaleStore(storage, () => ['zh-CN']);
+  await restartedAgain.load();
+  expect(restartedAgain.getSnapshot()).toMatchObject({
+    preference: 'zh-Hant',
+    locale: 'zh-Hant',
+  });
+  expect(await restartedAgain.select('system')).toBe(true);
+  expect(restartedAgain.getSnapshot()).toMatchObject({
+    preference: 'system',
+    locale: 'zh-Hans',
   });
 });

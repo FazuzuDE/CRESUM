@@ -208,6 +208,20 @@ import zhHansOnboarding from './locales/zh-Hans/onboarding';
 import zhHansEditor from './locales/zh-Hans/editor';
 import zhHansProgramTechnique from './locales/zh-Hans/program-technique';
 import zhHansTechniqueContent from './locales/zh-Hans/technique-content';
+import zhHantEquipment from './locales/zh-Hant/equipment';
+import zhHantSharing from './locales/zh-Hant/sharing';
+import zhHantProfile from './locales/zh-Hant/profile';
+import zhHantCommon from './locales/zh-Hant/common';
+import zhHantProgress from './locales/zh-Hant/progress';
+import zhHantCatalog from './locales/zh-Hant/catalog';
+import zhHantLibrary from './locales/zh-Hant/library';
+import zhHantWorkout from './locales/zh-Hant/workout';
+import zhHantHome from './locales/zh-Hant/home';
+import zhHantHistory from './locales/zh-Hant/history';
+import zhHantOnboarding from './locales/zh-Hant/onboarding';
+import zhHantEditor from './locales/zh-Hant/editor';
+import zhHantProgramTechnique from './locales/zh-Hant/program-technique';
+import zhHantTechniqueContent from './locales/zh-Hant/technique-content';
 import trEquipment from './locales/tr/equipment';
 import trSharing from './locales/tr/sharing';
 import trProfile from './locales/tr/profile';
@@ -524,6 +538,22 @@ const zhHans = {
   ...zhHansProgramTechnique,
   ...zhHansTechniqueContent,
 } as const;
+const zhHant = {
+  ...zhHantEquipment,
+  ...zhHantSharing,
+  ...zhHantProfile,
+  ...zhHantCommon,
+  ...zhHantProgress,
+  ...zhHantCatalog,
+  ...zhHantLibrary,
+  ...zhHantWorkout,
+  ...zhHantHome,
+  ...zhHantHistory,
+  ...zhHantOnboarding,
+  ...zhHantEditor,
+  ...zhHantProgramTechnique,
+  ...zhHantTechniqueContent,
+} as const;
 const hi = {
   ...hiEquipment,
   ...hiSharing,
@@ -763,6 +793,7 @@ export const catalogs = {
   pl,
   tr,
   'zh-Hans': zhHans,
+  'zh-Hant': zhHant,
   hi,
   bn,
   ar,

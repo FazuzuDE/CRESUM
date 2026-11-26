@@ -5,8 +5,11 @@ export function displayNumberingSystem(locale: AppLocale) {
   if (locale === 'te') return 'telu';
   if (locale === 'ta') return 'tamldec';
 }
-export const formatLocaleTag = (locale: AppLocale) =>
-  locale === 'ta' ? 'ta-IN' : locale;
+export function formatLocaleTag(locale: AppLocale) {
+  if (locale === 'ta') return 'ta-IN';
+  if (locale === 'zh-Hant') return 'zh-TW';
+  return locale;
+}
 
 const decimalSeparators = new Map<AppLocale, string>();
 export function formatEntryNumber(locale: AppLocale, raw: string): string {

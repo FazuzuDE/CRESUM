@@ -152,6 +152,10 @@ async function main() {
     option('--output-dir', '.tools/localization-web-qa/browser'),
   );
   const captureScreenshots = !process.argv.includes('--no-screenshots');
+  const traceOnFailure = process.argv.includes('--trace-on-failure');
+  const selectedCases = option('--cases', '').split(',').filter(Boolean);
+  const caseName = ({ locale, width, expanded }) =>
+    `${locale}:${width}:${expanded ? 'expanded' : 'normal'}`;
   const screenshotLocale = option('--screenshot-locale', '');
   const screenshotScreens = option('--screenshot-screens', '')
     .split(',')
@@ -191,7 +195,16 @@ async function main() {
   const catalogs = readCatalogs(root, load);
   const { localeRegistry } = load(path.join(root, 'lib/i18n/registry.ts'));
   const locales = Object.keys(localeRegistry);
-  const matrix = qaMatrix(locales);
+  const fullMatrix = qaMatrix(locales);
+  const matrix = selectedCases.length
+    ? fullMatrix.filter((entry) => selectedCases.includes(caseName(entry)))
+    : fullMatrix;
+  if (selectedCases.length)
+    assert.equal(
+      matrix.length,
+      selectedCases.length,
+      'Unknown or duplicate case',
+    );
   const aliases = load(
     path.join(root, 'lib/i18n/search/aliases.ts'),
   ).searchAliases;
@@ -275,12 +288,16 @@ async function main() {
       expandedMode = expand;
       const scenarios = matrix.filter(({ expanded }) => expanded === expand);
       const runScenario = async ({ locale, width }) => {
-        const offlineWorkout = locale === 'te' || locale === 'ta';
-        const verifyRtlRoundTrip = offlineWorkout || locale === 'ur';
+        const taiwan = locale === 'zh-Hant';
+        const verifyRtlRoundTrip = ['te', 'ta', 'ur'].includes(locale);
+        const offlineWorkout =
+          (verifyRtlRoundTrip && locale !== 'ur') || taiwan;
         const context = await browser.newContext({
           viewport: { width, height: 850 },
-          locale,
+          locale: taiwan ? formatLocaleTag(locale) : locale,
         });
+        if (traceOnFailure)
+          await context.tracing.start({ screenshots: true, snapshots: true });
         const result = {
           locale,
           width,
@@ -310,7 +327,9 @@ async function main() {
                 JSON.stringify({ version: 1, preference: value }),
               );
           },
-          (locale === 'th' || verifyRtlRoundTrip) && !expand ? 'en' : locale,
+          (locale === 'th' || verifyRtlRoundTrip || taiwan) && !expand
+            ? 'en'
+            : locale,
         );
         const catalog = expand
           ? expandCatalog(catalogs[locale])
@@ -433,6 +452,34 @@ async function main() {
             );
             result.manualLanguageSelected = true;
           }
+          if (taiwan && !expand) {
+            await selectLanguage('en', locale);
+            await page
+              .getByRole('textbox', {
+                name: text('onboarding.name'),
+                exact: true,
+              })
+              .waitFor();
+            await page.reload();
+            await page
+              .getByRole('textbox', {
+                name: text('onboarding.name'),
+                exact: true,
+              })
+              .waitFor();
+            await button('language.title').click();
+            await page
+              .getByRole('button', { name: contains(text('language.system')) })
+              .click();
+            await button('common.done').click();
+            await page.waitForFunction(
+              () =>
+                JSON.parse(
+                  localStorage.getItem('cresum_language_preference_v1'),
+                ).preference === 'system',
+            );
+            result.taiwanDeviceLanguage = true;
+          }
           if (verifyRtlRoundTrip) {
             const expectDirection = async (dir) => {
               await page.waitForFunction((expected) => {
@@ -491,7 +538,15 @@ async function main() {
           await button('onboarding.continue').click();
           await button('onboarding.height').waitFor();
           await capture('onboarding-body');
-          await button('onboarding.skipForNow').click();
+          if (taiwan) {
+            await button('onboarding.birth').click();
+            await page
+              .getByRole('slider', { name: text('date.month'), exact: true })
+              .waitFor();
+            await capture('onboarding-birthday-wheel');
+            await button('common.done').click();
+            await button('onboarding.continue').click();
+          } else await button('onboarding.skipForNow').click();
           await button('onboarding.findProgram', false).click();
           await capture('onboarding-goal');
           await button('onboarding.muscle', false).click();
@@ -523,6 +578,14 @@ async function main() {
             core: JSON.parse(localStorage.getItem('fitflow_state_v1')),
           }));
           assert.equal(accepted.onboarding.status, 'completed');
+          if (taiwan) {
+            assert.match(
+              accepted.onboarding.answers.dateOfBirth,
+              /^\d{4}-\d{2}-\d{2}$/,
+            );
+            result.taiwanSavedBirthday =
+              accepted.onboarding.answers.dateOfBirth;
+          }
           assert.equal(accepted.onboarding.answers.displayName, 'QA Athlete');
           assert.equal(accepted.onboarding.answers.artworkModel, 'male');
           assert.equal(accepted.onboarding.answers.goal, 'build_muscle');
@@ -716,16 +779,20 @@ async function main() {
             .getByRole('tab', { name: contains(text('nav.profile')) })
             .click();
           await button('profile.myWorkouts', false).waitFor();
-          if (locale === 'ta' && !expand) {
-            await selectLanguage('ta', 'en', true);
-            await selectLanguage('en', 'ta', true);
+          if ((locale === 'ta' || taiwan) && !expand) {
+            const dataBeforeSwitch = await readProgramState();
+            await selectLanguage(locale, 'en', true);
+            await selectLanguage('en', locale, true);
             await page.waitForFunction(
-              () =>
+              (expected) =>
                 JSON.parse(
                   localStorage.getItem('cresum_language_preference_v1'),
-                ).preference === 'ta',
+                ).preference === expected,
+              locale,
             );
-            result.tamilSettingsSelection = true;
+            assert.deepEqual(await readProgramState(), dataBeforeSwitch);
+            if (taiwan) result.taiwanSettingsSelection = true;
+            else result.tamilSettingsSelection = true;
           }
           await page
             .getByText(text('profile.version', { version: displayVersion }), {
@@ -750,6 +817,29 @@ async function main() {
               .waitFor();
             await context.setOffline(true);
             assert.equal(await page.evaluate(() => navigator.onLine), false);
+            if (taiwan) {
+              const query = page.getByRole('textbox', {
+                name: text('library.searchLabel'),
+                exact: true,
+              });
+              for (const [term, exercise] of [
+                ['槓鈴臥推', 'barbell-bench-press'],
+                ['三角握把下拉', 'lat-pulldown-close-neutral-v-handle'],
+                ['跑步機', 'treadmill-walking'],
+              ]) {
+                await query.fill(term);
+                await page
+                  .getByRole('button', {
+                    name: text('library.techniqueFor', {
+                      name: text(`catalog.exercise.${exercise}`),
+                    }),
+                    exact: true,
+                  })
+                  .first()
+                  .waitFor();
+              }
+              result.taiwanOfflineSearch = true;
+            }
           }
           await page
             .getByRole('textbox', {
@@ -757,7 +847,9 @@ async function main() {
               exact: true,
             })
             .fill(synonym);
-          if (['nl', 'sv', 'th', 'ur', 'te', 'ta'].includes(locale)) {
+          if (
+            ['nl', 'sv', 'th', 'ur', 'te', 'ta', 'zh-Hant'].includes(locale)
+          ) {
             const all = text('library.all');
             const dumbbell = text('catalog.equipment.dumbbell');
             const equipmentFilter = (label) =>
@@ -1035,21 +1127,35 @@ async function main() {
 
           await editFirst.click();
           await button('entry.useKeypad').click();
-          const manualWeight = ['nl', 'sv', 'th', 'ur', 'te', 'ta'].includes(
-            locale,
-          )
+          const manualWeight = [
+            'nl',
+            'sv',
+            'th',
+            'ur',
+            'te',
+            'ta',
+            'zh-Hant',
+          ].includes(locale)
             ? 62.5
             : 12.5;
           const manualReps = 8;
           const manualVolumeKg = manualWeight * manualReps;
           const entryLocale = locale === 'th' ? 'th-TH-u-nu-thai' : locale;
           const asciiDigitCase = offlineWorkout && width === 390;
-          const weightInput = asciiDigitCase
-            ? String(manualWeight)
-            : formatNumber(entryLocale, manualWeight);
-          const repsInput = asciiDigitCase
-            ? String(manualReps)
-            : formatNumber(entryLocale, manualReps);
+          const weightInput =
+            taiwan && !asciiDigitCase
+              ? '６２．５'
+              : asciiDigitCase
+                ? String(manualWeight)
+                : formatNumber(entryLocale, manualWeight);
+          const repsInput =
+            taiwan && !asciiDigitCase
+              ? '８'
+              : asciiDigitCase
+                ? String(manualReps)
+                : formatNumber(entryLocale, manualReps);
+          if (taiwan)
+            result.taiwanInput = { weight: weightInput, reps: repsInput };
           if (locale === 'te')
             result.teluguInput = { weight: weightInput, reps: repsInput };
           if (locale === 'ta') {
@@ -1196,6 +1302,7 @@ async function main() {
             assert.equal(await page.evaluate(() => navigator.onLine), false);
             if (locale === 'te') result.teluguOfflineHistoryVerified = true;
             if (locale === 'ta') result.tamilOfflineHistoryVerified = true;
+            if (taiwan) result.taiwanOfflineHistoryVerified = true;
             await context.setOffline(false);
           }
           await page.reload();
@@ -1318,7 +1425,7 @@ async function main() {
           await page
             .getByRole('tab', { name: contains(text('nav.home')) })
             .click();
-          if (verifyRtlRoundTrip) {
+          if (verifyRtlRoundTrip || taiwan) {
             await button('home.openCalendar').click();
             const previousMonth = button('calendar.previous');
             const nextMonth = button('calendar.next');
@@ -1339,6 +1446,7 @@ async function main() {
             if (locale === 'ur') result.rtlCalendar = true;
             if (locale === 'te') result.teluguCalendar = true;
             if (locale === 'ta') result.tamilCalendar = true;
+            if (taiwan) result.taiwanCalendar = true;
           }
           await page.getByRole('radio').nth(0).click();
           await planStart().click();
@@ -1620,6 +1728,23 @@ async function main() {
               result.failureScreenshot = captureError.message;
             });
         } finally {
+          if (traceOnFailure) {
+            const failureTrace = `${caseName({ locale, width, expanded: expand }).replaceAll(':', '-')}-trace.zip`;
+            await context.tracing
+              .stop(
+                result.pass
+                  ? {}
+                  : {
+                      path: path.join(outputDir, failureTrace),
+                    },
+              )
+              .then(() => {
+                if (!result.pass) result.failureTrace = failureTrace;
+              })
+              .catch((error) => {
+                result.traceError = error.message;
+              });
+          }
           report.results.push(result);
           console.log(
             locale,
@@ -1656,7 +1781,7 @@ async function main() {
           locale,
           {
             passed: runs.filter((run) => run.pass).length,
-            expected: widths.length * textModes.length,
+            expected: matrix.filter((entry) => entry.locale === locale).length,
           },
         ];
       }),

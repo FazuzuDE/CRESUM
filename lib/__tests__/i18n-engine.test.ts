@@ -105,11 +105,11 @@ it('resolves ordered device locales safely and respects manual choice', () => {
   expect(resolveLocale('system', ['nl-NL', 'de-AT'])).toBe('nl');
   expect(resolveLocale('system', ['da-DK', 'de-AT'])).toBe('de');
   expect(resolveLocale('system', ['???', 'zh-CN'])).toBe('zh-Hans');
-  expect(resolveLocale('system', ['zh-Hant', 'de-AT'])).toBe('de');
-  expect(resolveLocale('system', ['zh-TW', 'en-US'])).toBe('en');
-  expect(resolveLocale('system', ['zh-HK', 'en-US'])).toBe('en');
-  expect(resolveLocale('system', ['zh-MO', 'en-US'])).toBe('en');
-  expect(resolveLocale('system', ['zh-Hant-CN', 'de-AT'])).toBe('de');
+  expect(resolveLocale('system', ['zh-Hant', 'de-AT'])).toBe('zh-Hant');
+  expect(resolveLocale('system', ['zh-TW', 'en-US'])).toBe('zh-Hant');
+  expect(resolveLocale('system', ['zh-HK', 'en-US'])).toBe('zh-Hant');
+  expect(resolveLocale('system', ['zh-MO', 'en-US'])).toBe('zh-Hant');
+  expect(resolveLocale('system', ['zh-Hant-CN', 'de-AT'])).toBe('zh-Hant');
   expect(resolveLocale('zh-Hans', ['zh-Hant'])).toBe('zh-Hans');
   expect(resolveLocale('fr', ['ru-RU'])).toBe('fr');
 });
