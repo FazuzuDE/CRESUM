@@ -1,5 +1,9 @@
 # CRESUM — Product Definition
 
+## Competitive development — approved 2026-11-26
+
+The owner approved the 13 P0–P3 directions in [Competitive development specification](COMPETITIVE_ROADMAP.md). Preserve offline-first logging, historical snapshots, optional account, existing exercise identity and the current V7 interactions. P0 hardens persistence, performance, set entry and timers; P1 extends progression, equipment settings, records, portability, calculators and cardio. P2 platform integrations and P3 discovery follow the Core gates. Detailed acceptance targets are engineering proposals, not evidence of shipping or native acceptance.
+
 ## Cardio in an active workout
 
 Add the stationary bike or treadmill from the active workout's exercise picker.
