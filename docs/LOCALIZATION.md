@@ -43,7 +43,7 @@ Record independent review of exercise and equipment names and technique
 instructions separately. Confirm web, both physical platforms and linguistic
 review for each language before promoting its release flag.
 
-The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian, Korean, Dutch and Swedish. System language
+The picker offers every locale in the [live registry](../lib/i18n/registry.ts). System language
 appears first and is selected by default. An explicit choice is saved on the
 device. Final web and native acceptance for Russian, German, French,
 Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian and Korean remain pending in the release eligibility ledger.
@@ -1009,3 +1009,47 @@ against the same export, invoke `scripts/localization-web-qa.cjs` directly with
 the original `--export-dir` and `--cases zh-Hant:320:normal` (adjust the case
 and use a fresh output directory). On physical devices, check Taiwan font
 rendering, larger text, localized date wheels and full-width keyboard input.
+
+## Norwegian Bokmål (Norsk bokmål)
+
+The registry entry is `nb` and dates and numbers use `nb-NO`. The device
+resolver accepts `nb`, `nb-NO` and the legacy generic Norwegian codes `no`
+and `no-NO`. An explicit Nynorsk device tag (`nn` or `nn-NO`) follows the
+standard next-supported-language fallback. The picker offers Bokmål by name.
+Acceptance flags do not control its availability in test or production.
+
+Use current English meaning with natural Bokmål. Keep the actual exercise
+variant, safety cues, unit symbols, placeholders and singular/plural forms.
+Add idiomatic Bokmål alternatives for each exercise, equipment item, attachment
+and muscle. Include established English gym terms as search aliases when
+useful. The shared search folds case and combining marks (including the ring in
+`å`), while `æ` and `ø` remain distinct letters. Add only unambiguous
+alternatives such as `benpress` for `beinpress`.
+
+The existing localization command checks message parity, placeholders, linked
+technique and search records. The Bokmål source ledger also detects changes to
+English catalogs and searchable alternatives. After reviewing the corresponding
+Bokmål copy or recording that the existing translation still fits, update the
+reviewed English file digest explicitly. For example:
+
+```sh
+node scripts/check-localization.cjs --record-nb-source lib/i18n/locales/en/workout.ts
+```
+
+Pass every affected source path, including `lib/i18n/search/en.ts` when
+applicable. Commit the ledger alongside the localized changes. The recording
+command still requires the localization contracts to pass. Only shared terms,
+unit symbols or fixed technical text with an exact rationale belong in
+`localization-nb-copy-exceptions.json`.
+
+Run the 27-locale web matrix. On physical iPhone and Android, test the same
+language menu in Expo Go and the signed production build. Check device
+selection, manual selection across restart, return to device language,
+`knebøy`, `nedtrekk`, `beinpress`, exact `62,5` kg entry, History, wrapping
+at larger text sizes, and VoiceOver or TalkBack. Record results by build,
+device and commit.
+
+The signed iOS build uses the Bokmål camera usage description in
+`lib/i18n/locales/nb/native.json` when iOS selects Bokmål. The in-app QR
+permission screen uses the regular catalog. Changing the default camera
+usage description requires reviewing `app.json` in the Bokmål source ledger.

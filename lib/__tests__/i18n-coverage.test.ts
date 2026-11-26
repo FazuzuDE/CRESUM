@@ -1,6 +1,5 @@
-const { validateCatalogs, compareInventory } = jest.requireActual(
-  '../../scripts/check-localization.cjs',
-);
+const { validateCatalogs, validateNbSource, compareInventory } =
+  jest.requireActual('../../scripts/check-localization.cjs');
 const { sourceCandidates } = jest.requireActual(
   '../../scripts/inventory-localization.cjs',
 );
@@ -350,4 +349,20 @@ it('rejects missing Traditional Chinese copy, Simplified fallback, placeholders 
       { exercise: [{ id: 'lift' }] },
     ),
   ).toEqual(['zh-Hant: missing Taiwan search alias exercise.lift']);
+});
+
+it('rejects missing Bokmål fields and translations reviewed against older English copy', () => {
+  const en = { existing: 'Stored', required: 'New field {{name}}' };
+  const nb = { existing: 'Lagret' };
+  expect(validateCatalogs({ en, nb })).toContain('nb: missing required');
+  expect(
+    validateCatalogs({ en, nb: { ...nb, required: 'Nytt felt' } }),
+  ).toContain('nb.required: parameters differ');
+  const file = 'lib/i18n/locales/en/workout.ts';
+  expect(
+    validateNbSource({ [file]: 'changed' }, { [file]: 'reviewed' }),
+  ).toEqual(['nb: review translation after English source change in ' + file]);
+  expect(
+    validateNbSource({ [file]: 'changed' }, { [file]: 'changed' }),
+  ).toEqual([]);
 });

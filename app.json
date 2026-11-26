@@ -2,7 +2,7 @@
   "expo": {
     "name": "CRESUM",
     "slug": "cresum",
-    "version": "0.3.36",
+    "version": "0.3.37",
     "orientation": "portrait",
     "scheme": ["cresum", "fitflow"],
     "userInterfaceStyle": "automatic",
@@ -27,10 +27,16 @@
     ],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.fitflow.app"
+      "bundleIdentifier": "com.fitflow.app",
+      "infoPlist": {
+        "CFBundleAllowMixedLocalizations": true
+      }
     },
     "android": {
       "package": "com.fitflow.app"
+    },
+    "locales": {
+      "nb": "./lib/i18n/locales/nb/native.json"
     }
   }
 }

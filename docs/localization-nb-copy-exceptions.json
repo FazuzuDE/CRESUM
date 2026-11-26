@@ -1,0 +1,98 @@
+{
+  "body.point": {
+    "text": "{{date}} · {{value}} kg",
+    "reason": "Localized numeric data with international units or symbols."
+  },
+  "conflict.setValue": {
+    "text": "{{weight}} kg × {{reps}} · {{status}}",
+    "reason": "Localized numeric data with international units or symbols."
+  },
+  "conflict.setValueBoth": {
+    "text": "{{weight}} kg × {{reps}} / {{other}} · {{status}}",
+    "reason": "Localized numeric data with international units or symbols."
+  },
+  "editor.weightValue": {
+    "text": "{{weight}} kg",
+    "reason": "Localized numeric data with international units or symbols."
+  },
+  "entry.bilateralSummary": {
+    "text": "{{weight}} kg × {{reps}} / {{other}}",
+    "reason": "Localized numeric data with international units or symbols."
+  },
+  "entry.singleSummary": {
+    "text": "{{weight}} kg × {{reps}}",
+    "reason": "Localized numeric data with international units or symbols."
+  },
+  "history.filterButton": {
+    "text": "Filter · {{filter}}",
+    "reason": "Filter is also the Norwegian term."
+  },
+  "home.kilograms": {
+    "text": "{{value}} kg",
+    "reason": "Localized numeric data with international units or symbols."
+  },
+  "home.startNamed": {
+    "text": "Start {{name}}",
+    "reason": "Start is the Norwegian imperative of starte."
+  },
+  "home.tonnes": {
+    "text": "{{value}} t",
+    "reason": "Localized numeric data with international units or symbols."
+  },
+  "onboarding.cm": {
+    "text": "cm",
+    "reason": "Localized numeric data with international units or symbols."
+  },
+  "onboarding.kg": {
+    "text": "kg",
+    "reason": "Localized numeric data with international units or symbols."
+  },
+  "onboarding.start": {
+    "text": "START!",
+    "reason": "Start is the Norwegian imperative of starte."
+  },
+  "onboarding.welcomeOk": {
+    "text": "OK",
+    "reason": "OK is the standard acknowledgement in Norwegian."
+  },
+  "profile.dataSection": {
+    "text": "Data",
+    "reason": "Data is the established Bokmål term."
+  },
+  "profile.theme.system": {
+    "text": "System",
+    "reason": "System is also a Bokmål word for the OS-controlled theme."
+  },
+  "progress.kg": {
+    "text": "kg",
+    "reason": "Localized numeric data with international units or symbols."
+  },
+  "progress.loggedSet": {
+    "text": "{{weight}} kg × {{reps}}",
+    "reason": "Localized numeric data with international units or symbols."
+  },
+  "progress.point": {
+    "text": "{{name}}, {{date}}, {{value}} kg",
+    "reason": "Localized numeric data with international units or symbols."
+  },
+  "progress.valueKg": {
+    "text": "{{value}} kg",
+    "reason": "Localized numeric data with international units or symbols."
+  },
+  "sharing.weight": {
+    "text": "{{weight}} kg",
+    "reason": "Localized numeric data with international units or symbols."
+  },
+  "technique.start": {
+    "text": "START",
+    "reason": "Start is the Norwegian phase label."
+  },
+  "templates.startNamed": {
+    "text": "Start {{name}}",
+    "reason": "Start is the Norwegian imperative of starte."
+  },
+  "workout.tableKg": {
+    "text": "KG",
+    "reason": "Localized numeric data with international units or symbols."
+  }
+}

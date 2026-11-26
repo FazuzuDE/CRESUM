@@ -4,6 +4,7 @@ import {
   formatNumber,
   formatDate,
   formatEntryNumber,
+  formatLocaleTag,
 } from '../i18n/format';
 it('localizes exact entry display without rounding manual precision or reparsing drafts', () => {
   expect(formatEntryNumber('ru', '82.1255')).toBe('82,1255');
@@ -353,4 +354,19 @@ it('normalizes full-width Taiwanese weight and reps and uses the Taiwan Gregoria
   expect(formatDate('zh-Hant', Date.UTC(2027, 0, 1), options)).toBe(
     '2027年1月1日',
   );
+});
+
+it('formats Bokmål dates and exact weights and saves canonical decimal input', () => {
+  expect(formatLocaleTag('nb')).toBe('nb-NO');
+  expect(formatNumber('nb', 62.5)).toBe('62,5');
+  expect(formatEntryNumber('nb', '62.501')).toBe('62,501');
+  expect(normalizeDecimalInput('62,501')).toBe('62.501');
+  expect(
+    formatDate('nb', Date.UTC(2026, 10, 26), {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC',
+    }),
+  ).toBe('26. november 2026');
 });

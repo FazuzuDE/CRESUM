@@ -1,4 +1,10 @@
 export const localeRegistry = {
+  nb: {
+    flag: '🇳🇴',
+    nativeName: 'Norsk bokmål',
+    direction: 'ltr',
+    released: false,
+  },
   ta: { flag: '🇮🇳', nativeName: 'தமிழ்', direction: 'ltr', released: false },
   te: { flag: '🇮🇳', nativeName: 'తెలుగు', direction: 'ltr', released: false },
   ur: { flag: '🇵🇰', nativeName: 'اردو', direction: 'rtl', released: false },
@@ -88,6 +94,7 @@ export function resolveLocale(
     if (!/^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$/i.test(tag)) continue;
     const language = tag.split('-')[0].toLowerCase();
     if (language === 'pt') return 'pt-BR';
+    if (language === 'no') return 'nb';
     if (language === 'zh') {
       const parts = tag.toLowerCase().split('-');
       if (parts.includes('hans')) return 'zh-Hans';
