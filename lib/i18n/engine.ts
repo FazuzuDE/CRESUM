@@ -2,7 +2,7 @@ import 'intl-pluralrules';
 import { createInstance } from 'i18next';
 import { catalogs, type MessageCatalog, type Translate } from './messages';
 import type { AppLocale } from './registry';
-import { displayNumberingSystem } from './format';
+import { displayNumberingSystem, formatLocaleTag } from './format';
 // UI callers receive only a translation function, never the mutable engine.
 // Share one engine per locale instead of rebuilding its resources per component.
 const translators = new Map<AppLocale, Translate>();
@@ -43,8 +43,8 @@ export function createTranslator(
   // plural selection remain numeric; exact editable strings are never rounded here.
   const numberingSystem = displayNumberingSystem(locale);
   if (numberingSystem)
-    engine.services.formatter?.addCached('number', (lng, options) => {
-      const formatter = new Intl.NumberFormat(lng, {
+    engine.services.formatter?.addCached('number', (_, options) => {
+      const formatter = new Intl.NumberFormat(formatLocaleTag(locale), {
         ...options,
         numberingSystem,
       });

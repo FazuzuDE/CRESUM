@@ -823,9 +823,9 @@ before refreshing the preview. This does not activate public QR sharing.
 
 After Marathi, continue complete locales in this order: Indonesian, Korean,
 Dutch, Swedish, Thai, Urdu, Telugu, Tamil. The owner approved following this list;
-Indonesian is integrated in #297; Korean is the current step. Each step includes all current content,
-technique and search alternatives, existing checks and pending physical/linguistic
-acceptance. Initial release Core remains free. Do not skip coverage for speed.
+Telugu was integrated in #333. Tamil is the final approved addition. Each locale
+includes current content, technique guides and search alternatives, with physical
+device and linguistic acceptance tracked separately. Initial release Core remains free. Do not skip coverage for speed.
 
 ### Muscle Map discovery — approved 2026-11-22
 

@@ -44,7 +44,7 @@ function validateCatalogs(catalogs) {
 const comparableCopy = (text) =>
   text.normalize('NFKC').trim().replace(/\s+/gu, ' ').toLowerCase();
 
-const strictCopyLocales = ['nl', 'sv', 'th', 'ur', 'te'];
+const strictCopyLocales = ['nl', 'sv', 'th', 'ur', 'te', 'ta'];
 
 function validateLocalizedCopy(catalogs, locale, exceptions) {
   const errors = [];
@@ -63,15 +63,28 @@ function validateLocalizedCopy(catalogs, locale, exceptions) {
       if (typeof value !== 'string') continue;
       const text = comparableCopy(value);
       const literal = text.replace(/{{[^}]+}}/g, '');
-      if (!/\p{L}/u.test(literal) || !originals.includes(text)) continue;
       const id = form ? key + '.' + form : key;
+      const unchanged = /\p{L}/u.test(literal) && originals.includes(text);
+      const needsTamil =
+        locale === 'ta' &&
+        originals.some((original) =>
+          /\p{L}/u.test(original.replace(/{{[^}]+}}/g, '')),
+        ) &&
+        !/\p{Script=Tamil}/u.test(literal.replace(/[^\p{L}]/gu, ''));
+      if (!unchanged && !needsTamil) continue;
       const exception = exceptions[id];
       if (
         exception?.text !== value ||
         typeof exception.reason !== 'string' ||
         !exception.reason.trim()
       )
-        errors.push(locale + ': unchanged English copy ' + id);
+        errors.push(
+          locale +
+            (unchanged
+              ? ': unchanged English copy '
+              : ': missing Tamil copy ') +
+            id,
+        );
       else usedExceptions.add(id);
     }
   }
@@ -219,6 +232,15 @@ function validateSearchAliases(aliases, registry, catalogs, records) {
         )
           errors.push(
             `${locale}: missing Telugu search alias ${kind}.${record.id}`,
+          );
+        else if (
+          locale === 'ta' &&
+          !values.some((value) =>
+            /\p{Script=Tamil}/u.test(value.replace(/[^\p{L}]/gu, '')),
+          )
+        )
+          errors.push(
+            `${locale}: missing Tamil search alias ${kind}.${record.id}`,
           );
         const key = record.messageKey ?? `catalog.${kind}.${record.id}`;
         const text = catalogs[locale]?.[key];

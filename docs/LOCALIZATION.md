@@ -960,3 +960,25 @@ and Android and record the OS, device and commit separately.
    set. Finish the workout and check exact values and date in History after
    restart. Check the calendar, progress, muscle map, screen-reader names and
    vowel signs at larger system text sizes.
+
+## Tamil (தமிழ்)
+
+Tamil is selectable in onboarding and Settings in both test and final builds.
+Device tags `ta`, `ta-IN` and `ta-LK` resolve to the same left-to-right
+catalog. Numbers and dates use `ta-IN` with decimal Tamil digits. Exact entry
+accepts both Tamil and ASCII digits and preserves the stored value and precision.
+
+Add Tamil copy and guide steps under the existing message keys. Each searchable
+exercise, equipment item, attachment and muscle requires a Tamil-script alias.
+Use customary gym terms when they help people find the exact variant. Search
+matches NFC and NFD text and tolerates optional spacing and join controls in Tamil
+compounds. It retains vowel signs and pulli (்). CI checks copy parity, plural forms,
+interpolation, guide links and alias coverage.
+
+On both physical platforms, select தமிழ் in onboarding and Settings, restart,
+return to System and switch from Urdu to Tamil. In airplane mode, try
+`பெஞ்ச் பிரஸ்`, `bench press`, `டிரெட்மில்` and `treadmill`. Compare the
+V-handle, compact ergonomic and wide overhand pulldowns. Enter `௬௨.௫` kg and
+`௮` reps, then repeat with `62.5` and `8`. Confirm the saved values, date and
+exercise identity in History after restart. Check calendar, progress, muscle
+map, glyphs, keyboard input and screen-reader labels with larger text.
