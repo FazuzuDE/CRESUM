@@ -337,3 +337,20 @@ it('accepts Tamil and ASCII weight and repetitions at the same precision and for
     }),
   ).toBe('௨௬ நவம்பர், ௨௦௨௬');
 });
+
+it('normalizes full-width Taiwanese weight and reps and uses the Taiwan Gregorian date', () => {
+  expect(normalizeDecimalInput('６２．５')).toBe(normalizeDecimalInput('62.5'));
+  expect(normalizeInputDigits('８')).toBe('8');
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  } as const;
+  expect(formatDate('zh-Hant', Date.UTC(2026, 11, 31), options)).toBe(
+    '2026年12月31日',
+  );
+  expect(formatDate('zh-Hant', Date.UTC(2027, 0, 1), options)).toBe(
+    '2027年1月1日',
+  );
+});
