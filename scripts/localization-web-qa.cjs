@@ -971,6 +971,23 @@ async function main() {
           await button('entry.useKeypad').click();
           await exactWeight.fill('99,5');
           await exactReps.fill(numberLocale(7));
+          if (locale === 'ur') {
+            for (const input of [exactWeight, exactReps]) {
+              assert.ok(
+                await input.evaluate((element) => {
+                  const field = element.getBoundingClientRect();
+                  const row = element.parentElement.getBoundingClientRect();
+                  return (
+                    field.width > 0 &&
+                    field.left >= row.left - 1 &&
+                    field.right <= row.right + 1
+                  );
+                }),
+                'Keep both exact numeric inputs inside the RTL row',
+              );
+            }
+            result.urduNumericFieldsVisible = true;
+          }
           await capture('set-draft');
           await button('entry.cancelLabel').click();
           await exactWeight.waitFor({ state: 'hidden' });
