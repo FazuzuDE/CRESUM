@@ -1121,3 +1121,60 @@ final builds separately, including manual selection, restart, device language,
 the RTL-to-Dansk switch, offline search, decimal input, and workout History.
 Check large text and VoiceOver or TalkBack. Verify the system camera prompt in a
 signed iOS build with Danish selected in iOS and camera access still undecided.
+
+## Czech (Čeština)
+
+The registry offers Čeština in onboarding and Settings in every build. The
+device resolver recognizes `cs` and `cs-CZ` and applies the normal
+next-supported-language fallback to Slovak tags. Dates and numeric presentation
+use `cs-CZ`. Czech uses `one`, `few` (2–4), `other` (0 and 5 or more), and
+`many` (fractions). The same numeric parser accepts `62,5` and `62.5`.
+
+Keep Czech interface, accessibility, catalog and technique text in
+`lib/i18n/locales/cs/` and search alternatives in `lib/i18n/search/cs.ts`.
+Preserve equipment and grip distinctions, safety cues, identifiers, and
+placeholders. Keep diacritics in displayed labels. Shared search already folds
+them, so `dřep` and `drep` use the same alias. Use common Czech gym terms
+and precise borrowed names without attaching generic queries to every variant.
+
+The existing CI check enforces Czech key coverage, placeholders, plurals,
+technique, and aliases. When an English catalog or search alias changes,
+review the affected Czech text and search terms, then update the Czech source
+ledger alongside the other affected ledgers. For example:
+
+```sh
+node scripts/check-localization.cjs \
+  --record-cs-source lib/i18n/locales/en/workout.ts \
+  --record-da-source lib/i18n/locales/en/workout.ts \
+  --record-fi-source lib/i18n/locales/en/workout.ts \
+  --record-nb-source lib/i18n/locales/en/workout.ts
+```
+
+Record `lib/i18n/search/en.ts` for English alias changes and `app.json`
+for changes to the English iOS camera purpose string. The latter has its Czech
+counterpart in `lib/i18n/locales/cs/native.json`. Run `npm run i18n:check`
+after recording the review. Acceptance status tracks QA independently of
+availability. Independent linguistic acceptance is pending and is not planned.
+
+### Czech physical-device checklist
+
+Record the device, OS, build type and source revision. The signed-build checks
+remain pending for both platforms.
+
+1. On iPhone and Android, open the language menu from onboarding and Settings
+   in the test build and in the signed final build. Look for Čeština and
+   Jazyk zařízení. Select Čeština, force close, and verify it after reopening.
+2. Switch from اردو to Čeština and check left-to-right layout. Select Jazyk
+   zařízení with the device set to Czech (Czechia). Confirm Czech dates, larger
+   text and key labels with VoiceOver or TalkBack.
+3. Go offline. Try `dřep` / `drep`, `bench press` / `tlak na lavici`,
+   `leg press` / `tlak nohama`, and `běžecký pás` / `bezecky pas`.
+   Open a technique guide and check both illustration phase labels. Enter
+   `62,5` and `62.5` in separate sets and verify both in Historie.
+4. With sharing enabled and camera permission undecided, open the QR scanner.
+   Check the Czech in-app permission copy and the OS prompt with Czech selected
+   as the OS/app language. Verify the iOS purpose string and the OS-owned
+   Android permission prompt. Deny once and check the option to paste a link.
+
+Web, Metro/Expo Go and iOS/Android JavaScript exports provide separate evidence
+from installation and acceptance of the signed builds.

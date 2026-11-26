@@ -403,3 +403,37 @@ it('rejects missing Danish copy and unreviewed changes to any English source', (
     ]);
   }
 });
+
+it('rejects a new exercise when its Czech label and search alias are missing', () => {
+  const id = 'new-exercise';
+  const key = `catalog.exercise.${id}`;
+  const en = { [key]: 'New exercise {{name}}' };
+  const cs = {};
+  expect(validateCatalogs({ en, cs })).toContain(`cs: missing ${key}`);
+  expect(
+    validateCatalogs({ en, cs: { [key]: 'Nový cvik {{wrong}}' } }),
+  ).toContain(`cs.${key}: parameters differ`);
+  expect(
+    validateSearchAliases(
+      { cs: {} },
+      { cs: {} },
+      { en, cs },
+      {
+        exercise: [{ id }],
+      },
+    ),
+  ).toEqual([
+    `cs: missing/empty search aliases exercise.${id}`,
+    `cs: missing catalog translation ${key}`,
+  ]);
+});
+
+it.each([
+  'lib/i18n/locales/en/workout.ts',
+  'lib/i18n/search/en.ts',
+  'app.json',
+])('requires Czech review when %s changes', (file) => {
+  expect(
+    validateReviewedSource('cs', { [file]: 'new' }, { [file]: 'old' }),
+  ).toEqual([`cs: review translation after English source change in ${file}`]);
+});

@@ -675,3 +675,16 @@ it('finds Danish canonical exercises with normal spelling and explicit ASCII ali
   expect(ids('spinningscykel', 'da')).not.toContain('upright-stationary-bike');
   expect(normalizeSearch('LØBEBÅND')).not.toBe(normalizeSearch('LOEBEBAAND'));
 });
+
+it.each([
+  ['dřep', 'barbell-back-squat'],
+  ['drep', 'barbell-back-squat'],
+  ['bench press', 'barbell-bench-press'],
+  ['tlak na lavici', 'barbell-bench-press'],
+  ['leg press', 'leg-press'],
+  ['tlak nohama', 'leg-press'],
+  ['běžecký pás', 'treadmill-walking'],
+  ['bezecky pas', 'treadmill-walking'],
+])('ranks the Czech search query %s first for %s', (query, id) => {
+  expect(ids(query, 'cs')[0]).toBe(id);
+});

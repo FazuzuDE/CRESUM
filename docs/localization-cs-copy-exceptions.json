@@ -1,0 +1,82 @@
+{
+  "catalog.exercise.leg-press": {
+    "text": "Leg press",
+    "reason": "Established Czech gym term."
+  },
+  "catalog.muscle.biceps": {
+    "text": "Biceps",
+    "reason": "Established Czech gym term."
+  },
+  "catalog.muscle.triceps": {
+    "text": "Triceps",
+    "reason": "Established Czech gym term."
+  },
+  "catalog.equipment.kettlebell": {
+    "text": "Kettlebell",
+    "reason": "Established Czech gym term."
+  },
+  "body.point": {
+    "text": "{{date}} · {{value}} kg",
+    "reason": "Shared unit symbol and numeric notation."
+  },
+  "conflict.setValue": {
+    "text": "{{weight}} kg × {{reps}} · {{status}}",
+    "reason": "Shared unit symbol and numeric notation."
+  },
+  "conflict.setValueBoth": {
+    "text": "{{weight}} kg × {{reps}} / {{other}} · {{status}}",
+    "reason": "Shared unit symbol and numeric notation."
+  },
+  "editor.weightValue": {
+    "text": "{{weight}} kg",
+    "reason": "Shared unit symbol and numeric notation."
+  },
+  "entry.bilateralSummary": {
+    "text": "{{weight}} kg × {{reps}} / {{other}}",
+    "reason": "Shared unit symbol and numeric notation."
+  },
+  "entry.singleSummary": {
+    "text": "{{weight}} kg × {{reps}}",
+    "reason": "Shared unit symbol and numeric notation."
+  },
+  "home.kilograms": {
+    "text": "{{value}} kg",
+    "reason": "Shared unit symbol and numeric notation."
+  },
+  "home.tonnes": {
+    "text": "{{value}} t",
+    "reason": "Shared unit symbol and numeric notation."
+  },
+  "onboarding.cm": {
+    "text": "cm",
+    "reason": "Shared unit symbol and numeric notation."
+  },
+  "onboarding.kg": {
+    "text": "kg",
+    "reason": "Shared unit symbol and numeric notation."
+  },
+  "progress.kg": {
+    "text": "kg",
+    "reason": "Shared unit symbol and numeric notation."
+  },
+  "progress.loggedSet": {
+    "text": "{{weight}} kg × {{reps}}",
+    "reason": "Shared unit symbol and numeric notation."
+  },
+  "progress.point": {
+    "text": "{{name}}, {{date}}, {{value}} kg",
+    "reason": "Shared unit symbol and numeric notation."
+  },
+  "progress.valueKg": {
+    "text": "{{value}} kg",
+    "reason": "Shared unit symbol and numeric notation."
+  },
+  "sharing.weight": {
+    "text": "{{weight}} kg",
+    "reason": "Shared unit symbol and numeric notation."
+  },
+  "workout.tableKg": {
+    "text": "KG",
+    "reason": "Shared unit symbol and numeric notation."
+  }
+}

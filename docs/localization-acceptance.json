@@ -89,6 +89,7 @@
   "ur": { "web": true, "native": false, "linguistic": false },
   "te": { "web": true, "native": false, "linguistic": false },
   "ta": { "web": true, "native": false, "linguistic": false },
+  "cs": { "web": false, "native": false, "linguistic": false },
   "da": { "web": true, "native": false, "linguistic": false },
   "fi": { "web": true, "native": false, "linguistic": false },
   "nb": { "web": true, "native": false, "linguistic": false },
