@@ -24,7 +24,13 @@ export type BrandBackAction = BackSwipeAction & {
   testID?: string;
 };
 
-export function BrandHeader({ back }: { back?: BrandBackAction } = {}) {
+export function BrandHeader({
+  back,
+  reserveLanguageControl = false,
+}: {
+  back?: BrandBackAction;
+  reserveLanguageControl?: boolean;
+} = {}) {
   useBackSwipeAction(back);
   const colors = useAppColors();
   const s = useStyles();
@@ -38,9 +44,16 @@ export function BrandHeader({ back }: { back?: BrandBackAction } = {}) {
       <BrandWordmark />
       <View
         pointerEvents="box-none"
-        style={[s.taglineRow, back && (compact ? s.compactGutters : s.gutters)]}
+        style={[
+          s.taglineRow,
+          reserveLanguageControl && s.compactGutters,
+          back && (compact ? s.compactGutters : s.gutters),
+        ]}
       >
-        <Text style={[s.tagline, back && s.taglineWithBack]}>
+        <Text
+          testID="brand-tagline"
+          style={[s.tagline, back && s.taglineWithBack]}
+        >
           {t('brand.tagline')}
         </Text>
         {back ? (

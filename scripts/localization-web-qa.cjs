@@ -33,7 +33,8 @@ function expandCatalog(catalog) {
   );
 }
 
-function prepareQaBundle(source, catalogs, patchRegistry = true) {
+function prepareQaBundle(source, catalogs) {
+  if (!catalogs) return source;
   const modules = parse(source).program.body.filter(
     (node) => node.expression?.callee?.name === '__d',
   );
@@ -44,25 +45,10 @@ function prepareQaBundle(source, catalogs, patchRegistry = true) {
     assert.equal(matches.length, 1, `Expected one ${name} module`);
     return matches[0];
   };
-  const replacements = [];
-  if (patchRegistry) {
-    const registry = find('localeRegistry');
-    const original = source.slice(registry.start, registry.end);
-    const code = original.replace(/released:(?:!1|false)/g, 'released:!0');
-    replacements.push({ ...registry, code });
-  }
-  if (catalogs) {
-    const module = find('catalogs');
-    const id = module.expression.arguments[1].value;
-    replacements.push({
-      ...module,
-      code: `__d(function(g,r,i,a,m,e,d){Object.defineProperty(e,"__esModule",{value:true});e.catalogs=${JSON.stringify(catalogs)}},${id},[]);`,
-    });
-  }
-  for (const edit of replacements.sort((a, b) => b.start - a.start)) {
-    source = source.slice(0, edit.start) + edit.code + source.slice(edit.end);
-  }
-  return source;
+  const module = find('catalogs');
+  const id = module.expression.arguments[1].value;
+  const code = `__d(function(g,r,i,a,m,e,d){Object.defineProperty(e,"__esModule",{value:true});e.catalogs=${JSON.stringify(catalogs)}},${id},[]);`;
+  return source.slice(0, module.start) + code + source.slice(module.end);
 }
 
 function assertQaPlan(raw) {
@@ -206,18 +192,13 @@ async function main() {
   const { formatEntryNumber, formatNumber } = load(
     path.join(root, 'lib/i18n/format.ts'),
   );
-  const normal = prepareQaBundle(registryBundle.source);
   const expandedCatalogs = Object.fromEntries(
     Object.entries(catalogs).map(([locale, value]) => [
       locale,
       expandCatalog(value),
     ]),
   );
-  const expanded = prepareQaBundle(
-    catalogBundle === registryBundle ? normal : catalogBundle.source,
-    expandedCatalogs,
-    false,
-  );
+  const expanded = prepareQaBundle(catalogBundle.source, expandedCatalogs);
   fs.mkdirSync(outputDir, { recursive: true });
   const playwright = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
   let expandedMode = false;
@@ -244,9 +225,7 @@ async function main() {
       response.end(
         file === catalogBundle.file && expandedMode
           ? expanded
-          : file === registryBundle.file
-            ? normal
-            : fs.readFileSync(file),
+          : fs.readFileSync(file),
       );
     } catch {
       response.writeHead(404);
@@ -280,7 +259,7 @@ async function main() {
       ]),
     ),
     browser: browser.version(),
-    qaOnlyRegistryOverride: true,
+    qaOnlyRegistryOverride: false,
     qaMutatedProductionFiles: false,
     matrix,
     results: [],
@@ -315,12 +294,16 @@ async function main() {
           result.network.push(url);
           return route.abort();
         });
-        await context.addInitScript((value) => {
-          localStorage.setItem(
-            'cresum_language_preference_v1',
-            JSON.stringify({ version: 1, preference: value }),
-          );
-        }, locale);
+        await context.addInitScript(
+          (value) => {
+            if (!localStorage.getItem('cresum_language_preference_v1'))
+              localStorage.setItem(
+                'cresum_language_preference_v1',
+                JSON.stringify({ version: 1, preference: value }),
+              );
+          },
+          locale === 'th' && !expand ? 'en' : locale,
+        );
         const catalog = expand
           ? expandCatalog(catalogs[locale])
           : catalogs[locale];
@@ -394,12 +377,50 @@ async function main() {
         };
         try {
           await page.goto(origin);
+          if (locale === 'th' && !expand) {
+            await page
+              .getByRole('button', {
+                name: catalogs.en['language.title'],
+                exact: true,
+              })
+              .click();
+            await page
+              .getByRole('slider', { name: catalogs.en['language.title'] })
+              .getByText(/🇹🇭.*ไทย/)
+              .first()
+              .click();
+            await page
+              .getByRole('button', {
+                name: catalogs.en['common.done'],
+                exact: true,
+              })
+              .click();
+            await page.waitForFunction(
+              () =>
+                JSON.parse(
+                  localStorage.getItem('cresum_language_preference_v1'),
+                ).preference === 'th',
+            );
+            result.manualLanguageSelected = true;
+          }
           const nameInput = page.getByRole('textbox', {
             name: text('onboarding.name'),
             exact: true,
           });
           await nameInput.waitFor();
           assert.equal(await button('onboarding.continue').isDisabled(), true);
+          const tagline = await page.getByTestId('brand-tagline').boundingBox();
+          const languageControl = await button('language.title').boundingBox();
+          assert.ok(
+            tagline && languageControl,
+            'Onboarding header and language control',
+          );
+          assert.ok(
+            tagline.x + tagline.width <= languageControl.x + 1 ||
+              languageControl.x + languageControl.width <= tagline.x + 1,
+            'Onboarding tagline clears the language control',
+          );
+          result.onboardingHeaderClear = true;
           await capture('onboarding-welcome');
           await nameInput.fill('QA Athlete');
           await button('onboarding.continue').click();
@@ -648,7 +669,7 @@ async function main() {
               exact: true,
             })
             .fill(synonym);
-          if (locale === 'nl' || locale === 'sv') {
+          if (['nl', 'sv', 'th'].includes(locale)) {
             const all = text('library.all');
             const dumbbell = text('catalog.equipment.dumbbell');
             const equipmentFilter = (label) =>
@@ -908,11 +929,14 @@ async function main() {
 
           await editFirst.click();
           await button('entry.useKeypad').click();
-          const manualWeight = ['nl', 'sv'].includes(locale) ? 62.5 : 12.5;
+          const manualWeight = ['nl', 'sv', 'th'].includes(locale)
+            ? 62.5
+            : 12.5;
           const manualReps = 8;
           const manualVolumeKg = manualWeight * manualReps;
-          await exactWeight.fill(numberLocale(manualWeight));
-          await exactReps.fill(numberLocale(manualReps));
+          const entryLocale = locale === 'th' ? 'th-TH-u-nu-thai' : locale;
+          await exactWeight.fill(formatNumber(entryLocale, manualWeight));
+          await exactReps.fill(formatNumber(entryLocale, manualReps));
           await failNextWrite();
           await button('entry.saveValues').click();
           await exactWeight.waitFor({ state: 'hidden' });
@@ -1133,6 +1157,17 @@ async function main() {
             .getByRole('tab', { name: contains(text('nav.progress')) })
             .click();
           await button('progress.muscles').waitFor();
+          await page
+            .getByRole('heading', {
+              name: text('progress.estimated'),
+              exact: true,
+            })
+            .locator('..')
+            .getByText(text('catalog.exercise.dumbbell-lateral-raise'), {
+              exact: true,
+            })
+            .waitFor();
+          result.localizedProgressRecord = true;
           await capture('progress');
           await button('progress.muscles').click();
           await capture('muscles');

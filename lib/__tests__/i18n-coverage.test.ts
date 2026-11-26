@@ -188,58 +188,88 @@ it('requires a technique guide and the Dutch instructions for a new exercise ID'
   ).toEqual([]);
 });
 
-it('blocks Swedish omissions in copy, guide instructions and search aliases', () => {
-  const { validateTechniqueLinks } = jest.requireActual(
-    '../../scripts/check-localization.cjs',
-  );
-  const en = { 'new.title': 'New title' };
-  expect(validateCatalogs({ en, sv: {} })).toContain('sv: missing new.title');
-  expect(validateLocalizedCopy({ en, sv: en }, 'sv', {})).toContain(
-    'sv: unchanged English copy new.title',
-  );
+it.each([
+  [
+    'sv',
+    'Om övningen',
+    'Utgångsläge',
+    'Rörelse',
+    'Att tänka på',
+    'Ny övning',
+    'Vanligt fel',
+    'övningsnamn',
+  ],
+  [
+    'th',
+    'เกี่ยวกับท่านี้',
+    'ท่าเตรียม',
+    'การเคลื่อนไหว',
+    'จุดสำคัญ',
+    'ท่าออกกำลังกายใหม่',
+    'ข้อผิดพลาดที่พบบ่อย',
+    'ชื่อท่าฝึก',
+  ],
+])(
+  'blocks %s omissions in copy, guide instructions and search aliases',
+  (locale, scope, setup, move, checks, label, mistake, alias) => {
+    const { validateTechniqueLinks } = jest.requireActual(
+      '../../scripts/check-localization.cjs',
+    );
+    const field = 'new.title';
+    const en = { [field]: 'New title' };
+    expect(validateCatalogs({ en, [locale]: {} })).toContain(
+      locale + ': missing ' + field,
+    );
+    expect(validateLocalizedCopy({ en, [locale]: en }, locale, {})).toContain(
+      locale + ': unchanged English copy ' + field,
+    );
+    expect(validateCatalogs({ en, [locale]: { [field]: label } })).toEqual([]);
 
-  const exercises = [{ id: 'new-exercise' }];
-  const guides = {
-    'new-exercise': {
-      scope: 'Scope',
-      setup: ['Setup'],
-      movement: ['Movement'],
-      checks: ['Checks'],
-      mistakes: ['Mistake'],
-    },
-  };
-  const sv = {
-    'guide.new-exercise.scope': 'Om övningen',
-    'guide.new-exercise.setup.0': 'Utgångsläge',
-    'guide.new-exercise.movement.0': 'Rörelse',
-    'guide.new-exercise.checks.0': 'Att tänka på',
-    'catalog.exercise.new-exercise': 'Ny övning',
-  };
-  expect(validateTechniqueLinks({ sv }, 'sv', exercises, guides)).toEqual([
-    'sv: missing technique translation guide.new-exercise.mistakes.0',
-  ]);
-  expect(
-    validateSearchAliases(
-      { sv: { exercise: { 'new-exercise': [' '] } } },
-      { sv: {} },
-      { sv },
-      { exercise: exercises },
-    ),
-  ).toEqual(['sv: missing/empty search aliases exercise.new-exercise']);
-  expect(
-    validateTechniqueLinks(
-      { sv: { ...sv, 'guide.new-exercise.mistakes.0': 'Vanligt fel' } },
-      'sv',
-      exercises,
-      guides,
-    ),
-  ).toEqual([]);
-  expect(
-    validateSearchAliases(
-      { sv: { exercise: { 'new-exercise': ['övningsnamn'] } } },
-      { sv: {} },
-      { sv },
-      { exercise: exercises },
-    ),
-  ).toEqual([]);
-});
+    const id = 'new-exercise';
+    const exercises = [{ id, messageKey: 'catalog.exercise.' + id }];
+    const guides = {
+      [id]: {
+        scope: 'Scope',
+        setup: ['Setup'],
+        movement: ['Movement'],
+        checks: ['Checks'],
+        mistakes: ['Mistake'],
+      },
+    };
+    const messages = {
+      'guide.new-exercise.scope': scope,
+      'guide.new-exercise.setup.0': setup,
+      'guide.new-exercise.movement.0': move,
+      'guide.new-exercise.checks.0': checks,
+      'catalog.exercise.new-exercise': label,
+    };
+    const mistakeKey = 'guide.new-exercise.mistakes.0';
+    expect(
+      validateTechniqueLinks({ [locale]: messages }, locale, exercises, guides),
+    ).toEqual([locale + ': missing technique translation ' + mistakeKey]);
+    expect(
+      validateTechniqueLinks(
+        { [locale]: { ...messages, [mistakeKey]: mistake } },
+        locale,
+        exercises,
+        guides,
+      ),
+    ).toEqual([]);
+    const verifyAlias = (values: string[]) =>
+      validateSearchAliases(
+        { [locale]: { exercise: { [id]: values } } },
+        { [locale]: {} },
+        { [locale]: messages },
+        { exercise: exercises },
+      );
+    for (const values of [[], [' ']])
+      expect(verifyAlias(values)).toEqual([
+        locale + ': missing/empty search aliases exercise.' + id,
+      ]);
+    if (locale === 'th')
+      expect(verifyAlias(['new exercise'])).toEqual([
+        'th: missing Thai search alias exercise.' + id,
+      ]);
+    expect(verifyAlias([alias])).toEqual([]);
+  },
+);

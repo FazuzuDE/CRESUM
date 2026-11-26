@@ -1,4 +1,5 @@
 export const localeRegistry = {
+  th: { flag: '🇹🇭', nativeName: 'ไทย', direction: 'ltr', released: false },
   sv: {
     flag: '🇸🇪',
     nativeName: 'Svenska',

@@ -33,6 +33,7 @@ export function formatDate(
 ): string {
   return new Intl.DateTimeFormat(locale, {
     ...(locale === 'ar' ? { numberingSystem: 'arab' } : {}),
+    ...(locale === 'th' ? { calendar: 'gregory' } : {}),
     ...options,
   }).format(new Date(epochMs));
 }
@@ -44,6 +45,9 @@ export function normalizeDecimalInput(raw: string): string | null {
 // Normalize editable digits without parsing or rounding an unfinished draft.
 export function normalizeInputDigits(raw: string): string {
   return raw
+    .replace(/[\u0e50-\u0e59]/g, (digit) =>
+      String(digit.charCodeAt(0) - 0x0e50),
+    )
     .replace(/[\u09e6-\u09ef]/g, (digit) =>
       String(digit.charCodeAt(0) - 0x09e6),
     )

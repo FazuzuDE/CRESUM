@@ -52,6 +52,7 @@ it('opens at the effective language, stages wheel choices, and saves only with D
     '🇮🇳  मराठी',
     '🇮🇳  हिन्दी',
     '🇧🇩  বাংলা',
+    '🇹🇭  ไทย',
     '🇰🇷  한국어',
     '🇯🇵  日本語',
     '🇨🇳  简体中文',

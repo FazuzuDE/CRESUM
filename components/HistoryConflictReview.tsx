@@ -19,6 +19,7 @@ import { AppButton } from './AppButton';
 import { GlassCard } from './GlassCard';
 import { spacing, typography } from '@/lib/theme';
 import type { MessageKey } from '@/lib/i18n/messages';
+import { workoutExerciseLabel } from '@/lib/i18n/catalog';
 import { formatDate, formatNumber, formatEntryNumber } from '@/lib/i18n/format';
 
 const setValue = (set: WorkoutSet) =>
@@ -125,7 +126,7 @@ function Version({
               exercise.name !== other?.exercises[i]?.name && s.difference,
             ]}
           >
-            {exercise.name}
+            {workoutExerciseLabel(locale, exercise)}
           </Text>
           {exercise.target ? (
             <Text style={s.copy}>
