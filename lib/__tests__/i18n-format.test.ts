@@ -302,3 +302,21 @@ it('accepts Urdu and ASCII keypad values with the same precision and presents Pa
   expect(formatNumber('ur', 62.5)).toBe('۶۲٫۵');
   expect(formatEntryNumber('ur', '62.5001')).toBe('62٫5001');
 });
+
+it('accepts Telugu and ASCII weight and repetitions with the same stored precision', () => {
+  expect(normalizeDecimalInput('౬౨.౫')).toBe(normalizeDecimalInput('62.5'));
+  expect(normalizeDecimalInput('౬౨.౫౦౦౧')).toBe('62.5001');
+  expect(normalizeInputDigits('౮')).toBe(normalizeInputDigits('8'));
+  expect(formatNumber('te', 62.5)).toBe('౬౨.౫');
+  expect(formatNumber('te', 1234567.5)).toBe('౧,౨౩౪,౫౬౭.౫');
+  expect(formatEntryNumber('te', '62.5001')).toBe('62.5001');
+  const epoch = Date.UTC(2026, 10, 26);
+  expect(
+    formatDate('te', epoch, {
+      day: 'numeric',
+      year: 'numeric',
+      month: 'long',
+      timeZone: 'UTC',
+    }),
+  ).toContain('నవంబర్');
+});

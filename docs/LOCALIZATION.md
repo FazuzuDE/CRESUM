@@ -929,3 +929,34 @@ and Android. Record the device, OS and commit for each platform.
 Urdu uses the existing RTL layout boundary and bidirectional text components.
 The numeric fields accept Eastern Arabic and ASCII digits. Exact entered
 values and workout snapshots use the existing storage format.
+
+## Telugu (తెలుగు)
+
+Telugu is selectable in test and final builds. The device tags `te` and
+`te-IN` follow the same left-to-right catalog. Number formatting uses Telugu
+digits and the platform's Telugu separators. The numeric keypad accepts
+Telugu and ASCII digits and stores the same exact values for both.
+
+Add Telugu copy and guide steps with the same stable keys as the English
+catalog. Include a Telugu-script alias for every searchable exercise,
+equipment item, attachment and muscle. Add local Latin spellings or common
+English gym terms where they help people find the item. Search normalizes
+optional spacing and join controls in Telugu compounds while preserving
+vowel signs and the original labels. Document any intentionally identical
+English term in `localization-te-copy-exceptions.json` with its exact value
+and reason. Run `npm run i18n:check` to check declarations, guide links,
+aliases, plural forms and interpolation parameters.
+
+Use the [physical-device setup](#physical-device-localization-qa) on iPhone
+and Android and record the OS, device and commit separately.
+
+1. Select తెలుగు from onboarding and Settings. Restart and confirm the choice,
+   then return to System with Telugu selected on the phone. Switch between
+   Urdu and Telugu to confirm the interface changes direction.
+2. With the app loaded, go offline. Try `బెంచ్ ప్రెస్`, `bench press`,
+   `ట్రెడ్‌మిల్`, `ట్రెడ్ మిల్` and `treadmill`. Compare the narrow neutral
+   V-handle and wide overhand variations and open the Start and Finish views.
+3. Enter `౬౨.౫` kg and `౮` reps. Repeat with `62.5` and `8` in a second
+   set. Finish the workout and check exact values and date in History after
+   restart. Check the calendar, progress, muscle map, screen-reader names and
+   vowel signs at larger system text sizes.

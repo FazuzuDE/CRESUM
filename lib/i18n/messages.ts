@@ -138,6 +138,20 @@ import urOnboarding from './locales/ur/onboarding';
 import urProgress from './locales/ur/progress';
 import urProfile from './locales/ur/profile';
 import urTechniqueContent from './locales/ur/technique-content';
+import teCommon from './locales/te/common';
+import teCatalog from './locales/te/catalog';
+import teEditor from './locales/te/editor';
+import teEquipment from './locales/te/equipment';
+import teLibrary from './locales/te/library';
+import teSharing from './locales/te/sharing';
+import teHome from './locales/te/home';
+import teHistory from './locales/te/history';
+import teProgramTechnique from './locales/te/program-technique';
+import teWorkout from './locales/te/workout';
+import teOnboarding from './locales/te/onboarding';
+import teProgress from './locales/te/progress';
+import teProfile from './locales/te/profile';
+import teTechniqueContent from './locales/te/technique-content';
 import bnCommon from './locales/bn/common';
 import bnCatalog from './locales/bn/catalog';
 import bnEditor from './locales/bn/editor';
@@ -560,6 +574,22 @@ const ur = {
   ...urProfile,
   ...urTechniqueContent,
 } as const;
+const te = {
+  ...teCommon,
+  ...teCatalog,
+  ...teEditor,
+  ...teEquipment,
+  ...teLibrary,
+  ...teSharing,
+  ...teHome,
+  ...teHistory,
+  ...teProgramTechnique,
+  ...teWorkout,
+  ...teOnboarding,
+  ...teProgress,
+  ...teProfile,
+  ...teTechniqueContent,
+} as const;
 const ja = {
   ...jaCommon,
   ...jaCatalog,
@@ -707,6 +737,7 @@ export const catalogs = {
   bn,
   ar,
   ur,
+  te,
   ja,
   vi,
   mr,

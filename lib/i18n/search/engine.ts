@@ -108,6 +108,11 @@ function forms(value: string): string[] {
     /(\p{Script=Thai}) +(?=\p{Script=Thai})/gu,
     '$1',
   );
+  // Fold optional spaces and join controls in Telugu compound search terms.
+  const teluguJoined = folded.replace(
+    /(\p{Script=Telugu}) +(?=\p{Script=Telugu})/gu,
+    '$1',
+  );
   // Accept Arabic-script presentation forms and invisible join controls in Urdu queries.
   const presentation = normalizeSearch(
     value
@@ -120,7 +125,14 @@ function forms(value: string): string[] {
       ),
   );
   return [
-    ...new Set([folded, romanize(folded), german, thaiJoined, presentation]),
+    ...new Set([
+      folded,
+      romanize(folded),
+      german,
+      thaiJoined,
+      teluguJoined,
+      presentation,
+    ]),
   ].filter(Boolean);
 }
 

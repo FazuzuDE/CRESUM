@@ -306,7 +306,7 @@ async function main() {
                 JSON.stringify({ version: 1, preference: value }),
               );
           },
-          ['th', 'ur'].includes(locale) && !expand ? 'en' : locale,
+          ['th', 'ur', 'te'].includes(locale) && !expand ? 'en' : locale,
         );
         const catalog = expand
           ? expandCatalog(catalogs[locale])
@@ -411,7 +411,7 @@ async function main() {
             );
             result.manualLanguageSelected = true;
           }
-          if (locale === 'ur') {
+          if (locale === 'ur' || locale === 'te') {
             const expectDirection = async (dir) => {
               await page.waitForFunction((expected) => {
                 const header = document.querySelector(
@@ -443,14 +443,16 @@ async function main() {
                 await expectDirection(localeRegistry[to].direction);
               };
               await expectDirection('ltr');
-              await selectLanguage('en', 'ur');
-              await selectLanguage('ur', 'en');
-              await selectLanguage('en', 'ur');
+              const alternate = locale === 'te' ? 'ur' : 'en';
+              await selectLanguage('en', locale);
+              await selectLanguage(locale, alternate);
+              await selectLanguage(alternate, locale);
               result.manualRtlRoundTrip = true;
             } else {
-              await expectDirection('rtl');
+              await expectDirection(localeRegistry[locale].direction);
             }
-            result.urduRtl = true;
+            if (locale === 'ur') result.urduRtl = true;
+            if (locale === 'te') result.teluguLtr = true;
           }
           const nameInput = page.getByRole('textbox', {
             name: text('onboarding.name'),
@@ -712,13 +714,23 @@ async function main() {
             .getByRole('textbox', { name: text('editor.name'), exact: true })
             .fill('QA-localized-plan');
           await button('editor.next').click();
+          if (locale === 'te') {
+            await page
+              .getByRole('textbox', {
+                name: text('library.searchLabel'),
+                exact: true,
+              })
+              .waitFor();
+            await context.setOffline(true);
+            assert.equal(await page.evaluate(() => navigator.onLine), false);
+          }
           await page
             .getByRole('textbox', {
               name: text('library.searchLabel'),
               exact: true,
             })
             .fill(synonym);
-          if (['nl', 'sv', 'th', 'ur'].includes(locale)) {
+          if (['nl', 'sv', 'th', 'ur', 'te'].includes(locale)) {
             const all = text('library.all');
             const dumbbell = text('catalog.equipment.dumbbell');
             const equipmentFilter = (label) =>
@@ -892,6 +904,7 @@ async function main() {
             .fill(numberLocale(12.5));
           await capture('exercise');
           await button('editor.addExercise').click();
+          await button('editor.save').waitFor();
           await button('editor.cancel').click();
           await button('editor.keep').waitFor();
           await capture('discard');
@@ -995,14 +1008,23 @@ async function main() {
 
           await editFirst.click();
           await button('entry.useKeypad').click();
-          const manualWeight = ['nl', 'sv', 'th', 'ur'].includes(locale)
+          const manualWeight = ['nl', 'sv', 'th', 'ur', 'te'].includes(locale)
             ? 62.5
             : 12.5;
           const manualReps = 8;
           const manualVolumeKg = manualWeight * manualReps;
           const entryLocale = locale === 'th' ? 'th-TH-u-nu-thai' : locale;
-          await exactWeight.fill(formatNumber(entryLocale, manualWeight));
-          await exactReps.fill(formatNumber(entryLocale, manualReps));
+          const asciiTeluguCase = locale === 'te' && width === 390;
+          const weightInput = asciiTeluguCase
+            ? String(manualWeight)
+            : formatNumber(entryLocale, manualWeight);
+          const repsInput = asciiTeluguCase
+            ? String(manualReps)
+            : formatNumber(entryLocale, manualReps);
+          if (locale === 'te')
+            result.teluguInput = { weight: weightInput, reps: repsInput };
+          await exactWeight.fill(weightInput);
+          await exactReps.fill(repsInput);
           await failNextWrite();
           await button('entry.saveValues').click();
           await exactWeight.waitFor({ state: 'hidden' });
@@ -1054,21 +1076,23 @@ async function main() {
             'Discard cancel preserves Core',
           );
 
-          await page.reload();
-          const resume = namedButton('home.resume', {
-            name: 'QA-localized-plan',
-          });
-          await resume.waitFor();
-          assert.deepEqual(
-            await state(),
-            resting,
-            'Reload preserves session and rest deadline',
-          );
-          await capture('resume');
-          await resume.click();
-          await button('workout.skipRest').waitFor();
-          await capture('recovered-rest');
-          assert.deepEqual(await state(), resting, 'Resume preserves Core');
+          if (locale !== 'te') {
+            await page.reload();
+            const resume = namedButton('home.resume', {
+              name: 'QA-localized-plan',
+            });
+            await resume.waitFor();
+            assert.deepEqual(
+              await state(),
+              resting,
+              'Reload preserves session and rest deadline',
+            );
+            await capture('resume');
+            await resume.click();
+            await button('workout.skipRest').waitFor();
+            await capture('recovered-rest');
+            assert.deepEqual(await state(), resting, 'Resume preserves Core');
+          }
           await button('workout.finish').click();
           await button('workout.keepTraining').waitFor();
           await capture('finish-cancel');
@@ -1134,6 +1158,11 @@ async function main() {
           });
           await page.getByText(expectedSet, { exact: true }).waitFor();
           await capture('history-detail');
+          if (locale === 'te') {
+            assert.equal(await page.evaluate(() => navigator.onLine), false);
+            result.teluguOfflineHistoryVerified = true;
+            await context.setOffline(false);
+          }
           await page.reload();
           await page
             .getByRole('tab', { name: contains(text('nav.progress')) })
@@ -1211,7 +1240,7 @@ async function main() {
             plannedSets: 4,
             weight: first.weight,
             reps: first.reps,
-            reloadPreservedRestDeadline: true,
+            reloadPreservedRestDeadline: locale !== 'te',
             historyRecords: finished.history.length,
             setWriteRetry: true,
             finishWriteRetry: true,
@@ -1254,21 +1283,26 @@ async function main() {
           await page
             .getByRole('tab', { name: contains(text('nav.home')) })
             .click();
-          if (locale === 'ur') {
+          if (locale === 'ur' || locale === 'te') {
             await button('home.openCalendar').click();
             const previousMonth = button('calendar.previous');
             const nextMonth = button('calendar.next');
             const previousBox = await previousMonth.boundingBox();
             const nextBox = await nextMonth.boundingBox();
             assert.ok(
-              previousBox && nextBox && previousBox.x > nextBox.x,
-              'Mirror calendar navigation in Urdu',
+              previousBox &&
+                nextBox &&
+                (locale === 'ur'
+                  ? previousBox.x > nextBox.x
+                  : previousBox.x < nextBox.x),
+              'Calendar navigation follows the selected layout direction',
             );
             await previousMonth.click();
             await nextMonth.click();
             await capture('calendar');
             await button('calendar.close').click();
-            result.rtlCalendar = true;
+            if (locale === 'ur') result.rtlCalendar = true;
+            if (locale === 'te') result.teluguCalendar = true;
           }
           await page.getByRole('radio').nth(0).click();
           await planStart().click();

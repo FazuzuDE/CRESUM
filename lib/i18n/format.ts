@@ -2,6 +2,7 @@ import type { AppLocale } from './registry';
 export function displayNumberingSystem(locale: AppLocale) {
   if (locale === 'ar') return 'arab';
   if (locale === 'ur') return 'arabext';
+  if (locale === 'te') return 'telu';
 }
 const decimalSeparators = new Map<AppLocale, string>();
 export function formatEntryNumber(locale: AppLocale, raw: string): string {
@@ -48,6 +49,9 @@ export function normalizeDecimalInput(raw: string): string | null {
 // Normalize editable digits without parsing or rounding an unfinished draft.
 export function normalizeInputDigits(raw: string): string {
   return raw
+    .replace(/[\u0c66-\u0c6f]/g, (digit) =>
+      String(digit.charCodeAt(0) - 0x0c66),
+    )
     .replace(/[\u0e50-\u0e59]/g, (digit) =>
       String(digit.charCodeAt(0) - 0x0e50),
     )

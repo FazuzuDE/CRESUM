@@ -44,7 +44,7 @@ function validateCatalogs(catalogs) {
 const comparableCopy = (text) =>
   text.normalize('NFKC').trim().replace(/\s+/gu, ' ').toLowerCase();
 
-const strictCopyLocales = ['nl', 'sv', 'th', 'ur'];
+const strictCopyLocales = ['nl', 'sv', 'th', 'ur', 'te'];
 
 function validateLocalizedCopy(catalogs, locale, exceptions) {
   const errors = [];
@@ -210,6 +210,15 @@ function validateSearchAliases(aliases, registry, catalogs, records) {
         )
           errors.push(
             `${locale}: missing Urdu search alias ${kind}.${record.id}`,
+          );
+        else if (
+          locale === 'te' &&
+          !values.some((value) =>
+            /\p{Script=Telugu}/u.test(value.replace(/[^\p{L}]/gu, '')),
+          )
+        )
+          errors.push(
+            `${locale}: missing Telugu search alias ${kind}.${record.id}`,
           );
         const key = record.messageKey ?? `catalog.${kind}.${record.id}`;
         const text = catalogs[locale]?.[key];
