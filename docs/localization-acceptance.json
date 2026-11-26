@@ -89,5 +89,5 @@
   "ur": { "web": true, "native": false, "linguistic": false },
   "te": { "web": true, "native": false, "linguistic": false },
   "ta": { "web": true, "native": false, "linguistic": false },
-  "zh-Hant": { "web": false, "native": false, "linguistic": false }
+  "zh-Hant": { "web": true, "native": false, "linguistic": false }
 }
