@@ -52,7 +52,7 @@ export default {
   'guide.incline-dumbbell-press.mistakes.2': '強行下降過深：縮小動作幅度。',
   'guide.dumbbell-bench-press.scope': '平板訓練椅；兩隻啞鈴。',
   'guide.dumbbell-bench-press.setup.0':
-    '仰臥，雙腳支撐，以穩固拇指繞住握把將啞鈴置於胸部兩側。',
+    '仰臥並踩穩雙腳，拇指繞住握柄握緊，將啞鈴放在胸部兩側。',
   'guide.dumbbell-bench-press.movement.0':
     '雙側同時向上推起，下降時保持控制，由前臂支撐重量。',
   'guide.dumbbell-bench-press.checks.0':
@@ -66,7 +66,7 @@ export default {
   'guide.machine-chest-press.movement.0':
     '平穩向前推，再穩定地將握把回到起始位置。',
   'guide.machine-chest-press.checks.0':
-    '採用拇指繞住握把，手腕對齊，在舒適範圍內控制動作。',
+    '拇指繞住握把，手腕與前臂對齊，在舒服的範圍內控制動作。',
   'guide.machine-chest-press.mistakes.0': '座椅過低：重新調整高度。',
   'guide.machine-chest-press.mistakes.1': '肩部離開靠墊：縮短前伸距離。',
   'guide.machine-chest-press.mistakes.2': '用力鎖死手肘：輕緩結束推舉。',
@@ -111,7 +111,7 @@ export default {
   'guide.barbell-bent-over-row.mistakes.1': '弓背：重新調整髖部向後折姿勢。',
   'guide.barbell-bent-over-row.mistakes.2': '猛拽槓鈴：平穩拉起。',
   'guide.barbell-bent-over-row.adaptation':
-    '來源展示正握示例；此通用目錄標識不限定某一種握法。',
+    '來源展示正握示例；此通用分類不限定某一種握法。',
   'guide.seated-cable-row.scope': '坐姿滑輪划船；不限定配件。',
   'guide.seated-cable-row.setup.0':
     '雙腳支撐，膝蓋微彎，坐直，在不弓背的情況下握住所選握把。',
@@ -122,7 +122,7 @@ export default {
   'guide.seated-cable-row.mistakes.1': '起始時弓背：坐直。',
   'guide.seated-cable-row.mistakes.2': '配重撞擊：控制回到起始位置。',
   'guide.seated-cable-row.adaptation':
-    '來源使用窄握握把；此通用目錄標識不限定某一種握法。',
+    '來源使用窄握握把；此通用分類不限定某一種握法。',
   'guide.seated-cable-row-close-neutral-v-handle.scope':
     '坐姿低位滑輪划船；V 型握把；窄距中立握。',
   'guide.seated-cable-row-close-neutral-v-handle.setup.0':
@@ -175,7 +175,7 @@ export default {
   'guide.lat-pulldown-wide-pronated-bar.setup.0':
     '將大腿固定在靠墊下，雙腳踩穩。以掌心向前的正握握住長槓，雙手略寬於肩。',
   'guide.lat-pulldown-wide-pronated-bar.movement.0':
-    '手肘向下移動，使橫杆接近上胸，再緩慢伸臂。',
+    '手肘向下移動，使橫槓接近上胸，再緩慢伸臂。',
   'guide.lat-pulldown-wide-pronated-bar.checks.0':
     '保持輕微且穩定的後傾，不必觸胸。',
   'guide.lat-pulldown-wide-pronated-bar.mistakes.0': '握距過寬：選擇舒適握距。',
@@ -198,7 +198,7 @@ export default {
   'guide.lat-pulldown-close-neutral-v-handle.mistakes.2':
     '手肘向後拉得過遠：縮小幅度。',
   'guide.lat-pulldown-close-neutral-v-handle.adaptation':
-    '將通用下拉動作原理適配到 CRESUM 已批准的 V 型握把變化動作。',
+    '將通用下拉動作原理改編到 CRESUM 已批准的 V 型握把變化動作。',
   'guide.lat-pulldown-close-neutral-ergonomic-handle.scope':
     '坐姿身前下拉；短款人體工學握把；窄距中立握。',
   'guide.lat-pulldown-close-neutral-ergonomic-handle.setup.0':
@@ -214,7 +214,7 @@ export default {
   'guide.lat-pulldown-close-neutral-ergonomic-handle.mistakes.2':
     '手肘拉到軀幹後方過遠：提早停止下拉。',
   'guide.lat-pulldown-close-neutral-ergonomic-handle.adaptation':
-    '將通用下拉動作原理適配到所選短款人體工學配件。肌群的定性作用不代表實測啟用程度，也不證明其優於其他握距。',
+    '將通用下拉動作原理改編到所選短款人體工學配件。肌群的定性作用不代表實測啟用程度，也不證明其優於其他握距。',
   'guide.lat-pulldown-reverse-grip.scope': '反握；不限定配件和握距。',
   'guide.lat-pulldown-reverse-grip.setup.0':
     '固定大腿並踩穩雙腳。掌心朝自己，以舒服的間距握住握把。',
@@ -227,11 +227,12 @@ export default {
   'guide.lat-pulldown-reverse-grip.adaptation':
     '此握法變化動作由 ACSM 作者摘要支援；通用執行要點改編自 ACE，並非單獨驗證的訓練方案。',
   'guide.pull-up.scope': '自重引體向上；正握。',
-  'guide.pull-up.setup.0': '使用穩固單槓和拇指繞住握把，收緊軀幹，穩定地懸垂。',
+  'guide.pull-up.setup.0':
+    '選擇穩固的單槓，拇指繞住槓握緊。收緊核心，穩定地懸吊。',
   'guide.pull-up.movement.0': '手肘向下帶動身體上升，再平穩下降至起始位置。',
   'guide.pull-up.checks.0': '頭部保持對齊，避免踢腿，在肩部舒適的範圍內運動。',
   'guide.pull-up.mistakes.0': '身體擺動：重新穩定懸垂姿勢。',
-  'guide.pull-up.mistakes.1': '伸下巴夠杆：應抬升身體。',
+  'guide.pull-up.mistakes.1': '伸下巴去碰槓：把身體往上拉。',
   'guide.pull-up.mistakes.2': '驟然落下：控制下降。',
   'guide.assisted-pull-up.scope': '帶配重輔助的引體向上；支撐方式因器材而異。',
   'guide.assisted-pull-up.setup.0':
@@ -268,10 +269,10 @@ export default {
   'guide.cable-straight-arm-pulldown.mistakes.2':
     '身體擺動：使用可控制的負重。',
   'guide.cable-straight-arm-pulldown.adaptation':
-    '不限定配件；來源同時提及橫杆和滑輪握把。',
+    '配件不限。參考資料提及直槓，也提及繩索握把。',
   'guide.barbell-deadlift.scope': '傳統槓鈴硬舉。',
   'guide.barbell-deadlift.setup.0':
-    '雙腳置於槓鈴下方，髖部向後折彎曲膝蓋握杆，收緊軀幹並保持背部穩定。',
+    '雙腳置於槓鈴下方，髖部向後帶、彎曲膝蓋後握槓，收緊軀幹並保持背部穩定。',
   'guide.barbell-deadlift.movement.0':
     '雙腳推地站起，槓鈴貼近身體；髖部向後折彎曲膝蓋回到起始位置。',
   'guide.barbell-deadlift.checks.0': '雙臂保持伸展，結束時站直，不向後仰。',
@@ -292,10 +293,10 @@ export default {
     '腿部借力：保持此動作要求的嚴格推舉。',
   'guide.dumbbell-shoulder-press.mistakes.2': '路徑不一致：減輕負重。',
   'guide.dumbbell-shoulder-press.adaptation':
-    '引用示例為站姿；有支撐的坐姿是提高穩定性的適配方式。',
+    '引用示例為站姿；有支撐的坐姿是提高穩定性的改編方式。',
   'guide.barbell-overhead-press.scope': '站姿嚴格槓鈴過頂推舉。',
   'guide.barbell-overhead-press.setup.0':
-    '在肩高處穩固握杆出架，由前臂支撐槓鈴，收緊軀幹。',
+    '在肩高處穩固握槓出架，由前臂支撐槓鈴，收緊軀幹。',
   'guide.barbell-overhead-press.movement.0':
     '向頭頂推舉，為面部留出空間，再謹慎下降至肩部。',
   'guide.barbell-overhead-press.checks.0':
@@ -345,7 +346,7 @@ export default {
   'guide.reverse-pec-deck.mistakes.1': '聳肩：減輕負重。',
   'guide.reverse-pec-deck.mistakes.2': '向後拉得過遠：在舒適位置停止。',
   'guide.reverse-pec-deck.adaptation':
-    'CRESUM 根據 ACE 反向飛鳥動作原理適配到器材；具體設定以器材說明牌為準。',
+    'CRESUM 根據 ACE 反向飛鳥動作原理改編到器材；具體設定以器材說明牌為準。',
   'guide.resistance-band-pull-apart.scope': '站姿水平彈力帶拉開。',
   'guide.resistance-band-pull-apart.setup.0':
     '檢查彈力帶完好，雙臂伸展，在胸高處握於身前，保持輕微初始張力。',
@@ -366,10 +367,10 @@ export default {
   'guide.dumbbell-biceps-curl.mistakes.1': '手肘前移：保持手肘穩定。',
   'guide.dumbbell-biceps-curl.mistakes.2': '手腕彎曲：與前臂對齊。',
   'guide.dumbbell-biceps-curl.adaptation':
-    '將 ACE 的坐姿示例適配到目錄中未限定站姿或坐姿的設定。',
-  'guide.barbell-curl.scope': '站姿直杆彎舉。',
+    '將 ACE 的坐姿示例改編到目錄中未限定站姿或坐姿的設定。',
+  'guide.barbell-curl.scope': '站姿直槓彎舉。',
   'guide.barbell-curl.setup.0':
-    '站立，雙手約與肩同寬，以穩固反握持杆，收緊軀幹。',
+    '站立，雙手約與肩同寬，以穩固反握持槓，收緊軀幹。',
   'guide.barbell-curl.movement.0': '將槓鈴彎舉至肩部方向，再緩慢放下。',
   'guide.barbell-curl.checks.0': '手肘靠近身體，手腕保持舒適。',
   'guide.barbell-curl.mistakes.0': '身體後仰：減輕負重。',
@@ -381,10 +382,10 @@ export default {
   'guide.ez-bar-curl.movement.0': '以屈肘舉起，再穩定地下降。',
   'guide.ez-bar-curl.checks.0': '上臂保持穩定，手腕對齊。',
   'guide.ez-bar-curl.mistakes.0': '借力擺動：減輕負重。',
-  'guide.ez-bar-curl.mistakes.1': '手腕角度勉強：選擇舒適的握杆段。',
+  'guide.ez-bar-curl.mistakes.1': '手腕角度勉強：選擇舒適的握槓段。',
   'guide.ez-bar-curl.mistakes.2': '回到起始位置幅度短且失控：放慢動作。',
   'guide.ez-bar-curl.adaptation':
-    '將槓鈴彎舉原理適配到EZ 彎槓；不規定統一的精確握距。',
+    '將槓鈴彎舉原理改編到EZ 彎槓；不規定統一的精確握距。',
   'guide.hammer-curl.scope': '中立握啞鈴彎舉。',
   'guide.hammer-curl.setup.0': '站姿穩固，掌心向內，手肘位於軀幹兩側。',
   'guide.hammer-curl.movement.0': '彎舉一隻或兩隻啞鈴，下降時保持中立握。',
@@ -402,7 +403,7 @@ export default {
   'guide.cable-biceps-curl.mistakes.1': '手肘擺動：保持穩定。',
   'guide.cable-biceps-curl.mistakes.2': '配重碰撞：放慢回到起始位置。',
   'guide.cable-biceps-curl.adaptation':
-    '將 ACE 彈力帶彎舉適配到低位滑輪，保留屈肘的動作原理。',
+    '將 ACE 彈力帶彎舉改編到低位滑輪，保留屈肘的動作原理。',
   'guide.cable-triceps-pushdown.scope': '高位滑輪伸肘；不限定配件。',
   'guide.cable-triceps-pushdown.setup.0':
     '站在高位滑輪旁並站直，握住配件，手肘貼近肋骨兩側。',
@@ -413,11 +414,11 @@ export default {
   'guide.cable-triceps-pushdown.mistakes.1': '腰背反弓：收緊軀幹。',
   'guide.cable-triceps-pushdown.mistakes.2': '配重撞擊：緩慢回到起始位置。',
   'guide.cable-triceps-pushdown.adaptation':
-    '來源展示滑輪握把；通用目錄標識不強制使用該配件。',
+    '參考資料使用繩索握把。這個通用下壓動作可以使用其他相容配件。',
   'guide.overhead-cable-triceps-extension.scope':
     '過頂滑輪伸肘；滑輪設定因器材而異。',
   'guide.overhead-cable-triceps-extension.setup.0':
-    '背向滑輪，採用穩固站姿，雙手在頭頂握住配件，滑輪避開頭部。',
+    '背對滑輪站穩，在頭上握住配件，讓鋼索與頭部保持距離。',
   'guide.overhead-cable-triceps-extension.movement.0':
     '舒適屈肘後伸直，上臂不要過度移動。',
   'guide.overhead-cable-triceps-extension.checks.0':
@@ -426,9 +427,9 @@ export default {
   'guide.overhead-cable-triceps-extension.mistakes.1':
     '手肘突然外張：保持舒適的對齊姿勢。',
   'guide.overhead-cable-triceps-extension.mistakes.2':
-    '滑輪碰頭：重新調整設定。',
+    '鋼索碰到頭部：重新調整站位與器材。',
   'guide.overhead-cable-triceps-extension.adaptation':
-    '將啞鈴過頂動作原理適配到滑輪阻力，滑輪高度以使用的器材為準。',
+    '將啞鈴過頂動作原理改編到滑輪阻力，滑輪高度以使用的器材為準。',
   'guide.dumbbell-overhead-triceps-extension.scope':
     '雙手啞鈴過頂臂彎曲與伸展。',
   'guide.dumbbell-overhead-triceps-extension.setup.0':
@@ -445,7 +446,7 @@ export default {
     '碰到頭部：縮小動作幅度。',
   'guide.close-grip-bench-press.scope': '握距與肩同寬的槓鈴臥推。',
   'guide.close-grip-bench-press.setup.0':
-    '仰臥於有支撐的訓練椅，雙腳踩穩，採用約與肩同寬的拇指繞住握把，設定安全槓或請人保護。',
+    '躺在穩固的訓練椅上並踩穩雙腳。以約與肩同寬的距離握住槓鈴，拇指繞住槓。先設定安全槓或請訓練夥伴協助保護。',
   'guide.close-grip-bench-press.movement.0':
     '手肘靠近肋骨，將槓鈴降向胸部，再向上推起。',
   'guide.close-grip-bench-press.checks.0': '手腕保持在前臂上方，臀部保持支撐。',
@@ -507,7 +508,7 @@ export default {
   'guide.smith-machine-squat.mistakes.1': '站姿勉強：調整設定。',
   'guide.smith-machine-squat.mistakes.2': '回架未固定：檢查掛鉤。',
   'guide.smith-machine-squat.adaptation':
-    '將自由深蹲原理適配到導軌槓鈴，請遵循具體製造商說明。',
+    '將自由深蹲原理改編到導軌槓鈴，請遵循具體製造商說明。',
   'guide.goblet-squat.scope': '胸前持啞鈴深蹲。',
   'guide.goblet-squat.setup.0': '雙手在胸前穩固持一隻啞鈴，站姿穩定。',
   'guide.goblet-squat.movement.0':
@@ -611,7 +612,7 @@ export default {
     '腰椎過度後伸：在髖部與軀幹對齊時停止。',
   'guide.barbell-hip-thrust.mistakes.2': '槓鈴滾動：保持槓鈴穩定。',
   'guide.barbell-hip-thrust.adaptation':
-    '將訓練椅支撐的啞鈴臀橋原理適配到帶護墊的槓鈴。',
+    '將訓練椅支撐的啞鈴臀橋原理改編到帶護墊的槓鈴。',
   'guide.cable-glute-kickback.scope': '站姿滑輪伸髖。',
   'guide.cable-glute-kickback.setup.0':
     '將腳踝綁帶固定於低位滑輪，握住穩固支撐，支撐腿膝蓋微彎。',
@@ -622,7 +623,7 @@ export default {
   'guide.cable-glute-kickback.mistakes.1': '身體向外轉：保持骨盆穩定。',
   'guide.cable-glute-kickback.mistakes.2': '猛拽綁帶：減輕負重。',
   'guide.cable-glute-kickback.adaptation':
-    '將 ACE 彈力帶伸髖示例適配到腳踝綁帶滑輪。',
+    '將 ACE 彈力帶伸髖示例改編到腳踝綁帶滑輪。',
   'guide.standing-calf-raise.scope': '站姿器材抬腳跟；支撐方式因器材而異。',
   'guide.standing-calf-raise.setup.0':
     '舒適調整器材支撐，前腳掌穩固放在平臺上，膝蓋保持伸展但不強行鎖死。',
@@ -633,7 +634,7 @@ export default {
   'guide.standing-calf-raise.mistakes.1': '快速反彈：加入停頓。',
   'guide.standing-calf-raise.mistakes.2': '腳踝翻轉：保持雙腳穩定。',
   'guide.standing-calf-raise.adaptation':
-    '將通用站姿抬腳跟指導適配到器材支撐，負重和上下器材方式以說明牌為準。',
+    '將通用站姿抬腳跟指導改編到器材支撐，負重和上下器材方式以說明牌為準。',
   'guide.seated-calf-raise.scope': '彎曲膝蓋器材抬腳跟。',
   'guide.seated-calf-raise.setup.0':
     '大腿墊放在膝蓋上方，前腳掌穩固支撐，腳跟懸空。',
@@ -645,7 +646,7 @@ export default {
   'guide.seated-calf-raise.mistakes.1': '靠墊壓在髕骨上：重新調整。',
   'guide.seated-calf-raise.mistakes.2': '雙腳打滑：重新放好。',
   'guide.seated-calf-raise.adaptation':
-    '根據坐姿抬腳跟要領適配到器材，解鎖和安全設定以說明牌為準。',
+    '根據坐姿抬腳跟要領改編到器材，解鎖和安全設定以說明牌為準。',
   'guide.machine-hip-adduction.scope': '坐姿髖內收器材。',
   'guide.machine-hip-adduction.setup.0':
     '雙腳和背部保持支撐，設定舒適的起始寬度，大腿內側貼靠墊。',
@@ -737,7 +738,7 @@ export default {
   'guide.standing-cable-anti-rotation-press.mistakes.1': '腰背反弓：收緊軀幹。',
   'guide.standing-cable-anti-rotation-press.mistakes.2': '滑輪鬆弛：調整距離。',
   'guide.standing-cable-anti-rotation-press.adaptation':
-    '將 ACE 彈力帶及滑輪指導適配到目錄中的滑輪設定。',
+    '將 ACE 彈力帶及滑輪指導改編到目錄中的滑輪設定。',
   'guide.bodyweight-step-up.scope': '不負重登階；雙腿分別領步。',
   'guide.bodyweight-step-up.setup.0':
     '選擇可控制高度的穩固平臺，將領步腳整個腳掌置於平臺上。',
@@ -761,7 +762,7 @@ export default {
   'guide.dumbbell-floor-glute-bridge.mistakes.2': '用頸部推地：保持頭部放鬆。',
   'guide.lying-barbell-triceps-extension.scope': '仰臥槓鈴伸肘。',
   'guide.lying-barbell-triceps-extension.setup.0':
-    '仰臥於平板訓練椅，雙腳支撐，採用拇指繞住握把正握，將槓鈴舉於頭部與胸部上方區域。',
+    '仰臥於平板訓練椅並踩穩雙腳。雙手正握槓鈴，拇指繞住槓，將槓鈴舉在頭部與胸部上方。',
   'guide.lying-barbell-triceps-extension.movement.0':
     '屈肘下降，為頭部留出空間，再平穩伸肘。',
   'guide.lying-barbell-triceps-extension.checks.0': '上臂保持穩定，手腕對齊。',
