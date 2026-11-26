@@ -1,945 +1,1011 @@
 export default {
   'guide.upright-stationary-bike.scope':
-    'Istuttu pyöräily pystyasennossa pyörällä.',
+    'Istuen polkeminen pystymallisella kuntopyörällä.',
   'guide.upright-stationary-bike.setup.0':
-    'Säädä ja lukitse satulan korkeus ennen aloitusta.',
-  'guide.upright-stationary-bike.movement.0': 'Istukaa polkeessanne.',
+    'Säädä ja lukitse satulan korkeus ennen aloittamista.',
+  'guide.upright-stationary-bike.movement.0': 'Pysy satulassa polkiessasi.',
   'guide.upright-stationary-bike.checks.0':
-    'Pidä polkimen pohjassa pieni polvitaivutus.',
+    'Jätä polveen pieni koukistus, kun poljin on alimmillaan.',
   'guide.upright-stationary-bike.mistakes.0':
-    'Jos lantiosi keinuu puolelta toiselle, pysähdy ja tarkista satulan pituus.',
+    'Jos lantio keinuu sivulta toiselle, pysähdy ja tarkista satulan korkeus.',
   'guide.treadmill-walking.scope': 'Kävely moottoroidulla juoksumatolla.',
   'guide.treadmill-walking.setup.0':
-    'Kiinnitä turvaklipsi vaatteisiin ennen kuin aloitat.',
+    'Kiinnitä turvaklipsi vaatteisiin ennen aloitusta.',
   'guide.treadmill-walking.movement.0':
-    'Aloita matalalla nopeudella ja lisää sitä pienin askelin.',
-  'guide.treadmill-walking.checks.0': 'Pidä pää ja vartalo eteenpäin.',
+    'Aloita hitaasti ja nosta nopeutta pienin askelin.',
+  'guide.treadmill-walking.checks.0':
+    'Pidä pää ja vartalo eteenpäin suunnattuina.',
   'guide.treadmill-walking.mistakes.0':
-    'Kääntykää ympäri liikkuvalla vyöllä: pysäyttäkää vyö ensin.',
+    'Pysäytä matto ennen kuin käännyt ympäri.',
   'guide.hanging-straight-leg-raise.scope':
-    'Suoran jalan kohotus roikkuen yläpalkista.',
+    'Suorien jalkojen nosto yläpuolisesta tangosta roikkuen.',
   'guide.hanging-straight-leg-raise.setup.0':
-    'Purista tangoa olkavarren leveydellä; ripusta suoralla kädellä ja jalalla.',
+    'Ota tangosta hartioiden levyinen myötäote. Roiku kädet ja jalat suorina.',
   'guide.hanging-straight-leg-raise.movement.0':
-    'Nostakaa suorat jalat yhteen kohti vaakaa, pysähtykää ja laskekaa sitten hitaasti.',
+    'Nosta suorat jalat yhdessä kohti vaakatasoa. Pidä hetki ja laske hitaasti.',
   'guide.hanging-straight-leg-raise.checks.0':
-    'kiristä vatsan ja vartalon lihaksia ja pidä lantio hallinnassa.',
+    'Jännitä keskivartaloa ja pidä lantio hallinnassa.',
   'guide.hanging-straight-leg-raise.mistakes.0':
-    'Kehon heilauttaminen: pysähdy ja nollaa.',
+    'Jos alat heilua, pysähdy ja asetu uudelleen lähtöasentoon.',
   'guide.hanging-straight-leg-raise.mistakes.1':
-    'Taivuttavat polvet: valitse sen sijaan polvenkohotus.',
+    'Jos polvet koukistuvat, valitse polvennostovariaatio.',
   'guide.captains-chair-knee-raise.scope':
-    'Bent-polvi kohoaa kyynärvarrella ja selkä tukee kapteenin tuolia.',
+    'Polvennosto telineessä kyynärvarsien ja selän tuella.',
   'guide.captains-chair-knee-raise.setup.0':
-    'Toipumisaika kyynärvarret tyynyissä, tartu kahvoihin ja tue selkää suojusta vasten; anna jalkojen roikkua pois lattiasta.',
+    'Aseta kyynärvarret pehmusteille, tartu kahvoihin ja nojaa selkä tukeen. Anna jalkojen roikkua irti lattiasta.',
   'guide.captains-chair-knee-raise.movement.0':
-    'Nosta polvia rintaa kohti kurissa ja laske sitten hitaasti aloitusasentoon.',
+    'Nosta koukistettuja polvia hallitusti kohti rintaa. Laske hitaasti lähtöasentoon.',
   'guide.captains-chair-knee-raise.checks.0':
-    'Pidä ylävartalo tasaisena tukea vasten koko liikkeen ajan.',
+    'Pidä ylävartalo vakaana tukia vasten koko liikkeen ajan.',
   'guide.captains-chair-knee-raise.mistakes.0':
-    'Kehon heilauttaminen: paussi ja kontrollin palautuminen.',
+    'Jos alat heilua, pysähdy hetkeksi ja palauta hallinta.',
   'guide.captains-chair-knee-raise.mistakes.1':
-    'Jalkojen pudottaminen: hidasta laskemista.',
-  'guide.barbell-bench-press.scope': 'Litteä penkki, levytanko.',
+    'Jos jalat putoavat, hidasta laskua.',
+  'guide.barbell-bench-press.scope': 'Tasapenkki ja levytanko.',
   'guide.barbell-bench-press.setup.0':
-    'Aseta telineet ja turvatangot; käytä harjoituskumppania, joka voi varmistaa painon vaativiin kuormiin. Makaa jalat tukittuna ja paljain silmin.',
+    'Säädä teline ja turvaraudat. Käytä raskaissa nostoissa varmistajaa. Asetu penkille jalat tuettuina ja tanko silmien yläpuolella.',
   'guide.barbell-bench-press.movement.0':
-    'Käytä varmaa otetta, jonka peukalot ovat riman ympärillä hieman olkapäitä leveämmät. Alas kohti keskirintaa, paina ylös.',
+    'Ota hieman hartioita leveämpi ote peukalot tangon ympäri. Laske tanko hallitusti kohti rinnan keskiosaa ja punnerra ylös.',
   'guide.barbell-bench-press.checks.0':
-    'Pidä ranteet kyynärvarsien, hartioiden ja lonkkien ympärillä tukevasti.',
-  'guide.barbell-bench-press.mistakes.0': 'Kytke rima alas varovasti.',
+    'Pidä ranteet kyynärvarsien linjassa. Pidä hartiat ja lantio tuettuina. Hengitä ulos punnertaessasi.',
+  'guide.barbell-bench-press.mistakes.0':
+    'Jos tanko ponnahtaa rinnasta, laske pehmeämmin.',
   'guide.barbell-bench-press.mistakes.1':
-    'Nosta lantiota: pidä penkkikontakti.',
-  'guide.barbell-bench-press.mistakes.2': 'Bent ranteet: linjaa kyynärvarret.',
-  'guide.incline-dumbbell-press.scope': 'Incline penkki, kaksi käsipainoa.',
+    'Jos lantio nousee, pidä se penkkiä vasten.',
+  'guide.barbell-bench-press.mistakes.2':
+    'Jos ranteet taipuvat, suorista ne kyynärvarsien linjaan.',
+  'guide.incline-dumbbell-press.scope': 'Vinopenkki ja kaksi käsipainoa.',
   'guide.incline-dumbbell-press.setup.0':
-    'Aseta vakaa kaltevuus ja tue molempia jalkoja; tuo käsipainot ylärintaan.',
+    'Säädä penkki tukevaan kaltevuuteen. Tue molemmat jalat ja tuo käsipainot ylärinnan viereen.',
   'guide.incline-dumbbell-press.movement.0':
-    'Paina molemmat painot ylöspäin ja laske sitten hitaasti mukavalle syvyydelle.',
+    'Punnerra molemmat painot ylös yhtä aikaa ja laske ne hitaasti sopivaan syvyyteen.',
   'guide.incline-dumbbell-press.checks.0':
-    'Pidä ranteet kyynärpäiden ja pään, hartioiden ja lanteiden yläpuolella penkillä.',
+    'Pidä ranteet kyynärpäiden yläpuolella. Pidä pää, hartiat ja lantio penkillä.',
   'guide.incline-dumbbell-press.mistakes.0':
-    'Päällystys: kiristä vatsan ja vartalon lihaksia.',
+    'Jos selkä notkistuu liikaa, jännitä keskivartaloa.',
   'guide.incline-dumbbell-press.mistakes.1':
-    'Epätasainen lasku: liikukaa yhdessä.',
+    'Jos painot laskeutuvat eri tahtiin, liikuta niitä yhtä aikaa.',
   'guide.incline-dumbbell-press.mistakes.2':
-    'Pakotettu syvyys: lyhennä kantamaa.',
-  'guide.dumbbell-bench-press.scope': 'Tasapenkki, kaksi käsipainoa.',
+    'Jos joudut pakottamaan painot alemmas, lyhennä liikettä.',
+  'guide.dumbbell-bench-press.scope': 'Tasapenkki ja kaksi käsipainoa.',
   'guide.dumbbell-bench-press.setup.0':
-    'Makaa jalat tukittuna; pidä käsipainoja rintakehän vieressä varmalla otteella peukalot rinnan ympärillä.',
+    'Asetu penkille jalat tuettuina. Pidä käsipainot rinnan sivuilla peukalot kahvojen ympäri.',
   'guide.dumbbell-bench-press.movement.0':
-    'Paina ylöspäin yksituumaisesti, alemmas ohjauksessa kyynärvarret tukevat painoja.',
+    'Punnerra painot yhtä aikaa ylös. Laske hallitusti kyynärvarret painojen alla.',
   'guide.dumbbell-bench-press.checks.0':
-    'Pidä ranteet linjassa ja olkapäät tukissa. Hengitä ulos painaessa.',
+    'Pidä ranteet suorina ja hartiat tuettuina. Hengitä ulos punnertaessasi.',
   'guide.dumbbell-bench-press.mistakes.0':
-    'Yhteentörmäyspainot: pysäyttäkää ne.',
+    'Jos painot osuvat toisiinsa, pysäytä ne ennen kosketusta.',
   'guide.dumbbell-bench-press.mistakes.1':
-    'Painojen pudottaminen: säätele laskeutumista.',
-  'guide.dumbbell-bench-press.mistakes.2': 'Hidasta lanteita: pidä yhteyttä.',
+    'Jos painot putoavat, hallitse laskua.',
+  'guide.dumbbell-bench-press.mistakes.2':
+    'Jos lantio nousee, pidä se penkkiä vasten.',
   'guide.machine-chest-press.scope':
-    'Istutettu konepainatus; kahvan geometria vaihtelee.',
+    'Rintapunnerrus laitteessa istuen. Kahvojen malli vaihtelee.',
   'guide.machine-chest-press.setup.0':
-    'Säädä istuinta niin, että kahvat ovat keskirinteen ympärillä. Pidä selkä tukittuna ja jalat vakaina.',
+    'Säädä kahvat istuimen avulla rinnan keskikohdan korkeudelle. Tue selkä ja jalat.',
   'guide.machine-chest-press.movement.0':
-    'Paina sujuvasti eteenpäin ja palauta kahvat kuriin.',
+    'Punnerra tasaisesti eteenpäin ja palauta kahvat hallitusti.',
   'guide.machine-chest-press.checks.0':
-    'Käytä varmaa otetta, jossa peukalot on kääritty tangon ympärille, ranteet tasaantuneet ja mukava valikoima on hallinnassa.',
+    'Pidä peukalot kahvojen ympäri ja ranteet suorina. Käytä hallittua, luontevaa liikerataa.',
   'guide.machine-chest-press.mistakes.0':
-    'Istuin liian matalalla: nollauskorkeus.',
+    'Jos istuin on liian alhaalla, säädä korkeutta.',
   'guide.machine-chest-press.mistakes.1':
-    'Hartiat lähtevät tyynystä: kavenna ulottuvuutta.',
+    'Jos hartiat irtoavat tuesta, lyhennä liikettä.',
   'guide.machine-chest-press.mistakes.2':
-    'Voimakas kyynärpään työsulku: viimeistele varovasti.',
+    'Älä lukitse kyynärpäitä voimalla. Päätä punnerrus pehmeästi.',
   'guide.cable-chest-fly.scope':
-    'Seisova kaapelikärpänen, pullea kulma riippuu valitusta valmistelusta.',
+    'Ristikkäistaljavipunosto seisten. Vetokulma riippuu taljan säädöistä.',
   'guide.cable-chest-fly.setup.0':
-    'Seiso tasaisessa asennossa sovitettujen pyörteiden välissä ja pidä molempia kahvoja pehmeästi taivutetuilla kyynärpäillä.',
+    'Seiso tukevasti samalle korkeudelle säädettyjen taljojen välissä. Pidä kiinni kahvoista kyynärpäät hieman koukussa.',
   'guide.cable-chest-fly.movement.0':
-    'Aseet kaaressa eteenpäin, kunnes kädet lähestyvät toisiaan; palaa hitaasti.',
+    'Tuo käsivarret kaaressa eteen, kunnes kädet lähestyvät toisiaan. Palaa hitaasti.',
   'guide.cable-chest-fly.checks.0':
-    'Pidä kyynärpään taivutus ja tasainen ylävartalo; vältä pakottamasta käsiä taaksesi.',
+    'Säilytä kyynärpäiden kulma ja pidä vartalo vakaana. Älä pakota käsiä liian pitkälle taakse.',
   'guide.cable-chest-fly.mistakes.0':
-    'Sen muuttaminen painoksi: pidä kyynärpääkulmaa.',
-  'guide.cable-chest-fly.mistakes.1':
-    'Kehon heilauttaminen: kevennä kuormitusta.',
+    'Jos liike muuttuu punnerrukseksi, pidä kyynärpäiden kulma samana.',
+  'guide.cable-chest-fly.mistakes.1': 'Jos vartalo heiluu, kevennä painoa.',
   'guide.cable-chest-fly.mistakes.2':
-    'Liiallinen crossover: viimeistely ilman käsien törmäystä.',
+    'Jos kädet menevät liikaa ristiin, pysäytä ne ennen kuin ne osuvat toisiinsa.',
   'guide.cable-chest-fly.adaptation':
-    'Cable-fly yhteenveto lähderisteyksestä; keskiviivan ylittäminen ei ole pakollista.',
+    'Ohje mukailee lähteen ristikkäistaljaliikettä. Käsiä ei tarvitse viedä keskilinjan yli.',
   'guide.pec-deck-fly.scope':
-    'Seated pec kansi; kahva- ja kyynärvarsi-väliversiot eroavat toisistaan.',
+    'Rintaperhonen istuen. Laitteessa voi olla kahvat tai kyynärvarsituet.',
   'guide.pec-deck-fly.setup.0':
-    'Säädä istuinta niin, että koneen kädet asettuvat mukavasti rintaan/olkapäähän; tuki selkää ja jalkoja.',
+    'Säädä istuin niin, että laitteen varret asettuvat luontevasti rinnan ja hartioiden korkeudelle. Tue selkä ja jalat.',
   'guide.pec-deck-fly.movement.0':
-    'Tuo tyynyt tai kahvat sisäänpäin sulavasti ja käännä sitten selkänojaa.',
+    'Vie pehmusteet tai kahvat tasaisesti yhteen ja palauta hallitusti.',
   'guide.pec-deck-fly.checks.0':
-    'Seuraa koneen kylttiä, vältä olkapään venytystä.',
-  'guide.pec-deck-fly.mistakes.0': 'Selkänojasta poistuminen: pidä tuki.',
-  'guide.pec-deck-fly.mistakes.1': 'olkapäiden nosto: matalampi kuormitus.',
-  'guide.pec-deck-fly.mistakes.2': 'Runkkaaminen pinossa: hidasta paluuta.',
+    'Noudata laitteen ohjetta. Vältä olkapäiden pakottamista venytykseen.',
+  'guide.pec-deck-fly.mistakes.0': 'Pidä selkä selkänojaa vasten.',
+  'guide.pec-deck-fly.mistakes.1': 'Jos hartiat nousevat, kevennä painoa.',
+  'guide.pec-deck-fly.mistakes.2': 'Jos painopakka nykii, hidasta paluuta.',
   'guide.pec-deck-fly.adaptation':
-    'Lähde näyttää kyynärvarsi-alusta-mallin; kahvapohjaiset koneet vaativat oman valmistelunsa.',
-  'guide.push-up.scope': 'Lattiapunnerrus.',
+    'Lähde näyttää kyynärvarsituilla varustetun laitteen. Noudata kahvamallin omia säätöohjeita.',
+  'guide.push-up.scope': 'Etunojapunnerrus lattialla.',
   'guide.push-up.setup.0':
-    'Aseta kädet olkapään leveyden ympärille, ojenna jalat ja tuki vartaloa suorassa linjassa.',
+    'Aseta kädet noin hartioiden leveydelle, suorista jalat ja jännitä vartalo suoraksi linjaksi.',
   'guide.push-up.movement.0':
-    'Laske rintakehää kohti lattiaa yhtenä yksikkönä; paina lattiaa poispäin noustaksesi.',
+    'Laske rinta kohti lattiaa vartalo yhtenäisenä. Punnerra irti lattiasta.',
   'guide.push-up.checks.0':
-    'Pidä pää linjassa, lonkat tasaisina ja mukava kyynärpääpolku. Hengitä normaalisti.',
-  'guide.push-up.mistakes.0': 'Lantiot roikkuvat: pakarat ja vatsa.',
-  'guide.push-up.mistakes.1': 'Leuka edellä: liikuta rintaa ensin.',
+    'Pidä pää vartalon linjassa ja lantio suorassa. Anna kyynärpäiden liikkua luontevasti. Hengitä normaalisti.',
+  'guide.push-up.mistakes.0':
+    'Jos lantio notkahtaa, jännitä pakaroita ja vatsaa.',
+  'guide.push-up.mistakes.1': 'Jos leuka johtaa liikettä, vie rinta edellä.',
   'guide.push-up.mistakes.2':
-    'Osittain hallitsemattomat toistot: vaikeuksien vähentäminen.',
+    'Jos toistot jäävät vajaiksi tai hallitsemattomiksi, valitse helpompi versio.',
   'guide.barbell-bent-over-row.scope':
-    'Kaksikätinen levytankorivi; ote on edelleen määrittelemätön.',
+    'Kulmasoutu levytangolla ja molemmilla käsillä. Ote on valinnainen.',
   'guide.barbell-bent-over-row.setup.0':
-    'Pidä rimaa tukevalla ja mukavalla otteella; taivuta lanteitasi ja pidä selkäsi vakaana pehmeillä polvilla ja vakaalla selällä.',
+    'Ota tangosta varma ote. Taita lantiosta, pidä polvet hieman koukussa ja selkä vakaana.',
   'guide.barbell-bent-over-row.movement.0':
-    'Vedä vatsaa kohti ja ohjaa kyynärpäitä taaksepäin, kunnes kädet ulottuvat.',
+    'Vedä tanko kohti vatsaa ohjaten kyynärpäitä taakse. Laske, kunnes kädet suoristuvat.',
   'guide.barbell-bent-over-row.checks.0':
-    'Pidä ylävartalokulma tasaisena ja tanko lähellä.',
+    'Säilytä ylävartalon kulma ja pidä tanko lähellä kehoa.',
   'guide.barbell-bent-over-row.mistakes.0':
-    'Kunkin renkaan ylös nouseminen: kevennä kuormitusta.',
+    'Jos suoristaudut joka toistolla, kevennä painoa.',
   'guide.barbell-bent-over-row.mistakes.1':
-    'Kierretään taakse: nollataan sarana.',
+    'Jos selkä pyöristyy, asetu uudelleen lantion varaan.',
   'guide.barbell-bent-over-row.mistakes.2':
-    'Baarin runkkaaminen: vedä jouhevasti.',
+    'Jos nykäiset tankoa, vedä tasaisemmin.',
   'guide.barbell-bent-over-row.adaptation':
-    'Lähde näyttää ylikätisen grip-esimerkin; tässä yleisessä luettelossa ei määrätä yhdestä otteesta.',
-  'guide.seated-cable-row.scope':
-    'Kiinnitetty kaapelirivi; kiinnitys on edelleen määrittelemätön.',
+    'Lähde näyttää esimerkin myötäotteella. Tässä yleisessä versiossa otetta ei ole määrätty.',
+  'guide.seated-cable-row.scope': 'Alataljasoutu istuen. Kahva on valinnainen.',
   'guide.seated-cable-row.setup.0':
-    'Tue jalkoja, pehmennä polvia ja istu pitkäksi; tartu valittuun kahvaan pyörimättä selkään.',
+    'Tue jalat, koukista polvia hieman ja istu ryhdikkäästi. Tartu kahvaan pyöristämättä selkää.',
   'guide.seated-cable-row.movement.0':
-    'Vedä takakonttia kohti kyynärpäiden liikkuessa taaksepäin ja ojenna sitten käsiä hitaasti.',
+    'Vedä kahva kohti vartaloa kyynärpäät taaksepäin. Ojenna kädet hitaasti.',
   'guide.seated-cable-row.checks.0':
-    'Pidä ylävartalo tasaisena ja ranteet tasaisina; vältä liioittelemasta laihaa.',
+    'Pidä vartalo vakaana ja ranteet suorina. Älä nojaa liikaa.',
   'guide.seated-cable-row.mistakes.0':
-    'Rokkaaminen takaisin: pysy rauhallisena.',
-  'guide.seated-cable-row.mistakes.1': 'Pyöriminen alussa: istu pitkäksi.',
-  'guide.seated-cable-row.mistakes.2': 'Crashing pino: ohjaus palaa.',
+    'Jos keinahdat taaksepäin, pidä vartalo paikallaan.',
+  'guide.seated-cable-row.mistakes.1':
+    'Jos selkä pyöristyy alussa, istu ryhdikkäästi.',
+  'guide.seated-cable-row.mistakes.2':
+    'Jos painot kolahtavat, hallitse paluuta.',
   'guide.seated-cable-row.adaptation':
-    'Lähde käyttää kapeaa kahvaa; tämä yleinen luettelotunnus ei määrää yhtä pitoa.',
+    'Lähteessä käytetään kapeaa kahvaa. Yleinen liikeversio ei edellytä tiettyä otetta.',
   'guide.seated-cable-row-close-neutral-v-handle.scope':
-    'Kiinnitetty matala vaijeririvi, V-kädensija, neutraali ote.',
+    'Istumasoutu alataljassa V-kahvalla ja kapealla neutraalilla otteella.',
   'guide.seated-cable-row-close-neutral-v-handle.setup.0':
-    'Istu pystyssä jalat tukevasti ja polvet hieman taivutettuina. Kiedo jokainen käsi oman rinnakkaisen otteensa ympärille, kämmenet vastakkain ja ojenna kädet pyöristämättä selkää.',
+    'Istu ryhdikkäästi jalat tuettuina ja polvet hieman koukussa. Tartu rinnakkaisiin kahvoihin kämmenet vastakkain. Ojenna kädet pyöristämättä selkää.',
   'guide.seated-cable-row-close-neutral-v-handle.movement.0':
-    'Vedä kahvasta kohti vatsaa kyynärpäiden liikkuessa takaisin sivuillesi; ojenna hitaasti käsiä palataksesi.',
+    'Vedä kahvaa kohti vatsaa kyynärpäät lähellä kylkiä. Ojenna kädet hitaasti.',
   'guide.seated-cable-row-close-neutral-v-handle.checks.0':
-    'Pidä ylävartalo tasaisena ja ranteet linjassa kyynärvarsien kanssa. Mahdollista luonnollinen olkapään lyöntiliike nostamatta olkapäitä.',
+    'Pidä vartalo vakaana ja ranteet kyynärvarsien linjassa. Anna lapaluiden liikkua luontevasti nostamatta hartioita.',
   'guide.seated-cable-row-close-neutral-v-handle.mistakes.0':
-    'Kelaa taaksepäin vetämään: kevennä kuormaa ja pidä runko tasaisena.',
+    'Jos keinahdat taaksepäin vedon aikana, kevennä painoa ja pidä vartalo vakaana.',
   'guide.seated-cable-row-close-neutral-v-handle.mistakes.1':
-    'Ranteiden taivutus: nollaa neutraali ote.',
+    'Jos ranteet taipuvat, ota neutraali ote uudelleen.',
   'guide.seated-cable-row-close-neutral-v-handle.mistakes.2':
-    'Pinon kaataminen: paluun hallitseminen.',
+    'Jos painot kolahtavat, hallitse paluuta.',
   'guide.seated-cable-row-close-neutral-v-handle.adaptation':
-    'Kapeaa lähdeesimerkkiä käytetään tähän nimenomaiseen neutraali-grip-kokoonpanoon. Lihasroolit ovat laadullisia, eivätkä mittaa aktivointia tai vahvista ylivertaisuutta muihin kahvoihin nähden.',
-  'guide.one-arm-dumbbell-row.scope': 'Yksikätistä riviä.',
+    'Lähteen kapea kahva vastaa tätä neutraalia otetta. Lihasten tehtävien kuvaus ei mittaa aktivaatiota eikä osoita otetta muita paremmaksi.',
+  'guide.one-arm-dumbbell-row.scope': 'Yhden käden soutu penkiltä tuettuna.',
   'guide.one-arm-dumbbell-row.setup.0':
-    'Tue toista kättä ja polvea vakaalla penkillä, tuki selkää ja pidä käsipainoa toisen olkapään alla.',
+    'Tue toinen käsi ja polvi vakaalle penkille. Pidä selkä vakaana ja anna käsipainon riippua toisen olkapään alla.',
   'guide.one-arm-dumbbell-row.movement.0':
-    'Piirrä kyynärpää lonkkaa kohti ja laske käsipaino pyörimättä ylävartaloa.',
+    'Vedä kyynärpäätä kohti lantiota. Laske käsipaino kiertämättä ylävartaloa.',
   'guide.one-arm-dumbbell-row.checks.0':
-    'Pidä pää suorassa ja tukipisteet tasaisina. Toista toisella puolella.',
+    'Pidä pää vartalon linjassa ja tukipisteet vakaina. Toista toiselle puolelle.',
   'guide.one-arm-dumbbell-row.mistakes.0':
-    'Kiertäminen nostoon: matalampi kuorma.',
+    'Jos kierrät vartaloa nostaessasi, kevennä painoa.',
   'guide.one-arm-dumbbell-row.mistakes.1':
-    'hartioiden nostaminen: ohjaa kyynärpäätä.',
+    'Jos hartia kohoaa, ohjaa liikettä kyynärpäällä.',
   'guide.one-arm-dumbbell-row.mistakes.2':
-    'Olkapään pudottaminen: hallitse tilannetta.',
-  'guide.chest-supported-dumbbell-row.scope': 'Kahden käden kallistusrivi.',
+    'Älä anna hartian pudota. Pidä liike hallittuna.',
+  'guide.chest-supported-dumbbell-row.scope':
+    'Kahden käden soutu vinopenkillä.',
   'guide.chest-supported-dumbbell-row.setup.0':
-    'Makaa rintakehä alas vakaalla kaltevalla penkillä, tukijalat ja anna käsipainojen roikkua.',
+    'Asetu rinta vakaata vinopenkkiä vasten. Tue jalat ja anna käsipainojen riippua.',
   'guide.chest-supported-dumbbell-row.movement.0':
-    'Vedä kyynärpäitä taaksepäin, laske painoja ja pidä rinta tukevana.',
+    'Vedä kyynärpäät taakse ja laske painot pitäen rinta tuettuna.',
   'guide.chest-supported-dumbbell-row.checks.0':
-    'Käytä miellyttävää kyynärpääpolkua ja pidä pää linjassa.',
+    'Anna kyynärpäiden liikkua luontevasti ja pidä pää vartalon linjassa.',
   'guide.chest-supported-dumbbell-row.mistakes.0':
-    'Nosta rintakehää: säilytä tyynykosketus.',
+    'Jos rinta nousee, pidä se pehmustetta vasten.',
   'guide.chest-supported-dumbbell-row.mistakes.1':
-    'olkapäiden nosto: kevennä kuormitusta.',
+    'Jos hartiat nousevat, kevennä painoa.',
   'guide.chest-supported-dumbbell-row.mistakes.2':
-    'Runkkaus: vedä ja palaa hitaasti.',
+    'Jos liike nykii, vedä ja palauta painot rauhallisesti.',
   'guide.chest-supported-dumbbell-row.adaptation':
-    'Mukautettu ACE:n kallistuskulman ohjauksesta; kyynärpään polkua ei ole kiinnitetty sen esimerkiksi.',
+    'Sovellettu ACE:n vinopenkkisoudun ohjeesta. Kyynärpäiden ei tarvitse kulkea yhtä korkealla kuin lähteen esimerkissä.',
   'guide.lat-pulldown.scope':
-    'Yleinen vetäminen, pito ja kiinnitys määrittelemätön.',
+    'Yleinen ylätaljaveto. Ote ja kahva ovat valinnaisia.',
   'guide.lat-pulldown.setup.0':
-    'Aseta reisituki ja jalat; käytä mukavan varmaa otetta.',
+    'Säädä reisituki, aseta jalat tukevasti ja ota varma, luonteva ote.',
   'guide.lat-pulldown.movement.0':
-    'Vedä kehon eteen, palaa hitaasti takaisin luonnollisella olkatolpan liikkeellä.',
+    'Vedä vartalon etupuolella. Palauta hitaasti ja anna lapaluiden liikkua luontevasti.',
   'guide.lat-pulldown.checks.0':
-    'Pidä ylävartalo vakaana, valitse mukava alue.',
-  'guide.lat-pulldown.mistakes.0': 'Takaniskan vetäminen: pysy edessä.',
-  'guide.lat-pulldown.mistakes.1': 'Kehon heilauttaminen: kevennä kuormitusta.',
+    'Pidä vartalo vakaana ja käytä luontevaa liikerataa.',
+  'guide.lat-pulldown.mistakes.0': 'Vedä vartalon edessä, älä niskan taakse.',
+  'guide.lat-pulldown.mistakes.1': 'Jos vartalo heiluu, kevennä painoa.',
   'guide.lat-pulldown.mistakes.2':
-    'Pakotettu rintakontakti: pysähdy mukavasti.',
-  'guide.lat-pulldown-wide-pronated-bar.scope': 'Leveä rima, kovettunut ote.',
+    'Älä pakota kahvaa rintaan asti. Pysäytä sopivaan kohtaan.',
+  'guide.lat-pulldown-wide-pronated-bar.scope': 'Leveä tanko ja myötäote.',
   'guide.lat-pulldown-wide-pronated-bar.setup.0':
-    'Turvalliset reidet ja jalat; pidä rimaa olkapäitä leveämpänä.',
+    'Tue reidet pehmusteen alle ja jalat alustalle. Ota tangosta hartioita leveämpi myötäote.',
   'guide.lat-pulldown-wide-pronated-bar.movement.0':
-    'Ohjaa kyynärpäät alas, kun rima lähestyy ylärintaa; ojenna käsiä hitaasti.',
+    'Ohjaa kyynärpäät alas tangon lähestyessä ylärintaa. Ojenna kädet hitaasti.',
   'guide.lat-pulldown-wide-pronated-bar.checks.0':
-    'Pysy matalana; rintakontakti on vapaaehtoista.',
+    'Nojaa hieman taakse ja pidä asento vakaana. Tangon ei tarvitse koskettaa rintaa.',
   'guide.lat-pulldown-wide-pronated-bar.mistakes.0':
-    'Liiallinen leveys: valitse mukava ote.',
+    'Jos ote on liian leveä, säädä se luontevaksi.',
   'guide.lat-pulldown-wide-pronated-bar.mistakes.1':
-    'Torso keinuttaa: vähentää kuormaa.',
+    'Jos vartalo heiluu, kevennä painoa.',
   'guide.lat-pulldown-wide-pronated-bar.mistakes.2':
-    'Taka-aukkoveto: pysy edessä.',
+    'Vedä tanko vartalon edessä, älä niskan taakse.',
   'guide.lat-pulldown-wide-pronated-bar.adaptation':
-    'Laajapalkkinen tarkistuslista, johon on koottu CRESUMin hyväksytty mukavan kantaman raja.',
+    'Leveän tangon ohjeessa noudatetaan CRESUMin hyväksymää rajaa luontevalle liikeradalle.',
   'guide.lat-pulldown-close-neutral-v-handle.scope':
-    'Sulje neutraali ote, V-käsi.',
+    'Kapea neutraali ote V-kahvalla.',
   'guide.lat-pulldown-close-neutral-v-handle.setup.0':
-    'Turvallinen reisi ja jalat; tartu V-käden molempiin puoliin, kämmenet vastakkain.',
+    'Tue reidet pehmusteen alle ja jalat alustalle. Tartu V-kahvan molempiin puoliin kämmenet vastakkain.',
   'guide.lat-pulldown-close-neutral-v-handle.movement.0':
-    'Vedä kohti ylärintaa, palaa hitaasti.',
+    'Vedä kohti ylärintaa ja palauta hitaasti.',
   'guide.lat-pulldown-close-neutral-v-handle.checks.0':
-    'Pidä ranteet tasaisina ja ylävartalo tasaisena, salli luonnollinen olkapään lyöntiliike.',
+    'Pidä ranteet suorina ja vartalo vakaana. Anna lapaluiden liikkua luontevasti.',
   'guide.lat-pulldown-close-neutral-v-handle.mistakes.0':
-    'Kehon heilauttaminen: kevennä kuormitusta.',
+    'Jos vartalo heiluu, kevennä painoa.',
   'guide.lat-pulldown-close-neutral-v-handle.mistakes.1':
-    'Rintakontaktin pakottaminen: lopeta mukavasti.',
+    'Älä pakota kahvaa rintaan asti. Pysäytä sopivaan kohtaan.',
   'guide.lat-pulldown-close-neutral-v-handle.mistakes.2':
-    'Kyynärpään liikaveto: lyhennä kantamaa.',
+    'Jos kyynärpäät menevät liian pitkälle taakse, lyhennä liikettä.',
   'guide.lat-pulldown-close-neutral-v-handle.adaptation':
-    'Jaettu vetävä mekaniikka, joka on sovitettu hyväksyttyyn CRESUM V-käsivalintaan.',
+    'Ylätaljan yleinen tekniikka on sovitettu CRESUMin V-kahvaversioon.',
   'guide.lat-pulldown-close-neutral-ergonomic-handle.scope':
-    'Istunut etuveto, kompakti ergonominen kahva, tiivis neutraali ote.',
+    'Istuen tehtävä ylätaljaveto edestä lyhyellä ergonomisella kahvalla ja kapealla neutraalilla otteella.',
   'guide.lat-pulldown-close-neutral-ergonomic-handle.setup.0':
-    'Turvalliset reidet ja tukijalat. Kohdatkaa korkeaa hihnaa; kahvatukien toipumisaikakämmenet ja käärikää sormet pyöristettyjen reunojen ympärille, kämmenet vastakkain.',
+    'Tue reidet ja jalat. Suuntaudu ylätaljaan. Aseta kämmenet kahvan tukipinnoille vastakkain ja kierrä sormet pyöristettyjen reunojen ympäri.',
   'guide.lat-pulldown-close-neutral-ergonomic-handle.movement.0':
-    'Vedä kyynärpäät alas kylkeä kohti ja vie kahva ylärintaan; palaa hillittynä mukavalle yliajolle.',
+    'Vedä kyynärpäät alas kylkiä kohti ja kahva ylärintaa kohti. Palauta hallitusti ylös, kunnes kädet ovat luontevasti ojentuneet.',
   'guide.lat-pulldown-close-neutral-ergonomic-handle.checks.0':
-    'Pidä ranteet linjassa, lantio vakaana ja jatkuva laiha. Salli luonnollinen olkapää-lapaliike; rintakontakti on valinnainen.',
+    'Pidä ranteet suorina ja lantio vakaana. Säilytä kevyt kallistus. Anna lapaluiden liikkua luontevasti. Kahvan ei tarvitse koskettaa rintaa.',
   'guide.lat-pulldown-close-neutral-ergonomic-handle.mistakes.0':
-    'Ruumiin heilautuksella vetäminen: kevennä kuormaa.',
+    'Jos haet vetoon vauhtia vartalolla, kevennä painoa.',
   'guide.lat-pulldown-close-neutral-ergonomic-handle.mistakes.1':
-    'Käsikontaktin kääntäminen tai taivutettujen ranteiden pakottaminen: ote nollataan.',
+    'Jos käsi on tukipinnalla väärin päin tai ranne taittuu, ota ote uudelleen.',
   'guide.lat-pulldown-close-neutral-ergonomic-handle.mistakes.2':
-    'Kyynärpäät kaukana takakontin takana: lopeta vetäminen aiemmin.',
+    'Jos kyynärpäät menevät kauas vartalon taakse, lopeta veto aiemmin.',
   'guide.lat-pulldown-close-neutral-ergonomic-handle.adaptation':
-    'Valittuun kompaktiin ergonomiseen kiinnitykseen sovitettu yhteinen vetävä mekaniikka. Laadulliset lihasroolit eivät mittaa aktivointia tai ole hyödyksi muille leveyksille.',
+    'Ylätaljavedon yleinen tekniikka on sovitettu lyhyelle ergonomiselle kahvalle. Lihasten kuvaillut tehtävät eivät mittaa aktivaatiota tai osoita etua muihin oteleveyksiin nähden.',
   'guide.lat-pulldown-reverse-grip.scope':
-    'Supistettu pito, kiinnitys ja leveys määrittelemätön.',
+    'Vastaote. Kahva ja otteen leveys ovat valinnaisia.',
   'guide.lat-pulldown-reverse-grip.setup.0':
-    'Turvalliset reidet ja jalat; valitse mukava kämmen-up käsiväli.',
+    'Tue reidet ja jalat. Ota luontevan levyinen ote kämmenet itseesi päin.',
   'guide.lat-pulldown-reverse-grip.movement.0':
-    'Vedä kyynärpäät alas eteen, palaa ohjaimiin.',
+    'Vedä kyynärpäitä alas vartalon edessä ja palauta hallitusti.',
   'guide.lat-pulldown-reverse-grip.checks.0':
-    'Pidä ranteet mukavana ja ylävartalo tasaisena.',
-  'guide.lat-pulldown-reverse-grip.mistakes.0': 'Pakotettu ote: Säädä väli.',
+    'Pidä ranteet luontevassa asennossa ja vartalo vakaana.',
+  'guide.lat-pulldown-reverse-grip.mistakes.0':
+    'Jos ote tuntuu pakotetulta, säädä sen leveyttä.',
   'guide.lat-pulldown-reverse-grip.mistakes.1':
-    'Kehon heilauttaminen: kevennä kuormitusta.',
-  'guide.lat-pulldown-reverse-grip.mistakes.2': 'Taka-aukkoveto: pysy edessä.',
+    'Jos vartalo heiluu, kevennä painoa.',
+  'guide.lat-pulldown-reverse-grip.mistakes.2':
+    'Vedä edestä, älä niskan taakse.',
   'guide.lat-pulldown-reverse-grip.adaptation':
-    'ACSM:n kirjoittajan tukema grip-variantti abstrakti; ACE:ltä mukautettu yhteinen toteutus, ei erikseen validoitu protokolla.',
-  'guide.pull-up.scope': 'Painon nostaminen; tartu kämmeniin poispäin.',
+    'ACSM:n kirjoittajien tiivistelmä tukee oteversiota. Toteutus mukailee ACE:n yleisohjetta. Sitä ei ole validoitu erikseen.',
+  'guide.pull-up.scope': 'Kehonpainoleuanveto myötäotteella.',
   'guide.pull-up.setup.0':
-    'Käytä varmaa tankoa ja pidä tiukasti kiinni peukaloista, jotka on kääritty riman ympärille; kiristä vatsan ja vartalon lihakset hallitusti roikkumaan.',
+    'Käytä tukevaa tankoa ja pidä peukalot tangon ympäri. Jännitä keskivartaloa ja roiku hallitusti.',
   'guide.pull-up.movement.0':
-    'Ohjaa kyynärpäät alas vartalon nostamiseksi; laske tasaisesti alusta.',
+    'Ohjaa kyynärpäitä alas, jotta vartalo nousee. Laskeudu tasaisesti lähtöasentoon.',
   'guide.pull-up.checks.0':
-    'Pidä pää suorana ja vältä potkimista; käytä mukavaa olkavartta.',
-  'guide.pull-up.mistakes.0': 'Heiluta kehoasi: nollaa ripustus.',
-  'guide.pull-up.mistakes.1': 'Leukalla tavoittaminen: nosta kehoa.',
-  'guide.pull-up.mistakes.2': 'Laskeutuminen: hallintalaskeutuminen.',
+    'Pidä pää vartalon linjassa, vältä potkimista ja käytä olkapäille luontevaa liikerataa.',
+  'guide.pull-up.mistakes.0':
+    'Jos vartalo heiluu, pysähdy ja asetu uudelleen roikkumaan.',
+  'guide.pull-up.mistakes.1': 'Jos kurotat leualla, nosta vartaloa.',
+  'guide.pull-up.mistakes.2': 'Jos putoat alas, hidasta laskua.',
   'guide.assisted-pull-up.scope':
-    'Vastapainotettu punnerrus; konetuki poikkeaa toisistaan.',
+    'Leuanveto vastapainolaitteessa. Tuki vaihtelee laitteittain.',
   'guide.assisted-pull-up.setup.0':
-    'Valitse apu ja kiinnitä koneen askelilla, tartu kahvaan ja asetu sen tueksi.',
+    'Valitse avustuksen määrä, nouse portaita pitkin, tartu kahvoihin ja asetu tuelle.',
   'guide.assisted-pull-up.movement.0':
-    'Vedä ylöspäin ja laske sitten tasaisesti. Palauta tuki toipumisaikaan, ennen kuin laskeudut.',
+    'Vedä itsesi ylös ja laske rauhallisesti. Palauta tuki lepoasentoon ennen poistumista.',
   'guide.assisted-pull-up.checks.0':
-    'Valitumpi vastapaino tarkoittaa enemmän apua. Seuraa konekorttia.',
-  'guide.assisted-pull-up.mistakes.0': 'Hyppy pois -tuki: käytä vaiheita.',
-  'guide.assisted-pull-up.mistakes.1': 'Kehosi heiluminen: matalampi nopeus.',
-  'guide.assisted-pull-up.mistakes.2': 'Liian vähän apua: lisää tukea.',
+    'Suurempi vastapaino lisää avustusta. Noudata laitteen ohjetta.',
+  'guide.assisted-pull-up.mistakes.0': 'Älä hyppää tuelta. Käytä askelmia.',
+  'guide.assisted-pull-up.mistakes.1': 'Jos vartalo heiluu, hidasta tahtia.',
+  'guide.assisted-pull-up.mistakes.2':
+    'Jos avustusta on liian vähän, lisää vastapainoa.',
   'guide.assisted-pull-up.adaptation':
-    'Esimerkiksi valmistaja käyttää polvisuojaa; muut tukimallit tarvitsevat omat asennusohjeensa.',
+    'Valmistajan esimerkissä on polvituki. Noudata muunlaisen laitteen omia nousemisohjeita.',
   'guide.machine-high-row.scope':
-    'Seated High-row kone; kahva polku vaihtelee.',
+    'Yläsoutu istuen. Kahvojen liikerata vaihtelee laitteittain.',
   'guide.machine-high-row.setup.0':
-    'Säädä istuinta ja rintaa mukavasti. Tue jalkoja ja kiristä vatsan ja vartalon lihaksia.',
+    'Säädä istuin ja rintatuki niin, että yletyt kahvoihin luontevasti. Tue jalat ja jännitä keskivartaloa.',
   'guide.machine-high-row.movement.0':
-    'Vedä kahvat kohti ylärunkoa, palaa ohjaimilla.',
+    'Vedä kahvoja kohti ylävartaloa ja palauta hallitusti.',
   'guide.machine-high-row.checks.0':
-    'Pidä rintatuki ja ranteet linjassa; seuraa konepolkua.',
+    'Pidä rinta tuettuna ja ranteet suorina. Noudata laitteen liikerataa.',
   'guide.machine-high-row.mistakes.0':
-    'Nostaminen pois päältä: kevennä kuormitusta.',
-  'guide.machine-high-row.mistakes.1': 'Ryntäilykahvat: hidasta.',
+    'Jos rinta irtoaa tuesta, kevennä painoa.',
+  'guide.machine-high-row.mistakes.1': 'Jos nykäiset kahvoja, hidasta.',
   'guide.machine-high-row.mistakes.2':
-    'Pakotettu kyynärpään matkustaminen: pysähdy mukavasti.',
+    'Älä pakota kyynärpäitä pidemmälle. Pysäytä liike luontevaan kohtaan.',
   'guide.machine-high-row.adaptation':
-    'ACE:n vaakatasoinen suuraakkosvalmiste ilmoittaa tämän yleismerkinnän; kulma-asennelmat eroavat toisistaan.',
-  'guide.cable-straight-arm-pulldown.scope': 'Olkapään pidennys vedetään alas.',
+    'Ohje perustuu ACE:n vaakasuoraan yläsoutuun. Vinovipuiset laitteet liikkuvat eri tavalla.',
+  'guide.cable-straight-arm-pulldown.scope':
+    'Seisten tehtävä ylätaljaveto, jossa liike tulee olkapäistä.',
   'guide.cable-straight-arm-pulldown.setup.0':
-    'Aseta korkea hihna ja varmista kiinnitys; seiso pystyssä pehmeät polvet ja kädet kurottaen eteenpäin/ylös.',
+    'Säädä talja ylös ja kiinnitä kahva. Seiso ryhdikkäästi polvet hieman koukussa ja kädet etuviistoon ylös ojennettuina.',
   'guide.cable-straight-arm-pulldown.movement.0':
-    'Lakaise kädet reittä kohti ja palaa sitten muuttamatta kyynärpään taivutusta olennaisesti.',
+    'Vie kädet kaaressa kohti reisiä ja palauta muuttamatta kyynärkulmaa olennaisesti.',
   'guide.cable-straight-arm-pulldown.checks.0':
-    'Pidä kylkiluita pinottuna ja ylävartalo tasaisena; liiku hartioiden läpi.',
+    'Pidä rintakehä lantion päällä ja vartalo vakaana. Anna liikkeen tulla olkapäistä.',
   'guide.cable-straight-arm-pulldown.mistakes.0':
-    'Taivuta kyynärpäät työntöön: pidä käden pituus.',
-  'guide.cable-straight-arm-pulldown.mistakes.1': 'Takajousitus: tuki.',
+    'Jos liike muuttuu ojentajapunnerrukseksi, säilytä kyynärkulma.',
+  'guide.cable-straight-arm-pulldown.mistakes.1':
+    'Jos selkä notkistuu, jännitä keskivartaloa.',
   'guide.cable-straight-arm-pulldown.mistakes.2':
-    'Kehon heiluttelu: käytä helppohoitoista kuormaa.',
+    'Jos vartalo heiluu, käytä hallittavaa painoa.',
   'guide.cable-straight-arm-pulldown.adaptation':
-    'Kiinnitys on edelleen määrittelemätön; lähde mainitsee sekä tangon että köyden.',
-  'guide.barbell-deadlift.scope': 'Tavanomaiset levysoittimet.',
+    'Kahvaa ei ole määrätty. Lähde mainitsee sekä tangon että köyden.',
+  'guide.barbell-deadlift.scope': 'Perinteinen maastaveto levytangolla.',
   'guide.barbell-deadlift.setup.0':
-    'Aseta jalat tangon alle, saranat ja taivuta polvet tarttumaan siihen; tuki selkä tasaisena.',
+    'Aseta jalat tangon alle. Taita lantiosta ja koukista polvia tarttuaksesi tankoon. Jännitä keskivartaloa ja pidä selkä vakaana.',
   'guide.barbell-deadlift.movement.0':
-    'Työnnä lattia pois ja seiso baari lähellä; sarana ja taivuta polvet takaisin.',
+    'Paina jalkoja lattiaan ja nouse tanko lähellä vartaloa. Taita lantiosta ja koukista polvia laskiessasi.',
   'guide.barbell-deadlift.checks.0':
-    'Pidä kädet pitkinä, pääty mieluummin pystyasennossa kuin nojaa taaksepäin.',
-  'guide.barbell-deadlift.mistakes.0': 'Runkkaa lattialta: ota rennosti.',
-  'guide.barbell-deadlift.mistakes.1': 'Baari ajelehtii pois: pysy lähellä.',
-  'guide.barbell-deadlift.mistakes.2': 'Ylilaajennus: seiso pystyssä.',
+    'Pidä kädet suorina. Lopeta pystyasentoon nojaamatta taakse.',
+  'guide.barbell-deadlift.mistakes.0':
+    'Älä nykäise tankoa lattiasta. Ota tangosta löysät pois ennen nostoa.',
+  'guide.barbell-deadlift.mistakes.1':
+    'Jos tanko karkaa eteen, pidä se lähellä vartaloa.',
+  'guide.barbell-deadlift.mistakes.2':
+    'Vältä yliojennusta. Päädy pystyasentoon.',
   'guide.barbell-deadlift.adaptation':
-    'Turvallinen kaksoisobjekti kämmenet sinua vasten on konservatiivinen aloitusvaihtoehto; lähde kuvaa myös sekalaista otetta.',
-  'guide.dumbbell-shoulder-press.scope': 'Käsipainon yläpaino.',
+    'Varma myötäote molemmilla käsillä on hyvä aloitusvaihtoehto. Lähde näyttää myös ristiotteen.',
+  'guide.dumbbell-shoulder-press.scope': 'Pystypunnerrus käsipainoilla.',
   'guide.dumbbell-shoulder-press.setup.0':
-    'Seiso tukevasti pehmeillä polvilla tai istu tukevalla penkillä; tuo käsipainot olkapäiden viereen.',
+    'Seiso tukevasti polvet hieman koukussa tai istu tuetulla penkillä. Tuo käsipainot hartioiden sivuille.',
   'guide.dumbbell-shoulder-press.movement.0':
-    'Paina yläpuolelta ja laske sitten tasaisesti alusta.',
+    'Punnerra pään yläpuolelle. Laske tasaisesti lähtöasentoon.',
   'guide.dumbbell-shoulder-press.checks.0':
-    'Pidä takakontti tukittuna ja ranteet linjassa; anna olkapäiden liikkua luonnollisesti yläpuolella.',
+    'Jännitä keskivartaloa ja pidä ranteet suorina. Anna hartioiden liikkua luontevasti yläasennossa.',
   'guide.dumbbell-shoulder-press.mistakes.0':
-    'Alaselkäkaari: pidä kylkiluita hallinnassa.',
+    'Jos alaselkä notkistuu, pidä rintakehä hallinnassa.',
   'guide.dumbbell-shoulder-press.mistakes.1':
-    'Jalka-asema: käytä suunniteltua tiukkaa painatusta.',
+    'Älä ota jaloilla vauhtia. Tee liike tiukkana pystypunnerruksena.',
   'guide.dumbbell-shoulder-press.mistakes.2':
-    'Epätasainen polku: vähennä kuormitusta.',
+    'Jos painot kulkevat eri rataa, kevennä niitä.',
   'guide.dumbbell-shoulder-press.adaptation':
-    'Mainittu esimerkki on seisominen; tuettu istuminen on vakauden sopeutumista.',
+    'Lähteen esimerkki on seisten. Tuettu istuma-asento lisää vakautta.',
   'guide.barbell-overhead-press.scope':
-    'Seisomassa tiukkaa levypainon yläpainatusta.',
+    'Tiukka pystypunnerrus levytangolla seisten.',
   'guide.barbell-overhead-press.setup.0':
-    'Olkapään korkeudella murtuma, jossa on tukeva ote ja kyynärvarret, kiristä vatsan ja ylävartalon lihaksia.',
+    'Ota tanko telineestä hartiakorkeudelta varmalla otteella ja tue sitä kyynärvarsilla. Jännitä keskivartaloa.',
   'guide.barbell-overhead-press.movement.0':
-    'Paina yläpuolelta kasvojen tyhjennys; laske varovasti olkapäille.',
+    'Punnerra pään yli niin, että tanko ohittaa kasvot osumatta. Laske varovasti hartioille.',
   'guide.barbell-overhead-press.checks.0':
-    'Pidä jalat ja kylkiluut vakaina, ei tahallista jalka-ajoa.',
-  'guide.barbell-overhead-press.mistakes.0': 'Liiallinen takatörmäys: tuki.',
+    'Pidä jalat tukevasti ja rintakehä hallinnassa. Älä ota jaloilla vauhtia.',
+  'guide.barbell-overhead-press.mistakes.0':
+    'Jos selkä notkistuu liikaa, jännitä keskivartaloa.',
   'guide.barbell-overhead-press.mistakes.1':
-    'Kihelmöivä leuka: ohjaustangon tyhjennys.',
+    'Jos tanko osuu leukaan, korjaa tangon rataa.',
   'guide.barbell-overhead-press.mistakes.2':
-    'Olkapäistä ponnistaminen: tauko ja nollaus.',
+    'Jos tanko ponnahtaa hartioista, pysähdy hetkeksi ja asetu uudelleen.',
   'guide.machine-shoulder-press.scope':
-    'Tuettu ylikulkukonepuristus; ote määrittelemätön.',
+    'Tuettu pystypunnerrus laitteessa. Ote on valinnainen.',
   'guide.machine-shoulder-press.setup.0':
-    'Säädä istuinta niin, että kahvat ovat olkapään korkeudella, tukijalat ja selkä.',
+    'Säädä kahvat istuimen avulla suunnilleen hartiakorkeudelle. Tue jalat ja selkä.',
   'guide.machine-shoulder-press.movement.0':
-    'Paina ylös koneen mukavan polun läpi, alas tasaisesti.',
+    'Punnerra ylös laitteen luontevaa rataa pitkin ja laske tasaisesti.',
   'guide.machine-shoulder-press.checks.0':
-    'Pidä ranteet linjassa ja vältä liiallista lannekaarta.',
-  'guide.machine-shoulder-press.mistakes.0': 'Väärä istuimen korkeus: Säädä.',
+    'Pidä ranteet suorina ja vältä alaselän liiallista notkistumista.',
+  'guide.machine-shoulder-press.mistakes.0':
+    'Jos istuin on väärällä korkeudella, säädä se.',
   'guide.machine-shoulder-press.mistakes.1':
-    'Selkänojan poistuminen: kevennä kuormitusta.',
-  'guide.machine-shoulder-press.mistakes.2': 'Paluun lyöminen: hallitse sitä.',
+    'Jos selkä irtoaa selkänojasta, kevennä painoa.',
+  'guide.machine-shoulder-press.mistakes.2':
+    'Jos painot kolahtavat alas, palauta ne hallitusti.',
   'guide.machine-shoulder-press.adaptation':
-    'ACE:llä on tiiviit kahvat, eikä Cresumin yleistunnistus vaadi tällaista pitoa.',
-  'guide.dumbbell-lateral-raise.scope': 'Seisova käsipainon sivuttaiskorotus.',
+    'ACE näyttää kapeat kahvat. CRESUMin yleinen liike ei edellytä tätä otetta.',
+  'guide.dumbbell-lateral-raise.scope':
+    'Vipunosto sivulle käsipainoilla seisten.',
   'guide.dumbbell-lateral-raise.setup.0':
-    'Seiso tukevasti käsipainot reisien vieressä, kyynärpäät pehmeät ja ranteet linjassa.',
+    'Seiso tukevasti painot reisien sivuilla, kyynärpäät hieman koukussa ja ranteet suorina.',
   'guide.dumbbell-lateral-raise.movement.0':
-    'Nosta olkavarret sivuttain olkapäiden tasolle, laske hitaasti.',
+    'Nosta olkavarsia sivulle kohti hartiakorkeutta ja laske hitaasti.',
   'guide.dumbbell-lateral-raise.checks.0':
-    'Pidä ylävartalo tasaisena, vältä peukalon alas painamista.',
+    'Pidä vartalo vakaana. Älä pakota peukaloita osoittamaan alas.',
   'guide.dumbbell-lateral-raise.mistakes.0':
-    'Kehon heilauttaminen: kevennä kuormitusta.',
+    'Jos vartalo heiluu, kevennä painoa.',
   'guide.dumbbell-lateral-raise.mistakes.1':
-    'olkapäiden nostaminen: pidä kaula rentona.',
+    'Jos hartiat nousevat, rentouta niska.',
   'guide.dumbbell-lateral-raise.mistakes.2':
-    'Liiallinen korkeus: pysähdy mukavalla alueella.',
-  'guide.cable-lateral-raise.scope': 'Yksikätinen kaapelin sivuttaiskorotus.',
+    'Jos nostat liian korkealle, pysäytä luontevaan kohtaan.',
+  'guide.cable-lateral-raise.scope': 'Yhden käden vipunosto sivulle taljassa.',
   'guide.cable-lateral-raise.setup.0':
-    'Seiso sivuttain vaijeria vasten ja pidä vastakkaista kahvaa; käytä vakaata asentoa.',
+    'Seiso sivuttain taljaan ja tartu kahvaan kauemmalla kädellä. Pidä asento tukevana.',
   'guide.cable-lateral-raise.movement.0':
-    'Nosta käsi sivuttain olkapään korkeutta kohti ja laske sitten tasaisesti; vaihda sivua.',
+    'Nosta käsi sivulle kohti hartiakorkeutta ja laske tasaisesti. Vaihda puolta.',
   'guide.cable-lateral-raise.checks.0':
-    'Pidä ylävartalo tasaisena ja kyynärpään pieni taivutus.',
-  'guide.cable-lateral-raise.mistakes.0': 'Nostaminen: matalampi kuorma.',
+    'Pidä vartalo vakaana ja säilytä pieni koukistus kyynärpäässä.',
+  'guide.cable-lateral-raise.mistakes.0':
+    'Jos nojaat saadaksesi painon ylös, kevennä painoa.',
   'guide.cable-lateral-raise.mistakes.1':
-    'hartioiden nostaminen: ohjaa olkavartta.',
+    'Jos hartia nousee, ohjaa liikettä olkavarrella.',
   'guide.cable-lateral-raise.mistakes.2':
-    'Verkkokaapelin ylittäminen turvattomalla tavalla: tarkista kulkulupa.',
+    'Varmista, että risteävä vaijeri kulkee esteettä.',
   'guide.cable-lateral-raise.adaptation':
-    'Lähde käyttää vyötärön korkeudella varustettua telinettä; matalamman punnerruksen järjestelyt tarvitsevat kaapelin puhdistuksen ja mukavan valmistelun.',
-  'guide.reverse-pec-deck.scope': 'Rintakehän tukema käänteislentokone.',
+    'Lähde käyttää taljaa vyötärön korkeudella. Alempana olevan taljan vaijerin pitää kulkea esteettä ja asennon tuntua luontevalta.',
+  'guide.reverse-pec-deck.scope':
+    'Käänteinen rintaperhonen laitteessa rintatuella.',
   'guide.reverse-pec-deck.setup.0':
-    'Kohtaa tyyny, säädä istuin mukavalle kahvan korkeudelle ja tue rintakehää.',
+    'Asetu pehmustetta kohti. Säädä istuin niin, että kahvojen korkeus tuntuu luontevalta. Tue rinta.',
   'guide.reverse-pec-deck.movement.0':
-    'Levitä kädet konepolulle; palaa pomppimatta.',
+    'Levitä kädet laitteen liikerataa pitkin ja palauta ilman nykäisyä.',
   'guide.reverse-pec-deck.checks.0':
-    'Pidä pehmeä kyynärpääkulma ja vältä työntämästä päätä eteenpäin.',
-  'guide.reverse-pec-deck.mistakes.0': 'Rintakehän nosto: pysy tukevana.',
-  'guide.reverse-pec-deck.mistakes.1': 'olkapäiden nosto: kevennä kuormitusta.',
-  'guide.reverse-pec-deck.mistakes.2': 'Ylilyönti: lopeta mukavasti.',
+    'Säilytä pieni koukistus kyynärpäissä äläkä työnnä päätä eteen.',
+  'guide.reverse-pec-deck.mistakes.0':
+    'Jos rinta nousee, pidä se tukea vasten.',
+  'guide.reverse-pec-deck.mistakes.1': 'Jos hartiat nousevat, kevennä painoa.',
+  'guide.reverse-pec-deck.mistakes.2':
+    'Jos vedät liian pitkälle, pysäytä luontevaan kohtaan.',
   'guide.reverse-pec-deck.adaptation':
-    'ACE:n käänteislentomekaniikan Cresum-konetta muokattu; tarkka konekyltti ohjaa valmistautumista.',
+    'CRESUM on sovittanut ACE:n käänteisen vipunoston laitteelle. Noudata käyttämäsi laitteen säätöohjetta.',
   'guide.resistance-band-pull-apart.scope':
-    'Seisova vaakatasoinen kaista vetävä osa.',
+    'Vaakasuora sivuveto vastuskuminauhalla seisten.',
   'guide.resistance-band-pull-apart.setup.0':
-    'Pidä ääninauha edessä rintakehän korkeudella, kädet pitkät ja kevyt alkujännitys.',
+    'Pidä ehjää kuminauhaa edessä rinnan korkeudella, kädet lähes suorina ja nauha hieman kireällä.',
   'guide.resistance-band-pull-apart.movement.0':
-    'Avaa kädet sivuttain ja palaa sitten hitaasti.',
+    'Levitä kädet sivuille ja palauta hitaasti.',
   'guide.resistance-band-pull-apart.checks.0':
-    'Pidä leuka neutraalina ja takaluukku vakaana.',
-  'guide.resistance-band-pull-apart.mistakes.0': 'Ääliöbändi: hidasta.',
+    'Pidä leuka neutraalissa asennossa ja vartalo vakaana.',
+  'guide.resistance-band-pull-apart.mistakes.0':
+    'Jos nykäiset nauhaa, hidasta.',
   'guide.resistance-band-pull-apart.mistakes.1':
-    'hartioiden nostaminen: rentoudu niskasta.',
+    'Jos hartiat nousevat, rentouta niska.',
   'guide.resistance-band-pull-apart.mistakes.2':
-    'Kaareva selkä: kiristä vatsan ja ylävartalon lihaksia.',
+    'Jos selkä notkistuu, jännitä keskivartaloa.',
   'guide.resistance-band-pull-apart.adaptation':
-    'Lähde on fysioterapian esimerkki, ei yksilöllinen kuntoutusmääräys.',
-  'guide.dumbbell-biceps-curl.scope':
-    'Käsipainon kyynärpään pullistuma kihara.',
+    'Lähde näyttää fysioterapiaharjoitteen esimerkin. Se ei ole yksilöllinen kuntoutusohje.',
+  'guide.dumbbell-biceps-curl.scope': 'Hauiskääntö käsipainoilla.',
   'guide.dumbbell-biceps-curl.setup.0':
-    'Seiso tukevasti tai istu tukevasti; pidä käsipainoja kämmenet eteenpäin ja kädet kyljissäsi.',
+    'Seiso tukevasti tai istu tuettuna. Pidä käsipainot sivuilla kämmenet eteenpäin.',
   'guide.dumbbell-biceps-curl.movement.0':
-    'Taivuta kyynärpäät nostamaan painoja, laske hitaasti.',
+    'Nosta painot koukistamalla kyynärpäitä ja laske hitaasti.',
   'guide.dumbbell-biceps-curl.checks.0':
-    'Pidä ranteet linjassa ja takakontti vakaana.',
+    'Pidä ranteet suorina ja vartalo vakaana.',
   'guide.dumbbell-biceps-curl.mistakes.0':
-    'Kehon heilauttaminen: matalampi kuormitus.',
+    'Jos vartalo heiluu, kevennä painoa.',
   'guide.dumbbell-biceps-curl.mistakes.1':
-    'Kyynärpäät kulkevat eteenpäin: pidä ne tasaisena.',
-  'guide.dumbbell-biceps-curl.mistakes.2': 'Bent ranteet: linjaa kyynärvarret.',
+    'Jos kyynärpäät siirtyvät eteen, pidä ne paikallaan.',
+  'guide.dumbbell-biceps-curl.mistakes.2':
+    'Jos ranteet taittuvat, suorista ne kyynärvarsien linjaan.',
   'guide.dumbbell-biceps-curl.adaptation':
-    'ACE:n istuva esimerkki on sovitettu luettelon määrittelemättömään seisoma-/istumakokoonpanoon.',
-  'guide.barbell-curl.scope': 'Suoraviivainen seisova kihara.',
+    'ACE:n istuen tehtävä esimerkki on sovitettu tehtäväksi istuen tai seisten.',
+  'guide.barbell-curl.scope': 'Hauiskääntö suoralla tangolla seisten.',
   'guide.barbell-curl.setup.0':
-    'Seiso tukevassa otteessa kämmenet edessäsi olkapään leveydellä, tukivartalossa.',
+    'Ota turvallinen, noin hartioiden levyinen vastaote. Jännitä keskivartaloa.',
   'guide.barbell-curl.movement.0':
-    'Kurvi rinnan kohti hartioita, sitten alas hitaasti.',
+    'Käännä tanko kohti hartioita ja laske hitaasti.',
   'guide.barbell-curl.checks.0':
-    'Pidä kyynärpäät lähellä kehoa ja ranteet mukavana.',
-  'guide.barbell-curl.mistakes.0': 'Nojaa taaksepäin: vähennä kuormitusta.',
-  'guide.barbell-curl.mistakes.1': 'Kyynärpäät eteenpäin: pysy tasaisena.',
-  'guide.barbell-curl.mistakes.2': 'Pudotuspalkki: ohjauslasku.',
-  'guide.ez-bar-curl.scope': 'Seisova EZ-tangon kihara.',
+    'Pidä kyynärpäät lähellä vartaloa ja ranteet luontevassa asennossa.',
+  'guide.barbell-curl.mistakes.0': 'Jos nojaat taakse, kevennä painoa.',
+  'guide.barbell-curl.mistakes.1':
+    'Jos kyynärpäät heilahtavat eteen, pidä ne paikallaan.',
+  'guide.barbell-curl.mistakes.2': 'Jos tanko putoaa, hallitse laskua.',
+  'guide.ez-bar-curl.scope': 'Hauiskääntö EZ-mutkatangolla seisten.',
   'guide.ez-bar-curl.setup.0':
-    'Käytä kulmikkaita osioita mukavasti puolivalkaistuun otteeseen, seiso polvin pehmeästi.',
+    'Ota tangon kulmakohdista luonteva, osittainen vastaote. Pidä polvet hieman koukussa.',
   'guide.ez-bar-curl.movement.0':
-    'Kääntykää kyynärpäiden läpi, laskekaa ohjaimella.',
-  'guide.ez-bar-curl.checks.0': 'Pidä olkavarret tasaisina ja ranteet suorina.',
-  'guide.ez-bar-curl.mistakes.0': 'Kehon heilauttaminen: kevennä kuormitusta.',
+    'Nosta paino koukistamalla kyynärpäitä ja palauta hallitusti.',
+  'guide.ez-bar-curl.checks.0':
+    'Pidä olkavarret paikoillaan ja ranteet suorina.',
+  'guide.ez-bar-curl.mistakes.0': 'Jos vartalo heiluu, kevennä painoa.',
   'guide.ez-bar-curl.mistakes.1':
-    'Pakotettu rannekulma: valitse mukavat osiot.',
-  'guide.ez-bar-curl.mistakes.2': 'Lyhyt hallitsematon paluu: hidasta.',
+    'Jos ranne joutuu pakotettuun kulmaan, vaihda otetta tangossa.',
+  'guide.ez-bar-curl.mistakes.2':
+    'Jos palautus jää vajaaksi tai hallitsemattomaksi, hidasta.',
   'guide.ez-bar-curl.adaptation':
-    'Levytankomekaniikan sopeuttaminen EZ-palkkiin; mitään universaalista tarkkaa käsienväliä ei määrätty.',
-  'guide.hammer-curl.scope': 'Neutraali käsipainokihara.',
+    'Suoran tangon hauiskääntö on sovitettu mutkatangolle. Kaikille sopivaa tarkkaa oteleveyttä ei ole määrätty.',
+  'guide.hammer-curl.scope': 'Hauiskääntö käsipainoilla neutraalilla otteella.',
   'guide.hammer-curl.setup.0':
-    'Seiso tukevasti kämmenet kohti sisäänpäin ja kyynärpäät takakontin vieressä.',
+    'Seiso vakaasti kämmenet sisäänpäin ja kyynärpäät vartalon sivuilla.',
   'guide.hammer-curl.movement.0':
-    'Curl toinen tai molemmat käsipainot; matalampi säilyttäen neutraali ote.',
-  'guide.hammer-curl.checks.0': 'Pidä ranteet linjassa ja olkapäät hiljaa.',
+    'Käännä yksi käsipaino tai molemmat ylös. Pidä neutraali ote myös laskiessa.',
+  'guide.hammer-curl.checks.0': 'Pidä ranteet suorina ja hartiat paikoillaan.',
   'guide.hammer-curl.mistakes.0':
-    'Kämmenten kääntäminen ylös: pidä neutraali ote.',
-  'guide.hammer-curl.mistakes.1': 'Torso keinuu: pienempi kuorma.',
-  'guide.hammer-curl.mistakes.2': 'hartioiden nostaminen: rentouta hartiat.',
+    'Jos kämmenet kääntyvät ylös, palauta neutraali ote.',
+  'guide.hammer-curl.mistakes.1': 'Jos vartalo heiluu, kevennä painoa.',
+  'guide.hammer-curl.mistakes.2': 'Jos hartiat nousevat, rentouta ne.',
   'guide.cable-biceps-curl.scope':
-    'Seisova matalan kaliiperin kihara, liite määrittelemätön.',
+    'Hauiskääntö alataljassa seisten. Kahva on valinnainen.',
   'guide.cable-biceps-curl.setup.0':
-    'Aseta matala hihna, varmista kiinnitys ja seiso vakaassa asennossa.',
+    'Säädä talja alas, kiinnitä kahva ja seiso tukevasti.',
   'guide.cable-biceps-curl.movement.0':
-    'Curl kyynärpäät vartalon vieressä; palaa hitaasti.',
+    'Koukista kyynärpäitä niiden pysyessä vartalon sivuilla. Palauta hitaasti.',
   'guide.cable-biceps-curl.checks.0':
-    'Pidä ranteet mukavana ja vastusta kaapelia nojaamatta.',
-  'guide.cable-biceps-curl.mistakes.0': 'Työntövoima: vähentää kuormitusta.',
+    'Pidä ranteet luontevassa asennossa ja vastusta taljan vetoa nojaamatta.',
+  'guide.cable-biceps-curl.mistakes.0':
+    'Jos heilautat lantiota saadaksesi vauhtia, kevennä painoa.',
   'guide.cable-biceps-curl.mistakes.1':
-    'Kyynärpäät heiluttavat kehoa: pysy tasaisena.',
-  'guide.cable-biceps-curl.mistakes.2': 'Stack törmäys: hidasta paluuta.',
+    'Jos kyynärpäät heiluvat, pidä ne paikoillaan.',
+  'guide.cable-biceps-curl.mistakes.2':
+    'Jos painot kolahtavat, hidasta paluuta.',
   'guide.cable-biceps-curl.adaptation':
-    'ACE:n vastusnauhan kihara on sovitettu matalaan kaapeliin, joka säilyttää kyynärtaivutusmekaanikot.',
+    'ACE:n vastuskuminauhalla tehtävä hauiskääntö on sovitettu alataljalle. Liike tulee edelleen kyynärpäistä.',
   'guide.cable-triceps-pushdown.scope':
-    'Korkeakattoinen kyynärpään pidennys, kiinnitys määrittelemätön.',
+    'Ojentajapunnerrus ylätaljassa. Kahva on valinnainen.',
   'guide.cable-triceps-pushdown.setup.0':
-    'Seiskää pystyssä korkealla veturilla, pitäkää kiinni kiinni kiinni ja tuokaa kyynärpäät kylkiluiden viereen.',
+    'Seiso ryhdikkäästi ylätaljan luona. Tartu kahvaan ja tuo kyynärpäät kylkien viereen.',
   'guide.cable-triceps-pushdown.movement.0':
-    'Ojenna kyynärpäitä alaspäin; palaa liikuttamatta kunnolla olkavarsia.',
+    'Ojenna kyynärpäät alas. Palauta siirtämättä olkavarsia merkittävästi.',
   'guide.cable-triceps-pushdown.checks.0':
-    'Käytä varmaa pitoa, pehmeitä polvia ja vakaata runkoa.',
+    'Pidä ote varmana, polvet hieman koukussa ja vartalo vakaana.',
   'guide.cable-triceps-pushdown.mistakes.0':
-    'Olkapään keinu: pidä olkavarret paikoillaan.',
-  'guide.cable-triceps-pushdown.mistakes.1': 'Takajousitus: tuki.',
+    'Jos hartiat heiluvat, pidä olkavarret paikoillaan.',
+  'guide.cable-triceps-pushdown.mistakes.1':
+    'Jos selkä notkistuu, jännitä keskivartaloa.',
   'guide.cable-triceps-pushdown.mistakes.2':
-    'painot lyövät toisiaan: palaavat hitaasti.',
+    'Jos painot kolahtavat, palauta hitaasti.',
   'guide.cable-triceps-pushdown.adaptation':
-    'Lähde kuvaa köyttä; yleinen luettelotunnus ei määrää kyseistä liitettä.',
+    'Lähde näyttää köysikahvan. Yleinen liikeversio sallii muutkin kahvat.',
   'guide.overhead-cable-triceps-extension.scope':
-    'Päällyskaapelin kyynärpään jatke; punnerruksen valmistelu vaihtelee.',
+    'Ojentajien ojennus pään yli taljassa. Taljan säädöt vaihtelevat.',
   'guide.overhead-cable-triceps-extension.setup.0':
-    'Valitse vakaa asennon suunta poispäin hihnasta; pidä kiinnitys yllä kaapelilla ilman päätä.',
+    'Seiso tukevasti selin taljaan. Pidä kahvaa pään yläpuolella niin, ettei vaijeri osu päähän.',
   'guide.overhead-cable-triceps-extension.movement.0':
-    'Taivuta kyynärpäät mukavasti ja ulota sitten liikuttamatta liikaa käsiä.',
+    'Koukista kyynärpäitä luontevaan kulmaan ja ojenna liikuttamatta olkavarsia liikaa.',
   'guide.overhead-cable-triceps-extension.checks.0':
-    'Pidä kylkiluita kurissa ja päätä poissa kiinnikkeestä.',
+    'Pidä rintakehä hallinnassa ja kahva irti päästä.',
   'guide.overhead-cable-triceps-extension.mistakes.0':
-    'Kaareva selkä: kevennä kuormitusta.',
+    'Jos selkä notkistuu, kevennä painoa.',
   'guide.overhead-cable-triceps-extension.mistakes.1':
-    'Kyynärpäät vilkkuvat äkillisesti: pysyttele mukavassa linjassa.',
+    'Jos kyynärpäät leviävät äkillisesti, palauta ne luontevaan linjaan.',
   'guide.overhead-cable-triceps-extension.mistakes.2':
-    'Kaapelin iskupää: nollausvalmistelut.',
+    'Jos vaijeri osuu päähän, säädä asento uudelleen.',
   'guide.overhead-cable-triceps-extension.adaptation':
-    'Päällinen käsipainomekaanikko mukautuu kaapelinkestävyyteen; pullea korkeus seuraa oikeaa asemaa.',
+    'Käsipainolla tehtävä ojennus on sovitettu taljalle. Valitse korkeus käyttämäsi laitteen mukaan.',
   'guide.dumbbell-overhead-triceps-extension.scope':
-    'Kaksikätinen käsipainolaajennus.',
+    'Ojentajien ojennus pään yli yhdellä käsipainolla ja kahdella kädellä.',
   'guide.dumbbell-overhead-triceps-extension.setup.0':
-    'Seiso tukevasti, tuki ja tue yhtä käsipainoa turvallisesti molempien käsien ollessa edellä.',
+    'Seiso tukevasti ja jännitä keskivartaloa. Pidä yhdestä käsipainosta turvallisesti kiinni molemmin käsin pään yläpuolella.',
   'guide.dumbbell-overhead-triceps-extension.movement.0':
-    'Taivuta kyynärpäät alas pään taakse; ulotu tasaisesti.',
+    'Koukista kyynärpäitä laskeaksesi painon pään taakse. Ojenna tasaisesti.',
   'guide.dumbbell-overhead-triceps-extension.checks.0':
-    'Pidä olkavarret suhteellisen tasaisina ja poissa päästä.',
+    'Pidä olkavarret suhteellisen paikallaan ja irti päästä.',
   'guide.dumbbell-overhead-triceps-extension.mistakes.0':
-    'Liiallinen takatörmäys: tuki.',
+    'Jos selkä notkistuu liikaa, jännitä keskivartaloa.',
   'guide.dumbbell-overhead-triceps-extension.mistakes.1':
-    'Olkapäiden siirtäminen nostamaan: kevennä kuormitusta.',
+    'Jos nostat liikuttamalla hartioita, kevennä painoa.',
   'guide.dumbbell-overhead-triceps-extension.mistakes.2':
-    'Pään lyöminen: lyhennä kantamaa.',
-  'guide.close-grip-bench-press.scope': 'Olkapään levytankojen penkkipainike.',
+    'Jos paino osuu päähän, lyhennä liikerataa.',
+  'guide.close-grip-bench-press.scope':
+    'Penkkipunnerrus levytangolla ja hartioiden levyisellä otteella.',
   'guide.close-grip-bench-press.setup.0':
-    'Makaa tukevalla penkillä, jossa jalat on istutettu; käytä varteenotettavaa otetta peukaloilla, jotka on kääritty riman ympärille olkapään leveydeltä ja turvatankoja/harjoituskumppaneita, jotka pystyvät turvaamaan painon.',
+    'Asetu vakaalle penkille jalat tukevasti alustalla. Ota noin hartioiden levyinen ote peukalot tangon ympäri. Käytä turvarautoja tai varmistajaa.',
   'guide.close-grip-bench-press.movement.0':
-    'Alas rinnan suuntaan kyynärpäät kylkiluiden lähellä; paina ylöspäin.',
+    'Laske tankoa kohti rintaa kyynärpäät kylkien lähellä. Punnerra ylös.',
   'guide.close-grip-bench-press.checks.0':
-    'Pidä ranteet kyynärvarsien ja lonkkien yläpuolella tukena.',
+    'Pidä ranteet kyynärvarsien päällä ja lantio tuettuna.',
   'guide.close-grip-bench-press.mistakes.0':
-    'Kädet liian kapeat: käytä mukavaa välimatkaa.',
-  'guide.close-grip-bench-press.mistakes.1': 'Bouncing: hallitse rimaa.',
-  'guide.close-grip-bench-press.mistakes.2': 'Hidasta lanteita: pidä yhteyttä.',
-  'guide.assisted-dip-machine.scope': 'Väärennetty dippikone.',
+    'Jos kädet ovat liian lähellä toisiaan, levennä ote luontevaksi.',
+  'guide.close-grip-bench-press.mistakes.1':
+    'Jos tanko ponnahtaa rinnasta, laske sitä hallitusti.',
+  'guide.close-grip-bench-press.mistakes.2':
+    'Jos lantio nousee, pidä se penkkiä vasten.',
+  'guide.assisted-dip-machine.scope': 'Avustettu dippi vastapainolaitteessa.',
   'guide.assisted-dip-machine.setup.0':
-    'Valitse apu; käytä askeleita kahvoissa ja asetu tuen varaan.',
+    'Valitse avustuksen määrä. Käytä askelmia noustaksesi laitteeseen, tartu kahvoihin ja asetu tuelle.',
   'guide.assisted-dip-machine.movement.0':
-    'Alenna mukavan kantaman kautta; paina kyynärpäät lähes suoriksi. Palauta tuki toipumisaikaan ennen kuin laskeudut.',
+    'Laskeudu luontevalla liikeradalla. Punnerra, kunnes kyynärpäät ovat lähes suorat. Palauta tuki lepoasentoon ennen poistumista.',
   'guide.assisted-dip-machine.checks.0':
-    'Pysy suorassa ja hallitusti; suurempi vastapaino antaa enemmän apua.',
+    'Pysy pystyssä ja tee liike hallitusti. Suurempi vastapaino lisää avustusta.',
   'guide.assisted-dip-machine.mistakes.0':
-    'Liiallinen syvyys: lyhennä kantamaa.',
+    'Jos menet liian syvälle, lyhennä liikettä.',
   'guide.assisted-dip-machine.mistakes.1':
-    'hartioiden nostaminen tai pomppiminen: vaikeuksien vähentäminen.',
-  'guide.assisted-dip-machine.mistakes.2': 'Hyppiminen pois: käytä vaiheita.',
+    'Jos hartiat nousevat tai liike ponnahtaa, helpota liikettä.',
+  'guide.assisted-dip-machine.mistakes.2': 'Älä hyppää tuelta. Käytä askelmia.',
   'guide.assisted-dip-machine.adaptation':
-    'Valmistajan polvilumpioesimerkki; muut tukimallit vaativat oman kyltin.',
+    'Valmistajan esimerkissä on polvituki. Noudata muunlaisen laitteen omaa ohjetta.',
   'guide.barbell-back-squat.scope':
-    'Levytankokyykky; baariasento pysyy yksilöllisesti mukavana.',
+    'Takakyykky levytangolla. Valitse itsellesi luonteva tangon paikka.',
   'guide.barbell-back-squat.setup.0':
-    'Asetetaan teline-/turvatangot; yläselkähyllylle palautumisaikatanko, ei kaulaa. Purkakaa se vakaaseen asentoon.',
+    'Säädä teline ja turvaraudat. Aseta tanko yläselälle, älä niskaan. Nosta tanko telineestä ja asetu tukevasti.',
   'guide.barbell-back-squat.movement.0':
-    'Taivuta lonkat ja polvet hallittuun syvyyteen; seiso painamalla tukijalkojen läpi.',
+    'Koukista lantiota ja polvia hallittuun syvyyteen. Nouse painamalla jalkoja alustaan.',
   'guide.barbell-back-squat.checks.0':
-    'Jatka polvien seuraamista jalat ja takakontti tukittuna.',
+    'Anna polvien liikkua jalkaterien suuntaan ja jännitä keskivartaloa.',
   'guide.barbell-back-squat.mistakes.0':
-    'Kantapään nosto: Säädä asentoa/syvyyttä.',
+    'Jos kantapäät nousevat, säädä asentoa tai syvyyttä.',
   'guide.barbell-back-squat.mistakes.1':
-    'Polvet kaatuvat: kevennä kuormitusta.',
-  'guide.barbell-back-squat.mistakes.2': 'Takapyöritys: rajasyvyys.',
+    'Jos polvet painuvat sisään, kevennä painoa.',
+  'guide.barbell-back-squat.mistakes.2':
+    'Jos selkä pyöristyy, lyhennä liikettä.',
   'guide.barbell-back-squat.adaptation':
-    'Miellyttävä hallittu syvyys korvaa universaalin alaosaa koskevan vaatimuksen.',
-  'guide.barbell-front-squat.scope': 'Eturaitiovaunun kyykky.',
+    'Valitse luonteva ja hallittu syvyys. Vaakatason alle ei tarvitse kyykistyä.',
+  'guide.barbell-front-squat.scope': 'Etukyykky levytangolla.',
   'guide.barbell-front-squat.setup.0':
-    'Aseta etuolkapäille turvatangot ja toipumisaikatanko kyynärpäät nostettuina; seiso vakaassa asennossa.',
+    'Säädä turvaraudat ja aseta tanko hartioiden etupuolelle kyynärpäät ylhäällä. Seiso tukevasti.',
   'guide.barbell-front-squat.movement.0':
-    'Taivuta lonkat ja polvet pitäen ylävartalo pystyssä; seiso tukevasti.',
-  'guide.barbell-front-squat.checks.0': 'Pidä telineasento ja tukijalat.',
-  'guide.barbell-front-squat.mistakes.0': 'Kyynärpäät putoavat: reset teline.',
+    'Koukista lantiota ja polvia pitäen ylävartalo pystyssä. Nouse tasaisesti.',
+  'guide.barbell-front-squat.checks.0':
+    'Säilytä tangon asento ja jalkojen tuki.',
+  'guide.barbell-front-squat.mistakes.0':
+    'Jos kyynärpäät laskevat, aseta tanko uudelleen.',
   'guide.barbell-front-squat.mistakes.1':
-    'Baaria pidetään vain ranteissa: tuki harteilla.',
-  'guide.barbell-front-squat.mistakes.2': 'Pakotettu syvyys: lyhennä kantamaa.',
+    'Älä kanna tankoa vain ranteilla. Tue se hartioille.',
+  'guide.barbell-front-squat.mistakes.2':
+    'Jos joudut pakottamaan liikkeen syvälle, lyhennä sitä.',
   'guide.leg-press.scope':
-    'Jalkapuristus; istuvan tai kallistuneen koneen geometria vaihtelee.',
+    'Jalkaprässi. Istuttavan ja vinon laitteen rakenne eroaa toisistaan.',
   'guide.leg-press.setup.0':
-    'Säädä konetta selkä- ja lantiotuella ja jalkaterällä; aseta turvapysäkit, jos mahdollista.',
+    'Säädä laite niin, että selkä ja lantio ovat tuettuina ja jalat tukevasti levyllä. Aseta turvarajoittimet, jos laitteessa on ne.',
   'guide.leg-press.movement.0':
-    'Laajenna jalkoja ilman voimakasta työsulkua, taivuta lonkat/polvet takaisin hallintaan.',
+    'Ojenna jalat lukitsematta polvia voimalla. Koukista lantiota ja polvia palatessasi hallitusti.',
   'guide.leg-press.checks.0':
-    'Pidä kantapäät ja lantio tukissa; vältä reidet puristamasta runkoa.',
-  'guide.leg-press.mistakes.0': 'Pelvis-nosto: lyhennä syvyyttä.',
-  'guide.leg-press.mistakes.1': 'Polvisulku: viimeistele pehmeästi.',
-  'guide.leg-press.mistakes.2': 'Kytkentä: ohjaus palaa.',
+    'Pidä kantapäät ja lantio tuettuina. Älä anna reisien painua vartaloa vasten.',
+  'guide.leg-press.mistakes.0': 'Jos lantio nousee, lyhennä liikerataa.',
+  'guide.leg-press.mistakes.1':
+    'Älä lukitse polvia voimalla. Päätä työntö pehmeästi.',
+  'guide.leg-press.mistakes.2': 'Jos paino ponnahtaa, hallitse paluuta.',
   'guide.leg-press.adaptation':
-    'Lähde on istuva malli; kaltevat kelkan asennus-/turvatangot seuraavat sen kylttiä.',
+    'Lähde näyttää istuttavan laitteen. Noudata vinon kelkan omia nousu- ja turvaohjeita.',
   'guide.smith-machine-squat.scope':
-    'Ohjattu viivakyykky; kiskojen kulma ja valmistautuminen vaihtelevat.',
+    'Kyykky ohjatulla tangolla. Kiskojen kulma ja säädöt vaihtelevat.',
   'guide.smith-machine-squat.setup.0':
-    'Aseta turvapysähdykset; aseta rima yläselkähyllylle ja löydä raiteelle sopiva vakaa asento.',
+    'Aseta turvarajoittimet. Aseta tanko yläselälle ja valitse tukeva asento, joka sopii kiskojen liikerataan.',
   'guide.smith-machine-squat.movement.0':
-    'Avaa lukitus tietoisesti, kyykistele valvotulla alueella, sitten seiso ja repeä turvallisesti.',
+    'Vapauta lukitus hallitusti. Kyykisty hallitulla liikeradalla, nouse ja lukitse tanko turvallisesti takaisin.',
   'guide.smith-machine-squat.checks.0':
-    'Pidä tukijalat ja tukittu runko; älä pakota epämukavaa kiinteää polkua.',
-  'guide.smith-machine-squat.mistakes.0': 'Kadonneet turvatangot: aseta ne.',
+    'Pidä jalat tuettuina ja keskivartalo jännittyneenä. Älä pakota vartaloa epämukavalle radalle.',
+  'guide.smith-machine-squat.mistakes.0':
+    'Aseta turvarajoittimet ennen nostoa.',
   'guide.smith-machine-squat.mistakes.1':
-    'Pakotettu asento: säädä valmistelua.',
+    'Jos asento tuntuu pakotetulta, säädä jalkojen paikkaa.',
   'guide.smith-machine-squat.mistakes.2':
-    'Turvaton uudelleenmurto: varmista koukut.',
+    'Varmista, että koukut ovat kiinni, kun palautat tangon.',
   'guide.smith-machine-squat.adaptation':
-    'Vapaakvattimekaniikka mukautui ohjattuun baariin; noudattaa valmistajan ohjeita.',
-  'guide.goblet-squat.scope': 'Etukäteiskäden käsipainokytkös.',
+    'Vapaan kyykyn tekniikka on sovitettu ohjatulle tangolle. Noudata käyttämäsi laitteen valmistajan ohjeita.',
+  'guide.goblet-squat.scope': 'Kyykky käsipaino rinnan edessä.',
   'guide.goblet-squat.setup.0':
-    'Pidä yhtä käsipainoa tukevasti rinnassa, aseta vakaa asento.',
+    'Pidä yhtä käsipainoa turvallisesti rinnan edessä ja asetu tukevasti.',
   'guide.goblet-squat.movement.0':
-    'Taivuta lonkat ja polvet; seiso rungon ohjauksessa.',
+    'Koukista lantiota ja polvia. Nouse pitäen vartalo hallinnassa.',
   'guide.goblet-squat.checks.0':
-    'Pidä kyynärpäät lähellä, jalat tukevasti ja polvet mukavasti perässä.',
-  'guide.goblet-squat.mistakes.0': 'Painon ajelehtiminen pois: pysy lähellä.',
-  'guide.goblet-squat.mistakes.1': 'Kantapään nosto: Säädä syvyyttä.',
-  'guide.goblet-squat.mistakes.2': 'Pyöristys: kavenna kantamaa.',
+    'Pidä kyynärpäät lähellä, jalat tuettuina ja polvet luontevalla liikeradalla.',
+  'guide.goblet-squat.mistakes.0':
+    'Jos paino karkaa eteen, pidä se lähellä rintaa.',
+  'guide.goblet-squat.mistakes.1': 'Jos kantapäät nousevat, muuta syvyyttä.',
+  'guide.goblet-squat.mistakes.2': 'Jos selkä pyöristyy, lyhennä liikettä.',
   'guide.goblet-squat.adaptation':
-    'Hallittu mukava syvyys on tärkeämpää kuin lähteen alapolven esimerkki.',
+    'Valitse luonteva ja hallittu syvyys lähteen syvän kyykyn sijaan.',
   'guide.kettlebell-goblet-squat.scope':
-    'Rintakehän korkeudella oli kahvakuula molemmilla käsillä.',
+    'Yksi kahvakuula molemmissa käsissä rinnan korkeudella.',
   'guide.kettlebell-goblet-squat.setup.0':
-    'Pidä kahvakuulaa rinnassasi, seiso olkapään leveydellä varpaat hieman ulospäin.',
+    'Pidä kuula rinnalla. Seiso noin hartioiden leveydellä, varpaat hieman ulospäin.',
   'guide.kettlebell-goblet-squat.movement.0':
-    'Taivuta lonkat ja polvet, laskeudu hallinnassa; paina jalkasi läpi seisomaan.',
+    'Koukista lantiota ja polvia ja laskeudu hallitusti. Paina jalat alustaan ja nouse.',
   'guide.kettlebell-goblet-squat.checks.0':
-    'Pidä rinta koholla, selkä hallinnassa ja kyynärpäät eteenpäin.',
-  'guide.kettlebell-goblet-squat.mistakes.0': 'Paino poistuu: pidä se lähellä.',
-  'guide.kettlebell-goblet-squat.mistakes.1': 'Heels nosto: vähentää syvyyttä.',
+    'Pidä rinta ylhäällä, selkä hallinnassa ja kyynärpäät edessä.',
+  'guide.kettlebell-goblet-squat.mistakes.0':
+    'Jos paino karkaa eteen, pidä se lähellä rintaa.',
+  'guide.kettlebell-goblet-squat.mistakes.1':
+    'Jos kantapäät nousevat, lyhennä liikettä.',
   'guide.kettlebell-goblet-squat.mistakes.2':
-    'Runko romahtaa: käytä kevyempää.',
+    'Jos vartalo painuu kasaan, käytä kevyempää painoa.',
   'guide.kettlebell-goblet-squat.adaptation':
-    'ACE:n kahvakuulan ohjeet tiivistetty; käytä mukavasti ohjattua syvyyttä ja pidä koko jalka tukevana.',
-  'guide.dumbbell-reverse-lunge.scope': 'Käsipainot sivussa, takapakkia.',
+    'ACE:n kahvakuulaohje on tiivistetty. Valitse luonteva syvyys ja pidä koko jalkapohja alustassa.',
+  'guide.dumbbell-reverse-lunge.scope': 'Käsipainot sivuilla ja askel taakse.',
   'guide.dumbbell-reverse-lunge.setup.0':
-    'Seiso tukevasti käsipainot reisien vieressä.',
+    'Seiso tukevasti käsipainot reisien sivuilla.',
   'guide.dumbbell-reverse-lunge.movement.0':
-    'Taaemmaksi, matalammaksi ja sitten takaisin. Toista molemmat puolet.',
+    'Astu taakse, laskeudu hallitusti ja palaa. Toista molemmille puolille.',
   'guide.dumbbell-reverse-lunge.checks.0':
-    'Pidä jalat erillään tasapainosta ja rungosta.',
+    'Pidä jalat riittävän erillään tasapainon vuoksi ja vartalo vakaana.',
   'guide.dumbbell-reverse-lunge.mistakes.0':
-    'Kapea niukka niputusasento: levennä väliä.',
+    'Jos jalat ovat samalla kapealla linjalla, levennä asentoa.',
   'guide.dumbbell-reverse-lunge.mistakes.1':
-    'Laskeutuminen alas: hallitse askelta.',
+    'Jos putoat alas, hallitse askelta.',
   'guide.dumbbell-reverse-lunge.mistakes.2':
-    'Polvi romahtaa: kavenna kantamaa.',
+    'Jos polvi painuu sisään, lyhennä liikettä.',
   'guide.bulgarian-split-squat.scope':
-    'Takajaloin kohotettu käsipaino jakaantui.',
+    'Askelkyykky käsipainoilla takajalka korotettuna.',
   'guide.bulgarian-split-squat.setup.0':
-    'Valitse vakaa penkki/alusta ja tasapainoinen jakautumisasento; pidä käsipainoja turvallisesti.',
+    'Valitse vakaa penkki tai koroke ja etsi tukeva askelkyykkyasento. Pidä käsipainoista varmasti kiinni.',
   'guide.bulgarian-split-squat.movement.0':
-    'Laske lantiota taivuttamalla jalkoja; nouse tasaisesti. Toista molemmin puolin.',
+    'Laske lantiota koukistamalla jalkoja ja nouse tasaisesti. Toista molemmille puolille.',
   'guide.bulgarian-split-squat.checks.0':
-    'Pidä lyijyjalka tukevana ja runko vakaana.',
+    'Pidä etujalka tuettuna ja vartalo vakaana.',
   'guide.bulgarian-split-squat.mistakes.0':
-    'Penkki liian korkealle: käytä miellyttävää tukea.',
-  'guide.bulgarian-split-squat.mistakes.1': 'Takajalan painaminen: hidasta.',
+    'Jos penkki on liian korkea, käytä sopivaa tukea.',
+  'guide.bulgarian-split-squat.mistakes.1': 'Jos takajalka ponnahtaa, hidasta.',
   'guide.bulgarian-split-squat.mistakes.2':
-    'Polvi romahti: säädä asentoa/kuormaa.',
+    'Jos polvi painuu sisään, muuta asentoa tai kevennä painoa.',
   'guide.bulgarian-split-squat.adaptation':
-    'ACE näyttää etukäteispainon; kuvasto mahdollistaa käsipainot ilman, että harjoitusidentiteetti muuttuu.',
-  'guide.leg-extension.scope': 'Polvenpidennyskone.',
+    'ACE näyttää käsipainon edessä. Saman liikkeen voi tehdä myös painot sivuilla.',
+  'guide.leg-extension.scope': 'Polven ojennus laitteessa istuen.',
   'guide.leg-extension.setup.0':
-    'Suuntaa polvet koneen kääntöpuolelle, tue selkää ja aseta sääripala nilkkojen yläpuolelle.',
+    'Kohdista polvet laitteen nivelakseliin, tue selkä ja aseta säärityyny nilkkojen yläpuolelle.',
   'guide.leg-extension.movement.0':
-    'Ojenna polvet sujuvasti kohti suoraa; alaosa hallinnassa.',
+    'Ojenna polvet tasaisesti kohti suoraa asentoa. Laske hallitusti.',
   'guide.leg-extension.checks.0':
-    'Pysy tukevana ja käytä mukavaa valikoimaa ilman vahvaa työsulkua.',
-  'guide.leg-extension.mistakes.0': 'Pivotin eroavuus: istuimen resetointi.',
-  'guide.leg-extension.mistakes.1': 'Potkualusta: vähennä kuormitusta.',
+    'Pysy tuettuna luontevalla liikeradalla lukitsematta polvia voimalla.',
+  'guide.leg-extension.mistakes.0':
+    'Jos polvet eivät osu nivelakselin kohdalle, säädä istuinta.',
+  'guide.leg-extension.mistakes.1':
+    'Jos potkaiset pehmustetta, kevennä painoa.',
   'guide.leg-extension.mistakes.2':
-    'Osittainen kuivalihapaluu: liiku sujuvasti.',
-  'guide.lying-leg-curl.scope': 'Aallollinen polvijousituskone.',
+    'Jos paluu jää vajaaksi tai nykii, liiku tasaisesti.',
+  'guide.lying-leg-curl.scope': 'Polven koukistus laitteessa vatsallaan.',
   'guide.lying-leg-curl.setup.0':
-    'Suuntaa polvet vinoon, aseta alajalkapehmuste pois koroista ja pidä kiinni tukikahvoista.',
+    'Kohdista polvet nivelakseliin. Aseta säärityyny irti kantapäistä ja tartu tukikahvoihin.',
   'guide.lying-leg-curl.movement.0':
-    'Taivuta polvet nostamaan mattoa, laske hitaasti.',
+    'Nosta pehmustetta koukistamalla polvia. Laske hitaasti.',
   'guide.lying-leg-curl.checks.0':
-    'Pidä lantio tukittuna ja vältä lanneliikettä.',
-  'guide.lying-leg-curl.mistakes.0': 'Hipsin nosto: vähentää kuormaa.',
-  'guide.lying-leg-curl.mistakes.1': 'Takajousitus: tuki.',
-  'guide.lying-leg-curl.mistakes.2': 'Kantapään kahva: Säädä asentoa.',
-  'guide.seated-leg-curl.scope': 'Istuva polvijousituskone.',
+    'Pidä lantio tuettuna ja vältä alaselän liikettä.',
+  'guide.lying-leg-curl.mistakes.0': 'Jos lantio nousee, kevennä painoa.',
+  'guide.lying-leg-curl.mistakes.1':
+    'Jos selkä notkistuu, jännitä keskivartaloa.',
+  'guide.lying-leg-curl.mistakes.2':
+    'Jos tyyny nojaa kantapäihin, säädä paikkaa.',
+  'guide.seated-leg-curl.scope': 'Polven koukistus laitteessa istuen.',
   'guide.seated-leg-curl.setup.0':
-    'Tuki selkää, kohdista polvet vinoon ja turvaa reisituki; aseta sääret rullalle.',
+    'Tue selkä, kohdista polvet nivelakseliin ja kiinnitä reisituki. Aseta sääret rullalle.',
   'guide.seated-leg-curl.movement.0':
-    'Curl-korot alaspäin/selkään, sitten polvet ojennetaan hitaasti kohti aloitusta.',
+    'Vedä kantapäitä alas ja taakse. Ojenna polvet hitaasti kohti lähtöasentoa.',
   'guide.seated-leg-curl.checks.0':
-    'Pidä rungot ja reidet tukissa; liiku sujuvasti.',
-  'guide.seated-leg-curl.mistakes.0': 'Runkkaus: kevennä kuormaa.',
-  'guide.seated-leg-curl.mistakes.1': 'Nousu paikalta: turvattu tuki.',
+    'Pidä vartalo ja reidet tuettuina. Liiku tasaisesti.',
+  'guide.seated-leg-curl.mistakes.0': 'Jos liike nykii, kevennä painoa.',
+  'guide.seated-leg-curl.mistakes.1':
+    'Jos nouset istuimelta, kiinnitä tuki kunnolla.',
   'guide.seated-leg-curl.mistakes.2':
-    'Voimakas suoristus: viimeistele varovasti.',
+    'Älä ojenna polvia voimalla. Päätä paluu pehmeästi.',
   'guide.barbell-romanian-deadlift.scope':
-    'Yläpohjan levytankojen lonkkasarana.',
+    'Lantion taitto seisten levytangolla.',
   'guide.barbell-romanian-deadlift.setup.0':
-    'Seiso reisien lähellä, polvet pehmeästi taivutettuina ja runko tukittuina.',
+    'Pidä tanko reisien lähellä, polvet hieman koukussa ja keskivartalo jännittyneenä.',
   'guide.barbell-romanian-deadlift.movement.0':
-    'Työnnä lonkat takaisin, kun baari laskeutuu jalkojen lähelle; seiso ojentaen lonkkaa.',
+    'Vie lantio taakse ja laske tanko lähellä jalkoja. Nouse ojentamalla lantiota.',
   'guide.barbell-romanian-deadlift.checks.0':
-    'Seis siihen paikkaan, missä sarana pysyy hallinnassa; lattiakosketus on tarpeetonta.',
+    'Pysäytä, kun lantion taitto on vielä hallittu. Tangon ei tarvitse osua lattiaan.',
   'guide.barbell-romanian-deadlift.mistakes.0':
-    'Sen sijaan quatting: liikuta lanteita taaksepäin.',
+    'Jos liike muuttuu kyykyksi, vie lantio taakse.',
   'guide.barbell-romanian-deadlift.mistakes.1':
-    'Baari ajelehtii: pysy lähellä.',
+    'Jos tanko karkaa eteen, pidä se lähellä jalkoja.',
   'guide.barbell-romanian-deadlift.mistakes.2':
-    'Pyöristetään syvyyttä: pysähdy nopeammin.',
+    'Jos selkä pyöristyy syvyyttä hakiessa, pysäytä aiemmin.',
   'guide.dumbbell-romanian-deadlift.scope':
-    'Yläpohjan käsipainojen lonkkasarana.',
+    'Lantion taitto seisten käsipainoilla.',
   'guide.dumbbell-romanian-deadlift.setup.0':
-    'Seiso käsipaino kädessä reisien edessä, pehmennä polvet ja tuki.',
+    'Pidä painot reisien edessä. Koukista polvia hieman ja jännitä keskivartaloa.',
   'guide.dumbbell-romanian-deadlift.movement.0':
-    'Sarana lonkkaa takaisin, pitää painot lähellä; seisahtuu tasaisesti.',
+    'Vie lantio taakse painot lähellä vartaloa ja nouse tasaisesti.',
   'guide.dumbbell-romanian-deadlift.checks.0':
-    'Anna ruostumattoman toleranssin asettua syvyyksiin; pidä selkäranka vakaana.',
+    'Anna takareisien liikkuvuuden määrittää syvyys. Pidä selkä vakaana.',
   'guide.dumbbell-romanian-deadlift.mistakes.0':
-    'Lattialle pääseminen: pysähdy ohjatussa syvyydessä.',
+    'Älä tavoittele lattiaa. Pysäytä hallittuun syvyyteen.',
   'guide.dumbbell-romanian-deadlift.mistakes.1':
-    'Takaisin pyöristäminen: nollaa sarana.',
+    'Jos selkä pyöristyy, asetu uudelleen taittamaan lantiosta.',
   'guide.dumbbell-romanian-deadlift.mistakes.2':
-    'Painot ajelehtivat: pysyttele lähellä.',
+    'Jos painot karkaavat eteen, pidä ne lähellä.',
   'guide.barbell-hip-thrust.scope':
-    'Penkin tukema levytankojen lonkkalaajennus.',
+    'Lantion ojennus levytangolla penkkiin tuettuna.',
   'guide.barbell-hip-thrust.setup.0':
-    'Turvaa penkki ja tuki yläselkää; vakiinnuta pehmustettu tanko lonkkien ja jalkaterien päälle.',
+    'Varmista penkin paikallaan pysyminen ja tue yläselkä. Vakauta pehmustettu tanko lantion päälle ja tue jalat.',
   'guide.barbell-hip-thrust.movement.0':
-    'Alenna lanteita ja ojenna niitä heittämättä kylkiluita ylöspäin.',
+    'Laske lantio ja ojenna se uudelleen nostamatta rintakehää liikaa.',
   'guide.barbell-hip-thrust.checks.0':
-    'Pidä jalat vakaina ja viimeistele lonkat ja rungot linjassa.',
-  'guide.barbell-hip-thrust.mistakes.0': 'Bench liukumäki: varmista se.',
-  'guide.barbell-hip-thrust.mistakes.1': 'Lumitangon ylilaajeneminen: seis.',
-  'guide.barbell-hip-thrust.mistakes.2': 'Baarin pyöriminen: vakauttakaa se.',
+    'Pidä jalat tukevasti ja päätä liike lantio ja vartalo samassa linjassa.',
+  'guide.barbell-hip-thrust.mistakes.0':
+    'Jos penkki liikkuu, varmista sen paikallaan pysyminen.',
+  'guide.barbell-hip-thrust.mistakes.1':
+    'Jos alaselkä notkistuu liikaa, pysäytä, kun lantio ja vartalo ovat linjassa.',
+  'guide.barbell-hip-thrust.mistakes.2': 'Jos tanko vierii, vakauta se.',
   'guide.barbell-hip-thrust.adaptation':
-    'Bench-tuettu käsipainosiltamekaanikko mukautui pehmustettuun levytankoon.',
-  'guide.cable-glute-kickback.scope': 'Seisova vaijerinpidennys lonkassa.',
+    'Penkkiin tuettu käsipainolla tehtävä lantionnosto on sovitettu pehmustetulle levytangolle.',
+  'guide.cable-glute-kickback.scope': 'Lonkan ojennus taljassa seisten.',
   'guide.cable-glute-kickback.setup.0':
-    'Kiinnitä nilkkaraudat matalaan hihnaan, pidä tukevasti kiinni ja pehmitä seisova polvi.',
+    'Kiinnitä nilkkaremmi alataljaan. Tartu vakaaseen tukeen ja koukista tukijalan polvea hieman.',
   'guide.cable-glute-kickback.movement.0':
-    'Liikuta työjalkaa taaksepäin lonkan läpi, palaa hitaasti. Toista sivut.',
-  'guide.cable-glute-kickback.checks.0': 'Pidä lantio auki ja runko tasaisena.',
+    'Vie työskentelevä jalka taakse lantiosta ja palauta hitaasti. Toista toiselle puolelle.',
+  'guide.cable-glute-kickback.checks.0':
+    'Pidä lantio suunnattuna eteen ja vartalo vakaana.',
   'guide.cable-glute-kickback.mistakes.0':
-    'Kaareminen takaisin: lyhennä kantamaa.',
-  'guide.cable-glute-kickback.mistakes.1': 'Lopputulos: pidä lantio tasaisena.',
+    'Jos selkä notkistuu, lyhennä liikettä.',
+  'guide.cable-glute-kickback.mistakes.1':
+    'Jos lantio kääntyy ulospäin, pidä se vakaana.',
   'guide.cable-glute-kickback.mistakes.2':
-    'Runkkausranneke: vähennä kuormitusta.',
+    'Jos nykäiset remmiä, kevennä painoa.',
   'guide.cable-glute-kickback.adaptation':
-    'ACE:n bändin lonkkalaajennusesimerkki on sovitettu nilkkaraudan vaijeriin.',
+    'ACE:n lonkan ojennus kuminauhalla on sovitettu alataljaan ja nilkkaremmiin.',
   'guide.standing-calf-raise.scope':
-    'Seisova kone vasikka nostaa; kannatus vaihtelee.',
+    'Pohjenousu laitteessa seisten. Tuki vaihtelee.',
   'guide.standing-calf-raise.setup.0':
-    'Asentokone tukee mukavasti; aseta etujalat tukevasti alustalle ja pidä polvet pitkinä, ei pakkolukkoina.',
+    'Säädä tuki luontevaksi ja aseta päkiät tukevasti korokkeelle. Pidä jalat lähes suorina lukitsematta polvia.',
   'guide.standing-calf-raise.movement.0':
-    'Korota korkoja, pysähdy hetkeksi ja laske sitten matalaksi.',
+    'Nosta kantapäät, pidä hetki ja laske hallitusti.',
   'guide.standing-calf-raise.checks.0':
-    'Käytä miellyttävää nilkka-aluetta ja vältä pomppimista.',
+    'Käytä nilkoille luontevaa liikerataa äläkä ponnauta.',
   'guide.standing-calf-raise.mistakes.0':
-    'Polven pumppaaminen: pidä jalkasi paikoillaan.',
-  'guide.standing-calf-raise.mistakes.1': 'Nopea pomppiminen: tauko.',
+    'Jos polvet joustavat toistuvasti, pidä jalat samassa asennossa.',
+  'guide.standing-calf-raise.mistakes.1':
+    'Jos pomppaat nopeasti, pysähdy hetkeksi.',
   'guide.standing-calf-raise.mistakes.2':
-    'Pyörivät nilkat: pidä jalat vakaina.',
+    'Jos nilkat kallistuvat sivulle, pidä jalat vakaina.',
   'guide.standing-calf-raise.adaptation':
-    'Yleinen seisontakalkkiohjaus sovitettu konetukeen; kyltti ohjaa lastausta ja asennusta.',
-  'guide.seated-calf-raise.scope': 'Bent-knee kone vasikka nostaa.',
+    'Seisten tehtävä pohjeliike on sovitettu laitteen tukeen. Noudata laitteen kuormaus- ja nousuohjeita.',
+  'guide.seated-calf-raise.scope':
+    'Pohjenousu laitteessa istuen, polvet koukussa.',
   'guide.seated-calf-raise.setup.0':
-    'Aseta reisilaput polvien yläpuolelle etujalka tukevasti ja korottomasti.',
+    'Aseta reisityynyt polvien yläpuolelle. Tue päkiät kunnolla ja jätä kantapäät vapaiksi.',
   'guide.seated-calf-raise.movement.0':
-    'Nosta korkoja, pidä tauko ja laske sitten hitaasti mukavan kantaman kautta.',
+    'Nosta kantapäät, pidä hetki ja laske hitaasti luontevalla liikeradalla.',
   'guide.seated-calf-raise.checks.0':
-    'Pidä polvet taivutettuina ja käytä nilkkoja sen sijaan, että keinuttaisit ylävartaloa.',
-  'guide.seated-calf-raise.mistakes.0': 'Ponnahdus: tauko.',
-  'guide.seated-calf-raise.mistakes.1': 'Polvilumpion suojus: nollaus.',
+    'Pidä polvet koukussa. Tee liike nilkoista heiluttamatta ylävartaloa.',
+  'guide.seated-calf-raise.mistakes.0': 'Jos ponnautat, pysähdy hetkeksi.',
+  'guide.seated-calf-raise.mistakes.1':
+    'Jos tyyny on polvilumpion päällä, säädä paikkaa.',
   'guide.seated-calf-raise.mistakes.2':
-    'Jalkojen luisuminen: uudelleenasettelu.',
+    'Jos jalat lipsuvat, aseta ne uudelleen.',
   'guide.seated-calf-raise.adaptation':
-    'Istuma-kalkkitekniikan konekäännös; koneen irrotus-/turvatangot seuraavat sen kylttiä.',
-  'guide.machine-hip-adduction.scope': 'Istutettu lonkanestokone.',
+    'Ohje on sovitettu istuttavaan pohjelaitteeseen. Noudata laitteen lukituksen ja turvarajoittimien käyttöohjeita.',
+  'guide.machine-hip-adduction.scope': 'Lonkan lähennys laitteessa istuen.',
   'guide.machine-hip-adduction.setup.0':
-    'Tukijalat ja selkä; aseta mukava lähtöleveys sisäreisien kanssa tyynyjä vasten.',
+    'Tue jalat ja selkä. Valitse luonteva aloitusleveys ja aseta reisien sisäpinnat pehmusteita vasten.',
   'guide.machine-hip-adduction.movement.0':
-    'Tuo jalat sisäänpäin hitaasti ja palaa sitten hallintaan.',
+    'Vie jalat hitaasti yhteen ja palauta hallitusti.',
   'guide.machine-hip-adduction.checks.0':
-    'Pidä kahvoista kiinni ja käytä vapautusmekanismia ennen ulosmenoa.',
+    'Pidä kahvoista kiinni ja käytä vapautusmekanismia ennen poistumista.',
   'guide.machine-hip-adduction.mistakes.0':
-    'Liiallinen lähtöleveys: pienennä sitä.',
-  'guide.machine-hip-adduction.mistakes.1': 'Torso rokkaa: pysy tukena.',
-  'guide.machine-hip-adduction.mistakes.2': 'Stack törmäys: palaa hitaasti.',
+    'Jos aloitusasento on liian leveä, kavenna sitä.',
+  'guide.machine-hip-adduction.mistakes.1':
+    'Jos vartalo keinuu, pysy tukea vasten.',
+  'guide.machine-hip-adduction.mistakes.2':
+    'Jos painot kolahtavat, palauta liike hitaasti.',
   'guide.machine-hip-adduction.adaptation':
-    'Valmistajan esimerkki: tarkat säätösäädöt vaihtelevat eri koneiden välillä.',
+    'Valmistajan esimerkki. Tarkat säätimet vaihtelevat laitteittain.',
   'guide.kettlebell-swing.scope':
-    'Kaksikätinen lonkkaheilahdus, ei yleiskeinu.',
+    'Kahden käden heilautus lantiosta eteen. Kuulaa ei viedä pään yli.',
   'guide.kettlebell-swing.setup.0':
-    'Opettele ensin hallittu lonkkasarana, tartu ohjattavaan keulakelloon turvallisesti vakailla jaloilla.',
+    'Opettele ensin hallittu lantion taitto. Tartu turvallisesti sopivan painoiseen kahvakuulaan ja seiso tukevasti.',
   'guide.kettlebell-swing.movement.0':
-    'Reittikello takaisin; ojenna lantiota, jotta se nousee eteen ja sarana palaa.',
+    'Heilauta kuula taakse jalkojen väliin. Ojenna lantio, jotta kuula nousee eteen. Taita lantiosta kuulan palatessa.',
   'guide.kettlebell-swing.checks.0':
-    'Pidä selkärangan vakaana; aja lantiosta sen sijaan, että nostat kädet ylös.',
-  'guide.kettlebell-swing.mistakes.0': 'Ryöstö: sarana takaisin.',
-  'guide.kettlebell-swing.mistakes.1': 'Käsien nosto: anna lanteiden ajaa.',
-  'guide.kettlebell-swing.mistakes.2': 'Nojaa taaksepäin: lopeta pitkäksi.',
-  'guide.plank.scope': 'Forearm plank; ajastettu pito / kesto.',
+    'Pidä selkä vakaana. Anna lantion tuottaa liike käsien sijaan.',
+  'guide.kettlebell-swing.mistakes.0':
+    'Jos liike muuttuu kyykyksi, taita lantiosta taakse.',
+  'guide.kettlebell-swing.mistakes.1':
+    'Jos nostat käsillä, anna lantion tuottaa vauhti.',
+  'guide.kettlebell-swing.mistakes.2':
+    'Jos nojaat taakse, päätä liike pystyasentoon.',
+  'guide.plank.scope': 'Kyynärvarsilankku, jonka kesto mitataan.',
   'guide.plank.setup.0':
-    'Aseta kyynärpäät olkapäiden alle, tukivarpaat ja kiristä vatsan ja vartalon lihaksia.',
+    'Aseta kyynärpäät hartioiden alle ja tue varpaat lattiaan. Jännitä keskivartaloa.',
   'guide.plank.movement.0':
-    'Nosta suoralle vartalolinjalle, hengitä pidellessäsi ja laske sitten varovasti.',
+    'Nosta vartalo suoraksi linjaksi. Hengitä pidon aikana ja laske rauhallisesti.',
   'guide.plank.checks.0':
-    'Pidä pää suorana ja lonkat tasaisina; lopeta, kun linjausta ei voida ylläpitää.',
-  'guide.plank.mistakes.0': 'Taklaus: lyhennä pitoa.',
-  'guide.plank.mistakes.1': 'Hipsin korkealle: regenerointi.',
-  'guide.plank.mistakes.2': 'Hengittäminen: Hengitä tasaisesti.',
-  'guide.hanging-knee-raise.scope': 'Ripustan vinon kielen korotuksen.',
+    'Pidä pää linjassa ja lantio suorana. Lopeta, kun et enää pysty pitämään asentoa.',
+  'guide.plank.mistakes.0': 'Jos selkä notkahtaa, lyhennä pitoa.',
+  'guide.plank.mistakes.1':
+    'Jos lantio nousee, palauta vartalo suoraan linjaan.',
+  'guide.plank.mistakes.2': 'Jos pidätät hengitystä, hengitä tasaisesti.',
+  'guide.hanging-knee-raise.scope': 'Polvennosto roikkuen, polvet koukussa.',
   'guide.hanging-knee-raise.setup.0':
-    'Ota kiinni varmasta baarista ja aseta tukeva hirsi.',
+    'Tartu tukevaan tankoon ja asetu vakaaseen, hallittuun roikuntaan.',
   'guide.hanging-knee-raise.movement.0':
-    'Nosta polvia curling lantion hellävaraisesti, matalammalla heilauttamatta kehoa.',
+    'Nosta polvet ja kierrä lantiota hieman ylöspäin. Laske ilman heiluntaa.',
   'guide.hanging-knee-raise.checks.0':
-    'Liiku kontrolloidun vatsan ja lantion toiminnan kautta ja pidä hartiat tukena.',
-  'guide.hanging-knee-raise.mistakes.0': 'Potku: nollaus hirteen.',
-  'guide.hanging-knee-raise.mistakes.1':
-    'Jalkojen pudottaminen: alas hitaasti.',
+    'Ohjaa liikettä vatsalla ja lantiolla. Pidä hartiat hallittuina.',
+  'guide.hanging-knee-raise.mistakes.0':
+    'Jos potkit, pysähdy ja asetu uudelleen roikkumaan.',
+  'guide.hanging-knee-raise.mistakes.1': 'Jos jalat putoavat, laske hitaammin.',
   'guide.hanging-knee-raise.mistakes.2':
-    'Pidon menetys: pysähtykää ennen kuin ohjaus pettää.',
+    'Jos ote lipsuu, lopeta ennen hallinnan menetystä.',
   'guide.hanging-knee-raise.adaptation':
-    'Konservatiivien ripustusvalmistus täydentää NASM:n lantionhallintaohjausta.',
-  'guide.cable-crunch.scope': 'Kaapelirungon fleksi, ryhti määrittelemätön.',
+    'Vakaa lähtöasento täydentää NASM:n ohjeita lantion hallinnasta.',
+  'guide.cable-crunch.scope': 'Vatsarutistus taljassa. Asento on valinnainen.',
   'guide.cable-crunch.setup.0':
-    'Aseta korkea vaijeri tukevasti pään viereen ja pidä kiinni kiinni siitä, että se on lonkka vakaa.',
+    'Säädä talja ylös ja kiinnitä kahva turvallisesti. Pidä kahvaa pään sivulla ja lantio vakaana.',
   'guide.cable-crunch.movement.0':
-    'Kurista kylkiluita kohti lantiota vastustusta vastaan, palaa hitaasti.',
-  'guide.cable-crunch.checks.0':
-    'Pidä kädet useimmiten tukina, ei käsien vetämisenä.',
-  'guide.cable-crunch.mistakes.0': 'Hip sarana vain: liikuta kylkiluita.',
-  'guide.cable-crunch.mistakes.1': 'Käsien vetäminen: pidä kädet tasaisina.',
-  'guide.cable-crunch.mistakes.2': 'Stack putosi: hidas paluu.',
+    'Koukista vartaloa tuomalla rintakehää kohti lantiota vastusta vasten. Palauta hitaasti.',
+  'guide.cable-crunch.checks.0': 'Tue kahvaa käsillä vetämättä käsivarsilla.',
+  'guide.cable-crunch.mistakes.0':
+    'Jos taivut vain lonkista, tuo kylkiluita kohti lantiota.',
+  'guide.cable-crunch.mistakes.1': 'Jos vedät käsillä, pidä ne paikallaan.',
+  'guide.cable-crunch.mistakes.2': 'Jos painot kolahtavat, hidasta paluuta.',
   'guide.cable-crunch.adaptation':
-    'Lähde kertoo seiskasta, polvistuvat versiot tarvitsevat oman vakaan valmistelunsa.',
+    'Lähde näyttää liikkeen seisten. Polvillaan tehtävä versio vaatii oman vakaan asennon.',
   'guide.back-extension.scope':
-    'Hip/back-laajennus; koneen geometriaa ei määritelty.',
+    'Lonkan tai selän ojennus. Laitteen rakenne vaihtelee.',
   'guide.back-extension.setup.0':
-    'Lonkan pidennyspenkkiin kannattaa tukea reisien yläosia lonkan alla olevalla tyynyllä ja pitää jalat kurissa.',
+    'Tue yläreidet selkäpenkin tyynyyn lonkkien alapuolelle ja kiinnitä jalat tukevasti.',
   'guide.back-extension.movement.0':
-    'Sarana alas tasaisella rungolla; nouse, kunnes keho asettuu, ei sen yli.',
+    'Taita lantiosta alas vartalo vakaana. Nouse vain, kunnes vartalo on suorassa linjassa.',
   'guide.back-extension.checks.0':
-    'Istuvalle lannekoneelle tukijalat, joiden polvet ovat pehmeästi taivutetut ja lonkat lannesuojusta vasten; säädä lähtöväliä. Laajenna runko tukevaksi, palaa sitten ohjaimin; seuraa omaa kylttiäsi.',
-  'guide.back-extension.mistakes.0': 'Hypertensio: pysähtykää.',
-  'guide.back-extension.mistakes.1': 'kehosi heiluttaminen: hidasta tahtia.',
+    'Tue jalat istuttavassa alaselän laitteessa. Pidä polvet hieman koukussa ja lantio laitteen alaselkäpehmustetta vasten. Säädä lähtöasento. Ojenna vartalo tasaisesti tukea vasten ja palauta hallitusti. Noudata laitteen omaa ohjetta.',
+  'guide.back-extension.mistakes.0':
+    'Vältä yliojennusta. Pysäytä vartalon ollessa linjassa.',
+  'guide.back-extension.mistakes.1': 'Jos vartalo heiluu, hidasta.',
   'guide.back-extension.mistakes.2':
-    'Pyöristys kuormitettuna: kavenna kantomatkaa.',
+    'Jos selkä pyöristyy kuorman alla, lyhennä liikettä.',
   'guide.back-extension.adaptation':
-    'Hip-hinge penkki -esimerkki on selkeä; se ei määrittele tätä yleistä tunnistetta uudelleen yhdeksi konetyypiksi.',
-  'guide.dumbbell-shrug.scope': 'Seisova käsipainon olkapään kohoaminen.',
+    'Penkkiesimerkki näyttää lantion taiton. Yleinen liike kattaa muitakin soveltuvia laitteita.',
+  'guide.dumbbell-shrug.scope': 'Hartioiden kohautus käsipainoilla seisten.',
   'guide.dumbbell-shrug.setup.0':
-    'Seiso tukevasti käsipainoja kädet pitkät sivussa.',
+    'Seiso tukevasti käsipainot sivuilla ja kädet suorina.',
   'guide.dumbbell-shrug.movement.0':
-    'Nosta hartiat korvia kohti ja laske sitten hitaasti.',
+    'Nosta hartiat kohti korvia ja laske hitaasti.',
   'guide.dumbbell-shrug.checks.0':
-    'Pidä pää suorana, ranteet suorina ja runko tasaisena.',
-  'guide.dumbbell-shrug.mistakes.0': 'Olkapään ympyrät: liiku pystysuunnassa.',
-  'guide.dumbbell-shrug.mistakes.1': 'Kyynärpään curling: pidä kädet pitkinä.',
-  'guide.dumbbell-shrug.mistakes.2': 'Pään ohjaus: pysy linjassa.',
-  'guide.farmers-carry.scope': 'Kaksoispainon kanto, etäisyyspohjainen.',
+    'Pidä pää linjassa, ranteet suorina ja vartalo vakaana.',
+  'guide.dumbbell-shrug.mistakes.0':
+    'Jos pyörität hartioita, liikuta niitä suoraan ylös ja alas.',
+  'guide.dumbbell-shrug.mistakes.1':
+    'Jos kyynärpäät koukistuvat, pidä kädet suorina.',
+  'guide.dumbbell-shrug.mistakes.2':
+    'Jos pää työntyy eteen, palauta se vartalon linjaan.',
+  'guide.farmers-carry.scope': 'Kahden käsipainon kantaminen määrämatkalla.',
   'guide.farmers-carry.setup.0':
-    'Nosta painot ylös ohjaimin ja kiinnitä lonkkavarma ote; raivaa reitti.',
+    'Nosta painot hallitusti ja ota varma ote lantion sivuilla. Varmista esteetön reitti.',
   'guide.farmers-carry.movement.0':
-    'Kävele tasaisesti lyhyin ohjatuin askelin, käännä varovasti ja laske painot kuriin.',
+    'Kävele tasaisesti lyhyin, hallituin askelin. Käänny varovasti ja laske painot hallitusti.',
   'guide.farmers-carry.checks.0':
-    'Pysy pystyssä, hengitä ja pidä olkapäät korkealla.',
-  'guide.farmers-carry.mistakes.0': 'Hidastakaa vauhtia.',
-  'guide.farmers-carry.mistakes.1': 'Side lean: vähentää kuormitusta.',
-  'guide.farmers-carry.mistakes.2': 'Grip ei toimi: pysähtykää turvallisesti.',
+    'Pysy ryhdikkäänä, hengitä ja pidä hartiat samalla korkeudella.',
+  'guide.farmers-carry.mistakes.0': 'Jos käännyt liian nopeasti, hidasta.',
+  'guide.farmers-carry.mistakes.1': 'Jos kallistut sivulle, kevennä painoa.',
+  'guide.farmers-carry.mistakes.2': 'Jos ote pettää, pysähdy turvallisesti.',
   'guide.farmers-carry.adaptation':
-    'Neutraali sivuttainen ote selventää lähteen monitulkintaista palmun muotoilua; etäisyys ei ole toistoa.',
+    'Neutraali ote vartalon sivuilla täsmentää lähteen kuvausta käsistä. Liike kirjataan matkana.',
   'guide.standing-cable-anti-rotation-press.scope':
-    'Seison kaksikätisessä rotaatiota vastustavassa puristimessa, molemmilla puolilla.',
+    'Kahden käden kierronestopunnerrus seisten. Tee molemmille puolille.',
   'guide.standing-cable-anti-rotation-press.setup.0':
-    'Seiso rintakehän korkuisen vaijerin vieressä, jalat vakaat; pidä kädensijaa lähellä rintaa.',
+    'Seiso sivuttain rinnan korkeudelle säädettyyn taljaan, jalat tukevasti. Pidä kahvaa rinnan lähellä.',
   'guide.standing-cable-anti-rotation-press.movement.0':
-    'Paina kädet eteenpäin vastustaen pyörimistä ja palaa sitten; toista vastakkaiselle puolelle.',
+    'Punnerra kädet eteen vastustaen kiertoa ja palauta. Käänny ja toista toiselle puolelle.',
   'guide.standing-cable-anti-rotation-press.checks.0':
-    'Pidä lantio ja kylkiluita eteenpäin.',
+    'Pidä lantio ja rintakehä eteenpäin suunnattuina.',
   'guide.standing-cable-anti-rotation-press.mistakes.0':
-    'Trunk-käännös: kevennä kuormaa.',
-  'guide.standing-cable-anti-rotation-press.mistakes.1': 'Takajousitus: tuki.',
+    'Jos vartalo kiertyy, kevennä painoa.',
+  'guide.standing-cable-anti-rotation-press.mistakes.1':
+    'Jos selkä notkistuu, jännitä keskivartaloa.',
   'guide.standing-cable-anti-rotation-press.mistakes.2':
-    'Kaapelointi: Säädetään etäisyyttä.',
+    'Jos vaijeri löystyy, säädä etäisyyttä.',
   'guide.standing-cable-anti-rotation-press.adaptation':
-    'ACE:n kaista/kaapeliohjaus sovitettu luettelon kaapelikokoonpanoon.',
+    'ACE:n kuminauha- ja taljaohje on sovitettu tämän liikkeen talja-asetuksiin.',
   'guide.bodyweight-step-up.scope':
-    'Ladattava askel ylös, jokainen johtojalka.',
+    'Korokkeelle nousu ilman lisäpainoa kummallakin jalalla vuorotellen.',
   'guide.bodyweight-step-up.setup.0':
-    'Valitse vakaa alusta, jota voit hallita; aseta sille koko lyijyjalka.',
+    'Valitse vakaa koroke, jonka hallitset. Aseta koko etummainen jalkapohja korokkeelle.',
   'guide.bodyweight-step-up.movement.0':
-    'Nouse rauhallisesti ja astu sitten alas hallintaan; toista kumpikin johtopuoli.',
+    'Nouse tasaisesti ja astu hallitusti alas. Toista toisella jalalla.',
   'guide.bodyweight-step-up.checks.0':
-    'Pidä polvi linjassa jalan kanssa ja vältä hyppäämistä.',
-  'guide.bodyweight-step-up.mistakes.0': 'Korkeatasoinen: matalampi.',
-  'guide.bodyweight-step-up.mistakes.1': 'Polvi romahti: ohjaus kohdistui.',
-  'guide.bodyweight-step-up.mistakes.2':
-    'Laskeudutaan alas: laskeudutaan hitaasti.',
+    'Pidä polvi jalkaterän linjassa ja vältä hyppäämistä.',
+  'guide.bodyweight-step-up.mistakes.0':
+    'Jos koroke on liian korkea, madalla sitä.',
+  'guide.bodyweight-step-up.mistakes.1':
+    'Jos polvi painuu sisään, ohjaa se jalkaterän linjaan.',
+  'guide.bodyweight-step-up.mistakes.2': 'Jos putoat alas, laskeudu hitaasti.',
   'guide.bodyweight-step-up.adaptation':
-    'ACE:n käsipainon askelman kuormittamaton mukautus; ei ulkoista painoa tälle tunnisteelle.',
+    'ACE:n käsipainoliike on sovitettu tehtäväksi kehonpainolla. Tähän versioon ei kuulu lisäpainoa.',
   'guide.dumbbell-floor-glute-bridge.scope':
-    'Lattialla tuettu käsipainon lonkkalaajennus.',
+    'Lantionnosto lattialla käsipainolla.',
   'guide.dumbbell-floor-glute-bridge.setup.0':
-    'Makaa lattialla polvin taivutettuina ja jalat istutettuina; vakiinnuta yksi käsipaino lanteiden yli.',
+    'Makaa lattialla polvet koukussa ja jalat tukevasti maassa. Pidä yksi käsipaino vakaana lantion päällä.',
   'guide.dumbbell-floor-glute-bridge.movement.0':
-    'Paina jalat alas ja nosta lonkat ylös, sitten alas hitaasti.',
+    'Paina jalkoja lattiaan ja nosta lantio. Laske hitaasti.',
   'guide.dumbbell-floor-glute-bridge.checks.0':
-    'Pidä yläselkä lattialla ja kylkiluita hallinnassa.',
+    'Pidä yläselkä lattialla ja rintakehä hallinnassa.',
   'guide.dumbbell-floor-glute-bridge.mistakes.0':
-    'Kääntykää takaisin: pysähtykää.',
+    'Jos selkä notkistuu, pysäytä vartalon ollessa linjassa.',
   'guide.dumbbell-floor-glute-bridge.mistakes.1':
-    'Painon pyöriminen: varmista se.',
+    'Jos paino vierii, pidä se paikallaan.',
   'guide.dumbbell-floor-glute-bridge.mistakes.2':
-    'Niskalla työntäminen: pidä pää rentona.',
+    'Jos työnnät niskalla, anna pään levätä rentona.',
   'guide.lying-barbell-triceps-extension.scope':
-    'Supine levytanko kyynärpään jatkeena.',
+    'Ojentajien ojennus levytangolla selinmakuulla.',
   'guide.lying-barbell-triceps-extension.setup.0':
-    'Makaa tasaisella penkillä jalat tukittuna, käytä suljettua otetta, jossa kämmenesi ovat sinusta poispäin, ja pidä rimaa pään/rinta-alueen yläpuolella.',
+    'Makaa tasapenkillä jalat tuettuina. Ota tangosta myötäote peukalot tangon ympäri ja pidä tankoa pään ja rinnan alueen yläpuolella.',
   'guide.lying-barbell-triceps-extension.movement.0':
-    'Taivuta kyynärpäät alaspäin pään puhdistuksella; ulotu tasaisesti.',
+    'Koukista kyynärpäitä niin, että tanko mahtuu kulkemaan osumatta päähän. Ojenna tasaisesti.',
   'guide.lying-barbell-triceps-extension.checks.0':
-    'Pidä olkavarret tasaisina ja ranteet suorina.',
+    'Pidä olkavarret vakaina ja ranteet suorina.',
   'guide.lying-barbell-triceps-extension.mistakes.0':
-    'Päätä lyövä baari: säilyttäkää turvaluokitus.',
+    'Jos tanko osuu päähän, varmista riittävä väli.',
   'guide.lying-barbell-triceps-extension.mistakes.1':
-    'Kyynärpäät ajelehtivat: kevennä kuormitusta.',
+    'Jos kyynärpäät siirtyvät, kevennä painoa.',
   'guide.lying-barbell-triceps-extension.mistakes.2':
-    'Bent ranteet: linjaa kyynärvarret.',
+    'Jos ranteet taipuvat, suorista ne kyynärvarsien linjaan.',
 } as const;
