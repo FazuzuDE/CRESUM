@@ -290,12 +290,14 @@ async function main() {
       const runScenario = async ({ locale, width }) => {
         const taiwan = locale === 'zh-Hant';
         const bokmal = locale === 'nb';
+        const finnish = locale === 'fi';
+        const nordic = bokmal || finnish;
         const verifyRtlRoundTrip = ['te', 'ta', 'ur'].includes(locale);
         const offlineWorkout =
-          (verifyRtlRoundTrip && locale !== 'ur') || taiwan || bokmal;
+          (verifyRtlRoundTrip && locale !== 'ur') || taiwan || nordic;
         const context = await browser.newContext({
           viewport: { width, height: 850 },
-          locale: taiwan || bokmal ? formatLocaleTag(locale) : locale,
+          locale: taiwan || nordic ? formatLocaleTag(locale) : locale,
         });
         if (traceOnFailure)
           await context.tracing.start({ screenshots: true, snapshots: true });
@@ -328,7 +330,7 @@ async function main() {
                 JSON.stringify({ version: 1, preference: value }),
               );
           },
-          (locale === 'th' || verifyRtlRoundTrip || taiwan || bokmal) && !expand
+          (locale === 'th' || verifyRtlRoundTrip || taiwan || nordic) && !expand
             ? 'en'
             : locale,
         );
@@ -453,7 +455,7 @@ async function main() {
             );
             result.manualLanguageSelected = true;
           }
-          if ((taiwan || bokmal) && !expand) {
+          if ((taiwan || nordic) && !expand) {
             await selectLanguage('en', locale);
             await page
               .getByRole('textbox', {
@@ -480,7 +482,8 @@ async function main() {
                 ).preference === 'system',
             );
             if (taiwan) result.taiwanDeviceLanguage = true;
-            else result.bokmalDeviceLanguage = true;
+            else if (bokmal) result.bokmalDeviceLanguage = true;
+            else result.finnishDeviceLanguage = true;
           }
           if (verifyRtlRoundTrip) {
             const expectDirection = async (dir) => {
@@ -781,7 +784,7 @@ async function main() {
             .getByRole('tab', { name: contains(text('nav.profile')) })
             .click();
           await button('profile.myWorkouts', false).waitFor();
-          if ((locale === 'ta' || taiwan || bokmal) && !expand) {
+          if ((locale === 'ta' || taiwan || nordic) && !expand) {
             const dataBeforeSwitch = await readProgramState();
             await selectLanguage(locale, 'en', true);
             await selectLanguage('en', locale, true);
@@ -795,6 +798,7 @@ async function main() {
             assert.deepEqual(await readProgramState(), dataBeforeSwitch);
             if (taiwan) result.taiwanSettingsSelection = true;
             else if (bokmal) result.bokmalSettingsSelection = true;
+            else if (finnish) result.finnishSettingsSelection = true;
             else result.tamilSettingsSelection = true;
           }
           await page
@@ -820,26 +824,36 @@ async function main() {
               .waitFor();
             await context.setOffline(true);
             assert.equal(await page.evaluate(() => navigator.onLine), false);
-            if (taiwan || bokmal) {
+            if (taiwan || nordic) {
               const query = page.getByRole('textbox', {
                 name: text('library.searchLabel'),
                 exact: true,
               });
-              const queries = bokmal
+              const queries = finnish
                 ? [
-                    ['KNEBØY', 'barbell-back-squat'],
-                    ['nedtrekk', 'lat-pulldown'],
-                    ['beinpress', 'leg-press'],
+                    ['JALKAPRÄSSI', 'leg-press'],
+                    ['ylätalja', 'lat-pulldown'],
+                    ['KUNTOPYORA', 'upright-stationary-bike'],
                     [
-                      'nedtrekk med V-håndtak',
+                      'ylätaljaveto V-kahvalla',
                       'lat-pulldown-close-neutral-v-handle',
                     ],
                   ]
-                : [
-                    ['槓鈴臥推', 'barbell-bench-press'],
-                    ['三角握把下拉', 'lat-pulldown-close-neutral-v-handle'],
-                    ['跑步機', 'treadmill-walking'],
-                  ];
+                : bokmal
+                  ? [
+                      ['KNEBØY', 'barbell-back-squat'],
+                      ['nedtrekk', 'lat-pulldown'],
+                      ['beinpress', 'leg-press'],
+                      [
+                        'nedtrekk med V-håndtak',
+                        'lat-pulldown-close-neutral-v-handle',
+                      ],
+                    ]
+                  : [
+                      ['槓鈴臥推', 'barbell-bench-press'],
+                      ['三角握把下拉', 'lat-pulldown-close-neutral-v-handle'],
+                      ['跑步機', 'treadmill-walking'],
+                    ];
               for (const [term, exercise] of queries) {
                 await query.fill(term);
                 await page
@@ -853,7 +867,8 @@ async function main() {
                   .waitFor();
               }
               if (taiwan) result.taiwanOfflineSearch = true;
-              else result.bokmalOfflineSearch = true;
+              else if (bokmal) result.bokmalOfflineSearch = true;
+              else result.finnishOfflineSearch = true;
             }
           }
           await page
@@ -863,9 +878,17 @@ async function main() {
             })
             .fill(synonym);
           if (
-            ['nb', 'nl', 'sv', 'th', 'ur', 'te', 'ta', 'zh-Hant'].includes(
-              locale,
-            )
+            [
+              'fi',
+              'nb',
+              'nl',
+              'sv',
+              'th',
+              'ur',
+              'te',
+              'ta',
+              'zh-Hant',
+            ].includes(locale)
           ) {
             const all = text('library.all');
             const dumbbell = text('catalog.equipment.dumbbell');
@@ -1145,6 +1168,7 @@ async function main() {
           await editFirst.click();
           await button('entry.useKeypad').click();
           const manualWeight = [
+            'fi',
             'nb',
             'nl',
             'sv',
@@ -1159,7 +1183,7 @@ async function main() {
           const manualReps = 8;
           const manualVolumeKg = manualWeight * manualReps;
           const entryLocale = locale === 'th' ? 'th-TH-u-nu-thai' : locale;
-          const asciiDigitCase = offlineWorkout && !bokmal && width === 390;
+          const asciiDigitCase = offlineWorkout && !nordic && width === 390;
           const weightInput =
             taiwan && !asciiDigitCase
               ? '６２．５'
@@ -1174,10 +1198,12 @@ async function main() {
                 : formatNumber(entryLocale, manualReps);
           if (taiwan)
             result.taiwanInput = { weight: weightInput, reps: repsInput };
-          if (bokmal) {
+          if (nordic) {
             assert.equal(weightInput, '62,5');
             assert.equal(repsInput, '8');
-            result.bokmalInput = { weight: weightInput, reps: repsInput };
+            const input = { weight: weightInput, reps: repsInput };
+            if (bokmal) result.bokmalInput = input;
+            else result.finnishInput = input;
           }
           if (locale === 'te')
             result.teluguInput = { weight: weightInput, reps: repsInput };
@@ -1327,6 +1353,7 @@ async function main() {
             if (locale === 'ta') result.tamilOfflineHistoryVerified = true;
             if (taiwan) result.taiwanOfflineHistoryVerified = true;
             if (bokmal) result.bokmalOfflineHistoryVerified = true;
+            if (finnish) result.finnishOfflineHistoryVerified = true;
             await context.setOffline(false);
           }
           await page.reload();

@@ -25,6 +25,7 @@ import id from './id';
 import ko from './ko';
 import nl from './nl';
 import nb from './nb';
+import fi from './fi';
 import sv from './sv';
 import th from './th';
 
@@ -42,6 +43,7 @@ export const searchAliases: Record<AppLocale, SearchAliasCatalog> = {
   ko,
   nl,
   nb,
+  fi,
   sv,
   th,
   en,

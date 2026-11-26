@@ -630,3 +630,23 @@ it('finds exact Bokmål exercise variants with the shared search normalization',
   );
   expect(normalizeSearch('ØVRE')).not.toBe(normalizeSearch('OVRE'));
 });
+
+it('finds Finnish names, accent-folded queries and exact pulldown variants', () => {
+  const queries = [
+    ['jalkaprässi', 'leg-press'],
+    ['JALKAPRÄSSI', 'leg-press'],
+    ['jalkaprassi', 'leg-press'],
+    ['ylätalja', 'lat-pulldown'],
+    ['KUNTOPYÖRÄ'.normalize('NFD'), 'upright-stationary-bike'],
+    ['kuntopyora', 'upright-stationary-bike'],
+    ['ylätaljaveto V-kahvalla', 'lat-pulldown-close-neutral-v-handle'],
+    [
+      'ylätaljaveto ergonomisella kahvalla',
+      'lat-pulldown-close-neutral-ergonomic-handle',
+    ],
+    ['vastaote ylätaljassa', 'lat-pulldown-reverse-grip'],
+    ['leveä ylätaljaveto', 'lat-pulldown-wide-pronated-bar'],
+  ] as const;
+  for (const [query, id] of queries) expect(ids(query, 'fi')[0]).toBe(id);
+  expect(normalizeSearch('Ä Ö')).toBe('a o');
+});

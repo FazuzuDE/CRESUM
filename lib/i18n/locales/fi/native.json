@@ -1,0 +1,5 @@
+{
+  "ios": {
+    "NSCameraUsageDescription": "Salli CRESUMin käyttää kameraa harjoitusohjelmien QR-koodien skannaamiseen."
+  }
+}

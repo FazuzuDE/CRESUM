@@ -1,4 +1,5 @@
 export const localeRegistry = {
+  fi: { flag: '🇫🇮', nativeName: 'Suomi', direction: 'ltr', released: false },
   nb: {
     flag: '🇳🇴',
     nativeName: 'Norsk bokmål',

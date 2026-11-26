@@ -144,6 +144,9 @@ it.each([
   ['ar-Arab-AE', 'ar'],
   ['bn-Beng-IN', 'bn'],
   ['hi-Deva-IN', 'hi'],
+  ['fi', 'fi'],
+  ['fi-FI', 'fi'],
+  ['sv-FI', 'sv'],
   ['nb', 'nb'],
   ['nb-NO', 'nb'],
   ['no', 'nb'],
@@ -376,6 +379,23 @@ it('keeps Bokmål as an explicit choice, then follows the supported device local
   expect(restarted.getSnapshot()).toMatchObject({
     preference: 'nb',
     locale: 'nb',
+  });
+  expect(await restarted.select('system')).toBe(true);
+  expect(restarted.getSnapshot()).toMatchObject({
+    preference: 'system',
+    locale: 'sv',
+  });
+});
+
+it('restores a saved Finnish choice and follows Swedish in Finland when asked', async () => {
+  const { store, storage } = setup(null);
+  await store.load();
+  expect(await store.select('fi')).toBe(true);
+  const restarted = new LocaleStore(storage, () => ['sv-FI', 'fi-FI']);
+  await restarted.load();
+  expect(restarted.getSnapshot()).toMatchObject({
+    preference: 'fi',
+    locale: 'fi',
   });
   expect(await restarted.select('system')).toBe(true);
   expect(restarted.getSnapshot()).toMatchObject({

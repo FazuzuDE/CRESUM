@@ -370,3 +370,18 @@ it('formats Bokmål dates and exact weights and saves canonical decimal input', 
     }),
   ).toBe('26. november 2026');
 });
+
+it('formats Finnish dates and preserves exact decimal weights', () => {
+  expect(formatLocaleTag('fi')).toBe('fi-FI');
+  expect(formatNumber('fi', 62.5)).toBe('62,5');
+  expect(formatEntryNumber('fi', '62.501')).toBe('62,501');
+  expect(normalizeDecimalInput('62,501')).toBe('62.501');
+  expect(
+    formatDate('fi', Date.UTC(2026, 10, 26), {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC',
+    }),
+  ).toBe('26. marraskuuta 2026');
+});

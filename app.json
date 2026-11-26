@@ -36,7 +36,8 @@
       "package": "com.fitflow.app"
     },
     "locales": {
-      "nb": "./lib/i18n/locales/nb/native.json"
+      "nb": "./lib/i18n/locales/nb/native.json",
+      "fi": "./lib/i18n/locales/fi/native.json"
     }
   }
 }
