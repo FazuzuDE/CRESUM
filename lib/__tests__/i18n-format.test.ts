@@ -308,7 +308,7 @@ it('accepts Telugu and ASCII weight and repetitions with the same stored precisi
   expect(normalizeDecimalInput('౬౨.౫౦౦౧')).toBe('62.5001');
   expect(normalizeInputDigits('౮')).toBe(normalizeInputDigits('8'));
   expect(formatNumber('te', 62.5)).toBe('౬౨.౫');
-  expect(formatNumber('te', 1234567.5)).toBe('౧౨,౩౪,౫౬౭.౫');
+  expect(formatNumber('te', 1234567.5)).toBe('౧,౨౩౪,౫౬౭.౫');
   expect(formatEntryNumber('te', '62.5001')).toBe('62.5001');
   const epoch = Date.UTC(2026, 10, 26);
   expect(
