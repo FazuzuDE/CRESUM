@@ -131,6 +131,8 @@ it.each([
   ['ja-Jpan-JP', 'ja'],
   ['ar', 'ar'],
   ['ur', 'ur'],
+  ['te', 'te'],
+  ['te-IN', 'te'],
   ['ur-PK', 'ur'],
   ['ur-IN', 'ur'],
   ['ur-Arab-PK', 'ur'],
@@ -246,7 +248,7 @@ it('persists Vietnamese independently of device locale and restores it on reload
   });
 });
 
-it.each(['mr', 'id', 'ko', 'nl', 'sv', 'th', 'ur'] as const)(
+it.each(['mr', 'id', 'ko', 'nl', 'sv', 'th', 'ur', 'te'] as const)(
   'persists %s independently of device language and restores it after reload',
   async (locale) => {
     let saved: string | null = null;
@@ -289,6 +291,7 @@ it.each([
   ['th-TH', 'th'],
   ['ur-PK', 'ur'],
   ['ur-IN', 'ur'],
+  ['te-IN', 'te'],
 ] as const)(
   'restores system language for %s after manual selection',
   async (device, expected) => {

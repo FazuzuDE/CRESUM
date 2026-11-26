@@ -525,3 +525,36 @@ it.each(['ur', 'en'] as const)(
     );
   },
 );
+
+it.each(['te', 'en'] as const)(
+  'finds Telugu and gym aliases offline in %s without merging grip variants',
+  (locale) => {
+    for (const term of [
+      'బెంచ్ ప్రెస్',
+      '  బెంచ్   ప్రెస్  ',
+      'BENCH PRESS',
+      'rod bench press',
+    ])
+      expect(ids(term, locale)[0]).toBe('barbell-bench-press');
+    for (const term of [
+      'ట్రెడ్‌మిల్',
+      'ట్రెడ్ మిల్',
+      'ట్రెడ్‍మిల్',
+      'ట్రెడ్​మిల్',
+      'treadmill',
+      'treadmill nadaka',
+    ])
+      expect(ids(term.normalize('NFD'), locale)[0]).toBe('treadmill-walking');
+    expect(ids('వీ హ్యాండిల్ పుల్‌డౌన్', locale)[0]).toBe(
+      'lat-pulldown-close-neutral-v-handle',
+    );
+    expect(ids('చిన్న ఎర్గో హ్యాండిల్ పుల్‌డౌన్', locale)[0]).toBe(
+      'lat-pulldown-close-neutral-ergonomic-handle',
+    );
+    expect(ids('వెడల్పు పట్టు లాట్ పుల్‌డౌన్', locale)[0]).toBe(
+      'lat-pulldown-wide-pronated-bar',
+    );
+    expect(ids('రైలు బార్‌తో స్క్వాట్', locale)[0]).toBe('smith-machine-squat');
+    expect(normalizeSearch('కాలి')).not.toBe(normalizeSearch('కలి'));
+  },
+);

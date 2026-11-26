@@ -50,6 +50,7 @@ it.each([
   ['ar', 'id'],
   ['ar', 'ko'],
   ['ur', 'en'],
+  ['ur', 'te'],
 ] as const)(
   'switches live %s to %s including modal roots without remounting or rewriting an unfinished draft',
   async (rtl, locale) => {
