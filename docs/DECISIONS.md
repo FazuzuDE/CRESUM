@@ -1,5 +1,9 @@
 # CRESUM Decision Log
 
+## 2026-11-26 — Competitive roadmap P0–P3
+
+Owner approved all 13 directions from the competitor review. See [the specification](COMPETITIVE_ROADMAP.md), [Product](PRODUCT.md), [Roadmap](ROADMAP.md) and [Design System](DESIGN_SYSTEM.md). Existing functionality must be reused; device and implementation acceptance remain open. P3 is sequenced after Core and platform foundations, not a vendor or launch approval.
+
 ## 2026-11-25 — Same languages in test and final builds
 
 Show every bundled registry language in test and final builds. The language
