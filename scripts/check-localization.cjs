@@ -420,7 +420,7 @@ function run() {
   const { expo } = JSON.parse(fs.readFileSync('app.json', 'utf8'));
   const cameraPermission = expo.plugins.find(
     (plugin) => Array.isArray(plugin) && plugin[0] === 'expo-camera',
-  )?.[1].cameraPermission;
+  )?.[1]?.cameraPermission;
   const nativeNb = expo.locales?.nb;
   const localizedCameraPermission = nativeNb
     ? JSON.parse(fs.readFileSync(nativeNb, 'utf8')).ios
