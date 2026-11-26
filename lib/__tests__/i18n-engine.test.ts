@@ -286,3 +286,9 @@ it('uses Swedish singular and plural branches for workout summaries', () => {
   expect(t('history.completedSets', { count: 1 })).toBe('1 slutfört set');
   expect(t('history.completedSets', { count: 8 })).toBe('8 slutförda set');
 });
+
+it('selects Bokmål singular and plural phrases', () => {
+  const t = createTranslator('nb');
+  expect(t('history.lastCount', { count: 1 })).toBe('Siste 1 økt');
+  expect(t('history.lastCount', { count: 2 })).toBe('Siste 2 økter');
+});

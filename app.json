@@ -27,10 +27,16 @@
     ],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.fitflow.app"
+      "bundleIdentifier": "com.fitflow.app",
+      "infoPlist": {
+        "CFBundleAllowMixedLocalizations": true
+      }
     },
     "android": {
       "package": "com.fitflow.app"
+    },
+    "locales": {
+      "nb": "./lib/i18n/locales/nb/native.json"
     }
   }
 }

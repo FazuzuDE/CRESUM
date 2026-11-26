@@ -1,3 +1,17 @@
+import nbCatalog from './locales/nb/catalog';
+import nbCommon from './locales/nb/common';
+import nbEditor from './locales/nb/editor';
+import nbEquipment from './locales/nb/equipment';
+import nbHistory from './locales/nb/history';
+import nbHome from './locales/nb/home';
+import nbLibrary from './locales/nb/library';
+import nbOnboarding from './locales/nb/onboarding';
+import nbProfile from './locales/nb/profile';
+import nbProgramTechnique from './locales/nb/program-technique';
+import nbProgress from './locales/nb/progress';
+import nbSharing from './locales/nb/sharing';
+import nbTechniqueContent from './locales/nb/technique-content';
+import nbWorkout from './locales/nb/workout';
 import thCatalog from './locales/th/catalog';
 import thCommon from './locales/th/common';
 import thEditor from './locales/th/editor';
@@ -538,6 +552,22 @@ const zhHans = {
   ...zhHansProgramTechnique,
   ...zhHansTechniqueContent,
 } as const;
+const nb = {
+  ...nbCatalog,
+  ...nbCommon,
+  ...nbEditor,
+  ...nbEquipment,
+  ...nbHistory,
+  ...nbHome,
+  ...nbLibrary,
+  ...nbOnboarding,
+  ...nbProfile,
+  ...nbProgramTechnique,
+  ...nbProgress,
+  ...nbSharing,
+  ...nbTechniqueContent,
+  ...nbWorkout,
+} as const;
 const zhHant = {
   ...zhHantEquipment,
   ...zhHantSharing,
@@ -793,6 +823,7 @@ export const catalogs = {
   pl,
   tr,
   'zh-Hans': zhHans,
+  nb,
   'zh-Hant': zhHant,
   hi,
   bn,

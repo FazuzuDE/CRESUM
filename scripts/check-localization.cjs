@@ -1,6 +1,7 @@
 /* Static coverage contracts; no application/storage initialization. */
 const fs = require('node:fs');
 const path = require('node:path');
+const { createHash } = require('node:crypto');
 const ts = require('typescript');
 const { inventory } = require('./inventory-localization.cjs');
 const params = (text) =>
@@ -44,7 +45,35 @@ function validateCatalogs(catalogs) {
 const comparableCopy = (text) =>
   text.normalize('NFKC').trim().replace(/\s+/gu, ' ').toLowerCase();
 
-const strictCopyLocales = ['nl', 'sv', 'th', 'ur', 'te', 'ta', 'zh-Hant'];
+const strictCopyLocales = ['nl', 'sv', 'th', 'ur', 'te', 'ta', 'zh-Hant', 'nb'];
+
+function validateNbSource(current, reviewed) {
+  return Object.keys({ ...current, ...reviewed })
+    .filter((file) => current[file] !== reviewed[file])
+    .map(
+      (file) => `nb: review translation after English source change in ${file}`,
+    );
+}
+
+function nbSourceSnapshot(cameraPermission) {
+  const directory = 'lib/i18n/locales/en';
+  const files = fs
+    .readdirSync(directory)
+    .filter((file) => file.endsWith('.ts'))
+    .map((file) => `${directory}/${file}`)
+    .concat('lib/i18n/search/en.ts');
+  const sources = files.map((file) => [
+    file,
+    loadTs(path.resolve(file)).default,
+  ]);
+  sources.push(['app.json', cameraPermission]);
+  return Object.fromEntries(
+    sources.map(([file, value]) => [
+      file,
+      createHash('sha256').update(JSON.stringify(value)).digest('hex'),
+    ]),
+  );
+}
 
 // These common catalog/UI glyphs have distinct Taiwan Traditional forms.
 const simplifiedChineseGlyphs = /[备锻练组设训录历杠铃哑卧阔绳辑输确简档视]/u;
@@ -259,6 +288,17 @@ function validateSearchAliases(aliases, registry, catalogs, records) {
           errors.push(
             `${locale}: missing Taiwan search alias ${kind}.${record.id}`,
           );
+        else if (locale === 'nb') {
+          const key = record.messageKey ?? `catalog.${kind}.${record.id}`;
+          const english = [
+            catalogs.en?.[key],
+            ...(aliases.en?.[kind]?.[record.id] ?? []),
+          ]
+            .filter((value) => typeof value === 'string')
+            .map(comparableCopy);
+          if (!values.some((value) => !english.includes(comparableCopy(value))))
+            errors.push(`nb: missing Bokmål search alias ${kind}.${record.id}`);
+        }
         const key = record.messageKey ?? `catalog.${kind}.${record.id}`;
         const text = catalogs[locale]?.[key];
         if (typeof text !== 'string' || !text.trim())
@@ -376,6 +416,38 @@ function run() {
     ...additions,
   ];
   const errors = validateCatalogs(catalogs);
+  const nbSourcePath = 'docs/localization-nb-source.json';
+  const { expo } = JSON.parse(fs.readFileSync('app.json', 'utf8'));
+  const cameraPermission = expo.plugins.find(
+    (plugin) => Array.isArray(plugin) && plugin[0] === 'expo-camera',
+  )?.[1].cameraPermission;
+  const nativeNb = expo.locales?.nb;
+  const localizedCameraPermission = nativeNb
+    ? JSON.parse(fs.readFileSync(nativeNb, 'utf8')).ios
+        ?.NSCameraUsageDescription
+    : undefined;
+  if (
+    typeof localizedCameraPermission !== 'string' ||
+    !localizedCameraPermission.trim() ||
+    localizedCameraPermission === cameraPermission
+  )
+    errors.push('nb: missing localized iOS camera permission');
+  const nbSource = nbSourceSnapshot(cameraPermission ?? null);
+  const reviewedNbSource = JSON.parse(fs.readFileSync(nbSourcePath, 'utf8'));
+  const recordNb = process.argv.indexOf('--record-nb-source');
+  if (recordNb === -1) {
+    errors.push(...validateNbSource(nbSource, reviewedNbSource));
+  } else {
+    const files = process.argv.slice(recordNb + 1);
+    for (const file of files.length ? files : Object.keys(nbSource)) {
+      if (Object.hasOwn(nbSource, file))
+        reviewedNbSource[file] = nbSource[file];
+      else if (Object.hasOwn(reviewedNbSource, file))
+        delete reviewedNbSource[file];
+      else errors.push(`nb: unknown English source ${file}`);
+    }
+    errors.push(...validateNbSource(nbSource, reviewedNbSource));
+  }
   for (const locale of strictCopyLocales)
     if (catalogs[locale])
       errors.push(
@@ -530,13 +602,25 @@ function run() {
   if (errors.length) {
     process.stderr.write(errors.join('\n') + '\n');
     process.exitCode = 1;
-  } else if (!process.argv.includes('--report'))
-    console.log(
-      `Localization contracts pass; ${current.length} source candidates inventoried, ${unclassified.length} unclassified. Target locales require web/native acceptance before release.`,
-    );
+  } else {
+    if (recordNb !== -1)
+      fs.writeFileSync(
+        nbSourcePath,
+        JSON.stringify(
+          Object.fromEntries(Object.entries(reviewedNbSource).sort()),
+          null,
+          2,
+        ) + '\n',
+      );
+    if (!process.argv.includes('--report'))
+      console.log(
+        `Localization contracts pass; ${current.length} source candidates inventoried, ${unclassified.length} unclassified. Target locales require web/native acceptance before release.`,
+      );
+  }
 }
 module.exports = {
   validateCatalogs,
+  validateNbSource,
   validateLocalizedCopy,
   validateTechniqueLinks,
   validateProgramLocalization,

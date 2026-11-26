@@ -41,6 +41,7 @@ it('opens at the effective language, stages wheel choices, and saves only with D
     '🇫🇷  Français',
     '🇮🇹  Italiano',
     '🇳🇱  Nederlands',
+    '🇳🇴  Norsk bokmål',
     '🇵🇱  Polski',
     '🇧🇷  Português (Brasil)',
     '🇸🇪  Svenska',
@@ -106,6 +107,7 @@ it.each([
   ['ko-KR', '🇰🇷  한국어'],
   ['ta-LK', '🇮🇳  தமிழ்'],
   ['zh-TW', '🇹🇼  繁體中文'],
+  ['nb-NO', '🇳🇴  Norsk bokmål'],
 ])(
   'centers the resolved device language for %s without saving',
   async (tag, expectedRow) => {

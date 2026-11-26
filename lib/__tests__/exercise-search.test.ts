@@ -607,3 +607,26 @@ it.each(['zh-Hant', 'zh-Hans', 'en'] as const)(
     for (const [query, id] of cases) expect(ids(query, locale)[0]).toBe(id);
   },
 );
+
+it('finds exact Bokmål exercise variants with the shared search normalization', () => {
+  const queries = [
+    ['knebøy', 'barbell-back-squat'],
+    ['KNEBØY', 'barbell-back-squat'],
+    ['nedtrekk', 'lat-pulldown'],
+    ['BEINPRESS', 'leg-press'],
+    ['benpress', 'leg-press'],
+    ['nedtrekk med V-håndtak', 'lat-pulldown-close-neutral-v-handle'],
+    [
+      'nedtrekk med ergonomisk grep',
+      'lat-pulldown-close-neutral-ergonomic-handle',
+    ],
+    ['nedtrekk med bred stang', 'lat-pulldown-wide-pronated-bar'],
+    ['nedtrekk med omvendt grep', 'lat-pulldown-reverse-grip'],
+    ['STÅENDE TÅHEV'.normalize('NFD'), 'standing-calf-raise'],
+  ] as const;
+  for (const [query, id] of queries) expect(ids(query, 'nb')[0]).toBe(id);
+  expect(normalizeSearch('HÆL ØVRE TÅHEV'.normalize('NFD'))).toBe(
+    'hæl øvre tahev',
+  );
+  expect(normalizeSearch('ØVRE')).not.toBe(normalizeSearch('OVRE'));
+});

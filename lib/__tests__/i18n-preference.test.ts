@@ -144,6 +144,12 @@ it.each([
   ['ar-Arab-AE', 'ar'],
   ['bn-Beng-IN', 'bn'],
   ['hi-Deva-IN', 'hi'],
+  ['nb', 'nb'],
+  ['nb-NO', 'nb'],
+  ['no', 'nb'],
+  ['no-NO', 'nb'],
+  ['nn', 'en'],
+  ['nn-NO', 'en'],
   ['zh', 'zh-Hans'],
   ['zh-CN', 'zh-Hans'],
   ['zh-SG', 'zh-Hans'],
@@ -358,5 +364,22 @@ it('keeps a saved Simplified Chinese preference on a Traditional Chinese device'
   expect(restartedAgain.getSnapshot()).toMatchObject({
     preference: 'system',
     locale: 'zh-Hans',
+  });
+});
+
+it('keeps Bokmål as an explicit choice, then follows the supported device locale', async () => {
+  const { store, storage } = setup(null);
+  await store.load();
+  expect(await store.select('nb')).toBe(true);
+  const restarted = new LocaleStore(storage, () => ['nn-NO', 'sv-SE']);
+  await restarted.load();
+  expect(restarted.getSnapshot()).toMatchObject({
+    preference: 'nb',
+    locale: 'nb',
+  });
+  expect(await restarted.select('system')).toBe(true);
+  expect(restarted.getSnapshot()).toMatchObject({
+    preference: 'system',
+    locale: 'sv',
   });
 });

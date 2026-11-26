@@ -7,6 +7,7 @@ export function displayNumberingSystem(locale: AppLocale) {
 }
 export function formatLocaleTag(locale: AppLocale) {
   if (locale === 'ta') return 'ta-IN';
+  if (locale === 'nb') return 'nb-NO';
   if (locale === 'zh-Hant') return 'zh-TW';
   return locale;
 }
