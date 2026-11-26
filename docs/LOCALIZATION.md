@@ -43,7 +43,7 @@ Record independent review of exercise and equipment names and technique
 instructions separately. Confirm web, both physical platforms and linguistic
 review for each language before promoting its release flag.
 
-The app offers English, Russian, German, French, Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian, Korean, Dutch and Swedish. System language
+The picker offers every locale in the [live registry](../lib/i18n/registry.ts). System language
 appears first and is selected by default. An explicit choice is saved on the
 device. Final web and native acceptance for Russian, German, French,
 Ukrainian, Spanish, Brazilian Portuguese, Italian, Polish, Turkish, Simplified Chinese, Hindi, Bengali, Arabic, Japanese, Vietnamese, Marathi, Indonesian and Korean remain pending in the release eligibility ledger.
