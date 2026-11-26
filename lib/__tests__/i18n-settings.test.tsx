@@ -35,6 +35,7 @@ it('opens at the effective language, stages wheel choices, and saves only with D
   expect(view!.root.findByType(AppPicker).props.cyclic).toBe(true);
   expect(view!.root.findByType(AppPicker).props.columns[0]).toEqual([
     '🇮🇩  Bahasa Indonesia',
+    '🇩🇰  Dansk',
     '🇩🇪  Deutsch',
     '🇬🇧  English',
     '🇪🇸  Español',
@@ -109,6 +110,8 @@ it.each([
   ['ta-LK', '🇮🇳  தமிழ்'],
   ['zh-TW', '🇹🇼  繁體中文'],
   ['nb-NO', '🇳🇴  Norsk bokmål'],
+  ['da', '🇩🇰  Dansk'],
+  ['da-DK', '🇩🇰  Dansk'],
   ['fi-FI', '🇫🇮  Suomi'],
   ['sv-FI', '🇸🇪  Svenska'],
 ])(

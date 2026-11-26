@@ -381,3 +381,25 @@ it('rejects missing, empty, stale and incompatible Finnish translations', () => 
     validateReviewedSource('fi', { [file]: 'new' }, { [file]: 'old' }),
   ).toEqual(['fi: review translation after English source change in ' + file]);
 });
+
+it('rejects missing Danish copy and unreviewed changes to any English source', () => {
+  const en = { required: 'New field {{name}}' };
+  expect(validateCatalogs({ en, da: {} })).toContain('da: missing required');
+  expect(validateCatalogs({ en, da: { required: '' } })).toContain(
+    'da.required: empty text',
+  );
+  expect(
+    validateCatalogs({ en, da: { required: 'Nyt felt {{other}}' } }),
+  ).toContain('da.required: parameters differ');
+  for (const file of [
+    'lib/i18n/locales/en/workout.ts',
+    'lib/i18n/search/en.ts',
+    'app.json',
+  ]) {
+    expect(
+      validateReviewedSource('da', { [file]: 'new' }, { [file]: 'old' }),
+    ).toEqual([
+      'da: review translation after English source change in ' + file,
+    ]);
+  }
+});

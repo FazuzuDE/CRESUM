@@ -1,0 +1,5 @@
+{
+  "ios": {
+    "NSCameraUsageDescription": "Giv CRESUM adgang til kameraet for at scanne QR-koder til træningsplaner."
+  }
+}

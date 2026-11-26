@@ -1,3 +1,17 @@
+import daCatalog from './locales/da/catalog';
+import daCommon from './locales/da/common';
+import daEditor from './locales/da/editor';
+import daEquipment from './locales/da/equipment';
+import daHistory from './locales/da/history';
+import daHome from './locales/da/home';
+import daLibrary from './locales/da/library';
+import daOnboarding from './locales/da/onboarding';
+import daProfile from './locales/da/profile';
+import daProgramTechnique from './locales/da/program-technique';
+import daProgress from './locales/da/progress';
+import daSharing from './locales/da/sharing';
+import daTechniqueContent from './locales/da/technique-content';
+import daWorkout from './locales/da/workout';
 import fiCatalog from './locales/fi/catalog';
 import fiCommon from './locales/fi/common';
 import fiEditor from './locales/fi/editor';
@@ -566,6 +580,22 @@ const zhHans = {
   ...zhHansProgramTechnique,
   ...zhHansTechniqueContent,
 } as const;
+const da = {
+  ...daCatalog,
+  ...daCommon,
+  ...daEditor,
+  ...daEquipment,
+  ...daHistory,
+  ...daHome,
+  ...daLibrary,
+  ...daOnboarding,
+  ...daProfile,
+  ...daProgramTechnique,
+  ...daProgress,
+  ...daSharing,
+  ...daTechniqueContent,
+  ...daWorkout,
+} as const;
 const fi = {
   ...fiCatalog,
   ...fiCommon,
@@ -853,6 +883,7 @@ export const catalogs = {
   pl,
   tr,
   'zh-Hans': zhHans,
+  da,
   fi,
   nb,
   'zh-Hant': zhHant,

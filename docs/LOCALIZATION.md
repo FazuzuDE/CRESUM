@@ -1084,3 +1084,38 @@ Run the full browser matrix. On iPhone and Android, verify onboarding, Settings,
 restart and System behavior in Expo Go and the signed build. Check Finnish
 dates, weight entry with a comma, History, offline search, large text and
 VoiceOver or TalkBack. Record the exact build, device, and OS.
+
+## Danish (Dansk)
+
+The registry entry is `da`. Device tags `da` and `da-DK` select Dansk, and
+numbers, dates and weight inputs use `da-DK`. Acceptance status is independent
+of availability in onboarding and Settings. The shared decimal parser accepts
+`62,5` and `62.5` as the same weight and rejects grouped inputs such as
+`1.234,5`.
+
+Use idiomatic Danish for all UI, accessibility labels, exercise and equipment
+names, muscle names, movements and technique cues. Keep placeholders, exact
+catalog identities and safety boundaries. Provide at least one Danish search
+alternative per ID. Add ASCII variants as Danish search aliases for common
+queries (e.g. `baenkpres`, `haandvaegte` and `loebebaand`). Keep normal
+Danish spelling in displayed names and use the shared search normalization
+without changes.
+
+When English text, search aliases or the default iOS camera permission change,
+review the corresponding Danish content and explicitly record the reviewed
+source. Pass only the affected paths to the existing command. For example:
+
+```sh
+node scripts/check-localization.cjs --record-da-source lib/i18n/locales/en/workout.ts
+```
+
+Review and update the Bokmål and Finnish ledgers if the same English sources
+changed. The Danish iOS camera prompt lives in
+`lib/i18n/locales/da/native.json`. A change to the English camera prompt
+requires review of `app.json` in all affected source ledgers.
+
+Run the full browser matrix. On physical iPhone and Android, test the test and
+final builds separately, including manual selection, restart, device language,
+the RTL-to-Dansk switch, offline search, decimal input, and workout History.
+Check large text and VoiceOver or TalkBack. Verify the system camera prompt in a
+signed iOS build with Danish selected in iOS and camera access still undecided.
