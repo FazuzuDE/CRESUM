@@ -44,7 +44,12 @@ function validateCatalogs(catalogs) {
 const comparableCopy = (text) =>
   text.normalize('NFKC').trim().replace(/\s+/gu, ' ').toLowerCase();
 
-const strictCopyLocales = ['nl', 'sv', 'th', 'ur', 'te', 'ta'];
+const strictCopyLocales = ['nl', 'sv', 'th', 'ur', 'te', 'ta', 'zh-Hant'];
+
+// These common catalog/UI glyphs have distinct Taiwan Traditional forms.
+const simplifiedChineseGlyphs = /[备锻练组设训录历杠铃哑卧阔绳辑输确简档视]/u;
+const hasTaiwanChinese = (value) =>
+  /\p{Script=Han}/u.test(value) && !simplifiedChineseGlyphs.test(value);
 
 function validateLocalizedCopy(catalogs, locale, exceptions) {
   const errors = [];
@@ -71,7 +76,13 @@ function validateLocalizedCopy(catalogs, locale, exceptions) {
           /\p{L}/u.test(original.replace(/{{[^}]+}}/g, '')),
         ) &&
         !/\p{Script=Tamil}/u.test(literal.replace(/[^\p{L}]/gu, ''));
-      if (!unchanged && !needsTamil) continue;
+      const needsTraditional =
+        locale === 'zh-Hant' &&
+        originals.some((original) =>
+          /\p{L}/u.test(original.replace(/{{[^}]+}}/g, '')),
+        ) &&
+        !hasTaiwanChinese(literal);
+      if (!unchanged && !needsTamil && !needsTraditional) continue;
       const exception = exceptions[id];
       if (
         exception?.text !== value ||
@@ -82,7 +93,9 @@ function validateLocalizedCopy(catalogs, locale, exceptions) {
           locale +
             (unchanged
               ? ': unchanged English copy '
-              : ': missing Tamil copy ') +
+              : needsTraditional
+                ? ': missing Taiwan Traditional Chinese copy '
+                : ': missing Tamil copy ') +
             id,
         );
       else usedExceptions.add(id);
@@ -241,6 +254,10 @@ function validateSearchAliases(aliases, registry, catalogs, records) {
         )
           errors.push(
             `${locale}: missing Tamil search alias ${kind}.${record.id}`,
+          );
+        else if (locale === 'zh-Hant' && !values.some(hasTaiwanChinese))
+          errors.push(
+            `${locale}: missing Taiwan search alias ${kind}.${record.id}`,
           );
         const key = record.messageKey ?? `catalog.${kind}.${record.id}`;
         const text = catalogs[locale]?.[key];

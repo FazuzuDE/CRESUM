@@ -982,3 +982,30 @@ V-handle, compact ergonomic and wide overhand pulldowns. Enter `௬௨.௫` kg a
 `௮` reps, then repeat with `62.5` and `8`. Confirm the saved values, date and
 exercise identity in History after restart. Check calendar, progress, muscle
 map, glyphs, keyboard input and screen-reader labels with larger text.
+
+## Taiwan Traditional Chinese (繁體中文)
+
+`zh-Hant` is the Taiwan translation. Use `zh-TW` for dates and numbers.
+Explicit `Hans` or `Hant` tags take priority over region. Without a script,
+Taiwan, Hong Kong and Macao use this catalog. The Taiwan catalog does not
+represent a Cantonese translation. Other Chinese device tags retain `zh-Hans`.
+A saved explicit preference remains authoritative.
+
+Start from the English copy and guide intent. Use Simplified Chinese as a
+reference and adapt terminology for Taiwan, including grip cues, setup and
+spotter instructions. Keep a complete `zh-Hant` catalog and provide a Taiwanese
+search alternative per exercise, equipment item, attachment and muscle. The
+all-language search index already accepts Simplified alternatives from the
+`zh-Hans` catalog. Preserve distinct variants, IDs and snapshots.
+
+The localization check rejects missing copy, mismatched placeholders, missing
+guide steps and missing local aliases. When the two Chinese locales naturally
+share a term, translate it identically. Technical Latin-only terms with a
+documented reason belong in `localization-zh-Hant-copy-exceptions.json`.
+
+Check all 26 locales in the browser matrix. Use `--trace-on-failure` to retain
+a failed scenario's screenshot and Playwright trace before retrying. To retry
+against the same export, invoke `scripts/localization-web-qa.cjs` directly with
+the original `--export-dir` and `--cases zh-Hant:320:normal` (adjust the case
+and use a fresh output directory). On physical devices, check Taiwan font
+rendering, larger text, localized date wheels and full-width keyboard input.

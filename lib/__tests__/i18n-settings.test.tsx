@@ -59,6 +59,7 @@ it('opens at the effective language, stages wheel choices, and saves only with D
     '🇰🇷  한국어',
     '🇯🇵  日本語',
     '🇨🇳  简体中文',
+    '🇹🇼  繁體中文',
   ]);
   expect(view!.root.findByType(AppPicker).props.selected).toEqual([
     row('🇬🇧  English'),
@@ -104,6 +105,7 @@ it.each([
   ['id-ID', '🇮🇩  Bahasa Indonesia'],
   ['ko-KR', '🇰🇷  한국어'],
   ['ta-LK', '🇮🇳  தமிழ்'],
+  ['zh-TW', '🇹🇼  繁體中文'],
 ])(
   'centers the resolved device language for %s without saving',
   async (tag, expectedRow) => {

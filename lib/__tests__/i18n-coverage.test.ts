@@ -322,3 +322,32 @@ it('rejects non-Tamil fallback paraphrases and mismatched Tamil parameters', () 
     'ta.label: parameters differ',
   ]);
 });
+
+it('rejects missing Traditional Chinese copy, Simplified fallback, placeholders and local aliases', () => {
+  const en = { edit: 'Edit workout {{name}}' };
+  const zhHant = { edit: '編輯訓練 {{name}}' };
+  expect(validateCatalogs({ en, 'zh-Hant': {} })).toContain(
+    'zh-Hant: missing edit',
+  );
+  expect(
+    validateLocalizedCopy(
+      { en, 'zh-Hant': { edit: '编辑训练 {{name}}' } },
+      'zh-Hant',
+      {},
+    ),
+  ).toContain('zh-Hant: missing Taiwan Traditional Chinese copy edit');
+  expect(validateCatalogs({ en, 'zh-Hant': { edit: '編輯訓練' } })).toContain(
+    'zh-Hant.edit: parameters differ',
+  );
+  expect(
+    validateLocalizedCopy({ en, 'zh-Hant': zhHant }, 'zh-Hant', {}),
+  ).toEqual([]);
+  expect(
+    validateSearchAliases(
+      { 'zh-Hant': { exercise: { lift: ['杠铃卧推', 'bench press'] } } },
+      { 'zh-Hant': {} },
+      { 'zh-Hant': { 'catalog.exercise.lift': '槓鈴臥推' } },
+      { exercise: [{ id: 'lift' }] },
+    ),
+  ).toEqual(['zh-Hant: missing Taiwan search alias exercise.lift']);
+});

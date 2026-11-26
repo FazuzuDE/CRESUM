@@ -1,5 +1,6 @@
 import { AppPicker } from './AppPicker';
 import { changePickerDate, projectDatePicker } from '@/lib/picker-date';
+import { formatLocaleTag } from '@/lib/i18n/format';
 import { useLocalization } from './LocalizationProvider';
 
 export function AppDatePicker({
@@ -20,7 +21,7 @@ export function AppDatePicker({
     value,
     minimum,
     maximum,
-    locale,
+    formatLocaleTag(locale),
   );
   return (
     <AppPicker

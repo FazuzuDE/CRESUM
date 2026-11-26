@@ -585,3 +585,25 @@ it.each(['ta', 'en'] as const)(
     expect(ids('ஸ்மித் மெஷின் ஸ்குவாட்', locale)[0]).toBe('smith-machine-squat');
   },
 );
+
+it.each(['zh-Hant', 'zh-Hans', 'en'] as const)(
+  'preserves exact exercise identity for Traditional and Simplified queries in %s',
+  (locale) => {
+    const cases = [
+      ['槓鈴臥推', 'barbell-bench-press'],
+      ['臥推', 'barbell-bench-press'],
+      ['杠铃卧推', 'barbell-bench-press'],
+      ['滑輪下拉', 'lat-pulldown'],
+      ['高位下拉', 'lat-pulldown'],
+      ['跑步機', 'treadmill-walking'],
+      ['跑步机', 'treadmill-walking'],
+      ['寬握正手下拉', 'lat-pulldown-wide-pronated-bar'],
+      ['三角握把下拉', 'lat-pulldown-close-neutral-v-handle'],
+      ['短型人體工學握把下拉', 'lat-pulldown-close-neutral-ergonomic-handle'],
+      ['反手下拉', 'lat-pulldown-reverse-grip'],
+      ['胸推機', 'machine-chest-press'],
+      ['史密斯深蹲', 'smith-machine-squat'],
+    ];
+    for (const [query, id] of cases) expect(ids(query, locale)[0]).toBe(id);
+  },
+);

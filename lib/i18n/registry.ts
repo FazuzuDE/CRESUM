@@ -47,6 +47,12 @@ export const localeRegistry = {
     direction: 'ltr',
     released: false,
   },
+  'zh-Hant': {
+    flag: '🇹🇼',
+    nativeName: '繁體中文',
+    direction: 'ltr',
+    released: false,
+  },
   'zh-Hans': {
     flag: '🇨🇳',
     nativeName: '简体中文',
@@ -85,11 +91,9 @@ export function resolveLocale(
     if (language === 'zh') {
       const parts = tag.toLowerCase().split('-');
       if (parts.includes('hans')) return 'zh-Hans';
-      if (
-        parts.includes('hant') ||
-        parts.some((part) => ['tw', 'hk', 'mo'].includes(part))
-      )
-        continue;
+      if (parts.includes('hant')) return 'zh-Hant';
+      if (parts.some((part) => ['tw', 'hk', 'mo'].includes(part)))
+        return 'zh-Hant';
       return 'zh-Hans';
     }
     if (isAppLocale(language)) return language;
