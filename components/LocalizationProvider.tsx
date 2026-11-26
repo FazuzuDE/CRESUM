@@ -12,9 +12,16 @@ import {
   useSyncExternalStore,
   type ReactNode,
 } from 'react';
-import { ActivityIndicator, AppState, Text, View } from 'react-native';
+import {
+  ActivityIndicator,
+  AppState,
+  Platform,
+  Text,
+  View,
+} from 'react-native';
 import { LocaleStore, type LocaleSnapshot } from '@/lib/i18n/preference-store';
 import { createTranslator } from '@/lib/i18n/engine';
+import { formatLocaleTag } from '@/lib/i18n/format';
 import { spacing, typography } from '@/lib/theme';
 import { AppButton } from './AppButton';
 
@@ -60,6 +67,10 @@ export function LocalizationProvider({
     });
     return () => subscription.remove();
   }, [store]);
+  useEffect(() => {
+    if (Platform.OS === 'web' && typeof document !== 'undefined')
+      document.documentElement.lang = formatLocaleTag(snapshot.locale);
+  }, [snapshot.locale]);
   const direction = localeRegistry[snapshot.locale].direction;
   return (
     <Context.Provider value={store}>

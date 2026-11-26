@@ -11,7 +11,7 @@ import { Pressable, View } from 'react-native';
 import { calendarTime } from '@/lib/picker-date';
 import { radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
-import { formatDate } from '@/lib/i18n/format';
+import { formatDate, formatNumber } from '@/lib/i18n/format';
 
 export function CalendarMonth({
   month,
@@ -100,7 +100,7 @@ export function CalendarMonth({
                 style={[s.marker, count > 0 && s.completed, today && s.today]}
               >
                 <Text style={[s.day, count > 0 && s.completedText]}>
-                  {i + 1}
+                  {formatNumber(locale, i + 1)}
                 </Text>
               </View>
             </Pressable>

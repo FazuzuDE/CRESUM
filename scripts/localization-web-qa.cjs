@@ -193,7 +193,7 @@ async function main() {
   const aliases = load(
     path.join(root, 'lib/i18n/search/aliases.ts'),
   ).searchAliases;
-  const { formatEntryNumber, formatNumber } = load(
+  const { formatEntryNumber, formatLocaleTag, formatNumber } = load(
     path.join(root, 'lib/i18n/format.ts'),
   );
   const expandedCatalogs = Object.fromEntries(
@@ -464,6 +464,10 @@ async function main() {
             exact: true,
           });
           await nameInput.waitFor();
+          await page.waitForFunction(
+            (expected) => document.documentElement.lang === expected,
+            formatLocaleTag(locale),
+          );
           assert.equal(await button('onboarding.continue').isDisabled(), true);
           const tagline = await page.getByTestId('brand-tagline').boundingBox();
           const languageControl = await button('language.title').boundingBox();

@@ -97,7 +97,7 @@ export default {
   'entry.useWheel': 'சுழல் தேர்வியைப் பயன்படுத்து',
   'entry.useKeypad': 'எண் விசைப்பலகையைப் பயன்படுத்து',
   'entry.wheel': 'சுழல் தேர்வி',
-  'entry.keypad': 'எண் விசைப்பலகை',
+  'entry.keypad': 'விசைப்பலகை',
   'entry.weightHeading': 'எடை · கிலோ',
   'entry.leftHeading': 'இடது பக்க முறை',
   'entry.rightHeading': 'வலது பக்க முறை',
