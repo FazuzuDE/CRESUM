@@ -1,5 +1,9 @@
 # CRESUM Design System v1.0
 
+## Competitive interaction priorities — approved 2026-11-26
+
+Preserve the existing glass dock, fixed header, V7 controls and shared Wheel/Keypad. Optimize fast set entry without modifying completed sets or losing drafts. Measure physical-device navigation and image loading; respect Reduce Motion and accessibility. New interaction details and targets are specified in [Competitive development](COMPETITIVE_ROADMAP.md) and need focused implementation review.
+
 ## Exercise library actions
 
 Use the V7 contour for adding or selecting an exercise in the library and at
