@@ -413,19 +413,21 @@ it('restores Danish after restart and switches between Urdu and the Danish devic
   expect(restarted.getSnapshot()).toMatchObject({
     preference: 'da',
     locale: 'da',
-    direction: 'ltr',
   });
+  expect(localeRegistry[restarted.getSnapshot().locale].direction).toBe('ltr');
   expect(await restarted.select('system')).toBe(true);
   expect(restarted.getSnapshot()).toMatchObject({
     preference: 'system',
     locale: 'ur',
-    direction: 'rtl',
   });
+  expect(localeRegistry[restarted.getSnapshot().locale].direction).toBe('rtl');
   const danishDevice = new LocaleStore(storage, () => ['da-DK']);
   await danishDevice.load();
   expect(danishDevice.getSnapshot()).toMatchObject({
     preference: 'system',
     locale: 'da',
-    direction: 'ltr',
   });
+  expect(localeRegistry[danishDevice.getSnapshot().locale].direction).toBe(
+    'ltr',
+  );
 });
