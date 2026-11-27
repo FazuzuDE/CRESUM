@@ -276,23 +276,27 @@ export function Workout({
       .flatMap((item) => item.exercises)
       .find((item) => exerciseIdsMatch(item.libraryId, exercise.libraryId))
       ?.sets.filter(isSetComplete);
-  const toggle = async (setIndex: number, child = index) => {
+  const toggle = (setIndex: number, child = index) => {
     const set = session.exercises[child].sets[setIndex];
-    try {
-      const transform = (current: WorkoutSession) =>
-        toggleSet(setCurrentExercise(current, child), child, setIndex).session;
-      setInputError(null);
-      if (recordSet) {
-        const recorded = await recordSet(transform, {
-          id: set.id,
-          index: setNumberInGroup(session, child, setIndex),
-        });
-        if (!recorded) return;
-      } else {
-        update(transform);
-      }
+    const transform = (current: WorkoutSession) =>
+      toggleSet(setCurrentExercise(current, child), child, setIndex).session;
+    const notify = () => {
       setNow(Date.now());
       if (!isSetComplete(set)) successHaptic();
+    };
+    try {
+      setInputError(null);
+      if (recordSet) {
+        void recordSet(transform, {
+          id: set.id,
+          index: setNumberInGroup(session, child, setIndex),
+        }).then((recorded) => {
+          if (recorded) notify();
+        }, setInputError);
+      } else {
+        update(transform);
+        notify();
+      }
     } catch (error) {
       setInputError(error);
     }

@@ -1385,12 +1385,26 @@ async function main() {
             reps: String(manualReps),
             entered: true,
           });
+          const completeFirstSet = page.getByRole('checkbox', {
+            name: text('workout.completeNamed', { index: 1 }),
+            exact: true,
+          });
+          await failNextWrite();
+          await completeFirstSet.click();
+          await assertFailureConsumed();
           await page
-            .getByRole('checkbox', {
-              name: text('workout.completeNamed', { index: 1 }),
+            .getByRole('dialog')
+            .getByText(text('workout.setWriteFailed', { index: 1 }), {
               exact: true,
             })
-            .click();
+            .waitFor();
+          assert.deepEqual(
+            await state(),
+            entered,
+            'Failed completion keeps the durable draft',
+          );
+          assert.equal(await completeFirstSet.textContent(), '!');
+          await button('common.retry').click();
           await button('workout.skipRest').waitFor();
           const resting = await state();
           const first = resting.activeWorkout.exercises[0].sets[0];
@@ -1454,7 +1468,10 @@ async function main() {
             'Failed Finish preserves active workout',
           );
           await capture('finish-save-error');
-          await button('workout.finishSave').click();
+          await button('common.retry').evaluate((retry) => {
+            retry.click();
+            retry.click();
+          });
           await button('common.done').waitFor();
           const finished = await state();
           assert.equal(finished.activeWorkout, null);

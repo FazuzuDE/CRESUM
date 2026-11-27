@@ -1373,7 +1373,7 @@ function AppContent({
               {workoutError}
             </Text>
             <AppButton
-              title={t('common.retry')}
+              title={t(pendingSet ? 'common.retry' : 'workout.retrySaveLoad')}
               secondary
               disabled={busy}
               onPress={() => void store.retry()}
