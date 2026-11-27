@@ -1,5 +1,9 @@
 import { ScheduleWelcome } from '../../components/ScheduleWelcome';
-import { projectProgramWeek } from '../training-programs/schedule';
+import {
+  localDate,
+  projectProgramWeek,
+  weekdayOffset,
+} from '../training-programs/schedule';
 import { StarterProgramSchedule } from '../../components/StarterProgramSchedule';
 import { DatePickerSheet } from '../../components/DatePickerSheet';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -81,7 +85,12 @@ it.each(variants)(
     const view = await seed(goal, experience);
     try {
       await act(async () => button(view, 'Set schedule').props.onPress());
-      await chooseDays(view);
+      const today = view.root.findByType(StarterProgramSchedule).props
+        .today as Date;
+      await chooseDays(
+        view,
+        [0, 2, 4].map((offset) => (weekdayOffset(today) + offset) % 7),
+      );
       await act(async () =>
         view.root.findByType(StarterProgramSchedule).props.onDone(),
       );
@@ -103,16 +112,22 @@ it.each(variants)(
         JSON.parse((await AsyncStorage.getItem(ONBOARDING_KEY))!).answers
           .environment,
       ).toBe('gym');
+      await act(async () =>
+        view.root.findByType(ScheduleWelcome).props.onClose(),
+      );
       const start = view.root
+        .findAllByProps({ testID: 'home-drag-primary' })[0]
         .findAllByType(AppButton)
         .find((b: { props: { title: string } }) =>
-          b.props.title.startsWith('Start planned workout'),
+          b.props.title.startsWith('Start '),
         );
+      expect(start).toBeDefined();
       await act(async () => start.props.onPress());
       const active = JSON.parse(
         (await AsyncStorage.getItem(STATE_KEY))!,
       ).activeWorkout;
       expect(active.programSlot.assignmentId).toBe(document.assignment.id);
+      expect(active.programSlot.date).toBe(localDate(today));
       expect(active.exercises[0].sets[0].reps).toBe('');
       expect(active.exercises[0].sets[0].weight).toBe('');
     } finally {

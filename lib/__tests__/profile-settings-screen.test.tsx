@@ -127,6 +127,8 @@ it('keeps the Profile tab and navigation to Home functional', async () => {
   expect(view.root.findByType(WorkoutTemplates)).toBeDefined();
   act(() => view.root.findByType(Dock).props.onChange('home'));
   expect(view.root.findByType(Dock).props.active).toBe('home');
-  expect(JSON.stringify(view.toJSON())).toContain('A good day for progress.');
+  expect(
+    view.root.findAllByProps({ testID: 'home-drag-primary' }).length,
+  ).toBeGreaterThan(0);
   await act(async () => view.unmount());
 });

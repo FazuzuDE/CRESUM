@@ -645,12 +645,23 @@ async function main() {
           };
           await capture('onboarding-reloaded');
           const planStart = (slot = 0) =>
-            page.getByRole('button', {
-              name: text('plan.start', {
-                key: assignment.program.days[slot].key,
+            page.getByTestId('home-drag-primary').getByRole('button', {
+              name: text('home.startNamed', {
+                name: [
+                  text('onboarding.muscle'),
+                  text('onboarding.workoutIndex', { index: slot + 1 }),
+                ].join(' · '),
               }),
               exact: true,
             });
+          const moveToProgramDay = async (slotIndex) => {
+            const day = new Date(`${assignment.startDate}T12:00:00`);
+            day.setDate(
+              day.getDate() + assignment.program.schedule[0][slotIndex].offset,
+            );
+            await page.clock.setFixedTime(day);
+            await page.reload();
+          };
           const readProgramState = () =>
             page.evaluate(() => ({
               onboarding: JSON.parse(
@@ -725,7 +736,6 @@ async function main() {
               .getByRole('tab', { name: contains(text('nav.home')) })
               .click();
           };
-          await page.getByRole('radio').nth(0).click();
           await planStart().click();
           await page
             .getByRole('button', {
@@ -752,7 +762,21 @@ async function main() {
           await button('workout.addSet').waitFor();
           await capture('program-first-resumed');
           await discardProgramSession();
+          await button('onboarding.weeklySchedule').click();
           await page.getByRole('radio').nth(1).click();
+          assert.equal(
+            await page
+              .getByRole('button', {
+                name: text('plan.start', {
+                  key: assignment.program.days[1].key,
+                }),
+                exact: true,
+              })
+              .count(),
+            0,
+            'A future slot cannot be started in advance',
+          );
+          await moveToProgramDay(1);
           await planStart(1).click();
           await button('workout.addSet').waitFor();
           const regularSnapshot = await readProgramState();
@@ -777,6 +801,7 @@ async function main() {
           await capture('program-next-session');
           await discardProgramSession();
           await capture('program-after-discard');
+          await moveToProgramDay(0);
           result.programStart = {
             firstSlotSetsPerExercise: 1,
             laterSlotUsesAuthoredSets: true,
@@ -1545,7 +1570,6 @@ async function main() {
             if (locale === 'ta') result.tamilCalendar = true;
             if (taiwan) result.taiwanCalendar = true;
           }
-          await page.getByRole('radio').nth(0).click();
           await planStart().click();
           await button('workout.addSet').waitFor();
           const plannedStartState = await state();
@@ -1730,6 +1754,7 @@ async function main() {
           await page
             .getByRole('tab', { name: contains(text('nav.home')) })
             .click();
+          await button('onboarding.weeklySchedule').click();
           const firstSlot = page.getByRole('radio').nth(0);
           await firstSlot.waitFor();
           assert.ok(
@@ -1738,12 +1763,19 @@ async function main() {
           );
           await firstSlot.click();
           assert.equal(
-            await planStart().count(),
+            await page
+              .getByRole('button', {
+                name: text('plan.start', {
+                  key: assignment.program.days[0].key,
+                }),
+                exact: true,
+              })
+              .count(),
             0,
             'Completed slot cannot be started again from the plan action',
           );
           await capture('program-completed-slot');
-          await page.getByRole('radio').nth(1).click();
+          await moveToProgramDay(1);
           await planStart(1).click();
           await button('workout.addSet').waitFor();
           const afterCompletionStart = (await state()).activeWorkout;
@@ -1790,6 +1822,7 @@ async function main() {
             plannedFinished,
             'Reload retains exactly two History records',
           );
+          await button('onboarding.weeklySchedule').click();
           assert.ok(
             (await page.getByRole('radio').nth(0).innerText()).includes('✓'),
           );
