@@ -1184,3 +1184,67 @@ remain pending for both platforms.
 
 Web, Metro/Expo Go and iOS/Android JavaScript exports provide separate evidence
 from installation and acceptance of the signed builds.
+
+## European Portuguese (Português (Portugal))
+
+The language picker offers Português (Portugal) and Português (Brasil)
+in onboarding and Settings in every build. The system tag `pt-PT` selects the
+Portuguese variant. Bare `pt`, `pt-BR`, and other Portuguese tags keep their
+existing Brazilian fallback. Both variants use their own regional dates,
+times, number formatting and plural rules. Exact manual weight accepts
+`62,5` and `62.5` through the existing shared parser.
+
+Use the current English source for meaning and compare Brazilian wording where
+useful. Use consistent Portuguese gym terms such as ginásio, treino, séries,
+repetições, halteres, pegas, passadeira, and peso morto. Keep exercise IDs,
+safety cues, grip and equipment variants, and placeholders intact. Record
+natural Portuguese search terms in `lib/i18n/search/pt-PT.ts`. Shared search
+matches variants such as `elevações na barra` and `elevacoes na barra`.
+
+CI checks Portuguese message keys, plural variants, placeholders, linked
+technique and searchable alternatives. After reviewing changes to English
+copy, aliases or the iOS camera purpose string, update
+`docs/localization-pt-PT-source.json` together with the other affected input
+ledgers. For English workout text, run the following command.
+
+```sh
+node scripts/check-localization.cjs \
+  --record-pt-PT-source lib/i18n/locales/en/workout.ts \
+  --record-cs-source lib/i18n/locales/en/workout.ts \
+  --record-da-source lib/i18n/locales/en/workout.ts \
+  --record-fi-source lib/i18n/locales/en/workout.ts \
+  --record-nb-source lib/i18n/locales/en/workout.ts
+```
+
+Use `lib/i18n/search/en.ts` for alias changes and `app.json` when the English
+iOS camera purpose string changes. Update its Portuguese text in
+`lib/i18n/locales/pt-PT/native.json`. Document any allowed unchanged text with
+its exact value and reason in `docs/localization-pt-PT-copy-exceptions.json`.
+Run `npm run i18n:check` before committing.
+
+Both Portuguese variants passed the browser scenarios at 320 px and 390 px
+with standard and expanded text on runtime `0.3.41` (`06cc09d`). The
+checks cover both language menu entries, saved choices, RTL-to-LTR
+switching, dates, offline search and History with both decimal marks.
+
+### Portuguese physical-device checklist
+
+Status for physical iPhone and Android in test and signed final builds:
+**not verified**. Record the device, OS, build type, and source revision.
+
+1. Find both variants and the device-language option in onboarding and
+   Settings. Select each variant, force close and reopen. Switch from Urdu to
+   each Portuguese variant. Check left-to-right display and RTL draft recovery.
+2. Select device language with the device set to Portugal, then Brazil.
+   Confirm dates and times, larger text, and VoiceOver or TalkBack labels.
+3. Go offline. Try `passadeira`, `peso morto`, and `elevacoes na barra` in
+   Português (Portugal), plus `esteira` and `levantamento terra` in Português
+   (Brasil). Open a technique card. Log both weights `62,5` and `62.5` and
+   check that the saved results match in History.
+4. With sharing enabled and a fresh camera permission, open the QR scanner.
+   Verify the in-app prompt and the iOS purpose string in Português (Portugal)
+   with that language selected in iOS. Verify the Android system permission,
+   deny it once, and check that pasting the link is available.
+
+Browser and JavaScript export are recorded separately from signed device
+acceptance. Independent linguistic review is not planned.

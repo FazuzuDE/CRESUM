@@ -320,3 +320,17 @@ it('resolves Czech device tags and uses one, few, other and many', () => {
   expect(t('library.count', { count: 5 })).toBe('5 cviků');
   expect(t('library.count', { count: 1.5 })).toBe('1,5 cviku');
 });
+
+it('uses European Portuguese plurals without changing Brazilian Portuguese', () => {
+  const portugal = createTranslator('pt-PT');
+  expect(portugal('library.count', { count: 0 })).toBe('0 exercícios');
+  expect(portugal('library.count', { count: 1 })).toBe('1 exercício');
+  expect(portugal('library.count', { count: 2 })).toBe('2 exercícios');
+  expect(portugal('library.count', { count: 1.5 })).toBe('1,5 exercícios');
+  expect(portugal('library.count', { count: 1_000_000 })).toMatch(
+    /exercícios$/,
+  );
+  expect(createTranslator('pt-BR')('library.count', { count: 0 })).toBe(
+    '0 exercícios',
+  );
+});

@@ -1,0 +1,70 @@
+{
+  "catalog.equipment.kettlebell": {
+    "text": "Kettlebell",
+    "reason": "Common name used in Portuguese gyms."
+  },
+  "editor.weightValue": {
+    "text": "{{weight}} kg",
+    "reason": "Standard unit symbol or numeric notation."
+  },
+  "home.tonnes": {
+    "text": "{{value}} t",
+    "reason": "Standard unit symbol or numeric notation."
+  },
+  "home.kilograms": {
+    "text": "{{value}} kg",
+    "reason": "Standard unit symbol or numeric notation."
+  },
+  "onboarding.cm": {
+    "text": "cm",
+    "reason": "Standard unit symbol or numeric notation."
+  },
+  "onboarding.kg": {
+    "text": "kg",
+    "reason": "Standard unit symbol or numeric notation."
+  },
+  "conflict.setValue": {
+    "text": "{{weight}} kg × {{reps}} · {{status}}",
+    "reason": "Standard unit symbol or numeric notation."
+  },
+  "conflict.setValueBoth": {
+    "text": "{{weight}} kg × {{reps}} / {{other}} · {{status}}",
+    "reason": "Standard unit symbol or numeric notation."
+  },
+  "progress.kg": {
+    "text": "kg",
+    "reason": "Standard unit symbol or numeric notation."
+  },
+  "progress.valueKg": {
+    "text": "{{value}} kg",
+    "reason": "Standard unit symbol or numeric notation."
+  },
+  "progress.point": {
+    "text": "{{name}}, {{date}}, {{value}} kg",
+    "reason": "Standard unit symbol or numeric notation."
+  },
+  "progress.loggedSet": {
+    "text": "{{weight}} kg × {{reps}}",
+    "reason": "Standard unit symbol or numeric notation."
+  },
+  "body.point": {
+    "text": "{{date}} · {{value}} kg",
+    "reason": "Standard unit symbol or numeric notation."
+  },
+  "sharing.weight": {
+    "text": "{{weight}} kg",
+    "reason": "Standard unit symbol or numeric notation."
+  },
+  "workout.tableKg": {
+    "text": "KG",
+    "reason": "Standard unit symbol or numeric notation."
+  },
+  "entry.singleSummary": {
+    "text": "{{weight}} kg × {{reps}}",
+    "reason": "Standard unit symbol or numeric notation."
+  },
+  "entry.bilateralSummary": {
+    "text": "{{weight}} kg × {{reps}} / {{other}}",
+    "reason": "Standard unit symbol or numeric notation."
+  }
+}

@@ -688,3 +688,15 @@ it.each([
 ])('ranks the Czech search query %s first for %s', (query, id) => {
   expect(ids(query, 'cs')[0]).toBe(id);
 });
+
+it.each([
+  ['passadeira', 'treadmill-walking'],
+  ['supino plano', 'barbell-bench-press'],
+  ['bench press', 'barbell-bench-press'],
+  ['peso morto', 'barbell-deadlift'],
+  ['elevacoes na barra', 'pull-up'],
+  ['puxada com triângulo', 'lat-pulldown-close-neutral-v-handle'],
+  ['prensa de pernas', 'leg-press'],
+])('ranks European Portuguese query %s first for %s', (query, id) => {
+  expect(ids(query, 'pt-PT')[0]).toBe(id);
+});
