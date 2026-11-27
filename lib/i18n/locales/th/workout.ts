@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'ท่าที่ทำเสร็จ: {{count, number}}',
+  'workout.vsSimilar': '{{change}} เทียบกับการฝึกแบบเดียวกันครั้งก่อน',
+  'workout.activeSet': 'เซต {{index}} จาก {{count}}',
+  'workout.reusePrevious': 'เหมือนครั้งก่อน',
   'workout.setWriteFailed': 'ยังไม่ได้บันทึกการเปลี่ยนแปลงของเซตที่ {{index}}',
   'workout.cardioStart': 'เริ่มคาร์ดิโอ',
   'workout.cardioPause': 'พัก',

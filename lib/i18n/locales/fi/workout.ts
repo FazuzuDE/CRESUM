@@ -1,4 +1,9 @@
 export default {
+  'workout.exercisesDone': 'Tehdyt liikkeet: {{count, number}}',
+  'workout.vsSimilar':
+    '{{change}} edelliseen vastaavaan harjoitukseen verrattuna',
+  'workout.activeSet': 'Sarja {{index}} / {{count}}',
+  'workout.reusePrevious': 'Kuten viimeksi',
   'workout.setWriteFailed':
     'Sarjan {{index}} muutoksia ei ole vielä tallennettu',
   'workout.cardioStart': 'Aloita kestävyysharjoittelu',

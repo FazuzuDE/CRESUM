@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'முடித்த பயிற்சிகள்: {{count, number}}',
+  'workout.vsSimilar': 'கடந்த ஒத்த பயிற்சி அமர்வுடன் ஒப்பிடும்போது {{change}}',
+  'workout.activeSet': 'செட் {{index}} / {{count}}',
+  'workout.reusePrevious': 'கடந்த முறை போல',
   'workout.setWriteFailed':
     'செட் {{index}}-இல் செய்த மாற்றங்கள் இன்னும் சேமிக்கப்படவில்லை',
   'workout.cardioStart': 'கார்டியோவைத் தொடங்கு',

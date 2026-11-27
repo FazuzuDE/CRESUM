@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'Gennemførte øvelser: {{count, number}}',
+  'workout.vsSimilar': '{{change}} i forhold til seneste tilsvarende træning',
+  'workout.activeSet': 'Sæt {{index}} af {{count}}',
+  'workout.reusePrevious': 'Som sidst',
   'workout.setWriteFailed': 'Ændringer i sæt {{index}} er endnu ikke gemt',
   'workout.cardioStart': 'Start konditionstræning',
   'workout.cardioPause': 'Sæt på pause',

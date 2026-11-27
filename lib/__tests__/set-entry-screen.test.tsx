@@ -156,3 +156,72 @@ it('opens from actual workout rows, discards Cancel, and saves without rest or c
     act(() => v.unmount());
   }
 });
+
+it('opens the wheel with an unset weight and requires an explicit choice', () => {
+  const onSave = jest.fn();
+  const v = render({ set: { id: 's', weight: '', reps: '10' }, onSave });
+  try {
+    const picker = () => v.root.findByType(AppPicker);
+    expect(picker().props.columns[0][picker().props.selected[0]]).toBe('—');
+    expect(save(v).props.disabled).toBe(true);
+    act(() =>
+      picker().props.onChange(0, picker().props.columns[0].indexOf('62.5')),
+    );
+    act(() => save(v).props.onPress());
+    expect(onSave).toHaveBeenCalledWith({ weight: '62.5', reps: '10' });
+  } finally {
+    act(() => v.unmount());
+  }
+});
+
+it('uses the prior set as a suggestion and records only through the explicit action', () => {
+  const seed = startWorkout(defaultTemplates[0], exerciseLibrary);
+  const exercise = seed.exercises[0];
+  const prior = {
+    ...seed,
+    id: 'previous-session',
+    finishedAt: seed.startedAt - 100,
+    exercises: [
+      {
+        ...exercise,
+        sets: [
+          { ...exercise.sets[0], weight: '60', reps: '10', completedAt: 20 },
+        ],
+      },
+    ],
+  };
+  function Harness() {
+    const [session, setSession] = useState(seed);
+    return (
+      <Workout
+        session={session}
+        history={[prior]}
+        update={setSession}
+        finish={() => {}}
+        busy={false}
+      />
+    );
+  }
+  let v: any;
+  act(() => {
+    v = create(<Harness />);
+  });
+  try {
+    expect(button(v, 'Edit set 1 weight')!.props.accessibilityValue.text).toBe(
+      '60',
+    );
+    expect(
+      v.root.findByType(Workout).props.session.exercises[0].sets[0].completedAt,
+    ).toBeUndefined();
+    act(() => button(v, 'Complete set 1')!.props.onPress());
+    expect(
+      v.root.findByType(Workout).props.session.exercises[0].sets[0],
+    ).toMatchObject({
+      weight: '60',
+      reps: '10',
+      completedAt: expect.any(Number),
+    });
+  } finally {
+    act(() => v.unmount());
+  }
+});

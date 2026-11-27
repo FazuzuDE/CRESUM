@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'Dokončené cviky: {{count, number}}',
+  'workout.vsSimilar': '{{change}} oproti poslednímu srovnatelnému tréninku',
+  'workout.activeSet': 'Série {{index}} z {{count}}',
+  'workout.reusePrevious': 'Stejně jako minule',
   'workout.setWriteFailed': 'Změny série {{index}} zatím nejsou uložené',
   'workout.cardioStart': 'Spustit kardio',
   'workout.cardioPause': 'Pauza',

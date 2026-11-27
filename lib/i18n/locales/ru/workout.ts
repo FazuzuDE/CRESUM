@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'Выполнено упражнений: {{count, number}}',
+  'workout.vsSimilar': '{{change}} к прошлой аналогичной тренировке',
+  'workout.activeSet': 'Подход {{index}} из {{count}}',
+  'workout.reusePrevious': 'Как в прошлый раз',
   'workout.setWriteFailed': 'Изменения подхода {{index}} пока не сохранены',
   'workout.cardioStart': 'Начать кардио',
   'workout.cardioPause': 'Пауза',

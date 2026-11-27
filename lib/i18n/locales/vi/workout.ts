@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'Bài tập đã thực hiện: {{count, number}}',
+  'workout.vsSimilar': '{{change}} so với buổi tập tương tự gần nhất',
+  'workout.activeSet': 'Hiệp {{index}} trên {{count}}',
+  'workout.reusePrevious': 'Như lần trước',
   'workout.setWriteFailed': 'Các thay đổi ở hiệp {{index}} chưa được lưu',
   'workout.cardioStart': 'Bắt đầu cardio',
   'workout.cardioPause': 'Tạm dừng',

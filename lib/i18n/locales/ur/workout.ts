@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'مکمل ورزشیں: {{count, number}}',
+  'workout.vsSimilar': 'گزشتہ اسی طرح کی ٹریننگ کے مقابلے میں {{change}}',
+  'workout.activeSet': 'سیٹ {{index}} از {{count}}',
+  'workout.reusePrevious': 'پچھلی بار کی طرح',
   'workout.setWriteFailed': 'سیٹ {{index}} میں تبدیلیاں ابھی محفوظ نہیں ہوئیں',
   'workout.cardioStart': 'کارڈیو شروع کریں',
   'workout.cardioPause': 'وقفہ کریں',

@@ -418,5 +418,21 @@
     "context": "StringLiteral/PropertyAssignment:error/ObjectLiteralExpression/CallExpression/ExpressionStatement",
     "kind": "diagnostic",
     "reason": "Local set write diagnostic. The workout screen renders the localized error key."
+  },
+  {
+    "file": "components/AppButton.tsx",
+    "line": 60,
+    "text": "button",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:accessibilityRole/JsxAttributes",
+    "kind": "internal",
+    "reason": "React Native accessibility role."
+  },
+  {
+    "file": "components/AppButton.tsx",
+    "line": 60,
+    "text": "checkbox",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:accessibilityRole/JsxAttributes",
+    "kind": "internal",
+    "reason": "React Native accessibility role."
   }
 ]

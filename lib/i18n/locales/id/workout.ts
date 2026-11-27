@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'Latihan yang diselesaikan: {{count, number}}',
+  'workout.vsSimilar': '{{change}} dibanding sesi serupa terakhir',
+  'workout.activeSet': 'Set {{index}} dari {{count}}',
+  'workout.reusePrevious': 'Seperti terakhir kali',
   'workout.setWriteFailed': 'Perubahan pada set {{index}} belum disimpan',
   'workout.cardioStart': 'Mulai kardio',
   'workout.cardioPause': 'Jeda',

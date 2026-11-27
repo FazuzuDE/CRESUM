@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'Utförda övningar: {{count, number}}',
+  'workout.vsSimilar': '{{change}} jämfört med föregående jämförbara pass',
+  'workout.activeSet': 'Set {{index}} av {{count}}',
+  'workout.reusePrevious': 'Som förra gången',
   'workout.setWriteFailed': 'Ändringarna i set {{index}} har inte sparats än',
   'workout.cardioStart': 'Starta konditionsövningen',
   'workout.cardioPause': 'Pausa',

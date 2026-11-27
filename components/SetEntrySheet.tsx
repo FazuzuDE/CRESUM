@@ -63,9 +63,7 @@ export function SetEntrySheet({
       ? {}
       : { otherSideReps: set.otherSideReps }),
   }));
-  const [mode, setMode] = useState<'wheel' | 'keypad'>(
-    entryIsValid(set, libraryId) ? 'wheel' : 'keypad',
-  );
+  const [mode, setMode] = useState<'wheel' | 'keypad'>('wheel');
   const [error, setError] = useState(false),
     step = entryStep(libraryId),
     valid = entryIsValid(draft, libraryId),
@@ -106,11 +104,14 @@ export function SetEntrySheet({
           reps: formatEntryNumber(locale, value.reps),
           other: formatEntryNumber(locale, value.otherSideReps),
         });
-  const columns = keys.map((k) =>
-    k === 'weight' ? weightOptions(draft.weight, step) : repOptions(draft[k]!),
-  );
+  const columns = keys.map((k) => [
+    ...(!set[k]?.trim() || !draft[k]?.trim() ? [''] : []),
+    ...(k === 'weight'
+      ? weightOptions(draft.weight, step)
+      : repOptions(draft[k]!)),
+  ]);
   const displayColumns = columns.map((column) =>
-    column.map((value) => formatEntryNumber(locale, value)),
+    column.map((value) => (value ? formatEntryNumber(locale, value) : '—')),
   );
   const selected = keys.map((k, i) =>
     Math.max(0, columns[i].indexOf(draft[k]!.trim().replace(',', '.'))),
@@ -136,7 +137,7 @@ export function SetEntrySheet({
         setError(true);
         return;
       }
-      setDraft(normalizedEntry(initialized));
+      setDraft(normalizedEntry(draft));
       Keyboard.dismiss();
     }
     setMode(next);
@@ -338,7 +339,7 @@ export function SetEntrySheet({
                 </View>
               ))}
             </View>
-            {error || !valid ? (
+            {error || (!valid && keys.every((key) => draft[key]?.trim())) ? (
               <Text accessibilityRole="alert" style={s.error}>
                 {libraryId === 'bodyweight-step-up'
                   ? t('entry.errorStepUp')

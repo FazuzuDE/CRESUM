@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': '已完成动作：{{count, number}} 项',
+  'workout.vsSimilar': '较上次同类训练 {{change}}',
+  'workout.activeSet': '第 {{index}} 组，共 {{count}} 组',
+  'workout.reusePrevious': '沿用上次',
   'workout.setWriteFailed': '第 {{index}} 组的更改尚未保存',
   'workout.cardioStart': '开始有氧运动',
   'workout.cardioPause': '暂停',

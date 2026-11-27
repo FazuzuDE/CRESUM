@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'التمارين المنجزة: {{count, number}}',
+  'workout.vsSimilar': '{{change}} مقارنة بآخر تمرين مماثل',
+  'workout.activeSet': 'المجموعة {{index}} من {{count}}',
+  'workout.reusePrevious': 'مثل المرة السابقة',
   'workout.setWriteFailed': 'لم تُحفظ تغييرات المجموعة {{index}} بعد',
   'workout.cardioStart': 'ابدأ تمارين الكارديو',
   'workout.cardioPause': 'إيقاف مؤقت',

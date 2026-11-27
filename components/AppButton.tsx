@@ -25,6 +25,7 @@ export function AppButton({
   disabled = false,
   dimWhenDisabled = true,
   selected,
+  checked,
   destructive = false,
   presentation = 'button',
   wordmark = false,
@@ -42,6 +43,7 @@ export function AppButton({
   disabled?: boolean;
   dimWhenDisabled?: boolean;
   selected?: boolean;
+  checked?: boolean;
   destructive?: boolean;
   presentation?: 'button' | 'row' | 'text' | 'choice' | 'settings';
   wordmark?: boolean;
@@ -55,10 +57,11 @@ export function AppButton({
   const choice = presentation === 'choice';
   return (
     <Pressable
-      accessibilityRole="button"
+      accessibilityRole={checked === undefined ? 'button' : 'checkbox'}
       accessibilityLabel={accessibilityLabel}
       accessibilityState={{
         disabled,
+        ...(checked === undefined ? {} : { checked }),
         ...(selected === undefined ? {} : { selected }),
       }}
       disabled={disabled}

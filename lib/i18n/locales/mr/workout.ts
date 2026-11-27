@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'पूर्ण केलेले व्यायाम: {{count, number}}',
+  'workout.vsSimilar': 'मागील समान सत्राच्या तुलनेत {{change}}',
+  'workout.activeSet': 'संच {{index}} / {{count}}',
+  'workout.reusePrevious': 'मागील वेळेसारखे',
   'workout.setWriteFailed': 'सेट {{index}} मधील बदल अजून जतन झालेले नाहीत',
   'workout.cardioStart': 'कार्डिओ सुरू करा',
   'workout.cardioPause': 'विराम',

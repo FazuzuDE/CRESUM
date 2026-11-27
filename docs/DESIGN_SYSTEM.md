@@ -1401,6 +1401,19 @@ haptic. Pause is not implemented in Core and must not be implied by the UI.
 
 ### Workout save notifications
 
+Use the primary button style for Done on the saved-workout notification and for
+Retry on comparable app-owned notices. Keep cancel, navigation and destructive
+actions visually distinct. The saved summary uses a green check and shows time,
+exercises with logged work, and total load. Compare load with the most recent
+earlier workout from the same routine and exercise composition. Show the signed
+difference in weight and omit the percentage when prior volume is zero.
+
+The next incomplete set opens in a focused card with a direct Record set
+action. A comparable performed set can supply weight and repetitions. Applying
+an edit only changes draft values. The weight editor opens on the shared
+language-style wheel, including when the weight is unset. Keep an exact keypad
+option and accept zero only when explicitly selected or already planned.
+
 Show the workout save error and saved summary in a centered glass dialog. A
 failed set retains its editable values, displays a warning marker and remains
 outside completed progress until the local write succeeds. Retry writes the
