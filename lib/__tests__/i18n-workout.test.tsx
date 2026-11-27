@@ -128,6 +128,7 @@ it('keeps a real editor draft and rest deadline across language switches, then f
     byLabel('Start Upper Body').props.onPress();
   });
   act(() => byLabel('Edit set 1 weight').props.onPress());
+  act(() => byLabel('Use keypad').props.onPress());
   const weight = () =>
     view!.root.findByType(SetEntrySheet).findAllByType(TextInput)[0];
   act(() => weight().props.onChangeText('62,'));
