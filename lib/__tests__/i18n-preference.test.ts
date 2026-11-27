@@ -104,7 +104,11 @@ it.each([
   ['es-MX', 'es'],
   ['es-ES', 'es'],
   ['pt-BR', 'pt-BR'],
-  ['pt-PT', 'pt-BR'],
+  ['pt-PT', 'pt-PT'],
+  ['PT-pt', 'pt-PT'],
+  ['pt', 'pt-BR'],
+  ['pt-AO', 'pt-BR'],
+  ['pt-MZ', 'pt-BR'],
   ['it-IT', 'it'],
   ['it-CH', 'it'],
   ['pl-PL', 'pl'],
@@ -459,3 +463,31 @@ it('restores Czech after restart and switches between Urdu and the Czech device 
     'ltr',
   );
 });
+
+it.each(['pt-PT', 'pt-BR'] as const)(
+  'preserves manual %s across restarts and returns to the system Portuguese variant',
+  async (locale) => {
+    const { store, storage } = setup(null);
+    await store.load();
+    expect(await store.select('ur')).toBe(true);
+    expect(localeRegistry[store.getSnapshot().locale].direction).toBe('rtl');
+    expect(await store.select(locale)).toBe(true);
+    expect(localeRegistry[store.getSnapshot().locale].direction).toBe('ltr');
+
+    const other = locale === 'pt-PT' ? 'pt-BR' : 'pt-PT';
+    const restarted = new LocaleStore(storage, () => [other]);
+    await restarted.load();
+    expect(restarted.getSnapshot()).toMatchObject({
+      preference: locale,
+      locale,
+    });
+    expect(await restarted.select('system')).toBe(true);
+
+    const system = new LocaleStore(storage, () => [other]);
+    await system.load();
+    expect(system.getSnapshot()).toMatchObject({
+      preference: 'system',
+      locale: other,
+    });
+  },
+);

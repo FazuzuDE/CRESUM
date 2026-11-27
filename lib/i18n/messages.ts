@@ -320,6 +320,20 @@ import itOnboarding from './locales/it/onboarding';
 import itEditor from './locales/it/editor';
 import itProgramTechnique from './locales/it/program-technique';
 import itTechniqueContent from './locales/it/technique-content';
+import ptPTEquipment from './locales/pt-PT/equipment';
+import ptPTSharing from './locales/pt-PT/sharing';
+import ptPTProfile from './locales/pt-PT/profile';
+import ptPTCommon from './locales/pt-PT/common';
+import ptPTProgress from './locales/pt-PT/progress';
+import ptPTCatalog from './locales/pt-PT/catalog';
+import ptPTLibrary from './locales/pt-PT/library';
+import ptPTWorkout from './locales/pt-PT/workout';
+import ptPTHome from './locales/pt-PT/home';
+import ptPTHistory from './locales/pt-PT/history';
+import ptPTOnboarding from './locales/pt-PT/onboarding';
+import ptPTEditor from './locales/pt-PT/editor';
+import ptPTProgramTechnique from './locales/pt-PT/program-technique';
+import ptPTTechniqueContent from './locales/pt-PT/technique-content';
 import ptBREquipment from './locales/pt-BR/equipment';
 import ptBRSharing from './locales/pt-BR/sharing';
 import ptBRProfile from './locales/pt-BR/profile';
@@ -513,6 +527,22 @@ const es = {
   ...esEditor,
   ...esProgramTechnique,
   ...esTechniqueContent,
+} as const;
+const ptPT = {
+  ...ptPTEquipment,
+  ...ptPTSharing,
+  ...ptPTProfile,
+  ...ptPTProgress,
+  ...ptPTCommon,
+  ...ptPTCatalog,
+  ...ptPTLibrary,
+  ...ptPTWorkout,
+  ...ptPTHome,
+  ...ptPTHistory,
+  ...ptPTOnboarding,
+  ...ptPTEditor,
+  ...ptPTProgramTechnique,
+  ...ptPTTechniqueContent,
 } as const;
 const ptBR = {
   ...ptBREquipment,
@@ -908,6 +938,7 @@ export const catalogs = {
   fr,
   uk,
   es,
+  'pt-PT': ptPT,
   'pt-BR': ptBR,
   it,
   pl,

@@ -421,3 +421,22 @@ it('formats Czech dates and decimal commas using the existing weight parser', ()
     }),
   ).toBe('26. listopadu 2026');
 });
+
+it('uses Portuguese regional date and time formats and preserves exact decimal weights', () => {
+  expect(formatLocaleTag('pt-PT')).toBe('pt-PT');
+  expect(formatLocaleTag('pt-BR')).toBe('pt-BR');
+  for (const locale of ['pt-PT', 'pt-BR'] as const) {
+    expect(formatEntryNumber(locale, '62.50')).toBe('62,50');
+    const options = {
+      dateStyle: 'long',
+      timeStyle: 'short',
+      timeZone: 'UTC',
+    } as const;
+    const date = Date.UTC(2026, 10, 27, 18, 42);
+    expect(formatDate(locale, date, options)).toBe(
+      new Intl.DateTimeFormat(locale, options).format(date),
+    );
+  }
+  expect(normalizeDecimalInput('62,5')).toBe('62.5');
+  expect(normalizeDecimalInput('62.5')).toBe('62.5');
+});

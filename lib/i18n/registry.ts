@@ -68,6 +68,12 @@ export const localeRegistry = {
     direction: 'ltr',
     released: false,
   },
+  'pt-PT': {
+    flag: '🇵🇹',
+    nativeName: 'Português (Portugal)',
+    direction: 'ltr',
+    released: false,
+  },
   'pt-BR': {
     flag: '🇧🇷',
     nativeName: 'Português (Brasil)',
@@ -96,7 +102,8 @@ export function resolveLocale(
   for (const tag of deviceTags) {
     if (!/^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$/i.test(tag)) continue;
     const language = tag.split('-')[0].toLowerCase();
-    if (language === 'pt') return 'pt-BR';
+    if (language === 'pt')
+      return tag.toLowerCase() === 'pt-pt' ? 'pt-PT' : 'pt-BR';
     if (language === 'no') return 'nb';
     if (language === 'zh') {
       const parts = tag.toLowerCase().split('-');

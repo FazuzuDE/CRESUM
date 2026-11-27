@@ -7,6 +7,7 @@ import fr from './fr';
 import uk from './uk';
 import es from './es';
 import ptBR from './pt-BR';
+import ptPT from './pt-PT';
 import it from './it';
 import pl from './pl';
 import tr from './tr';
@@ -57,6 +58,7 @@ export const searchAliases: Record<AppLocale, SearchAliasCatalog> = {
   uk,
   es,
   'pt-BR': ptBR,
+  'pt-PT': ptPT,
   it,
   pl,
   tr,

@@ -46,6 +46,7 @@ it('opens at the effective language, stages wheel choices, and saves only with D
     '🇳🇴  Norsk bokmål',
     '🇵🇱  Polski',
     '🇧🇷  Português (Brasil)',
+    '🇵🇹  Português (Portugal)',
     '🇫🇮  Suomi',
     '🇸🇪  Svenska',
     '🇻🇳  Tiếng Việt',
