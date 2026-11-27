@@ -292,8 +292,13 @@ it('keeps today visually distinct even after completing a workout today', async 
     const style = StyleSheet.flatten(marker.props.style);
     expect(style.borderColor).toBe(colors.primary);
     expect(style.width).toBe(style.height);
-    const markers = view.root.findAllByProps({ testID: 'home-week-marker' });
-    expect(markers).toHaveLength(7);
+    const markers = view.root
+      .findAllByType(View)
+      .filter(
+        (node: { props: { testID?: string } }) =>
+          node.props.testID === 'home-week-marker',
+      );
+    expect(markers.length).toBe(7);
     for (const marker of markers) {
       const size = StyleSheet.flatten(marker.props.style);
       expect(size.width).toBe(size.height);
@@ -308,7 +313,7 @@ it('keeps today visually distinct even after completing a workout today', async 
   } finally {
     await act(async () => view.unmount());
   }
-}, 15_000);
+});
 
 it('keeps full long template names accessible in compact secondary actions', async () => {
   await AsyncStorage.clear();
