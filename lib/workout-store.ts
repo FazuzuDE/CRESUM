@@ -33,7 +33,10 @@ export type TemplateMutationResult =
   | { ok: true; template?: WorkoutTemplate }
   | { ok: false; error: string; code?: 'template_missing' };
 
+export type SetWriteMarker = { id: string; index: number };
+
 export class WorkoutStore {
+  private pendingSetData: WorkoutState | null = null;
   private listeners = new Set<() => void>();
   private revision = 0;
   private finishValidationError = '';
@@ -45,6 +48,7 @@ export class WorkoutStore {
     ready: false,
     busy: false,
     error: '',
+    pendingSet: null as SetWriteMarker | null,
   };
   constructor(private readonly repository: WorkoutRepository) {}
   getSnapshot = () => this.snapshot;
@@ -71,7 +75,8 @@ export class WorkoutStore {
     if (this.snapshot.busy) return;
     this.finishValidationError = '';
     this.finishValidationProblem = null;
-    this.publish({ busy: true, error: '' });
+    this.pendingSetData = null;
+    this.publish({ busy: true, error: '', pendingSet: null });
     try {
       const data = await this.repository.load();
       this.publish({ data, ready: true });
@@ -90,7 +95,7 @@ export class WorkoutStore {
   private persist(data: WorkoutState) {
     const revision = ++this.revision;
     this.publish({ data });
-    void this.repository.save(data).then(
+    return this.repository.save(data).then(
       () => {
         if (revision === this.revision)
           this.publish(
@@ -124,9 +129,11 @@ export class WorkoutStore {
       },
     );
   }
-  updateWorkout(transform: (session: WorkoutSession) => WorkoutSession) {
+  private nextWorkout(
+    transform: (session: WorkoutSession) => WorkoutSession,
+  ): WorkoutState | undefined {
     const { data, ready, busy } = this.snapshot;
-    if (!ready || busy || !data.activeWorkout) return;
+    if (!ready || busy || !data.activeWorkout || this.pendingSetData) return;
     const previous = data.activeWorkout;
     const next = transform(previous);
     const current = previous.exercises[previous.currentExerciseIndex];
@@ -142,7 +149,55 @@ export class WorkoutStore {
               : exercise,
           )
         : next.exercises;
-    this.persist({ ...data, activeWorkout: { ...next, exercises } });
+    return { ...data, activeWorkout: { ...next, exercises } };
+  }
+
+  updateWorkout(transform: (session: WorkoutSession) => WorkoutSession) {
+    const next = this.nextWorkout(transform);
+    if (next) void this.persist(next);
+  }
+
+  async recordSet(
+    transform: (session: WorkoutSession) => WorkoutSession,
+    marker: SetWriteMarker,
+  ): Promise<boolean> {
+    const next = this.nextWorkout(transform);
+    return next ? this.writeSet(next, marker) : false;
+  }
+
+  private async writeSet(data: WorkoutState, marker: SetWriteMarker) {
+    ++this.revision;
+    this.pendingSetData = data;
+    // Keep the previous progress visible until the queued write succeeds.
+    this.publish({ busy: true });
+    try {
+      await this.repository.save(data);
+      this.pendingSetData = null;
+      this.finishValidationError = '';
+      this.finishValidationProblem = null;
+      this.publish({ data, pendingSet: null, error: '' });
+      return true;
+    } catch {
+      this.publish(
+        {
+          pendingSet: marker,
+          error: 'Changes are not saved yet. Keep the app open and retry.',
+        },
+        'workout_unsaved',
+      );
+      return false;
+    } finally {
+      this.publish({ busy: false });
+    }
+  }
+
+  cancelSetWrite() {
+    const { busy, pendingSet, data } = this.snapshot;
+    if (busy || !pendingSet) return;
+    this.pendingSetData = null;
+    this.publish({ pendingSet: null, error: '' });
+    // The set stays in its original state, including any entered values.
+    void this.persist(data);
   }
   async removeExercises(
     expectedSessionId: string,
@@ -150,7 +205,12 @@ export class WorkoutStore {
     save: boolean,
   ) {
     const { data, ready, busy } = this.snapshot;
-    if (!ready || busy || data.activeWorkout?.id !== expectedSessionId)
+    if (
+      !ready ||
+      busy ||
+      this.pendingSetData ||
+      data.activeWorkout?.id !== expectedSessionId
+    )
       return false;
     const session = data.activeWorkout;
     ++this.revision;
@@ -192,6 +252,7 @@ export class WorkoutStore {
     if (
       !ready ||
       busy ||
+      this.pendingSetData ||
       !data.activeWorkout ||
       data.activeWorkout.id !== expectedSessionId
     )
@@ -415,7 +476,13 @@ export class WorkoutStore {
   async retry() {
     if (!this.snapshot.ready) return this.load();
     if (this.snapshot.busy) return;
-    this.persist(this.snapshot.data);
+    const { pendingSet, data } = this.snapshot;
+    if (pendingSet && this.pendingSetData)
+      return this.writeSet(
+        { ...data, activeWorkout: this.pendingSetData.activeWorkout },
+        pendingSet,
+      );
+    return this.persist(data);
   }
   waitForPendingWrites(): Promise<void> {
     return this.repository.waitForWrites();
@@ -494,10 +561,12 @@ export class WorkoutStore {
   }
   resetAfterLocalDataRemoval() {
     ++this.revision;
+    this.pendingSetData = null;
     this.finishValidationError = '';
     this.finishValidationProblem = null;
     this.publish({
       data: emptyWorkoutState(),
+      pendingSet: null,
       ready: true,
       busy: false,
       error: '',
@@ -505,7 +574,12 @@ export class WorkoutStore {
   }
   async discard(expectedSessionId: string): Promise<boolean> {
     const { data, ready, busy } = this.snapshot;
-    if (!ready || busy || data.activeWorkout?.id !== expectedSessionId)
+    if (
+      !ready ||
+      busy ||
+      this.pendingSetData ||
+      data.activeWorkout?.id !== expectedSessionId
+    )
       return false;
     const next = { ...data, activeWorkout: null };
     ++this.revision;
@@ -531,7 +605,7 @@ export class WorkoutStore {
   }
   async finish(): Promise<WorkoutSession | undefined> {
     const { data, ready, busy } = this.snapshot;
-    if (!ready || busy || !data.activeWorkout) return;
+    if (!ready || busy || !data.activeWorkout || this.pendingSetData) return;
     let completed: WorkoutSession;
     try {
       completed = finishWorkout(data.activeWorkout);

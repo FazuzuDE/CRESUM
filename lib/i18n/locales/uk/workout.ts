@@ -1,4 +1,5 @@
 export default {
+  'workout.setWriteFailed': 'Зміни в підході {{index}} ще не збережено',
   'workout.cardioStart': 'Почати кардіо',
   'workout.cardioPause': 'Пауза',
   'workout.cardioResume': 'Продовжити',

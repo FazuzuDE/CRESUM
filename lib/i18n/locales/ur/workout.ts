@@ -1,4 +1,5 @@
 export default {
+  'workout.setWriteFailed': 'سیٹ {{index}} میں تبدیلیاں ابھی محفوظ نہیں ہوئیں',
   'workout.cardioStart': 'کارڈیو شروع کریں',
   'workout.cardioPause': 'وقفہ کریں',
   'workout.cardioResume': 'جاری رکھیں',

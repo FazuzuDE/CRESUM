@@ -1,4 +1,6 @@
 export default {
+  'workout.setWriteFailed':
+    'Sarjan {{index}} muutoksia ei ole vielä tallennettu',
   'workout.cardioStart': 'Aloita kestävyysharjoittelu',
   'workout.cardioPause': 'Tauko',
   'workout.cardioResume': 'Jatka',

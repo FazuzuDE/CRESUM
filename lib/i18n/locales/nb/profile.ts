@@ -1,4 +1,5 @@
 export default {
+  'profile.notificationTransparency': 'Gjennomsiktighet for varsler',
   'profile.headerOpacity': 'Opasitet i toppfeltet',
   'profile.trainingSection': 'Økter',
   'profile.myWorkouts': 'Mine økter',

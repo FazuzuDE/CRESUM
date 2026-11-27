@@ -1,4 +1,5 @@
 export default {
+  'profile.notificationTransparency': 'सूचनांची पारदर्शकता',
   'profile.headerOpacity': 'हेडरची अपारदर्शकता',
   'profile.trainingSection': 'व्यायाम सत्रे',
   'profile.myWorkouts': 'माझी सत्रे',

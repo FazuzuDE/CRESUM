@@ -1,4 +1,6 @@
 export default {
+  'workout.setWriteFailed':
+    'Les modifications de la série {{index}} ne sont pas encore enregistrées',
   'workout.cardioStart': 'Démarrer le cardio',
   'workout.cardioPause': 'Pause',
   'workout.cardioResume': 'Reprendre',

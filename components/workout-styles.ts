@@ -113,6 +113,7 @@ export const useWorkoutStyles = createThemedStyles((colors) => ({
   check: { borderRadius: radius.md, backgroundColor: colors.surfaceSubtle },
   checked: { backgroundColor: colors.success },
   checkText: { ...typography.title2, color: colors.primary },
+  unsavedSet: { borderColor: colors.warning, borderWidth: 2 },
   checkedText: { color: colors.textPrimary },
   input: {
     ...typography.headline,

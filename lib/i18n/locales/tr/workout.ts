@@ -1,4 +1,6 @@
 export default {
+  'workout.setWriteFailed':
+    '{{index}}. setteki değişiklikler henüz kaydedilmedi',
   'workout.cardioStart': 'Kardiyoya başla',
   'workout.cardioPause': 'Duraklat',
   'workout.cardioResume': 'Devam et',

@@ -1,4 +1,5 @@
 export default {
+  'workout.setWriteFailed': 'సెట్ {{index}} మార్పులు ఇంకా సేవ్ కాలేదు',
   'workout.cardioStart': 'కార్డియో ప్రారంభించండి',
   'workout.cardioPause': 'పాజ్ చేయండి',
   'workout.cardioResume': 'కొనసాగించండి',

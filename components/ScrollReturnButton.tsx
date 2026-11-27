@@ -3,12 +3,19 @@ import {
   useAppColors,
 } from '@/components/AppThemeProvider';
 import { DirectionalIcon as Ionicons } from '@/components/LayoutDirection';
-import { Pressable } from 'react-native';
+import { createContext, useContext } from 'react';
+import { Platform, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { GlassMaterial, DEFAULT_GLASS_TRANSPARENCY } from './GlassMaterial';
+import { useReducedTransparency } from './useReducedTransparency';
 import { radius, spacing, cardShadow } from '@/lib/theme';
 import type { ScrollReturn } from './useScrollReturn';
 import { useLocalization } from './LocalizationProvider';
+
+export const ScrollReturnTransparency = createContext(
+  DEFAULT_GLASS_TRANSPARENCY,
+);
 
 export function ScrollReturnButton({
   control,
@@ -24,6 +31,10 @@ export function ScrollReturnButton({
   const colors = useAppColors();
   const s = useStyles();
   const { t } = useLocalization();
+  const transparency = useContext(ScrollReturnTransparency);
+  const reduceTransparency = useReducedTransparency(
+    control.visible && !disabled,
+  );
   if (!control.visible || disabled) return null;
   return (
     <SafeAreaView
@@ -40,6 +51,11 @@ export function ScrollReturnButton({
         style={({ pressed }) => [s.up, pressed && s.pressed]}
         onPress={control.jump}
       >
+        <GlassMaterial
+          borderRadius={radius.pill}
+          transparency={transparency}
+          solid={Platform.OS === 'ios' && reduceTransparency}
+        />
         <Ionicons
           name="arrow-up"
           size={24}
@@ -50,13 +66,12 @@ export function ScrollReturnButton({
     </SafeAreaView>
   );
 }
-const useStyles = createThemedStyles((colors) => ({
+const useStyles = createThemedStyles(() => ({
   anchor: { position: 'absolute', right: spacing.md },
   up: {
     width: 48,
     height: 48,
     borderRadius: radius.pill,
-    backgroundColor: colors.surface,
     alignItems: 'center',
     justifyContent: 'center',
     ...cardShadow,

@@ -1,4 +1,5 @@
 export default {
+  'workout.setWriteFailed': 'Ændringer i sæt {{index}} er endnu ikke gemt',
   'workout.cardioStart': 'Start konditionstræning',
   'workout.cardioPause': 'Sæt på pause',
   'workout.cardioResume': 'Genoptag',

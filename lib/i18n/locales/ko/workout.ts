@@ -1,4 +1,6 @@
 export default {
+  'workout.setWriteFailed':
+    '{{index}}번째 세트의 변경 사항이 아직 저장되지 않았습니다',
   'workout.cardioStart': '유산소 운동 시작',
   'workout.cardioPause': '일시 정지',
   'workout.cardioResume': '재개',

@@ -1,3 +1,6 @@
+import { GlassDialog } from '@/components/GlassDialog';
+import { ContentScrollView } from '@/components/ContentScrollView';
+import { ScrollReturnTransparency } from '@/components/ScrollReturnButton';
 import { waitForCardioWrites } from '@/lib/cardio-timer';
 import {
   createThemedStyles,
@@ -437,11 +440,18 @@ function AppContent({
   const [store] = useState(
     () => new WorkoutStore(new WorkoutRepository(AsyncStorage)),
   );
-  const { data, ready, busy, error } = useSyncExternalStore(
+  const { data, ready, busy, error, pendingSet } = useSyncExternalStore(
     store.subscribe,
     store.getSnapshot,
   );
   const errorProblems = store.getErrorProblems();
+  const workoutWriteError = errorProblems.some(
+    (problem) =>
+      problem instanceof AppError &&
+      (problem.code === 'workout_unsaved' ||
+        problem.code === 'workout_load_failed'),
+  );
+
   const workoutError = error
     ? errorProblems.length
       ? errorProblems
@@ -471,6 +481,10 @@ function AppContent({
   const dockGlass = useGlassTransparency(
     DOCK_TRANSPARENCY_KEY,
     DEFAULT_DOCK_TRANSPARENCY,
+  );
+  const notificationGlass = useGlassTransparency(
+    'cresum.notificationTransparency',
+    DEFAULT_GLASS_TRANSPARENCY,
   );
   const headerGlass = useGlassTransparency(
     'cresum.headerTransparency',
@@ -1245,15 +1259,53 @@ function AppContent({
           setResetError(undefined);
         }}
       />
+      {tab === 'progress' && summary ? (
+        <GlassDialog
+          transparency={notificationGlass.value}
+          onClose={() => setSummary(null)}
+        >
+          <ContentScrollView
+            style={s.notificationScroll}
+            contentContainerStyle={s.notificationContent}
+          >
+            <Text accessibilityRole="header" style={s.h3}>
+              {t('workout.saved')}
+            </Text>
+            <Text style={s.sub}>
+              {t('workout.savedSummary', {
+                count: completedSetCount(summary),
+                volume: formatNumber(locale, volume(summary)),
+                time: duration(
+                  (summary.finishedAt ?? summary.startedAt) - summary.startedAt,
+                ),
+              })}
+            </Text>
+            <AppButton
+              title={t('common.done')}
+              secondary
+              onPress={() => setSummary(null)}
+            />
+          </ContentScrollView>
+        </GlassDialog>
+      ) : null}
       <Confirmation
         visible={confirmFinish}
+        transparency={notificationGlass.value}
         title={t('workout.finishTitle')}
         message={
           data.activeWorkout && workoutIsComplete(data.activeWorkout)
             ? t('workout.finishFull')
             : t('workout.finishPartial')
         }
-        confirmLabel={t('workout.finishSave')}
+        confirmLabel={
+          errorProblems.some(
+            (problem) =>
+              problem instanceof AppError &&
+              problem.code === 'workout_save_failed',
+          )
+            ? t('common.retry')
+            : t('workout.finishSave')
+        }
         cancelLabel={t('workout.keepTraining')}
         busy={busy}
         error={workoutError}
@@ -1302,7 +1354,49 @@ function AppContent({
           />
         </SafeAreaView>
       ) : null}
-      {error ? (
+      {error &&
+      workoutWriteError &&
+      !confirmFinish &&
+      discardSessionId === null ? (
+        <GlassDialog
+          transparency={notificationGlass.value}
+          onClose={() => store.cancelSetWrite()}
+        >
+          <ContentScrollView
+            style={s.notificationScroll}
+            contentContainerStyle={s.notificationContent}
+          >
+            {pendingSet ? (
+              <Text accessibilityRole="header" style={s.h3}>
+                {t('workout.setWriteFailed', { index: pendingSet.index })}
+              </Text>
+            ) : null}
+            <Text accessibilityRole="alert" style={s.sub}>
+              {workoutError}
+            </Text>
+            <AppButton
+              title={
+                pendingSet ? t('common.retry') : t('workout.retrySaveLoad')
+              }
+              secondary
+              disabled={busy}
+              onPress={() => void store.retry()}
+            />
+            {pendingSet ? (
+              <AppButton
+                title={t('workout.keepTraining')}
+                secondary
+                disabled={busy}
+                onPress={() => store.cancelSetWrite()}
+              />
+            ) : null}
+          </ContentScrollView>
+        </GlassDialog>
+      ) : null}
+      {error &&
+      !workoutWriteError &&
+      !confirmFinish &&
+      discardSessionId === null ? (
         <SafeAreaView
           edges={['top']}
           style={s.notice}
@@ -1313,9 +1407,7 @@ function AppContent({
             title={t('workout.retrySaveLoad')}
             secondary
             disabled={busy}
-            onPress={() => {
-              void store.retry();
-            }}
+            onPress={() => void store.retry()}
           />
         </SafeAreaView>
       ) : null}
@@ -1484,6 +1576,10 @@ function AppContent({
                 }
               }}
               update={(transform) => store.updateWorkout(transform)}
+              recordSet={(transform, marker) =>
+                store.recordSet(transform, marker)
+              }
+              pendingSet={pendingSet}
               removeExercises={(id, exerciseIds, save) =>
                 store.removeExercises(id, exerciseIds, save)
               }
@@ -1504,26 +1600,6 @@ function AppContent({
           ) : null}
           {progressVisited ? (
             <RetainedProgressPane active={tab === 'progress'}>
-              {tab === 'progress' && summary && (
-                <SafeAreaView edges={['top']} style={s.notice}>
-                  <Text style={s.h3}>{t('workout.saved')}</Text>
-                  <Text style={s.sub}>
-                    {t('workout.savedSummary', {
-                      count: completedSetCount(summary),
-                      volume: formatNumber(locale, volume(summary)),
-                      time: duration(
-                        (summary.finishedAt ?? summary.startedAt) -
-                          summary.startedAt,
-                      ),
-                    })}
-                  </Text>
-                  <AppButton
-                    title={t('common.done')}
-                    secondary
-                    onPress={() => setSummary(null)}
-                  />
-                </SafeAreaView>
-              )}
               <Stats
                 active={tab === 'progress'}
                 section={progressSection}
@@ -1592,6 +1668,7 @@ function AppContent({
           >
             <ProfileSettings
               dockTransparency={dockGlass.value}
+              notificationTransparency={notificationGlass}
               headerOpacity={100 - headerGlass.value}
               onHeaderOpacityChange={(value) =>
                 headerGlass.preview(100 - value)
@@ -1716,7 +1793,9 @@ function AppContent({
       }}
     >
       <HeaderTransparency.Provider value={headerGlass.value}>
-        {content}
+        <ScrollReturnTransparency.Provider value={dockGlass.value}>
+          {content}
+        </ScrollReturnTransparency.Provider>
       </HeaderTransparency.Provider>
     </ExerciseCharacterProvider>
   );
@@ -1735,6 +1814,8 @@ const useStyles = createThemedStyles((colors) => ({
     alignSelf: 'center',
   },
   notice: { padding: spacing.md, gap: spacing.xs },
+  notificationScroll: { flexGrow: 0, flexShrink: 1 },
+  notificationContent: { gap: spacing.sm },
   empty: {
     flex: 1,
     alignItems: 'center',

@@ -1,4 +1,5 @@
 export default {
+  'workout.setWriteFailed': 'ยังไม่ได้บันทึกการเปลี่ยนแปลงของเซตที่ {{index}}',
   'workout.cardioStart': 'เริ่มคาร์ดิโอ',
   'workout.cardioPause': 'พัก',
   'workout.cardioResume': 'ทำต่อ',

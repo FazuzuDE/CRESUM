@@ -1,4 +1,5 @@
 export default {
+  'workout.setWriteFailed': 'セット{{index}}の変更はまだ保存されていません',
   'workout.cardioStart': '有酸素運動を開始',
   'workout.cardioPause': '一時停止',
   'workout.cardioResume': '再開',

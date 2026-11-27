@@ -1,4 +1,5 @@
 export default {
+  'workout.setWriteFailed': 'Perubahan pada set {{index}} belum disimpan',
   'workout.cardioStart': 'Mulai kardio',
   'workout.cardioPause': 'Jeda',
   'workout.cardioResume': 'Lanjutkan',

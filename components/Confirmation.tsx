@@ -17,6 +17,7 @@ export function Confirmation({
   error,
   destructive = false,
   opaque = false,
+  transparency,
   onConfirm,
   onCancel,
 }: {
@@ -30,6 +31,7 @@ export function Confirmation({
   error?: string;
   destructive?: boolean;
   opaque?: boolean;
+  transparency?: number;
   onConfirm: () => void;
   onCancel: () => void;
 }) {
@@ -39,6 +41,7 @@ export function Confirmation({
     <GlassDialog
       visible={visible}
       opaque={opaque}
+      transparency={transparency}
       onClose={() => {
         if (!busy) onCancel();
       }}

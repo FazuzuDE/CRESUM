@@ -1,4 +1,5 @@
 export default {
+  'workout.setWriteFailed': 'لم تُحفظ تغييرات المجموعة {{index}} بعد',
   'workout.cardioStart': 'ابدأ تمارين الكارديو',
   'workout.cardioPause': 'إيقاف مؤقت',
   'workout.cardioResume': 'متابعة',

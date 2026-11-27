@@ -1,4 +1,5 @@
 export default {
+  'workout.setWriteFailed': '第 {{index}} 组的更改尚未保存',
   'workout.cardioStart': '开始有氧运动',
   'workout.cardioPause': '暂停',
   'workout.cardioResume': '继续',

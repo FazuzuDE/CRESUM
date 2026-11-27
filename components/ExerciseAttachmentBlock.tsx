@@ -17,6 +17,7 @@ import {
 import { spacing } from '@/lib/theme';
 export function ExerciseAttachmentBlock({
   session,
+  pendingSetId,
   index,
   history,
   busy,
@@ -27,6 +28,7 @@ export function ExerciseAttachmentBlock({
   onRemove,
 }: {
   session: WorkoutSession;
+  pendingSetId?: string;
   index: number;
   history: WorkoutSession[];
   busy: boolean;
@@ -235,11 +237,12 @@ export function ExerciseAttachmentBlock({
                 s.target,
                 s.check,
                 done && s.checked,
+                pendingSetId === set.id && s.unsavedSet,
                 (pressed || busy) && s.dim,
               ]}
             >
               <Text style={[s.checkText, done && s.checkedText]}>
-                {done ? '✓' : '○'}
+                {pendingSetId === set.id ? '!' : done ? '✓' : '○'}
               </Text>
             </Pressable>
           </View>

@@ -1,4 +1,5 @@
 export default {
+  'profile.notificationTransparency': 'Ilmoitusten läpinäkyvyys',
   'profile.headerOpacity': 'Yläpalkin peittävyys',
   'profile.trainingSection': 'Treenit',
   'profile.myWorkouts': 'Omat treenit',

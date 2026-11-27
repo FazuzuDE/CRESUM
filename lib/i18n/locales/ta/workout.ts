@@ -1,4 +1,6 @@
 export default {
+  'workout.setWriteFailed':
+    'செட் {{index}}-இல் செய்த மாற்றங்கள் இன்னும் சேமிக்கப்படவில்லை',
   'workout.cardioStart': 'கார்டியோவைத் தொடங்கு',
   'workout.cardioPause': 'இடைநிறுத்து',
   'workout.cardioResume': 'தொடர்',
