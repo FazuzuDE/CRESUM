@@ -135,6 +135,7 @@ function PrimaryWorkoutWidget({
     context?: string;
     title: string;
     meta?: string;
+    preview?: string;
     imageKey?: string;
     action: string;
     progress?: number;
@@ -168,6 +169,7 @@ function PrimaryWorkoutWidget({
             {state.title}
           </Text>
           {state.meta ? <Text style={s.meta}>{state.meta}</Text> : null}
+          {state.preview ? <Text style={s.sub}>{state.preview}</Text> : null}
         </View>
         {showArt && state.imageKey ? (
           <ExerciseArtwork imageKey={state.imageKey} size={112} />
@@ -649,6 +651,7 @@ export function HomeDashboard({
         presentation.count,
         t('home.planned', { count: featured.plannedSetCount }),
       ].join(' · '),
+      preview: program ? undefined : presentation.preview,
       imageKey,
       action:
         program && !program.isToday

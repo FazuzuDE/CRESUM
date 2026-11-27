@@ -111,7 +111,7 @@ it('renders the established Home modules in stable grid order', async () => {
   expect(
     grid.props.items.every((item: { size: string }) => item.size === 'medium'),
   ).toBe(true);
-  expect(visibleText(view)).toContain('A good day for progress.');
+  expect(visibleText(view)).toContain('Tuesday, November 14');
   expect(visibleText(view)).toContain('TRAIN. TRACK. GROW.');
   expect(visibleText(view)).toContain('Your week');
   await act(async () => view.unmount());
@@ -125,8 +125,10 @@ it('shows CRESUM, a prominent template action, and truthful empty training stats
   expect(visibleText(view)).toContain('CRESUM');
   expect(visibleText(view)).not.toContain('FITFLOW CORE');
   expect(visibleText(view)).toContain('No completed workouts yet');
-  expect(visibleText(view)).toContain('Total volume');
-  expect(visibleText(view)).toContain('Last 4 weeks');
+  expect(visibleText(view)).toContain(
+    'Finish your first workout to see it here.',
+  );
+  expect(visibleText(view)).not.toContain('0 kg');
   expect(button(view, 'Start Upper Body')).toBeDefined();
   expect(view.root.findByType(Dock).props.active).toBe('home');
 
@@ -196,7 +198,7 @@ it('uses a truthful singular summary after the first completed workout', async (
   );
   const view = await renderApp();
 
-  expect(visibleText(view)).toContain('1 completed workout · saved locally');
+  expect(visibleText(view)).toContain('1 completed workout');
   expect(visibleText(view)).not.toContain('1 completed workouts');
   act(() => view.unmount());
 });
@@ -395,7 +397,7 @@ it('opens the full month above the workout and shows actual saved sessions for a
         .find((node: any) => node.props.accessibilityLabel === 'Close calendar')
         .props.onPress(),
     );
-    expect(button(view, 'Start Upper Body')).toBeDefined();
+    expect(button(view, 'Workout details')).toBeDefined();
   } finally {
     await act(async () => view.unmount());
   }
