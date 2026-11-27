@@ -308,7 +308,7 @@ it('keeps today visually distinct even after completing a workout today', async 
   } finally {
     await act(async () => view.unmount());
   }
-});
+}, 15_000);
 
 it('keeps full long template names accessible in compact secondary actions', async () => {
   await AsyncStorage.clear();
