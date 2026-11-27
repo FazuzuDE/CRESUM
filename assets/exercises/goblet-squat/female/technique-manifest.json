@@ -7,16 +7,16 @@
     "start": {
       "file": "start.webp",
       "cropBox": [0, 0, 768, 1024],
-      "sha256": "09846a5077881202edfc62cd7b8792160fab4bca79d38d9e54741f06abe55c03",
-      "bytes": 29342,
+      "sha256": "783b67939bf92296d661399ddc27fcba4d9d7c066f825558886e7462a36cf5f3",
+      "bytes": 120914,
       "width": 768,
       "height": 1024
     },
     "finish": {
       "file": "finish.webp",
       "cropBox": [768, 0, 1536, 1024],
-      "sha256": "9251e8c23cf285b6331fa77a64784dccd1066a7361c3e4e6b7def011238d65b3",
-      "bytes": 27200,
+      "sha256": "4c60d5021e1e63324dab85d2d158bac5f918b2ba8c554252f5cc5eb8ef82b1c9",
+      "bytes": 118896,
       "width": 768,
       "height": 1024
     }
@@ -36,10 +36,36 @@
   "export": {
     "format": "WebP",
     "mode": "RGB",
-    "quality": 92,
+    "lossless": true,
     "method": 6,
     "resampling": "none"
   },
   "reviewScope": "User approved female character and dumbbell goblet squat pair. Exact half-sheet crops retain identity, clothing and phase semantics. Detailed palm/dumbbell contact, depth, rigid registration and physical-device/accessibility acceptance are not independently certified. Not a kettlebell variant.",
-  "archiveStatus": "pending-upload"
+  "archiveStatus": "pending-upload",
+  "presentation": "Default square contain in the exercise list, inline viewer, and full-screen viewer. Framing is baked into the exports.",
+  "framingUpdate": {
+    "date": "2026-11-27",
+    "input": "Previously shipped WebP. Recorded higher-resolution originals were unavailable for this revision.",
+    "operation": "Whole-frame horizontal translation with neutral edge extension. No resampling.",
+    "outputEncoding": "Lossless WebP, RGB, method 6, original pixel dimensions.",
+    "phases": {
+      "start": {
+        "inputSha256": "09846a5077881202edfc62cd7b8792160fab4bca79d38d9e54741f06abe55c03",
+        "inputBytes": 29342,
+        "translateXPx": -93
+      },
+      "finish": {
+        "inputSha256": "9251e8c23cf285b6331fa77a64784dccd1066a7361c3e4e6b7def011238d65b3",
+        "inputBytes": 27200,
+        "translateXPx": 93
+      }
+    },
+    "previousExport": {
+      "format": "WebP",
+      "mode": "RGB",
+      "quality": 92,
+      "method": 6,
+      "resampling": "none"
+    }
+  }
 }

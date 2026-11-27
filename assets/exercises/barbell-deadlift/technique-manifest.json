@@ -12,8 +12,8 @@
       "sourceSha256": "6937af8715d1aa9fa30ab7800115de1c8fd28be9e5c3cc583c558ad6d902f45e",
       "sourceBytes": 1517394,
       "sourceSize": [1536, 1024],
-      "sha256": "84a3d2909857d71ea42982ca82c3ac258d061b501aabe22a22de0c200657be0d",
-      "bytes": 32590,
+      "sha256": "91c3eb32ea7bea5b42ab4c6242dd662a847fe1a8b60af3347a4b09d89310601e",
+      "bytes": 160790,
       "width": 1280,
       "height": 853
     },
@@ -23,23 +23,14 @@
       "sourceSha256": "ea363706afde62b4b891481d40d90ba437025771f27e6afd8269cdbe21f74784",
       "sourceBytes": 1467021,
       "sourceSize": [1536, 1024],
-      "sha256": "fcd56f694106e4a2cb70c611e4d4279bc68c43aa40983bea638fe3bf22ee9735",
-      "bytes": 34300,
+      "sha256": "5a739f8af983e8737a9befeb2248df41b392c222b43b3cbe7fbf2f6ea0912966",
+      "bytes": 169438,
       "width": 1280,
       "height": 853
     }
   },
   "productionChoice": "Conventional floor deadlift with double-overhand grip and one full-size dark plate per side on a silver bar; visual example, not new canonical grip/load/model constraints.",
-  "presentation": {
-    "frame": "Shared square contain, inline and expanded",
-    "start": "default",
-    "finish": {
-      "top": "-2.1484%",
-      "scale": 1
-    },
-    "calibration": "Whole image shifted up by approximately 33/1536 of square width: selected source near shoe baseline START ~866, FINISH ~899. Preserves source geometry and relative body/equipment scale.",
-    "residual": "Small shoe orientation/bar projection differences remain; not pixel-identical camera reconstruction."
-  },
+  "presentation": "Default square contain in the exercise list, inline viewer, and full-screen viewer. Framing is baked into the exports.",
   "generation": {
     "tool": "built-in image_gen",
     "promptFile": "generation-prompts.json",
@@ -56,10 +47,45 @@
   "export": {
     "format": "WebP",
     "mode": "RGB",
-    "maxWidth": 1280,
-    "maxHeight": 1280,
-    "resampling": "LANCZOS",
-    "quality": 92,
-    "method": 6
+    "lossless": true,
+    "method": 6,
+    "resampling": "LANCZOS"
+  },
+  "previousPresentation": {
+    "frame": "Shared square contain, inline and expanded",
+    "start": "default",
+    "finish": {
+      "top": "-2.1484%",
+      "scale": 1
+    },
+    "calibration": "Whole image shifted up by approximately 33/1536 of square width: selected source near shoe baseline START ~866, FINISH ~899. Preserves source geometry and relative body/equipment scale.",
+    "residual": "Small shoe orientation/bar projection differences remain; not pixel-identical camera reconstruction."
+  },
+  "framingUpdate": {
+    "date": "2026-11-27",
+    "input": "Previously shipped WebP. Recorded higher-resolution originals were unavailable for this revision.",
+    "operation": "Uniform crop and high-quality resampling of the whole scene with no pose or equipment edits.",
+    "outputEncoding": "Lossless WebP, RGB, method 6, original pixel dimensions.",
+    "phases": {
+      "start": {
+        "inputSha256": "84a3d2909857d71ea42982ca82c3ac258d061b501aabe22a22de0c200657be0d",
+        "inputBytes": 32590,
+        "inputCropBoxPx": [58.78077, 10.0, 1181.21923, 758.0]
+      },
+      "finish": {
+        "inputSha256": "fcd56f694106e4a2cb70c611e4d4279bc68c43aa40983bea638fe3bf22ee9735",
+        "inputBytes": 34300,
+        "inputCropBoxPx": [58.78077, 37.49952, 1181.21923, 785.49952]
+      }
+    },
+    "previousExport": {
+      "format": "WebP",
+      "mode": "RGB",
+      "maxWidth": 1280,
+      "maxHeight": 1280,
+      "resampling": "LANCZOS",
+      "quality": 92,
+      "method": 6
+    }
   }
 }

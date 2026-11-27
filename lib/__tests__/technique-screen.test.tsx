@@ -590,7 +590,7 @@ it('allows disclosure labels to wrap beside their indicator at larger text sizes
   }
 });
 
-it('keeps deadlift FINISH uniformly aligned in both viewers and resets placement for START', () => {
+it('renders both registered deadlift exports in one fixed contain frame', () => {
   const v = render();
   const images = (phase: string) =>
     v.root
@@ -609,8 +609,8 @@ it('keeps deadlift FINISH uniformly aligned in both viewers and resets placement
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
     expect(images('FINISH')).toHaveLength(2);
     const inlineStyle = StyleSheet.flatten(images('FINISH')[0].props.style);
-    expect(parseFloat(String(inlineStyle.top))).toBeLessThan(0);
     expect(inlineStyle).toMatchObject({
+      top: 0,
       left: 0,
       width: '100%',
       height: '100%',

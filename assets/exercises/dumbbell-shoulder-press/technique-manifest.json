@@ -11,8 +11,8 @@
       "sourceSha256": "58dbdd03d1ffcef1712e8931a7ef194b6161df06b9c832d3185b111e5ba52dac",
       "sourceBytes": 1510588,
       "sourceSize": [1536, 1024],
-      "sha256": "6f2d4271ced155af4ee47896ca050cbddb0550e43f8de5d9a87b8f1138b52801",
-      "bytes": 30010,
+      "sha256": "a807839a83ecd9828b7c2b5e56a2eb2e91524a51761a2c62da88522ce9442426",
+      "bytes": 160110,
       "width": 1280,
       "height": 853
     },
@@ -22,14 +22,14 @@
       "sourceSha256": "7de03c24846a147c56e878059ea2b0663370c9dbbb2ce125b0d8d4633a45bfbc",
       "sourceBytes": 1562858,
       "sourceSize": [1536, 1024],
-      "sha256": "655d345eb571bc275191d649d08c89f4f89a56e516f853ead9c71f77db681a38",
-      "bytes": 33334,
+      "sha256": "63d61abda54b9f69f0440f1d8972b2f7e846b394443bc6ca8bf9f3e916caff6a",
+      "bytes": 169296,
       "width": 1280,
       "height": 853
     }
   },
   "productionChoice": "Supported seated dumbbell press is an existing stability adaptation; depicted bench/grip do not narrow generic standing/seated exercise identity.",
-  "presentation": "Default shared square contain, both viewers; exact sources, no retouch/placement transform.",
+  "presentation": "Default square contain in the exercise list, inline viewer, and full-screen viewer. Framing is baked into the exports.",
   "generation": {
     "tool": "built-in image_gen",
     "promptFile": "generation-prompts.json",
@@ -42,10 +42,36 @@
   "export": {
     "format": "WebP",
     "mode": "RGB",
-    "maxWidth": 1280,
-    "maxHeight": 1280,
-    "resampling": "LANCZOS",
-    "quality": 92,
-    "method": 6
+    "lossless": true,
+    "method": 6,
+    "resampling": "LANCZOS"
+  },
+  "previousPresentation": "Default shared square contain, both viewers; exact sources, no retouch/placement transform.",
+  "framingUpdate": {
+    "date": "2026-11-27",
+    "input": "Previously shipped WebP. Recorded higher-resolution originals were unavailable for this revision.",
+    "operation": "Uniform crop and high-quality resampling of the whole scene with no pose or equipment edits.",
+    "outputEncoding": "Lossless WebP, RGB, method 6, original pixel dimensions.",
+    "phases": {
+      "start": {
+        "inputSha256": "6f2d4271ced155af4ee47896ca050cbddb0550e43f8de5d9a87b8f1138b52801",
+        "inputBytes": 30010,
+        "inputCropBoxPx": [92.78664, 70.0, 1185.21336, 798.0]
+      },
+      "finish": {
+        "inputSha256": "655d345eb571bc275191d649d08c89f4f89a56e516f853ead9c71f77db681a38",
+        "inputBytes": 33334,
+        "inputCropBoxPx": [92.78664, 70.0, 1185.21336, 798.0]
+      }
+    },
+    "previousExport": {
+      "format": "WebP",
+      "mode": "RGB",
+      "maxWidth": 1280,
+      "maxHeight": 1280,
+      "resampling": "LANCZOS",
+      "quality": 92,
+      "method": 6
+    }
   }
 }
