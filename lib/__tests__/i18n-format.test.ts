@@ -405,3 +405,19 @@ it('formats Danish dates and accepts both decimal marks without accepting groupe
     }),
   ).toBe('26. november 2026');
 });
+
+it('formats Czech dates and decimal commas using the existing weight parser', () => {
+  expect(formatLocaleTag('cs')).toBe('cs-CZ');
+  expect(formatEntryNumber('cs', '62.50')).toBe('62,50');
+  expect(normalizeDecimalInput('62,50')).toBe('62.50');
+  expect(normalizeDecimalInput('62.50')).toBe('62.50');
+  expect(normalizeDecimalInput('1.234,5')).toBeNull();
+  expect(
+    formatDate('cs', Date.UTC(2026, 10, 26), {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC',
+    }),
+  ).toBe('26. listopadu 2026');
+});

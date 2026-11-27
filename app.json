@@ -2,7 +2,7 @@
   "expo": {
     "name": "CRESUM",
     "slug": "cresum",
-    "version": "0.3.39",
+    "version": "0.3.40",
     "orientation": "portrait",
     "scheme": ["cresum", "fitflow"],
     "userInterfaceStyle": "automatic",
@@ -38,6 +38,7 @@
     "locales": {
       "nb": "./lib/i18n/locales/nb/native.json",
       "fi": "./lib/i18n/locales/fi/native.json",
+      "cs": "./lib/i18n/locales/cs/native.json",
       "da": "./lib/i18n/locales/da/native.json"
     }
   }

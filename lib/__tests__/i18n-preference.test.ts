@@ -431,3 +431,31 @@ it('restores Danish after restart and switches between Urdu and the Danish devic
     'ltr',
   );
 });
+
+it('restores Czech after restart and switches between Urdu and the Czech device locale', async () => {
+  const { store, storage } = setup(null);
+  await store.load();
+  expect(await store.select('cs')).toBe(true);
+  const restarted = new LocaleStore(storage, () => ['ur-PK']);
+  await restarted.load();
+  expect(restarted.getSnapshot()).toMatchObject({
+    preference: 'cs',
+    locale: 'cs',
+  });
+  expect(localeRegistry[restarted.getSnapshot().locale].direction).toBe('ltr');
+  expect(await restarted.select('system')).toBe(true);
+  expect(restarted.getSnapshot()).toMatchObject({
+    preference: 'system',
+    locale: 'ur',
+  });
+  expect(localeRegistry[restarted.getSnapshot().locale].direction).toBe('rtl');
+  const czechDevice = new LocaleStore(storage, () => ['cs-CZ']);
+  await czechDevice.load();
+  expect(czechDevice.getSnapshot()).toMatchObject({
+    preference: 'system',
+    locale: 'cs',
+  });
+  expect(localeRegistry[czechDevice.getSnapshot().locale].direction).toBe(
+    'ltr',
+  );
+});

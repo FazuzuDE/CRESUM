@@ -306,3 +306,17 @@ it('selects Danish singular and plural phrases', () => {
   expect(t('history.lastCount', { count: 1 })).toBe('Seneste 1 træning');
   expect(t('history.lastCount', { count: 2 })).toBe('Seneste 2 træninger');
 });
+
+it('resolves Czech device tags and uses one, few, other and many', () => {
+  expect(resolveLocale('system', ['cs'])).toBe('cs');
+  expect(resolveLocale('system', ['cs-CZ'])).toBe('cs');
+  expect(resolveLocale('system', ['sk-SK', 'de-DE'])).toBe('de');
+  expect(resolveLocale('system', ['sk'])).toBe('en');
+
+  const t = createTranslator('cs');
+  expect(t('library.count', { count: 1 })).toBe('1 cvik');
+  expect(t('library.count', { count: 2 })).toBe('2 cviky');
+  expect(t('library.count', { count: 4 })).toBe('4 cviky');
+  expect(t('library.count', { count: 5 })).toBe('5 cviků');
+  expect(t('library.count', { count: 1.5 })).toBe('1,5 cviku');
+});

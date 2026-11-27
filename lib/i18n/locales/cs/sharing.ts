@@ -1,0 +1,76 @@
+export default {
+  'sharing.editCopy': 'Změny vestavěného plánu se uloží do vaší vlastní kopie.',
+  'sharing.manage': 'Správa tréninků',
+  'sharing.title': 'Tréninkové plány',
+  'sharing.mine': 'Moje plány',
+  'sharing.library': 'Knihovna plánů',
+  'sharing.start': 'Zahájit trénink',
+  'sharing.share': 'Sdílet plán',
+  'sharing.addStart': 'Přidat a začít',
+  'sharing.save': 'Uložit na později',
+  'sharing.saved': 'Uloženo do vašich plánů.',
+  'sharing.copy': 'Upravitelná kopie zůstává dostupná i bez internetu.',
+  'sharing.active':
+    'Právě probíhá trénink. Uložte tento plán na později nebo pokračujte v tréninku.',
+  'sharing.continue': 'Pokračovat v tréninku',
+  'sharing.another': 'Vytvořit další kopii',
+  'sharing.error':
+    'Akci se nepodařilo dokončit. Uložená data jsou v bezpečí. Zkuste to znovu.',
+  'sharing.unavailable':
+    'Tento plán je nedostupný nebo nekompatibilní. Zkontrolujte odkaz nebo aktualizujte aplikaci.',
+  'sharing.back': 'Zpět',
+  'sharing.loading': 'Načítání plánu…',
+  'sharing.sets': {
+    one: '{{count}} série',
+    few: '{{count}} série',
+    other: '{{count}} sérií',
+    many: '{{count}} série',
+  },
+  'sharing.targets': '{{min}}–{{max}} opakování · pauza {{rest}} s',
+  'sharing.linkAccess': 'Kdokoli s odkazem může plán zobrazit a předat dál.',
+  'sharing.weights': 'Zahrnout tréninkovou zátěž',
+  'sharing.send': 'Poslat odkaz',
+  'sharing.copyLink': 'Kopírovat odkaz',
+  'sharing.copied': 'Odkaz zkopírován',
+  'sharing.disable': 'Deaktivovat tento odkaz',
+  'sharing.disabled':
+    'Odkaz byl deaktivován. Uložené kopie zůstávají k dispozici.',
+  'sharing.publish': 'Vytvořit odkaz a QR kód',
+  'sharing.snapshot':
+    'Odkaz sdílí verzi plánu v okamžiku zveřejnění. Po úpravě vznikne nový odkaz. Předchozí odkazy zůstanou aktivní, dokud je nedeaktivujete.',
+  'sharing.signIn':
+    'Plán můžete zveřejnit po přihlášení v profilu. Vaši svěřenci účet nepotřebují.',
+  'sharing.paste': 'Vložit odkaz na plán',
+  'sharing.open': 'Otevřít plán',
+  'sharing.scan': 'Naskenovat QR kód',
+  'sharing.permission':
+    'Ke skenování QR kódu povolte přístup k fotoaparátu. Můžete také vložit odkaz.',
+  'sharing.allow': 'Povolit fotoaparát',
+  'sharing.search': 'Hledat plán',
+  'sharing.all': 'Vše',
+  'sharing.empty': 'Nebyly nalezeny žádné plány.',
+  'sharing.cached':
+    'Uložený náhled knihovny. Připojte se k internetu a stáhněte plán.',
+  'sharing.retry': 'Zkusit znovu',
+  'sharing.unconfigured': 'Sdílení plánů v této sestavě zatím není dostupné.',
+  'sharing.close': 'Zavřít',
+  'sharing.qr': 'QR kód pro odkaz na tento plán',
+  'sharing.install':
+    'Otevřete odkaz na zařízení s nainstalovanou aplikací CRESUM. Pokud aplikaci teprve instalujete, pak znovu otevřete původní odkaz.',
+  'sharing.goal.build_muscle': 'Nabrat svaly',
+  'sharing.goal.get_stronger': 'Zesílit',
+  'sharing.goal.general_fitness': 'Kondice',
+  'sharing.experience.beginner': 'Začátečník',
+  'sharing.experience.some': 'Určité zkušenosti',
+  'sharing.experience.experienced': 'Pokročilí',
+  'sharing.activeLinks': 'Aktivní sdílené odkazy',
+  'sharing.startSaved': 'Spustit uloženou kopii',
+  'sharing.openSaved': 'Otevřít uloženou kopii',
+  'sharing.savedInfo':
+    'Už máte uloženou kopii. Při zahájení se použije tato kopie včetně vašich úprav.',
+  'sharing.targetRange':
+    '{{min}}–{{max}} opakování · pauza {{restMin}}–{{restMax}} s',
+  'sharing.perSide': 'Opakování na každou stranu',
+  'sharing.weight': '{{weight}} kg',
+  'sharing.linkRef': 'Odkaz {{id}} · {{date}}',
+} as const;

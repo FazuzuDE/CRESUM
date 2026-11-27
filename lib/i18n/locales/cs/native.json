@@ -1,0 +1,5 @@
+{
+  "ios": {
+    "NSCameraUsageDescription": "CRESUM používá fotoaparát ke skenování QR kódů tréninkových plánů."
+  }
+}
