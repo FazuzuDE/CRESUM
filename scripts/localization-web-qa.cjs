@@ -440,13 +440,30 @@ async function main() {
               rowHeight && target >= 0,
               'Language wheel geometry and target',
             );
-            await wheel.evaluate(
-              (element, { target, rowHeight }) => {
-                const current = Number(element.getAttribute('aria-valuenow'));
-                element.scrollTop += (target - current) * rowHeight;
-              },
-              { target, rowHeight },
-            );
+            // The cyclic list can still be applying its initial offset when
+            // the slider becomes visible. Use the physical row and retry until
+            // the desired logical row has been rendered.
+            await row
+              .waitFor({ state: 'attached', timeout: 700 })
+              .catch(async () => {
+                for (
+                  let attempt = 0;
+                  attempt < 3 && !(await row.count());
+                  attempt++
+                ) {
+                  await wheel.evaluate(
+                    (element, { target, rowHeight, count }) => {
+                      const current = Math.round(element.scrollTop / rowHeight);
+                      const cycle = Math.floor(current / count);
+                      element.scrollTop = (cycle * count + target) * rowHeight;
+                    },
+                    { target, rowHeight, count: choices.length },
+                  );
+                  await row
+                    .waitFor({ state: 'attached', timeout: 1000 })
+                    .catch(() => {});
+                }
+              });
           }
           await row.click();
           await page
