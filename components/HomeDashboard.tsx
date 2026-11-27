@@ -201,6 +201,28 @@ function PrimaryWorkoutWidget({
   );
 }
 
+export function shouldStackHomeSummary(
+  availableWidth: number,
+  fontScale: number,
+  labels: string[],
+  values: string[],
+): boolean {
+  // Keep numbers intact. Units can wrap at normal word boundaries.
+  const labelWidth =
+    Math.max(...labels.map((label) => label.length)) *
+    typography.footnote.fontSize *
+    0.62;
+  const valueWidth =
+    Math.max(...values.map((value) => value.length)) *
+    typography.title1.fontSize *
+    0.62;
+  const minTileWidth = Math.max(
+    152,
+    Math.max(labelWidth, valueWidth) * fontScale + spacing.md * 2,
+  );
+  return fontScale >= 1.3 || availableWidth < minTileWidth * 2 + spacing.sm;
+}
+
 function TrainingSummaryWidget({
   totalVolume,
   completedCount,
@@ -227,24 +249,12 @@ function TrainingSummaryWidget({
     : t('home.kilograms', volumeParams);
   const workoutsLabel = t('stats.workouts');
   const totalLabel = t('home.totalVolume');
-  // Keep the numbers intact. The unit can wrap at a locale's normal word boundary.
-  const labelWidth =
-    Math.max(workoutsLabel.length, totalLabel.length) *
-    typography.footnote.fontSize *
-    0.62;
-  const valueWidth =
-    Math.max(
-      workouts.length,
-      volumeParams.value.length,
-      ...volumeLabel.split(/\s+/u).map((part) => part.length),
-    ) *
-    typography.title1.fontSize *
-    0.62;
-  const minTileWidth = Math.max(
-    152,
-    Math.max(labelWidth, valueWidth) * fontScale + spacing.md * 2,
+  const stacked = shouldStackHomeSummary(
+    available,
+    fontScale,
+    [workoutsLabel, totalLabel],
+    [workouts, volumeParams.value, ...volumeLabel.split(/\s+/u)],
   );
-  const stacked = fontScale >= 1.3 || available < minTileWidth * 2 + spacing.sm;
   const tileStyle = stacked ? s.statCard : { ...s.statCard, ...s.statColumn };
   return (
     <View

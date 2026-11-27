@@ -2,7 +2,7 @@ import App from '../../app/index';
 import { AppButton } from '../../components/AppButton';
 import { Dock } from '../../components/Dock';
 import { GlassCard } from '../../components/GlassCard';
-import { HomeDashboard } from '../../components/HomeDashboard';
+import { shouldStackHomeSummary } from '../../components/HomeDashboard';
 import { DashboardGrid } from '../../components/DashboardGrid';
 import { Workout } from '../../components/Workout';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -292,6 +292,12 @@ it('keeps today visually distinct even after completing a workout today', async 
     const style = StyleSheet.flatten(marker.props.style);
     expect(style.borderColor).toBe(colors.primary);
     expect(style.width).toBe(style.height);
+    const markers = view.root.findAllByProps({ testID: 'home-week-marker' });
+    expect(markers).toHaveLength(7);
+    for (const marker of markers) {
+      const size = StyleSheet.flatten(marker.props.style);
+      expect(size.width).toBe(size.height);
+    }
     const fill = today
       .findAllByProps({ testID: 'home-week-marker-fill' })
       .at(-1);
@@ -425,48 +431,23 @@ it('opens the full month above the workout and shows actual saved sessions for a
 });
 
 it.each([
-  [320, 1, '60', 'column'],
-  [390, 1, '60', 'row'],
-  [390, 1.5, '60', 'column'],
-  [390, 1, '123456789.012', 'column'],
+  [320, 1, '480', 'Total volume', true],
+  [390, 1, '480', 'Total volume', false],
+  [390, 1.5, '480', 'Общий объём', true],
+  [390, 1, '۴۸۰', 'مجموعی وزن', false],
+  [390, 1, '987,654.312096', 'Total volume', true],
+  [390, 1, '480', 'Long localized label for training volume', true],
 ] as const)(
-  'lays out the summary at %i px, font scale %f and weight %s',
-  async (width, fontScale, weight, direction) => {
-    const dimension = jest
-      .spyOn(jest.requireActual('react-native'), 'useWindowDimensions')
-      .mockReturnValue({ width, height: 844, fontScale, scale: 1 });
-    let view!: ReturnType<typeof create>;
-    await act(async () => {
-      view = create(
-        <HomeDashboard
-          history={[completed('metric', 'Workout', Date.now(), weight, '8')]}
-          activeWorkout={null}
-          templates={defaultTemplates}
-          onResume={() => {}}
-          startTemplate={() => {}}
-        />,
-      );
-    });
-    try {
-      const tiles = view.root
-        .findAllByProps({ testID: 'home-summary-tiles' })
-        .at(-1);
-      expect(StyleSheet.flatten(tiles.props.style).flexDirection).toBe(
-        direction,
-      );
-      expect(
-        view.root.findAllByProps({ testID: 'home-week-marker' }),
-      ).toHaveLength(7);
-      for (const marker of view.root.findAllByProps({
-        testID: 'home-week-marker',
-      })) {
-        const style = StyleSheet.flatten(marker.props.style);
-        expect(style.width).toBe(style.height);
-      }
-    } finally {
-      await act(async () => view.unmount());
-      dimension.mockRestore();
-    }
+  'reflows tiles at %i px, scale %f, value %s and label %s',
+  (width, fontScale, value, label, stacked) => {
+    expect(
+      shouldStackHomeSummary(
+        width - 32,
+        fontScale,
+        ['Workouts', label],
+        ['1', value, 'kg'],
+      ),
+    ).toBe(stacked);
   },
 );
 
