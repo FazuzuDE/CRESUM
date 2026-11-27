@@ -103,6 +103,13 @@ export function projectHomeProgram(
   }
 }
 
+export function shouldShowLatestWorkout(
+  latestId: string | undefined,
+  primaryResultId: string | undefined,
+): boolean {
+  return latestId === undefined || latestId !== primaryResultId;
+}
+
 export function projectHomeDashboard(
   history: WorkoutSession[],
   activeWorkout: WorkoutSession | null,
