@@ -1419,6 +1419,9 @@ function AppContent({
                 activeWorkout={data.activeWorkout}
                 onResume={() => setTab('workout')}
                 templates={visibleTemplates}
+                busy={busy}
+                createTemplate={(draft) => store.createTemplate(draft)}
+                onOpenProgress={() => setTab('progress')}
                 startTemplate={startTemplate}
                 onOpenProfile={() => setTab('profile')}
               />

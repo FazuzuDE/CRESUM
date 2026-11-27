@@ -2,6 +2,13 @@ import { findExercise } from './exercise-library';
 import { volume } from './workout-metrics';
 import { filterProgressWorkouts } from './progress-periods';
 import { exerciseIdsMatch } from './workout-engine';
+import type { ProgramAssignment } from './training-programs/assignment';
+import {
+  addCalendarDays,
+  localDate,
+  projectProgramWeek,
+  templateForProgramSlot,
+} from './training-programs/schedule';
 import { validPlannedSets } from './planned-exercise';
 import type { WorkoutSession, WorkoutTemplate } from './workout-model';
 
@@ -60,6 +67,40 @@ export function templateDetails(
       .map((exercise) => exercise.name)
       .join(' · '),
   };
+}
+
+export function projectHomeProgram(
+  assignment: ProgramAssignment | null | undefined,
+  history: WorkoutSession[],
+  templates: WorkoutTemplate[],
+  now: number,
+) {
+  if (!assignment || assignment.scheduleSkipped) return null;
+  const today = localDate(new Date(now));
+  const findUpcoming = (
+    slots: ReturnType<typeof projectProgramWeek>['slots'],
+  ) =>
+    slots.find(
+      (slot) => slot.date >= today && !slot.completedWorkoutIds.length,
+    );
+  const slot =
+    findUpcoming(projectProgramWeek(assignment, history, today).slots) ??
+    findUpcoming(
+      projectProgramWeek(assignment, history, addCalendarDays(today, 7)).slots,
+    );
+  if (!slot) return null;
+  const isToday = slot.date === today;
+  try {
+    return {
+      slot,
+      isToday,
+      details: templateDetails(
+        templateForProgramSlot(assignment, templates, slot),
+      ),
+    };
+  } catch {
+    return { slot, isToday, details: null };
+  }
 }
 
 export function projectHomeDashboard(
