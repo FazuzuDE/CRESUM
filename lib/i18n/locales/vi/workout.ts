@@ -1,4 +1,5 @@
 export default {
+  'workout.setWriteFailed': 'Các thay đổi ở hiệp {{index}} chưa được lưu',
   'workout.cardioStart': 'Bắt đầu cardio',
   'workout.cardioPause': 'Tạm dừng',
   'workout.cardioResume': 'Tiếp tục',

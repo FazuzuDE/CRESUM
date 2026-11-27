@@ -1,4 +1,5 @@
 export default {
+  'profile.notificationTransparency': 'Transparansi notifikasi',
   'profile.headerOpacity': 'Opasitas kepala halaman',
   'profile.trainingSection': 'Latihan',
   'profile.myWorkouts': 'Latihan saya',

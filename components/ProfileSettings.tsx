@@ -32,6 +32,11 @@ import { catalogLabel, searchLocalizedExercises } from '@/lib/i18n/catalog';
 
 export type ProfileSettingsProps = {
   dockTransparency?: number;
+  notificationTransparency?: {
+    value: number;
+    preview: (value: number) => void;
+    commit: (value: number) => void;
+  };
   headerOpacity?: number;
   onHeaderOpacityChange?: (value: number) => void;
   onHeaderOpacityCommit?: (value: number) => void;
@@ -63,6 +68,7 @@ export type ProfileSettingsProps = {
 
 export function ProfileSettings({
   dockTransparency,
+  notificationTransparency,
   headerOpacity,
   onHeaderOpacityChange,
   onHeaderOpacityCommit,
@@ -237,6 +243,14 @@ export function ProfileSettings({
                 value={dockTransparency}
                 onPreview={onDockTransparencyChange}
                 onCommit={onDockTransparencyCommit}
+              />
+            ) : null}
+            {notificationTransparency ? (
+              <PercentSetting
+                label={t('profile.notificationTransparency')}
+                value={notificationTransparency.value}
+                onPreview={notificationTransparency.preview}
+                onCommit={notificationTransparency.commit}
               />
             ) : null}
           </>

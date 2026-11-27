@@ -1,4 +1,5 @@
 export default {
+  'profile.notificationTransparency': 'বিজ্ঞপ্তির স্বচ্ছতা',
   'profile.headerOpacity': 'হেডারের অস্বচ্ছতা',
   'profile.trainingSection': 'ওয়ার্কআউট',
   'profile.myWorkouts': 'আমার ওয়ার্কআউট',

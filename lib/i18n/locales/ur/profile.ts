@@ -1,4 +1,5 @@
 export default {
+  'profile.notificationTransparency': 'اطلاعات کی شفافیت',
   'profile.headerOpacity': 'اوپری پٹی کی کدورت',
   'profile.trainingSection': 'ورزشیں',
   'profile.myWorkouts': 'میری ورزشیں',

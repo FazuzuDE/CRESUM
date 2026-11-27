@@ -1,4 +1,5 @@
 export default {
+  'profile.notificationTransparency': 'شفافية الإشعارات',
   'profile.headerOpacity': 'عتامة الترويسة',
   'profile.trainingSection': 'التمارين',
   'profile.myWorkouts': 'تماريني',

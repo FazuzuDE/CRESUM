@@ -1,4 +1,5 @@
 export default {
+  'workout.setWriteFailed': 'Změny série {{index}} zatím nejsou uložené',
   'workout.cardioStart': 'Spustit kardio',
   'workout.cardioPause': 'Pauza',
   'workout.cardioResume': 'Pokračovat',

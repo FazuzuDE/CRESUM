@@ -1,4 +1,5 @@
 export default {
+  'profile.notificationTransparency': 'Transparenz der Meldungen',
   'profile.headerOpacity': 'Deckkraft der Kopfzeile',
   'profile.trainingSection': 'Trainings',
   'profile.myWorkouts': 'Meine Trainings',

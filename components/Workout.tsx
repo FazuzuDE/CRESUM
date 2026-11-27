@@ -1,3 +1,4 @@
+import type { SetWriteMarker } from '@/lib/workout-store';
 import { CardioCountdown } from './CardioCountdown';
 import { cardioExerciseIds, isCardioExerciseId } from '@/lib/cardio-timer';
 import { useAppColors } from '@/components/AppThemeProvider';
@@ -90,6 +91,8 @@ export function Workout({
   session,
   history,
   update,
+  recordSet,
+  pendingSet,
   finish,
   discard,
   busy,
@@ -105,6 +108,11 @@ export function Workout({
   timedActivities?: { hold?: ProgramHold; cardio?: CardioGuidance };
   history: WorkoutSession[];
   update: (transform: (session: WorkoutSession) => WorkoutSession) => void;
+  recordSet?: (
+    transform: (session: WorkoutSession) => WorkoutSession,
+    marker: SetWriteMarker,
+  ) => Promise<boolean>;
+  pendingSet?: SetWriteMarker | null;
   finish: () => void;
   discard?: () => void;
   busy: boolean;
@@ -268,17 +276,23 @@ export function Workout({
       .flatMap((item) => item.exercises)
       .find((item) => exerciseIdsMatch(item.libraryId, exercise.libraryId))
       ?.sets.filter(isSetComplete);
-  const toggle = (setIndex: number, child = index) => {
+  const toggle = async (setIndex: number, child = index) => {
+    const set = session.exercises[child].sets[setIndex];
     try {
-      update(
-        (current) =>
-          toggleSet(setCurrentExercise(current, child), child, setIndex)
-            .session,
-      );
-      setNow(Date.now());
+      const transform = (current: WorkoutSession) =>
+        toggleSet(setCurrentExercise(current, child), child, setIndex).session;
       setInputError(null);
-      if (!isSetComplete(session.exercises[child].sets[setIndex]))
-        successHaptic();
+      if (recordSet) {
+        const recorded = await recordSet(transform, {
+          id: set.id,
+          index: setNumberInGroup(session, child, setIndex),
+        });
+        if (!recorded) return;
+      } else {
+        update(transform);
+      }
+      setNow(Date.now());
+      if (!isSetComplete(set)) successHaptic();
     } catch (error) {
       setInputError(error);
     }
@@ -467,6 +481,7 @@ export function Workout({
                       </Text>
                     ) : null}
                     <ExerciseAttachmentBlock
+                      pendingSetId={pendingSet?.id}
                       session={session}
                       index={child}
                       history={history}
@@ -737,11 +752,16 @@ export function Workout({
                               s.target,
                               s.check,
                               done && s.checked,
+                              pendingSet?.id === set.id && s.unsavedSet,
                               (pressed || busy) && s.dim,
                             ]}
                           >
                             <Text style={[s.checkText, done && s.checkedText]}>
-                              {done ? '✓' : '○'}
+                              {pendingSet?.id === set.id
+                                ? '!'
+                                : done
+                                  ? '✓'
+                                  : '○'}
                             </Text>
                           </Pressable>
                         </View>

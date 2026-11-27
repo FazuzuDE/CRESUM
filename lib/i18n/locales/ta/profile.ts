@@ -1,4 +1,5 @@
 export default {
+  'profile.notificationTransparency': 'அறிவிப்புகளின் வெளிப்படைத்தன்மை',
   'profile.headerOpacity': 'தலைப்பு ஒளிபுகாமை',
   'profile.trainingSection': 'பயிற்சிகள்',
   'profile.myWorkouts': 'என் பயிற்சிகள்',

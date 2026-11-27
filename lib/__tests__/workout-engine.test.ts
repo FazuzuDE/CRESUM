@@ -591,3 +591,46 @@ describe('local persistence and migration', () => {
     ).toBe(805);
   });
 });
+
+it('keeps an uncommitted set out of progress and restores drafts on a cold load', async () => {
+  const storage = memoryStorage();
+  const repository = new WorkoutRepository(storage);
+  const store = new WorkoutStore(repository);
+  await store.load();
+  store.start(defaultTemplates[0]);
+  store.updateWorkout((session) =>
+    updateSet(session, 0, 0, { weight: '60', reps: '10' }),
+  );
+  await store.waitForPendingWrites();
+  const cold = new WorkoutStore(new WorkoutRepository(storage));
+  await cold.load();
+  const active = cold.getSnapshot().data.activeWorkout!;
+  expect(active.exercises[0].sets[0]).toMatchObject({
+    weight: '60',
+    reps: '10',
+  });
+  expect(completedSetCount(active)).toBe(0);
+  const marker = { id: active.exercises[0].sets[0].id, index: 1 };
+  jest.mocked(storage.setItem).mockRejectedValueOnce(new Error('disk full'));
+  const attempt = store.recordSet(
+    (session) => toggleSet(session, 0, 0).session,
+    marker,
+  );
+  expect(completedSetCount(store.getSnapshot().data.activeWorkout!)).toBe(0);
+  expect(await attempt).toBe(false);
+  expect(store.getSnapshot().pendingSet).toEqual(marker);
+  expect(completedSetCount((await repository.load()).activeWorkout!)).toBe(0);
+  await store.retry();
+  expect(store.getSnapshot().pendingSet).toBeNull();
+  expect(completedSetCount((await repository.load()).activeWorkout!)).toBe(1);
+  jest.mocked(storage.setItem).mockRejectedValueOnce(new Error('disk full'));
+  expect(await store.finish()).toBeUndefined();
+  expect(store.getSnapshot().data.history).toHaveLength(0);
+  expect((await repository.load()).activeWorkout?.id).toBe(active.id);
+  const [first, second] = await Promise.all([store.finish(), store.finish()]);
+  expect(first?.id).toBe(active.id);
+  expect(second).toBeUndefined();
+  const restored = await new WorkoutRepository(storage).load();
+  expect(restored.activeWorkout).toBeNull();
+  expect(restored.history.map((item) => item.id)).toEqual([active.id]);
+});

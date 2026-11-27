@@ -1,4 +1,5 @@
 export default {
+  'profile.notificationTransparency': 'Průhlednost oznámení',
   'profile.headerOpacity': 'Krytí záhlaví',
   'profile.trainingSection': 'Tréninky',
   'profile.myWorkouts': 'Moje tréninky',

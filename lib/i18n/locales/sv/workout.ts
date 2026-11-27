@@ -1,4 +1,5 @@
 export default {
+  'workout.setWriteFailed': 'Ändringarna i set {{index}} har inte sparats än',
   'workout.cardioStart': 'Starta konditionsövningen',
   'workout.cardioPause': 'Pausa',
   'workout.cardioResume': 'Fortsätt',

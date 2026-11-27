@@ -1399,6 +1399,19 @@ paired `−15s/+15s` and Restart/Skip rest controls. After expiry use Rest compl
 and Continue. Preserve the existing deadline-based recovery and completion
 haptic. Pause is not implemented in Core and must not be implied by the UI.
 
+### Workout save notifications
+
+Show the workout save error and saved summary in a centered glass dialog. A
+failed set retains its editable values, displays a warning marker and remains
+outside completed progress until the local write succeeds. Retry writes the
+same attempted set. Closing the notification keeps the entered values and leaves
+the unconfirmed completion out of progress. Resume from Home opens the last
+locally saved exercise and state.
+
+Appearance provides a separate notification transparency slider. The floating
+scroll-return button uses the same glass and transparency value as the bottom
+menu. Respect the system's Reduce Transparency preference for both surfaces.
+
 ### Finish Workout
 
 Place a quiet destructive text action, **Discard workout**, below Finish; keep

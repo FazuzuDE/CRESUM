@@ -1,4 +1,5 @@
 export default {
+  'profile.notificationTransparency': 'Độ trong suốt của thông báo',
   'profile.headerOpacity': 'Độ mờ của đầu trang',
   'profile.trainingSection': 'Buổi tập',
   'profile.myWorkouts': 'Buổi tập của tôi',

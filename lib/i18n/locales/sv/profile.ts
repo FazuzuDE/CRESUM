@@ -1,4 +1,5 @@
 export default {
+  'profile.notificationTransparency': 'Genomskinlighet för aviseringar',
   'profile.headerOpacity': 'Sidhuvudets opacitet',
   'profile.trainingSection': 'Träningspass',
   'profile.myWorkouts': 'Mina träningspass',
