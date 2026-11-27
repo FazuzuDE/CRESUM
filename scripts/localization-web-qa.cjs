@@ -420,11 +420,35 @@ async function main() {
           await page
             .getByRole('button', { name: language, exact: !settings })
             .click();
-          await page
-            .getByRole('slider', { name: language })
+          const wheel = page.getByRole('slider', { name: language });
+          const row = wheel
             .getByText(contains(localeRegistry[to].nativeName))
-            .first()
-            .click();
+            .first();
+          await wheel.waitFor();
+          if (!(await row.count())) {
+            const choices = [...locales].sort((a, b) =>
+              localeRegistry[a].nativeName.localeCompare(
+                localeRegistry[b].nativeName,
+                'en',
+              ),
+            );
+            const target = choices.indexOf(to);
+            const rowHeight = (
+              await page.getByTestId('wheel-selection-lines').boundingBox()
+            )?.height;
+            assert.ok(
+              rowHeight && target >= 0,
+              'Language wheel geometry and target',
+            );
+            await wheel.evaluate(
+              (element, { target, rowHeight }) => {
+                const current = Number(element.getAttribute('aria-valuenow'));
+                element.scrollTop += (target - current) * rowHeight;
+              },
+              { target, rowHeight },
+            );
+          }
+          await row.click();
           await page
             .getByRole('button', {
               name: messages['common.done'],
