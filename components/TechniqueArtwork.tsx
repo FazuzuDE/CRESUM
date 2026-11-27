@@ -86,6 +86,7 @@ const useStyles = createThemedStyles((colors) => ({
     height: '100%',
   },
   image: {
+    direction: 'ltr',
     backgroundColor: palettes.light.surface,
     padding: 0,
     overflow: 'hidden',

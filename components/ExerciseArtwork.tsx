@@ -85,6 +85,7 @@ const useStyles = createThemedStyles((colors) => ({
     maxWidth: '100%',
   },
   artwork: {
+    direction: 'ltr',
     flexShrink: 0,
     overflow: 'hidden',
     borderRadius: radius.md,
