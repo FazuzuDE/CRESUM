@@ -1,4 +1,4 @@
-import type { ImageSourcePropType, ImageStyle } from 'react-native';
+import type { ImageSourcePropType } from 'react-native';
 
 // Explicit exact-variant bindings; technique pairs and equipment have separate approval.
 const treadmillPair = {
@@ -675,35 +675,6 @@ export function resolveExerciseArtwork(
 
 // Whole-image placement in the shared square contain frame. Calibrated to
 // this selected pair's fixed equipment; preserve aspect ratio and source bytes.
-const assistedPullUpFinishPlacement: ImageStyle = {
-  width: '100.9674%',
-  height: '100.9674%',
-  left: '-0.3432%',
-  top: '1.1505%',
-};
-
-export function resolveExerciseArtworkPlacement(
-  variantId: string,
-  phase: 'start' | 'finish',
-  model: 'male' | 'female',
-): ImageStyle | undefined {
-  if (
-    variantId === 'assisted-pull-up' &&
-    phase === 'finish' &&
-    model === 'male'
-  )
-    return assistedPullUpFinishPlacement;
-  // Align the selected near shoe baseline by ~33 source pixels at 1536px width.
-  // Translation only: both phases retain the same contain scale and geometry.
-  if (
-    variantId === 'barbell-deadlift' &&
-    phase === 'finish' &&
-    model === 'male'
-  )
-    return { top: '-2.1484%' };
-  return undefined;
-}
-
 export function resolveAttachmentArtwork(
   variantId: string,
 ): ImageSourcePropType | null {

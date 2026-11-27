@@ -13,10 +13,10 @@
       "sourceSha256": "9a85d1d1bc35dd1c9f272e8fb2a3638f4d564a00516846e99c36fa5dd9ac8a14",
       "sourceSize": [1536, 1024],
       "sourceBytes": 1725758,
-      "sha256": "706a40834ba8927231560889ad9f9aee6697869ddacfc9a533784c4eb458cd59",
+      "sha256": "7f3b9066313ee95d9c720e035b5ffc4c1a9bdbacf1294039de2e3f4264c779ce",
       "width": 1280,
       "height": 853,
-      "bytes": 57490,
+      "bytes": 297024,
       "quality": 92,
       "method": 6,
       "sourceLibraryFileId": "libfile_33a306effb708191861aec3b94e0f2f5"
@@ -27,10 +27,10 @@
       "sourceSha256": "893050532baf5a1a21381d7391e384c079d31fbfb26bc3767ac999cd889db5f2",
       "sourceSize": [1536, 1024],
       "sourceBytes": 1698097,
-      "sha256": "33cbc694e2e0b6bc54a7e09c915f83cf9bfcc7f2c5c8f7b95cce3bb0c0dbaae4",
+      "sha256": "6cdfd95907c53ea4766ad608ba9db422e2db7b0f23da9314a57f213bc6ae332c",
       "width": 1280,
       "height": 853,
-      "bytes": 54690,
+      "bytes": 274114,
       "quality": 92,
       "method": 6,
       "sourceLibraryFileId": "libfile_d3e12e77d48c8191b6db6d638e7e5dfe"
@@ -44,10 +44,36 @@
   "sourceRetention": "Original PNGs recovered from persistent files on 2026-10-28 and verified against recorded SHA-256 and byte counts; per-phase sourceLibraryFileId records recovery identity. Checksummed ZIP for PC download remains pending until a major-block/end checkpoint. Oracle uploads deferred; no verified remote receipt.",
   "export": {
     "format": "WebP",
-    "maxWidth": 1280,
-    "maxHeight": 1280,
-    "resampling": "LANCZOS",
-    "quality": 92,
-    "method": 6
+    "mode": "RGB",
+    "lossless": true,
+    "method": 6,
+    "resampling": "LANCZOS"
+  },
+  "presentation": "Default square contain in the exercise list, inline viewer, and full-screen viewer. Framing is baked into the exports.",
+  "framingUpdate": {
+    "date": "2026-11-27",
+    "input": "Previously shipped WebP. Recorded higher-resolution originals were unavailable for this revision.",
+    "operation": "Uniform crop and high-quality resampling of the whole scene with no pose or equipment edits.",
+    "outputEncoding": "Lossless WebP, RGB, method 6, original pixel dimensions.",
+    "phases": {
+      "start": {
+        "inputSha256": "706a40834ba8927231560889ad9f9aee6697869ddacfc9a533784c4eb458cd59",
+        "inputBytes": 57490,
+        "inputCropBoxPx": [49.01407, 1.0, 1256.98593, 806.0]
+      },
+      "finish": {
+        "inputSha256": "33cbc694e2e0b6bc54a7e09c915f83cf9bfcc7f2c5c8f7b95cce3bb0c0dbaae4",
+        "inputBytes": 54690,
+        "inputCropBoxPx": [49.01407, 1.0, 1256.98593, 806.0]
+      }
+    },
+    "previousExport": {
+      "format": "WebP",
+      "maxWidth": 1280,
+      "maxHeight": 1280,
+      "resampling": "LANCZOS",
+      "quality": 92,
+      "method": 6
+    }
   }
 }

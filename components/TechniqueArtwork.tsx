@@ -9,10 +9,7 @@ import {
 } from '@/components/LayoutDirection';
 
 import { Image, View } from 'react-native';
-import {
-  resolveExerciseArtwork,
-  resolveExerciseArtworkPlacement,
-} from '@/lib/exercise-artwork';
+import { resolveExerciseArtwork } from '@/lib/exercise-artwork';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import type { TechniquePhase } from '@/lib/exercise-technique';
 import { radius, spacing, typography } from '@/lib/theme';
@@ -40,11 +37,6 @@ export function TechniqueArtwork({
     phase === 'START' ? 'start' : 'finish',
     model,
   );
-  const placement = resolveExerciseArtworkPlacement(
-    imageKey,
-    phase === 'START' ? 'start' : 'finish',
-    model,
-  );
   if (source)
     return (
       <View style={[s.frame, s.image]}>
@@ -55,7 +47,7 @@ export function TechniqueArtwork({
             phase: phaseLabel,
             name: catalogLabel(locale, 'exercise', imageKey, imageKey),
           })}
-          style={[s.picture, placement]}
+          style={s.picture}
         />
         <ExerciseArtworkWordmark imageKey={imageKey} />
       </View>

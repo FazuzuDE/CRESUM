@@ -13,9 +13,8 @@
       "sourceSha256": "afc27eb7bd424465f34e82e39882254fb6119a50c20908264b1faf7636ba9e8d",
       "sourceBytes": 241992,
       "sourceSize": [1536, 1024],
-      "sourceLibraryFileId": "libfile_35ca98962e0881919ba7982244da8801",
-      "sha256": "d1fdff96ac5701f15dd283516a439a50b07bc60ceb51f637a99618f1fcdc7363",
-      "bytes": 66232,
+      "sha256": "3eb50ec1c1ad326c7cc236d4fc01e12325a312c4a94eae527c61b40e12d8e275",
+      "bytes": 238608,
       "width": 1280,
       "height": 853,
       "generationOrigin": {
@@ -32,9 +31,8 @@
       "sourceSha256": "b0f3c846545e9ff26e387456540e9550ade2c0dc93fb526296bf30eb50fec18b",
       "sourceBytes": 231181,
       "sourceSize": [1536, 1024],
-      "sourceLibraryFileId": "libfile_19fb37806008819183e425af7dd99ece",
-      "sha256": "69229e7da3d9de91ad1ea86a07df7e381108ffe0b41d20c718ac8cf9b098365b",
-      "bytes": 64194,
+      "sha256": "d2e0b3a0b52cbbdd1464788bb53d50c4f0da0396ab846197a31396d2c71c5810",
+      "bytes": 248088,
       "width": 1280,
       "height": 853,
       "generationOrigin": {
@@ -47,7 +45,7 @@
     }
   },
   "productionChoice": "User-requested plate-loaded independent lever high-row example with light silver-gray structure, dark plates and padding. Hammer Strength IL-HR is a physical production reference, not a new canonical model/grip/load qualifier. Existing generic seated high-row identity, guide, qualitative muscle roles, History and saved data remain unchanged.",
-  "presentation": "Unmodified selected-source geometry, same square contain frame and default placement in shared inline/expanded TechniqueArtwork. No phase-specific placement adjustment, geometry repaint or synthesized interpolation.",
+  "presentation": "Default square contain in the exercise list, inline viewer, and full-screen viewer. Framing is baked into the exports.",
   "generation": {
     "tool": "built-in image_gen",
     "promptFile": "generation-prompts.json",
@@ -57,8 +55,7 @@
     "equipmentStyle": "cresum-equipment-style-v1",
     "userMechanismReference": {
       "sourceFile": "B5819D1D-B273-46A5-8F3C-52A825435590.png",
-      "sha256": "e75c87839b2ac327c4d3bc8b71f6e349e8c3812bb43eea967662c5ecb83dbc45",
-      "sourceLibraryFileId": "libfile_f5ccf4a7895c8191a292e167da8a29ad"
+      "sha256": "e75c87839b2ac327c4d3bc8b71f6e349e8c3812bb43eea967662c5ecb83dbc45"
     }
   },
   "references": {
@@ -77,11 +74,38 @@
   "export": {
     "format": "WebP",
     "mode": "RGB",
-    "resize": "Pillow thumbnail",
-    "maxWidth": 1280,
-    "maxHeight": 1280,
-    "resampling": "LANCZOS",
-    "quality": 92,
-    "method": 6
+    "lossless": true,
+    "method": 6,
+    "resampling": "LANCZOS"
+  },
+  "previousPresentation": "Unmodified selected-source geometry, same square contain frame and default placement in shared inline/expanded TechniqueArtwork. No phase-specific placement adjustment, geometry repaint or synthesized interpolation.",
+  "framingUpdate": {
+    "date": "2026-11-27",
+    "input": "Previously shipped WebP. Recorded higher-resolution originals were unavailable for this revision.",
+    "operation": "Uniform crop and high-quality resampling of the whole scene with no pose or equipment edits.",
+    "outputEncoding": "Lossless WebP, RGB, method 6, original pixel dimensions.",
+    "phases": {
+      "start": {
+        "inputSha256": "d1fdff96ac5701f15dd283516a439a50b07bc60ceb51f637a99618f1fcdc7363",
+        "inputBytes": 66232,
+        "inputCropBoxPx": [0.0, 1.0, 1270.99648, 848.0]
+      },
+      "finish": {
+        "inputSha256": "69229e7da3d9de91ad1ea86a07df7e381108ffe0b41d20c718ac8cf9b098365b",
+        "inputBytes": 64194,
+        "inputCropBoxPx": [0.0, 1.0, 1270.99648, 848.0]
+      }
+    },
+    "previousExport": {
+      "format": "WebP",
+      "mode": "RGB",
+      "resize": "Pillow thumbnail",
+      "maxWidth": 1280,
+      "maxHeight": 1280,
+      "resampling": "LANCZOS",
+      "quality": 92,
+      "method": 6
+    },
+    "priorManifestRevision": "e602a41faf27bc39f6d95887dec92004c68fd90f"
   }
 }

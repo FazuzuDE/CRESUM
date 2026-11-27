@@ -12,8 +12,8 @@
       "sourceSha256": "c2bdeb43c6e4805e698849098d6d3e8c5ade7298340102e7a4a42ee7ce9a0798",
       "sourceBytes": 1416168,
       "sourceSize": [1536, 1024],
-      "sha256": "1fb6885ee7badb6f45f8ea7d1b584b71891f0ecfdc7cb498e0d686ab23231ed9",
-      "bytes": 55628,
+      "sha256": "8175ae5b1dc319ff58ace366ff9ee67bd4aaeff9b39b302b71c2e242f79ad683",
+      "bytes": 226010,
       "width": 1280,
       "height": 853
     },
@@ -23,14 +23,14 @@
       "sourceSha256": "554ae4f9556d4c7dfcb8ad4f39567fee840b8c766ff41fcf3ab52341ec5237c1",
       "sourceBytes": 1594676,
       "sourceSize": [1536, 1024],
-      "sha256": "5159720294314423492fbcfb5ef021c7e94e96aaa616e2b5c79fd95d79c34865",
-      "bytes": 54140,
+      "sha256": "bb1c4607ee7c5f5c21c933faf2f8e4fee786dee56a31ddb1d139f0ea6e268a91",
+      "bytes": 237244,
       "width": 1280,
       "height": 853
     }
   },
   "productionChoice": "User diagram-based hinged straight-arm cable pulldown with short straight bar and light silver/graphite functional trainer. Visual production example only; generic ID, guide, attachment scope, muscles and History unchanged.",
-  "presentation": "Unretouched exact selected PNGs, default square contain shared inline/expanded frame; no placement adjustment.",
+  "presentation": "Default square contain in the exercise list, inline viewer, and full-screen viewer. Framing is baked into the exports.",
   "generation": {
     "tool": "built-in image_gen",
     "promptFile": "generation-prompts.json",
@@ -48,10 +48,36 @@
   "export": {
     "format": "WebP",
     "mode": "RGB",
-    "maxWidth": 1280,
-    "maxHeight": 1280,
-    "resampling": "LANCZOS",
-    "quality": 92,
-    "method": 6
+    "lossless": true,
+    "method": 6,
+    "resampling": "LANCZOS"
+  },
+  "previousPresentation": "Unretouched exact selected PNGs, default square contain shared inline/expanded frame; no placement adjustment.",
+  "framingUpdate": {
+    "date": "2026-11-27",
+    "input": "Previously shipped WebP. Recorded higher-resolution originals were unavailable for this revision.",
+    "operation": "Uniform crop and high-quality resampling of the whole scene with no pose or equipment edits.",
+    "outputEncoding": "Lossless WebP, RGB, method 6, original pixel dimensions.",
+    "phases": {
+      "start": {
+        "inputSha256": "1fb6885ee7badb6f45f8ea7d1b584b71891f0ecfdc7cb498e0d686ab23231ed9",
+        "inputBytes": 55628,
+        "inputCropBoxPx": [41.25909, 1.0, 1274.74091, 823.0]
+      },
+      "finish": {
+        "inputSha256": "5159720294314423492fbcfb5ef021c7e94e96aaa616e2b5c79fd95d79c34865",
+        "inputBytes": 54140,
+        "inputCropBoxPx": [41.25909, 1.0, 1274.74091, 823.0]
+      }
+    },
+    "previousExport": {
+      "format": "WebP",
+      "mode": "RGB",
+      "maxWidth": 1280,
+      "maxHeight": 1280,
+      "resampling": "LANCZOS",
+      "quality": 92,
+      "method": 6
+    }
   }
 }

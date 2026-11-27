@@ -13,8 +13,8 @@
       "sourceSha256": "673adfb3d427d1e4ce7c1759ef6e2a0bd0dbc63c18887e59d4ce277b549365da",
       "sourceBytes": 1583945,
       "sourceSize": [1536, 1024],
-      "sha256": "546b92eab10d851bdf47fa5d64c63f3b143ab834624e3583094e2c16f6fcb44e",
-      "bytes": 41238,
+      "sha256": "d684aedca3f8d8694c71fb91c0dc105191813ccac8d4b59eb1ceea3217bd22d5",
+      "bytes": 168948,
       "width": 1280,
       "height": 853
     },
@@ -24,13 +24,72 @@
       "sourceSha256": "10520c81f697f3ae0dd742fb745c3293a7c1c3818430c546d59b1f584db0d097",
       "sourceBytes": 1567310,
       "sourceSize": [1536, 1024],
-      "sha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
-      "bytes": 42162,
+      "sha256": "58e7293d457ecd5cf413e43fd89cf94baeebef995691a857312e44e3c30d79dd",
+      "bytes": 173430,
       "width": 1280,
       "height": 853
     }
   },
-  "presentation": {
+  "presentation": "Default square contain in the exercise list, inline viewer, and full-screen viewer. Framing is baked into the exports.",
+  "productionChoice": "Photo-based Life Fitness SS-ADC knee-supported example, overhand grip and rear three-quarter view are visual production choices. Existing generic assisted-pull-up identity, instructions, muscle mapping, History, workouts and other configurations remain unchanged. No attachment-thumbnail binding.",
+  "references": {
+    "manufacturer": "Life Fitness",
+    "physicalModel": "Insignia Series Assist Dip Chin SS-ADC",
+    "productURL": "https://www.lifefitness.com/en-eu/catalog/strength-training/selectorized/insignia-series-assist-dip-chin",
+    "manualURL": "https://kb.cybexintl.com/Owners_Manuals/Strength/Life_Fitness_Insignia_Series_Owners_Manual_9481201_Rev_BE.pdf",
+    "manualPrintedPage": 11,
+    "photoURLs": [
+      "https://www.lifefitness.com/Kentico13CoreBase/media/LFMedia/LifeFitnessImages/MediaSync/322-995-assist-dip-chin.png",
+      "https://www.lifefitness.com/Kentico13CoreBase/media/LFMedia/LifeFitnessImages/MediaSync/133-109-insignia-series-assist-dip-chin-image-7--data.jpg",
+      "https://www.lifefitness.com/Kentico13CoreBase/media/LFMedia/LifeFitnessImages/MediaSync/116-445-insignia-series-assist-dip-chin-image-8--data.jpg"
+    ],
+    "references": [
+      {
+        "file": "assisted-pullup-draft/real-machine/official-equipment-full.png",
+        "sha256": "14f295d77943ecb0429674806c01a8a6a383b6ab79c67bb62c924e86f01e617b",
+        "bytes": 322995
+      },
+      {
+        "file": "assisted-pullup-draft/real-machine/official-detail-0.jpg",
+        "sha256": "b61658f48e8fa2752026e3c9cdbca53fc58d06e23f466bb60e0f5aec0f3672bb",
+        "bytes": 133109
+      },
+      {
+        "file": "assisted-pullup-draft/real-machine/official-detail-1.jpg",
+        "sha256": "4e02df3c92b8ad59717e14217e3dda2d498b28910b12e41fdfdf73d03fe70e9c",
+        "bytes": 116445
+      }
+    ],
+    "observedFeatures": [
+      "curved paired frame and multi-grip overhead assembly",
+      "two fixed lateral dip bars",
+      "four access footplates across two levels",
+      "forward-projecting knee cushion mounted on rear sliding carriage/paired guide rods",
+      "real pulleys/cable route and enclosed selectorized counterweight tower"
+    ],
+    "operatorSetup": "Kneel on moving pad, grip actual overhead handles, use machine operating space toward its frame. More selected counterweight means more assistance.",
+    "catalogBoundary": "Physical production reference only; generic assisted-pull-up identity/support/grip scope not redefined. Brand/model not added to canonical catalog."
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "promptFile": "generation-prompts.json",
+    "history": "Earlier collision repair removed real machine parts and was rejected; final pair regenerated from official product photos, not that generic rack candidate."
+  },
+  "reviewScope": "User selected image2 START and image4 FINISH and prioritized harmonious card proportions. Assistant compared manufacturer photos/manual, full frames and contact crops, then measured fixed-machine landmarks to align whole-image presentation in square contain frames. Not independent biomechanics, measured CAD or physical-device acceptance.",
+  "openReview": [
+    "Small non-rigid differences in generated fixed-machine details remain; uniform display placement reduces the global jump, not every pixel difference.",
+    "Internal cable/counterweight kinematics are not certified from generated shrouded views.",
+    "Independent detailed grip/anatomy/biomechanics and physical-device acceptance remain open."
+  ],
+  "sourceRetention": "Selected original PNGs and prompt/reference chain retained in visual workspace and conversation; available sources join the next PC ZIP checkpoint. Oracle uploads deferred; no verified receipt.",
+  "export": {
+    "format": "WebP",
+    "mode": "RGB",
+    "lossless": true,
+    "method": 6,
+    "resampling": "LANCZOS"
+  },
+  "previousPresentation": {
     "scope": "Square contain frames in shared TechniqueArtwork, inline and expanded. START uses default placement; FINISH receives uniform whole-image scale/translation. No independent body/equipment stretch or source repaint.",
     "finish": {
       "method": "NCC template matching of fixed machine landmarks; robust uniform-scale/translation fit, no stretch",
@@ -101,65 +160,32 @@
     "renderingSource": "lib/exercise-artwork.ts resolveExerciseArtworkPlacement",
     "sourceCanvasAspectRatio": 1.5
   },
-  "productionChoice": "Photo-based Life Fitness SS-ADC knee-supported example, overhand grip and rear three-quarter view are visual production choices. Existing generic assisted-pull-up identity, instructions, muscle mapping, History, workouts and other configurations remain unchanged. No attachment-thumbnail binding.",
-  "references": {
-    "manufacturer": "Life Fitness",
-    "physicalModel": "Insignia Series Assist Dip Chin SS-ADC",
-    "productURL": "https://www.lifefitness.com/en-eu/catalog/strength-training/selectorized/insignia-series-assist-dip-chin",
-    "manualURL": "https://kb.cybexintl.com/Owners_Manuals/Strength/Life_Fitness_Insignia_Series_Owners_Manual_9481201_Rev_BE.pdf",
-    "manualPrintedPage": 11,
-    "photoURLs": [
-      "https://www.lifefitness.com/Kentico13CoreBase/media/LFMedia/LifeFitnessImages/MediaSync/322-995-assist-dip-chin.png",
-      "https://www.lifefitness.com/Kentico13CoreBase/media/LFMedia/LifeFitnessImages/MediaSync/133-109-insignia-series-assist-dip-chin-image-7--data.jpg",
-      "https://www.lifefitness.com/Kentico13CoreBase/media/LFMedia/LifeFitnessImages/MediaSync/116-445-insignia-series-assist-dip-chin-image-8--data.jpg"
-    ],
-    "references": [
-      {
-        "file": "assisted-pullup-draft/real-machine/official-equipment-full.png",
-        "sha256": "14f295d77943ecb0429674806c01a8a6a383b6ab79c67bb62c924e86f01e617b",
-        "bytes": 322995
+  "framingUpdate": {
+    "date": "2026-11-27",
+    "input": "Previously shipped WebP. Recorded higher-resolution originals were unavailable for this revision.",
+    "operation": "Uniform crop and high-quality resampling of the whole scene with no pose or equipment edits.",
+    "outputEncoding": "Lossless WebP, RGB, method 6, original pixel dimensions.",
+    "phases": {
+      "start": {
+        "inputSha256": "546b92eab10d851bdf47fa5d64c63f3b143ab834624e3583094e2c16f6fcb44e",
+        "inputBytes": 41238,
+        "inputCropBoxPx": [99.53224, 108.0, 1214.46776, 851.0]
       },
-      {
-        "file": "assisted-pullup-draft/real-machine/official-detail-0.jpg",
-        "sha256": "b61658f48e8fa2752026e3c9cdbca53fc58d06e23f466bb60e0f5aec0f3672bb",
-        "bytes": 133109
-      },
-      {
-        "file": "assisted-pullup-draft/real-machine/official-detail-1.jpg",
-        "sha256": "4e02df3c92b8ad59717e14217e3dda2d498b28910b12e41fdfdf73d03fe70e9c",
-        "bytes": 116445
+      "finish": {
+        "inputSha256": "846364fb849e34a31613a17e316d34a4ba88905ddbc2425c8b1fb9cd579e83dc",
+        "inputBytes": 42162,
+        "inputCropBoxPx": [102.92946, 90.33431, 1207.18244, 826.21539]
       }
-    ],
-    "observedFeatures": [
-      "curved paired frame and multi-grip overhead assembly",
-      "two fixed lateral dip bars",
-      "four access footplates across two levels",
-      "forward-projecting knee cushion mounted on rear sliding carriage/paired guide rods",
-      "real pulleys/cable route and enclosed selectorized counterweight tower"
-    ],
-    "operatorSetup": "Kneel on moving pad, grip actual overhead handles, use machine operating space toward its frame. More selected counterweight means more assistance.",
-    "catalogBoundary": "Physical production reference only; generic assisted-pull-up identity/support/grip scope not redefined. Brand/model not added to canonical catalog."
-  },
-  "generation": {
-    "tool": "built-in image_gen",
-    "promptFile": "generation-prompts.json",
-    "history": "Earlier collision repair removed real machine parts and was rejected; final pair regenerated from official product photos, not that generic rack candidate."
-  },
-  "reviewScope": "User selected image2 START and image4 FINISH and prioritized harmonious card proportions. Assistant compared manufacturer photos/manual, full frames and contact crops, then measured fixed-machine landmarks to align whole-image presentation in square contain frames. Not independent biomechanics, measured CAD or physical-device acceptance.",
-  "openReview": [
-    "Small non-rigid differences in generated fixed-machine details remain; uniform display placement reduces the global jump, not every pixel difference.",
-    "Internal cable/counterweight kinematics are not certified from generated shrouded views.",
-    "Independent detailed grip/anatomy/biomechanics and physical-device acceptance remain open."
-  ],
-  "sourceRetention": "Selected original PNGs and prompt/reference chain retained in visual workspace and conversation; available sources join the next PC ZIP checkpoint. Oracle uploads deferred; no verified receipt.",
-  "export": {
-    "format": "WebP",
-    "mode": "RGB",
-    "resize": "Pillow thumbnail",
-    "maxWidth": 1280,
-    "maxHeight": 1280,
-    "resampling": "LANCZOS",
-    "quality": 92,
-    "method": 6
+    },
+    "previousExport": {
+      "format": "WebP",
+      "mode": "RGB",
+      "resize": "Pillow thumbnail",
+      "maxWidth": 1280,
+      "maxHeight": 1280,
+      "resampling": "LANCZOS",
+      "quality": 92,
+      "method": 6
+    }
   }
 }
