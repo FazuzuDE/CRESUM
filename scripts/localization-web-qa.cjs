@@ -293,7 +293,9 @@ async function main() {
         const finnish = locale === 'fi';
         const danish = locale === 'da';
         const czech = locale === 'cs';
-        const regionalLocale = bokmal || finnish || danish || czech;
+        const portuguese = locale === 'pt-PT' || locale === 'pt-BR';
+        const regionalLocale =
+          bokmal || finnish || danish || czech || portuguese;
         const verifyRtlRoundTrip = ['te', 'ta', 'ur'].includes(locale);
         const offlineWorkout =
           (verifyRtlRoundTrip && locale !== 'ur') || taiwan || regionalLocale;
@@ -420,7 +422,7 @@ async function main() {
             .click();
           await page
             .getByRole('slider', { name: language })
-            .getByText(new RegExp(localeRegistry[to].nativeName))
+            .getByText(contains(localeRegistry[to].nativeName))
             .first()
             .click();
           await page
@@ -488,9 +490,10 @@ async function main() {
             else if (bokmal) result.bokmalDeviceLanguage = true;
             else if (finnish) result.finnishDeviceLanguage = true;
             else if (danish) result.danishDeviceLanguage = true;
-            else result.czechDeviceLanguage = true;
+            else if (czech) result.czechDeviceLanguage = true;
+            else result.portugueseDeviceLanguage = true;
           }
-          if (verifyRtlRoundTrip || danish || czech) {
+          if (verifyRtlRoundTrip || danish || czech || portuguese) {
             const expectDirection = async (dir) => {
               await page.waitForFunction((expected) => {
                 const header = document.querySelector(
@@ -504,7 +507,20 @@ async function main() {
             if (!expand) {
               await expectDirection('ltr');
               const alternate = offlineWorkout ? 'ur' : 'en';
-              if (!danish && !czech) await selectLanguage('en', locale);
+              if (!danish && !czech && !portuguese)
+                await selectLanguage('en', locale);
+              if (portuguese) {
+                const other = locale === 'pt-PT' ? 'pt-BR' : 'pt-PT';
+                await selectLanguage(locale, other);
+                await selectLanguage(other, locale);
+                await page.reload();
+                await page
+                  .getByRole('textbox', {
+                    name: text('onboarding.name'),
+                    exact: true,
+                  })
+                  .waitFor();
+              }
               await expectDirection(localeRegistry[locale].direction);
               await selectLanguage(locale, alternate);
               await expectDirection(localeRegistry[alternate].direction);
@@ -806,6 +822,7 @@ async function main() {
             else if (finnish) result.finnishSettingsSelection = true;
             else if (danish) result.danishSettingsSelection = true;
             else if (czech) result.czechSettingsSelection = true;
+            else if (portuguese) result.portugueseSettingsSelection = true;
             else result.tamilSettingsSelection = true;
           }
           await page
@@ -836,56 +853,71 @@ async function main() {
                 name: text('library.searchLabel'),
                 exact: true,
               });
-              const queries = czech
-                ? [
-                    ['dřep', 'barbell-back-squat'],
-                    ['drep', 'barbell-back-squat'],
-                    ['bench press', 'barbell-bench-press'],
-                    ['tlak na lavici', 'barbell-bench-press'],
-                    ['leg press', 'leg-press'],
-                    ['tlak nohama', 'leg-press'],
-                    ['běžecký pás', 'treadmill-walking'],
-                    ['bezecky pas', 'treadmill-walking'],
-                  ]
-                : danish
+              const queries = portuguese
+                ? locale === 'pt-PT'
                   ? [
-                      ['bænkpres', 'barbell-bench-press'],
-                      ['baenkpres', 'barbell-bench-press'],
-                      ['håndvægte', 'dumbbell-lateral-raise'],
-                      ['haandvaegte', 'dumbbell-lateral-raise'],
-                      ['løbebånd', 'treadmill-walking'],
-                      ['loebebaand', 'treadmill-walking'],
-                      ['benpres', 'leg-press'],
-                      ['motionscykel', 'upright-stationary-bike'],
+                      ['passadeira', 'treadmill-walking'],
+                      ['peso morto', 'barbell-deadlift'],
+                      ['supino plano', 'barbell-bench-press'],
+                      ['elevacoes na barra', 'pull-up'],
+                      ['prensa de pernas', 'leg-press'],
                     ]
-                  : finnish
+                  : [
+                      ['esteira', 'treadmill-walking'],
+                      ['levantamento terra', 'barbell-deadlift'],
+                      ['supino reto', 'barbell-bench-press'],
+                      ['prensa de pernas', 'leg-press'],
+                    ]
+                : czech
+                  ? [
+                      ['dřep', 'barbell-back-squat'],
+                      ['drep', 'barbell-back-squat'],
+                      ['bench press', 'barbell-bench-press'],
+                      ['tlak na lavici', 'barbell-bench-press'],
+                      ['leg press', 'leg-press'],
+                      ['tlak nohama', 'leg-press'],
+                      ['běžecký pás', 'treadmill-walking'],
+                      ['bezecky pas', 'treadmill-walking'],
+                    ]
+                  : danish
                     ? [
-                        ['JALKAPRÄSSI', 'leg-press'],
-                        ['ylätalja', 'lat-pulldown'],
-                        ['KUNTOPYORA', 'upright-stationary-bike'],
-                        [
-                          'ylätaljaveto V-kahvalla',
-                          'lat-pulldown-close-neutral-v-handle',
-                        ],
+                        ['bænkpres', 'barbell-bench-press'],
+                        ['baenkpres', 'barbell-bench-press'],
+                        ['håndvægte', 'dumbbell-lateral-raise'],
+                        ['haandvaegte', 'dumbbell-lateral-raise'],
+                        ['løbebånd', 'treadmill-walking'],
+                        ['loebebaand', 'treadmill-walking'],
+                        ['benpres', 'leg-press'],
+                        ['motionscykel', 'upright-stationary-bike'],
                       ]
-                    : bokmal
+                    : finnish
                       ? [
-                          ['KNEBØY', 'barbell-back-squat'],
-                          ['nedtrekk', 'lat-pulldown'],
-                          ['beinpress', 'leg-press'],
+                          ['JALKAPRÄSSI', 'leg-press'],
+                          ['ylätalja', 'lat-pulldown'],
+                          ['KUNTOPYORA', 'upright-stationary-bike'],
                           [
-                            'nedtrekk med V-håndtak',
+                            'ylätaljaveto V-kahvalla',
                             'lat-pulldown-close-neutral-v-handle',
                           ],
                         ]
-                      : [
-                          ['槓鈴臥推', 'barbell-bench-press'],
-                          [
-                            '三角握把下拉',
-                            'lat-pulldown-close-neutral-v-handle',
-                          ],
-                          ['跑步機', 'treadmill-walking'],
-                        ];
+                      : bokmal
+                        ? [
+                            ['KNEBØY', 'barbell-back-squat'],
+                            ['nedtrekk', 'lat-pulldown'],
+                            ['beinpress', 'leg-press'],
+                            [
+                              'nedtrekk med V-håndtak',
+                              'lat-pulldown-close-neutral-v-handle',
+                            ],
+                          ]
+                        : [
+                            ['槓鈴臥推', 'barbell-bench-press'],
+                            [
+                              '三角握把下拉',
+                              'lat-pulldown-close-neutral-v-handle',
+                            ],
+                            ['跑步機', 'treadmill-walking'],
+                          ];
               for (const [term, exercise] of queries) {
                 await query.fill(term);
                 await page
@@ -902,7 +934,8 @@ async function main() {
               else if (bokmal) result.bokmalOfflineSearch = true;
               else if (finnish) result.finnishOfflineSearch = true;
               else if (danish) result.danishOfflineSearch = true;
-              else result.czechOfflineSearch = true;
+              else if (czech) result.czechOfflineSearch = true;
+              else result.portugueseOfflineSearch = true;
             }
           }
           await page
@@ -1201,27 +1234,29 @@ async function main() {
 
           await editFirst.click();
           await button('entry.useKeypad').click();
-          const manualWeight = [
-            'cs',
-            'da',
-            'fi',
-            'nb',
-            'nl',
-            'sv',
-            'th',
-            'ur',
-            'te',
-            'ta',
-            'zh-Hant',
-          ].includes(locale)
-            ? 62.5
-            : 12.5;
+          const manualWeight =
+            portuguese ||
+            [
+              'cs',
+              'da',
+              'fi',
+              'nb',
+              'nl',
+              'sv',
+              'th',
+              'ur',
+              'te',
+              'ta',
+              'zh-Hant',
+            ].includes(locale)
+              ? 62.5
+              : 12.5;
           const manualReps = 8;
           const manualVolumeKg = manualWeight * manualReps;
           const entryLocale = locale === 'th' ? 'th-TH-u-nu-thai' : locale;
           const asciiDigitCase =
             offlineWorkout &&
-            (!regionalLocale || danish || czech) &&
+            (!regionalLocale || danish || czech || portuguese) &&
             width === 390;
           const weightInput =
             taiwan && !asciiDigitCase
@@ -1240,14 +1275,17 @@ async function main() {
           if (regionalLocale) {
             assert.equal(
               weightInput,
-              (danish || czech) && asciiDigitCase ? '62.5' : '62,5',
+              (danish || czech || portuguese) && asciiDigitCase
+                ? '62.5'
+                : '62,5',
             );
             assert.equal(repsInput, '8');
             const input = { weight: weightInput, reps: repsInput };
             if (bokmal) result.bokmalInput = input;
             else if (finnish) result.finnishInput = input;
             else if (danish) result.danishInput = input;
-            else result.czechInput = input;
+            else if (czech) result.czechInput = input;
+            else result.portugueseInput = input;
           }
           if (locale === 'te')
             result.teluguInput = { weight: weightInput, reps: repsInput };
@@ -1400,6 +1438,7 @@ async function main() {
             if (finnish) result.finnishOfflineHistoryVerified = true;
             if (danish) result.danishOfflineHistoryVerified = true;
             if (czech) result.czechOfflineHistoryVerified = true;
+            if (portuguese) result.portugueseOfflineHistoryVerified = true;
             await context.setOffline(false);
           }
           await page.reload();
@@ -1522,8 +1561,22 @@ async function main() {
           await page
             .getByRole('tab', { name: contains(text('nav.home')) })
             .click();
-          if (verifyRtlRoundTrip || taiwan) {
+          if (verifyRtlRoundTrip || taiwan || portuguese) {
             await button('home.openCalendar').click();
+            if (portuguese) {
+              const month = await page.evaluate(
+                (locale) =>
+                  new Intl.DateTimeFormat(locale, {
+                    month: 'long',
+                    year: 'numeric',
+                  }).format(new Date()),
+                locale,
+              );
+              await page
+                .getByRole('heading', { name: month, exact: true })
+                .waitFor();
+              result.portugueseCalendar = true;
+            }
             const previousMonth = button('calendar.previous');
             const nextMonth = button('calendar.next');
             const previousBox = await previousMonth.boundingBox();

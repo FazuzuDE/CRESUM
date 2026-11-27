@@ -437,3 +437,48 @@ it.each([
     validateReviewedSource('cs', { [file]: 'new' }, { [file]: 'old' }),
   ).toEqual([`cs: review translation after English source change in ${file}`]);
 });
+
+it('rejects an untranslated, empty, or broken European Portuguese message', () => {
+  const en = { action: 'Open {{name}}' };
+  expect(validateCatalogs({ en, 'pt-PT': {} })).toContain(
+    'pt-PT: missing action',
+  );
+  expect(validateCatalogs({ en, 'pt-PT': { action: '' } })).toContain(
+    'pt-PT.action: empty text',
+  );
+  expect(
+    validateCatalogs({ en, 'pt-PT': { action: 'Abrir {{other}}' } }),
+  ).toContain('pt-PT.action: parameters differ');
+  expect(validateLocalizedCopy({ en, 'pt-PT': en }, 'pt-PT', {})).toContain(
+    'pt-PT: unchanged English copy action',
+  );
+});
+
+it('requires a European Portuguese search alias and catalog name for a new exercise', () => {
+  const id = 'example';
+  expect(
+    validateSearchAliases(
+      {},
+      { 'pt-PT': {} },
+      { 'pt-PT': {} },
+      {
+        exercise: [{ id }],
+      },
+    ),
+  ).toEqual([
+    'pt-PT: missing/empty search aliases exercise.example',
+    'pt-PT: missing catalog translation catalog.exercise.example',
+  ]);
+});
+
+it.each([
+  'lib/i18n/locales/en/technique-content.ts',
+  'lib/i18n/search/en.ts',
+  'app.json',
+])('requires European Portuguese source review when %s changes', (file) => {
+  expect(
+    validateReviewedSource('pt-PT', { [file]: 'new' }, { [file]: 'old' }),
+  ).toEqual([
+    'pt-PT: review translation after English source change in ' + file,
+  ]);
+});

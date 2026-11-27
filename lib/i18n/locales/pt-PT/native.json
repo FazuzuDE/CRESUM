@@ -1,0 +1,5 @@
+{
+  "ios": {
+    "NSCameraUsageDescription": "Permita que o CRESUM utilize a câmara para ler códigos QR de planos de treino."
+  }
+}

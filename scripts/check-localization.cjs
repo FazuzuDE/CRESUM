@@ -57,9 +57,10 @@ const strictCopyLocales = [
   'fi',
   'da',
   'cs',
+  'pt-PT',
 ];
 
-const sourceReviewedLocales = ['nb', 'fi', 'da', 'cs'];
+const sourceReviewedLocales = ['nb', 'fi', 'da', 'cs', 'pt-PT'];
 
 function validateReviewedSource(locale, current, reviewed) {
   return Object.keys({ ...current, ...reviewed })
