@@ -445,6 +445,13 @@ function AppContent({
     store.getSnapshot,
   );
   const errorProblems = store.getErrorProblems();
+  const workoutWriteError = errorProblems.some(
+    (problem) =>
+      problem instanceof AppError &&
+      (problem.code === 'workout_unsaved' ||
+        problem.code === 'workout_load_failed'),
+  );
+
   const workoutError = error
     ? errorProblems.length
       ? errorProblems
@@ -1348,14 +1355,9 @@ function AppContent({
         </SafeAreaView>
       ) : null}
       {error &&
+      workoutWriteError &&
       !confirmFinish &&
-      discardSessionId === null &&
-      errorProblems.some(
-        (problem) =>
-          problem instanceof AppError &&
-          (problem.code === 'workout_unsaved' ||
-            problem.code === 'workout_load_failed'),
-      ) ? (
+      discardSessionId === null ? (
         <GlassDialog
           transparency={notificationGlass.value}
           onClose={() => store.cancelSetWrite()}
@@ -1390,6 +1392,24 @@ function AppContent({
             ) : null}
           </ContentScrollView>
         </GlassDialog>
+      ) : null}
+      {error &&
+      !workoutWriteError &&
+      !confirmFinish &&
+      discardSessionId === null ? (
+        <SafeAreaView
+          edges={['top']}
+          style={s.notice}
+          accessibilityRole="alert"
+        >
+          <Text style={s.sub}>{workoutError}</Text>
+          <AppButton
+            title={t('workout.retrySaveLoad')}
+            secondary
+            disabled={busy}
+            onPress={() => void store.retry()}
+          />
+        </SafeAreaView>
       ) : null}
       {!ready || !onboardingReady || !hiddenReady ? (
         <View style={s.empty}>
