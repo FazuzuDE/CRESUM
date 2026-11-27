@@ -2,6 +2,7 @@ import App from '../../app/index';
 import { AppButton } from '../../components/AppButton';
 import { Dock } from '../../components/Dock';
 import { GlassCard } from '../../components/GlassCard';
+import { shouldStackHomeSummary } from '../../components/HomeDashboard';
 import { DashboardGrid } from '../../components/DashboardGrid';
 import { Workout } from '../../components/Workout';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -18,7 +19,8 @@ import {
   type StyleProp,
   type ViewStyle,
 } from 'react-native';
-import { colors, spacing } from '../theme';
+import { colors } from '../theme';
+import { shouldShowLatestWorkout } from '../home-dashboard';
 
 const { act, create } = jest.requireActual('react-test-renderer');
 
@@ -154,7 +156,10 @@ it('shows factual totals and the latest saved workout even when History is out o
   const view = await renderApp();
   const text = visibleText(view);
 
-  expect(text).toContain('2 completed workouts');
+  expect(
+    view.root.findAllByProps({ testID: 'home-summary-count' }).at(-1).props
+      .children,
+  ).toBe('2');
   expect(text).toContain('480 kg');
   expect(text).toContain('Latest workout');
   expect(text).toContain('0 kg');
@@ -198,8 +203,17 @@ it('uses a truthful singular summary after the first completed workout', async (
   );
   const view = await renderApp();
 
-  expect(visibleText(view)).toContain('1 completed workout');
-  expect(visibleText(view)).not.toContain('1 completed workouts');
+  expect(
+    view.root.findAllByProps({ testID: 'home-summary-count' }).at(-1).props
+      .children,
+  ).toBe('1');
+  expect(visibleText(view)).toContain('Workouts');
+  expect(visibleText(view).match(/Last 4 weeks/g)).toHaveLength(1);
+  expect(
+    view.root
+      .findByType(DashboardGrid)
+      .props.items.map(({ id }: { id: string }) => id),
+  ).not.toContain('latest');
   act(() => view.unmount());
 });
 
@@ -277,7 +291,25 @@ it('keeps today visually distinct even after completing a workout today', async 
     expect(marker).toBeDefined();
     const style = StyleSheet.flatten(marker.props.style);
     expect(style.borderColor).toBe(colors.primary);
-    expect(style.padding).toBe(spacing.xxs);
+    expect(style.width).toBe(style.height);
+    const markers = view.root
+      .findAllByType(View)
+      .filter(
+        (node: { props: { testID?: string } }) =>
+          node.props.testID === 'home-week-marker',
+      );
+    expect(markers.length).toBe(7);
+    for (const marker of markers) {
+      const size = StyleSheet.flatten(marker.props.style);
+      expect(size.width).toBe(size.height);
+    }
+    const fill = today
+      .findAllByProps({ testID: 'home-week-marker-fill' })
+      .at(-1);
+    const fillStyle = StyleSheet.flatten(fill.props.style);
+    expect(fillStyle.width).toBe(fillStyle.height);
+    expect(fillStyle.width).toBeLessThan(style.width);
+    expect(fillStyle.backgroundColor).toBe(colors.primary);
   } finally {
     await act(async () => view.unmount());
   }
@@ -401,4 +433,32 @@ it('opens the full month above the workout and shows actual saved sessions for a
   } finally {
     await act(async () => view.unmount());
   }
+});
+
+it.each([
+  [320, 1, '480', 'Total volume', true],
+  [390, 1, '480', 'Total volume', false],
+  [390, 1.5, '480', 'Общий объём', true],
+  [390, 1, '۴۸۰', 'مجموعی وزن', false],
+  [390, 1, '987,654.312096', 'Total volume', true],
+  [390, 1, '480', 'Long localized label for training volume', true],
+] as const)(
+  'reflows tiles at %i px, scale %f, value %s and label %s',
+  (width, fontScale, value, label, stacked) => {
+    expect(
+      shouldStackHomeSummary(
+        width - 32,
+        fontScale,
+        ['Workouts', label],
+        ['1', value, 'kg'],
+      ),
+    ).toBe(stacked);
+  },
+);
+
+it('deduplicates saved results only when both workout IDs match', () => {
+  expect(shouldShowLatestWorkout('same-id', 'same-id')).toBe(false);
+  expect(shouldShowLatestWorkout('first-id', 'other-id')).toBe(true);
+  expect(shouldShowLatestWorkout('same-id', undefined)).toBe(true);
+  expect(shouldShowLatestWorkout(undefined, undefined)).toBe(true);
 });

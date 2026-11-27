@@ -48,6 +48,7 @@ import { GlassCard } from './GlassCard';
 import {
   HOME_WIDGET_LAYOUT,
   projectHomeDashboard,
+  shouldShowLatestWorkout,
   projectHomeProgram,
   templateDetails,
   type HomeTemplateDetails,
@@ -200,6 +201,28 @@ function PrimaryWorkoutWidget({
   );
 }
 
+export function shouldStackHomeSummary(
+  availableWidth: number,
+  fontScale: number,
+  labels: string[],
+  values: string[],
+): boolean {
+  // Keep numbers intact. Units can wrap at normal word boundaries.
+  const labelWidth =
+    Math.max(...labels.map((label) => label.length)) *
+    typography.footnote.fontSize *
+    0.62;
+  const valueWidth =
+    Math.max(...values.map((value) => value.length)) *
+    typography.title1.fontSize *
+    0.62;
+  const minTileWidth = Math.max(
+    152,
+    Math.max(labelWidth, valueWidth) * fontScale + spacing.md * 2,
+  );
+  return fontScale >= 1.3 || availableWidth < minTileWidth * 2 + spacing.sm;
+}
+
 function TrainingSummaryWidget({
   totalVolume,
   completedCount,
@@ -211,18 +234,37 @@ function TrainingSummaryWidget({
 }) {
   const s = useStyles();
   const { t, locale } = useLocalization();
-  if (!completedCount)
-    return (
-      <GlassCard>
-        <Text style={s.sub}>{t('history.empty')}</Text>
-      </GlassCard>
-    );
+  const { width, fontScale } = useWindowDimensions();
+  const [measuredWidth, setMeasuredWidth] = useState<number>();
+  const available = measuredWidth ?? width - spacing.md * 2;
+  const workouts = formatNumber(locale, completedCount);
+  const inTonnes = totalVolume >= 1000;
+  const volumeParams = {
+    value: formatNumber(locale, inTonnes ? totalVolume / 1000 : totalVolume, {
+      maximumFractionDigits: 6,
+    }),
+  };
+  const volumeLabel = inTonnes
+    ? t('home.tonnes', volumeParams)
+    : t('home.kilograms', volumeParams);
+  const workoutsLabel = t('stats.workouts');
+  const totalLabel = t('home.totalVolume');
+  const stacked = shouldStackHomeSummary(
+    available,
+    fontScale,
+    [workoutsLabel, totalLabel],
+    [workouts, volumeParams.value, ...volumeLabel.split(/\s+/u)],
+  );
+  const tileStyle = stacked ? s.statCard : { ...s.statCard, ...s.statColumn };
   return (
-    <View style={s.statPair}>
-      <GlassCard style={s.statCard}>
-        <Text style={s.sub}>{t('home.fourWeeks')}</Text>
-        <Text style={s.metric}>
-          {t('home.completed', { count: completedCount })}
+    <View
+      testID="home-summary"
+      style={s.summary}
+      onLayout={({ nativeEvent }) => setMeasuredWidth(nativeEvent.layout.width)}
+    >
+      <View style={s.heroTop}>
+        <Text accessibilityRole="header" style={s.section}>
+          {t('home.fourWeeks')}
         </Text>
         {onOpen ? (
           <AppButton
@@ -232,20 +274,30 @@ function TrainingSummaryWidget({
             onPress={onOpen}
           />
         ) : null}
-      </GlassCard>
-      <GlassCard style={s.statCard}>
-        <Text style={s.sub}>{t('home.totalVolume')}</Text>
-        <Text style={s.metric}>
-          {t(totalVolume >= 1000 ? 'home.tonnes' : 'home.kilograms', {
-            value: formatNumber(
-              locale,
-              totalVolume >= 1000 ? totalVolume / 1000 : totalVolume,
-              { maximumFractionDigits: 6 },
-            ),
-          })}
-        </Text>
-        <Text style={s.sub}>{t('home.fourWeeks')}</Text>
-      </GlassCard>
+      </View>
+      {completedCount ? (
+        <View
+          testID="home-summary-tiles"
+          style={[s.statPair, stacked && s.statStack]}
+        >
+          <GlassCard style={tileStyle}>
+            <Text style={s.sub}>{workoutsLabel}</Text>
+            <Text testID="home-summary-count" style={s.metric}>
+              {workouts}
+            </Text>
+          </GlassCard>
+          <GlassCard style={tileStyle}>
+            <Text style={s.sub}>{totalLabel}</Text>
+            <Text testID="home-summary-volume" style={s.metric}>
+              {volumeLabel}
+            </Text>
+          </GlassCard>
+        </View>
+      ) : (
+        <GlassCard>
+          <Text style={s.sub}>{t('history.empty')}</Text>
+        </GlassCard>
+      )}
     </View>
   );
 }
@@ -260,6 +312,21 @@ function TrainingWeekWidget({
   const colors = useAppColors();
   const s = useStyles();
   const { t, locale } = useLocalization();
+  const { width } = useWindowDimensions();
+  const [rowWidth, setRowWidth] = useState<number>();
+  const available = rowWidth ?? width - spacing.md * 4;
+  const diameter = Math.min(
+    44,
+    Math.max(
+      1,
+      Math.floor(
+        (available - spacing.xxs * (week.days.length - 1)) / week.days.length,
+      ),
+    ),
+  );
+  const circleSize = { width: diameter, height: diameter };
+  const innerDiameter = Math.max(1, diameter - spacing.xs);
+
   return (
     <GlassCard style={s.weekCard}>
       <View style={s.heroTop}>
@@ -274,7 +341,11 @@ function TrainingWeekWidget({
           onPress={() => onOpenCalendar()}
         />
       </View>
-      <View style={s.weekDays}>
+      <View
+        testID="home-week-days"
+        style={s.weekDays}
+        onLayout={({ nativeEvent }) => setRowWidth(nativeEvent.layout.width)}
+      >
         {week.days.map((day) => (
           <Pressable
             key={day.timestamp}
@@ -293,10 +364,17 @@ function TrainingWeekWidget({
             <Text style={s.dayLabel}>
               {formatDate(locale, day.timestamp, { weekday: 'short' })}
             </Text>
-            <View style={[s.dayMarker, day.isToday && s.todayCircle]}>
+            <View
+              testID="home-week-marker"
+              style={[s.dayMarker, circleSize, day.isToday && s.todayCircle]}
+            >
               <View
+                testID="home-week-marker-fill"
                 style={[
                   s.dayCircle,
+                  day.isToday
+                    ? { width: innerDiameter, height: innerDiameter }
+                    : circleSize,
                   day.completedCount > 0 && s.completedCircle,
                 ]}
               >
@@ -713,9 +791,12 @@ export function HomeDashboard({
         }}
       />
     ),
-    latest: (
+    latest: shouldShowLatestWorkout(
+      data.latestWorkout?.session.id,
+      showResult?.session.id,
+    ) ? (
       <LatestWorkoutWidget latest={data.latestWorkout} onOpen={openResult} />
-    ),
+    ) : null,
     templates:
       templates.length &&
       (program || showResult || data.otherTemplates.length) ? (
@@ -1091,14 +1172,15 @@ const useStyles = createThemedStyles((colors) => ({
   badgeText: { ...typography.footnote, color: colors.textPrimary },
   heroTitle: { ...typography.title1, color: colors.textPrimary },
   meta: { ...typography.subheadline, color: colors.textSecondary },
-  statPair: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
+  summary: { gap: spacing.xs },
+  statPair: { flexDirection: 'row', gap: spacing.sm },
+  statStack: { flexDirection: 'column' },
   statCard: {
-    flex: 1,
-    minWidth: 140,
     gap: spacing.xs,
     padding: spacing.md,
     borderRadius: radius.xxl,
   },
+  statColumn: { flex: 1, minWidth: 0 },
   weekCard: { gap: spacing.xs, padding: spacing.md, borderRadius: radius.xxl },
   weekDays: {
     flexDirection: 'row',
@@ -1110,21 +1192,17 @@ const useStyles = createThemedStyles((colors) => ({
     minWidth: 0,
     minHeight: 44,
     alignItems: 'center',
+    justifyContent: 'flex-end',
     gap: spacing.sm,
   },
   dayLabel: { ...typography.caption, color: colors.textSecondary },
   dayMarker: {
-    width: '100%',
-    maxWidth: 44,
-    aspectRatio: 1,
     borderRadius: radius.pill,
     backgroundColor: colors.surface,
     alignItems: 'center',
     justifyContent: 'center',
   },
   dayCircle: {
-    width: '100%',
-    flex: 1,
     borderRadius: radius.pill,
     backgroundColor: colors.surfaceSubtle,
     alignItems: 'center',
@@ -1134,13 +1212,12 @@ const useStyles = createThemedStyles((colors) => ({
     backgroundColor: colors.surface,
     borderWidth: 2,
     borderColor: colors.primary,
-    padding: spacing.xxs,
   },
   completedCircle: { backgroundColor: colors.primary },
-  dayNumber: { ...typography.footnote, color: colors.textSecondary },
+  dayNumber: { ...typography.caption, color: colors.textSecondary },
   todayNumber: { color: colors.primary },
   metric: {
-    ...typography.largeTitle,
+    ...typography.title1,
     color: colors.textPrimary,
     fontVariant: ['tabular-nums'],
   },
