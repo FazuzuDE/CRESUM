@@ -10,7 +10,11 @@ import {
 
 import { Image, View } from 'react-native';
 import { resolveExerciseArtwork } from '@/lib/exercise-artwork';
-import { radius, typography } from '@/lib/theme';
+import {
+  resolveExerciseDisplayFrame,
+  resolveNeutralExerciseThumbnail,
+} from '@/lib/exercise-artwork-display';
+import { palettes, radius, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import { useExerciseCharacter } from './ExerciseCharacterProvider';
@@ -27,23 +31,19 @@ export function ExerciseArtwork({
   const { t, locale } = useLocalization();
   const { model } = useExerciseCharacter();
   const name = catalogLabel(locale, 'exercise', imageKey, imageKey);
-  const source = resolveExerciseArtwork(imageKey, 'start', model);
+  const thumbnail = resolveNeutralExerciseThumbnail(imageKey, model);
+  const source = thumbnail ?? resolveExerciseArtwork(imageKey, 'start', model);
+  const frame = thumbnail
+    ? undefined
+    : resolveExerciseDisplayFrame(imageKey, model);
   if (source)
     return (
-      <View
-        style={[
-          s.placeholder,
-          { width: size, height: size, overflow: 'hidden' },
-        ]}
-      >
+      <View style={[s.artwork, { width: size, height: size }]}>
         <Image
           source={source}
           resizeMode="contain"
           accessibilityLabel={name}
-          style={[
-            s.placeholder,
-            { width: size, height: size, backgroundColor: colors.surface },
-          ]}
+          style={[{ width: size, height: size }, frame]}
         />
         <ExerciseArtworkWordmark imageKey={imageKey} />
       </View>
@@ -83,6 +83,13 @@ const useStyles = createThemedStyles((colors) => ({
     ...typography.caption,
     color: colors.textSecondary,
     maxWidth: '100%',
+  },
+  artwork: {
+    direction: 'ltr',
+    flexShrink: 0,
+    overflow: 'hidden',
+    borderRadius: radius.md,
+    backgroundColor: palettes.light.surface,
   },
   placeholder: {
     flexShrink: 0,

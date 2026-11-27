@@ -402,5 +402,13 @@
     "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/Block",
     "kind": "internal",
     "reason": "Translation key or internal error metadata for removing an exercise. User-facing errors are localized."
+  },
+  {
+    "file": "lib/exercise-artwork-display.ts",
+    "line": 73,
+    "text": "`${(pixels / side) * 100}%`",
+    "context": "TemplateExpression/ArrowFunction/VariableDeclaration/VariableDeclarationList/FirstStatement",
+    "kind": "internal",
+    "reason": "Geometry percentage for an exercise-specific image placement."
   }
 ]

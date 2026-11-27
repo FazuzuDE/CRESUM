@@ -9,10 +9,11 @@ import {
 } from '@/components/LayoutDirection';
 
 import { Image, View } from 'react-native';
+import { resolveExerciseDisplayFrame } from '@/lib/exercise-artwork-display';
 import { resolveExerciseArtwork } from '@/lib/exercise-artwork';
 import { catalogLabel } from '@/lib/i18n/catalog';
 import type { TechniquePhase } from '@/lib/exercise-technique';
-import { radius, spacing, typography } from '@/lib/theme';
+import { palettes, radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { useExerciseCharacter } from './ExerciseCharacterProvider';
 
@@ -47,7 +48,7 @@ export function TechniqueArtwork({
             phase: phaseLabel,
             name: catalogLabel(locale, 'exercise', imageKey, imageKey),
           })}
-          style={s.picture}
+          style={[s.picture, resolveExerciseDisplayFrame(imageKey, model)]}
         />
         <ExerciseArtworkWordmark imageKey={imageKey} />
       </View>
@@ -84,7 +85,12 @@ const useStyles = createThemedStyles((colors) => ({
     width: '100%',
     height: '100%',
   },
-  image: { backgroundColor: colors.surface, padding: 0, overflow: 'hidden' },
+  image: {
+    direction: 'ltr',
+    backgroundColor: palettes.light.surface,
+    padding: 0,
+    overflow: 'hidden',
+  },
   frame: {
     width: '100%',
     aspectRatio: 1,
