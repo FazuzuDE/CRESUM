@@ -21,6 +21,7 @@ type Props = {
   history: readonly WorkoutSession[];
   templates: WorkoutTemplate[];
   active: boolean;
+  allowFutureStart?: boolean;
   now: number;
   onStart: (slot: ProjectedProgramSlot, template: WorkoutTemplate) => void;
   onManage?: () => void;
@@ -33,6 +34,7 @@ export function TrainingProgramWeek({
   active,
   now,
   onStart,
+  allowFutureStart = true,
   onManage,
   onStartUnscheduled,
 }: Props) {
@@ -165,6 +167,7 @@ export function TrainingProgramWeek({
       {!active &&
       template &&
       selected &&
+      (allowFutureStart || selected.date <= localDate(new Date(now))) &&
       !selected.completedWorkoutIds.length ? (
         <AppButton
           title={t('plan.start', { key: selected.dayKey })}

@@ -16,20 +16,22 @@ import { formatDate, formatNumber } from '@/lib/i18n/format';
 export function HomeCalendar({
   history,
   now,
+  initialDate = now,
   onClose,
 }: {
   history: WorkoutSession[];
   now: number;
+  initialDate?: number;
   onClose: () => void;
 }) {
   const s = useStyles();
   const { t, locale } = useLocalization();
   const [selected, setSelected] = useState(() => {
-    const d = new Date(now);
+    const d = new Date(initialDate);
     return calendarTime(d.getFullYear(), d.getMonth(), d.getDate());
   });
   const [month, setMonth] = useState(() => {
-    const d = new Date(now);
+    const d = new Date(initialDate);
     return calendarTime(d.getFullYear(), d.getMonth(), 1);
   });
   const saved = history.filter(

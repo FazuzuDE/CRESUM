@@ -63,12 +63,16 @@ const workoutMetadata = (
 
 export function WorkoutHistory({
   history,
+  initialWorkoutId,
+  onCloseDetails,
 }: {
   history: readonly WorkoutSession[];
+  initialWorkoutId?: string;
+  onCloseDetails?: () => void;
 }) {
   const s = useStyles();
   const { t, locale } = useLocalization();
-  const [selectedId, setSelectedId] = useState<string>();
+  const [selectedId, setSelectedId] = useState(initialWorkoutId);
   const [cardioHistory, setCardioHistory] =
     useState<ReadonlyMap<string, CardioTimer>>();
   const [filter, setFilter] = useState<HistoryFilter>(() =>
@@ -106,10 +110,10 @@ export function WorkoutHistory({
         <View style={s.detailHeader}>
           <Text style={s.sectionTitle}>{t('history.details')}</Text>
           <AppButton
-            title={t('history.back')}
+            title={onCloseDetails ? t('common.done') : t('history.back')}
             swipeBack
             secondary
-            onPress={() => setSelectedId(undefined)}
+            onPress={onCloseDetails ?? (() => setSelectedId(undefined))}
           />
         </View>
         <GlassCard style={s.detailCard}>

@@ -17,12 +17,30 @@ import {
 import { HomeDragGrid } from './HomeDragGrid';
 import { useProgramScroll } from './useProgramScroll';
 import { TrainingProgramWeek } from './TrainingProgramWeek';
+import { validPlannedSets } from '@/lib/planned-exercise';
+import { ExerciseArtwork } from './ExerciseArtwork';
+import { useExerciseCharacter } from './ExerciseCharacterProvider';
+import { resolveExerciseArtwork } from '@/lib/exercise-artwork';
+import { ScreenModal } from './ScreenModal';
+import { WorkoutHistory } from './WorkoutHistory';
+import { TemplateEditor } from './TemplateEditor';
+import type { TemplateDraft } from '@/lib/workout-templates';
+import type { TemplateMutationResult } from '@/lib/workout-store';
+import { completedSetCount } from '@/lib/workout-engine';
+import { volume } from '@/lib/workout-metrics';
+import { localDate } from '@/lib/training-programs/schedule';
 import type { ProgramAssignment } from '@/lib/training-programs/assignment';
 import type { ProjectedProgramSlot } from '@/lib/training-programs/schedule';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppScrollView } from './AppScrollView';
 import { useEffect, useRef, useState } from 'react';
-import { AppState, BackHandler, Pressable, View } from 'react-native';
+import {
+  AppState,
+  BackHandler,
+  Pressable,
+  useWindowDimensions,
+  View,
+} from 'react-native';
 
 import { AppButton } from './AppButton';
 import type { DashboardGridItem } from './DashboardGrid';
@@ -30,14 +48,20 @@ import { GlassCard } from './GlassCard';
 import {
   HOME_WIDGET_LAYOUT,
   projectHomeDashboard,
+  projectHomeProgram,
+  templateDetails,
   type HomeTemplateDetails,
 } from '@/lib/home-dashboard';
 import type { WorkoutSession, WorkoutTemplate } from '@/lib/workout-model';
 import { radius, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { formatDate, formatNumber } from '@/lib/i18n/format';
-import { catalogLabel } from '@/lib/i18n/catalog';
-import { workoutTemplateLabel } from '@/lib/i18n/program';
+import { catalogLabel, workoutExerciseLabel } from '@/lib/i18n/catalog';
+import {
+  programDayLabel,
+  programTitle,
+  workoutTemplateLabel,
+} from '@/lib/i18n/program';
 import { findExercise } from '@/lib/exercise-library';
 import type { Translate } from '@/lib/i18n/messages';
 import type { AppLocale } from '@/lib/i18n/registry';
@@ -95,82 +119,82 @@ type HomeProps = {
   startTemplate: (template: WorkoutTemplate) => void;
   templates: WorkoutTemplate[];
   onOpenProfile?: () => void;
+  onOpenProgress?: () => void;
+  createTemplate?: (draft: TemplateDraft) => Promise<TemplateMutationResult>;
+  busy?: boolean;
 };
 
 function PrimaryWorkoutWidget({
-  activeWorkout,
-  featured,
-  hasTemplates,
-  onResume,
-  startTemplate,
+  state,
+  onPreview,
+  onAction,
+  disabled,
 }: {
-  activeWorkout: WorkoutSession | null;
-  featured?: HomeTemplateDetails;
-  hasTemplates: boolean;
-  onResume: () => void;
-  startTemplate: HomeProps['startTemplate'];
+  state: {
+    badge: string;
+    context?: string;
+    title: string;
+    meta?: string;
+    preview?: string;
+    imageKey?: string;
+    action: string;
+    progress?: number;
+  };
+  onPreview?: () => void;
+  onAction: () => void;
+  disabled: boolean;
 }) {
   const colors = useAppColors();
   const s = useStyles();
-  const { t, locale } = useLocalization();
-  const presentation = featured
-    ? templatePresentation(featured, t, locale)
-    : null;
-  if (!activeWorkout && !featured) {
-    return (
-      <GlassCard>
-        <Text style={s.heroTitle}>
-          {hasTemplates ? t('home.noAvailable') : t('home.noTemplates')}
-        </Text>
-        <Text style={s.sub}>
-          {hasTemplates ? t('home.editTemplate') : t('home.createTemplate')}
-        </Text>
-      </GlassCard>
-    );
-  }
-  const featuredName = featured
-    ? workoutTemplateLabel(t, locale, featured.template)
-    : '';
-  const title = activeWorkout
-    ? t('home.resume', { name: activeWorkout.name })
-    : t('home.startNamed', { name: featuredName });
+  const { t } = useLocalization();
+  const { width, fontScale } = useWindowDimensions();
+  const { model } = useExerciseCharacter();
+  const showArt =
+    state.imageKey &&
+    width >= 350 &&
+    fontScale < 1.3 &&
+    resolveExerciseArtwork(state.imageKey, 'start', model);
   return (
     <GlassCard style={s.hero}>
       <View style={s.heroTop}>
         <View style={s.badge}>
-          <Ionicons name="barbell-outline" size={18} color={colors.primary} />
-          <Text style={s.badgeText}>
-            {activeWorkout ? t('home.inProgress') : t('home.quickStart')}
-          </Text>
+          <Ionicons name="barbell-outline" size={16} color={colors.primary} />
+          <Text style={s.badgeText}>{state.badge}</Text>
         </View>
-        <Text style={s.sub}>
-          {activeWorkout ? t('home.active') : t('home.saved')}
-        </Text>
       </View>
-      <Text style={s.heroTitle} accessibilityRole="header">
-        {activeWorkout?.name ?? featuredName}
-      </Text>
-      {activeWorkout ? (
-        <Text style={s.sub}>{t('home.ready')}</Text>
-      ) : (
-        <>
-          <Text style={s.meta}>
-            {presentation?.count} ·{' '}
-            {t('home.planned', { count: featured!.plannedSetCount })}
+      <View style={s.heroBody}>
+        <View style={s.templateCopy}>
+          {state.context ? <Text style={s.sub}>{state.context}</Text> : null}
+          <Text style={s.heroTitle} accessibilityRole="header">
+            {state.title}
           </Text>
-          {presentation?.preview ? (
-            <Text style={s.sub} accessibilityLabel={presentation.preview}>
-              {presentation.preview}
-            </Text>
-          ) : null}
-        </>
-      )}
+          {state.meta ? <Text style={s.meta}>{state.meta}</Text> : null}
+          {state.preview ? <Text style={s.sub}>{state.preview}</Text> : null}
+        </View>
+        {showArt && state.imageKey ? (
+          <ExerciseArtwork imageKey={state.imageKey} size={112} />
+        ) : null}
+      </View>
+      {state.progress !== undefined ? (
+        <View style={s.progressTrack}>
+          <View style={[s.progressFill, { flex: state.progress }]} />
+          <View style={{ flex: 1 - state.progress }} />
+        </View>
+      ) : null}
+      {onPreview ? (
+        <AppButton
+          title={t('plan.title')}
+          secondary
+          presentation="text"
+          disabled={disabled}
+          onPress={onPreview}
+        />
+      ) : null}
       <AppButton
-        title={title}
-        accessibilityLabel={title}
-        onPress={
-          activeWorkout ? onResume : () => startTemplate(featured!.template)
-        }
+        title={state.action}
+        accessibilityLabel={state.action}
+        disabled={disabled}
+        onPress={onAction}
       />
     </GlassCard>
   );
@@ -179,12 +203,20 @@ function PrimaryWorkoutWidget({
 function TrainingSummaryWidget({
   totalVolume,
   completedCount,
+  onOpen,
 }: {
   totalVolume: number;
   completedCount: number;
+  onOpen?: () => void;
 }) {
   const s = useStyles();
   const { t, locale } = useLocalization();
+  if (!completedCount)
+    return (
+      <GlassCard>
+        <Text style={s.sub}>{t('history.empty')}</Text>
+      </GlassCard>
+    );
   return (
     <View style={s.statPair}>
       <GlassCard style={s.statCard}>
@@ -192,7 +224,14 @@ function TrainingSummaryWidget({
         <Text style={s.metric}>
           {t('home.completed', { count: completedCount })}
         </Text>
-        <Text style={s.sub}>{t('home.local')}</Text>
+        {onOpen ? (
+          <AppButton
+            title={t('nav.progress')}
+            secondary
+            presentation="text"
+            onPress={onOpen}
+          />
+        ) : null}
       </GlassCard>
       <GlassCard style={s.statCard}>
         <Text style={s.sub}>{t('home.totalVolume')}</Text>
@@ -216,7 +255,7 @@ function TrainingWeekWidget({
   onOpenCalendar,
 }: {
   week: ReturnType<typeof projectHomeDashboard>['week'];
-  onOpenCalendar: () => void;
+  onOpenCalendar: (date?: number) => void;
 }) {
   const colors = useAppColors();
   const s = useStyles();
@@ -227,25 +266,21 @@ function TrainingWeekWidget({
         <Text style={s.section} accessibilityRole="header">
           {t('home.week')}
         </Text>
-        <View style={s.badge}>
-          <Text style={s.badgeText}>
-            {t('home.workouts', { count: week.completedCount })}
-          </Text>
-        </View>
+        <AppButton
+          title={t('home.month')}
+          accessibilityLabel={t('home.openCalendar')}
+          secondary
+          presentation="text"
+          onPress={() => onOpenCalendar()}
+        />
       </View>
-      <AppButton
-        title={t('home.month')}
-        accessibilityLabel={t('home.openCalendar')}
-        secondary
-        presentation="text"
-        onPress={onOpenCalendar}
-      />
       <View style={s.weekDays}>
         {week.days.map((day) => (
-          <View
+          <Pressable
             key={day.timestamp}
             style={s.weekDay}
-            accessible
+            accessibilityRole="button"
+            onPress={() => onOpenCalendar(day.timestamp)}
             accessibilityLabel={t(day.isToday ? 'home.dayToday' : 'home.day', {
               date: formatDate(locale, day.timestamp, {
                 weekday: 'long',
@@ -274,7 +309,7 @@ function TrainingWeekWidget({
                 )}
               </View>
             </View>
-          </View>
+          </Pressable>
         ))}
       </View>
     </GlassCard>
@@ -283,8 +318,10 @@ function TrainingWeekWidget({
 
 function LatestWorkoutWidget({
   latest,
+  onOpen,
 }: {
   latest: ReturnType<typeof projectHomeDashboard>['latestWorkout'];
+  onOpen: (id: string) => void;
 }) {
   const s = useStyles();
   const { t, locale } = useLocalization();
@@ -293,8 +330,19 @@ function LatestWorkoutWidget({
       <Text style={s.cardLabel}>{t('home.last')}</Text>
       <Text style={s.recentName}>{latest.session.name}</Text>
       <Text style={s.sub}>
+        {formatDate(locale, latest.session.finishedAt!, {
+          dateStyle: 'medium',
+        })}
+      </Text>
+      <Text style={s.sub}>
         {t('home.volume', { value: formatNumber(locale, latest.volume) })}
       </Text>
+      <AppButton
+        title={t('history.details')}
+        onPress={() => onOpen(latest.session.id)}
+        secondary
+        presentation="text"
+      />
     </GlassCard>
   ) : (
     <Text style={s.empty}>{t('home.empty')}</Text>
@@ -383,12 +431,15 @@ export function HomeDashboard({
   startTemplate,
   templates,
   onOpenProfile,
+  onOpenProgress,
+  createTemplate,
+  busy = false,
   assignment,
   startProgramSlot,
 }: HomeProps) {
   const colors = useAppColors();
   const s = useStyles();
-  const { t } = useLocalization();
+  const { t, locale } = useLocalization();
   const homeLayout = useHomeLayout();
   const [editingLayout, setEditingLayout] = useState(false);
   const [draft, setDraft] = useState<HomeLayout | null>(null);
@@ -469,7 +520,14 @@ export function HomeDashboard({
       }
     : undefined;
   const [now, setNow] = useState(Date.now);
-  const [calendarOpen, setCalendarOpen] = useState(false);
+  const [calendarDate, setCalendarDate] = useState<number>();
+  const [resultId, setResultId] = useState<string>();
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const [builderOpen, setBuilderOpen] = useState(false);
+  const [scheduleOpen, setScheduleOpen] = useState(false);
+  const openResult = (id: string) => {
+    if (!draftRef.current) setResultId(id);
+  };
   const [gridTop, setGridTop] = useState(0);
   const [rowOffsets, setRowOffsets] = useState<Record<string, number>>({});
   useEffect(() => {
@@ -484,57 +542,199 @@ export function HomeDashboard({
     };
   }, []);
   const data = projectHomeDashboard(history, activeWorkout, templates, now);
-  const program =
-    assignment && startProgramSlot ? (
-      <TrainingProgramWeek
-        assignment={assignment}
-        history={history}
-        templates={templates}
-        active={Boolean(activeWorkout)}
-        now={now}
-        onStart={(slot, template) => {
-          if (!draftRef.current) startProgramSlot(slot, template);
-        }}
-        onStartUnscheduled={guardedStart}
-        onManage={guardedProfile}
-      />
-    ) : null;
+  const program = projectHomeProgram(assignment, history, templates, now);
+  const latestToday =
+    data.latestWorkout &&
+    localDate(new Date(data.latestWorkout.session.finishedAt!)) ===
+      localDate(new Date(now))
+      ? data.latestWorkout
+      : null;
+  const featured = program ? program.details : data.primaryTemplate;
+  const template = featured?.template;
+  const exercise = activeWorkout?.exercises[activeWorkout.currentExerciseIndex];
+  const imageKey = activeWorkout
+    ? findExercise(exercise?.libraryId ?? '')?.imageKey
+    : template?.exerciseIds.map(findExercise).find(Boolean)?.imageKey;
+  const templateName = template
+    ? workoutTemplateLabel(t, locale, template, assignment)
+    : '';
+  const scheduledDay = program?.slot.date.split('-').map(Number);
+  const scheduledDate =
+    scheduledDay &&
+    formatDate(
+      locale,
+      new Date(
+        scheduledDay[0],
+        scheduledDay[1] - 1,
+        scheduledDay[2],
+        12,
+      ).getTime(),
+      {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+      },
+    );
+  const presentation = featured && templatePresentation(featured, t, locale);
+  const startFeatured = () => {
+    if (draftRef.current || !template || busy) return;
+    if (program) {
+      if (program.slot.date === localDate() && startProgramSlot) {
+        startProgramSlot(program.slot, template);
+      }
+    } else {
+      guardedStart(template);
+    }
+  };
+  const showResult = !activeWorkout && !program?.isToday ? latestToday : null;
+  let hero;
+  let action: () => void;
+  if (activeWorkout) {
+    const recorded = completedSetCount(activeWorkout);
+    const setCount = activeWorkout.exercises.reduce(
+      (total, item) => total + item.sets.length,
+      0,
+    );
+    hero = {
+      badge: t('home.inProgress'),
+      context: activeWorkout.name,
+      title: exercise
+        ? workoutExerciseLabel(locale, exercise)
+        : activeWorkout.name,
+      meta: [
+        t('history.completedSets', { count: recorded }),
+        t('home.planned', { count: setCount }),
+      ].join(' · '),
+      progress: setCount ? Math.min(1, recorded / setCount) : undefined,
+      imageKey,
+      action: t('home.resume', { name: activeWorkout.name }),
+    };
+    action = guardedResume;
+  } else if (showResult) {
+    hero = {
+      badge: t('workout.saved'),
+      title: showResult.session.name,
+      meta: [
+        t('history.completedSets', {
+          count: completedSetCount(showResult.session),
+        }),
+        t('home.volume', {
+          value: formatNumber(locale, volume(showResult.session)),
+        }),
+      ].join(' · '),
+      action: t('history.details'),
+    };
+    action = () => openResult(showResult.session.id);
+  } else if (program && !featured) {
+    hero = {
+      badge: t('plan.planned'),
+      title: programTitle(t, locale, assignment!.program),
+      context: scheduledDate || undefined,
+      meta: t('plan.unavailable'),
+      action: t('plan.manage'),
+    };
+    action = () => guardedProfile?.();
+  } else if (featured && presentation) {
+    const day = assignment?.program.days.find(
+      (item) => item.key === program?.slot.dayKey,
+    );
+    hero = {
+      badge: program ? t('plan.planned') : t('home.quickStart'),
+      context:
+        assignment && program
+          ? [programTitle(t, locale, assignment.program), scheduledDate].join(
+              ' · ',
+            )
+          : t('home.saved'),
+      title: day ? programDayLabel(t, day.key, day.name) : templateName,
+      meta: [
+        presentation.count,
+        t('home.planned', { count: featured.plannedSetCount }),
+      ].join(' · '),
+      preview: program ? undefined : presentation.preview,
+      imageKey,
+      action:
+        program && !program.isToday
+          ? t('plan.title')
+          : t('home.startNamed', { name: templateName }),
+    };
+    action =
+      program && !program.isToday
+        ? () => {
+            if (!draftRef.current) setPreviewOpen(true);
+          }
+        : startFeatured;
+  } else {
+    hero = {
+      badge: t('home.templates'),
+      title: templates.length ? t('home.noAvailable') : t('home.noTemplates'),
+      action: t('templates.create'),
+    };
+    action = () => {
+      if (!draftRef.current) setBuilderOpen(true);
+    };
+  }
   const content = {
-    primary:
-      program && !activeWorkout ? (
-        program
-      ) : (
-        <PrimaryWorkoutWidget
-          activeWorkout={activeWorkout}
-          featured={data.primaryTemplate}
-          hasTemplates={templates.length > 0}
-          onResume={guardedResume}
-          startTemplate={guardedStart}
-        />
-      ),
+    primary: (
+      <PrimaryWorkoutWidget
+        state={hero}
+        onAction={action}
+        disabled={busy || Boolean(draft)}
+        onPreview={
+          !activeWorkout &&
+          !showResult &&
+          template &&
+          (!program || program.isToday)
+            ? () => {
+                if (!draftRef.current) setPreviewOpen(true);
+              }
+            : undefined
+        }
+      />
+    ),
     summary: (
       <TrainingSummaryWidget
         totalVolume={data.fourWeeks.totalVolume}
         completedCount={data.fourWeeks.completedCount}
+        onOpen={
+          onOpenProgress
+            ? () => {
+                if (!draftRef.current) onOpenProgress();
+              }
+            : undefined
+        }
       />
     ),
     week: (
       <TrainingWeekWidget
         week={data.week}
-        onOpenCalendar={() => {
-          if (!draftRef.current) setCalendarOpen(true);
+        onOpenCalendar={(date) => {
+          if (!draftRef.current) setCalendarDate(date ?? now);
         }}
       />
     ),
-    latest: <LatestWorkoutWidget latest={data.latestWorkout} />,
-    templates: data.otherTemplates.length ? (
-      <WorkoutTemplatesWidget
-        templates={data.otherTemplates}
-        activeWorkout={activeWorkout}
-        assignment={assignment}
-        startTemplate={guardedStart}
-      />
-    ) : null,
+    latest: (
+      <LatestWorkoutWidget latest={data.latestWorkout} onOpen={openResult} />
+    ),
+    templates:
+      templates.length &&
+      (program || showResult || data.otherTemplates.length) ? (
+        <WorkoutTemplatesWidget
+          templates={
+            program || showResult
+              ? templates
+                  .map(templateDetails)
+                  .filter(
+                    (item) =>
+                      item.template.id !== template?.id || Boolean(showResult),
+                  )
+              : data.otherTemplates
+          }
+          activeWorkout={activeWorkout}
+          assignment={assignment}
+          startTemplate={guardedStart}
+        />
+      ) : null,
   };
   const items: DashboardGridItem[] = (
     draft ?? homeLayout.layout
@@ -546,15 +746,6 @@ export function HomeDashboard({
       : [];
   });
 
-  if (program && activeWorkout) {
-    const primary = items.find((item) => item.id === 'primary')!;
-    primary.content = (
-      <View style={{ gap: spacing.lg }}>
-        {primary.content}
-        {program}
-      </View>
-    );
-  }
   return (
     <View style={{ flex: 1 }}>
       <AppScrollView
@@ -573,6 +764,13 @@ export function HomeDashboard({
         <View style={s.header}>
           <View style={s.greetingRow}>
             <View style={s.greetingCopy}>
+              <Text style={s.date}>
+                {formatDate(locale, now, {
+                  weekday: 'long',
+                  day: 'numeric',
+                  month: 'long',
+                })}
+              </Text>
               <Text style={s.title} accessibilityRole="header">
                 {displayName?.trim()
                   ? t('home.welcomeNamed', { name: displayName.trim() })
@@ -580,7 +778,6 @@ export function HomeDashboard({
                     ? t('home.welcomeBack')
                     : t('home.welcome')}
               </Text>
-              <Text style={s.greeting}>{t('home.greeting')}</Text>
             </View>
             {onOpenProfile ? (
               <Pressable
@@ -660,11 +857,125 @@ export function HomeDashboard({
             )
           }
         />
-        {calendarOpen ? (
+        {assignment && startProgramSlot ? (
+          <AppButton
+            title={t('onboarding.weeklySchedule')}
+            secondary
+            presentation="text"
+            disabled={Boolean(draft)}
+            onPress={() => setScheduleOpen(true)}
+          />
+        ) : null}
+        {scheduleOpen && assignment && startProgramSlot ? (
+          <ScreenModal
+            visible
+            animationType="slide"
+            presentationStyle="pageSheet"
+            onRequestClose={() => setScheduleOpen(false)}
+          >
+            <AppScrollView
+              branded
+              back={{ onPress: () => setScheduleOpen(false) }}
+              contentContainerStyle={s.content}
+            >
+              <TrainingProgramWeek
+                assignment={assignment}
+                history={history}
+                templates={templates}
+                active={Boolean(activeWorkout)}
+                now={now}
+                onStart={(slot, routine) => {
+                  if (busy || slot.date > localDate()) return;
+                  setScheduleOpen(false);
+                  startProgramSlot(slot, routine);
+                }}
+                onStartUnscheduled={guardedStart}
+                onManage={() => {
+                  setScheduleOpen(false);
+                  guardedProfile?.();
+                }}
+                allowFutureStart={false}
+              />
+            </AppScrollView>
+          </ScreenModal>
+        ) : null}
+        {calendarDate !== undefined ? (
           <HomeCalendar
             history={history}
             now={now}
-            onClose={() => setCalendarOpen(false)}
+            initialDate={calendarDate}
+            onClose={() => setCalendarDate(undefined)}
+          />
+        ) : null}
+        {previewOpen && template ? (
+          <ScreenModal
+            visible
+            animationType="slide"
+            presentationStyle="pageSheet"
+            onRequestClose={() => setPreviewOpen(false)}
+          >
+            <AppScrollView
+              branded
+              back={{ onPress: () => setPreviewOpen(false) }}
+              contentContainerStyle={s.content}
+            >
+              <Text accessibilityRole="header" style={s.title}>
+                {templateName}
+              </Text>
+              {scheduledDate ? (
+                <Text style={s.sub}>{scheduledDate}</Text>
+              ) : null}
+              {template.exerciseIds.map((id, index) => {
+                const item = findExercise(id);
+                if (!item) return null;
+                const sets = template.plannedExercises?.find(
+                  (exercise) => exercise.exerciseId === id,
+                )?.sets;
+                return (
+                  <GlassCard key={index}>
+                    <Text style={s.templateName}>
+                      {catalogLabel(locale, 'exercise', item.id, item.name)}
+                    </Text>
+                    <Text style={s.sub}>
+                      {t('home.planned', {
+                        count: sets && validPlannedSets(sets) ? sets : 3,
+                      })}
+                    </Text>
+                  </GlassCard>
+                );
+              })}
+              {!activeWorkout && !busy && (!program || program.isToday) ? (
+                <AppButton title={t('home.start')} onPress={startFeatured} />
+              ) : null}
+            </AppScrollView>
+          </ScreenModal>
+        ) : null}
+        {resultId ? (
+          <ScreenModal
+            visible
+            animationType="slide"
+            presentationStyle="pageSheet"
+            onRequestClose={() => setResultId(undefined)}
+          >
+            <AppScrollView branded contentContainerStyle={s.content}>
+              <WorkoutHistory
+                history={history}
+                initialWorkoutId={resultId}
+                onCloseDetails={() => setResultId(undefined)}
+              />
+            </AppScrollView>
+          </ScreenModal>
+        ) : null}
+        {builderOpen && createTemplate ? (
+          <TemplateEditor
+            mode="create"
+            busy={busy}
+            onCancel={() => setBuilderOpen(false)}
+            onSave={async (input) => {
+              const result = await createTemplate(input);
+              if (result.ok) setBuilderOpen(false);
+              return result;
+            }}
           />
         ) : null}
         {editingLayout ? (
@@ -731,7 +1042,7 @@ const useStyles = createThemedStyles((colors) => ({
     borderBottomLeftRadius: radius.lg,
     borderBottomRightRadius: radius.lg,
   },
-  content: { padding: spacing.md, gap: spacing.lg },
+  content: { padding: spacing.md, gap: spacing.sm },
   homeContent: {
     width: '100%',
     maxWidth: 600,
@@ -749,9 +1060,18 @@ const useStyles = createThemedStyles((colors) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  greeting: { ...typography.body, color: colors.textSecondary },
+  date: { ...typography.caption, color: colors.textSecondary },
   title: { ...typography.largeTitle, color: colors.textPrimary },
-  hero: { gap: spacing.lg, padding: spacing.lg, borderRadius: radius.xxl },
+  hero: { gap: spacing.sm, padding: spacing.md, borderRadius: radius.lg },
+  heroBody: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  progressTrack: {
+    flexDirection: 'row',
+    height: 4,
+    backgroundColor: colors.surfaceSubtle,
+    borderRadius: radius.pill,
+    overflow: 'hidden',
+  },
+  progressFill: { height: '100%', backgroundColor: colors.primary },
   heroTop: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -779,13 +1099,19 @@ const useStyles = createThemedStyles((colors) => ({
     padding: spacing.md,
     borderRadius: radius.xxl,
   },
-  weekCard: { gap: spacing.lg, padding: spacing.md, borderRadius: radius.xxl },
+  weekCard: { gap: spacing.xs, padding: spacing.md, borderRadius: radius.xxl },
   weekDays: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     gap: spacing.xxs,
   },
-  weekDay: { flex: 1, minWidth: 0, alignItems: 'center', gap: spacing.sm },
+  weekDay: {
+    flex: 1,
+    minWidth: 0,
+    minHeight: 44,
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
   dayLabel: { ...typography.caption, color: colors.textSecondary },
   dayMarker: {
     width: '100%',

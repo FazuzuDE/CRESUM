@@ -1,4 +1,6 @@
 import { HomeDashboard } from '../../components/HomeDashboard';
+import { WorkoutHistory } from '../../components/WorkoutHistory';
+import type { WorkoutSession } from '../workout-model';
 import { AppButton } from '../../components/AppButton';
 import { makeAssignment } from '../training-programs/assignment';
 import { selectProgram } from '../training-programs/selectors';
@@ -21,14 +23,24 @@ const a = makeAssignment(
   'home-1',
   '2026-10-11',
 );
-const render = async (active = false, templates = a.templates) => {
+beforeEach(() => {
+  jest.useFakeTimers().setSystemTime(new Date(2026, 9, 11, 12));
+});
+afterEach(() => jest.useRealTimers());
+const render = async (
+  active = false,
+  templates = a.templates,
+  history: WorkoutSession[] = [],
+) => {
   let view!: ReturnType<typeof create>;
   const start = jest.fn();
   const resume = jest.fn();
   await act(async () => {
     view = create(
       <HomeDashboard
-        history={[]}
+        history={history}
+        busy={false}
+        createTemplate={jest.fn()}
         activeWorkout={
           active ? startWorkout(a.templates[0], exerciseLibrary) : null
         }
@@ -49,7 +61,7 @@ it('shows accepted weeks separately from actual statistics and starts only a cho
   const button = view.root
     .findAllByType(AppButton)
     .find((b: { props: { title: string } }) =>
-      b.props.title.startsWith('Start planned workout'),
+      b.props.title.startsWith('Start '),
     );
   expect(button).toBeDefined();
   act(() => button.props.onPress());
@@ -87,5 +99,50 @@ it('offers review instead of recreating a deleted program routine', async () => 
         b.props.title.startsWith('Start planned workout'),
       ),
   ).toBe(false);
+  act(() => view.unmount());
+});
+
+it('shows the next planned day on a rest day without a planned start action', async () => {
+  jest.setSystemTime(new Date(2026, 9, 12, 12));
+  const { view, start } = await render();
+  expect(JSON.stringify(view.toJSON())).toContain('October 13');
+  expect(
+    view.root
+      .findAllByType(AppButton)
+      .some((b: { props: { title: string } }) =>
+        b.props.title.startsWith('Start '),
+      ),
+  ).toBe(false);
+  expect(start).not.toHaveBeenCalled();
+  act(() => view.unmount());
+});
+
+it('opens the saved workout itself after completing today’s scheduled session', async () => {
+  const workout = startWorkout(a.templates[0], exerciseLibrary);
+  workout.programSlot = {
+    assignmentId: a.id,
+    weekIndex: 0,
+    slotIndex: 0,
+    date: '2026-10-11',
+  };
+  workout.finishedAt = Date.now();
+  const set = workout.exercises[0].sets[0];
+  Object.assign(set, {
+    weight: '40',
+    reps: '8',
+    completedAt: workout.finishedAt,
+  });
+  const { view, start } = await render(false, a.templates, [workout]);
+  const details = view.root
+    .findAllByType(AppButton)
+    .find(
+      (b: { props: { title: string } }) => b.props.title === 'Workout details',
+    );
+  expect(details).toBeDefined();
+  await act(async () => details.props.onPress());
+  expect(view.root.findByType(WorkoutHistory).props.initialWorkoutId).toBe(
+    workout.id,
+  );
+  expect(start).not.toHaveBeenCalled();
   act(() => view.unmount());
 });
