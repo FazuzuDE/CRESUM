@@ -1,6 +1,7 @@
 import { workoutRecap } from '../workout-recap';
 import { exerciseLibrary } from '../workout-catalog';
 import { startWorkout } from '../workout-engine';
+import type { WorkoutSession } from '../workout-model';
 
 const base = startWorkout(
   {
@@ -12,7 +13,11 @@ const base = startWorkout(
   1000,
 );
 
-const finished = (id: string, time: number, weight: string) => ({
+const finished = (
+  id: string,
+  time: number,
+  weight: string,
+): WorkoutSession => ({
   ...base,
   id,
   finishedAt: time,
