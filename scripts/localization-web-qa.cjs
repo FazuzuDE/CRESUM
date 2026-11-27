@@ -422,7 +422,7 @@ async function main() {
             .click();
           await page
             .getByRole('slider', { name: language })
-            .getByText(new RegExp(localeRegistry[to].nativeName))
+            .getByText(contains(localeRegistry[to].nativeName))
             .first()
             .click();
           await page

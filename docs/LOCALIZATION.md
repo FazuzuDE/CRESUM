@@ -1222,6 +1222,11 @@ iOS camera purpose string changes. Update its Portuguese text in
 its exact value and reason in `docs/localization-pt-PT-copy-exceptions.json`.
 Run `npm run i18n:check` before committing.
 
+Both Portuguese variants passed the browser scenarios at 320 px and 390 px
+with standard and expanded text on runtime `0.3.41` (`06cc09d`). The
+checks cover both language menu entries, saved choices, RTL-to-LTR
+switching, dates, offline search and History with both decimal marks.
+
 ### Portuguese physical-device checklist
 
 Status for physical iPhone and Android in test and signed final builds:
