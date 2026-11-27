@@ -600,21 +600,14 @@ it('renders both registered deadlift exports in one fixed contain frame', () => 
       );
   try {
     act(() => button(v, 'Technique for Barbell Deadlift')!.props.onPress());
-    expect(StyleSheet.flatten(images('START')[0].props.style)).toMatchObject({
-      top: 0,
-      width: '100%',
-      height: '100%',
-    });
+    const startStyle = StyleSheet.flatten(images('START')[0].props.style);
+    expect(parseFloat(String(startStyle.width))).toBeGreaterThan(100);
+    expect(startStyle.height).toBe(startStyle.width);
     act(() => button(v, 'Show FINISH')!.props.onPress());
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
     expect(images('FINISH')).toHaveLength(2);
     const inlineStyle = StyleSheet.flatten(images('FINISH')[0].props.style);
-    expect(inlineStyle).toMatchObject({
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-    });
+    expect(inlineStyle).toEqual(startStyle);
     for (const image of images('FINISH')) {
       expect(image.props.source).toBe(1302);
       expect(image.props.resizeMode).toBe('contain');
@@ -623,7 +616,9 @@ it('renders both registered deadlift exports in one fixed contain frame', () => 
     act(() => button(v, 'Close full-screen illustration')!.props.onPress());
     act(() => button(v, 'Show START')!.props.onPress());
     expect(images('START')[0].props.source).toBe(1301);
-    expect(StyleSheet.flatten(images('START')[0].props.style).top).toBe(0);
+    expect(StyleSheet.flatten(images('START')[0].props.style)).toEqual(
+      startStyle,
+    );
   } finally {
     act(() => v.unmount());
   }

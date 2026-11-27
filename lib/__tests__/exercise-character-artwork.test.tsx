@@ -989,11 +989,11 @@ it.each([
   ['barbell-bench-press', [8501, 8502, 8501], [8601, 8602, 8601]],
   ['assisted-dip-machine', [8301, 8302, 8301], [8401, 8402, 8401]],
   ['close-grip-bench-press', [8101, 8102, 8101], [8201, 8202, 8201]],
-  ['lying-barbell-triceps-extension', [7901, 7902, 7901], [8001, 8002, 8001]],
+  ['lying-barbell-triceps-extension', [7901, 7902, 7901], [31216, 8002, 8001]],
   [
     'dumbbell-overhead-triceps-extension',
-    [7701, 7702, 7701],
-    [7801, 7802, 7801],
+    [31210, 7702, 7701],
+    [31209, 7802, 7801],
   ],
   ['goblet-squat', [101, 102, 101], [201, 202, 201]],
   ['leg-press', [301, 302, 301], [401, 402, 401]],
@@ -1017,19 +1017,19 @@ it.each([
   ['dumbbell-shrug', [3901, 3902, 3901], [4001, 4002, 4001]],
   ['farmers-carry', [4101, 4102, 4101], [4201, 4202, 4201]],
   ['bodyweight-step-up', [4501, 4502, 4501], [4601, 4602, 4601]],
-  ['overhead-cable-triceps-extension', [7501, 7502, 7501], [7601, 7602, 7601]],
-  ['cable-triceps-pushdown', [7301, 7302, 7301], [7401, 7402, 7401]],
-  ['cable-biceps-curl', [7101, 7102, 7101], [7201, 7202, 7201]],
-  ['hammer-curl', [6901, 6902, 6901], [7001, 7002, 7001]],
-  ['ez-bar-curl', [6701, 6702, 6701], [6801, 6802, 6801]],
-  ['barbell-curl', [6501, 6502, 6501], [6601, 6602, 6601]],
-  ['dumbbell-biceps-curl', [6301, 6302, 6301], [6401, 6402, 6401]],
-  ['kettlebell-goblet-squat', [6101, 6102, 6101], [6201, 6202, 6201]],
+  ['overhead-cable-triceps-extension', [7501, 7502, 7501], [31217, 7602, 7601]],
+  ['cable-triceps-pushdown', [31207, 7302, 7301], [31206, 7402, 7401]],
+  ['cable-biceps-curl', [31205, 7102, 7101], [31204, 7202, 7201]],
+  ['hammer-curl', [31214, 6902, 6901], [31213, 7002, 7001]],
+  ['ez-bar-curl', [31212, 6702, 6701], [31211, 6802, 6801]],
+  ['barbell-curl', [31202, 6502, 6501], [31201, 6602, 6601]],
+  ['dumbbell-biceps-curl', [6301, 6302, 6301], [31208, 6402, 6401]],
+  ['kettlebell-goblet-squat', [6101, 6102, 6101], [31215, 6202, 6201]],
   ['barbell-deadlift', [5901, 5902, 5901], [6001, 6002, 6001]],
   ['barbell-front-squat', [5701, 5702, 5701], [5801, 5802, 5801]],
   ['barbell-back-squat', [5501, 5502, 5501], [5601, 5602, 5601]],
   ['smith-machine-squat', [5301, 5302, 5301], [5401, 5402, 5401]],
-  ['bulgarian-split-squat', [5101, 5102, 5101], [5201, 5202, 5201]],
+  ['bulgarian-split-squat', [5101, 5102, 5101], [31203, 5202, 5201]],
   ['dumbbell-reverse-lunge', [4901, 4902, 4901], [5001, 5002, 5001]],
   ['dumbbell-floor-glute-bridge', [4701, 4702, 4701], [4801, 4802, 4801]],
   [
@@ -1103,3 +1103,63 @@ it('shows a female pending placeholder instead of a male image', async () => {
   ).toBe(true);
   await act(async () => view.unmount());
 });
+
+jest.mock(
+  '../../assets/exercises/barbell-curl/female/thumbnail.webp',
+  () => 31201,
+);
+jest.mock('../../assets/exercises/barbell-curl/thumbnail.webp', () => 31202);
+jest.mock(
+  '../../assets/exercises/bulgarian-split-squat/female/thumbnail.webp',
+  () => 31203,
+);
+jest.mock(
+  '../../assets/exercises/cable-biceps-curl/female/thumbnail.webp',
+  () => 31204,
+);
+jest.mock(
+  '../../assets/exercises/cable-biceps-curl/thumbnail.webp',
+  () => 31205,
+);
+jest.mock(
+  '../../assets/exercises/cable-triceps-pushdown/female/thumbnail.webp',
+  () => 31206,
+);
+jest.mock(
+  '../../assets/exercises/cable-triceps-pushdown/thumbnail.webp',
+  () => 31207,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-biceps-curl/female/thumbnail.webp',
+  () => 31208,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-overhead-triceps-extension/female/thumbnail.webp',
+  () => 31209,
+);
+jest.mock(
+  '../../assets/exercises/dumbbell-overhead-triceps-extension/thumbnail.webp',
+  () => 31210,
+);
+jest.mock(
+  '../../assets/exercises/ez-bar-curl/female/thumbnail.webp',
+  () => 31211,
+);
+jest.mock('../../assets/exercises/ez-bar-curl/thumbnail.webp', () => 31212);
+jest.mock(
+  '../../assets/exercises/hammer-curl/female/thumbnail.webp',
+  () => 31213,
+);
+jest.mock('../../assets/exercises/hammer-curl/thumbnail.webp', () => 31214);
+jest.mock(
+  '../../assets/exercises/kettlebell-goblet-squat/female/thumbnail.webp',
+  () => 31215,
+);
+jest.mock(
+  '../../assets/exercises/lying-barbell-triceps-extension/female/thumbnail.webp',
+  () => 31216,
+);
+jest.mock(
+  '../../assets/exercises/overhead-cable-triceps-extension/female/thumbnail.webp',
+  () => 31217,
+);
