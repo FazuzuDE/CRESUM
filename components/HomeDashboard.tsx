@@ -188,7 +188,12 @@ function PrimaryWorkoutWidget({
           onPress={onPreview}
         />
       ) : null}
-      <AppButton title={state.action} disabled={disabled} onPress={onAction} />
+      <AppButton
+        title={state.action}
+        accessibilityLabel={state.action}
+        disabled={disabled}
+        onPress={onAction}
+      />
     </GlassCard>
   );
 }
