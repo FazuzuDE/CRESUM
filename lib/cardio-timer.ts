@@ -100,6 +100,13 @@ let pendingWrite: Promise<unknown> = Promise.resolve();
 
 export const waitForCardioWrites = () => pendingWrite;
 
+export async function loadCardioTimers(
+  storage: Pick<CardioStorage, 'getItem'>,
+) {
+  await waitForCardioWrites();
+  return readCardioTimers(await storage.getItem(CARDIO_TIMERS_KEY));
+}
+
 export function saveCardioTimer(
   storage: CardioStorage,
   sessionId: string,

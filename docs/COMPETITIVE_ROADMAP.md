@@ -61,6 +61,8 @@ Acceptance: displayed elapsed/remaining time within one second of expected
 on resume in controlled tests; device checks for lock, background, process kill,
 clock changes, silent mode and denied notification permissions. OS delivery
 is best effort, not an exact alarm guarantee.
+See [P0.4 timer recovery](P0.4_TIMER_RECOVERY.md) for the scoped fixes,
+notification boundary and device checklist.
 
 ## P1 — training value
 

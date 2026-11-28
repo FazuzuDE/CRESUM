@@ -9,8 +9,7 @@ import { useLocalization } from './LocalizationProvider';
 import {
   adjustCardioGoal,
   cardioElapsed,
-  CARDIO_TIMERS_KEY,
-  readCardioTimers,
+  loadCardioTimers,
   saveCardioTimer,
   type CardioTimer,
 } from '@/lib/cardio-timer';
@@ -50,9 +49,9 @@ export function CardioCountdown({
   useEffect(() => {
     if (isManual) return;
     let active = true;
-    AsyncStorage.getItem(CARDIO_TIMERS_KEY)
-      .then((raw) => {
-        const saved = readCardioTimers(raw).get(sessionId);
+    loadCardioTimers(AsyncStorage)
+      .then((timers) => {
+        const saved = timers.get(sessionId);
         if (active)
           setTimer(
             saved?.exerciseId === exerciseId
@@ -70,10 +69,9 @@ export function CardioCountdown({
 
   useEffect(() => {
     let active = true;
-    AsyncStorage.getItem(CARDIO_TIMERS_KEY)
-      .then((raw) => {
+    loadCardioTimers(AsyncStorage)
+      .then((timers) => {
         if (!active) return;
-        const timers = readCardioTimers(raw);
         for (const session of newestFirstHistory(history)) {
           const recorded = session.exercises.find(
             ({ cardio }) =>
