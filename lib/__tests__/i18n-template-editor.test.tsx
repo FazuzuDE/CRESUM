@@ -1,3 +1,4 @@
+import { renderedText } from './rendered-text';
 import { TextInput } from 'react-native';
 import { TemplateEditor } from '../../components/TemplateEditor';
 import { ExerciseLibrary } from '../../components/ExerciseLibrary';
@@ -72,13 +73,13 @@ it('keeps manual workout names and numeric drafts while translating editing and 
     });
     expect(input('Startgewicht in Kilogramm').props.value).toBe('12,');
     await press('Übung hinzufügen');
-    expect(JSON.stringify(view!.toJSON())).toContain(
+    expect(renderedText(view!.toJSON())).toContain(
       'Gib ein gültiges, nicht negatives Gewicht ein.',
     );
     await act(async () => {
       await locale.select('fr');
     });
-    expect(JSON.stringify(view!.toJSON())).toContain(
+    expect(renderedText(view!.toJSON())).toContain(
       'Saisis une charge valide, positive ou nulle.',
     );
     await act(async () => {
@@ -86,11 +87,11 @@ it('keeps manual workout names and numeric drafts while translating editing and 
     });
     await press('Ajouter l’exercice');
     await press('Enregistrer l’entraînement');
-    expect(JSON.stringify(view!.toJSON())).not.toContain('SECRET_DIAGNOSTIC');
+    expect(renderedText(view!.toJSON())).not.toContain('SECRET_DIAGNOSTIC');
     await act(async () => {
       await locale.select('ru');
     });
-    expect(JSON.stringify(view!.toJSON())).toContain(
+    expect(renderedText(view!.toJSON())).toContain(
       'Не удалось сохранить тренировку. Повторите попытку.',
     );
     expect(save).toHaveBeenCalledTimes(1);
@@ -166,7 +167,7 @@ it('retains editing order through translated stale-reference and discard control
     await act(async () => {
       await locale.select('ru');
     });
-    expect(JSON.stringify(view!.toJSON())).toContain(
+    expect(renderedText(view!.toJSON())).toContain(
       'Перед сохранением удалите или замените недоступные упражнения.',
     );
     await action('Удалить: недоступное упражнение missing-id');
@@ -188,7 +189,7 @@ it('retains editing order through translated stale-reference and discard control
       'seated-cable-row',
       'barbell-bench-press',
     ]);
-    expect(JSON.stringify(view!.toJSON())).toContain(
+    expect(renderedText(view!.toJSON())).toContain(
       'Le modèle n’est plus disponible.',
     );
     expect(JSON.stringify(original)).toBe(snapshot);

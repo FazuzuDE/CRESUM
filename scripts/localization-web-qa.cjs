@@ -137,6 +137,16 @@ function assertQaMatrix(expected, results) {
   assert.deepEqual([...pending], [], 'Missing matrix scenarios');
 }
 
+function completedExercises(exercises) {
+  const saved = structuredClone(exercises);
+  for (const exercise of saved)
+    for (const set of exercise.sets) {
+      delete set.plannedWeight;
+      delete set.plannedReps;
+    }
+  return saved;
+}
+
 async function main() {
   const http = require('node:http');
   const { execFileSync } = require('node:child_process');
@@ -1380,7 +1390,7 @@ async function main() {
           await button('workout.retrySaveLoad').waitFor({ state: 'hidden' });
           const entered = await state();
           assert.deepEqual(entered.activeWorkout.exercises[0].sets[0], {
-            id: session.exercises[0].sets[0].id,
+            ...session.exercises[0].sets[0],
             weight: String(manualWeight),
             reps: String(manualReps),
             entered: true,
@@ -1485,11 +1495,14 @@ async function main() {
           assert.equal(typeof savedWorkout.finishedAt, 'number');
           assert.ok(savedWorkout.finishedAt >= session.startedAt);
           const { finishedAt, ...savedSession } = savedWorkout;
-          // Finish clears rest state; every exercise/set snapshot stays exact.
+          // Finish clears rest state and active-only plan provenance.
           const { restEndsAt, ...expectedSession } = resting.activeWorkout;
           assert.deepEqual(
             savedSession,
-            expectedSession,
+            {
+              ...expectedSession,
+              exercises: completedExercises(expectedSession.exercises),
+            },
             'Exact saved workout',
           );
           assert.deepEqual(
@@ -1787,7 +1800,10 @@ async function main() {
           assert.equal(plannedFinished.history.length, 2);
           const completedProgram = plannedFinished.history[0];
           assert.equal(completedProgram.id, plannedSession.id);
-          assert.deepEqual(completedProgram.exercises, expectedLogged);
+          assert.deepEqual(
+            completedProgram.exercises,
+            completedExercises(expectedLogged),
+          );
           assert.deepEqual(
             completedProgram.programSlot,
             plannedSession.programSlot,
