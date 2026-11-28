@@ -32,6 +32,9 @@ at least 95% of frames within 16.7 ms on agreed reference devices, no visible
 blank image flashes or lost drafts. Record device/build and before/after traces.
 Respect Reduce Motion; preserve glass layout, artwork dimensions and quality.
 Do not claim a device pass from web or JavaScript export.
+See the [P0.2 performance report](P0.2_PERFORMANCE.md) for implemented library
+windowing, technique phase buffering, Chromium measurements and pending device
+acceptance.
 
 ### P0.3 Fast set entry
 

@@ -15,6 +15,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { completeOnboardingForTest } from './onboarding-fixture';
 
 const { act, create } = jest.requireActual('react-test-renderer');
+type RenderedNode = string | { children: RenderedNode[] | null };
+function renderedText(node: RenderedNode | RenderedNode[] | null): string {
+  if (!node) return '';
+  if (typeof node === 'string') return node;
+  if (Array.isArray(node)) return node.map(renderedText).join('');
+  return renderedText(node.children);
+}
+
 type ScrollNode = {
   props: {
     horizontal?: boolean;
@@ -113,7 +121,7 @@ describe('ExerciseLibrary', () => {
     expect(resultLabels(view, 'Add Barbell Back Squat')).toHaveLength(0);
 
     act(() => search.props.onChangeText('not-a-real-exercise'));
-    expect(JSON.stringify(view.toJSON())).toContain('No exercises found');
+    expect(renderedText(view.toJSON())).toContain('No exercises found');
   });
 
   it('combines muscle and equipment filters through real presses', () => {
@@ -252,7 +260,7 @@ it('selects canonical exercises for a template without rendering the full catalo
   });
 
   act(() => view.root.findByType(Dock).props.onChange('profile'));
-  expect(JSON.stringify(view.toJSON())).not.toContain("Farmer's Carry");
+  expect(renderedText(view.toJSON())).not.toContain("Farmer's Carry");
 
   const button = (title: string) =>
     view.root
@@ -312,7 +320,7 @@ it('shows canonical exercise names for saved legacy templates on Home', async ()
     view = create(<App />);
   });
 
-  const rendered = JSON.stringify(view.toJSON());
+  const rendered = renderedText(view.toJSON());
   expect(rendered).toContain('Barbell Bench Press');
   expect(rendered).toContain('Seated Cable Row');
   act(() => view.unmount());
@@ -340,9 +348,7 @@ it('reports available and unavailable exercise counts truthfully on Home', async
     view = create(<App />);
   });
 
-  expect(JSON.stringify(view.toJSON())).toContain(
-    '2 available · 1 unavailable',
-  );
+  expect(renderedText(view.toJSON())).toContain('2 available · 1 unavailable');
   act(() => view.unmount());
 });
 
@@ -354,9 +360,9 @@ it('offers a read-only full library page with working search and Back', () => {
   try {
     expect(resultLabels(view, 'Add ')).toHaveLength(0);
     expect(resultLabels(view, 'Select ')).toHaveLength(0);
-    expect(JSON.stringify(view.toJSON())).toContain('Barbell Bench Press');
+    expect(renderedText(view.toJSON())).toContain('Barbell Bench Press');
     act(() => view.root.findByType(TextInput).props.onChangeText('not-real'));
-    expect(JSON.stringify(view.toJSON())).toContain('No exercises found');
+    expect(renderedText(view.toJSON())).toContain('No exercises found');
     act(() => findPressable(view, 'Back to Profile')?.props.onPress());
     expect(onClose).toHaveBeenCalledTimes(1);
   } finally {
@@ -375,7 +381,7 @@ it('lets the active workout add both cardio exercises', () => {
       selectedIds={['barbell-bench-press']}
     />,
   );
-  expect(JSON.stringify(view.toJSON())).toContain(
+  expect(renderedText(view.toJSON())).toContain(
     `${exerciseLibrary.length - 1} exercises`,
   );
   expect(
@@ -391,7 +397,7 @@ it('lets the active workout add both cardio exercises', () => {
   expect(
     findPressable(view, 'Technique for Upright stationary bike'),
   ).toBeDefined();
-  expect(JSON.stringify(view.toJSON())).not.toContain(
+  expect(renderedText(view.toJSON())).not.toContain(
     'Available in starter programs',
   );
   act(() => findPressable(view, 'Add Treadmill walking')?.props.onPress());

@@ -442,5 +442,141 @@
     "context": "StringLiteral/VariableDeclaration/VariableDeclarationList/FirstStatement",
     "kind": "internal",
     "reason": "Reserved namespace for the opaque snapshot ID of a workout saved before removing an exercise."
+  },
+  {
+    "file": "components/AppFlatList.tsx",
+    "line": 44,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:safeAreaEdges/JsxAttributes",
+    "kind": "internal",
+    "reason": "Native view property or internal illustration phase identifier."
+  },
+  {
+    "file": "components/AppFlatList.tsx",
+    "line": 56,
+    "text": "bottom",
+    "context": "StringLiteral/ArrayLiteralExpression/ConditionalExpression/JsxExpression/JsxAttribute:edges",
+    "kind": "internal",
+    "reason": "Native view property or internal illustration phase identifier."
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "line": 252,
+    "text": "library.backProfile",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/PropertyAssignment:accessibilityLabel/ObjectLiteralExpression",
+    "kind": "internal",
+    "reason": "Key for existing localized accessibility text."
+  },
+  {
+    "file": "components/ExerciseLibrary.tsx",
+    "line": 253,
+    "text": "library.closeLibrary",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/PropertyAssignment:accessibilityLabel/ObjectLiteralExpression",
+    "kind": "internal",
+    "reason": "Key for existing localized accessibility text."
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 40,
+    "text": "START",
+    "context": "StringLiteral/BinaryExpression/ConditionalExpression/CallExpression/IfStatement",
+    "kind": "internal",
+    "reason": "Native view property or internal illustration phase identifier."
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 40,
+    "text": "start",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/IfStatement/Block",
+    "kind": "internal",
+    "reason": "Native view property or internal illustration phase identifier."
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 40,
+    "text": "finish",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/IfStatement/Block",
+    "kind": "internal",
+    "reason": "Native view property or internal illustration phase identifier."
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 91,
+    "text": "START",
+    "context": "StringLiteral/BinaryExpression/ConditionalExpression/VariableDeclaration/VariableDeclarationList",
+    "kind": "internal",
+    "reason": "Native view property or internal illustration phase identifier."
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 91,
+    "text": "FINISH",
+    "context": "StringLiteral/ConditionalExpression/VariableDeclaration/VariableDeclarationList/FirstStatement",
+    "kind": "internal",
+    "reason": "Native view property or internal illustration phase identifier."
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 91,
+    "text": "START",
+    "context": "StringLiteral/ConditionalExpression/VariableDeclaration/VariableDeclarationList/FirstStatement",
+    "kind": "internal",
+    "reason": "Native view property or internal illustration phase identifier."
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 97,
+    "text": "START",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression",
+    "kind": "internal",
+    "reason": "Native view property or internal illustration phase identifier."
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 97,
+    "text": "FINISH",
+    "context": "StringLiteral/ArrayLiteralExpression/AsExpression/ParenthesizedExpression/PropertyAccessExpression",
+    "kind": "internal",
+    "reason": "Native view property or internal illustration phase identifier."
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 122,
+    "text": "START",
+    "context": "StringLiteral/BinaryExpression/ConditionalExpression/CallExpression/PropertyAssignment:phase",
+    "kind": "internal",
+    "reason": "Native view property or internal illustration phase identifier."
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 122,
+    "text": "technique.start",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/PropertyAssignment:phase/ObjectLiteralExpression",
+    "kind": "internal",
+    "reason": "Key for existing localized accessibility text."
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 122,
+    "text": "technique.finish",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/PropertyAssignment:phase/ObjectLiteralExpression",
+    "kind": "internal",
+    "reason": "Key for existing localized accessibility text."
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 129,
+    "text": "auto",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes",
+    "kind": "internal",
+    "reason": "Native view property or internal illustration phase identifier."
+  },
+  {
+    "file": "components/TechniqueArtwork.tsx",
+    "line": 129,
+    "text": "no-hide-descendants",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes",
+    "kind": "internal",
+    "reason": "Native view property or internal illustration phase identifier."
   }
 ]
