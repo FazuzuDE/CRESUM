@@ -82,6 +82,7 @@ export const AppScrollView = forwardRef<
         ref={ref}
         safeAreaEdges={safeAreaEdges}
         animateTabContent={dockAware}
+        sharedTabHeader={dockAware && branded && !back}
         fixedHeader={branded ? <BrandHeader back={back} /> : fixedHeader}
         style={{ flex: 1 }}
         contentContainerStyle={[

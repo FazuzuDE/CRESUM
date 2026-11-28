@@ -87,7 +87,7 @@ import { ProgressScrollView } from '@/components/ProgressScrollView';
 import { TrainingVolume } from '@/components/TrainingVolume';
 import { BodyWeight, type BodyWeightProps } from '@/components/BodyWeight';
 import { MuscleProgress } from '@/components/MuscleProgress';
-import { TabContentMotion } from '@/components/TabContentMotion';
+import { TabScene, useTabNavigation } from '@/components/TabContentMotion';
 import { RetainedProgressPane } from '@/components/RetainedProgressPane';
 import { BodyWeightRepository, type BodyWeightEntry } from '@/lib/body-weight';
 import { workoutRecap } from '@/lib/workout-recap';
@@ -129,6 +129,7 @@ import { progressTypography, radius, spacing, typography } from '@/lib/theme';
 
 function Stats({
   active,
+  visible,
   section,
   onSectionChange,
   history,
@@ -136,6 +137,7 @@ function Stats({
   measurements,
 }: {
   active: boolean;
+  visible: boolean;
   section: 'overview' | 'muscles';
   onSectionChange: (section: 'overview' | 'muscles') => void;
   history: Session[];
@@ -151,7 +153,14 @@ function Stats({
   const [now, setNow] = useState(Date.now);
   useEffect(() => {
     if (!active) return;
-    const refresh = () => setNow(Date.now());
+    const refresh = () => {
+      const next = Date.now();
+      setNow((previous) =>
+        Math.floor(previous / 60_000) === Math.floor(next / 60_000)
+          ? previous
+          : next,
+      );
+    };
     refresh();
     const timer = setInterval(refresh, 60_000);
     const subscription = AppState.addEventListener('change', (state) => {
@@ -171,10 +180,10 @@ function Stats({
     () => projectVolumeComparison(history, period, now),
     [history, period, now],
   );
-  const musclesActive = active && section === 'muscles';
+  const musclesVisible = visible && section === 'muscles';
   return (
     <View style={s.progressPane}>
-      {active && section === 'overview' ? (
+      <RetainedProgressPane active={section === 'overview'}>
         <ProgressScrollView
           contentContainerStyle={[s.content, s.progressContent]}
           sections={[
@@ -361,10 +370,10 @@ function Stats({
             },
           ]}
         />
-      ) : null}
-      <RetainedProgressPane active={musclesActive}>
+      </RetainedProgressPane>
+      <RetainedProgressPane active={musclesVisible}>
         <MuscleProgress
-          active={musclesActive}
+          active={musclesVisible}
           history={history}
           activeWorkout={activeWorkout}
           now={now}
@@ -474,17 +483,21 @@ function AppContent({
   const [programError, setProgramError] = useState('');
   const programRecovered = useRef(false);
   const [programReady, setProgramReady] = useState(false);
-  const [tab, setCurrentTab] = useState(initialTab);
+  const {
+    active: tab,
+    select: setTab,
+    transition,
+    headerHeight,
+    setHeaderHeight,
+  } = useTabNavigation(initialTab);
+  const scenes = { active: tab, transition, headerHeight, setHeaderHeight };
   const [progressSection, setProgressSection] = useState<
     'overview' | 'muscles'
   >('overview');
   const [progressVisited, setProgressVisited] = useState(
     initialTab === 'progress',
   );
-  const setTab = useCallback((next: DockTab) => {
-    if (next === 'progress') setProgressVisited(true);
-    setCurrentTab(next);
-  }, []);
+  if (tab === 'progress' && !progressVisited) setProgressVisited(true);
   const [dockSpace, setDockSpace] = useState(78);
   const dockGlass = useGlassTransparency(
     DOCK_TRANSPARENCY_KEY,
@@ -1547,272 +1560,281 @@ function AppContent({
               <Text style={s.sub}>{t(onboardingErrorKey)}</Text>
             </SafeAreaView>
           ) : null}
-          {tab === 'home' ? (
-            <>
-              <HomeDashboard
-                displayName={onboardingState.answers.displayName}
-                assignment={assignment}
-                startProgramSlot={startProgramSlot}
-                history={data.history}
-                activeWorkout={data.activeWorkout}
-                onResume={() => setTab('workout')}
-                templates={visibleTemplates}
-                busy={busy}
-                createTemplate={(draft) => store.createTemplate(draft)}
-                onOpenProgress={() => setTab('progress')}
-                startTemplate={startTemplate}
-                onOpenProfile={() => setTab('profile')}
-              />
-              {scheduleWelcome ? (
-                <ScheduleWelcome
-                  saved={scheduleWelcome.saved}
-                  onClose={() => setScheduleWelcome(undefined)}
+          <View style={s.tabViewport}>
+            {tab === 'home' || transition?.from === 'home' ? (
+              <TabScene name="home" {...scenes}>
+                <HomeDashboard
+                  displayName={onboardingState.answers.displayName}
+                  assignment={assignment}
+                  startProgramSlot={startProgramSlot}
+                  history={data.history}
+                  activeWorkout={data.activeWorkout}
+                  onResume={() => setTab('workout')}
+                  templates={visibleTemplates}
+                  busy={busy}
+                  createTemplate={(draft) => store.createTemplate(draft)}
+                  onOpenProgress={() => setTab('progress')}
+                  startTemplate={startTemplate}
+                  onOpenProfile={() => setTab('profile')}
                 />
-              ) : null}
-            </>
-          ) : tab === 'workout' ? (
-            <Workout
-              session={data.activeWorkout}
-              timedActivities={timedActivitiesForWorkout(
-                assignment,
-                data.activeWorkout,
-              )}
-              history={data.history}
-              templates={visibleTemplates}
-              onStartTemplate={startTemplate}
-              onStartPlan={() => {
-                if (assignment) {
-                  try {
-                    const slot = projectProgramWeek(
-                      assignment,
-                      data.history,
-                      localDate(),
-                    ).nextSlot;
-                    if (slot) {
-                      startProgramSlot(
-                        slot,
-                        templateForProgramSlot(
+                {tab === 'home' && scheduleWelcome ? (
+                  <ScheduleWelcome
+                    saved={scheduleWelcome.saved}
+                    onClose={() => setScheduleWelcome(undefined)}
+                  />
+                ) : null}
+              </TabScene>
+            ) : null}
+            {tab === 'workout' || transition?.from === 'workout' ? (
+              <TabScene name="workout" {...scenes}>
+                <Workout
+                  session={data.activeWorkout}
+                  timedActivities={timedActivitiesForWorkout(
+                    assignment,
+                    data.activeWorkout,
+                  )}
+                  history={data.history}
+                  templates={visibleTemplates}
+                  onStartTemplate={startTemplate}
+                  onStartPlan={() => {
+                    if (assignment) {
+                      try {
+                        const slot = projectProgramWeek(
                           assignment,
-                          visibleTemplates,
-                          slot,
-                        ),
-                      );
-                      return;
-                    }
-                  } catch (problem) {
-                    Alert.alert(
-                      t('plan.startPlannedError'),
-                      presentAppError(t, problem, 'error.workoutOperation'),
-                    );
-                    return;
-                  }
-                }
-                setManagePlans(undefined);
-                setSharingOpen(true);
-              }}
-              onStartEmpty={() => {
-                if (data.activeWorkout) return;
-                try {
-                  store.startEmpty(t('workout.emptyStart'));
-                } catch (problem) {
-                  Alert.alert(
-                    t('plan.startError'),
-                    presentAppError(t, problem, 'error.workoutOperation'),
-                  );
-                }
-              }}
-              update={(transform) => store.updateWorkout(transform)}
-              recordSet={(transform, marker) =>
-                store.recordSet(transform, marker)
-              }
-              pendingSet={pendingSet}
-              exerciseRestSeconds={data.exerciseRestSeconds}
-              saveExerciseRest={(sessionId, exerciseId, seconds) =>
-                localDataAccess.isReady()
-                  ? store.saveExerciseRest(sessionId, exerciseId, seconds)
-                  : Promise.resolve(false)
-              }
-              removeExercises={(id, exerciseIds, save) =>
-                store.removeExercises(id, exerciseIds, save)
-              }
-              appendGroup={(entries, id) =>
-                store.appendEquipmentGroup(entries, id)
-              }
-              finish={() => {
-                setDiscardSessionId(null);
-                setConfirmFinish(true);
-              }}
-              discard={() => {
-                if (!data.activeWorkout || busy) return;
-                setConfirmFinish(false);
-                setDiscardSessionId(data.activeWorkout.id);
-              }}
-              busy={busy}
-            />
-          ) : null}
-          {progressVisited ? (
-            <RetainedProgressPane active={tab === 'progress'}>
-              <Stats
-                active={tab === 'progress'}
-                section={progressSection}
-                onSectionChange={setProgressSection}
-                history={data.history}
-                activeWorkout={data.activeWorkout ?? undefined}
-                measurements={{
-                  entries: bodyWeights,
-                  updatedAt: bodyWeightSnapshot.updatedAt,
-                  busy: bodyWeightBusy || resetBusy,
-                  error: bodyWeightError,
-                  onRecord: async (value) => {
-                    if (resetInProgress.current)
-                      throw Error('Reset in progress.');
-                    const epoch = onboardingEpoch.current;
-                    setBodyWeightBusy(true);
-                    try {
-                      const entries = await bodyWeightRepository.record(value);
-                      if (onboardingEpoch.current === epoch) {
-                        setBodyWeights(entries);
-                        setBodyWeightError('');
+                          data.history,
+                          localDate(),
+                        ).nextSlot;
+                        if (slot) {
+                          startProgramSlot(
+                            slot,
+                            templateForProgramSlot(
+                              assignment,
+                              visibleTemplates,
+                              slot,
+                            ),
+                          );
+                          return;
+                        }
+                      } catch (problem) {
+                        Alert.alert(
+                          t('plan.startPlannedError'),
+                          presentAppError(t, problem, 'error.workoutOperation'),
+                        );
+                        return;
                       }
-                    } finally {
-                      setBodyWeightBusy(false);
                     }
-                  },
-                  onRetry: () => {
-                    const epoch = onboardingEpoch.current;
-                    setBodyWeightBusy(true);
-                    void (
-                      onboardingState.status === 'completed' &&
-                      onboardingState.step === 'complete' &&
-                      onboardingState.answers.bodyWeightKg?.trim()
-                        ? bodyWeightRepository.record(
-                            onboardingState.answers.bodyWeightKg,
-                            Date.now(),
-                            true,
-                          )
-                        : bodyWeightRepository.load()
-                    )
-                      .then(
-                        (entries) => {
-                          if (onboardingEpoch.current === epoch) {
-                            setBodyWeights(entries);
-                            setBodyWeightError('');
-                          }
-                        },
-                        (problem: Error) => {
-                          if (onboardingEpoch.current === epoch)
-                            setBodyWeightError(problem.message);
-                        },
+                    setManagePlans(undefined);
+                    setSharingOpen(true);
+                  }}
+                  onStartEmpty={() => {
+                    if (data.activeWorkout) return;
+                    try {
+                      store.startEmpty(t('workout.emptyStart'));
+                    } catch (problem) {
+                      Alert.alert(
+                        t('plan.startError'),
+                        presentAppError(t, problem, 'error.workoutOperation'),
+                      );
+                    }
+                  }}
+                  update={(transform) => store.updateWorkout(transform)}
+                  recordSet={(transform, marker) =>
+                    store.recordSet(transform, marker)
+                  }
+                  pendingSet={pendingSet}
+                  exerciseRestSeconds={data.exerciseRestSeconds}
+                  saveExerciseRest={(sessionId, exerciseId, seconds) =>
+                    localDataAccess.isReady()
+                      ? store.saveExerciseRest(sessionId, exerciseId, seconds)
+                      : Promise.resolve(false)
+                  }
+                  removeExercises={(id, exerciseIds, save) =>
+                    store.removeExercises(id, exerciseIds, save)
+                  }
+                  appendGroup={(entries, id) =>
+                    store.appendEquipmentGroup(entries, id)
+                  }
+                  finish={() => {
+                    setDiscardSessionId(null);
+                    setConfirmFinish(true);
+                  }}
+                  discard={() => {
+                    if (!data.activeWorkout || busy) return;
+                    setConfirmFinish(false);
+                    setDiscardSessionId(data.activeWorkout.id);
+                  }}
+                  busy={busy}
+                />
+              </TabScene>
+            ) : null}
+            {progressVisited ? (
+              <TabScene name="progress" {...scenes}>
+                <Stats
+                  active={tab === 'progress'}
+                  visible={
+                    tab === 'progress' || transition?.from === 'progress'
+                  }
+                  section={progressSection}
+                  onSectionChange={setProgressSection}
+                  history={data.history}
+                  activeWorkout={data.activeWorkout ?? undefined}
+                  measurements={{
+                    entries: bodyWeights,
+                    updatedAt: bodyWeightSnapshot.updatedAt,
+                    busy: bodyWeightBusy || resetBusy,
+                    error: bodyWeightError,
+                    onRecord: async (value) => {
+                      if (resetInProgress.current)
+                        throw Error('Reset in progress.');
+                      const epoch = onboardingEpoch.current;
+                      setBodyWeightBusy(true);
+                      try {
+                        const entries =
+                          await bodyWeightRepository.record(value);
+                        if (onboardingEpoch.current === epoch) {
+                          setBodyWeights(entries);
+                          setBodyWeightError('');
+                        }
+                      } finally {
+                        setBodyWeightBusy(false);
+                      }
+                    },
+                    onRetry: () => {
+                      const epoch = onboardingEpoch.current;
+                      setBodyWeightBusy(true);
+                      void (
+                        onboardingState.status === 'completed' &&
+                        onboardingState.step === 'complete' &&
+                        onboardingState.answers.bodyWeightKg?.trim()
+                          ? bodyWeightRepository.record(
+                              onboardingState.answers.bodyWeightKg,
+                              Date.now(),
+                              true,
+                            )
+                          : bodyWeightRepository.load()
                       )
-                      .finally(() => setBodyWeightBusy(false));
-                  },
+                        .then(
+                          (entries) => {
+                            if (onboardingEpoch.current === epoch) {
+                              setBodyWeights(entries);
+                              setBodyWeightError('');
+                            }
+                          },
+                          (problem: Error) => {
+                            if (onboardingEpoch.current === epoch)
+                              setBodyWeightError(problem.message);
+                          },
+                        )
+                        .finally(() => setBodyWeightBusy(false));
+                    },
+                  }}
+                />
+              </TabScene>
+            ) : null}
+            <TabScene name="profile" {...scenes}>
+              <ProfileSettings
+                dockTransparency={dockGlass.value}
+                notificationTransparency={notificationGlass}
+                headerOpacity={100 - headerGlass.value}
+                onHeaderOpacityChange={(value) =>
+                  headerGlass.preview(100 - value)
+                }
+                onHeaderOpacityCommit={(value) =>
+                  headerGlass.commit(100 - value)
+                }
+                onDockTransparencyChange={dockGlass.preview}
+                onDockTransparencyCommit={dockGlass.commit}
+                account={{
+                  ...account,
+                  sync: account.historyRpc ? cloud.controls : undefined,
+                  deleteAccount: account.deleteAccount
+                    ? (id) =>
+                        account.deleteAccount!(id, async () => {
+                          if (
+                            resetInProgress.current ||
+                            backupInProgress.current
+                          )
+                            throw new Error(
+                              'Finish the current data operation first.',
+                            );
+                          return cloud.quiesce(true);
+                        })
+                    : undefined,
+                }}
+                history={data.history}
+                templates={visibleTemplates}
+                busy={busy || hiddenBusy || characterSaving}
+                version={Constants.expoConfig?.version}
+                createTemplate={(draft) => store.createTemplate(draft)}
+                updateTemplate={(templateId, draft) =>
+                  store.updateTemplate(templateId, draft)
+                }
+                deleteTemplate={(templateId) =>
+                  store.deleteTemplate(templateId)
+                }
+                duplicateTemplate={(templateId) =>
+                  store.duplicateTemplate(templateId)
+                }
+                startTemplate={startTemplate}
+                onOpenPlans={(onManage) => {
+                  setManagePlans(() => onManage);
+                  setSharingOpen(true);
+                }}
+                hideBuiltIn={(templateId) =>
+                  updateHiddenBuiltIns([...hiddenBuiltInIds, templateId])
+                }
+                restoreBuiltIn={(templateId) =>
+                  updateHiddenBuiltIns(
+                    hiddenBuiltInIds.filter((id) => id !== templateId),
+                  )
+                }
+                hiddenBuiltInIds={hiddenBuiltInIds}
+                hiddenError={hiddenError}
+                hasActiveWorkout={Boolean(data.activeWorkout)}
+                backup={{
+                  policy: localBackups.policy,
+                  settingsLoaded: localBackups.loaded,
+                  settingsBusy: localBackups.saving,
+                  settingsError: localBackups.error,
+                  automaticSupported: localBackups.supported,
+                  lastCopy: localBackups.copy
+                    ? {
+                        createdAt: localBackups.copy.createdAt,
+                        workouts: localBackups.copy.backup.summary.workouts,
+                        routines: localBackups.copy.backup.summary.routines,
+                      }
+                    : undefined,
+                  onPolicy: localBackups.savePolicy,
+                  onRetrySettings: localBackups.refresh,
+                  onImport: (backup) => backupOperation(backup, 'import'),
+                  onUseSaved: () => backupOperation(undefined, 'saved'),
+                  disabled:
+                    !ready ||
+                    !programReady ||
+                    busy ||
+                    hiddenBusy ||
+                    bodyWeightBusy ||
+                    !onboardingReady ||
+                    !hiddenReady,
+                  hasActiveWorkout: !!data.activeWorkout,
+                  onExport: () => backupOperation(undefined, 'export'),
+                  onRestore: (backup) => backupOperation(backup, 'restore'),
+                }}
+                onPersonalize={() => {
+                  if (!characterOperation.current)
+                    setEditingPersonalization(true);
+                }}
+                onResetLocalData={() => {
+                  if (characterOperation.current) return;
+                  setResetError(undefined);
+                  setConfirmReset(true);
                 }}
               />
-            </RetainedProgressPane>
-          ) : null}
-          <View
-            style={tab === 'profile' ? s.profileVisible : s.profileHidden}
-            pointerEvents={tab === 'profile' ? 'auto' : 'none'}
-            accessibilityElementsHidden={tab !== 'profile'}
-            importantForAccessibility={
-              tab === 'profile' ? 'auto' : 'no-hide-descendants'
-            }
-          >
-            <ProfileSettings
-              dockTransparency={dockGlass.value}
-              notificationTransparency={notificationGlass}
-              headerOpacity={100 - headerGlass.value}
-              onHeaderOpacityChange={(value) =>
-                headerGlass.preview(100 - value)
-              }
-              onHeaderOpacityCommit={(value) => headerGlass.commit(100 - value)}
-              onDockTransparencyChange={dockGlass.preview}
-              onDockTransparencyCommit={dockGlass.commit}
-              account={{
-                ...account,
-                sync: account.historyRpc ? cloud.controls : undefined,
-                deleteAccount: account.deleteAccount
-                  ? (id) =>
-                      account.deleteAccount!(id, async () => {
-                        if (resetInProgress.current || backupInProgress.current)
-                          throw new Error(
-                            'Finish the current data operation first.',
-                          );
-                        return cloud.quiesce(true);
-                      })
-                  : undefined,
-              }}
-              history={data.history}
-              templates={visibleTemplates}
-              busy={busy || hiddenBusy || characterSaving}
-              version={Constants.expoConfig?.version}
-              createTemplate={(draft) => store.createTemplate(draft)}
-              updateTemplate={(templateId, draft) =>
-                store.updateTemplate(templateId, draft)
-              }
-              deleteTemplate={(templateId) => store.deleteTemplate(templateId)}
-              duplicateTemplate={(templateId) =>
-                store.duplicateTemplate(templateId)
-              }
-              startTemplate={startTemplate}
-              onOpenPlans={(onManage) => {
-                setManagePlans(() => onManage);
-                setSharingOpen(true);
-              }}
-              hideBuiltIn={(templateId) =>
-                updateHiddenBuiltIns([...hiddenBuiltInIds, templateId])
-              }
-              restoreBuiltIn={(templateId) =>
-                updateHiddenBuiltIns(
-                  hiddenBuiltInIds.filter((id) => id !== templateId),
-                )
-              }
-              hiddenBuiltInIds={hiddenBuiltInIds}
-              hiddenError={hiddenError}
-              hasActiveWorkout={Boolean(data.activeWorkout)}
-              backup={{
-                policy: localBackups.policy,
-                settingsLoaded: localBackups.loaded,
-                settingsBusy: localBackups.saving,
-                settingsError: localBackups.error,
-                automaticSupported: localBackups.supported,
-                lastCopy: localBackups.copy
-                  ? {
-                      createdAt: localBackups.copy.createdAt,
-                      workouts: localBackups.copy.backup.summary.workouts,
-                      routines: localBackups.copy.backup.summary.routines,
-                    }
-                  : undefined,
-                onPolicy: localBackups.savePolicy,
-                onRetrySettings: localBackups.refresh,
-                onImport: (backup) => backupOperation(backup, 'import'),
-                onUseSaved: () => backupOperation(undefined, 'saved'),
-                disabled:
-                  !ready ||
-                  !programReady ||
-                  busy ||
-                  hiddenBusy ||
-                  bodyWeightBusy ||
-                  !onboardingReady ||
-                  !hiddenReady,
-                hasActiveWorkout: !!data.activeWorkout,
-                onExport: () => backupOperation(undefined, 'export'),
-                onRestore: (backup) => backupOperation(backup, 'restore'),
-              }}
-              onPersonalize={() => {
-                if (!characterOperation.current)
-                  setEditingPersonalization(true);
-              }}
-              onResetLocalData={() => {
-                if (characterOperation.current) return;
-                setResetError(undefined);
-                setConfirmReset(true);
-              }}
-            />
+            </TabScene>
           </View>
           <Dock
             active={tab}
-            onChange={setTab}
+            onChange={(next) => setTab(next, true)}
             onHeightChange={setDockSpace}
             transparency={dockGlass.value}
           />
@@ -1846,7 +1868,7 @@ function AppContent({
     >
       <HeaderTransparency.Provider value={headerGlass.value}>
         <ScrollReturnTransparency.Provider value={dockGlass.value}>
-          <TabContentMotion active={tab}>{content}</TabContentMotion>
+          {content}
         </ScrollReturnTransparency.Provider>
       </HeaderTransparency.Provider>
     </ExerciseCharacterProvider>
@@ -1856,8 +1878,7 @@ const useStyles = createThemedStyles((colors) => ({
   root: { flex: 1, backgroundColor: colors.background },
   onboardingRoot: { backgroundColor: colors.surface },
   progressPane: { flex: 1 },
-  profileVisible: { flex: 1 },
-  profileHidden: { display: 'none' },
+  tabViewport: { flex: 1 },
   content: {
     padding: spacing.md,
     gap: spacing.lg,

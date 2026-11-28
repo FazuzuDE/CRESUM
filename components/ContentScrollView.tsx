@@ -15,11 +15,8 @@ import { SafeAreaView, type Edge } from 'react-native-safe-area-context';
 import { BackSwipeBoundary, useBackSwipeGesture } from './BackSwipe';
 import { BrandHeaderBackdrop, HeaderBackdropProvided } from './BrandHeader';
 
-import { TabContentOffset } from './TabContentMotion';
-import Animated, {
-  useAnimatedStyle,
-  type SharedValue,
-} from 'react-native-reanimated';
+import { TabContentLayout, type TabTransition } from './TabContentMotion';
+import Animated, { useAnimatedStyle } from 'react-native-reanimated';
 
 export type SafeAreaScrollProps = {
   safeAreaEdges?: readonly Edge[];
@@ -28,11 +25,16 @@ export type SafeAreaScrollProps = {
 
 export const ContentScrollView = forwardRef<
   ComponentRef<typeof ScrollView>,
-  ScrollViewProps & SafeAreaScrollProps & { animateTabContent?: boolean }
+  ScrollViewProps &
+    SafeAreaScrollProps & {
+      animateTabContent?: boolean;
+      sharedTabHeader?: boolean;
+    }
 >(function ContentScrollView(
   {
     bounces = false,
     animateTabContent = false,
+    sharedTabHeader = false,
     children,
     contentContainerStyle,
     safeAreaEdges: requestedEdges,
@@ -47,9 +49,14 @@ export const ContentScrollView = forwardRef<
   },
   ref,
 ) {
-  const tabOffset = useContext(TabContentOffset);
+  const tabLayout = useContext(TabContentLayout);
   const [viewport, setViewport] = useState<number>();
-  const [headerHeight, setHeaderHeight] = useState(0);
+  const [measuredHeader, setHeaderHeight] = useState<number>();
+  // Use the previous dock header's inset on the new scroll view's first layout.
+  const headerHeight =
+    measuredHeader ??
+    (sharedTabHeader ? tabLayout?.headerHeight : undefined) ??
+    0;
   const [content, setContent] = useState<number>();
   const fits =
     viewport !== undefined && content !== undefined && content <= viewport + 1;
@@ -110,10 +117,12 @@ export const ContentScrollView = forwardRef<
   );
   return fixedHeader ? (
     <BackSwipeBoundary
-      style={animateTabContent && tabOffset ? s.clippedLayer : s.layer}
+      style={animateTabContent && tabLayout ? s.clippedLayer : s.layer}
     >
-      {animateTabContent && tabOffset ? (
-        <SlidingTabContent offset={tabOffset}>{scroll}</SlidingTabContent>
+      {animateTabContent && tabLayout ? (
+        <SlidingTabContent transition={tabLayout.transition}>
+          {scroll}
+        </SlidingTabContent>
       ) : (
         scroll
       )}
@@ -122,9 +131,12 @@ export const ContentScrollView = forwardRef<
         pointerEvents="box-none"
         style={s.overlay}
         testID="fixed-header-overlay"
-        onLayout={({ nativeEvent }) =>
-          setHeaderHeight(nativeEvent.layout.height)
-        }
+        onLayout={({ nativeEvent }) => {
+          const { height } = nativeEvent.layout;
+          if (sharedTabHeader && height > 0)
+            tabLayout?.onHeaderHeight?.(height);
+          setHeaderHeight(height);
+        }}
       >
         <BrandHeaderBackdrop />
         <HeaderBackdropProvided.Provider value>
@@ -138,14 +150,16 @@ export const ContentScrollView = forwardRef<
 });
 
 function SlidingTabContent({
-  offset,
+  transition,
   children,
 }: {
-  offset: SharedValue<number>;
+  transition: TabTransition | undefined;
   children: ReactNode;
 }) {
+  const progress = transition?.progress;
+  const offset = transition?.offset ?? 0;
   const style = useAnimatedStyle(() => ({
-    transform: [{ translateX: offset.get() }],
+    transform: [{ translateX: offset * (1 - (progress?.get() ?? 1)) }],
   }));
   return (
     <Animated.View testID="tab-content-motion" style={[s.layer, style]}>
