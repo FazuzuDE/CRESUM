@@ -9,17 +9,12 @@ import {
 } from '@/components/LayoutDirection';
 
 import { useEffect, useMemo, useState } from 'react';
-import {
-  AccessibilityInfo,
-  Animated,
-  Platform,
-  Pressable,
-  View,
-} from 'react-native';
+import { Animated, Platform, Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { cardShadow, radius, spacing, typography } from '@/lib/theme';
 import { DEFAULT_GLASS_TRANSPARENCY, GlassMaterial } from './GlassMaterial';
 import { useLocalization } from './LocalizationProvider';
+import { useReducedMotionPreference } from './useReducedMotionPreference';
 import { useReducedTransparency } from './useReducedTransparency';
 
 const tabs = [
@@ -28,6 +23,9 @@ const tabs = [
   ['progress', 'nav.progress', 'stats-chart-outline'],
   ['profile', 'nav.profile', 'person-outline'],
 ] as const;
+
+export { tabs as dockTabs };
+export type DockTab = (typeof tabs)[number][0];
 
 export const DEFAULT_DOCK_TRANSPARENCY = DEFAULT_GLASS_TRANSPARENCY;
 
@@ -38,7 +36,7 @@ export function Dock({
   transparency = DEFAULT_DOCK_TRANSPARENCY,
 }: {
   active: string;
-  onChange: (tab: string) => void;
+  onChange: (tab: DockTab) => void;
   transparency?: number;
   onHeightChange?: (height: number) => void;
 }) {
@@ -58,26 +56,7 @@ export function Dock({
     () => Animated.multiply(position, tabWidth),
     [position, tabWidth],
   );
-  const [reduceMotion, setReduceMotion] = useState(true);
-  useEffect(() => {
-    let receivedChange = false;
-    const subscription = AccessibilityInfo.addEventListener(
-      'reduceMotionChanged',
-      (value) => {
-        receivedChange = true;
-        setReduceMotion(value);
-      },
-    );
-    void AccessibilityInfo.isReduceMotionEnabled()
-      .then((value) => {
-        if (!receivedChange) setReduceMotion(value);
-      })
-      .catch(() => {});
-    return () => {
-      receivedChange = true;
-      subscription.remove();
-    };
-  }, []);
+  const reduceMotion = useReducedMotionPreference();
   useEffect(() => {
     if (selectedIndex < 0) return;
     if (reduceMotion || !tabWidth) {
@@ -139,7 +118,7 @@ export function Dock({
                   key={id}
                   accessibilityRole="tab"
                   accessibilityLabel={t(label)}
-                  accessibilityState={{ selected }}
+                  aria-selected={selected}
                   onPress={() => onChange(id)}
                   style={({ pressed }) => [s.item, pressed && s.pressed]}
                 >

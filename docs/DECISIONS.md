@@ -4766,3 +4766,9 @@ two side-by-side months, and accept the assignment via the green checkmark.
 The owner approved round day controls, an empty initial selection, and an
 optional schedule. Confirm three days or skip the schedule while keeping the
 program. Both paths return to Home with a dismissible welcome.
+
+## 2026-11-28 — Directional tab transitions
+
+The owner requested smoother main-tab transitions. Slide the incoming content
+from the selected tab's side in the visible dock order. Keep the fixed header and
+glass dock in place and honor Reduce Motion. See [Design System](DESIGN_SYSTEM.md).

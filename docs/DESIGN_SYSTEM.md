@@ -40,6 +40,10 @@ scroll-to-top control by the same amount. Standalone sheets use their own safe
 areas. Respect the system setting for reduced transparency on iOS.
 
 Animate a single selection pill between tabs and snap when Reduce Motion is enabled.
+
+When switching main tabs, bring the scrollable content in from the side of
+the selected tab in the visual dock order. Keep the fixed header and glass dock
+in place. Respect RTL order and skip the content slide when Reduce Motion is on.
 Profile previews dock and pill transparency live on a 0–100% scale. Keep labels
 and icons opaque and keep the solid appearance when Reduce Transparency is enabled.
 

@@ -1,5 +1,6 @@
 import {
   forwardRef,
+  useContext,
   useState,
   type ComponentRef,
   type ReactElement,
@@ -14,6 +15,12 @@ import { SafeAreaView, type Edge } from 'react-native-safe-area-context';
 import { BackSwipeBoundary, useBackSwipeGesture } from './BackSwipe';
 import { BrandHeaderBackdrop, HeaderBackdropProvided } from './BrandHeader';
 
+import { TabContentOffset } from './TabContentMotion';
+import Animated, {
+  useAnimatedStyle,
+  type SharedValue,
+} from 'react-native-reanimated';
+
 export type SafeAreaScrollProps = {
   safeAreaEdges?: readonly Edge[];
   fixedHeader?: ReactNode;
@@ -21,10 +28,11 @@ export type SafeAreaScrollProps = {
 
 export const ContentScrollView = forwardRef<
   ComponentRef<typeof ScrollView>,
-  ScrollViewProps & SafeAreaScrollProps
+  ScrollViewProps & SafeAreaScrollProps & { animateTabContent?: boolean }
 >(function ContentScrollView(
   {
     bounces = false,
+    animateTabContent = false,
     children,
     contentContainerStyle,
     safeAreaEdges: requestedEdges,
@@ -39,6 +47,7 @@ export const ContentScrollView = forwardRef<
   },
   ref,
 ) {
+  const tabOffset = useContext(TabContentOffset);
   const [viewport, setViewport] = useState<number>();
   const [headerHeight, setHeaderHeight] = useState(0);
   const [content, setContent] = useState<number>();
@@ -100,8 +109,14 @@ export const ContentScrollView = forwardRef<
     scrollView
   );
   return fixedHeader ? (
-    <BackSwipeBoundary style={s.layer}>
-      {scroll}
+    <BackSwipeBoundary
+      style={animateTabContent && tabOffset ? s.clippedLayer : s.layer}
+    >
+      {animateTabContent && tabOffset ? (
+        <SlidingTabContent offset={tabOffset}>{scroll}</SlidingTabContent>
+      ) : (
+        scroll
+      )}
       <SafeAreaView
         edges={requestedEdges?.filter((edge) => edge === 'top') ?? []}
         pointerEvents="box-none"
@@ -121,6 +136,23 @@ export const ContentScrollView = forwardRef<
     scroll
   );
 });
+
+function SlidingTabContent({
+  offset,
+  children,
+}: {
+  offset: SharedValue<number>;
+  children: ReactNode;
+}) {
+  const style = useAnimatedStyle(() => ({
+    transform: [{ translateX: offset.get() }],
+  }));
+  return (
+    <Animated.View testID="tab-content-motion" style={[s.layer, style]}>
+      {children}
+    </Animated.View>
+  );
+}
 
 function HorizontalScrollGesture({
   enabled,
@@ -144,5 +176,6 @@ function HorizontalScrollGesture({
 
 const s = StyleSheet.create({
   layer: { flex: 1 },
+  clippedLayer: { flex: 1, overflow: 'hidden' },
   overlay: { position: 'absolute', top: 0, left: 0, right: 0 },
 });

@@ -66,7 +66,11 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 import { GlassCard } from '@/components/GlassCard';
-import { DEFAULT_DOCK_TRANSPARENCY, Dock } from '@/components/Dock';
+import {
+  DEFAULT_DOCK_TRANSPARENCY,
+  Dock,
+  type DockTab,
+} from '@/components/Dock';
 import { HeaderTransparency } from '@/components/BrandHeader';
 import { DEFAULT_GLASS_TRANSPARENCY } from '@/components/GlassMaterial';
 import { useGlassTransparency } from '@/components/useGlassTransparency';
@@ -83,6 +87,7 @@ import { ProgressScrollView } from '@/components/ProgressScrollView';
 import { TrainingVolume } from '@/components/TrainingVolume';
 import { BodyWeight, type BodyWeightProps } from '@/components/BodyWeight';
 import { MuscleProgress } from '@/components/MuscleProgress';
+import { TabContentMotion } from '@/components/TabContentMotion';
 import { RetainedProgressPane } from '@/components/RetainedProgressPane';
 import { BodyWeightRepository, type BodyWeightEntry } from '@/lib/body-weight';
 import { workoutRecap } from '@/lib/workout-recap';
@@ -430,7 +435,7 @@ function AppContent({
   account: AccountSectionProps;
   runDataOperation: RunDataOperation;
   notice: string;
-  initialTab: string;
+  initialTab: DockTab;
   incomingSharingToken?: string;
   consumeSharingToken: () => void;
   localDataAccess: { ready: boolean; isReady: () => boolean };
@@ -476,7 +481,7 @@ function AppContent({
   const [progressVisited, setProgressVisited] = useState(
     initialTab === 'progress',
   );
-  const setTab = useCallback((next: string) => {
+  const setTab = useCallback((next: DockTab) => {
     if (next === 'progress') setProgressVisited(true);
     setCurrentTab(next);
   }, []);
@@ -1835,7 +1840,7 @@ function AppContent({
     >
       <HeaderTransparency.Provider value={headerGlass.value}>
         <ScrollReturnTransparency.Provider value={dockGlass.value}>
-          {content}
+          <TabContentMotion active={tab}>{content}</TabContentMotion>
         </ScrollReturnTransparency.Provider>
       </HeaderTransparency.Provider>
     </ExerciseCharacterProvider>
