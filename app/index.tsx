@@ -88,7 +88,11 @@ import { ProgressScrollView } from '@/components/ProgressScrollView';
 import { TrainingVolume } from '@/components/TrainingVolume';
 import { BodyWeight, type BodyWeightProps } from '@/components/BodyWeight';
 import { MuscleProgress } from '@/components/MuscleProgress';
-import { TabScene, useTabNavigation } from '@/components/TabContentMotion';
+import {
+  TabHeaderMeasure,
+  TabScene,
+  useTabNavigation,
+} from '@/components/TabContentMotion';
 import { RetainedProgressPane } from '@/components/RetainedProgressPane';
 import { BodyWeightRepository, type BodyWeightEntry } from '@/lib/body-weight';
 import { workoutRecap } from '@/lib/workout-recap';
@@ -491,7 +495,7 @@ function AppContent({
     headerHeight,
     setHeaderHeight,
   } = useTabNavigation(initialTab);
-  const scenes = { active: tab, transition, headerHeight, setHeaderHeight };
+  const scenes = { active: tab, transition, headerHeight };
   const [progressSection, setProgressSection] = useState<
     'overview' | 'muscles'
   >('overview');
@@ -1578,6 +1582,7 @@ function AppContent({
             </SafeAreaView>
           ) : null}
           <View style={s.tabViewport}>
+            <TabHeaderMeasure onHeight={setHeaderHeight} />
             {tab === 'home' || transition?.from === 'home' ? (
               <TabScene name="home" {...scenes}>
                 <HomeDashboard

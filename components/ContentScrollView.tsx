@@ -52,11 +52,10 @@ export const ContentScrollView = forwardRef<
   const tabLayout = useContext(TabContentLayout);
   const [viewport, setViewport] = useState<number>();
   const [measuredHeader, setHeaderHeight] = useState<number>();
-  // Use the previous dock header's inset on the new scroll view's first layout.
-  const headerHeight =
-    measuredHeader ??
-    (sharedTabHeader ? tabLayout?.headerHeight : undefined) ??
-    0;
+  const dockHeaderHeight = sharedTabHeader
+    ? tabLayout?.headerHeight
+    : undefined;
+  const headerHeight = dockHeaderHeight ?? measuredHeader ?? 0;
   const [content, setContent] = useState<number>();
   const fits =
     viewport !== undefined && content !== undefined && content <= viewport + 1;
@@ -133,9 +132,8 @@ export const ContentScrollView = forwardRef<
         testID="fixed-header-overlay"
         onLayout={({ nativeEvent }) => {
           const { height } = nativeEvent.layout;
-          if (sharedTabHeader && height > 0)
-            tabLayout?.onHeaderHeight?.(height);
-          setHeaderHeight(height);
+          if (dockHeaderHeight === undefined && height > 0)
+            setHeaderHeight(height);
         }}
       >
         <BrandHeaderBackdrop />

@@ -49,8 +49,8 @@ When switching main tabs, bring the scrollable content in from the side of
 the selected tab in the visual dock order. Keep the fixed header and glass dock
 in place. Keep the outgoing page visible until the new content finishes
 sliding and fading in. Keep both pages in the same viewport and reuse the
-measured top inset for standard dock headers. Respect RTL order and switch
-immediately when Reduce Motion is on.
+top inset measured by one persistent standard dock header. Respect RTL order
+and switch immediately when Reduce Motion is on.
 Profile previews dock and pill transparency live on a 0–100% scale. Keep labels
 and icons opaque and keep the solid appearance when Reduce Transparency is enabled.
 

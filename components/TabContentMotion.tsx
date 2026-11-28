@@ -14,6 +14,8 @@ import Animated, {
   withTiming,
   type SharedValue,
 } from 'react-native-reanimated';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { BrandHeader, HeaderBackdropProvided } from './BrandHeader';
 import { scheduleOnRN } from 'react-native-worklets';
 import { useAppColors } from './AppThemeProvider';
 import { useLayoutDirection } from './LayoutDirectionContext';
@@ -32,7 +34,6 @@ type Navigation = { active: DockTab; transition?: TabTransition };
 export const TabContentLayout = createContext<{
   transition?: TabTransition;
   headerHeight?: number;
-  onHeaderHeight?: (height: number) => void;
 } | null>(null);
 
 export function useTabNavigation(initial: DockTab) {
@@ -117,12 +118,10 @@ export function TabScene({
   active,
   transition,
   headerHeight,
-  setHeaderHeight,
   children,
 }: Navigation & {
   name: DockTab;
   headerHeight?: number;
-  setHeaderHeight: (height: number) => void;
   children: ReactNode;
 }) {
   const colors = useAppColors();
@@ -144,13 +143,7 @@ export function TabScene({
       accessibilityElementsHidden={!selected}
       importantForAccessibility={selected ? 'auto' : 'no-hide-descendants'}
     >
-      <TabContentLayout.Provider
-        value={{
-          transition: entering,
-          headerHeight,
-          onHeaderHeight: selected ? setHeaderHeight : undefined,
-        }}
-      >
+      <TabContentLayout.Provider value={{ transition: entering, headerHeight }}>
         <Animated.View
           style={[styles.surface, { backgroundColor: colors.background }, fade]}
         >
@@ -161,8 +154,41 @@ export function TabScene({
   );
 }
 
+// A stable native safe-area layout provides one inset for all standard dock
+// headers. The incoming scroll view's own layout can report an interim size.
+export function TabHeaderMeasure({
+  onHeight,
+}: {
+  onHeight: (height: number) => void;
+}) {
+  return (
+    <SafeAreaView
+      edges={['top']}
+      style={styles.headerMeasure}
+      pointerEvents="none"
+      aria-hidden
+      accessibilityElementsHidden
+      importantForAccessibility="no-hide-descendants"
+      onLayout={({ nativeEvent }) => {
+        if (nativeEvent.layout.height > 0) onHeight(nativeEvent.layout.height);
+      }}
+    >
+      <HeaderBackdropProvided.Provider value>
+        <BrandHeader />
+      </HeaderBackdropProvided.Provider>
+    </SafeAreaView>
+  );
+}
+
 const styles = StyleSheet.create({
   surface: { flex: 1 },
+  headerMeasure: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    opacity: 0,
+  },
   hidden: {
     opacity: 0,
     ...Platform.select({
