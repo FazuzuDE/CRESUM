@@ -42,6 +42,7 @@ export function AppFlatList<T>({
                   {...scrollProps}
                   fixedHeader={fixedHeader}
                   safeAreaEdges={['top']}
+                  animateTabContent={dockAware}
                 />
               )
             : props.renderScrollComponent
