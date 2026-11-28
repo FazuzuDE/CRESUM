@@ -330,19 +330,34 @@ const button = (v: ReturnType<typeof create>, label: string) =>
   v.root
     .findAll(isPressable)
     .find((n: any) => n.props.accessibilityLabel === label);
-const text = (v: ReturnType<typeof create>) => JSON.stringify(v.toJSON());
+const text = (v: ReturnType<typeof create>) =>
+  JSON.stringify(v.toJSON(), (prop, value) =>
+    prop === 'props' ? undefined : value,
+  );
+const openTechnique = (v: ReturnType<typeof create>, label: string) => {
+  if (!button(v, label)) {
+    act(() =>
+      v.root
+        .findByType(TextInput)
+        .props.onChangeText(label.slice('Technique for '.length)),
+    );
+  }
+  act(() => button(v, label)!.props.onPress());
+};
+const showPhase = (v: ReturnType<typeof create>, phase: 'START' | 'FINISH') => {
+  act(() => button(v, `Show ${phase}`)!.props.onPress());
+  // Test renderer does not load local bitmap sources.
+  act(() => {
+    for (const image of v.root.findAllByType(Image)) image.props.onLoad?.();
+  });
+};
 
 it('opens the correct offline guide from thumbnail without toggling or adding an exercise', () => {
   const add = jest.fn(),
     toggle = jest.fn(),
     v = render({ onAdd: add, onToggle: toggle });
   try {
-    const technique = button(
-      v,
-      'Technique for Close Neutral V-Handle Lat Pulldown',
-    );
-    expect(technique).toBeDefined();
-    act(() => technique!.props.onPress());
+    openTechnique(v, 'Technique for Close Neutral V-Handle Lat Pulldown');
     expect(text(v)).toContain('Setup');
     expect(text(v)).toContain('V-handle');
     const illustration = v.root
@@ -376,7 +391,7 @@ it('opens from a browse name and preserves query and phase across full-screen vi
     act(() =>
       button(v, 'View Close Neutral V-Handle Lat Pulldown')!.props.onPress(),
     );
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
     expect(button(v, 'Close full-screen illustration')).toBeDefined();
     const illustrations = v.root
@@ -475,8 +490,7 @@ it.each([
   (name, startAsset, finishAsset) => {
     const v = render();
     try {
-      expect(button(v, `Technique for ${name}`)).toBeDefined();
-      act(() => button(v, `Technique for ${name}`)!.props.onPress());
+      openTechnique(v, `Technique for ${name}`);
       const images = (phase: string) =>
         v.root
           .findAllByType(Image)
@@ -485,7 +499,7 @@ it.each([
           );
       expect(images('START')).toHaveLength(1);
       expect(images('START')[0].props.source).toBe(startAsset);
-      act(() => button(v, 'Show FINISH')!.props.onPress());
+      showPhase(v, 'FINISH');
       expect(images('START')).toHaveLength(0);
       expect(images('FINISH')).toHaveLength(1);
       expect(images('FINISH')[0].props.source).toBe(finishAsset);
@@ -506,9 +520,9 @@ it.each([
 it('keeps inline and full-screen placeholders for variants without phase artwork', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Seated Cable Row')!.props.onPress());
+    openTechnique(v, 'Technique for Seated Cable Row');
     expect(text(v)).toContain('Image coming soon');
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
     expect(text(v)).toContain('Illustration unavailable');
     expect(button(v, 'Close full-screen illustration')).toBeDefined();
@@ -522,7 +536,7 @@ it('keeps instructions readable when an external source fails', async () => {
     .mockRejectedValue(new Error('offline'));
   const v = render();
   try {
-    act(() => button(v, 'Technique for Barbell Bench Press')!.props.onPress());
+    openTechnique(v, 'Technique for Barbell Bench Press');
     act(() => button(v, 'Sources')!.props.onPress());
     await act(async () => {
       button(
@@ -578,7 +592,7 @@ it('allows disclosure labels to wrap beside their indicator at larger text sizes
   const { Text, StyleSheet } = jest.requireActual('react-native');
   const v = render();
   try {
-    act(() => button(v, 'Technique for Barbell Bench Press')!.props.onPress());
+    openTechnique(v, 'Technique for Barbell Bench Press');
     const disclosure = button(v, 'Common mistakes')!;
     const label = disclosure.findByType(Text);
     expect(StyleSheet.flatten(label.props.style)).toMatchObject({
@@ -599,11 +613,11 @@ it('renders both registered deadlift exports in one fixed contain frame', () => 
         (n: any) => n.props.accessibilityLabel === `Barbell Deadlift: ${phase}`,
       );
   try {
-    act(() => button(v, 'Technique for Barbell Deadlift')!.props.onPress());
+    openTechnique(v, 'Technique for Barbell Deadlift');
     const startStyle = StyleSheet.flatten(images('START')[0].props.style);
     expect(parseFloat(String(startStyle.width))).toBeGreaterThan(100);
     expect(startStyle.height).toBe(startStyle.width);
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() => button(v, 'Expand exercise illustration')!.props.onPress());
     expect(images('FINISH')).toHaveLength(2);
     const inlineStyle = StyleSheet.flatten(images('FINISH')[0].props.style);
@@ -614,7 +628,7 @@ it('renders both registered deadlift exports in one fixed contain frame', () => 
       expect(StyleSheet.flatten(image.props.style)).toEqual(inlineStyle);
     }
     act(() => button(v, 'Close full-screen illustration')!.props.onPress());
-    act(() => button(v, 'Show START')!.props.onPress());
+    showPhase(v, 'START');
     expect(images('START')[0].props.source).toBe(1301);
     expect(StyleSheet.flatten(images('START')[0].props.style)).toEqual(
       startStyle,
@@ -627,7 +641,7 @@ it('renders both registered deadlift exports in one fixed contain frame', () => 
 // Removing the per-exercise card, using history tint or omitting dismissal breaks these scenarios.
 it('shows exact curl roles and opens/closes larger anatomy without changing FINISH', () => {
   const v = render();
-  act(() => button(v, 'Technique for Dumbbell Biceps Curl')!.props.onPress());
+  openTechnique(v, 'Technique for Dumbbell Biceps Curl');
   expect(text(v)).toContain('Working muscles');
   const map = v.root.findByType(MuscleMap);
   expect(map.props.height).toBe(160);
@@ -645,7 +659,7 @@ it('shows exact curl roles and opens/closes larger anatomy without changing FINI
     expect(muscle.secondary).toBe(muscle.id === 'forearms' ? 1 : 0);
   }
   expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
-  act(() => button(v, 'Show FINISH')!.props.onPress());
+  showPhase(v, 'FINISH');
   act(() =>
     button(v, 'Muscle details for Dumbbell Biceps Curl')!.props.onPress(),
   );
@@ -676,7 +690,7 @@ it('shows exact curl roles and opens/closes larger anatomy without changing FINI
 
 it('shows bound partial adductor regions without claiming missing coverage', () => {
   const v = render();
-  act(() => button(v, 'Technique for Machine Hip Adduction')!.props.onPress());
+  openTechnique(v, 'Technique for Machine Hip Adduction');
   expect(text(v)).not.toContain('Not highlighted on this map:');
   expect(text(v)).toContain('selected visible medial-thigh patches');
   expect(text(v)).toContain('Adductors');
@@ -694,7 +708,7 @@ it('shows bound partial adductor regions without claiming missing coverage', () 
 
 it('shows selected barbell curl roles and opens/closes larger anatomy without changing FINISH', () => {
   const v = render();
-  act(() => button(v, 'Technique for Barbell Curl')!.props.onPress());
+  openTechnique(v, 'Technique for Barbell Curl');
   expect(text(v)).toContain('Working muscles');
   const map = v.root.findByType(MuscleMap);
   expect(map.props.height).toBe(160);
@@ -712,7 +726,7 @@ it('shows selected barbell curl roles and opens/closes larger anatomy without ch
     expect(muscle.secondary).toBe(muscle.id === 'forearms' ? 1 : 0);
   }
   expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
-  act(() => button(v, 'Show FINISH')!.props.onPress());
+  showPhase(v, 'FINISH');
   act(() => button(v, 'Muscle details for Barbell Curl')!.props.onPress());
   expect(
     v.root.findAllByType(MuscleMap).map((n: any) => n.props.height),
@@ -737,7 +751,7 @@ it('shows selected barbell curl roles and opens/closes larger anatomy without ch
 it('shows selected EZ curl roles and opens/closes larger anatomy without changing FINISH', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for EZ Bar Curl')!.props.onPress());
+    openTechnique(v, 'Technique for EZ Bar Curl');
     expect(text(v)).toContain('Working muscles');
     const map = v.root.findByType(MuscleMap);
     expect(map.props.height).toBe(160);
@@ -755,7 +769,7 @@ it('shows selected EZ curl roles and opens/closes larger anatomy without changin
       expect(muscle.secondary).toBe(muscle.id === 'forearms' ? 1 : 0);
     }
     expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() => button(v, 'Muscle details for EZ Bar Curl')!.props.onPress());
     expect(
       v.root.findAllByType(MuscleMap).map((n: any) => n.props.height),
@@ -786,7 +800,7 @@ it('shows selected EZ curl roles and opens/closes larger anatomy without changin
 it('shows selected hammer curl roles and opens/closes larger anatomy without changing FINISH', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Hammer Curl')!.props.onPress());
+    openTechnique(v, 'Technique for Hammer Curl');
     expect(text(v)).toContain('Working muscles');
     const map = v.root.findByType(MuscleMap);
     expect(map.props.height).toBe(160);
@@ -806,7 +820,7 @@ it('shows selected hammer curl roles and opens/closes larger anatomy without cha
       expect(muscle.secondary).toBe(0);
     }
     expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() => button(v, 'Muscle details for Hammer Curl')!.props.onPress());
     expect(
       v.root.findAllByType(MuscleMap).map((n: any) => n.props.height),
@@ -837,7 +851,7 @@ it('shows selected hammer curl roles and opens/closes larger anatomy without cha
 it('shows selected low cable curl roles and opens/closes larger anatomy without changing FINISH', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Cable Biceps Curl')!.props.onPress());
+    openTechnique(v, 'Technique for Cable Biceps Curl');
     expect(text(v)).toContain('Working muscles');
     const map = v.root.findByType(MuscleMap);
     expect(map.props.height).toBe(160);
@@ -855,7 +869,7 @@ it('shows selected low cable curl roles and opens/closes larger anatomy without 
       expect(muscle.secondary).toBe(muscle.id === 'forearms' ? 1 : 0);
     }
     expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() =>
       button(v, 'Muscle details for Cable Biceps Curl')!.props.onPress(),
     );
@@ -890,9 +904,7 @@ it('shows selected low cable curl roles and opens/closes larger anatomy without 
 it('shows selected high cable pushdown roles and opens/closes larger anatomy without changing FINISH', () => {
   const v = render();
   try {
-    act(() =>
-      button(v, 'Technique for Cable Triceps Pushdown')!.props.onPress(),
-    );
+    openTechnique(v, 'Technique for Cable Triceps Pushdown');
     expect(text(v)).toContain('Working muscles');
     const map = v.root.findByType(MuscleMap);
     expect(map.props.height).toBe(160);
@@ -910,7 +922,7 @@ it('shows selected high cable pushdown roles and opens/closes larger anatomy wit
       expect(muscle.secondary).toBe(0);
     }
     expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() =>
       button(v, 'Muscle details for Cable Triceps Pushdown')!.props.onPress(),
     );
@@ -945,12 +957,7 @@ it('shows selected high cable pushdown roles and opens/closes larger anatomy wit
 it('shows selected overhead cable extension roles and opens/closes larger anatomy without changing FINISH', () => {
   const v = render();
   try {
-    act(() =>
-      button(
-        v,
-        'Technique for Overhead Cable Triceps Extension',
-      )!.props.onPress(),
-    );
+    openTechnique(v, 'Technique for Overhead Cable Triceps Extension');
     expect(text(v)).toContain('Working muscles');
     const map = v.root.findByType(MuscleMap);
     expect(map.props.height).toBe(160);
@@ -968,7 +975,7 @@ it('shows selected overhead cable extension roles and opens/closes larger anatom
       expect(muscle.secondary).toBe(0);
     }
     expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() =>
       button(
         v,
@@ -1010,12 +1017,7 @@ it('shows selected overhead cable extension roles and opens/closes larger anatom
 it('shows selected overhead dumbbell extension roles and opens/closes larger anatomy without changing FINISH', () => {
   const v = render();
   try {
-    act(() =>
-      button(
-        v,
-        'Technique for Dumbbell Overhead Triceps Extension',
-      )!.props.onPress(),
-    );
+    openTechnique(v, 'Technique for Dumbbell Overhead Triceps Extension');
     expect(text(v)).toContain('Working muscles');
     const map = v.root.findByType(MuscleMap);
     expect(map.props.height).toBe(160);
@@ -1033,7 +1035,7 @@ it('shows selected overhead dumbbell extension roles and opens/closes larger ana
       expect(muscle.secondary).toBe(0);
     }
     expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() =>
       button(
         v,
@@ -1075,9 +1077,7 @@ it('shows selected overhead dumbbell extension roles and opens/closes larger ana
 it('shows selected close grip bench press roles and opens/closes larger anatomy without changing FINISH', () => {
   const v = render();
   try {
-    act(() =>
-      button(v, 'Technique for Close-Grip Bench Press')!.props.onPress(),
-    );
+    openTechnique(v, 'Technique for Close-Grip Bench Press');
     expect(text(v)).toContain('Working muscles');
     const map = v.root.findByType(MuscleMap);
     expect(map.props.height).toBe(160);
@@ -1097,7 +1097,7 @@ it('shows selected close grip bench press roles and opens/closes larger anatomy 
       );
     }
     expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() =>
       button(v, 'Muscle details for Close-Grip Bench Press')!.props.onPress(),
     );
@@ -1132,12 +1132,7 @@ it('shows selected close grip bench press roles and opens/closes larger anatomy 
 it('shows selected lying barbell extension roles and opens/closes larger anatomy without changing FINISH', () => {
   const v = render();
   try {
-    act(() =>
-      button(
-        v,
-        'Technique for Lying Barbell Triceps Extension',
-      )!.props.onPress(),
-    );
+    openTechnique(v, 'Technique for Lying Barbell Triceps Extension');
     expect(text(v)).toContain('Working muscles');
     const map = v.root.findByType(MuscleMap);
     expect(map.props.height).toBe(160);
@@ -1155,7 +1150,7 @@ it('shows selected lying barbell extension roles and opens/closes larger anatomy
       expect(muscle.secondary).toBe(0);
     }
     expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() =>
       button(
         v,
@@ -1197,7 +1192,7 @@ it('shows selected lying barbell extension roles and opens/closes larger anatomy
 it('shows selected assisted dip machine roles and opens/closes larger anatomy without changing FINISH', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Assisted Dip Machine')!.props.onPress());
+    openTechnique(v, 'Technique for Assisted Dip Machine');
     expect(text(v)).toContain('Working muscles');
     const map = v.root.findByType(MuscleMap);
     expect(map.props.height).toBe(160);
@@ -1217,7 +1212,7 @@ it('shows selected assisted dip machine roles and opens/closes larger anatomy wi
       );
     }
     expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(true);
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() =>
       button(v, 'Muscle details for Assisted Dip Machine')!.props.onPress(),
     );
@@ -1262,7 +1257,7 @@ it.each([
   (name, finishAsset) => {
     const v = render();
     try {
-      act(() => button(v, `Technique for ${name}`)!.props.onPress());
+      openTechnique(v, `Technique for ${name}`);
       expect(text(v)).toContain('Working muscles');
       const map = v.root.findByType(MuscleMap);
       expect(map.props.height).toBe(160);
@@ -1289,7 +1284,7 @@ it.each([
       expect(regions.every((n: any) => n.props.onPress === undefined)).toBe(
         true,
       );
-      act(() => button(v, 'Show FINISH')!.props.onPress());
+      showPhase(v, 'FINISH');
       act(() => button(v, `Muscle details for ${name}`)!.props.onPress());
       expect(
         v.root.findAllByType(MuscleMap).map((n: any) => n.props.height),
@@ -1321,7 +1316,7 @@ it.each([
 it('keeps Back Squat muscle roles and FINISH while expanding anatomy', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Barbell Back Squat')!.props.onPress());
+    openTechnique(v, 'Technique for Barbell Back Squat');
     const muscles = v.root.findByType(MuscleMap).props.muscles;
     expect(
       muscles
@@ -1335,7 +1330,7 @@ it('keeps Back Squat muscle roles and FINISH while expanding anatomy', () => {
         .map((m: any) => m.id)
         .sort(),
     ).toEqual(['adductors', 'hamstrings', 'lower-back']);
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() =>
       button(v, 'Muscle details for Barbell Back Squat')!.props.onPress(),
     );
@@ -1361,7 +1356,7 @@ it('keeps Back Squat muscle roles and FINISH while expanding anatomy', () => {
 it('keeps Front Squat muscle roles and FINISH while expanding anatomy', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Barbell Front Squat')!.props.onPress());
+    openTechnique(v, 'Technique for Barbell Front Squat');
     const muscles = v.root.findByType(MuscleMap).props.muscles;
     expect(
       muscles
@@ -1375,7 +1370,7 @@ it('keeps Front Squat muscle roles and FINISH while expanding anatomy', () => {
         .map((m: any) => m.id)
         .sort(),
     ).toEqual(['abs', 'upper-back']);
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() =>
       button(v, 'Muscle details for Barbell Front Squat')!.props.onPress(),
     );
@@ -1401,7 +1396,7 @@ it('keeps Front Squat muscle roles and FINISH while expanding anatomy', () => {
 it('keeps Leg Press muscle roles and FINISH while expanding anatomy', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Leg Press')!.props.onPress());
+    openTechnique(v, 'Technique for Leg Press');
     const muscles = v.root.findByType(MuscleMap).props.muscles;
     expect(
       muscles
@@ -1415,7 +1410,7 @@ it('keeps Leg Press muscle roles and FINISH while expanding anatomy', () => {
         .map((m: any) => m.id)
         .sort(),
     ).toEqual(['adductors', 'hamstrings']);
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() => button(v, 'Muscle details for Leg Press')!.props.onPress());
     expect(
       v.root.findAllByType(MuscleMap).map((m: any) => m.props.height),
@@ -1439,7 +1434,7 @@ it('keeps Leg Press muscle roles and FINISH while expanding anatomy', () => {
 it('keeps Smith Machine Squat muscle roles and FINISH while expanding anatomy', () => {
   const v = render();
   try {
-    act(() => button(v, 'Technique for Smith Machine Squat')!.props.onPress());
+    openTechnique(v, 'Technique for Smith Machine Squat');
     const muscles = v.root.findByType(MuscleMap).props.muscles;
     expect(
       muscles
@@ -1453,7 +1448,7 @@ it('keeps Smith Machine Squat muscle roles and FINISH while expanding anatomy', 
         .map((m: any) => m.id)
         .sort(),
     ).toEqual(['adductors', 'hamstrings']);
-    act(() => button(v, 'Show FINISH')!.props.onPress());
+    showPhase(v, 'FINISH');
     act(() =>
       button(v, 'Muscle details for Smith Machine Squat')!.props.onPress(),
     );
@@ -1531,7 +1526,7 @@ it.each([
   (name, finishAsset, primary, secondary) => {
     const v = render();
     try {
-      act(() => button(v, `Technique for ${name}`)!.props.onPress());
+      openTechnique(v, `Technique for ${name}`);
       const muscles = v.root.findByType(MuscleMap).props.muscles;
       expect(
         muscles
@@ -1545,7 +1540,7 @@ it.each([
           .map((m: any) => m.id)
           .sort(),
       ).toEqual(secondary);
-      act(() => button(v, 'Show FINISH')!.props.onPress());
+      showPhase(v, 'FINISH');
       act(() => button(v, `Muscle details for ${name}`)!.props.onPress());
       expect(
         v.root.findAllByType(MuscleMap).map((m: any) => m.props.height),
