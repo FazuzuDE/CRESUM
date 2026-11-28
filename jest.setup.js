@@ -35,6 +35,15 @@ jest.mock('react-native-reanimated', () => ({
     createAnimatedComponent: (component) => component,
   },
   cancelAnimation: jest.fn(),
+  makeMutable: (initial) => {
+    let value = initial;
+    return {
+      get: () => value,
+      set: (next) => {
+        value = next;
+      },
+    };
+  },
   setGestureState: jest.fn(),
   isSharedValue: (value) => value?._isReanimatedSharedValue === true,
   useComposedEventHandler: () => undefined,
