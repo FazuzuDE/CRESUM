@@ -553,10 +553,20 @@ export const finishWorkout = (
       : {}),
     finishedAt: now,
     restEndsAt: undefined,
-    exercises: session.exercises.map((exercise) =>
-      exercise.cardio
-        ? { ...exercise, cardio: pauseCardioTimer(exercise.cardio, now) }
-        : exercise,
-    ),
+    exercises: session.exercises.map((exercise) => {
+      if (exercise.cardio)
+        return { ...exercise, cardio: pauseCardioTimer(exercise.cardio, now) };
+      return {
+        ...exercise,
+        sets: exercise.sets.map((set) => {
+          if (!set.plannedWeight && !set.plannedReps) return set;
+          // Plan provenance is only used to suggest values in an active draft.
+          const recorded = { ...set };
+          delete recorded.plannedWeight;
+          delete recorded.plannedReps;
+          return recorded;
+        }),
+      };
+    }),
   };
 };

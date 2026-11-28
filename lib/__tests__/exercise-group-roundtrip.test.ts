@@ -1,5 +1,5 @@
 import { exerciseLibrary } from '../exercise-library';
-import { startWorkout } from '../workout-engine';
+import { finishWorkout, startWorkout } from '../workout-engine';
 import { createTemplateDraft, duplicateTemplate } from '../workout-templates';
 import {
   emptyWorkoutState,
@@ -43,11 +43,9 @@ const template = (): WorkoutTemplate => ({
 it('roundtrips template presets, group snapshots and completed History without flattening', async () => {
   const t = template();
   let n = 0;
-  const workout = startWorkout(t, exerciseLibrary, 100, () => `i${++n}`);
-  workout.finishedAt = 200;
-  workout.exercises.forEach((e) =>
-    e.sets.forEach((s) => (s.completedAt = 150)),
-  );
+  const active = startWorkout(t, exerciseLibrary, 100, () => `i${++n}`);
+  active.exercises.forEach((e) => e.sets.forEach((s) => (s.completedAt = 150)));
+  const workout = finishWorkout(active, 200);
   const state = { ...emptyWorkoutState(), templates: [t], history: [workout] };
   const values = new Map<string, string>();
   const repo = new WorkoutRepository({
