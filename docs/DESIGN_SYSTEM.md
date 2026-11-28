@@ -47,7 +47,10 @@ Animate a single selection pill between tabs and snap when Reduce Motion is enab
 
 When switching main tabs, bring the scrollable content in from the side of
 the selected tab in the visual dock order. Keep the fixed header and glass dock
-in place. Respect RTL order and skip the content slide when Reduce Motion is on.
+in place. Keep the outgoing page visible until the new content finishes
+sliding and fading in. Keep both pages in the same viewport and reuse the
+measured top inset for standard dock headers. Respect RTL order and switch
+immediately when Reduce Motion is on.
 Profile previews dock and pill transparency live on a 0–100% scale. Keep labels
 and icons opaque and keep the solid appearance when Reduce Transparency is enabled.
 
