@@ -17,7 +17,7 @@ import { catalogLabel, workoutExerciseLabel } from '@/lib/i18n/catalog';
 import { formatEntryNumber, formatNumber } from '@/lib/i18n/format';
 import { presentAppError } from '@/lib/i18n/errors';
 import { AppScrollView } from './AppScrollView';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   AppState,
   KeyboardAvoidingView,
@@ -172,7 +172,6 @@ export function Workout({
     onContentSizeChange,
     control: programScroll,
   } = useProgramScroll();
-  const notified = useRef<number | undefined>(undefined);
   const deadline = session?.restEndsAt;
   const editedExercise =
     session?.id === editing?.sessionId
@@ -191,21 +190,35 @@ export function Workout({
   if (editing && !entryOpen) setEditing(null);
   useEffect(() => {
     if (!session?.id) return;
-    const refresh = () => setNow(Date.now());
+    let foreground =
+      AppState.currentState == null || AppState.currentState === 'active';
+    let armed = false;
+    const refresh = () => {
+      const time = Date.now();
+      setNow(time);
+      // Only a countdown observed in the foreground can play a haptic.
+      armed = foreground && deadline !== undefined && time < deadline;
+    };
     refresh();
-    const timer = setInterval(refresh, 1000);
-    const subscription = AppState.addEventListener('change', refresh);
+    const timer = setInterval(() => {
+      if (!foreground) return;
+      const time = Date.now();
+      setNow(time);
+      if (armed && deadline !== undefined && time >= deadline) {
+        armed = false;
+        successHaptic();
+      }
+    }, 1000);
+    const subscription = AppState.addEventListener('change', (state) => {
+      if (foreground === (state === 'active')) return;
+      foreground = state === 'active';
+      refresh();
+    });
     return () => {
       clearInterval(timer);
       subscription.remove();
     };
-  }, [session?.id]);
-  useEffect(() => {
-    if (deadline && now >= deadline && notified.current !== deadline) {
-      notified.current = deadline;
-      successHaptic();
-    }
-  }, [deadline, now]);
+  }, [session?.id, deadline]);
   if (!session)
     return (
       <AppScrollView branded dockAware contentContainerStyle={s.content}>

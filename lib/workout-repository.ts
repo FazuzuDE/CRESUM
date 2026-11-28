@@ -165,8 +165,9 @@ function session(
       (!isCardioTimer(cardio) ||
         cardio.exerciseId !== exercise.libraryId ||
         exercise.sets.length !== 0 ||
-        (cardio.startedAt !== undefined &&
-          (kind === 'history' || cardio.startedAt < startedAt)))
+        // Active interval and workout start may come from different wall-clock
+        // settings. A completed workout still cannot have a running interval.
+        (kind === 'history' && cardio.startedAt !== undefined))
     )
       return invalid();
     return {

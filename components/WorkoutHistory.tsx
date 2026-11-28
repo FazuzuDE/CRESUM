@@ -1,8 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
-  CARDIO_TIMERS_KEY,
   cardioElapsed,
-  readCardioTimers,
+  loadCardioTimers,
   type CardioTimer,
 } from '@/lib/cardio-timer';
 import { findExercise } from '@/lib/exercise-library';
@@ -89,9 +88,9 @@ export function WorkoutHistory({
   useEffect(() => {
     let active = true;
     if (selectedId)
-      void AsyncStorage.getItem(CARDIO_TIMERS_KEY)
-        .then((raw) => {
-          if (active) setCardioHistory(readCardioTimers(raw));
+      void loadCardioTimers(AsyncStorage)
+        .then((timers) => {
+          if (active) setCardioHistory(timers);
         })
         .catch(() => {
           if (active) setCardioHistory(undefined);
