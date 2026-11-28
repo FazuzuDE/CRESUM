@@ -1,3 +1,4 @@
+import { renderedText } from './rendered-text';
 import { isPressable } from './pressable';
 import { ScrollView, StyleSheet, TextInput } from 'react-native';
 import type { StyleProp, ViewStyle } from 'react-native';
@@ -15,14 +16,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { completeOnboardingForTest } from './onboarding-fixture';
 
 const { act, create } = jest.requireActual('react-test-renderer');
-type RenderedNode = string | { children: RenderedNode[] | null };
-function renderedText(node: RenderedNode | RenderedNode[] | null): string {
-  if (!node) return '';
-  if (typeof node === 'string') return node;
-  if (Array.isArray(node)) return node.map(renderedText).join('');
-  return renderedText(node.children);
-}
-
 type ScrollNode = {
   props: {
     horizontal?: boolean;

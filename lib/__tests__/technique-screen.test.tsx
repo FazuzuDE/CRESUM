@@ -1,3 +1,4 @@
+import { renderedText } from './rendered-text';
 import { MuscleMap } from '../../components/MuscleMap';
 import { Path } from 'react-native-svg';
 import { colors } from '../theme';
@@ -330,10 +331,7 @@ const button = (v: ReturnType<typeof create>, label: string) =>
   v.root
     .findAll(isPressable)
     .find((n: any) => n.props.accessibilityLabel === label);
-const text = (v: ReturnType<typeof create>) =>
-  JSON.stringify(v.toJSON(), (prop, value) =>
-    prop === 'props' ? undefined : value,
-  );
+const text = (v: ReturnType<typeof create>) => renderedText(v.toJSON());
 const openTechnique = (v: ReturnType<typeof create>, label: string) => {
   if (!button(v, label)) {
     act(() =>

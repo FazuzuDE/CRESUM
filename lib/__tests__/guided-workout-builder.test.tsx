@@ -1,3 +1,4 @@
+import { renderedText } from './rendered-text';
 import type { ReactElement } from 'react';
 import { TextInput } from 'react-native';
 import { AppButton } from '../../components/AppButton';
@@ -61,10 +62,10 @@ describe('guided workout builder', () => {
         onCancel={jest.fn()}
       />,
     );
-    expect(JSON.stringify(view.toJSON())).toContain('Create Workout');
+    expect(renderedText(view.toJSON())).toContain('Create Workout');
     expect(input(view, 'Workout Name')?.props.value).toBe('');
     act(() => button(view, 'Next')?.props.onPress());
-    expect(JSON.stringify(view.toJSON())).toContain('Enter a workout name.');
+    expect(renderedText(view.toJSON())).toContain('Enter a workout name.');
     act(() => input(view, 'Workout Name')?.props.onChangeText('  Push Day  '));
     act(() => button(view, 'Next')?.props.onPress());
     expect(view.root.findByType(ExerciseLibrary).props.visible).toBe(true);
@@ -89,17 +90,17 @@ describe('guided workout builder', () => {
         name: 'Barbell Bench Press',
       }),
     );
-    expect(JSON.stringify(view.toJSON())).toContain('Barbell Bench Press');
+    expect(renderedText(view.toJSON())).toContain('Barbell Bench Press');
     act(() => input(view, 'Planned sets')?.props.onChangeText('4'));
     act(() =>
       input(view, 'Starting weight in kilograms')?.props.onChangeText('60,5'),
     );
     act(() => button(view, 'Add Exercise')?.props.onPress());
-    expect(JSON.stringify(view.toJSON())).toContain('60.5 kg');
+    expect(renderedText(view.toJSON())).toContain('60.5 kg');
     act(() => button(view, 'Back')?.props.onPress());
     expect(input(view, 'Workout Name')?.props.value).toBe('Push Day');
     act(() => button(view, 'Next')?.props.onPress());
-    expect(JSON.stringify(view.toJSON())).toContain('60.5 kg');
+    expect(renderedText(view.toJSON())).toContain('60.5 kg');
     act(() => button(view, 'Add Exercise')?.props.onPress());
     act(() =>
       view.root
@@ -151,15 +152,15 @@ describe('guided workout builder', () => {
     ).toBe(true);
     act(() => view.root.findByType(ExerciseLibrary).props.onClose());
     await act(async () => button(view, 'Save Workout')?.props.onPress());
-    expect(JSON.stringify(view.toJSON())).toContain(
+    expect(renderedText(view.toJSON())).toContain(
       'Workout could not be saved. Try again.',
     );
-    expect(JSON.stringify(view.toJSON())).not.toContain('Disk full.');
-    expect(JSON.stringify(view.toJSON())).toContain('60 kg');
+    expect(renderedText(view.toJSON())).not.toContain('Disk full.');
+    expect(renderedText(view.toJSON())).toContain('60 kg');
     act(() => action(view, 'Remove Barbell Bench Press')?.props.onPress());
     await act(async () => button(view, 'Save Workout')?.props.onPress());
     expect(onSave).toHaveBeenCalledTimes(1);
-    expect(JSON.stringify(view.toJSON())).toContain(
+    expect(renderedText(view.toJSON())).toContain(
       'Choose at least one exercise.',
     );
   });
@@ -236,13 +237,13 @@ describe('guided workout builder', () => {
     );
     act(() => input(view, 'Planned sets')?.props.onChangeText('0'));
     act(() => button(view, 'Add Exercise')?.props.onPress());
-    expect(JSON.stringify(view.toJSON())).toContain('Enter 1–20 planned sets.');
+    expect(renderedText(view.toJSON())).toContain('Enter 1–20 planned sets.');
     act(() => input(view, 'Planned sets')?.props.onChangeText('3'));
     act(() =>
       input(view, 'Starting weight in kilograms')?.props.onChangeText('-5'),
     );
     act(() => button(view, 'Add Exercise')?.props.onPress());
-    expect(JSON.stringify(view.toJSON())).toContain(
+    expect(renderedText(view.toJSON())).toContain(
       'Enter a valid non-negative weight.',
     );
   });

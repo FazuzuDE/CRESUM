@@ -1,3 +1,4 @@
+import { renderedText } from './rendered-text';
 import { ExerciseGroupComposer } from '../../components/ExerciseGroupComposer';
 import { Workout } from '../../components/Workout';
 import { SetEntrySheet } from '../../components/SetEntrySheet';
@@ -41,7 +42,7 @@ it('prepares two sets per exact handle, keeps draft weights and applies one orde
       />,
     );
   });
-  expect(JSON.stringify(view!.toJSON())).toContain('Primary');
+  expect(renderedText(view!.toJSON())).toContain('Primary');
   const field = (label: string, value: string) =>
     act(() =>
       view!.root
@@ -226,7 +227,7 @@ it('keeps staged rows on failed active-workout save and commits through the atom
   act(() => button('Add sets').props.onPress());
   await act(async () => button('Add group to workout').props.onPress());
   expect(view!.root.findAllByType(ExerciseGroupComposer)).toHaveLength(1);
-  expect(JSON.stringify(view!.toJSON())).toContain('Could not save');
+  expect(renderedText(view!.toJSON())).toContain('Could not save');
   expect(update).not.toHaveBeenCalled();
   expect(JSON.stringify(initial)).toBe(before);
   accept = true;
@@ -287,7 +288,7 @@ it('does not mutate existing prescriptions during draft edits, cancellation or d
     );
   press('Change equipment: Short ergonomic handle');
   press('V-handle');
-  expect(JSON.stringify(view!.toJSON())).toContain('already');
+  expect(renderedText(view!.toJSON())).toContain('already');
   act(() =>
     view!.root
       .findAllByType(AppButton)
