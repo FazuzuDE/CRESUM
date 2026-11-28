@@ -1,5 +1,9 @@
 # CRESUM Design System v1.0
 
+## bca Home design — approved 2026-11-28
+
+The opt-in bca Home keeps the branded header, glass dock and round calendar markers. Put the Today action first, then the week, then optional comparable exercise history. Use the scoped pine and lime palette for the hero only; do not change the shared theme. Keep the main action available with large text, mirrored RTL and no art dependency.
+
 ## Competitive follow-up interactions — approved 2026-11-28
 
 Keep existing glass, V7, wheel and muscle-map components. Extend rest settings

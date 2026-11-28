@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'मुख्यपृष्ठाची रचना',
+  'profile.homeDesignOriginal': 'मूळ',
   'profile.notificationTransparency': 'सूचनांची पारदर्शकता',
   'profile.headerOpacity': 'हेडरची अपारदर्शकता',
   'profile.trainingSection': 'व्यायाम सत्रे',

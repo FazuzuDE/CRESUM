@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'I dag',
   'home.noAvailable': 'Ingen maler med tilgjengelige øvelser',
   'home.noTemplates': 'Ingen øktmaler tilgjengelig',
   'home.editTemplate':

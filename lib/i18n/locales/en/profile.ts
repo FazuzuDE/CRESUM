@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'Home design',
+  'profile.homeDesignOriginal': 'Original',
   'profile.notificationTransparency': 'Notification transparency',
   'profile.headerOpacity': 'Header opacity',
   'profile.trainingSection': 'Workouts',

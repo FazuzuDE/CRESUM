@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'Ontwerp van het beginscherm',
+  'profile.homeDesignOriginal': 'Origineel',
   'profile.notificationTransparency': 'Transparantie van meldingen',
   'profile.headerOpacity': 'Dekking van kop',
   'profile.trainingSection': 'Trainingen',

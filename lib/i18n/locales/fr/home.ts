@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'Aujourd’hui',
   'home.noAvailable': 'Aucun modèle avec des exercices disponibles',
   'home.noTemplates': 'Aucun modèle d’entraînement disponible',
   'home.editTemplate':

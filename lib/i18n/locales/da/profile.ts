@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'Startsidens design',
+  'profile.homeDesignOriginal': 'Original',
   'profile.notificationTransparency': 'Gennemsigtighed for meddelelser',
   'profile.headerOpacity': 'Topbjælkens gennemsigtighed',
   'profile.trainingSection': 'Træning',

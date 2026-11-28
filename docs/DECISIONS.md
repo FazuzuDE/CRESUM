@@ -1,5 +1,9 @@
 # CRESUM Decision Log
 
+## 2026-11-28 — Opt-in bca Home design
+
+The owner approved the «Маршрут» concept as a second switchable variant named **bca**. Keep the current Home as **Original**, the default. Place the selector under Profile → Appearance, save it locally, and reuse existing workout state and navigation. Device acceptance is pending.
+
 ## 2026-11-28 — Competitive follow-up
 
 Owner approved nine additional P0–P2 directions from the November 28 review.

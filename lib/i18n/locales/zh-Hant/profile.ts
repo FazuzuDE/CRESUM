@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': '首頁設計',
+  'profile.homeDesignOriginal': '原版',
   'profile.notificationTransparency': '通知透明度',
   'profile.headerOpacity': '頂部欄不透明度',
   'profile.trainingSection': '訓練',

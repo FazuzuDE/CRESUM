@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'Today',
   'home.noAvailable': 'No templates with available exercises',
   'home.noTemplates': 'No workout templates available',
   'home.editTemplate':

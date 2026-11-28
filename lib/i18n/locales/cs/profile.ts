@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'Vzhled domovské stránky',
+  'profile.homeDesignOriginal': 'Původní',
   'profile.notificationTransparency': 'Průhlednost oznámení',
   'profile.headerOpacity': 'Krytí záhlaví',
   'profile.trainingSection': 'Tréninky',

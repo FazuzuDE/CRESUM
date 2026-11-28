@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'Vandaag',
   'home.noAvailable': 'Geen sjablonen met beschikbare oefeningen',
   'home.noTemplates': 'Geen trainingssjablonen beschikbaar',
   'home.editTemplate':

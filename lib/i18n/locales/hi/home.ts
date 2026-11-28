@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'आज',
   'home.noAvailable': 'उपलब्ध अभ्यासों वाला कोई टेम्पलेट नहीं है',
   'home.noTemplates': 'कोई वर्कआउट टेम्पलेट उपलब्ध नहीं है',
   'home.editTemplate': 'उपलब्ध अभ्यास चुनने के लिए प्रोफाइल में टेम्पलेट बदलें।',

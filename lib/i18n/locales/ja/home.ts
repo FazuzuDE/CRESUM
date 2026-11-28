@@ -1,4 +1,5 @@
 export default {
+  'home.today': '今日',
   'home.noAvailable': '利用できる種目を含むテンプレートがありません',
   'home.noTemplates': '利用できるワークアウトテンプレートがありません',
   'home.editTemplate':

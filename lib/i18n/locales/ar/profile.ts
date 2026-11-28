@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'تصميم الصفحة الرئيسية',
+  'profile.homeDesignOriginal': 'الأصلي',
   'profile.notificationTransparency': 'شفافية الإشعارات',
   'profile.headerOpacity': 'عتامة الترويسة',
   'profile.trainingSection': 'التمارين',

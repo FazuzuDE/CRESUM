@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'اليوم',
   'home.noAvailable': 'لا توجد قوالب بتمارين متاحة',
   'home.noTemplates': 'لا توجد قوالب تمرين متاحة',
   'home.editTemplate': 'عدّل قالبًا في الملف الشخصي لاختيار تمارين متاحة.',

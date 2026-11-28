@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'இன்று',
   'home.noAvailable': 'பயிற்சிகள் உள்ள வார்ப்புருக்கள் இல்லை',
   'home.noTemplates': 'பயிற்சி வார்ப்புருக்கள் இல்லை',
   'home.editTemplate': 'வார்ப்புருவை தொகுக்கவும்',

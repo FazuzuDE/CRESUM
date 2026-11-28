@@ -1,11 +1,20 @@
 import {
   createThemedStyles,
   useAppColors,
+  useAppTheme,
 } from '@/components/AppThemeProvider';
 import {
   LocalizedText as Text,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
+import { ExerciseStatistics } from './ExerciseStatistics';
+import { HomeRouteHero, type HomeHeroState } from './HomeRouteHero';
+import type { HomeDesign } from './useHomeDesign';
+import {
+  previousPlanSet,
+  routeComparison,
+  routeWeekCounts,
+} from '@/lib/home-route';
 import { HomeCalendar } from './HomeCalendar';
 import { HomeLayoutEditor } from './HomeLayoutEditor';
 import { useHomeLayout } from './useHomeLayout';
@@ -33,7 +42,7 @@ import type { ProgramAssignment } from '@/lib/training-programs/assignment';
 import type { ProjectedProgramSlot } from '@/lib/training-programs/schedule';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppScrollView } from './AppScrollView';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   AppState,
   BackHandler,
@@ -54,7 +63,7 @@ import {
   type HomeTemplateDetails,
 } from '@/lib/home-dashboard';
 import type { WorkoutSession, WorkoutTemplate } from '@/lib/workout-model';
-import { radius, spacing, typography } from '@/lib/theme';
+import { radius, routeColors, spacing, typography } from '@/lib/theme';
 import { useLocalization } from './LocalizationProvider';
 import { formatDate, formatNumber } from '@/lib/i18n/format';
 import { catalogLabel, workoutExerciseLabel } from '@/lib/i18n/catalog';
@@ -108,6 +117,8 @@ function templatePresentation(
 }
 
 type HomeProps = {
+  design?: HomeDesign;
+  onStartEmpty?: () => void;
   displayName?: string;
   assignment?: ProgramAssignment | null;
   startProgramSlot?: (
@@ -131,16 +142,7 @@ function PrimaryWorkoutWidget({
   onAction,
   disabled,
 }: {
-  state: {
-    badge: string;
-    context?: string;
-    title: string;
-    meta?: string;
-    preview?: string;
-    imageKey?: string;
-    action: string;
-    progress?: number;
-  };
+  state: HomeHeroState;
   onPreview?: () => void;
   onAction: () => void;
   disabled: boolean;
@@ -305,7 +307,9 @@ function TrainingSummaryWidget({
 function TrainingWeekWidget({
   week,
   onOpenCalendar,
+  routeSummary,
 }: {
+  routeSummary?: string;
   week: ReturnType<typeof projectHomeDashboard>['week'];
   onOpenCalendar: (date?: number) => void;
 }) {
@@ -334,13 +338,18 @@ function TrainingWeekWidget({
           {t('home.week')}
         </Text>
         <AppButton
-          title={t('home.month')}
+          title={
+            routeSummary === undefined ? t('home.month') : t('calendar.title')
+          }
           accessibilityLabel={t('home.openCalendar')}
           secondary
           presentation="text"
           onPress={() => onOpenCalendar()}
         />
       </View>
+      {routeSummary !== undefined ? (
+        <Text style={s.routeWeekSummary}>{routeSummary}</Text>
+      ) : null}
       <View
         testID="home-week-days"
         style={s.weekDays}
@@ -502,6 +511,8 @@ function WorkoutTemplatesWidget({
 }
 
 export function HomeDashboard({
+  design = 'original',
+  onStartEmpty,
   displayName,
   history,
   activeWorkout,
@@ -519,6 +530,13 @@ export function HomeDashboard({
   const s = useStyles();
   const { t, locale } = useLocalization();
   const homeLayout = useHomeLayout();
+  const isRoute = design === 'bca';
+  const { scheme } = useAppTheme();
+  const darkRoute = isRoute && scheme === 'dark';
+  const [routeStats, setRouteStats] = useState<{
+    exerciseId: string;
+    name: string;
+  }>();
   const [editingLayout, setEditingLayout] = useState(false);
   const [draft, setDraft] = useState<HomeLayout | null>(null);
   const draftRef = useRef<HomeLayout | null>(null);
@@ -621,6 +639,29 @@ export function HomeDashboard({
   }, []);
   const data = projectHomeDashboard(history, activeWorkout, templates, now);
   const program = projectHomeProgram(assignment, history, templates, now);
+  const comparison = useMemo(
+    () => (isRoute ? routeComparison(history, now) : undefined),
+    [history, isRoute, now],
+  );
+  const routeWeek = isRoute
+    ? routeWeekCounts(
+        assignment,
+        history,
+        data.week.days.map((day) => day.timestamp),
+      )
+    : undefined;
+  const routeSummary = routeWeek
+    ? [
+        `${formatNumber(locale, routeWeek.completed)}/${formatNumber(locale, routeWeek.planned)}`,
+        t('plan.completed'),
+      ].join(' · ')
+    : t('home.workouts', { count: data.week.completedCount });
+  const loggedSet = (weight: number, reps: number) =>
+    t('progress.loggedSet', {
+      weight: formatNumber(locale, weight),
+      reps: formatNumber(locale, reps),
+    });
+
   const latestToday =
     data.latestWorkout &&
     localDate(new Date(data.latestWorkout.session.finishedAt!)) ===
@@ -665,7 +706,7 @@ export function HomeDashboard({
     }
   };
   const showResult = !activeWorkout && !program?.isToday ? latestToday : null;
-  let hero;
+  let hero: HomeHeroState;
   let action: () => void;
   if (activeWorkout) {
     const recorded = completedSetCount(activeWorkout);
@@ -752,6 +793,35 @@ export function HomeDashboard({
       if (!draftRef.current) setBuilderOpen(true);
     };
   }
+  const freshRoute =
+    isRoute && !program && !activeWorkout && !history.length && !!onStartEmpty;
+  const canPeek =
+    !activeWorkout &&
+    !showResult &&
+    !!template &&
+    (!program || program.isToday) &&
+    !freshRoute;
+  const openPreview = () => {
+    if (!draftRef.current) setPreviewOpen(true);
+  };
+  const routeHero = freshRoute
+    ? {
+        badge: t('home.quickStart'),
+        title: t('workout.emptyStart'),
+        context: t('workout.startHint'),
+        action: t('templates.start'),
+      }
+    : {
+        ...hero,
+        title: activeWorkout?.name ?? hero.title,
+        context:
+          activeWorkout && exercise
+            ? workoutExerciseLabel(locale, exercise)
+            : hero.context,
+      };
+  const openCalendar = (date?: number) => {
+    if (!draftRef.current) setCalendarDate(date ?? now);
+  };
   const content = {
     primary: (
       <PrimaryWorkoutWidget
@@ -828,7 +898,7 @@ export function HomeDashboard({
   });
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={[{ flex: 1 }, darkRoute && s.routeBackground]}>
       <AppScrollView
         branded
         dockAware
@@ -853,11 +923,13 @@ export function HomeDashboard({
                 })}
               </Text>
               <Text style={s.title} accessibilityRole="header">
-                {displayName?.trim()
-                  ? t('home.welcomeNamed', { name: displayName.trim() })
-                  : history.length
-                    ? t('home.welcomeBack')
-                    : t('home.welcome')}
+                {isRoute
+                  ? t('home.today')
+                  : displayName?.trim()
+                    ? t('home.welcomeNamed', { name: displayName.trim() })
+                    : history.length
+                      ? t('home.welcomeBack')
+                      : t('home.welcome')}
               </Text>
             </View>
             {onOpenProfile ? (
@@ -876,68 +948,122 @@ export function HomeDashboard({
             ) : null}
           </View>
         </View>
-        <AppButton
-          title={t('home.customize')}
-          secondary
-          presentation="text"
-          disabled={
-            Boolean(draft) ||
-            homeLayout.loading ||
-            homeLayout.saving ||
-            homeLayout.loadError
-          }
-          onPress={() => {
-            homeLayout.clearSaveError();
-            setEditingLayout(true);
-          }}
-        />
-        {homeLayout.loadError ? (
-          <GlassCard>
-            <Text accessibilityRole="alert" style={s.sub}>
-              {t('home.loadError')}
-            </Text>
-            <AppButton
-              title={t('home.retry')}
-              secondary
-              disabled={homeLayout.loading || homeLayout.saving}
-              onPress={() => {
-                void homeLayout.load();
-              }}
+        {isRoute ? (
+          <>
+            <HomeRouteHero
+              state={routeHero}
+              onAction={freshRoute ? onStartEmpty! : action}
+              onPreview={canPeek ? openPreview : undefined}
+              disabled={busy}
             />
-            <AppButton
-              title={t('home.reset')}
-              secondary
-              disabled={homeLayout.loading || homeLayout.saving}
-              onPress={() => {
-                void homeLayout.save(defaultHomeLayout());
-              }}
+            <TrainingWeekWidget
+              week={data.week}
+              onOpenCalendar={openCalendar}
+              routeSummary={routeSummary}
             />
-            {homeLayout.saveError ? (
-              <Text accessibilityRole="alert" style={s.sub}>
-                {t('home.saveError')}
-              </Text>
+            {comparison ? (
+              <GlassCard style={s.routeComparison}>
+                <Text accessibilityRole="header" style={s.section}>
+                  {t('performance.title')}
+                </Text>
+                <Text style={s.sub}>
+                  {catalogLabel(
+                    locale,
+                    'exercise',
+                    comparison.exerciseId,
+                    comparison.name,
+                  )}
+                </Text>
+                <Text style={s.sub}>
+                  {t('workout.last', {
+                    summary: loggedSet(
+                      comparison.previous.weight,
+                      comparison.previous.reps,
+                    ),
+                  })}
+                </Text>
+                <Text style={s.routeResult}>
+                  {loggedSet(
+                    comparison.current.weight,
+                    comparison.current.reps,
+                  )}
+                </Text>
+                <AppButton
+                  title={t('technique.statistics')}
+                  presentation="text"
+                  secondary
+                  onPress={() => setRouteStats(comparison)}
+                />
+              </GlassCard>
             ) : null}
-          </GlassCard>
-        ) : null}
-        <HomeDragGrid
-          items={items}
-          editing={Boolean(draft)}
-          disabled={
-            homeLayout.loading ||
-            homeLayout.saving ||
-            homeLayout.loadError ||
-            editingLayout
-          }
-          scroll={dragScroll}
-          onBegin={beginEditing}
-          onMove={moveBlock}
-          onLayout={(event) => setGridTop(event.nativeEvent.layout.y)}
-          onRowLayout={(id, y) =>
-            setRowOffsets((current) =>
-              current[id] === y ? current : { ...current, [id]: y },
-            )
-          }
-        />
+            {content.templates}
+          </>
+        ) : (
+          <>
+            <AppButton
+              title={t('home.customize')}
+              secondary
+              presentation="text"
+              disabled={
+                Boolean(draft) ||
+                homeLayout.loading ||
+                homeLayout.saving ||
+                homeLayout.loadError
+              }
+              onPress={() => {
+                homeLayout.clearSaveError();
+                setEditingLayout(true);
+              }}
+            />
+            {homeLayout.loadError ? (
+              <GlassCard>
+                <Text accessibilityRole="alert" style={s.sub}>
+                  {t('home.loadError')}
+                </Text>
+                <AppButton
+                  title={t('home.retry')}
+                  secondary
+                  disabled={homeLayout.loading || homeLayout.saving}
+                  onPress={() => {
+                    void homeLayout.load();
+                  }}
+                />
+                <AppButton
+                  title={t('home.reset')}
+                  secondary
+                  disabled={homeLayout.loading || homeLayout.saving}
+                  onPress={() => {
+                    void homeLayout.save(defaultHomeLayout());
+                  }}
+                />
+                {homeLayout.saveError ? (
+                  <Text accessibilityRole="alert" style={s.sub}>
+                    {t('home.saveError')}
+                  </Text>
+                ) : null}
+              </GlassCard>
+            ) : null}
+            <HomeDragGrid
+              items={items}
+              editing={Boolean(draft)}
+              disabled={
+                homeLayout.loading ||
+                homeLayout.saving ||
+                homeLayout.loadError ||
+                editingLayout
+              }
+              scroll={dragScroll}
+              onBegin={beginEditing}
+              onMove={moveBlock}
+              onLayout={(event) => setGridTop(event.nativeEvent.layout.y)}
+              onRowLayout={(id, y) =>
+                setRowOffsets((current) =>
+                  current[id] === y ? current : { ...current, [id]: y },
+                )
+              }
+            />
+          </>
+        )}
         {assignment && startProgramSlot ? (
           <AppButton
             title={t('onboarding.weeklySchedule')}
@@ -980,6 +1106,30 @@ export function HomeDashboard({
             </AppScrollView>
           </ScreenModal>
         ) : null}
+        {routeStats ? (
+          <ScreenModal
+            visible
+            animationType="slide"
+            presentationStyle="pageSheet"
+            onRequestClose={() => setRouteStats(undefined)}
+          >
+            <AppScrollView
+              branded
+              back={{ onPress: () => setRouteStats(undefined) }}
+              contentContainerStyle={s.content}
+            >
+              <Text accessibilityRole="header" style={s.title}>
+                {t('technique.statistics')}
+              </Text>
+              <ExerciseStatistics
+                history={history}
+                exerciseId={routeStats.exerciseId}
+                name={routeStats.name}
+                now={now}
+              />
+            </AppScrollView>
+          </ScreenModal>
+        ) : null}
         {calendarDate !== undefined ? (
           <HomeCalendar
             history={history}
@@ -1009,9 +1159,19 @@ export function HomeDashboard({
               {template.exerciseIds.map((id, index) => {
                 const item = findExercise(id);
                 if (!item) return null;
-                const sets = template.plannedExercises?.find(
+                const planned = template.plannedExercises?.find(
                   (exercise) => exercise.exerciseId === id,
-                )?.sets;
+                );
+                const sets = planned?.sets;
+                const first = planned?.plannedSets?.[0];
+                const weight = first?.weight ?? planned?.weight;
+                const reps = first?.reps;
+                const previous =
+                  isRoute &&
+                  !item.measurement?.match(/duration|distance/) &&
+                  !item.perSide
+                    ? previousPlanSet(history, template.id, item.id, now)
+                    : undefined;
                 return (
                   <GlassCard key={index}>
                     <Text style={s.templateName}>
@@ -1022,11 +1182,59 @@ export function HomeDashboard({
                         count: sets && validPlannedSets(sets) ? sets : 3,
                       })}
                     </Text>
+                    {isRoute &&
+                    weight !== undefined &&
+                    reps !== undefined &&
+                    Number.isFinite(Number(weight.replace(',', '.'))) &&
+                    Number.isFinite(Number(reps)) ? (
+                      <Text style={s.routeResult}>
+                        {t('plan.planned')} ·{' '}
+                        {loggedSet(
+                          Number(weight.replace(',', '.')),
+                          Number(reps),
+                        )}
+                      </Text>
+                    ) : null}
+                    {isRoute && planned?.target && reps === undefined ? (
+                      <Text style={s.sub}>
+                        {t(
+                          planned.target.perSide
+                            ? 'workout.targetPerSide'
+                            : 'workout.target',
+                          {
+                            min: planned.target.repMin,
+                            max: planned.target.repMax,
+                            restMin:
+                              planned.restSeconds ?? planned.target.restMin,
+                            restMax:
+                              planned.restSeconds ?? planned.target.restMax,
+                          },
+                        )}
+                      </Text>
+                    ) : null}
+                    {isRoute ? (
+                      <Text style={s.sub}>
+                        {previous
+                          ? t('entry.previous', {
+                              summary: loggedSet(
+                                previous.weight,
+                                previous.reps,
+                              ),
+                            })
+                          : t('entry.noPrevious')}
+                      </Text>
+                    ) : null}
                   </GlassCard>
                 );
               })}
               {!activeWorkout && !busy && (!program || program.isToday) ? (
-                <AppButton title={t('home.start')} onPress={startFeatured} />
+                <AppButton
+                  title={t('home.start')}
+                  onPress={() => {
+                    if (isRoute) setPreviewOpen(false);
+                    startFeatured();
+                  }}
+                />
               ) : null}
             </AppScrollView>
           </ScreenModal>
@@ -1111,6 +1319,14 @@ export function HomeDashboard({
 }
 
 const useStyles = createThemedStyles((colors) => ({
+  routeBackground: { backgroundColor: routeColors.background },
+  routeComparison: {
+    borderRadius: radius.xl,
+    gap: spacing.xs,
+    padding: spacing.md,
+  },
+  routeWeekSummary: { ...typography.subheadline, color: colors.textPrimary },
+  routeResult: { ...typography.headline, color: colors.volumeIncrease },
   editBar: {
     position: 'absolute',
     top: 0,

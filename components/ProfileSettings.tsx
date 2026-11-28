@@ -5,6 +5,8 @@ import {
 } from '@/components/AppThemeProvider';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { AppSlider } from './AppSlider';
+import { HomeDesignSelector } from './HomeRouteHero';
+import type { useHomeDesign } from './useHomeDesign';
 import { formatNumber } from '@/lib/i18n/format';
 import { useLocalization } from './LocalizationProvider';
 import { displayAppVersion } from '@/lib/app-version';
@@ -31,6 +33,7 @@ import { radius, spacing, typography } from '@/lib/theme';
 import { catalogLabel, searchLocalizedExercises } from '@/lib/i18n/catalog';
 
 export type ProfileSettingsProps = {
+  homeDesign?: ReturnType<typeof useHomeDesign>;
   dockTransparency?: number;
   notificationTransparency?: {
     value: number;
@@ -67,6 +70,7 @@ export type ProfileSettingsProps = {
 };
 
 export function ProfileSettings({
+  homeDesign,
   dockTransparency,
   notificationTransparency,
   headerOpacity,
@@ -228,6 +232,18 @@ export function ProfileSettings({
         </Text>
         {detail === 'appearance' ? (
           <>
+            {homeDesign ? (
+              <ProfileGroup title={t('profile.homeDesign')}>
+                <HomeDesignSelector
+                  value={homeDesign.value}
+                  disabled={homeDesign.loading || homeDesign.saving}
+                  error={homeDesign.error}
+                  onSelect={(next) => {
+                    void homeDesign.select(next);
+                  }}
+                />
+              </ProfileGroup>
+            ) : null}
             <ThemeSetting />
             {headerOpacity !== undefined ? (
               <PercentSetting

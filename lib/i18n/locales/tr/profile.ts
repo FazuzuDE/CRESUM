@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'Ana ekran tasarımı',
+  'profile.homeDesignOriginal': 'Orijinal',
   'profile.notificationTransparency': 'Bildirim saydamlığı',
   'profile.headerOpacity': 'Üst başlık opaklığı',
   'profile.trainingSection': 'Antrenmanlar',

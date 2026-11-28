@@ -94,5 +94,9 @@
   "workout.tableKg": {
     "text": "KG",
     "reason": "Localized numeric data with international units or symbols."
+  },
+  "profile.homeDesignOriginal": {
+    "text": "Original",
+    "reason": "Original is the standard Norwegian Bokmål label for the unmodified design."
   }
 }

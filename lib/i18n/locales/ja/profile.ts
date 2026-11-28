@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'ホームのデザイン',
+  'profile.homeDesignOriginal': 'オリジナル',
   'profile.notificationTransparency': '通知の透明度',
   'profile.headerOpacity': 'ヘッダーの不透明度',
   'profile.trainingSection': 'トレーニング',

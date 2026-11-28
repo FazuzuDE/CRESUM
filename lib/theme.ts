@@ -137,3 +137,15 @@ export const cardShadow = {
   shadowRadius: 16,
   shadowOffset: { width: 0, height: 6 },
 };
+
+// Local to the opt-in bca Home design; never override the global theme.
+export const routeColors = {
+  background: '#0E1D1E',
+  hero: '#304C43',
+  border: '#709080',
+  contour: '#587467',
+  accent: '#DAF58A',
+  text: '#F3F7EE',
+  copy: '#E0EBE2',
+  actionInk: '#122522',
+} as const;

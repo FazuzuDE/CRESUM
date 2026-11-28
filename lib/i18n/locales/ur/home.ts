@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'آج',
   'home.noAvailable': 'دستیاب ورزشوں والا کوئی ٹیمپلیٹ نہیں',
   'home.noTemplates': 'کوئی ورزش ٹیمپلیٹ دستیاب نہیں',
   'home.editTemplate':

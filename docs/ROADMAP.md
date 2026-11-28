@@ -1,5 +1,9 @@
 # CRESUM — Development Roadmap
 
+## bca Home design — approved 2026-11-28
+
+Ship as an optional, reversible Home design while Original remains the default. Physical acceptance covers cold reopen, preserved Original widget order, and available actions at 320–390 px, in RTL, and with larger text. No other tab redesign is included in this step.
+
 ## Competitive follow-up — approved 2026-11-28
 
 P0: extend recovery/notification verification and persistent rest preferences.

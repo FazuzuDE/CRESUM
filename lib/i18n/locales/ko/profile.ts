@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': '홈 디자인',
+  'profile.homeDesignOriginal': '기본 디자인',
   'profile.notificationTransparency': '알림 투명도',
   'profile.headerOpacity': '헤더 불투명도',
   'profile.trainingSection': '운동',

@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'ดีไซน์หน้าหลัก',
+  'profile.homeDesignOriginal': 'แบบเดิม',
   'profile.notificationTransparency': 'ความโปร่งใสของการแจ้งเตือน',
   'profile.headerOpacity': 'ความทึบของแถบด้านบน',
   'profile.trainingSection': 'การฝึก',

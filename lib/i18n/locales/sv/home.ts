@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'I dag',
   'home.noAvailable': 'Inga mallar med tillgängliga övningar',
   'home.noTemplates': 'Inga träningsmallar tillgängliga',
   'home.editTemplate':

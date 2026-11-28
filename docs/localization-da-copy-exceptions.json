@@ -134,5 +134,9 @@
   "workout.tableKg": {
     "reason": "International measurement unit with language-neutral values and symbols.",
     "text": "KG"
+  },
+  "profile.homeDesignOriginal": {
+    "text": "Original",
+    "reason": "Original is the standard Danish label for the unmodified design."
   }
 }

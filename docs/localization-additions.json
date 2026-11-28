@@ -578,5 +578,85 @@
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes",
     "kind": "internal",
     "reason": "Native view property or internal illustration phase identifier."
+  },
+  {
+    "file": "components/HomeDashboard.tsx",
+    "line": 653,
+    "text": "`${formatNumber(locale, routeWeek.completed)}/${formatNumber(locale, routeWeek.planned)}`",
+    "context": "TemplateExpression/ArrayLiteralExpression/PropertyAccessExpression/CallExpression/ConditionalExpression",
+    "kind": "internal",
+    "reason": "Ratio of two locale-formatted counts."
+  },
+  {
+    "file": "components/HomeDashboard.tsx",
+    "line": 1200,
+    "text": "workout.targetPerSide",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement",
+    "kind": "internal",
+    "reason": "Existing localized per-side workout target."
+  },
+  {
+    "file": "components/HomeDashboard.tsx",
+    "line": 1201,
+    "text": "workout.target",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/JsxExpression/JsxElement",
+    "kind": "internal",
+    "reason": "Existing localized workout target."
+  },
+  {
+    "file": "components/HomeRouteHero.tsx",
+    "line": 60,
+    "text": "`${state.progress * 100}%`",
+    "context": "TemplateExpression/PropertyAssignment:width/ObjectLiteralExpression/ArrayLiteralExpression/JsxExpression",
+    "kind": "internal",
+    "reason": "Layout width as a CSS percentage."
+  },
+  {
+    "file": "components/HomeRouteHero.tsx",
+    "line": 121,
+    "text": "bca",
+    "context": "StringLiteral/JsxAttribute:title/JsxAttributes/JsxSelfClosingElement/JsxFragment",
+    "kind": "brand",
+    "reason": "Exact variant name chosen by the product owner; retained across locales."
+  },
+  {
+    "file": "components/useHomeDesign.ts",
+    "line": 5,
+    "text": "cresum.homeDesign.v1",
+    "context": "StringLiteral/VariableDeclaration/VariableDeclarationList/FirstStatement",
+    "kind": "internal",
+    "reason": "Local storage key for the appearance preference."
+  },
+  {
+    "file": "components/useHomeDesign.ts",
+    "line": 20,
+    "text": "bca",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/IfStatement",
+    "kind": "brand",
+    "reason": "Exact variant name chosen by the product owner; retained across locales."
+  },
+  {
+    "file": "components/useHomeDesign.ts",
+    "line": 20,
+    "text": "original",
+    "context": "StringLiteral/ConditionalExpression/CallExpression/ExpressionStatement/IfStatement",
+    "kind": "internal",
+    "reason": "Internal Home design identifier; UI uses the localized label."
+  },
+  {
+    "file": "lib/home-route.ts",
+    "line": 33,
+    "text": "ALL",
+    "context": "StringLiteral/CallExpression/PropertyAccessExpression/CallExpression/PropertyAccessExpression",
+    "kind": "internal",
+    "reason": "Internal progress period identifier."
+  },
+  {
+    "file": "components/HomeRouteHero.tsx",
+    "line": 45,
+    "text": "`M${x} -12c-25 28 16 37 25 61c9 27-25 35-34 65c-4 12 1 24 9 34`",
+    "context": "TemplateExpression/JsxExpression/JsxAttribute:d/JsxAttributes/JsxSelfClosingElement",
+    "kind": "internal",
+    "reason": "SVG contour path geometry."
   }
 ]
