@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'व्यायामाची डीफॉल्ट विश्रांती (सेकंद)',
+  'workout.restSecondsHint':
+    '० ते ३६०० सेकंद प्रविष्ट करा. डीफॉल्ट वेळ वापरण्यासाठी रिकामे ठेवा. विश्रांती वगळण्यासाठी ० प्रविष्ट करा.',
   'workout.exercisesDone': 'पूर्ण केलेले व्यायाम: {{count, number}}',
   'workout.vsSimilar': 'मागील समान सत्राच्या तुलनेत {{change}}',
   'workout.activeSet': 'संच {{index}} / {{count}}',

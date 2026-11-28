@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'Descanso padrão do exercício (segundos)',
+  'workout.restSecondsHint':
+    'Digite de 0 a 3600 segundos. Deixe em branco para usar o padrão. Digite 0 para pular o descanso.',
   'workout.exercisesDone': 'Exercícios concluídos: {{count, number}}',
   'workout.vsSimilar': '{{change}} em relação ao último treino semelhante',
   'workout.activeSet': 'Série {{index}} de {{count}}',

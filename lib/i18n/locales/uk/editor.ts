@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'Відпочинок у цій програмі (с)',
   'error.editorEmpty': 'Виберіть принаймні одну вправу.',
   'error.editorUnavailable':
     'Перш ніж зберегти тренування, видаліть або замініть недоступні вправи.',

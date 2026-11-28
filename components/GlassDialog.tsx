@@ -1,6 +1,12 @@
 import { LocalizedModal as Modal } from '@/components/LayoutDirection';
 import type { ReactNode } from 'react';
-import { Platform, Pressable, StyleSheet, View } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  Pressable,
+  StyleSheet,
+  View,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { GlassMaterial } from './GlassMaterial';
 import { cardShadow, radius, spacing } from '@/lib/theme';
@@ -13,15 +19,18 @@ export function GlassDialog({
   visible = true,
   opaque = false,
   transparency = 26.5,
+  avoidKeyboard = false,
 }: {
   children: ReactNode;
   onClose: () => void;
   visible?: boolean;
   opaque?: boolean;
   transparency?: number;
+  avoidKeyboard?: boolean;
 }) {
   const reduceTransparency = useReducedTransparency(visible && !opaque);
   const { dialogScrim } = useAppColors();
+  const Overlay = avoidKeyboard ? KeyboardAvoidingView : View;
   return (
     <Modal
       transparent
@@ -30,7 +39,17 @@ export function GlassDialog({
       statusBarTranslucent
     >
       <SafeAreaView style={[s.safeArea, { backgroundColor: dialogScrim }]}>
-        <View style={s.overlay}>
+        <Overlay
+          style={s.overlay}
+          {...(avoidKeyboard
+            ? {
+                behavior:
+                  Platform.OS === 'ios'
+                    ? ('padding' as const)
+                    : ('height' as const),
+              }
+            : {})}
+        >
           <Pressable
             accessible={false}
             style={StyleSheet.absoluteFill}
@@ -44,7 +63,7 @@ export function GlassDialog({
             />
             {children}
           </View>
-        </View>
+        </Overlay>
       </SafeAreaView>
     </Modal>
   );

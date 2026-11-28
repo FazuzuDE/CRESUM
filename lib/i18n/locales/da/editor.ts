@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'Pause i dette program (sekunder)',
   'error.editorEmpty': 'Vælg mindst én øvelse.',
   'error.editorUnavailable':
     'Fjern eller udskift de utilgængelige øvelser, før du gemmer.',

@@ -29,6 +29,8 @@ import { TechniqueArtwork } from './TechniqueArtwork';
 import { TechniquePhaseControl } from './TechniquePhaseControl';
 import { useEquipmentFocus } from './useEquipmentFocus';
 import { useLocalization } from './LocalizationProvider';
+import { parseOptionalRest, RestSecondsInput } from './RestSecondsInput';
+import { formatEntryNumber } from '@/lib/i18n/format';
 
 type Values = { sets: string; weight: string; reps: string };
 export type EquipmentCompositionDraft = {
@@ -37,6 +39,7 @@ export type EquipmentCompositionDraft = {
   group: ExerciseGroupSnapshot;
   configurations: Record<string, Values>;
   entries: PlannedExercise[];
+  restInputs?: Record<string, string>;
 };
 export function ExerciseGroupComposer({
   initialExerciseId,
@@ -44,6 +47,7 @@ export function ExerciseGroupComposer({
   initialDraft,
   existingOutsideIds = [],
   busy = false,
+  editPlanRest = false,
   onApply,
   onCancel,
   onDraftChange,
@@ -54,6 +58,7 @@ export function ExerciseGroupComposer({
   initialDraft?: EquipmentCompositionDraft;
   existingOutsideIds?: readonly string[];
   busy?: boolean;
+  editPlanRest?: boolean;
   onApply: (entries: PlannedExercise[]) => Promise<boolean> | boolean;
   onCancel: () => void;
   onDraftChange?: (draft: EquipmentCompositionDraft) => void;
@@ -257,9 +262,21 @@ export function ExerciseGroupComposer({
             },
       ),
     });
+  const restFor = (entry: PlannedExercise) =>
+    draft.restInputs?.[entry.exerciseId] ??
+    (entry.restSeconds === undefined
+      ? ''
+      : formatEntryNumber(locale, String(entry.restSeconds)));
+  const hasInvalidRest =
+    editPlanRest &&
+    draft.entries.some((entry) => parseOptionalRest(restFor(entry)) === null);
   const apply = async () => {
+    if (hasInvalidRest) return;
     const entries = draft.entries.map((e) => ({
       ...e,
+      ...(editPlanRest
+        ? { restSeconds: parseOptionalRest(restFor(e)) ?? undefined }
+        : {}),
       plannedSets: e.plannedSets?.map((s) => ({
         ...s,
         ...(s.weight === undefined
@@ -383,6 +400,22 @@ export function ExerciseGroupComposer({
               </Text>
             ) : null}
             <ExerciseEquipmentRow exerciseId={entry.exerciseId} />
+            {editPlanRest ? (
+              <RestSecondsInput
+                label={t('editor.restSeconds')}
+                value={restFor(entry)}
+                disabled={disabled}
+                onChange={(value) =>
+                  change({
+                    ...draft,
+                    restInputs: {
+                      ...draft.restInputs,
+                      [entry.exerciseId]: value,
+                    },
+                  })
+                }
+              />
+            ) : null}
             {(entry.plannedSets ?? []).map((row, i) => (
               <View key={row.id} style={s.inputs}>
                 <Text style={s.number}>{start + i + 1}</Text>
@@ -443,14 +476,17 @@ export function ExerciseGroupComposer({
               secondary
               presentation="text"
               disabled={disabled}
-              onPress={() =>
+              onPress={() => {
+                const restInputs = { ...draft.restInputs };
+                delete restInputs[entry.exerciseId];
                 change({
                   ...draft,
+                  restInputs,
                   entries: draft.entries.filter(
                     (e) => e.exerciseId !== entry.exerciseId,
                   ),
-                })
-              }
+                });
+              }}
             />
           </View>
         );
@@ -462,7 +498,7 @@ export function ExerciseGroupComposer({
       ) : null}
       <AppButton
         title={t('equipment.addGroup')}
-        disabled={disabled || !draft.entries.length}
+        disabled={disabled || !draft.entries.length || hasInvalidRest}
         onPress={() => void apply()}
       />
       <AppButton

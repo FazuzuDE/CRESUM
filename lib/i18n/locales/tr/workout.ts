@@ -1,4 +1,8 @@
 export default {
+  'workout.exerciseRestDefault':
+    'Hareketin varsayılan dinlenme süresi (saniye)',
+  'workout.restSecondsHint':
+    '0–3600 saniye gir. Varsayılan değeri kullanmak için boş bırak. Dinlenmeyi atlamak için 0 gir.',
   'workout.exercisesDone': 'Tamamlanan hareketler: {{count, number}}',
   'workout.vsSimilar': 'Son benzer antrenmana göre {{change}}',
   'workout.activeSet': 'Set {{index}} / {{count}}',

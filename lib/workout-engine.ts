@@ -21,6 +21,8 @@ import {
   normalizePlannedWeight,
   validPlannedSets,
   validPlannedExerciseShape,
+  DEFAULT_REST_SECONDS,
+  validRestSeconds,
 } from './planned-exercise';
 import {
   moveGroupedItems,
@@ -57,6 +59,9 @@ export const createExercise = (
       ? { exerciseGroup: clone(planned.exerciseGroup) }
       : {}),
     ...(planned?.target ? { target: clone(planned.target) } : {}),
+    ...(!cardio && validRestSeconds(planned?.restSeconds)
+      ? { plannedRestSeconds: planned.restSeconds }
+      : {}),
     ...(cardio ? { cardio } : {}),
     sets: cardio
       ? []
@@ -111,7 +116,8 @@ export const startWorkout = (
   name: template.name,
   startedAt: now,
   currentExerciseIndex: 0,
-  restDurationSeconds: 90,
+  restDurationSeconds: DEFAULT_REST_SECONDS,
+  baseRestSeconds: DEFAULT_REST_SECONDS,
   exercises: resolveTemplateExercises(template, library).map((item) => {
     const planned = template.plannedExercises?.find(
       (entry) =>
@@ -123,6 +129,51 @@ export const startWorkout = (
 
 export const exerciseIdsMatch = (left: string, right: string): boolean =>
   (canonicalExerciseId(left) ?? left) === (canonicalExerciseId(right) ?? right);
+
+export function exerciseRestPreference(
+  preferences: Readonly<Record<string, number>> | undefined,
+  exerciseId: string,
+): number | undefined {
+  const id = canonicalExerciseId(exerciseId) ?? exerciseId;
+  return preferences && Object.hasOwn(preferences, id)
+    ? preferences[id]
+    : undefined;
+}
+
+export function restSecondsForExercise(
+  session: WorkoutSession,
+  exercise: WorkoutExercise,
+  preference?: number,
+): number {
+  return (
+    exercise.restOverrideSeconds ??
+    session.restOverrideSeconds ??
+    exercise.plannedRestSeconds ??
+    exercise.target?.restMin ??
+    preference ??
+    session.baseRestSeconds ??
+    session.restDurationSeconds
+  );
+}
+
+export function toggleTargetRest(
+  session: WorkoutSession,
+  exerciseId: string,
+): WorkoutSession {
+  const exercise = session.exercises.find((item) => item.id === exerciseId);
+  const target = exercise?.target;
+  if (!exercise || !target) return session;
+  const seconds =
+    restSecondsForExercise(session, exercise) === target.restMin
+      ? target.restMax
+      : target.restMin;
+  return {
+    ...session,
+    exercises: session.exercises.map((item) =>
+      item.id === exerciseId ? { ...item, restOverrideSeconds: seconds } : item,
+    ),
+  };
+}
 
 export const updateSet = (
   session: WorkoutSession,
@@ -192,6 +243,7 @@ export const toggleSet = (
   exerciseIndex: number,
   setIndex: number,
   now = Date.now(),
+  exerciseDefaultRest?: number,
 ): CompleteSetResult => {
   const next = clone(session);
   const set = next.exercises[exerciseIndex].sets[setIndex];
@@ -217,12 +269,14 @@ export const toggleSet = (
   set.weight = set.weight.replace(',', '.').trim();
   set.reps = set.reps.trim();
   set.completedAt = now;
-  const completedTarget = next.exercises[exerciseIndex].target;
-  next.restDurationSeconds =
-    next.restOverrideSeconds ??
-    completedTarget?.restMin ??
-    next.restDurationSeconds;
-  next.restEndsAt = now + next.restDurationSeconds * 1000;
+  const restSeconds = restSecondsForExercise(
+    next,
+    next.exercises[exerciseIndex],
+    exerciseDefaultRest,
+  );
+  next.baseRestSeconds ??= session.restDurationSeconds;
+  if (restSeconds > 0) next.restDurationSeconds = restSeconds;
+  next.restEndsAt = restSeconds > 0 ? now + restSeconds * 1000 : undefined;
 
   const exerciseComplete =
     next.exercises[exerciseIndex].sets.every(isSetComplete);
@@ -234,7 +288,7 @@ export const toggleSet = (
 
   return {
     session: next,
-    startedRest: !workoutIsComplete(next),
+    startedRest: next.restEndsAt !== undefined,
     advancedExercise: followingIndex !== undefined,
   };
 };
@@ -546,14 +600,19 @@ export const finishWorkout = (
       'Check your device time, then try Finish again. The finish time must not be earlier than the workout start. Your active workout is still here.',
     );
   }
+  const completed = { ...session };
+  delete completed.baseRestSeconds;
   return {
-    ...session,
+    ...completed,
     ...(session.programSlot && completedSetCount(session) === 0
       ? { programSlot: undefined }
       : {}),
     finishedAt: now,
     restEndsAt: undefined,
-    exercises: session.exercises.map((exercise) => {
+    exercises: session.exercises.map((item) => {
+      const exercise = { ...item };
+      delete exercise.plannedRestSeconds;
+      delete exercise.restOverrideSeconds;
       if (exercise.cardio)
         return { ...exercise, cardio: pauseCardioTimer(exercise.cardio, now) };
       return {

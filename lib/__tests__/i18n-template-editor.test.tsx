@@ -5,7 +5,7 @@ import { ExerciseLibrary } from '../../components/ExerciseLibrary';
 import { AppButton } from '../../components/AppButton';
 import { LocalizationProvider } from '../../components/LocalizationProvider';
 import { LocaleStore } from '../i18n/preference-store';
-import { exerciseLibrary } from '../exercise-library';
+import { findExercise } from '../exercise-library';
 import { isPressable } from './pressable';
 import { Confirmation } from '../../components/Confirmation';
 const { act, create } = jest.requireActual('react-test-renderer');
@@ -63,7 +63,9 @@ it('keeps manual workout names and numeric drafts while translating editing and 
     });
     await press('Далее');
     await act(async () => {
-      view!.root.findByType(ExerciseLibrary).props.onAdd(exerciseLibrary[0]);
+      view!.root
+        .findByType(ExerciseLibrary)
+        .props.onAdd(findExercise('barbell-bench-press')!);
     });
     await act(async () => {
       input('Начальный вес в килограммах').props.onChangeText('12,');
@@ -85,6 +87,9 @@ it('keeps manual workout names and numeric drafts while translating editing and 
     await act(async () => {
       input('Charge de départ en kilogrammes').props.onChangeText('12,5');
     });
+    await act(async () => {
+      input('Repos dans ce programme (secondes)').props.onChangeText('١٢٠');
+    });
     await press('Ajouter l’exercice');
     await press('Enregistrer l’entraînement');
     expect(renderedText(view!.toJSON())).not.toContain('SECRET_DIAGNOSTIC');
@@ -100,6 +105,7 @@ it('keeps manual workout names and numeric drafts while translating editing and 
     expect(save.mock.calls[1][0]).toEqual(save.mock.calls[0][0]);
     expect(save.mock.calls[1][0].name).toBe('Upper Body');
     expect(save.mock.calls[1][0].plannedExercises[0].weight).toBe('12.5');
+    expect(save.mock.calls[1][0].plannedExercises[0].restSeconds).toBe(120);
   } finally {
     await act(async () => {
       view!.unmount();

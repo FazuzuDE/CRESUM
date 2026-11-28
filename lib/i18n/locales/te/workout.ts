@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'ఈ వ్యాయామానికి డిఫాల్ట్ విశ్రాంతి సమయం (సెకన్లు)',
+  'workout.restSecondsHint':
+    '0 నుంచి 3600 సెకన్ల వరకు నమోదు చేయండి. డిఫాల్ట్ సమయానికి ఖాళీగా ఉంచండి. విశ్రాంతిని దాటవేయడానికి 0 నమోదు చేయండి.',
   'workout.exercisesDone': 'పూర్తయిన వ్యాయామాలు: {{count, number}}',
   'workout.vsSimilar': 'గత సమాన వ్యాయామ సెషన్‌తో పోలిస్తే {{change}}',
   'workout.activeSet': 'సెట్ {{index}} / {{count}}',

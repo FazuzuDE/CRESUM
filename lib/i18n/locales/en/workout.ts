@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'Exercise rest default (seconds)',
+  'workout.restSecondsHint':
+    'Enter 0–3600 seconds. Leave blank to use the default. Enter 0 to skip rest.',
   'workout.exercisesDone': 'Exercises done: {{count, number}}',
   'workout.vsSimilar': '{{change}} vs last comparable workout',
   'workout.activeSet': 'Set {{index}} of {{count}}',

@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'இந்தத் திட்டத்தின் ஓய்வு நேரம் (விநாடிகள்)',
   'error.editorEmpty': 'குறைந்தது ஒரு பயிற்சியை தேர்ந்தெடு',
   'error.editorUnavailable':
     'சேமிப்பதற்கு முன் கிடைக்காத பயிற்சிகளை நீக்கு அல்லது மாற்று',

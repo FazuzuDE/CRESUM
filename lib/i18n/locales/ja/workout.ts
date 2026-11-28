@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': '種目の既定の休憩時間（秒）',
+  'workout.restSecondsHint':
+    '0〜3600秒を入力してください。空欄にすると既定値を使用し、0を入力すると休憩をスキップします。',
   'workout.exercisesDone': '実施した種目：{{count, number}}',
   'workout.vsSimilar': '前回の同等のワークアウトとの差：{{change}}',
   'workout.activeSet': '{{count}} セット中 {{index}} セット目',

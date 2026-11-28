@@ -5,6 +5,10 @@ import { useLocalization } from './LocalizationProvider';
 import { ExerciseEquipmentRow } from './ExerciseEquipmentRow';
 import { ExerciseArtwork } from './ExerciseArtwork';
 import { AppButton } from './AppButton';
+import {
+  ExerciseRestControls,
+  type SaveExerciseRest,
+} from './ExerciseRestControls';
 import { useWorkoutStyles } from './workout-styles';
 import { setNumberInGroup } from '@/lib/exercise-groups';
 import { formatEntryNumber, formatNumber } from '@/lib/i18n/format';
@@ -19,6 +23,8 @@ import { spacing } from '@/lib/theme';
 export function ExerciseAttachmentBlock({
   session,
   pendingSetId,
+  restPreference,
+  saveExerciseRest,
   index,
   history,
   busy,
@@ -30,6 +36,8 @@ export function ExerciseAttachmentBlock({
 }: {
   session: WorkoutSession;
   pendingSetId?: string;
+  restPreference?: number;
+  saveExerciseRest?: SaveExerciseRest;
   index: number;
   history: WorkoutSession[];
   busy: boolean;
@@ -115,28 +123,16 @@ export function ExerciseAttachmentBlock({
             )}
           </Text>
           <Text style={s.previous}>{t('workout.warmup')}</Text>
-          <AppButton
-            title={t('workout.changeRest', {
-              seconds: formatNumber(
-                locale,
-                session.restOverrideSeconds ?? exercise.target.restMin,
-              ),
-            })}
-            secondary
-            disabled={busy}
-            onPress={() =>
-              update((current) => ({
-                ...current,
-                restOverrideSeconds:
-                  (current.restOverrideSeconds ?? exercise.target!.restMin) ===
-                  exercise.target!.restMin
-                    ? exercise.target!.restMax
-                    : exercise.target!.restMin,
-              }))
-            }
-          />
         </View>
       ) : null}
+      <ExerciseRestControls
+        session={session}
+        exercise={exercise}
+        preference={restPreference}
+        busy={busy || !!pendingSetId}
+        update={update}
+        save={saveExerciseRest}
+      />
       {exercise.libraryId === 'bodyweight-step-up' ? (
         <Text style={s.previous}>{t('workout.stepUp')}</Text>
       ) : null}

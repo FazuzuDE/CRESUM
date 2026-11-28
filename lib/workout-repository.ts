@@ -7,6 +7,8 @@ import {
   validPlannedExerciseShape,
   validPlannedTarget,
   validExerciseGroup,
+  DEFAULT_REST_SECONDS,
+  validRestSeconds,
 } from './planned-exercise';
 import { validGroupSequence } from './exercise-groups';
 import { canonicalExerciseId } from './exercise-library';
@@ -119,6 +121,10 @@ function session(
     !optionalNumber(value.finishedAt) ||
     !optionalNumber(value.restEndsAt) ||
     !optionalNumber(value.restOverrideSeconds) ||
+    (value.baseRestSeconds !== undefined &&
+      (!Number.isInteger(value.baseRestSeconds) ||
+        !number(value.baseRestSeconds) ||
+        value.baseRestSeconds === 0)) ||
     !Array.isArray(value.exercises)
   )
     return invalid();
@@ -154,6 +160,10 @@ function session(
       !string(exercise.muscle) ||
       (!legacy && !string(exercise.libraryId)) ||
       (exercise.target !== undefined && !validPlannedTarget(exercise.target)) ||
+      (exercise.plannedRestSeconds !== undefined &&
+        !validRestSeconds(exercise.plannedRestSeconds)) ||
+      (exercise.restOverrideSeconds !== undefined &&
+        !validRestSeconds(exercise.restOverrideSeconds)) ||
       (exercise.exerciseGroup !== undefined &&
         !validExerciseGroup(exercise.exerciseGroup)) ||
       !Array.isArray(exercise.sets)
@@ -184,6 +194,12 @@ function session(
       ...(exercise.target === undefined
         ? {}
         : { target: JSON.parse(JSON.stringify(exercise.target)) }),
+      ...(exercise.plannedRestSeconds === undefined
+        ? {}
+        : { plannedRestSeconds: exercise.plannedRestSeconds }),
+      ...(exercise.restOverrideSeconds === undefined
+        ? {}
+        : { restOverrideSeconds: exercise.restOverrideSeconds }),
       sets: exercise.sets.map((set) => {
         if (
           !object(set) ||
@@ -250,7 +266,10 @@ function session(
     currentExerciseIndex: Math.max(0, Math.min(index, exercises.length - 1)),
     restDurationSeconds: number(value.restDurationSeconds)
       ? value.restDurationSeconds
-      : 90,
+      : DEFAULT_REST_SECONDS,
+    ...(value.baseRestSeconds === undefined
+      ? {}
+      : { baseRestSeconds: value.baseRestSeconds }),
     restEndsAt: value.restEndsAt as number | undefined,
     ...(value.restOverrideSeconds === undefined
       ? {}
@@ -287,6 +306,16 @@ function normalize(value: unknown, legacy = false): WorkoutState {
       ? null
       : session(value.activeWorkout, 'active', legacy);
   const historyIds = new Set(history.map((item) => item.id));
+  const exerciseRest = value.exerciseRestSeconds;
+  if (
+    exerciseRest !== undefined &&
+    (!object(exerciseRest) ||
+      Array.isArray(exerciseRest) ||
+      Object.entries(exerciseRest).some(
+        ([id, seconds]) => !id || id.length > 160 || !validRestSeconds(seconds),
+      ))
+  )
+    return invalid();
   if (historyIds.size !== history.length) return invalid();
   if (!legacy && active && historyIds.has(active.id)) return invalid();
   // A duplicated active/history session can only be recovered while importing
@@ -299,6 +328,11 @@ function normalize(value: unknown, legacy = false): WorkoutState {
           programInstallations: [...(value.programInstallations as string[])],
         }),
     history,
+    ...(exerciseRest === undefined
+      ? {}
+      : {
+          exerciseRestSeconds: { ...(exerciseRest as Record<string, number>) },
+        }),
     activeWorkout: active && !historyIds.has(active.id) ? active : null,
     templates: value.templates.map(template),
   };

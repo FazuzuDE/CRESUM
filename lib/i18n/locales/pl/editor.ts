@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'Przerwa w tym planie (sekundy)',
   'error.editorEmpty': 'Wybierz co najmniej jedno ćwiczenie.',
   'error.editorUnavailable':
     'Usuwanie lub zastępowanie niedostępnych ćwiczeń przed zapisaniem.',

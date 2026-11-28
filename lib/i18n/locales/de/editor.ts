@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'Pause in diesem Plan (Sekunden)',
   'error.editorEmpty': 'Wähle mindestens eine Übung.',
   'error.editorUnavailable':
     'Entferne oder ersetze nicht verfügbare Übungen vor dem Speichern.',

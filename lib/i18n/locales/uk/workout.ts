@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'Відпочинок для вправи за замовчуванням (с)',
+  'workout.restSecondsHint':
+    'Введіть від 0 до 3600 секунд. Порожнє поле застосовує стандартне значення. Введіть 0, щоб пропустити відпочинок.',
   'workout.exercisesDone': 'Виконано вправ: {{count, number}}',
   'workout.vsSimilar': '{{change}} до попереднього аналогічного тренування',
   'workout.activeSet': 'Підхід {{index}} із {{count}}',

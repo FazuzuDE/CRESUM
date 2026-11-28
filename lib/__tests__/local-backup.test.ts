@@ -19,7 +19,40 @@ import { defaultTemplates, exerciseLibrary } from '../workout-catalog';
 import { SyncRepository } from '../sync/repository';
 import { SYNC_DEVICE_KEY, SYNC_METADATA_KEY } from '../sync/storage';
 import { LANGUAGE_PREFERENCE_KEY } from '../i18n/preference-store';
+import { duplicateTemplate } from '../workout-templates';
 const now = 100000;
+
+it('round trips exercise and plan rest preferences in a full local backup', async () => {
+  const source = storage();
+  const repository = new WorkoutRepository(source);
+  const id = 'barbell-bench-press';
+  const template = {
+    id: 'rest-test',
+    name: 'Rest test',
+    exerciseIds: [id],
+    plannedExercises: [{ exerciseId: id, sets: 3, restSeconds: 0 }],
+  };
+  const { templates } = duplicateTemplate(
+    [template],
+    template.id,
+    () => 'copy',
+  );
+  await repository.save({
+    ...emptyWorkoutState(),
+    templates,
+    exerciseRestSeconds: { [id]: 80 },
+    activeWorkout: startWorkout(templates[1], exerciseLibrary, now),
+  });
+  const target = storage();
+  await restoreLocalBackup(
+    target,
+    await parseLocalBackup(await createLocalBackup(source, now)),
+  );
+  const restored = await new WorkoutRepository(target).load();
+  expect(restored.exerciseRestSeconds).toEqual({ [id]: 80 });
+  expect(restored.templates).toEqual(templates);
+  expect(restored.activeWorkout?.exercises[0].plannedRestSeconds).toBe(0);
+});
 
 it('never exports language and preserves the target device language on restore', async () => {
   const source = storage();

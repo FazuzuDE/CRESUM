@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'Tauko tässä ohjelmassa (sekuntia)',
   'error.editorEmpty': 'Valitse vähintään yksi liike.',
   'error.editorUnavailable':
     'Poista tai korvaa liikkeet, joita ei ole saatavilla, ennen tallennusta.',

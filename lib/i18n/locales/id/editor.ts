@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'Jeda dalam program ini (detik)',
   'error.editorEmpty': 'Pilih setidaknya satu latihan.',
   'error.editorUnavailable':
     'Hapus atau ganti latihan yang tidak tersedia sebelum menyimpan.',

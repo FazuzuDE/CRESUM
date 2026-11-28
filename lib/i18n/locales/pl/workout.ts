@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'Domyślna przerwa dla ćwiczenia (sekundy)',
+  'workout.restSecondsHint':
+    'Wpisz od 0 do 3600 sekund. Puste pole oznacza wartość domyślną. Wpisz 0, aby pominąć przerwę.',
   'workout.exercisesDone': 'Wykonane ćwiczenia: {{count, number}}',
   'workout.vsSimilar': '{{change}} względem ostatniego porównywalnego treningu',
   'workout.activeSet': 'Seria {{index}} z {{count}}',

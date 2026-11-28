@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'Thời gian nghỉ mặc định của bài tập (giây)',
+  'workout.restSecondsHint':
+    'Nhập từ 0 đến 3600 giây. Để trống để dùng thời gian mặc định. Nhập 0 để bỏ qua thời gian nghỉ.',
   'workout.exercisesDone': 'Bài tập đã thực hiện: {{count, number}}',
   'workout.vsSimilar': '{{change}} so với buổi tập tương tự gần nhất',
   'workout.activeSet': 'Hiệp {{index}} trên {{count}}',

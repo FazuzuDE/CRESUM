@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'このプランでの休憩時間（秒）',
   'error.editorEmpty': 'エクササイズを1つ以上選んでください。',
   'error.editorUnavailable':
     '保存する前に、利用できないエクササイズを削除または置き換えてください。',

@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'Repos dans ce programme (secondes)',
   'error.editorEmpty': 'Choisis au moins un exercice.',
   'error.editorUnavailable':
     'Retire ou remplace les exercices indisponibles avant d’enregistrer.',

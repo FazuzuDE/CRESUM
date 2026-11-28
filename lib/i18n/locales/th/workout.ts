@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'เวลาพักเริ่มต้นของท่านี้ (วินาที)',
+  'workout.restSecondsHint':
+    'กรอก 0 ถึง 3600 วินาที เว้นว่างเพื่อใช้ค่าเริ่มต้น กรอก 0 เพื่อข้ามการพัก',
   'workout.exercisesDone': 'ท่าที่ทำเสร็จ: {{count, number}}',
   'workout.vsSimilar': '{{change}} เทียบกับการฝึกแบบเดียวกันครั้งก่อน',
   'workout.activeSet': 'เซต {{index}} จาก {{count}}',

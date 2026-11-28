@@ -1,4 +1,8 @@
 export default {
+  'workout.exerciseRestDefault':
+    'Repos par défaut pour cet exercice (secondes)',
+  'workout.restSecondsHint':
+    'Saisissez de 0 à 3 600 secondes. Laissez vide pour utiliser la valeur par défaut. Saisissez 0 pour passer le repos.',
   'workout.exercisesDone': 'Exercices effectués : {{count, number}}',
   'workout.vsSimilar': '{{change}} par rapport à la dernière séance comparable',
   'workout.activeSet': 'Série {{index}} sur {{count}}',

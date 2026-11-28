@@ -1626,6 +1626,12 @@ function AppContent({
                 store.recordSet(transform, marker)
               }
               pendingSet={pendingSet}
+              exerciseRestSeconds={data.exerciseRestSeconds}
+              saveExerciseRest={(sessionId, exerciseId, seconds) =>
+                localDataAccess.isReady()
+                  ? store.saveExerciseRest(sessionId, exerciseId, seconds)
+                  : Promise.resolve(false)
+              }
               removeExercises={(id, exerciseIds, save) =>
                 store.removeExercises(id, exerciseIds, save)
               }

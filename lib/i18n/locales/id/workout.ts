@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'Jeda bawaan untuk latihan ini (detik)',
+  'workout.restSecondsHint':
+    'Masukkan 0–3600 detik. Kosongkan untuk memakai nilai bawaan. Masukkan 0 untuk melewati jeda.',
   'workout.exercisesDone': 'Latihan yang diselesaikan: {{count, number}}',
   'workout.vsSimilar': '{{change}} dibanding sesi serupa terakhir',
   'workout.activeSet': 'Set {{index}} dari {{count}}',

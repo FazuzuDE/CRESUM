@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'ورزش کے آرام کا طے شدہ دورانیہ (سیکنڈ)',
+  'workout.restSecondsHint':
+    '۰ سے ۳۶۰۰ سیکنڈ درج کریں۔ طے شدہ دورانیہ استعمال کرنے کے لیے خانہ خالی چھوڑیں۔ آرام چھوڑنے کے لیے ۰ درج کریں۔',
   'workout.exercisesDone': 'مکمل ورزشیں: {{count, number}}',
   'workout.vsSimilar': 'گزشتہ اسی طرح کی ٹریننگ کے مقابلے میں {{change}}',
   'workout.activeSet': 'سیٹ {{index}} از {{count}}',

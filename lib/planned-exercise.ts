@@ -49,6 +49,13 @@ export const validPlannedTarget = (value: unknown): value is PlannedTarget => {
 };
 
 export const MAX_PLANNED_SETS = 20;
+export const DEFAULT_REST_SECONDS = 90;
+
+export const validRestSeconds = (value: unknown): value is number =>
+  typeof value === 'number' &&
+  Number.isInteger(value) &&
+  value >= 0 &&
+  value <= 3600;
 
 export const validPlannedSets = (sets: unknown): sets is number =>
   typeof sets === 'number' &&
@@ -118,6 +125,7 @@ export const validPlannedExerciseShape = (
         new Set(item.plannedSets.map((s) => s.id)).size ===
           item.plannedSets.length)) &&
     (item.target === undefined || validPlannedTarget(item.target)) &&
+    (item.restSeconds === undefined || validRestSeconds(item.restSeconds)) &&
     (item.weight === undefined ||
       (typeof item.weight === 'string' &&
         normalizePlannedWeight(item.weight) !== null))

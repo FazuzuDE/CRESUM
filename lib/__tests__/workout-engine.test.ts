@@ -7,6 +7,7 @@ import {
   completedSetCount,
   createExercise,
   exerciseIdsMatch,
+  exerciseRestPreference,
   extendRest,
   finishWorkout,
   hasWorkoutResults,
@@ -20,6 +21,7 @@ import {
   skipRest,
   startWorkout,
   toggleSet,
+  toggleTargetRest,
   totalSetCount,
   updateSet,
   workoutIsComplete,
@@ -50,6 +52,95 @@ const logSet = (session = start(), ei = 0, si = 0, now = 2000) =>
     si,
     now,
   ).session;
+
+it('chooses rest from the completed exercise and never carries it to the next one', () => {
+  const bench = 'barbell-bench-press';
+  const squat = 'barbell-back-squat';
+  const template = {
+    id: 'rest-plan',
+    name: 'Rest plan',
+    exerciseIds: [bench, squat],
+    plannedExercises: [
+      {
+        exerciseId: bench,
+        sets: 2,
+        restSeconds: 120,
+        target: {
+          kind: 'authored' as const,
+          repMin: 8,
+          repMax: 12,
+          restMin: 120,
+          restMax: 150,
+        },
+      },
+    ],
+  };
+  const active = startWorkout(template, exerciseLibrary, 1000);
+  const complete = (
+    session = active,
+    index = 0,
+    set = 0,
+    preference?: number,
+  ) =>
+    toggleSet(
+      updateSet(session, index, set, { weight: '50', reps: '10' }),
+      index,
+      set,
+      2000,
+      preference,
+    );
+  const first = complete(active, 0, 0, 60);
+  expect(first.session.restEndsAt).toBe(122000);
+  const longer = toggleTargetRest(first.session, active.exercises[0].id);
+  expect(longer.restEndsAt).toBe(122000);
+  expect(restartRest(longer, 4000).restEndsAt).toBe(124000);
+  const second = complete(longer, 0, 1, 60);
+  expect(second.session.restEndsAt).toBe(152000);
+  expect(second.session.currentExerciseIndex).toBe(1);
+  expect(complete(second.session, 1).session.restEndsAt).toBe(92000);
+  expect(complete(second.session, 1, 0, 30).session.restEndsAt).toBe(32000);
+  expect(complete(second.session, 1, 0, 0)).toMatchObject({
+    session: { restEndsAt: undefined },
+    startedRest: false,
+  });
+  expect(
+    complete({ ...active, restOverrideSeconds: 75 }).session.restEndsAt,
+  ).toBe(77000);
+  expect(
+    finishWorkout(second.session, 3000).exercises[0].plannedRestSeconds,
+  ).toBeUndefined();
+});
+
+it('saves and clears canonical exercise defaults without touching a running countdown', async () => {
+  const storage = memoryStorage();
+  const repo = new WorkoutRepository(storage);
+  const state = await repo.load();
+  const active = logSet();
+  await repo.save({ ...state, activeWorkout: active });
+  const store = new WorkoutStore(repo);
+  await store.load();
+  const exercise = active.exercises[0];
+  expect(await store.saveExerciseRest(active.id, exercise.id, 75)).toBe(true);
+  const next = await new WorkoutRepository(storage).load();
+  expect(
+    exerciseRestPreference(next.exerciseRestSeconds, exercise.libraryId),
+  ).toBe(75);
+  expect(next.activeWorkout?.restEndsAt).toBe(active.restEndsAt);
+  expect(next.activeWorkout?.exercises[0].sets).toEqual(
+    active.exercises[0].sets,
+  );
+  jest.mocked(storage.setItem).mockRejectedValueOnce(new Error('write failed'));
+  expect(await store.saveExerciseRest(active.id, exercise.id, 0)).toBe(false);
+  expect(
+    store.getSnapshot().data.exerciseRestSeconds?.[exercise.libraryId],
+  ).toBe(75);
+  expect(await store.saveExerciseRest(active.id, exercise.id, undefined)).toBe(
+    true,
+  );
+  expect(
+    (await new WorkoutRepository(storage).load()).exerciseRestSeconds,
+  ).toEqual({});
+});
 
 it('persists manual cardio with no strength sets and records only elapsed cardio', async () => {
   const storage = memoryStorage();

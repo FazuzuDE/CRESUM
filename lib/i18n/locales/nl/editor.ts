@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'Rust in dit schema (seconden)',
   'error.editorEmpty': 'Kies ten minste één oefening.',
   'error.editorUnavailable':
     'Verwijder of vervang niet-beschikbare oefeningen voordat u opslaat.',

@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'Standardpause for øvelsen (sekunder)',
+  'workout.restSecondsHint':
+    'Angiv 0 til 3600 sekunder. Lad feltet stå tomt for at bruge standardværdien. Angiv 0 for at springe pausen over.',
   'workout.exercisesDone': 'Gennemførte øvelser: {{count, number}}',
   'workout.vsSimilar': '{{change}} i forhold til seneste tilsvarende træning',
   'workout.activeSet': 'Sæt {{index}} af {{count}}',

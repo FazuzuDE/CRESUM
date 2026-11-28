@@ -4772,3 +4772,10 @@ program. Both paths return to Home with a dismissible welcome.
 The owner requested smoother main-tab transitions. Slide the incoming content
 from the selected tab's side in the visible dock order. Keep the fixed header and
 glass dock in place and honor Reduce Motion. See [Design System](DESIGN_SYSTEM.md).
+
+## 2026-11-28 — Individual rest preferences
+
+The owner approved saving rest per exercise and per local plan exercise.
+Apply saved seconds to future set completions. Zero skips rest and a blank
+value restores inheritance. Preserve running deadlines and scope new temporary
+range choices to the exact active exercise. See [Competitive development](COMPETITIVE_ROADMAP.md#p0--individual-rest-preferences).

@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'Standardvila för övningen (sekunder)',
+  'workout.restSecondsHint':
+    'Ange 0 till 3 600 sekunder. Lämna fältet tomt för att använda standardvärdet. Ange 0 för att hoppa över vilan.',
   'workout.exercisesDone': 'Utförda övningar: {{count, number}}',
   'workout.vsSimilar': '{{change}} jämfört med föregående jämförbara pass',
   'workout.activeSet': 'Set {{index}} av {{count}}',

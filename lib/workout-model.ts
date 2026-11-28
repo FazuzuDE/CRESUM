@@ -50,6 +50,8 @@ export type WorkoutExercise = {
   name: string;
   muscle: string;
   target?: PlannedTarget;
+  plannedRestSeconds?: number;
+  restOverrideSeconds?: number;
   sets: WorkoutSet[];
 };
 
@@ -68,6 +70,7 @@ export type WorkoutSession = {
   finishedAt?: number;
   currentExerciseIndex: number;
   restDurationSeconds: number;
+  baseRestSeconds?: number;
   restOverrideSeconds?: number;
   restEndsAt?: number;
   exercises: WorkoutExercise[];
@@ -89,6 +92,7 @@ export type PlannedExercise = {
   sets: number;
   weight?: string;
   target?: PlannedTarget;
+  restSeconds?: number;
 };
 
 export type LibraryExercise = {
@@ -106,6 +110,7 @@ export type LibraryExercise = {
 export type WorkoutState = {
   schemaVersion: 1;
   programInstallations?: string[];
+  exerciseRestSeconds?: Record<string, number>;
   activeWorkout: WorkoutSession | null;
   history: WorkoutSession[];
   templates: WorkoutTemplate[];

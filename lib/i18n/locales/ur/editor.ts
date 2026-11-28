@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'اس پلان میں آرام کا دورانیہ (سیکنڈ)',
   'error.editorEmpty': 'کم از کم ایک ورزش منتخب کریں۔',
   'error.editorUnavailable':
     'محفوظ کرنے سے پہلے غیر دستیاب ورزشیں بدلیں یا ہٹائیں۔',

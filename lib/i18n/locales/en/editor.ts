@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'Rest in this plan (seconds)',
   'error.editorEmpty': 'Choose at least one exercise.',
   'error.editorUnavailable':
     'Remove or replace unavailable exercises before saving.',
