@@ -698,5 +698,13 @@
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes",
     "kind": "internal",
     "reason": "React Native accessibility visibility mode for the selected tab scene."
+  },
+  {
+    "file": "components/TabContentMotion.tsx",
+    "line": 166,
+    "text": "top",
+    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes",
+    "kind": "internal",
+    "reason": "Safe-area edge used by the persistent dock header measurement."
   }
 ]

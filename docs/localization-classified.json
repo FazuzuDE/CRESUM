@@ -12468,13 +12468,5 @@
         "context": "TemplateExpression/PropertyAssignment:id/ObjectLiteralExpression/ReturnStatement/Block"
       }
     ]
-  },
-  {
-    "file": "components/TabContentMotion.tsx",
-    "line": 166,
-    "text": "top",
-    "context": "StringLiteral/ArrayLiteralExpression/JsxExpression/JsxAttribute:edges/JsxAttributes",
-    "kind": "internal",
-    "reason": "Safe-area edge used by the persistent dock header measurement."
   }
 ]
