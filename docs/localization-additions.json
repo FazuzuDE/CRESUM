@@ -578,5 +578,45 @@
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes",
     "kind": "internal",
     "reason": "Native view property or internal illustration phase identifier."
+  },
+  {
+    "file": "components/TabContentMotion.tsx",
+    "line": 136,
+    "text": "`tab-scene-${name}`",
+    "context": "TemplateExpression/JsxExpression/JsxAttribute:testID/JsxAttributes/JsxOpeningElement",
+    "kind": "internal",
+    "reason": "Stable test identifier for a tab scene, not user-facing copy."
+  },
+  {
+    "file": "components/TabContentMotion.tsx",
+    "line": 142,
+    "text": "auto",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes",
+    "kind": "internal",
+    "reason": "React Native pointer interaction mode for the selected tab scene."
+  },
+  {
+    "file": "components/TabContentMotion.tsx",
+    "line": 142,
+    "text": "none",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:pointerEvents/JsxAttributes",
+    "kind": "internal",
+    "reason": "React Native pointer interaction mode for the selected tab scene."
+  },
+  {
+    "file": "components/TabContentMotion.tsx",
+    "line": 145,
+    "text": "auto",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes",
+    "kind": "internal",
+    "reason": "React Native accessibility visibility mode for the selected tab scene."
+  },
+  {
+    "file": "components/TabContentMotion.tsx",
+    "line": 145,
+    "text": "no-hide-descendants",
+    "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:importantForAccessibility/JsxAttributes",
+    "kind": "internal",
+    "reason": "React Native accessibility visibility mode for the selected tab scene."
   }
 ]
