@@ -1,5 +1,15 @@
 # CRESUM Design System v1.0
 
+## Competitive follow-up interactions — approved 2026-11-28
+
+Keep existing glass, V7, wheel and muscle-map components. Extend rest settings
+without adding competing timers; clearly distinguish warm-up/working sets and
+superset transitions. Keep muscle detail and grouped statistics accessible
+with explicit count semantics. Preserve library search/filter behavior when
+adding sorting and suggestion actions. Show sensor connection/staleness and
+PDF preview/share states honestly. Detailed layouts remain subject to focused
+review. See [competitive specification](COMPETITIVE_ROADMAP.md).
+
 ## Competitive interaction priorities — approved 2026-11-26
 
 Preserve the existing glass dock, fixed header, V7 controls and shared Wheel/Keypad. Optimize fast set entry without modifying completed sets or losing drafts. Measure physical-device navigation and image loading; respect Reduce Motion and accessibility. New interaction details and targets are specified in [Competitive development](COMPETITIVE_ROADMAP.md) and need focused implementation review.
