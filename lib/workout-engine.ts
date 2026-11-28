@@ -1,4 +1,4 @@
-import { workoutFragmentId } from './workout-snapshot-id';
+import { workoutFragmentId } from './workout-fragment-id';
 import {
   isSetComplete,
   LibraryExercise,

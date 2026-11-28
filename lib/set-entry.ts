@@ -1,4 +1,4 @@
-import { isWorkoutFragment } from './workout-snapshot-id';
+import { isWorkoutFragment } from './workout-fragment-id';
 import { findExercise } from './exercise-library';
 import { AppError } from './app-error';
 import { normalizeDecimalInput, normalizeInputDigits } from './i18n/format';
