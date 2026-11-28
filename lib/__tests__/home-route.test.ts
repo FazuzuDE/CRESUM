@@ -1,3 +1,4 @@
+import { workoutFragmentId } from '../workout-fragment-id';
 import { exerciseLibrary } from '../exercise-library';
 import {
   previousPlanSet,
@@ -80,4 +81,24 @@ it('counts planned slots once and ignores free workouts and duplicates', () => {
     ),
   ).toEqual({ completed: 1, planned: 3 });
   expect(routeWeekCounts(undefined, [valid], days)).toBeUndefined();
+});
+
+it('does not present a V7 fragment as the current or previous workout', () => {
+  const prior = finished('prior', '60', '8', now - 5000);
+  const fragment = finished(
+    workoutFragmentId('current', 'excerpt'),
+    '80',
+    '8',
+    now - 2000,
+  );
+  const current = finished('current', '65', '8', now - 1000);
+  expect(routeComparison([prior, fragment], now)).toBeUndefined();
+  expect(
+    previousPlanSet([prior, fragment], 'bench', 'barbell-bench-press', now)
+      ?.weight,
+  ).toBe(60);
+  expect(routeComparison([fragment, current, prior], now)).toMatchObject({
+    previous: { weight: 60 },
+    current: { weight: 65 },
+  });
 });

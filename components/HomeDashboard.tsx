@@ -36,6 +36,7 @@ import { TemplateEditor } from './TemplateEditor';
 import type { TemplateDraft } from '@/lib/workout-templates';
 import type { TemplateMutationResult } from '@/lib/workout-store';
 import { completedSetCount } from '@/lib/workout-engine';
+import { isPriorWorkout } from '@/lib/set-entry';
 import { volume } from '@/lib/workout-metrics';
 import { localDate } from '@/lib/training-programs/schedule';
 import type { ProgramAssignment } from '@/lib/training-programs/assignment';
@@ -637,7 +638,16 @@ export function HomeDashboard({
       subscription.remove();
     };
   }, []);
-  const data = projectHomeDashboard(history, activeWorkout, templates, now);
+  const dashboardHistory = useMemo(
+    () => (isRoute ? history.filter((item) => isPriorWorkout(item)) : history),
+    [history, isRoute],
+  );
+  const data = projectHomeDashboard(
+    dashboardHistory,
+    activeWorkout,
+    templates,
+    now,
+  );
   const program = projectHomeProgram(assignment, history, templates, now);
   const comparison = useMemo(
     () => (isRoute ? routeComparison(history, now) : undefined),

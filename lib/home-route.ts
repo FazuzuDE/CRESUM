@@ -1,5 +1,6 @@
 import { findExercise } from './exercise-library';
 import { filterProgressWorkouts } from './progress-periods';
+import { isPriorWorkout } from './set-entry';
 import type { ProgramAssignment } from './training-programs/assignment';
 import { localDate, projectProgramWeek } from './training-programs/schedule';
 import { completedSetMetrics } from './workout-metrics';
@@ -31,7 +32,7 @@ export function routeWeekCounts(
 
 export function routeComparison(history: WorkoutSession[], now: number) {
   const dated = filterProgressWorkouts(history, 'ALL', now)
-    .slice()
+    .filter((item) => isPriorWorkout(item))
     .sort((a, b) => b.finishedAt! - a.finishedAt!);
   const latest = dated[0];
   if (!latest) return undefined;
@@ -90,8 +91,8 @@ export function previousPlanSet(
     .filter(
       (item) =>
         item.templateId === templateId &&
-        item.finishedAt !== undefined &&
-        item.finishedAt <= now,
+        isPriorWorkout(item) &&
+        item.finishedAt! <= now,
     )
     .slice()
     .sort((a, b) => b.finishedAt! - a.finishedAt!);
