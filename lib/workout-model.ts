@@ -30,6 +30,8 @@ export type WorkoutSet = {
   reps: string;
   completedAt?: number;
   entered?: true;
+  plannedWeight?: true;
+  plannedReps?: true;
   otherSideReps?: string;
 };
 

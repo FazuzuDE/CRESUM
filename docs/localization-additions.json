@@ -434,5 +434,13 @@
     "context": "StringLiteral/ConditionalExpression/JsxExpression/JsxAttribute:accessibilityRole/JsxAttributes",
     "kind": "internal",
     "reason": "React Native accessibility role."
+  },
+  {
+    "file": "lib/workout-fragment-id.ts",
+    "line": 2,
+    "text": "fragment:",
+    "context": "StringLiteral/VariableDeclaration/VariableDeclarationList/FirstStatement",
+    "kind": "internal",
+    "reason": "Reserved namespace for the opaque snapshot ID of a workout saved before removing an exercise."
   }
 ]

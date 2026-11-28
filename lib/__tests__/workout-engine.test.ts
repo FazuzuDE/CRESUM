@@ -1,3 +1,4 @@
+import { saveSetEntry, suggestSetValues } from '../set-entry';
 import { findExercise } from '../exercise-library';
 import { defaultTemplates, exerciseLibrary } from '../workout-catalog';
 import {
@@ -633,4 +634,170 @@ it('keeps an uncommitted set out of progress and restores drafts on a cold load'
   const restored = await new WorkoutRepository(storage).load();
   expect(restored.activeWorkout).toBeNull();
   expect(restored.history.map((item) => item.id)).toEqual([active.id]);
+});
+
+it('restores plan provenance and manual drafts, and V7 skips unentered planned sets', async () => {
+  const storage = memoryStorage();
+  const repository = new WorkoutRepository(storage);
+  const template = {
+    id: 'explicit-plan',
+    name: 'Plan',
+    exerciseIds: ['barbell-bench-press'],
+    plannedExercises: [
+      {
+        exerciseId: 'barbell-bench-press',
+        sets: 3,
+        plannedSets: [
+          { id: 'p1', weight: '70', reps: '10' },
+          { id: 'p2', weight: '70' },
+          { id: 'p3', weight: '70', reps: '8' },
+        ],
+      },
+    ],
+  };
+  const active = startWorkout(template, exerciseLibrary, 1000);
+  const exercise = active.exercises[0];
+  const prior = { id: 'previous-set', weight: '60', reps: '12' };
+  expect(suggestSetValues(exercise, exercise.sets[0], prior)).toEqual({
+    weight: '70',
+    reps: '10',
+  });
+  expect(suggestSetValues(exercise, exercise.sets[1], prior)).toEqual({
+    weight: '70',
+    reps: '12',
+  });
+  expect(() =>
+    removeWorkoutExercises(active, [exercise.id], true, 'blank'),
+  ).toThrow('No entered sets');
+  expect(
+    saveSetEntry(
+      active,
+      active.id,
+      exercise.id,
+      exercise.sets[0].id,
+      exercise.sets[0],
+    ),
+  ).toBe(active);
+
+  const manual = saveSetEntry(
+    active,
+    active.id,
+    exercise.id,
+    exercise.sets[1].id,
+    { weight: '62,75', reps: '9' },
+  );
+  const completed = toggleSet(manual, 0, 2, 1500).session;
+  await repository.save({
+    schemaVersion: 1,
+    activeWorkout: completed,
+    history: [],
+    templates: [],
+  });
+  const loaded = (await new WorkoutRepository(storage).load()).activeWorkout!;
+  const restored = loaded.exercises[0];
+  expect(restored.sets[0]).toMatchObject({
+    plannedWeight: true,
+    plannedReps: true,
+  });
+  expect(restored.sets[0].entered).toBeUndefined();
+  expect(suggestSetValues(restored, restored.sets[0], prior)).toEqual({
+    weight: '70',
+    reps: '10',
+  });
+  expect(suggestSetValues(restored, restored.sets[1], prior)).toEqual({
+    weight: '62.75',
+    reps: '9',
+  });
+  const { recorded } = removeWorkoutExercises(
+    loaded,
+    [exercise.id],
+    true,
+    'v7',
+    2000,
+  );
+  expect(
+    recorded?.exercises[0].sets.map((set) => [
+      set.weight,
+      set.reps,
+      set.completedAt,
+    ]),
+  ).toEqual([
+    ['62.75', '9', 2000],
+    ['70', '8', 1500],
+  ]);
+  expect(recorded?.id).toBe(
+    'fragment:' + encodeURIComponent(active.id) + ':v7',
+  );
+
+  // A prior app version saved the draft without the new plan flags.
+  const legacy = {
+    ...loaded,
+    exercises: [
+      {
+        ...restored,
+        sets: [
+          {
+            id: 'old-draft',
+            weight: '61.25',
+            reps: '10',
+            entered: true as const,
+          },
+        ],
+      },
+    ],
+  };
+  await repository.save({
+    schemaVersion: 1,
+    activeWorkout: legacy,
+    history: [],
+    templates: [],
+  });
+  const oldExercise = (await new WorkoutRepository(storage).load())
+    .activeWorkout!.exercises[0];
+  expect(suggestSetValues(oldExercise, oldExercise.sets[0], prior)).toEqual({
+    weight: '61.25',
+    reps: '10',
+  });
+});
+
+it('prefers a rep target on both sides and retains explicit or manual side values', () => {
+  const entry = findExercise('one-arm-dumbbell-row')!;
+  const exercise = createExercise({ ...entry, perSide: true }, undefined, {
+    exerciseId: entry.id,
+    sets: 1,
+    target: {
+      kind: 'authored',
+      repMin: 8,
+      repMax: 12,
+      restMin: 30,
+      restMax: 60,
+      perSide: true,
+    },
+  });
+  const old = { id: 'old', weight: '50', reps: '12', otherSideReps: '11' };
+  expect(suggestSetValues(exercise, exercise.sets[0], old)).toEqual({
+    weight: '50',
+    reps: '8',
+    otherSideReps: '8',
+  });
+  expect(
+    suggestSetValues(
+      exercise,
+      { ...exercise.sets[0], reps: '10', plannedReps: true },
+      old,
+    ),
+  ).toEqual({ weight: '50', reps: '10', otherSideReps: '10' });
+  expect(
+    suggestSetValues(
+      exercise,
+      {
+        ...exercise.sets[0],
+        entered: true,
+        weight: '55',
+        reps: '7',
+        otherSideReps: '6',
+      },
+      old,
+    ),
+  ).toEqual({ weight: '55', reps: '7', otherSideReps: '6' });
 });

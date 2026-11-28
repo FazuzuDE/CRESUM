@@ -1,3 +1,4 @@
+import { isPriorWorkout } from './set-entry';
 import { canonicalExerciseId } from './exercise-library';
 import { volume } from './workout-metrics';
 import { isSetComplete, type WorkoutSession } from './workout-model';
@@ -14,13 +15,11 @@ export function workoutRecap(
   history: readonly WorkoutSession[],
 ) {
   const signature = exerciseSignature(session);
-  const cutoff = session.finishedAt ?? session.startedAt;
   let previous: WorkoutSession | undefined;
   for (const item of history) {
     if (
-      item.id !== session.id &&
+      isPriorWorkout(item, session) &&
       item.finishedAt !== undefined &&
-      item.finishedAt < cutoff &&
       item.templateId === session.templateId &&
       (!previous || item.finishedAt > previous.finishedAt!) &&
       exerciseSignature(item) === signature

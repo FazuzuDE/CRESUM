@@ -192,6 +192,8 @@ function session(
           (set.otherSideReps !== undefined && !string(set.otherSideReps)) ||
           !optionalNumber(set.completedAt) ||
           (set.entered !== undefined && set.entered !== true) ||
+          (set.plannedWeight !== undefined && set.plannedWeight !== true) ||
+          (set.plannedReps !== undefined && set.plannedReps !== true) ||
           (legacy
             ? set.done !== undefined && typeof set.done !== 'boolean'
             : set.done !== undefined)
@@ -205,6 +207,10 @@ function session(
             ? {}
             : { otherSideReps: set.otherSideReps as string }),
           ...(set.entered === true ? { entered: true as const } : {}),
+          ...(set.plannedWeight === true
+            ? { plannedWeight: true as const }
+            : {}),
+          ...(set.plannedReps === true ? { plannedReps: true as const } : {}),
           completedAt:
             (set.completedAt as number | undefined) ??
             (legacy && set.done === true

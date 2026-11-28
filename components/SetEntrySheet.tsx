@@ -7,7 +7,7 @@ import {
   LocalizedText as Text,
   LocalizedTextInput as TextInput,
 } from '@/components/LayoutDirection';
-import { Fragment, useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 import {
   Keyboard,
   KeyboardAvoidingView,
@@ -104,20 +104,38 @@ export function SetEntrySheet({
           reps: formatEntryNumber(locale, value.reps),
           other: formatEntryNumber(locale, value.otherSideReps),
         });
-  const columns = keys.map((k) => [
-    ...(!set[k]?.trim() || !draft[k]?.trim() ? [''] : []),
-    ...(k === 'weight'
-      ? weightOptions(draft.weight, step)
-      : repOptions(draft[k]!)),
-  ]);
-  const displayColumns = columns.map((column) =>
-    column.map((value) => (value ? formatEntryNumber(locale, value) : '—')),
+  const [columns, setColumns] = useState(() => {
+    const initial = normalizedEntry(draft);
+    return keys.map((key) => [
+      ...(initial[key] ? [] : ['']),
+      ...(key === 'weight'
+        ? weightOptions(initial.weight, step)
+        : repOptions(initial[key]!)),
+    ]);
+  });
+  const displayColumns = useMemo(
+    () =>
+      columns.map((column) =>
+        column.map((value) => (value ? formatEntryNumber(locale, value) : '—')),
+      ),
+    [columns, locale],
   );
   const selected = keys.map((k, i) =>
     Math.max(0, columns[i].indexOf(draft[k]!.trim().replace(',', '.'))),
   );
   const change = (key: keyof SetValues, value: string) =>
     setDraft((d) => ({ ...d, [key]: value }));
+  // Scrolling changes selection only. An explicit exact edit can add an option.
+  const retainWheelValues = (values: Partial<SetValues>) =>
+    setColumns((current) =>
+      current.map((column, index) => {
+        const value = values[keys[index]];
+        if (value === undefined || column.includes(value)) return column;
+        return [...column, value].sort((a, b) =>
+          a === '' ? -1 : b === '' ? 1 : Number(a) - Number(b),
+        );
+      }),
+    );
   const switchMode = (next: 'wheel' | 'keypad') => {
     if (locked) return;
     if (next === 'wheel') {
@@ -137,7 +155,9 @@ export function SetEntrySheet({
         setError(true);
         return;
       }
-      setDraft(normalizedEntry(draft));
+      const normalized = normalizedEntry(draft);
+      retainWheelValues(normalized);
+      setDraft(normalized);
       Keyboard.dismiss();
     }
     setMode(next);
@@ -153,6 +173,7 @@ export function SetEntrySheet({
         key === 'weight' ? 0 : 1,
       );
     if (next !== current) {
+      if (mode === 'wheel') retainWheelValues({ [key]: next });
       change(key, next);
       void Haptics.selectionAsync?.().catch(() => {});
     }

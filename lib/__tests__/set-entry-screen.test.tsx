@@ -225,3 +225,86 @@ it('uses the prior set as a suggestion and records only through the explicit act
     act(() => v.unmount());
   }
 });
+
+it('keeps declared plan values ahead of previously recorded values', () => {
+  const seed = startWorkout(
+    {
+      id: 'plan',
+      name: 'Plan',
+      exerciseIds: ['barbell-bench-press'],
+      plannedExercises: [
+        {
+          exerciseId: 'barbell-bench-press',
+          sets: 1,
+          plannedSets: [{ id: 'p1', weight: '70', reps: '8' }],
+        },
+      ],
+    },
+    exerciseLibrary,
+    1000,
+  );
+  const exercise = seed.exercises[0];
+  const prior = {
+    ...seed,
+    id: 'prior',
+    startedAt: 100,
+    finishedAt: 200,
+    exercises: [
+      {
+        ...exercise,
+        sets: [
+          { ...exercise.sets[0], weight: '60', reps: '10', completedAt: 150 },
+        ],
+      },
+    ],
+  };
+  function Harness() {
+    const [session, update] = useState(seed);
+    return (
+      <Workout
+        session={session}
+        history={[prior]}
+        update={update}
+        finish={() => {}}
+        busy={false}
+      />
+    );
+  }
+  let v: any;
+  act(() => {
+    v = create(<Harness />);
+  });
+  try {
+    expect(button(v, 'Edit set 1 weight')!.props.accessibilityValue.text).toBe(
+      '70',
+    );
+    expect(
+      button(v, 'Edit set 1 repetitions')!.props.accessibilityValue.text,
+    ).toBe('8');
+    act(() => button(v, 'Complete set 1')!.props.onPress());
+    expect(
+      v.root.findByType(Workout).props.session.exercises[0].sets[0],
+    ).toMatchObject({
+      weight: '70',
+      reps: '8',
+      completedAt: expect.any(Number),
+    });
+  } finally {
+    act(() => v.unmount());
+  }
+});
+
+it('keeps the exact weight and every row index when rolling away and back', () => {
+  const v = render({ set: { id: 's', weight: '62,75', reps: '8' } });
+  try {
+    const picker = () => v.root.findByType(AppPicker);
+    const before = picker().props.columns[0];
+    const exact = before.indexOf('62.75');
+    act(() => picker().props.onChange(0, before.indexOf('65')));
+    expect(picker().props.columns[0]).toEqual(before);
+    act(() => picker().props.onChange(0, exact));
+    expect(picker().props.selected[0]).toBe(exact);
+  } finally {
+    act(() => v.unmount());
+  }
+});

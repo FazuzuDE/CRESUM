@@ -1,3 +1,4 @@
+import { previousExercise } from '@/lib/set-entry';
 import { LocalizedText as Text } from '@/components/LayoutDirection';
 import { Pressable, View } from 'react-native';
 import { useLocalization } from './LocalizationProvider';
@@ -8,7 +9,7 @@ import { useWorkoutStyles } from './workout-styles';
 import { setNumberInGroup } from '@/lib/exercise-groups';
 import { formatEntryNumber, formatNumber } from '@/lib/i18n/format';
 import { findExercise } from '@/lib/exercise-library';
-import { exerciseIdsMatch, addSet } from '@/lib/workout-engine';
+import { addSet } from '@/lib/workout-engine';
 import {
   isSetComplete,
   type WorkoutSession,
@@ -45,10 +46,11 @@ export function ExerciseAttachmentBlock({
   const s = useWorkoutStyles();
   const { t, locale } = useLocalization();
   const exercise = session.exercises[index];
-  const previous = history
-    .flatMap((item) => item.exercises)
-    .find((item) => exerciseIdsMatch(item.libraryId, exercise.libraryId))
-    ?.sets.filter(isSetComplete);
+  const previous = previousExercise(
+    history,
+    exercise.libraryId,
+    session,
+  )?.sets.filter(isSetComplete);
   const toggle = onToggle,
     remove = onRemove;
   return (
