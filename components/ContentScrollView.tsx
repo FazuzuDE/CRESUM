@@ -16,7 +16,10 @@ import { BackSwipeBoundary, useBackSwipeGesture } from './BackSwipe';
 import { BrandHeaderBackdrop, HeaderBackdropProvided } from './BrandHeader';
 
 import { TabContentOffset } from './TabContentMotion';
-import Animated, { useAnimatedStyle } from 'react-native-reanimated';
+import Animated, {
+  useAnimatedStyle,
+  type SharedValue,
+} from 'react-native-reanimated';
 
 export type SafeAreaScrollProps = {
   safeAreaEdges?: readonly Edge[];
@@ -45,9 +48,6 @@ export const ContentScrollView = forwardRef<
   ref,
 ) {
   const tabOffset = useContext(TabContentOffset);
-  const tabStyle = useAnimatedStyle(() => ({
-    transform: [{ translateX: tabOffset?.get() ?? 0 }],
-  }));
   const [viewport, setViewport] = useState<number>();
   const [headerHeight, setHeaderHeight] = useState(0);
   const [content, setContent] = useState<number>();
@@ -113,9 +113,7 @@ export const ContentScrollView = forwardRef<
       style={animateTabContent && tabOffset ? s.clippedLayer : s.layer}
     >
       {animateTabContent && tabOffset ? (
-        <Animated.View testID="tab-content-motion" style={[s.layer, tabStyle]}>
-          {scroll}
-        </Animated.View>
+        <SlidingTabContent offset={tabOffset}>{scroll}</SlidingTabContent>
       ) : (
         scroll
       )}
@@ -138,6 +136,23 @@ export const ContentScrollView = forwardRef<
     scroll
   );
 });
+
+function SlidingTabContent({
+  offset,
+  children,
+}: {
+  offset: SharedValue<number>;
+  children: ReactNode;
+}) {
+  const style = useAnimatedStyle(() => ({
+    transform: [{ translateX: offset.get() }],
+  }));
+  return (
+    <Animated.View testID="tab-content-motion" style={[s.layer, style]}>
+      {children}
+    </Animated.View>
+  );
+}
 
 function HorizontalScrollGesture({
   enabled,

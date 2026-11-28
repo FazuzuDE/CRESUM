@@ -118,7 +118,7 @@ export function Dock({
                   key={id}
                   accessibilityRole="tab"
                   accessibilityLabel={t(label)}
-                  accessibilityState={{ selected }}
+                  aria-selected={selected}
                   onPress={() => onChange(id)}
                   style={({ pressed }) => [s.item, pressed && s.pressed]}
                 >
