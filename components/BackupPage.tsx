@@ -314,7 +314,6 @@ export function BackupPage({
           </Text>
           <AppButton
             title={t('backup.retrySettings')}
-            secondary
             onPress={() => void backup.onRetrySettings?.()}
           />
         </>

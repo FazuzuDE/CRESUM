@@ -86,6 +86,32 @@ export const useWorkoutStyles = createThemedStyles((colors) => ({
     gap: spacing.xs,
     alignItems: 'center',
   },
+  activeSet: {
+    gap: spacing.sm,
+    padding: spacing.sm,
+    borderRadius: radius.lg,
+    backgroundColor: colors.primaryTint,
+  },
+  activeSetHeader: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: spacing.xs,
+  },
+  setTitle: { ...typography.headline, color: colors.textPrimary },
+  repeatSet: { minHeight: 44, justifyContent: 'center' },
+  activeSetCell: {
+    paddingVertical: spacing.xs,
+    paddingHorizontal: spacing.xs,
+    justifyContent: 'center',
+    minHeight: 62,
+  },
+  activeSetLabel: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    textAlign: 'center',
+  },
   setRow: {
     flexDirection: 'row',
     gap: spacing.xs,

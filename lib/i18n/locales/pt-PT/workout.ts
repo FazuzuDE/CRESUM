@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'Exercícios realizados: {{count, number}}',
+  'workout.vsSimilar': '{{change}} face ao último treino comparável',
+  'workout.activeSet': 'Série {{index}} de {{count}}',
+  'workout.reusePrevious': 'Como na última vez',
   'workout.setWriteFailed':
     'As alterações à série {{index}} ainda não foram guardadas',
   'workout.cardioStart': 'Iniciar cardio',

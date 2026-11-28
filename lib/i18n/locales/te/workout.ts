@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'పూర్తయిన వ్యాయామాలు: {{count, number}}',
+  'workout.vsSimilar': 'గత సమాన వ్యాయామ సెషన్‌తో పోలిస్తే {{change}}',
+  'workout.activeSet': 'సెట్ {{index}} / {{count}}',
+  'workout.reusePrevious': 'గతసారి లాగే',
   'workout.setWriteFailed': 'సెట్ {{index}} మార్పులు ఇంకా సేవ్ కాలేదు',
   'workout.cardioStart': 'కార్డియో ప్రారంభించండి',
   'workout.cardioPause': 'పాజ్ చేయండి',

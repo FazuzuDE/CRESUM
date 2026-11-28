@@ -6,7 +6,10 @@ import {
   createThemedStyles,
   useAppColors,
 } from '@/components/AppThemeProvider';
-import { LocalizedText as Text } from '@/components/LayoutDirection';
+import {
+  DirectionalIcon as Ionicons,
+  LocalizedText as Text,
+} from '@/components/LayoutDirection';
 import { ScreenModal } from '@/components/ScreenModal';
 import { ExerciseCharacterProvider } from '@/components/ExerciseCharacterProvider';
 import type { AssetModel } from '@/lib/exercise-variant-model';
@@ -82,14 +85,14 @@ import { BodyWeight, type BodyWeightProps } from '@/components/BodyWeight';
 import { MuscleProgress } from '@/components/MuscleProgress';
 import { RetainedProgressPane } from '@/components/RetainedProgressPane';
 import { BodyWeightRepository, type BodyWeightEntry } from '@/lib/body-weight';
-import { volume } from '@/lib/workout-metrics';
+import { workoutRecap } from '@/lib/workout-recap';
 import {
   DEFAULT_PROGRESS_PERIOD,
   PROGRESS_PERIODS,
   type ProgressPeriodId,
   projectPeriodAnalytics,
 } from '@/lib/progress-periods';
-import { completedSetCount, workoutIsComplete } from '@/lib/workout-engine';
+import { workoutIsComplete } from '@/lib/workout-engine';
 import { projectVolumeComparison } from '@/lib/progress-volume-comparison';
 import {
   WorkoutSession as Session,
@@ -598,6 +601,7 @@ function AppContent({
   const resetInProgress = useRef(false);
   const backupInProgress = useRef(false);
   const [summary, setSummary] = useState<Session | null>(null);
+  const recap = summary ? workoutRecap(summary, data.history) : null;
   const [confirmFinish, setConfirmFinish] = useState(false);
   const [discardSessionId, setDiscardSessionId] = useState<string | null>(null);
   const [confirmReset, setConfirmReset] = useState(false);
@@ -1259,7 +1263,7 @@ function AppContent({
           setResetError(undefined);
         }}
       />
-      {tab === 'progress' && summary ? (
+      {tab === 'progress' && summary && recap ? (
         <GlassDialog
           transparency={notificationGlass.value}
           onClose={() => setSummary(null)}
@@ -1268,21 +1272,61 @@ function AppContent({
             style={s.notificationScroll}
             contentContainerStyle={s.notificationContent}
           >
-            <Text accessibilityRole="header" style={s.h3}>
-              {t('workout.saved')}
-            </Text>
+            <View style={s.recapTitle}>
+              <Ionicons
+                name="checkmark-circle"
+                size={26}
+                color={colors.success}
+                accessible={false}
+              />
+              <Text accessibilityRole="header" style={s.recapHeading}>
+                {t('workout.saved')}
+              </Text>
+            </View>
+            <Text style={s.h3}>{summary.name}</Text>
+            <View style={s.recapMetrics}>
+              <Text style={s.h3}>
+                {t('workout.elapsed', {
+                  time: duration(
+                    (summary.finishedAt ?? summary.startedAt) -
+                      summary.startedAt,
+                  ),
+                })}
+              </Text>
+              <Text style={s.h3}>
+                {t('workout.exercisesDone', { count: recap.exercises })}
+              </Text>
+              <Text style={s.h3}>
+                {t('home.volume', {
+                  value: formatNumber(locale, recap.totalVolume),
+                })}
+              </Text>
+            </View>
             <Text style={s.sub}>
-              {t('workout.savedSummary', {
-                count: completedSetCount(summary),
-                volume: formatNumber(locale, volume(summary)),
-                time: duration(
-                  (summary.finishedAt ?? summary.startedAt) - summary.startedAt,
-                ),
-              })}
+              {recap.change === undefined
+                ? t('volume.noComparison')
+                : t('workout.vsSimilar', {
+                    change: [
+                      formatNumber(locale, recap.change, {
+                        style: 'unit',
+                        unit: 'kilogram',
+                        signDisplay: 'exceptZero',
+                      }),
+                      ...(recap.fraction !== undefined &&
+                      Number.isFinite(recap.fraction)
+                        ? [
+                            formatNumber(locale, recap.fraction, {
+                              style: 'percent',
+                              signDisplay: 'exceptZero',
+                              maximumFractionDigits: 1,
+                            }),
+                          ]
+                        : []),
+                    ].join(' · '),
+                  })}
             </Text>
             <AppButton
               title={t('common.done')}
-              secondary
               onPress={() => setSummary(null)}
             />
           </ContentScrollView>
@@ -1348,7 +1392,6 @@ function AppContent({
           <Text style={s.sub}>{t('plan.recoveryError')}</Text>
           <AppButton
             title={t('plan.retry')}
-            secondary
             disabled={busy || resetBusy}
             onPress={() => void recoverProgram()}
           />
@@ -1378,7 +1421,6 @@ function AppContent({
               title={
                 pendingSet ? t('common.retry') : t('workout.retrySaveLoad')
               }
-              secondary
               disabled={busy}
               onPress={() => void store.retry()}
             />
@@ -1405,7 +1447,6 @@ function AppContent({
           <Text style={s.sub}>{workoutError}</Text>
           <AppButton
             title={t('workout.retrySaveLoad')}
-            secondary
             disabled={busy}
             onPress={() => void store.retry()}
           />
@@ -1816,6 +1857,14 @@ const useStyles = createThemedStyles((colors) => ({
   notice: { padding: spacing.md, gap: spacing.xs },
   notificationScroll: { flexGrow: 0, flexShrink: 1 },
   notificationContent: { gap: spacing.sm },
+  recapTitle: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs },
+  recapHeading: { ...typography.title2, color: colors.textPrimary, flex: 1 },
+  recapMetrics: {
+    padding: spacing.sm,
+    backgroundColor: colors.surfaceSubtle,
+    borderRadius: radius.md,
+    gap: spacing.xs,
+  },
   empty: {
     flex: 1,
     alignItems: 'center',

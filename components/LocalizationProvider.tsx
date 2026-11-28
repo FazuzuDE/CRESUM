@@ -89,7 +89,6 @@ export function LocalizationProvider({
                 </Text>
                 <AppButton
                   title={t('common.retry')}
-                  presentation="text"
                   onPress={() => void store.load()}
                 />
               </View>

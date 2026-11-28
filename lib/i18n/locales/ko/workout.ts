@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': '완료한 운동: {{count, number}}개',
+  'workout.vsSimilar': '직전 유사 운동 대비 {{change}}',
+  'workout.activeSet': '{{count}}세트 중 {{index}}세트',
+  'workout.reusePrevious': '지난번과 동일',
   'workout.setWriteFailed':
     '{{index}}번째 세트의 변경 사항이 아직 저장되지 않았습니다',
   'workout.cardioStart': '유산소 운동 시작',

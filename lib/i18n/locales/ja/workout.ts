@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': '実施した種目：{{count, number}}',
+  'workout.vsSimilar': '前回の同等のワークアウトとの差：{{change}}',
+  'workout.activeSet': '{{count}} セット中 {{index}} セット目',
+  'workout.reusePrevious': '前回と同じ',
   'workout.setWriteFailed': 'セット{{index}}の変更はまだ保存されていません',
   'workout.cardioStart': '有酸素運動を開始',
   'workout.cardioPause': '一時停止',

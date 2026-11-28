@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'Tamamlanan hareketler: {{count, number}}',
+  'workout.vsSimilar': 'Son benzer antrenmana göre {{change}}',
+  'workout.activeSet': 'Set {{index}} / {{count}}',
+  'workout.reusePrevious': 'Geçen seferki gibi',
   'workout.setWriteFailed':
     '{{index}}. setteki değişiklikler henüz kaydedilmedi',
   'workout.cardioStart': 'Kardiyoya başla',

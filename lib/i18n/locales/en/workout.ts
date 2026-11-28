@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'Exercises done: {{count, number}}',
+  'workout.vsSimilar': '{{change}} vs last comparable workout',
+  'workout.activeSet': 'Set {{index}} of {{count}}',
+  'workout.reusePrevious': 'Same as last time',
   'workout.setWriteFailed': 'Changes to set {{index}} aren’t saved yet',
   'workout.cardioStart': 'Start cardio',
   'workout.cardioPause': 'Pause',

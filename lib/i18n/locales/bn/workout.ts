@@ -1,4 +1,8 @@
 export default {
+  'workout.exercisesDone': 'সম্পন্ন ব্যায়াম: {{count, number}}',
+  'workout.vsSimilar': 'শেষ একই ধরনের অনুশীলনের তুলনায় {{change}}',
+  'workout.activeSet': 'সেট {{index}} / {{count}}',
+  'workout.reusePrevious': 'গতবারের মতো',
   'workout.setWriteFailed': 'সেট {{index}}-এর পরিবর্তন এখনও সংরক্ষিত হয়নি',
   'workout.cardioStart': 'কার্ডিও শুরু করুন',
   'workout.cardioPause': 'বিরতি',
