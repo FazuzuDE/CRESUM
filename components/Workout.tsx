@@ -43,7 +43,10 @@ import type {
 import { SetEntrySheet } from './SetEntrySheet';
 import {
   entryIsValid,
+  normalizedEntry,
   previousEntry,
+  previousExercise,
+  suggestSetValues,
   saveSetEntry,
   type SetValues,
 } from '@/lib/set-entry';
@@ -277,15 +280,14 @@ export function Workout({
   const total = totalSetCount(session);
   const previous =
     exercise &&
-    history
-      .flatMap((item) => item.exercises)
-      .find((item) => exerciseIdsMatch(item.libraryId, exercise.libraryId))
-      ?.sets.filter(isSetComplete);
+    previousExercise(history, exercise.libraryId, session)?.sets.filter(
+      isSetComplete,
+    );
   const nextSet = exercise?.sets.findIndex((set) => !isSetComplete(set)) ?? -1;
   const previousSet =
     nextSet < 0 || !exercise
       ? undefined
-      : previousEntry(history, exercise.libraryId, nextSet);
+      : previousEntry(history, exercise.libraryId, nextSet, session);
   const repeat =
     previousSet &&
     exercise &&
@@ -295,20 +297,11 @@ export function Workout({
       ? previousSet
       : undefined;
   const setValues = (i: number) => {
-    const set = exercise.sets[i];
-    const prior = i === nextSet && !set.entered ? repeat : undefined;
-    return {
-      weight: prior?.weight ?? set.weight,
-      reps:
-        prior?.reps ??
-        (set.reps ||
-          (exercise.target && !exercise.target.perSide
-            ? String(exercise.target.repMin)
-            : '')),
-      ...(set.otherSideReps === undefined
-        ? {}
-        : { otherSideReps: prior?.otherSideReps ?? set.otherSideReps }),
-    };
+    return suggestSetValues(
+      exercise,
+      exercise.sets[i],
+      i === nextSet ? repeat : undefined,
+    );
   };
   const priorSummary =
     repeat &&
@@ -329,7 +322,7 @@ export function Workout({
       if (current.id !== session.id || target?.sets[setIndex]?.id !== set.id)
         return current;
       const entered = values
-        ? saveSetEntry(current, session.id, target.id, set.id, values)
+        ? saveSetEntry(current, session.id, target.id, set.id, values, false)
         : current;
       return toggleSet(setCurrentExercise(entered, child), child, setIndex)
         .session;
@@ -1144,20 +1137,31 @@ export function Workout({
             history,
             editedExercise.libraryId,
             editedIndex,
+            session,
           )}
           busy={busy}
           onCancel={() => setEditing(null)}
           onSave={(values) => {
             if (busy) return;
-            update((current) =>
-              saveSetEntry(
-                current,
-                editing.sessionId,
-                editing.exerciseId,
-                editing.setId,
-                values,
-              ),
+            const plan = normalizedEntry(
+              suggestSetValues(editedExercise, editedSet),
             );
+            if (
+              !editedExercise.target ||
+              plan.weight !== values.weight ||
+              plan.reps !== values.reps ||
+              plan.otherSideReps !== values.otherSideReps
+            ) {
+              update((current) =>
+                saveSetEntry(
+                  current,
+                  editing.sessionId,
+                  editing.exerciseId,
+                  editing.setId,
+                  values,
+                ),
+              );
+            }
             setEditing(null);
             setInputError(null);
           }}

@@ -1,6 +1,11 @@
+import { previousEntry } from '../set-entry';
+import {
+  decodeHistoryWorkout,
+  encodeHistoryWorkout,
+} from '../sync/history-mapper';
 import { workoutRecap } from '../workout-recap';
 import { exerciseLibrary } from '../workout-catalog';
-import { startWorkout } from '../workout-engine';
+import { removeWorkoutExercises, startWorkout } from '../workout-engine';
 import type { WorkoutSession } from '../workout-model';
 
 const base = startWorkout(
@@ -35,7 +40,7 @@ const finished = (
 });
 
 it('compares the latest matching routine and counts only logged work', () => {
-  const current = finished('current', 9000, '60');
+  const current = { ...finished('current', 9000, '60'), startedAt: 8500 };
   const previous = finished('previous', 6000, '50');
   const partial = finished('exercise removal', 7000, '200');
   partial.exercises = partial.exercises.slice(0, 1);
@@ -54,7 +59,7 @@ it('compares the latest matching routine and counts only logged work', () => {
 });
 
 it('shows decreases and omits undefined comparisons and percentages', () => {
-  const current = finished('current', 9000, '40');
+  const current = { ...finished('current', 9000, '40'), startedAt: 8500 };
   expect(workoutRecap(current, [current]).change).toBeUndefined();
   expect(
     workoutRecap(current, [finished('previous', 5000, '0')]),
@@ -68,4 +73,43 @@ it('shows decreases and omits undefined comparisons and percentages', () => {
     change: -100,
     fraction: -0.2,
   });
+});
+
+it('compares with 500 kg rather than an 800 kg removal from the same session', () => {
+  const live = {
+    ...finished('current', 9000, '80'),
+    startedAt: 5000,
+    finishedAt: undefined,
+  };
+  live.exercises = live.exercises.slice(0, 1);
+  live.exercises[0].sets = live.exercises[0].sets.slice(0, 1);
+  const { recorded } = removeWorkoutExercises(
+    live,
+    [live.exercises[0].id],
+    true,
+    'fragment',
+    7000,
+  );
+  const previous = finished('real-previous', 4000, '50');
+  previous.exercises = previous.exercises.slice(0, 1);
+  const completed = { ...finished('current', 9000, '60'), startedAt: 5000 };
+  completed.exercises = completed.exercises.slice(0, 1);
+  expect(workoutRecap(completed, [recorded!, previous])).toMatchObject({
+    change: 100,
+    fraction: 0.2,
+  });
+  expect(workoutRecap(completed, [recorded!]).change).toBeUndefined();
+  const restored = decodeHistoryWorkout(encodeHistoryWorkout(recorded!));
+  expect(restored.id).toBe(recorded!.id);
+  expect(
+    previousEntry([restored, previous], 'barbell-bench-press', 0, live)?.weight,
+  ).toBe('50');
+  expect(
+    previousEntry([restored], 'barbell-bench-press', 0, live),
+  ).toBeUndefined();
+  // The new origin marker excludes fragments even in a later workout.
+  expect(
+    workoutRecap({ ...completed, id: 'later', startedAt: 8000 }, [restored])
+      .change,
+  ).toBeUndefined();
 });

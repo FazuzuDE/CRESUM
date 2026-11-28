@@ -1,9 +1,11 @@
+import { isWorkoutFragment } from './workout-snapshot-id';
 import { findExercise } from './exercise-library';
 import { AppError } from './app-error';
 import { normalizeDecimalInput, normalizeInputDigits } from './i18n/format';
 import { exerciseIdsMatch, setInputIsValid, updateSet } from './workout-engine';
 import {
   isSetComplete,
+  type WorkoutExercise,
   type WorkoutSession,
   type WorkoutSet,
 } from './workout-model';
@@ -83,12 +85,41 @@ export function adjustEntry(
     .replace(/0+$/, '');
   return (result / scale).toString() + (fraction ? '.' + fraction : '');
 }
+export function suggestSetValues(
+  exercise: WorkoutExercise,
+  set: WorkoutSet,
+  previous?: WorkoutSet,
+): SetValues {
+  if (set.entered) return normalizedEntry(set);
+  const bilateral = set.otherSideReps !== undefined;
+  const target =
+    exercise.target && (!bilateral || exercise.target.perSide)
+      ? String(exercise.target.repMin)
+      : '';
+  // Older snapshots have no source flag. Their built-in 10 is ambiguous.
+  const explicitReps = set.plannedReps || (set.reps && set.reps !== '10');
+  return {
+    weight: set.weight || previous?.weight || '',
+    reps: explicitReps ? set.reps : target || previous?.reps || set.reps,
+    ...(bilateral
+      ? {
+          otherSideReps:
+            set.otherSideReps ||
+            (explicitReps ? set.reps : target) ||
+            previous?.otherSideReps ||
+            '',
+        }
+      : {}),
+  };
+}
+
 export function saveSetEntry(
   session: WorkoutSession,
   sessionId: string,
   exerciseId: string,
   setId: string,
   values: SetValues,
+  markEntered = true,
 ): WorkoutSession {
   if (session.id !== sessionId || session.finishedAt !== undefined)
     return session;
@@ -107,21 +138,46 @@ export function saveSetEntry(
       'invalid_set_entry',
       'Enter a valid weight and positive whole repetitions for each side.',
     );
-  return updateSet(session, e, s, draft);
+  const saved = normalizedEntry(original);
+  if (
+    saved.weight === draft.weight &&
+    saved.reps === draft.reps &&
+    saved.otherSideReps === draft.otherSideReps
+  )
+    return session;
+  return updateSet(session, e, s, draft, markEntered);
 }
+// New fragments carry their origin in the ID. The finish cutoff also excludes
+// untagged legacy fragments created during the current session.
+export function isPriorWorkout(
+  item: WorkoutSession,
+  session?: WorkoutSession,
+): boolean {
+  return (
+    item.finishedAt !== undefined &&
+    !isWorkoutFragment(item.id) &&
+    (!session ||
+      (item.id !== session.id && item.finishedAt <= session.startedAt))
+  );
+}
+export function previousExercise(
+  history: readonly WorkoutSession[],
+  libraryId: string,
+  session?: WorkoutSession,
+): WorkoutExercise | undefined {
+  return [...history]
+    .filter((item) => isPriorWorkout(item, session))
+    .sort((a, b) => b.finishedAt! - a.finishedAt!)
+    .flatMap((item) => item.exercises)
+    .find((exercise) => exerciseIdsMatch(exercise.libraryId, libraryId));
+}
+
 export function previousEntry(
-  history: WorkoutSession[],
+  history: readonly WorkoutSession[],
   libraryId: string,
   index: number,
+  session?: WorkoutSession,
 ): WorkoutSet | undefined {
-  const previous = [...history]
-    .filter((x) => x.finishedAt !== undefined)
-    .sort((a, b) => b.finishedAt! - a.finishedAt!)
-    .find((x) =>
-      x.exercises.some((e) => exerciseIdsMatch(e.libraryId, libraryId)),
-    );
-  const set = previous?.exercises.find((e) =>
-    exerciseIdsMatch(e.libraryId, libraryId),
-  )?.sets[index];
+  const set = previousExercise(history, libraryId, session)?.sets[index];
   return set && isSetComplete(set) ? set : undefined;
 }

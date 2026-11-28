@@ -1,3 +1,4 @@
+import { workoutFragmentId } from './workout-snapshot-id';
 import {
   isSetComplete,
   LibraryExercise,
@@ -64,21 +65,24 @@ export const createExercise = (
             length:
               planned && validPlannedSets(planned.sets) ? planned.sets : 3,
           },
-          (_, index) => ({
-            id: idFactory(),
-            weight: planned?.plannedSets
-              ? planned.plannedSets[index].weight
-                ? (normalizePlannedWeight(planned.plannedSets[index].weight!) ??
-                  '')
-                : ''
-              : planned?.weight
-                ? (normalizePlannedWeight(planned.weight) ?? '')
-                : '',
-            reps:
-              planned?.plannedSets?.[index].reps ??
-              (exercise.perSide || planned?.target ? '' : '10'),
-            ...(exercise.perSide ? { otherSideReps: '' } : {}),
-          }),
+          (_, index) => {
+            const row = planned?.plannedSets?.[index];
+            const weight =
+              normalizePlannedWeight(
+                (planned?.plannedSets ? row?.weight : planned?.weight) ?? '',
+              ) ?? '';
+            return {
+              id: idFactory(),
+              weight,
+              reps:
+                row?.reps ?? (exercise.perSide || planned?.target ? '' : '10'),
+              ...(weight ? { plannedWeight: true as const } : {}),
+              ...(row?.reps !== undefined
+                ? { plannedReps: true as const }
+                : {}),
+              ...(exercise.perSide ? { otherSideReps: '' } : {}),
+            };
+          },
         ),
   };
 };
@@ -125,13 +129,16 @@ export const updateSet = (
   exerciseIndex: number,
   setIndex: number,
   values: Partial<Pick<WorkoutSet, 'weight' | 'reps' | 'otherSideReps'>>,
+  markEntered = true,
 ): WorkoutSession => {
   const next = clone(session);
   if (isSetComplete(next.exercises[exerciseIndex].sets[setIndex]))
     return session;
-  Object.assign(next.exercises[exerciseIndex].sets[setIndex], values, {
-    entered: true,
-  });
+  Object.assign(
+    next.exercises[exerciseIndex].sets[setIndex],
+    values,
+    markEntered ? { entered: true } : {},
+  );
   return next;
 };
 
@@ -247,6 +254,8 @@ export const addSet = (
   next.exercises[exerciseIndex].sets.push({
     id: idFactory(),
     weight: previous?.weight ?? '',
+    ...(previous?.plannedWeight ? { plannedWeight: true as const } : {}),
+    ...(previous?.plannedReps ? { plannedReps: true as const } : {}),
     reps: previous?.reps ?? (next.exercises[exerciseIndex].target ? '' : '10'),
     ...(previous?.otherSideReps === undefined
       ? {}
@@ -281,7 +290,9 @@ export const hasExerciseProgress = (exercise: WorkoutExercise): boolean =>
     ? exercise.cardio.startedAt !== undefined || exercise.cardio.elapsedMs > 0
     : exercise.sets.some(
         (set) =>
-          set.entered || isSetComplete(set) || Boolean(set.weight.trim()),
+          set.entered ||
+          isSetComplete(set) ||
+          (!set.plannedWeight && Boolean(set.weight.trim())),
       );
 
 export function removeWorkoutExercises(
@@ -342,7 +353,7 @@ export function removeWorkoutExercises(
     throw new AppError('empty_workout', 'No entered sets to save.');
   const recorded = finishWorkout(
     {
-      id: historyId,
+      id: workoutFragmentId(session.id, historyId),
       templateId: session.templateId,
       name: removed[0].name,
       startedAt: session.startedAt,
