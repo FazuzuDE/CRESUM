@@ -1,5 +1,9 @@
 # CRESUM — Product Definition
 
+## Optional Home design — approved 2026-11-28
+
+**Profile → Appearance → Home design** offers **Original** (default) and **bca**. The choice is an offline device appearance preference and does not change saved workouts, templates, history, program, global color mode or the Original widget order. bca serves the same Start/Resume, calendar and saved-workout actions with a route-inspired layout. Plan targets and actual previous values are distinct.
+
 ## Competitive follow-up — approved 2026-11-28
 
 Extend the existing competitive specification with nine approved directions:

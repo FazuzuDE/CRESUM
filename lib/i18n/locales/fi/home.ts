@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'Tänään',
   'home.noAvailable': 'Ei malleja, joissa olisi saatavilla olevia liikkeitä',
   'home.noTemplates': 'Treenimalleja ei ole saatavilla',
   'home.editTemplate':

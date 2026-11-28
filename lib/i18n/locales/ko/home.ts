@@ -1,4 +1,5 @@
 export default {
+  'home.today': '오늘',
   'home.noAvailable': '이용 가능한 운동이 포함된 템플릿이 없습니다',
   'home.noTemplates': '이용 가능한 운동 템플릿이 없습니다',
   'home.editTemplate':

@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'आज',
   'home.noAvailable': 'उपलब्ध व्यायाम असलेले नमुने नाहीत',
   'home.noTemplates': 'व्यायाम सत्रांचे नमुने उपलब्ध नाहीत',
   'home.editTemplate': 'उपलब्ध व्यायाम निवडण्यासाठी प्रोफाइलमध्ये नमुना बदला.',

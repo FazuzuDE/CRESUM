@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'Дизайн головної',
+  'profile.homeDesignOriginal': 'Оригінал',
   'profile.notificationTransparency': 'Прозорість сповіщень',
   'profile.headerOpacity': 'Непрозорість шапки',
   'profile.trainingSection': 'Тренування',

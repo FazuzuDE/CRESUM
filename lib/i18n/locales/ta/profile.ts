@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'முகப்புத் திரை வடிவமைப்பு',
+  'profile.homeDesignOriginal': 'அசல்',
   'profile.notificationTransparency': 'அறிவிப்புகளின் வெளிப்படைத்தன்மை',
   'profile.headerOpacity': 'தலைப்பு ஒளிபுகாமை',
   'profile.trainingSection': 'பயிற்சிகள்',

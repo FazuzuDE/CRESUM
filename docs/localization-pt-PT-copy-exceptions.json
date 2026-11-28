@@ -66,5 +66,9 @@
   "entry.bilateralSummary": {
     "text": "{{weight}} kg × {{reps}} / {{other}}",
     "reason": "Standard unit symbol or numeric notation."
+  },
+  "profile.homeDesignOriginal": {
+    "text": "Original",
+    "reason": "Original is the standard European Portuguese label for the unmodified design."
   }
 }

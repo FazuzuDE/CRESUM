@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'Etusivun ulkoasu',
+  'profile.homeDesignOriginal': 'Alkuperäinen',
   'profile.notificationTransparency': 'Ilmoitusten läpinäkyvyys',
   'profile.headerOpacity': 'Yläpalkin peittävyys',
   'profile.trainingSection': 'Treenit',

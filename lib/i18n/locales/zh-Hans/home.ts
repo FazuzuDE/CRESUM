@@ -1,4 +1,5 @@
 export default {
+  'home.today': '今天',
   'home.noAvailable': '没有包含可用动作的模板',
   'home.noTemplates': '暂无训练模板',
   'home.editTemplate': '请在个人资料中编辑模板，选择可用动作。',

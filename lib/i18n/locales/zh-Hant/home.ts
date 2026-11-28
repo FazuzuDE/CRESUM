@@ -1,4 +1,5 @@
 export default {
+  'home.today': '今天',
   'home.noAvailable': '沒有包含可用動作的範本',
   'home.noTemplates': '暫無訓練範本',
   'home.editTemplate': '請在個人檔案中編輯範本，選擇可用動作。',

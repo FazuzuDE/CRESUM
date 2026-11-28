@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'Сьогодні',
   'home.noAvailable': 'Немає шаблонів із доступними вправами',
   'home.noTemplates': 'Немає доступних шаблонів тренувань',
   'home.editTemplate':

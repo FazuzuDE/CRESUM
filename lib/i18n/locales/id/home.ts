@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'Hari ini',
   'home.noAvailable': 'Tidak ada templat dengan latihan yang tersedia',
   'home.noTemplates': 'Tidak ada templat sesi latihan',
   'home.editTemplate':

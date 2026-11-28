@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'হোমের নকশা',
+  'profile.homeDesignOriginal': 'মূল',
   'profile.notificationTransparency': 'বিজ্ঞপ্তির স্বচ্ছতা',
   'profile.headerOpacity': 'হেডারের অস্বচ্ছতা',
   'profile.trainingSection': 'ওয়ার্কআউট',

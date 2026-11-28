@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'Design for startsiden',
+  'profile.homeDesignOriginal': 'Original',
   'profile.notificationTransparency': 'Gjennomsiktighet for varsler',
   'profile.headerOpacity': 'Opasitet i toppfeltet',
   'profile.trainingSection': 'Økter',

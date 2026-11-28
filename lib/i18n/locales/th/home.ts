@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'วันนี้',
   'home.noAvailable': 'ไม่มีเทมเพลตที่มีท่าใช้งานได้',
   'home.noTemplates': 'ไม่มีเทมเพลตการฝึก',
   'home.editTemplate': 'แก้เทมเพลตในโปรไฟล์เพื่อเลือกท่าที่ใช้ได้',

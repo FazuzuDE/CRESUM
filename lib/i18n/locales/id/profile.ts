@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'Desain beranda',
+  'profile.homeDesignOriginal': 'Asli',
   'profile.notificationTransparency': 'Transparansi notifikasi',
   'profile.headerOpacity': 'Opasitas kepala halaman',
   'profile.trainingSection': 'Latihan',

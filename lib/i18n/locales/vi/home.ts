@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'Hôm nay',
   'home.noAvailable': 'Không có mẫu nào chứa bài tập khả dụng',
   'home.noTemplates': 'Không có mẫu buổi tập',
   'home.editTemplate':

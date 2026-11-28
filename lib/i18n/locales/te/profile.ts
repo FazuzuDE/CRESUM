@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'హోమ్ స్క్రీన్ డిజైన్',
+  'profile.homeDesignOriginal': 'అసలు',
   'profile.notificationTransparency': 'నోటిఫికేషన్‌ల పారదర్శకత',
   'profile.headerOpacity': 'హెడర్ అపారదర్శకత',
   'profile.trainingSection': 'వర్కౌట్‌లు',

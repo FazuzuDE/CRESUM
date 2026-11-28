@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'Bugün',
   'home.noAvailable': 'Mevcut egzersizlerle şablon yok',
   'home.noTemplates': 'Antrenman şablonları yok',
   'home.editTemplate':

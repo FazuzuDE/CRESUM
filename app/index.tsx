@@ -77,6 +77,7 @@ import { useGlassTransparency } from '@/components/useGlassTransparency';
 import { DockSpace } from '@/components/DockSpace';
 import { AppButton } from '@/components/AppButton';
 import { HomeDashboard } from '@/components/HomeDashboard';
+import { useHomeDesign } from '@/components/useHomeDesign';
 import { ProfileSettings } from '@/components/ProfileSettings';
 import { Onboarding } from '@/components/Onboarding';
 import { Confirmation } from '@/components/Confirmation';
@@ -499,6 +500,7 @@ function AppContent({
   );
   if (tab === 'progress' && !progressVisited) setProgressVisited(true);
   const [dockSpace, setDockSpace] = useState(78);
+  const homeDesign = useHomeDesign();
   const dockGlass = useGlassTransparency(
     DOCK_TRANSPARENCY_KEY,
     DEFAULT_DOCK_TRANSPARENCY,
@@ -872,6 +874,21 @@ function AppContent({
     !onboardingBypass &&
     !hasMeaningfulWorkoutData(data) &&
     onboardingState.status !== 'completed';
+  const startEmpty = () => {
+    if (data.activeWorkout) {
+      setTab('workout');
+      return;
+    }
+    try {
+      store.startEmpty(t('workout.emptyStart'));
+      setTab('workout');
+    } catch (problem) {
+      Alert.alert(
+        t('plan.startError'),
+        presentAppError(t, problem, 'error.workoutOperation'),
+      );
+    }
+  };
   const startTemplate = (template: Template) => {
     if (data.activeWorkout) {
       setTab('workout');
@@ -1564,6 +1581,8 @@ function AppContent({
             {tab === 'home' || transition?.from === 'home' ? (
               <TabScene name="home" {...scenes}>
                 <HomeDashboard
+                  design={homeDesign.value}
+                  onStartEmpty={startEmpty}
                   displayName={onboardingState.answers.displayName}
                   assignment={assignment}
                   startProgramSlot={startProgramSlot}
@@ -1626,17 +1645,7 @@ function AppContent({
                     setManagePlans(undefined);
                     setSharingOpen(true);
                   }}
-                  onStartEmpty={() => {
-                    if (data.activeWorkout) return;
-                    try {
-                      store.startEmpty(t('workout.emptyStart'));
-                    } catch (problem) {
-                      Alert.alert(
-                        t('plan.startError'),
-                        presentAppError(t, problem, 'error.workoutOperation'),
-                      );
-                    }
-                  }}
+                  onStartEmpty={startEmpty}
                   update={(transform) => store.updateWorkout(transform)}
                   recordSet={(transform, marker) =>
                     store.recordSet(transform, marker)
@@ -1733,6 +1742,7 @@ function AppContent({
             ) : null}
             <TabScene name="profile" {...scenes}>
               <ProfileSettings
+                homeDesign={homeDesign}
                 dockTransparency={dockGlass.value}
                 notificationTransparency={notificationGlass}
                 headerOpacity={100 - headerGlass.value}

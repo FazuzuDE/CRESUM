@@ -1,4 +1,5 @@
 export default {
+  'home.today': 'Dnes',
   'home.noAvailable': 'Žádná šablona s dostupnými cviky',
   'home.noTemplates': 'Žádné šablony tréninku',
   'home.editTemplate': 'Vyberte dostupné cviky úpravou šablony v profilu.',

@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'Thiết kế màn hình chính',
+  'profile.homeDesignOriginal': 'Bản gốc',
   'profile.notificationTransparency': 'Độ trong suốt của thông báo',
   'profile.headerOpacity': 'Độ mờ của đầu trang',
   'profile.trainingSection': 'Buổi tập',

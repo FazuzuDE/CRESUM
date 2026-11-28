@@ -150,5 +150,9 @@
   "editor.setCount.other": {
     "text": "{{count, number}} set",
     "reason": "Standard Swedish training term for a group of repetitions."
+  },
+  "profile.homeDesignOriginal": {
+    "text": "Original",
+    "reason": "Original is the standard Swedish label for the unmodified design."
   }
 }

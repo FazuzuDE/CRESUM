@@ -1,4 +1,6 @@
 export default {
+  'profile.homeDesign': 'ہوم اسکرین کا ڈیزائن',
+  'profile.homeDesignOriginal': 'اصل',
   'profile.notificationTransparency': 'اطلاعات کی شفافیت',
   'profile.headerOpacity': 'اوپری پٹی کی کدورت',
   'profile.trainingSection': 'ورزشیں',
