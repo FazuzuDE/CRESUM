@@ -1,5 +1,15 @@
 # CRESUM — Product Definition
 
+## Competitive follow-up — approved 2026-11-28
+
+Extend the existing competitive specification with nine approved directions:
+reboot/notification reconciliation, individual exercise/program rest settings,
+warm-up/work set timers and supersets, muscle aggregation switch, missing
+exercise suggestions, conservative return-after-break progression, frequency/
+recency library sorting, direct BLE heart-rate sensors and coach PDF reports.
+Reuse existing state, timers, catalog and analytics. No feature is declared
+shipped by this approval. See [detailed requirements](COMPETITIVE_ROADMAP.md).
+
 ## Competitive development — approved 2026-11-26
 
 The owner approved the 13 P0–P3 directions in [Competitive development specification](COMPETITIVE_ROADMAP.md). Preserve offline-first logging, historical snapshots, optional account, existing exercise identity and the current V7 interactions. P0 hardens persistence, performance, set entry and timers; P1 extends progression, equipment settings, records, portability, calculators and cardio. P2 platform integrations and P3 discovery follow the Core gates. Detailed acceptance targets are engineering proposals, not evidence of shipping or native acceptance.

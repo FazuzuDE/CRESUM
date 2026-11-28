@@ -1,5 +1,12 @@
 # CRESUM Decision Log
 
+## 2026-11-28 — Competitive follow-up
+
+Owner approved nine additional P0–P2 directions from the November 28 review.
+They extend existing implementations and priorities; see
+[competitive specification](COMPETITIVE_ROADMAP.md). No native acceptance,
+vendor selection, automatic data sharing or feature launch is implied.
+
 ## 2026-11-26 — Competitive roadmap P0–P3
 
 Owner approved all 13 directions from the competitor review. See [the specification](COMPETITIVE_ROADMAP.md), [Product](PRODUCT.md), [Roadmap](ROADMAP.md) and [Design System](DESIGN_SYSTEM.md). Existing functionality must be reused; device and implementation acceptance remain open. P3 is sequenced after Core and platform foundations, not a vendor or launch approval.

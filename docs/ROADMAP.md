@@ -1,5 +1,14 @@
 # CRESUM — Development Roadmap
 
+## Competitive follow-up — approved 2026-11-28
+
+P0: extend recovery/notification verification and persistent rest preferences.
+P1: set-type timers/supersets, muscle aggregation, missing exercise suggestions,
+return-after-break progression and library frequency/recency sorting.
+P2: direct BLE heart-rate integration and coach PDF reporting. These refine
+existing P0–P3 gates without changing other approved queues. See
+[competitive specification](COMPETITIVE_ROADMAP.md).
+
 ## Competitive development priorities — approved 2026-11-26
 
 Follow [the P0–P3 specification](COMPETITIVE_ROADMAP.md): P0 recovery, smoothness, fast entry and locked-phone timers; P1 RIR/RPE and double progression, historical notes/settings, records/comparison, CSV, plate/warm-up calculators and cardio; P2 HealthKit/Health Connect and watches; P3 GPS, AI and nutrition discovery. Keep existing localization and artwork PRs separate. Review existing implementations before each focused PR; P0 acceptance gates precede affected P1 work. This is not a release claim.

@@ -172,3 +172,121 @@ work and open PRs remain separate. Each PR: inspect current develop and tests,
 avoid duplicate implementations, preserve history/offline behavior, translate
 all new app text in every registry locale, run npm run check and affected
 exports; physical acceptance recorded separately. Follow PR_VERSIONING.md.
+
+## Follow-up — approved 2026-11-28
+
+Baseline: develop 0.3.48; PRs #336, #346, #347 and #348 merged.
+The following nine additions refine existing priorities, not nine replacement
+implementations. Source inspection is targeted; native acceptance remains open.
+
+### P0 — Recovery and notification reconciliation
+
+Extend P0.1/P0.4, not the persistence engine from scratch. PR #346 already
+waits for durable set writes before showing completion. The workout model
+stores restEndsAt and Workout.tsx refreshes on AppState changes; the current
+package has no expo-notifications dependency. Verify any existing native
+notification mechanism before introducing one. On startup reconcile only
+notifications owned by CRESUM's active session and timer identity with durable
+state. Cancel stale reminders after finish, skip, removal, reset or expiration;
+do not resurrect finished sessions or deliver duplicate reminders. Test real
+device reboot, process death, locked screen, permission denial and deadline
+changes; distinguish UI notifications from OS delivery. Never require
+notifications for offline logging.
+
+### P0 — Individual rest preferences
+
+Reuse workout-model.ts PlannedTarget restMin/restMax, session
+restDurationSeconds/restOverrideSeconds and workout-engine.ts toggleSet.
+The engine already selects session override, planned target restMin, then
+session duration. Preserve legacy behavior for existing sessions. Add durable
+exercise defaults and editable plan-specific values only where missing.
+Proposed precedence: explicit active override, explicit plan/exercise target,
+saved exercise default, global default. Define scope and reset semantics
+before coding; do not accidentally inherit another exercise's timer.
+Preserve planned targets, saved snapshots, zero-rest choice and current
+deadline unless explicitly changed. Test reload, plan duplication, switching
+exercises, explicit overrides and older backups.
+
+### P1 — Set types and supersets
+
+Extend the existing rest engine and exercise group infrastructure; existing
+exercise groups are not proof of superset scheduling. Add optional warm-up
+versus working set identity and per-type rest, plus explicit ordered superset
+membership and rest between members/rounds. Preserve actual set logging,
+manual navigation and editing; do not silently complete another exercise.
+Legacy sets retain their prior meaning; do not invent historical warm-up
+classification. Review analytics inclusion and progression eligibility,
+and test partial rounds, removed members, reordering and restart.
+
+### P1 — Muscle statistics granularity
+
+Reuse MuscleProgress.tsx, muscle-participation.ts, muscle-exercise-discovery.ts
+and existing area/group hierarchy, source set details and period filters.
+Add a view switch between existing individual muscle IDs and larger groups.
+Count unique source sets within each group using stable workout/exercise/set
+identity, with primary/secondary overlap explicitly defined. Never add
+overlapping counts as unique total or infer anatomical intensity from counts.
+Keep existing masks, red highlights, period and drill-down. Test overlap,
+unknown exercise, zero counts and current versus completed history.
+
+### P1 — Missing exercise suggestion
+
+ExerciseLibrary.tsx already provides localized search and filters. Add an
+optional suggestion action for genuine no-match queries; distinguish filtered
+results from absent catalog entries. Show a reviewable draft with exercise
+name/equipment and optional details. No automatic submission, account
+requirement or inclusion of personal workout data. Preserve offline search;
+define opt-in delivery, moderation and retention separately before launch.
+Use EXERCISE_ADDITION_WORKFLOW.md for accepted additions; no automatic
+canonical ID creation. Test empty search, filters, cancellation and offline.
+
+### P1 — Progression after a break
+
+Extend P1.1 and review deferred calibration PR #17. Use time since the last
+comparable completed working set, actual performance and available equipment.
+After a meaningful gap offer a conservative, explainable reduction or
+reassessment rather than blindly increasing load. No fixed gap/percentage
+approved yet; review thresholds and evidence before implementation. Manual
+and explicit plan values keep their priority (PR #348); recommendations never
+rewrite history. Test missing history, imports, timezones, partial fragments
+and different variants.
+
+### P1 — Library frequency and recency sorting
+
+ExerciseLibrary.tsx receives optional history and currently calls
+searchLocalizedExercises with query/muscle/equipment. Extend the shared
+result projection rather than duplicate search. Offer existing order,
+most frequently performed and most recently performed. Proposed frequency
+metric: count distinct eligible completed sessions, not individual sets;
+recency: last eligible completed set/session. Define handling of fragments
+consistently with #348 and analytics; grouped variants must avoid double
+counting. Never-trained exercises sort after trained ones with stable ties.
+Preserve search relevance, filters and localized labels; test absent history,
+aliases, grouped variants, ties and selection state.
+
+### P2 — Direct BLE heart-rate sensors
+
+Separate native feasibility task after Core gates. package.json currently
+has no BLE-specific dependency. Evaluate standard Bluetooth Heart Rate
+Service, explicit permission and connection, reconnect, device identity,
+timestamped samples and source provenance. Missing samples remain missing;
+show stale/disconnected state and never fabricate a pulse. Keep logging
+independent of sensor availability. Review battery, privacy, OS restrictions,
+HealthKit/Health Connect deduplication and signed-device testing. No vendor
+or dependency selected by this approval.
+
+### P2 — Coach PDF report
+
+Reuse validated History/Progress projections and local sharing infrastructure.
+Allow date range, preview and explicit export/share of completed workouts,
+actual sets, volume and clearly labeled estimated 1RM. Optional notes and
+heart rate are excluded by default unless explicitly selected. No automatic
+coach delivery or cloud upload; no claim of saving until the platform
+confirms where possible. Handle localized dates/units, fonts, RTL, empty
+periods, pagination and privacy. PDF complements CSV and JSON backup; not an
+import format. No PDF engine selected yet.
+
+All nine directions are approved; detailed precedence, metrics and technical
+options above are proposed engineering acceptance rules. Recheck live code
+before each implementation PR, run all required checks and translate all
+new app-controlled text into every current registry locale.
