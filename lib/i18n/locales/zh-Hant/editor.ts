@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': '此計畫中的休息時間（秒）',
   'error.editorEmpty': '請至少選擇一個動作。',
   'error.editorUnavailable': '儲存前請移除或替換無法使用的動作。',
   'error.editorMissing': '此範本已無法使用。',

@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'Liikkeen oletustauko (sekuntia)',
+  'workout.restSecondsHint':
+    'Syötä 0–3600 sekuntia. Jätä kenttä tyhjäksi, jos haluat käyttää oletusarvoa. Ohita tauko syöttämällä 0.',
   'workout.exercisesDone': 'Tehdyt liikkeet: {{count, number}}',
   'workout.vsSimilar':
     '{{change}} edelliseen vastaavaan harjoitukseen verrattuna',

@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'या योजनेतील विश्रांती (सेकंद)',
   'error.editorEmpty': 'किमान एक व्यायाम निवडा.',
   'error.editorUnavailable': 'जतन करण्यापूर्वी उपलब्ध नसलेले व्यायाम काढा किंवा बदला.',
   'error.editorMissing': 'नमुना आता उपलब्ध नाही.',

@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'เวลาพักในแผนนี้ (วินาที)',
   'error.editorEmpty': 'เลือกอย่างน้อยหนึ่งท่า',
   'error.editorUnavailable': 'นำท่าที่ใช้ไม่ได้ออกหรือเลือกท่าอื่นก่อนบันทึก',
   'error.editorMissing': 'เทมเพลตนี้ไม่พร้อมใช้งานแล้ว',

@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'مدة الراحة في هذه الخطة (بالثواني)',
   'error.editorEmpty': 'اختر تمرينًا واحدًا على الأقل.',
   'error.editorUnavailable': 'أزل التمارين غير المتاحة أو استبدلها قبل الحفظ.',
   'error.editorMissing': 'القالب لم يعد متاحًا.',

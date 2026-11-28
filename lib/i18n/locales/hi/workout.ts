@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'व्यायाम का डिफ़ॉल्ट आराम समय (सेकंड)',
+  'workout.restSecondsHint':
+    '0 से 3600 सेकंड दर्ज करें। डिफ़ॉल्ट समय के लिए खाली छोड़ें। आराम छोड़ने के लिए 0 दर्ज करें।',
   'workout.exercisesDone': 'पूरे किए गए व्यायाम: {{count, number}}',
   'workout.vsSimilar': 'पिछली समान कसरत की तुलना में {{change}}',
   'workout.activeSet': 'सेट {{index}} / {{count}}',

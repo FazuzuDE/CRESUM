@@ -107,6 +107,9 @@ export const validateTemplateDraft = (
       plannedExercises.push({
         exerciseId,
         sets: item.sets,
+        ...(item.restSeconds === undefined
+          ? {}
+          : { restSeconds: item.restSeconds }),
         ...(item.exerciseGroup
           ? { exerciseGroup: JSON.parse(JSON.stringify(item.exerciseGroup)) }
           : {}),

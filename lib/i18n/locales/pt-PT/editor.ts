@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'Descanso neste plano (segundos)',
   'error.editorEmpty': 'Escolha pelo menos um exercício.',
   'error.editorUnavailable':
     'Remova ou substitua os exercícios indisponíveis antes de guardar.',

@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'Pauza v tomto plánu (sekundy)',
   'error.editorEmpty': 'Vyberte alespoň jeden cvik.',
   'error.editorUnavailable':
     'Před uložením odeberte nebo nahraďte nedostupné cviky.',

@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'এই পরিকল্পনায় বিশ্রামের সময় (সেকেন্ড)',
   'error.editorEmpty': 'অন্তত একটি ব্যায়াম বেছে নিন।',
   'error.editorUnavailable': 'সেভ করার আগে অনুপলব্ধ ব্যায়ামগুলো সরান বা বদলান।',
   'error.editorMissing': 'টেমপ্লেটটি আর পাওয়া যাচ্ছে না।',

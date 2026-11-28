@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'Bu plandaki dinlenme süresi (saniye)',
   'error.editorEmpty': 'En az bir egzersiz seçin.',
   'error.editorUnavailable':
     'Kaydetmeden önce kullanılamayan egzersizleri kaldırın veya değiştirin.',

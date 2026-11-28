@@ -9,6 +9,10 @@ import {
 import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
 import { useWorkoutStyles } from './workout-styles';
 import { ExerciseAttachmentBlock } from './ExerciseAttachmentBlock';
+import {
+  ExerciseRestControls,
+  type SaveExerciseRest,
+} from './ExerciseRestControls';
 import { ExerciseGroupComposer } from './ExerciseGroupComposer';
 import { equipmentPolicyFor } from '@/lib/exercise-equipment';
 import { projectExerciseGroups, setNumberInGroup } from '@/lib/exercise-groups';
@@ -70,6 +74,7 @@ import {
   hasExerciseProgress,
   hasWorkoutResults,
   extendRest,
+  exerciseRestPreference,
   remainingRestSeconds,
   removeSet,
   restartRest,
@@ -101,6 +106,8 @@ export function Workout({
   update,
   recordSet,
   pendingSet,
+  exerciseRestSeconds,
+  saveExerciseRest,
   finish,
   discard,
   busy,
@@ -121,6 +128,8 @@ export function Workout({
     marker: SetWriteMarker,
   ) => Promise<boolean>;
   pendingSet?: SetWriteMarker | null;
+  exerciseRestSeconds?: Readonly<Record<string, number>>;
+  saveExerciseRest?: SaveExerciseRest;
   finish: () => void;
   discard?: () => void;
   busy: boolean;
@@ -337,8 +346,13 @@ export function Workout({
       const entered = values
         ? saveSetEntry(current, session.id, target.id, set.id, values, false)
         : current;
-      return toggleSet(setCurrentExercise(entered, child), child, setIndex)
-        .session;
+      return toggleSet(
+        setCurrentExercise(entered, child),
+        child,
+        setIndex,
+        Date.now(),
+        exerciseRestPreference(exerciseRestSeconds, target.libraryId),
+      ).session;
     };
     const notify = () => {
       setNow(Date.now());
@@ -546,6 +560,11 @@ export function Workout({
                     ) : null}
                     <ExerciseAttachmentBlock
                       pendingSetId={pendingSet?.id}
+                      restPreference={exerciseRestPreference(
+                        exerciseRestSeconds,
+                        session.exercises[child].libraryId,
+                      )}
+                      saveExerciseRest={saveExerciseRest}
                       session={session}
                       index={child}
                       history={history}
@@ -690,29 +709,21 @@ export function Workout({
                           )}
                         </Text>
                         <Text style={s.previous}>{t('workout.warmup')}</Text>
-                        <AppButton
-                          title={t('workout.changeRest', {
-                            seconds: formatNumber(
-                              locale,
-                              session.restOverrideSeconds ??
-                                exercise.target.restMin,
-                            ),
-                          })}
-                          secondary
-                          disabled={busy}
-                          onPress={() =>
-                            update((current) => ({
-                              ...current,
-                              restOverrideSeconds:
-                                (current.restOverrideSeconds ??
-                                  exercise.target!.restMin) ===
-                                exercise.target!.restMin
-                                  ? exercise.target!.restMax
-                                  : exercise.target!.restMin,
-                            }))
-                          }
-                        />
                       </View>
+                    ) : null}
+                    {!exercise.cardio ? (
+                      <ExerciseRestControls
+                        key={exercise.id}
+                        session={session}
+                        exercise={exercise}
+                        preference={exerciseRestPreference(
+                          exerciseRestSeconds,
+                          exercise.libraryId,
+                        )}
+                        busy={busy || !!pendingSet}
+                        update={update}
+                        save={saveExerciseRest}
+                      />
                     ) : null}
                     {exercise.libraryId === 'bodyweight-step-up' ? (
                       <Text style={s.previous}>{t('workout.stepUp')}</Text>

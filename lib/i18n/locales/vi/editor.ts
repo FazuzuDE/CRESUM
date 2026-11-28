@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'Thời gian nghỉ trong lịch tập này (giây)',
   'error.editorEmpty': 'Chọn ít nhất một bài tập.',
   'error.editorUnavailable':
     'Xóa hoặc thay thế bài tập không khả dụng trước khi lưu.',

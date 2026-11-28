@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'Výchozí pauza u cviku (sekundy)',
+  'workout.restSecondsHint':
+    'Zadejte 0 až 3600 sekund. Prázdné pole použije výchozí hodnotu. Zadáním 0 pauzu přeskočíte.',
   'workout.exercisesDone': 'Dokončené cviky: {{count, number}}',
   'workout.vsSimilar': '{{change}} oproti poslednímu srovnatelnému tréninku',
   'workout.activeSet': 'Série {{index}} z {{count}}',

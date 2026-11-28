@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'ব্যায়ামের ডিফল্ট বিশ্রামের সময় (সেকেন্ড)',
+  'workout.restSecondsHint':
+    '০ থেকে ৩৬০০ সেকেন্ড লিখুন। ডিফল্ট সময়ের জন্য খালি রাখুন। বিশ্রাম বাদ দিতে ০ লিখুন।',
   'workout.exercisesDone': 'সম্পন্ন ব্যায়াম: {{count, number}}',
   'workout.vsSimilar': 'শেষ একই ধরনের অনুশীলনের তুলনায় {{change}}',
   'workout.activeSet': 'সেট {{index}} / {{count}}',

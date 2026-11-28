@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'Vila i det här programmet (sekunder)',
   'error.editorEmpty': 'Välj minst en övning.',
   'error.editorUnavailable':
     'Ta bort eller ersätta otillgängliga övningar innan du sparar.',

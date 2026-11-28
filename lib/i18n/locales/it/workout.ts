@@ -1,4 +1,8 @@
 export default {
+  'workout.exerciseRestDefault':
+    'Recupero predefinito per l’esercizio (secondi)',
+  'workout.restSecondsHint':
+    'Inserisci da 0 a 3600 secondi. Lascia vuoto per usare il valore predefinito. Inserisci 0 per saltare il recupero.',
   'workout.exercisesDone': 'Esercizi completati: {{count, number}}',
   'workout.vsSimilar': '{{change}} rispetto all’ultimo allenamento comparabile',
   'workout.activeSet': 'Serie {{index}} di {{count}}',

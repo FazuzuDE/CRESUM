@@ -7,6 +7,8 @@ import {
   LocalizedTextInput as TextInput,
   DirectionalIcon as Ionicons,
 } from '@/components/LayoutDirection';
+import { parseOptionalRest, RestSecondsInput } from './RestSecondsInput';
+import { isCardioExerciseId } from '@/lib/cardio-timer';
 import { ExerciseEquipmentCatalog } from './ExerciseEquipmentCatalog';
 import { AppScrollView } from './AppScrollView';
 import {
@@ -64,6 +66,7 @@ type Configuration = {
   exerciseId: string;
   sets: string;
   weight: string;
+  rest?: string;
   editing: boolean;
   plannedSets?: PlannedSet[];
 };
@@ -107,6 +110,10 @@ export function TemplateEditor({
         exerciseId: selectedExercise,
         sets: String(planned?.sets ?? 3),
         weight: planned?.weight ?? '',
+        rest:
+          planned?.restSeconds === undefined
+            ? undefined
+            : formatEntryNumber(locale, String(planned.restSeconds)),
         editing: true,
         plannedSets: planned?.plannedSets?.map((row) => ({ ...row })),
       };
@@ -161,6 +168,8 @@ export function TemplateEditor({
     (configuration !== undefined &&
       (configuration.sets !== '3' ||
         configuration.weight.trim() !== '' ||
+        parseOptionalRest(configuration.rest ?? '') !==
+          configuredEntry?.restSeconds ||
         JSON.stringify(configuration.plannedSets) !==
           JSON.stringify(configuredEntry?.plannedSets)));
 
@@ -197,6 +206,10 @@ export function TemplateEditor({
             exerciseId,
             sets: String(planned?.sets ?? 3),
             weight: planned?.weight ?? '',
+            rest:
+              planned?.restSeconds === undefined
+                ? undefined
+                : formatEntryNumber(locale, String(planned.restSeconds)),
             editing: true,
             plannedSets: planned?.plannedSets?.map((row) => ({ ...row })),
           },
@@ -219,6 +232,8 @@ export function TemplateEditor({
       setError('error.editorWeight');
       return;
     }
+    const restSeconds = parseOptionalRest(configuration.rest ?? '');
+    if (restSeconds === null) return;
     const plannedSets = configuration.plannedSets
       ? Array.from({ length: sets }, (_, index) => {
           const row = configuration.plannedSets![index] ?? {
@@ -252,6 +267,7 @@ export function TemplateEditor({
             (item) => item.exerciseId === configuration.exerciseId,
           )?.target,
           weight: normalizedWeight ?? undefined,
+          restSeconds,
         },
       ],
     }));
@@ -347,6 +363,7 @@ export function TemplateEditor({
         (equipmentPolicy?.supportsSetGroups ||
           configuredEntry?.exerciseGroup) ? (
           <ExerciseGroupComposer
+            editPlanRest
             key={configuration.exerciseId}
             initialExerciseId={configuration.exerciseId}
             initialDraft={
@@ -477,6 +494,16 @@ export function TemplateEditor({
               placeholderTextColor={colors.textTertiary}
               style={s.input}
             />
+            {!isCardioExerciseId(configuration.exerciseId) ? (
+              <RestSecondsInput
+                label={t('editor.restSeconds')}
+                value={configuration.rest ?? ''}
+                disabled={disabled}
+                onChange={(rest) =>
+                  setConfiguration({ ...configuration, rest })
+                }
+              />
+            ) : null}
             {configuration.plannedSets?.map((row, index) => (
               <View key={row.id} style={{ gap: spacing.xs }}>
                 <TextInput
@@ -535,7 +562,9 @@ export function TemplateEditor({
                   ? t('editor.updateExercise')
                   : t('editor.addExercise')
               }
-              disabled={disabled}
+              disabled={
+                disabled || parseOptionalRest(configuration.rest ?? '') === null
+              }
               onPress={applyConfiguration}
             />
           </>

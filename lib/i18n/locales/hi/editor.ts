@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'इस योजना में आराम का समय (सेकंड)',
   'error.editorEmpty': 'कम से कम एक अभ्यास चुनें।',
   'error.editorUnavailable': 'सहेजने से पहले अनुपलब्ध अभ्यास हटाएँ या बदलें।',
   'error.editorMissing': 'टेम्पलेट अब उपलब्ध नहीं है।',

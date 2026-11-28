@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'Standardpause für diese Übung (Sekunden)',
+  'workout.restSecondsHint':
+    'Gib 0–3600 Sekunden ein. Ein leeres Feld verwendet den Standard. Mit 0 überspringst du die Pause.',
   'workout.exercisesDone': 'Absolvierte Übungen: {{count, number}}',
   'workout.vsSimilar':
     '{{change}} gegenüber dem letzten vergleichbaren Training',

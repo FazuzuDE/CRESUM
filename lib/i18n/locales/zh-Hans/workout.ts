@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': '该动作的默认休息时间（秒）',
+  'workout.restSecondsHint':
+    '请输入 0 至 3600 秒。留空则使用默认值。输入 0 可跳过休息。',
   'workout.exercisesDone': '已完成动作：{{count, number}} 项',
   'workout.vsSimilar': '较上次同类训练 {{change}}',
   'workout.activeSet': '第 {{index}} 组，共 {{count}} 组',

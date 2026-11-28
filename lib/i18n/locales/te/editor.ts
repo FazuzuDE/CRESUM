@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': 'ఈ ప్రణాళికలో విశ్రాంతి సమయం (సెకన్లు)',
   'error.editorEmpty': 'కనీసం ఒక వ్యాయామం ఎంచుకోండి.',
   'error.editorUnavailable': 'సేవ్ చేసే ముందు అందుబాటులో లేని వ్యాయామాలను తీసేయండి లేదా మార్చండి.',
   'error.editorMissing': 'టెంప్లేట్ ఇక అందుబాటులో లేదు.',

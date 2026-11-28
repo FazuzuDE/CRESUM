@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'Standaardrust voor deze oefening (seconden)',
+  'workout.restSecondsHint':
+    'Vul 0 tot 3600 seconden in. Laat leeg om de standaardwaarde te gebruiken. Vul 0 in om de rust over te slaan.',
   'workout.exercisesDone': 'Uitgevoerde oefeningen: {{count, number}}',
   'workout.vsSimilar':
     '{{change}} ten opzichte van de laatste vergelijkbare training',

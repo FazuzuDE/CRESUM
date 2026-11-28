@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': '운동의 기본 휴식 시간(초)',
+  'workout.restSecondsHint':
+    '0~3600초를 입력하세요. 비워 두면 기본값을 사용합니다. 휴식을 건너뛰려면 0을 입력하세요.',
   'workout.exercisesDone': '완료한 운동: {{count, number}}개',
   'workout.vsSimilar': '직전 유사 운동 대비 {{change}}',
   'workout.activeSet': '{{count}}세트 중 {{index}}세트',

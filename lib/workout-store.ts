@@ -4,6 +4,8 @@ import { validPlanOrigin } from './workout-sharing/import';
 import type { SharedPlan } from './workout-sharing/contract';
 import type { PlanOrigin } from './workout-model';
 import { exerciseLibrary } from './workout-catalog';
+import { canonicalExerciseId } from './exercise-library';
+import { validRestSeconds } from './planned-exercise';
 import { pauseCardioTimer } from './cardio-timer';
 import {
   appendExerciseGroup,
@@ -155,6 +157,40 @@ export class WorkoutStore {
   updateWorkout(transform: (session: WorkoutSession) => WorkoutSession) {
     const next = this.nextWorkout(transform);
     if (next) void this.persist(next);
+  }
+
+  async saveExerciseRest(
+    sessionId: string,
+    exerciseId: string,
+    seconds: number | undefined,
+  ): Promise<boolean> {
+    const { data, ready, busy } = this.snapshot;
+    const session = data.activeWorkout;
+    if (!ready || busy || this.pendingSetData || session?.id !== sessionId)
+      return false;
+    const exercise = session.exercises.find((item) => item.id === exerciseId);
+    const id = exercise && canonicalExerciseId(exercise.libraryId);
+    if (
+      !id ||
+      !exercise ||
+      exercise.cardio ||
+      (seconds !== undefined && !validRestSeconds(seconds))
+    )
+      return false;
+
+    const exerciseRestSeconds = { ...data.exerciseRestSeconds };
+    if (seconds === undefined) delete exerciseRestSeconds[id];
+    else exerciseRestSeconds[id] = seconds;
+    const next = { ...data, exerciseRestSeconds };
+    this.publish({ busy: true });
+    try {
+      const result = await this.repository.saveVerified(next);
+      if (!result.data) return false;
+      this.publish({ data: result.data });
+      return true;
+    } finally {
+      this.publish({ busy: false });
+    }
   }
 
   async recordSet(

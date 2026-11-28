@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': '이 계획의 휴식 시간(초)',
   'error.editorEmpty': '운동을 하나 이상 선택하세요.',
   'error.editorUnavailable':
     '저장하기 전에 이용할 수 없는 운동을 삭제하거나 교체하세요.',

@@ -1,4 +1,5 @@
 export default {
+  'editor.restSeconds': '此计划中的休息时间（秒）',
   'error.editorEmpty': '请至少选择一个动作。',
   'error.editorUnavailable': '保存前请移除或替换不可用的动作。',
   'error.editorMissing': '此模板已不可用。',

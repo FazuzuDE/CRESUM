@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'مدة الراحة الافتراضية للتمرين (بالثواني)',
+  'workout.restSecondsHint':
+    'أدخل من ٠ إلى ٣٦٠٠ ثانية. اترك الحقل فارغًا لاستخدام الإعداد الافتراضي. أدخل ٠ لتخطّي الراحة.',
   'workout.exercisesDone': 'التمارين المنجزة: {{count, number}}',
   'workout.vsSimilar': '{{change}} مقارنة بآخر تمرين مماثل',
   'workout.activeSet': 'المجموعة {{index}} من {{count}}',

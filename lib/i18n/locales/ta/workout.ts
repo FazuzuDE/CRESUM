@@ -1,4 +1,7 @@
 export default {
+  'workout.exerciseRestDefault': 'பயிற்சியின் இயல்புநிலை ஓய்வு நேரம் (விநாடிகள்)',
+  'workout.restSecondsHint':
+    '0 முதல் 3600 விநாடிகள் வரை உள்ளிடவும். இயல்புநிலை நேரத்தைப் பயன்படுத்த காலியாக விடவும். ஓய்வைத் தவிர்க்க 0 என உள்ளிடவும்.',
   'workout.exercisesDone': 'முடித்த பயிற்சிகள்: {{count, number}}',
   'workout.vsSimilar': 'கடந்த ஒத்த பயிற்சி அமர்வுடன் ஒப்பிடும்போது {{change}}',
   'workout.activeSet': 'செட் {{index}} / {{count}}',

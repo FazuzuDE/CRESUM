@@ -200,17 +200,19 @@ notifications for offline logging.
 
 ### P0 — Individual rest preferences
 
-Reuse workout-model.ts PlannedTarget restMin/restMax, session
-restDurationSeconds/restOverrideSeconds and workout-engine.ts toggleSet.
-The engine already selects session override, planned target restMin, then
-session duration. Preserve legacy behavior for existing sessions. Add durable
-exercise defaults and editable plan-specific values only where missing.
-Proposed precedence: explicit active override, explicit plan/exercise target,
-saved exercise default, global default. Define scope and reset semantics
-before coding; do not accidentally inherit another exercise's timer.
-Preserve planned targets, saved snapshots, zero-rest choice and current
-deadline unless explicitly changed. Test reload, plan duplication, switching
-exercises, explicit overrides and older backups.
+The active Workout can save a default rest duration by canonical exercise ID.
+Editing an exercise or attachment in a local plan can set that plan's duration.
+Both fields accept 0–3600 whole seconds. Zero skips the next rest; clearing the
+field removes that preference. The plan's saved duration is copied into new
+active workouts and duplicated plans. Full local backups include both settings.
+
+Precedence is the active exercise's temporary range choice, an existing
+legacy session-wide override, the explicit saved plan duration, the plan's
+authored minimum, the exercise default, and the workout's base duration
+(90 seconds for new workouts). A legacy session can use its saved duration as
+its base. Changes apply on the next set completion and preserve an active
+deadline and Restart's duration. The range choice applies to that exercise
+snapshot only. The shared-plan protocol retains its existing target fields.
 
 ### P1 — Set types and supersets
 
