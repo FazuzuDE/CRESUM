@@ -3,6 +3,7 @@ import { DashboardGrid } from '../../components/DashboardGrid';
 import { DockSpace } from '../../components/DockSpace';
 import { spacing } from '../theme';
 import { AppScrollView } from '../../components/AppScrollView';
+import { TabContentLayout } from '../../components/TabContentMotion';
 import { AppFlatList } from '../../components/AppFlatList';
 import { ScrollView, FlatList, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -184,4 +185,34 @@ it('reserves the measured dock height only within the tab scroll content', () =>
   act(() => view.update(screen(120)));
   expect(bottomPadding()).toEqual([clearance + 120, clearance]);
   act(() => view.unmount());
+});
+
+it('keeps the standard dock header inset during interim native layout events', () => {
+  let view!: ReturnType<typeof create>;
+  act(() => {
+    view = create(
+      <TabContentLayout.Provider value={{ headerHeight: 120 }}>
+        <AppScrollView branded dockAware>
+          <Text>Workout</Text>
+        </AppScrollView>
+      </TabContentLayout.Provider>,
+    );
+  });
+  try {
+    const layout = (height: number) =>
+      view.root
+        .findAllByProps({ testID: 'fixed-header-overlay' })[0]
+        .props.onLayout({
+          nativeEvent: { layout: { height } },
+        });
+    const padding = () =>
+      view.root.findByType(ScrollView).props.contentContainerStyle.paddingTop;
+    expect(padding()).toBe(120);
+    for (const height of [70, 0, 120]) {
+      act(() => layout(height));
+      expect(padding()).toBe(120);
+    }
+  } finally {
+    act(() => view.unmount());
+  }
 });
